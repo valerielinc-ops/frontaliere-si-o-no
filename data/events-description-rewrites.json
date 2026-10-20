@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-20T17:27:22.749Z",
+  "generatedAt": "2026-10-20T18:22:58.264Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -162996,8 +162996,8 @@
       "id": "guidle:AHA2AL3",
       "sourceDescriptionHash": "f3fc41791ba5be2b8af9810046437ad3c9e774e0f993e6519a05396b85a0478e",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-20T16:17:49.750Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-20T18:17:18.565Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -163023,8 +163023,8 @@
       "id": "guidle:AHpSCgM",
       "sourceDescriptionHash": "f3fc41791ba5be2b8af9810046437ad3c9e774e0f993e6519a05396b85a0478e",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-20T16:18:24.709Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-20T18:18:32.850Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
