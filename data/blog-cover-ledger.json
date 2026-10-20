@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 689,
+      "5": 692,
       "6": 5054
     },
-    "publishedCovers": 7426,
+    "publishedCovers": 7429,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201811,6 +201811,105 @@
         "provider": "openai-codex",
         "assetId": "article-scuola-inoltre-ventanni-formazione-carcere",
         "imageUrl": "/images/blog/article-scuola-inoltre-ventanni-formazione-carcere.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-beringen-vbsh-fermate-chiuse": {
+      "cover": "/images/blog/article-beringen-vbsh-fermate-chiuse.webp",
+      "hash": "ae89e0b089faf858afc0a7926e2f09b558f5e879b9811d9c0aba1d40f4a2b5c9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "beringen-vbsh-fermate-chiuse",
+          "category": "pratico",
+          "date": "2026-10-20T06:41:00.427Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-beringen-vbsh-fermate-chiuse.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-beringen-vbsh-fermate-chiuse",
+        "imageUrl": "/images/blog/article-beringen-vbsh-fermate-chiuse.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-soletta-parlamento-budget-2027-inchiesta-soh": {
+      "cover": "/images/blog/article-soletta-parlamento-budget-2027-inchiesta-soh.webp",
+      "hash": "492da45c7c72d0eab55d50f7c80ed599e3e05326bb9735d308f8f00c7c922d13",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "soletta-parlamento-budget-2027-inchiesta-soh",
+          "category": "novita",
+          "date": "2026-10-20T06:13:06.286Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-soletta-parlamento-budget-2027-inchiesta-soh.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-soletta-parlamento-budget-2027-inchiesta-soh",
+        "imageUrl": "/images/blog/article-soletta-parlamento-budget-2027-inchiesta-soh.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-svp-sciaffusa-candidati-2027": {
+      "cover": "/images/blog/article-svp-sciaffusa-candidati-2027.webp",
+      "hash": "bdee3bbd023bb6c1d5d551b1292c36694321e0fa066ca2899e682fb891431e2b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "svp-sciaffusa-candidati-2027",
+          "category": "novita",
+          "date": "2026-10-20T06:05:14.822Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-svp-sciaffusa-candidati-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-svp-sciaffusa-candidati-2027",
+        "imageUrl": "/images/blog/article-svp-sciaffusa-candidati-2027.webp",
         "evidence": "generated-engine-record"
       }
     }
