@@ -759,7 +759,7 @@ const UserProfile: React.FC = () => {
     const cloudProfile = cloudRead.profile;
     const localProfile = loadStoredUserProfile(uid);
     const currentProfile = profileRef.current;
-    const cvPrefill = cvProfile?.userId === uid && cvProfile.profile
+    const cvPrefill: Partial<UserProfileData> = cvProfile?.userId === uid && cvProfile.profile
       ? cvProfilePrefill(cvProfile.profile)
       : {};
     const merged = { ...DEFAULT_PROFILE } as UserProfileData;
