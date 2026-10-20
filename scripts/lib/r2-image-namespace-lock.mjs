@@ -16,7 +16,10 @@ const IMAGE_LOCK_CLEANUP_ATTEMPTS = 4;
 const COMMAND_OPTION_RULES = new Map([
   ['acquire', { allowed: ['--namespace'], required: ['--namespace'] }],
   ['verify', { allowed: ['--namespace', '--context'], required: ['--namespace', '--context'] }],
-  ['release', { allowed: ['--context', '--ignore-not-owned'], required: ['--context'] }],
+  ['release', {
+    allowed: ['--context', '--fence-missing-candidate', '--ignore-not-owned'],
+    required: ['--context'],
+  }],
 ]);
 
 function requiredString(value, name) {
@@ -807,11 +810,16 @@ async function main(args = process.argv.slice(2), env = process.env) {
 
   if (command === 'release') {
     const context = parseLeaseContext(options.get('--context'));
+    const fenceMissingCandidate = options.get('--fence-missing-candidate') === 'true';
+    if (options.has('--fence-missing-candidate')
+        && !['true', 'false'].includes(options.get('--fence-missing-candidate'))) {
+      throw new Error('[r2-image-namespace-lock] --fence-missing-candidate must be true or false');
+    }
     const ignoreNotOwned = options.get('--ignore-not-owned') === 'true';
     if (options.has('--ignore-not-owned') && !['true', 'false'].includes(options.get('--ignore-not-owned'))) {
       throw new Error('[r2-image-namespace-lock] --ignore-not-owned must be true or false');
     }
-    const released = await releaseImageNamespaceLeases(context.leases, { request });
+    const released = await releaseImageNamespaceLeases(context.leases, { request, fenceMissingCandidate });
     const notReleased = context.leases.map(({ namespace }) => namespace).filter((namespace) => !released.includes(namespace));
     if (notReleased.length > 0 && !ignoreNotOwned) {
       console.error(`[r2-image-namespace-lock] not released (lease no longer owned or present): ${notReleased.join(', ')}`);

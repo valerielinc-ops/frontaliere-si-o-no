@@ -308,7 +308,7 @@ _release_image_namespace_lease() {
   [ "${image_lease_owned_here:-0}" -eq 1 ] || return 0
   image_lease_owned_here=0
   if [ "${image_lease_acquire_pending:-0}" -eq 1 ]; then
-    if ! node "$image_lease_cli" release --context "$image_lease_context" --ignore-not-owned true >/dev/null; then
+    if ! node "$image_lease_cli" release --context "$image_lease_context" --fence-missing-candidate true >/dev/null; then
       echo "::error::[cdn-upload] could not reconcile an interrupted $image_namespace lease acquisition" >&2
       return 1
     fi

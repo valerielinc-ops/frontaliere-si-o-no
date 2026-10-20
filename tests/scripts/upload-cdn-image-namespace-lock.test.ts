@@ -47,7 +47,16 @@ case "$1" in
       verify)
         ${verifyFails ? 'exit 1' : 'exit 0'}
         ;;
-      release) exit 0 ;;
+      release)
+        [ "\${1:-}" = "--context" ] || exit 93
+        if [ "\${LEASE_TEST_REQUIRE_FENCED:-0}" = 1 ]; then
+          [ "\${3:-}" = "--fence-missing-candidate" ] || exit 94
+          [ "\${4:-}" = "true" ] || exit 95
+        else
+          [ -z "\${3:-}" ] || exit 96
+        fi
+        exit 0
+        ;;
       *) exit 90 ;;
     esac
     ;;
@@ -125,8 +134,9 @@ describe('upload-cdn-file image namespace lease integration', () => {
 
   it('skips the PUT when acquisition or caller verification fails', () => {
     const acquisitionFailure = setup({ acquireFails: true });
+    acquisitionFailure.env.LEASE_TEST_REQUIRE_FENCED = '1';
     runUpload(acquisitionFailure, 'images/blog/article/hero.webp');
-    expect(events(acquisitionFailure)).toEqual(['acquire:blog']);
+    expect(events(acquisitionFailure)).toEqual(['acquire:blog', 'release']);
 
     const verificationFailure = setup({ verifyFails: true });
     runUpload(verificationFailure, 'images/blog/article/hero.webp', verificationFailure.context);
