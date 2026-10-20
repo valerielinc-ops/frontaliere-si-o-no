@@ -197,9 +197,10 @@ export function candidateWithEdits({ order, draft, flow }) {
   if (has(overrides, 'linkedin')) profile.linkedin = overrides.linkedin;
   if (has(overrides, 'languages')) {
     profile.languages = splitLanguages(overrides.languages);
-    if (overrides.languages.trim()) profile.languagesExplicitList = true;
+    profile.languagesListTruncated = false;
+    profile.languagesExplicitList = Boolean(overrides.languages.trim());
   }
-  if (hasExplicitLanguageSection(draft?.factSources?.text)) profile.languagesExplicitList = true;
+  if (!has(overrides, 'languages') && profile.languagesListTruncated !== true && hasExplicitLanguageSection(draft?.factSources?.text)) profile.languagesExplicitList = true;
   if (has(overrides, 'workPermit')) profile.workPermit = overrides.workPermit;
   if (has(overrides, 'availability')) profile.availability = overrides.availability;
   if (has(overrides, 'dateOfBirth')) profile.dateOfBirth = overrides.dateOfBirth;

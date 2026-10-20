@@ -11,9 +11,8 @@
  * form fields, where the candidate can correct it.
  *
  * CV facts are never guessed from a first name, a photo, a trade («Vendeur») or
- * the posting's wording («Vendeuse/Vendeur»). A separate conservative
- * first-name lookup may prefill a form of address only; it never changes a
- * match verdict or any other candidate fact.
+ * the posting's wording («Vendeuse/Vendeur»). A separate conservative first-name
+ * lookup may prefill a form of address only; it never changes any other fact.
  * Only a whole personal-data entry counts — a short line, or one of its parts
  * between commas or bars — so prose is never read; an inclusive form
  * («Marié(e)», «nato/a») gives the status and no gender; two entries that
@@ -114,12 +113,8 @@ export function salutationFor(gender, locale = 'it') {
 const COMMON_FEMININE_NAMES = new Set(`anna maria sara sofia sophia elena helena laura carla clara alessandra alice emma julia giulia francesca chiara martina elisa alessia federica valentina silvia paola monica nicole daniela isabella beatrice roberta serena bianca aurora camilla cristina michela margherita arianna veronica teresa valeria valerie angela barbara eva nina linda melanie nadine sandra sophie elisabeth aline amelie celine christine claudia fabienne florence julie lea lena nathalie patricia sabrina sylvie`.split(' '));
 const COMMON_MASCULINE_NAMES = new Set(`marco luca luigi giuseppe matteo mattia lorenzo giovanni francesco paolo davide david daniel thomas michael peter martin stefan patrick markus lukas lucas jonas simon riccardo filippo fabio fabrizio roberto alberto enrico giulio christian christoph bruno oliver olivier nicolas niklaus hans reto urs alain alexandre andre antoine bernard dominic eric frederic georges jean luc marc pascal philippe sandro sven yves`.split(' '));
 const LOCALE_NAME_GENDERS = {
-  it: {
-    m: new Set(`andrea nicola gabriele simone daniele michele rosario`.split(' ')),
-  },
-  de: {
-    m: new Set(`andreas johannes matthias beat`.split(' ')),
-  },
+  it: { m: new Set(`andrea nicola gabriele simone daniele michele rosario`.split(' ')) },
+  de: { m: new Set(`andreas johannes matthias beat`.split(' ')) },
   fr: {
     m: new Set(`jean pierre philippe michel françois francois franck julien`.split(' ')),
     f: new Set(`jeanne claire anne`.split(' ')),
@@ -130,11 +125,7 @@ const LOCALE_NAME_GENDERS = {
   },
 };
 
-/**
- * Best-effort gender inference for the form-of-address field only. Ambiguous
- * names (including Andrea outside an Italian-language application) return an
- * empty value so the candidate can choose instead of receiving a guess.
- */
+/** Best-effort gender inference for the form-of-address field only. */
 export function salutationGenderFromName(firstName, locale = 'it') {
   const first = String(firstName ?? '').trim().split(/[\s'’\-]/u)[0]
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();

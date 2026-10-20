@@ -28,9 +28,11 @@ export function cleanBlock(value, max = 4000) {
 }
 
 const list = (value, max) => (Array.isArray(value) ? value.slice(0, max) : []);
+const MAX_PROFILE_LANGUAGES = 40;
 
 /** Lengths the schemas no longer enforce are capped here. */
 export function sanitizeProfile(raw) {
+  const rawLanguages = Array.isArray(raw?.languages) ? raw.languages : [];
   return {
     fullName: clean(raw?.fullName, 200),
     email: clean(raw?.email, 320),
@@ -50,8 +52,11 @@ export function sanitizeProfile(raw) {
     summary: cleanBlock(raw?.summary, 1500),
     workPermit: clean(raw?.workPermit, 200),
     availability: clean(raw?.availability, 200),
-    languages: list(raw?.languages, 12).map((item) => ({ language: clean(item?.language, 60), level: clean(item?.level, 60) })).filter((item) => item.language),
-    languagesExplicitList: raw?.languagesExplicitList === true,
+    languages: list(rawLanguages, MAX_PROFILE_LANGUAGES).map((item) => ({ language: clean(item?.language, 60), level: clean(item?.level, 60) })).filter((item) => item.language),
+    languagesListTruncated: raw?.languagesListTruncated === true || rawLanguages.length > MAX_PROFILE_LANGUAGES,
+    languagesExplicitList: raw?.languagesExplicitList === true
+      && raw?.languagesListTruncated !== true
+      && rawLanguages.length <= MAX_PROFILE_LANGUAGES,
     skills: list(raw?.skills, 40).map((item) => clean(item, 120)).filter(Boolean),
     experience: list(raw?.experience, 15).map((item) => ({
       role: clean(item?.role, 200),
@@ -267,8 +272,9 @@ const asksSalutation = (question) => SALUTATION_RE.test(`${question?.question ||
 /**
  * The form of address, asked on the first review when the application leaves
  * through a portal's form. umantis (2026-10-03) requires «Title: Ms / Mr /
- * Other», as most Swiss portals require «Anrede»; an explicit CV gender or a
- * first name with one clear form of address now fills it without a question.
+ * Other», as most Swiss portals require «Anrede»; an explicit CV gender fills
+ * it without a question; a first name with one clear form of address does too.
+ * Ambiguous names remain unknown.
  * Optional: a candidate who does not answer is not held, and the portal's own
  * question then comes at submit time as before. Never for an e-mail
  * application, nor when a question already asks it, nor when the candidate
