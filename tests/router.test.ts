@@ -477,6 +477,23 @@ describe('Router — CHF/EUR exchange SSG vertical (epic #4452)', () => {
 /* ─────────── Health-facilities hub (/strutture-sanitarie/{slug}/) ─────────── */
 
 describe('Router — health-facilities hub (epic #4455)', () => {
+  const rootCases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/strutture-sanitarie/', locale: 'it' },
+    { path: '/en/healthcare-facilities/', locale: 'en' },
+    { path: '/de/gesundheitseinrichtungen/', locale: 'de' },
+    { path: '/fr/etablissements-sante/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of rootCases) {
+    it(`parsePath resolves ${path} to the emitted staticOverlay section hub`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('job-board');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
   // Regression: parsePath never had a branch for facility detail pages —
   // same failure mode as the exchange-vertical bug above.
   const cases: ReadonlyArray<{ path: string; locale: string }> = [

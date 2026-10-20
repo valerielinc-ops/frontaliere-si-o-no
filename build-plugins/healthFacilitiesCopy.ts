@@ -246,6 +246,116 @@ function enArticle(cat: string): string { return `a ${cat.toLowerCase()}`; }
 function deArticle(cat: string): string { return `eine ${cat}`; }
 function frArticle(cat: string): string { return `un ${cat.toLowerCase()}`; }
 
+// ── Facility directory hub ──────────────────────────────────────────────────
+
+export interface FacilityHubCopy {
+  readonly eyebrow: string;
+  readonly h1: string;
+  /** Short above-the-fold line; keep it suitable for the landing header. */
+  readonly lede: string;
+  readonly metaTitle: string;
+  readonly metaDesc: string;
+  readonly tileFacilities: string;
+  readonly tileActiveFacilities: string;
+  readonly tileOpenings: string;
+  readonly directoryTitle: string;
+  readonly directoryIntro: string;
+  readonly noOpenings: string;
+  readonly openingWord: string;
+  readonly methodologyTitle: string;
+  readonly methodology: string;
+  readonly faqTitle: string;
+  readonly faqs: readonly { question: string; answer: string }[];
+}
+
+/** Localised copy for the emitted section root, not for a facility detail. */
+export const FACILITY_HUB_COPY: Record<HealthFacilityLocale, FacilityHubCopy> = {
+  it: {
+    eyebrow: 'Lavoro sanitario in Svizzera',
+    h1: 'Strutture sanitarie in Svizzera',
+    lede: 'Ospedali e cliniche svizzeri con offerte di lavoro per professionisti sanitari e frontalieri italiani.',
+    metaTitle: 'Strutture sanitarie in Svizzera: offerte di lavoro',
+    metaDesc: 'Consulta ospedali e cliniche svizzeri, offerte sanitarie attive e pagine aggiornate per chi cerca lavoro da frontaliere.',
+    tileFacilities: 'Strutture monitorate',
+    tileActiveFacilities: 'Strutture con offerte',
+    tileOpenings: 'Offerte attive',
+    directoryTitle: 'Ospedali e cliniche',
+    directoryIntro: 'Apri la pagina di una struttura per vedere le offerte sanitarie attualmente indicizzate, i ruoli più richiesti e le informazioni utili per candidarti da frontaliere.',
+    noOpenings: 'Nessuna offerta attiva',
+    openingWord: 'offerte attive',
+    methodologyTitle: 'Come leggere questo indice',
+    methodology: 'L’indice riunisce ospedali, cliniche e altre strutture sanitarie svizzere individuate nella nostra rete di fonti. Le offerte vengono associate alla struttura e aggiornate quando i crawler rilevano nuove posizioni o chiusure. Le pagine con almeno tre offerte attive mostrano l’inventario, i ruoli sanitari e le fasce salariali disponibili; quando il campione scende sotto la soglia, la pagina resta raggiungibile ma segnala che non ci sono abbastanza offerte live. Per una candidatura transfrontaliera controlla sempre il testo originale dell’annuncio, il riconoscimento del titolo e i requisiti linguistici del ruolo.',
+    faqTitle: 'Domande frequenti',
+    faqs: [
+      { question: 'Quali strutture sanitarie svizzere assumono?', answer: 'L’indice mostra le strutture per cui la nostra rete ha rilevato offerte sanitarie attive. Apri una pagina per verificare il numero corrente di posizioni e il dettaglio degli annunci.' },
+      { question: 'Le offerte sono adatte ai frontalieri italiani?', answer: 'Molti datori di lavoro sanitari svizzeri valutano candidati frontalieri, ma permesso, riconoscimento del titolo e lingua dipendono dal ruolo e dal Cantone. Verifica sempre i requisiti nell’annuncio originale.' },
+    ],
+  },
+  en: {
+    eyebrow: 'Healthcare jobs in Switzerland',
+    h1: 'Healthcare facilities in Switzerland',
+    lede: 'Swiss hospitals and clinics with healthcare jobs for professionals and Italian cross-border workers.',
+    metaTitle: 'Healthcare facilities in Switzerland: jobs',
+    metaDesc: 'Browse Swiss hospitals and clinics, active healthcare openings and updated pages for Italian cross-border job seekers.',
+    tileFacilities: 'Facilities monitored',
+    tileActiveFacilities: 'Facilities with jobs',
+    tileOpenings: 'Active openings',
+    directoryTitle: 'Hospitals and clinics',
+    directoryIntro: 'Open a facility page to see currently indexed healthcare openings, in-demand roles and practical information for cross-border applicants.',
+    noOpenings: 'No active openings',
+    openingWord: 'active openings',
+    methodologyTitle: 'How to read this directory',
+    methodology: 'This directory brings together Swiss hospitals, clinics and other healthcare facilities identified across our source network. Openings are matched to a facility and refreshed when crawlers detect new or closed positions. Pages with at least three active openings show the live inventory, healthcare roles and available salary ranges; when the sample falls below the threshold, the page remains reachable while reporting that there are not enough live openings. Cross-border applicants should always check the original listing, qualification-recognition requirements and the language expected for the role.',
+    faqTitle: 'Frequently asked questions',
+    faqs: [
+      { question: 'Which Swiss healthcare facilities are hiring?', answer: 'The directory lists facilities for which our source network has found active healthcare openings. Open a page to check its current position count and the underlying listings.' },
+      { question: 'Are these jobs suitable for Italian cross-border workers?', answer: 'Many Swiss healthcare employers consider cross-border applicants, but permits, qualification recognition and language requirements depend on the role and canton. Always verify the original listing.' },
+    ],
+  },
+  de: {
+    eyebrow: 'Gesundheitsjobs in der Schweiz',
+    h1: 'Gesundheitseinrichtungen in der Schweiz',
+    lede: 'Schweizer Spitäler und Kliniken mit Gesundheitsstellen für Fachkräfte und italienische Grenzgänger.',
+    metaTitle: 'Gesundheitseinrichtungen Schweiz: offene Stellen',
+    metaDesc: 'Schweizer Spitäler und Kliniken, offene Gesundheitsstellen und aktualisierte Seiten für italienische Grenzgänger durchsuchen.',
+    tileFacilities: 'Überwachte Einrichtungen',
+    tileActiveFacilities: 'Einrichtungen mit Stellen',
+    tileOpenings: 'Offene Stellen',
+    directoryTitle: 'Spitäler und Kliniken',
+    directoryIntro: 'Öffnen Sie eine Einrichtungsseite für aktuell indexierte Gesundheitsstellen, gefragte Berufe und praktische Hinweise für Grenzgänger.',
+    noOpenings: 'Keine offenen Stellen',
+    openingWord: 'offene Stellen',
+    methodologyTitle: 'So lesen Sie dieses Verzeichnis',
+    methodology: 'Dieses Verzeichnis bündelt Schweizer Spitäler, Kliniken und weitere Gesundheitseinrichtungen aus unserem Quellen-Netzwerk. Stellen werden einer Einrichtung zugeordnet und aktualisiert, wenn die Crawler neue oder geschlossene Positionen erkennen. Seiten mit mindestens drei offenen Stellen zeigen den aktuellen Bestand, Gesundheitsberufe und verfügbare Lohnspannen; fällt die Stichprobe darunter, bleibt die Seite erreichbar und weist darauf hin, dass nicht genügend Live-Stellen vorhanden sind. Grenzgänger sollten immer die ursprüngliche Anzeige, die Anerkennung des Abschlusses und die Sprachanforderungen der Stelle prüfen.',
+    faqTitle: 'Häufige Fragen',
+    faqs: [
+      { question: 'Welche Schweizer Gesundheitseinrichtungen stellen ein?', answer: 'Das Verzeichnis zeigt Einrichtungen, für die unser Quellen-Netzwerk offene Gesundheitsstellen gefunden hat. Öffnen Sie eine Seite, um die aktuelle Zahl und die zugrunde liegenden Anzeigen zu prüfen.' },
+      { question: 'Sind die Stellen für italienische Grenzgänger geeignet?', answer: 'Viele Schweizer Gesundheitsarbeitgeber berücksichtigen Grenzgänger, doch Bewilligung, Diplomanerkennung und Sprache hängen von Stelle und Kanton ab. Prüfen Sie immer die Originalanzeige.' },
+    ],
+  },
+  fr: {
+    eyebrow: 'Emplois de santé en Suisse',
+    h1: 'Établissements de santé en Suisse',
+    lede: 'Hôpitaux et cliniques suisses avec des emplois de santé pour professionnels et frontaliers italiens.',
+    metaTitle: 'Établissements de santé en Suisse : emplois',
+    metaDesc: 'Parcourez les hôpitaux et cliniques suisses, les postes de santé actifs et les pages à jour pour les frontaliers italiens.',
+    tileFacilities: 'Établissements suivis',
+    tileActiveFacilities: 'Établissements avec postes',
+    tileOpenings: 'Postes ouverts',
+    directoryTitle: 'Hôpitaux et cliniques',
+    directoryIntro: 'Ouvrez une page d’établissement pour voir les postes de santé indexés, les métiers recherchés et les informations utiles aux candidats frontaliers.',
+    noOpenings: 'Aucun poste ouvert',
+    openingWord: 'postes ouverts',
+    methodologyTitle: 'Comment lire cet index',
+    methodology: 'Cet index réunit les hôpitaux, cliniques et autres établissements de santé suisses repérés dans notre réseau de sources. Les postes sont associés à un établissement et actualisés lorsque les crawlers détectent de nouvelles offres ou des fermetures. Les pages comptant au moins trois postes actifs montrent l’inventaire, les métiers de la santé et les fourchettes salariales disponibles ; lorsque l’échantillon passe sous le seuil, la page reste accessible tout en indiquant qu’il n’y a pas assez de postes en ligne. Les frontaliers doivent toujours vérifier l’annonce originale, la reconnaissance du diplôme et la langue demandée pour le poste.',
+    faqTitle: 'Questions fréquentes',
+    faqs: [
+      { question: 'Quels établissements de santé suisses recrutent ?', answer: 'L’index liste les établissements pour lesquels notre réseau de sources a trouvé des postes de santé actifs. Ouvrez une page pour vérifier le nombre actuel et les annonces correspondantes.' },
+      { question: 'Les postes conviennent-ils aux frontaliers italiens ?', answer: 'De nombreux employeurs de santé suisses étudient les candidatures de frontaliers, mais permis, reconnaissance du diplôme et langue dépendent du poste et du canton. Vérifiez toujours l’annonce originale.' },
+    ],
+  },
+};
+
 // ── Below-floor bridge copy ─────────────────────────────────────────────────
 
 export interface BridgeCopy {
