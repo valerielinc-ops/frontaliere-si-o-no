@@ -55,6 +55,13 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(inputs.variants).toMatchObject({ type: 'string', default: 'base=' });
     expect(inputs.chain).toMatchObject({ type: 'string', default: '' });
     expect(inputs.stop_after_jobs_seo).toMatchObject({ type: 'boolean', default: false });
+    expect(inputs.fallback_workers).toMatchObject({
+      type: 'choice',
+      options: ['1', '2', '4'],
+      default: '1',
+    });
+    expect(WORKFLOW.jobs['build-locale'].env.JOBS_SEO_FALLBACK_WORKERS)
+      .toBe('${{ inputs.fallback_workers }}');
     expect(inputs.cpu_profile).toMatchObject({ type: 'boolean', default: false });
     expect(inputs.compare_monolith).toMatchObject({ type: 'boolean', default: false });
   });
