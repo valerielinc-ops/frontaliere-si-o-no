@@ -33,6 +33,7 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {string[]} seedUrls
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
  * @property {string | string[]} [detailTemplate]    URL template(s) shared by the vacancy links
+ * @property {string} [detailLocationLabel] Exact detail-page heading whose following paragraph names the vacancy workplace
  * @property {string} [listingCandidateText]         Normalised text required in a listing candidate
  * @property {string} [detailCandidateText]          Normalised text required in an enriched detail record
  * @property {{ nativeMarker: string, expectedText?: string, listingExpectedText?: string, foreignLocationOutOfScope?: boolean, listingMarker?: { tag?: string, class: string, containerTag?: string, containerClass: string } }} [tenantScope]

@@ -322,6 +322,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const independentTitleCandidates = [
     { title: listingTitle, source: 'listing' },
     { title: rawTitles.rawH1Title, source: 'raw_h1' },
+    { title: rawTitles.rawOpenGraphTitle, source: 'raw_open_graph' },
     { title: rawTitles.rawDocumentTitle, source: 'raw_document_title' },
   ].filter(({ title }) => title && !isGenericVacancyTitle(title));
   const titleProof = independentTitleCandidates
@@ -331,6 +332,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   out.listingTitle = listingTitle;
   out.detailTitle = titleEvidence.detailTitle || detail.title || '';
   out.rawH1Title = rawTitles.rawH1Title;
+  out.rawOpenGraphTitle = rawTitles.rawOpenGraphTitle;
   out.rawDocumentTitle = rawTitles.rawDocumentTitle;
   out.finalTitle = finalTitle;
   out.recordedFinalTitle = recordedFinalTitle;

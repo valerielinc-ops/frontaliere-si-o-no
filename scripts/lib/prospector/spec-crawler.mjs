@@ -1919,6 +1919,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
           if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
           const title = selectPublishableTitle(detail.title, row.title, [
             rawTitles.rawH1Title,
+            rawTitles.rawOpenGraphTitle,
             rawTitles.rawDocumentTitle,
           ]);
           if (!title) { titleDrops++; continue; }
@@ -1933,6 +1934,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
               { source: 'detail', value: detail.title },
               { source: 'listing', value: row.title },
               { source: 'raw_h1', value: rawTitles.rawH1Title },
+              { source: 'raw_open_graph', value: rawTitles.rawOpenGraphTitle },
               { source: 'raw_document_title', value: rawTitles.rawDocumentTitle },
             ].find(({ value }) => title === String(value || '').replace(/\s+/g, ' ').trim())?.source || 'unknown',
           };

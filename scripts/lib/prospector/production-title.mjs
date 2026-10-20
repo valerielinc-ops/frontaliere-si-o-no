@@ -15,11 +15,14 @@ const GENERIC_VACANCY_TITLES = new Set([
  * final output title.
  *
  * @param {string} html
- * @returns {{ rawH1Title: string, rawDocumentTitle: string }}
+ * @returns {{ rawH1Title: string, rawOpenGraphTitle: string, rawDocumentTitle: string }}
  */
 export function rawDetailTitleEvidence(html = '') {
-  const h1 = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(String(html))?.[1] || '';
-  const documentTitle = /<title\b[^>]*>([\s\S]{0,1000}?)<\/title>/i.exec(String(html))?.[1] || '';
+  const source = String(html);
+  const h1 = /<h1\b[^>]*>([\s\S]{0,1000}?)<\/h1>/i.exec(source)?.[1] || '';
+  const openGraphTag = /<meta\b[^>]*\bproperty\s*=\s*["']og:title["'][^>]*>/i.exec(source)?.[0] || '';
+  const openGraphTitle = /\bcontent\s*=\s*["']([^"']{0,1000})["']/i.exec(openGraphTag)?.[1] || '';
+  const documentTitle = /<title\b[^>]*>([\s\S]{0,1000}?)<\/title>/i.exec(source)?.[1] || '';
   const clean = (value) => String(value)
     .replace(/<[^>]*>/g, ' ')
     .replace(/&nbsp;/gi, ' ')
@@ -32,6 +35,7 @@ export function rawDetailTitleEvidence(html = '') {
     .trim();
   return {
     rawH1Title: clean(h1),
+    rawOpenGraphTitle: clean(openGraphTitle),
     rawDocumentTitle: clean(documentTitle),
   };
 }
@@ -56,7 +60,7 @@ export function isGenericVacancyTitle(value) {
  *
  * @param {unknown} detailTitle
  * @param {unknown} listingTitle
- * @param {unknown[]} [rawDetailTitles]
+ * @param {unknown[]} [rawDetailTitles] Raw H1, Open Graph and document title evidence, in priority order
  * @returns {string}
  */
 export function selectPublishableTitle(detailTitle, listingTitle, rawDetailTitles = []) {

@@ -90,12 +90,13 @@ describe('Prospector production validation', () => {
     expect(selectPublishableTitle('Jobs', 'Offene Stellen')).toBe('');
   });
 
-  it('uses and independently validates the detail H1 when listing and structured titles are a CTA', async () => {
+  it('uses the detail title and labelled workplace when listing data contains CTAs and a company address', async () => {
     const seed = 'https://hanseisenring.ch/unternehmen/karriere/jobportal';
     const roles = [
       { slug: 'disposition-kueche', title: 'Disposition Küche', locality: 'Münchwilen', canton: 'TG' },
       { slug: 'sachbearbeitung-servicecenter', title: 'Sachbearbeitung Servicecenter', locality: 'Wängi', canton: 'TG' },
       { slug: 'projektleitung-abacus', title: 'Projektleitung Abacus', locality: 'Oensingen', canton: 'SO' },
+      { slug: 'servicetechnik-ostschweiz', title: 'Servicetechnik', locality: 'Einsatzgebiet Ostschweiz oder Region Zürich', canton: '' },
     ];
     const urls = roles.map(({ slug }) => `${seed}/${slug}`);
     const detailsByUrl = new Map(roles.map((role, index) => {
@@ -106,14 +107,16 @@ describe('Prospector production validation', () => {
         jobLocation: {
           address: {
             '@type': 'PostalAddress',
-            addressLocality: role.locality,
-            addressRegion: role.canton,
+            addressLocality: 'Sirnach',
+            addressRegion: 'TG',
             addressCountry: 'CH',
           },
         },
       };
-      const body = `<html><head><title>${role.title} | Hans Eisenring</title></head><body>
-        <main><h1>${role.title}</h1><script type="application/ld+json">${JSON.stringify(structuredPosting)}</script>
+      const body = `<html><head><title>${role.title} - Jobportal - Karriere - Unternehmen | Hans Eisenring</title>
+        <meta property="og:title" content="${role.title}" /></head><body>
+        <main><script type="application/ld+json">${JSON.stringify(structuredPosting)}</script>
+        <div><h3>Arbeitsort</h3><div class="c-bodytext"><p>${role.locality}${role.canton ? ` (${role.canton})` : ''}</p></div></div>
         <p>${DESCRIPTION}</p><p>Aufgaben und Anforderungen für ${role.title}.</p></main></body></html>`;
       return [urls[index], body];
     }));
@@ -134,6 +137,7 @@ describe('Prospector production validation', () => {
       seedUrls: [seed],
       detailTemplate: '/unternehmen/karriere/jobportal/*',
       detailEnrichment: true,
+      detailLocationLabel: 'Arbeitsort',
       detailFetchWorkers: 3,
     } as any;
     const runtime = {
@@ -153,9 +157,15 @@ describe('Prospector production validation', () => {
     clearPoliteFetchStateForTests();
     try {
       const observed = await observeSpecInProduction(spec, runtime);
-      expect(observed.vacancies.map((vacancy) => vacancy.title)).toEqual(roles.map((role) => role.title));
+      const publishableRoles = roles.filter((role) => role.canton);
+      expect(observed.vacancies.map((vacancy) => vacancy.title)).toEqual(publishableRoles.map((role) => role.title));
       expect([...observed.titleEvidenceByUrl.values()].map((evidence) => evidence.titleSource))
-        .toEqual(['raw_h1', 'raw_h1', 'raw_h1']);
+        .toEqual(['raw_open_graph', 'raw_open_graph', 'raw_open_graph']);
+      expect(observed.vacancies.map((vacancy) => vacancy.location))
+        .toEqual(publishableRoles.map((role) => role.locality));
+      expect(observed.vacancies.map((vacancy) => vacancy.canton))
+        .toEqual(publishableRoles.map((role) => role.canton));
+      expect(observed.observation.dropCounts).toMatchObject({ source_backed_geography_missing: 1 });
 
       const report = await gradeExtraction(spec, observed.vacancies, {
         sampleSize: 3,
@@ -171,9 +181,10 @@ describe('Prospector production validation', () => {
         vacancyCount: 3,
         sampled: 3,
         titleMatchRate: 1,
+        locationSourceRate: 0.75,
         verdict: 'good',
       });
-      expect(report.samples.every((sample) => sample.titleEvidenceSource === 'raw_h1' && sample.titleMatch === 1))
+      expect(report.samples.every((sample) => sample.titleEvidenceSource === 'raw_open_graph' && sample.titleMatch === 1))
         .toBe(true);
     } finally {
       clearPoliteFetchStateForTests();
