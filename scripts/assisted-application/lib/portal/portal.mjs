@@ -1212,8 +1212,9 @@ function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
   const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
   if (contextPattern.test(context)) return true;
   const association = successFactorsButtonAssociation(button);
+  const application = snapshot || {};
   return isSuccessFactorsPage(page)
-    && ownAccountForm(snapshot || {})
+    && (ownAccountForm(application) || sendsApplication(application) || hasApplicationForm(application))
     && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
     && successFactorsDocumentAssociationMatches(association, kind);
 }
@@ -1311,11 +1312,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
       ? successFactorsIconButtonFor(current, 'cv')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = iconTriggerButton && !namedTriggerButton
-      ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cv', current) && triggerButton
-        ? locatorFor(page, triggerButton)
-        : null;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
@@ -1335,11 +1334,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
       ? successFactorsIconButtonFor(current, 'cover_letter')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = iconTriggerButton && !namedTriggerButton
-      ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current) && triggerButton
-        ? locatorFor(page, triggerButton)
-        : null;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
