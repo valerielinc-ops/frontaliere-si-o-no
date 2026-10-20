@@ -27,5 +27,8 @@ export const MANAGE_APPLICATION_CONCIERGE_URL = `${FUNCTIONS_BASE}/manageApplica
 /** Candidate review page of the automated assisted application (signed link, no login). */
 export const ASSISTED_APPLICATION_REVIEW_URL = `${FUNCTIONS_BASE}/assistedApplicationReview`;
 
+/** Owner-authenticated endpoint for a temporary CV preview link. */
+export const GET_ASSISTED_APPLICATION_CV_URL = `${FUNCTIONS_BASE}/getAssistedApplicationCvUrl`;
+
 /** Server-side, idempotent record of the explicit job-application intent click. */
 export const RECORD_APPLICATION_INTENT_URL = `${FUNCTIONS_BASE}/recordApplicationIntent`;

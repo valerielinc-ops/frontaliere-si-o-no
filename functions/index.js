@@ -113,6 +113,7 @@ import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
 import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
 import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
+import { handleGetAssistedApplicationCvUrl } from './src/assistedApplicationCvUrl.js';
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
 import { codexStructured } from './src/lib/codexStructured.js';
@@ -2489,6 +2490,36 @@ export const getPublisherApplicationCvUrl = onRequest(
  res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },
+);
+
+// Mint a short-lived read link for the CV owner. The bucket stays client-read-
+// denied; this endpoint rechecks the authenticated order owner and payment.
+export const getAssistedApplicationCvUrl = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleGetAssistedApplicationCvUrl(req, {
+        db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+      });
+      res.set('Cache-Control', 'no-store');
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[getAssistedApplicationCvUrl]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
 );
 
 // GDPR retention: purge applications older than the retention window, daily.
