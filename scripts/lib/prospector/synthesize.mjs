@@ -50,6 +50,8 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {'ok'|'filtered_empty'|'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
+ * @property {'expected-filter'} [detailNotFoundPolicy] Treat definitive detail HTTP 404s as stale listing filters after enough valid detail rows prove the source
+ * @property {number} [detailNotFoundMinimumPublished] Minimum valid detail rows required before 404s can be classified as expected filters
  * @property {number} [qualityContractVersion] Version of the quality evidence rules; bump to require fresh validations
  * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
  *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
