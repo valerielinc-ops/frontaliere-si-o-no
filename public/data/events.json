@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-20T15:40:39.754Z",
+  "generatedAt": "2026-10-20T16:24:17.992Z",
   "totalEvents": 14630,
   "events": [
     {
@@ -230833,7 +230833,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La mostra «NachtLeben» a Lucerna esplora il tema della notte e gli effetti dell’illuminazione artificiale su animali e persone. Il programma comprende attività sul cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione della città.",
+      "descriptionByLocale": {
+        "it": "La mostra «NachtLeben» a Lucerna esplora il tema della notte e gli effetti dell’illuminazione artificiale su animali e persone. Il programma comprende attività sul cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione della città.",
+        "en": "The «NachtLeben» exhibition in Lucerne examines the night and the effects of artificial lighting on animals and people. Its accompanying programme includes activities about the starry sky, a bat excursion and a tour focusing on the city’s lighting.",
+        "de": "Die Ausstellung «NachtLeben» in Luzern beschäftigt sich mit der Nacht und den Auswirkungen künstlicher Beleuchtung auf Tiere und Menschen. Zum Begleitprogramm gehören Angebote zum Sternenhimmel, eine Fledermaus-Exkursion und ein Rundgang zur Stadtbeleuchtung.",
+        "fr": "L’exposition «NachtLeben» à Lucerne examine la nuit ainsi que les effets de l’éclairage artificiel sur les animaux et les personnes. Le programme associé propose des activités sur le ciel étoilé, une excursion consacrée aux chauves-souris et une visite consacrée à l’éclairage urbain."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:196a61cdd03b42f083202f2d852aaf49",
@@ -626601,7 +626609,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Eivør è protagonista di un appuntamento pop che combina influenze folk nordiche e sonorità elettroniche. L’evento si tiene al Bierhübeli nel cantone di Berna; il biglietto costa 60,50 CHF.",
+      "descriptionByLocale": {
+        "it": "Eivør è protagonista di un appuntamento pop che combina influenze folk nordiche e sonorità elettroniche. L’evento si tiene al Bierhübeli nel cantone di Berna; il biglietto costa 60,50 CHF.",
+        "en": "Eivør is the featured performer at a pop event shaped by Nordic folk influences and electronic sounds. The event takes place at Bierhübeli in the canton of Bern, and admission costs CHF 60.50.",
+        "de": "Eivør tritt bei einer Popveranstaltung mit Einflüssen aus nordischem Folk und elektronischen Klängen auf. Die Veranstaltung findet im Bierhübeli im Kanton Bern statt; der Eintritt kostet 60,50 CHF.",
+        "fr": "Eivør est l’artiste à l’affiche d’un rendez-vous pop mêlant des influences de folk nordique et des sonorités électroniques. L’événement a lieu au Bierhübeli, dans le canton de Berne, et l’entrée coûte 60,50 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:16357e76d2c148bfa12d67c42c5ce002",
@@ -627801,7 +627817,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Casa Hasler; comune: Poschiavo; cantone: GR; categoria: Altri musica; organizzatore: Guidle; data: 2027-03-13; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Casa Hasler; comune: Poschiavo; cantone: GR; categoria: Altri musica; organizzatore: Guidle; data: 2027-03-13; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Casa Hasler; municipality: Poschiavo; canton: GR; category: Altri musica; organiser: Guidle; date: 2027-03-13; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Casa Hasler; gemeinde: Poschiavo; kanton: GR; kategorie: Altri musica; veranstalter: Guidle; datum: 2027-03-13; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Casa Hasler; commune: Poschiavo; canton: GR; catégorie: Altri musica; organisateur: Guidle; date: 2027-03-13; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1e5b99cf7fd7480697c5ed1f111639b8",
@@ -628026,7 +628050,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "I Wiener Sängerknaben presentano un programma musicale al KKL Luzern. L’appuntamento accosta musica classica e pop, valorizzando una tradizione corale di 525 anni e un suono limpido.",
+      "descriptionByLocale": {
+        "it": "I Wiener Sängerknaben presentano un programma musicale al KKL Luzern. L’appuntamento accosta musica classica e pop, valorizzando una tradizione corale di 525 anni e un suono limpido.",
+        "en": "The Vienna Boys' Choir presents a musical programme at KKL Luzern. Classical and pop music are brought together with a choral tradition spanning 525 years and a clear vocal sound.",
+        "de": "Die Wiener Sängerknaben gestalten im KKL Luzern ein musikalisches Programm. Dabei treffen klassische und populäre Musik auf eine 525-jährige Chortradition und einen klaren Klang.",
+        "fr": "Les Petits Chanteurs de Vienne présentent un programme musical au KKL Luzern. La musique classique et la pop y sont réunies avec une tradition chorale vieille de 525 ans et une sonorité claire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9ad1e9a413684a9bb71c81b0bd105f25",
@@ -628598,7 +628630,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il programma jazz mette in relazione la Swiss Jazz Orchestra e Michael Zisman con Paul Klee. L'appuntamento si svolge allo Zentrum Paul Klee, nel cantone di Berna.",
+      "descriptionByLocale": {
+        "it": "Il programma jazz mette in relazione la Swiss Jazz Orchestra e Michael Zisman con Paul Klee. L'appuntamento si svolge allo Zentrum Paul Klee, nel cantone di Berna.",
+        "en": "The jazz programme brings the Swiss Jazz Orchestra and Michael Zisman into an encounter connected with Paul Klee. It takes place at the Zentrum Paul Klee in the canton of Bern.",
+        "de": "Das Jazzprogramm setzt das Swiss Jazz Orchestra und Michael Zisman in Beziehung zu Paul Klee. Die Veranstaltung findet im Zentrum Paul Klee im Kanton Bern statt.",
+        "fr": "Le programme de jazz associe le Swiss Jazz Orchestra et Michael Zisman à une rencontre autour de Paul Klee. Le rendez-vous se tient au Zentrum Paul Klee, dans le canton de Berne."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AQTRYxM",
@@ -628947,7 +628987,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Shapes Festival Leysin; comune: Leysin; cantone: VD; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-03-15; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Shapes Festival Leysin; comune: Leysin; cantone: VD; categoria: Festival / Incontro; organizzatore: Guidle; data: 2027-03-15; ora: 00:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Shapes Festival Leysin; municipality: Leysin; canton: VD; category: Festival / Incontro; organiser: Guidle; date: 2027-03-15; time: 00:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Shapes Festival Leysin; gemeinde: Leysin; kanton: VD; kategorie: Festival / Incontro; veranstalter: Guidle; datum: 2027-03-15; uhrzeit: 00:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Shapes Festival Leysin; commune: Leysin; canton: VD; catégorie: Festival / Incontro; organisateur: Guidle; date: 2027-03-15; heure: 00:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AdnXbUa",
@@ -629880,7 +629928,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: SAL, Schaan; categoria: Nuova musica folklorica; organizzatore: Guidle; data: 2027-03-17; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: SAL, Schaan; categoria: Nuova musica folklorica; organizzatore: Guidle; data: 2027-03-17; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: SAL, Schaan; category: Nuova musica folklorica; organiser: Guidle; date: 2027-03-17; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: SAL, Schaan; kategorie: Nuova musica folklorica; veranstalter: Guidle; datum: 2027-03-17; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: SAL, Schaan; catégorie: Nuova musica folklorica; organisateur: Guidle; date: 2027-03-17; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:281673fd2769467baf201d7fd7063771",
@@ -630357,7 +630413,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Bierhübeli; cantone: BE; categoria: Hip-Hop; organizzatore: Guidle; partecipante: Dub Incorporation; data: 2027-03-18; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Bierhübeli; cantone: BE; categoria: Hip-Hop; organizzatore: Guidle; partecipante: Dub Incorporation; data: 2027-03-18; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Bierhübeli; canton: BE; category: Hip-Hop; organiser: Guidle; participant: Dub Incorporation; date: 2027-03-18; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Bierhübeli; kanton: BE; kategorie: Hip-Hop; veranstalter: Guidle; mitwirkender: Dub Incorporation; datum: 2027-03-18; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Bierhübeli; canton: BE; catégorie: Hip-Hop; organisateur: Guidle; participant: Dub Incorporation; date: 2027-03-18; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:33ee7b233f58437b9bed137fa5e66c52",
@@ -630585,7 +630649,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone un concerto di Hubert von Goisern, classificato come nuova musica folklorica. Si tiene al Volkshaus Zürich di Zürich nell’ambito della tournée 2027.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un concerto di Hubert von Goisern, classificato come nuova musica folklorica. Si tiene al Volkshaus Zürich di Zürich nell’ambito della tournée 2027.",
+        "en": "The event is a concert by Hubert von Goisern in the new folk music category. It is scheduled at Volkshaus Zürich in Zürich as part of the 2027 tour.",
+        "de": "Die Veranstaltung ist ein Konzert von Hubert von Goisern aus dem Bereich der neuen Volksmusik. Sie findet im Volkshaus Zürich in Zürich im Rahmen der Tour 2027 statt.",
+        "fr": "Ce rendez-vous propose un concert de Hubert von Goisern dans la catégorie de la nouvelle musique folklorique. Il est prévu au Volkshaus Zürich, à Zürich, dans le cadre de la tournée 2027."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:442b71ba25864c839668a16c5f6cb890",
@@ -631029,7 +631101,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Patent Ochsner è in programma per uno spettacolo pop aggiuntivo al Theater 11, nel cantone di Zurigo. L'evento è registrato come ricorrente.",
+      "descriptionByLocale": {
+        "it": "Patent Ochsner è in programma per uno spettacolo pop aggiuntivo al Theater 11, nel cantone di Zurigo. L'evento è registrato come ricorrente.",
+        "en": "Patent Ochsner is listed for an additional pop show at Theater 11 in the canton of Zurich. The event is marked as recurring.",
+        "de": "Patent Ochsner ist für eine zusätzliche Popshow im Theater 11 im Kanton Zürich erfasst. Der Eintrag ist als wiederkehrende Veranstaltung gekennzeichnet.",
+        "fr": "Patent Ochsner figure au programme d'un spectacle pop supplémentaire au Theater 11, dans le canton de Zurich. L'événement est indiqué comme récurrent."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e3cb6c7b7b1f4eaea419f3925439f52f",
