@@ -357,10 +357,12 @@ export function looksLikeUsiListingHtml(html = '') {
  * Last-resort fetch for a WAF response that survived the shared Jina rescue.
  * Chromium is lazy and self-healing; normal runs pay no browser startup cost.
  */
-async function fetchUsiPageViaBrowser(url, timeoutMs) {
+export async function fetchUsiPageViaBrowser(url, timeoutMs, {
+  launchBrowser = launchChromium,
+} = {}) {
   let browser;
   try {
-    browser = await launchChromium({ headless: true });
+    browser = await launchBrowser({ headless: true });
     const context = await browser.newContext({
       userAgent: USI_BROWSER_HEADERS['User-Agent'],
       locale: 'it-CH',
@@ -371,11 +373,20 @@ async function fetchUsiPageViaBrowser(url, timeoutMs) {
       waitUntil: 'domcontentloaded',
       timeout: Math.max(timeoutMs, 45000),
     });
-    if (!response || !response.ok()) return null;
-    const html = await page.content();
+    let html = await page.content();
+    // A WAF challenge can navigate with HTTP 403 and then replace its DOM with
+    // the real document after its browser check. Do not reject the navigation
+    // on status alone: the verified DOM is the source-of-truth for this rescue.
+    if (looksLikeAntiBotChallenge(html) && typeof page.waitForTimeout === 'function') {
+      await page.waitForTimeout(2500);
+      html = await page.content();
+    }
     if (looksLikeAntiBotChallenge(html) || (isUsiListingUrl(url) && !looksLikeUsiListingHtml(html))) {
       console.warn(`⚠️ USI browser fallback returned no verified listing document for ${url}`);
       return null;
+    }
+    if (!response || (typeof response.ok === 'function' && !response.ok())) {
+      console.warn(`ℹ️ USI browser fallback verified the listing DOM after HTTP ${response?.status?.() ?? 'no response'}`);
     }
     return html;
   } catch (error) {
