@@ -52,9 +52,9 @@ import {
   COMPAT_LEGACY_FILE,
   compatManifestFile,
 } from './compat-paths-store.mjs';
+import { SHARD_FILE_RE } from './shard-file-naming.mjs';
 
 const STATE_FILE = 'data/inspection-state.json';
-const SHARD_FILE_RE = new RegExp(`^${COMPAT_SHARD_DIR}/part-\\d+\\.json$`);
 const MANIFEST_FILE = `${COMPAT_SHARD_DIR}/manifest.json`;
 
 function readStage(stage, file) {
@@ -120,7 +120,9 @@ if (conflicted.includes(STATE_FILE)) {
   process.exit(1);
 }
 
-const shardConflicts = conflicted.filter((f) => SHARD_FILE_RE.test(f));
+const shardConflicts = conflicted.filter(
+  (f) => path.posix.dirname(f) === COMPAT_SHARD_DIR && SHARD_FILE_RE.test(path.posix.basename(f)),
+);
 const manifestConflict = conflicted.includes(MANIFEST_FILE);
 const legacyConflict = conflicted.includes(COMPAT_LEGACY_FILE);
 
