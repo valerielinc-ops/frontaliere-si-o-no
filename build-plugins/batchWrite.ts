@@ -35,9 +35,22 @@ export interface PendingWrite {
 
 /** Ensures parent directories exist (sync, cached) */
 const ensuredDirs = new Set<string>();
+// Many SEO emitters write millions of one-page directories during a single
+// build. Retaining every dirname here duplicated the path registry and grew
+// with the corpus even though most page directories are never revisited.
+// Keep a small LRU for the repeated section/shared directories instead.
+const MAX_ENSURED_DIR_CACHE_ENTRIES = 16_384;
 function ensureDir(dir: string) {
- if (ensuredDirs.has(dir)) return;
+ if (ensuredDirs.has(dir)) {
+  ensuredDirs.delete(dir);
+  ensuredDirs.add(dir);
+  return;
+ }
  fs.mkdirSync(dir, { recursive: true });
+ if (ensuredDirs.size >= MAX_ENSURED_DIR_CACHE_ENTRIES) {
+  const oldest = ensuredDirs.values().next().value;
+  if (oldest !== undefined) ensuredDirs.delete(oldest);
+ }
  ensuredDirs.add(dir);
 }
 
@@ -344,6 +357,19 @@ export class WriteCollector {
  /** True only for paths successfully written by this collector in this build. */
  hasWritten(filePath: string): boolean {
   return this._writtenPaths.has(filePath);
+ }
+
+ get writtenPathCount(): number {
+  return this._writtenPaths.size;
+ }
+
+ /**
+  * Release write acknowledgements after a caller has checked the paths it
+  * needs for a completed streaming-cache chunk. The collector can write
+  * millions of files, while those consumers only need the recent chunk.
+  */
+ forgetWrittenPaths(): void {
+  this._writtenPaths.clear();
  }
 
  private markWritten(writes: PendingWrite[]): void {
