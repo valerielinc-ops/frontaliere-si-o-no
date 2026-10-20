@@ -16,6 +16,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { isLanguageIntentQuestion } from '../../../../functions/src/lib/languageFacts.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
@@ -202,14 +203,26 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
-  const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '')
+  const sensitive = (raw.actions || []).filter((action) => isLanguageIntentQuestion(`${action.question || ''} ${boundedPortalContext(action.context)}`)
+    || SENSITIVE.test(action.question || '')
     || KNOCK_OUT.test(action.question || '')
     || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question, boundedPortalContext(action.context))));
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
+    const languageIntent = isLanguageIntentQuestion(`${action.question || ''} ${context}`);
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
     const addressTopic = questionTopic(action.question, context);
+    if (languageIntent) {
+      const previous = candidateAnswerForQuestion(candidate, action.question, context);
+      if (previous) {
+        if (action.action !== 'press') action.value = previous;
+        action.answer = previous;
+        action.source = 'answers';
+        grounded.add(questionKey(action.question, context));
+        continue;
+      }
+    }
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
       && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
@@ -229,22 +242,26 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     }
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
-    const knockOut = !SENSITIVE.test(action.question);
+    const knockOut = !languageIntent && !SENSITIVE.test(action.question);
     // A permit or nationality question: the candidate's own status or nationality as the catalogue words it, or
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const native = action.source !== 'widget' && nativeLanguageAnswerMatches(candidate, action.question, answer, context);
-    const fromCandidate = own !== null
-      ? own || answeredByCandidate(candidate, action.question, answer, context)
-      : knockOut
-        ? answeredByCandidate(candidate, action.question, answer, context)
-        : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
+    const fromCandidate = languageIntent
+      ? answeredByCandidate(candidate, action.question, answer, context)
+      : own !== null
+        ? own || answeredByCandidate(candidate, action.question, answer, context)
+        : knockOut
+          ? answeredByCandidate(candidate, action.question, answer, context)
+          : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || native || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(questionKey(action.question, context));
+    if (fromCandidate || (!languageIntent && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
+      grounded.add(questionKey(action.question, context));
+    }
   }
   const refused = new Set();
   for (const action of sensitive) {
@@ -298,6 +315,17 @@ async function describe(locator) {
 
 /** Why the action must not run on this element, or '' (the runner alone moves on and submits). */
 export function refusal(action, info) {
+  if (action.action === 'press' && isLanguageIntentQuestion(`${action.question || ''} ${action.context || ''}`)) {
+    return 'language_choice_keyboard_selection_unsupported';
+  }
+  if (action.action === 'click' && isLanguageIntentQuestion(`${action.question || ''} ${action.context || ''}`)) {
+    const normalize = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+    const expectedChoice = action.answer || action.value;
+    if (!normalize(expectedChoice) || normalize(expectedChoice) !== normalize(info.name)) {
+      return 'language_choice_target_mismatch';
+    }
+  }
   // On buttons and links only: a box "I confirm my data is complete" is ticked like any other.
   if (info.button && (action.action === 'click' || action.action === 'press')) {
     if (info.submits || FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) return 'final_submit_reserved';

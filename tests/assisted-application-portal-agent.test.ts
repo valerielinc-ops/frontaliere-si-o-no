@@ -82,6 +82,62 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(run.actions).toHaveLength(1);
   });
 
+  it('requires the candidate’s own answer for a language-intent question in a custom widget', async () => {
+    const question = 'Would you be willing to learn German?';
+    const candidate = {
+      answers: {},
+      profile: { languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const inferredFromProfile = guardAgentStep(turn('act', [act({
+      ref: 'e7', action: 'select', value: 'No', question, answer: 'No', source: 'profile', evidence: 'Italian C1',
+    })]), candidate);
+    expect(inferredFromProfile).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question })],
+    });
+
+    const answered = {
+      ...candidate,
+      portalQuestionsAnswered: [{ question, answer: 'Yes' }],
+    };
+    const reused = guardAgentStep(turn('act', [act({
+      ref: 'e7', action: 'select', value: 'Yes', question, answer: 'Yes', source: 'answers',
+    })]), answered);
+    expect(reused).toMatchObject({ status: 'act', questions: [] });
+    expect(reused.actions).toHaveLength(1);
+
+    const contextual = guardAgentStep(turn('act', [act({
+      ref: 'e8', action: 'click', value: 'No', question: 'German', context: question, answer: 'No', source: 'profile', evidence: 'Italian C1',
+    })]), answered);
+    expect(contextual).toMatchObject({ status: 'act', questions: [] });
+    expect(contextual.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'answers' })]);
+
+    let clicked = false;
+    const locator = {
+      evaluate: async () => ({ name: 'No', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { clicked = true; },
+    };
+    const result = await runAction({ locator: () => locator } as any, contextual.actions[0]);
+    expect(result).toEqual({ ok: false, error: 'language_choice_target_mismatch' });
+    expect(clicked).toBe(false);
+
+    const keyPress = guardAgentStep(turn('act', [act({
+      ref: 'e9', action: 'press', value: 'Enter', question: 'German', context: question, answer: 'No', source: 'profile', evidence: 'Italian C1',
+    })]), answered);
+    expect(keyPress.actions).toEqual([expect.objectContaining({ value: 'Enter', answer: 'Yes', source: 'answers' })]);
+
+    let pressed = false;
+    const keyboardLocator = {
+      evaluate: async () => ({ name: 'Yes', button: false, tag: 'div', inputType: '', editable: false, inList: true, submits: false, leaves: false }),
+      press: async () => { pressed = true; },
+    };
+    const unsafeKeyPress = await runAction({ locator: () => keyboardLocator } as any, keyPress.actions[0]);
+    expect(unsafeKeyPress).toEqual({ ok: false, error: 'language_choice_keyboard_selection_unsupported' });
+    expect(pressed).toBe(false);
+  });
+
   // Review of #10707: calling the answer a widget move must not get past the guard.
   it('runs a widget move on a sensitive question only when the page grounded it in the candidate data', () => {
     const empty = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
