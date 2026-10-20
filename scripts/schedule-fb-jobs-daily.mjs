@@ -325,7 +325,8 @@ export function buildJobHashtags(job) {
 
 /**
  * Read `data/fb-posted-jobs.json`. Returns `{schemaVersion:1, posted:[]}`
- * on missing file, malformed JSON, or shape mismatch — never throws.
+ * when the file is missing; malformed, schema-invalid, or unreadable ledgers
+ * throw so callers cannot lose deduplication state and republish old content.
  * Fixed-path wrapper around the generic `loadLedger`.
  */
 export function loadPosted(repoRoot) {

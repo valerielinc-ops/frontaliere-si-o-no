@@ -842,7 +842,7 @@ export function buildPromotionPrBody({
 
   return `## Implementato
 
-- **in questa PR** — ${shipped.length} crawler validati aggiunti ai manifest e alle schedule, con **${totalVacancies} annunci osservati** durante VALIDATE. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore}, ${stabilityRequirement}${stabilityClaim}, semantica provata su almeno il ${Math.round(GATE_DEFAULTS.minJobLikeEvidence * 100)}% del campione e identita' del datore confermata. Main segna il merge come \`awaiting_first_crawl\`; \`production\` richiede una slice \`jobs\` fresca e non vuota.
+- **in questa PR** — ${shipped.length} crawler validati aggiunti ai manifest e alle schedule, con **${totalVacancies} annunci osservati** durante VALIDATE. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore}, con **${stabilityRequirement}**${stabilityClaim}, semantica provata su almeno il ${Math.round(GATE_DEFAULTS.minJobLikeEvidence * 100)}% del campione e identita' del datore confermata. Main segna il merge come \`awaiting_first_crawl\`; \`production\` richiede una slice \`jobs\` fresca e non vuota.
 ${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${workflowNote}${companiesNote}
 
