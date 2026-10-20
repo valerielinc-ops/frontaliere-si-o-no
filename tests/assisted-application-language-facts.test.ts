@@ -40,6 +40,16 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     expect(languageExplicitlyAbsent(profile, question)).toBe(true);
     expect(candidateAnswerForField({ profile }, { kind: 'select', label: question, options: ['Yes', 'No'] }))
       .toEqual({ value: 'No', source: 'profile' });
+    expect(candidateAnswerForField({ profile }, {
+      kind: 'select', label: 'German', context: question, options: ['Yes', 'No'],
+    })).toEqual({ value: 'No', source: 'profile' });
+
+    const understand = 'Can you understand German?';
+    expect(isLanguageAbilityQuestion(understand)).toBe(true);
+    expect(languageExplicitlyAbsent(profile, understand)).toBe(true);
+    expect(isLanguageAbilityQuestion('Do you use Excel?')).toBe(false);
+    expect(isLanguageAbilityQuestion('Do you use English?')).toBe(true);
+    expect(isLanguageAbilityQuestion('Do you speak klingon?')).toBe(true);
 
     const french = 'Parlez-vous allemand ?';
     expect(isLanguageAbilityQuestion(french)).toBe(true);
@@ -50,6 +60,27 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     expect(isLanguageAbilityQuestion(capacity)).toBe(true);
     expect(isLanguageIntentQuestion(capacity)).toBe(false);
     expect(languageExplicitlyAbsent(profile, capacity)).toBe(true);
+
+    const unknownLanguageIntent = 'Would you be willing to learn Xhosa?';
+    expect(isLanguageAbilityQuestion(unknownLanguageIntent)).toBe(false);
+    expect(isLanguageIntentQuestion(unknownLanguageIntent)).toBe(true);
+    expect(languageExplicitlyAbsent(profile, unknownLanguageIntent)).toBe(false);
+    const lowercaseLanguageIntent = 'Espérez-vous apprendre le klingon ?';
+    expect(isLanguageIntentQuestion(lowercaseLanguageIntent)).toBe(true);
+    expect(languageExplicitlyAbsent(profile, lowercaseLanguageIntent)).toBe(false);
+    expect(isLanguageIntentQuestion('Are you interested in learning new skills?')).toBe(false);
+    expect(isLanguageIntentQuestion('Do you plan to speak with customers?')).toBe(false);
+  });
+
+  it('does not accept an ungrounded language answer when candidate data is unavailable', () => {
+    const field = { id: 'english', kind: 'select', label: 'Do you speak English?', required: true, options: ['Yes', 'No'] };
+    const guarded = guardPlan({
+      actions: [{ fieldId: 'english', action: 'select', value: 'Yes', document: 'none', source: 'rule', evidence: '' }],
+      missingRequired: [],
+    }, [field], null);
+
+    expect(guarded.actions).toEqual([]);
+    expect(guarded.missingRequired).toEqual([expect.objectContaining({ fieldId: 'english' })]);
   });
 
   it('keeps willingness-to-learn questions unknown in both draft and portal flows', () => {

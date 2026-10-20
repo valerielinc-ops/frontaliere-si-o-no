@@ -16,7 +16,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { isLanguageIntentQuestion } from '../../../../functions/src/lib/languageFacts.js';
+import { isLanguageAbilityQuestion, isLanguageIntentQuestion } from '../../../../functions/src/lib/languageFacts.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
@@ -68,6 +68,43 @@ const KEYS = new Set(['Enter', 'Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLe
 // A button with one of these words may send the application: only the runner presses it.
 export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm|apply|bewerb|candida|postul)/i;
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
+
+function normalizeOptionAnswer(value) {
+  return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+}
+
+function booleanOptionAnswer(value) {
+  const normalized = normalizeOptionAnswer(value);
+  if (/^(?:ja|si|yes|oui|vero|true)$/.test(normalized)) return true;
+  if (/^(?:nein|no|non|falso|false)$/.test(normalized)) return false;
+  return null;
+}
+
+function optionAnswerMatches(expected, target) {
+  const expectedBoolean = booleanOptionAnswer(expected);
+  const targetBoolean = booleanOptionAnswer(target);
+  if (expectedBoolean !== null && targetBoolean !== null) return expectedBoolean === targetBoolean;
+  const expectedLabel = normalizeOptionAnswer(expected);
+  return expectedLabel !== '' && expectedLabel === normalizeOptionAnswer(target);
+}
+
+function hasLanguageActionAnswer(action) {
+  if (action.action === 'click' && !String(action.answer || '').trim() && isWidgetNavigationTarget(action.value)) return false;
+  if (action.action === 'press' && !String(action.answer || '').trim()
+    && ['Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(action.value)) return false;
+  if (String(action.question || '').trim()) return true;
+  if (String(action.answer || '').trim()) return true;
+  return Boolean(String(action.value || '').trim());
+}
+
+function isWidgetNavigationTarget(value) {
+  const name = normalizeOptionAnswer(value);
+  return /^(?:open|show|expand|collapse|toggle|next|previous|back|close|more|options|dropdown|menu|list|search)\b/.test(name)
+    || /^(?:mehr anzeigen|weitere? optionen|optionen anzeigen|dropdown offnen|erweitern|anzeigen)/.test(name)
+    || /^(?:afficher|voir|plus d options|ouvrir|developper|options supplementaires)/.test(name)
+    || /^(?:apri|mostra|visualizza|altre opzioni|vedi altro|espandi|opzioni aggiuntive)/.test(name);
+}
 
 export const HINTS = {
   next_disabled: 'The deterministic filler filled the form controls it understood, but the button to the next step is missing or disabled: a question on this page is still unanswered (often a custom widget).',
@@ -188,6 +225,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
   const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
     || nativeLanguageKnown(candidate, question, context)
+    || (isLanguageAbilityQuestion(`${question} ${context}`)
+      && Boolean(candidateAnswerForField(candidate, { label: question, context, kind: 'text', options: [] })))
     || (isAddressTopic(questionTopic(question, context)) && Boolean(candidateAnswerForField(candidate, { label: question, context, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
@@ -203,13 +242,21 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
-  const sensitive = (raw.actions || []).filter((action) => isLanguageIntentQuestion(`${action.question || ''} ${boundedPortalContext(action.context)}`)
-    || SENSITIVE.test(action.question || '')
-    || KNOCK_OUT.test(action.question || '')
-    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question, boundedPortalContext(action.context))));
+  const sensitive = (raw.actions || []).filter((action) => {
+    const question = String(action.question || '').trim();
+    const context = boundedPortalContext(action.context);
+    const languagePrompt = `${question} ${context}`;
+    const languageAction = isLanguageIntentQuestion(languagePrompt) || isLanguageAbilityQuestion(languagePrompt);
+    return (languageAction && hasLanguageActionAnswer(action))
+      || SENSITIVE.test(question)
+      || KNOCK_OUT.test(question)
+      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context));
+  });
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
     const languageIntent = isLanguageIntentQuestion(`${action.question || ''} ${context}`);
+    const languageAbility = isLanguageAbilityQuestion(`${action.question || ''} ${context}`);
+    if (!String(action.question || '').trim() && (languageIntent || languageAbility)) action.question = context;
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
     const addressTopic = questionTopic(action.question, context);
@@ -219,6 +266,21 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         if (action.action !== 'press') action.value = previous;
         action.answer = previous;
         action.source = 'answers';
+        grounded.add(questionKey(action.question, context));
+        continue;
+      }
+    }
+    if (languageAbility) {
+      const profileAnswer = candidateAnswerForField(candidate, {
+        label: action.question,
+        context,
+        kind: 'text',
+        options: [],
+      });
+      if (profileAnswer) {
+        if (action.action !== 'press') action.value = profileAnswer.value;
+        action.answer = profileAnswer.value;
+        action.source = profileAnswer.source;
         grounded.add(questionKey(action.question, context));
         continue;
       }
@@ -242,12 +304,12 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     }
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
-    const knockOut = !languageIntent && !SENSITIVE.test(action.question);
+    const knockOut = !languageIntent && !languageAbility && !SENSITIVE.test(action.question);
     // A permit or nationality question: the candidate's own status or nationality as the catalogue words it, or
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const native = action.source !== 'widget' && nativeLanguageAnswerMatches(candidate, action.question, answer, context);
-    const fromCandidate = languageIntent
+    const fromCandidate = languageIntent || languageAbility
       ? answeredByCandidate(candidate, action.question, answer, context)
       : own !== null
         ? own || answeredByCandidate(candidate, action.question, answer, context)
@@ -259,7 +321,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || (!languageIntent && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
+    if (fromCandidate || (languageAbility && native)
+      || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
       grounded.add(questionKey(action.question, context));
     }
   }
@@ -315,15 +378,26 @@ async function describe(locator) {
 
 /** Why the action must not run on this element, or '' (the runner alone moves on and submits). */
 export function refusal(action, info) {
-  if (action.action === 'press' && isLanguageIntentQuestion(`${action.question || ''} ${action.context || ''}`)) {
+  const languagePrompt = `${action.question || ''} ${action.context || ''}`;
+  const languageIntent = isLanguageIntentQuestion(languagePrompt);
+  const languageAbility = isLanguageAbilityQuestion(languagePrompt);
+  if (action.action === 'press' && languageIntent) {
     return 'language_choice_keyboard_selection_unsupported';
   }
-  if (action.action === 'click' && isLanguageIntentQuestion(`${action.question || ''} ${action.context || ''}`)) {
-    const normalize = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
-    const expectedChoice = action.answer || action.value;
-    if (!normalize(expectedChoice) || normalize(expectedChoice) !== normalize(info.name)) {
-      return 'language_choice_target_mismatch';
+  if (action.action === 'press' && languageAbility && action.value === 'Enter') {
+    if (!String(action.answer || '').trim()) return 'language_answer_requires_candidate';
+    if (!optionAnswerMatches(action.answer, info.name)) return 'answer_option_mismatch';
+  }
+  if (action.action === 'click' && (languageIntent || languageAbility)) {
+    const hasQuestion = Boolean(String(action.question || '').trim());
+    const hasCandidateAnswer = Boolean(String(action.answer || '').trim());
+    if (!hasCandidateAnswer && isWidgetNavigationTarget(info.name)) {
+      return '';
+    }
+    if (!hasQuestion && !hasCandidateAnswer) {
+      return 'language_answer_requires_candidate';
+    } else if (!optionAnswerMatches(action.answer || action.value, info.name)) {
+      return 'answer_option_mismatch';
     }
   }
   // On buttons and links only: a box "I confirm my data is complete" is ticked like any other.
@@ -552,6 +626,14 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
         // Which document went into the form and how many of its files (the record of what left, submit.mjs).
         ...(action.action === 'upload' && result.ok ? { document: action.document, files: result.files || 1 } : {}),
       });
+      if (result.error === 'language_answer_requires_candidate') {
+        const context = boundedPortalContext(action.context);
+        return end({
+          status: 'needs_candidate',
+          questions: [{ question: questionFromLabel(action.question || context), context }],
+          calls: round,
+        });
+      }
       results.push({ ref: action.ref, action: action.action, value: action.value, question: action.question, ...result });
       if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, answer: action.answer || action.value, source: action.source });
       await page.waitForTimeout(400);

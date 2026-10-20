@@ -615,6 +615,12 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
       }).filter(Boolean))];
       const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
+      // An unidentifiable question gives the candidate nothing they can act
+      // on. Treat it as an unsupported portal stop so the owner can retry
+      // after the runner or portal changes, instead of sending a blank request.
+      if (questionIds.length === 0 && eventDocuments.length === 0) {
+        return transition(flow, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft, answers, documents, nowMs });
+      }
       const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
         if (!Object.prototype.hasOwnProperty.call(answers || {}, id)) return false;
         const answer = answers?.[id];

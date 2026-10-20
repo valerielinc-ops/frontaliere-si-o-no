@@ -9,6 +9,7 @@ const LANGUAGE_NAMES = {
   de: ['deutsch', 'tedesco', 'allemand', 'german'],
   en: ['englisch', 'inglese', 'anglais', 'english'],
   fr: ['französisch', 'franzoesisch', 'francese', 'français', 'francais', 'french'],
+  tlh: ['klingon'],
   it: ['italienisch', 'italiano', 'italien', 'italian'],
   es: ['español', 'espanol', 'spagnolo', 'spanisch', 'espagnol', 'spanish', 'castilian'],
   pt: ['português', 'portugues', 'portoghese', 'portugiesisch', 'portuguese'],
@@ -46,11 +47,13 @@ const LANGUAGE_NAMES = {
 };
 
 const LANGUAGE_SECTION_TITLE_RE = /^(?:languages?|spoken languages?|foreign languages?|language skills?|language proficiency|lingue?|lingue? parlate|lingue? straniere|conoscenze linguistiche|langues?|langues? parlees|langues? etrangeres|competences linguistiques|sprachen?|sprachkenntnisse|fremdsprachen)$/i;
-const LANGUAGE_PREFERENCE_RE = /\b(?:enjoy\w*|like\w*|love\w*|dislike\w*|fond\s+of|gern(?:e)?|lieb\w*|mog\w*|aim\w*|ador\w*|plais\w*|piac\w*|gust\w*|gost\w*)\b/i;
-const STRONG_LANGUAGE_INTENT_RE = /\b(?:willing(?:ness)?|learn\w*|study\w*|prefer\w*|interested|interest|want|plan\w*|hope|bereit|mocht\w*|woll\w*|soll\w*|lern\w*|apprend\w*|impar\w*|studier\w*|etudier\w*|dispos\w*|interess\w*|desir\w*|sper\w*|souhait\w*|vuoi|vuol\w*|vogli\w*|vorrei|vorrest\w*|voler\w*|voul\w*|voudr\w*|veu(?:x|t|lent)|pret\w*)\b/i;
+const LANGUAGE_PREFERENCE_RE = /\b(?:enjoy\w*|like\w*|love\w*|dislike\w*|fond\s+of|gern(?:e)?|lieb\w*|mog\w*|aim\w*|ador\w*|plais\w*|piac\w*|aimer\w*|gust\w*|gost\w*)\b/i;
+const STRONG_LANGUAGE_INTENT_RE = /\b(?:willing(?:ness)?|learn\w*|study\w*|prefer\w*|interested|interest|want|plan\w*|hope|bereit|mocht\w*|woll\w*|soll\w*|lern\w*|apprend\w*|impar\w*|studier\w*|etudier\w*|dispos\w*|interess\w*|desir\w*|esper\w*|sper\w*|souhait\w*|vuoi|vuol\w*|vogli\w*|vorrei|vorrest\w*|voler\w*|voul\w*|voudr\w*|veu(?:x|t|lent)|pret\w*)\b/i;
 const MODAL_LANGUAGE_INTENT_RE = /\b(?:would|will\w*|wurd\w*)\b/i;
 const LANGUAGE_CAPABILITY_AUX_RE = /\b(?:be\s+able(?:\s+to)?|able\s+to|can|could|kann\w*|konn\w*|pouv\w*|peux|peut|pode\w*|pued\w*|podr\w*|puoi|puo|posso|potete|consegue\w*)\b/i;
-const LANGUAGE_ABILITY_QUESTION_RE = /\b(?:speak(?:ing)?|spoken|sprech\w*|parl\w*|conosc\w*|connaiss\w*|kenntnis\w*|know(?:ledge)?|skill\w*|proficien(?:cy|t)|fluenc\w*|fluent|level|niveau|livello|ability|able|communicat\w*|written|writ\w*|oral|mundlich|schriftlich|ecrit|native|mother tongue|muttersprache|sprachkenntnis\w*|[abc][12])\b/i;
+const LANGUAGE_ABILITY_QUESTION_RE = /\b(?:speak(?:ing)?|spoken|understand\w*|use\w*|sprech\w*|parl\w*|conosc\w*|connaiss\w*|kenntnis\w*|know(?:ledge)?|skill\w*|proficien(?:cy|t)|fluenc\w*|fluent|level|niveau|livello|ability|able|communicat\w*|written|writ\w*|oral|mundlich|schriftlich|ecrit|native|mother tongue|muttersprache|sprachkenntnis\w*|[abc][12])\b/i;
+const LANGUAGE_CONTEXT_RE = /\b(?:language|languages|lingua|lingue|langue|langues|sprache|sprachen|fremdsprache|fremdsprachen|idioma|idiomas|linguagem|linguagens)\b/i;
+const UNKNOWN_LANGUAGE_TARGET_RE = /\b(?:learn\w*|study\w*|speak\w*|understand\w*|use\w*|sprech\w*|parl\w*|appr\w*|impar\w*|lern\w*|etudier\w*|habl\w*|estudi\w*)\s+(?:(?:the|a|an|le|la|les|der|die|das|un|une|el|los|las)\s+)?\p{Lu}[\p{L}]{2,}\b/u;
 
 const fold = (value) => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .replace(/ß/gi, 'ss').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
@@ -95,18 +98,21 @@ export function isLanguageAbilityQuestion(value) {
   const text = fold(value);
   if (LANGUAGE_PREFERENCE_RE.test(text) || STRONG_LANGUAGE_INTENT_RE.test(text)) return false;
   if (MODAL_LANGUAGE_INTENT_RE.test(text) && !LANGUAGE_CAPABILITY_AUX_RE.test(text)) return false;
-  return LANGUAGE_ABILITY_QUESTION_RE.test(text);
+  return LANGUAGE_ABILITY_QUESTION_RE.test(text)
+    && (languageCodesIn(text).length > 0 || LANGUAGE_CONTEXT_RE.test(text));
 }
 
 /** Whether a question asks about language intent rather than current ability. */
 export function isLanguageIntentQuestion(value) {
+  const raw = String(value ?? '');
   const text = fold(value);
   const namesLanguages = languageCodesIn(text).length > 0
-    || /\b(?:language|languages|lingua|lingue|langue|langues|sprache|sprachen|fremdsprache|fremdsprachen|idioma|idiomas|linguagem)\b/i.test(text);
+    || LANGUAGE_CONTEXT_RE.test(text);
   const preference = LANGUAGE_PREFERENCE_RE.test(text);
   const strongIntent = STRONG_LANGUAGE_INTENT_RE.test(text);
   const modalIntent = MODAL_LANGUAGE_INTENT_RE.test(text) && !LANGUAGE_CAPABILITY_AUX_RE.test(text);
-  return namesLanguages && (preference || strongIntent || modalIntent);
+  return (preference || strongIntent || modalIntent)
+    && (namesLanguages || UNKNOWN_LANGUAGE_TARGET_RE.test(raw));
 }
 
 export function explicitLanguageEntries(profile) {
