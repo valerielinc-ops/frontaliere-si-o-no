@@ -429,7 +429,8 @@ export function refusal(action, info) {
   if (action.action === 'click' && languageAction) {
     const hasQuestion = Boolean(String(action.question || '').trim());
     const hasCandidateAnswer = Boolean(String(action.answer || '').trim());
-    if (!hasQuestion && !hasCandidateAnswer && isWidgetNavigationTarget(info.name)) {
+    if (!hasQuestion && !hasCandidateAnswer
+      && (isWidgetNavigationTarget(action.value) || isWidgetNavigationTarget(info.name))) {
       return '';
     }
     if (!hasQuestion && !hasCandidateAnswer && languageLabelOnly && isAddLanguageTarget(info.name)) {
