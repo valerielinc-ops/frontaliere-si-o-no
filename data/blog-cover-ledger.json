@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 698,
+      "5": 699,
       "6": 5054
     },
-    "publishedCovers": 7435,
+    "publishedCovers": 7436,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -203741,6 +203741,39 @@
         "provider": "openai-codex",
         "assetId": "article-sezione-medicina-nucleare",
         "imageUrl": "/images/blog/article-sezione-medicina-nucleare.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-murales-pediatria-ksb-baden": {
+      "cover": "/images/blog/article-murales-pediatria-ksb-baden.webp",
+      "hash": "8157afec02039b08575562c77b457fb2a033a628795f9a8f66f0f18c40b8cc95",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "murales-pediatria-ksb-baden",
+          "category": "novita",
+          "date": "2026-10-20T12:20:50.431Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-murales-pediatria-ksb-baden.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-murales-pediatria-ksb-baden",
+        "imageUrl": "/images/blog/article-murales-pediatria-ksb-baden.webp",
         "evidence": "generated-engine-record"
       }
     }
