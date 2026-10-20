@@ -44,6 +44,7 @@ import {
 } from './lib/prospector/promotion-gate.mjs';
 import { loadSourceHostOwnership } from './lib/crawler-source-hosts.mjs';
 import { tenantHostOwner } from './lib/prospector/coverage.mjs';
+import { alignCandidateQualityContractVersion, qualityContractVersionOf } from './lib/prospector/quality-contract.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
@@ -151,8 +152,12 @@ if (onlyKey) specs = specs.filter((s) => s.companyKey === onlyKey);
 // logo/jobLike mai misurati. Chi non puo' piu' avanzare non deve competere
 // per lo slot con chi puo'.
 const DONE_STATUSES = new Set(['production', 'promoting', 'rejected', 'dead']);
+// ALIGN the version even for a promoting candidate, which is skipped here while
+// its PR is open. If that PR closes, PROMOTE requeues it using this new version
+// and cannot reuse validation history from the older quality contract.
 specs = specs.filter((s) => {
   const c = candidateForSpec(s);
+  alignCandidateQualityContractVersion(c, s);
   return !c || !DONE_STATUSES.has(c.status) || canRevalidateRejectedCandidate(s, c);
 });
 
@@ -291,6 +296,7 @@ for (const spec of specs) {
     report = failedQualityReport(spec, vacancies, err);
   }
   report.companyName = spec.companyName;
+  report.qualityContractVersion = qualityContractVersionOf(spec);
   report.companyHost = spec.companyHost;
   report.platform = spec.platform || null;
   report.mode = spec.mode;
@@ -370,6 +376,7 @@ for (const spec of specs) {
     const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
     history.push({
       at: new Date().toISOString(),
+      qualityContractVersion: report.qualityContractVersion,
       score: report.score,
       verdict: report.verdict,
       runtimeSnapshotComplete: report.runtimeSnapshotComplete,
@@ -413,6 +420,7 @@ for (const spec of specs) {
         ? { reason: qualityProblems[0] || 'rivalutazione source adapter respinta' }
         : {}),
       detailEnrichment: spec.detailEnrichment === true,
+      qualityContractVersion: report.qualityContractVersion,
       qualityScore: report.score,
       qualityVerdict: report.verdict,
       qualityProblems,

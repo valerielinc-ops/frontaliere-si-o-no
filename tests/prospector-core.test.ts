@@ -43,6 +43,7 @@ import {
   GATE_DEFAULTS,
   passesSourceBackedLocationRate,
 } from '../scripts/lib/prospector/promotion-gate.mjs';
+import { alignCandidateQualityContractVersion } from '../scripts/lib/prospector/quality-contract.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   constantPostalLocations,
@@ -1843,6 +1844,30 @@ describe('promotion gate', () => {
     expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 0.5 })).toBe('validated');
     expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 1 })).toBe('promoted');
     expect(candidateStatusAfterValidation({ verdict: 'bad', locationSourceRate: 1 })).toBe('rejected');
+  });
+
+  it('requires two distinct days under the candidate quality contract version', () => {
+    const candidate = graded(3, { qualityContractVersion: 2 });
+    candidate.validationHistory[0].qualityContractVersion = 1;
+    candidate.validationHistory[1].qualityContractVersion = 1;
+    candidate.validationHistory[2].qualityContractVersion = 2;
+
+    const firstCurrentContractRun = evaluatePromotion(candidate);
+    expect(firstCurrentContractRun.passed).toBe(false);
+    expect(firstCurrentContractRun.checks.runs).toBe(false);
+    expect(firstCurrentContractRun.checks.days).toBe(false);
+
+    candidate.validationHistory.push({
+      ...candidate.validationHistory[2],
+      at: '2026-08-13T03:00:00Z',
+    });
+    expect(evaluatePromotion(candidate).passed).toBe(true);
+  });
+
+  it('stamps a non-default spec quality contract on an in-flight candidate', () => {
+    const candidate = { status: 'promoting' };
+    expect(alignCandidateQualityContractVersion(candidate, { qualityContractVersion: 2 })).toBe(2);
+    expect(candidate.qualityContractVersion).toBe(2);
   });
 
   it('ships a candidate proven on two distinct days', () => {

@@ -45,7 +45,12 @@ import { gradeJobLike } from '../job-like.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 import { selectValidationSample } from './validation-sample.mjs';
-import { isGenericVacancyTitle, rawDetailTitleEvidence } from './production-title.mjs';
+import { qualityContractVersionOf } from './quality-contract.mjs';
+import {
+  isGenericVacancyTitle,
+  rawDetailTitleEvidence,
+  vacancyTitleFromDocumentTitle,
+} from './production-title.mjs';
 
 /**
  * Whether a fetched body is text we can actually read.
@@ -322,7 +327,8 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   const independentTitleCandidates = [
     { title: listingTitle, source: 'listing' },
     { title: rawTitles.rawH1Title, source: 'raw_h1' },
-    { title: rawTitles.rawDocumentTitle, source: 'raw_document_title' },
+    { title: rawTitles.rawOpenGraphTitle, source: 'raw_open_graph' },
+    { title: vacancyTitleFromDocumentTitle(rawTitles.rawDocumentTitle), source: 'raw_document_title' },
   ].filter(({ title }) => title && !isGenericVacancyTitle(title));
   const titleProof = independentTitleCandidates
     .map((candidate) => ({ ...candidate, match: tokenOverlap(finalTitle, candidate.title) }))
@@ -331,6 +337,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
   out.listingTitle = listingTitle;
   out.detailTitle = titleEvidence.detailTitle || detail.title || '';
   out.rawH1Title = rawTitles.rawH1Title;
+  out.rawOpenGraphTitle = rawTitles.rawOpenGraphTitle;
   out.rawDocumentTitle = rawTitles.rawDocumentTitle;
   out.finalTitle = finalTitle;
   out.recordedFinalTitle = recordedFinalTitle;
@@ -367,6 +374,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
 /**
  * @typedef {Object} QualityReport
  * @property {string} companyKey
+ * @property {number} qualityContractVersion
  * @property {number} vacancyCount
  * @property {number} sampled
  * @property {number} reachableRate
@@ -387,7 +395,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
 /**
  * Grade a whole spec's output.
  *
- * @param {{ companyKey: string }} spec
+ * @param {{ companyKey: string, qualityContractVersion?: number }} spec
  * @param {any[]} vacancies
  * @param {{ sampleSize?: number, goodAt?: number, weakAt?: number, fetchImpl?: typeof fetch, lookupImpl?: any, sleepImpl?: (ms: number) => Promise<unknown>, detailExtractor?: (html: string, url: string) => any, observedDetailsByUrl?: Map<string, any>, requireObservedDetails?: boolean, titleEvidenceByUrl?: Map<string, any>, runtimeObservation?: Record<string, any>, sampleDate?: Date|string|number }} [opts]
  * @returns {Promise<QualityReport>}
@@ -498,6 +506,7 @@ export async function gradeExtraction(spec, vacancies, opts = {}) {
 
   return {
     companyKey: spec.companyKey,
+    qualityContractVersion: qualityContractVersionOf(spec),
     vacancyCount: vacancies.length,
     sampled: graded.length,
     reachableRate: Number(reachableRate.toFixed(3)),

@@ -24,6 +24,7 @@
  */
 
 import { tenantHostOwner } from './coverage.mjs';
+import { qualityContractVersionOf } from './quality-contract.mjs';
 
 /** @typedef {{ passed: boolean, reasons: string[], checks: Record<string, boolean> }} GateResult */
 
@@ -154,10 +155,13 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   // A generic runSpec grading cannot establish stability for a candidate that
   // now uses a dedicated source adapter. Keep both the two-day proof and the
   // latest quality measurements on that adapter's history.
+  const qualityContractVersion = qualityContractVersionOf(candidate);
+  const compatibleHistory = validationHistory.filter((entry) =>
+    qualityContractVersionOf(entry) === qualityContractVersion);
   const sourceAdapterVersion = String(candidate.sourceAdapterVersion || '').trim();
   const history = sourceAdapterVersion
-    ? validationHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
-    : validationHistory;
+    ? compatibleHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
+    : compatibleHistory;
   const lastIncompleteIndex = history.findLastIndex((entry) => entry.runtimeSnapshotComplete === false);
   const stabilityHistory = history.slice(lastIncompleteIndex + 1);
   const good = stabilityHistory.filter((h) => h.verdict === 'good');

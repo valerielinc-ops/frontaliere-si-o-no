@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 import { observeSpecInProduction, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { gradeExtraction, gradeVacancy } from '../scripts/lib/prospector/validate.mjs';
-import { isGenericVacancyTitle, selectPublishableTitle } from '../scripts/lib/prospector/production-title.mjs';
+import { isGenericVacancyTitle, rawDetailTitleEvidence, selectPublishableTitle } from '../scripts/lib/prospector/production-title.mjs';
 import { selectValidationSample } from '../scripts/lib/prospector/validation-sample.mjs';
 import { prioritizeValidationSpecs } from '../scripts/lib/prospector/validation-schedule.mjs';
 import { reconcileOpenPromotions } from '../scripts/lib/prospector/promotion-reconciliation.mjs';
@@ -84,10 +84,129 @@ function fixtureSpec({
 }
 
 describe('Prospector production validation', () => {
+  it('reads Open Graph title regardless of meta attribute order', () => {
+    expect(rawDetailTitleEvidence('<meta property="og:title" content="Senior Engineer">').rawOpenGraphTitle)
+      .toBe('Senior Engineer');
+    expect(rawDetailTitleEvidence('<meta content="Senior Engineer" property="og:title">').rawOpenGraphTitle)
+      .toBe('Senior Engineer');
+    expect(rawDetailTitleEvidence('<meta content="Senior Engineer" name="og:title">').rawOpenGraphTitle)
+      .toBe('Senior Engineer');
+    expect(rawDetailTitleEvidence('<meta property="og:title" content="Senior > Engineer">').rawOpenGraphTitle)
+      .toBe('Senior > Engineer');
+  });
+
   it('keeps a valid listing title when the detail H1 is generic chrome', () => {
     expect(isGenericVacancyTitle('Header')).toBe(true);
     expect(selectPublishableTitle('Header', 'Platform Engineer')).toBe('Platform Engineer');
     expect(selectPublishableTitle('Jobs', 'Offene Stellen')).toBe('');
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', ['Mehr erfahren', 'Careers | Employer']))
+      .toBe('');
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', ['', 'Disposition Küche - Jobportal | Hans Eisenring']))
+      .toBe('Disposition Küche');
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', 'Careers | Employer')).toBe('');
+  });
+
+  it('uses the detail title and labelled workplace when listing data contains CTAs and a company address', async () => {
+    const seed = 'https://hanseisenring.ch/unternehmen/karriere/jobportal';
+    const roles = [
+      { slug: 'disposition-kueche', title: 'Disposition Küche', locality: 'Münchwilen', canton: 'TG' },
+      { slug: 'sachbearbeitung-servicecenter', title: 'Sachbearbeitung Servicecenter', locality: 'Wängi', canton: 'TG' },
+      { slug: 'projektleitung-abacus', title: 'Projektleitung Abacus', locality: 'Oensingen', canton: 'SO' },
+      { slug: 'servicetechnik-ostschweiz', title: 'Servicetechnik', locality: 'Einsatzgebiet Ostschweiz oder Region Zürich', canton: '' },
+    ];
+    const urls = roles.map(({ slug }) => `${seed}/${slug}`);
+    const detailsByUrl = new Map(roles.map((role, index) => {
+      const structuredPosting = {
+        '@type': 'JobPosting',
+        title: 'Mehr erfahren',
+        description: DESCRIPTION,
+        jobLocation: {
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Sirnach',
+            addressRegion: 'TG',
+            addressCountry: 'CH',
+          },
+        },
+      };
+      const body = `<html><head><title>${role.title} - Jobportal - Karriere - Unternehmen | Hans Eisenring</title>
+        <meta property="og:title" content="${role.title}" /></head><body>
+        <main><script type="application/ld+json">${JSON.stringify(structuredPosting)}</script>
+        <div><h3>Arbeitsort</h3><div class="c-bodytext"><p>${role.locality}${role.canton ? ` (${role.canton})` : ''}</p></div></div>
+        <p>${DESCRIPTION}</p><p>Aufgaben und Anforderungen für ${role.title}.</p></main></body></html>`;
+      return [urls[index], body];
+    }));
+    const listing = roles.map((_, index) => `<a href="${urls[index]}">Mehr erfahren</a>`).join('\n');
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === seed) return new Response(listing);
+      const body = detailsByUrl.get(url);
+      if (body) return new Response(body);
+      throw new Error(`unexpected fixture URL: ${url}`);
+    };
+    const spec = {
+      companyKey: 'hanseisenring',
+      companyName: 'Hans Eisenring AG',
+      companyHost: 'hanseisenring.ch',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/unternehmen/karriere/jobportal/*',
+      detailEnrichment: true,
+      detailLocationLabel: 'Arbeitsort',
+      qualityContractVersion: 2,
+      detailFetchWorkers: 3,
+    } as any;
+    const runtime = {
+      fetchImpl,
+      lookupImpl: async () => PUBLIC_IP,
+      sleepImpl: async () => {},
+      hostDelayMs: 0,
+      retries: 0,
+      jinaRetries: 0,
+      disableWafProxy: true,
+    };
+
+    expect(isGenericVacancyTitle('Mehr erfahren')).toBe(true);
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', ['Disposition Küche']))
+      .toBe('Disposition Küche');
+
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, runtime);
+      const publishableRoles = roles.filter((role) => role.canton);
+      expect(observed.vacancies.map((vacancy) => vacancy.title)).toEqual(publishableRoles.map((role) => role.title));
+      expect([...observed.titleEvidenceByUrl.values()].map((evidence) => evidence.titleSource))
+        .toEqual(['raw_open_graph', 'raw_open_graph', 'raw_open_graph']);
+      expect(observed.vacancies.map((vacancy) => vacancy.location))
+        .toEqual(publishableRoles.map((role) => role.locality));
+      expect(observed.vacancies.map((vacancy) => vacancy.canton))
+        .toEqual(publishableRoles.map((role) => role.canton));
+      expect(observed.observation.dropCounts).toMatchObject({ source_backed_geography_missing: 1 });
+
+      const report = await gradeExtraction(spec, observed.vacancies, {
+        sampleSize: 3,
+        runtimeObservation: observed.observation,
+        observedDetailsByUrl: observed.detailPagesByUrl,
+        titleEvidenceByUrl: observed.titleEvidenceByUrl,
+        sampleDate: '2026-10-20T12:00:00.000Z',
+        lookupImpl: async () => PUBLIC_IP,
+        fetchImpl,
+        sleepImpl: async () => {},
+      });
+      expect(report).toMatchObject({
+        qualityContractVersion: 2,
+        vacancyCount: 3,
+        sampled: 3,
+        titleMatchRate: 1,
+        locationSourceRate: 0.75,
+        verdict: 'good',
+      });
+      expect(report.samples.every((sample) => sample.titleEvidenceSource === 'raw_open_graph' && sample.titleMatch === 1))
+        .toBe(true);
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
   });
 
   it('grades the production output, counts unexpected geography drops, and rejects an incomplete snapshot', async () => {
