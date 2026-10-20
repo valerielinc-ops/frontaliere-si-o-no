@@ -1,0 +1,22 @@
+{
+  "companyKey": "css-ch",
+  "companyName": "CSS",
+  "companyHost": "css.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.css.ch/fr/a-propos-de-css/travailler/employeur/diversite.html"
+  ],
+  "detailTemplate": "/fr/a-propos-de-css/travailler/carriere-evolution/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Possibilités d’entrée",
+    "Environnements professionnels",
+    "Développement & formation continue"
+  ],
+  "canton": "LU",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-20T09:31:17.894Z"
+}

@@ -84,6 +84,12 @@ import {
   handleAssistedApplicationSumUpWebhook,
   runAssistedApplicationSumUpReconciliation,
 } from './src/assistedApplicationSumupWebhook.js';
+import {
+  handleCreateSumUpPaymentTestCheckout,
+  handleGetSumUpPaymentTestStatus,
+  handleSumUpPaymentTestWebhook,
+  SUMUP_PAYMENT_TEST_ORIGINS,
+} from './src/sumupPaymentTest.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { handleCreateApplicationConciergeCheckout } from './src/applicationConciergeCheckout.js';
 import {
@@ -2146,6 +2152,72 @@ export const sumupAssistedApplicationWebhook = onRequest(
     } catch (error) {
       console.error(
         '[sumupAssistedApplicationWebhook]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Isolated sandbox checkout for validating SumUp's Google Pay widget. It uses
+// its own Firestore ledger and webhook so a simulated payment cannot enter the
+// production assisted-application workflow.
+export const createSumUpPaymentTestCheckout = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: SUMUP_PAYMENT_TEST_ORIGINS,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleCreateSumUpPaymentTestCheckout(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[createSumUpPaymentTestCheckout]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(502).json({ ok: false, error: 'sandbox_checkout_unavailable' });
+    }
+  },
+);
+
+export const getSumUpPaymentTestStatus = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 15,
+    cors: SUMUP_PAYMENT_TEST_ORIGINS,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleGetSumUpPaymentTestStatus(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[getSumUpPaymentTestStatus]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+export const sumupPaymentTestWebhook = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: false,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleSumUpPaymentTestWebhook(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[sumupPaymentTestWebhook]',
         error instanceof Error ? error.message : String(error),
       );
       res.status(500).json({ ok: false, error: 'internal_error' });

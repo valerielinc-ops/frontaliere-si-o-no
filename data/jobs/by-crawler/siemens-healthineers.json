@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-10-19T21:32:54.714Z",
+  "assembledAt": "2026-10-20T09:26:37.407Z",
   "jobs": [
     {
       "id": "siemens-healthineers-f64c15516f90",
@@ -34,7 +34,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:32:47.936Z",
+      "crawledAt": "2026-10-20T09:26:30.409Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:32:47.218Z",
+      "crawledAt": "2026-10-20T09:26:29.650Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:32:46.541Z",
+      "crawledAt": "2026-10-20T09:26:28.938Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -324,7 +324,7 @@
         }
       },
       "postalCode": "5400",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -6,6 +6,9 @@ const remoteConfig = vi.hoisted(() => vi.fn(async (key: string) => {
     SUMUP_API_KEY: 'sup_sk_test',
     SUMUP_MERCHANT_CODE: 'MC_TEST',
     SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
+    SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
+    SUMUP_SANDBOX_MERCHANT_CODE: 'MC_SANDBOX_TEST',
+    SUMUP_SANDBOX_PAYMENT_TEST_WEBHOOK_URL: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
   };
   return values[key] || '';
 }));
@@ -20,6 +23,7 @@ vi.stubGlobal('fetch', fetchMock);
 const {
   createSumUpAssistedApplicationCheckout,
   createSumUpApplicationConciergeCheckout,
+  createSumUpPaymentTestCheckout,
   getAssistedApplicationPaymentProvider,
   latestSumUpTransaction,
   refundSumUpTransaction,
@@ -34,6 +38,9 @@ beforeEach(() => {
       SUMUP_API_KEY: 'sup_sk_test',
       SUMUP_MERCHANT_CODE: 'MC_TEST',
       SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
+      SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
+      SUMUP_SANDBOX_MERCHANT_CODE: 'MC_SANDBOX_TEST',
+      SUMUP_SANDBOX_PAYMENT_TEST_WEBHOOK_URL: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
     };
     return values[key] || '';
   });
@@ -115,6 +122,31 @@ describe('SumUp assisted-application payment client', () => {
       redirect_url: 'https://frontaliereticino.ch/concierge?order=concierge-1',
     }));
     expect(JSON.parse(fetchMock.mock.calls[0][1].body)).not.toHaveProperty('hosted_checkout');
+  });
+
+  it('creates an isolated 1.99 EUR sandbox checkout for Google Pay testing', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => ({ id: 'sumup_sandbox_checkout_1' }),
+    });
+
+    await expect(createSumUpPaymentTestCheckout({
+      testId: '11111111-1111-4111-8111-111111111111',
+      redirectUrl: 'https://frontaliere-ticino.web.app/google-pay-sumup-test.html',
+    })).resolves.toEqual({ id: 'sumup_sandbox_checkout_1' });
+
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toBe('https://api.sumup.com/v0.1/checkouts');
+    expect(init.headers.Authorization).toBe('Bearer sup_sk_sandbox_test');
+    expect(JSON.parse(init.body)).toEqual({
+      amount: 1.99,
+      checkout_reference: 'google-pay-test-11111111-1111-4111-8111-111111111111',
+      currency: 'EUR',
+      description: 'Google Pay sandbox test',
+      merchant_code: 'MC_SANDBOX_TEST',
+      redirect_url: 'https://frontaliere-ticino.web.app/google-pay-sumup-test.html',
+      return_url: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
+    });
   });
 
   it('re-fetches a checkout and supports full refunds through the SumUp API', async () => {

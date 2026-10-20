@@ -1,7 +1,7 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-10-19T21:17:28.109Z",
+  "generatedAt": "2026-10-20T09:18:58.729Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 35118,
-  "avgDurationMs": 35118,
+  "durationMs": 34436,
+  "avgDurationMs": 34436,
   "durationHistory": [
-    35118
+    34436
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:17:02.166Z",
+      "crawledAt": "2026-10-20T09:18:34.706Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,7 +80,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:17:15.438Z",
+      "crawledAt": "2026-10-20T09:18:48.257Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,7 +121,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:17:13.574Z",
+      "crawledAt": "2026-10-20T09:18:46.305Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -162,7 +162,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-100-fixed-term-contract-permanent-opportunity_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:16:58.037Z",
+      "crawledAt": "2026-10-20T09:18:30.476Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,7 +203,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:16:57.066Z",
+      "crawledAt": "2026-10-20T09:18:29.397Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -244,7 +244,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:16:55.581Z",
+      "crawledAt": "2026-10-20T09:18:28.368Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -274,5 +274,5 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }

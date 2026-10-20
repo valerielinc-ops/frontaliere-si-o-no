@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kone",
-  "assembledAt": "2026-10-19T21:54:50.517Z",
+  "assembledAt": "2026-10-20T09:30:16.242Z",
   "jobs": [
     {
       "id": "kone-5845ef254b6b",
@@ -34,7 +34,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Brttisellen/Servicetechniker-in-Aufzge--Gebiet-Luzern_R0662101",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:54:43.714Z",
+      "crawledAt": "2026-10-20T09:30:11.782Z",
       "addressLocality": "Brüttisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://kone.wd3.myworkdayjobs.com/en-US/Careers/job/Bern/Verkaufsberater-in-Neuanlagen---Region-Bern_R0663874",
       "source": "KONE Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:54:42.895Z",
+      "crawledAt": "2026-10-20T09:30:10.683Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -245,7 +245,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8306"
+      "postalCode": "8306",
+      "crawlerMissStreak": 1
     },
     {
       "id": "kone-c33bdde14917",
@@ -327,7 +328,7 @@
         }
       },
       "postalCode": "1003",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

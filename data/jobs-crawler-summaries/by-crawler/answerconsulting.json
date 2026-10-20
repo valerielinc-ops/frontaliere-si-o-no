@@ -1,7 +1,7 @@
 {
   "key": "answerconsulting",
   "label": "AnswerConsulting SA",
-  "generatedAt": "2026-10-19T21:25:41.643Z",
+  "generatedAt": "2026-10-20T09:25:19.769Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2914,
-  "avgDurationMs": 2914,
+  "durationMs": 3069,
+  "avgDurationMs": 3069,
   "durationHistory": [
-    2914
+    3069
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://apply.workable.com/answermodules/j/096C324702/",
       "source": "AnswerConsulting Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:25:25.405Z",
+      "crawledAt": "2026-10-20T09:25:06.010Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "Ticino",
       "streetAddress": "Via Penate 4",
@@ -69,5 +69,5 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lwphr",
-  "assembledAt": "2026-10-19T21:15:38.574Z",
+  "assembledAt": "2026-10-20T09:17:24.731Z",
   "jobs": [
     {
       "title": "Mansioni principali:",
@@ -36,12 +36,21 @@
         "fr": "Au nom d'une réalité industrielle structurée à inclure dans le département de la production, nous recherchons un/un : La ressource sera responsable de l'organisation et de la coordination des activités de production de son propre ministère, assurant le respect des normes de qualité, des volumes de production et des prévisions.\n\nBlessures principales\n\n• Coordonner et organiser les activités quotidiennes du service de montage,\n\nplanification du travail et répartition des activités entre les employés.\n\n• Superviser le personnel, encourager la formation et le perfectionnement professionnel.\n\n• Veiller au respect des normes de qualité, des objectifs de production et\n\ndélais.\n\n• Analyser tout problème technique et déterminer les mesures correctives, y compris :\n\nsignaler les plaintes des clients.\n\n• Promouvoir l'amélioration continue des processus de production.\n\n• Assurer le respect des normes de sécurité et des normes d'ordre et de nettoyage\n\nDans le département.\n\nExigences:\n\n• Expérience professionnelle en mécatronique, mécanique ou électronique,\n\navec une formation technique reconnue.\n\n• Expérience dans la gestion et la coordination des employés.\n\n• Bonne connaissance du SAP et du paquet MS Office.\n\n• Bonne connaissance de l'anglais.\n\n• Disponibilité du travail par équipes.\n\n• Compétences organisationnelles, précision, ponctualité et disponibilité\n\nproblèmes.\n\nIls constituent un titre préférentiel:\n\n• Expérience en gestion de projet et en outillage.\n\n• Connaissance et application des outils et méthodologies Lean.\n\nLes candidats/parties concernés et conformément aux exigences décrites peuvent soumettre leur demande, y joindre le curriculum vitae actualisé et la documentation d'utilisation. Elle ne sera donnée qu'aux profils jugés appropriés et répondant aux caractéristiques requises."
       },
       "slugByLocale": {
-        "en": "main-injuries-lwp-ledermann-wieting-partners",
         "it": "mansioni-principali-lwp-ledermann-wieting-partners-switzerland",
+        "en": "main-injuries-lwp-ledermann-wieting-partners",
         "de": "hauptverletzungen-lwp-ledermann-wieting-partners",
-        "fr": "blessures-principales-lwp-ledermann-wieting-partners"
+        "fr": "mansioni-principali-lwp-ledermann-wieting-partners"
       },
       "id": "lwphr-1e0e2eaa71b7",
+      "firstSeenAt": "2026-10-19T21:15:35.245Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "blessures-principales-lwp-ledermann-wieting-partners"
+        ]
+      },
+      "previousSlugs": [
+        "blessures-principales-lwp-ledermann-wieting-partners"
+      ],
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -55,8 +64,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-19T21:15:35.245Z"
+      }
     },
     {
       "title": "(preferibile) o Architettura;",
@@ -377,9 +385,9 @@
       },
       "slugByLocale": {
         "it": "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-ticino",
-        "en": "the-commission-shall-adopt-delegated-acts-in-accordance-with-article-21-in-accordance-with-article-21-lwp-ledermann",
-        "de": "full-stack-entwickler-lwp-ledermann-wieting-partners-lugano",
-        "fr": "full-stack-developpeur-lwp-ledermann-wieting-partners-lugano"
+        "en": "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-st-moritz",
+        "de": "beziehungsverwalter-oder-private-banke-lwp-ledermann-wieting-partners-st-moritz",
+        "fr": "gestionnaires-des-relations-ou-banques-privees-lwp-ledermann-wieting-partners-st-moritz"
       },
       "id": "lwphr-829c46db14ab",
       "previousSlugsByLocale": {
@@ -387,23 +395,24 @@
           "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-st-moritz"
         ],
         "en": [
-          "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-st-moritz"
+          "the-commission-shall-adopt-delegated-acts-in-accordance-with-article-21-in-accordance-with-article-21-lwp-ledermann"
         ],
         "de": [
           "beziehungsverwalter-oder-private-banke-lwp-ledermann-wieting-partners-ticino",
-          "beziehungsverwalter-oder-private-banke-lwp-ledermann-wieting-partners-st-moritz"
+          "full-stack-entwickler-lwp-ledermann-wieting-partners-lugano"
         ],
         "fr": [
           "gestionnaires-des-relations-ou-banques-privees-lwp-ledermann-wieting-partners-ticino",
-          "gestionnaires-des-relations-ou-banques-privees-lwp-ledermann-wieting-partners-st-moritz"
+          "full-stack-developpeur-lwp-ledermann-wieting-partners-lugano"
         ]
       },
       "previousSlugs": [
         "beziehungsverwalter-oder-private-banke-lwp-ledermann-wieting-partners-ticino",
         "gestionnaires-des-relations-ou-banques-privees-lwp-ledermann-wieting-partners-ticino",
         "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-st-moritz",
-        "beziehungsverwalter-oder-private-banke-lwp-ledermann-wieting-partners-st-moritz",
-        "gestionnaires-des-relations-ou-banques-privees-lwp-ledermann-wieting-partners-st-moritz"
+        "the-commission-shall-adopt-delegated-acts-in-accordance-with-article-21-in-accordance-with-article-21-lwp-ledermann",
+        "full-stack-entwickler-lwp-ledermann-wieting-partners-lugano",
+        "full-stack-developpeur-lwp-ledermann-wieting-partners-lugano"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T22:04:42.089Z",
@@ -459,7 +468,7 @@
       "slugByLocale": {
         "it": "esperta-fiscale-lwp-ledermann-wieting-partners-lugano",
         "en": "web-developer-lwp-ledermann-wieting-partners-lugano",
-        "de": "consulente-verkauf-lwp-ledermann-wieting-partners-mendrisio",
+        "de": "fiscal-expert-lwp-ledermann-wieting-partners",
         "fr": "full-stack-developpeur-lwp-ledermann-wieting-partners-lugano"
       },
       "id": "lwphr-790cda812087",
@@ -473,7 +482,7 @@
         "de": [
           "esperta-fiscale-lwp-ledermann-wieting-partners-switzerland",
           "esperta-fiscale-lwp-ledermann-wieting-partners",
-          "fiscal-expert-lwp-ledermann-wieting-partners"
+          "consulente-verkauf-lwp-ledermann-wieting-partners-mendrisio"
         ],
         "fr": [
           "esperta-fiscale-lwp-ledermann-wieting-partners-switzerland"
@@ -482,7 +491,7 @@
       "previousSlugs": [
         "esperta-fiscale-lwp-ledermann-wieting-partners-switzerland",
         "esperta-fiscale-lwp-ledermann-wieting-partners",
-        "fiscal-expert-lwp-ledermann-wieting-partners"
+        "consulente-verkauf-lwp-ledermann-wieting-partners-mendrisio"
       ],
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,
@@ -1049,9 +1058,9 @@
       },
       "slugByLocale": {
         "it": "specialista-contabile-lwp-ledermann-wieting-partners-lugano",
-        "en": "contact-specialist-lwp-ledermann-wieting-partners-lugano",
-        "de": "kontaktspezialist-lwp-ledermann-wieting-partners-lugano",
-        "fr": "specialiste-de-contacter-lwp-ledermann-wieting-partners-lugano"
+        "en": "for-important-financial-company-in-luganese-we-look-for-the-following-figure-lwp-ledermann-wieting-partners-lugano",
+        "de": "fur-ein-wichtiges-finanzunternehmen-in-luganese-suchen-wir-folgende-zahl-lwp-ledermann-wieting-partners-lugano",
+        "fr": "pour-une-importante-societe-financiere-a-luganese-nous-recherchons-le-chiffre-suivant-lwp-ledermann-wieting-partners-lugano"
       },
       "id": "lwphr-7e4dc64de101",
       "previousSlugsByLocale": {
@@ -1062,25 +1071,25 @@
         "en": [
           "specialista-contabile-lwp-ledermann-wieting-partners-switzerland",
           "per-importante-societa-finanziaria-nel-luganese-ricerchiamo-la-seguente-figura-lwp-ledermann-wieting-partners-lugano",
-          "for-important-financial-company-in-luganese-we-look-for-the-following-figure-lwp-ledermann-wieting-partners-lugano"
+          "contact-specialist-lwp-ledermann-wieting-partners-lugano"
         ],
         "de": [
           "specialista-contabile-lwp-ledermann-wieting-partners-switzerland",
           "per-importante-societa-finanziaria-nel-luganese-ricerchiamo-la-seguente-figura-lwp-ledermann-wieting-partners-lugano",
-          "fur-ein-wichtiges-finanzunternehmen-in-luganese-suchen-wir-folgende-zahl-lwp-ledermann-wieting-partners-lugano"
+          "kontaktspezialist-lwp-ledermann-wieting-partners-lugano"
         ],
         "fr": [
           "specialista-contabile-lwp-ledermann-wieting-partners-switzerland",
           "per-importante-societa-finanziaria-nel-luganese-ricerchiamo-la-seguente-figura-lwp-ledermann-wieting-partners-lugano",
-          "pour-une-importante-societe-financiere-a-luganese-nous-recherchons-le-chiffre-suivant-lwp-ledermann-wieting-partners-lugano"
+          "specialiste-de-contacter-lwp-ledermann-wieting-partners-lugano"
         ]
       },
       "previousSlugs": [
         "specialista-contabile-lwp-ledermann-wieting-partners-switzerland",
         "per-importante-societa-finanziaria-nel-luganese-ricerchiamo-la-seguente-figura-lwp-ledermann-wieting-partners-lugano",
-        "for-important-financial-company-in-luganese-we-look-for-the-following-figure-lwp-ledermann-wieting-partners-lugano",
-        "fur-ein-wichtiges-finanzunternehmen-in-luganese-suchen-wir-folgende-zahl-lwp-ledermann-wieting-partners-lugano",
-        "pour-une-importante-societe-financiere-a-luganese-nous-recherchons-le-chiffre-suivant-lwp-ledermann-wieting-partners-lugano"
+        "contact-specialist-lwp-ledermann-wieting-partners-lugano",
+        "kontaktspezialist-lwp-ledermann-wieting-partners-lugano",
+        "specialiste-de-contacter-lwp-ledermann-wieting-partners-lugano"
       ],
       "firstSeenAt": "2026-09-28T21:37:00.378Z",
       "salaryMin": 51500,

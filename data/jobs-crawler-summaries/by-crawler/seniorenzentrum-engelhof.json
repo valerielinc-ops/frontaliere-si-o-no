@@ -1,9 +1,12 @@
 {
+  "detailCandidates": 4,
+  "detailGone": 0,
+  "detailRejected": 4,
   "key": "seniorenzentrum-engelhof",
   "label": "Seniorenzentrum Engelhof",
-  "generatedAt": "2026-10-19T21:55:35.020Z",
+  "generatedAt": "2026-10-20T09:33:46.439Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 4,
   "parsed": 0,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
@@ -20,5 +23,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }

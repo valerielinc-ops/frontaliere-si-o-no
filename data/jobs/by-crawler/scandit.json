@@ -1,6 +1,6 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-10-19T21:45:22.794Z",
+  "assembledAt": "2026-10-20T09:38:55.737Z",
   "jobs": [
     {
       "id": "scandit-b09826d2fc8e",
@@ -33,7 +33,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8300273",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:45:17.345Z",
+      "crawledAt": "2026-10-20T09:38:49.865Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,6 +50,21 @@
       "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8300273",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-machine-learning-engineer-video-understanding-scandit-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-machine-learning-engineer-video-understanding-scandit-ch"
+        ],
+        "de": [
+          "senior-machine-learning-engineer-video-understanding-scandit-ch"
+        ],
+        "fr": [
+          "senior-machine-learning-engineer-video-understanding-scandit-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-19T09:28:23.314Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -64,22 +79,7 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-19T09:28:23.314Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-machine-learning-engineer-video-understanding-scandit-ch"
-        ],
-        "de": [
-          "senior-machine-learning-engineer-video-understanding-scandit-ch"
-        ],
-        "fr": [
-          "senior-machine-learning-engineer-video-understanding-scandit-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-machine-learning-engineer-video-understanding-scandit-ch"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "scandit-08ee2b53999e",
@@ -112,7 +112,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7552679",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-19T21:45:17.037Z",
+      "crawledAt": "2026-10-20T09:38:49.559Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",

@@ -359,36 +359,75 @@ export function looksLikeUsiListingHtml(html = '') {
  */
 export async function fetchUsiPageViaBrowser(url, timeoutMs, {
   launchBrowser = launchChromium,
+  attempts = 3,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 } = {}) {
   let browser;
   try {
-    browser = await launchBrowser({ headless: true });
+    browser = await launchBrowser({
+      headless: true,
+      args: ['--disable-blink-features=AutomationControlled'],
+    });
     const context = await browser.newContext({
       userAgent: USI_BROWSER_HEADERS['User-Agent'],
+      viewport: { width: 1280, height: 720 },
       locale: 'it-CH',
+      timezoneId: 'Europe/Zurich',
       extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
     });
-    const page = await context.newPage();
-    const response = await page.goto(url, {
-      waitUntil: 'domcontentloaded',
-      timeout: Math.max(timeoutMs, 45000),
-    });
-    let html = await page.content();
-    // A WAF challenge can navigate with HTTP 403 and then replace its DOM with
-    // the real document after its browser check. Do not reject the navigation
-    // on status alone: the verified DOM is the source-of-truth for this rescue.
-    if (looksLikeAntiBotChallenge(html) && typeof page.waitForTimeout === 'function') {
-      await page.waitForTimeout(2500);
-      html = await page.content();
+    if (typeof context.addInitScript === 'function') {
+      await context.addInitScript(() => {
+        Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+        Object.defineProperty(navigator, 'languages', { get: () => ['it-CH', 'it', 'en'] });
+      });
     }
-    if (looksLikeAntiBotChallenge(html) || (isUsiListingUrl(url) && !looksLikeUsiListingHtml(html))) {
-      console.warn(`⚠️ USI browser fallback returned no verified listing document for ${url}`);
-      return null;
+
+    let lastReason = 'unknown browser failure';
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+      const page = await context.newPage();
+      try {
+        const response = await page.goto(url, {
+          waitUntil: 'domcontentloaded',
+          timeout: Math.max(timeoutMs, 45000),
+        });
+        // A WAF challenge may return HTTP 403 and only replace its DOM after
+        // the browser check runs. Always give that check a bounded settle
+        // window, including when the initial body has no known marker.
+        if (typeof page.waitForTimeout === 'function') {
+          await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
+        }
+        const title = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+        const bodyText = typeof page.locator === 'function'
+          ? await page.locator('body').textContent().catch(() => '')
+          : '';
+        const html = await page.content();
+        const challenged = looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`);
+        const verified = !isUsiListingUrl(url) || looksLikeUsiListingHtml(html);
+
+        // Do not accept a 200/403 interstitial as a real source page. A
+        // fresh navigation on the same context preserves any clearance cookie
+        // while giving the WAF another bounded opportunity to settle.
+        if (!challenged && verified) {
+          if (!response || (typeof response.ok === 'function' && !response.ok())) {
+            console.warn(`ℹ️ USI browser fallback verified the listing DOM after HTTP ${response?.status?.() ?? 'no response'}`);
+          }
+          return html;
+        }
+
+        lastReason = challenged
+          ? `HTTP ${response?.status?.() ?? 'no response'} with browser challenge marker`
+          : 'browser response did not contain the verified USI listing marker';
+      } catch (error) {
+        lastReason = error?.message || String(error);
+      } finally {
+        if (typeof page.close === 'function') await page.close().catch(() => {});
+      }
+
+      if (attempt < attempts) await sleepImpl(2500 * attempt);
     }
-    if (!response || (typeof response.ok === 'function' && !response.ok())) {
-      console.warn(`ℹ️ USI browser fallback verified the listing DOM after HTTP ${response?.status?.() ?? 'no response'}`);
-    }
-    return html;
+
+    console.warn(`⚠️ USI browser fallback exhausted for ${url} (${lastReason}).`);
+    return null;
   } catch (error) {
     console.warn(`⚠️ USI browser fallback failed for ${url}: ${error?.message || error}`);
     return null;
