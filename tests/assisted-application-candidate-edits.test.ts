@@ -42,7 +42,7 @@ describe('candidate edits', () => {
     const edited = candidateWithEdits({ order, draft: draft(), flow });
     expect(edited.identity).toMatchObject({ name: 'Maria Luisa Rossi', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', email: 'maria.rossi.k7p2@candidature.frontaliereticino.ch' });
     expect(edited.profile).toMatchObject({ location: 'Varese', languages: [{ language: 'Italiano C2', level: '' }, { language: 'Tedesco B2', level: '' }] });
-    expect(edited.answers).toEqual({ salary_expectation: 'CHF 80k' });
+    expect(edited.answers).toEqual({ salary_expectation: 'CHF 80k', salutation: 'Signora' });
     expect(edited.overrides).not.toHaveProperty('unknown');
     // A correction replaces an older answer; a question the draft asks again wins over it.
     const stale = { answers: { work_permit: 'old', availability: 'old', salary_expectation: 'old' }, formOverrides: { workPermit: 'new', availability: 'soon', salary: '90000' } };
@@ -162,7 +162,8 @@ describe('the candidate’s Swiss status and personal data', () => {
 
   it('shows the fields the tailored CV prints, the permit as the six options with the CV’s own words kept first', () => {
     const fields = formAnswersWithEdits({ order, draft: draft(), flow: {} });
-    expect(fields.map((field) => field.key)).toEqual(['firstName', 'lastName', 'email', 'phone', 'location', 'linkedin', 'dateOfBirth', 'nationality', 'workPermit', 'availability', 'salary', 'languages', 'motivationShort', 'whyCompany']);
+    expect(fields.map((field) => field.key)).toEqual(['salutation', 'firstName', 'lastName', 'email', 'phone', 'location', 'linkedin', 'dateOfBirth', 'nationality', 'workPermit', 'availability', 'salary', 'languages', 'motivationShort', 'whyCompany']);
+    expect(fields[0]).toMatchObject({ key: 'salutation', value: 'Signora' });
     const views = Object.fromEntries(fields.map((field) => [field.key, fieldView(field, { draft: draft(), locale: 'it' })]));
     // The CV says «G»: shown and selected as written, never replaced by a status.
     expect(views.workPermit).toMatchObject({ editable: true, inCv: true, value: 'G', options: ['G', ...permitOptions('it')] });

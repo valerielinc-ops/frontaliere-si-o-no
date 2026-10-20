@@ -31,7 +31,7 @@ import {
 import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
-import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationOptions } from './lib/personalFacts.js';
+import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
 import { hasExplicitLanguageSection } from './lib/languageFacts.js';
 
 const MESSAGES = {
@@ -172,7 +172,7 @@ function splitLanguages(text) {
  * '' when none.
  * `personal`: the form of address and the civil status, derived here at every
  * read too: what the candidate answered or corrected, else what the CV states
- * explicitly (lib/personalFacts.js). A form of address known from either source also stands as `answers.salutation`, so the
+ * explicitly or an unambiguous first name supports (lib/personalFacts.js). A form of address known from either source also stands as `answers.salutation`, so the
  * question is not asked and the portal's field is filled as if answered. The
  * civil status stays out of `profile` and `answers`: the letter and the CV
  * are written from those, and neither says whom the candidate married.
@@ -223,7 +223,8 @@ export function candidateWithEdits({ order, draft, flow }) {
   if (availability) profile.availability = availability;
   const cv = cvPersonalFacts(draft?.factSources?.text);
   const locale = order?.locale || 'it';
-  const salutation = salutationNow({ answers, overrides, cvGender: cv.gender, locale });
+  const salutationGender = cv.gender || salutationGenderFromName(identity.firstName, locale);
+  const salutation = salutationNow({ answers, overrides, cvGender: salutationGender, locale });
   answers.salutation = salutation;
   if (!salutation) delete answers.salutation;
   const personal = { salutation, civilStatus: has(overrides, 'civilStatus') ? overrides.civilStatus : cv.civilStatusText };
@@ -238,7 +239,7 @@ export function candidateWithEdits({ order, draft, flow }) {
  *     across rounds, and a draft written afterwards does not ask the question again (lib/draft.mjs): the
  *     older answer would otherwise come back with the question (review of #12348);
  *  2. their answer to the question;
- *  3. only where they touched neither, the gender the CV explicitly states in its own words.
+ *  3. only where they touched neither, the gender the CV explicitly states in its own words or an unambiguous first name supports.
  */
 function salutationNow({ answers, overrides, cvGender, locale }) {
   if (has(overrides, 'salutation')) return overrides.salutation;
