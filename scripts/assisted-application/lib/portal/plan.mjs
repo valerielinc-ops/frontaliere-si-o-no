@@ -527,7 +527,7 @@ const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment percentage|employment level|pensum|carico di lavoro|percentuale di lavoro|grado di occupazione|tasso di occupazione|taux d['’]activit[ée]|pourcentage de travail)\b/i;
 const CURRENT_WORKLOAD_RE = /\b(?:current|currently|present|actual|attuale|attualmente|derzeit|zurzeit|actuel(?:le)?|gegenw(?:ä|ae)rtig)\b/i;
-const START_DATE_QUESTION_RE = /\b(?:earliest|possible|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
+const START_DATE_QUESTION_RE = /\b(?:earliest|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
 const AVAILABILITY_QUESTION_RE = /\b(?:availability|available for work|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée])\b/i;
 const NOTICE_PERIOD_QUESTION_RE = /\b(?:notice period|notice time|period of notice|preavviso|d['’]lai de pr(?:é|e)avis|k(?:ü|ue)ndigungsfrist|notice required)\b/i;
 const CRIMINAL_RECORD_QUESTION_RE = /\b(?:criminal record|police record|casellario giudiziale|casier judiciaire|strafregister|polizeiliches f(?:ü|ue)hrungszeugnis)\b/i;
@@ -577,35 +577,37 @@ export function addressQuestionTopic(text, context = '') {
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label, context = '') {
   const text = questionFromLabel(label);
-  const languageText = `${text} ${String(context || '')}`.trim();
-  const languageCode = languageQuestionCode(text) || languageQuestionCode(context);
+  // `context` is a flattened list of nearby sibling labels, not a trusted
+  // parent label. Use it only for the narrowly scoped aliases below; it must
+  // not assign another sibling's semantic topic to this question.
+  const languageCode = languageQuestionCode(text);
   if (languageCode) {
-    const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|mínimo|minimum)\b/i.test(languageText)
-      ? CEFR_RE.exec(languageText)?.[1]?.toLowerCase() || ''
+    const threshold = /\b(?:at least|minimum|min(?:imum)? level|required level|mindestens|au moins|almeno|mínimo|minimum)\b/i.test(text)
+      ? CEFR_RE.exec(text)?.[1]?.toLowerCase() || ''
       : '';
-    const modality = /\b(?:written|schriftlich|écrit|ecrit|scritto|scritta)\b/i.test(languageText) ? 'written'
-      : /\b(?:oral|spoken|mündlich|muendlich|parlato|parlata|parlé|parlee)\b/i.test(languageText) ? 'spoken' : '';
+    const modality = /\b(?:written|schriftlich|écrit|ecrit|scritto|scritta)\b/i.test(text) ? 'written'
+      : /\b(?:oral|spoken|mündlich|muendlich|parlato|parlata|parlé|parlee)\b/i.test(text) ? 'spoken' : '';
     const kind = threshold
       ? `threshold:${threshold}`
-      : LANGUAGE_PROFICIENCY_QUESTION_RE.test(languageText) ? 'proficiency' : 'ability';
+      : LANGUAGE_PROFICIENCY_QUESTION_RE.test(text) ? 'proficiency' : 'ability';
     return `language:${languageCode}:${modality}:${kind}`;
   }
   const titleInPersonalDetails = /^\s*(?:title|titel|titre|titolo)\s*$/i.test(text)
     && /\b(?:personal (?:information|details|data)|contact details|candidate details|dati personali|pers(?:ö|oe)nliche (?:daten|angaben)|coordonn[ée]es personnelles)\b/i.test(context)
     && !/\b(?:job|position|role|degree|qualification|education|experience|lavoro|posizione|ruolo|laurea|formazione|studium)\b/i.test(context);
   if (SALUTATION_FIELD_RE.test(text) || titleInPersonalDetails) return 'salutation';
-  if (PREFERRED_WORKLOAD_RE.test(languageText) && !CURRENT_WORKLOAD_RE.test(text)) return 'preferred_workload';
-  if (NOTICE_PERIOD_QUESTION_RE.test(languageText)) return 'notice_period';
-  if (START_DATE_QUESTION_RE.test(languageText) && !/\b(?:education|school|university|degree|experience|employment history|work history|scuola|formazione|studi|esperienza|educazione|ausbildung|schule|studium|exp[ée]rience|formation)\b/i.test(context)) return 'start_date';
-  if (AVAILABILITY_QUESTION_RE.test(languageText) && !CURRENT_WORKLOAD_RE.test(text)) return 'availability';
-  if (CRIMINAL_RECORD_QUESTION_RE.test(languageText)) {
-    return CRIMINAL_CERTIFICATE_QUESTION_RE.test(languageText) ? 'criminal_record_certificate' : 'criminal_record_status';
+  if (PREFERRED_WORKLOAD_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'preferred_workload';
+  if (NOTICE_PERIOD_QUESTION_RE.test(text)) return 'notice_period';
+  if (START_DATE_QUESTION_RE.test(text)) return 'start_date';
+  if (AVAILABILITY_QUESTION_RE.test(text) && !CURRENT_WORKLOAD_RE.test(text)) return 'availability';
+  if (CRIMINAL_RECORD_QUESTION_RE.test(text)) {
+    return CRIMINAL_CERTIFICATE_QUESTION_RE.test(text) ? 'criminal_record_certificate' : 'criminal_record_status';
   }
-  if (SALARY_FIELD_RE.test(languageText)) {
-    const period = HOURLY_SALARY_RE.test(languageText) ? 'hourly'
-      : MONTHLY_SALARY_RE.test(languageText) ? 'monthly'
-        : SALARY_UNIT_RE.test(languageText) ? 'annual' : 'unspecified';
-    const currency = SALARY_CURRENCY_RE.exec(languageText)?.[1]?.toUpperCase() || (SALARY_CURRENCY_RE.test(languageText) ? 'CHF' : 'unspecified');
+  if (SALARY_FIELD_RE.test(text)) {
+    const period = HOURLY_SALARY_RE.test(text) ? 'hourly'
+      : MONTHLY_SALARY_RE.test(text) ? 'monthly'
+        : SALARY_UNIT_RE.test(text) ? 'annual' : 'unspecified';
+    const currency = SALARY_CURRENCY_RE.exec(text)?.[1]?.toUpperCase() || (SALARY_CURRENCY_RE.test(text) ? 'CHF' : 'unspecified');
     return `salary_expectation:${period}:${currency}`;
   }
   if (isCivilStatusField(text)) return 'civil_status';
@@ -766,23 +768,19 @@ function recordedAnswerForQuestion(candidate, question, context = '') {
   const requestedContext = comparableContext(context);
   const topic = questionTopic(question, context);
   const sameContext = (item) => comparableContext(item.context) === requestedContext;
-  const exact = items.find((item) => {
+  const matches = items.filter((item) => {
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context);
-    return (sameContext(item) && itemQuestion === normalized)
+    const exact = (sameContext(item) && itemQuestion === normalized)
       || (itemQuestion === normalized && topic && itemTopic === topic && !topicNeedsMatchingContext(topic))
       // Some portals expose a short field label plus the full question as
       // context. Reuse an answer recorded under that exact full question.
       || (!String(item.context || '').trim() && normalizedContextQuestion && itemQuestion === normalizedContextQuestion);
-  });
-  if (exact) return String(exact.answer).trim();
-  if (!topic) return '';
-  // An answer id is only a slug, not proof that the candidate answered the
-  // full question currently on the page.  For sensitive topics, reusing a
-  // slug with the same broad topic can turn an answer to another question
-  // (for example a driving licence's "Ja") into a work-permit answer.
-  const semantic = items.find((item) => {
-    const itemTopic = questionTopic(item.question, item.context);
+    if (exact) return true;
+    if (!topic) return false;
+    // An answer id is only a slug, not proof that the candidate answered the
+    // full question currently on the page. For sensitive topics, reusing a
+    // slug with the same broad topic can turn an unrelated answer into one.
     const sameLanguage = topic.startsWith('language:') && itemTopic.startsWith('language:')
       && topic.split(':')[1] === itemTopic.split(':')[1]
       && isNoLanguageAnswer(item.answer);
@@ -790,7 +788,9 @@ function recordedAnswerForQuestion(candidate, question, context = '') {
     return (sameTopic || sameLanguage)
       && (!['permit', 'nationality'].includes(topic) || item.source !== 'answer-id');
   });
-  return semantic ? String(semantic.answer).trim() : '';
+  if (!matches.length) return '';
+  const answer = String(matches[0].answer).trim();
+  return matches.every((item) => equivalentAnswer(question, answer, item.answer, context)) ? answer : '';
 }
 
 export function candidateAnswerForQuestion(candidate, question, context = '') {
