@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3994.title': "Nützlichere Stellenhinweise nach Kanton",
+ 'whatsNew.v3994.regionalJobs.title': "Graubünden, Genf, Waadt und Neuenburg",
+ 'whatsNew.v3994.regionalJobs.desc': "Kantonsseiten enthalten jetzt lokale Hinweise zu Sprachregionen und Verkehr. Angezeigte Orte und Arbeitgeber stammen aus den gesammelten Ausschreibungen; Anforderungen und Verfügbarkeit bitte immer in der Originalquelle prüfen.",
  'whatsNew.v3991.title': "Passendere Stellen in deiner Nähe",
  'whatsNew.v3991.conciergeProximity.title': "Die Entfernung beeinflusst die Reihenfolge der Vorschläge",
  'whatsNew.v3991.conciergeProximity.desc': "Gib in deinem Profil deinen Wohnort oder deine Postleitzahl an, damit wir passende Stellen in deiner Nähe bevorzugen können. Die Übereinstimmung mit deinem Lebenslauf bleibt entscheidend; eine vollständige Adresse ist nicht nötig.",

@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3994.title': "Guide di lavoro per cantone più utili",
+ 'whatsNew.v3994.regionalJobs.title': "Grigioni, Ginevra, Vaud e Neuchâtel",
+ 'whatsNew.v3994.regionalJobs.desc': "Le pagine cantonali aggiungono indicazioni locali su valli italofone, regioni e trasporti. Località e aziende mostrate provengono dagli annunci raccolti; verifica sempre requisiti e disponibilità sulla fonte originale.",
  'whatsNew.v3991.title': "Proposte di lavoro più vicine a te",
  'whatsNew.v3991.conciergeProximity.title': "La distanza aiuta a ordinare le posizioni proposte",
  'whatsNew.v3991.conciergeProximity.desc': "Indica il comune o il CAP nel profilo per dare priorità alle offerte compatibili nella tua zona. La corrispondenza con il CV resta il criterio principale: non serve l’indirizzo completo.",

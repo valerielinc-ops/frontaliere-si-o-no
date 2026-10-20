@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3994.title': "Des repères emploi plus utiles par canton",
+ 'whatsNew.v3994.regionalJobs.title': "Grisons, Genève, Vaud et Neuchâtel",
+ 'whatsNew.v3994.regionalJobs.desc': "Les pages cantonales ajoutent des repères locaux sur les régions linguistiques et les transports. Les localités et employeurs affichés proviennent des annonces recueillies ; vérifiez toujours les exigences et la disponibilité dans la source d’origine.",
  'whatsNew.v3991.title': "Des offres d’emploi plus proches de chez vous",
  'whatsNew.v3991.conciergeProximity.title': "La proximité aide à classer les postes proposés",
  'whatsNew.v3991.conciergeProximity.desc': "Indiquez votre commune ou votre code postal dans votre profil pour prioriser les offres compatibles près de chez vous. La correspondance avec votre CV reste le critère principal ; votre adresse complète n’est pas nécessaire.",
