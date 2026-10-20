@@ -418,7 +418,8 @@ async function describe(locator) {
 export function refusal(action, info) {
   const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
   const languageAction = languageIntent || languageAbility || languageLabelOnly || languageContextPresent;
-  if (action.action === 'press' && languageIntent) {
+  if (action.action === 'press' && languageIntent
+    && !(action.value === 'Enter' && action.source === 'answers' && String(action.answer || '').trim())) {
     return 'language_choice_keyboard_selection_unsupported';
   }
   if (action.action === 'press' && languageAction && action.value === 'Enter') {

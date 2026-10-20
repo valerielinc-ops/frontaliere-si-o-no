@@ -133,9 +133,30 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       evaluate: async () => ({ name: 'Yes', button: false, tag: 'div', inputType: '', editable: false, inList: true, submits: false, leaves: false }),
       press: async () => { pressed = true; },
     };
-    const unsafeKeyPress = await runAction({ locator: () => keyboardLocator } as any, keyPress.actions[0]);
-    expect(unsafeKeyPress).toEqual({ ok: false, error: 'language_choice_keyboard_selection_unsupported' });
-    expect(pressed).toBe(false);
+    const savedAnswerKeyPress = await runAction({ locator: () => keyboardLocator } as any, keyPress.actions[0]);
+    expect(savedAnswerKeyPress).toEqual({ ok: true });
+    expect(pressed).toBe(true);
+  });
+
+  it('uses Enter to select a saved No for a language-intent question', async () => {
+    const question = 'Would you speak German?';
+    const candidate = {
+      answers: {}, profile: {}, portalQuestionsAnswered: [{ question, answer: 'No' }],
+    };
+    const step = guardAgentStep(turn('act', [act({
+      ref: 'e24', action: 'press', value: 'Enter', question, answer: 'Yes', source: 'profile',
+    })]), candidate);
+    expect(step).toMatchObject({ status: 'act', questions: [] });
+    expect(step.actions).toEqual([expect.objectContaining({ value: 'Enter', answer: 'No', source: 'answers' })]);
+
+    let pressed = false;
+    const locator = {
+      evaluate: async () => ({ name: 'No', button: false, tag: 'div', inputType: '', editable: false, inList: true, submits: false, leaves: false }),
+      press: async () => { pressed = true; },
+    };
+    const result = await runAction({ locator: () => locator } as any, step.actions[0]);
+    expect(result).toEqual({ ok: true });
+    expect(pressed).toBe(true);
   });
 
   it('uses an explicit CV language list to answer a current-ability question in a custom widget', () => {
