@@ -177,6 +177,10 @@ function tiktokPage({
     // The POST answers 200 and the page stays where it is: no toast, no redirect.
     stay: '',
     toast: "document.body.insertAdjacentHTML('beforeend', '<div class=\"TUXTopToast\" role=\"alert\"><span>Your post has been published</span></div>');",
+    // A stale hidden alert can precede the live success toast in the real
+    // composer. The flow must inspect all matching surfaces, not only the
+    // first DOM match.
+    'stale-toast': "document.body.insertAdjacentHTML('beforeend', '<div role=\"alert\" hidden><span>Your post has been published</span></div><div class=\"TUXTopToast\" role=\"alert\"><span>Your post has been published</span></div>');",
   }[afterPost];
   return page('TikTok Studio', `
 <nav><a href="/tiktokstudio/content">Manage your posts</a><a href="/tiktokstudio/upload">Upload</a></nav>
@@ -346,6 +350,7 @@ function fakePlatforms() {
       case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
+      case '/tt-stale-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stale-toast' }));
       case '/tt-cookie-config-no-action/tiktokstudio/upload': return send(200, tiktokPage({ cookieConfig: true, unrelatedBanner: true }));
       case '/tt-unsaved-draft/tiktokstudio/upload': return send(200, tiktokPage({ unsavedDraft: true }));
       case '/tt-late-cookie/tiktokstudio/upload': return send(200, tiktokPage({ lateCookieBanner: true }));
@@ -539,6 +544,9 @@ async function main() {
       `the persistent "Manage your posts" navigation is no confirmation: confirmation-missing, pressed (${r.result?.status || r.error?.errorClass}, pressed=${r.error?.pressed})`);
     r = await run('tiktok', `${base}/tt-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-toast' });
     check(r.result?.status === 'published' && /has been published/i.test(r.result.evidence), `the success toast confirms without a redirect (${r.result?.evidence || r.error?.message})`);
+
+    r = await run('tiktok', `${base}/tt-stale-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-stale-toast' });
+    check(r.result?.status === 'published' && /has been published/i.test(r.result.evidence), `a visible success toast is found after a stale hidden alert (${r.result?.evidence || r.error?.message})`);
 
     r = await run('tiktok', `${base}/tt-late-cookie/tiktokstudio/upload`, { dryRun: false, label: 'tt-late-cookie' });
     check(r.result?.status === 'published', `a cookie banner shown at publish is dismissed and the retry publishes (${r.result?.evidence || r.error?.message})`);
