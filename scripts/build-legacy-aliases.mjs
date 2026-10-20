@@ -334,6 +334,7 @@ function main() {
   for (const file of csvFiles) {
     for (const url of parseCsvUrls(file)) {
       const p = normalizePath(url);
+      if (!p) continue;
       const alias = classifyLegacyAlias(p, blogIdToSlug);
       if (alias) importedByPath.set(gscOrphanPathKey(alias.orphanPath), alias);
     }

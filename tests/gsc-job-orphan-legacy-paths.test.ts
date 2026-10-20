@@ -167,6 +167,7 @@ describe('GSC job-orphan paths', () => {
     expect(source).toContain('refreshedExisting');
     expect(source).toContain('withSingleFlightLock');
     expect(source).toMatch(/function normalizePath\(rawUrl\)\s*\{\s*try\s*\{\s*return gscOrphanRouteKey\(\{ url: rawUrl \}\);\s*\}\s*catch\s*\{[\s\S]*?return null;/);
+    expect(source).toContain('if (!p) continue;');
   });
 
   it('keeps malformed legacy alias paths from writing outside dist', async () => {
