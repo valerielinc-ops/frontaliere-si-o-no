@@ -1030,8 +1030,12 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(batchWrite).not.toMatch(/\bcontent\s*=[^=>]/);
     expect(batchWrite).not.toMatch(/\bcontent\s*\.\s*(?:replace|replaceAll|slice|substring|trim)\b/);
     const plugin = read('build-plugins/jobsSeoPagesPlugin.ts');
-    // The renderer reads only the size of the registry history (memory log).
-    expect(plugin.match(/getPathHistory\(\)[^\n]*/g)).toEqual(['getPathHistory().size,']);
+    // Path ownership checks query the registry directly; the renderer also
+    // logs its size. Neither path keeps a second copy of registry entries.
+    expect(plugin.match(/getPathHistory\(\)[^\n]*/g)).toEqual([
+      'getPathHistory().has(filePath);',
+      'getPathHistory().size,',
+    ]);
     // No pass-through profiler wrapper wraps a render call.
     const profilerImport = plugin.match(/import\s*\{([^}]*)\}\s*from\s*['"]\.\/shared\/jobsSeoProfiler(?:\.ts)?['"]/);
     expect(profilerImport?.[1]).toBeDefined();
