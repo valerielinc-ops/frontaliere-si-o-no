@@ -103,6 +103,8 @@ export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/related-search-enriched.json',
   'data/revenue-monitor-history.jsonl',
   'data/road-events.json',
+  'data/sector-hub-candidates.json',
+  'data/sector-hub-publications.json',
   'data/seo-ctr-monitor-state.json',
   'data/seo-health-state.json',
   'data/seo-health/history.jsonl',
