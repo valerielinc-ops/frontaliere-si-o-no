@@ -1,21 +1,21 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-10-19T21:51:29.835Z",
+  "generatedAt": "2026-10-20T09:42:43.553Z",
   "total": 116,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
-  "sourceTotal": 4375,
+  "sourceTotal": 4378,
   "sourceSwiss": 116,
-  "foreignDiscarded": 4259,
+  "foreignDiscarded": 4262,
   "newCount": 0,
   "updatedCount": 35,
   "removedCount": 0,
   "unchangedCount": 81,
-  "durationMs": 71753,
-  "avgDurationMs": 71753,
+  "durationMs": 64678,
+  "avgDurationMs": 64678,
   "durationHistory": [
-    71753
+    64678
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -53,7 +53,7 @@
       "salarySource": "reported",
       "datePosted": "2026-03-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:11.580Z",
+      "crawledAt": "2026-10-20T09:41:42.420Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -96,7 +96,7 @@
       "salarySource": "reported",
       "datePosted": "2026-03-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:12.456Z",
+      "crawledAt": "2026-10-20T09:41:42.712Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -139,7 +139,7 @@
       "salarySource": "reported",
       "datePosted": "2026-03-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:12.658Z",
+      "crawledAt": "2026-10-20T09:41:43.582Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -181,7 +181,7 @@
       "salarySource": "reported",
       "datePosted": "2025-05-28",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:13.870Z",
+      "crawledAt": "2026-10-20T09:41:44.769Z",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -223,7 +223,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:32.543Z",
+      "crawledAt": "2026-10-20T09:41:48.321Z",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -264,7 +264,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:37.066Z",
+      "crawledAt": "2026-10-20T09:41:48.573Z",
       "postalCode": "8001",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -307,7 +307,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:37.324Z",
+      "crawledAt": "2026-10-20T09:41:48.829Z",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -349,7 +349,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:37.572Z",
+      "crawledAt": "2026-10-20T09:41:49.096Z",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -391,7 +391,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:37.842Z",
+      "crawledAt": "2026-10-20T09:41:49.337Z",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -432,7 +432,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:54.862Z",
+      "crawledAt": "2026-10-20T09:41:59.016Z",
       "postalCode": "8001",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -474,7 +474,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:55.169Z",
+      "crawledAt": "2026-10-20T09:41:59.279Z",
       "postalCode": "9000",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -515,7 +515,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:55.434Z",
+      "crawledAt": "2026-10-20T09:41:59.561Z",
       "postalCode": "3004",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -556,7 +556,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:55.713Z",
+      "crawledAt": "2026-10-20T09:41:59.820Z",
       "postalCode": "1204",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -598,7 +598,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:55.989Z",
+      "crawledAt": "2026-10-20T09:42:00.052Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -641,7 +641,7 @@
       "salarySource": "reported",
       "datePosted": "2025-05-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:56.229Z",
+      "crawledAt": "2026-10-20T09:42:00.268Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -681,7 +681,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:10.006Z",
+      "crawledAt": "2026-10-20T09:42:25.158Z",
       "postalCode": "8001",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -724,7 +724,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:10.422Z",
+      "crawledAt": "2026-10-20T09:42:25.406Z",
       "postalCode": "3004",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -766,7 +766,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:10.781Z",
+      "crawledAt": "2026-10-20T09:42:25.628Z",
       "postalCode": "1204",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -809,7 +809,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:11.088Z",
+      "crawledAt": "2026-10-20T09:42:25.857Z",
       "postalCode": "8001",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -852,7 +852,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:11.324Z",
+      "crawledAt": "2026-10-20T09:42:26.086Z",
       "postalCode": "9000",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -894,7 +894,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:11.800Z",
+      "crawledAt": "2026-10-20T09:42:26.334Z",
       "postalCode": "3004",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -935,7 +935,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:13.259Z",
+      "crawledAt": "2026-10-20T09:42:26.572Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -976,7 +976,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:13.504Z",
+      "crawledAt": "2026-10-20T09:42:26.817Z",
       "postalCode": "8001",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -1018,7 +1018,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:13.806Z",
+      "crawledAt": "2026-10-20T09:42:27.031Z",
       "postalCode": "9000",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1059,7 +1059,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:14.050Z",
+      "crawledAt": "2026-10-20T09:42:27.296Z",
       "postalCode": "1204",
       "needsRetranslation": true,
       "_qualityScore": 96,
@@ -1101,7 +1101,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:14.308Z",
+      "crawledAt": "2026-10-20T09:42:27.554Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1142,7 +1142,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:14.563Z",
+      "crawledAt": "2026-10-20T09:42:27.820Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1183,7 +1183,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:16.497Z",
+      "crawledAt": "2026-10-20T09:42:28.175Z",
       "postalCode": "1204",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1225,7 +1225,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:16.838Z",
+      "crawledAt": "2026-10-20T09:42:28.449Z",
       "postalCode": "9000",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1266,7 +1266,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:51:17.250Z",
+      "crawledAt": "2026-10-20T09:42:33.503Z",
       "postalCode": "3004",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1312,7 +1312,7 @@
       "salarySource": "reported",
       "datePosted": "2026-03-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:12.961Z",
+      "crawledAt": "2026-10-20T09:41:43.850Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1354,7 +1354,7 @@
       "salarySource": "reported",
       "datePosted": "2026-03-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:13.237Z",
+      "crawledAt": "2026-10-20T09:41:44.061Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1396,7 +1396,7 @@
       "salarySource": "reported",
       "datePosted": "2024-07-19",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:13.439Z",
+      "crawledAt": "2026-10-20T09:41:44.260Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1438,7 +1438,7 @@
       "salarySource": "reported",
       "datePosted": "2026-01-14",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:13.664Z",
+      "crawledAt": "2026-10-20T09:41:44.557Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1480,7 +1480,7 @@
       "salarySource": "reported",
       "datePosted": "2025-05-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:23.378Z",
+      "crawledAt": "2026-10-20T09:41:44.998Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1521,7 +1521,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:23.871Z",
+      "crawledAt": "2026-10-20T09:41:45.294Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1562,7 +1562,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:24.103Z",
+      "crawledAt": "2026-10-20T09:41:45.644Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1603,7 +1603,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:24.399Z",
+      "crawledAt": "2026-10-20T09:41:45.898Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1644,7 +1644,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:24.644Z",
+      "crawledAt": "2026-10-20T09:41:46.154Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1684,7 +1684,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:31.004Z",
+      "crawledAt": "2026-10-20T09:41:46.571Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1725,7 +1725,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:31.255Z",
+      "crawledAt": "2026-10-20T09:41:46.826Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1766,7 +1766,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:31.535Z",
+      "crawledAt": "2026-10-20T09:41:47.076Z",
       "postalCode": "3004",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1807,7 +1807,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:31.779Z",
+      "crawledAt": "2026-10-20T09:41:47.354Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1848,7 +1848,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:32.062Z",
+      "crawledAt": "2026-10-20T09:41:47.598Z",
       "postalCode": "9000",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1889,7 +1889,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:32.323Z",
+      "crawledAt": "2026-10-20T09:41:48.075Z",
       "postalCode": "1204",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1932,7 +1932,7 @@
       "salarySource": "reported",
       "datePosted": "2025-01-26",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:38.139Z",
+      "crawledAt": "2026-10-20T09:41:49.578Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1973,7 +1973,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:38.384Z",
+      "crawledAt": "2026-10-20T09:41:49.835Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2014,7 +2014,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:38.931Z",
+      "crawledAt": "2026-10-20T09:41:50.058Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2054,7 +2054,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:39.552Z",
+      "crawledAt": "2026-10-20T09:41:50.312Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2096,7 +2096,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:40.032Z",
+      "crawledAt": "2026-10-20T09:41:50.572Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2137,7 +2137,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-06",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:40.348Z",
+      "crawledAt": "2026-10-20T09:41:51.139Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2177,7 +2177,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:40.579Z",
+      "crawledAt": "2026-10-20T09:41:51.380Z",
       "postalCode": "1204",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2219,7 +2219,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:40.875Z",
+      "crawledAt": "2026-10-20T09:41:51.660Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2261,7 +2261,7 @@
       "salarySource": "estimated",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:41.142Z",
+      "crawledAt": "2026-10-20T09:41:52.193Z",
       "postalCode": "3004",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2303,7 +2303,7 @@
       "retranslationAttempts": 0,
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:41.408Z",
+      "crawledAt": "2026-10-20T09:41:52.502Z",
       "postalCode": "9000",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2344,7 +2344,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:42.036Z",
+      "crawledAt": "2026-10-20T09:41:52.764Z",
       "postalCode": "8001",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2387,7 +2387,7 @@
       "salarySource": "reported",
       "datePosted": "2024-02-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:42.281Z",
+      "crawledAt": "2026-10-20T09:41:52.955Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2427,7 +2427,7 @@
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
       "datePosted": "2024-02-12",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:42.596Z",
+      "crawledAt": "2026-10-20T09:41:53.193Z",
       "postalCode": "7000",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2468,7 +2468,7 @@
       "firstSeenAt": "2026-09-26T14:14:24.361Z",
       "datePosted": "2024-06-25",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:42.824Z",
+      "crawledAt": "2026-10-20T09:41:53.371Z",
       "postalCode": "1003",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2511,7 +2511,7 @@
       "salarySource": "reported",
       "datePosted": "2024-06-11",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-19T21:50:43.080Z",
+      "crawledAt": "2026-10-20T09:41:53.542Z",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2521,5 +2521,5 @@
       }
     }
   ],
-  "codeCommit": "b276c3120b1e814aca581d71b8d920f0cbbdc756"
+  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
 }

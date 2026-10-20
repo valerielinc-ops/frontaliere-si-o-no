@@ -1,85 +1,7 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-10-19T21:49:03.660Z",
+  "assembledAt": "2026-10-20T09:40:26.918Z",
   "jobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/AI-Assisted-Solutions-Engineer-%28wmd%29/74844-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/AI-Assisted-Solutions-Engineer-%28wmd%29/74844-de_DE",
-      "title": "AI-Assisted Solutions Engineer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "GenAI verändert nicht nur die Softwareentwicklung, sondern auch, wie PostFinance Herausforderungen angeht. Im Bereich Enterprise Data & AI Solutions unterstützt du Teams dabei, aus Ideen konkrete Lösungen zu gestalten. Gemeinsam mit Fachbereichen, Product Ownern und Delivery Teams arbeitest du an der Schnittstelle von Business, Daten und Technologie. Mit modernen AI-Tools entwickelst du Prototypen und befähigst Kolleg:innen, AI wirksam einzusetzen – so bewegst du PostFinance nachhaltig.\n\nDas kannst du bewirken\n\n- Du identifizierst gemeinsam mit Fachbereichen konkrete Anwendungsfälle für AI und übersetzt Herausforderungen in umsetzbare Lösungsansätze\n\n- Du begleitest Teams von der ersten Idee über Prototypen und MVPs bis hin zu produktionsnahen Lösungen\n\n- Du nutzt moderne AI-gestützte Entwicklungsmethoden und zeigst Teams praxisnah, wie sie sinnvoll eingesetzt werden können\n\n- Du coachst Mitarbeitende und Führungskräfte beim Einsatz von AI-Assisted Engineering\n\n- Du entwickelst wiederverwendbare Patterns, Best Practices und Standards für den sicheren und skalierbaren Einsatz von AI\n\n- Du arbeitest eng mit Architektur-, Security-, Governance- und Delivery-Teams zusammen\n\n- Du hilfst mit, AI-Kompetenzen nachhaltig in der Organisation zu verankern\n\nDas bringst du mit\n\n- Erfahrung im Einsatz von AI-gestützten Werkzeugen wie GitHub Copilot, Claude Code oder vergleichbaren Lösungen\n\n- Verständnis der Softwareentwicklung zur Beurteilung und Mitgestaltung von Prototypen, MVPs und technischen Lösungsansätzen\n\n- Fähigkeit zur strukturierten Erfassung von Business-Bedürfnissen und Übersetzung in konkrete Lösungsoptionen\n\n- Freude an der Befähigung von Menschen, am Wissensaustausch und an der Etablierung neuer Arbeitsweisen\n\n- Interesse an der Schnittstelle zwischen Fachbereich, Technologie und Organisation\n\n- Neugier, Pragmatismus und Freude am Ausprobieren und Vorantreiben neuer Themen\n\n- Ausgezeichnete Deutschkenntnisse und sehr gute Englischkenntnisse",
-      "descriptionByLocale": {
-        "it": "GenAI non sta solo cambiando lo sviluppo del software, ma anche come PostFinance affronta le sfide. Nell'area di Enterprise Data & AI Solutions, supporti i team nella modellazione di soluzioni concrete da idee. Insieme a reparti, proprietari di prodotti e team di consegna, si lavora all'interfaccia di business, dati e tecnologia. Con i moderni strumenti AI, si sviluppano prototipi e consentono ai colleghi di utilizzare l'IA in modo efficace – in modo da spostare PostFinance in modo sostenibile.\n\nPuoi farlo.\n\n- Insieme a aree specializzate, identificherai casi di utilizzo specifici per l'AI e traduci le sfide in soluzioni possibili\n\n- Si accompagnano team dalla prima idea a prototipi e MVP a soluzioni legate alla produzione\n\n- Si utilizzano moderni metodi di sviluppo AI-supportati e mostrare ai team come possono essere utilizzati praticamente\n\n- Lei allena dipendenti e dirigenti utilizzando AI-Assisted Engineering\n\n- Sviluppa modelli riutilizzabili, best practice e standard per l'uso sicuro e scalabile di AI\n\n- Lavori a stretto contatto con i team di architettura, sicurezza, governance e consegna\n\n- Aiutate ad ancorare in modo sostenibile le competenze AI nell'organizzazione\n\nLo porti con te.\n\n- Esperienza nell'uso di strumenti supportati dall'IA come GitHub Copilot, Claude Code o soluzioni paragonabili\n\n- Comprendere lo sviluppo del software per la valutazione e la co-creazione di prototipi, MVP e soluzioni tecniche\n\n- Capacità di strutturare le esigenze aziendali e tradurle in soluzioni concrete\n\n- Gioia nel dare potere alle persone, scambiare conoscenza e stabilire nuovi modi di lavorare\n\n- Interessi nell'interfaccia tra reparto, tecnologia e organizzazione\n\n- Curiosità, pragmatismo e gioia nel provare e avanzare nuovi argomenti\n\n- Ottima conoscenza del tedesco e ottima conoscenza dell'inglese",
-        "en": "GenAI is not only changing software development, but also how PostFinance addresses challenges. In the area of Enterprise Data & AI Solutions, you support teams in shaping concrete solutions from ideas. Together with departments, product owners and delivery teams, you work at the interface of business, data and technology. With modern AI tools, you develop prototypes and empower colleagues to use AI effectively – so you move PostFinance sustainably.\n\nYou can do that.\n\n- Together with specialist areas, you will identify specific use cases for AI and translate challenges into feasible solutions\n\n- You accompany teams from the first idea to prototypes and MVPs to production-related solutions\n\n- You use modern AI-supported development methods and show teams how they can be used practically\n\n- You coach employees and executives using AI-Assisted Engineering\n\n- Develop reusable patterns, best practices and standards for the safe and scalable use of AI\n\n- You work closely with architecture, security, governance and delivery teams\n\n- You help to sustainably anchor AI competencies in the organization\n\nYou bring that with you\n\n- Experience in the use of AI-supported tools such as GitHub Copilot, Claude Code or comparable solutions\n\n- Understanding software development for assessing and co-creating prototypes, MVPs and technical solutions\n\n- Ability to structure business needs and translate them into concrete solutions\n\n- Joy in empowering people, exchanging knowledge and establishing new ways of working\n\n- Interest in the interface between department, technology and organization\n\n- Curiosity, pragmatism and joy in trying and advancing new topics\n\n- Excellent knowledge of German and very good knowledge of English",
-        "de": "GenAI verändert nicht nur die Softwareentwicklung, sondern auch, wie PostFinance Herausforderungen angeht. Im Bereich Enterprise Data & AI Solutions unterstützt du Teams dabei, aus Ideen konkrete Lösungen zu gestalten. Gemeinsam mit Fachbereichen, Product Ownern und Delivery Teams arbeitest du an der Schnittstelle von Business, Daten und Technologie. Mit modernen AI-Tools entwickelst du Prototypen und befähigst Kolleg:innen, AI wirksam einzusetzen – so bewegst du PostFinance nachhaltig.\n\nDas kannst du bewirken\n\n- Du identifizierst gemeinsam mit Fachbereichen konkrete Anwendungsfälle für AI und übersetzt Herausforderungen in umsetzbare Lösungsansätze\n\n- Du begleitest Teams von der ersten Idee über Prototypen und MVPs bis hin zu produktionsnahen Lösungen\n\n- Du nutzt moderne AI-gestützte Entwicklungsmethoden und zeigst Teams praxisnah, wie sie sinnvoll eingesetzt werden können\n\n- Du coachst Mitarbeitende und Führungskräfte beim Einsatz von AI-Assisted Engineering\n\n- Du entwickelst wiederverwendbare Patterns, Best Practices und Standards für den sicheren und skalierbaren Einsatz von AI\n\n- Du arbeitest eng mit Architektur-, Security-, Governance- und Delivery-Teams zusammen\n\n- Du hilfst mit, AI-Kompetenzen nachhaltig in der Organisation zu verankern\n\nDas bringst du mit\n\n- Erfahrung im Einsatz von AI-gestützten Werkzeugen wie GitHub Copilot, Claude Code oder vergleichbaren Lösungen\n\n- Verständnis der Softwareentwicklung zur Beurteilung und Mitgestaltung von Prototypen, MVPs und technischen Lösungsansätzen\n\n- Fähigkeit zur strukturierten Erfassung von Business-Bedürfnissen und Übersetzung in konkrete Lösungsoptionen\n\n- Freude an der Befähigung von Menschen, am Wissensaustausch und an der Etablierung neuer Arbeitsweisen\n\n- Interesse an der Schnittstelle zwischen Fachbereich, Technologie und Organisation\n\n- Neugier, Pragmatismus und Freude am Ausprobieren und Vorantreiben neuer Themen\n\n- Ausgezeichnete Deutschkenntnisse und sehr gute Englischkenntnisse",
-        "fr": "GenAI ne modifie pas seulement le développement de logiciels, mais aussi comment PostFinance répond aux défis. Dans le domaine des solutions Enterprise Data & AI, vous aidez les équipes à concevoir des solutions concrètes à partir d'idées. Avec les départements, les propriétaires de produits et les équipes de livraison, vous travaillez à l'interface des affaires, des données et de la technologie. Avec des outils modernes d'IA, vous développez des prototypes et donnez aux collègues les moyens d'utiliser l'IA efficacement – vous déplacez donc PostFinance durablement.\n\nTu peux le faire.\n\n- Avec des domaines spécialisés, vous identifierez des cas d'utilisation spécifiques pour l'IA et traduireez les défis en solutions réalisables\n\n- Vous accompagnez les équipes de la première idée aux prototypes et aux MVP aux solutions liées à la production\n\n- Vous utilisez des méthodes modernes de développement soutenues par l'IA et montrez aux équipes comment elles peuvent être utilisées pratiquement\n\n- Vous coachez les employés et les cadres en utilisant l'ingénierie assistée par l'IA\n\n- Élaborer des modèles, des pratiques exemplaires et des normes réutilisables pour l'utilisation sûre et évolutive de l'IA\n\n- Vous travaillez en étroite collaboration avec les équipes d'architecture, de sécurité, de gouvernance et d'exécution\n\n- Vous aidez à ancrer durablement les compétences en AI dans l'organisation\n\nApporte ça avec toi.\n\n- Expérience dans l'utilisation d'outils soutenus par l'IA tels que GitHub Copilot, Claude Code ou des solutions comparables\n\n- Comprendre le développement de logiciels pour évaluer et co-créer des prototypes, des MVP et des solutions techniques\n\n- Capacité de structurer les besoins des entreprises et de les traduire en solutions concrètes\n\n- La joie dans l'autonomisation des personnes, l'échange de connaissances et l'établissement de nouvelles façons de travailler\n\n- Intérêt pour l'interface entre le ministère, la technologie et l'organisation\n\n- Curiosité, pragmatisme et joie dans l'essai et l'avancement de nouveaux sujets\n\n- Excellente connaissance de l'allemand et très bonne connaissance de l'anglais"
-      },
-      "titleByLocale": {
-        "it": "AI-Assisted Solutions Ingegnere (w/m/d)",
-        "en": "AI Assisted Solutions Engineer (m/f/d)",
-        "de": "AI-Assisted Solutions Ingenieur (w/m/d)",
-        "fr": "AI-Assisted Solutions Ingénieur (w/m/d)"
-      },
-      "slug": "ai-assisted-solutions-ingegnere-w-m-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "ai-assisted-solutions-ingegnere-w-m-d-postfinance-bern",
-        "en": "ai-assisted-solutions-engineer-w-m-d-postfinance",
-        "de": "ai-assisted-solutions-engineer-w-m-d-postfinance",
-        "fr": "ai-assisted-solutions-ingenieur-w-m-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:58.241Z",
-      "validThrough": "25.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-49bdd1a6f46c",
-      "previousSlugs": [
-        "ai-assisted-solutions-engineer-w-m-d-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-assisted-solutions-engineer-w-m-d-postfinance"
-        ]
-      },
-      "firstSeenAt": "2026-09-25T15:08:43.569Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE"
-    },
     {
       "url": "https://jobs.postfinance.ch/job/BI-&-Data-Analyst-Project-Portfolio-Steering-%28wmd%29/74845-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/BI-&-Data-Analyst-Project-Portfolio-Steering-%28wmd%29/74845-de_DE",
@@ -119,7 +41,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:57.404Z",
+      "crawledAt": "2026-10-20T09:40:22.440Z",
       "validThrough": "25.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -198,7 +120,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:56.651Z",
+      "crawledAt": "2026-10-20T09:40:21.681Z",
       "validThrough": "26.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -277,7 +199,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:55.891Z",
+      "crawledAt": "2026-10-20T09:40:20.936Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -355,7 +277,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:55.040Z",
+      "crawledAt": "2026-10-20T09:40:20.164Z",
       "validThrough": "31.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -393,87 +315,6 @@
       "postalCode": "2502",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
-      "title": "DevOps Engineer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Zofingen",
-      "canton": "AG",
-      "country": "CH",
-      "description": "Du möchtest moderne DevOps-Praktiken aktiv mitgestalten, unsere Teams bei stabilen und effizienten Delivery-Prozessen unterstützen, dein Cloud-Native-Mindset einbringen und dich fachlich weiterentwickeln? Dann bist du bei uns genau richtig!\n\nWir suchen einen engagierten DevOps Engineer, der unsere Teams mit fundierter Erfahrung in Automatisierung, CI/CD und Plattformtechnologien unterstützt. Gemeinsam stellen wir sicher, dass Banktransaktionsdaten unserer Kundinnen und Kunden mit modernen Technologien in Echtzeit verarbeitet und bereitgestellt werden. Dabei gestaltest du unsere DevOps-Landschaft aktiv mit und trägst zu stabilen, sicheren und effizienten Lösungen bei.\n\nDas kannst du bewirken\n\n- Du entwickelst und betreibst unsere CI/CD-Pipelines weiter und sorgst dafür, dass Deployments stabil, effizient und nachvollziehbar ablaufen\n\n- Du unterstützt unsere beiden Teams bei Automatisierung, Plattformthemen und Betriebsprozessen, damit sich die Entwickler stärker auf den Entwicklungsprozess konzentrieren können\n\n- Du übernimmst Verantwortung für Monitoring, Stabilität und Verfügbarkeit unserer Microservices und erkennst Optimierungspotenziale frühzeitig\n\n- Du bringst deine Erfahrung in DevOps-Praktiken aktiv in den Teams und in unserer DevOps Guilde ein und förderst kontinuierliche Verbesserung, Sicherheit und Qualität in unseren Delivery-Prozessen\n\n- Mit deinem Wissen stärkst du die Zusammenarbeit zwischen Entwicklung und Betrieb und hilfst uns, nachhaltige und effiziente Lösungen bereitzustellen\n\nDas bringst du mit\n\n- Höherer Abschluss in Informatik (FH oder Uni) oder entsprechende Berufserfahrung\n\n- Mehrjährige Erfahrung im DevOps-Umfeld sowie im Aufbau und Betrieb moderner CI/CD-Pipelines mit GitLab und Git.\n\n- Sehr gute Kenntnisse in Docker, Kubernetes und Microservice Architektur.\n\n- Fundiertes Verständnis von GitOps-Prinzipien und deren Anwendung mit ArgoCD.\n\n- Erfahrung im Bereich Infrastructure as Code (Kustomize, Helm, Terraform) und deklarative Deployment-Strategien.\n\n- Erfahrung mit Monitoring, Logging und Observability-Lösungen, wie Splunk und Grafana\n\n- Kenntnisse im Bereich DevSecOps sowie Erfahrung mit SonarQube und automatisierten Sicherheits- und Qualitätsprüfungen sind von Vorteil.\n\n- Erfahrung in der Entwicklung von Java-Anwendungen ist von Vorteil\n\n- Analytische und lösungsorientierte Arbeitsweise sowie Begeisterung für moderne Technologien und kontinuierliche Weiterentwicklung.",
-      "descriptionByLocale": {
-        "it": "Vuoi modellare attivamente le pratiche DevOps moderne, supportare i nostri team nei processi di consegna stabili ed efficienti, contribuire alla tua mentalità cloud-native e sviluppare professionalmente? Allora hai ragione con noi!\n\nStiamo cercando un DevOps Engineer dedicato per supportare i nostri team con profonda esperienza nell'automazione, nel CI/CD e nelle tecnologie della piattaforma. Insieme, ci assicuriamo che i dati delle transazioni bancarie dei nostri clienti vengano elaborati e forniti in tempo reale utilizzando tecnologie moderne. Formate attivamente il nostro paesaggio DevOps e contribuite a soluzioni stabili, sicure ed efficienti.\n\nPuoi farlo.\n\n- Continuate a sviluppare e gestire le nostre tubazioni CI/CD e assicuratevi che le distribuzioni siano stabili, efficienti e tracciabili\n\n- Sostenere i nostri due team con automazione, temi della piattaforma e processi operativi in modo che gli sviluppatori possano concentrarsi di più sul processo di sviluppo\n\n- Si assume la responsabilità di monitoraggio, stabilità e disponibilità dei nostri microservizi e riconoscere il potenziale di ottimizzazione in una fase iniziale\n\n- Contribuirai attivamente la tua esperienza nelle pratiche DevOps alle squadre e alla nostra DevOps Guilde e promuoverai un miglioramento continuo, sicurezza e qualità nei nostri processi di consegna\n\n- Con la vostra conoscenza, rafforzare la cooperazione tra sviluppo e operazioni e aiutarci a fornire soluzioni sostenibili ed efficienti\n\nLo porti con te.\n\n- Laurea superiore in Informatica (FH o Uni) o esperienza professionale equivalente\n\n- Diversi anni di esperienza nell'ambiente DevOps, nonché nella costruzione e nel funzionamento di moderni gasdotti CI/CD con GitLab e Git.\n\n- Ottima conoscenza di Docker, Kubernetes e architettura microservice.\n\n- La comprensione approfondita dei principi GitOps e la loro applicazione con ArgoCD.\n\n- Esperienza nell'infrastruttura come codice (customizzare, casco, terraform) e strategie di distribuzione dichiarativa.\n\n- Esperienza con soluzioni di monitoraggio, registrazione e osservabilità, come Splunk e Grafana\n\n- La conoscenza di DevSecOps e l'esperienza con SonarQube e i controlli automatizzati di sicurezza e qualità sono vantaggiosi.\n\n- L'esperienza nello sviluppo di applicazioni Java è un vantaggio\n\n- Metodi di lavoro analitici e orientati alla soluzione, nonché entusiasmo per le moderne tecnologie e lo sviluppo continuo.",
-        "en": "Do you want to actively shape modern DevOps practices, support our teams in stable and efficient delivery processes, contribute your cloud-native mindset and develop professionally? Then you are exactly right with us!\n\nWe are looking for a dedicated DevOps Engineer to support our teams with deep experience in automation, CI/CD and platform technologies. Together, we ensure that our customers’ bank transaction data is processed and provided in real time using modern technologies. You actively shape our DevOps landscape and contribute to stable, secure and efficient solutions.\n\nYou can do that.\n\n- You continue to develop and operate our CI/CD pipelines and ensure that deployments are stable, efficient and traceable\n\n- Support our two teams with automation, platform themes and operational processes so that developers can focus more on the development process\n\n- You take responsibility for monitoring, stability and availability of our microservices and recognize optimization potential at an early stage\n\n- You will actively contribute your experience in DevOps practices to the teams and our DevOps Guilde and promote continuous improvement, security and quality in our delivery processes\n\n- With your knowledge, you strengthen cooperation between development and operations and help us provide sustainable and efficient solutions\n\nYou bring that with you\n\n- Higher degree in Computer Science (FH or Uni) or equivalent professional experience\n\n- Several years of experience in the DevOps environment as well as in the construction and operation of modern CI/CD pipelines with GitLab and Git.\n\n- Very good knowledge of Docker, Kubernetes and microservice architecture.\n\n- In-depth understanding of GitOps principles and their application with ArgoCD.\n\n- Experience in infrastructure as code (customize, helmet, terraform) and declarative deployment strategies.\n\n- Experience with monitoring, logging and observability solutions, such as Splunk and Grafana\n\n- Knowledge of DevSecOps as well as experience with SonarQube and automated security and quality checks are beneficial.\n\n- Experience in developing Java applications is an advantage\n\n- Analytical and solution-oriented working methods as well as enthusiasm for modern technologies and continuous development.",
-        "de": "Du möchtest moderne DevOps-Praktiken aktiv mitgestalten, unsere Teams bei stabilen und effizienten Delivery-Prozessen unterstützen, dein Cloud-Native-Mindset einbringen und dich fachlich weiterentwickeln? Dann bist du bei uns genau richtig!\n\nWir suchen einen engagierten DevOps Engineer, der unsere Teams mit fundierter Erfahrung in Automatisierung, CI/CD und Plattformtechnologien unterstützt. Gemeinsam stellen wir sicher, dass Banktransaktionsdaten unserer Kundinnen und Kunden mit modernen Technologien in Echtzeit verarbeitet und bereitgestellt werden. Dabei gestaltest du unsere DevOps-Landschaft aktiv mit und trägst zu stabilen, sicheren und effizienten Lösungen bei.\n\nDas kannst du bewirken\n\n- Du entwickelst und betreibst unsere CI/CD-Pipelines weiter und sorgst dafür, dass Deployments stabil, effizient und nachvollziehbar ablaufen\n\n- Du unterstützt unsere beiden Teams bei Automatisierung, Plattformthemen und Betriebsprozessen, damit sich die Entwickler stärker auf den Entwicklungsprozess konzentrieren können\n\n- Du übernimmst Verantwortung für Monitoring, Stabilität und Verfügbarkeit unserer Microservices und erkennst Optimierungspotenziale frühzeitig\n\n- Du bringst deine Erfahrung in DevOps-Praktiken aktiv in den Teams und in unserer DevOps Guilde ein und förderst kontinuierliche Verbesserung, Sicherheit und Qualität in unseren Delivery-Prozessen\n\n- Mit deinem Wissen stärkst du die Zusammenarbeit zwischen Entwicklung und Betrieb und hilfst uns, nachhaltige und effiziente Lösungen bereitzustellen\n\nDas bringst du mit\n\n- Höherer Abschluss in Informatik (FH oder Uni) oder entsprechende Berufserfahrung\n\n- Mehrjährige Erfahrung im DevOps-Umfeld sowie im Aufbau und Betrieb moderner CI/CD-Pipelines mit GitLab und Git.\n\n- Sehr gute Kenntnisse in Docker, Kubernetes und Microservice Architektur.\n\n- Fundiertes Verständnis von GitOps-Prinzipien und deren Anwendung mit ArgoCD.\n\n- Erfahrung im Bereich Infrastructure as Code (Kustomize, Helm, Terraform) und deklarative Deployment-Strategien.\n\n- Erfahrung mit Monitoring, Logging und Observability-Lösungen, wie Splunk und Grafana\n\n- Kenntnisse im Bereich DevSecOps sowie Erfahrung mit SonarQube und automatisierten Sicherheits- und Qualitätsprüfungen sind von Vorteil.\n\n- Erfahrung in der Entwicklung von Java-Anwendungen ist von Vorteil\n\n- Analytische und lösungsorientierte Arbeitsweise sowie Begeisterung für moderne Technologien und kontinuierliche Weiterentwicklung.",
-        "fr": "Voulez-vous façonner activement les pratiques DevOps modernes, soutenir nos équipes dans des processus de livraison stables et efficaces, contribuer à votre état d'esprit cloud-natif et se développer professionnellement? Alors tu as exactement raison avec nous !\n\nNous sommes à la recherche d'un ingénieur DevOps dédié pour soutenir nos équipes avec une grande expérience dans l'automatisation, CI/CD et les technologies de plateforme. Ensemble, nous veillons à ce que nos données bancaires de transaction soient traitées et fournies en temps réel en utilisant les technologies modernes. Vous façonnez activement notre paysage DevOps et contribuez à des solutions stables, sécurisées et efficaces.\n\nTu peux le faire.\n\n- Vous continuez à développer et à exploiter nos pipelines CI/CD et vous assurez que les déploiements sont stables, efficaces et traçables\n\n- Soutenez nos deux équipes avec l'automatisation, les thèmes de plateforme et les processus opérationnels afin que les développeurs puissent se concentrer davantage sur le processus de développement\n\n- Vous prenez en charge la surveillance, la stabilité et la disponibilité de nos microservices et reconnaissez le potentiel d'optimisation à un stade précoce\n\n- Vous apporterez activement votre expérience dans les pratiques DevOps aux équipes et à notre DevOps Guilde et favoriserez l'amélioration continue, la sécurité et la qualité dans nos processus de livraison\n\n- Avec vos connaissances, vous renforcez la coopération entre le développement et les opérations et nous aidez à fournir des solutions durables et efficaces\n\nApporte ça avec toi.\n\n- Diplôme supérieur en informatique (FH ou Uni) ou expérience professionnelle équivalente\n\n- Plusieurs années d'expérience dans l'environnement DevOps ainsi que dans la construction et l'exploitation de pipelines CI/CD modernes avec GitLab et Git.\n\n- Très bonne connaissance de Docker, Kubernetes et l'architecture microservice.\n\n- Compréhension approfondie des principes GitOps et de leur application avec ArgoCD.\n\n- Expérience de l'infrastructure comme code (personnalisation, casque, terraforme) et stratégies de déploiement déclaratif.\n\n- Expérience des solutions de surveillance, d'enregistrement et d'observation, telles que Splunk et Grafana\n\n- La connaissance de DevSecOps ainsi que l'expérience avec SonarQube et la sécurité automatisée et les contrôles de qualité sont bénéfiques.\n\n- L'expérience dans le développement des applications Java est un avantage\n\n- Méthodes de travail analytiques et axées sur les solutions, enthousiasme pour les technologies modernes et développement continu."
-      },
-      "titleByLocale": {
-        "it": "DevOps Ingegnere (w/m/d)",
-        "en": "DevOps Engineer (w/m/d)",
-        "de": "DevOps Ingenieur (w/m/d)",
-        "fr": "DevOps Ingénieur (w/m/d)"
-      },
-      "slug": "devops-ingegnere-w-m-d-postfinance-zofingen",
-      "slugByLocale": {
-        "it": "devops-ingegnere-w-m-d-postfinance-zofingen",
-        "en": "devops-engineer-w-m-d-postfinance-zofingen",
-        "de": "devops-engineer-w-m-d-postfinance",
-        "fr": "devops-ingenieur-w-m-d-postfinance-zofingen"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:54.281Z",
-      "validThrough": "20.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "AG",
-        "location": "Zofingen"
-      },
-      "id": "postfinance-2809f6c4dbc0",
-      "previousSlugs": [
-        "devops-engineer-w-m-d-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "devops-engineer-w-m-d-postfinance"
-        ],
-        "fr": [
-          "devops-engineer-w-m-d-postfinance"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:36:14.852Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4800",
-      "addressLocality": "Zofingen",
-      "addressRegion": "AG"
     },
     {
       "url": "https://jobs.postfinance.ch/job/Standortleiterin-Customer-Center-Privatkunden-Biel/74894-de_DE",
@@ -514,7 +355,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:53.534Z",
+      "crawledAt": "2026-10-20T09:40:19.398Z",
       "validThrough": "02.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -592,7 +433,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:52.773Z",
+      "crawledAt": "2026-10-20T09:40:18.620Z",
       "validThrough": "30.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -670,7 +511,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:51.976Z",
+      "crawledAt": "2026-10-20T09:40:17.869Z",
       "validThrough": "23.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -707,6 +548,94 @@
         ]
       },
       "firstSeenAt": "2026-10-05T22:00:32.507Z",
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 185000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
+      "title": "Athletenprogramm Asset Management (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
+      "descriptionByLocale": {
+        "it": "A PostFinance, prendiamo sempre più il controllo della gestione dei nostri fondi e ampliamo continuamente le nostre competenze nel settore dei fondi. Per questo progetto strategicamente importante, stiamo cercando una personalità impegnata che supporta il nostro team nel progetto di trasformazione in corso. Sei attivamente coinvolto nell'integrazione di sistemi, processi di costruzione, nell'attuazione dei requisiti normativi e nella preparazione dell'organizzazione per il go-live.\n\nPuoi farlo.\n\n- Supporti lo sviluppo di nuovi processi, controlli e responsabilità lungo l'intera catena del valore e lavori a stretto contatto con i team Fund Management, Sustainable Investing, Mid-Office, Performance Controlling e Compliance & Risk.\n\n- Siete attivamente coinvolti nella concezione e nell'attuazione di prove e formazioni, nonché nella pianificazione e nell'attuazione del rollout.\n\n- Lavori con parti interessate interne ed esterne e supporto nella progettazione della futura gestione dei fondi operativi.\n\n- Lei sostiene nella chiarificazione di argomenti normativi e nell'Ufficio di gestione del progetto\n\nLo porti con te.\n\n- Sei attivo:r o ex:r atleta superiore:in (la tua carriera sportiva non è più di un anno fa).\n\n- Hai completato la formazione professionale o sei in una laurea (preferibilmente in amministrazione aziendale, economia, banca e finanza) o l'hai già completato, che non era più di due anni fa all'inizio del programma.\n\n- Siete motivati a assumersi la responsabilità, pensare in modo imprenditoriale e guidare argomenti in modo indipendente.\n\n- Hai un modo analitico e strutturato di pensare e godere di lavorare insieme in un team su nuove sfide.\n\n- Sei interessato al business degli investimenti, ai mercati finanziari e alle sfide di un ambiente di gestione patrimoniale in evoluzione.",
+        "en": "At PostFinance, we increasingly take over the management of our funds ourselves and continuously expand our expertise in the fund business. For this strategically important project, we are looking for a committed personality who supports our team in the ongoing transformation project. You are actively involved in integrating systems, building processes, implementing regulatory requirements and successfully preparing the organization for the go-live.\n\nYou can do that.\n\n- You support the development of new processes, controls and responsibilities along the entire value chain and work closely with the teams Fund Management, Sustainable Investing, Mid-Office, Performance Controlling and Compliance & Risk.\n\n- You are actively involved in the conception and implementation of tests and trainings as well as in the planning and implementation of the rollout.\n\n- You work with internal and external stakeholders and support in the design of future operational fund management.\n\n- You support in the clarification of regulatory topics as well as in the Project Management Office\n\nYou bring that with you\n\n- You are active:r or former:r top athlete:in (your sports career is not more than a year ago).\n\n- You have completed vocational training or are in a bachelor’s degree (preferably in business administration, economics, banking & finance) or have already completed it, which was not more than two years ago at the start of the program.\n\n- You are motivated to take on responsibility, think entrepreneurially and drive topics forward independently.\n\n- You have an analytical and structured way of thinking and enjoy working together in a team on new challenges.\n\n- You are interested in the investment business, financial markets and the challenges of a changing asset management environment.",
+        "de": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
+        "fr": "Chez PostFinance, nous prenons de plus en plus en charge la gestion de nos fonds nous-mêmes et développons continuellement notre expertise dans le domaine des fonds. Pour ce projet stratégiquement important, nous recherchons une personnalité engagée qui soutient notre équipe dans le projet de transformation en cours. Vous participez activement à l'intégration des systèmes, à la construction des processus, à la mise en oeuvre des exigences réglementaires et à la préparation réussie de l'organisation pour la mise en oeuvre.\n\nTu peux le faire.\n\n- Vous soutenez le développement de nouveaux processus, contrôles et responsabilités tout au long de la chaîne de valeur et travaillez en étroite collaboration avec les équipes Gestion de fonds, Investissement durable, Mid-Office, Contrôle de performance et Conformité et Risque.\n\n- Vous participez activement à la conception et à la mise en oeuvre des tests et des formations ainsi qu'à la planification et à la mise en œuvre du déploiement.\n\n- Vous travaillez avec des intervenants internes et externes et vous aidez à concevoir la future gestion des fonds opérationnels.\n\n- Vous soutenez la clarification des sujets réglementaires ainsi que le Bureau de gestion de projet\n\nApporte ça avec toi.\n\n- Vous êtes actif:r ou ancien:r meilleur athlète:in (votre carrière sportive n'est pas plus d'un an).\n\n- Vous avez suivi une formation professionnelle ou vous êtes titulaire d'un baccalauréat (de préférence en administration des affaires, en économie, en banque et en finance) ou l'avez déjà terminé, ce qui n'était pas plus de deux ans au début du programme.\n\n- Vous êtes motivé à assumer vos responsabilités, à penser de manière entrepreneuriale et à faire avancer les sujets de façon indépendante.\n\n- Vous avez une façon analytique et structurée de penser et aimez travailler ensemble dans une équipe sur de nouveaux défis.\n\n- Vous êtes intéressé par l'entreprise d'investissement, les marchés financiers et les défis d'un environnement de gestion d'actifs en évolution."
+      },
+      "titleByLocale": {
+        "it": "Athletic Program Asset Management (m/f/d)",
+        "en": "Athletic Program Asset Management (m/f/d)",
+        "de": "Athletenprogramm Asset Management (w/m/d)",
+        "fr": "Programme sportif Gestion d'actifs (h/f/d)"
+      },
+      "slug": "athletic-program-asset-management-m-f-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "athletic-program-asset-management-m-f-d-postfinance-bern",
+        "en": "athletic-program-asset-management-m-f-d-postfinance-bern",
+        "de": "athletenprogramm-asset-management-w-m-d-postfinance",
+        "fr": "athletenprogramm-asset-management-m-w-d-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Büro-Finanzen und Revision"
+      ],
+      "category": [
+        "Büro-Finanzen und Revision"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-20T09:40:17.133Z",
+      "validThrough": "23.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "40-70%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-45a5161f48b7",
+      "previousSlugs": [
+        "athletenprogramm-asset-management-w-m-d-postfinance",
+        "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
+        "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "athletenprogramm-asset-management-w-m-d-postfinance"
+        ],
+        "en": [
+          "athletenprogramm-asset-management-w-m-d-postfinance"
+        ],
+        "fr": [
+          "athletenprogramm-asset-management-w-m-d-postfinance",
+          "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
+          "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
+        ]
+      },
+      "firstSeenAt": "2026-10-05T09:36:41.204Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "currency": "CHF",
@@ -764,7 +693,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:51.209Z",
+      "crawledAt": "2026-10-20T09:40:16.367Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -806,94 +735,6 @@
       "addressRegion": "AG"
     },
     {
-      "url": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Athletenprogramm-Asset-Management-%28wmd%29/74880-de_DE",
-      "title": "Athletenprogramm Asset Management (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
-      "descriptionByLocale": {
-        "it": "A PostFinance, prendiamo sempre più il controllo della gestione dei nostri fondi e ampliamo continuamente le nostre competenze nel settore dei fondi. Per questo progetto strategicamente importante, stiamo cercando una personalità impegnata che supporta il nostro team nel progetto di trasformazione in corso. Sei attivamente coinvolto nell'integrazione di sistemi, processi di costruzione, nell'attuazione dei requisiti normativi e nella preparazione dell'organizzazione per il go-live.\n\nPuoi farlo.\n\n- Supporti lo sviluppo di nuovi processi, controlli e responsabilità lungo l'intera catena del valore e lavori a stretto contatto con i team Fund Management, Sustainable Investing, Mid-Office, Performance Controlling e Compliance & Risk.\n\n- Siete attivamente coinvolti nella concezione e nell'attuazione di prove e formazioni, nonché nella pianificazione e nell'attuazione del rollout.\n\n- Lavori con parti interessate interne ed esterne e supporto nella progettazione della futura gestione dei fondi operativi.\n\n- Lei sostiene nella chiarificazione di argomenti normativi e nell'Ufficio di gestione del progetto\n\nLo porti con te.\n\n- Sei attivo:r o ex:r atleta superiore:in (la tua carriera sportiva non è più di un anno fa).\n\n- Hai completato la formazione professionale o sei in una laurea (preferibilmente in amministrazione aziendale, economia, banca e finanza) o l'hai già completato, che non era più di due anni fa all'inizio del programma.\n\n- Siete motivati a assumersi la responsabilità, pensare in modo imprenditoriale e guidare argomenti in modo indipendente.\n\n- Hai un modo analitico e strutturato di pensare e godere di lavorare insieme in un team su nuove sfide.\n\n- Sei interessato al business degli investimenti, ai mercati finanziari e alle sfide di un ambiente di gestione patrimoniale in evoluzione.",
-        "en": "At PostFinance, we increasingly take over the management of our funds ourselves and continuously expand our expertise in the fund business. For this strategically important project, we are looking for a committed personality who supports our team in the ongoing transformation project. You are actively involved in integrating systems, building processes, implementing regulatory requirements and successfully preparing the organization for the go-live.\n\nYou can do that.\n\n- You support the development of new processes, controls and responsibilities along the entire value chain and work closely with the teams Fund Management, Sustainable Investing, Mid-Office, Performance Controlling and Compliance & Risk.\n\n- You are actively involved in the conception and implementation of tests and trainings as well as in the planning and implementation of the rollout.\n\n- You work with internal and external stakeholders and support in the design of future operational fund management.\n\n- You support in the clarification of regulatory topics as well as in the Project Management Office\n\nYou bring that with you\n\n- You are active:r or former:r top athlete:in (your sports career is not more than a year ago).\n\n- You have completed vocational training or are in a bachelor’s degree (preferably in business administration, economics, banking & finance) or have already completed it, which was not more than two years ago at the start of the program.\n\n- You are motivated to take on responsibility, think entrepreneurially and drive topics forward independently.\n\n- You have an analytical and structured way of thinking and enjoy working together in a team on new challenges.\n\n- You are interested in the investment business, financial markets and the challenges of a changing asset management environment.",
-        "de": "Bei PostFinance übernehmen wir die Bewirtschaftung unserer Fonds zunehmend selbst und bauen unsere Kompetenzen im Fondsgeschäft kontinuierlich aus. Für dieses strategisch wichtige Vorhaben suchen wir eine engagierte Persönlichkeit, die unser Team im laufenden Transformationsprojekt unterstützt. Du wirkst aktiv daran mit, Systeme zu integrieren, Prozesse aufzubauen, regulatorische Anforderungen umzusetzen und die Organisation erfolgreich auf den Go-Live vorzubereiten.\n\nDas kannst du bewirken\n\n- Du unterstützt den Aufbau neuer Prozesse, Kontrollen und Verantwortlichkeiten entlang der gesamten Wertschöpfungskette und arbeitest dabei eng mit den Teams Fondsmanagement, Sustainable Investing, Mid-Office, Performance Controlling sowie Compliance & Risk zusammen.\n\n- Du bringst dich aktiv in die Konzeption und Durchführung von Tests & Trainings sowie in die Planung und Umsetzung des Rollouts ein.\n\n- Du arbeitest mit internen und externen Stakeholdern zusammen und unterstützt bei der Gestaltung der zukünftigen operativen Fondsbewirtschaftung.\n\n- Du unterstützt bei der Abklärung von regulatorischen Themen sowie im Project Management Office\n\nDas bringst du mit\n\n- Du bist aktive:r oder ehemalige:r Spitzensportler:in (deine Sportkarriere liegt nicht mehr als ein Jahr zurück).\n\n- Du hast eine abgeschlossene Berufsbildung oder befindest dich im Bachelorstudium (vorzugsweise in Betriebswirtschaft, Volkswirtschaft, Banking & Finance) oder hast diesen bereits abgeschlossen, der bei Programmbeginn nicht länger als zwei Jahre her ist.\n\n- Du bist motiviert, Verantwortung zu übernehmen, denkst unternehmerisch und treibst Themen eigenständig voran.\n\n- Du verfügst über eine analytische und strukturierte Denkweise und arbeitest gerne gemeinsam im Team an neuen Herausforderungen.\n\n- Du interessierst dich für das Anlagegeschäft, Finanzmärkte und die Herausforderungen eines sich wandelnden Asset-Management-Umfelds.",
-        "fr": "Chez PostFinance, nous prenons de plus en plus en charge la gestion de nos fonds nous-mêmes et développons continuellement notre expertise dans le domaine des fonds. Pour ce projet stratégiquement important, nous recherchons une personnalité engagée qui soutient notre équipe dans le projet de transformation en cours. Vous participez activement à l'intégration des systèmes, à la construction des processus, à la mise en oeuvre des exigences réglementaires et à la préparation réussie de l'organisation pour la mise en oeuvre.\n\nTu peux le faire.\n\n- Vous soutenez le développement de nouveaux processus, contrôles et responsabilités tout au long de la chaîne de valeur et travaillez en étroite collaboration avec les équipes Gestion de fonds, Investissement durable, Mid-Office, Contrôle de performance et Conformité et Risque.\n\n- Vous participez activement à la conception et à la mise en oeuvre des tests et des formations ainsi qu'à la planification et à la mise en œuvre du déploiement.\n\n- Vous travaillez avec des intervenants internes et externes et vous aidez à concevoir la future gestion des fonds opérationnels.\n\n- Vous soutenez la clarification des sujets réglementaires ainsi que le Bureau de gestion de projet\n\nApporte ça avec toi.\n\n- Vous êtes actif:r ou ancien:r meilleur athlète:in (votre carrière sportive n'est pas plus d'un an).\n\n- Vous avez suivi une formation professionnelle ou vous êtes titulaire d'un baccalauréat (de préférence en administration des affaires, en économie, en banque et en finance) ou l'avez déjà terminé, ce qui n'était pas plus de deux ans au début du programme.\n\n- Vous êtes motivé à assumer vos responsabilités, à penser de manière entrepreneuriale et à faire avancer les sujets de façon indépendante.\n\n- Vous avez une façon analytique et structurée de penser et aimez travailler ensemble dans une équipe sur de nouveaux défis.\n\n- Vous êtes intéressé par l'entreprise d'investissement, les marchés financiers et les défis d'un environnement de gestion d'actifs en évolution."
-      },
-      "titleByLocale": {
-        "it": "Athletic Program Asset Management (m/f/d)",
-        "en": "Athletic Program Asset Management (m/f/d)",
-        "de": "Athletenprogramm Asset Management (w/m/d)",
-        "fr": "Programme sportif Gestion d'actifs (h/f/d)"
-      },
-      "slug": "athletic-program-asset-management-m-f-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "athletic-program-asset-management-m-f-d-postfinance-bern",
-        "en": "athletic-program-asset-management-m-f-d-postfinance-bern",
-        "de": "athletenprogramm-asset-management-w-m-d-postfinance",
-        "fr": "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Büro-Finanzen und Revision"
-      ],
-      "category": [
-        "Büro-Finanzen und Revision"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:50.420Z",
-      "validThrough": "23.10.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "40-70%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-45a5161f48b7",
-      "previousSlugs": [
-        "athletenprogramm-asset-management-w-m-d-postfinance",
-        "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
-        "athletenprogramm-asset-management-m-w-d-postfinance-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "athletenprogramm-asset-management-w-m-d-postfinance"
-        ],
-        "en": [
-          "athletenprogramm-asset-management-w-m-d-postfinance"
-        ],
-        "fr": [
-          "athletenprogramm-asset-management-w-m-d-postfinance",
-          "programme-d-athletes-asset-management-h-f-d-postfinance-bern",
-          "athletenprogramm-asset-management-m-w-d-postfinance-bern"
-        ]
-      },
-      "firstSeenAt": "2026-10-05T09:36:41.204Z",
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 185000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE"
-    },
-    {
       "url": "https://jobs.postfinance.ch/job/Senior-Third-Party-Risk-Manager-%28mwd%29/74953-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Senior-Third-Party-Risk-Manager-%28mwd%29/74953-de_DE",
       "title": "Senior Third Party Risk Manager (m/w/d)",
@@ -932,7 +773,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:49.684Z",
+      "crawledAt": "2026-10-20T09:40:15.628Z",
       "validThrough": "05.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1011,7 +852,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:48.934Z",
+      "crawledAt": "2026-10-20T09:40:14.889Z",
       "validThrough": "26.10.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1049,168 +890,6 @@
           "@type": "QuantitativeValue",
           "minValue": 66000,
           "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
-      "title": "Senior Specialist TPRM Security Monitoring - Cyber Security (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Als Senior Specialist TPRM Security Monitoring mit Schwerpunkt IT-Security, Cyber und IKT stellst du die wirksame Überwachung technischer Sicherheits- und Resilienzrisiken unserer Drittparteien sicher. Mit deinem technischen Verständnis und deiner Affinität zu BCM stärkst du die Sicherheit, Verfügbarkeit und Widerstandsfähigkeit der von PostFinance bezogenen Dienstleistungen.\n\nDas kannst du bewirken\n\n- Du planst, koordinierst und dokumentierst risikobasierte Security-Kontrollen und periodische Re-Assessments bei Drittparteien.\n\n- Du beurteilst Nachweise zu IT-Security, Cyber, IKT, Vulnerability Management, technischen Schutzmassnahmen, BCM und operationeller Resilienz.\n\n- Du analysierst unter anderem Penetrationstest-, Schwachstellen-, Zertifizierungs-, ISAE-, SOC- und weitere technische Assurance-Berichte.\n\n- Du bewertest technische Abweichungen und Findings, definierst gemeinsam mit den Fachstellen geeignete Massnahmen und stellst deren Nachverfolgung sicher.\n\n- Du überwachst die Einhaltung vertraglicher Security-Anforderungen und eskalierst wesentliche technische oder operationelle Risiken.\n\n- Du erstellst aussagekräftige Kontroll-, Risiko- und Management-Reportings und unterstützt Revisions-, Audit- und Aufsichtsanfragen.\n\n- Du entwickelst Kontrollkatalog, Evidenzanforderungen, Bewertungslogik und Toolunterstützung gemeinsam mit den relevanten Security-Fachbereichen weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Cyber Security, Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n\n- Mehrjährige Erfahrung in IT-Security, Cyber Risk, IKT-Risikomanagement, Security Assurance, BCM oder Third Party Risk Management.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Fundierte Kenntnisse technischer Security-Kontrollen und etablierter Frameworks wie ISO 27001 oder NIST.\n\n- Erfahrung in der Beurteilung technischer Evidenzen, Schwachstellen, Auditberichte, Findings und Remediation-Massnahmen.\n\n- Gutes Verständnis von IKT-Resilienz, Business Continuity und regulatorischen Anforderungen im Finanzumfeld.\n\n- Analytische und lösungsorientierte Arbeitsweise sowie die Fähigkeit, technische Sachverhalte adressatengerecht und verbindlich auf Deutsch zu kommunizieren.",
-      "descriptionByLocale": {
-        "it": "In qualità di Senior Specialist TPRM Security Monitoring con un focus su IT Security, Cyber e ICT, si garantisce il monitoraggio efficace dei rischi di sicurezza tecnica e resilienza dei nostri terzi. Con la vostra comprensione tecnica e affinità con BCM, rafforzate la sicurezza, la disponibilità e la resilienza dei servizi forniti da PostFinance.\n\nPuoi farlo.\n\n- Pianifica, coordina e documenta controlli di sicurezza basati sui rischi e rivalutazioni periodiche a terzi.\n\n- Valuterai le prove di sicurezza informatica, cyber, ICT, gestione delle vulnerabilità, misure di protezione tecnica, BCM e resilienza operativa.\n\n- Tra le altre cose, analizzerai test di penetrazione, vulnerabilità, certificazione, ISAE, SOC e altri rapporti di assicurazione tecnica.\n\n- Valuta le deviazioni tecniche e i risultati, definisci le misure adeguate insieme agli organismi specializzati e garantisci il loro monitoraggio.\n\n- Monitorare la conformità ai requisiti di sicurezza contrattuali e aumentare i rischi tecnici o operativi.\n\n- Si crea un controllo significativo, la segnalazione del rischio e della gestione e supporta le richieste di audit, audit e supervisione.\n\n- Sviluppi il catalogo di controllo, i requisiti di prova, la logica di valutazione e il supporto degli strumenti insieme ai settori specializzati in materia di sicurezza.\n\nLo porti con te.\n\n- Laurea superiore in sicurezza informatica, informatica, informatica aziendale o una qualifica paragonabile.\n\n- Diversi anni di esperienza nella sicurezza informatica, rischio informatico, gestione del rischio ICT, sicurezza, BCM o gestione del rischio di terze parti.\n\n- Hai esperienza nell'ambiente bancario e conosci i requisiti normativi essenziali per la sicurezza delle informazioni, i rischi operativi e la gestione dei rischi di terzi.\n\n- Hai esperienza nella pianificazione, nel coordinamento e nella conduzione di controlli di sicurezza e di rischio con terze parti e puoi valutare e monitorare i risultati e le misure risultanti in modo strutturato.\n\n- Conoscenza approfondita dei controlli di sicurezza tecnica e dei framework stabiliti come ISO 27001 o NIST.\n\n- Esperienza nella valutazione di prove tecniche, vulnerabilità, rapporti di audit, ricerca e misure di bonifica.\n\n- Buona comprensione della resilienza delle TIC, della continuità aziendale e dei requisiti normativi nell'ambiente finanziario.\n\n- Metodi di lavoro analitici e orientati alla soluzione, nonché la capacità di comunicare i problemi tecnici in tedesco in modo indirizzabile e vincolante.",
-        "en": "As a Senior Specialist TPRM Security Monitoring with a focus on IT Security, Cyber and ICT, you ensure the effective monitoring of technical security and resilience risks of our third parties. With your technical understanding and affinity to BCM, you strengthen the security, availability and resilience of the services provided by PostFinance.\n\nYou can do that.\n\n- You plan, coordinate and document risk-based security controls and periodic re-assessments at third parties.\n\n- You will assess evidence of IT security, cyber, ICT, vulnerability management, technical protection measures, BCM and operational resilience.\n\n- Among other things, you will analyze penetration test, vulnerability, certification, ISAE, SOC and other technical assurance reports.\n\n- You evaluate technical deviations and findings, define suitable measures together with the specialist bodies and ensure their tracking.\n\n- You monitor compliance with contractual security requirements and escalate material technical or operational risks.\n\n- You create meaningful control, risk and management reporting and support audit, audit and supervisory requests.\n\n- You develop control catalogue, evidence requirements, evaluation logic and tool support together with the relevant security specialist areas.\n\nYou bring that with you\n\n- Higher degree in Cyber Security, Computer Science, Business Informatics or a comparable qualification.\n\n- Several years of experience in IT security, cyber risk, ICT risk management, security assurance, BCM or third party risk management.\n\n- You have experience in the banking environment and know the essential regulatory requirements for information security, operational risks and third party risk management.\n\n- You have experience in planning, coordinating and conducting security and risk audits with third parties and can assess and track findings and resulting measures in a structured manner.\n\n- In-depth knowledge of technical security controls and established frameworks such as ISO 27001 or NIST.\n\n- Experience in assessing technical evidence, vulnerabilities, audit reports, finding and remediation measures.\n\n- Good understanding of ICT resilience, business continuity and regulatory requirements in the financial environment.\n\n- Analytical and solution-oriented working methods as well as the ability to communicate technical issues in German in an addressable and binding manner.",
-        "de": "Als Senior Specialist TPRM Security Monitoring mit Schwerpunkt IT-Security, Cyber und IKT stellst du die wirksame Überwachung technischer Sicherheits- und Resilienzrisiken unserer Drittparteien sicher. Mit deinem technischen Verständnis und deiner Affinität zu BCM stärkst du die Sicherheit, Verfügbarkeit und Widerstandsfähigkeit der von PostFinance bezogenen Dienstleistungen.\n\nDas kannst du bewirken\n\n- Du planst, koordinierst und dokumentierst risikobasierte Security-Kontrollen und periodische Re-Assessments bei Drittparteien.\n\n- Du beurteilst Nachweise zu IT-Security, Cyber, IKT, Vulnerability Management, technischen Schutzmassnahmen, BCM und operationeller Resilienz.\n\n- Du analysierst unter anderem Penetrationstest-, Schwachstellen-, Zertifizierungs-, ISAE-, SOC- und weitere technische Assurance-Berichte.\n\n- Du bewertest technische Abweichungen und Findings, definierst gemeinsam mit den Fachstellen geeignete Massnahmen und stellst deren Nachverfolgung sicher.\n\n- Du überwachst die Einhaltung vertraglicher Security-Anforderungen und eskalierst wesentliche technische oder operationelle Risiken.\n\n- Du erstellst aussagekräftige Kontroll-, Risiko- und Management-Reportings und unterstützt Revisions-, Audit- und Aufsichtsanfragen.\n\n- Du entwickelst Kontrollkatalog, Evidenzanforderungen, Bewertungslogik und Toolunterstützung gemeinsam mit den relevanten Security-Fachbereichen weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Cyber Security, Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n\n- Mehrjährige Erfahrung in IT-Security, Cyber Risk, IKT-Risikomanagement, Security Assurance, BCM oder Third Party Risk Management.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Fundierte Kenntnisse technischer Security-Kontrollen und etablierter Frameworks wie ISO 27001 oder NIST.\n\n- Erfahrung in der Beurteilung technischer Evidenzen, Schwachstellen, Auditberichte, Findings und Remediation-Massnahmen.\n\n- Gutes Verständnis von IKT-Resilienz, Business Continuity und regulatorischen Anforderungen im Finanzumfeld.\n\n- Analytische und lösungsorientierte Arbeitsweise sowie die Fähigkeit, technische Sachverhalte adressatengerecht und verbindlich auf Deutsch zu kommunizieren.",
-        "fr": "En tant que spécialiste principal de la surveillance de la sécurité TPRM en mettant l'accent sur la sécurité informatique, la cyber et les TIC, vous assurez le suivi efficace des risques de sécurité technique et de résilience de nos tiers. Avec votre compréhension technique et votre affinité avec BCM, vous renforcez la sécurité, la disponibilité et la résilience des services fournis par PostFinance.\n\nTu peux le faire.\n\n- Vous planifiez, coordonnez et documentez les contrôles de sécurité fondés sur les risques et les réévaluations périodiques à des tiers.\n\n- Vous évaluerez les preuves de la sécurité informatique, cyber, TIC, gestion de la vulnérabilité, mesures de protection technique, BCM et résilience opérationnelle.\n\n- Entre autres, vous analyserez les tests de pénétration, la vulnérabilité, la certification, l'ISAE, SOC et d'autres rapports d'assurance technique.\n\n- Vous évaluez les écarts techniques et les résultats, définissez des mesures appropriées avec les organismes spécialisés et assurez leur suivi.\n\n- Vous surveillez le respect des exigences de sécurité contractuelles et augmentez les risques matériels techniques ou opérationnels.\n\n- Vous créez des demandes de contrôle, de rapports sur les risques et de rapports de gestion significatives, ainsi que des demandes de vérification, de vérification et de supervision.\n\n- Vous développez un catalogue de contrôles, des exigences en matière de preuves, une logique d'évaluation et un support d'outils ainsi que les domaines spécialisés en matière de sécurité.\n\nApporte ça avec toi.\n\n- Diplôme supérieur en cybersécurité, informatique, informatique des affaires ou une qualification comparable.\n\n- Plusieurs années d'expérience en matière de sécurité informatique, de cyberrisque, de gestion des risques informatiques, d'assurance de la sécurité, de gestion des risques BCM ou de gestion des risques par des tiers.\n\n- Vous avez de l'expérience dans l'environnement bancaire et connaissez les exigences réglementaires essentielles pour la sécurité de l'information, les risques opérationnels et la gestion des risques par des tiers.\n\n- Vous avez de l'expérience dans la planification, la coordination et la réalisation de vérifications de la sécurité et des risques avec des tiers et pouvez évaluer et suivre les constatations et les mesures qui en découlent de manière structurée.\n\n- Connaissance approfondie des contrôles techniques de sécurité et des cadres établis tels que ISO 27001 ou NIST.\n\n- Expérience dans l'évaluation des preuves techniques, des vulnérabilités, des rapports de vérification, des conclusions et des mesures d'assainissement.\n\n- Bonne compréhension de la résilience des TIC, de la continuité des activités et des exigences réglementaires dans l'environnement financier.\n\n- Méthodes de travail analytiques et axées sur les solutions, ainsi que la capacité de communiquer les questions techniques en allemand de manière adressable et contraignante."
-      },
-      "titleByLocale": {
-        "it": "Senior Specialista TPRM Security Monitoring - Cyber Security (w/m/d)",
-        "en": "Senior Specialist TPRM Security Monitoring - Cyber Security (m/f/d)",
-        "de": "Senior Spezialist TPRM Security Monitoring - Cyber Security (w/m/d)",
-        "fr": "Senior Spécialiste TPRM Security Monitoring - Cyber Security (w/m/d)"
-      },
-      "slug": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
-        "en": "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance",
-        "de": "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance",
-        "fr": "senior-specialiste-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:48.169Z",
-      "validThrough": "13.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-97f5f75a0324",
-      "previousSlugs": [
-        "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance"
-        ],
-        "fr": [
-          "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T09:40:44.037Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004",
-      "addressLocality": "Bern",
-      "addressRegion": "BE"
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
-      "title": "Senior Specialist TPRM Security - Operations & Contracting (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "description": "Als Senior Specialist TPRM Security – Operations & Contracting bearbeitest du anspruchsvolle TPRM-Security-Fälle selbstverantwortlich über den gesamten Third-Party-Lifecycle. Du bringst Security-Anforderungen frühzeitig in Evaluationen und Verträge ein, führst unterschiedliche Interessen zusammen und stellst eine risikoadäquate und nachvollziehbare Vertragsüberbindung sicher.\n\nDas kannst du bewirken\n\n- Du bearbeitest TPRM-Security-Fälle von RfI und RfP über die Security Due Diligence und KS-Einstufung bis zur Vertragsüberbindung und laufenden Betreuung.\n\n- Du koordinierst die fachliche Beurteilung mit Information Security, IT-Security/Cyber, IKT, BCM, operationeller Resilienz und weiteren Security-Fachbereichen.\n\n- Du bereitest den risikoadäquaten Security-Anhang vor und steuerst dessen Abstimmung mit Partnermanagement, Procurement, Legal und Risk Control.\n\n- Du begleitest Vertragsverhandlungen mit Drittparteien eigenständig und vertrittst die Security- und Resilienzanforderungen von PostFinance klar, pragmatisch und durchsetzungsstark.\n\n- Du beurteilst Vertragsabweichungen und Ausnahmen und erarbeitest Kompensationsmassnahmen, Risikovermerke und fundierte Entscheidungsgrundlagen.\n\n- Du analysierst Zertifizierungen sowie ISAE-, SOC- und weitere Assurance-Berichte und dokumentierst die Security-Empfehlung für das Onboarding.\n\n- Du unterstützt laufende TPRM-Aufgaben, Audit- und Revisionsanfragen und entwickelst Prozesse, Templates, Security-Anhänge und Arbeitsinstrumente kontinuierlich weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Information Security, Informatik, Wirtschaftsinformatik, Recht, Risk Management oder eine vergleichbare Qualifikation.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Mehrjährige Erfahrung in Third Party Risk Management, Security Due Diligence, Supplier Security oder einem vergleichbaren Umfeld.\n\n- Breites Verständnis von Informationssicherheit, IT-Security, Cyber, IKT, BCM und operationeller Resilienz.\n\n- Erfahrung mit Security-Anforderungen in RfI-/RfP-Verfahren sowie mit Vertragsanhängen, Assurance-Berichten und risikobasierten Beurteilungen.\n\n- Ausgeprägtes Verhandlungsgeschick und die Fähigkeit, Security-Anforderungen gegenüber internen Stakeholdern und externen Partnern überzeugend zu vertreten.\n\n- Sehr gute Deutsch- und gute Englischkenntnisse.",
-      "descriptionByLocale": {
-        "it": "Come Senior Specialist TPRM Security – Operations & Contracting, gestirai casi di sicurezza TPRM impegnativi sulla tua responsabilità in tutto il ciclo di vita di terze parti. Introduce i requisiti di sicurezza in valutazioni e contratti in una fase iniziale, unire interessi diversi e garantire un trasferimento contrattuale appropriato e comprensibile al rischio.\n\nPuoi farlo.\n\n- Elaborerai i casi di sicurezza TPRM da RfI e RfP attraverso due diligence di sicurezza e classificazione KS fino a quando il contratto non sarà firmato e supporto in corso.\n\n- Coordinate la valutazione tecnica con sicurezza delle informazioni, sicurezza informatica/ciber, TIC, BCM, resilienza operativa e altre aree di sicurezza.\n\n- Prepari l'attaccamento di sicurezza adeguato al rischio e controlli il suo coordinamento con la gestione dei partner, l'approvvigionamento, il controllo legale e dei rischi.\n\n- Potrai accompagnare trattative contrattuali con terzi in modo indipendente e rappresentare i requisiti di sicurezza e resilienza di PostFinance in modo chiaro, pragmatico e assertivo.\n\n- Valuta le deviazioni contrattuali e le eccezioni e sviluppa misure di compensazione, note di rischio e principi decisionali ben fondati.\n\n- Analizzerai le certificazioni così come ISAE, SOC e altri rapporti di garanzia e documenterai la raccomandazione di sicurezza per l'imbarco.\n\n- Supporti le attività TPRM in corso, le richieste di audit e audit e sviluppi continuamente processi, modelli, allegati di sicurezza e strumenti di lavoro.\n\nLo porti con te.\n\n- Laurea superiore in sicurezza dell'informazione, informatica, informatica aziendale, diritto, gestione del rischio o una qualifica paragonabile.\n\n- Hai esperienza nell'ambiente bancario e conosci i requisiti normativi essenziali per la sicurezza delle informazioni, i rischi operativi e la gestione dei rischi di terzi.\n\n- Hai esperienza nella pianificazione, nel coordinamento e nella conduzione di controlli di sicurezza e di rischio con terze parti e puoi valutare e monitorare i risultati e le misure risultanti in modo strutturato.\n\n- Diversi anni di esperienza nella gestione del rischio di terzi, diligenza dovuta alla sicurezza, sicurezza dei fornitori o un ambiente paragonabile.\n\n- Ampia comprensione della sicurezza delle informazioni, sicurezza informatica, cyber, ICT, BCM e resilienza operativa.\n\n- Esperienza con i requisiti di sicurezza nelle procedure RfI/RfP e con allegati contrattuali, rapporti di garanzia e valutazioni basate sui rischi.\n\n- Forte capacità di negoziazione e la capacità di rappresentare i requisiti di sicurezza in modo convincente per gli stakeholder interni e i partner esterni.\n\n- Ottima conoscenza del tedesco e dell'inglese.",
-        "en": "As a Senior Specialist TPRM Security – Operations & Contracting, you will handle challenging TPRM security cases on your own responsibility throughout the entire third-party lifecycle. You introduce security requirements into evaluations and contracts at an early stage, bring together different interests and ensure a risk-appropriate and comprehensible contract transfer.\n\nYou can do that.\n\n- You will process TPRM security cases from RfI and RfP through security due diligence and KS classification until the contract is signed and ongoing support.\n\n- You coordinate the technical assessment with information security, IT security/cyber, ICT, BCM, operational resilience and other security areas.\n\n- You prepare the risk-adequate security attachment and control its coordination with partner management, procurement, legal and risk control.\n\n- You will accompany contract negotiations with third parties independently and represent the security and resilience requirements of PostFinance clearly, pragmatically and assertively.\n\n- You assess contract deviations and exceptions and develop compensation measures, risk notes and well-founded decision-making principles.\n\n- You will analyze certifications as well as ISAE, SOC and other assurance reports and document the security recommendation for onboarding.\n\n- You support ongoing TPRM tasks, audit and audit requests and continuously develop processes, templates, security attachments and work tools.\n\nYou bring that with you\n\n- Higher degree in Information Security, Computer Science, Business Informatics, Law, Risk Management or a comparable qualification.\n\n- You have experience in the banking environment and know the essential regulatory requirements for information security, operational risks and third party risk management.\n\n- You have experience in planning, coordinating and conducting security and risk audits with third parties and can assess and track findings and resulting measures in a structured manner.\n\n- Several years of experience in third party risk management, security due diligence, supplier security or a comparable environment.\n\n- Broad understanding of information security, IT security, cyber, ICT, BCM and operational resilience.\n\n- Experience with security requirements in RfI/RfP procedures as well as with contract annexes, assurance reports and risk-based assessments.\n\n- Strong negotiating skills and the ability to represent security requirements convincingly to internal stakeholders and external partners.\n\n- Very good knowledge of German and English.",
-        "de": "Als Senior Specialist TPRM Security – Operations & Contracting bearbeitest du anspruchsvolle TPRM-Security-Fälle selbstverantwortlich über den gesamten Third-Party-Lifecycle. Du bringst Security-Anforderungen frühzeitig in Evaluationen und Verträge ein, führst unterschiedliche Interessen zusammen und stellst eine risikoadäquate und nachvollziehbare Vertragsüberbindung sicher.\n\nDas kannst du bewirken\n\n- Du bearbeitest TPRM-Security-Fälle von RfI und RfP über die Security Due Diligence und KS-Einstufung bis zur Vertragsüberbindung und laufenden Betreuung.\n\n- Du koordinierst die fachliche Beurteilung mit Information Security, IT-Security/Cyber, IKT, BCM, operationeller Resilienz und weiteren Security-Fachbereichen.\n\n- Du bereitest den risikoadäquaten Security-Anhang vor und steuerst dessen Abstimmung mit Partnermanagement, Procurement, Legal und Risk Control.\n\n- Du begleitest Vertragsverhandlungen mit Drittparteien eigenständig und vertrittst die Security- und Resilienzanforderungen von PostFinance klar, pragmatisch und durchsetzungsstark.\n\n- Du beurteilst Vertragsabweichungen und Ausnahmen und erarbeitest Kompensationsmassnahmen, Risikovermerke und fundierte Entscheidungsgrundlagen.\n\n- Du analysierst Zertifizierungen sowie ISAE-, SOC- und weitere Assurance-Berichte und dokumentierst die Security-Empfehlung für das Onboarding.\n\n- Du unterstützt laufende TPRM-Aufgaben, Audit- und Revisionsanfragen und entwickelst Prozesse, Templates, Security-Anhänge und Arbeitsinstrumente kontinuierlich weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Information Security, Informatik, Wirtschaftsinformatik, Recht, Risk Management oder eine vergleichbare Qualifikation.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Mehrjährige Erfahrung in Third Party Risk Management, Security Due Diligence, Supplier Security oder einem vergleichbaren Umfeld.\n\n- Breites Verständnis von Informationssicherheit, IT-Security, Cyber, IKT, BCM und operationeller Resilienz.\n\n- Erfahrung mit Security-Anforderungen in RfI-/RfP-Verfahren sowie mit Vertragsanhängen, Assurance-Berichten und risikobasierten Beurteilungen.\n\n- Ausgeprägtes Verhandlungsgeschick und die Fähigkeit, Security-Anforderungen gegenüber internen Stakeholdern und externen Partnern überzeugend zu vertreten.\n\n- Sehr gute Deutsch- und gute Englischkenntnisse.",
-        "fr": "En tant que spécialiste principal de la sécurité TPRM – Opérations et contrats, vous traiterez les cas de sécurité TPRM difficiles de votre propre responsabilité tout au long du cycle de vie de tiers. Vous introduisez les exigences de sécurité dans les évaluations et les contrats à un stade précoce, rassemblez différents intérêts et assurez un transfert de contrat approprié et compréhensible.\n\nTu peux le faire.\n\n- Vous traiterez les dossiers de sécurité TPRM à partir de RfI et RfP par la diligence raisonnable en matière de sécurité et la classification KS jusqu'à ce que le contrat soit signé et le soutien continu.\n\n- Vous coordonnez l'évaluation technique avec la sécurité de l'information, la sécurité/cyber informatique, les TIC, la BCM, la résilience opérationnelle et d'autres domaines de sécurité.\n\n- Vous préparez le dispositif de sécurité adéquat et contrôlez sa coordination avec la gestion des partenaires, l'approvisionnement, la législation et le contrôle des risques.\n\n- Vous accompagnerez les négociations contractuelles avec des tiers indépendamment et représenterez les exigences de sécurité et de résilience de PostFinance de manière claire, pragmatique et affirmée.\n\n- Vous évaluez les écarts contractuels et les exceptions et vous élaborez des mesures de compensation, des notes de risque et des principes de prise de décision fondés.\n\n- Vous analyserez les certifications ainsi que les rapports d'assurance ISAE, SOC et autres et documenterez la recommandation de sécurité pour l'embarquement.\n\n- Vous soutenez les tâches courantes du GRPT, les demandes de vérification et de vérification et développez continuellement des processus, des modèles, des pièces jointes de sécurité et des outils de travail.\n\nApporte ça avec toi.\n\n- Diplôme supérieur en sécurité de l'information, informatique, informatique des affaires, droit, gestion des risques ou une qualification comparable.\n\n- Vous avez de l'expérience dans l'environnement bancaire et connaissez les exigences réglementaires essentielles pour la sécurité de l'information, les risques opérationnels et la gestion des risques par des tiers.\n\n- Vous avez de l'expérience dans la planification, la coordination et la réalisation de vérifications de la sécurité et des risques avec des tiers et pouvez évaluer et suivre les constatations et les mesures qui en découlent de manière structurée.\n\n- Plusieurs années d'expérience dans la gestion des risques par des tiers, la diligence raisonnable en matière de sécurité, la sécurité des fournisseurs ou un environnement comparable.\n\n- Une vaste compréhension de la sécurité de l'information, de la sécurité des TI, de la cyberinformatique, des TIC, de la BCM et de la résilience opérationnelle.\n\n- Expérience des exigences en matière de sécurité dans les procédures de RfI/RfP ainsi que dans les annexes des contrats, les rapports d'assurance et les évaluations fondées sur les risques.\n\n- De solides compétences en négociation et la capacité de représenter de façon convaincante les exigences en matière de sécurité auprès des intervenants internes et des partenaires externes.\n\n- Très bonne connaissance de l'allemand et de l'anglais."
-      },
-      "titleByLocale": {
-        "it": "Senior Specialista TPRM Security - Operations & Contracting (w/m/d)",
-        "en": "Senior Specialist TPRM Security - Operations & Contracting (m/f/d)",
-        "de": "Senior Spezialist TPRM Security - Operations & Contracting (w/m/d)",
-        "fr": "Senior Spécialiste TPRM Security - Operations & Contracting (w/m/d)"
-      },
-      "slug": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
-      "slugByLocale": {
-        "it": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
-        "en": "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance",
-        "de": "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance",
-        "fr": "senior-specialiste-tprm-security-operations-contracting-w-m-d-postfinance-bern"
-      },
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:47.416Z",
-      "validThrough": "13.11.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-055b257d4406",
-      "previousSlugs": [
-        "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance"
-        ],
-        "fr": [
-          "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T09:40:44.845Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 192000,
           "unitText": "YEAR"
         }
       },
@@ -1257,7 +936,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:46.657Z",
+      "crawledAt": "2026-10-20T09:40:14.166Z",
       "validThrough": "13.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1281,6 +960,87 @@
         ]
       },
       "firstSeenAt": "2026-10-13T09:40:43.226Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Monitoring-Cyber-Security-%28wmd%29/74946-de_DE",
+      "title": "Senior Specialist TPRM Security Monitoring - Cyber Security (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Als Senior Specialist TPRM Security Monitoring mit Schwerpunkt IT-Security, Cyber und IKT stellst du die wirksame Überwachung technischer Sicherheits- und Resilienzrisiken unserer Drittparteien sicher. Mit deinem technischen Verständnis und deiner Affinität zu BCM stärkst du die Sicherheit, Verfügbarkeit und Widerstandsfähigkeit der von PostFinance bezogenen Dienstleistungen.\n\nDas kannst du bewirken\n\n- Du planst, koordinierst und dokumentierst risikobasierte Security-Kontrollen und periodische Re-Assessments bei Drittparteien.\n\n- Du beurteilst Nachweise zu IT-Security, Cyber, IKT, Vulnerability Management, technischen Schutzmassnahmen, BCM und operationeller Resilienz.\n\n- Du analysierst unter anderem Penetrationstest-, Schwachstellen-, Zertifizierungs-, ISAE-, SOC- und weitere technische Assurance-Berichte.\n\n- Du bewertest technische Abweichungen und Findings, definierst gemeinsam mit den Fachstellen geeignete Massnahmen und stellst deren Nachverfolgung sicher.\n\n- Du überwachst die Einhaltung vertraglicher Security-Anforderungen und eskalierst wesentliche technische oder operationelle Risiken.\n\n- Du erstellst aussagekräftige Kontroll-, Risiko- und Management-Reportings und unterstützt Revisions-, Audit- und Aufsichtsanfragen.\n\n- Du entwickelst Kontrollkatalog, Evidenzanforderungen, Bewertungslogik und Toolunterstützung gemeinsam mit den relevanten Security-Fachbereichen weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Cyber Security, Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n\n- Mehrjährige Erfahrung in IT-Security, Cyber Risk, IKT-Risikomanagement, Security Assurance, BCM oder Third Party Risk Management.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Fundierte Kenntnisse technischer Security-Kontrollen und etablierter Frameworks wie ISO 27001 oder NIST.\n\n- Erfahrung in der Beurteilung technischer Evidenzen, Schwachstellen, Auditberichte, Findings und Remediation-Massnahmen.\n\n- Gutes Verständnis von IKT-Resilienz, Business Continuity und regulatorischen Anforderungen im Finanzumfeld.\n\n- Analytische und lösungsorientierte Arbeitsweise sowie die Fähigkeit, technische Sachverhalte adressatengerecht und verbindlich auf Deutsch zu kommunizieren.",
+      "descriptionByLocale": {
+        "it": "In qualità di Senior Specialist TPRM Security Monitoring con un focus su IT Security, Cyber e ICT, si garantisce il monitoraggio efficace dei rischi di sicurezza tecnica e resilienza dei nostri terzi. Con la vostra comprensione tecnica e affinità con BCM, rafforzate la sicurezza, la disponibilità e la resilienza dei servizi forniti da PostFinance.\n\nPuoi farlo.\n\n- Pianifica, coordina e documenta controlli di sicurezza basati sui rischi e rivalutazioni periodiche a terzi.\n\n- Valuterai le prove di sicurezza informatica, cyber, ICT, gestione delle vulnerabilità, misure di protezione tecnica, BCM e resilienza operativa.\n\n- Tra le altre cose, analizzerai test di penetrazione, vulnerabilità, certificazione, ISAE, SOC e altri rapporti di assicurazione tecnica.\n\n- Valuta le deviazioni tecniche e i risultati, definisci le misure adeguate insieme agli organismi specializzati e garantisci il loro monitoraggio.\n\n- Monitorare la conformità ai requisiti di sicurezza contrattuali e aumentare i rischi tecnici o operativi.\n\n- Si crea un controllo significativo, la segnalazione del rischio e della gestione e supporta le richieste di audit, audit e supervisione.\n\n- Sviluppi il catalogo di controllo, i requisiti di prova, la logica di valutazione e il supporto degli strumenti insieme ai settori specializzati in materia di sicurezza.\n\nLo porti con te.\n\n- Laurea superiore in sicurezza informatica, informatica, informatica aziendale o una qualifica paragonabile.\n\n- Diversi anni di esperienza nella sicurezza informatica, rischio informatico, gestione del rischio ICT, sicurezza, BCM o gestione del rischio di terze parti.\n\n- Hai esperienza nell'ambiente bancario e conosci i requisiti normativi essenziali per la sicurezza delle informazioni, i rischi operativi e la gestione dei rischi di terzi.\n\n- Hai esperienza nella pianificazione, nel coordinamento e nella conduzione di controlli di sicurezza e di rischio con terze parti e puoi valutare e monitorare i risultati e le misure risultanti in modo strutturato.\n\n- Conoscenza approfondita dei controlli di sicurezza tecnica e dei framework stabiliti come ISO 27001 o NIST.\n\n- Esperienza nella valutazione di prove tecniche, vulnerabilità, rapporti di audit, ricerca e misure di bonifica.\n\n- Buona comprensione della resilienza delle TIC, della continuità aziendale e dei requisiti normativi nell'ambiente finanziario.\n\n- Metodi di lavoro analitici e orientati alla soluzione, nonché la capacità di comunicare i problemi tecnici in tedesco in modo indirizzabile e vincolante.",
+        "en": "As a Senior Specialist TPRM Security Monitoring with a focus on IT Security, Cyber and ICT, you ensure the effective monitoring of technical security and resilience risks of our third parties. With your technical understanding and affinity to BCM, you strengthen the security, availability and resilience of the services provided by PostFinance.\n\nYou can do that.\n\n- You plan, coordinate and document risk-based security controls and periodic re-assessments at third parties.\n\n- You will assess evidence of IT security, cyber, ICT, vulnerability management, technical protection measures, BCM and operational resilience.\n\n- Among other things, you will analyze penetration test, vulnerability, certification, ISAE, SOC and other technical assurance reports.\n\n- You evaluate technical deviations and findings, define suitable measures together with the specialist bodies and ensure their tracking.\n\n- You monitor compliance with contractual security requirements and escalate material technical or operational risks.\n\n- You create meaningful control, risk and management reporting and support audit, audit and supervisory requests.\n\n- You develop control catalogue, evidence requirements, evaluation logic and tool support together with the relevant security specialist areas.\n\nYou bring that with you\n\n- Higher degree in Cyber Security, Computer Science, Business Informatics or a comparable qualification.\n\n- Several years of experience in IT security, cyber risk, ICT risk management, security assurance, BCM or third party risk management.\n\n- You have experience in the banking environment and know the essential regulatory requirements for information security, operational risks and third party risk management.\n\n- You have experience in planning, coordinating and conducting security and risk audits with third parties and can assess and track findings and resulting measures in a structured manner.\n\n- In-depth knowledge of technical security controls and established frameworks such as ISO 27001 or NIST.\n\n- Experience in assessing technical evidence, vulnerabilities, audit reports, finding and remediation measures.\n\n- Good understanding of ICT resilience, business continuity and regulatory requirements in the financial environment.\n\n- Analytical and solution-oriented working methods as well as the ability to communicate technical issues in German in an addressable and binding manner.",
+        "de": "Als Senior Specialist TPRM Security Monitoring mit Schwerpunkt IT-Security, Cyber und IKT stellst du die wirksame Überwachung technischer Sicherheits- und Resilienzrisiken unserer Drittparteien sicher. Mit deinem technischen Verständnis und deiner Affinität zu BCM stärkst du die Sicherheit, Verfügbarkeit und Widerstandsfähigkeit der von PostFinance bezogenen Dienstleistungen.\n\nDas kannst du bewirken\n\n- Du planst, koordinierst und dokumentierst risikobasierte Security-Kontrollen und periodische Re-Assessments bei Drittparteien.\n\n- Du beurteilst Nachweise zu IT-Security, Cyber, IKT, Vulnerability Management, technischen Schutzmassnahmen, BCM und operationeller Resilienz.\n\n- Du analysierst unter anderem Penetrationstest-, Schwachstellen-, Zertifizierungs-, ISAE-, SOC- und weitere technische Assurance-Berichte.\n\n- Du bewertest technische Abweichungen und Findings, definierst gemeinsam mit den Fachstellen geeignete Massnahmen und stellst deren Nachverfolgung sicher.\n\n- Du überwachst die Einhaltung vertraglicher Security-Anforderungen und eskalierst wesentliche technische oder operationelle Risiken.\n\n- Du erstellst aussagekräftige Kontroll-, Risiko- und Management-Reportings und unterstützt Revisions-, Audit- und Aufsichtsanfragen.\n\n- Du entwickelst Kontrollkatalog, Evidenzanforderungen, Bewertungslogik und Toolunterstützung gemeinsam mit den relevanten Security-Fachbereichen weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Cyber Security, Informatik, Wirtschaftsinformatik oder eine vergleichbare Qualifikation.\n\n- Mehrjährige Erfahrung in IT-Security, Cyber Risk, IKT-Risikomanagement, Security Assurance, BCM oder Third Party Risk Management.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Fundierte Kenntnisse technischer Security-Kontrollen und etablierter Frameworks wie ISO 27001 oder NIST.\n\n- Erfahrung in der Beurteilung technischer Evidenzen, Schwachstellen, Auditberichte, Findings und Remediation-Massnahmen.\n\n- Gutes Verständnis von IKT-Resilienz, Business Continuity und regulatorischen Anforderungen im Finanzumfeld.\n\n- Analytische und lösungsorientierte Arbeitsweise sowie die Fähigkeit, technische Sachverhalte adressatengerecht und verbindlich auf Deutsch zu kommunizieren.",
+        "fr": "En tant que spécialiste principal de la surveillance de la sécurité TPRM en mettant l'accent sur la sécurité informatique, la cyber et les TIC, vous assurez le suivi efficace des risques de sécurité technique et de résilience de nos tiers. Avec votre compréhension technique et votre affinité avec BCM, vous renforcez la sécurité, la disponibilité et la résilience des services fournis par PostFinance.\n\nTu peux le faire.\n\n- Vous planifiez, coordonnez et documentez les contrôles de sécurité fondés sur les risques et les réévaluations périodiques à des tiers.\n\n- Vous évaluerez les preuves de la sécurité informatique, cyber, TIC, gestion de la vulnérabilité, mesures de protection technique, BCM et résilience opérationnelle.\n\n- Entre autres, vous analyserez les tests de pénétration, la vulnérabilité, la certification, l'ISAE, SOC et d'autres rapports d'assurance technique.\n\n- Vous évaluez les écarts techniques et les résultats, définissez des mesures appropriées avec les organismes spécialisés et assurez leur suivi.\n\n- Vous surveillez le respect des exigences de sécurité contractuelles et augmentez les risques matériels techniques ou opérationnels.\n\n- Vous créez des demandes de contrôle, de rapports sur les risques et de rapports de gestion significatives, ainsi que des demandes de vérification, de vérification et de supervision.\n\n- Vous développez un catalogue de contrôles, des exigences en matière de preuves, une logique d'évaluation et un support d'outils ainsi que les domaines spécialisés en matière de sécurité.\n\nApporte ça avec toi.\n\n- Diplôme supérieur en cybersécurité, informatique, informatique des affaires ou une qualification comparable.\n\n- Plusieurs années d'expérience en matière de sécurité informatique, de cyberrisque, de gestion des risques informatiques, d'assurance de la sécurité, de gestion des risques BCM ou de gestion des risques par des tiers.\n\n- Vous avez de l'expérience dans l'environnement bancaire et connaissez les exigences réglementaires essentielles pour la sécurité de l'information, les risques opérationnels et la gestion des risques par des tiers.\n\n- Vous avez de l'expérience dans la planification, la coordination et la réalisation de vérifications de la sécurité et des risques avec des tiers et pouvez évaluer et suivre les constatations et les mesures qui en découlent de manière structurée.\n\n- Connaissance approfondie des contrôles techniques de sécurité et des cadres établis tels que ISO 27001 ou NIST.\n\n- Expérience dans l'évaluation des preuves techniques, des vulnérabilités, des rapports de vérification, des conclusions et des mesures d'assainissement.\n\n- Bonne compréhension de la résilience des TIC, de la continuité des activités et des exigences réglementaires dans l'environnement financier.\n\n- Méthodes de travail analytiques et axées sur les solutions, ainsi que la capacité de communiquer les questions techniques en allemand de manière adressable et contraignante."
+      },
+      "titleByLocale": {
+        "it": "Senior Specialista TPRM Security Monitoring - Cyber Security (w/m/d)",
+        "en": "Senior Specialist TPRM Security Monitoring - Cyber Security (m/f/d)",
+        "de": "Senior Spezialist TPRM Security Monitoring - Cyber Security (w/m/d)",
+        "fr": "Senior Spécialiste TPRM Security Monitoring - Cyber Security (w/m/d)"
+      },
+      "slug": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "senior-specialista-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern",
+        "en": "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance",
+        "de": "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance",
+        "fr": "senior-specialiste-tprm-security-monitoring-cyber-security-w-m-d-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-20T09:40:13.414Z",
+      "validThrough": "13.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-97f5f75a0324",
+      "previousSlugs": [
+        "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance"
+        ],
+        "fr": [
+          "senior-specialist-tprm-security-monitoring-cyber-security-w-m-d-postfinance"
+        ]
+      },
+      "firstSeenAt": "2026-10-13T09:40:44.037Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -1338,7 +1098,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:45.911Z",
+      "crawledAt": "2026-10-20T09:40:12.681Z",
       "validThrough": "12.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1417,7 +1177,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:45.145Z",
+      "crawledAt": "2026-10-20T09:40:11.947Z",
       "validThrough": "12.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1501,7 +1261,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:44.359Z",
+      "crawledAt": "2026-10-20T09:40:11.179Z",
       "validThrough": "06.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1584,7 +1344,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:43.580Z",
+      "crawledAt": "2026-10-20T09:40:10.441Z",
       "validThrough": "06.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1665,7 +1425,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:42.801Z",
+      "crawledAt": "2026-10-20T09:40:09.708Z",
       "validThrough": "11.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1760,7 +1520,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:42.024Z",
+      "crawledAt": "2026-10-20T09:40:08.939Z",
       "validThrough": "15.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1841,7 +1601,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-19T21:48:41.253Z",
+      "crawledAt": "2026-10-20T09:40:08.208Z",
       "validThrough": "20.11.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
@@ -1885,6 +1645,320 @@
       "postalCode": "3004",
       "addressLocality": "Bern",
       "addressRegion": "BE"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-Sales-Zone-%28Basel-Clara-Shopping%29/74731-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-Sales-Zone-%28Basel-Clara-Shopping%29/74731-de_DE",
+      "title": "Kundenberater:in Sales Zone (Basel Clara Shopping)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Basel",
+      "canton": "BS",
+      "country": "CH",
+      "description": "Der erste Eindruck zählt! Als Kundenberater:in Sales Zone bist du für den professionellen Empfang und die erstklassige Beratung unserer Kund:innen verantwortlich. Du überzeugst im direkten Kundenkontakt durch deine kompetente Beratung sowie dein Enthusiasmus für unsere smarten Dienstleistungen und Produkte. Egal ob persönlich oder telefonisch: Mit deiner Expertise und deiner Kundenorientierung machst du für unsere Kund:innen Kompliziertes einfach.\n\nDas kannst du bewirken\n\n- Du bist für die fachkundige Beratung und den Verkauf in den Bereichen Zahlen, Sparen/Anlegen und einfache Vorsorgeberatung verantwortlich\n\n- Du erkennst Potenziale und erarbeitest Lösungen, welche auf die individuellen Wünsche, Ziele und Lebenssituationen unserer Kund:innen zugeschnitten sind\n\n- Du überzeugst die Kund:innen vom Nutzen einer Beratung und vereinbarst mit Begeisterung Termine mit den Kundenberater:innen (auch via Outbound-Telefonie)\n\n- Du erkennst Kundenpotenziale und leitest sie gezielt an unsere internen Spezialist:innen für weiterführende Beratungen weiter\n\n- Gelegentliche Samstagseinsätze gehören ebenfalls zum Tätigkeitsbereich und werden innerhalb des Teams fair aufgeteilt. Zudem ist jeweils donnerstags eine Anwesenheit bis 18.00 Uhr erforderlich.\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung EFZ oder eine vergleichbare Ausbildung\n\n- Erfahrungen in der persönlichen Kundenberatung in einer Sales Zone\n\n- Abgeschlossene SAQ-Zertifizierung oder Bereitschaft, diese zu absolvieren\n\n- Freude an der aktiven telefonischen Kundenakquise, motivierte und kollegiale Persönlichkeit mit Drive\n\n- Sehr gute Deutschkenntnisse sowie gute Französischkenntnisse in Wort und Schrift. Weitere Sprachkenntnisse sind von Vorteil",
+      "descriptionByLocale": {
+        "de": "Der erste Eindruck zählt! Als Kundenberater:in Sales Zone bist du für den professionellen Empfang und die erstklassige Beratung unserer Kund:innen verantwortlich. Du überzeugst im direkten Kundenkontakt durch deine kompetente Beratung sowie dein Enthusiasmus für unsere smarten Dienstleistungen und Produkte. Egal ob persönlich oder telefonisch: Mit deiner Expertise und deiner Kundenorientierung machst du für unsere Kund:innen Kompliziertes einfach.\n\nDas kannst du bewirken\n\n- Du bist für die fachkundige Beratung und den Verkauf in den Bereichen Zahlen, Sparen/Anlegen und einfache Vorsorgeberatung verantwortlich\n\n- Du erkennst Potenziale und erarbeitest Lösungen, welche auf die individuellen Wünsche, Ziele und Lebenssituationen unserer Kund:innen zugeschnitten sind\n\n- Du überzeugst die Kund:innen vom Nutzen einer Beratung und vereinbarst mit Begeisterung Termine mit den Kundenberater:innen (auch via Outbound-Telefonie)\n\n- Du erkennst Kundenpotenziale und leitest sie gezielt an unsere internen Spezialist:innen für weiterführende Beratungen weiter\n\n- Gelegentliche Samstagseinsätze gehören ebenfalls zum Tätigkeitsbereich und werden innerhalb des Teams fair aufgeteilt. Zudem ist jeweils donnerstags eine Anwesenheit bis 18.00 Uhr erforderlich.\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung EFZ oder eine vergleichbare Ausbildung\n\n- Erfahrungen in der persönlichen Kundenberatung in einer Sales Zone\n\n- Abgeschlossene SAQ-Zertifizierung oder Bereitschaft, diese zu absolvieren\n\n- Freude an der aktiven telefonischen Kundenakquise, motivierte und kollegiale Persönlichkeit mit Drive\n\n- Sehr gute Deutschkenntnisse sowie gute Französischkenntnisse in Wort und Schrift. Weitere Sprachkenntnisse sind von Vorteil",
+        "it": "Der erste Eindruck zählt! Als Kundenberater:in Sales Zone bist du für den professionellen Empfang und die erstklassige Beratung unserer Kund:innen verantwortlich. Du überzeugst im direkten Kundenkontakt durch deine kompetente Beratung sowie dein Enthusiasmus für unsere smarten Dienstleistungen und Produkte. Egal ob persönlich oder telefonisch: Mit deiner Expertise und deiner Kundenorientierung machst du für unsere Kund:innen Kompliziertes einfach.\n\nDas kannst du bewirken\n\n- Du bist für die fachkundige Beratung und den Verkauf in den Bereichen Zahlen, Sparen/Anlegen und einfache Vorsorgeberatung verantwortlich\n\n- Du erkennst Potenziale und erarbeitest Lösungen, welche auf die individuellen Wünsche, Ziele und Lebenssituationen unserer Kund:innen zugeschnitten sind\n\n- Du überzeugst die Kund:innen vom Nutzen einer Beratung und vereinbarst mit Begeisterung Termine mit den Kundenberater:innen (auch via Outbound-Telefonie)\n\n- Du erkennst Kundenpotenziale und leitest sie gezielt an unsere internen Spezialist:innen für weiterführende Beratungen weiter\n\n- Gelegentliche Samstagseinsätze gehören ebenfalls zum Tätigkeitsbereich und werden innerhalb des Teams fair aufgeteilt. Zudem ist jeweils donnerstags eine Anwesenheit bis 18.00 Uhr erforderlich.\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung EFZ oder eine vergleichbare Ausbildung\n\n- Erfahrungen in der persönlichen Kundenberatung in einer Sales Zone\n\n- Abgeschlossene SAQ-Zertifizierung oder Bereitschaft, diese zu absolvieren\n\n- Freude an der aktiven telefonischen Kundenakquise, motivierte und kollegiale Persönlichkeit mit Drive\n\n- Sehr gute Deutschkenntnisse sowie gute Französischkenntnisse in Wort und Schrift. Weitere Sprachkenntnisse sind von Vorteil",
+        "en": "Der erste Eindruck zählt! Als Kundenberater:in Sales Zone bist du für den professionellen Empfang und die erstklassige Beratung unserer Kund:innen verantwortlich. Du überzeugst im direkten Kundenkontakt durch deine kompetente Beratung sowie dein Enthusiasmus für unsere smarten Dienstleistungen und Produkte. Egal ob persönlich oder telefonisch: Mit deiner Expertise und deiner Kundenorientierung machst du für unsere Kund:innen Kompliziertes einfach.\n\nDas kannst du bewirken\n\n- Du bist für die fachkundige Beratung und den Verkauf in den Bereichen Zahlen, Sparen/Anlegen und einfache Vorsorgeberatung verantwortlich\n\n- Du erkennst Potenziale und erarbeitest Lösungen, welche auf die individuellen Wünsche, Ziele und Lebenssituationen unserer Kund:innen zugeschnitten sind\n\n- Du überzeugst die Kund:innen vom Nutzen einer Beratung und vereinbarst mit Begeisterung Termine mit den Kundenberater:innen (auch via Outbound-Telefonie)\n\n- Du erkennst Kundenpotenziale und leitest sie gezielt an unsere internen Spezialist:innen für weiterführende Beratungen weiter\n\n- Gelegentliche Samstagseinsätze gehören ebenfalls zum Tätigkeitsbereich und werden innerhalb des Teams fair aufgeteilt. Zudem ist jeweils donnerstags eine Anwesenheit bis 18.00 Uhr erforderlich.\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung EFZ oder eine vergleichbare Ausbildung\n\n- Erfahrungen in der persönlichen Kundenberatung in einer Sales Zone\n\n- Abgeschlossene SAQ-Zertifizierung oder Bereitschaft, diese zu absolvieren\n\n- Freude an der aktiven telefonischen Kundenakquise, motivierte und kollegiale Persönlichkeit mit Drive\n\n- Sehr gute Deutschkenntnisse sowie gute Französischkenntnisse in Wort und Schrift. Weitere Sprachkenntnisse sind von Vorteil",
+        "fr": "Der erste Eindruck zählt! Als Kundenberater:in Sales Zone bist du für den professionellen Empfang und die erstklassige Beratung unserer Kund:innen verantwortlich. Du überzeugst im direkten Kundenkontakt durch deine kompetente Beratung sowie dein Enthusiasmus für unsere smarten Dienstleistungen und Produkte. Egal ob persönlich oder telefonisch: Mit deiner Expertise und deiner Kundenorientierung machst du für unsere Kund:innen Kompliziertes einfach.\n\nDas kannst du bewirken\n\n- Du bist für die fachkundige Beratung und den Verkauf in den Bereichen Zahlen, Sparen/Anlegen und einfache Vorsorgeberatung verantwortlich\n\n- Du erkennst Potenziale und erarbeitest Lösungen, welche auf die individuellen Wünsche, Ziele und Lebenssituationen unserer Kund:innen zugeschnitten sind\n\n- Du überzeugst die Kund:innen vom Nutzen einer Beratung und vereinbarst mit Begeisterung Termine mit den Kundenberater:innen (auch via Outbound-Telefonie)\n\n- Du erkennst Kundenpotenziale und leitest sie gezielt an unsere internen Spezialist:innen für weiterführende Beratungen weiter\n\n- Gelegentliche Samstagseinsätze gehören ebenfalls zum Tätigkeitsbereich und werden innerhalb des Teams fair aufgeteilt. Zudem ist jeweils donnerstags eine Anwesenheit bis 18.00 Uhr erforderlich.\n\nDas bringst du mit\n\n- Abgeschlossene kaufmännische Grundausbildung EFZ oder eine vergleichbare Ausbildung\n\n- Erfahrungen in der persönlichen Kundenberatung in einer Sales Zone\n\n- Abgeschlossene SAQ-Zertifizierung oder Bereitschaft, diese zu absolvieren\n\n- Freude an der aktiven telefonischen Kundenakquise, motivierte und kollegiale Persönlichkeit mit Drive\n\n- Sehr gute Deutschkenntnisse sowie gute Französischkenntnisse in Wort und Schrift. Weitere Sprachkenntnisse sind von Vorteil"
+      },
+      "titleByLocale": {
+        "de": "Kundenberater:in Sales Zone (Basel Clara Shopping)",
+        "it": "Kundenberater:in Sales Zone (Basel Clara Shopping)",
+        "en": "Kundenberater:in Sales Zone (Basel Clara Shopping)",
+        "fr": "Kundenberater:in Sales Zone (Basel Clara Shopping)"
+      },
+      "slug": "kundenberater-in-sales-zone-basel-clara-shopping-postfinance",
+      "slugByLocale": {
+        "de": "kundenberater-in-sales-zone-basel-clara-shopping-postfinance",
+        "it": "kundenberater-in-sales-zone-basel-clara-shopping-postfinance",
+        "en": "kundenberater-in-sales-zone-basel-clara-shopping-postfinance",
+        "fr": "kundenberater-in-sales-zone-basel-clara-shopping-postfinance"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Verkauf und Kundenberatung"
+      ],
+      "category": [
+        "Verkauf und Kundenberatung"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-20T09:40:07.326Z",
+      "validThrough": "10.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BS",
+        "location": "Basel"
+      },
+      "needsRetranslation": true,
+      "id": "postfinance-0fa1997bd968",
+      "salaryMin": 74000,
+      "salaryMax": 113500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74000,
+          "maxValue": 113500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "firstSeenAt": "2026-10-20T09:40:07.326Z"
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/AI-Assisted-Solutions-Engineer-%28wmd%29/74844-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/AI-Assisted-Solutions-Engineer-%28wmd%29/74844-de_DE",
+      "title": "AI-Assisted Solutions Engineer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "GenAI verändert nicht nur die Softwareentwicklung, sondern auch, wie PostFinance Herausforderungen angeht. Im Bereich Enterprise Data & AI Solutions unterstützt du Teams dabei, aus Ideen konkrete Lösungen zu gestalten. Gemeinsam mit Fachbereichen, Product Ownern und Delivery Teams arbeitest du an der Schnittstelle von Business, Daten und Technologie. Mit modernen AI-Tools entwickelst du Prototypen und befähigst Kolleg:innen, AI wirksam einzusetzen – so bewegst du PostFinance nachhaltig.\n\nDas kannst du bewirken\n\n- Du identifizierst gemeinsam mit Fachbereichen konkrete Anwendungsfälle für AI und übersetzt Herausforderungen in umsetzbare Lösungsansätze\n\n- Du begleitest Teams von der ersten Idee über Prototypen und MVPs bis hin zu produktionsnahen Lösungen\n\n- Du nutzt moderne AI-gestützte Entwicklungsmethoden und zeigst Teams praxisnah, wie sie sinnvoll eingesetzt werden können\n\n- Du coachst Mitarbeitende und Führungskräfte beim Einsatz von AI-Assisted Engineering\n\n- Du entwickelst wiederverwendbare Patterns, Best Practices und Standards für den sicheren und skalierbaren Einsatz von AI\n\n- Du arbeitest eng mit Architektur-, Security-, Governance- und Delivery-Teams zusammen\n\n- Du hilfst mit, AI-Kompetenzen nachhaltig in der Organisation zu verankern\n\nDas bringst du mit\n\n- Erfahrung im Einsatz von AI-gestützten Werkzeugen wie GitHub Copilot, Claude Code oder vergleichbaren Lösungen\n\n- Verständnis der Softwareentwicklung zur Beurteilung und Mitgestaltung von Prototypen, MVPs und technischen Lösungsansätzen\n\n- Fähigkeit zur strukturierten Erfassung von Business-Bedürfnissen und Übersetzung in konkrete Lösungsoptionen\n\n- Freude an der Befähigung von Menschen, am Wissensaustausch und an der Etablierung neuer Arbeitsweisen\n\n- Interesse an der Schnittstelle zwischen Fachbereich, Technologie und Organisation\n\n- Neugier, Pragmatismus und Freude am Ausprobieren und Vorantreiben neuer Themen\n\n- Ausgezeichnete Deutschkenntnisse und sehr gute Englischkenntnisse",
+      "descriptionByLocale": {
+        "it": "GenAI non sta solo cambiando lo sviluppo del software, ma anche come PostFinance affronta le sfide. Nell'area di Enterprise Data & AI Solutions, supporti i team nella modellazione di soluzioni concrete da idee. Insieme a reparti, proprietari di prodotti e team di consegna, si lavora all'interfaccia di business, dati e tecnologia. Con i moderni strumenti AI, si sviluppano prototipi e consentono ai colleghi di utilizzare l'IA in modo efficace – in modo da spostare PostFinance in modo sostenibile.\n\nPuoi farlo.\n\n- Insieme a aree specializzate, identificherai casi di utilizzo specifici per l'AI e traduci le sfide in soluzioni possibili\n\n- Si accompagnano team dalla prima idea a prototipi e MVP a soluzioni legate alla produzione\n\n- Si utilizzano moderni metodi di sviluppo AI-supportati e mostrare ai team come possono essere utilizzati praticamente\n\n- Lei allena dipendenti e dirigenti utilizzando AI-Assisted Engineering\n\n- Sviluppa modelli riutilizzabili, best practice e standard per l'uso sicuro e scalabile di AI\n\n- Lavori a stretto contatto con i team di architettura, sicurezza, governance e consegna\n\n- Aiutate ad ancorare in modo sostenibile le competenze AI nell'organizzazione\n\nLo porti con te.\n\n- Esperienza nell'uso di strumenti supportati dall'IA come GitHub Copilot, Claude Code o soluzioni paragonabili\n\n- Comprendere lo sviluppo del software per la valutazione e la co-creazione di prototipi, MVP e soluzioni tecniche\n\n- Capacità di strutturare le esigenze aziendali e tradurle in soluzioni concrete\n\n- Gioia nel dare potere alle persone, scambiare conoscenza e stabilire nuovi modi di lavorare\n\n- Interessi nell'interfaccia tra reparto, tecnologia e organizzazione\n\n- Curiosità, pragmatismo e gioia nel provare e avanzare nuovi argomenti\n\n- Ottima conoscenza del tedesco e ottima conoscenza dell'inglese",
+        "en": "GenAI is not only changing software development, but also how PostFinance addresses challenges. In the area of Enterprise Data & AI Solutions, you support teams in shaping concrete solutions from ideas. Together with departments, product owners and delivery teams, you work at the interface of business, data and technology. With modern AI tools, you develop prototypes and empower colleagues to use AI effectively – so you move PostFinance sustainably.\n\nYou can do that.\n\n- Together with specialist areas, you will identify specific use cases for AI and translate challenges into feasible solutions\n\n- You accompany teams from the first idea to prototypes and MVPs to production-related solutions\n\n- You use modern AI-supported development methods and show teams how they can be used practically\n\n- You coach employees and executives using AI-Assisted Engineering\n\n- Develop reusable patterns, best practices and standards for the safe and scalable use of AI\n\n- You work closely with architecture, security, governance and delivery teams\n\n- You help to sustainably anchor AI competencies in the organization\n\nYou bring that with you\n\n- Experience in the use of AI-supported tools such as GitHub Copilot, Claude Code or comparable solutions\n\n- Understanding software development for assessing and co-creating prototypes, MVPs and technical solutions\n\n- Ability to structure business needs and translate them into concrete solutions\n\n- Joy in empowering people, exchanging knowledge and establishing new ways of working\n\n- Interest in the interface between department, technology and organization\n\n- Curiosity, pragmatism and joy in trying and advancing new topics\n\n- Excellent knowledge of German and very good knowledge of English",
+        "de": "GenAI verändert nicht nur die Softwareentwicklung, sondern auch, wie PostFinance Herausforderungen angeht. Im Bereich Enterprise Data & AI Solutions unterstützt du Teams dabei, aus Ideen konkrete Lösungen zu gestalten. Gemeinsam mit Fachbereichen, Product Ownern und Delivery Teams arbeitest du an der Schnittstelle von Business, Daten und Technologie. Mit modernen AI-Tools entwickelst du Prototypen und befähigst Kolleg:innen, AI wirksam einzusetzen – so bewegst du PostFinance nachhaltig.\n\nDas kannst du bewirken\n\n- Du identifizierst gemeinsam mit Fachbereichen konkrete Anwendungsfälle für AI und übersetzt Herausforderungen in umsetzbare Lösungsansätze\n\n- Du begleitest Teams von der ersten Idee über Prototypen und MVPs bis hin zu produktionsnahen Lösungen\n\n- Du nutzt moderne AI-gestützte Entwicklungsmethoden und zeigst Teams praxisnah, wie sie sinnvoll eingesetzt werden können\n\n- Du coachst Mitarbeitende und Führungskräfte beim Einsatz von AI-Assisted Engineering\n\n- Du entwickelst wiederverwendbare Patterns, Best Practices und Standards für den sicheren und skalierbaren Einsatz von AI\n\n- Du arbeitest eng mit Architektur-, Security-, Governance- und Delivery-Teams zusammen\n\n- Du hilfst mit, AI-Kompetenzen nachhaltig in der Organisation zu verankern\n\nDas bringst du mit\n\n- Erfahrung im Einsatz von AI-gestützten Werkzeugen wie GitHub Copilot, Claude Code oder vergleichbaren Lösungen\n\n- Verständnis der Softwareentwicklung zur Beurteilung und Mitgestaltung von Prototypen, MVPs und technischen Lösungsansätzen\n\n- Fähigkeit zur strukturierten Erfassung von Business-Bedürfnissen und Übersetzung in konkrete Lösungsoptionen\n\n- Freude an der Befähigung von Menschen, am Wissensaustausch und an der Etablierung neuer Arbeitsweisen\n\n- Interesse an der Schnittstelle zwischen Fachbereich, Technologie und Organisation\n\n- Neugier, Pragmatismus und Freude am Ausprobieren und Vorantreiben neuer Themen\n\n- Ausgezeichnete Deutschkenntnisse und sehr gute Englischkenntnisse",
+        "fr": "GenAI ne modifie pas seulement le développement de logiciels, mais aussi comment PostFinance répond aux défis. Dans le domaine des solutions Enterprise Data & AI, vous aidez les équipes à concevoir des solutions concrètes à partir d'idées. Avec les départements, les propriétaires de produits et les équipes de livraison, vous travaillez à l'interface des affaires, des données et de la technologie. Avec des outils modernes d'IA, vous développez des prototypes et donnez aux collègues les moyens d'utiliser l'IA efficacement – vous déplacez donc PostFinance durablement.\n\nTu peux le faire.\n\n- Avec des domaines spécialisés, vous identifierez des cas d'utilisation spécifiques pour l'IA et traduireez les défis en solutions réalisables\n\n- Vous accompagnez les équipes de la première idée aux prototypes et aux MVP aux solutions liées à la production\n\n- Vous utilisez des méthodes modernes de développement soutenues par l'IA et montrez aux équipes comment elles peuvent être utilisées pratiquement\n\n- Vous coachez les employés et les cadres en utilisant l'ingénierie assistée par l'IA\n\n- Élaborer des modèles, des pratiques exemplaires et des normes réutilisables pour l'utilisation sûre et évolutive de l'IA\n\n- Vous travaillez en étroite collaboration avec les équipes d'architecture, de sécurité, de gouvernance et d'exécution\n\n- Vous aidez à ancrer durablement les compétences en AI dans l'organisation\n\nApporte ça avec toi.\n\n- Expérience dans l'utilisation d'outils soutenus par l'IA tels que GitHub Copilot, Claude Code ou des solutions comparables\n\n- Comprendre le développement de logiciels pour évaluer et co-créer des prototypes, des MVP et des solutions techniques\n\n- Capacité de structurer les besoins des entreprises et de les traduire en solutions concrètes\n\n- La joie dans l'autonomisation des personnes, l'échange de connaissances et l'établissement de nouvelles façons de travailler\n\n- Intérêt pour l'interface entre le ministère, la technologie et l'organisation\n\n- Curiosité, pragmatisme et joie dans l'essai et l'avancement de nouveaux sujets\n\n- Excellente connaissance de l'allemand et très bonne connaissance de l'anglais"
+      },
+      "titleByLocale": {
+        "it": "AI-Assisted Solutions Ingegnere (w/m/d)",
+        "en": "AI Assisted Solutions Engineer (m/f/d)",
+        "de": "AI-Assisted Solutions Ingenieur (w/m/d)",
+        "fr": "AI-Assisted Solutions Ingénieur (w/m/d)"
+      },
+      "slug": "ai-assisted-solutions-ingegnere-w-m-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "ai-assisted-solutions-ingegnere-w-m-d-postfinance-bern",
+        "en": "ai-assisted-solutions-engineer-w-m-d-postfinance",
+        "de": "ai-assisted-solutions-engineer-w-m-d-postfinance",
+        "fr": "ai-assisted-solutions-ingenieur-w-m-d-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-19T21:48:58.241Z",
+      "validThrough": "25.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-49bdd1a6f46c",
+      "previousSlugs": [
+        "ai-assisted-solutions-engineer-w-m-d-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-assisted-solutions-engineer-w-m-d-postfinance"
+        ]
+      },
+      "firstSeenAt": "2026-09-25T15:08:43.569Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/DevOps-Engineer-%28wmd%29/74805-de_DE",
+      "title": "DevOps Engineer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zofingen",
+      "canton": "AG",
+      "country": "CH",
+      "description": "Du möchtest moderne DevOps-Praktiken aktiv mitgestalten, unsere Teams bei stabilen und effizienten Delivery-Prozessen unterstützen, dein Cloud-Native-Mindset einbringen und dich fachlich weiterentwickeln? Dann bist du bei uns genau richtig!\n\nWir suchen einen engagierten DevOps Engineer, der unsere Teams mit fundierter Erfahrung in Automatisierung, CI/CD und Plattformtechnologien unterstützt. Gemeinsam stellen wir sicher, dass Banktransaktionsdaten unserer Kundinnen und Kunden mit modernen Technologien in Echtzeit verarbeitet und bereitgestellt werden. Dabei gestaltest du unsere DevOps-Landschaft aktiv mit und trägst zu stabilen, sicheren und effizienten Lösungen bei.\n\nDas kannst du bewirken\n\n- Du entwickelst und betreibst unsere CI/CD-Pipelines weiter und sorgst dafür, dass Deployments stabil, effizient und nachvollziehbar ablaufen\n\n- Du unterstützt unsere beiden Teams bei Automatisierung, Plattformthemen und Betriebsprozessen, damit sich die Entwickler stärker auf den Entwicklungsprozess konzentrieren können\n\n- Du übernimmst Verantwortung für Monitoring, Stabilität und Verfügbarkeit unserer Microservices und erkennst Optimierungspotenziale frühzeitig\n\n- Du bringst deine Erfahrung in DevOps-Praktiken aktiv in den Teams und in unserer DevOps Guilde ein und förderst kontinuierliche Verbesserung, Sicherheit und Qualität in unseren Delivery-Prozessen\n\n- Mit deinem Wissen stärkst du die Zusammenarbeit zwischen Entwicklung und Betrieb und hilfst uns, nachhaltige und effiziente Lösungen bereitzustellen\n\nDas bringst du mit\n\n- Höherer Abschluss in Informatik (FH oder Uni) oder entsprechende Berufserfahrung\n\n- Mehrjährige Erfahrung im DevOps-Umfeld sowie im Aufbau und Betrieb moderner CI/CD-Pipelines mit GitLab und Git.\n\n- Sehr gute Kenntnisse in Docker, Kubernetes und Microservice Architektur.\n\n- Fundiertes Verständnis von GitOps-Prinzipien und deren Anwendung mit ArgoCD.\n\n- Erfahrung im Bereich Infrastructure as Code (Kustomize, Helm, Terraform) und deklarative Deployment-Strategien.\n\n- Erfahrung mit Monitoring, Logging und Observability-Lösungen, wie Splunk und Grafana\n\n- Kenntnisse im Bereich DevSecOps sowie Erfahrung mit SonarQube und automatisierten Sicherheits- und Qualitätsprüfungen sind von Vorteil.\n\n- Erfahrung in der Entwicklung von Java-Anwendungen ist von Vorteil\n\n- Analytische und lösungsorientierte Arbeitsweise sowie Begeisterung für moderne Technologien und kontinuierliche Weiterentwicklung.",
+      "descriptionByLocale": {
+        "it": "Vuoi modellare attivamente le pratiche DevOps moderne, supportare i nostri team nei processi di consegna stabili ed efficienti, contribuire alla tua mentalità cloud-native e sviluppare professionalmente? Allora hai ragione con noi!\n\nStiamo cercando un DevOps Engineer dedicato per supportare i nostri team con profonda esperienza nell'automazione, nel CI/CD e nelle tecnologie della piattaforma. Insieme, ci assicuriamo che i dati delle transazioni bancarie dei nostri clienti vengano elaborati e forniti in tempo reale utilizzando tecnologie moderne. Formate attivamente il nostro paesaggio DevOps e contribuite a soluzioni stabili, sicure ed efficienti.\n\nPuoi farlo.\n\n- Continuate a sviluppare e gestire le nostre tubazioni CI/CD e assicuratevi che le distribuzioni siano stabili, efficienti e tracciabili\n\n- Sostenere i nostri due team con automazione, temi della piattaforma e processi operativi in modo che gli sviluppatori possano concentrarsi di più sul processo di sviluppo\n\n- Si assume la responsabilità di monitoraggio, stabilità e disponibilità dei nostri microservizi e riconoscere il potenziale di ottimizzazione in una fase iniziale\n\n- Contribuirai attivamente la tua esperienza nelle pratiche DevOps alle squadre e alla nostra DevOps Guilde e promuoverai un miglioramento continuo, sicurezza e qualità nei nostri processi di consegna\n\n- Con la vostra conoscenza, rafforzare la cooperazione tra sviluppo e operazioni e aiutarci a fornire soluzioni sostenibili ed efficienti\n\nLo porti con te.\n\n- Laurea superiore in Informatica (FH o Uni) o esperienza professionale equivalente\n\n- Diversi anni di esperienza nell'ambiente DevOps, nonché nella costruzione e nel funzionamento di moderni gasdotti CI/CD con GitLab e Git.\n\n- Ottima conoscenza di Docker, Kubernetes e architettura microservice.\n\n- La comprensione approfondita dei principi GitOps e la loro applicazione con ArgoCD.\n\n- Esperienza nell'infrastruttura come codice (customizzare, casco, terraform) e strategie di distribuzione dichiarativa.\n\n- Esperienza con soluzioni di monitoraggio, registrazione e osservabilità, come Splunk e Grafana\n\n- La conoscenza di DevSecOps e l'esperienza con SonarQube e i controlli automatizzati di sicurezza e qualità sono vantaggiosi.\n\n- L'esperienza nello sviluppo di applicazioni Java è un vantaggio\n\n- Metodi di lavoro analitici e orientati alla soluzione, nonché entusiasmo per le moderne tecnologie e lo sviluppo continuo.",
+        "en": "Do you want to actively shape modern DevOps practices, support our teams in stable and efficient delivery processes, contribute your cloud-native mindset and develop professionally? Then you are exactly right with us!\n\nWe are looking for a dedicated DevOps Engineer to support our teams with deep experience in automation, CI/CD and platform technologies. Together, we ensure that our customers’ bank transaction data is processed and provided in real time using modern technologies. You actively shape our DevOps landscape and contribute to stable, secure and efficient solutions.\n\nYou can do that.\n\n- You continue to develop and operate our CI/CD pipelines and ensure that deployments are stable, efficient and traceable\n\n- Support our two teams with automation, platform themes and operational processes so that developers can focus more on the development process\n\n- You take responsibility for monitoring, stability and availability of our microservices and recognize optimization potential at an early stage\n\n- You will actively contribute your experience in DevOps practices to the teams and our DevOps Guilde and promote continuous improvement, security and quality in our delivery processes\n\n- With your knowledge, you strengthen cooperation between development and operations and help us provide sustainable and efficient solutions\n\nYou bring that with you\n\n- Higher degree in Computer Science (FH or Uni) or equivalent professional experience\n\n- Several years of experience in the DevOps environment as well as in the construction and operation of modern CI/CD pipelines with GitLab and Git.\n\n- Very good knowledge of Docker, Kubernetes and microservice architecture.\n\n- In-depth understanding of GitOps principles and their application with ArgoCD.\n\n- Experience in infrastructure as code (customize, helmet, terraform) and declarative deployment strategies.\n\n- Experience with monitoring, logging and observability solutions, such as Splunk and Grafana\n\n- Knowledge of DevSecOps as well as experience with SonarQube and automated security and quality checks are beneficial.\n\n- Experience in developing Java applications is an advantage\n\n- Analytical and solution-oriented working methods as well as enthusiasm for modern technologies and continuous development.",
+        "de": "Du möchtest moderne DevOps-Praktiken aktiv mitgestalten, unsere Teams bei stabilen und effizienten Delivery-Prozessen unterstützen, dein Cloud-Native-Mindset einbringen und dich fachlich weiterentwickeln? Dann bist du bei uns genau richtig!\n\nWir suchen einen engagierten DevOps Engineer, der unsere Teams mit fundierter Erfahrung in Automatisierung, CI/CD und Plattformtechnologien unterstützt. Gemeinsam stellen wir sicher, dass Banktransaktionsdaten unserer Kundinnen und Kunden mit modernen Technologien in Echtzeit verarbeitet und bereitgestellt werden. Dabei gestaltest du unsere DevOps-Landschaft aktiv mit und trägst zu stabilen, sicheren und effizienten Lösungen bei.\n\nDas kannst du bewirken\n\n- Du entwickelst und betreibst unsere CI/CD-Pipelines weiter und sorgst dafür, dass Deployments stabil, effizient und nachvollziehbar ablaufen\n\n- Du unterstützt unsere beiden Teams bei Automatisierung, Plattformthemen und Betriebsprozessen, damit sich die Entwickler stärker auf den Entwicklungsprozess konzentrieren können\n\n- Du übernimmst Verantwortung für Monitoring, Stabilität und Verfügbarkeit unserer Microservices und erkennst Optimierungspotenziale frühzeitig\n\n- Du bringst deine Erfahrung in DevOps-Praktiken aktiv in den Teams und in unserer DevOps Guilde ein und förderst kontinuierliche Verbesserung, Sicherheit und Qualität in unseren Delivery-Prozessen\n\n- Mit deinem Wissen stärkst du die Zusammenarbeit zwischen Entwicklung und Betrieb und hilfst uns, nachhaltige und effiziente Lösungen bereitzustellen\n\nDas bringst du mit\n\n- Höherer Abschluss in Informatik (FH oder Uni) oder entsprechende Berufserfahrung\n\n- Mehrjährige Erfahrung im DevOps-Umfeld sowie im Aufbau und Betrieb moderner CI/CD-Pipelines mit GitLab und Git.\n\n- Sehr gute Kenntnisse in Docker, Kubernetes und Microservice Architektur.\n\n- Fundiertes Verständnis von GitOps-Prinzipien und deren Anwendung mit ArgoCD.\n\n- Erfahrung im Bereich Infrastructure as Code (Kustomize, Helm, Terraform) und deklarative Deployment-Strategien.\n\n- Erfahrung mit Monitoring, Logging und Observability-Lösungen, wie Splunk und Grafana\n\n- Kenntnisse im Bereich DevSecOps sowie Erfahrung mit SonarQube und automatisierten Sicherheits- und Qualitätsprüfungen sind von Vorteil.\n\n- Erfahrung in der Entwicklung von Java-Anwendungen ist von Vorteil\n\n- Analytische und lösungsorientierte Arbeitsweise sowie Begeisterung für moderne Technologien und kontinuierliche Weiterentwicklung.",
+        "fr": "Voulez-vous façonner activement les pratiques DevOps modernes, soutenir nos équipes dans des processus de livraison stables et efficaces, contribuer à votre état d'esprit cloud-natif et se développer professionnellement? Alors tu as exactement raison avec nous !\n\nNous sommes à la recherche d'un ingénieur DevOps dédié pour soutenir nos équipes avec une grande expérience dans l'automatisation, CI/CD et les technologies de plateforme. Ensemble, nous veillons à ce que nos données bancaires de transaction soient traitées et fournies en temps réel en utilisant les technologies modernes. Vous façonnez activement notre paysage DevOps et contribuez à des solutions stables, sécurisées et efficaces.\n\nTu peux le faire.\n\n- Vous continuez à développer et à exploiter nos pipelines CI/CD et vous assurez que les déploiements sont stables, efficaces et traçables\n\n- Soutenez nos deux équipes avec l'automatisation, les thèmes de plateforme et les processus opérationnels afin que les développeurs puissent se concentrer davantage sur le processus de développement\n\n- Vous prenez en charge la surveillance, la stabilité et la disponibilité de nos microservices et reconnaissez le potentiel d'optimisation à un stade précoce\n\n- Vous apporterez activement votre expérience dans les pratiques DevOps aux équipes et à notre DevOps Guilde et favoriserez l'amélioration continue, la sécurité et la qualité dans nos processus de livraison\n\n- Avec vos connaissances, vous renforcez la coopération entre le développement et les opérations et nous aidez à fournir des solutions durables et efficaces\n\nApporte ça avec toi.\n\n- Diplôme supérieur en informatique (FH ou Uni) ou expérience professionnelle équivalente\n\n- Plusieurs années d'expérience dans l'environnement DevOps ainsi que dans la construction et l'exploitation de pipelines CI/CD modernes avec GitLab et Git.\n\n- Très bonne connaissance de Docker, Kubernetes et l'architecture microservice.\n\n- Compréhension approfondie des principes GitOps et de leur application avec ArgoCD.\n\n- Expérience de l'infrastructure comme code (personnalisation, casque, terraforme) et stratégies de déploiement déclaratif.\n\n- Expérience des solutions de surveillance, d'enregistrement et d'observation, telles que Splunk et Grafana\n\n- La connaissance de DevSecOps ainsi que l'expérience avec SonarQube et la sécurité automatisée et les contrôles de qualité sont bénéfiques.\n\n- L'expérience dans le développement des applications Java est un avantage\n\n- Méthodes de travail analytiques et axées sur les solutions, enthousiasme pour les technologies modernes et développement continu."
+      },
+      "titleByLocale": {
+        "it": "DevOps Ingegnere (w/m/d)",
+        "en": "DevOps Engineer (w/m/d)",
+        "de": "DevOps Ingenieur (w/m/d)",
+        "fr": "DevOps Ingénieur (w/m/d)"
+      },
+      "slug": "devops-ingegnere-w-m-d-postfinance-zofingen",
+      "slugByLocale": {
+        "it": "devops-ingegnere-w-m-d-postfinance-zofingen",
+        "en": "devops-engineer-w-m-d-postfinance-zofingen",
+        "de": "devops-engineer-w-m-d-postfinance",
+        "fr": "devops-ingenieur-w-m-d-postfinance-zofingen"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-19T21:48:54.281Z",
+      "validThrough": "20.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Zofingen"
+      },
+      "id": "postfinance-2809f6c4dbc0",
+      "previousSlugs": [
+        "devops-engineer-w-m-d-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-w-m-d-postfinance"
+        ],
+        "fr": [
+          "devops-engineer-w-m-d-postfinance"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:36:14.852Z",
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4800",
+      "addressLocality": "Zofingen",
+      "addressRegion": "AG",
+      "crawlerMissStreak": 1
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Specialist-TPRM-Security-Operations-&-Contracting-%28wmd%29/74944-de_DE",
+      "title": "Senior Specialist TPRM Security - Operations & Contracting (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Als Senior Specialist TPRM Security – Operations & Contracting bearbeitest du anspruchsvolle TPRM-Security-Fälle selbstverantwortlich über den gesamten Third-Party-Lifecycle. Du bringst Security-Anforderungen frühzeitig in Evaluationen und Verträge ein, führst unterschiedliche Interessen zusammen und stellst eine risikoadäquate und nachvollziehbare Vertragsüberbindung sicher.\n\nDas kannst du bewirken\n\n- Du bearbeitest TPRM-Security-Fälle von RfI und RfP über die Security Due Diligence und KS-Einstufung bis zur Vertragsüberbindung und laufenden Betreuung.\n\n- Du koordinierst die fachliche Beurteilung mit Information Security, IT-Security/Cyber, IKT, BCM, operationeller Resilienz und weiteren Security-Fachbereichen.\n\n- Du bereitest den risikoadäquaten Security-Anhang vor und steuerst dessen Abstimmung mit Partnermanagement, Procurement, Legal und Risk Control.\n\n- Du begleitest Vertragsverhandlungen mit Drittparteien eigenständig und vertrittst die Security- und Resilienzanforderungen von PostFinance klar, pragmatisch und durchsetzungsstark.\n\n- Du beurteilst Vertragsabweichungen und Ausnahmen und erarbeitest Kompensationsmassnahmen, Risikovermerke und fundierte Entscheidungsgrundlagen.\n\n- Du analysierst Zertifizierungen sowie ISAE-, SOC- und weitere Assurance-Berichte und dokumentierst die Security-Empfehlung für das Onboarding.\n\n- Du unterstützt laufende TPRM-Aufgaben, Audit- und Revisionsanfragen und entwickelst Prozesse, Templates, Security-Anhänge und Arbeitsinstrumente kontinuierlich weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Information Security, Informatik, Wirtschaftsinformatik, Recht, Risk Management oder eine vergleichbare Qualifikation.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Mehrjährige Erfahrung in Third Party Risk Management, Security Due Diligence, Supplier Security oder einem vergleichbaren Umfeld.\n\n- Breites Verständnis von Informationssicherheit, IT-Security, Cyber, IKT, BCM und operationeller Resilienz.\n\n- Erfahrung mit Security-Anforderungen in RfI-/RfP-Verfahren sowie mit Vertragsanhängen, Assurance-Berichten und risikobasierten Beurteilungen.\n\n- Ausgeprägtes Verhandlungsgeschick und die Fähigkeit, Security-Anforderungen gegenüber internen Stakeholdern und externen Partnern überzeugend zu vertreten.\n\n- Sehr gute Deutsch- und gute Englischkenntnisse.",
+      "descriptionByLocale": {
+        "it": "Come Senior Specialist TPRM Security – Operations & Contracting, gestirai casi di sicurezza TPRM impegnativi sulla tua responsabilità in tutto il ciclo di vita di terze parti. Introduce i requisiti di sicurezza in valutazioni e contratti in una fase iniziale, unire interessi diversi e garantire un trasferimento contrattuale appropriato e comprensibile al rischio.\n\nPuoi farlo.\n\n- Elaborerai i casi di sicurezza TPRM da RfI e RfP attraverso due diligence di sicurezza e classificazione KS fino a quando il contratto non sarà firmato e supporto in corso.\n\n- Coordinate la valutazione tecnica con sicurezza delle informazioni, sicurezza informatica/ciber, TIC, BCM, resilienza operativa e altre aree di sicurezza.\n\n- Prepari l'attaccamento di sicurezza adeguato al rischio e controlli il suo coordinamento con la gestione dei partner, l'approvvigionamento, il controllo legale e dei rischi.\n\n- Potrai accompagnare trattative contrattuali con terzi in modo indipendente e rappresentare i requisiti di sicurezza e resilienza di PostFinance in modo chiaro, pragmatico e assertivo.\n\n- Valuta le deviazioni contrattuali e le eccezioni e sviluppa misure di compensazione, note di rischio e principi decisionali ben fondati.\n\n- Analizzerai le certificazioni così come ISAE, SOC e altri rapporti di garanzia e documenterai la raccomandazione di sicurezza per l'imbarco.\n\n- Supporti le attività TPRM in corso, le richieste di audit e audit e sviluppi continuamente processi, modelli, allegati di sicurezza e strumenti di lavoro.\n\nLo porti con te.\n\n- Laurea superiore in sicurezza dell'informazione, informatica, informatica aziendale, diritto, gestione del rischio o una qualifica paragonabile.\n\n- Hai esperienza nell'ambiente bancario e conosci i requisiti normativi essenziali per la sicurezza delle informazioni, i rischi operativi e la gestione dei rischi di terzi.\n\n- Hai esperienza nella pianificazione, nel coordinamento e nella conduzione di controlli di sicurezza e di rischio con terze parti e puoi valutare e monitorare i risultati e le misure risultanti in modo strutturato.\n\n- Diversi anni di esperienza nella gestione del rischio di terzi, diligenza dovuta alla sicurezza, sicurezza dei fornitori o un ambiente paragonabile.\n\n- Ampia comprensione della sicurezza delle informazioni, sicurezza informatica, cyber, ICT, BCM e resilienza operativa.\n\n- Esperienza con i requisiti di sicurezza nelle procedure RfI/RfP e con allegati contrattuali, rapporti di garanzia e valutazioni basate sui rischi.\n\n- Forte capacità di negoziazione e la capacità di rappresentare i requisiti di sicurezza in modo convincente per gli stakeholder interni e i partner esterni.\n\n- Ottima conoscenza del tedesco e dell'inglese.",
+        "en": "As a Senior Specialist TPRM Security – Operations & Contracting, you will handle challenging TPRM security cases on your own responsibility throughout the entire third-party lifecycle. You introduce security requirements into evaluations and contracts at an early stage, bring together different interests and ensure a risk-appropriate and comprehensible contract transfer.\n\nYou can do that.\n\n- You will process TPRM security cases from RfI and RfP through security due diligence and KS classification until the contract is signed and ongoing support.\n\n- You coordinate the technical assessment with information security, IT security/cyber, ICT, BCM, operational resilience and other security areas.\n\n- You prepare the risk-adequate security attachment and control its coordination with partner management, procurement, legal and risk control.\n\n- You will accompany contract negotiations with third parties independently and represent the security and resilience requirements of PostFinance clearly, pragmatically and assertively.\n\n- You assess contract deviations and exceptions and develop compensation measures, risk notes and well-founded decision-making principles.\n\n- You will analyze certifications as well as ISAE, SOC and other assurance reports and document the security recommendation for onboarding.\n\n- You support ongoing TPRM tasks, audit and audit requests and continuously develop processes, templates, security attachments and work tools.\n\nYou bring that with you\n\n- Higher degree in Information Security, Computer Science, Business Informatics, Law, Risk Management or a comparable qualification.\n\n- You have experience in the banking environment and know the essential regulatory requirements for information security, operational risks and third party risk management.\n\n- You have experience in planning, coordinating and conducting security and risk audits with third parties and can assess and track findings and resulting measures in a structured manner.\n\n- Several years of experience in third party risk management, security due diligence, supplier security or a comparable environment.\n\n- Broad understanding of information security, IT security, cyber, ICT, BCM and operational resilience.\n\n- Experience with security requirements in RfI/RfP procedures as well as with contract annexes, assurance reports and risk-based assessments.\n\n- Strong negotiating skills and the ability to represent security requirements convincingly to internal stakeholders and external partners.\n\n- Very good knowledge of German and English.",
+        "de": "Als Senior Specialist TPRM Security – Operations & Contracting bearbeitest du anspruchsvolle TPRM-Security-Fälle selbstverantwortlich über den gesamten Third-Party-Lifecycle. Du bringst Security-Anforderungen frühzeitig in Evaluationen und Verträge ein, führst unterschiedliche Interessen zusammen und stellst eine risikoadäquate und nachvollziehbare Vertragsüberbindung sicher.\n\nDas kannst du bewirken\n\n- Du bearbeitest TPRM-Security-Fälle von RfI und RfP über die Security Due Diligence und KS-Einstufung bis zur Vertragsüberbindung und laufenden Betreuung.\n\n- Du koordinierst die fachliche Beurteilung mit Information Security, IT-Security/Cyber, IKT, BCM, operationeller Resilienz und weiteren Security-Fachbereichen.\n\n- Du bereitest den risikoadäquaten Security-Anhang vor und steuerst dessen Abstimmung mit Partnermanagement, Procurement, Legal und Risk Control.\n\n- Du begleitest Vertragsverhandlungen mit Drittparteien eigenständig und vertrittst die Security- und Resilienzanforderungen von PostFinance klar, pragmatisch und durchsetzungsstark.\n\n- Du beurteilst Vertragsabweichungen und Ausnahmen und erarbeitest Kompensationsmassnahmen, Risikovermerke und fundierte Entscheidungsgrundlagen.\n\n- Du analysierst Zertifizierungen sowie ISAE-, SOC- und weitere Assurance-Berichte und dokumentierst die Security-Empfehlung für das Onboarding.\n\n- Du unterstützt laufende TPRM-Aufgaben, Audit- und Revisionsanfragen und entwickelst Prozesse, Templates, Security-Anhänge und Arbeitsinstrumente kontinuierlich weiter.\n\nDas bringst du mit\n\n- Höherer Abschluss in Information Security, Informatik, Wirtschaftsinformatik, Recht, Risk Management oder eine vergleichbare Qualifikation.\n\n- Du verfügst über Erfahrung im Bankenumfeld und kennst die wesentlichen regulatorischen Anforderungen an Informationssicherheit, operationelle Risiken und das Third Party Risk Management sowie Erfahrung im BCM von Vorteil\n\n- Du bringst Erfahrung in der Planung, Koordination und Durchführung von Security- und Risiko-Audits bei Drittparteien mit und kannst Feststellungen sowie daraus resultierende Massnahmen strukturiert beurteilen und nachverfolgen.\n\n- Mehrjährige Erfahrung in Third Party Risk Management, Security Due Diligence, Supplier Security oder einem vergleichbaren Umfeld.\n\n- Breites Verständnis von Informationssicherheit, IT-Security, Cyber, IKT, BCM und operationeller Resilienz.\n\n- Erfahrung mit Security-Anforderungen in RfI-/RfP-Verfahren sowie mit Vertragsanhängen, Assurance-Berichten und risikobasierten Beurteilungen.\n\n- Ausgeprägtes Verhandlungsgeschick und die Fähigkeit, Security-Anforderungen gegenüber internen Stakeholdern und externen Partnern überzeugend zu vertreten.\n\n- Sehr gute Deutsch- und gute Englischkenntnisse.",
+        "fr": "En tant que spécialiste principal de la sécurité TPRM – Opérations et contrats, vous traiterez les cas de sécurité TPRM difficiles de votre propre responsabilité tout au long du cycle de vie de tiers. Vous introduisez les exigences de sécurité dans les évaluations et les contrats à un stade précoce, rassemblez différents intérêts et assurez un transfert de contrat approprié et compréhensible.\n\nTu peux le faire.\n\n- Vous traiterez les dossiers de sécurité TPRM à partir de RfI et RfP par la diligence raisonnable en matière de sécurité et la classification KS jusqu'à ce que le contrat soit signé et le soutien continu.\n\n- Vous coordonnez l'évaluation technique avec la sécurité de l'information, la sécurité/cyber informatique, les TIC, la BCM, la résilience opérationnelle et d'autres domaines de sécurité.\n\n- Vous préparez le dispositif de sécurité adéquat et contrôlez sa coordination avec la gestion des partenaires, l'approvisionnement, la législation et le contrôle des risques.\n\n- Vous accompagnerez les négociations contractuelles avec des tiers indépendamment et représenterez les exigences de sécurité et de résilience de PostFinance de manière claire, pragmatique et affirmée.\n\n- Vous évaluez les écarts contractuels et les exceptions et vous élaborez des mesures de compensation, des notes de risque et des principes de prise de décision fondés.\n\n- Vous analyserez les certifications ainsi que les rapports d'assurance ISAE, SOC et autres et documenterez la recommandation de sécurité pour l'embarquement.\n\n- Vous soutenez les tâches courantes du GRPT, les demandes de vérification et de vérification et développez continuellement des processus, des modèles, des pièces jointes de sécurité et des outils de travail.\n\nApporte ça avec toi.\n\n- Diplôme supérieur en sécurité de l'information, informatique, informatique des affaires, droit, gestion des risques ou une qualification comparable.\n\n- Vous avez de l'expérience dans l'environnement bancaire et connaissez les exigences réglementaires essentielles pour la sécurité de l'information, les risques opérationnels et la gestion des risques par des tiers.\n\n- Vous avez de l'expérience dans la planification, la coordination et la réalisation de vérifications de la sécurité et des risques avec des tiers et pouvez évaluer et suivre les constatations et les mesures qui en découlent de manière structurée.\n\n- Plusieurs années d'expérience dans la gestion des risques par des tiers, la diligence raisonnable en matière de sécurité, la sécurité des fournisseurs ou un environnement comparable.\n\n- Une vaste compréhension de la sécurité de l'information, de la sécurité des TI, de la cyberinformatique, des TIC, de la BCM et de la résilience opérationnelle.\n\n- Expérience des exigences en matière de sécurité dans les procédures de RfI/RfP ainsi que dans les annexes des contrats, les rapports d'assurance et les évaluations fondées sur les risques.\n\n- De solides compétences en négociation et la capacité de représenter de façon convaincante les exigences en matière de sécurité auprès des intervenants internes et des partenaires externes.\n\n- Très bonne connaissance de l'allemand et de l'anglais."
+      },
+      "titleByLocale": {
+        "it": "Senior Specialista TPRM Security - Operations & Contracting (w/m/d)",
+        "en": "Senior Specialist TPRM Security - Operations & Contracting (m/f/d)",
+        "de": "Senior Spezialist TPRM Security - Operations & Contracting (w/m/d)",
+        "fr": "Senior Spécialiste TPRM Security - Operations & Contracting (w/m/d)"
+      },
+      "slug": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "senior-specialista-tprm-security-operations-contracting-w-m-d-postfinance-bern",
+        "en": "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance",
+        "de": "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance",
+        "fr": "senior-specialiste-tprm-security-operations-contracting-w-m-d-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-19T21:48:47.416Z",
+      "validThrough": "13.11.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-055b257d4406",
+      "previousSlugs": [
+        "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance"
+        ],
+        "fr": [
+          "senior-specialist-tprm-security-operations-contracting-w-m-d-postfinance"
+        ]
+      },
+      "firstSeenAt": "2026-10-13T09:40:44.845Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     }
   ]
 }
