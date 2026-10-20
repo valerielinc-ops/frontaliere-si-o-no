@@ -1733,12 +1733,12 @@ function renderPage(inp: PageInputs): string {
         })
         .join('')}</ol>`
     : `<p class="s-gWHXua">${esc(copy.trendEmpty)}</p>`;
-  const regionalTripCalculatorHtml = !zone && avg !== null
+  const tripCalculatorHtml = avg !== null
     ? renderFuelTripCalculatorMarkup({
         locale,
         fuel,
         currency: 'CHF',
-        id: `${locale}-${fuel}-regional-trip`,
+        id: `${locale}-${fuel}-${zone ?? 'regional'}-trip`,
         referencePrice: avg,
         alternativePrice: top3[0]?.priceChf ?? null,
         referenceSource: ({ it: 'TCS · media campione', en: 'TCS · sample average', de: 'TCS · Stichprobenmittel', fr: 'TCS · moyenne de l’échantillon' })[locale],
@@ -1936,7 +1936,7 @@ function renderPage(inp: PageInputs): string {
     <h2 id="top3" class="s-h2">${esc(copy.top3Label(fuelLabel, whereLabel))}</h2>
     ${stationsHtml}
   </section>
-  ${regionalTripCalculatorHtml}
+  ${tripCalculatorHtml}
   ${DRIVEBY_AD_SNIPPET}
   <section class="s-ziawP1" aria-labelledby="trend7">
     <h2 id="trend7" class="s-h2">${esc(copy.trendLabel(fuelLabel, whereLabel))}</h2>

@@ -2,7 +2,9 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import {
   calculateFuelTrip,
+  convertFuelAmount,
   convertFuelPrice,
+  convertFuelTripScenarioCurrency,
   datedFuelExchangeRate,
   fuelTripCalculatorInlineScript,
   renderFuelTripCalculatorMarkup,
@@ -118,6 +120,57 @@ describe('fuel trip calculator', () => {
     expect(datedFuelExchangeRate({ ...validRate, sourceUrl: 'https://example.com/rates' })).toBeNull();
     expect(datedFuelExchangeRate({ ...validRate, eurPerChf: 99 })).toBeNull();
     expect(datedFuelExchangeRate({ ...validRate, rateDate: '2026-02-30' })).toBeNull();
+  });
+
+  it('converts every trip cost with the dated rate and keeps zero and blank values safe', () => {
+    const rate = datedFuelExchangeRate(validRate)!;
+    const eurScenario = {
+      currency: 'EUR' as const,
+      referencePrice: '1.8',
+      alternativePrice: '1.7',
+      liters: '50',
+      additionalRoundTripKm: '20',
+      vehicleCostPerKm: '1',
+      otherTripCosts: '10',
+      monthlyTrips: '4',
+    };
+    const chfScenario = convertFuelTripScenarioCurrency(eurScenario, 'CHF', rate, { referencePrice: true, alternativePrice: true });
+
+    expect(chfScenario).toMatchObject({
+      currency: 'CHF', referencePrice: String(1.8 * 0.95), alternativePrice: String(1.7 * 0.95),
+      liters: '50', additionalRoundTripKm: '20', vehicleCostPerKm: String(0.95), otherTripCosts: String(9.5), monthlyTrips: '4',
+    });
+    const eurAgain = convertFuelTripScenarioCurrency(chfScenario, 'EUR', rate, { referencePrice: true, alternativePrice: true });
+    expect(Number(eurAgain.vehicleCostPerKm)).toBeCloseTo(1);
+    expect(Number(eurAgain.otherTripCosts)).toBeCloseTo(10);
+
+    const resultEur = calculateFuelTrip({ ...readyInput, vehicleCostPerKm: 1, otherTripCosts: 10 });
+    const resultChf = calculateFuelTrip({
+      ...readyInput,
+      referencePrice: Number(chfScenario.referencePrice),
+      alternativePrice: Number(chfScenario.alternativePrice),
+      vehicleCostPerKm: Number(chfScenario.vehicleCostPerKm),
+      otherTripCosts: Number(chfScenario.otherTripCosts),
+    });
+    expect(resultChf.netDifference! / 0.95).toBeCloseTo(resultEur.netDifference!);
+
+    const noRate = convertFuelTripScenarioCurrency(eurScenario, 'CHF', null, { referencePrice: true, alternativePrice: true });
+    expect(noRate).toMatchObject({ referencePrice: '', alternativePrice: '', vehicleCostPerKm: '', otherTripCosts: '' });
+    expect(convertFuelAmount(0, 'EUR', 'CHF', null)).toBe(0);
+    expect(convertFuelAmount(1, 'EUR', 'CHF', null)).toBeNull();
+    expect(convertFuelAmount(-1, 'EUR', 'CHF', rate)).toBeNull();
+    expect(convertFuelAmount(1e308, 'EUR', 'CHF', { ...rate, chfPerEur: 1e308 })).toBeNull();
+
+    const prefilled = convertFuelTripScenarioCurrency(eurScenario, 'CHF', rate, { referencePrice: false, alternativePrice: false });
+    expect(prefilled.referencePrice).toBe('');
+    expect(prefilled.alternativePrice).toBe('');
+    expect(prefilled.vehicleCostPerKm).toBe('0.95');
+    const referenceOnlyOverride = convertFuelTripScenarioCurrency(eurScenario, 'CHF', rate, { referencePrice: true, alternativePrice: false });
+    expect(referenceOnlyOverride.referencePrice).toBe(String(1.8 * 0.95));
+    expect(referenceOnlyOverride.alternativePrice).toBe('');
+    const zeroCosts = convertFuelTripScenarioCurrency({ ...eurScenario, vehicleCostPerKm: '0', otherTripCosts: '0' }, 'CHF', null, { referencePrice: false, alternativePrice: false });
+    expect(zeroCosts.vehicleCostPerKm).toBe('0');
+    expect(zeroCosts.otherTripCosts).toBe('0');
   });
 
   it('renders price prefill and provenance while keeping unknown alternative prices blank', () => {

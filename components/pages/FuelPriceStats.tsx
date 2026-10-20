@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, ChevronRight, ChevronUp, ExternalLink, Fuel, Loader2, MapPin, Route, Search, TrendingDown, TrendingUp } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { calculateFuelTrip, convertFuelPrice, datedFuelExchangeRate, type DatedFuelExchangeRate, type FuelTripCurrency } from '../../build-plugins/shared/fuelTripCalculator';
+import { appendFuelTripShareState, calculateFuelTrip, convertFuelPrice, convertFuelTripScenarioCurrency, datedFuelExchangeRate, parseFuelTripShareState, type DatedFuelExchangeRate, type FuelTripCurrency, type FuelTripShareState } from '../../build-plugins/shared/fuelTripCalculator';
 import { buildSwissStationSlug, fetchFuelPrices, type FuelComparisonCountry, type FuelPricesDataset, type FuelStationItaly, type FuelStationSwitzerland, type MunicipalityFuelRow, zoneFromAddress } from '@/services/fuelPricesService';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
@@ -13,7 +13,7 @@ type SortKey = 'saving' | 'delta' | 'italy' | 'swiss' | 'name';
 
 export type FuelType = 'benzina' | 'diesel';
 
-export interface FuelViewState { fuelType: FuelType; search: string; province: string; sortKey: SortKey; selectedKey: string | null; homeMunicipalityKey: string; tankLiters: number; costPerKmEur: number; page: number; }
+export interface FuelViewState { fuelType: FuelType; search: string; province: string; sortKey: SortKey; selectedKey: string | null; homeMunicipalityKey: string; tankLiters: number; costPerKmEur: number; page: number; tripScenario?: FuelTripShareState | null; }
 interface FuelTripFormState { referencePrice: string; alternativePrice: string; liters: string; additionalRoundTripKm: string; vehicleCostPerKm: string; otherTripCosts: string; monthlyTrips: string; }
 interface FuelTripPriceMeta { referencePrice: number | null; alternativePrice: number | null; referenceSource: string | null; referenceDate: string | null; alternativeSource: string | null; alternativeDate: string | null; exchangeRateDate: string | null; }
 export interface FuelRowView {
@@ -30,7 +30,19 @@ export function parseFuelViewState(search: string): FuelViewState {
  const params = new URLSearchParams(search);
  const fuelType: FuelType = params.get('fuel') === 'diesel' ? 'diesel' : 'benzina';
  const sortKey: SortKey = isSortKey(params.get('sort')) ? params.get('sort') as SortKey : 'saving';
- return { fuelType, search: params.get('q') || '', province: params.get('province') || 'ALL', sortKey, selectedKey: params.get('municipality') || null, homeMunicipalityKey: params.get('home') || '', tankLiters: parseNumberParam(params.get('liters'), 50, 0, Number.MAX_VALUE), costPerKmEur: parseNumberParam(params.get('cost'), 0.18, 0, Number.MAX_VALUE), page: Math.max(1, Math.floor(parseNumberParam(params.get('page'), 1, 1, 9999))) };
+ const tripScenario = parseFuelTripShareState(params);
+ return {
+  fuelType,
+  search: params.get('q') || '',
+  province: params.get('province') || 'ALL',
+  sortKey,
+  selectedKey: params.get('municipality') || null,
+  homeMunicipalityKey: params.get('home') || '',
+  tankLiters: parseNumberParam(params.get('liters'), 50, 0, Number.MAX_VALUE),
+  costPerKmEur: parseNumberParam(params.get('cost'), 0.18, 0, Number.MAX_VALUE),
+  page: Math.max(1, Math.floor(parseNumberParam(params.get('page'), 1, 1, 9999))),
+  ...(tripScenario ? { tripScenario } : {}),
+ };
 }
 function readFuelViewState(): FuelViewState { return parseFuelViewState(typeof window === 'undefined' ? '' : window.location.search); }
 export function buildFuelViewSearch(state: FuelViewState): string {
@@ -38,10 +50,14 @@ export function buildFuelViewSearch(state: FuelViewState): string {
  if (state.fuelType !== DEFAULT_FUEL_VIEW.fuelType) params.set('fuel', state.fuelType);
  if (state.search.trim()) params.set('q', state.search.trim()); if (state.province !== 'ALL') params.set('province', state.province); if (state.sortKey !== 'saving') params.set('sort', state.sortKey);
  if (state.selectedKey) params.set('municipality', state.selectedKey); if (state.homeMunicipalityKey) params.set('home', state.homeMunicipalityKey);
- if (state.tankLiters !== 50) params.set('liters', String(state.tankLiters)); if (state.costPerKmEur !== 0.18) params.set('cost', String(state.costPerKmEur)); if (state.page > 1) params.set('page', String(state.page));
+ if (state.tripScenario) params.set('liters', String(state.tankLiters)); else if (state.tankLiters !== 50) params.set('liters', String(state.tankLiters));
+ if (state.costPerKmEur !== 0.18) params.set('cost', String(state.costPerKmEur));
+ if (state.page > 1) params.set('page', String(state.page));
+ if (state.tripScenario) appendFuelTripShareState(params, state.tripScenario);
  return params.toString();
 }
 function fuelViewUrl(state: FuelViewState): string | null { if (typeof window === 'undefined') return null; const url = new URL(window.location.href); url.search = buildFuelViewSearch(state); return url.toString(); }
+function tripShareState(currency: FuelTripCurrency, form: FuelTripFormState): FuelTripShareState { return { currency, ...form }; }
 function isFinitePrice(value: unknown): value is number { return typeof value === 'number' && Number.isFinite(value); }
 function inputNumber(value: string): number | null { if (!value.trim()) return null; const parsed = Number(value); return Number.isFinite(parsed) ? parsed : Number.NaN; }
 function italyStationPrice(station: FuelStationItaly, fuelType: FuelType): number | null { const value = fuelType === 'diesel' ? station.dieselPriceEur : station.priceEur; return isFinitePrice(value) ? value : null; }
@@ -87,6 +103,12 @@ export function fuelRowViewWithExchangeRate(row: MunicipalityFuelRow, fuelType: 
  const view = fuelRowView(row, fuelType);
  const swissPriceEur = convertFuelPrice(view.swiss.minPriceChf, 'CHF', 'EUR', exchangeRate);
  return { ...view, swiss: { ...view.swiss, minPriceEur: swissPriceEur }, comparison: compareFuelPrices(view.italy.minPriceEur, swissPriceEur) };
+}
+export function fuelTripPrefillPrices(italianPriceEur: number | null, swissPriceChf: number | null, currency: FuelTripCurrency, exchangeRate: DatedFuelExchangeRate | null) {
+ return {
+  referencePrice: convertFuelPrice(italianPriceEur, 'EUR', currency, exchangeRate),
+  alternativePrice: convertFuelPrice(swissPriceChf, 'CHF', currency, exchangeRate),
+ };
 }
 export type FuelDataFreshness = 'current' | 'stale' | 'unknown';
 const DATASET_MAX_AGE_MS = 36 * 60 * 60 * 1000;
@@ -437,11 +459,13 @@ export default function FuelPriceStats() {
  const [sortKey, setSortKey] = useState<SortKey>(DEFAULT_FUEL_VIEW.sortKey); const [selectedKey, setSelectedKey] = useState<string | null>(DEFAULT_FUEL_VIEW.selectedKey);
  const [homeMunicipalityKey, setHomeMunicipalityKey] = useState(DEFAULT_FUEL_VIEW.homeMunicipalityKey); const [tankLiters, setTankLiters] = useState(DEFAULT_FUEL_VIEW.tankLiters); const [costPerKmEur, setCostPerKmEur] = useState(DEFAULT_FUEL_VIEW.costPerKmEur);
  const [tripCurrency, setTripCurrency] = useState<FuelTripCurrency>('EUR'); const [tripForm, setTripForm] = useState<FuelTripFormState>(DEFAULT_FUEL_TRIP_FORM);
+ const [tripScenarioEnabled, setTripScenarioEnabled] = useState(false);
  const [page, setPage] = useState(DEFAULT_FUEL_VIEW.page); const [shareState, setShareState] = useState<'idle' | 'copied' | 'error'>('idle');
  const [urlReady, setUrlReady] = useState(false);
  const appliedSelection = useRef<string | null>(null);
  const tripInputChanged = useRef(false);
  const tripCalculationTracked = useRef(false);
+ const manualTripPrices = useRef({ referencePrice: false, alternativePrice: false });
  // Authoritative set of emitted Italian station pages ("{citySlug}/{stationSlug}").
  // Built by the fuel build-plugin; the SPA links a station only when it appears
  // here, so a station card never points at a page the build skipped (word-gate)
@@ -451,18 +475,45 @@ export default function FuelPriceStats() {
 
  const updateTripForm = (field: keyof FuelTripFormState, value: string) => {
   tripInputChanged.current = true;
+  setTripScenarioEnabled(true);
+  if (field === 'referencePrice' || field === 'alternativePrice') manualTripPrices.current[field] = true;
   setTripForm((current) => ({ ...current, [field]: value }));
   if (field === 'liters') setTankLiters(parseNumberParam(value, DEFAULT_FUEL_VIEW.tankLiters, 0, Number.MAX_VALUE));
-  if (field === 'vehicleCostPerKm') setCostPerKmEur(parseNumberParam(value, DEFAULT_FUEL_VIEW.costPerKmEur, 0, Number.MAX_VALUE));
+  if (field === 'vehicleCostPerKm' && tripCurrency === 'EUR') {
+   const parsed = inputNumber(value);
+   if (parsed !== null && parsed >= 0) setCostPerKmEur(parsed);
+  }
  };
 
  useEffect(() => {
-  const restoreFromUrl = () => { const next = readFuelViewState(); setFuelType(next.fuelType); setSearch(next.search); setProvince(next.province); setSortKey(next.sortKey); setSelectedKey(next.selectedKey); setHomeMunicipalityKey(next.homeMunicipalityKey); setTankLiters(next.tankLiters); setCostPerKmEur(next.costPerKmEur); setTripForm((current) => ({ ...current, liters: String(next.tankLiters), vehicleCostPerKm: String(next.costPerKmEur) })); setPage(next.page); setUrlReady(true); };
+  const restoreFromUrl = () => {
+   const next = readFuelViewState();
+   const scenario = next.tripScenario;
+   setFuelType(next.fuelType); setSearch(next.search); setProvince(next.province); setSortKey(next.sortKey); setSelectedKey(next.selectedKey); setHomeMunicipalityKey(next.homeMunicipalityKey);
+   setTankLiters(next.tankLiters); setCostPerKmEur(next.costPerKmEur); setTripCurrency(scenario?.currency ?? 'EUR');
+   setTripForm(scenario ? {
+    referencePrice: scenario.referencePrice,
+    alternativePrice: scenario.alternativePrice,
+    liters: scenario.liters,
+    additionalRoundTripKm: scenario.additionalRoundTripKm,
+    vehicleCostPerKm: scenario.vehicleCostPerKm,
+    otherTripCosts: scenario.otherTripCosts,
+    monthlyTrips: scenario.monthlyTrips,
+   } : { ...DEFAULT_FUEL_TRIP_FORM, liters: String(next.tankLiters), vehicleCostPerKm: String(next.costPerKmEur) });
+   manualTripPrices.current = { referencePrice: Boolean(scenario), alternativePrice: Boolean(scenario) };
+   tripInputChanged.current = false; tripCalculationTracked.current = false; setTripScenarioEnabled(Boolean(scenario));
+   setPage(next.page); setUrlReady(true);
+  };
  restoreFromUrl(); window.addEventListener('popstate', restoreFromUrl); return () => window.removeEventListener('popstate', restoreFromUrl);
  }, []);
- useEffect(() => { if (!urlReady) return; const nextUrl = fuelViewUrl({ fuelType, search, province, sortKey, selectedKey, homeMunicipalityKey, tankLiters, costPerKmEur, page }); if (nextUrl && nextUrl !== window.location.href) window.history.replaceState(window.history.state, '', nextUrl); }, [costPerKmEur, fuelType, homeMunicipalityKey, page, province, search, selectedKey, sortKey, tankLiters, urlReady]);
- const resetView = () => { setFuelType('benzina'); setSearch(''); setProvince('ALL'); setSortKey('saving'); setSelectedKey(null); setHomeMunicipalityKey(''); setTankLiters(50); setCostPerKmEur(0.18); setTripCurrency('EUR'); setTripForm(DEFAULT_FUEL_TRIP_FORM); tripInputChanged.current = false; tripCalculationTracked.current = false; setPage(1); setShareState('idle'); Analytics.trackUIInteraction('statistiche', 'carburanti', 'reset_view', 'click'); };
- const shareView = async () => { const url = fuelViewUrl({ fuelType, search, province, sortKey, selectedKey, homeMunicipalityKey, tankLiters, costPerKmEur, page }); if (!url || !navigator.clipboard) { setShareState('error'); return; } try { await navigator.clipboard.writeText(url); setShareState('copied'); Analytics.trackUIInteraction('statistiche', 'carburanti', 'share_view', 'click'); } catch { setShareState('error'); } };
+ const currentTripScenario = useMemo(() => tripShareState(tripCurrency, tripForm), [tripCurrency, tripForm]);
+ useEffect(() => {
+  if (!urlReady) return;
+  const nextUrl = fuelViewUrl({ fuelType, search, province, sortKey, selectedKey, homeMunicipalityKey, tankLiters, costPerKmEur, page, tripScenario: tripScenarioEnabled ? currentTripScenario : null });
+  if (nextUrl && nextUrl !== window.location.href) window.history.replaceState(window.history.state, '', nextUrl);
+ }, [costPerKmEur, currentTripScenario, fuelType, homeMunicipalityKey, page, province, search, selectedKey, sortKey, tankLiters, tripScenarioEnabled, urlReady]);
+ const resetView = () => { setFuelType('benzina'); setSearch(''); setProvince('ALL'); setSortKey('saving'); setSelectedKey(null); setHomeMunicipalityKey(''); setTankLiters(50); setCostPerKmEur(0.18); setTripCurrency('EUR'); setTripForm(DEFAULT_FUEL_TRIP_FORM); manualTripPrices.current = { referencePrice: false, alternativePrice: false }; setTripScenarioEnabled(false); tripInputChanged.current = false; tripCalculationTracked.current = false; setPage(1); setShareState('idle'); Analytics.trackUIInteraction('statistiche', 'carburanti', 'reset_view', 'click'); };
+ const shareView = async () => { const url = fuelViewUrl({ fuelType, search, province, sortKey, selectedKey, homeMunicipalityKey, tankLiters, costPerKmEur, page, tripScenario: currentTripScenario }); if (!url || !navigator.clipboard) { setShareState('error'); return; } try { await navigator.clipboard.writeText(url); setShareState('copied'); Analytics.trackUIInteraction('statistiche', 'carburanti', 'share_view', 'click'); } catch { setShareState('error'); } };
 
  useEffect(() => {
  let cancelled = false;
@@ -548,24 +599,21 @@ export default function FuelPriceStats() {
   }, null);
   const italianPriceEur = view.italy.minPriceEur;
   const swissPriceChf = view.swiss.minPriceChf;
-  const italianInCurrency = convertFuelPrice(italianPriceEur, 'EUR', tripCurrency, datedExchangeRate);
-  const swissInCurrency = convertFuelPrice(swissPriceChf, 'CHF', tripCurrency, datedExchangeRate);
   const italyDate = italianStation ? italyStationObservationDate(italianStation, fuelType) : null;
   const swissDate = fuelType === 'diesel'
    ? swissStation?.dieselUpdatedAt || swissStation?.updatedAt || data.sources.switzerland.latestObservedUpdate
    : swissStation?.updatedAt || data.sources.switzerland.latestObservedUpdate;
   const italySource = italianStation ? `MIMIT · ${italianStation.stationName}` : 'MIMIT';
   const swissSource = swissStation ? `TCS · ${swissStation.name || swissStation.brand}` : data.sources.switzerland.provider;
-  return tripCurrency === 'EUR'
-   ? { referencePrice: italianPriceEur, alternativePrice: swissInCurrency, referenceSource: italySource, referenceDate: italyDate, alternativeSource: swissSource, alternativeDate: swissDate, exchangeRateDate: datedExchangeRate?.rateDate ?? null }
-   : { referencePrice: swissPriceChf, alternativePrice: italianInCurrency, referenceSource: swissSource, referenceDate: swissDate, alternativeSource: italySource, alternativeDate: italyDate, exchangeRateDate: datedExchangeRate?.rateDate ?? null };
+  const prefilledPrices = fuelTripPrefillPrices(italianPriceEur, swissPriceChf, tripCurrency, datedExchangeRate);
+  return { ...prefilledPrices, referenceSource: italySource, referenceDate: italyDate, alternativeSource: swissSource, alternativeDate: swissDate, exchangeRateDate: datedExchangeRate?.rateDate ?? null };
  }, [data, datedExchangeRate, fuelType, homeMunicipality, tripCurrency]);
  useEffect(() => {
   if (!tripPriceMeta) return;
   setTripForm((current) => ({
    ...current,
-   referencePrice: tripPriceMeta.referencePrice === null ? '' : String(tripPriceMeta.referencePrice),
-   alternativePrice: tripPriceMeta.alternativePrice === null ? '' : String(tripPriceMeta.alternativePrice),
+   referencePrice: manualTripPrices.current.referencePrice ? current.referencePrice : tripPriceMeta.referencePrice === null ? '' : String(tripPriceMeta.referencePrice),
+   alternativePrice: manualTripPrices.current.alternativePrice ? current.alternativePrice : tripPriceMeta.alternativePrice === null ? '' : String(tripPriceMeta.alternativePrice),
   }));
  }, [tripPriceMeta]);
  const tripCalculation = useMemo(() => calculateFuelTrip({
@@ -627,29 +675,52 @@ export default function FuelPriceStats() {
     <p className="mt-2 text-sm leading-6 text-subtle">{tt('fuelPrices.trip.description', 'Confronto manuale: i prezzi sono espressi nella stessa valuta. Inserisci i costi reali del percorso aggiuntivo; non stimiamo distanze stradali dai comuni.')}</p>
     <p className="mt-2 text-xs leading-5 text-muted">{tt('fuelPrices.trip.assumptionNote', 'Valori iniziali modificabili: 50 litri, 0,18 per km e zero altri costi sono ipotesi. I km A/R sono obbligatori e indicano il totale, senza raddoppio.')}</p>
    </div>
-   {selected && <button type="button" onClick={() => setHomeMunicipalityKey(municipalityKey(selected))} className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">{tt('fuelPrices.useSelectedMunicipality', 'Usa il comune aperto nella lista')}</button>}
+   {selected && <button type="button" onClick={() => { tripInputChanged.current = true; setTripScenarioEnabled(true); setHomeMunicipalityKey(municipalityKey(selected)); }} className="inline-flex min-h-[44px] items-center justify-center rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">{tt('fuelPrices.useSelectedMunicipality', 'Usa il comune aperto nella lista')}</button>}
   </div>
 
   <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
    <label className="block text-sm font-semibold text-body sm:col-span-2">
     <span className="mb-1.5 block">{tt('fuelPrices.trip.homeMunicipality', 'Comune per precompilare i prezzi disponibili')}</span>
-    <input list="fuel-municipalities" value={homeMunicipality ? municipalityLabel(homeMunicipality) : homeMunicipalityKey} onChange={(event) => { const value = event.target.value; const match = municipalityOptions.find((option) => option.label === value); setHomeMunicipalityKey(match?.key || value); if (!match) setTripForm((current) => ({ ...current, referencePrice: '', alternativePrice: '' })); }} placeholder={tt('fuelPrices.searchHomeMunicipality', 'Es. Como (CO)')} aria-label={tt('fuelPrices.trip.homeMunicipality', 'Comune per precompilare i prezzi disponibili')} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent" />
+    <input list="fuel-municipalities" value={homeMunicipality ? municipalityLabel(homeMunicipality) : homeMunicipalityKey} onChange={(event) => { const value = event.target.value; const match = municipalityOptions.find((option) => option.label === value); tripInputChanged.current = true; setTripScenarioEnabled(true); setHomeMunicipalityKey(match?.key || value); if (!match) setTripForm((current) => ({ ...current, referencePrice: manualTripPrices.current.referencePrice ? current.referencePrice : '', alternativePrice: manualTripPrices.current.alternativePrice ? current.alternativePrice : '' })); }} placeholder={tt('fuelPrices.searchHomeMunicipality', 'Es. Como (CO)')} aria-label={tt('fuelPrices.trip.homeMunicipality', 'Comune per precompilare i prezzi disponibili')} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent" />
     <datalist id="fuel-municipalities">{municipalityOptions.map((option) => <option key={option.key} value={option.label} />)}</datalist>
    </label>
    <label className="block text-sm font-semibold text-body">
     <span className="mb-1.5 block">{tt('fuelPrices.trip.currency', 'Valuta del confronto')}</span>
-    <select value={tripCurrency} onChange={(event) => { const nextCurrency = event.target.value as FuelTripCurrency; tripInputChanged.current = true; setTripCurrency(nextCurrency); if (!homeMunicipality) setTripForm((current) => ({ ...current, referencePrice: '', alternativePrice: '' })); }} aria-label={tt('fuelPrices.trip.currency', 'Valuta del confronto')} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent"><option value="EUR">EUR/L</option><option value="CHF">CHF/L</option></select>
+    <select value={tripCurrency} onChange={(event) => {
+     const nextCurrency = event.target.value as FuelTripCurrency;
+     if (nextCurrency === tripCurrency) return;
+     tripInputChanged.current = true; setTripScenarioEnabled(true);
+     const converted = convertFuelTripScenarioCurrency(currentTripScenario, nextCurrency, datedExchangeRate, manualTripPrices.current);
+     setTripCurrency(nextCurrency);
+     setTripForm({
+      referencePrice: converted.referencePrice,
+      alternativePrice: converted.alternativePrice,
+      liters: converted.liters,
+      additionalRoundTripKm: converted.additionalRoundTripKm,
+      vehicleCostPerKm: converted.vehicleCostPerKm,
+      otherTripCosts: converted.otherTripCosts,
+      monthlyTrips: converted.monthlyTrips,
+     });
+     if (nextCurrency === 'EUR' && converted.vehicleCostPerKm.trim()) {
+      const cost = Number(converted.vehicleCostPerKm);
+      if (Number.isFinite(cost) && cost >= 0) setCostPerKmEur(cost);
+     }
+    }} aria-label={tt('fuelPrices.trip.currency', 'Valuta del confronto')} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent"><option value="EUR">EUR/L</option><option value="CHF">CHF/L</option></select>
    </label>
    {([
     ['referencePrice', tt('fuelPrices.trip.referencePrice', 'Prezzo di riferimento'), tripForm.referencePrice, tripPriceMeta?.referenceSource, tripPriceMeta?.referenceDate],
     ['alternativePrice', tt('fuelPrices.trip.alternativePrice', 'Prezzo alternativo'), tripForm.alternativePrice, tripPriceMeta?.alternativeSource, tripPriceMeta?.alternativeDate],
-   ] as const).map(([field, label, value, source, date]) => (
-    <label key={field} className="block text-sm font-semibold text-body">
-     <span className="mb-1.5 block">{label} ({tripCurrency}/L)</span>
-     <input type="number" inputMode="decimal" min={0} step="any" value={value} onChange={(event) => updateTripForm(field, event.target.value)} aria-label={`${label} (${tripCurrency}/L)`} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent" />
-     {(source || date) && <span className="mt-1 block text-xs font-normal leading-5 text-muted">{source ? `${tt('fuelPrices.trip.sourceLabel', 'Fonte')}: ${source}` : ''}{source && date ? ' · ' : ''}{date ? `${tt('fuelPrices.trip.dateLabel', 'Rilevazione')}: ${formatDate(date, locale)}` : ''} · {tt('fuelPrices.trip.editable', 'Precompilato, modificabile')}</span>}
-    </label>
-   ))}
+   ] as const).map(([field, label, value, source, date]) => {
+    const displayedSource = manualTripPrices.current[field] ? null : source;
+    const displayedDate = manualTripPrices.current[field] ? null : date;
+    return (
+     <label key={field} className="block text-sm font-semibold text-body">
+      <span className="mb-1.5 block">{label} ({tripCurrency}/L)</span>
+      <input type="number" inputMode="decimal" min={0} step="any" value={value} onChange={(event) => updateTripForm(field, event.target.value)} aria-label={`${label} (${tripCurrency}/L)`} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent" />
+      {(displayedSource || displayedDate) && <span className="mt-1 block text-xs font-normal leading-5 text-muted">{displayedSource ? `${tt('fuelPrices.trip.sourceLabel', 'Fonte')}: ${displayedSource}` : ''}{displayedSource && displayedDate ? ' · ' : ''}{displayedDate ? `${tt('fuelPrices.trip.dateLabel', 'Rilevazione')}: ${formatDate(displayedDate, locale)}` : ''} · {tt('fuelPrices.trip.editable', 'Precompilato, modificabile')}</span>}
+     </label>
+    );
+   })}
    <label className="block text-sm font-semibold text-body"><span className="mb-1.5 block">{tt('fuelPrices.trip.liters', 'Litri da acquistare')}</span><input type="number" inputMode="decimal" min={0} step="any" value={tripForm.liters} onChange={(event) => updateTripForm('liters', event.target.value)} aria-label={tt('fuelPrices.trip.liters', 'Litri da acquistare')} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent" /></label>
    <label className="block text-sm font-semibold text-body"><span className="mb-1.5 block">{tt('fuelPrices.trip.additionalRoundTripKm', 'Km aggiuntivi del viaggio A/R')}</span><input type="number" inputMode="decimal" min={0} step="any" value={tripForm.additionalRoundTripKm} onChange={(event) => updateTripForm('additionalRoundTripKm', event.target.value)} aria-describedby="fuel-trip-round-trip-hint" aria-label={tt('fuelPrices.trip.additionalRoundTripKm', 'Km aggiuntivi del viaggio A/R')} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent" /><span id="fuel-trip-round-trip-hint" className="mt-1 block text-xs font-normal leading-5 text-muted">{tt('fuelPrices.trip.roundTripHint', 'Inserisci il totale andata e ritorno: non verrà raddoppiato.')}</span></label>
    <label className="block text-sm font-semibold text-body"><span className="mb-1.5 block">{tt('fuelPrices.trip.vehicleCostPerKm', 'Costo dell’auto per km')} ({tripCurrency}/km)</span><input type="number" inputMode="decimal" min={0} step="any" value={tripForm.vehicleCostPerKm} onChange={(event) => updateTripForm('vehicleCostPerKm', event.target.value)} aria-label={`${tt('fuelPrices.trip.vehicleCostPerKm', 'Costo dell’auto per km')} (${tripCurrency}/km)`} className="w-full rounded-xl border border-edge bg-surface-alt/50 px-3 py-3 text-sm text-strong outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent" /></label>

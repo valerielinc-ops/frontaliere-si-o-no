@@ -231,6 +231,34 @@ describe('fuel-daily page generation — content quality', () => {
     expect(datedPages['/prezzi-diesel/oggi/']).toContain('Data del prezzo iniziale: 19.04.2026');
   });
 
+  it('renders zone calculators from each zone sample with explicit CHF and known or unavailable dates', () => {
+    const expectedBenzina = {
+      chiasso: [1.795, 1.78],
+      mendrisio: [1.81, 1.8],
+      lugano: [1.85, 1.84],
+      bellinzona: [1.84, 1.83],
+      locarno: [1.88, 1.87],
+    } as const;
+    const readInitialValue = (html: string, field: string): number => {
+      const fieldPattern = `data-fuel-trip-field=(?:"${field}"|'${field}'|${field})(?=\\s|>)`;
+      const tag = html.match(new RegExp(`<input\\b(?=[^>]*${fieldPattern})[^>]*>`))?.[0];
+      expect(tag, `missing ${field} input`).toBeTruthy();
+      const value = tag?.match(/\bvalue=(?:"([^"]*)"|'([^']*)'|([^\s>]+))/);
+      const parsed = Number(value?.[1] ?? value?.[2] ?? value?.[3]);
+      expect(Number.isFinite(parsed), `${field} should have a finite price`).toBe(true);
+      return parsed;
+    };
+
+    for (const zone of FUEL_ZONES) {
+      const html = pages[buildFuelTodayPath('it', 'benzina', zone)];
+      expect(html).toContain('data-fuel-trip-calculator');
+      expect(html).toContain('data-currency=CHF');
+      expect(readInitialValue(html, 'referencePrice')).toBeCloseTo(expectedBenzina[zone][0]);
+      expect(readInitialValue(html, 'alternativePrice')).toBeCloseTo(expectedBenzina[zone][1]);
+      expect(html).toContain('Data del prezzo iniziale: data non disponibile');
+    }
+  });
+
   it('keeps history-rich daily pages above the production text/HTML floor', async () => {
     const history = Array.from({ length: 180 }, (_, index) => {
       const date = new Date(today.getTime() - (179 - index) * 86_400_000);

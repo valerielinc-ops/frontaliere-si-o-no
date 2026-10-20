@@ -1,5 +1,16 @@
 export type FuelTripCurrency = 'CHF' | 'EUR';
 
+export interface FuelTripShareState {
+  currency: FuelTripCurrency;
+  referencePrice: string;
+  alternativePrice: string;
+  liters: string;
+  additionalRoundTripKm: string;
+  vehicleCostPerKm: string;
+  otherTripCosts: string;
+  monthlyTrips: string;
+}
+
 export interface FuelExchangeRateCandidate {
   provider?: unknown;
   sourceUrl?: unknown;
@@ -192,6 +203,94 @@ export function convertFuelPrice(
   if (!rate) return null;
   const converted = from === 'CHF' ? price * rate.eurPerChf : price * rate.chfPerEur;
   return Number.isFinite(converted) && converted > 0 ? Number(converted.toFixed(4)) : null;
+}
+
+/** Convert a nonnegative amount without price rounding; zero is currency-neutral. */
+export function convertFuelAmount(
+  amount: number | null,
+  from: FuelTripCurrency,
+  to: FuelTripCurrency,
+  rate: DatedFuelExchangeRate | null,
+): number | null {
+  if (typeof amount !== 'number' || !Number.isFinite(amount) || amount < 0) return null;
+  if (amount === 0 || from === to) return amount;
+  if (!rate) return null;
+  const converted = from === 'CHF' ? amount * rate.eurPerChf : amount * rate.chfPerEur;
+  return Number.isFinite(converted) && converted >= 0 ? converted : null;
+}
+
+function normalizeScenarioValue(value: string | null | undefined, min: number, exclusive = false): string {
+  if (value == null || !value.trim()) return '';
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < min || (exclusive && parsed === min)) return '';
+  return String(parsed);
+}
+
+function convertScenarioValue(value: string, from: FuelTripCurrency, to: FuelTripCurrency, rate: DatedFuelExchangeRate | null, min: number, exclusive = false): string {
+  const normalized = normalizeScenarioValue(value, min, exclusive);
+  if (!normalized) return '';
+  const converted = convertFuelAmount(Number(normalized), from, to, rate);
+  return converted === null || (exclusive && converted <= min) ? '' : String(converted);
+}
+
+/** Convert a filled trip scenario; unedited prefilled prices are left blank for fresh prefill. */
+export function convertFuelTripScenarioCurrency(
+  scenario: FuelTripShareState,
+  currency: FuelTripCurrency,
+  rate: DatedFuelExchangeRate | null,
+  manualPrices: { referencePrice: boolean; alternativePrice: boolean },
+): FuelTripShareState {
+  if (scenario.currency === currency) return { ...scenario };
+  return {
+    currency,
+    referencePrice: manualPrices.referencePrice ? convertScenarioValue(scenario.referencePrice, scenario.currency, currency, rate, 0, true) : '',
+    alternativePrice: manualPrices.alternativePrice ? convertScenarioValue(scenario.alternativePrice, scenario.currency, currency, rate, 0, true) : '',
+    liters: normalizeScenarioValue(scenario.liters, 0, true),
+    additionalRoundTripKm: normalizeScenarioValue(scenario.additionalRoundTripKm, 0),
+    vehicleCostPerKm: convertScenarioValue(scenario.vehicleCostPerKm, scenario.currency, currency, rate, 0),
+    otherTripCosts: convertScenarioValue(scenario.otherTripCosts, scenario.currency, currency, rate, 0),
+    monthlyTrips: normalizeScenarioValue(scenario.monthlyTrips, 0),
+  };
+}
+
+const FUEL_TRIP_SHARE_KEYS = [
+  'tripCurrency',
+  'tripReferencePrice',
+  'tripAlternativePrice',
+  'tripLiters',
+  'tripRoundTripKm',
+  'tripVehicleCostPerKm',
+  'tripOtherCosts',
+  'tripMonthlyTrips',
+] as const;
+
+/** Read a complete, validated calculator scenario from URL query parameters. */
+export function parseFuelTripShareState(params: URLSearchParams): FuelTripShareState | null {
+  if (!FUEL_TRIP_SHARE_KEYS.some((key) => params.has(key))) return null;
+  const currency: FuelTripCurrency = params.get('tripCurrency') === 'CHF' ? 'CHF' : 'EUR';
+  const read = (key: string, min: number, exclusive = false) => normalizeScenarioValue(params.get(key), min, exclusive);
+  return {
+    currency,
+    referencePrice: read('tripReferencePrice', 0, true),
+    alternativePrice: read('tripAlternativePrice', 0, true),
+    liters: read('tripLiters', 0, true),
+    additionalRoundTripKm: read('tripRoundTripKm', 0),
+    vehicleCostPerKm: read('tripVehicleCostPerKm', 0),
+    otherTripCosts: read('tripOtherCosts', 0),
+    monthlyTrips: read('tripMonthlyTrips', 0),
+  };
+}
+
+/** Write every scenario field, including blanks, so a shared URL restores the exact form. */
+export function appendFuelTripShareState(params: URLSearchParams, scenario: FuelTripShareState): void {
+  params.set('tripCurrency', scenario.currency === 'CHF' ? 'CHF' : 'EUR');
+  params.set('tripReferencePrice', normalizeScenarioValue(scenario.referencePrice, 0, true));
+  params.set('tripAlternativePrice', normalizeScenarioValue(scenario.alternativePrice, 0, true));
+  params.set('tripLiters', normalizeScenarioValue(scenario.liters, 0, true));
+  params.set('tripRoundTripKm', normalizeScenarioValue(scenario.additionalRoundTripKm, 0));
+  params.set('tripVehicleCostPerKm', normalizeScenarioValue(scenario.vehicleCostPerKm, 0));
+  params.set('tripOtherCosts', normalizeScenarioValue(scenario.otherTripCosts, 0));
+  params.set('tripMonthlyTrips', normalizeScenarioValue(scenario.monthlyTrips, 0));
 }
 
 /**
