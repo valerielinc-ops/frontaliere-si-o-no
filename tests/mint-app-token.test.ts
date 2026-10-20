@@ -1,7 +1,13 @@
 import { describe, it, expect } from 'vitest';
 import { generateKeyPairSync, createVerify } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { buildAppJwt, hasActionsWrite, hasDataRefreshWrite, hasWorkflowsWrite } from '../scripts/ci/mint-app-token.mjs';
+import {
+  buildAppJwt,
+  hasActionsWrite,
+  hasDataRefreshWrite,
+  hasDeploymentsRead,
+  hasWorkflowsWrite,
+} from '../scripts/ci/mint-app-token.mjs';
 
 // Deterministic test keypair (no network, no real App key).
 const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
@@ -92,6 +98,20 @@ describe('hasActionsWrite — dispatch capability read from the token, not assum
     const rearm = deploy.slice(deploy.indexOf('- name: Re-arm the build pipeline if it has stopped with work outstanding'));
     const tokenLine = rearm.split('\n').find((line) => line.trim().startsWith('GH_TOKEN:'));
     expect(tokenLine?.trim()).toBe("GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}");
+  });
+});
+
+describe('hasDeploymentsRead — Pages API capability read from the token, not assumed', () => {
+  it('accepts read and write grants', () => {
+    expect(hasDeploymentsRead({ deployments: 'read' })).toBe(true);
+    expect(hasDeploymentsRead({ deployments: 'write' })).toBe(true);
+  });
+
+  it('rejects an absent, malformed, or unrelated permission', () => {
+    expect(hasDeploymentsRead({ actions: 'write' })).toBe(false);
+    expect(hasDeploymentsRead({ deployments: 'none' })).toBe(false);
+    expect(hasDeploymentsRead(undefined)).toBe(false);
+    expect(hasDeploymentsRead(null)).toBe(false);
   });
 });
 

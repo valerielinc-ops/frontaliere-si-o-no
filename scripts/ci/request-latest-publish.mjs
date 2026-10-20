@@ -106,10 +106,8 @@ export function decideLatestPublish({
 
   const candidateSha = text(candidate.headSha || candidate.head_sha);
   const publishedSha = text(lastSuccessfulDeployment?.sha);
-  const candidateCompletedAt = timestamp(candidate.completedAt || candidate.completed_at);
-  const publishedAt = timestamp(lastSuccessfulDeployment?.publishedAt || lastSuccessfulDeployment?.published_at);
-  if (publishedSha === candidateSha || (candidateCompletedAt > 0 && publishedAt > 0 && candidateCompletedAt <= publishedAt)) {
-    return skip('already-live', `${candidateSha} is not newer than the last successful Pages deployment`);
+  if (publishedSha === candidateSha) {
+    return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
   }
 
   const attempts = (Array.isArray(publishRuns) ? publishRuns : [])
@@ -181,6 +179,7 @@ function mapPublish(run) {
     conclusion: text(run?.conclusion),
     event: text(run?.event),
     displayTitle: text(run?.display_title),
+    runName: text(run?.run_name),
   };
 }
 

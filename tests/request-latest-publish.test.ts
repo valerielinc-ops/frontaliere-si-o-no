@@ -61,12 +61,12 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 
-  it('does not roll Pages back to a build completed before the live deployment', () => {
+  it('dispatches when the live deployment has a different revision, even if it finished later', () => {
     expect(decideLatestPublish({
       builds: [build(2, SHA_OLD, '2026-10-20T12:00:00Z')],
       publishRuns: [],
       lastSuccessfulDeployment: deployment('cccccccccccccccccccccccccccccccccccccccc', '2026-10-20T12:01:00Z'),
-    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
   });
 
   it('retries a failed candidate only within the bounded publish-attempt cap', () => {
@@ -103,6 +103,16 @@ describe('Pages publish queue wiring', () => {
     expect(request).toContain('node scripts/ci/request-latest-publish.mjs');
     expect(request).toContain("cron: '*/5 * * * *'");
     expect(request).toContain('actions: write');
+    expect(request).toContain('deployments: read');
+    expect(request).toContain("APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'");
+    expect(request).toContain('APP_TOKEN_DEPLOYMENTS_READ');
+  });
+
+  it('maps the raw publish run name before counting source-linked attempts', () => {
+    const source = readFileSync(resolve('scripts/ci/request-latest-publish.mjs'), 'utf8');
+    const mapStart = source.indexOf('function mapPublish');
+    const listStart = source.indexOf('async function listWorkflowRuns');
+    expect(source.slice(mapStart, listStart)).toMatch(/runName:\s*text\(run\?\.run_name\)/);
   });
 
   it('makes the source build explicit and removes the workflow_run pending-slot fan-in', () => {

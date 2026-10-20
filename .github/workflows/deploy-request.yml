@@ -77,6 +77,7 @@ concurrency:
 permissions:
   contents: read
   actions: write
+  deployments: read
 
 jobs:
   request:
@@ -114,6 +115,7 @@ jobs:
           APP_ID: ${{ secrets.APP_ID }}
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Request one build for the current main tip
@@ -141,8 +143,8 @@ jobs:
           GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
         run: |
           set -euo pipefail
-          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || -z "${GH_TOKEN:-}" ]]; then
-            echo '::warning::Pages publish reconciliation skipped: App token with actions:write is unavailable'
+          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || "${APP_TOKEN_DEPLOYMENTS_READ:-false}" != 'true' || -z "${GH_TOKEN:-}" ]]; then
+            echo '::warning::Pages publish reconciliation skipped: App token with actions:write and deployments:read is unavailable'
             exit 0
           fi
           node scripts/ci/request-latest-publish.mjs
