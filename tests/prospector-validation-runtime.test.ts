@@ -88,6 +88,11 @@ describe('Prospector production validation', () => {
     expect(isGenericVacancyTitle('Header')).toBe(true);
     expect(selectPublishableTitle('Header', 'Platform Engineer')).toBe('Platform Engineer');
     expect(selectPublishableTitle('Jobs', 'Offene Stellen')).toBe('');
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', ['Mehr erfahren', 'Careers | Employer']))
+      .toBe('');
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', ['', 'Disposition Küche - Jobportal | Hans Eisenring']))
+      .toBe('Disposition Küche');
+    expect(selectPublishableTitle('Mehr erfahren', 'Mehr erfahren', 'Careers | Employer')).toBe('');
   });
 
   it('uses the detail title and labelled workplace when listing data contains CTAs and a company address', async () => {

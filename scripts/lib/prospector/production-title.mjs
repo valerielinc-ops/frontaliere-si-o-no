@@ -52,6 +52,20 @@ export function isGenericVacancyTitle(value) {
 }
 
 /**
+ * A document title often appends the site's breadcrumb after the vacancy name.
+ * Use only its leading segment; a chrome-only title such as "Careers | Employer"
+ * therefore remains generic and cannot become a vacancy title.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function vacancyTitleFromDocumentTitle(value) {
+  const title = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!title) return '';
+  return title.split(/\s+(?:\||–|—|-)\s+/)[0]?.trim() || '';
+}
+
+/**
  * Prefer the detail-page title only when it names a vacancy. Some sources put
  * a generic layout heading such as "Header" in the detail H1 while the listing
  * still carries the real role title; publishing the H1 would replace good
@@ -64,9 +78,13 @@ export function isGenericVacancyTitle(value) {
  * @returns {string}
  */
 export function selectPublishableTitle(detailTitle, listingTitle, rawDetailTitles = []) {
-  for (const value of [detailTitle, listingTitle, ...rawDetailTitles]) {
+  const rawTitles = Array.isArray(rawDetailTitles) ? rawDetailTitles : [];
+  const documentTitle = rawTitles.at(-1);
+  for (const value of [detailTitle, listingTitle, ...rawTitles.slice(0, -1)]) {
     const title = String(value || '').replace(/\s+/g, ' ').trim();
     if (title && !isGenericVacancyTitle(title)) return title;
   }
+  const documentTitleCandidate = vacancyTitleFromDocumentTitle(documentTitle);
+  if (documentTitleCandidate && !isGenericVacancyTitle(documentTitleCandidate)) return documentTitleCandidate;
   return '';
 }

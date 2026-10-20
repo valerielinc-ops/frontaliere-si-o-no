@@ -46,7 +46,11 @@ import {
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
 import { extractRuntimeDetailFields, listingEvidenceFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
-import { rawDetailTitleEvidence, selectPublishableTitle } from './production-title.mjs';
+import {
+  rawDetailTitleEvidence,
+  selectPublishableTitle,
+  vacancyTitleFromDocumentTitle,
+} from './production-title.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -1935,7 +1939,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
               { source: 'listing', value: row.title },
               { source: 'raw_h1', value: rawTitles.rawH1Title },
               { source: 'raw_open_graph', value: rawTitles.rawOpenGraphTitle },
-              { source: 'raw_document_title', value: rawTitles.rawDocumentTitle },
+              { source: 'raw_document_title', value: vacancyTitleFromDocumentTitle(rawTitles.rawDocumentTitle) },
             ].find(({ value }) => title === String(value || '').replace(/\s+/g, ' ').trim())?.source || 'unknown',
           };
           titleEvidenceByUrl?.set(row.url, titleEvidence);

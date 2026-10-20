@@ -45,7 +45,11 @@ import { gradeJobLike } from '../job-like.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractRuntimeDetailFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
 import { selectValidationSample } from './validation-sample.mjs';
-import { isGenericVacancyTitle, rawDetailTitleEvidence } from './production-title.mjs';
+import {
+  isGenericVacancyTitle,
+  rawDetailTitleEvidence,
+  vacancyTitleFromDocumentTitle,
+} from './production-title.mjs';
 
 /**
  * Whether a fetched body is text we can actually read.
@@ -323,7 +327,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
     { title: listingTitle, source: 'listing' },
     { title: rawTitles.rawH1Title, source: 'raw_h1' },
     { title: rawTitles.rawOpenGraphTitle, source: 'raw_open_graph' },
-    { title: rawTitles.rawDocumentTitle, source: 'raw_document_title' },
+    { title: vacancyTitleFromDocumentTitle(rawTitles.rawDocumentTitle), source: 'raw_document_title' },
   ].filter(({ title }) => title && !isGenericVacancyTitle(title));
   const titleProof = independentTitleCandidates
     .map((candidate) => ({ ...candidate, match: tokenOverlap(finalTitle, candidate.title) }))
