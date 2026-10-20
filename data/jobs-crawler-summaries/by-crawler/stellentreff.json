@@ -1,17 +1,14 @@
 {
-  "detailCandidates": 941,
-  "detailGone": 651,
-  "detailRejected": 14,
   "key": "stellentreff",
   "label": "Stellentreff AG",
-  "generatedAt": "2026-10-20T10:10:14.039Z",
+  "generatedAt": "2026-10-20T15:10:03.528Z",
   "total": 0,
-  "discovered": 941,
-  "parsed": 0,
-  "lastFetchOutcome": "selector_miss",
+  "discovered": null,
+  "parsed": null,
+  "lastFetchOutcome": "connection_error",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "source-extraction-failed",
+  "abortKind": "connection-level-fetch",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -23,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
+  "codeCommit": "846b5c235f557e309d10ceef6dff5e78296bf7fa"
 }
