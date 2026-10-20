@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "endress-hauser-3bfcb3f56d72",
-      "slug": "technische-r-collaboratore-trice-in-produktion-endress-hauser-reinach",
+      "slug": "tecnico-a-di-produzione-endress-hauser-reinach",
       "slugByLocale": {
         "de": "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach",
-        "it": "technische-r-collaboratore-trice-in-produktion-endress-hauser-reinach",
-        "en": "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach",
-        "fr": "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach"
+        "it": "tecnico-a-di-produzione-endress-hauser-reinach",
+        "en": "technical-production-employee-endress-hauser-reinach",
+        "fr": "collaborateur-rice-technique-en-production-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -56,11 +56,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach",
+          "technische-r-collaboratore-trice-in-produktion-endress-hauser-reinach"
+        ],
+        "en": [
+          "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach"
+        ],
+        "fr": [
           "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
-        "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach"
+        "technische-r-mitarbeiter-in-produktion-endress-hauser-reinach",
+        "technische-r-collaboratore-trice-in-produktion-endress-hauser-reinach"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -815,7 +823,7 @@
       "slug": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
       "slugByLocale": {
         "it": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
-        "en": "schnuppertag-automatiker-in-endress-hauser-reinach",
+        "en": "taster-day-automation-technician-endress-hauser-reinach",
         "de": "schnuppertag-automatiker-in-endress-hauser-reinach",
         "fr": "journee-d-essai-de-l-automaticien-ne-endress-hauser-reinach"
       },
@@ -861,15 +869,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertag-automatiker-in-endress-hauser-reinach",
-        "taster-day-automation-technician-endress-hauser-reinach"
+        "schnuppertag-automatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "taster-day-automation-technician-endress-hauser-reinach"
+          "schnuppertag-automatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"
@@ -1279,7 +1286,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "schnuppertage-informatiker-in-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -1326,15 +1333,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "schnuppertage-informatiker-in-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "computer-science-experts-endress-hauser-reinach"
+          "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"

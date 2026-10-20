@@ -457,9 +457,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagista-52-settimane-supsi-dti-manno",
-        "de": "stagista-52-settimane-supsi-dti-manno",
-        "fr": "stagista-52-settimane-supsi-dti-manno"
+        "en": "stagist-52-weeks-supsi-dti-manno",
+        "de": "stagist-52-wochen-supsi-dti-manno",
+        "fr": "stagiaire-52-semaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -502,23 +502,7 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "en": [
-          "stagist-52-weeks-supsi-dti-manno"
-        ],
-        "de": [
-          "stagist-52-wochen-supsi-dti-manno"
-        ],
-        "fr": [
-          "stagiaire-52-semaines-supsi-dti-manno"
-        ]
-      },
-      "previousSlugs": [
-        "stagist-52-weeks-supsi-dti-manno",
-        "stagist-52-wochen-supsi-dti-manno",
-        "stagiaire-52-semaines-supsi-dti-manno"
-      ]
+      "employmentType": "FULL_TIME"
     }
   ]
 }

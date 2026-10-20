@@ -686,12 +686,12 @@
     },
     {
       "id": "spitex-zuerich-f43b449766e9",
-      "slug": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich",
+      "slug": "operatore-trice-sociosanitario-a-fage-regione-nord-40-100-a-spitex-zurich-zurich",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
-        "it": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich",
-        "en": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
-        "fr": "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich"
+        "it": "operatore-trice-sociosanitario-a-fage-regione-nord-40-100-a-spitex-zurich-zurich",
+        "en": "healthcare-professional-fage-northern-region-40-100-a-spitex-zurich-zurich",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-region-nord-40-100-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
@@ -738,11 +738,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
+          "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich"
+        "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zuerich-zurich",
+        "fachfrau-mann-gesundheit-fage-region-nord-40-100-a-spitex-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -3061,12 +3061,12 @@
     },
     {
       "id": "css-versicherung-293169ada0d3",
-      "slug": "apprendistato-kauffrau-mann-cfc-100-august-2027-css-st-gallen",
+      "slug": "posto-di-apprendistato-come-impiegata-o-di-commercio-efz-100-agosto-2027-css-st-gallen",
       "slugByLocale": {
         "de": "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen",
-        "it": "apprendistato-kauffrau-mann-cfc-100-august-2027-css-st-gallen",
-        "en": "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen",
-        "fr": "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen"
+        "it": "posto-di-apprendistato-come-impiegata-o-di-commercio-efz-100-agosto-2027-css-st-gallen",
+        "en": "commercial-apprentice-efz-100-august-2027-css-st-gallen",
+        "fr": "place-d-apprentissage-d-employe-e-de-commerce-cfc-a-100-aout-2027-css-st-gallen"
       },
       "company": "CSS",
       "companyKey": "css-versicherung",
@@ -3114,11 +3114,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen",
+          "apprendistato-kauffrau-mann-cfc-100-august-2027-css-st-gallen"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen"
+        ],
+        "fr": [
           "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen"
+        "lehrstelle-kauffrau-mann-efz-100-august-2027-css-versicherung-st-gallen",
+        "apprendistato-kauffrau-mann-cfc-100-august-2027-css-st-gallen"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,

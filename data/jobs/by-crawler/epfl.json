@@ -5729,12 +5729,12 @@
     },
     {
       "id": "epfl-513eb5052a0c",
-      "slug": "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel",
+      "slug": "ingegnere-software-per-il-monitoraggio-energetico-e-le-piattaforme-di-dati-fotovoltaici-epfl-neuchatel",
       "slugByLocale": {
         "en": "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel",
-        "it": "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel",
-        "de": "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel",
-        "fr": "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel"
+        "it": "ingegnere-software-per-il-monitoraggio-energetico-e-le-piattaforme-di-dati-fotovoltaici-epfl-neuchatel",
+        "de": "softwareentwickler-fur-energieuberwachungs-und-photovoltaik-datenplattformen-epfl-neuchatel",
+        "fr": "ingenieur-logiciel-pour-les-plateformes-de-suivi-energetique-et-de-donnees-photovoltaiques-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5795,15 +5795,29 @@
       },
       "postalCode": "2000",
       "addressRegion": "NE",
-      "firstSeenAt": "2026-10-19T21:23:01.639Z"
+      "firstSeenAt": "2026-10-19T21:23:01.639Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel"
+        ],
+        "de": [
+          "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel"
+        ],
+        "fr": [
+          "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "software-engineer-for-energy-monitoring-and-photovoltaic-data-platforms-epfl-neuchatel"
+      ]
     },
     {
       "id": "epfl-d7f1c55f46be",
-      "slug": "system-engineer-epfl-lausanne",
+      "slug": "system-ingegnere-epfl-lausanne",
       "slugByLocale": {
         "en": "system-engineer-epfl-lausanne",
-        "it": "system-engineer-epfl-lausanne",
-        "de": "system-engineer-epfl-lausanne",
+        "it": "system-ingegnere-epfl-lausanne",
+        "de": "system-ingenieur-epfl-lausanne",
         "fr": "system-engineer-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5865,7 +5879,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-19T21:23:00.999Z"
+      "firstSeenAt": "2026-10-19T21:23:00.999Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-epfl-lausanne"
+        ],
+        "de": [
+          "system-engineer-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-0357fe03ea22",

@@ -83,7 +83,7 @@
     },
     {
       "id": "company-mccvn2",
-      "slug": "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2",
+      "slug": "proprietario-del-prodotto-senior-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Product Owner Senior",
       "location": "Bern",
@@ -123,10 +123,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2",
+        "it": "proprietario-del-prodotto-senior-swiss-armed-forces-vtg-bern",
         "en": "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2",
         "de": "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2",
-        "fr": "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2"
+        "fr": "proprietaire-du-produit-senior-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "postalCode": "3004",
@@ -135,11 +135,16 @@
       "streetAddress": "Stauffacherstrasse 65",
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-senior-swiss-armed-forces-vtg-bern"
+          "product-owner-senior-swiss-armed-forces-vtg-bern",
+          "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2"
+        ],
+        "fr": [
+          "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2"
         ]
       },
       "previousSlugs": [
-        "product-owner-senior-swiss-armed-forces-vtg-bern"
+        "product-owner-senior-swiss-armed-forces-vtg-bern",
+        "product-owner-senior-swiss-armed-forces-vtg-bern-mccvn2"
       ],
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -241,7 +246,7 @@
     },
     {
       "id": "company-hlc4pw",
-      "slug": "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw",
+      "slug": "elettricista-specialista-in-elettrotecnica-swiss-armed-forces-vtg-emmen",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Elektriker/-in / Spezialist/-in Elektrotechnik",
       "location": "Emmen",
@@ -281,10 +286,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw",
-        "en": "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw",
+        "it": "elettricista-specialista-in-elettrotecnica-swiss-armed-forces-vtg-emmen",
+        "en": "electrician-electrical-engineering-specialist-swiss-armed-forces-vtg-emmen",
         "de": "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw",
-        "fr": "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw"
+        "fr": "electricien-ne-specialiste-en-electrotechnique-swiss-armed-forces-vtg-emmen"
       },
       "sourceLang": "de",
       "postalCode": "6032",
@@ -293,11 +298,19 @@
       "streetAddress": "Rüeggisingerstrasse 165",
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen"
+          "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen",
+          "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw"
+        ],
+        "en": [
+          "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw"
+        ],
+        "fr": [
+          "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw"
         ]
       },
       "previousSlugs": [
-        "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen"
+        "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen",
+        "elektriker-in-spezialist-in-elektrotechnik-swiss-armed-forces-vtg-emmen-hlc4pw"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -11937,7 +11950,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -11945,8 +11958,7 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -11956,8 +11968,7 @@
         ]
       },
       "previousSlugs": [
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
       ],
       "salarySource": "estimated",
       "baseSalary": {

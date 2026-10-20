@@ -647,7 +647,7 @@
       "slug": "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "it": "infermiera-infermiera-specialista-hf-psichiatria-klinik-sgm-langenthal-langenthal",
-        "en": "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
+        "en": "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
         "de": "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
         "fr": "infirmiere-infirmiere-specialiste-hf-psychiatrie-klinik-sgm-langenthal-langenthal"
       },
@@ -695,8 +695,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal",
-        "nursing-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
-        "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
+        "nursing-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -704,7 +703,7 @@
         ],
         "en": [
           "nursing-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal",
-          "nurse-nurse-specialist-hf-psychiatry-klinik-sgm-langenthal-langenthal"
+          "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
         ],
         "fr": [
           "pflegefachfrau-pflegefachmann-hf-psychiatrie-klinik-sgm-langenthal"
@@ -808,12 +807,12 @@
     },
     {
       "id": "klinik-sgm-b27a4f34392d",
-      "slug": "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal",
+      "slug": "operatrice-operatore-sociosanitario-fage-efz-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal",
-        "it": "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal",
-        "en": "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal",
-        "fr": "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal"
+        "it": "operatrice-operatore-sociosanitario-fage-efz-klinik-sgm-langenthal-langenthal",
+        "en": "professional-health-fage-efz-klinik-sgm-langenthal-langenthal",
+        "fr": "sante-professionnelle-fage-efz-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -872,16 +871,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:17:27.056Z"
+      "firstSeenAt": "2026-10-19T21:17:27.056Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-efz-klinik-sgm-langenthal"
+      ]
     },
     {
       "id": "klinik-sgm-0b28a8152577",
-      "slug": "pflegerische-stationsleitung-klinik-sgm-langenthal",
+      "slug": "gestione-della-stazione-di-infermieristica-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
         "de": "pflegerische-stationsleitung-klinik-sgm-langenthal",
-        "it": "pflegerische-stationsleitung-klinik-sgm-langenthal",
-        "en": "pflegerische-stationsleitung-klinik-sgm-langenthal",
-        "fr": "pflegerische-stationsleitung-klinik-sgm-langenthal"
+        "it": "gestione-della-stazione-di-infermieristica-klinik-sgm-langenthal-langenthal",
+        "en": "nursing-station-management-klinik-sgm-langenthal-langenthal",
+        "fr": "gestion-des-postes-de-soins-infirmiers-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -940,7 +953,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:17:27.036Z"
+      "firstSeenAt": "2026-10-19T21:17:27.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegerische-stationsleitung-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "pflegerische-stationsleitung-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "pflegerische-stationsleitung-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "pflegerische-stationsleitung-klinik-sgm-langenthal"
+      ]
     },
     {
       "id": "klinik-sgm-16d1aaa38747",

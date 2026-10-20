@@ -322,7 +322,7 @@
       "id": "bachem-b104f0bfb9c9",
       "slug": "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
-        "it": "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag",
+        "it": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "en": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "de": "head-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
         "fr": "gestion-des-installations-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
@@ -370,13 +370,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
-        "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
+        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
-          "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
+          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
         ],
         "de": [
           "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
@@ -701,12 +699,12 @@
     },
     {
       "id": "bachem-30bb2de38369",
-      "slug": "qa-associate-batch-compliance-a-100-bachem-bubendorf",
+      "slug": "addetto-a-qa-conformita-dei-lotti-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "qa-associate-batch-compliance-a-100-bachem-bubendorf",
-        "it": "qa-associate-batch-compliance-a-100-bachem-bubendorf",
+        "it": "addetto-a-qa-conformita-dei-lotti-a-100-bachem-ag-bubendorf",
         "en": "qa-associate-batch-compliance-a-100-bachem-bubendorf",
-        "fr": "qa-associate-batch-compliance-a-100-bachem-bubendorf"
+        "fr": "aq-associe-conformite-par-lots-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -765,7 +763,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:33:52.406Z"
+      "firstSeenAt": "2026-10-19T21:33:52.406Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-associate-batch-compliance-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "qa-associate-batch-compliance-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "qa-associate-batch-compliance-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-462b8f7a5420",

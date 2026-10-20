@@ -1552,7 +1552,7 @@
         "it": "responsabile-senior-dei-rischi-it-e-della-governance-m-f-d-coopers-group-ag-bern",
         "en": "devops-engineer-security-risk-m-w-d-coopers-group-ag-bern",
         "de": "senior-it-risk-governance-manager-m-w-d-coopers-bern",
-        "fr": "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
+        "fr": "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -1621,13 +1621,13 @@
           "senior-it-risk-governance-manager-m-w-d-coopers-bern"
         ],
         "fr": [
-          "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
+          "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
         ]
       },
       "previousSlugs": [
         "senior-it-risk-governance-manager-m-w-d-coopers-bern",
         "devops-engineer-security-risk-m-w-d-coopers-bern",
-        "gestionnaire-principal-des-risques-et-de-la-gouvernance-en-ti-h-f-d-coopers-group-ag-bern"
+        "devops-ingenieur-security-risk-m-w-d-coopers-group-ag-bern"
       ],
       "firstSeenAt": "2026-09-19T22:57:56.083Z",
       "salaryMin": 77000,
@@ -3092,12 +3092,12 @@
     },
     {
       "id": "coopers-37ef7dc48c49",
-      "slug": "communication-manager-m-f-d-coopers-basel-stadt",
+      "slug": "responsabile-comunicazione-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "communication-manager-m-f-d-coopers-basel-stadt",
-        "it": "communication-manager-m-f-d-coopers-basel-stadt",
-        "de": "communication-manager-m-f-d-coopers-basel-stadt",
-        "fr": "communication-manager-m-f-d-coopers-basel-stadt"
+        "it": "responsabile-comunicazione-m-f-d-coopers-group-ag-basel-stadt",
+        "de": "kommunikationsmanager-m-w-d-coopers-group-ag-basel-stadt",
+        "fr": "gestionnaire-de-communication-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3169,15 +3169,29 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-19T21:18:10.930Z"
+      "firstSeenAt": "2026-10-19T21:18:10.930Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "communication-manager-m-f-d-coopers-basel-stadt"
+        ],
+        "de": [
+          "communication-manager-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "communication-manager-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "communication-manager-m-f-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-ebaa6d26e920",
-      "slug": "enablement-engineer-m-w-d-coopers-schaffhausen",
+      "slug": "enablement-ingegnere-m-w-d-coopers-group-ag-schaffhausen",
       "slugByLocale": {
         "en": "enablement-engineer-m-w-d-coopers-schaffhausen",
-        "it": "enablement-engineer-m-w-d-coopers-schaffhausen",
-        "de": "enablement-engineer-m-w-d-coopers-schaffhausen",
+        "it": "enablement-ingegnere-m-w-d-coopers-group-ag-schaffhausen",
+        "de": "enablement-ingenieur-m-w-d-coopers-group-ag-schaffhausen",
         "fr": "enablement-engineer-m-w-d-coopers-schaffhausen"
       },
       "company": "Coopers Group AG",
@@ -3250,7 +3264,18 @@
         }
       },
       "postalCode": "8200",
-      "firstSeenAt": "2026-10-19T21:18:10.095Z"
+      "firstSeenAt": "2026-10-19T21:18:10.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "enablement-engineer-m-w-d-coopers-schaffhausen"
+        ],
+        "de": [
+          "enablement-engineer-m-w-d-coopers-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "enablement-engineer-m-w-d-coopers-schaffhausen"
+      ]
     },
     {
       "id": "coopers-1edd56511d8e",

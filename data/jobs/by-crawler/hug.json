@@ -2824,7 +2824,7 @@
       "slugByLocale": {
         "it": "infermiera-crans-montana-80-hug-crans-montana",
         "en": "nurse-crans-montana-80-hug-crans-montana",
-        "de": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
+        "de": "krankenschwester-crans-montana-80-hug-crans-montana",
         "fr": "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
@@ -2869,8 +2869,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana",
-        "krankenschwester-crans-montana-80-hug-crans-montana"
+        "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2880,7 +2879,7 @@
           "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ],
         "de": [
-          "krankenschwester-crans-montana-80-hug-crans-montana"
+          "infirmier-ou-infirmiere-crans-montana-80-hug-crans-montana"
         ]
       },
       "needsRetranslation": true,
@@ -3064,7 +3063,7 @@
       "slug": "psicologo-psicoterapeuta-40-hug-geneve",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-40-hug-geneve",
-        "en": "psychologue-psychotherapeute-40-hug-geneve",
+        "en": "psychologist-psychotherapist-40-hug-geneve",
         "de": "psychologe-psychotherapeut-40-hug-geneve",
         "fr": "psychologue-psychotherapeute-40-hug-geneve"
       },
@@ -3110,15 +3109,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-40-hug-geneve",
-        "psychologist-psychotherapist-40-hug-geneve"
+        "psychologue-psychotherapeute-40-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-40-hug-geneve"
         ],
         "en": [
-          "psychologist-psychotherapist-40-hug-geneve"
+          "psychologue-psychotherapeute-40-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-40-hug-geneve"
@@ -3383,11 +3381,11 @@
     },
     {
       "id": "hug-9d0216ce49f8",
-      "slug": "assistant-ou-assistante-de-recherche-20-hug-geneve",
+      "slug": "assistente-di-ricerca-20-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-recherche-20-hug-geneve",
-        "it": "assistant-ou-assistante-de-recherche-20-hug-geneve",
-        "en": "assistant-ou-assistante-de-recherche-20-hug-geneve",
+        "it": "assistente-di-ricerca-20-hug-geneve",
+        "en": "research-assistant-20-hug-geneve",
         "de": "assistant-ou-assistante-de-recherche-20-hug-geneve"
       },
       "company": "HUG",
@@ -3448,7 +3446,18 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-19T21:17:13.700Z"
+      "firstSeenAt": "2026-10-19T21:17:13.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-recherche-20-hug-geneve"
+        ],
+        "en": [
+          "assistant-ou-assistante-de-recherche-20-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-de-recherche-20-hug-geneve"
+      ]
     },
     {
       "id": "hug-3da73f54d76b",

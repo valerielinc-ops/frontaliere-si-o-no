@@ -17908,12 +17908,12 @@
     },
     {
       "id": "jumbo-3e5dd844-a10",
-      "slug": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne",
+      "slug": "addetta-addetto-alle-vendite-deco-m-f-d-jumbo-bienne",
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne",
-        "it": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne",
-        "en": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne",
-        "de": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
+        "it": "addetta-addetto-alle-vendite-deco-m-f-d-jumbo-bienne",
+        "en": "sales-advisor-deco-m-f-d-jumbo-bienne",
+        "de": "verkaufsberater-deco-m-w-d-jumbo-bienne"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17985,16 +17985,30 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
+        ],
+        "en": [
+          "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
+        ],
+        "de": [
+          "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
+      ]
     },
     {
       "id": "jumbo-43d252fe-8df",
-      "slug": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
+      "slug": "addetta-addetto-alle-vendite-garden-m-f-d-jumbo-bienne",
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
-        "it": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
-        "en": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
-        "de": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+        "it": "addetta-addetto-alle-vendite-garden-m-f-d-jumbo-bienne",
+        "en": "sales-advisor-garden-m-f-d-jumbo-bienne",
+        "de": "verkaufsberater-garden-m-w-d-jumbo-bienne"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18066,7 +18080,21 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+        ],
+        "en": [
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+        ],
+        "de": [
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+      ]
     },
     {
       "id": "jumbo-4f46c793-695",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sicpa-b69ba8b786f6",
-      "slug": "product-owner-sicpa-prilly",
+      "slug": "titolare-del-prodotto-sicpa-sa-prilly",
       "slugByLocale": {
         "en": "product-owner-sicpa-prilly",
-        "it": "product-owner-sicpa-prilly",
-        "de": "product-owner-sicpa-prilly",
-        "fr": "product-owner-sicpa-prilly"
+        "it": "titolare-del-prodotto-sicpa-sa-prilly",
+        "de": "produktbesitzer-sicpa-sa-prilly",
+        "fr": "proprietaire-du-produit-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -68,7 +68,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T21:36:20.476Z"
+      "firstSeenAt": "2026-10-19T21:36:20.476Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-sicpa-prilly"
+        ],
+        "de": [
+          "product-owner-sicpa-prilly"
+        ],
+        "fr": [
+          "product-owner-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-056572e48981",
@@ -171,7 +185,7 @@
       "slugByLocale": {
         "it": "consulente-per-i-brevetti-sicpa-sa-prilly",
         "en": "senior-patent-counsel-sicpa-prilly",
-        "de": "senior-patent-counsel-sicpa-sa-prilly",
+        "de": "leitender-patentanwalt-sicpa-sa-prilly",
         "fr": "conseiller-principal-en-brevets-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
@@ -217,7 +231,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-patent-counsel-sicpa-prilly",
-        "leitender-patentanwalt-sicpa-sa-prilly"
+        "senior-patent-counsel-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -225,7 +239,7 @@
         ],
         "de": [
           "senior-patent-counsel-sicpa-prilly",
-          "leitender-patentanwalt-sicpa-sa-prilly"
+          "senior-patent-counsel-sicpa-sa-prilly"
         ],
         "fr": [
           "senior-patent-counsel-sicpa-prilly"
