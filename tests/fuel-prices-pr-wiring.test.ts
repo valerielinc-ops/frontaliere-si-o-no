@@ -6,6 +6,12 @@ const ROOT = resolve(import.meta.dirname, '..');
 const read = (relativePath: string) => readFileSync(resolve(ROOT, relativePath), 'utf8');
 
 describe('fuel price refresh publication', () => {
+  it('does not cancel the daily cache publisher when a later refresh starts', () => {
+    const workflow = read('.github/workflows/update-fuel-prices.yml');
+
+    expect(workflow).toMatch(/concurrency:\n\s+group: fuel-prices\n\s+# Keep an hourly\/manual run from cancelling the daily run[\s\S]*?cancel-in-progress: false/);
+  });
+
   it('publishes ignored fuel caches through the shared PR path', () => {
     const workflow = read('.github/workflows/update-fuel-prices.yml');
 
