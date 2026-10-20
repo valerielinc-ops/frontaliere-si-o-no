@@ -1,37 +1,71 @@
 # Product
 
-## Register
+<!-- impeccable:product-schema 1 -->
 
-brand
+## Platform
+
+web
 
 ## Users
-A mix of three overlapping audiences:
-- **Stressed decision-makers**: people facing a major life/career decision (move to Switzerland vs. commute from Italy as a frontaliere). High stakes, need clarity, confidence, trust in the numbers.
-- **Curious researchers**: casually exploring options, not yet committed. Need to be engaged and informed without overwhelm.
-- **Daily tool users / frontalieri**: already decided, use the site as a recurring reference — this weekly "classifica dogane" article specifically serves commuters planning which border crossing to use and when.
 
-All three need: clear information hierarchy, trustworthy data presentation, a sense the tool was built for *them*.
+The primary audience is people living in Italy who work, or are considering work, in Switzerland, especially Ticino. Their situations include:
+
+- People weighing cross-border work against other options. They need to understand likely take-home pay, taxes, insurance, pension, and commuting costs before making a decision.
+- People already working across the border who use practical guidance and tools for recurring questions about work, pay, regulations, travel, and daily life.
+- People looking for work in Switzerland who need to find roles and employers, prepare application materials, or use their CV-derived profile.
+- People exploring whether cross-border work fits their circumstances and looking for clear, relevant information before they commit.
+
+These users need information connected to their personal situation, clear estimates with their assumptions and limits, and useful next steps.
 
 ## Product Purpose
-frontaliereticino.ch is a SEO-content funnel for cross-border commuters (frontalieri) working in Ticino, Switzerland. The weekly "classifica dogane ticino" article ranks Ticino border crossings by wait time, refreshed every week from live traffic data. Success = readers immediately grasp which crossing is fastest/slowest *this specific week*, understand how it changed since last week, and leave with a concrete, actionable takeaway (which crossing to prefer, what time to leave).
 
-## Brand Personality
-**Smart companion** — modern fintech energy (helpful, friendly, slightly playful) meets domain credibility. Think Revolut meets a Swiss tax consultant. Not corporate cold, not community-forum casual — confidently approachable.
+frontaliereticino.ch is a multilingual web platform for people considering or navigating cross-border work in Switzerland, with a particular focus on Ticino. It brings together job search and application support, practical guides and editorial information, and interactive tools covering salary, tax, insurance, pension, commuting, and life across the border.
 
-Three words: **Precise. Warm. Trustworthy.**
+The product helps users move from a question to an informed next step: compare work and tax scenarios, estimate take-home pay, understand practical requirements, plan a commute, or find and apply for a job. Calculations are estimates based on the information and assumptions entered by the user.
 
-## Anti-references
-- Avoid pure "Swiss banking" coldness (the exact complaint on this article today: static, cold copy, unreadable legends, no context).
-- Avoid AI slop: cyan-on-dark, purple gradients, hero-metric cards, identical card grids, side-stripe borders, gradient text, tiny uppercase eyebrows, numbered 01/02/03 scaffolding.
-- Avoid raw unformatted data (unrounded floats, unexplained metric names) — every number needs a human-legible label and unit.
+## Positioning
 
-## Design Principles
-1. **Clarity first** — every page has one clear job; dense content uses progressive disclosure, not compression.
-2. **Warm precision** — numbers/data get clean structure; surrounding chrome feels human, not clinical.
-3. **Legible hierarchy** — wide font-size range; `text-xs` reserved for metadata only.
-4. **Breathe** — generous spacing between sections, tighter grouping within them.
-5. **Italian warmth, Swiss rigor** — brand lives at the intersection; neither purely cold nor purely expressive.
-6. **Every number tells a story** — a stat without a week-over-week comparison and a plain-language label is incomplete; never ship a raw float.
+The implementation combines job discovery and application support with cross-border calculators and practical guidance for Italian residents working or considering work in Switzerland. The intended differentiator and any comparative market claim have not been confirmed; do not claim uniqueness, guaranteed outcomes, or measured impact without evidence.
+
+## Operating Context
+
+- The product is used on the web in Italian, English, German, and French.
+- Users may arrive while comparing whether and where to work in Switzerland, while already employed across the border, or while looking for a role and preparing an application.
+- Users provide personal circumstances to interactive tools; signed-in profiles can also display information extracted from a user's CV.
+- The site combines frequently changing practical information with reference material and recurring tools used for individual decisions.
+- Salary and tax outputs are estimates and do not replace advice from a qualified professional or a decision by the relevant authority.
+
+## Capabilities and Constraints
+
+- Salary and tax simulators support comparisons between cross-border work scenarios and tax regimes.
+- Other tools cover pay, pensions, insurance, costs, currency, commuting, and border-crossing information.
+- Job-search features include listings and employer information, with user profile and application-support flows.
+- A signed-in user profile can show the name of the CV used for CV-derived profile information. CV-derived information must remain distinguishable from details the user entered or edited themselves.
+- Guides, articles, FAQs, statistics, and company information provide context for using the tools and making decisions.
+- The interface supports Italian, English, German, and French.
+- Financial and tax calculations are estimates whose results depend on the user's inputs and the underlying parameters. The product must make this limitation clear and must not present results as professional advice or an official determination.
+- Do not invent testimonials, customer counts, outcome rates, or comparative performance claims.
+
+## Brand Commitments
+
+The existing brand direction describes a smart companion: helpful, friendly, precise, and trustworthy, with a lightly playful tone. It should feel approachable while treating cross-border work and financial decisions with care.
+
+## Evidence on Hand
+
+- The app route map documents the tool, guide, job-search, company, statistics, and editorial surfaces in `services/router.ts`.
+- Salary and other interactive tools are implemented under `components/calculator/` and `components/fisco/`.
+- The user profile shows the source CV filename alongside CV-derived profile information in `components/pages/UserProfile.tsx`.
+- Editorial content and its rendering engine live in `packages/articles/`.
+- These implementation paths demonstrate existing product capabilities; they do not establish market position, user outcomes, or customer impact.
+
+## Product Principles
+
+1. Help people understand their options and take a practical next step.
+2. Make the assumptions, freshness, and limits behind estimates and information clear.
+3. Explain cross-border decisions in the context that changes them, such as work location, tax regime, household, and commute.
+4. Connect guidance and data to relevant tools, jobs, and actions.
+5. Keep user-provided information and CV-derived information distinguishable.
 
 ## Accessibility & Inclusion
-WCAG-aligned per project convention: body text ≥4.5:1 contrast, large text ≥3:1; no `text-slate-400` on light backgrounds; only semantic color tokens (no inline hex); accessible names on all interactive elements; charts need readable legends independent of color alone (pattern/label backup for color-blind users); reduced-motion alternative for any new animation.
+
+Follow the project's WCAG-aligned convention: normal text contrast of at least 4.5:1 and large text contrast of at least 3:1; accessible names for interactive controls; charts whose meaning does not depend on color alone; and reduced-motion alternatives for new animation.
