@@ -82,9 +82,9 @@
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
       "outcome": "declined",
-      "decidedAt": "2026-10-06T12:13:36Z",
-      "ref": "#11638, #11578, #11036",
-      "reason": "Catch-all basato su path `scripts/` e classe funnel: i nuovi finding coprono retry/status, rilevazione di meta-risposte e guardie di candidatura, senza una regola preventiva unica; AGENTS.md #6 resta sufficiente per i casi di dominio, contesto e sibling."
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14003, #12620, #12253",
+      "reason": "Catch-all eterogeneo già coperto da AGENTS.md #6: la scansione dei sibling e dei consumer funnel-critical è esplicita; non serve una seconda regola senza classe comune più precisa."
     },
     {
       "key": "reviewer-finding/fp:scripts-correctness-treats-every",
@@ -134,6 +134,48 @@
       "decidedAt": "2026-10-19T11:00:31Z",
       "ref": "#13858, #12188, #12098",
       "reason": "Aggiunta in REVIEW.md al punto sui claim perf/optimization: baseline, popolazione, fase e confronto dell'evidenza devono coincidere con il claim; un delta parziale o post-merge non prova un risultato piu' ampio."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:evidence-only",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14109, #13965, #13823, #13820, #13818",
+      "reason": "Clausola in ISSUES.md: FIX_OUTCOME resta riservato al terminale issue-fix; note manuali di sola evidenza non devono inventare esiti che il drainer interpreta come telemetria."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-does-not",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14122, #13300, #13151",
+      "reason": "AGENTS.md #6 richiede di verificare le rappresentazioni reali al confine parser/guard (case, Unicode, prefissi e header duplicati) e imporre l'invariante dopo normalizzazione."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:pr-updated",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14111, #14063, #13743",
+      "reason": "Clausola in ISSUES.md: l'aggiornamento di una PR è progresso di riconciliazione, non un nuovo codice FIX_OUTCOME del fixer."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recurrence-after-fix",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#13822, #13600, #12130",
+      "reason": "Clausola in ISSUES.md: la verifica di una ricorrenza dopo una fix resta evidenza manuale e non può introdurre un codice FIX_OUTCOME non previsto."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recovery-observed",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#12669, #12001, #11916",
+      "reason": "Clausola in ISSUES.md: il recovery osservato è uno stato di riconciliazione, non un esito terminale dell'issue-fix."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recovery-pending",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#9608, #9247, #9179",
+      "reason": "Clausola in ISSUES.md: recovery pending va documentato come evidenza in attesa, senza un marker FIX_OUTCOME inventato."
     }
   ]
 }
