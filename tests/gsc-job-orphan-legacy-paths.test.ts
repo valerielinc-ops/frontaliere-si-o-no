@@ -8,6 +8,7 @@ import {
   assertGscOrphanSnapshot,
   gscOrphanPathKey,
   gscOrphanRouteKey,
+  isAllowedGscOrphanUrl,
   mergeGscOrphanRecords,
 } from '../scripts/lib/gsc-orphan-snapshot.mjs';
 import { sectionPathFromOrphan } from '../build-plugins/jobOrphanBridgePlugin';
@@ -142,6 +143,40 @@ describe('GSC job-orphan paths', () => {
     expect(() => gscOrphanPathKey(`/jobs/${String.fromCharCode(92)}outside/`)).toThrow(/pathname/);
     expect(gscOrphanRouteKey({ url: 'https://www.frontaliereticino.ch/fr/lavoro/old-job/' }))
       .toBe('/fr/lavoro/old-job/');
+  });
+
+  it('skips out-of-property CSV rows before classification and preserves prior routes', () => {
+    const rows = [
+      'https://example.test/cerca-lavoro-ticino/sales-assistant/',
+      'https://example.test/en/find-jobs-ticino/location-zurich/',
+      'https://example.test/de/jobs-im-tessin/company-acme/',
+    ];
+    const prior = [{
+      locale: 'fr',
+      slug: 'legacy-job',
+      url: 'https://frontaliereticino.ch/fr/lavoro/legacy-job/',
+      kind: 'expired',
+    }];
+    const accepted = rows.filter(isAllowedGscOrphanUrl);
+    expect(accepted).toEqual([]);
+    expect(isAllowedGscOrphanUrl('https://www.frontaliereticino.ch/fr/lavoro/current/')).toBe(true);
+    expect(mergeGscOrphanRecords(prior, accepted)).toEqual(prior);
+
+    for (const [file, parser, classification] of [
+      ['../scripts/ingest-gsc-job-orphans.mjs', 'const o = urlToOrphan(url, JOB_SECTION_SLUGS);', 'const classified = classifyOrphan('],
+      ['../scripts/ingest-gsc-location-hubs.mjs', 'const h = urlToHub(url);', 'const classified = classifyHub('],
+      ['../scripts/ingest-gsc-company-hubs.mjs', 'const h = urlToHub(url);', 'const classified = classifyHub('],
+    ] as const) {
+      const source = fs.readFileSync(new URL(file, import.meta.url), 'utf8');
+      const guard = source.indexOf('if (!isAllowedGscOrphanUrl(url)) continue;');
+      const parsed = source.indexOf(parser);
+      const classified = source.indexOf(classification);
+      const key = source.indexOf('gscOrphanRouteKey(classified)');
+      expect(guard, file).toBeGreaterThanOrEqual(0);
+      expect(parsed, file).toBeGreaterThan(guard);
+      expect(classified, file).toBeGreaterThan(parsed);
+      expect(key, file).toBeGreaterThan(classified);
+    }
   });
 
   it('uses the same additive snapshot merge in all URL-based GSC bridge ingesters', () => {

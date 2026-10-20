@@ -37,6 +37,7 @@ import { urlToOrphan } from './lib/gsc-job-orphans.mjs';
 import {
   assertGscOrphanSnapshot,
   gscOrphanRouteKey,
+  isAllowedGscOrphanUrl,
   mergeGscOrphanRecords,
 } from './lib/gsc-orphan-snapshot.mjs';
 
@@ -299,6 +300,7 @@ function main() {
   for (const { file, basename } of csvFiles) {
     const urls = parseCsvUrls(file);
     for (const url of urls) {
+      if (!isAllowedGscOrphanUrl(url)) continue;
       const o = urlToOrphan(url, JOB_SECTION_SLUGS);
       if (!o) continue;
       const classified = classifyOrphan(o, jobs, slugIndex, jobsById, expiredIdx, basename);

@@ -12,6 +12,16 @@ function parseGscOrphanUrl(value) {
   return url;
 }
 
+/** Ignore URLs outside the verified GSC property before classifying CSV rows. */
+export function isAllowedGscOrphanUrl(value) {
+  try {
+    parseGscOrphanUrl(value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /** Fail closed on malformed historical records instead of overwriting them. */
 export function assertGscOrphanSnapshot(snapshot, {
   file,

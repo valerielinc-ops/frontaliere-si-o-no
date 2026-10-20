@@ -27,6 +27,7 @@ import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import {
   assertGscOrphanSnapshot,
   gscOrphanRouteKey,
+  isAllowedGscOrphanUrl,
   mergeGscOrphanRecords,
 } from './lib/gsc-orphan-snapshot.mjs';
 
@@ -148,6 +149,7 @@ function main() {
   const importedByUrl = new Map();
   for (const { file, basename } of csvFiles) {
     for (const url of parseCsvUrls(file)) {
+      if (!isAllowedGscOrphanUrl(url)) continue;
       const h = urlToHub(url);
       if (!h) continue;
       const classified = classifyHub(h, compIdx, basename);
