@@ -1912,7 +1912,6 @@
       "jobNumber": "WAG02450",
       "pensum": "60 - 80%",
       "contractLabel": "Saisonanstellung",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-vermietung-weisse-arena-ch"
@@ -1943,7 +1942,7 @@
       "slugByLocale": {
         "it": "cuoco-ausiliario-weisse-arena-gruppe-laax",
         "en": "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
-        "de": "hilfskoch-hilfskochin-weisse-arena-ch",
+        "de": "hilfskoch-hilfskochin-weisse-arena-ch-h22k3k",
         "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -2007,6 +2006,9 @@
           "auxiliary-cook-weisse-arena-gruppe-laax"
         ],
         "fr": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ],
+        "de": [
           "hilfskoch-hilfskochin-weisse-arena-ch"
         ]
       },

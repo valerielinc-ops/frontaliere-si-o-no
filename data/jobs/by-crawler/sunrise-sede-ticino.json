@@ -79,7 +79,8 @@
       "datePosted": "2026-08-31",
       "postingDateSource": "reported",
       "crawledAt": "2026-10-20T21:15:33.636Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Wil SG",
@@ -313,7 +314,8 @@
       ],
       "datePosted": "2026-09-02",
       "postingDateSource": "reported",
-      "crawledAt": "2026-10-20T21:15:34.738Z"
+      "crawledAt": "2026-10-20T21:15:34.738Z",
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachmann/-frau EFZ - Oerlikon Sternen",
@@ -1042,8 +1044,8 @@
       },
       "slugByLocale": {
         "it": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-communications-ag-fonds",
-        "en": "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds",
-        "de": "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds",
+        "en": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
+        "de": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
         "fr": "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
       },
       "id": "sunrise-sede-ticino-1839b5eb2855",
@@ -1067,17 +1069,19 @@
       "crawledAt": "2026-10-20T21:15:40.988Z",
       "previousSlugsByLocale": {
         "en": [
-          "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+          "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds"
         ],
         "de": [
-          "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+          "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds"
         ],
         "it": [
           "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
         ]
       },
       "previousSlugs": [
-        "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds"
+        "apprenti-e-gestionnaire-du-commerce-de-detail-cfc-la-chaux-de-fonds-sunrise-fonds",
+        "cfc-retail-management-trainees-la-chaux-de-fonds-sunrise-communications-ag-fonds",
+        "cfc-auszubildende-zum-einzelhandelsmanagement-la-chaux-de-fonds-sunrise-communications-ag-fonds"
       ]
     },
     {
@@ -1281,7 +1285,8 @@
       },
       "previousSlugs": [
         "audio-technician-studio-mcr-mysports-40-sunrise-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sales Agent Pfäffikon SZ Seedamm-Center 60-100%",

@@ -1339,7 +1339,7 @@
         "it": "responsabile-della-gestione-del-rischio-di-terze-parti-efg-international-ag-lugano",
         "en": "third-party-risk-management-officer-efg-lugano",
         "de": "risikomanagementbeauftragter-der-dritten-partei-efg-international-ag-lugano",
-        "fr": "third-party-risk-management-officer-efg-international-ag-lugano"
+        "fr": "agent-de-gestion-des-risques-de-tiers-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -1370,12 +1370,12 @@
         ],
         "fr": [
           "third-party-risk-management-officer-efg-lugano",
-          "agent-de-gestion-des-risques-de-tiers-efg-international-ag-lugano"
+          "third-party-risk-management-officer-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "third-party-risk-management-officer-efg-lugano",
-        "agent-de-gestion-des-risques-de-tiers-efg-international-ag-lugano"
+        "third-party-risk-management-officer-efg-international-ag-lugano"
       ]
     },
     {
@@ -2588,7 +2588,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "general-services-employee-efg-international-ag-geneve",
+        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2621,13 +2621,13 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve"
+          "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve"
+        "general-services-employee-efg-international-ag-geneve"
       ],
       "salarySource": "reported",
       "applyUrl": "https://www.efginternational.com/us/about/careers",
@@ -3481,7 +3481,7 @@
       },
       "crawledAt": "2026-08-25T09:44:22.596Z",
       "slugByLocale": {
-        "it": "switchboard-operator-efg-international-ag-lugano",
+        "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
         "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
@@ -3509,8 +3509,7 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano",
-          "operatore-di-commutazione-efg-international-ag-lugano"
+          "switchboard-operator-efg-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
@@ -3519,7 +3518,6 @@
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "operatore-di-commutazione-efg-international-ag-lugano",
         "schaltnetzbetreiber-efg-international-ag-lugano"
       ],
       "salarySource": "estimated",
