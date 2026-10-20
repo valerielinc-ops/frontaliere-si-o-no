@@ -28,20 +28,21 @@ describe('STA Personal AG crawler parser', () => {
   });
 
   it('uses the current detail link when listing JSON-LD carries a stale URL', () => {
-    const staleUrl = 'https://www.sta.jobs/stellen/zimmermann-zimmerin-willisau-dauerstelle-109941/';
+    const staleUrl = 'https://www.sta.jobs/stellen/legacy-dauerstelle-109941/';
     const currentUrl = 'https://www.sta.jobs/stellen/44545-stalu/';
+    const title = 'Schreinerpraktiker/in EBA für die Elementproduktion';
     const html = `
       <script type="application/ld+json">
-        {"@context":"https://schema.org","@type":"JobPosting","title":"Zimmermann/Zimmerin mit GFK-Bauteilen","url":"${staleUrl}"}
+        {"@context":"https://schema.org","@type":"JobPosting","title":"${title}","url":"${staleUrl}"}
       </script>
       <article class="job-card">
-        <a href="${currentUrl}">Zimmermann/Zimmerin mit GFK-Bauteilen</a>
+        <a href="${currentUrl}">${title}</a>
       </article>
       <nav><a href="/stellen/page/2/">2</a></nav>
     `;
 
     expect(extractStaListingCandidates(html)).toEqual([{
-      title: 'Zimmermann/Zimmerin mit GFK-Bauteilen',
+      title,
       url: currentUrl,
       via: 'sta-detail-link',
     }]);
