@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 685,
+      "5": 688,
       "6": 5054
     },
-    "publishedCovers": 7422,
+    "publishedCovers": 7425,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 55,
     "inheritedRecordsMaterialized": 197,
@@ -201679,6 +201679,105 @@
         "provider": "openai-codex",
         "assetId": "article-lucerna-forensic-nurses-violenza",
         "imageUrl": "/images/blog/article-lucerna-forensic-nurses-violenza.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-corridoio-linea-wynigen": {
+      "cover": "/images/blog/article-corridoio-linea-wynigen.webp",
+      "hash": "86ebecb666dac91cc0bb974abedbf52f7873ec593e6c1dd4651b0352e65dcea5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "corridoio-linea-wynigen",
+          "category": "novita",
+          "date": "2026-10-20T02:20:36.757Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-corridoio-linea-wynigen.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-corridoio-linea-wynigen",
+        "imageUrl": "/images/blog/article-corridoio-linea-wynigen.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-rickli-ritiro-consiglio-federale": {
+      "cover": "/images/blog/article-rickli-ritiro-consiglio-federale.webp",
+      "hash": "008b294179f5c23c73a6e6b4171d85f1a48727a68011cca5f8fee6eded423cce",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "rickli-ritiro-consiglio-federale",
+          "category": "novita",
+          "date": "2026-10-20T03:16:01.051Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-rickli-ritiro-consiglio-federale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-rickli-ritiro-consiglio-federale",
+        "imageUrl": "/images/blog/article-rickli-ritiro-consiglio-federale.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-ricorso-federale-espulsione-zugo": {
+      "cover": "/images/blog/article-ricorso-federale-espulsione-zugo.webp",
+      "hash": "6750e4f0385cefc9cbf605fcdc3eac96297a6f01fc375d7a9c2d71967beb925a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "ricorso-federale-espulsione-zugo",
+          "category": "pratico",
+          "date": "2026-10-20T02:44:35.163Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-ricorso-federale-espulsione-zugo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1792,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-ricorso-federale-espulsione-zugo",
+        "imageUrl": "/images/blog/article-ricorso-federale-espulsione-zugo.webp",
         "evidence": "generated-engine-record"
       }
     }

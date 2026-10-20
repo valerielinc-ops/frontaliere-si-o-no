@@ -13520,6 +13520,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-rincari-crescita-2027.title': 'Italia: rincari energetici e crescita debole, 2027 più difficile',
     'blog.article.italia-rincari-crescita-2027.excerpt': 'A settembre 2026 i prezzi italiani salgono dello 0,7% mensile L\'inflazione italiana arriva al 4,2%, dal 3,3% di agosto Confindustria stima l\'1% nel 2026',
     'blog.article.italia-rincari-crescita-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.schianto-auto-moto-appiano-gentile.title': 'Schianto ad Appiano Gentile: auto contro moto, un ferito grave',
+    'blog.article.schianto-auto-moto-appiano-gentile.excerpt': 'Incidente all’alba del 19 ottobre ad Appiano Gentile Auto e moto si scontrano poco dopo le 6 Tre persone coinvolte, una in condizioni gravi Attivati ambulanze',
+    'blog.article.schianto-auto-moto-appiano-gentile.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

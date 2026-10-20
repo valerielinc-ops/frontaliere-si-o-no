@@ -8537,6 +8537,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.accordo-commercio-elettronico-omc.title': 'Commercio elettronico: Svizzera avvia consultazione per l\'ACE',
     'blog.article.accordo-commercio-elettronico-omc.excerpt': 'Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell\'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →',
     'blog.article.accordo-commercio-elettronico-omc.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.rickli-ritiro-consiglio-federale.title': 'Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo',
+    'blog.article.rickli-ritiro-consiglio-federale.excerpt': 'Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin',
+    'blog.article.rickli-ritiro-consiglio-federale.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;
