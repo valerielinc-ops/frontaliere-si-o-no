@@ -105,6 +105,28 @@ describe('r2-section-lock', () => {
     });
   });
 
+  it('requests unencoded lock metadata so R2 keeps a strong ETag for CAS', async () => {
+    let seen: { init: RequestInit } | undefined;
+    const request = createR2Request(
+      {
+        R2_S3_ENDPOINT: 'https://account.r2.cloudflarestorage.com',
+        R2_BUCKET: 'article-cdn',
+        R2_ACCESS_KEY_ID: 'access-key',
+        R2_SECRET_ACCESS_KEY: 'secret-key',
+      },
+      {
+        fetchImpl: async (_url, init) => {
+          seen = { init };
+          return response(200, '{}', '"etag-1"');
+        },
+      },
+    );
+
+    await request({ method: 'GET', key: lockKey('frontaliere') });
+
+    expect(seen?.init.headers).toMatchObject({ 'accept-encoding': 'identity' });
+  });
+
   it('refuses weak S3 ETags as match conditions', () => {
     expect(normalizeS3MatchEtag(' W/"etag-1" ')).toBeUndefined();
     expect(normalizeS3MatchEtag('"etag-1"')).toBe('"etag-1"');
