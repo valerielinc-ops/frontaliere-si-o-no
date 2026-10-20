@@ -2240,8 +2240,8 @@ export async function submitViaPortal(ctx) {
           if (opened.cv === 'uploaded') {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
-            if (opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
           }
+          if (opened.cv !== 'unavailable' && opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
           if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
         }
         if (opened.coverLetter) {
