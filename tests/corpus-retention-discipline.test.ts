@@ -252,7 +252,10 @@ describe('corpus retention discipline (#5330)', () => {
     const memoRelease = source.indexOf('releaseCanonicalCleanedAfterUse(key);', memo);
     const activeMarker = source.indexOf("logJobsSeoMem('after-active-pages'");
     const activePhase = source.indexOf('const ACTIVE_HTML_CACHE_CHUNK_SIZE');
-    const activeLoop = source.indexOf('for (const job of validJobs)', activePhase);
+    const activeLoop = source.indexOf(
+      'for (let activeJobIndex = 0; activeJobIndex < validJobs.length; activeJobIndex++)',
+      activePhase,
+    );
     const useCount = source.indexOf('const canonicalFallbackUsesRemaining =');
     const useCountClear = source.indexOf('canonicalFallbackUsesRemaining.clear();');
 
@@ -267,20 +270,38 @@ describe('corpus retention discipline (#5330)', () => {
     expect(useCountClear, 'canonical fallback use counter released too late').toBeLessThan(activeMarker);
   });
 
-  it('bounds the canonical fallback pre-pass instead of retaining the corpus', () => {
+  it('keeps canonical fallback workers running in bounded active-job batches', () => {
     const source = fs.readFileSync(path.join(PLUGIN_DIR, 'jobsSeoPagesPlugin.ts'), 'utf8');
     const cap = source.match(/const CANONICAL_CLEANED_CACHE_MAX = (\d+);/);
     expect(cap, 'canonical fallback cache cap disappeared').not.toBeNull();
     expect(Number(cap![1]), 'canonical fallback cache cap is still corpus-sized').toBeLessThanOrEqual(2048);
 
+    const batchSize = source.match(/const CANONICAL_FALLBACK_JOB_BATCH_SIZE = (\d+);/);
+    expect(batchSize, 'canonical fallback active-job batch size disappeared').not.toBeNull();
+    expect(Number(batchSize![1]), 'canonical fallback active-job batch must not be empty').toBeGreaterThan(0);
+    expect(Number(batchSize![1]), 'one batch can exceed the canonical cache cap across four locales')
+      .toBeLessThanOrEqual(512);
+
     const helper = source.indexOf('const cacheCanonicalCleaned =');
-    const prepassSkip = source.indexOf("canonicalPrepassReason: 'cache-cap'");
+    const prepass = source.indexOf('const precomputeCanonicalFallbackWorkerBatch = async');
+    const activeLoop = source.indexOf(
+      'for (let activeJobIndex = 0; activeJobIndex < validJobs.length; activeJobIndex++)',
+      prepass,
+    );
     const merge = source.indexOf('const tStartMerge = Date.now();');
     expect(helper, 'bounded canonical cache helper disappeared').toBeGreaterThan(-1);
-    expect(prepassSkip, 'large canonical pre-pass is not skipped').toBeGreaterThan(helper);
-    expect(merge, 'canonical pre-pass merge disappeared').toBeGreaterThan(prepassSkip);
+    expect(prepass, 'canonical fallback worker batch disappeared').toBeGreaterThan(helper);
+    expect(activeLoop, 'active-job batches are not rendered incrementally').toBeGreaterThan(prepass);
+    expect(merge, 'canonical worker merge disappeared').toBeGreaterThan(prepass);
+    const workerBatch = source.slice(prepass, activeLoop);
+    expect(workerBatch).toContain('for (const job of batchJobs)');
+    expect(workerBatch).not.toContain('for (const job of validJobs)');
+    expect(workerBatch).toContain('canonicalCleanedCache.clear();');
+    expect(workerBatch).toContain('const chunks: Array<typeof tuples> = Array.from({ length: workerCount }, () => []);');
     expect(source.slice(merge, merge + 900)).toContain('cacheCanonicalCleaned(entry.key, entry.cleaned);');
     expect(source.slice(merge, merge + 900)).not.toContain('canonicalCleanedCache.set(entry.key, entry.cleaned);');
+    expect(source.slice(activeLoop, activeLoop + 700))
+      .toContain('validJobs.slice(activeJobIndex, activeJobIndex + CANONICAL_FALLBACK_JOB_BATCH_SIZE)');
   });
 
   it('keeps the retention probe opt-in and limited to one candidate', () => {

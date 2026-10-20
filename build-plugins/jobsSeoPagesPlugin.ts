@@ -3171,6 +3171,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  //
  // Opt-out: set `JOBS_SEO_FALLBACK_WORKERS=0` to keep the inline single-
  // threaded path (useful for A/B timing or debugging worker overhead).
+ // At most four locale variants are emitted per job, so 512 jobs keep each
+ // pre-pass at or below the 2,048-entry canonical cache cap.
+ const CANONICAL_FALLBACK_JOB_BATCH_SIZE = 512;
  const precomputeCanonicalFallbackWorkerBatch = async (
  batchJobs: any[],
  batchIndex: number,
@@ -3401,10 +3404,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
 
  for (let activeJobIndex = 0; activeJobIndex < validJobs.length; activeJobIndex++) {
-  if (activeJobIndex % 512 === 0) {
+  if (activeJobIndex % CANONICAL_FALLBACK_JOB_BATCH_SIZE === 0) {
    await precomputeCanonicalFallbackWorkerBatch(
-    validJobs.slice(activeJobIndex, activeJobIndex + 512),
-    Math.floor(activeJobIndex / 512),
+    validJobs.slice(activeJobIndex, activeJobIndex + CANONICAL_FALLBACK_JOB_BATCH_SIZE),
+    Math.floor(activeJobIndex / CANONICAL_FALLBACK_JOB_BATCH_SIZE),
    );
   }
   const job = validJobs[activeJobIndex];
