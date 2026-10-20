@@ -10,6 +10,7 @@ import {
   extractAsileOfficialPlatform,
   fetchAllAsileDesAveuglesJobs,
   isAsileDesAveuglesJob,
+  isAsileDesAveuglesTargetLocation,
   isAsileDesAveuglesTargetTitle,
   isTrustedDomain,
   parseAsileDetailPage,
@@ -33,6 +34,20 @@ const CAREERS_HTML = fixture('asile-des-aveugles-careers.html');
 const LISTING_HTML = fixture('asile-des-aveugles-listing.html');
 const DETAIL_HTML = fixture('asile-des-aveugles-job-1919.html');
 const DETAIL_URL = 'https://emploi.ophtalmique.ch/?page=advertisement_display&id=1919';
+const OUT_OF_SCOPE_DETAIL_URL = 'https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888';
+const OUT_OF_SCOPE_DETAIL_HTML = `<!doctype html>
+<html lang="fr"><body>
+  <div class="title-container"><h2>Assistant-e en soins et santé communautaire</h2></div>
+  <div id="advert">
+    <p>La Fondation accompagne les résidents dans les activités de la vie quotidienne et
+    coordonne des soins personnalisés avec une équipe interdisciplinaire. Le poste demande
+    écoute, autonomie, rigueur, collaboration, disponibilité et une bonne maîtrise du français.
+    Les professionnels participent aux transmissions, à la sécurité, à l'accueil et au suivi
+    des situations complexes dans un environnement médico-social dynamique.</p>
+    <p>Taux d'activité: 80-100%<br>Nature du contrat: Contrat de durée indéterminée<br>
+    Entrée en fonction: à convenir<br>Lieu de travail: EMS Clair-Soleil, Ecublens</p>
+  </div>
+</body></html>`;
 
 describe('Fondation Asile des aveugles source-backed crawler', () => {
   it('pins the employer careers page and its official employment platform', () => {
@@ -106,6 +121,11 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
     expect(detail.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
   });
 
+  it('distinguishes a same-title Vaud vacancy outside the configured Lausanne scope', () => {
+    expect(isAsileDesAveuglesTargetLocation('Hôpital ophtalmique Jules-Gonin, Lausanne')).toBe(true);
+    expect(isAsileDesAveuglesTargetLocation('EMS Clair-Soleil, Ecublens')).toBe(false);
+  });
+
   it('removes the recruiter contact block without inventing replacement prose', () => {
     const description = sanitizeAsileDescription(
       'Votre mission\nAssurer les soins.\nRenseignements :\nMadame Exemple, 021 626 81 42',
@@ -155,6 +175,30 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
       ASILE_DES_AVEUGLES_LISTING_URL,
       DETAIL_URL,
     ]);
+  });
+
+  it('skips a duplicate ASSC title when the detail names another Vaud municipality', async () => {
+    const duplicateListing = LISTING_HTML.replace(
+      '</tbody>',
+      `<tr>
+        <th><a href="?page=advertisement_display&amp;id=1888">Assistant-e en soins et santé communautaire</a></th>
+        <td>Contrat à durée indéterminée</td>
+        <td><a href="?page=personal_information&amp;rrid=1888">postuler</a></td>
+      </tr></tbody>`,
+    );
+    const jobs = await fetchAllAsileDesAveuglesJobs({
+      fetchPage: async (url: string) => {
+        if (url === ASILE_DES_AVEUGLES_CAREERS_URL) return CAREERS_HTML;
+        if (url === ASILE_DES_AVEUGLES_LISTING_URL) return duplicateListing;
+        if (url === OUT_OF_SCOPE_DETAIL_URL) return OUT_OF_SCOPE_DETAIL_HTML;
+        if (url === DETAIL_URL) return DETAIL_HTML;
+        throw new Error(`unexpected URL ${url}`);
+      },
+      now: new Date('2026-10-15T12:00:00Z'),
+    });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('asile-des-aveugles-1919');
   });
 
   it('accepts a proven target-empty table but rejects an unreadable table', async () => {

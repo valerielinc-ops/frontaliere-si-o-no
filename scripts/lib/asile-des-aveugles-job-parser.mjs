@@ -18,7 +18,7 @@ import { bodyTextOf } from './prospector/extract.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
 export const ASILE_DES_AVEUGLES_SOURCE_SPEC = JSON.parse(readFileSync(
@@ -39,6 +39,7 @@ export const ASILE_DES_AVEUGLES_LISTING_URL = ASILE_DES_AVEUGLES_SOURCE_SPEC.see
 const PLATFORM_HOST = ASILE_DES_AVEUGLES_SOURCE_SPEC.platformHost;
 const SOURCE_LOCATION = ASILE_DES_AVEUGLES_SOURCE_SPEC.location;
 const SOURCE_LANG = ASILE_DES_AVEUGLES_SOURCE_SPEC.sourceLang;
+const SOURCE_CITY = fold(SOURCE_LOCATION?.city || SOURCE_LOCATION?.locality || 'Lausanne');
 
 function fold(value = '') {
   return normalizeSpace(String(value || ''))
@@ -47,6 +48,36 @@ function fold(value = '') {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
+}
+
+function foldedTokens(value = '') {
+  return fold(value).split(' ').filter(Boolean);
+}
+
+function containsFoldedPhrase(value, phrase) {
+  const valueTokens = foldedTokens(value);
+  const phraseTokens = foldedTokens(phrase);
+  if (!phraseTokens.length || phraseTokens.length > valueTokens.length) return false;
+  return valueTokens.some((_, index) => phraseTokens.every((token, offset) => valueTokens[index + offset] === token));
+}
+
+/** True only when the source detail names its configured Lausanne workplace. */
+export function isAsileDesAveuglesTargetLocation(location = '') {
+  return containsFoldedPhrase(location, SOURCE_CITY);
+}
+
+/**
+ * A same-canton, explicitly named municipality can be a legitimate sibling
+ * vacancy outside this crawler's configured Lausanne scope. Unknown or
+ * canton-only text is not enough to skip a row: it remains a source failure.
+ */
+function isKnownNonTargetVaudLocation(location = '') {
+  if (isAsileDesAveuglesTargetLocation(location)) return false;
+  return foldedTokens(location).some((token) => isKnownSwissCity(
+    token,
+    SOURCE_LOCATION.canton,
+    { allowOfficialLocality: true },
+  ));
 }
 
 function isHostOrSubdomain(host, parent) {
@@ -210,7 +241,12 @@ export function sanitizeAsileDescription(rawText = '') {
 }
 
 /** Validate the official detail body before it can become a published row. */
-export function parseAsileDetailPage(html = '', detailUrl = '', expectedTitle = '') {
+export function parseAsileDetailPage(
+  html = '',
+  detailUrl = '',
+  expectedTitle = '',
+  { allowSameCantonNonTargetLocation = false } = {},
+) {
   const identity = detailIdentity(detailUrl);
   const dom = new JSDOM(String(html || ''), { url: identity.url });
   try {
@@ -233,7 +269,7 @@ export function parseAsileDetailPage(html = '', detailUrl = '', expectedTitle = 
 
     const locationMatch = /(?:^|\n)Lieu de travail\s*:\s*([^\n]+)/iu.exec(description);
     const location = normalizeSpace(locationMatch?.[1] || '');
-    if (!location || !/\bLausanne\b/i.test(location)) {
+    if (!location) {
       throw new Error('Asile des aveugles detail has no source-backed Lausanne workplace');
     }
     const canton = inferSwissTargetCanton(location);
@@ -243,6 +279,20 @@ export function parseAsileDetailPage(html = '', detailUrl = '', expectedTitle = 
 
     const workload = /(?:^|\n)Taux d['’]activité\s*:\s*([^\n]+)/iu.exec(description)?.[1] || '';
     const contract = /(?:^|\n)Nature du contrat\s*:\s*([^\n]+)/iu.exec(description)?.[1] || '';
+    if (!isAsileDesAveuglesTargetLocation(location)) {
+      if (allowSameCantonNonTargetLocation && isKnownNonTargetVaudLocation(location)) {
+        return {
+          sourceId: identity.id,
+          title,
+          description,
+          location,
+          canton,
+          workload: normalizeSpace(workload),
+          contract: normalizeSpace(contract),
+        };
+      }
+      throw new Error('Asile des aveugles detail has no source-backed Lausanne workplace');
+    }
     if (!/^100\s*%$/.test(normalizeSpace(workload)) || !/^CDI$/i.test(normalizeSpace(contract))) {
       throw new Error('Asile des aveugles detail no longer proves a 100% CDI contract');
     }
@@ -333,8 +383,23 @@ export async function fetchAllAsileDesAveuglesJobs(runtime = {}) {
   const jobs = [];
   for (const listing of targets) {
     const detailHtml = await fetchPage(listing.url);
-    const detail = parseAsileDetailPage(detailHtml, listing.url, listing.title);
+    const detail = parseAsileDetailPage(
+      detailHtml,
+      listing.url,
+      listing.title,
+      { allowSameCantonNonTargetLocation: true },
+    );
+    if (!isAsileDesAveuglesTargetLocation(detail.location)) {
+      console.log(`   Skipping same-title vacancy outside ${SOURCE_CITY}: ${detail.sourceId} (${detail.location})`);
+      continue;
+    }
     jobs.push(buildAsileJob(listing, detail, address, now));
+  }
+  if (jobs.length === 0) {
+    return markAuthoritativeEmptySnapshot(
+      [],
+      `Asile des aveugles official vacancy table exposed ${rows.length} titled rows and no matching ASSC role in ${SOURCE_CITY}`,
+    );
   }
   console.log(`   Official vacancies: ${rows.length}; source-backed oss:VD jobs: ${jobs.length}`);
   return jobs;
