@@ -99,7 +99,7 @@ export default function PaidAssistedApplicationsPage({ user }: PaidAssistedAppli
       </a>
 
       <header className="mt-4 max-w-3xl">
-        <h1 id="paid-applications-title" className="text-2xl font-medium text-strong sm:text-3xl">
+        <h1 id="paid-applications-title" className="font-display text-2xl font-light text-strong sm:text-3xl">
           {t('profile.paidApplications.title')}
         </h1>
         <p className="mt-2 text-base leading-7 text-body">
