@@ -193,6 +193,11 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       ref: 'e12', action: 'click', value: 'Afficher plus', question: '', context: 'German', answer: '', source: 'widget',
     })]), candidate);
     expect(navigation).toMatchObject({ status: 'act', questions: [] });
+    const abilityNavigation = guardAgentStep(turn('act', [act({
+      ref: 'e16', action: 'click', value: 'Open options', question: '', context: 'German proficiency', answer: '', source: 'widget',
+    })]), candidate);
+    expect(abilityNavigation).toMatchObject({ status: 'act', questions: [] });
+    expect(refusal(abilityNavigation.actions[0], { name: 'Open options', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false })).toBe('');
 
     let navigationClicks = 0;
     const navigationLocator = {
@@ -202,6 +207,44 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     await expect(runAction({ locator: () => navigationLocator } as any, navigation.actions[0])).resolves.toEqual({ ok: true });
     expect(navigationClicks).toBe(1);
 
+    for (const value of ['Add another language', 'Ajouter une langue', 'Sprache hinzufügen', 'Aggiungi un\'altra lingua']) {
+      const addLanguage = guardAgentStep(turn('act', [act({
+        ref: 'e17', action: 'click', value, question: '', context: 'Languages', answer: '', source: 'widget',
+      })]), candidate);
+      expect(addLanguage).toMatchObject({ status: 'act', questions: [] });
+      expect(refusal(addLanguage.actions[0], { name: value, button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false })).toBe('');
+    }
+    const consentRequiredAdd = act({
+      ref: 'e18', action: 'click', value: 'Add another language',
+      question: 'Would you like to add another language?', context: 'Languages', answer: '', source: 'widget',
+    });
+    expect(guardAgentStep(turn('act', [consentRequiredAdd]), candidate)).toMatchObject({
+      status: 'needs_candidate', actions: [],
+      questions: [expect.objectContaining({ question: 'Would you like to add another language?' })],
+    });
+    expect(refusal(consentRequiredAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
+    const contextualIntentAdd = act({
+      ref: 'e19', action: 'click', value: 'Add another language',
+      question: '', context: 'Would you like to add another language?', answer: '', source: 'widget',
+    });
+    expect(guardAgentStep(turn('act', [contextualIntentAdd]), candidate)).toMatchObject({
+      status: 'needs_candidate', actions: [],
+      questions: [expect.objectContaining({ question: 'Would you like to add another language?' })],
+    });
+    expect(refusal(contextualIntentAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
+    const unrecognizedContextIntentAdd = act({
+      ref: 'e20', action: 'click', value: 'Add another language',
+      question: '', context: 'Can you add another language?', answer: '', source: 'widget',
+    });
+    expect(guardAgentStep(turn('act', [unrecognizedContextIntentAdd]), candidate)).toMatchObject({
+      status: 'needs_candidate', actions: [],
+      questions: [expect.objectContaining({ question: 'Can you add another language?' })],
+    });
+    expect(refusal(unrecognizedContextIntentAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
+
     const durationQuestion = 'How long have you spoken German?';
     const durationAnswer = guardAgentStep(turn('act', [act({
       ref: 'e14', action: 'click', value: 'More than 3 years', question: durationQuestion,
@@ -209,9 +252,33 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     })]), candidate);
     expect(durationAnswer).toMatchObject({ status: 'needs_candidate', actions: [] });
     expect(refusal(act({
-      action: 'click', value: 'More than 3 years', context: 'German',
+      action: 'click', value: 'More than 3 years', context: 'German language',
     }), { name: 'More than 3 years', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
       .toBe('language_answer_requires_candidate');
+    expect(refusal(act({
+      action: 'click', value: 'Yes', answer: 'Yes',
+      question: 'What does the form ask about German, and how should it be answered?', context: 'German',
+    }), { name: 'No', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('answer_option_mismatch');
+
+    const fallbackQuestion = 'What does the form ask about German language, and how should it be answered?';
+    const answeredCandidate = {
+      answers: {}, profile: {},
+      portalQuestionsAnswered: [{ question: fallbackQuestion, context: 'German language', answer: 'No' }],
+    };
+    const alreadyAnswered = guardAgentStep(turn('act', [act({
+      ref: 'e15', action: 'click', value: 'Yes', question: fallbackQuestion,
+      context: 'German language', answer: 'No', source: 'widget',
+    })]), answeredCandidate);
+    expect(alreadyAnswered).toMatchObject({ status: 'act', questions: [] });
+    let mismatchedAnswerClicks = 0;
+    const mismatchedAnswerLocator = {
+      evaluate: async () => ({ name: 'Yes', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { mismatchedAnswerClicks += 1; },
+    };
+    await expect(runAction({ locator: () => mismatchedAnswerLocator } as any, alreadyAnswered.actions[0]))
+      .resolves.toEqual({ ok: false, error: 'answer_option_mismatch' });
+    expect(mismatchedAnswerClicks).toBe(0);
 
     let answerClicks = 0;
     const answerLocator = {
@@ -231,17 +298,28 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       candidate,
       candidateLocale: 'en',
       codex: async () => turn('act', [act({
-        action: 'click', ref: 'e13', value: 'Yes', question: '', context: 'German', answer: '', source: 'widget',
+        action: 'click', ref: 'e13', value: 'Yes', question: '', context: 'German language', answer: '', source: 'widget',
       })]),
     });
     expect(result).toMatchObject({
       status: 'needs_candidate',
       questions: [expect.objectContaining({
-        question: 'What does the form ask about German, and how should it be answered?',
-        context: 'German',
+        question: 'What does the form ask about German language, and how should it be answered?',
+        context: 'German language',
       })],
     });
     expect(answerClicks).toBe(0);
+
+    for (const context of ['Languages', 'German and English languages']) {
+      const genericLanguageLabel = guardAgentStep(turn('act', [act({
+        ref: 'e16', action: 'click', value: 'Yes', question: '', context, answer: '', source: 'widget',
+      })]), candidate);
+      expect(genericLanguageLabel).toMatchObject({
+        status: 'needs_candidate',
+        questions: [expect.objectContaining({ context })],
+        actions: [],
+      });
+    }
   });
 
   // Review of #10707: calling the answer a widget move must not get past the guard.

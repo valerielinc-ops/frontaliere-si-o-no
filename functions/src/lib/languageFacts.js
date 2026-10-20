@@ -57,6 +57,14 @@ const UNKNOWN_LANGUAGE_TARGET_RE = /\b(?:learn\w*|study\w*|speak\w*|understand\w
 
 const fold = (value) => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .replace(/ß/gi, 'ss').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+const LANGUAGE_NAME_LABELS = Object.values(LANGUAGE_NAMES).flat().map(fold).sort((a, b) => b.length - a.length);
+const LANGUAGE_CONTEXT_LABEL_SUFFIXES = [
+  'spoken languages', 'foreign languages', 'language proficiency', 'language skills', 'languages', 'language',
+  'lingue parlate', 'lingue straniere', 'conoscenze linguistiche', 'lingua parlata', 'lingua straniera',
+  'competences linguistiques', 'langues parlees', 'langues etrangeres', 'langue', 'langues',
+  'sprachkenntnisse', 'fremdsprachen', 'sprachen', 'fremdsprache', 'sprache',
+  'idiomas', 'idioma', 'linguagens', 'linguagem', 'lingue', 'lingua',
+].map(fold).sort((a, b) => b.length - a.length);
 
 function includesName(text, name) {
   const normalizedName = fold(name).replace(/\s+/g, ' ');
@@ -89,6 +97,34 @@ export function isLanguageNameOnly(value) {
   const exactCode = /^([a-z]{2})(?:[-_]\w+)?$/i.exec(String(value ?? '').trim())?.[1]?.toLowerCase();
   if (exactCode && Object.hasOwn(LANGUAGE_NAMES, exactCode)) return true;
   return Object.values(LANGUAGE_NAMES).some((names) => names.some((name) => fold(name) === text));
+}
+
+/** Whether the value mentions a language-context term. */
+export function hasLanguageContext(value) {
+  return LANGUAGE_CONTEXT_RE.test(fold(value));
+}
+
+function isRecognizedLanguageNameList(value) {
+  let remaining = fold(value);
+  if (!remaining) return false;
+  while (remaining) {
+    const name = LANGUAGE_NAME_LABELS.find((candidate) => remaining === candidate || remaining.startsWith(`${candidate} `));
+    if (!name) return false;
+    remaining = remaining.slice(name.length).trim();
+    if (!remaining) return true;
+    const connector = /^(?:and|or|und|et|e|y)\s+/.exec(remaining);
+    if (connector) remaining = remaining.slice(connector[0].length).trim();
+  }
+  return true;
+}
+
+/** Whether the value is a language section label or a recognized language list label. */
+export function isLanguageContextLabel(value) {
+  const text = fold(value);
+  if (!text) return false;
+  if (LANGUAGE_SECTION_TITLE_RE.test(text)) return true;
+  const suffix = LANGUAGE_CONTEXT_LABEL_SUFFIXES.find((candidate) => text.endsWith(` ${candidate}`));
+  return Boolean(suffix) && isRecognizedLanguageNameList(text.slice(0, -(suffix.length)).trim());
 }
 
 function languageCodesForEntry(value) {

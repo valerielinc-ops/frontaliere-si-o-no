@@ -1113,7 +1113,7 @@ export function guardPlan(plan, fields, candidate = null) {
     const languageAbility = isLanguageAbilityQuestion(`${field.label} ${field.context || ''}`);
     const supported = (!languageAbility && knownValues === null) || native || isInferredProfileLanguageAnswer(candidate, field, given)
       || answeredByCandidate(candidate, field.label, given, field.context)
-      || (!languageAbility && evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
+      || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if ((languageAbility || KNOCK_OUT.test(field.label))
       && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);

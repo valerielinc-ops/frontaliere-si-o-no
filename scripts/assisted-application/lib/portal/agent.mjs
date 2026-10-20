@@ -16,7 +16,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { isLanguageAbilityQuestion, isLanguageIntentQuestion, isLanguageNameOnly } from '../../../../functions/src/lib/languageFacts.js';
+import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, isLanguageIntentQuestion, isLanguageNameOnly } from '../../../../functions/src/lib/languageFacts.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
@@ -90,7 +90,9 @@ function optionAnswerMatches(expected, target) {
 }
 
 function hasLanguageActionAnswer(action) {
-  if (action.action === 'click' && !String(action.answer || '').trim() && isWidgetNavigationTarget(action.value)) return false;
+  if (action.action === 'click' && !String(action.answer || '').trim()
+    && (isWidgetNavigationTarget(action.value)
+      || (isAddLanguageTarget(action.value) && languageActionKind(action).languageLabelOnly))) return false;
   if (action.action === 'press' && !String(action.answer || '').trim()
     && ['Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(action.value)) return false;
   if (String(action.question || '').trim()) return true;
@@ -108,15 +110,36 @@ function isWidgetNavigationTarget(value) {
     || /^(?:apri le? opzioni?|mostra le? opzioni?|mostra altro|altre opzioni|vedi altro|espandi le? opzioni?|opzioni aggiuntive)$/.test(name);
 }
 
+function isAddLanguageTarget(value) {
+  const name = normalizeOptionAnswer(value);
+  return /^(?:add|insert|create) (?:a |another |new )?language$/.test(name)
+    || /^(?:sprache|weitere sprache|neue sprache) hinzufugen$/.test(name)
+    || /^(?:ajoute|ajouter|ajoutez) (?:une autre |une nouvelle |une )?langue$/.test(name)
+    || /^(?:aggiungi|aggiungere) (?:una |un altra |nuova )?lingua$/.test(name);
+}
+
+function languageLabelFallback(context) {
+  return `What does the form ask about ${context}, and how should it be answered?`;
+}
+
 function languageActionKind(action) {
   const question = String(action.question || '').trim();
   const context = boundedPortalContext(action.context);
   const prompt = `${question} ${context}`;
   const languageIntent = isLanguageIntentQuestion(prompt);
   const languageAbility = isLanguageAbilityQuestion(prompt);
+  const languageContextPresent = hasLanguageContext(prompt);
   const languageLabelOnly = !languageIntent && !languageAbility
-    && (isLanguageNameOnly(question) || (!question && isLanguageNameOnly(context)));
-  return { languageIntent, languageAbility, languageLabelOnly, languageAction: languageIntent || languageAbility || languageLabelOnly };
+    && (isLanguageNameOnly(question) || isLanguageContextLabel(question)
+      || ((!question || question === languageLabelFallback(context))
+        && (isLanguageNameOnly(context) || isLanguageContextLabel(context))));
+  return {
+    languageIntent,
+    languageAbility,
+    languageLabelOnly,
+    languageContextPresent,
+    languageAction: languageIntent || languageAbility || languageLabelOnly || languageContextPresent,
+  };
 }
 
 export const HINTS = {
@@ -266,10 +289,10 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   });
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
-    const { languageIntent, languageAbility, languageLabelOnly } = languageActionKind(action);
+    const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
     if (!String(action.question || '').trim() && languageLabelOnly) {
-      action.question = `What does the form ask about ${context}, and how should it be answered?`;
-    } else if (!String(action.question || '').trim() && (languageIntent || languageAbility)) {
+      action.question = languageLabelFallback(context);
+    } else if (!String(action.question || '').trim() && (languageIntent || languageAbility || languageContextPresent)) {
       action.question = context;
     }
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
@@ -331,12 +354,12 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         : knockOut
           ? answeredByCandidate(candidate, action.question, answer, context)
           : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
-    const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
+    const quoted = (knockOut || languageAbility) && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(action.question, answer, action.evidence);
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || (languageAbility && native)
+    if (fromCandidate || (languageAbility && (native || quoted))
       || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
       grounded.add(questionKey(action.question, context));
     }
@@ -408,9 +431,12 @@ export function refusal(action, info) {
     if (!hasCandidateAnswer && isWidgetNavigationTarget(info.name)) {
       return '';
     }
-    if (!hasQuestion && !hasCandidateAnswer) {
+    if (!hasQuestion && !hasCandidateAnswer && languageLabelOnly && isAddLanguageTarget(info.name)) {
+      return '';
+    }
+    if (!hasCandidateAnswer) {
       return 'language_answer_requires_candidate';
-    } else if (!optionAnswerMatches(action.answer || action.value, info.name)) {
+    } else if (!optionAnswerMatches(action.answer, info.name)) {
       return 'answer_option_mismatch';
     }
   }

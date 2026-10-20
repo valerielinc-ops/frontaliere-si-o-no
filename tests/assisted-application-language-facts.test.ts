@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { ensureRequiredQuestions } from '../functions/src/assistedApplicationAiDraftCore.js';
-import { isLanguageAbilityQuestion, isLanguageIntentQuestion, isLanguageNameOnly, languageCodeOf, languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
+import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, isLanguageIntentQuestion, isLanguageNameOnly, languageCodeOf, languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
 import { candidateAnswerForField, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 describe('language facts stay conservative when a CV entry or question is ambiguous', () => {
@@ -9,6 +9,12 @@ describe('language facts stay conservative when a CV entry or question is ambigu
     expect(isLanguageNameOnly('de-CH')).toBe(true);
     expect(isLanguageNameOnly('German proficiency')).toBe(false);
     expect(isLanguageNameOnly('Are you German?')).toBe(false);
+    expect(isLanguageContextLabel('German language')).toBe(true);
+    expect(isLanguageContextLabel('Languages')).toBe(true);
+    expect(isLanguageContextLabel('German and English languages')).toBe(true);
+    expect(isLanguageContextLabel('German citizenship')).toBe(false);
+    expect(isLanguageContextLabel('Can you add another language?')).toBe(false);
+    expect(hasLanguageContext('Can you add another language?')).toBe(true);
   });
 
   it('does not infer absence from a multi-language or unrecognized CV entry', () => {
