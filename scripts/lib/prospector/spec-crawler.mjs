@@ -1010,6 +1010,7 @@ function isTerminalNotFound(error) {
 }
 
 const DETAIL_NOT_FOUND_EXPECTED_FILTER_POLICY = 'expected-filter';
+const MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED = 10;
 
 /**
  * A few employer indexes retain stale vacancy links after the detail is gone.
@@ -2013,8 +2014,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const configuredMinimumPublished = Number(spec.detailNotFoundMinimumPublished);
     const minimumPublishedForNotFoundFilter = Number.isInteger(configuredMinimumPublished)
       && configuredMinimumPublished > 0
-      ? configuredMinimumPublished
-      : 1;
+      ? Math.max(MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED, configuredMinimumPublished)
+      : MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED;
     const expectedNotFoundFilters = allowsExpectedDetailNotFound(spec)
       && detailNotFound > 0
       && publishedRows.length >= minimumPublishedForNotFoundFilter

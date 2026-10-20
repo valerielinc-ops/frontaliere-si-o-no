@@ -340,6 +340,38 @@ describe('Prospector production validation', () => {
     }
   });
 
+  it.each([
+    ['missing', undefined],
+    ['one', 1],
+  ])('enforces the ten-row proof floor for an expected-filter policy with a %s configured minimum', async (_label, configuredMinimum) => {
+    const { spec, urls, runtime } = fixtureSpec({ populationCount: 10, allLocationsSwiss: true });
+    spec.detailNotFoundPolicy = 'expected-filter';
+    if (configuredMinimum === undefined) delete spec.detailNotFoundMinimumPublished;
+    else spec.detailNotFoundMinimumPublished = configuredMinimum;
+    const originalFetch = runtime.fetchImpl;
+    runtime.fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (urls.slice(1).includes(url)) return new Response('gone', { status: 404 });
+      return originalFetch(input);
+    };
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, runtime);
+      expect(observed.vacancies).toHaveLength(1);
+      expect(observed.observation).toMatchObject({
+        listingCount: 10,
+        publishableCount: 1,
+        runtimeOutputCount: 0,
+        snapshotAccepted: false,
+        complete: false,
+        expectedFilterCount: 0,
+        expectedFilters: { detail_not_found: 0 },
+      });
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
   it('counts source-backed geography before a title drop and resets a small all-drop snapshot', async () => {
     const titleDropFixture = fixtureSpec({ genericListingTitleIndex: 2 });
     clearPoliteFetchStateForTests();
