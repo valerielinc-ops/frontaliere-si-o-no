@@ -59,10 +59,12 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  *   `pageStateParams` are stripped from detail URLs found on later pages;
  *   `selfNextIsTerminal` is a source-specific declaration that a self-link on
  *   the final page is an end marker rather than an incomplete listing
- * @property {{ url: string, method?: 'GET', params?: Record<string, string|number|boolean>, pageParam?: string, maxPages?: number }} [listingEndpoint]
- *   Fetch a source-owned JSON listing endpoint instead of assuming the seed HTML
- *   contains the rendered vacancy cards. The endpoint response must expose the
- *   source's listing HTML and `max_num_pages` so pagination remains fail-closed.
+ * @property {{ url: string, method?: 'GET', params?: Record<string, string|number|boolean>, pageParam?: string, maxPages?: number, responseFormat?: 'json'|'jsonp', responseHtmlField?: string, responseMaxPagesField?: string, responseMaxNumPages?: number }} [listingEndpoint]
+ *   Fetch a source-owned JSON/JSONP listing endpoint instead of assuming the
+ *   seed HTML contains the rendered vacancy cards. The endpoint response must
+ *   expose the source's listing HTML and either `max_num_pages` or the
+ *   explicitly reviewed `responseMaxNumPages` bound so pagination remains
+ *   fail-closed.
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
  * @property {string} [canton]

@@ -102,12 +102,27 @@ describe('Seniorenzentrum Engelhof crawler parser', () => {
     it('matches only the official site and its dedicated EmployerBoard tenant', () => {
       expect(isTrustedDomain('https://seniorenzentrum-engelhof.ch/arbeiten-im-engelhof/freie-stellen')).toBe(true);
       expect(isTrustedDomain(sourceListing.url)).toBe(true);
+      expect(isTrustedDomain('https://www.sozjobs.ch/job/role/J993249/partnerDetail/easypublish/widgetid/widget')).toBe(true);
       expect(isTrustedDomain('https://other.employerboard.ch/job/1')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
 
       expect(isSeniorenzentrumEngelhofJob({ companyKey: SENIORENZENTRUM_ENGELHOF_KEY })).toBe(true);
       expect(isSeniorenzentrumEngelhofJob({ url: sourceListing.url })).toBe(true);
       expect(isSeniorenzentrumEngelhofJob({ companyKey: 'other', url: 'https://other.example/job/1' })).toBe(false);
+    });
+  });
+
+  it('recovers Altendorf from the reviewed EasyPublish detail title', () => {
+    const detail = extractSeniorenzentrumEngelhofDetailFields(
+      '<html><head><title>Lernende/-r Assistent/-in Gesundheit &amp; Soziales EBA - Altendorf</title></head><body><p>Seniorenzentrum Engelhof</p></body></html>',
+      'https://www.sozjobs.ch/job/lernende-r-assistent-in-gesundheit-soziales-eba/J993249/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925',
+    );
+
+    expect(detail).toMatchObject({
+      location: 'Altendorf',
+      canton: 'SZ',
+      addressLocality: 'Altendorf',
+      addressRegion: 'SZ',
     });
   });
 

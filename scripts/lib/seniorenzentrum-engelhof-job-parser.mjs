@@ -32,6 +32,7 @@ export const SENIORENZENTRUM_ENGELHOF_COMPANY_DOMAIN = 'seniorenzentrum-engelhof
 
 const CAREER_URL = 'https://seniorenzentrum-engelhof.ch/arbeiten-im-engelhof/freie-stellen';
 const EMPLOYER_BOARD_HOST = 'seniorenzentrum-engelhof.employerboard.ch';
+const SOZJOBS_HOST = 'www.sozjobs.ch';
 const EXPECTED_CANTON = 'SZ';
 const SENIORENZENTRUM_ENGELHOF_EMPLOYER_POSTAL_LOCATIONS = Object.freeze([
   '8852 Altendorf',
@@ -82,10 +83,45 @@ export function isTrustedDomain(rawUrl = '') {
     const host = new URL(rawUrl).hostname.toLowerCase();
     return host === SENIORENZENTRUM_ENGELHOF_COMPANY_DOMAIN
       || host.endsWith('.' + SENIORENZENTRUM_ENGELHOF_COMPANY_DOMAIN)
-      || host === EMPLOYER_BOARD_HOST;
+      || host === EMPLOYER_BOARD_HOST
+      || host === SOZJOBS_HOST;
   } catch {
     return false;
   }
+}
+
+function isSozjobsDetailUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(rawUrl);
+    return parsed.hostname.toLowerCase() === SOZJOBS_HOST
+      && /^\/job\/[^/]+\/J\d{6,7}\/partnerDetail\/easypublish\/widgetid\//i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
+}
+
+function approvedSozjobsLocality(sourceTitle = '', description = '') {
+  const employerLocalities = new Set(
+    SENIORENZENTRUM_ENGELHOF_EMPLOYER_POSTAL_LOCATIONS.map((entry) => (
+      String(entry).replace(/^\d{4}\s+/, '').trim().toLowerCase()
+    )),
+  );
+  const candidates = [];
+  const titleLocation = /\s[-–—]\s+([^|–—]+?)\s*$/u.exec(String(sourceTitle || ''))?.[1];
+  if (titleLocation) candidates.push(titleLocation);
+  const bodyLocation = /\bSeniorenzentrum\s+Engelhof\s+(?:in|,|\|)\s+([\p{Lu}][\p{L}'’.-]*(?:[ -][\p{L}][\p{L}'’.-]*){0,3})/u.exec(String(description || ''))?.[1];
+  if (bodyLocation) candidates.push(bodyLocation);
+
+  for (const candidate of candidates) {
+    const locality = normalizeSpace(candidate).replace(/[.,;:!?]+$/u, '');
+    if (!employerLocalities.has(locality.toLowerCase())) continue;
+    const geography = resolveSourceBackedSwissGeography({
+      location: locality,
+      addressLocality: locality,
+    });
+    if (geography?.canton === EXPECTED_CANTON) return geography;
+  }
+  return null;
 }
 
 function sourceBodyPostalCandidates(text = '') {
@@ -160,6 +196,25 @@ export function extractSeniorenzentrumEngelhofDetailFields(html = '', pageUrl = 
 
   const dom = new JSDOM(source);
   try {
+    if (isSozjobsDetailUrl(pageUrl)) {
+      const sozjobsGeography = approvedSozjobsLocality(
+        dom.window.document.title,
+        detail.description,
+      );
+      if (sozjobsGeography) {
+        const fields = sourceBackedSwissGeographyFields({
+          location: sozjobsGeography.location,
+          addressLocality: sozjobsGeography.location,
+        }, sozjobsGeography);
+        return {
+          ...detail,
+          ...fields,
+          locationCandidates: [fields],
+        };
+      }
+      return rejectUnverifiedEngelhofLocation(detail);
+    }
+
     const vacancyBody = dom.window.document.querySelector('[data-cy="job-detail"]');
     if (!vacancyBody) return rejectUnverifiedEngelhofLocation(detail);
 
@@ -274,10 +329,48 @@ function buildJob(listing = {}) {
 
 async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(SENIORENZENTRUM_ENGELHOF_KEY);
-  return runSpecInProduction(spec, {
-    ...runtime,
-    detailExtractor: extractSeniorenzentrumEngelhofDetailFields,
+  const endpoints = Array.isArray(spec?.listingEndpoints) && spec.listingEndpoints.length
+    ? spec.listingEndpoints
+    : [spec?.listingEndpoint].filter(Boolean);
+  const endpointSpecs = endpoints.length
+    ? endpoints.map((listingEndpoint) => ({ ...spec, listingEndpoint }))
+    : [spec];
+  const batches = [];
+  for (const endpointSpec of endpointSpecs) {
+    batches.push(await runSpecInProduction(endpointSpec, {
+      ...runtime,
+      detailExtractor: extractSeniorenzentrumEngelhofDetailFields,
+    }));
+  }
+
+  const listings = batches.flat();
+  const metadata = {};
+  for (const key of ['fetchOutcome', 'fetchDetail', 'expectedFilterCount', 'expectedFilters', 'authoritativeEmptyState']) {
+    const values = batches
+      .map((batch) => Object.getOwnPropertyDescriptor(batch, key)?.value)
+      .filter((value) => value !== undefined && value !== null);
+    if (values.length) metadata[key] = values.at(-1);
+  }
+  const discoveredCount = batches.reduce((sum, batch) => {
+    const value = Object.getOwnPropertyDescriptor(batch, 'discoveredCount')?.value;
+    return sum + (Number.isInteger(value) ? value : batch.length);
+  }, 0);
+  const detailDrops = batches
+    .map((batch) => Object.getOwnPropertyDescriptor(batch, 'detailDrop')?.value)
+    .filter((drop) => drop && typeof drop === 'object');
+  copySpecFetchMetadata(listings, {
+    ...metadata,
+    discoveredCount,
+    ...(detailDrops.length ? {
+      detailDrop: detailDrops.reduce((sum, drop) => ({
+        candidates: sum.candidates + (Number.isInteger(drop.candidates) ? drop.candidates : 0),
+        gone: sum.gone + (Number.isInteger(drop.gone) ? drop.gone : 0),
+        rejected: sum.rejected + (Number.isInteger(drop.rejected) ? drop.rejected : 0),
+        dropped: sum.dropped + (Number.isInteger(drop.dropped) ? drop.dropped : 0),
+      }), { candidates: 0, gone: 0, rejected: 0, dropped: 0 }),
+    } : {}),
   });
+  return listings;
 }
 
 export async function fetchAllSeniorenzentrumEngelhofJobs(runtime = {}) {
