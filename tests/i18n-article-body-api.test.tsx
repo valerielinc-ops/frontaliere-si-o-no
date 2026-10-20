@@ -28,7 +28,12 @@ function staleTranslations(id: string) {
   };
 }
 
-function apiDocument(locale: 'it' | 'en', id: string, translations?: Record<string, string>) {
+function apiDocument(
+  locale: 'it' | 'en',
+  id: string,
+  translations?: Record<string, string>,
+  metaOverrides: Partial<{ title: string; excerpt: string; imageAlt: string | null }> = {},
+) {
   return {
     locale,
     id,
@@ -43,6 +48,7 @@ function apiDocument(locale: 'it' | 'en', id: string, translations?: Record<stri
         title: locale === 'it' ? 'Titolo API italiano' : 'Verified API title',
         excerpt: locale === 'it' ? 'Estratto API italiano' : 'Verified API excerpt',
         imageAlt: locale === 'it' ? 'Alt API italiano' : 'Verified API alt',
+        ...metaOverrides,
       },
       translations: translations ?? {
         body1: locale === 'it' ? 'Corpo API italiano uno.' : 'Verified API body one.',
@@ -122,6 +128,47 @@ describe('i18n published article body precedence', () => {
       'Verified API body three.',
       'Verified API body five.',
     ]);
+  });
+
+  it('replaces stale full metadata with empty excerpt/null alt per locale without borrowing the other locale', async () => {
+    const englishEmptyId = 'api-empty-meta-english';
+    mergeArticleMetaOverlay('it', staleTranslations(englishEmptyId));
+    mergeArticleMetaOverlay('en', staleTranslations(englishEmptyId));
+    bodyApi.loadArticleBodyApi.mockResolvedValueOnce({
+      status: 'loaded',
+      documents: [
+        apiDocument('it', englishEmptyId),
+        apiDocument('en', englishEmptyId, undefined, { excerpt: '', imageAlt: null }),
+      ],
+    });
+
+    setLocale('en');
+    await expect(loadArticleBody(englishEmptyId, 'frontaliere')).resolves.toEqual({ status: 'loaded' });
+    expect(t(`blog.article.${englishEmptyId}.excerpt`)).toBe('');
+    expect(t(`blog.article.${englishEmptyId}.imageAlt`)).toBe('');
+    setLocale('it');
+    expect(t(`blog.article.${englishEmptyId}.excerpt`)).toBe('Estratto API italiano');
+    expect(t(`blog.article.${englishEmptyId}.imageAlt`)).toBe('Alt API italiano');
+
+    const italianEmptyId = 'api-empty-meta-italian';
+    mergeArticleMetaOverlay('it', staleTranslations(italianEmptyId));
+    mergeArticleMetaOverlay('en', staleTranslations(italianEmptyId));
+    bodyApi.loadArticleBodyApi.mockResolvedValueOnce({
+      status: 'loaded',
+      documents: [
+        apiDocument('it', italianEmptyId, undefined, { excerpt: '', imageAlt: null }),
+        apiDocument('en', italianEmptyId),
+      ],
+    });
+
+    setLocale('en');
+    await expect(loadArticleBody(italianEmptyId, 'frontaliere')).resolves.toEqual({ status: 'loaded' });
+    setLocale('it');
+    expect(t(`blog.article.${italianEmptyId}.excerpt`)).toBe('');
+    expect(t(`blog.article.${italianEmptyId}.imageAlt`)).toBe('');
+    setLocale('en');
+    expect(t(`blog.article.${italianEmptyId}.excerpt`)).toBe('Verified API excerpt');
+    expect(t(`blog.article.${italianEmptyId}.imageAlt`)).toBe('Verified API alt');
   });
 
   it('falls back to Italian only when the requested locale document is explicitly missing', async () => {

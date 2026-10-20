@@ -7,11 +7,17 @@ import {
 } from '@/services/articleBodyApi';
 
 const ARTICLE_ID = 'educatore-ticino-requisiti-api-test';
-const META = { title: 'Titolo verificato', excerpt: 'Estratto verificato', imageAlt: 'Alt verificato' };
+const META: { title: string; excerpt: string; imageAlt: string | null } = {
+  title: 'Titolo verificato', excerpt: 'Estratto verificato', imageAlt: 'Alt verificato',
+};
 const TRANSLATIONS = { body1: 'Uno.', body2: 'Due.', body3: 'Tre.', faq: '[{"question":"D?","answer":"R."}]' };
 const BASE = 'https://nanakokyobashi-rgb.github.io/frontaliere-articles';
 
-async function revision(locale: ArticleBodyApiLocale, translations: Record<string, string> = TRANSLATIONS): Promise<string> {
+async function revision(
+  locale: ArticleBodyApiLocale,
+  translations: Record<string, string> = TRANSLATIONS,
+  meta: { title: string; excerpt: string; imageAlt: string | null } = META,
+): Promise<string> {
   const canonicalTranslations: Record<string, string> = {};
   for (let index = 1; index <= 20; index += 1) {
     const key = `body${index}`;
@@ -23,7 +29,7 @@ async function revision(locale: ArticleBodyApiLocale, translations: Record<strin
     section: 'frontaliere',
     locale,
     id: ARTICLE_ID,
-    meta: META,
+    meta,
     translations: canonicalTranslations,
   };
   const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(canonical)));
@@ -80,14 +86,19 @@ function index(locale: ArticleBodyApiLocale, hash: string) {
   };
 }
 
-function payload(locale: ArticleBodyApiLocale, hash: string, translations = TRANSLATIONS) {
+function payload(
+  locale: ArticleBodyApiLocale,
+  hash: string,
+  translations = TRANSLATIONS,
+  meta: unknown = META,
+) {
   return {
     schemaVersion: 1,
     section: 'frontaliere',
     locale,
     id: ARTICLE_ID,
     revision: hash,
-    meta: META,
+    meta,
     translations,
   };
 }
@@ -131,6 +142,43 @@ describe('published article body API', () => {
     });
     expect(calls.some((url) => url.includes(`?revision=${hash}`))).toBe(true);
     expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('accepts an empty excerpt and null image alt with the producer canonical digest', async () => {
+    const meta = { title: 'Titolo canonico', excerpt: '', imageAlt: null };
+    const hash = await revision('en', TRANSLATIONS, meta);
+    expect(hash).toBe('e5b0f84600318d7383aadd06a81a436934778fc49897dc3a2e3bbf927ca5128c');
+    installFetch((url) => {
+      if (url.pathname.endsWith('/manifest.json')) return response(manifest());
+      if (url.pathname.endsWith('/index.json')) return response(index('en', hash));
+      return response(payload('en', hash, TRANSLATIONS, meta));
+    });
+
+    const result = await loadArticleBodyApi('frontaliere', ARTICLE_ID, ['en']);
+
+    expect(result.status).toBe('loaded');
+    if (result.status !== 'loaded') throw new Error('expected verified document');
+    expect(result.documents[0]).toMatchObject({
+      status: 'available',
+      payload: { meta, revision: hash },
+    });
+  });
+
+  it.each([
+    ['blank title', { ...META, title: ' \t ' }],
+    ['non-text excerpt', { ...META, excerpt: null }],
+    ['non-text image alt', { ...META, imageAlt: 7 }],
+  ])('rejects invalid metadata (%s)', async (_label, meta) => {
+    const hash = 'a'.repeat(64);
+    installFetch((url) => {
+      if (url.pathname.endsWith('/manifest.json')) return response(manifest());
+      if (url.pathname.endsWith('/index.json')) return response(index('it', hash));
+      return response(payload('it', hash, TRANSLATIONS, meta));
+    });
+
+    const result = await loadArticleBodyApi('frontaliere', ARTICLE_ID, ['it']);
+
+    expect(result).toMatchObject({ status: 'error', reason: 'invalid', authoritative: true });
   });
 
   it('rejects the reserved index identity in requests and published indexes', async () => {

@@ -235,7 +235,7 @@ function mergeAuthoritativeArticleApiDocuments(
    const prefix = `blog.article.${document.payload.id}.`;
    translations[`${prefix}title`] = document.payload.meta.title;
    translations[`${prefix}excerpt`] = document.payload.meta.excerpt;
-   translations[`${prefix}imageAlt`] = document.payload.meta.imageAlt;
+   translations[`${prefix}imageAlt`] = document.payload.meta.imageAlt ?? '';
    for (const [field, value] of Object.entries(document.payload.translations)) {
     translations[`${prefix}${field}`] = value;
    }
@@ -620,13 +620,13 @@ export function t(key: string, paramsOrFallback?: string | Record<string, string
  let translation: string | undefined;
  const authoritative = authoritativeArticleTranslation(key);
  if (authoritative.handled) {
- translation = authoritative.value;
+ translation = authoritative.value ?? fallback ?? key;
  } else if (currentLocale === 'it') {
  translation = itTranslations[key] || loadedLocales['it']?.[key];
  } else {
  translation = loadedLocales[currentLocale]?.[key] || itTranslations[key] || loadedLocales['it']?.[key];
  }
- if (!translation) translation = fallback ?? key;
+ if (!authoritative.handled && !translation) translation = fallback ?? key;
  if (typeof translation !== 'string') translation = fallback ?? key;
  if (!params) return translation;
  return Object.entries(params).reduce(

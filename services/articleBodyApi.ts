@@ -10,7 +10,7 @@ export type ArticleBodyApiPayload = {
   meta: {
     title: string;
     excerpt: string;
-    imageAlt: string;
+    imageAlt: string | null;
   };
   translations: Record<string, string>;
 };
@@ -388,14 +388,16 @@ async function parsePayload(
     || !isRecord(value.translations)) {
     throw new ArticleBodyApiError('invalid', 'Documento articolo non valido.');
   }
-  const meta: ArticleBodyApiPayload['meta'] = {
-    title: typeof value.meta.title === 'string' ? value.meta.title : '',
-    excerpt: typeof value.meta.excerpt === 'string' ? value.meta.excerpt : '',
-    imageAlt: typeof value.meta.imageAlt === 'string' ? value.meta.imageAlt : '',
-  };
-  if (Object.values(meta).some((text) => typeof text !== 'string' || !text.trim())) {
+  if (typeof value.meta.title !== 'string' || !value.meta.title.trim()
+    || typeof value.meta.excerpt !== 'string'
+    || (value.meta.imageAlt !== null && typeof value.meta.imageAlt !== 'string')) {
     throw new ArticleBodyApiError('invalid', 'Metadati articolo incompleti.');
   }
+  const meta: ArticleBodyApiPayload['meta'] = {
+    title: value.meta.title,
+    excerpt: value.meta.excerpt,
+    imageAlt: value.meta.imageAlt,
+  };
 
   const rawTranslations: Record<string, string> = {};
   for (const [key, text] of Object.entries(value.translations)) {
