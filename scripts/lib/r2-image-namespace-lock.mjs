@@ -15,7 +15,7 @@ const CONTEXT_VERSION = 1;
 const COMMAND_OPTION_RULES = new Map([
   ['acquire', { allowed: ['--namespace'], required: ['--namespace'] }],
   ['verify', { allowed: ['--namespace', '--context'], required: ['--namespace', '--context'] }],
-  ['release', { allowed: ['--context'], required: ['--context'] }],
+  ['release', { allowed: ['--context', '--ignore-not-owned'], required: ['--context'] }],
 ]);
 
 function requiredString(value, name) {
@@ -239,8 +239,9 @@ function leaseMatches(current, lease) {
   return Boolean(
     current
       && current.payload.owner === lease.owner
-      && current.payload.leaseId === lease.leaseId
-      && current.payload.expiresAt === lease.expiresAt,
+      // Expiry changes when a lease is renewed. The owner/lease ID pair is
+      // the stable identity used for reconciliation and safe release.
+      && current.payload.leaseId === lease.leaseId,
   );
 }
 
@@ -281,6 +282,8 @@ async function confirmAcquiredLease(request, lease) {
 export async function acquireImageNamespaceLock(
   namespace,
   {
+    owner: ownerOverride,
+    leaseId: leaseIdOverride,
     request = createR2Request(),
     now = Date.now,
     sleep = delay,
@@ -297,8 +300,8 @@ export async function acquireImageNamespaceLock(
   positiveDuration(pollMs, 'poll interval');
   positiveDuration(leaseMs, 'lease duration');
 
-  const owner = randomUUID();
-  const leaseId = randomUUID();
+  const owner = ownerOverride === undefined ? randomUUID() : requiredString(ownerOverride, 'owner');
+  const leaseId = leaseIdOverride === undefined ? randomUUID() : requiredString(leaseIdOverride, 'lease ID');
   const acquiredAt = now();
   const deadline = acquiredAt + timeoutMs;
   // Keep the exact payload stable across retries. If an earlier conditional
@@ -479,7 +482,13 @@ export async function releaseImageNamespaceLock(
       'if-match': current.etag,
     },
   });
-  if (response.status === 409 || response.status === 412) return false;
+  if (response.status === 409 || response.status === 412) {
+    const latest = await readCurrentLease(request, normalized.namespace);
+    if (leaseMatches(latest, normalized)) {
+      throw new Error(`[r2-image-namespace-lock] release ${normalized.namespace} conflicted while this lease is still owned`);
+    }
+    return false;
+  }
   if (response.status < 200 || response.status >= 300) {
     const body = await responseText(response);
     throw new Error(`[r2-image-namespace-lock] release ${normalized.namespace} failed (${response.status}): ${body.slice(0, 300)}`);
@@ -531,8 +540,18 @@ function parseCommandOptions(command, args) {
   return options;
 }
 
-async function acquireFromCli(namespaces, request) {
+async function acquireFromCli(namespaces, request, env = process.env) {
   const controller = new AbortController();
+  const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? randomUUID();
+  const leaseId = env.FRONTALIERE_R2_IMAGE_LEASE_ID ?? randomUUID();
+  const pendingLeases = namespaces.map((namespace) => ({
+    namespace,
+    owner,
+    leaseId,
+    // Release reconciliation uses the stable owner/lease ID pair. Expiry is
+    // unknown until the acquisition succeeds and is intentionally omitted.
+    expiresAt: 0,
+  }));
   let signalExitStatus = 0;
   const abortForSignal = (exitStatus) => {
     if (signalExitStatus !== 0) return;
@@ -548,6 +567,8 @@ async function acquireFromCli(namespaces, request) {
     const leases = await acquireImageNamespaceLeases(namespaces, {
       request,
       signal: controller.signal,
+      owner,
+      leaseId,
     });
     if (signalExitStatus !== 0) {
       // A signal can race with the final promise resolution. In that case the
@@ -559,9 +580,31 @@ async function acquireFromCli(namespaces, request) {
     }
     process.stdout.write(`${serializeImageLeaseContext(leases)}\n`);
   } catch (error) {
-    if (signalExitStatus === 0) throw error;
-    console.error(`[r2-image-namespace-lock] ${error?.message ?? error}`);
-    process.exitCode = signalExitStatus;
+    let cleanupError;
+    try {
+      // The lock may have reached R2 even when its PUT response and the first
+      // read-back were both lost. Reconcile the candidate identity before the
+      // CLI exits so the caller's signal cleanup is not the only recovery.
+      await releaseImageNamespaceLeases(pendingLeases, { request });
+    } catch (caughtCleanupError) {
+      cleanupError = caughtCleanupError;
+    }
+    if (signalExitStatus !== 0) {
+      console.error(`[r2-image-namespace-lock] ${error?.message ?? error}`);
+      if (cleanupError) {
+        console.error(`[r2-image-namespace-lock] signal cleanup failed: ${cleanupError?.message ?? cleanupError}`);
+      }
+      process.exitCode = signalExitStatus;
+      return;
+    }
+    if (cleanupError) {
+      throw new AggregateError(
+        [error, cleanupError],
+        `[r2-image-namespace-lock] acquire cleanup failed: ${cleanupError?.message ?? cleanupError}`,
+        { cause: error },
+      );
+    }
+    throw error;
   } finally {
     process.removeListener('SIGINT', onSigint);
     process.removeListener('SIGTERM', onSigterm);
@@ -575,7 +618,7 @@ async function main(args = process.argv.slice(2), env = process.env) {
 
   if (command === 'acquire') {
     const namespaces = parseImageNamespaces(options.get('--namespace'));
-    await acquireFromCli(namespaces, request);
+    await acquireFromCli(namespaces, request, env);
     return;
   }
 
@@ -590,9 +633,13 @@ async function main(args = process.argv.slice(2), env = process.env) {
 
   if (command === 'release') {
     const context = parseLeaseContext(options.get('--context'));
+    const ignoreNotOwned = options.get('--ignore-not-owned') === 'true';
+    if (options.has('--ignore-not-owned') && !['true', 'false'].includes(options.get('--ignore-not-owned'))) {
+      throw new Error('[r2-image-namespace-lock] --ignore-not-owned must be true or false');
+    }
     const released = await releaseImageNamespaceLeases(context.leases, { request });
     const notReleased = context.leases.map(({ namespace }) => namespace).filter((namespace) => !released.includes(namespace));
-    if (notReleased.length > 0) {
+    if (notReleased.length > 0 && !ignoreNotOwned) {
       console.error(`[r2-image-namespace-lock] not released (lease no longer owned or present): ${notReleased.join(', ')}`);
       process.exitCode = 1;
     }
