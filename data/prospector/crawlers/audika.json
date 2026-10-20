@@ -1,0 +1,23 @@
+{
+  "companyKey": "audika",
+  "companyName": "Audika",
+  "companyHost": "careers.demant.com",
+  "platform": "demant.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://careers.demant.com/audika_Switzerland/go/Audika-Switzerland-Vacancies-World-of-Opportunity-IT/8765301/?locale=it_IT&amp;previewCategory=true&amp;referrerSave=false"
+  ],
+  "detailTemplate": "/audika_Switzerland/job/*/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Hörsystemakustiker*in St. Gallen 60-80% (m/w/d)",
+    "Fachberater*in 40% Wil (m/w/d)",
+    "Hörsystemakustiker*in & Area Manager Berner Oberland 100% (m/w/d)",
+    "Hörsystemakustiker*in 40% Winterthur Bahnhofsplatz (m/w/d)"
+  ],
+  "canton": "LU",
+  "sourceLang": "it",
+  "learnedAt": "2026-10-20T06:24:28.037Z"
+}
