@@ -1,4 +1,8 @@
+import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
 import {
   acquireSectionLock,
   createR2Request,
@@ -10,6 +14,7 @@ import {
   normalizeS3MatchEtag,
   parseSections,
   releaseSectionLock,
+  releaseSectionLocks,
   renewSectionLock,
   renewSectionLocksUntilStopped,
 } from '../../scripts/lib/r2-section-lock.mjs';
@@ -130,6 +135,99 @@ describe('r2-section-lock', () => {
       timeoutMs: 100,
       sleep: async () => {},
     })).rejects.toThrow('could not be confirmed with an ETag');
+  });
+
+  it('releases with the strong ETag captured at acquire when a GET omits it', async () => {
+    const { request: baseRequest, objects } = fakeR2();
+    const request = async (input: Parameters<typeof baseRequest>[0]) => {
+      const result = await baseRequest(input);
+      if (input.method === 'GET') return response(result.status, await result.text());
+      return result;
+    };
+
+    const lock = await acquireSectionLock('frontaliere', {
+      owner: 'owner-get-without-etag',
+      request,
+      timeoutMs: 1_000,
+      sleep: async () => {},
+    });
+
+    await expect(releaseSectionLocks([lock], { request })).resolves.toEqual(['frontaliere']);
+    expect(objects.has(lockKey('frontaliere'))).toBe(false);
+  });
+
+  it('carries the acquire ETag across CLI steps when a GET omits it', () => {
+    const temp = mkdtempSync(join(tmpdir(), 'section-lock-cli-'));
+    try {
+      const preload = join(temp, 'stub-r2-fetch.mjs');
+      const statePath = join(temp, 'r2-state.json');
+      const leaseFile = join(temp, 'lease-context.json');
+      writeFileSync(statePath, JSON.stringify({ etagCounter: 0, lock: null }));
+      writeFileSync(preload, `
+import { readFileSync, writeFileSync } from 'node:fs';
+const statePath = process.env.STUB_R2_STATE;
+const load = () => JSON.parse(readFileSync(statePath, 'utf8'));
+const save = (state) => writeFileSync(statePath, JSON.stringify(state));
+const response = (status, body = '', etag) => ({
+  status,
+  headers: { get: (name) => name.toLowerCase() === 'etag' ? etag : undefined },
+  text: async () => body,
+});
+globalThis.fetch = async (_url, options = {}) => {
+  const state = load();
+  const method = options.method ?? 'GET';
+  const headers = options.headers ?? {};
+  if (method === 'PUT' && headers['if-none-match'] === '*') {
+    if (state.lock) return response(412);
+    const payload = JSON.parse(options.body);
+    const etag = 'section-etag-' + (++state.etagCounter);
+    state.lock = { payload, etag };
+    save(state);
+    return response(200, '', etag);
+  }
+  if (method === 'GET') {
+    return state.lock
+      ? response(200, JSON.stringify(state.lock.payload))
+      : response(404);
+  }
+  if (method === 'DELETE') {
+    if (!state.lock || state.lock.etag !== headers['if-match']) return response(412);
+    state.lock = null;
+    save(state);
+    return response(204);
+  }
+  return response(500, 'unexpected request');
+};
+`);
+
+      const env = {
+        ...process.env,
+        NODE_OPTIONS: `--import=${preload}`,
+        STUB_R2_STATE: statePath,
+        FRONTALIERE_R2_SECTION_LEASE_FILE: leaseFile,
+        R2_S3_ENDPOINT: 'https://r2.invalid',
+        R2_BUCKET: 'test-bucket',
+        R2_ACCESS_KEY_ID: 'test-access-key',
+        R2_SECRET_ACCESS_KEY: 'test-secret-key',
+      };
+      const cli = resolve(import.meta.dirname, '../../scripts/lib/r2-section-lock.mjs');
+      const acquire = spawnSync(process.execPath, [cli, 'acquire', '--section', 'svizzera', '--owner', 'cli-owner'], {
+        encoding: 'utf8',
+        env,
+        timeout: 5_000,
+      });
+      expect(acquire.status, acquire.stderr).toBe(0);
+
+      const release = spawnSync(process.execPath, [cli, 'release', '--section', 'svizzera', '--owner', 'cli-owner'], {
+        encoding: 'utf8',
+        env,
+        timeout: 5_000,
+      });
+      expect(release.status, release.stderr).toBe(0);
+      expect(JSON.parse(readFileSync(statePath, 'utf8')).lock).toBeNull();
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
   });
 
   it('retries a conditional acquisition conflict reported as HTTP 409', async () => {
@@ -438,9 +536,11 @@ describe('r2-section-lock', () => {
     expect(await renewSectionLock('frontaliere', {
       owner: 'owner-a',
       leaseId: first.leaseId,
+      lock: first,
       request,
       now: () => now,
     })).toBe(true);
+    expect(first.etag).toBe('etag-2');
     expect(objects.get(lockKey('frontaliere'))?.payload.expiresAt).toBe(LOCK_LEASE_MS * 2 + 1);
 
     await expect(acquireSectionLock('frontaliere', {
