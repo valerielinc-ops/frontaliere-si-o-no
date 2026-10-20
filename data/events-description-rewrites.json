@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-20T00:19:39.799Z",
+  "generatedAt": "2026-10-20T01:20:56.668Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -41487,6 +41487,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T22:19:33.930Z"
+    },
+    "guidle:AxVBchH::3d1277e9237f00adb280e4033a420cb05c15e98b3794a242af53517c5618e50e": {
+      "id": "guidle:AxVBchH",
+      "sourceDescriptionHash": "3d1277e9237f00adb280e4033a420cb05c15e98b3794a242af53517c5618e50e",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Pavillon Le Corbusier; cantone: ZH; categoria: Architettura / Design; data: 2026-11-29; ora: 15:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Pavillon Le Corbusier; cantone: ZH; categoria: Architettura / Design; data: 2026-11-29; ora: 15:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Pavillon Le Corbusier; canton: ZH; category: Architettura / Design; date: 2026-11-29; time: 15:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Pavillon Le Corbusier; kanton: ZH; kategorie: Architettura / Design; datum: 2026-11-29; uhrzeit: 15:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Pavillon Le Corbusier; canton: ZH; catégorie: Architettura / Design; date: 2026-11-29; heure: 15:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T01:17:04.352Z"
     },
     "guidle:AXVdRNf::74000426e56002a0a499dd407a7c4a76da0847e073fc5a71eec80ce53b35fa9b": {
       "id": "guidle:AXVdRNf",
@@ -162540,15 +162554,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T08:19:43.876Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AxVBchH::3d1277e9237f00adb280e4033a420cb05c15e98b3794a242af53517c5618e50e": {
-      "id": "guidle:AxVBchH",
-      "sourceDescriptionHash": "3d1277e9237f00adb280e4033a420cb05c15e98b3794a242af53517c5618e50e",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-14T21:32:06.612Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
