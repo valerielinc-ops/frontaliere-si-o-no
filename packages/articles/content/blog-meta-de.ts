@@ -13545,6 +13545,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-saldatore-ticino-frontiera.title': 'Schweißer als Grenzgänger im Tessin: Gehalt und Voraussetzungen',
     'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'G-Bewilligung, Quellensteuer und Beiträge: der geprüfte Überblick für Personen, die eine Arbeit als Schweißer im Tessin als Grenzgänger in Betracht ziehen, mit einem seit 2024 geltenden Abkommen.',
     'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.negozio-ticino-fisco-frontiere.title': 'Ladenbesitzer im Tessin: Gehalt',
+    'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Quellensteuer nur in der Schweiz, neues Abkommen per 1.',
+    'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

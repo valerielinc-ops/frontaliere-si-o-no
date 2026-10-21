@@ -112645,6 +112645,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-negozio-ticino-fisco-frontiere': {
+    title: 'Frontaliere responsabile di negozio in Ticino: stipendio',
+    description: 'Stipendio da responsabile di negozio in Ticino: imposta alla fonte, permesso G, contributi AVS e LPP, accordo frontalieri dal 1° gennaio 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, responsabile, negozio, stipendio, imposta',
+    ogTitle: 'Frontaliere responsabile di negozio in Ticino: stipendio',
+    ogDescription: 'Per chi vive in Italia e lavora come responsabile di negozio nel Canton Ticino, il quadro parte dalla ritenuta svizzera: vecchi e nuovi frontalieri, contributi AVS e LPP, IRPEF italiana e diritto d\'opzione LAMal per una busta paga leggibile.',
+    canonicalPath: '/articoli-frontaliere/negozio-ticino-fisco-frontiere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere responsabile di negozio in Ticino: stipendio",
+      "description": "Stipendio da responsabile di negozio in Ticino: imposta alla fonte, permesso G, contributi AVS e LPP, accordo frontalieri dal 1° gennaio 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-negozio-ticino-fisco-frontiere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T06:15:30+00:00",
+      "dateModified": "2026-10-21T06:15:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/negozio-ticino-fisco-frontiere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

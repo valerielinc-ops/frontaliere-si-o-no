@@ -13547,6 +13547,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-saldatore-ticino-frontiera.title': 'Saldatore frontaliere in Ticino: stipendio e requisiti',
     'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'Permesso G, imposta alla fonte e contributi: il quadro verificato per chi valuta il lavoro da saldatore frontaliere in Ticino, con accordo in vigore dal 2024.',
     'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.negozio-ticino-fisco-frontiere.title': 'Frontaliere responsabile di negozio in Ticino: stipendio',
+    'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Imposta alla fonte solo in Svizzera, nuovo accordo in vigore dal 1° gennaio 2024 e contributi AVS, AD/AC e LPP: il quadro per il frontaliere.',
+    'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;
