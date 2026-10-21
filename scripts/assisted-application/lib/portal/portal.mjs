@@ -1348,7 +1348,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
   // searching there can report a failed upload even after the dialog opened.
   // The dialog must be visible and contain a newly attached file input; this
   // prevents selecting a stale or unrelated document picker.
-  const input = target?.input || await dialogPromise;
+  const input = target?.input;
   if (!input) {
     await page.keyboard.press('Escape').catch(() => {});
     return 'unavailable';
