@@ -5589,10 +5589,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  && !clusterSeedApplies;
 
  // The canonical unfiltered listing has a deterministic first viewport: the
- // first page is `pageSize` cards, with the shared in-feed cadence and the
- // end-of-list multiplex slot. Keep that geometry while the first-page/full
- // index handoff is in flight; filtered and editorial views must keep their
- // existing empty-state loader because their final result count is unknown.
+ // first page is `pageSize` cards when that footprint is available. During a
+ // short/empty resolution, only the currently known result count is safe to
+ // reserve; otherwise the loader would mount a full page and then collapse it
+ // into a short list or empty state, recreating the CLS this branch fixes.
+ // Filtered and editorial views keep their existing six-card loader because
+ // their final result count is unknown.
  const isUnfilteredListing = activeFilterCount === 0
   && salaryRangeFilter.min === null
   && !searchSlugFilter
@@ -5600,6 +5602,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   && !locationSlugFilter
   && !editorialLandingDescriptor
   && !clusterSeedApplies;
+ const loadingCardCount = isUnfilteredListing
+  ? Math.min(pageSize, filteredJobs.length)
+  : 6;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -6917,9 +6922,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  };
 
- const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing
-  ? Array.from({ length: pageSize }, (_, index) => index + 1)
-   .filter((position) => position < pageSize)
+ const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing && loadingCardCount > 0
+  ? Array.from({ length: loadingCardCount }, (_, index) => index + 1)
+   .filter((position) => position < loadingCardCount)
    .filter((position) => shouldPlaceInfeedAd(position, {
     canton: initialFilterCanton,
     adExperimentActive,
@@ -11931,7 +11936,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  CLS) and the user never sees a bare "0 risultati" mid-fetch (#2968). */}
  {resultsResolving && (
  <JobBoardResultsLoader
-  cards={isUnfilteredListing ? pageSize : 6}
+  cards={loadingCardCount}
   infeedAdSlots={loadingInfeedAdSlots}
  />
  )}

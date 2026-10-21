@@ -44,6 +44,17 @@ describe('JobBoardResultsLoader', () => {
     expect(container.querySelectorAll('.job-loader-shimmer')).toHaveLength(7);
   });
 
+  it('supports an empty loading footprint without cards or ad reservations', () => {
+    const { container } = render(
+      <JobBoardResultsLoader
+        cards={0}
+        infeedAdSlots={[{ afterCard: 3, minHeight: 336 }]}
+      />,
+    );
+    expect(container.querySelectorAll('.job-loader-shimmer')).toHaveLength(0);
+    expect(container.querySelectorAll('.job-loader-ad-reserve')).toHaveLength(0);
+  });
+
   it('reserves the registry footprint of in-feed ads between loading cards', () => {
     const { container } = render(
       <JobBoardResultsLoader

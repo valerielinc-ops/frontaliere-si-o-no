@@ -26,10 +26,24 @@ describe('JobBoard category pages — results-first ordering', () => {
   });
 
   it('reserves the first-page ad footprint before the real cards mount', () => {
-    expect(source).toContain('const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing');
-    expect(source).toContain('cards={isUnfilteredListing ? pageSize : 6}');
+    expect(source).toContain('const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing && loadingCardCount > 0');
+    expect(source).toContain('const loadingCardCount = isUnfilteredListing');
+    expect(source).toContain('? Math.min(pageSize, filteredJobs.length)');
+    expect(source).toContain('cards={loadingCardCount}');
+    expect(source).toContain('Array.from({ length: loadingCardCount }');
+    expect(source).toContain('.filter((position) => position < loadingCardCount)');
     expect(source).toContain('infeedAdSlots={loadingInfeedAdSlots}');
     expect(source).toContain('(filteredJobs.length > 0 || (resultsResolving && isUnfilteredListing))');
+  });
+
+  it('does not reserve a full first page when the unfiltered result is short or empty', () => {
+    const loadingCountStart = source.indexOf('const loadingCardCount =');
+    const loadingCountEnd = source.indexOf('const isUsingSearchFallback', loadingCountStart);
+    const loadingCountBlock = source.slice(loadingCountStart, loadingCountEnd);
+
+    expect(loadingCountStart).toBeGreaterThanOrEqual(0);
+    expect(loadingCountEnd).toBeGreaterThan(loadingCountStart);
+    expect(loadingCountBlock).toContain('Math.min(pageSize, filteredJobs.length)');
   });
 
   it('mounts secondary discovery utilities once, after the first three available jobs', () => {
