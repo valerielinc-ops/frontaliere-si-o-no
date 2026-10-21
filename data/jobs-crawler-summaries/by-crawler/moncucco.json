@@ -1,72 +1,29 @@
 {
   "key": "moncucco",
   "label": "Gruppo Ospedaliero Moncucco",
-  "generatedAt": "2026-10-20T21:17:30.604Z",
-  "total": 2,
+  "generatedAt": "2026-10-21T09:20:01.491Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 1,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 3285,
-  "avgDurationMs": 3285,
+  "durationMs": 4074,
+  "avgDurationMs": 4074,
   "durationHistory": [
-    3285
+    4074
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "moncucco-854bd9676f35",
-      "slug": "medici-di-pronto-soccorso-interessati-a-completare-la-formazione-in-medicina-d-emergenza-e",
-      "company": "Gruppo Ospedaliero Moncucco",
-      "companyKey": "moncucco",
-      "companyDomain": "moncucco.ch",
-      "title": "Medici di pronto soccorso interessati a completare la formazione in medicina d’emergenza e urgenza intraospedaliera",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "medical",
-      "sector": "Sanità / Ospedaliero",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.moncucco.ch/medici_pronto_soccorso_interessati_completare_formazione_medicina_demergenza_urgenza_intraospedaliera.php5",
-      "applyUrl": "https://www.moncucco.ch/medici_pronto_soccorso_interessati_completare_formazione_medicina_demergenza_urgenza_intraospedaliera.php5",
-      "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-10-20T21:17:22.255Z",
-      "firstSeenAt": "2026-10-19T21:14:20.071Z",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "moncucco-d958fe9db290",
       "slug": "capoclinica-di-chirurgia-viscerale-lugano-moncucco",
@@ -110,5 +67,48 @@
       }
     }
   ],
-  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
+  "unchangedJobs": [
+    {
+      "id": "moncucco-854bd9676f35",
+      "slug": "medici-di-pronto-soccorso-interessati-a-completare-la-formazione-in-medicina-d-emergenza-e",
+      "company": "Gruppo Ospedaliero Moncucco",
+      "companyKey": "moncucco",
+      "companyDomain": "moncucco.ch",
+      "title": "Medici di pronto soccorso interessati a completare la formazione in medicina d’emergenza e urgenza intraospedaliera",
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "medical",
+      "sector": "Sanità / Ospedaliero",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.moncucco.ch/medici_pronto_soccorso_interessati_completare_formazione_medicina_demergenza_urgenza_intraospedaliera.php5",
+      "applyUrl": "https://www.moncucco.ch/medici_pronto_soccorso_interessati_completare_formazione_medicina_demergenza_urgenza_intraospedaliera.php5",
+      "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-21T09:19:47.301Z",
+      "firstSeenAt": "2026-10-19T21:14:20.071Z",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }
