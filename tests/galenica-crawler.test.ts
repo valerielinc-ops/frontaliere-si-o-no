@@ -343,6 +343,20 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
 });
 
 describe('Galenica run partition and merge', () => {
+  it('does not grace-retain a previous record whose location is now empty', () => {
+    const valid = withYousty(apprenticeship('12692307', 'Rue de Bourg 8', '1003')).job;
+    const staleWithoutLocation = {
+      ...valid,
+      location: '',
+      addressLocality: '',
+    };
+
+    const { jobs, stats } = mergeGalenicaRecords([staleWithoutLocation], { jobs: [] });
+
+    expect(jobs).toEqual([]);
+    expect(stats.removed).toBe(1);
+  });
+
   it('removes a previously published vacancy only when the official source observed it without HTTPS handoff', () => {
     const candidate = buildGalenicaJob([{
       ...SOLIQUE_VACANCY,

@@ -726,7 +726,15 @@ export function storedGalenicaSourceText(record) {
  * @returns {{ jobs: object[], stats: { added: number, updated: number, removed: number, unpublished: object[], collapsed: number, legacyBlurbRecords: number } }}
  */
 export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJobs = [], noSource = [], thin = [], dropped = [], quarantined = [] } = {}) {
-  const existingByKey = new Map(existingGalenicaJobs.map((j) => [galenicaStableKey(j), j]));
+  // `buildGalenicaJob()` refuses a source row without a usable city, but the
+  // generic merge deliberately retains unmatched previous jobs for a bounded
+  // grace period. Do not let that availability grace resurrect an already
+  // malformed record from an older slice as an empty location: a location-less
+  // Galenica row is never publishable and cannot be repaired by carrying its
+  // translations forward.
+  const validExistingJobs = existingGalenicaJobs.filter((job) =>
+    hasUsableGalenicaCity(job?.addressLocality || job?.location));
+  const existingByKey = new Map(validExistingJobs.map((j) => [galenicaStableKey(j), j]));
 
   // Without source text this run: keep what a previous run read from the
   // source, or do not publish. Never a made-up description.
@@ -749,7 +757,7 @@ export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJob
     discoveredJobs.push(job);
   }
 
-  const existingKeys = new Set(existingByKey.keys());
+  const existingKeys = new Set(existingGalenicaJobs.map(galenicaStableKey));
   const discoveredKeys = new Set(discoveredJobs.map(galenicaStableKey));
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
@@ -759,7 +767,7 @@ export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJob
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingGalenicaJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(validExistingJobs, discoveredJobs);
   const mergedByKey = new Map(merged.map((j) => [galenicaStableKey(j), j]));
 
   // Collapsed republications: their stored URLs keep resolving on the survivor.
