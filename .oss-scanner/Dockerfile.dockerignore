@@ -2,6 +2,8 @@
 # commit with depth 1 instead of transferring the 71 GiB Git object store.
 **
 !.git/
+# Re-ignore its contents, then whitelist only the metadata needed by the Dockerfile.
+.git/*
 !.git/HEAD
 !.git/packed-refs
 !.git/refs/
