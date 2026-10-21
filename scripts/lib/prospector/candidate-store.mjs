@@ -27,25 +27,142 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { CANDIDATES_PATH, LEDGER_PATH } from './config.mjs';
-import { normalizeHost, registrableDomain } from './registrable.mjs';
+import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
 import { normalizeCompanyName } from './coverage.mjs';
+import { loadRegistry } from './platform-registry.mjs';
 
 /** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'promoting'|'awaiting_first_crawl'|'production'|'rejected'} CandidateStatus */
 
 /**
- * Stable key for an employer. Domain when we have one — it is the only truly
- * unique handle — else the normalised name plus town, which keeps two
- * "Ristorante Centrale" in different villages apart.
+ * Stable key for an employer. Use an employer-owned domain when we can identify
+ * one; a shared ATS/vendor host or a URL containing a tenant path is not an
+ * employer identity. Otherwise use the normalised name plus town, which keeps
+ * two "Ristorante Centrale" in different villages apart.
  *
  * @param {{ name?: string, domain?: string, city?: string }} c
  * @returns {string}
  */
 export function candidateKey(c) {
-  const domain = registrableCandidateDomain(c.domain);
+  const domain = candidateEmployerDomain(c?.domain);
   if (domain) return domain;
   const n = normalizeCompanyName(c.name || '').replace(/\s+/g, '-');
   const city = String(c.city || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return [n, city].filter(Boolean).join('@') || `unknown-${Math.abs(hash(JSON.stringify(c)))}`;
+}
+
+let sharedPlatformDomains;
+
+function isKnownSharedPlatformDomain(domain) {
+  if (!sharedPlatformDomains) {
+    const registry = loadRegistry();
+    sharedPlatformDomains = new Set(Object.entries(registry.platforms || {})
+      .filter(([, platform]) => platform?.status === 'confirmed' || platform?.status === 'supported')
+      .map(([key, platform]) => registrableCandidateDomain(platform?.domain || key))
+      .filter(Boolean));
+  }
+  return sharedPlatformDomains.has(domain);
+}
+
+function candidateEmployerDomain(value) {
+  const raw = String(value ?? '').trim();
+  if (!raw) return '';
+  let url;
+  try {
+    url = new URL(raw.startsWith('//') ? `https:${raw}` : raw.includes('://') ? raw : `https://${raw}`);
+  } catch {
+    return '';
+  }
+  if (!/^https?:$/.test(url.protocol) || url.pathname !== '/' || url.search || url.hash) return '';
+  const domain = registrableCandidateDomain(url.hostname);
+  return domain && !isKnownSharedPlatformDomain(domain) ? domain : '';
+}
+
+/**
+ * `prospect-expand` supplies `<tenant label>@<platform domain>` as a candidate
+ * key. That is a valid identity for a tenant on its own subdomain (for example
+ * `recruitingapp-2761@umantis.com`), but a shared/path ATS host can produce the
+ * same label for every tenant (`jobs@smartrecruiters.com`). Only trust this
+ * generated key when the tenant host proves a pathless, single-label
+ * subdomain belonging to that platform.
+ */
+function hasVerifiedSubdomainTenantKey(suppliedKey, candidate, source) {
+  if (!String(source || '').startsWith('tenant:')) return true;
+  // Plain keys still occur in older/general tenant-source updates. Once a key
+  // uses the composed `label@...` form, however, it must prove its platform and
+  // tenant host instead of bypassing the host check merely because it has `@`.
+  if (!suppliedKey.includes('@')) return true;
+  const separator = suppliedKey.lastIndexOf('@');
+  if (separator <= 0 || separator === suppliedKey.length - 1
+    || suppliedKey.indexOf('@') !== separator) return false;
+
+  const keyLabel = suppliedKey.slice(0, separator);
+  const keyPlatform = suppliedKey.slice(separator + 1);
+  const sourcePlatform = String(source).slice('tenant:'.length);
+  const platform = registrableCandidateDomain(candidate?.platform || sourcePlatform);
+  const keyPlatformDomain = registrableCandidateDomain(keyPlatform);
+  if (!platform || keyPlatform !== platform || keyPlatformDomain !== platform
+    || registrableCandidateDomain(sourcePlatform) !== platform) return false;
+
+  const rawTenantHost = String(candidate?.tenantHost || '').trim();
+  if (!rawTenantHost) return false;
+  let tenantUrl;
+  try {
+    tenantUrl = new URL(rawTenantHost.startsWith('//') ? `https:${rawTenantHost}`
+      : rawTenantHost.includes('://') ? rawTenantHost : `https://${rawTenantHost}`);
+  } catch {
+    return false;
+  }
+  if (!/^https?:$/.test(tenantUrl.protocol) || tenantUrl.pathname !== '/'
+    || tenantUrl.search || tenantUrl.hash) return false;
+
+  const host = normalizeHost(tenantUrl.hostname);
+  const hostPlatform = registrableCandidateDomain(host);
+  const hostPrefix = host && host.endsWith(`.${platform}`) ? host.slice(0, -(platform.length + 1)) : '';
+  return hostPlatform === platform && host !== platform
+    && hostPrefix && !hostPrefix.includes('.') && tenantLabel(host) === keyLabel;
+}
+
+const GENERIC_TENANT_NAMES = new Set(['job', 'jobs', 'career', 'careers', 'hiring', 'recruiting', 'vacancies']);
+
+function hasEmployerSpecificTenantName(candidate) {
+  const employerName = normalizeCompanyName(candidate?.name || '');
+  const tenantHostLabel = normalizeCompanyName(tenantLabel(candidate?.tenantHost || ''));
+  return Boolean(employerName && employerName !== tenantHostLabel && !GENERIC_TENANT_NAMES.has(employerName));
+}
+
+function pathTenantFallbackKey(candidate, source) {
+  if (!String(source || '').startsWith('tenant:')) return '';
+  const sourcePlatform = String(source).slice('tenant:'.length);
+  const platform = registrableCandidateDomain(candidate?.platform || sourcePlatform);
+  if (!platform || registrableCandidateDomain(sourcePlatform) !== platform) return '';
+
+  const rawTenantHost = typeof candidate?.tenantHost === 'string' ? candidate.tenantHost.trim() : '';
+  // `tenantHost` is the enumerator's tenant coordinate. When it is present,
+  // do not mistake a subdomain ATS's common listing route (`/Jobs/All`) for a
+  // tenant path. A careers URL can stand in only when that coordinate is absent
+  // and the URL is on the platform's root host.
+  const pathSources = rawTenantHost ? [rawTenantHost] : [candidate?.careersUrl];
+  for (const raw of pathSources) {
+    if (typeof raw !== 'string' || !raw.trim()) continue;
+    let url;
+    try {
+      url = new URL(raw.startsWith('//') ? `https:${raw}` : raw.includes('://') ? raw : `https://${raw}`);
+    } catch {
+      continue;
+    }
+    if (!/^https?:$/.test(url.protocol) || registrableCandidateDomain(url.hostname) !== platform
+      || (!rawTenantHost && normalizeHost(url.hostname) !== platform)) continue;
+    const pathSegment = url.pathname.split('/').filter(Boolean)[0];
+    if (!pathSegment) continue;
+
+    let decodedSegment = pathSegment;
+    try { decodedSegment = decodeURIComponent(pathSegment); } catch { /* keep the stable escaped form */ }
+    const slug = decodedSegment.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const hostScope = normalizeHost(url.hostname).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    if (slug && hostScope) return `tenant-${slug}@${hostScope}`;
+  }
+  return '';
 }
 
 function normalizeIdentityCity(value) {
@@ -247,7 +364,7 @@ function registrableCandidateDomain(value) {
 }
 
 function candidateIdentityDomain(candidate) {
-  const explicitDomain = registrableCandidateDomain(candidate?.domain);
+  const explicitDomain = candidateEmployerDomain(candidate?.domain);
   if (explicitDomain) return explicitDomain;
 
   // Domainless records can prove their employer identity through a company
@@ -257,7 +374,10 @@ function candidateIdentityDomain(candidate) {
   const urls = urlFields.map((field) => candidate?.[field])
     .filter((value) => typeof value === 'string' && value.trim());
   if (!urls.length) return '';
-  const domains = urls.map(registrableCandidateDomain);
+  const domains = urls.map((url) => {
+    const domain = registrableCandidateDomain(url);
+    return domain && !isKnownSharedPlatformDomain(domain) ? domain : '';
+  });
   if (domains.some((domain) => !domain)) return '';
   const unique = new Set(domains);
   return unique.size === 1 ? [...unique][0] : '';
@@ -884,14 +1004,25 @@ export function requeueLegacyNoVacancyCandidates(store, limit, ledgerFile) {
  */
 export function upsertCandidate(store, incoming, source) {
   const originalDomain = typeof incoming?.domain === 'string' ? incoming.domain.trim() : '';
-  const invalidDomain = Boolean(originalDomain && !registrableCandidateDomain(originalDomain));
+  const invalidDomain = Boolean(originalDomain && !candidateEmployerDomain(originalDomain));
   if (invalidDomain) {
     incoming = { ...incoming };
     delete incoming.domain;
   }
+  const tenantPathKey = pathTenantFallbackKey(incoming, source);
+  if (tenantPathKey) {
+    if (!hasEmployerSpecificTenantName(incoming)) {
+      incoming = { ...incoming };
+      delete incoming.name;
+    }
+  }
   const suppliedKey = typeof incoming.key === 'string' ? incoming.key.trim() : '';
   const keyLooksLikeHost = suppliedKey.includes('.') && !suppliedKey.includes('@');
-  const safeSuppliedKey = keyLooksLikeHost && !registrableCandidateDomain(suppliedKey) ? '' : suppliedKey;
+  const suppliedKeyIsTombstoned = Boolean(suppliedKey && tombstonesFor(store)[suppliedKey]);
+  const safeTenantKey = hasVerifiedSubdomainTenantKey(suppliedKey, incoming, source);
+  const safeSuppliedKey = !safeTenantKey ? ''
+    : keyLooksLikeHost && !candidateEmployerDomain(suppliedKey)
+      && !suppliedKeyIsTombstoned ? '' : suppliedKey;
   const invalidHostKey = keyLooksLikeHost && !safeSuppliedKey;
   const verifiedIdentityDomain = candidateIdentityDomain(incoming);
   const invalidIdentityHint = [
@@ -903,9 +1034,9 @@ export function upsertCandidate(store, incoming, source) {
   // proves the identity, use it; otherwise isolate this unverified record.
   const unverifiedKey = `${candidateKey(incoming)}#unverified-${createHash('sha256')
     .update(invalidIdentityHint).digest('hex').slice(0, 12)}`;
-  const requestedKey = invalidIdentityHint
+  const requestedKey = tenantPathKey || (invalidIdentityHint
     ? verifiedIdentityDomain || unverifiedKey
-    : safeSuppliedKey || candidateKey(incoming);
+    : safeSuppliedKey || candidateKey(incoming));
   if (incoming.key !== requestedKey) incoming = { ...incoming, key: requestedKey };
   let key = resolveCandidateKey(store, requestedKey);
   const now = new Date().toISOString();

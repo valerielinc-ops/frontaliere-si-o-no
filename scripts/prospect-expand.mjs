@@ -134,7 +134,18 @@ for (const platform of targets) {
     if (isCovered(coverage, { name: cand.name, key: label, sourceHost: cand.tenantHost }).covered) { covered++; continue; }
     const { key, created } = upsertCandidate(store, { ...cand, key: `${label}@${platform.domain}` }, `tenant:${platform.domain}`);
     // Tenants arrive already traced — the platform handed us the careers URL.
-    setStatus(store, key, 'traced', cand);
+    // upsertCandidate stores the identity-filtered data. Refresh only the safe
+    // probe fields here: the raw name can be a generic path-host label such as
+    // "jobs", and must not overwrite a path-based fallback identity.
+    const probePatch = {
+      careersUrl: cand.careersUrl,
+      tenantHost: cand.tenantHost,
+      platform: cand.platform,
+      vacancyCount: cand.vacancyCount,
+      vacancySignals: cand.vacancySignals,
+      country: cand.country,
+    };
+    setStatus(store, key, 'traced', probePatch);
     if (created) {
       filed++;
       console.log(`    + ${String(t.company || label).slice(0, 40).padEnd(42)} ${t.host.padEnd(38)} ${t.vacancyCount} annunci`);

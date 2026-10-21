@@ -406,6 +406,233 @@ describe('prospector candidate store — cross-source identity and ledger recove
     expect(reconcileCandidateDuplicates(atsOnlyStore, null)).toMatchObject({ merged: 0, skippedDomainConflict: 1 });
   });
 
+  it('does not use shared ATS tenant URLs as employer identity keys', () => {
+    const acme = { name: 'Acme SA', city: 'Lugano', domain: 'jobs.smartrecruiters.com/acme' };
+    const beta = { name: 'Beta AG', city: 'Lugano', domain: 'jobs.smartrecruiters.com/beta' };
+
+    expect(candidateKey(acme)).toBe('acme@lugano');
+    expect(candidateKey(beta)).toBe('beta@lugano');
+
+    const store = storeWith({});
+    const acmeResult = upsertCandidate(store, acme, 'web');
+    const betaResult = upsertCandidate(store, beta, 'seco');
+
+    expect(acmeResult.key).not.toBe(betaResult.key);
+    expect(acmeResult.key).not.toContain('smartrecruiters.com');
+    expect(betaResult.key).not.toContain('smartrecruiters.com');
+    expect(Object.keys(store.candidates)).toHaveLength(2);
+    expect(Object.values(store.candidates).every((candidate) => !candidate.domain)).toBe(true);
+  });
+
+  it('keys shared path-ATS tenants by path while retaining employer identities', () => {
+    const acme = {
+      key: 'jobs@smartrecruiters.com',
+      name: 'Acme SA',
+      city: 'Lugano',
+      tenantHost: 'jobs.smartrecruiters.com/acme',
+      platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com/acme',
+      vacancyCount: 2,
+      vacancySignals: ['two live postings'],
+    };
+    const beta = {
+      key: 'jobs@smartrecruiters.com',
+      name: 'Beta AG',
+      city: 'Bellinzona',
+      tenantHost: 'jobs.smartrecruiters.com/beta',
+      platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com/beta',
+      vacancyCount: 3,
+      vacancySignals: ['three live postings'],
+    };
+    const store = storeWith({});
+
+    const acmeResult = upsertCandidate(store, acme, 'tenant:smartrecruiters.com');
+    setStatus(store, acmeResult.key, 'traced');
+    const betaResult = upsertCandidate(store, beta, 'tenant:smartrecruiters.com');
+    setStatus(store, betaResult.key, 'traced');
+
+    expect(acmeResult).toMatchObject({ key: 'tenant-acme@jobs-smartrecruiters-com', created: true });
+    expect(betaResult).toMatchObject({ key: 'tenant-beta@jobs-smartrecruiters-com', created: true });
+    expect(Object.keys(store.candidates)).toEqual([
+      'tenant-acme@jobs-smartrecruiters-com',
+      'tenant-beta@jobs-smartrecruiters-com',
+    ]);
+    expect(Object.keys(store.candidates).every((key) => !key.includes('smartrecruiters.com'))).toBe(true);
+    expect(store.candidates[acmeResult.key]).toMatchObject({
+      name: 'Acme SA', status: 'traced', vacancyCount: 2, vacancySignals: ['two live postings'],
+    });
+    expect(store.candidates[betaResult.key]).toMatchObject({
+      name: 'Beta AG', status: 'traced', vacancyCount: 3, vacancySignals: ['three live postings'],
+    });
+  });
+
+  it('uses the shared ATS tenant path when company name and city are missing', () => {
+    const store = storeWith({});
+    const acme = {
+      key: 'jobs@smartrecruiters.com',
+      name: 'jobs',
+      tenantHost: 'jobs.smartrecruiters.com/acme',
+      platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com/acme',
+    };
+    const beta = {
+      ...acme,
+      tenantHost: 'jobs.smartrecruiters.com/beta',
+      careersUrl: 'https://jobs.smartrecruiters.com/beta',
+    };
+
+    const acmeResult = upsertCandidate(store, acme, 'tenant:smartrecruiters.com');
+    setStatus(store, acmeResult.key, 'traced');
+    const betaResult = upsertCandidate(store, beta, 'tenant:smartrecruiters.com');
+    setStatus(store, betaResult.key, 'traced');
+    const repeatedAcmeResult = upsertCandidate(store, acme, 'tenant:smartrecruiters.com');
+    setStatus(store, repeatedAcmeResult.key, 'traced');
+
+    expect(acmeResult).toEqual({ key: 'tenant-acme@jobs-smartrecruiters-com', created: true });
+    expect(betaResult).toEqual({ key: 'tenant-beta@jobs-smartrecruiters-com', created: true });
+    expect(repeatedAcmeResult).toEqual({ key: acmeResult.key, created: false });
+    expect(Object.keys(store.candidates)).toEqual([acmeResult.key, betaResult.key]);
+    expect(store.candidates[acmeResult.key]).not.toHaveProperty('name');
+    expect(store.candidates[betaResult.key]).not.toHaveProperty('name');
+  });
+
+  it('refreshes repeated path-tenant probe fields without restoring the generic host label', () => {
+    const store = storeWith({});
+    const firstProbe = {
+      key: 'jobs@smartrecruiters.com',
+      name: 'jobs',
+      tenantHost: 'jobs.smartrecruiters.com/acme',
+      platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com/acme?lang=de',
+      vacancyCount: 1,
+      vacancySignals: ['one posting'],
+      country: 'CH',
+    };
+    const updatedProbe = {
+      ...firstProbe,
+      careersUrl: 'https://jobs.smartrecruiters.com/acme?lang=it',
+      vacancyCount: 4,
+      vacancySignals: ['four current postings'],
+    };
+    const probeStatusPatch = (probe: typeof firstProbe) => ({
+      careersUrl: probe.careersUrl,
+      tenantHost: probe.tenantHost,
+      platform: probe.platform,
+      vacancyCount: probe.vacancyCount,
+      vacancySignals: probe.vacancySignals,
+      country: probe.country,
+    });
+
+    const firstResult = upsertCandidate(store, firstProbe, 'tenant:smartrecruiters.com');
+    setStatus(store, firstResult.key, 'traced', probeStatusPatch(firstProbe));
+    const repeatedResult = upsertCandidate(store, updatedProbe, 'tenant:smartrecruiters.com');
+
+    expect(repeatedResult).toEqual({ key: firstResult.key, created: false });
+    expect(store.candidates[firstResult.key]).toMatchObject({
+      vacancyCount: 1,
+      vacancySignals: ['one posting'],
+      careersUrl: firstProbe.careersUrl,
+    });
+
+    setStatus(store, repeatedResult.key, 'traced', probeStatusPatch(updatedProbe));
+    expect(store.candidates[firstResult.key]).toMatchObject({
+      status: 'traced',
+      vacancyCount: 4,
+      vacancySignals: ['four current postings'],
+      careersUrl: updatedProbe.careersUrl,
+      tenantHost: 'jobs.smartrecruiters.com/acme',
+      platform: 'smartrecruiters.com',
+      country: 'CH',
+    });
+    expect(store.candidates[firstResult.key]).not.toHaveProperty('name');
+  });
+
+  it('keeps a path identity when a later tenant probe discovers the employer name', () => {
+    const store = storeWith({});
+    const unnamedAcme = {
+      key: 'jobs@smartrecruiters.com',
+      name: 'jobs',
+      tenantHost: 'jobs.smartrecruiters.com/acme',
+      platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com/acme',
+    };
+    const unnamedBeta = {
+      ...unnamedAcme,
+      tenantHost: 'jobs.smartrecruiters.com/beta',
+      careersUrl: 'https://jobs.smartrecruiters.com/beta',
+    };
+
+    const acmeFirst = upsertCandidate(store, unnamedAcme, 'tenant:smartrecruiters.com');
+    setStatus(store, acmeFirst.key, 'traced');
+    const betaFirst = upsertCandidate(store, unnamedBeta, 'tenant:smartrecruiters.com');
+    setStatus(store, betaFirst.key, 'traced');
+    const namedAcme = {
+      ...unnamedAcme,
+      name: 'Acme SA',
+      city: 'Lugano',
+      vacancyCount: 2,
+      vacancySignals: ['two live postings'],
+    };
+
+    const acmeRepeated = upsertCandidate(store, namedAcme, 'tenant:smartrecruiters.com');
+    setStatus(store, acmeRepeated.key, 'traced', {
+      careersUrl: namedAcme.careersUrl,
+      tenantHost: namedAcme.tenantHost,
+      platform: namedAcme.platform,
+      vacancyCount: namedAcme.vacancyCount,
+      vacancySignals: namedAcme.vacancySignals,
+    });
+
+    expect(acmeFirst.key).toBe('tenant-acme@jobs-smartrecruiters-com');
+    expect(acmeRepeated).toEqual({ key: acmeFirst.key, created: false });
+    expect(betaFirst.key).toBe('tenant-beta@jobs-smartrecruiters-com');
+    expect(store.candidates[acmeFirst.key]).toMatchObject({
+      name: 'Acme SA',
+      city: 'Lugano',
+      status: 'traced',
+      vacancyCount: 2,
+      vacancySignals: ['two live postings'],
+    });
+    expect(store.candidates[betaFirst.key]).not.toHaveProperty('name');
+    expect(Object.keys(store.candidates)).toEqual([acmeFirst.key, betaFirst.key]);
+  });
+
+  it('preserves composed keys backed by distinct subdomain tenants', () => {
+    const store = storeWith({});
+    const candidate = {
+      key: 'recruitingapp-2761@umantis.com',
+      name: 'recruitingapp-2761',
+      tenantHost: 'recruitingapp-2761.umantis.com',
+      platform: 'umantis.com',
+      careersUrl: 'https://recruitingapp-2761.umantis.com/Jobs/All',
+    };
+
+    expect(upsertCandidate(store, candidate, 'tenant:umantis.com'))
+      .toEqual({ key: 'recruitingapp-2761@umantis.com', created: true });
+    expect(store.candidates['recruitingapp-2761@umantis.com'].tenantHost)
+      .toBe('recruitingapp-2761.umantis.com');
+    expect(store.candidates['recruitingapp-2761@umantis.com'].name).toBe('recruitingapp-2761');
+  });
+
+  it.each([
+    ['cross-platform suffix', 'acme@other.example'],
+    ['malformed composed key', 'acme@@smartrecruiters.com'],
+  ])('does not trust a %s from a tenant source', (_label, key) => {
+    const store = storeWith({});
+
+    const result = upsertCandidate(store, {
+      key,
+      name: 'Acme SA',
+      city: 'Lugano',
+      tenantHost: 'jobs.smartrecruiters.com/acme',
+      platform: 'smartrecruiters.com',
+    }, 'tenant:smartrecruiters.com');
+
+    expect(result).toEqual({ key: 'tenant-acme@jobs-smartrecruiters-com', created: true });
+    expect(Object.keys(store.candidates)).toEqual(['tenant-acme@jobs-smartrecruiters-com']);
+  });
+
   it('uses a verified homepage when an explicit domain is an invalid public suffix', () => {
     const store = storeWith({
       'acme-domainless@lugano': {
