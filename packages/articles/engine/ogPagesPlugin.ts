@@ -9,6 +9,7 @@
 
 import path from 'path';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
+import { readStaticObjectEntries } from './shared/ts-literals.mjs';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
@@ -1070,10 +1071,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  // Meta fields flatten line breaks to spaces; body/FAQ literals keep them for
  // Markdown and JSON structure.
- const unescapeTsString = (value: string): string =>
- decodeTsStringEscapes(value, { newlineAs: ' ' });
-
-
  const parseBlogMetaLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
@@ -1084,12 +1081,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (isMissingPathError(err)) return out;
  throw err;
  }
- const rx = /'blog\.article\.([^']+)\.(title|excerpt|imageAlt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
- let m: RegExpExecArray | null;
- while ((m = rx.exec(src)) !== null) {
+ for (const { key, value: rawValue } of readStaticObjectEntries(src, p, { errorLabel: 'og-meta' })) {
+ const m = /^blog\.article\.(.+)\.(title|excerpt|imageAlt)$/u.exec(key);
+ if (!m) continue;
  const articleId = m[1];
  const field = m[2] as 'title' | 'excerpt' | 'imageAlt';
- const value = unescapeTsString(m[3]);
+ const value = rawValue.replace(/[\r\n]+/gu, ' ');
  if (!out[articleId]) out[articleId] = {};
  out[articleId][field] = value;
  }

@@ -1,28 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
-import { runSpecInProduction, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
+import { loadSpec, runSpecInProduction, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 
-const SEED_URL = 'https://my.jobalino.ch/public/job/de/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w';
-const OLD_DETAIL_URL = 'https://my.jobalino.ch/job/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w';
-const CURRENT_DETAIL_URL = 'https://my.jobalino.ch/job/6627a44879cd0/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w';
-const TEO_JAKOB_SPEC = {
-  companyKey: 'my',
-  companyName: 'Teo Jakob AG',
-  companyHost: 'my.jobalino.ch',
-  platform: 'jobalino.ch',
-  mode: 'jsonld',
-  seedUrls: [SEED_URL],
-  detailTemplate: [
-    '/job/*/lernende-detailhandel-efz-moebel-m-w',
-    '/job/*/teo-jakob-ag/lernende-detailhandel-efz-moebel-m-w',
-  ],
-  detailEnrichment: false,
-  detailFetchWorkers: 4,
-  sampleVacancyCount: 1,
-  sampleTitles: ['Lernende Detailhandel EFZ Möbel (m/w) / 100%'],
-  sourceLang: 'de',
-  learnedAt: '2026-10-21T00:10:14.384Z',
-} as any;
+const SEED_URL = 'https://my.jobalino.ch/de/jobpreview/18678';
+const CURRENT_DETAIL_URL = SEED_URL;
 
 function response(url: string, body: string) {
   return {
@@ -55,16 +36,14 @@ const SOURCE_HTML = `<script type="application/ld+json">${JSON.stringify({
   },
 })}</script>`;
 
-describe('Teo Jakob AG prospector URL-shape contract', () => {
+describe('Stiftung Helsenberg prospector URL-shape contract', () => {
   beforeEach(() => clearPoliteFetchStateForTests());
 
-  it('accepts the current canonical detail path while retaining the previous path', async () => {
-    // Keep this URL-shape contract independent of data/prospector/crawlers/my.json,
-    // whose production tenant can change without altering the Teo Jakob fixture.
-    const spec = TEO_JAKOB_SPEC;
+  it('accepts the current configured detail path and rejects the retired path', async () => {
+    const spec = loadSpec('my');
     const template = templateToRegex(spec.detailTemplate);
-    expect(template.test(new URL(OLD_DETAIL_URL).pathname)).toBe(true);
     expect(template.test(new URL(CURRENT_DETAIL_URL).pathname)).toBe(true);
+    expect(template.test('/job/6627a44879cd0/lernende-detailhandel-efz-moebel-m-w')).toBe(false);
 
     const fetchImpl = vi.fn(async (url: string) => {
       if (url === 'https://my.jobalino.ch/robots.txt') {

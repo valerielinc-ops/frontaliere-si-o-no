@@ -14,6 +14,8 @@ import { reconcileSitemapSearchClustersWithDist } from '../build-plugins/related
 const BASE = 'https://frontaliereticino.ch';
 const HEALTHY = `${BASE}/cerca-lavoro-svizzera/ricerca-indexable-lugano/`;
 const LATE_NOINDEX = `${BASE}/cerca-lavoro-svizzera/ricerca-late-overwrite/`;
+const LATE_CANONICAL_DRIFT = `${BASE}/cerca-lavoro-svizzera/ricerca-canonical-drift/`;
+const ALLOWED_BRIDGE = `${BASE}/cerca-lavoro-svizzera/ricerca-previous-slug/`;
 
 const urlBlock = (loc: string) =>
   `  <url>\n    <loc>${loc}</loc>\n    <lastmod>2026-09-26</lastmod>\n  </url>`;
@@ -33,7 +35,7 @@ beforeEach(() => {
   distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'cluster-final-dist-truth-'));
   fs.writeFileSync(
     path.join(distDir, 'sitemap-search-clusters-001.xml'),
-    urlset([HEALTHY, LATE_NOINDEX]),
+    urlset([HEALTHY, LATE_NOINDEX, LATE_CANONICAL_DRIFT, ALLOWED_BRIDGE]),
     'utf-8',
   );
   fs.writeFileSync(
@@ -59,6 +61,22 @@ beforeEach(() => {
       `<body>bridge</body></html>`,
     'utf-8',
   );
+  fs.mkdirSync(path.dirname(pagePath(distDir, LATE_CANONICAL_DRIFT)), { recursive: true });
+  fs.writeFileSync(
+    pagePath(distDir, LATE_CANONICAL_DRIFT),
+    `<html><head><meta name="robots" content="index,follow">` +
+      `<link rel="canonical" href="${BASE}/cerca-lavoro-svizzera/"></head>` +
+      `<body>drift</body></html>`,
+    'utf-8',
+  );
+  fs.mkdirSync(path.dirname(pagePath(distDir, ALLOWED_BRIDGE)), { recursive: true });
+  fs.writeFileSync(
+    pagePath(distDir, ALLOWED_BRIDGE),
+    `<html><head><meta name="robots" content="index,follow">` +
+      `<link rel="canonical" href="${BASE}/cerca-lavoro-svizzera/"></head>` +
+      `<body>__BRIDGE_TARGET_SLUG__</body></html>`,
+    'utf-8',
+  );
 });
 
 afterEach(() => {
@@ -67,11 +85,13 @@ afterEach(() => {
 
 describe('reconcileSitemapSearchClustersWithDist', () => {
   it('removes late noindex overwrites from every cluster shard and keeps healthy URLs', async () => {
-    await expect(reconcileSitemapSearchClustersWithDist(distDir)).resolves.toBe(1);
+    await expect(reconcileSitemapSearchClustersWithDist(distDir)).resolves.toBe(2);
 
     const first = fs.readFileSync(path.join(distDir, 'sitemap-search-clusters-001.xml'), 'utf-8');
     const second = fs.readFileSync(path.join(distDir, 'sitemap-search-clusters-002.xml'), 'utf-8');
     expect(first).not.toContain(LATE_NOINDEX);
+    expect(first).not.toContain(LATE_CANONICAL_DRIFT);
+    expect(first).toContain(ALLOWED_BRIDGE);
     expect(first).toContain(HEALTHY);
     expect(second).toContain(HEALTHY);
   });

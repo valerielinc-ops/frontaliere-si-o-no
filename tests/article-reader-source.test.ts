@@ -4,6 +4,9 @@ import { describe, expect, it } from 'vitest';
 
 import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/articleReaderSource.mjs';
 import { readBlogUrlSlugs } from '../packages/articles/engine/shared/articleReaders';
+import {
+  readStaticObjectEntries,
+} from '../packages/articles/engine/shared/ts-literals.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -107,6 +110,31 @@ describe('parseArticleUrlSlugs', () => {
     expect(() => parseArticleUrlSlugs(`const BLOG_SLUGS = {
       // 'stale': { it: 'it', en: 'en', de: 'de', fr: 'fr' },
     };`, 'BLOG_SLUGS')).toThrow(/empty(?: or malformed)? slug map/i);
+  });
+});
+
+describe('readStaticObjectEntries', () => {
+  it('handles CR-only line comments without hiding the following entry', () => {
+    expect(readStaticObjectEntries(
+      "// stale: 'blog.article.fake.title': 'wrong',\r'blog.article.real.title': 'ok' }",
+      'fixture.ts',
+    )).toEqual([
+      expect.objectContaining({ key: 'blog.article.real.title', value: 'ok' }),
+    ]);
+  });
+
+  it('decodes a CRLF line continuation as no content', () => {
+    expect(readStaticObjectEntries(
+      "'blog.article.real.title': 'prima\\\r\nsecond' }",
+      'fixture.ts',
+    )[0].value).toBe('primasecond');
+  });
+
+  it('rejects a dangling comma instead of accepting a truncated object', () => {
+    expect(() => readStaticObjectEntries(
+      "'blog.article.real.title': 'truncated',",
+      'fixture.ts',
+    )).toThrow(/dangling comma/);
   });
 });
 
