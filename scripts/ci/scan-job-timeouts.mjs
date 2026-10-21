@@ -592,27 +592,51 @@ function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
     const expectedPages = Number.isSafeInteger(totalCount)
       ? Math.ceil(totalCount / perPage)
       : null;
+    // `total_count` is reported by a live Actions collection, not by an
+    // immutable snapshot. A run can enter or leave this conclusion between
+    // page requests, so the count is useful for the 1,000-result split but is
+    // not an exact per-page row contract.
     let page = 1;
     let data = first;
+    let previousPageWasShort = false;
     while (true) {
       const batch = data.workflow_runs;
       if (batch.length === 0) {
-        if (expectedPages !== null && page <= expectedPages) {
+        // A short page is terminal evidence even when the earlier count said
+        // that more rows existed. Probe the next page in that case: if it is
+        // also empty, the count was stale but the listing is complete. An
+        // empty page after a full page that the count still requires remains
+        // an incomplete read and fails closed.
+        if (expectedPages !== null && page <= expectedPages && !previousPageWasShort) {
           throw new Error(`[scan-job-timeouts] pagina ${page}/${expectedPages} vuota per runs ${status}`);
         }
         break;
       }
+      if (batch.length > perPage) {
+        throw new Error(
+          `[scan-job-timeouts] pagina ${page} oltre il per_page=${perPage} per runs ${status}`,
+        );
+      }
       if (expectedPages !== null) {
         const expectedRows = Math.min(perPage, Math.max(0, totalCount - ((page - 1) * perPage)));
         if (batch.length !== expectedRows) {
-          throw new Error(
-            `[scan-job-timeouts] pagina ${page}/${expectedPages} attesa ${expectedRows}, ricevuta ${batch.length} per runs ${status}`,
+          console.warn(
+            `::warning::[scan-job-timeouts] total_count live per runs ${status}: `
+              + `pagina ${page}/${expectedPages} attesa ${expectedRows}, ricevuta ${batch.length}; `
+              + 'si verifica la terminazione dalla paginazione effettiva.',
           );
         }
       }
       observe(batch);
-      if (expectedPages !== null && page >= expectedPages) break;
-      if (expectedPages === null && batch.length < perPage) break;
+      previousPageWasShort = batch.length < perPage;
+      if (expectedPages !== null && page > expectedPages
+        && page >= RUN_SEARCH_RESULT_CAP / perPage && !previousPageWasShort) {
+        throw new Error(
+          `[scan-job-timeouts] search ${status} oltre il cap di ${RUN_SEARCH_RESULT_CAP} `
+            + 'dopo un total_count live non stabile; risultati incompleti',
+        );
+      }
+      if (previousPageWasShort && (expectedPages === null || page >= expectedPages)) break;
       if (expectedPages === null && page >= RUN_SEARCH_RESULT_CAP / perPage) {
         throw new Error(
           `[scan-job-timeouts] search ${status} ha raggiunto ${RUN_SEARCH_RESULT_CAP} risultati senza total_count; `
