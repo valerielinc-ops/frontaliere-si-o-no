@@ -66,25 +66,33 @@ describe('jobDataNormalization', () => {
     expect(logo).toBe(CRAWLED_COMPANY_LOGOS['medacta-international']);
   });
 
-  it('keeps the four #6504 residual companies on curated logo sources', () => {
+  it('uses stable CDN assets for the four #6504 residual companies', () => {
     const expected = {
-      'edmond-de-rothschild': 'https://commons.wikimedia.org/wiki/Special:FilePath/Rothschild_Edmond_Transparent.png',
-      imerys: 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',
-      'farmacia-internazionale-dr-merloni': 'https://static.wixstatic.com/media/f027ed155a8a4874b856344a5b970a4b.jpg',
-      mediamarkt: 'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg',
+      'edmond-de-rothschild': '/images/brands/edmond-de-rothschild.png',
+      imerys: '/images/brands/imerys.png',
+      'farmacia-internazionale-dr-merloni': '/images/brands/farmacia-internazionale-dr-merloni.jpg',
+      mediamarkt: '/images/brands/mediamarkt.png',
     } as const;
 
-    for (const [key, url] of Object.entries(expected)) {
-      expect(CRAWLED_COMPANY_LOGOS[key], `${key} must keep its curated source`).toBe(url);
+    for (const [key, path] of Object.entries(expected)) {
+      expect(CRAWLED_COMPANY_LOGOS[key], `${key} must use its stable asset`).toBe(path);
       expect(resolveCompanyLogoUrl({
         company: key,
         companyKey: key,
         companyDomain: `${key}.example.com`,
         url: `https://${key}.example.com/jobs/1`,
-      })).toBe(url);
+      })).toBe(path);
     }
 
     expect(resolveBrandLogoUrl(process.cwd(), 'mediamarkt')).toBe(expected.mediamarkt);
+  });
+
+  it('prefers a mirrored publisher logo over its external source URL', () => {
+    expect(resolveCompanyLogoUrl({
+      company: 'Imerys',
+      companyKey: 'imerys',
+      companyLogo: 'https://publisher.example/logo.png',
+    })).toBe('/images/brands/imerys.png');
   });
 
   it('detects non-geographic multi-location strings', () => {

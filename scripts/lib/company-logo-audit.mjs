@@ -433,14 +433,26 @@ function firstExample(records, predicate) {
 }
 
 function statusForRecords(records) {
-  const counts = { valid: 0, missing: 0, initials: 0, broken: 0, pendingDeploy: 0, unverified: 0 };
+  const counts = {
+    valid: 0,
+    missing: 0,
+    initials: 0,
+    broken: 0,
+    pendingDeploy: 0,
+    unverified: 0,
+    external: 0,
+  };
   for (const record of records) {
-    const statusKey = record.validation.status === 'pending-deploy'
-      ? 'pendingDeploy'
-      : record.validation.status;
+    const statusKey = record.reference.kind === 'external'
+      && record.validation.status === 'valid'
+      ? 'external'
+      : record.validation.status === 'pending-deploy'
+        ? 'pendingDeploy'
+        : record.validation.status;
     counts[statusKey] = (counts[statusKey] || 0) + 1;
   }
-  const invalid = counts.missing + counts.initials + counts.broken + counts.pendingDeploy + counts.unverified;
+  const invalid = counts.missing + counts.initials + counts.broken
+    + counts.pendingDeploy + counts.unverified + counts.external;
   const qualityCounts = { goodQuality: 0, lowQuality: 0, qualityUnverified: 0 };
   for (const record of records) {
     if (record.validation.qualityStatus === 'good') qualityCounts.goodQuality++;
@@ -458,16 +470,19 @@ function statusForRecords(records) {
         : 'ok';
   let coverageStatus = 'ok';
   if (counts.valid === 0) {
-    const uncovered = counts.missing + counts.initials + counts.unverified;
+    const uncovered = counts.missing + counts.initials + counts.unverified + counts.external;
     if (counts.pendingDeploy > 0 && counts.broken + uncovered === 0) coverageStatus = 'pending-deploy';
     else if (counts.broken > 0 && uncovered + counts.pendingDeploy === 0) coverageStatus = 'broken';
     else if (counts.unverified > 0 && counts.missing + counts.initials + counts.broken + counts.pendingDeploy === 0) coverageStatus = 'unverified';
+    else if (counts.external > 0 && counts.missing + counts.initials + counts.broken + counts.pendingDeploy + counts.unverified === 0) coverageStatus = 'external';
     else coverageStatus = 'missing';
   } else if (invalid > 0) {
     coverageStatus = 'partial';
   }
   const status = coverageStatus !== 'ok'
-    ? coverageStatus
+    ? coverageStatus === 'external' && qualityStatus !== 'ok'
+      ? qualityStatus
+      : coverageStatus
     : qualityStatus === 'low-quality'
       ? 'low-quality'
       : qualityStatus === 'unverified'
@@ -488,6 +503,7 @@ function companyEntry(companyKey, records, counts) {
   const missingRecords = records.filter((r) => r.validation.status === 'missing' || r.validation.status === 'initials');
   const brokenRecords = records.filter((r) => r.validation.status === 'broken');
   const pendingDeployRecords = records.filter((r) => r.validation.status === 'pending-deploy');
+  const externalRecords = records.filter((r) => r.reference.kind === 'external' && r.validation.status === 'valid');
   const lowQualityRecords = records.filter((r) => r.validation.qualityStatus === 'low-quality');
   const qualityUnverifiedRecords = records.filter((r) => r.validation.qualityStatus === 'unverified');
   const sourceCrawlers = [...new Set(records.map((r) => sourceCrawlerForJob(r.job)).filter(Boolean))].sort();
@@ -498,6 +514,7 @@ function companyEntry(companyKey, records, counts) {
     missingJobCount: counts.missing + counts.initials,
     brokenJobCount: counts.broken,
     pendingDeployJobCount: counts.pendingDeploy,
+    externalJobCount: counts.external,
     unverifiedJobCount: counts.unverified,
     lowQualityJobCount: counts.lowQuality,
     qualityUnverifiedJobCount: counts.qualityUnverified,
@@ -511,6 +528,7 @@ function companyEntry(companyKey, records, counts) {
       missing: firstExample(missingRecords, (r) => r.job?.url),
       broken: firstExample(brokenRecords, (r) => r.job?.url),
       pendingDeploy: firstExample(pendingDeployRecords, (r) => r.job?.url),
+      external: firstExample(externalRecords, (r) => r.job?.url),
       lowQuality: firstExample(lowQualityRecords, (r) => r.job?.url),
       qualityUnverified: firstExample(qualityUnverifiedRecords, (r) => r.job?.url),
     },
@@ -597,6 +615,7 @@ export async function auditCompanyLogos(jobs, {
   const lowQualityCompanies = companies.filter((c) => c.lowQualityJobCount > 0);
   const qualityUnverifiedCompanies = companies.filter((c) => c.qualityUnverifiedJobCount > 0);
   const pendingDeployCompanies = companies.filter((c) => c.pendingDeployJobCount > 0);
+  const externalCompanies = companies.filter((c) => c.externalJobCount > 0);
   const affectedCompanies = companies.filter((c) => c.status !== 'ok');
   const referencesOutput = [...references.values()].map((r) => ({
     reference: r.reference,
@@ -610,6 +629,7 @@ export async function auditCompanyLogos(jobs, {
     (reference) => reference.status === 'broken'
       || reference.status === 'unverified'
       || reference.status === 'pending-deploy'
+      || (reference.kind === 'external' && reference.status === 'valid')
       || reference.qualityStatus === 'low-quality'
       || reference.qualityStatus === 'unverified',
   );
@@ -628,6 +648,8 @@ export async function auditCompanyLogos(jobs, {
     brokenJobCount: brokenCompanies.reduce((sum, c) => sum + c.brokenJobCount, 0),
     pendingDeploy: pendingDeployCompanies.length,
     pendingDeployJobCount: pendingDeployCompanies.reduce((sum, c) => sum + c.pendingDeployJobCount, 0),
+    external: externalCompanies.length,
+    externalJobCount: externalCompanies.reduce((sum, c) => sum + c.externalJobCount, 0),
     partial: partialCompanies.length,
     partialJobCount: partialCompanies.reduce((sum, c) => sum + c.invalid, 0),
     unverified: unverifiedCompanies.length,
@@ -647,6 +669,7 @@ export async function auditCompanyLogos(jobs, {
     lowQualityCompanies,
     qualityUnverifiedCompanies,
     pendingDeployCompanies,
+    externalCompanies,
     references: problemReferences,
   };
 }
