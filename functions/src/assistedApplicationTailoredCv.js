@@ -601,10 +601,12 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it', typ
       continue;
     }
     const signals = languageSignals(value, language);
-    // A generated field is one language decision. One unambiguous source-language
-    // prose signal is enough; requiring two let a short value such as "Experience"
-    // survive in an Italian CV.
-    if (signals.length >= 1) issues.push({ field, kind: 'language', token: signals.slice(0, 4).join(', '), context: `source-language prose remains in the ${language} generated field` });
+    // Short generated labels need a stricter check because the document-level
+    // detector deliberately requires more context to classify prose reliably.
+    const words = normalizeText(value).split(' ').filter(Boolean);
+    if (words.length <= 2 && signals.length >= 1) {
+      issues.push({ field, kind: 'language', token: signals.slice(0, 4).join(', '), context: `source-language prose remains in the ${language} generated field` });
+    }
   }
 
   const text = tailoredCvPlainText(cv, { identity: { name: '', phone: '', email: '' }, profile });

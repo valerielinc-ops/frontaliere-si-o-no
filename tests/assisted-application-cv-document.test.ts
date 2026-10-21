@@ -441,7 +441,7 @@ describe('tailored CV by type', () => {
       language: 'en', type: 'qualified', headline: '', headlineSource: 'profile',
       summary: 'Experienced software professional with strong project management skills.',
       competencies: [], experience: [], skills: [],
-      localized: { languages: [{ index: 0, language: 'English' }] },
+      localized: { languages: [{ index: 0, language: 'English', level: 'C1' }] },
     };
     expect(checkTailoredCvLanguage(cv, { profile, language: 'en' })).toMatchObject({ ok: true, issues: [] });
   });
@@ -452,7 +452,7 @@ describe('tailored CV by type', () => {
       const cv = {
         language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
         summary: '', competencies: [], experience: [], skills: [],
-        localized: { languages: [{ index: 0, language }] },
+        localized: { languages: [{ index: 0, language, level: 'B2' }] },
       };
       expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
     }
@@ -461,7 +461,7 @@ describe('tailored CV by type', () => {
     const canonicalCv = {
       language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
       summary: '', competencies: [], experience: [], skills: [],
-      localized: { languages: [{ index: 0, language: 'romeno' }] },
+      localized: { languages: [{ index: 0, language: 'romeno', level: 'B2' }] },
     };
     expect(checkTailoredCvLanguage(canonicalCv, { profile: canonicalProfile, language: 'it' })).toMatchObject({
       ok: true,
