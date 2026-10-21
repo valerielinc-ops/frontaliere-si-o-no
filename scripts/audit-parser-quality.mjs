@@ -1030,7 +1030,7 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
     || !publishedLocation) return false;
   const visibleFields = [
     ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
-    ...(locationEvidence === 'jsonld' && Array.isArray(detail?.renderedJobLocationFields)
+    ...(Array.isArray(detail?.renderedJobLocationFields)
       ? detail.renderedJobLocationFields
       : []),
     ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
