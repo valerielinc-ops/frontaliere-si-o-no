@@ -29,6 +29,7 @@ import {
   extractSitemapLocs,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import { reconcileFinalSitemapsWithDist } from '../build-plugins/sitemapAliasPlugin';
+import { scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -89,6 +90,14 @@ function pageFile(loc: string): string {
   return path.join(dist, rel, 'index.html');
 }
 
+describe('scanMarkupStartTags', () => {
+  it('keeps live metadata after a script string containing an unterminated comment marker', () => {
+    const html = `<script>const marker = '<!--';</script><meta name=robots content=noindex>`;
+
+    expect(scanMarkupStartTags(html, 'meta')).toHaveLength(1);
+  });
+});
+
 beforeEach(() => {
   dist = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-jobs-dist-truth-'));
   // Everything advertised…
@@ -145,6 +154,29 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(fs.existsSync(pageFile(META_REFRESH))).toBe(true);
   });
 
+  it('keeps the final cross-canton detail and drops T5/T6 noindex or redirect aliases', async () => {
+    const canonical = `${BASE}/cerca-lavoro-zurigo/offerta-canonica/`;
+    const noindexAlias = `${BASE}/cerca-lavoro-ticino/offerta-canonica/`;
+    const redirectAlias = `${BASE}/cerca-lavoro-ticino/offerta-redirect/`;
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-jobs.xml'),
+      wrap([canonical, noindexAlias, redirectAlias]),
+      'utf-8',
+    );
+    writePage(canonical, selfCanonical(canonical));
+    writePage(noindexAlias, noindexBridge(canonical));
+    writePage(redirectAlias, metaRefreshBridge(canonical));
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    const out = readSitemap();
+    expect(out).toContain(canonical);
+    expect(out).not.toContain(noindexAlias);
+    expect(out).not.toContain(redirectAlias);
+    expect(fs.existsSync(pageFile(noindexAlias))).toBe(true);
+    expect(fs.existsSync(pageFile(redirectAlias))).toBe(true);
+  });
+
   it('drops a sitemap URL whose final HTML has no canonical tag', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([MISSING_CANONICAL]), 'utf-8');
     writePage(MISSING_CANONICAL, missingCanonical());
@@ -152,11 +184,40 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(readSitemap()).not.toContain('missing-canonical');
   });
 
+  it('keeps an explicitly classified canonical bridge', async () => {
+    const bridge = `${BASE}/cerca-lavoro-ticino/previous-job-slug/`;
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([bridge]), 'utf-8');
+    writePage(
+      bridge,
+      `<html><head><link rel="canonical" href="${HEALTHY}"></head>` +
+        '<body>__BRIDGE_TARGET_SLUG__</body></html>',
+    );
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    expect(readSitemap()).toContain(bridge);
+  });
+
   it('parses quote-free canonical attributes before applying the self-canonical check', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([UNQUOTED_CANONICAL]), 'utf-8');
     writePage(UNQUOTED_CANONICAL, unquotedCanonical(`${BASE}/cerca-lavoro-svizzera/`));
     await reconcileSitemapJobsWithDist(dist, []);
     expect(readSitemap()).not.toContain('unquoted-canonical');
+  });
+
+  it('does not treat comment or script text as live noindex metadata', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([HEALTHY]), 'utf-8');
+    writePage(
+      HEALTHY,
+      '<!doctype html><html><head>' +
+        '<!-- <meta name=robots content=noindex> -->' +
+        '<script>const fake = "<meta name=robots content=noindex>";</script>' +
+        `<link href="${HEALTHY}" rel="canonical"></head><body>ok</body></html>`,
+    );
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    expect(readSitemap()).toContain(HEALTHY);
   });
 
   it('still drops a known cross-section mirror passed in explicitly (#911)', async () => {

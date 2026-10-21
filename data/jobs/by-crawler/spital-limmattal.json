@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-bdbf993092ec",
-      "slug": "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-e-wochenbett-80-100-spital-limmattal-schlieren",
+      "slug": "medica-dirigente-medico-dirigente-in-diagnosi-prenatale-perinatologia-ostetricia-e-puerperio-80-100-spital-limmattal",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und",
-        "it": "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-e-wochenbett-80-100-spital-limmattal-schlieren",
-        "en": "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und",
-        "fr": "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und"
+        "it": "medica-dirigente-medico-dirigente-in-diagnosi-prenatale-perinatologia-ostetricia-e-puerperio-80-100-spital-limmattal",
+        "en": "lead-doctor-prenatal-diagnosis-pernatology-obstetrics-and-postpartum-80-100-spital-limmattal-schlieren",
+        "fr": "medecin-chef-diagnostic-prenatal-perinatologie-obstetrique-et-postpartum-80-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -60,11 +60,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und",
+          "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-e-wochenbett-80-100-spital-limmattal-schlieren"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und"
+        ],
+        "fr": [
           "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und"
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und"
+        "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-und",
+        "leitende-arztin-leitender-arzt-pranataldiagnostik-perinatologie-geburtshilfe-e-wochenbett-80-100-spital-limmattal-schlieren"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -1945,7 +1953,7 @@
       "slug": "performance-manager-50-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "performance-manager-50-80-spital-limmattal-schlieren",
-        "en": "performance-manager-50-80-spital-limmattal-schlieren",
+        "en": "leistungsmanager-in-50-80-spital-limmattal-schlieren",
         "de": "leistungsmanager-in-50-80-spital-limmattal-ch",
         "fr": "gestionnaire-de-performance-50-80-spital-limmattal-schlieren"
       },
@@ -2006,9 +2014,6 @@
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ],
         "fr": [
-          "leistungsmanager-in-50-80-spital-limmattal-schlieren"
-        ],
-        "en": [
           "leistungsmanager-in-50-80-spital-limmattal-schlieren"
         ]
       },

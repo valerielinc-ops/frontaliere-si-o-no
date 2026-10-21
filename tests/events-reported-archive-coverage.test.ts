@@ -117,7 +117,7 @@ describe('reported GSC event archive coverage', () => {
     const event = archived.find(candidate => candidate.id === id)!;
     expect(event).toMatchObject({
       title: 'Tournée estivale des Communes - Samedis du Vélo 11 juillet',
-      startDate: '2026-07-04', endDate: '2026-07-11',
+      startDate: '2026-07-11', endDate: '2026-07-11',
       venue: 'Place de Pont Rouge sous le gigantesque totem à horloge rouge',
       url: 'https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet',
       canton: 'GE', comune: 'Lancy',
@@ -126,7 +126,7 @@ describe('reported GSC event archive coverage', () => {
     const route = assigned.get(id)!;
     const canonicalPath = pathForEventDetail('fr', route.comune, route.slug, route.canton);
     const reportedPath = '/fr/evenements/geneve/geneve/tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04/';
-    expect(canonicalPath).toBe('/fr/evenements/geneve/lancy/tournee-estivale-des-communes-samedis-du-velo-11-2026-07-04/');
+    expect(canonicalPath).toBe('/fr/evenements/geneve/lancy/tournee-estivale-des-communes-samedis-du-velo-11-2026-07-11/');
     expect([...(historyOwners.get(reportedPath) || [])]).toEqual([id]);
 
     const [migration] = historicalEventSlugMigrations([event] as never, 'GE', 'Lancy', new Map([[id, route.slug]]));
@@ -141,6 +141,7 @@ describe('reported GSC event archive coverage', () => {
     expect(bridge).toContain(`<link rel="canonical" href="https://frontaliereticino.ch${canonicalPath}">`);
     expect(bridge).toContain(`http-equiv="refresh" content="0; url=https://frontaliereticino.ch${canonicalPath}"`);
     expect(bridge).toContain(event.title);
+    expect(bridge).toContain('Date : 2026-07-11');
     expect(bridge).not.toContain('noindex');
   });
 

@@ -52,6 +52,7 @@ import {
   buildOggiPath,
   type BorderWaitLocale,
 } from '../../build-plugins/borderWaitData';
+import { REPORT_SITEMAP_LINKS } from '../../build-plugins/shared/reportRoutes';
 
 // ── Helpers ───────────────────────────────────────────────────────
 
@@ -81,6 +82,22 @@ function normalisePath(href: string): string {
   if (h !== '/' && h.endsWith('/')) h = h.replace(/\/+$/, '');
   return h;
 }
+
+const SMALL_SITEMAP_HUB_ROOTS: ReadonlyArray<string> = [
+  '/traffico-dogane/',
+  '/de/wartezeit-grenze/',
+  '/en/border-wait/',
+  '/fr/temps-attente-douane/',
+  '/mercato-lavoro-ticino/',
+  '/lavoro-infermieri-svizzera/',
+  '/agenzie-del-lavoro-lugano/',
+  '/costo-vita-lugano-ticino/',
+  ...REPORT_SITEMAP_LINKS.map(({ href }) => href),
+  '/guides/guida-completa-frontaliere-2026/',
+  '/guides/guida-completa-frontaliere-2026.pdf',
+  '/guida-frontaliere/mappa-live-valichi/',
+  '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/',
+];
 
 // ── Tier B — border-wait cross-locale linking ─────────────────────
 
@@ -159,23 +176,6 @@ describe('mappa-del-sito hub — synthetic BFS reachability', () => {
     '/glossario-frontaliere/addizionale-regionale/',
     '/glossario-frontaliere/lohnausweis/',
     '/glossario-frontaliere/cu/',
-  ];
-
-  const SMALL_SITEMAP_HUB_ROOTS: ReadonlyArray<string> = [
-    '/traffico-dogane/',
-    '/de/wartezeit-grenze/',
-    '/en/border-wait/',
-    '/fr/temps-attente-douane/',
-    '/mercato-lavoro-ticino/',
-    '/lavoro-infermieri-svizzera/',
-    '/agenzie-del-lavoro-lugano/',
-    '/costo-vita-lugano-ticino/',
-    '/report/frontaliere-ticino-2026/',
-    '/reports/mercato-lavoro-frontalieri-ticino-2026/',
-    '/guides/guida-completa-frontaliere-2026/',
-    '/guides/guida-completa-frontaliere-2026.pdf',
-    '/guida-frontaliere/mappa-live-valichi/',
-    '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/',
   ];
 
   // Synthesise the hub HTML the same way staticPagesPlugin does.
@@ -288,12 +288,13 @@ describe('mappa-del-sito source contains the small-sitemap hub-link arrays', () 
     expect(src.includes('/lavoro-sanitario-ticino/')).toBe(true);
   });
 
-  it('source declares REPORT_LINKS for the 4 annual-report + 4 market-report orphans', () => {
-    expect(src.includes('REPORT_LINKS')).toBe(true);
-    expect(src.includes('/de/report/grenzgaenger-2026/')).toBe(true);
-    expect(src.includes('/fr/report/frontaliers-2026/')).toBe(true);
-    expect(src.includes('/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/')).toBe(true);
-    expect(src.includes('/fr/reports/marche-emploi-frontaliers-tessin-2026/')).toBe(true);
+  it('source consumes the shared report links for the 4 annual-report + 4 market-report orphans', () => {
+    expect(src.includes('REPORT_SITEMAP_LINKS')).toBe(true);
+    expect(src.includes("from './shared/reportRoutes'")).toBe(true);
+    expect(src.includes("renderHubLinks('Report annuali', REPORT_SITEMAP_LINKS)")).toBe(true);
+    for (const { href } of REPORT_SITEMAP_LINKS) {
+      expect(SMALL_SITEMAP_HUB_ROOTS).toContain(href);
+    }
   });
 
   it('source declares GUIDE_PDF_LINKS for the 8 guides orphans', () => {

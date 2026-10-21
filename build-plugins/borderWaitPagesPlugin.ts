@@ -784,7 +784,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: 'Tempi di attesa alle dogane svizzere — live oggi',
     regionalH1: (r) => `Tempi attesa ai valichi ${r}`,
     intro: (c, s, d) =>
-      `Aggiornamento del ${d}: alla dogana ${c} l'attesa è ${s}. Il tempo di coda al valico di frontiera si aggiorna ogni 15 minuti nelle ore di punta.`,
+      `Aggiornamento del ${d}: alla dogana ${c} l'attesa è ${s}. Il tempo di coda al valico di frontiera si aggiorna ogni 15 minuti nelle ore di punta. La stima descrive il traffico stradale, non i controlli doganali né gli orari di apertura.`,
     advice: {
       eyebrow: 'Consiglio',
       ok: (bestHour) =>
@@ -894,7 +894,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: 'Swiss border wait times — live today',
     regionalH1: (r) => `${r} border crossings — live wait times`,
     intro: (c, s, d) =>
-      `Updated ${d}: the ${c} crossing currently shows a ${s} wait. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline.`,
+      `Updated ${d}: the ${c} crossing currently shows a ${s} wait. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline. This estimates road traffic, not customs checks or crossing opening hours.`,
     advice: {
       eyebrow: 'Recommendation',
       ok: (bestHour) =>
@@ -1004,7 +1004,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: 'Wartezeiten an den Schweizer Grenzübergängen — live heute',
     regionalH1: (r) => `Grenzübergänge ${r} — Wartezeiten live`,
     intro: (c, s, d) =>
-      `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert.`,
+      `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert. Die Schätzung beschreibt den Strassenverkehr, nicht Zollkontrollen oder Öffnungszeiten des Grenzübergangs.`,
     advice: {
       eyebrow: 'Empfehlung',
       ok: (bestHour) =>
@@ -1114,7 +1114,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: "Temps d'attente aux douanes suisses — en direct aujourd'hui",
     regionalH1: (r) => `Douanes ${r} — temps d'attente en direct`,
     intro: (c, s, d) =>
-      `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET).`,
+      `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET). Cette estimation décrit le trafic routier, pas les contrôles douaniers ni les horaires d'ouverture du passage.`,
     advice: {
       eyebrow: 'Conseil',
       ok: (bestHour) =>
@@ -1725,12 +1725,12 @@ function renderWebcamSection(
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
     >`
-        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
+        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
       return `<figure class="s-WFzTLc">
     ${mediaHtml}
     <figcaption class="s-7GN3SP">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
-      <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
+      <a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
       ${!embeddable ? `<div class="s-DEr6hT">${esc(copy.webcamExternalNote)}</div>` : ''}
       <div class="s-DEr6hT">${esc(copy.webcamDisclaimer(w.sourceName))}</div>

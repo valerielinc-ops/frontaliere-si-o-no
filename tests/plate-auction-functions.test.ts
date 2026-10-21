@@ -514,7 +514,7 @@ describe('plate-auction Cloud Function: card catalogue between auction rounds', 
     const firestore = statefulFirestore([{
       id: 'vd-1768', sourceKey: 'VD', canton: 'Vaud', platePrefix: 'VD', plateNumber: '691', normalizedPlate: 'VD691',
       listingType: 'auction', auctionStatus: 'active', currentBidChf: 950, endsAt: '2026-10-04T20:00:00.000Z',
-      officialAuctionUrl: 'https://www.encheres-vd.ch/de/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
+      officialAuctionUrl: 'https://www.encheres-vd.ch/fr/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
       lastVerifiedAt: '2026-10-04T12:25:00.000Z', dataConfidence: 'partial', firstSeenAt: '2026-10-04T12:25:00.000Z',
     }]);
     const result = await refreshPlateAuctions({

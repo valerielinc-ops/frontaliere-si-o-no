@@ -86,7 +86,7 @@ export const EVENT_SOURCES = {
   guidle: {
     key: 'guidle',
     label: 'Guidle',
-    homepage: 'https://www.guidle.com',
+    homepage: 'https://www.guidle.com/de',
     canton: null,
   },
   myswitzerland: {
@@ -120,19 +120,19 @@ export const EVENT_SOURCES = {
   'nw-agenda': {
     key: 'nw-agenda',
     label: 'Kanton Nidwalden — Veranstaltungskalender',
-    homepage: 'https://www.nw.ch/anlaesseaktuelles',
+    homepage: 'https://www.nw.ch/',
     canton: 'NW',
   },
   'ow-agenda': {
     key: 'ow-agenda',
     label: 'Kanton Obwalden — Anlässe',
-    homepage: 'https://www.ow.ch/anlaesseaktuelles',
+    homepage: 'https://www.ow.ch/',
     canton: 'OW',
   },
   'lu-stadt-agenda': {
     key: 'lu-stadt-agenda',
     label: 'Stadt Luzern — Termine',
-    homepage: 'https://www.stadtluzern.ch/aktuelles/termine',
+    homepage: 'https://www.stadtluzern.ch/aktuelles',
     canton: 'LU',
   },
   // Organizer JSON-LD (owner decision D3, 2026-10-05): the Settimane Musicali
@@ -152,7 +152,7 @@ export const EVENT_SOURCES = {
   openagenda: {
     key: 'openagenda',
     label: 'OpenAgenda',
-    homepage: 'https://openagenda.com/',
+    homepage: 'https://openagenda.com/fr',
     canton: null,
   },
 };

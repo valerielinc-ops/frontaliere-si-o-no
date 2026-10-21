@@ -140,6 +140,8 @@ import {
 import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { isJobSitemapShardFilename, isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
+import { classifyCanonicalMismatch } from '../scripts/lib/canonicalExemptions.mjs';
+import { readAttr, scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
 import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import {
   normalizeRelatedSearchClusterPath,
@@ -379,6 +381,7 @@ const CACHE_KEY_INPUTS = [
   'data/indexed-cluster-urls.json',
   'scripts/lib/related-search-cluster-path.mjs',
   'build-plugins/relatedSearchClustersPlugin.ts',
+  'build-plugins/shared/jobDetailPath.ts',
   'build-plugins/relatedSearchClustersData.ts',
   'build-plugins/orphanQueryData.ts',
   'scripts/lib/query-tokenizer.mjs',
@@ -508,6 +511,10 @@ const CACHE_VERSION = 'v13';
 // comment naming the other as a sibling to keep in lockstep by hand.
 const SITEMAP_SHARD_PREFIX = 'sitemap-search-clusters';
 const CLUSTER_SITEMAP_FILE_RE = /^sitemap-search-clusters(?:-\d+)?\.xml$/;
+
+export function isClusterSitemapFilename(filename: string): boolean {
+  return CLUSTER_SITEMAP_FILE_RE.test(filename);
+}
 
 // The alias plugin runs after this plugin's closeBundle hook. Publish the
 // completed mirror set through the module boundary so the final dist-truth
@@ -1826,6 +1833,7 @@ interface PageInputs {
   related: ReadonlyArray<{ keyword: string; url: string }>;
   distDir: string;
   dateStamp: string;
+  activeJobSitemapLocs?: ReadonlySet<string> | null;
 }
 
 interface PageOutput {
@@ -2678,9 +2686,17 @@ function reapplyRetiredManifestFiles(
  * canton, slug not in TI shard → "Annuncio non trovato"). Per-job canton
  * resolution mirrors the emit side.
  */
-function jobLocalizedUrl(job: RawJob, locale: Locale): string {
-  const slug = job.slugByLocale?.[locale] || job.slug || '';
-  return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
+function jobLocalizedUrl(
+  job: RawJob,
+  locale: Locale,
+  activeJobSitemapLocs: ReadonlySet<string> | null = null,
+): string | null {
+  const localizedSlug = String(job.slugByLocale?.[locale] ?? '').trim();
+  const slug = localizedSlug || String(job.slug ?? '').trim();
+  if (!slug) return null;
+  const href = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
+  if (activeJobSitemapLocs !== null && !activeJobSitemapLocs.has(href)) return null;
+  return href;
 }
 
 // Locale-specific preposition used to join keyword + city ("Globus a
@@ -3245,7 +3261,7 @@ function memoCommuterCtx(opts: JobBoardCommuterContextOpts): string {
  * logic, always extend through this entry point.
  */
 export function renderClusterPage(inputs: PageInputs): PageOutput {
-  const { ctx, enriched, hreflang, related, distDir } = inputs;
+  const { ctx, enriched, hreflang, related, distDir, activeJobSitemapLocs = null } = inputs;
   const { candidate } = ctx;
   const locale = candidate.locale;
   const copy = COPY[locale];
@@ -3446,15 +3462,19 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // are emitted elsewhere by `buildSeoPageHtml` and remain absolute.
   // Trimming `https://frontaliereticino.ch` (28 B) × ~30 jobs/page × 180k
   // pages ≈ ~150 MB on the dist artifact.
-  const jobLinksHtml = clusterMatchingJobCount(ctx) > 0
-    ? `<ul class="cluster-seo-jobs">${ctx.matchingJobs.map((job) => {
+  const jobLinks = clusterMatchingJobCount(ctx) > 0
+    ? ctx.matchingJobs.flatMap((job) => {
+        const href = jobLocalizedUrl(job, locale, activeJobSitemapLocs);
+        if (!href) return [];
         const jobTitle = sanitizeJobTitleForDisplay(String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
         const company = String(job.company || '').trim();
         const loc = String(job.location || '').trim();
         const meta = [company, loc].filter(Boolean).join(' · ');
-        const href = jobLocalizedUrl(job, locale).replace(BASE_URL, '');
-        return `<li><a href="${esc(href)}">${esc(jobTitle)}${meta ? ` — ${esc(meta)}` : ''}</a></li>`;
-      }).join('')}</ul>`
+        return [`<li><a href="${esc(href.replace(BASE_URL, ''))}">${esc(jobTitle)}${meta ? ` — ${esc(meta)}` : ''}</a></li>`];
+      })
+    : [];
+  const jobLinksHtml = jobLinks.length > 0
+    ? `<ul class="cluster-seo-jobs">${jobLinks.join('')}</ul>`
     : '';
 
   // The `.related-search-cluster` class in `public/assets/seo-static.css`
@@ -4015,34 +4035,30 @@ function listEmittedHubPagePaths(distDir: string, locale: Locale): string[] {
  * Both classes are detected by the same per-loc HTML read, so we fold
  * them into a single pass. Cheap: O(locs) reads of small HTML files.
  */
-// Quote-flexible: PR #478 baked `removeAttributeQuotes` upstream, so single-token
-// attribute values lose their quotes in dist/ (`name=robots`, `content=noindex`). A
-// quote-mandatory regex fails to detect minified noindex metas → false negative.
-// Attribute-order-independent (two lookaheads, #3060): content-before-name on the
-// robots meta must not slip past and leak a noindex page into a cluster.
-const NOINDEX_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
-// Redirect/bridge pages emitted by legacyRedirectsPlugin use a meta refresh.
-// It is deliberately attribute-order independent and quote-flexible, matching
-// the same minified HTML shapes accepted by NOINDEX_RE.
-const META_REFRESH_RE = /<meta\b(?=[^>]*\bhttp-equiv\s*=\s*(?:["']refresh["']|refresh(?=\s|\/?\s*>)))(?=[^>]*\bcontent\s*=)[^>]*>/i;
-const LINK_TAG_RE = /<link\b[^>]*>/gi;
+/** Read the final document's robots directive without matching attribute-like text in content. */
+function hasNoindex(html: string): boolean {
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
+}
 
-function readHtmlAttribute(tag: string, attributeName: string): string | null {
-  const wanted = attributeName.toLowerCase();
-  for (const match of tag.matchAll(/([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/g)) {
-    if (match[1].toLowerCase() !== wanted) continue;
-    return (match[2] ?? match[3] ?? match[4] ?? '').trim();
-  }
-  return null;
+/** Redirect/bridge pages emitted by legacyRedirectsPlugin use a meta refresh. */
+function hasMetaRefresh(html: string): boolean {
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) =>
+    readAttr(raw, 'http-equiv').trim().toLowerCase() === 'refresh' &&
+    readAttr(raw, 'content').trim().length > 0,
+  );
 }
 
 /** Extract canonical only from a validated `<link>` element. */
 function extractCanonicalHref(html: string): string | null {
-  for (const match of html.matchAll(LINK_TAG_RE)) {
-    const tag = match[0];
-    const rel = readHtmlAttribute(tag, 'rel');
-    if (!rel || !rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
-    const href = readHtmlAttribute(tag, 'href');
+  for (const { raw } of scanMarkupStartTags(html, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readAttr(raw, 'href').trim();
     if (href) return href;
   }
   return null;
@@ -4095,7 +4111,11 @@ function normalizeLocForCanonicalCmp(u: string): string {
 export async function dropOverwrittenLocs(
   distDir: string,
   locs: ReadonlyArray<string>,
-  options: { inspectForeignPresent?: boolean } = {},
+  options: {
+    inspectForeignPresent?: boolean;
+    keepMissing?: boolean;
+    preserveCanonicalExemptions?: boolean;
+  } = {},
 ): Promise<string[]> {
   const KEEP = 1;
   const DROP_NOINDEX = 2;
@@ -4132,17 +4152,19 @@ export async function dropOverwrittenLocs(
       let html: string | null = null;
       try {
         html = await fs.promises.readFile(indexPath, 'utf-8');
-      } catch {
+      } catch (error: any) {
+        if (error?.code !== 'ENOENT') throw error;
         try {
           html = await fs.promises.readFile(flatPath, 'utf-8');
-        } catch {
+        } catch (flatError: any) {
+          if (flatError?.code !== 'ENOENT') throw flatError;
           // A foreign-locale URL is normally absent from this shard by
           // design. Job sitemaps opt into checking a foreign file when it is
           // present (typically a bridge written by a direct-fs emitter), but
           // still retain a genuinely absent URL for the locale shard that
           // owns its HTML. This keeps the shared IT sitemap complete without
           // allowing an on-disk noindex/canonical bridge to leak through.
-          if (foreignLocale) {
+          if (foreignLocale || options.keepMissing) {
             flags[i] = KEEP;
             continue;
           }
@@ -4154,11 +4176,11 @@ export async function dropOverwrittenLocs(
         flags[i] = KEEP;
         continue;
       }
-      if (NOINDEX_RE.test(html)) {
+      if (hasNoindex(html)) {
         flags[i] = DROP_NOINDEX;
         continue;
       }
-      if (META_REFRESH_RE.test(html)) {
+      if (hasMetaRefresh(html)) {
         flags[i] = DROP_REDIRECT;
         continue;
       }
@@ -4168,6 +4190,14 @@ export async function dropOverwrittenLocs(
         continue;
       }
       if (normalizeLocForCanonicalCmp(canonHref) !== normalizeLocForCanonicalCmp(loc)) {
+        if (options.preserveCanonicalExemptions && classifyCanonicalMismatch({
+          url: loc,
+          canonical: canonHref,
+          html,
+        })) {
+          flags[i] = KEEP;
+          continue;
+        }
         flags[i] = DROP_NONCANON;
         continue;
       }
@@ -4362,7 +4392,8 @@ export async function reconcileSitemapSearchClustersWithDist(distDir: string): P
   const advertised = files.flatMap(({ xml }) => extractSitemapLocs(xml));
   if (advertised.length === 0) return 0;
   const kept = new Set(
-    (await dropOverwrittenLocs(distDir, advertised)).map(normalizeLocForCanonicalCmp),
+    (await dropOverwrittenLocs(distDir, advertised, { preserveCanonicalExemptions: true }))
+      .map(normalizeLocForCanonicalCmp),
   );
   const droppedLocs = advertised.filter((loc) => !kept.has(normalizeLocForCanonicalCmp(loc)));
   if (droppedLocs.length === 0) return 0;
@@ -4465,7 +4496,10 @@ export async function reconcileSitemapJobsWithDist(
   // `inspectForeignPresent` checks those URLs when a bridge file is present,
   // while preserving a missing foreign file as cross-shard output.
   const kept = new Set(
-    (await dropOverwrittenLocs(distDir, locs, { inspectForeignPresent: true }))
+    (await dropOverwrittenLocs(distDir, locs, {
+      inspectForeignPresent: true,
+      preserveCanonicalExemptions: true,
+    }))
       .map(normalizeLocForCanonicalCmp),
   );
   const unserved = locs.filter((l) => !kept.has(normalizeLocForCanonicalCmp(l)));
@@ -4521,7 +4555,9 @@ async function writeSitemap(
   await jobsSeoPagesFlushed;
   profileRecord('sw:wait-jobs-flush', __tFlushWait);
   const __tDrop = profileStart();
-  const locs = await dropOverwrittenLocs(distDir, allLocs);
+  const locs = await dropOverwrittenLocs(distDir, allLocs, {
+    preserveCanonicalExemptions: true,
+  });
   profileRecord('sw:drop-overwritten', __tDrop);
   if (locs.length === 0) return [];
 
@@ -4793,6 +4829,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         printRelatedSearchProfile();
         return;
       }
+      // jobsSeo owns the only authoritative active-detail registry. Do not
+      // render cluster anchors from the raw jobs corpus before that registry
+      // is available: stale jobs otherwise become links to noindex bridges,
+      // canonical overrides, or paths that the active emitter did not win.
+      await jobsSeoPagesFlushed;
+      const activeJobSitemapLocs = getActiveJobSitemapLocs() ?? new Set<string>();
       const __tLoadEnriched = profileStart();
       const enriched = loadEnriched(rootDir);
       profileRecord('load-enriched', __tLoadEnriched);
@@ -5302,6 +5344,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           related,
           distDir,
           dateStamp,
+          activeJobSitemapLocs,
         });
 
         // Tiered emission decision per cluster context. The canonical HTML

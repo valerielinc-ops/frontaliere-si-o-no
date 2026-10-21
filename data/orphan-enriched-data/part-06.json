@@ -4710,9 +4710,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-lichtensteig",
-        "en": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-lichtensteig",
-        "de": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-lichtensteig",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-lichtensteig",
+        "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-lichtensteig",
+        "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-lichtensteig",
         "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-lichtensteig"
       },
       "localePaths": {
@@ -4727,6 +4727,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -9408,7 +9409,7 @@
         {
           "query": "autista moritz",
           "clicks": 0,
-          "impressions": 45
+          "impressions": 48
         },
         {
           "query": "offerte di lavoro per autisti in svizzera",
@@ -9417,6 +9418,11 @@
         },
         {
           "query": "short list avvocati",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "ditte di trasporti in svizzera che cercano autisti",
           "clicks": 0,
           "impressions": 7
         },
@@ -9466,11 +9472,6 @@
           "impressions": 4
         },
         {
-          "query": "ditte di trasporti in svizzera che cercano autisti",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
           "query": "si",
           "clicks": 0,
           "impressions": 4
@@ -9506,7 +9507,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 243,
+      "totalImpressions": 251,
       "totalClicks": 15,
       "topQuery": "autista moritz",
       "title": "Autisti",
@@ -25550,10 +25551,10 @@
         "fr": "director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
-        "en": "/en/find-jobs-zurich/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
-        "de": "/de/jobs-in-zurich/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
-        "fr": "/fr/trouver-emploi-zurich/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel"
+        "it": "/cerca-lavoro-basilea/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
+        "en": "/en/find-jobs-basel/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
+        "de": "/de/jobs-in-basel/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
+        "fr": "/fr/trouver-emploi-bale/director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -26733,12 +26734,12 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 267
+          "impressions": 270
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 201
+          "impressions": 204
         },
         {
           "query": "politica sanitaria canton ticino anziani",
@@ -26831,7 +26832,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 553,
+      "totalImpressions": 560,
       "totalClicks": 7,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
@@ -41040,7 +41041,7 @@
         {
           "query": "offerte lavoro logistica ticino",
           "clicks": 4,
-          "impressions": 44
+          "impressions": 48
         },
         {
           "query": "frontaliere ticino offerte di lavoro",
@@ -41049,13 +41050,13 @@
         },
         {
           "query": "offerte di lavoro impiegato in logistica ticino",
-          "clicks": 3,
-          "impressions": 24
+          "clicks": 4,
+          "impressions": 28
         },
         {
           "query": "impiegato in logistica offerte di lavoro ticino",
           "clicks": 0,
-          "impressions": 23
+          "impressions": 24
         },
         {
           "query": "logistica ticino lavoro",
@@ -41065,7 +41066,7 @@
         {
           "query": "site:frontaliereticino.ch",
           "clicks": 0,
-          "impressions": 16
+          "impressions": 17
         },
         {
           "query": "offerte lavoro frontaliere svizzera",
@@ -41100,7 +41101,7 @@
         {
           "query": "lavoro logistica ticino",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 11
         },
         {
           "query": "lavoro ticino logistica",
@@ -41123,6 +41124,11 @@
           "impressions": 5
         },
         {
+          "query": "arl lugano lavora con noi",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "logistica svizzera",
           "clicks": 0,
           "impressions": 5
@@ -41131,15 +41137,10 @@
           "query": "sicpa",
           "clicks": 0,
           "impressions": 5
-        },
-        {
-          "query": "lavorare in svizzera frontaliere",
-          "clicks": 0,
-          "impressions": 3
         }
       ],
-      "totalImpressions": 400,
-      "totalClicks": 14,
+      "totalImpressions": 418,
+      "totalClicks": 15,
       "topQuery": "offerte lavoro logistica ticino",
       "title": "Logistica",
       "titleByLocale": {
@@ -79827,10 +79828,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-schwyz"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/verkaufer-in-kassen-services-coop-genossenschaft-schwyz",
-        "en": "/en/find-jobs-lucerne/verkaufer-in-kassen-services-coop-genossenschaft-schwyz",
+        "it": "/cerca-lavoro-svitto/verkaufer-in-kassen-services-coop-genossenschaft-schwyz",
+        "en": "/en/find-jobs-schwyz/verkaufer-in-kassen-services-coop-genossenschaft-schwyz",
         "de": "/de/jobs-im-bern/verkaufer-in-kassen-services-coop-genossenschaft-schwyz",
-        "fr": "/fr/trouver-emploi-lucerne/verkaufer-in-kassen-services-coop-genossenschaft-schwyz"
+        "fr": "/fr/trouver-emploi-schwytz/verkaufer-in-kassen-services-coop-genossenschaft-schwyz"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

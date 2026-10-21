@@ -31,6 +31,9 @@ import {
   isTraceRetryDue,
   scheduleTraceRetry,
   statusCounts,
+  startLedgerPhase,
+  finishLedgerPhase,
+  resolveCandidateKey,
 } from './lib/prospector/candidate-store.mjs';
 import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/platform-registry.mjs';
 import { registrableDomain } from './lib/prospector/registrable.mjs';
@@ -51,13 +54,14 @@ const limit = parseTraceLimit(arg('limit', undefined), 40);
 const onlyKey = arg('key', '');
 const onlySource = arg('source', '');
 const dryRun = flag('dry-run');
+startLedgerPhase('trace', { dryRun });
 
 const store = loadCandidates();
 const registry = loadRegistry();
 
 const queue = onlyKey
   // Manual --key intentionally bypasses automatic retry cooldown/evidence suppression.
-  ? [store.candidates[onlyKey]].filter(Boolean)
+  ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
   : prioritizeTraceCandidates(
     // Prefer direct careers URLs, known employer domains and recent SECO
     // observations; reserve a weighted share for weaker fallback candidates.
@@ -141,3 +145,8 @@ console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 
 if (dryRun) console.log('\n--dry-run: niente scritto.');
 else { saveCandidates(store); saveRegistry(registry); console.log('\nstato salvato.'); }
+finishLedgerPhase(dryRun ? 'dry_run' : 'complete', {
+  inputCount: queue.length,
+  successCount: traced,
+  retryCount: deferred + dead,
+});

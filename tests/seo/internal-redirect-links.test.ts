@@ -1,22 +1,24 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
+import { renderHubChrome } from '../../build-plugins/shared/hubChrome';
+import { buildRootHubPath } from '../../build-plugins/borderWaitData';
+import { BORDER_WAIT_LEGACY_REDIRECTS } from '../../build-plugins/shared/borderWaitLegacyRedirects';
 
 const root = path.resolve(__dirname, '../..');
+const faqHubCategorySources = readdirSync(path.join(root, 'data/faq-hub'))
+  .filter((name) => /^category-.+\.ts$/.test(name))
+  .map((name) => path.posix.join('data/faq-hub', name));
 const linkSources = [
   'index.html',
   'build-plugins/editorialContent.ts',
   'build-plugins/faqHubPlugin.ts',
   'build-plugins/staticPagesPlugin.ts',
-  'data/faq-hub/category-diritti.ts',
-  'data/faq-hub/category-fisco.ts',
-  'data/faq-hub/category-lamal.ts',
-  'data/faq-hub/category-lavoro.ts',
-  'data/faq-hub/category-stipendi.ts',
-  'data/faq-hub/category-vita-quotidiana.ts',
+  ...faqHubCategorySources,
 ];
 
 const redirectPaths = new Set([
+  '/cerca-lavoro-ticino/aziende/',
   '/calcola-stipendio/confronta-permesso-g-vs-b/',
   '/guida-frontaliere/comuni-di-frontiera/',
   '/vivere-in-ticino/vivere-in-svizzera/',
@@ -40,6 +42,7 @@ function literalHrefs(source: string): string[] {
   const patterns = [
     /\bhref\s*=\s*(?:"([^"]+)"|'([^']+)'|`([^`]+)`)/g,
     /\bhref\s*:\s*['"]([^'"]+)['"]/g,
+    /\[[^\]]+\]\(([^)]+)\)/g,
   ];
   return patterns.flatMap((pattern) =>
     [...source.matchAll(pattern)].map((match) => match[1] ?? match[2] ?? match[3]),
@@ -60,6 +63,34 @@ describe('internal links to legacy redirects', () => {
         if (target.hostname.replace(/^www\./, '') !== 'frontaliereticino.ch') continue;
         const canonicalPath = target.pathname.endsWith('/') ? target.pathname : `${target.pathname}/`;
         expect(redirectPaths.has(canonicalPath), `${relativePath} links to ${canonicalPath}`).toBe(false);
+      }
+    }
+  });
+
+  it('renders no redirect targets in the shared hub navigation for any locale', () => {
+    const hubKeys = ['calculator', 'confronti', 'fisco', 'guida', 'vita', 'stats', 'job-board'] as const;
+    const locales = ['it', 'en', 'de', 'fr'] as const;
+    const redirects = new Set([
+      ...redirectPaths,
+      ...BORDER_WAIT_LEGACY_REDIRECTS.keys(),
+    ]);
+
+    for (const locale of locales) {
+      for (const hubKey of hubKeys) {
+        const html = renderHubChrome({ hubKey, activeSubTab: '', locale, innerHtml: '' });
+        const hrefs = [...html.matchAll(/\bhref="([^"]+)"/g)].map((match) => match[1]);
+
+        if (hubKey === 'guida') {
+          expect(hrefs, `${locale}/guida links to the canonical border-wait hub`).toContain(buildRootHubPath(locale));
+        }
+
+        for (const href of hrefs) {
+          const target = new URL(href, 'https://frontaliereticino.ch');
+          expect(
+            redirects.has(target.pathname),
+            `${locale}/${hubKey} links to legacy redirect path ${target.pathname}`,
+          ).toBe(false);
+        }
       }
     }
   });

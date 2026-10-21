@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 
 import {
+  CRAWLER_SCHEMA_VERSION,
   classifyDocument,
   collectDiscoveredInventory,
   collectSitemapInventory,
@@ -40,6 +41,25 @@ import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/sha
 const BASE = 'https://frontaliereticino.ch';
 
 describe('Bing-compatible full-tree crawler', () => {
+  it('publishes the versioned template table used by frontier referrer indexes', () => {
+    const frontier = collectDiscoveredInventory({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/eventi/`] },
+      reports: [{
+        discoveredOutOfSitemap: [`${BASE}/en/events/aargau/`],
+        discoveredReferrers: [[[0, templateIndexFor(`${BASE}/eventi/`)]]],
+      }],
+    });
+
+    expect(CRAWLER_SCHEMA_VERSION).toBe(3);
+    expect(frontier.schemaVersion).toBe(CRAWLER_SCHEMA_VERSION);
+    expect(frontier.templateTable.map((family) => family.id)).toEqual(expect.arrayContaining([
+      'event-pages',
+      'pharmacy-pages',
+      'calculator-legacy-alias-pages',
+    ]));
+    expect(frontier.referrerRefs).toEqual([[[0, templateIndexFor(`${BASE}/eventi/`)]]]);
+  });
+
   it('parses sitemap indexes and normalizes only page URLs to slash form', () => {
     const index = parseSitemapDocument('<sitemapindex><sitemap><loc>https://frontaliereticino.ch/sitemap-pages.xml</loc></sitemap></sitemapindex>', BASE);
     expect(index.kind).toBe('sitemapindex');
@@ -765,6 +785,51 @@ describe('Bing-compatible full-tree crawler', () => {
       html: `<title>Offerta</title><link rel="canonical" href="${canonicalJob}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
     });
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
+  });
+
+  it('keeps T5/T6 job-board graph links on emitted self-canonical details', () => {
+    const jobsSeoSource = readFileSync(
+      join(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    const relatedClustersSource = readFileSync(
+      join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+    expect(jobsSeoSource).toContain('const activeCanonicalJobHref = (');
+    expect(jobsSeoSource).toContain('return activeJobSitemapLocs.has(href) ? href : null;');
+    expect(jobsSeoSource).toContain('activeCanonicalJobHref(relatedJob, locale) !== null');
+    const registryPrepassStart = jobsSeoSource.indexOf('const activeJobSitemapLocs = new Set<string>();');
+    const registryPrepassEnd = jobsSeoSource.indexOf('setActiveJobSitemapLocs(activeJobSitemapLocs);', registryPrepassStart);
+    expect(registryPrepassStart).toBeGreaterThanOrEqual(0);
+    expect(registryPrepassEnd).toBeGreaterThan(registryPrepassStart);
+    expect(jobsSeoSource.slice(registryPrepassStart, registryPrepassEnd)).toMatch(
+      /if \(!isSitemapEligibleJob\(job\)\) continue;\s+if \(!shouldEmitLocale\(locale\)\) continue;\s+const localeUrl =/,
+    );
+    expect(relatedClustersSource).toContain('await jobsSeoPagesFlushed;');
+    expect(relatedClustersSource).toContain('jobLocalizedUrl(job, locale, activeJobSitemapLocs)');
+    expect(relatedClustersSource).toContain('if (activeJobSitemapLocs !== null && !activeJobSitemapLocs.has(href)) return null;');
+
+    const canonicalJob = `${BASE}/cerca-lavoro-zurigo/offerta-zurigo/`;
+    const noindexAlias = `${BASE}/cerca-lavoro-ticino/offerta-zurigo/`;
+    const links = extractInternalLinks(
+      `<a href="${canonicalJob}">Offerta canonica</a>`,
+      `${BASE}/cerca-lavoro-ticino/cluster/`,
+      BASE,
+    );
+    expect(links).toEqual([canonicalJob]);
+    expect(links).not.toContain(noindexAlias);
+
+    const result = classifyDocument({
+      url: canonicalJob,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Offerta</title><link rel="canonical" href="${canonicalJob}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
+    });
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX);
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_HTTP_ERROR);
   });
 
   it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {

@@ -15,7 +15,7 @@
  * `rejected` **con la causa scritta nel record**, applicato via `setStatus`
  * (forward-only, con voce a registro) e mai a mano sul JSON.
  */
-import { setStatus } from './candidate-store.mjs';
+import { resolveCandidateKey, setStatus } from './candidate-store.mjs';
 
 /**
  * Candidati che NON si respingono da qui: hanno gia' un crawler in produzione
@@ -47,7 +47,7 @@ export const SHIPPED_STATUSES = new Set(['production', 'promoting']);
 export function resolveCandidateRef(store, ref) {
   const wanted = String(ref || '').trim();
   if (!wanted) return { candidate: null, why: 'ref vuoto' };
-  const direct = store.candidates?.[wanted] || null;
+  const direct = store.candidates?.[resolveCandidateKey(store, wanted)] || null;
   const byCrawler = Object.values(store.candidates || {}).filter((c) => c.crawlerKey === wanted && c !== direct);
   if (direct && byCrawler.length) {
     const others = byCrawler.map((c) => c.key).join(', ');

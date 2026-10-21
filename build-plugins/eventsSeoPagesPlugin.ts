@@ -228,9 +228,31 @@ function hasLicensedSourceEventImage(event: SiteEvent): boolean {
   );
 }
 
+/**
+ * Keep outbound licence links on their canonical URL. Creative Commons
+ * licence pages without the trailing slash redirect, which is avoidable in
+ * both visible image credits and Event JSON-LD.
+ */
+function canonicalEventExternalUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !/^https:\/\//i.test(value.trim())) return undefined;
+  const raw = value.trim();
+  try {
+    const url = new URL(raw);
+    const isCreativeCommons = /^(?:www\.)?creativecommons\.org$/i.test(url.hostname);
+    if (!isCreativeCommons) return raw;
+    if (!url.pathname.endsWith('/')) url.pathname += '/';
+    return url.href;
+  } catch {
+    return raw;
+  }
+}
+
 function eventImageLicenseUrl(event: SiteEvent): string | undefined {
-  if (typeof event.imageLicenseUrl === 'string' && /^https:\/\//i.test(event.imageLicenseUrl)) return event.imageLicenseUrl;
-  return event.sourceKey === 'openagenda' ? EVENT_IMAGE_LICENSES.openagenda.termsUrl : undefined;
+  const sourceLicense = canonicalEventExternalUrl(event.imageLicenseUrl);
+  if (sourceLicense) return sourceLicense;
+  return event.sourceKey === 'openagenda'
+    ? canonicalEventExternalUrl(EVENT_IMAGE_LICENSES.openagenda.termsUrl)
+    : undefined;
 }
 
 function eventImageMimeType(imageUrl: string): string {
@@ -289,11 +311,15 @@ function hasPublishedEventImage(event: SiteEvent): boolean {
 
 function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): string {
   if (!isLicensedEventLibraryPhoto(event)) return '';
+  const licenseUrl = eventImageLicenseUrl(event);
   const author = event.imageAuthor?.name || event.imageCredit || '';
   const authorLink = event.imageSourcePageUrl
     ? `<a href="${esc(event.imageSourcePageUrl)}" rel="noopener" target="_blank">${esc(author)}</a>`
     : esc(author);
-  const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
+  const licenseLabel = esc(event.imageLicense!);
+  const licenseLink = licenseUrl
+    ? `<a href="${esc(licenseUrl)}" rel="license noopener" target="_blank">${licenseLabel}</a>`
+    : licenseLabel;
   const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
     ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
     : '';
@@ -310,6 +336,24 @@ export function materializeEventImageLibrary(events: SiteEvent[], registry = loa
 /** Attribution record of an event's source (public registry, then private). */
 function eventSourceRecord(sourceKey: string): { key: string; label: string; homepage: string } {
   return EVENT_SOURCES[sourceKey] || (PRIVATE_EVENT_SOURCES as Record<string, { key: string; label: string; homepage: string }>)[sourceKey] || SOURCE;
+}
+
+/** Resolve the current official landing pages for the source links rendered
+ * in event attribution. The old Guidle root and Stadt Luzern Termine URL both
+ * redirect or return an invalid-address page; link directly to their live
+ * canonical destinations. */
+function canonicalEventSourceHomepage(homepage: string): string {
+  try {
+    const url = new URL(homepage);
+    const host = url.hostname.toLowerCase();
+    if (host === 'www.guidle.com' && url.pathname === '/') return 'https://www.guidle.com/de';
+    if (host === 'www.stadtluzern.ch' && url.pathname === '/aktuelles/termine') {
+      return 'https://www.stadtluzern.ch/aktuelles/terminliste';
+    }
+  } catch {
+    // Keep the declared source URL when it is not a parseable absolute URL.
+  }
+  return homepage;
 }
 
 /**
@@ -949,6 +993,7 @@ interface NationalCopy {
   faqA2: string;
   methodologyTitle: string;
   methodology: string;
+  otherLanguages: string;
   // Pill label on every per-canton hub linking back up to this index page.
   allCantonsLabel: string;
 }
@@ -976,6 +1021,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Come raccogliamo gli eventi',
     methodology:
       "Gli eventi sono raccolti automaticamente dalle agende pubbliche di ogni cantone e aggiornati ogni giorno. Ogni evento è attribuito a un cantone e, quando possibile, a un comune preciso. Verifica sempre data, orario e luogo sulla pagina originale dell'organizzatore prima di spostarti: orari e disponibilità possono cambiare.",
+    otherLanguages: 'Altre lingue:',
     allCantonsLabel: 'Tutta la Svizzera',
   },
   en: {
@@ -1000,6 +1046,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'How we collect events',
     methodology:
       "Events are collected automatically from each canton's public agendas and refreshed every day. Every event is attributed to a canton and, where possible, to a specific municipality. Always check date, time and venue on the organiser's original page before travelling: times and availability can change.",
+    otherLanguages: 'Other languages:',
     allCantonsLabel: 'All of Switzerland',
   },
   de: {
@@ -1024,6 +1071,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Wie wir Veranstaltungen sammeln',
     methodology:
       'Die Veranstaltungen werden automatisch aus den öffentlichen Agenden jedes Kantons gesammelt und täglich aktualisiert. Jeder Anlass wird einem Kanton und, wenn möglich, einer genauen Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters, bevor du losfährst: Zeiten und Verfügbarkeit können sich ändern.',
+    otherLanguages: 'Weitere Sprachen:',
     allCantonsLabel: 'Ganze Schweiz',
   },
   fr: {
@@ -1048,9 +1096,28 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Comment nous recueillons les événements',
     methodology:
       "Les événements sont recueillis automatiquement dans les agendas publics de chaque canton et actualisés chaque jour. Chaque événement est attribué à un canton et, si possible, à une commune précise. Vérifiez toujours la date, l'horaire et le lieu sur la page d'origine de l'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.",
+    otherLanguages: 'Autres langues :',
     allCantonsLabel: 'Toute la Suisse',
   },
 };
+
+const EVENT_LOCALE_LABEL: Record<Locale, string> = {
+  it: 'Italiano',
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+};
+
+function renderEventsIndexLocaleLinks(locale: Locale, copy: NationalCopy): string {
+  const links = LOCALES.filter((target) => target !== locale)
+    .map(
+      (target) =>
+        `<a class="rounded-full border border-edge bg-surface px-3 py-1 text-xs font-semibold text-link hover:border-accent-border" href="${nationalIndexPath(target)}" hreflang="${target}" lang="${target}">${EVENT_LOCALE_LABEL[target]}</a>`,
+    )
+    .join('');
+
+  return `<nav class="mb-4 flex flex-wrap items-center gap-2" aria-label="${esc(copy.otherLanguages)}"><span class="mr-1 text-xs font-semibold text-muted">${esc(copy.otherLanguages)}</span>${links}</nav>`;
+}
 
 /** Canonical path for the Swiss-wide index hub (`EVENTS_INDEX_PATH` + trailing slash). */
 function nationalIndexPath(locale: Locale): string {
@@ -1418,9 +1485,13 @@ function distinctEventSources(events: SiteEvent[]): Array<{ key: string; label: 
   const seen = new Map<string, { key: string; label: string; homepage: string }>();
   for (const e of events) {
     const src = eventSourceRecord(e.sourceKey);
-    if (!seen.has(src.key)) seen.set(src.key, { key: src.key, label: src.label, homepage: src.homepage });
+    if (!seen.has(src.key)) {
+      seen.set(src.key, { key: src.key, label: src.label, homepage: canonicalEventSourceHomepage(src.homepage) });
+    }
   }
-  if (seen.size === 0) seen.set(SOURCE.key, { key: SOURCE.key, label: SOURCE.label, homepage: SOURCE.homepage });
+  if (seen.size === 0) {
+    seen.set(SOURCE.key, { key: SOURCE.key, label: SOURCE.label, homepage: canonicalEventSourceHomepage(SOURCE.homepage) });
+  }
   return [...seen.values()];
 }
 
@@ -2661,6 +2732,8 @@ export function renderEventsIndexPage(params: {
       <span>${esc(copy.breadcrumbLabel)}</span>
     </nav>
 
+    ${renderEventsIndexLocaleLinks(locale, copy)}
+
     <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
       <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">🇨🇭</div>
       <h1 class="relative max-w-4xl font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.h1)}</h1>
@@ -3491,14 +3564,25 @@ interface EventDetailTitleSuffixCandidate {
   brandless?: string;
 }
 
+const EVENT_TITLE_LANGUAGE_QUALIFIER = /(\s+[—–-]\s+(?:en anglais|in english|auf englisch|en allemand|in german|auf deutsch|en français|in french|auf französisch|in italiano|in italian|auf italienisch))$/iu;
+
+function splitEventTitleLanguageQualifier(rawTitle: string): { title: string; qualifier: string } {
+  const title = String(rawTitle || '');
+  const match = EVENT_TITLE_LANGUAGE_QUALIFIER.exec(title);
+  if (!match || match.index === undefined) return { title, qualifier: '' };
+  return { title: title.slice(0, match.index).trimEnd(), qualifier: match[1] };
+}
+
 function eventDetailMetaTitle(
   rawTitle: string,
   suffixes: readonly string[],
   dateToken = '',
   preferBrandSuffix = false,
 ): string {
+  const { title: completeTitle, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const qualifiedSuffixes = suffixes.map((suffix) => `${qualifier}${suffix}`);
   const suffixCandidates: EventDetailTitleSuffixCandidate[] = dateToken
-    ? suffixes.flatMap((suffix) => {
+    ? qualifiedSuffixes.flatMap((suffix) => {
       const candidates: Array<{ suffix: string; brandless?: string }> = [
         { suffix: `${suffix} · ${dateToken}` },
       ];
@@ -3517,11 +3601,11 @@ function eventDetailMetaTitle(
       if (brandless !== suffix) candidates.push({ suffix: brandless });
       return candidates;
     })
-    : suffixes.map((suffix) => ({ suffix }));
+    : qualifiedSuffixes.map((suffix) => ({ suffix }));
   // Keep the most descriptive suffix unless it leaves only the minimum
   // title fragment. In that near-zero case, prefer a later candidate that fits the
   // complete event title; the cascade reaches a place-only fallback first.
-  const rawTitleBudget = esc(rawTitle).length;
+  const rawTitleBudget = esc(completeTitle).length;
   const firstMeaningful = suffixCandidates.find(
     ({ suffix }) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= MIN_DETAIL_TITLE_BUDGET,
   );
@@ -3545,9 +3629,9 @@ function eventDetailMetaTitle(
     }
   }
   const budget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length);
-  let title = rawTitle;
+  let title = completeTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
-    title = truncateHeadline(rawTitle, max);
+    title = truncateHeadline(completeTitle, max);
   }
   const composed = `${title}${suffix}`;
   if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
@@ -3575,16 +3659,17 @@ function eventDateToken(startDate: string, endDate: string | undefined, locale: 
   }) || normalizedStart;
 }
 
-const EVENT_H1_MAX_CHARS = 100;
+const EVENT_H1_MAX_CHARS = 70;
 
 /** The visible heading carries the two facts that distinguish same-titled
- * events in the crawl: scheduled date and municipality. Keep the source title
- * intact unless the combined heading would become an unusable wall of text. */
+ * events in the crawl: scheduled date and municipality. Keep both within the
+ * audit's 70-character H1 budget, shortening the source title when needed. */
 function eventDetailHeading(rawTitle: string, dateToken: string, comune: string): string {
   const suffix = ` — ${comune}${dateToken ? ` · ${dateToken}` : ''}`;
-  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length);
-  const visibleTitle = rawTitle.length > titleBudget ? truncateHeadline(rawTitle, titleBudget) : rawTitle;
-  return `${visibleTitle}${suffix}`;
+  const { title, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length - qualifier.length);
+  const visibleTitle = title.length > titleBudget ? truncateHeadline(title, titleBudget) : title;
+  return `${visibleTitle}${qualifier}${suffix}`;
 }
 
 /** Per-locale event-detail `<title>` suffix templates (comune + region +

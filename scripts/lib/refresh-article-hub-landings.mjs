@@ -20,6 +20,9 @@ import {
   ensureArticleHubCards,
   renderArticleHubCards,
 } from '../../packages/articles/engine/articlesHubCards.ts';
+import { CANONICAL_OVERRIDE_FILES } from '../../packages/articles/engine/shared/canonicalOverrideFiles.mjs';
+import { loadArticleRouteRedirects, resolveArticleRoutePath } from '../../packages/articles/engine/shared/articleRouteOwnership.mjs';
+import { loadSwissArticleCanonicalOverrides } from '../../packages/articles/engine/shared/swissArticleCanonicalOverrides.ts';
 import {
   hasBlogImageLeak,
   rewriteBlogImageRefs,
@@ -117,6 +120,23 @@ export async function refreshArticleHubLandings(opts) {
     cfg.slugConst,
   );
   const normalizedSiteBase = String(siteBase).replace(/\/$/, '');
+  const articleRouteMaps = {
+    redirects: loadArticleRouteRedirects(
+      fs,
+      path.resolve(rootDir, 'data/article-redirects.json'),
+      path.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
+    ),
+    canonicalOverrides: {
+      ...loadSwissArticleCanonicalOverrides(
+        fs,
+        CANONICAL_OVERRIDE_FILES.frontaliere.map((candidate) => path.resolve(rootDir, candidate)),
+      ),
+      ...loadSwissArticleCanonicalOverrides(
+        fs,
+        CANONICAL_OVERRIDE_FILES.svizzera.map((candidate) => path.resolve(rootDir, candidate)),
+      ),
+    },
+  };
 
   for (const locale of locales) {
     const localeLanding = `${section}/${locale}`;
@@ -157,6 +177,7 @@ export async function refreshArticleHubLandings(opts) {
       sectionSlug,
       localePrefix,
       resolveSlug: (id) => urlSlugs[id]?.[locale],
+      resolveHref: (href) => resolveArticleRoutePath(href, articleRouteMaps),
       resolveMeta: (id) => ({
         title: titleById.get(id),
         desc: excerptById.get(id),

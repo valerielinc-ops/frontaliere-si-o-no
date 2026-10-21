@@ -593,6 +593,202 @@ describe('Prospector discovery source outcomes', () => {
     expect(loadCursor(cursorFile).sweptPages).toEqual([0]);
   });
 
+  it('continues the same Common Crawl collection from cached page count after a 504', async () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-page-count-504-'));
+    const cursorFile = path.join(dir, 'cursor.json');
+    const healthFile = path.join(dir, 'health.json');
+    fs.writeFileSync(cursorFile, JSON.stringify({
+      collection: 'CC-MAIN-test',
+      nextPage: 1,
+      totalPages: 4,
+      stride: 1,
+      sweptPages: [0],
+      pendingPages: [],
+      collectionHistory: [],
+    }));
+    const pageCalls: number[] = [];
+    const result = await sweepSwissCareerPages({
+      collection: 'CC-MAIN-test',
+      pages: 1,
+      persist: true,
+      cursorFile,
+      healthFile,
+      fetchImpl: async (input: string | URL) => {
+        const url = String(input);
+        if (url.includes('showNumPages=true')) return response(url, 504, 'gateway timeout');
+        pageCalls.push(Number(new URL(url).searchParams.get('page')));
+        return response(url, 200, '{"url":"https://example.ch/jobs/careers"}\n');
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(result).toMatchObject({
+      collection: 'CC-MAIN-test',
+      totalPages: 4,
+      pagesRead: [1],
+      failedPages: [],
+      outcome: 'partial',
+      errorCode: 'http_504',
+      coverageRate: 0.5,
+    });
+    expect(pageCalls).toEqual([1]);
+    expect(loadCursor(cursorFile)).toMatchObject({
+      collection: 'CC-MAIN-test',
+      totalPages: 4,
+      sweptPages: [0, 1],
+    });
+    expect(JSON.parse(fs.readFileSync(healthFile, 'utf8'))).toMatchObject([{
+      collection: 'CC-MAIN-test',
+      totalPages: 4,
+      pagesRead: 1,
+      outcome: 'partial',
+      errorCode: 'http_504',
+    }]);
+  });
+
+  it('recovers a legacy cursor page count from same-collection health history after a 504', async () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-legacy-page-count-504-'));
+    const cursorFile = path.join(dir, 'cursor.json');
+    const healthFile = path.join(dir, 'health.json');
+    const now = Date.now();
+    fs.writeFileSync(cursorFile, JSON.stringify({
+      collection: 'CC-MAIN-test',
+      nextPage: 0,
+      sweptPages: [],
+    }));
+    fs.writeFileSync(healthFile, JSON.stringify([
+      { at: new Date(now - 60_000).toISOString(), collection: 'CC-MAIN-test', totalPages: 1196, pagesRead: 20, employers: 139, outcome: 'partial' },
+      { at: new Date(now).toISOString(), collection: 'CC-MAIN-test', totalPages: 0, pagesRead: 0, employers: 0, outcome: 'unavailable', errorCode: 'http_504' },
+    ]));
+    const pageCalls: number[] = [];
+    const result = await sweepSwissCareerPages({
+      collection: 'CC-MAIN-test',
+      pages: 1,
+      persist: true,
+      cursorFile,
+      healthFile,
+      fetchImpl: async (input: string | URL) => {
+        const url = String(input);
+        if (url.includes('showNumPages=true')) return response(url, 504, 'gateway timeout');
+        pageCalls.push(Number(new URL(url).searchParams.get('page')));
+        return response(url, 200, '{"url":"https://example.ch/jobs/careers"}\n');
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+    const savedHealth = JSON.parse(fs.readFileSync(healthFile, 'utf8'));
+
+    expect(result).toMatchObject({
+      collection: 'CC-MAIN-test',
+      totalPages: 1196,
+      pagesRead: [0],
+      failedPages: [],
+      outcome: 'partial',
+      errorCode: 'http_504',
+    });
+    expect(pageCalls).toEqual([0]);
+    expect(loadCursor(cursorFile)).toMatchObject({
+      collection: 'CC-MAIN-test',
+      totalPages: 1196,
+      sweptPages: [0],
+    });
+    expect(savedHealth.at(-1)).toMatchObject({
+      collection: 'CC-MAIN-test',
+      totalPages: 1196,
+      pagesRead: 1,
+      outcome: 'partial',
+      errorCode: 'http_504',
+    });
+  });
+
+  it('preserves the existing Common Crawl cursor when a new collection page count fails', async () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-new-collection-count-'));
+    const cursorFile = path.join(dir, 'cursor.json');
+    const healthFile = path.join(dir, 'health.json');
+    const existingCursor = {
+      collection: 'CC-MAIN-old',
+      nextPage: 3,
+      totalPages: 8,
+      stride: 3,
+      sweptPages: [0, 3],
+      pendingPages: [2],
+      collectionHistory: [],
+    };
+    fs.writeFileSync(cursorFile, JSON.stringify(existingCursor));
+    fs.writeFileSync(healthFile, JSON.stringify([
+      { at: new Date(Date.now() - 60_000).toISOString(), collection: 'CC-MAIN-old', totalPages: 8, pagesRead: 2, employers: 3, outcome: 'partial' },
+    ]));
+    const pageCalls: number[] = [];
+    const result = await sweepSwissCareerPages({
+      collection: 'CC-MAIN-new',
+      pages: 1,
+      persist: true,
+      cursorFile,
+      healthFile,
+      fetchImpl: async (input: string | URL) => {
+        const url = String(input);
+        if (url.includes('showNumPages=true')) return response(url, 504, 'gateway timeout');
+        pageCalls.push(Number(new URL(url).searchParams.get('page')));
+        return response(url, 200, '{"url":"https://example.ch/jobs/careers"}\n');
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(result).toMatchObject({
+      collection: 'CC-MAIN-new',
+      totalPages: 0,
+      pagesRead: [],
+      outcome: 'unavailable',
+      errorCode: 'http_504',
+    });
+    expect(pageCalls).toEqual([]);
+    expect(loadCursor(cursorFile)).toEqual(existingCursor);
+  });
+
+  it('continues the saved collection when latest-collection metadata is unavailable', async () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-latest-504-'));
+    const cursorFile = path.join(dir, 'cursor.json');
+    const healthFile = path.join(dir, 'health.json');
+    fs.writeFileSync(cursorFile, JSON.stringify({
+      collection: 'CC-MAIN-saved',
+      nextPage: 1,
+      totalPages: 4,
+      stride: 1,
+      sweptPages: [0],
+      pendingPages: [],
+      collectionHistory: [],
+    }));
+    const pageCalls: number[] = [];
+    const result = await sweepSwissCareerPages({
+      pages: 1,
+      persist: true,
+      cursorFile,
+      healthFile,
+      fetchImpl: async (input: string | URL) => {
+        const url = String(input);
+        if (url.endsWith('/collinfo.json') || url.includes('showNumPages=true')) return response(url, 504, 'gateway timeout');
+        pageCalls.push(Number(new URL(url).searchParams.get('page')));
+        return response(url, 200, '{"url":"https://example.ch/jobs/careers"}\n');
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(result).toMatchObject({
+      collection: 'CC-MAIN-saved',
+      totalPages: 4,
+      pagesRead: [1],
+      outcome: 'partial',
+      errorCode: 'http_504',
+      coverageRate: 0.5,
+    });
+    expect(pageCalls).toEqual([1]);
+    expect(loadCursor(cursorFile).sweptPages).toEqual([0, 1]);
+    expect(JSON.parse(fs.readFileSync(healthFile, 'utf8'))).toMatchObject([{ outcome: 'partial', errorCode: 'http_504' }]);
+  });
+
   it('does not write Common Crawl cursor or health state when persistence is disabled', async () => {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-dry-run-'));
     const cursorFile = path.join(dir, 'cursor.json');

@@ -56,7 +56,11 @@ export async function readPublicApiRelayPayload(relayUrl, {
 } = {}) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    const body = await fetchHtml(relayUrl);
+    // A missing relay endpoint is a transport failure, not a transient
+    // catalogue publication. Keep the shared helper's 5xx/network retries,
+    // but do not turn one HTTP 404 into three relay reads; the loop below is
+    // reserved for incomplete 2xx bodies.
+    const body = await fetchHtml(relayUrl, { retryOn404: false });
     try {
       return JSON.parse(body);
     } catch (parseError) {

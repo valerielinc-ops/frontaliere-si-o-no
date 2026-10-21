@@ -92,7 +92,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
         "En tant qu'employé : non. L'ORP n'assiste que les personnes inscrites au chômage suisse (domicile en Suisse). Frontalier résidant en Italie en recherche : consultation libre de arbeit.swiss (SECO) et sites ORP cantonaux [source : site SECO ORP]. Participation aux événements/forums possible. En cas de perte d'emploi : règl. UE 883/2004 art. 65 : l'ORP suisse peut assister au placement pendant la NASpI italienne, prestation italienne [source : Eur-Lex règl. 883/2004]. Les CPI de Lombardie ont des guichets transfrontaliers (Côme, Varèse). EURES pour la mobilité UE.",
     },
     sources: [
-      'https://www.arbeit.swiss/',
+      'https://www.arbeit.swiss/it',
       'https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX%3A32004R0883',
     ],
   },
@@ -201,7 +201,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
         "L'italien est la langue principale (Constitution tessinoise art. 1) [source : ti.ch constitution]. Dans le commerce, la finance et l'accueil : allemand B2-C1 (banques, private banking), français apprécié. Anglais B2+ quasi partout dans les multinationales, pharma (Roche Mendrisio) et tech. Secteur public cantonal : italien langue maternelle, souvent allemand B1 pour interface fédérale. BTP et industrie : italien + bases d'allemand. Certificats CELI (Pérouse), TELC ou Goethe-Zertifikat souvent exigés. L'Office de la formation professionnelle propose des cours gratuits d'allemand A1-B2 aux frontaliers inscrits à l'ORP.",
     },
     sources: [
-      'https://www4.ti.ch/can/rl/',
+      'https://www4.ti.ch/can/sgcds/legislazione/legislazione',
     ],
   },
   {

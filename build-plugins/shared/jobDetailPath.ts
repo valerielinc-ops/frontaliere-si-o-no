@@ -39,7 +39,8 @@ export function buildCanonicalJobDetailPath(
     && LEGACY_TI_SECTION_SLUGS.has(normalizedLegacySection)
     ? normalizedLegacySection
     : resolveCantonSection(locale, canton);
-  const path = [locale === 'it' ? '' : locale, section, slug]
+  const normalizedSlug = String(slug ?? '').trim().replace(/^\/+|\/+$/g, '');
+  const path = [locale === 'it' ? '' : locale, section, normalizedSlug]
     .filter(Boolean)
     .join('/');
   return `/${path}/`;

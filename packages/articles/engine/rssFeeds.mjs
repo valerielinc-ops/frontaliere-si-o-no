@@ -36,7 +36,7 @@ import {
   SITE_RENDERED_ARTICLE_SECTIONS,
 } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
-import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes.ts';
+import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { articleSectionEntry } from './shared/articleSectionCore.mjs';
@@ -321,296 +321,20 @@ function parseBlogSlugs(fs, path, rootDir, slugFile, slugConst) {
   return new Map(Object.entries(parseArticleUrlSlugs(src, slugConst)));
 }
 
-const STATIC_LITERAL_QUOTES = new Set(['"', "'", '`']);
-
-const REGEX_AFTER_KEYWORDS = new Set([
-  'case', 'delete', 'do', 'else', 'in', 'instanceof', 'new', 'of', 'return', 'throw',
-  'typeof', 'void', 'yield', 'await',
-]);
-
-/**
- * A keyword used as a member property is a value, not a regex prefix:
- * `value.return / /.../` starts with division followed by a regex literal.
- */
-function canStartRegexAfterMember(word, afterMemberAccess) {
-  return !afterMemberAccess && REGEX_AFTER_KEYWORDS.has(word);
-}
-
-function skipLineComment(source, startIndex) {
-  let cursor = startIndex + 2;
-  while (cursor < source.length && source[cursor] !== '\n' && source[cursor] !== '\r') cursor += 1;
-  return cursor;
-}
-
-function skipRegularExpressionLiteral(source, startIndex, sourcePath) {
-  let inCharacterClass = false;
-  let cursor = startIndex + 1;
-  while (cursor < source.length) {
-    const char = source[cursor];
-    if (char === '\\') {
-      cursor += 2;
-      continue;
-    }
-    if (char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029') {
-      throw new Error(`[rss] Unterminated regular expression literal in ${sourcePath}`);
-    }
-    if (char === '[') {
-      inCharacterClass = true;
-      cursor += 1;
-      continue;
-    }
-    if (char === ']' && inCharacterClass) {
-      inCharacterClass = false;
-      cursor += 1;
-      continue;
-    }
-    if (char === '/' && !inCharacterClass) {
-      cursor += 1;
-      while (/[A-Za-z]/.test(source[cursor] || '')) cursor += 1;
-      return cursor;
-    }
-    cursor += 1;
-  }
-  throw new Error(`[rss] Unterminated regular expression literal in ${sourcePath}`);
-}
-
-function skipTemplateExpression(source, startIndex, sourcePath) {
-  let depth = 1;
-  let cursor = startIndex;
-  let canStartRegex = true;
-  let afterMemberAccess = false;
-
-  while (cursor < source.length) {
-    if (source.startsWith('//', cursor)) {
-      cursor = skipLineComment(source, cursor);
-      continue;
-    }
-    if (source.startsWith('/*', cursor)) {
-      const close = source.indexOf('*/', cursor + 2);
-      if (close === -1) throw new Error(`[rss] Unterminated comment in ${sourcePath}`);
-      cursor = close + 2;
-      continue;
-    }
-
-    const char = source[cursor];
-    if (char === "'" || char === '"' || char === '`') {
-      const literal = readStaticStringLiteral(source, cursor, sourcePath);
-      if (!literal) throw new Error(`[rss] Unterminated string literal in ${sourcePath}`);
-      cursor = literal.end;
-      canStartRegex = false;
-      afterMemberAccess = false;
-      continue;
-    }
-    if ((char === '+' && source[cursor + 1] === '+') || (char === '-' && source[cursor + 1] === '-')) {
-      // Consume update operators as one token. Preserving the current context
-      // keeps postfix updates after an operand from turning the following `/`
-      // into a regex start, while prefix updates remain valid before an operand.
-      cursor += 2;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '/' && canStartRegex) {
-      cursor = skipRegularExpressionLiteral(source, cursor, sourcePath);
-      canStartRegex = false;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '/') {
-      cursor += 1;
-      canStartRegex = true;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '{') {
-      depth += 1;
-      cursor += 1;
-      canStartRegex = true;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '}') {
-      depth -= 1;
-      cursor += 1;
-      if (depth === 0) return cursor;
-      canStartRegex = false;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (/\s/.test(char)) {
-      cursor += 1;
-      continue;
-    }
-    if (/[A-Za-z_$]/.test(char)) {
-      let end = cursor + 1;
-      while (end < source.length && /[A-Za-z0-9_$]/.test(source[end])) end += 1;
-      canStartRegex = canStartRegexAfterMember(source.slice(cursor, end), afterMemberAccess);
-      cursor = end;
-      afterMemberAccess = false;
-      continue;
-    }
-    if ('([{,;:=!?&|+\-*%^~<>'.includes(char)) {
-      canStartRegex = true;
-      afterMemberAccess = false;
-      cursor += 1;
-      continue;
-    }
-    if (source.startsWith('...', cursor)) {
-      // Spread introduces an operand; unlike member access, the following
-      // keyword may still permit a regex literal: [...typeof /x/].
-      canStartRegex = true;
-      afterMemberAccess = false;
-      cursor += 3;
-      continue;
-    }
-    if (char === '.') {
-      canStartRegex = false;
-      afterMemberAccess = true;
-      cursor += 1;
-      continue;
-    }
-    if (')]}'.includes(char)) {
-      canStartRegex = false;
-      afterMemberAccess = false;
-      cursor += 1;
-      continue;
-    }
-    canStartRegex = false;
-    afterMemberAccess = false;
-    cursor += 1;
-  }
-
-  throw new Error(`[rss] Unterminated template expression in ${sourcePath}`);
-}
-
-/**
- * Read one JS/TS string literal without treating another quote style inside it
- * as a terminator. Template interpolations are scanned, including nested
- * templates and regex literals in their expressions, so callers can reject a
- * dynamic key/value without accidentally stopping at an inner delimiter.
- *
- * @param {string} source
- * @param {number} startIndex
- * @param {string} sourcePath
- * @returns {{ quote: '"' | "'" | '`', value: string, end: number, dynamic: boolean } | null}
- */
-function readStaticStringLiteral(source, startIndex, sourcePath) {
-  const quote = source[startIndex];
-  if (!STATIC_LITERAL_QUOTES.has(quote)) return null;
-
-  let dynamic = false;
-  let cursor = startIndex + 1;
-  while (cursor < source.length) {
-    const char = source[cursor];
-    if (char === '\\') {
-      if (source[cursor + 1] === '\r' && source[cursor + 2] === '\n') {
-        cursor += 3;
-      } else {
-        cursor += 2;
-      }
-      continue;
-    }
-    if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
-      dynamic = true;
-      cursor = skipTemplateExpression(source, cursor + 2, sourcePath);
-      continue;
-    }
-    if (quote !== '`' && (char === '\n' || char === '\r')) return null;
-    if (char === quote) {
-      return {
-        quote,
-        value: source.slice(startIndex + 1, cursor),
-        end: cursor + 1,
-        dynamic,
-      };
-    }
-    cursor += 1;
-  }
-
-  return null;
-}
-
-/** Decode a static literal with the same escape policy as the OG reader. */
-function decodeStaticStringLiteral(raw, quote) {
-  let value = '';
-  for (let cursor = 0; cursor < raw.length;) {
-    if (raw[cursor] !== '\\') {
-      value += raw[cursor];
-      cursor += 1;
-      continue;
-    }
-
-    const escaped = raw[cursor + 1];
-    if (escaped === undefined) {
-      value += '\\';
-      cursor += 1;
-      continue;
-    }
-    if (escaped === '\r' || escaped === '\n' || escaped === '\u2028' || escaped === '\u2029') {
-      cursor += escaped === '\r' && raw[cursor + 2] === '\n' ? 3 : 2;
-      continue;
-    }
-    if (quote === '`' && (escaped === '`' || escaped === '$')) {
-      value += escaped;
-      cursor += 2;
-      continue;
-    }
-
-    const escapeLength = escaped === 'u' && /^[0-9a-fA-F]{4}$/.test(raw.slice(cursor + 2, cursor + 6))
-      ? 6
-      : 2;
-    value += decodeTsStringEscapes(raw.slice(cursor, cursor + escapeLength), { newlineAs: '\n' });
-    cursor += escapeLength;
-  }
-  return value;
-}
-
-function skipStaticTrivia(source, startIndex, sourcePath) {
-  let cursor = startIndex;
-  while (cursor < source.length) {
-    if (/\s/.test(source[cursor])) {
-      cursor += 1;
-      continue;
-    }
-    if (source.startsWith('//', cursor)) {
-      cursor = skipLineComment(source, cursor);
-      continue;
-    }
-    if (source.startsWith('/*', cursor)) {
-      const close = source.indexOf('*/', cursor + 2);
-      if (close === -1) throw new Error(`[rss] Unterminated comment in ${sourcePath}`);
-      cursor = close + 2;
-      continue;
-    }
-    break;
-  }
-  return cursor;
-}
-
-const BLOG_BODY_KEY = /^blog\.article\.(.+)\.(body\d+)$/;
-
-function isDynamicBodyKey(source, literal, afterLiteral) {
-  return literal.dynamic
-    && source[afterLiteral] === ':'
-    && /^blog\.article\.[\s\S]+\.body\d+$/.test(literal.value);
-}
-
-function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field) {
+function parseLocalizedFields(fs, path, rootDir, localesDir, metaFileName) {
   const filePath = path.join(rootDir, localesDir, metaFileName);
-  if (!fs.existsSync(filePath)) return new Map();
+  const titles = new Map();
+  const excerpts = new Map();
+  if (!fs.existsSync(filePath)) return { titles, excerpts };
   const src = fs.readFileSync(filePath, 'utf-8');
 
-  const out = new Map(); // articleId → value
-  // Handle escaped single quotes (e.g. dell\'Italia) by matching \\' as part of the value
-  const re = new RegExp(`'blog\\.article\\.([^']+)\\.${field}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g');
-  let match;
-  while ((match = re.exec(src)) !== null) {
-    // The shared helper, not a lone `\\'` replace: the writer also escapes
-    // backslashes and newlines, so a partial unescape leaves literal `\\n` in
-    // 16 excerpts. This is the field that WINS over article.excerpt in
-    // renderFeed, so it is the primary path, not the fallback.
-    out.set(match[1], unescapeQuoted(match[2], "'"));
+  for (const [articleId, fields] of parseStaticArticleTranslationSource(src, filePath)) {
+    const title = fields.get('title');
+    if (title !== undefined) titles.set(articleId, title);
+    const excerpt = fields.get('excerpt');
+    if (excerpt !== undefined) excerpts.set(articleId, excerpt);
   }
-  return out;
+  return { titles, excerpts };
 }
 
 /** Concatenate the per-locale body chunks of every article in a body dir. */
@@ -619,76 +343,19 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
   const dir = path.join(rootDir, localesDir, bodyDir, locale);
   if (!fs.existsSync(dir)) return bodies;
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.ts'));
-
+  const files = fs.readdirSync(dir).filter((file) => file.endsWith('.ts'));
   for (const file of files) {
     const filePath = path.join(dir, file);
     const src = fs.readFileSync(filePath, 'utf-8');
-    const articleParts = new Map(); // articleId → { body1: '...', body2: '...' }
-    let cursor = 0;
-    while (cursor < src.length) {
-      cursor = skipStaticTrivia(src, cursor, filePath);
-      if (cursor >= src.length) break;
-      if (!STATIC_LITERAL_QUOTES.has(src[cursor])) {
-        cursor += 1;
-        continue;
-      }
+    const parsed = parseStaticBlogBodySource(src, filePath);
 
-      const keyLiteral = readStaticStringLiteral(src, cursor, filePath);
-      if (!keyLiteral) throw new Error(`[rss] Unterminated string literal in ${filePath}`);
-      const afterKey = skipStaticTrivia(src, keyLiteral.end, filePath);
-      if (keyLiteral.dynamic) {
-        if (isDynamicBodyKey(src, keyLiteral, afterKey)) {
-          throw new Error(`[rss] Dynamic body key is not static in ${filePath}`);
-        }
-        cursor = keyLiteral.end;
-        continue;
-      }
-
-      const key = decodeStaticStringLiteral(keyLiteral.value, keyLiteral.quote);
-      const keyMatch = BLOG_BODY_KEY.exec(key);
-      if (!keyMatch || src[afterKey] !== ':') {
-        cursor = keyLiteral.end;
-        continue;
-      }
-
-      const valueStart = skipStaticTrivia(src, afterKey + 1, filePath);
-      if (!STATIC_LITERAL_QUOTES.has(src[valueStart])) {
-        throw new Error(`[rss] Body property ${key} must have a static string literal value in ${filePath}`);
-      }
-      const valueLiteral = readStaticStringLiteral(src, valueStart, filePath);
-      if (!valueLiteral) throw new Error(`[rss] Unterminated body value for ${key} in ${filePath}`);
-      if (valueLiteral.dynamic) {
-        throw new Error(`[rss] Dynamic body value is not static for ${key} in ${filePath}`);
-      }
-      const afterValue = skipStaticTrivia(src, valueLiteral.end, filePath);
-      if (src[afterValue] !== ',' && src[afterValue] !== '}') {
-        throw new Error(`[rss] Body property ${key} must end with ',' or '}' in ${filePath}`);
-      }
-
-      const [, id, part] = keyMatch;
-      if (!articleParts.has(id)) articleParts.set(id, new Map());
-      // Unescape here, not at render: this text goes straight into
-      // <content:encoded>, and it is the one parsed field that actually
-      // reaches the served bytes — the title/description paths are masked by
-      // the locale-meta lookup winning in renderFeed, this one is not.
-      // All three quote styles are accepted, but interpolated templates are
-      // rejected above: evaluating source code here would make the feed differ
-      // from the static corpus that the OG reader consumes.
-      const decoded = decodeStaticStringLiteral(valueLiteral.value, valueLiteral.quote);
-      articleParts.get(id).set(part, repairLegacyDoubleEscapedBreaks(decoded));
-      cursor = valueLiteral.end;
-    }
-
-    for (const [id, parts] of articleParts) {
-      // Sort body1, body2, body3... and concatenate
-      const sorted = [...parts.entries()]
+    for (const [id, fields] of Object.entries(parsed)) {
+      const body = Object.entries(fields)
+        .filter(([field]) => /^body\d+$/.test(field))
         .sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([, v]) => v)
+        .map(([, value]) => value)
         .join('\n');
-      if (sorted.length > 50) {
-        bodies.set(id, sorted);
-      }
+      if (body.length > 50) bodies.set(id, body);
     }
   }
 
@@ -934,8 +601,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   const feeds = [];
   for (const locale of RSS_LOCALES) {
     const metaFileName = section.metaFile(locale);
-    const titles = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'title');
-    const excerpts = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'excerpt');
+    const { titles, excerpts } = parseLocalizedFields(fs, path, rootDir, localesDir, metaFileName);
     const bodies = parseBlogBodies(fs, path, rootDir, localesDir, section.bodyDir, locale);
 
     const xml = renderFeed(section, locale, feedArticles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet);

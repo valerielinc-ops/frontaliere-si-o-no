@@ -596,8 +596,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -644,8 +644,8 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-marly",
         "assistant-du-responsable-chiffrage-bkw-ch",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly"
+        "assistant-to-the-quantity-quote-manager-bkw-marly",
+        "assistent-du-responsable-chiffrage-bkw-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -653,10 +653,10 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly"
+          "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly"
+          "assistent-du-responsable-chiffrage-bkw-marly"
         ]
       },
       "firstSeenAt": "2026-07-24T11:14:36.190Z",
@@ -2470,7 +2470,7 @@
       "id": "bkw-66333e4aacee",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "construction-manager-in-electric-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "directeur-de-construction-en-electric-tous-bkw-zuchwil"
@@ -2519,13 +2519,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-zuchwil"
@@ -4154,7 +4152,7 @@
       "id": "bkw-9374b9282a4f",
       "slug": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
       "slugByLocale": {
-        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
+        "it": "direttore-trice-lavori-elektro-alle-bkw-zuchwil",
         "en": "electrical-site-manager-all-bkw-zuchwil",
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "fr": "conducteur-rice-de-travaux-en-electricite-tous-bkw-zuchwil"
@@ -4202,13 +4200,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauleiter-in-elektro-alle-bkw-ch",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+        "bauleiter-in-elektro-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
+          "bauleiter-in-elektro-alle-bkw-ch"
         ],
         "en": [
           "bauleiter-in-elektro-alle-bkw-ch"
@@ -7494,7 +7490,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -7543,7 +7539,7 @@
       "previousSlugs": [
         "rope-testing-laboratory-employee-all-bkw-bern",
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
-        "associate-seilprufstelle-alle-bkw-bern"
+        "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7551,7 +7547,7 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern"
+          "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-06-10T07:58:50.740Z",
@@ -10427,7 +10423,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-safety-specialist-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -10476,8 +10472,7 @@
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-chur",
         "fire-protection-specialist-woman-all-bkw-chur",
-        "brandschutzfachmann-frau-alle-bkw-ch",
-        "fire-safety-specialist-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10486,7 +10481,7 @@
         ],
         "en": [
           "fire-protection-specialist-woman-all-bkw-chur",
-          "fire-safety-specialist-all-bkw-chur"
+          "brandschutzfachmann-frau-alle-bkw-chur"
         ]
       },
       "firstSeenAt": "2026-06-12T11:50:23.925Z",
@@ -16548,7 +16543,7 @@
         "it": "lernelehrstelle-installatore-trice-elettrico-a-in-cfc-alle-bkw-baar",
         "en": "learnapprenticeship-position-electrical-installer-efz-all-bkw-baar",
         "de": "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        "fr": "apprenez-place-d-apprentissage-d-installateur-trice-electricien-ne-cfc-tous-bkw-baar"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -16558,7 +16553,7 @@
         "it": "ImparaPosto di apprendistato installatore/trice elettricista AFC (tutti)",
         "en": "LearnApprenticeship position Electrical Installer EFZ (all)",
         "de": "LerneLehrstelle Elektroinstallateur:in EFZ (alle)",
-        "fr": "LerneLehrstelle Elektroinstallateur:in EFZ (alle)"
+        "fr": "Apprenez : place d’apprentissage d’installateur/trice-électricien/ne CFC (tous)"
       },
       "description": "Wir machen Lebensräume lebenswert.\n\n## Lehrstart 2027\nKeine Wohnung ohne eine:n Elektroinstallateur:in! Von Lichtinstallationen und Arbeiten mit Starkstromleitungen bis hin zu Schalt- und Steuerapparaten oder Glasfaserverkabelungen - die Lehre zum/zur Elektroinstallateur:in ist vielseitig!\n\n## Dein Wirkungsfeld\nWährend deiner 4-jährigen Lehrzeit arbeitest du an verschiedenen Orten wie auf Baustellen, in Gewerbebauten, Industriebauten oder Wohnbauten.\n• Kabel verlegen, Steckdosen, Schalter und Schaltkästen anschliessen\n• elektrische Geräte und Systeme installieren und in Betrieb nehmen\n• Bestandteile für Gebäudeautomationssysteme installieren\n• Beleuchtungen installieren und Elektoapparate anschliessen\n• Photovoltaikanlagen und E-Mobiliy-Anlagen anschliessen\n• Kommunikations- und Datennetze installieren\n• Sicherheitstechnische Anlagen wie Brandmeldeanlagen oder Notbeleuchtungen installieren\n• Störungen finden und beheben\n• elektrische Anlagen prüfen und in Betrieb nehmen\n\n## Das bringst du mit\n• Interesse an Technik und elektrischen Systemen\n• Freude am praktischen Arbeiten und ein sicherer Umgang mit Werkzeugen\n• Genauigkeit und Verantwortungsbewusstsein\n• Teamplayer, Kommunikationsfähigkeit und Zuverlässigkeit\n• Gute Farbwahrnehmung\n• Logisches Denken und räumliches Vorstellungsvermögen\n• Bereitschaft für Reisetätigkeiten\nWir wünschen keine Anfragen von Personaldienstleistern.\n• Firma swisspro AG\n• Arbeitsort Lindenstrasse 8, 6340 Baar\n• Pensum 100%\n• Berufsfeld Elektro\n• Position Berufseinsteiger:in\n• Anstellungsart Ausbildung, Lehre\n• Referenznummer A-27489\n\n## Darauf kannst du dich freuen\nSinnvolle Tätigkeit Wir leisten einen wertvollen Beitrag für Gesellschaft und Umwelt. Wir schätzen Vielfalt und stehen für ein verbindendes und wertschätzendes Arbeitsumfeld ein.\nVergütung & Sozialleistungen Wir vergüten am Markt und bieten attraktive Sozial- sowie Salärnebenleistungen. Die Vergütung orientiert sich an der Funktion und der relevanten Erfahrung.\nKarriere & Weiterbildung Bei uns stehen viele Türen offen. Wir fördern Fach- und Führungslaufbahnen gleichermassen und setzen auf massgeschneiderte Aus- und Weiterbildungsmöglichkeiten.\nWeitere Vorteile Wir bieten unseren Mitarbeitenden eine Reihe weiteren Vorteilen in Form von Vergünstigungen bei Drittfirmen.\nFür einzelne Stellen (z.B. befristete Anstellungen) können abweichende Anstellungsbedingungen gelten.\nArbeitsort\n\n## Über uns\nDie swisspro ist der perfekte Partner für massgeschneiderte Lösungen rund um Beratung, Realisierung, Wartung und Betrieb von Elektrotechnik, Kommunikation, ICT und Automation – ob KMU oder Grossunternehmen. Mit unserer langjährigen Erfahrung, unserem grossen Know-how und den modernsten Technologien unterstützen wir unsere Kunden ganzheitlich, kompetent und zuverlässig, damit sie sich um ihr Kerngeschäft kümmern können.\nMehr entdecken\nWir leben in der BKW Gruppe eine Willkommenskultur, die alle Menschen einschliesst. Bei uns sind alle willkommen, unabhängig von Faktoren wie Alter, Geschlecht, sozialer oder ethnischer Herkunft, Hautfarbe, Nationalität, Sprache, sexueller Orientierung und Identität oder Religion.",
       "descriptionByLocale": {
@@ -16601,9 +16596,11 @@
         ],
         "en": [
           "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "lernelehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-19T09:19:12.169Z",
       "salaryMin": 54000,
       "salaryMax": 82000,
@@ -22823,7 +22820,7 @@
         "it": "hr-business-partner-alle-bkw-ch",
         "en": "hr-business-partner-alle-bkw-ch",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22868,11 +22865,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "partenaire-principal-des-rh-tous-bkw-bulle"
+        "hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle"
+          "hr-business-partner-alle-bkw-bulle"
         ]
       },
       "firstSeenAt": "2026-09-09T13:46:08.094Z",
@@ -23614,7 +23611,7 @@
         "it": "senior-it-controller-tutti-bkw-bern",
         "en": "senior-it-controller-all-bkw-bern",
         "de": "senior-it-controller-alle-bkw-ch",
-        "fr": "senior-it-controller-alle-bkw-bern"
+        "fr": "controleur-informatique-principal-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23660,7 +23657,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-it-controller-alle-bkw-ch",
-        "controleur-informatique-principal-tous-bkw-bern"
+        "senior-it-controller-alle-bkw-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -23670,7 +23667,7 @@
           "senior-it-controller-alle-bkw-ch"
         ],
         "fr": [
-          "controleur-informatique-principal-tous-bkw-bern"
+          "senior-it-controller-alle-bkw-bern"
         ]
       },
       "firstSeenAt": "2026-10-19T09:19:12.037Z",
@@ -25910,8 +25907,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-winterthur",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "electrical-installer-efz-all-genders-bkw-winterthur",
+        "fr": "installateur-rice-electricien-ne-cfc-tous-genres-bkw-winterthur"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25959,6 +25956,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },

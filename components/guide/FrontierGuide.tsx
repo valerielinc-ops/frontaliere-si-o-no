@@ -2902,7 +2902,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Useful Links */}
  <InfoCard icon={Info} title={t('guide.unemployment.links.title')} color="blue">
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
- <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-danger transition-colors group">
+ <a href="https://www.arbeit.swiss/it" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-danger transition-colors group">
  <div className="font-bold text-sm text-strong group-hover:text-danger">🇨🇭 arbeit.swiss</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.arbeit')}</div>
  </a>

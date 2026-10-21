@@ -32,7 +32,7 @@ export default function FiscoTabContent() {
  {fiscoSubTab !== 'new-frontier-tax-sim' && <div data-speakable>
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t('seoContent.fisco.title')}</h1>
  </div>}
- <DataFreshness dateKind="reviewed" source={t('freshness.source.cantonTicino')} sourceUrl="https://www4.ti.ch/dfe/dc/" variant="badge" />
+ <DataFreshness dateKind="reviewed" source={t('freshness.source.cantonTicino')} sourceUrl="https://www4.ti.ch/dfe/dc/divisione" variant="badge" />
  <Suspense fallback={<div className="min-h-[44px]" />}>
  <SeoContentBlock context="fisco" />
  </Suspense>

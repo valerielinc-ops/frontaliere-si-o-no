@@ -36,7 +36,7 @@ import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { pathToFileURL } from 'node:url';
-import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
+import { loadCandidates, saveCandidates, setStatus, byStatus, startLedgerPhase } from './lib/prospector/candidate-store.mjs';
 import { reconcileOpenPromotions } from './lib/prospector/promotion-reconciliation.mjs';
 import { reconcileAwaitingFirstCrawls } from './lib/prospector/production-output.mjs';
 import {
@@ -115,6 +115,7 @@ const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); ret
 const flag = (n) => argv.includes(`--${n}`);
 
 const dryRun = flag('dry-run');
+startLedgerPhase('promote', { dryRun });
 const openPr = flag('open-pr');
 const maxPerRun = Number(arg('max', GATE_DEFAULTS.maxPerRun));
 

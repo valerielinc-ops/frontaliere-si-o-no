@@ -28,6 +28,13 @@ describe('historical pharmacy week SPA handoff', () => {
     expect(fetch).not.toHaveBeenCalled();
   });
 
+  it('keeps official duty-week source links followed', () => {
+    const { container } = render(<PharmacyDutyWeek page={{ kind: 'duty-week', locale: 'it', weekStart: '2026-10-19' }} />);
+    const sourceLinks = [...container.querySelectorAll('a[href^="https://www.ofct.ch/"]')];
+    expect(sourceLinks.length).toBeGreaterThan(0);
+    for (const link of sourceLinks) expect(link).toHaveAttribute('rel', 'noopener');
+  });
+
   it('loads the exact week on client navigation and never displays a seed for another week', async () => {
     seed();
     window.__CDN_DATA_BASE__ = 'https://cdn.example.test';

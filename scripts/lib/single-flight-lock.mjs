@@ -82,6 +82,32 @@ function processStartIdentity(pid) {
 
 const CURRENT_PROCESS_START_IDENTITY = processStartIdentity(process.pid);
 
+// Per sweep che possono restare vive a lungo non si prende mai un lock solo
+// perché ha superato un TTL: serve prova che il processo titolare è terminato.
+// Un PID riutilizzato conta come terminazione solo se `ps` consente di
+// confrontare l'identità di avvio; errori o payload vecchi restano occupati.
+function isLockOwnerDefinitelyDead(payload) {
+  if (!payload || typeof payload !== 'object') return false;
+  const { pid, processStartIdentity: ownerIdentity } = payload;
+  if (!Number.isInteger(pid) || pid <= 0) return false;
+
+  try {
+    process.kill(pid, 0);
+  } catch (error) {
+    if (error?.code === 'ESRCH') return true;
+    if (error?.code !== 'EPERM') return false;
+  }
+
+  if (typeof ownerIdentity !== 'string' || !ownerIdentity) return false;
+  const currentIdentity = processStartIdentity(pid);
+  return currentIdentity !== null && currentIdentity !== ownerIdentity;
+}
+
+function lockIsStale(payload, { now, stalePolicy }) {
+  if (stalePolicy === 'owner-dead-only') return isLockOwnerDefinitelyDead(payload);
+  return isLockStale(payload, { now: now() });
+}
+
 function isRecoveryLockStale(payload) {
   if (!payload || typeof payload !== 'object') return true;
   // A marker without process identity cannot prove ownership; new markers
@@ -250,11 +276,16 @@ function cleanupOrphanedRecoveryLocks(lockPath) {
   }
 }
 
-function acquireSingleFlightLock(lockPath, now, ownerToken) {
+function acquireSingleFlightLock(lockPath, now, ownerToken, { stalePolicy = 'age' } = {}) {
   if (!CURRENT_PROCESS_START_IDENTITY) {
     throw new Error('Unable to identify the current process before acquiring a single-flight lock.');
   }
-  const payload = { pid: process.pid, startedAt: now(), ownerToken };
+  const payload = {
+    pid: process.pid,
+    startedAt: now(),
+    processStartIdentity: CURRENT_PROCESS_START_IDENTITY,
+    ownerToken,
+  };
   if (tryPublishLock(lockPath, payload)) {
     cleanupOrphanedRecoveryLocks(lockPath);
     return true;
@@ -263,7 +294,7 @@ function acquireSingleFlightLock(lockPath, now, ownerToken) {
   // Occupato: takeover solo se il titolare è morto o il lock è scaduto.
   const staleSnapshot = readLockSnapshot(lockPath);
   if (!staleSnapshot) return tryPublishLock(lockPath, payload);
-  if (!isLockStale(staleSnapshot.payload, { now: now() })) return false;
+  if (!lockIsStale(staleSnapshot.payload, { now, stalePolicy })) return false;
 
   const recovery = claimRecoveryLock(lockPath, staleSnapshot, now);
   if (!recovery) return false;
@@ -274,7 +305,7 @@ function acquireSingleFlightLock(lockPath, now, ownerToken) {
     if (!currentSnapshot) return tryPublishLock(lockPath, payload);
     if (
       currentSnapshot.identity !== staleSnapshot.identity
-      || !isLockStale(currentSnapshot.payload, { now: now() })
+      || !lockIsStale(currentSnapshot.payload, { now, stalePolicy })
     ) return false;
 
     try {
@@ -330,23 +361,41 @@ function releaseSingleFlightLock(lockPath, ownerToken, now) {
 // anche se `fn` lancia (finally) — un hook che muore non deve lasciare il
 // cleanup disabilitato per la sessione successiva.
 export function withSingleFlightLock(lockPath, fn, { now = Date.now } = {}) {
-  const ownerToken = randomUUID();
-  if (!acquireSingleFlightLock(lockPath, now, ownerToken)) return { acquired: false };
+  const release = acquireSingleFlightLockHandle(lockPath, { now });
+  if (!release) return { acquired: false };
   try {
     return { acquired: true, value: fn() };
   } finally {
-    releaseSingleFlightLock(lockPath, ownerToken, now);
+    release();
   }
+}
+
+// Acquisizione esplicita per un processo CLI che deve tenere il lock durante
+// tutto il proprio top-level. Il chiamante registra `release` su `exit`; se
+// arriva SIGKILL il lock resta recuperabile solo dopo prova della morte del
+// titolare quando `stalePolicy: 'owner-dead-only'`.
+export function acquireSingleFlightLockHandle(
+  lockPath,
+  { now = Date.now, stalePolicy = 'age' } = {},
+) {
+  const ownerToken = randomUUID();
+  if (!acquireSingleFlightLock(lockPath, now, ownerToken, { stalePolicy })) return null;
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    releaseSingleFlightLock(lockPath, ownerToken, now);
+  };
 }
 
 // Variante async per un lavoro che deve restare single-flight fino alla sua
 // conclusione, inclusi child process terminati in modo asincrono.
 export async function withSingleFlightLockAsync(lockPath, fn, { now = Date.now } = {}) {
-  const ownerToken = randomUUID();
-  if (!acquireSingleFlightLock(lockPath, now, ownerToken)) return { acquired: false };
+  const release = acquireSingleFlightLockHandle(lockPath, { now });
+  if (!release) return { acquired: false };
   try {
     return { acquired: true, value: await fn() };
   } finally {
-    releaseSingleFlightLock(lockPath, ownerToken, now);
+    release();
   }
 }

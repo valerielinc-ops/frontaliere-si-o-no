@@ -1,4 +1,5 @@
 import { escapeRegExpLiteral } from './escape-regexp.mjs';
+import { isSlashSeparatedMultiLocation } from './job-location-display.mjs';
 
 /**
  * job-location-plausibility — the two pure detectors behind layers 5 and 6 of
@@ -43,7 +44,11 @@ import { escapeRegExpLiteral } from './escape-regexp.mjs';
 export function implausibilityReasons(city) {
   const reasons = [];
   const words = city.split(/\s+/).filter(Boolean);
-  if (words.length >= 5) reasons.push('too-many-words');
+  // The source-detail audit already treats spaced-slash values as aggregate
+  // regions. Keep that same semantic boundary here: a valid multi-site note
+  // must not be reported as page furniture merely because it names three
+  // places, while prose and address leaks still trip the existing detector.
+  if (words.length >= 5 && !isSlashSeparatedMultiLocation(city)) reasons.push('too-many-words');
   // Diacritics folded like the sibling `job-location-display.mjs` does: the two
   // copies a scraper leaves behind are rarely byte-identical ("Zürich, Zurich").
   const folded = words.map((w) => w

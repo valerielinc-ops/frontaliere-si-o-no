@@ -8,7 +8,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, EVENTS_INDEX_PATH, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   renderEventsIndexPage,
   eventLd,
@@ -236,7 +236,7 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.organizer).toEqual({
       '@type': 'Organization',
       name: 'Guidle',
-      url: 'https://www.guidle.com/',
+      url: 'https://www.guidle.com/de',
     });
     expect(ld.performer).toEqual({ '@type': 'Organization', name: EVENT.venue });
   });
@@ -433,9 +433,38 @@ describe('renderEventDetailPage', () => {
     expect(titleTag.length).toBeGreaterThan(0);
     expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('Lugano');
-    expect(h1.length).toBeLessThanOrEqual(100);
+    expect(h1.length).toBeLessThanOrEqual(70);
     expect(h1).toContain('Lugano');
     expect(h1).toContain('2026-10-18');
+  });
+
+  it('preserves a trailing language qualifier when truncating event titles', () => {
+    const title = 'Les secrets du monde fongique : à la découverte des champignons du Jardin Botanique de Genève';
+    const variants = [
+      { ...EVENT, id: 'myswitzerland:fungi-fr', title, startDate: '2026-10-21', comune: 'Genève' },
+      { ...EVENT, id: 'myswitzerland:fungi-en', title: `${title} - En anglais`, startDate: '2026-10-21', comune: 'Genève' },
+    ];
+    const pages = variants.map((event) => renderEventDetailPage({
+      locale: 'it',
+      event: event as never,
+      comune: 'Genève',
+      eventSlug: slugifyEvent(event),
+      sameComuneEvents: [event] as never,
+      dateStamp: '2026-10-20',
+      distDir,
+      detailHref: (() => null) as never,
+    }));
+    const titles = pages.map((page) => /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '');
+    const headings = pages.map((page) => /<h1[^>]*>(.*?)<\/h1>/.exec(page.html)?.[1] ?? '');
+
+    expect(titles[0]).not.toBe(titles[1]);
+    expect(headings[0]).not.toBe(headings[1]);
+    expect(titles[1]).toContain('En anglais');
+    expect(headings[1]).toContain('En anglais');
+    expect(titles[0].length).toBeLessThanOrEqual(60);
+    expect(titles[1].length).toBeLessThanOrEqual(60);
+    expect(headings[0].length).toBeLessThanOrEqual(70);
+    expect(headings[1].length).toBeLessThanOrEqual(70);
   });
 
   it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {
@@ -627,7 +656,7 @@ describe('renderEventDetailPage', () => {
       imageUrl: '/images/events/library/event-lago-laghi-primavera-v02.webp',
       imageAssetId: 'event-lago-laghi-primavera-v02',
       imageLicense: 'CC BY-SA 4.0',
-      imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
       imageCredit: 'Ada Wikimedia · CC BY-SA 4.0',
       imageProvider: 'wikimedia',
       imageAuthor: { name: 'Ada Wikimedia', url: 'https://commons.wikimedia.org/wiki/User:Ada' },
@@ -638,7 +667,7 @@ describe('renderEventDetailPage', () => {
     };
     const ld = eventLd(photoEvent as never, 'it') as Record<string, any>;
     expect(ld.image.creditText).toBe(`${photoEvent.imageCredit} · cropped, resized and converted to WebP`);
-    expect(ld.image.license).toBe(photoEvent.imageLicenseUrl);
+    expect(ld.image.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
     expect(ld.image.copyrightNotice).toBe(photoEvent.imageCopyrightNotice);
     expect(ld.image.acquireLicensePage).toBe(photoEvent.imageAcquireLicensePage);
     expect(ld.image.creator).toMatchObject({ '@type': 'Person', name: 'Ada Wikimedia' });
@@ -1885,6 +1914,28 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     }
   });
 
+  it('canonicalizes the recovered Geneva cycling tour to its verified 11 July 2026 date', () => {
+    const eventId = 'ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet';
+    const readEvents = (file: string) =>
+      JSON.parse(readFileSync(new URL(`../data/${file}`, import.meta.url), 'utf8')).events;
+    const current = readEvents('events.json').find((event: { id: string }) => event.id === eventId);
+    const archived = readEvents('events-recovery-archive.json').find((event: { id: string }) => event.id === eventId);
+    expect(current).toBeDefined();
+    expect(archived).toBeDefined();
+    for (const event of [current, archived]) {
+      expect(event).toMatchObject({ startDate: '2026-07-11', endDate: '2026-07-11' });
+    }
+
+    const assigned = assignEventSlugs([current] as never);
+    const migration = historicalEventSlugMigrations([current] as never, 'GE', 'Lancy', assigned)
+      .find((route) => route.fromSlug === 'tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04');
+    expect(migration).toMatchObject({ fromCanton: 'GE', fromComune: 'Genève' });
+    expect(migration?.toSlug).toMatch(/-2026-07-11$/);
+    const target = pathForEventDetail('fr', 'Lancy', migration!.toSlug, 'GE');
+    const bridge = renderEventSlugRedirectPage('fr', target, current);
+    expect(bridge).toContain('Date : 2026-07-11');
+  });
+
   it('keeps every localized old-event bridge above the indexable content floor', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const html = renderEventSlugRedirectPage(locale, '/eventi/ticino/lugano/nuovo-slug/');
@@ -2014,5 +2065,16 @@ describe('event navigation uses localized destinations', () => {
     expect(html).toContain(`href="${calculator}"`);
     expect(html).not.toContain(`href="/${locale}/articoli-frontaliere/"`);
     expect(html).not.toContain(`href="/${locale}/calcola-stipendio/"`);
+  });
+
+  it.each(['it', 'en', 'de', 'fr'] as const)('links the %s events index to its sibling locale indexes', (locale) => {
+    const { html } = renderEventsIndexPage({
+      locale, cantonStats: [], events: [], dateStamp: new Date().toISOString().slice(0, 10),
+      weekendDays: new Set(), distDir: os.tmpdir(),
+    });
+    for (const target of ['it', 'en', 'de', 'fr'] as const) {
+      if (target === locale) continue;
+      expect(html).toContain(`href="${EVENTS_INDEX_PATH[target]}/"`);
+    }
   });
 });

@@ -20,7 +20,7 @@ import { canonicalJobHost } from '../job-url-host.mjs';
 const MULTI_LABEL_SUFFIXES = new Set([
   'co.uk', 'org.uk', 'ac.uk', 'gov.uk', 'me.uk', 'net.uk',
   'com.au', 'net.au', 'org.au', 'co.nz', 'co.za', 'co.jp', 'co.in',
-  'com.br', 'com.mx', 'com.tr', 'com.cn', 'com.hk', 'com.sg',
+  'com.br', 'com.co', 'com.mx', 'com.tr', 'com.cn', 'com.hk', 'com.sg',
   'co.il', 'org.il', 'com.pl', 'com.es', 'com.pt', 'com.ua',
   'gov.it', 'edu.it', 'gob.es',
 ]);

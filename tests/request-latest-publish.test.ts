@@ -5,10 +5,12 @@ import YAML from 'yaml';
 import {
   decideLatestPublish,
   DEFAULT_MAX_PUBLISH_ATTEMPTS,
+  deploymentSourceSha,
 } from '../scripts/ci/request-latest-publish.mjs';
 
 const SHA_OLD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const SHA_LATEST = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+const SHA_OLDER_TAIL = 'cccccccccccccccccccccccccccccccccccccccc';
 
 const build = (id: number, headSha: string, completedAt: string, conclusion = 'success') => ({
   id,
@@ -53,11 +55,108 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'pages-moving' });
   });
 
+  it('does not let a completed Pages upload tail block the next publish', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 99,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_OLD,
+        displayTitle: `Publish Pages build 1 @ ${SHA_OLD}`,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+  });
+
+  it('also ignores an older publish tail when a newer revision is already live', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 98,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_OLDER_TAIL,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+      successfulDeploymentShas: [SHA_OLD, SHA_OLDER_TAIL],
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+  });
+
+  it('still waits for a publish run whose Pages upload has not succeeded', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 97,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_LATEST,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'publish-moving' });
+  });
+
   it('treats an exact successful deployment as already live', () => {
     expect(decideLatestPublish({
       builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
       publishRuns: [],
       lastSuccessfulDeployment: deployment(SHA_LATEST, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+  });
+
+  it('uses the successful deployment source SHA when its dispatch ref differs', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 99,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_OLDER_TAIL,
+      }],
+      lastSuccessfulDeployment: {
+        head_sha: SHA_OLDER_TAIL,
+        source_sha: SHA_LATEST,
+      },
+      successfulDeploymentShas: [SHA_OLDER_TAIL],
+    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+  });
+
+  it('recovers the source SHA from the canonical publish run name', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 99,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_OLDER_TAIL,
+        runName: `Publish Pages build 2 @ ${SHA_LATEST}`,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_OLDER_TAIL, '2026-10-20T12:05:00Z'),
+      successfulDeploymentShas: [SHA_OLDER_TAIL],
+    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+  });
+
+  it('uses an Actions target URL to identify the successful publish source', () => {
+    const publishRun = {
+      id: 123,
+      run_name: `Publish Pages build 42 @ ${SHA_LATEST}`,
+    };
+    const sourceSha = deploymentSourceSha(
+      { sha: SHA_OLDER_TAIL },
+      { target_url: 'https://github.com/o/r/actions/runs/123' },
+      [publishRun],
+    );
+
+    expect(sourceSha).toBe(SHA_LATEST);
+    expect(decideLatestPublish({
+      builds: [build(42, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [publishRun],
+      lastSuccessfulDeployment: { sha: SHA_OLDER_TAIL, sourceSha },
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 

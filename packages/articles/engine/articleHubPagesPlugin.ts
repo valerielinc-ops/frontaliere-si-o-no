@@ -61,10 +61,12 @@ import { getSiteShell, type ArticleLocale } from './siteShell';
 import { ARTICLE_SECTIONS, activeArticleSection, type ArticleSection, type ArticleSectionKind } from '../articleSections';
 import { articleSectionKind, twinOf } from './shared/articleSectionCore.mjs';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
+import { CANONICAL_OVERRIDE_FILES } from './shared/canonicalOverrideFiles.mjs';
+import { loadArticleRouteRedirects, resolveArticleRoutePath } from './shared/articleRouteOwnership.mjs';
+import { loadSwissArticleCanonicalOverrides } from './shared/swissArticleCanonicalOverrides';
 import {
   readArticleDates,
-  readArticleExcerpts,
-  readArticleSlugs,
+  readArticleMetadata,
   readBlogUrlSlugs,
 } from './shared/articleReaders';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
@@ -614,8 +616,9 @@ export function computeSectionTopicAssignment(
   section: ArticleSection,
 ): TopicAssignment {
   const cfg = ARTICLE_SECTIONS[section];
-  const itArticles = readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix);
-  const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
+  const itMetadata = readArticleMetadata(fs, np, rootDir, 'it', cfg.metaPrefix);
+  const itArticles = itMetadata.articles;
+  const itExcerpts = itMetadata.excerpts;
   const dates = readArticleDates(fs, np, rootDir, cfg.registryFile);
   return assignArticlesToTopics(
     itArticles.map((a) => ({
@@ -1342,6 +1345,22 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   // page count and the navigator link count can never drift (single source
   // of truth; issue #1486/#1497).
   const unionSlugs = readArticleArchiveUnionSlugs(fs, np, rootDir, section);
+  const canonicalOverrideCandidates = kind === 'frontaliere'
+    ? CANONICAL_OVERRIDE_FILES.frontaliere
+    : kind === 'national'
+      ? CANONICAL_OVERRIDE_FILES.svizzera
+      : [];
+  const articleRouteMaps = {
+    redirects: loadArticleRouteRedirects(
+      fs,
+      np.resolve(rootDir, 'data/article-redirects.json'),
+      np.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
+    ),
+    canonicalOverrides: loadSwissArticleCanonicalOverrides(
+      fs,
+      canonicalOverrideCandidates.map((candidate) => np.resolve(rootDir, candidate)),
+    ),
+  };
 
   for (const locale of locales ?? HUB_LOCALES) {
     const basePath = archiveBases[locale];
@@ -1358,12 +1377,16 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
 
     // Master list = UNION of `{metaPrefix}-it.ts` slugs and `{slugConst}`
     // keys — same orphan-avoidance contract for both sections.
-    const itArticles = readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix);
-    const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale, cfg.metaPrefix);
+    const itMetadata = readArticleMetadata(fs, np, rootDir, 'it', cfg.metaPrefix);
+    const localeMetadata = locale === 'it'
+      ? itMetadata
+      : readArticleMetadata(fs, np, rootDir, locale, cfg.metaPrefix);
+    const itArticles = itMetadata.articles;
+    const localeArticles = localeMetadata.articles;
     const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
     const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
-    const localeExcerpts = readArticleExcerpts(fs, np, rootDir, locale, cfg.metaPrefix);
-    const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
+    const localeExcerpts = localeMetadata.excerpts;
+    const itExcerpts = itMetadata.excerpts;
     const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, cfg.slugConst);
 
     const masterSlugs = new Set<string>(itArticles.map((a) => a.slug));
@@ -1377,7 +1400,12 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const excerpt = rawExcerpt && rawExcerpt.length > 140
         ? rawExcerpt.slice(0, 137).trimEnd() + '…'
         : rawExcerpt;
-      items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt, id: slug });
+      items.push({
+        href: resolveArticleRoutePath(`${prefix}/${blogSection}/${urlSlug}/`, articleRouteMaps),
+        label,
+        excerpt,
+        id: slug,
+      });
     }
 
     // Newest first. `masterSlugs` is a Set filled from the meta chunk and the

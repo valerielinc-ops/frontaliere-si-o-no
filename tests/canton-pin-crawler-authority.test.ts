@@ -178,6 +178,22 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
     })).toBe('AG');
   });
 
+  it('uses canton-scoped official localities for source-backed homonyms', () => {
+    // Seewen is a BFS municipality in SO but an official locality in SZ;
+    // Au is also an ISO country code, so the crawler canton is the required
+    // per-posting disambiguator for both shapes.
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Seewen',
+      locationText: 'Seewen',
+      crawlerCanton: 'SZ',
+    })).toBe('SZ');
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Au',
+      locationText: 'Au',
+      crawlerCanton: 'ZH',
+    })).toBe('ZH');
+  });
+
   it('keeps source canton evidence after locality normalization removes the marker', () => {
     expect(inferCantonFromJobEvidence({
       cityText: 'Seewen',

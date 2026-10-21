@@ -166,6 +166,105 @@ export function scanStartTags(html = '', tagName = '') {
 }
 
 /**
+ * Find the end of a tag without treating a `>` inside a quoted attribute as
+ * the end of that tag.
+ *
+ * @param {string} source
+ * @param {number} start
+ * @returns {number}
+ */
+function findTagEnd(source, start) {
+  let quote = '';
+  for (let index = start; index < source.length; index += 1) {
+    const char = source[index];
+    if (quote) {
+      if (char === quote) quote = '';
+      continue;
+    }
+    if (char === '"' || char === "'") {
+      quote = char;
+      continue;
+    }
+    if (char === '>') return index + 1;
+  }
+  return -1;
+}
+
+/**
+ * Remove comments and raw-text elements while keeping source offsets stable.
+ * Comment boundaries are resolved before looking for a raw-text opener; this
+ * prevents `<script>` text inside a comment from swallowing live metadata.
+ * Conversely, a raw-text block is consumed as one unit, so `<!--` in a
+ * JavaScript or CSS string cannot terminate the block early.
+ *
+ * @param {string} source
+ * @returns {string}
+ */
+function scrubMarkupForTagScan(source) {
+  const chars = source.split('');
+  const blank = (start, end) => {
+    for (let index = start; index < end; index += 1) chars[index] = ' ';
+  };
+
+  let cursor = 0;
+  while (cursor < source.length) {
+    if (source.startsWith('<!--', cursor)) {
+      const close = source.indexOf('-->', cursor + 4);
+      const end = close === -1 ? source.length : close + 3;
+      blank(cursor, end);
+      cursor = end;
+      continue;
+    }
+
+    if (source[cursor] === '<') {
+      const rawOpen = source.slice(cursor).match(/^<(script|style)(?=[\s/>])/i);
+      if (rawOpen) {
+        const openEnd = findTagEnd(source, cursor);
+        if (openEnd === -1) {
+          blank(cursor, source.length);
+          break;
+        }
+        const closePattern = new RegExp(`</${rawOpen[1]}\\s*>`, 'ig');
+        closePattern.lastIndex = openEnd;
+        const close = closePattern.exec(source);
+        const end = close ? close.index + close[0].length : source.length;
+        blank(cursor, end);
+        cursor = end;
+        continue;
+      }
+
+      // Skip an ordinary tag as a unit so `<script>` in a quoted attribute
+      // cannot be mistaken for a live raw-text opener.
+      const tagEnd = findTagEnd(source, cursor);
+      if (tagEnd !== -1) {
+        cursor = tagEnd;
+        continue;
+      }
+    }
+
+    cursor += 1;
+  }
+
+  return chars.join('');
+}
+
+/**
+ * Scan document markup while ignoring comments and raw-text elements.
+ *
+ * `scanStartTags` is intentionally a lightweight tag tokenizer and can also
+ * see element-shaped text inside a script or comment. SEO metadata readers
+ * must not treat that text as live document markup, so the funnel-critical
+ * callers use this boundary-aware wrapper.
+ *
+ * @param {string} html
+ * @param {string} [tagName]
+ * @returns {ReturnType<typeof scanStartTags>}
+ */
+export function scanMarkupStartTags(html = '', tagName = '') {
+  return scanStartTags(scrubMarkupForTagScan(String(html || '')), tagName);
+}
+
+/**
  * Read the first requested HTML attribute without crossing another value.
  *
  * @param {string} attrs Attribute soup (the inside of a start tag) or raw HTML.

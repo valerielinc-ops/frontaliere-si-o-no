@@ -485,6 +485,82 @@ describe('fatti letti da git', () => {
     expect(prover.hasCommit(g('rev-parse', 'HEAD'))).toBe(true);
   });
 
+  it('il probe di presenza evita lazy fetch, memorizza l’assenza e la rivaluta dopo un fetch', () => {
+    const sha = 'e'.repeat(40);
+    const calls: Array<{ args: string[]; options?: { env?: Record<string, string> } }> = [];
+    let available = false;
+    const isolated = makeContentProver({
+      mainRef: 'origin/main',
+      git: (args: string[], options?: { env?: Record<string, string> }) => {
+        calls.push({ args, options });
+        if (args[0] !== 'cat-file') return null;
+        return available ? '' : null;
+      },
+    });
+
+    expect(isolated.hasCommit(sha)).toBe(false);
+    expect(isolated.hasCommit(sha)).toBe(false);
+    expect(calls).toHaveLength(1);
+    expect(calls[0]).toMatchObject({
+      args: ['cat-file', '-e', `${sha}^{commit}`],
+      options: { env: { GIT_NO_LAZY_FETCH: '1' } },
+    });
+
+    available = true;
+    expect(isolated.hasCommit(sha, { refresh: true })).toBe(true);
+    expect(isolated.hasCommit(sha)).toBe(true);
+    expect(calls).toHaveLength(2);
+  });
+
+  it('un commit assente in un clone promisor non avvia un processo fetch', () => {
+    const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'prune-no-lazy-fetch-')));
+    const repo = path.join(root, 'repo');
+    const origin = path.join(root, 'origin.git');
+    const gitconfig = path.join(root, 'gitconfig');
+    const trace = path.join(root, 'trace2.json');
+    const baseEnv: NodeJS.ProcessEnv = { ...process.env, GIT_CONFIG_GLOBAL: gitconfig, GIT_CONFIG_NOSYSTEM: '1' };
+    for (const key of ['GIT_DIR', 'GIT_COMMON_DIR', 'GIT_INDEX_FILE', 'GIT_CONFIG', 'GIT_CONFIG_PARAMETERS', 'GIT_NO_LAZY_FETCH']) {
+      delete baseEnv[key];
+    }
+
+    try {
+      fs.writeFileSync(gitconfig, '');
+      fs.mkdirSync(repo);
+      execFileSync('git', ['init', '--quiet', '--bare', '--initial-branch=main', origin], { env: baseEnv });
+      execFileSync('git', ['init', '--quiet', '--initial-branch=main', repo], { env: baseEnv });
+      execFileSync('git', ['remote', 'add', 'origin', origin], { cwd: repo, env: baseEnv });
+      execFileSync('git', ['config', 'core.repositoryformatversion', '1'], { cwd: repo, env: baseEnv });
+      execFileSync('git', ['config', 'extensions.partialClone', 'origin'], { cwd: repo, env: baseEnv });
+      execFileSync('git', ['config', 'remote.origin.promisor', 'true'], { cwd: repo, env: baseEnv });
+      execFileSync('git', ['config', 'remote.origin.partialclonefilter', 'blob:none'], { cwd: repo, env: baseEnv });
+
+      const git = (args: string[], options: { input?: string; maxBuffer?: number; env?: NodeJS.ProcessEnv } = {}) => {
+        const env = { ...baseEnv, ...options.env, GIT_TRACE2_EVENT: trace };
+        if (options.env?.GIT_NO_LAZY_FETCH === undefined) delete env.GIT_NO_LAZY_FETCH;
+        try {
+          return execFileSync('git', ['-c', 'core.quotePath=false', ...args], {
+            cwd: repo,
+            input: options.input,
+            encoding: 'utf8',
+            stdio: [options.input === undefined ? 'ignore' : 'pipe', 'pipe', 'ignore'],
+            maxBuffer: options.maxBuffer ?? 512 * 1024 * 1024,
+            env,
+          });
+        } catch {
+          return null;
+        }
+      };
+      const isolated = makeContentProver({ git, mainRef: 'origin/main' });
+
+      expect(isolated.hasCommit('e'.repeat(40))).toBe(false);
+      const traceEvents = fs.readFileSync(trace, 'utf8').split('\n').filter(Boolean).map((line) => JSON.parse(line));
+      expect(traceEvents.some((event) => event.event === 'cmd_name' && event.name === 'cat-file')).toBe(true);
+      expect(traceEvents.some((event) => event.event === 'child_start' && event.argv?.[0] === 'git' && event.argv?.[1] === 'fetch')).toBe(false);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('un puntatore .git verso un gitdir sparito è un residuo', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prune-gitptr-'));
     fs.writeFileSync(path.join(dir, '.git'), `gitdir: ${path.join(dir, 'non-esiste')}\n`);

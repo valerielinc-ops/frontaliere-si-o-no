@@ -15,6 +15,7 @@
  * @returns {string}
  */
 import { cantonNamedByLocation } from './job-location-display.mjs';
+import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 import {
   inferAnyCanton,
   isKnownSwissMunicipalityInCanton,
@@ -69,11 +70,30 @@ export function inferCantonFromJobEvidence({
   // A bare homonym is not enough to overrule per-job source evidence. Require
   // the crawler canton to be a real canton in which that municipality exists;
   // clear mismatches such as Moutier/BE still flow to generic inference.
+  // The official locality registry contains source labels that are not BFS
+  // municipalities (and bare homonyms such as `Au`). With a per-posting
+  // crawler canton they become independently disambiguated evidence; do not
+  // let the foreign-country heuristic or an arbitrary BFS-first canton win.
+  // A transferred municipality can remain listed under both the old and new
+  // canton with the same postal code (Moutier/BE and JU). That directory row
+  // does not disambiguate the source, so it must not overrule the current BFS
+  // municipality inference; genuinely distinct official localities such as
+  // Seewen/SZ versus Seewen/SO retain their source-backed evidence.
+  const crawlerLocalityPostalCode = officialLocalityPostalCode(locality, crawler);
+  const inferredLocalityPostalCode = inferred
+    ? officialLocalityPostalCode(locality, inferred)
+    : '';
+  const samePostalLocalityAcrossCantons = Boolean(
+    inferred
+    && crawlerLocalityPostalCode
+    && inferredLocalityPostalCode
+    && crawlerLocalityPostalCode === inferredLocalityPostalCode,
+  );
   if (
     crawler
-    && inferred
-    && inferred !== crawler
-    && isKnownSwissMunicipalityInCanton(locality, crawler)
+    && (!inferred || inferred !== crawler)
+    && !samePostalLocalityAcrossCantons
+    && isKnownSwissMunicipalityInCanton(locality, crawler, { allowOfficialLocality: true })
   ) {
     return crawler;
   }

@@ -15,6 +15,7 @@
 import { readFileSync, existsSync, readdirSync } from 'fs';
 import { join, extname } from 'path';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
 const DIST = 'dist';
 const DOMAIN = 'https://frontaliereticino.ch/';
@@ -94,10 +95,12 @@ function isIndividualJobPage(path) {
 }
 
 function hasNoindex(html) {
-  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
-  // Attribute-order-independent (two lookaheads): a future template emitting
-  // content before name on the robots meta must not slip past this gate (#3060).
-  return /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
 }
 
 function main() {
