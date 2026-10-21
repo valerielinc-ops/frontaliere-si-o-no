@@ -21,13 +21,13 @@ export function parseTgAuctionRows(
   });
 }
 
-export async function fetchTgPlateAuctions() {
+export async function fetchTgPlateAuctions(options = {}) {
   return fetchCardCantonAuctions({
     canton: TG_CANTON,
     plateCode: TG_PLATE_CODE,
     officialAuctionUrl: TG_AUCTION_URL,
     detailBaseUrl: "https://www.auktion.tg.ch",
-  });
+  }, options);
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {

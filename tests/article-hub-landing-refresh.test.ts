@@ -38,15 +38,15 @@ function writeFixture(root: string, omitItNewestTitle = false) {
 
   for (const locale of LOCALES) {
     const newestTitle = locale === 'it' && omitItNewestTitle ? '' : `${locale} newest title`;
+    const metadata = [
+      ['blog.article.newest.title', newestTitle],
+      ['blog.article.newest.excerpt', `${locale} newest excerpt`],
+      ['blog.article.older.title', `${locale} older title`],
+      ['blog.article.older.excerpt', `${locale} older excerpt`],
+    ].map(([key, value]) => `  ${JSON.stringify(key)}: ${JSON.stringify(value)},`).join('\n');
     writeFileSync(
       join(root, 'services', 'locales', `blog-meta-${locale}.ts`),
-      `export const META = {
-        'blog.article.newest.title': '${newestTitle}',
-        'blog.article.newest.excerpt': '${locale} newest excerpt',
-        'blog.article.older.title': '${locale} older title',
-        'blog.article.older.excerpt': '${locale} older excerpt',
-      };
-`,
+      `const META: Record<string, string> = {\n${metadata}\n};\nexport default META;\n`,
     );
   }
 }

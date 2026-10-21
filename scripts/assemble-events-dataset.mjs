@@ -26,12 +26,14 @@ import { realpathSync } from 'node:fs';
  *      collapses a group down to the single richest record when either
  *      (a) it spans 2+ DISTINCT sources, (b) same-source records have the
  *      same non-empty source-description hash and identical event payload
- *      apart from crawl identity/history fields, or (c) it is a single-source
+ *      apart from crawl identity/history fields, (c) it is a single-source
  *      group whose members ALSO carry near-identical `geo` coordinates
  *      (issue #3744: the same source can re-index its own event under a second
- *      raw id/URL). A same-source collision without one of those strong
- *      signals (e.g. two different events that share a generic title and a
- *      low-confidence region-fallback comune) is left untouched.
+ *      raw id/URL), or (d) the official Geneva agenda URL is duplicated under
+ *      its CMS `-0` alias with the same event-defining fields. A same-source
+ *      collision without one of those strong signals (e.g. two different
+ *      events that share a generic title and a low-confidence region-fallback
+ *      comune) is left untouched.
  *   3b. Organizer vs tio.ch (classicAscona, D3 2026-10-05): tio.ch re-titles
  *      the organizer's concerts («Richard Galliano | Nuovo Viaggio Trio» for
  *      «Richard Galliano – New Viaggio Trio», «Un inno di bellezza celeste» for
@@ -510,6 +512,64 @@ function clusterBySameSourcePayload(group) {
 }
 
 /**
+ * Geneva's official agenda occasionally exposes one event at both its normal
+ * slug and the same slug suffixed with `-0`. Those pages have separate
+ * canonicals but identical event identity/content (observed for the Vieille
+ * Ville escape game); a price note can differ between the copies. Collapse
+ * only a base/`-0` pair, and include the remaining event-defining fields so a
+ * second time or venue on the same day is not swallowed.
+ */
+function genevaAgendaAliasIdentity(event) {
+  if (typeof event?.url !== 'string') return null;
+  let url;
+  try {
+    url = new URL(event.url);
+  } catch {
+    return null;
+  }
+  const host = url.hostname.toLowerCase();
+  if (host !== 'www.geneve.ch' && host !== 'geneve.ch') return null;
+  const path = url.pathname.replace(/\/$/, '');
+  const match = /^\/agenda\/([^/]+?)(-0)?$/u.exec(path);
+  if (!match) return null;
+  const core = {
+    title: normalizeText(event.title),
+    startDate: event.startDate,
+    endDate: event.endDate || '',
+    startTime: event.startTime || '',
+    endTime: event.endTime || '',
+    comune: normalizeText(event.comune || ''),
+    canton: String(event.canton || '').toUpperCase(),
+    venue: normalizeText(event.venue || ''),
+    address: event.address || null,
+    geo: event.geo || null,
+    category: event.category || '',
+    recurring: event.recurring === true,
+    eventStatus: event.eventStatus || '',
+    organizer: event.organizer || null,
+    performer: event.performer || null,
+  };
+  return {
+    key: `${host.replace(/^www\./u, '')}|/agenda/${match[1]}|${stableJson(core)}`,
+    suffixed: Boolean(match[2]),
+  };
+}
+
+function clusterByGenevaAgendaAlias(group) {
+  const byAlias = new Map();
+  for (const event of group) {
+    const identity = genevaAgendaAliasIdentity(event);
+    if (!identity) continue;
+    const matches = byAlias.get(identity.key) || [];
+    matches.push({ event, suffixed: identity.suffixed });
+    byAlias.set(identity.key, matches);
+  }
+  return [...byAlias.values()]
+    .filter((matches) => matches.length > 1 && matches.some((item) => item.suffixed) && matches.some((item) => !item.suffixed))
+    .map((matches) => matches.map((item) => item.event));
+}
+
+/**
  * Collapse fuzzy duplicates. Returns the deduped event list plus how many
  * records were merged away (for --stats reporting).
  *
@@ -520,6 +580,9 @@ function clusterBySameSourcePayload(group) {
  *     `sourceDescriptionHash` and identical structured payload apart from
  *     crawl identity/history fields — the source emitted the same listing
  *     under multiple ids/URLs without geo data.
+ *   - a single-source group where Geneva's official agenda has the same
+ *     event URL with and without its CMS `-0` alias, and all event-defining
+ *     fields match.
  *   - a single-source group whose members ALSO carry `geo` coordinates
  *     within `SAME_SOURCE_GEO_TOLERANCE_KM` of each other (issue #3744) —
  *     the same source re-indexed its own event under a second raw id/URL.
@@ -556,9 +619,23 @@ export function dedupeFuzzy(events, { descriptionRewriteCache } = {}) {
           : [];
         exactPayloadWinners.push(pickRichestEvent(rewriteHits.length ? rewriteHits : cluster));
       }
-      const geoCandidates = [
+      const payloadCandidates = [
         ...exactPayloadWinners,
         ...group.filter((event) => !exactPayloadMembers.has(event)),
+      ];
+      const aliasClusters = clusterByGenevaAgendaAlias(payloadCandidates);
+      const aliasMembers = new Set(aliasClusters.flat());
+      const aliasWinners = [];
+      for (const cluster of aliasClusters) {
+        mergedAway += cluster.length - 1;
+        const rewriteHits = descriptionRewriteCache
+          ? cluster.filter((event) => applyDescriptionRewrite(event, descriptionRewriteCache).descriptionRewriteValidated === true)
+          : [];
+        aliasWinners.push(pickRichestEvent(rewriteHits.length ? rewriteHits : cluster));
+      }
+      const geoCandidates = [
+        ...aliasWinners,
+        ...payloadCandidates.filter((event) => !aliasMembers.has(event)),
       ];
       const { clusters, singles } = clusterBySameGeo(geoCandidates);
       for (const cluster of clusters) {

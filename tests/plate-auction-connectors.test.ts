@@ -17,7 +17,7 @@ import {
 import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
-import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
+import { parseShAuctionRows, SH_AUCTION_URL } from '../scripts/plate-auctions/connectors/sh.mjs';
 import {
   fetchSzPlateAuctions,
   parseSzAuctionRows,
@@ -92,6 +92,10 @@ const ECARI_NO_RUNNING_AUCTION_FR = readFileSync(join(__dirname, 'fixtures/ecari
 const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
+  it('uses the live localized SH auction catalogue endpoint', () => {
+    expect(SH_AUCTION_URL).toBe('https://www.auktion-stva.sh.ch/de/');
+  });
+
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
     const html = '<a href="/cars.pdf">Cars</a><a href="/motorcycles.pdf">Motorcycles</a>';
     expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source', pattern: /trailer\.pdf/i })).toBeUndefined();
@@ -123,6 +127,19 @@ describe('expanded plate-auction connectors', () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch')
       .mockResolvedValueOnce(firstResponse)
       .mockResolvedValueOnce(secondResponse);
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('retries a transient 404 from an official catalogue before degrading it', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response('temporary not found', { status: 404 }))
+      .mockResolvedValueOnce(new Response('<html>ok</html>', { status: 200 }));
 
     try {
       await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
@@ -340,9 +357,16 @@ describe('expanded plate-auction connectors', () => {
         sourceKey: sourceKey.toUpperCase(),
         normalizedPlate: `${sourceKey.toUpperCase()}691`,
         currentBidChf: 950,
+        officialAuctionUrl: sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch/fr/'
+          : sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch/de/',
         officialDetailUrl: sourceKey === 'vd'
           ? 'https://www.encheres-vd.ch/fr/auction/1768'
-          : 'https://www.' + (sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
+          : (sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch') + '/de/auction/1768',
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }

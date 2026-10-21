@@ -58,6 +58,8 @@ it('preserves an explicitly empty excerpt, falls back only when it is absent, an
     fs.mkdirSync(path.dirname(filePath), { recursive: true });
     fs.writeFileSync(filePath, value);
   };
+  const translationModule = (entries: Record<string, string>) =>
+    `const translations: Record<string, string> = ${JSON.stringify(entries)};\nexport default translations;\n`;
 
   const ids = ['excerpt-empty', 'excerpt-absent'];
   write('data/blog-articles-data.ts', `const RAW_ARTICLES = [${ids.map(id => `{ id: '${id}', category: 'pratico', date: '2026-10-01' }`).join(',')}];`);
@@ -70,12 +72,13 @@ it('preserves an explicitly empty excerpt, falls back only when it is absent, an
   },`;
   write('services/seo/seo-blog.ts', `export const entries = {${ids.map(seoEntry).join('')}\n};`);
   write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify(Object.fromEntries(ids.map(id => [id, { it: id, en: `en-${id}`, de: `de-${id}`, fr: `fr-${id}` }])))};`);
-  write('services/locales/blog-meta-it.ts', `export default {
-  'blog.article.excerpt-empty.excerpt': '',
-};`);
-  write('services/locales/blog-meta-en.ts', `export default {
-  'blog.article.excerpt-empty.excerpt': 'In short: **Questions the board has prepared answers for**',
-};`);
+  write('services/locales/blog-meta-it.ts', translationModule({
+    'blog.article.excerpt-empty.excerpt': '',
+  }));
+  write('services/locales/blog-meta-en.ts', translationModule({
+    'blog.article.excerpt-empty.title': 'English\r\n\n\tTitle',
+    'blog.article.excerpt-empty.excerpt': 'In short: **Questions the board has prepared answers for**',
+  }));
 
   const distDir = path.join(rootDir, 'dist');
   const result = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
@@ -89,6 +92,8 @@ it('preserves an explicitly empty excerpt, falls back only when it is absent, an
   expect(visibleExcerpt(htmlFor('excerpt-empty', 'it'))).toBe('');
   expect(visibleExcerpt(htmlFor('excerpt-absent', 'it'))).toBe('Descrizione SEO fixture.');
   expect(visibleExcerpt(htmlFor('excerpt-empty', 'en'))).toBe('Questions the board has prepared answers for');
+  expect(new JSDOM(htmlFor('excerpt-empty', 'en')).window.document.querySelector('h1')?.textContent)
+    .toBe('English \tTitle');
   const emptyItDocument = new JSDOM(htmlFor('excerpt-empty', 'it')).window.document;
   const absentItDocument = new JSDOM(htmlFor('excerpt-absent', 'it')).window.document;
   const emptySeoDescription = emptyItDocument.querySelector('meta[property="og:description"]')?.getAttribute('content');

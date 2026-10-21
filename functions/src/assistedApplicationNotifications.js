@@ -36,6 +36,7 @@ import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 import { mintAutologinCode, resolveAutologinPolicy } from './lib/autologinCode.js';
 import { makeAuthenticatedUrl } from './lib/newsletterUrls.js';
+import { enrichAssistedApplicationOrders } from './assistedApplicationJobCard.js';
 import { flowRefFor, isAutomationEnabledFor } from './assistedApplicationAutomation.js';
 import { REVIEW_TOKEN_TTL_MS, getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -47,6 +48,8 @@ import {
   brandInfoCard,
   brandJobCard,
   brandLink,
+  brandFormatSalary,
+  brandNormalizeContract,
   brandParagraph,
   brandSectionLabel,
   brandSignature,
@@ -743,11 +746,15 @@ function paragraph(html) {
 }
 
 function orderVars(order, orderId, locale, nowMs) {
+  const salary = brandFormatSalary(order, locale) || '';
+  const contract = order?.contract ? brandNormalizeContract(order.contract, locale) : '';
   return {
     job: clean(order?.jobTitle, 200) || '—',
     company: clean(order?.companyName, 200) || '—',
     location: clean(order?.location || order?.addressLocality || order?.canton, 160),
     logoUrl: safeHttpsUrl(order?.companyLogo || order?.companyLogoUrl || order?.logoUrl),
+    salary,
+    contract,
     price: formatPrice(order, locale),
     date: formatDate(timestampMillis(order?.submittedAt) || nowMs, locale),
     orderId: String(orderId),
@@ -761,10 +768,20 @@ function jobBlock(order, copy, vars) {
     company: vars.company,
     location: vars.location,
     logoUrl: vars.logoUrl,
+    contract: order?.contract || '',
+    salaryMin: order?.salaryMin,
+    salaryMax: order?.salaryMax,
+    salaryCurrency: order?.salaryCurrency,
+    baseSalary: order?.baseSalary,
+    firstSeenAt: order?.firstSeenAt,
+    postedDate: order?.postedDate,
+    sector: order?.sector,
+    category: order?.category,
+    locale: resolveOrderLocale(order),
     url: jobUrl,
     linkLabel: copy.jobLink,
   });
-  const text = `${vars.job}\n${vars.company}${vars.location ? `\n${vars.location}` : ''}${jobUrl ? `\n${copy.jobLink}: ${jobUrl}` : ''}`;
+  const text = `${vars.job}\n${vars.company}${vars.location ? `\n${vars.location}` : ''}${vars.salary ? `\n${vars.salary}` : ''}${vars.contract ? `\n${vars.contract}` : ''}${jobUrl ? `\n${copy.jobLink}: ${jobUrl}` : ''}`;
   return { html, text };
 }
 
@@ -1217,6 +1234,7 @@ export async function sendPendingPaymentDigest({
   digestId,
   reminderStage = 1,
   nowMs = Date.now(),
+  fetchImpl = fetch,
 } = {}) {
   const recipient = String(to || '').trim().toLowerCase();
   if (!recipient) return { ok: false, reason: 'no_recipient' };
@@ -1226,7 +1244,8 @@ export async function sendPendingPaymentDigest({
 
   const key = NOTIFICATION_KEYS.customerPaymentRecovery;
   const autologin = await resolveCustomerAutologin(recipient);
-  const message = buildPendingPaymentDigestEmail(orders, {
+  const enrichedOrders = await enrichAssistedApplicationOrders(orders, { fetchImpl });
+  const message = buildPendingPaymentDigestEmail(enrichedOrders, {
     nowMs,
     reminderStage,
     orderPageUrlFor: (order, orderId, locale) => buildAuthenticatedOrderPageUrl(order, orderId, locale, autologin),
