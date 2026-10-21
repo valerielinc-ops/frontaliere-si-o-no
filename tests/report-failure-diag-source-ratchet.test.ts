@@ -30,7 +30,6 @@ const FROZEN_WITHOUT_EXCERPT_SOURCE = new Set([
   'audit-duplicate-crawlers.yml#audit',
   'deploy-publish.yml#deploy',
   'generate-article.yml#generate',
-  'post-deploy-validate-live.yml#validate-live',
   'traffic-scheduler.yml#collect',
   'translate-pending-logic.yml#translate',
   'translate-pending.yml#translate',

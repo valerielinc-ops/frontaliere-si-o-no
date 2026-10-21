@@ -283,6 +283,11 @@ function changedFilesSince({ repo, baseSha, headSha }) {
   return { files, truncated: Number(compare.count) >= 300 };
 }
 
+function isCompareUnavailableError(error) {
+  const detail = `${String(error?.stderr || '')}\n${String(error?.message || error || '')}`;
+  return /HTTP 422/i.test(detail) && /diff is taking too long to generate|not_available/i.test(detail);
+}
+
 function main() {
   const repo = process.env.GITHUB_REPOSITORY;
   const branch = process.env.DEPLOY_BRANCH || 'main';
@@ -346,14 +351,29 @@ function main() {
       }
       console.log(`[deploy-request] ${pending.length} deploy-bound path(s) since ${compareLabel}`);
     } catch (error) {
-      return recoverAfterFailure({
-        repo,
-        workflow: 'deploy-request.yml',
-        branch,
-        headSha,
-        reason: 'deploy-path-compare-failed',
-        error,
-      });
+      // The compare endpoint is an optimisation for the ignored-path case. GitHub
+      // can refuse a large comparison with 422/not_available before --jq gets to
+      // project it; that is not evidence that the paths are ignored. Continue to
+      // the normal queue decision so a deployable tip is dispatched conservatively.
+      if (isCompareUnavailableError(error)) {
+        console.warn(
+          `⚠️ deploy-path-compare-unavailable: GitHub could not generate the comparison since ${compareLabel}; `
+            + 'continuing conservatively',
+        );
+        appendSummary(
+          `⚠️ **Deploy request compare unavailable**: GitHub could not generate the comparison since ${compareLabel}; `
+            + 'continuing conservatively.',
+        );
+      } else {
+        return recoverAfterFailure({
+          repo,
+          workflow: 'deploy-request.yml',
+          branch,
+          headSha,
+          reason: 'deploy-path-compare-failed',
+          error,
+        });
+      }
     }
   }
 
