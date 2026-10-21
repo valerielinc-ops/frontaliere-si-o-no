@@ -218,7 +218,7 @@ const CONNECTORS = {
   vd: makeCardConnector({
     canton: 'Vaud',
     plateCode: 'VD',
-    url: 'https://www.encheres-vd.ch/de/',
+    url: 'https://www.encheres-vd.ch/fr/',
     detailBaseUrl: 'https://www.encheres-vd.ch',
   }),
   ti: {

@@ -157,14 +157,18 @@ export function isCardCatalogueExplicitlyEmpty(html) {
   if (!source) return false;
   if (CARD_AUCTION_LINK_RE.test(source)) return false;
   const text = htmlText(source);
-  const hasSearchControls = /Kontrollschild(?:typ)?/i.test(text) && /Suchen/i.test(text);
+  const hasSearchControls = (
+    (/Kontrollschild(?:typ)?/i.test(text) && /Suchen/i.test(text))
+    || (/Type\s+de\s+plaques/i.test(text) && /Rechercher/i.test(text))
+  );
   if (!hasSearchControls) return false;
 
   // Between two rounds the card platform can render its no-results state
   // without the `auction-grid`/`auctions` containers. The exact German
   // marker, together with the platform's search controls and no auction
   // link, is an explicit empty catalogue — not a generic empty parse.
-  const hasNoResultsMarker = /Keine\s+Ergebnisse\s+f(?:ü|&uuml;)r\s+Ihre\s+Suche\.?/i.test(text);
+  const hasNoResultsMarker = /Keine\s+Ergebnisse\s+f(?:ü|&uuml;)r\s+Ihre\s+Suche\.?/i.test(text)
+    || /Votre\s+recherche\s+n(?:['’]|&#39;|&apos;)a\s+donn(?:é|&eacute;|&#233;)\s+aucun\s+r(?:é|&eacute;|&#233;)sultat\.?/i.test(text);
   if (hasNoResultsMarker) return true;
 
   return hasHtmlClass(source, 'auction-grid')
