@@ -583,7 +583,7 @@ export function resolveSearchConsoleCompatTarget(
  // A station detail has a more useful, city-specific target than the broad
  // fuel-section fallback below. The compat store can contain the same raw
  // paths as legacy-aliases.json, so both producers must share this resolver.
- if (path.includes('/stazioni/') || path.includes('/stations/') || path.includes('/tankstellen/')) {
+ if (/\/(?:stazioni|stations|tankstellen)\//i.test(path)) {
   const station = resolveFuelStation(path);
   if (station) {
    return {
