@@ -331,13 +331,18 @@ describe('expanded plate-auction connectors', () => {
 
   it('reuses the card contract for AG, BE and VD after the portal migrations', () => {
     for (const sourceKey of ['ag', 'be', 'vd']) {
-      const [row] = parseExpandedCard(sourceKey, EXPANDED_CARD_SAMPLE.replaceAll('AG', sourceKey.toUpperCase()), { fetchedAt: '2026-09-15T08:00:00.000Z' });
+      const sample = EXPANDED_CARD_SAMPLE
+        .replaceAll('AG', sourceKey.toUpperCase())
+        .replace(sourceKey === 'vd' ? '/de/auction/' : '__no_match__', sourceKey === 'vd' ? '/fr/auction/' : '__no_match__');
+      const [row] = parseExpandedCard(sourceKey, sample, { fetchedAt: '2026-09-15T08:00:00.000Z' });
       expect(row, sourceKey).toMatchObject({
         id: `${sourceKey}-1768`,
         sourceKey: sourceKey.toUpperCase(),
         normalizedPlate: `${sourceKey.toUpperCase()}691`,
         currentBidChf: 950,
-        officialDetailUrl: 'https://www.' + (sourceKey === 'vd' ? 'encheres-vd.ch' : sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
+        officialDetailUrl: sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch/fr/auction/1768'
+          : 'https://www.' + (sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }
@@ -362,6 +367,22 @@ describe('expanded plate-auction connectors', () => {
     const parserDrift = `${beNoResultsSample}
       <a href="/de/auction/231118" class="auction-element-link">changed card markup</a>`;
     const driftRows = parseExpandedCard('be', parserDrift);
+    expect(driftRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
+  });
+
+  it('recognizes the current French no-results shell for VD after the locale migration', () => {
+    const vdNoResultsSample = `<div class="auction-page">
+      <div class="auction-filters"><span>Type de plaques</span><button>Rechercher</button></div>
+      <p>Votre recherche n'a donné aucun résultat</p>
+    </div>`;
+    const rows = parseExpandedCard('vd', vdNoResultsSample, { fetchedAt: '2026-10-21T17:12:57.888Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+
+    const parserDrift = `${vdNoResultsSample}
+      <a href="/fr/auction/120554" class="auction-element-link">changed card markup</a>`;
+    const driftRows = parseExpandedCard('vd', parserDrift);
     expect(driftRows).toEqual([]);
     expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
   });
