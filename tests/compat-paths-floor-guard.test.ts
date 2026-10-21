@@ -1,7 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
   assertCompatFloor,
+  assertCompatPruneSafety,
   COMPAT_PATHS_SANITY_FLOOR,
+  COMPAT_PATHS_MAX_AUTO_PRUNE_COUNT,
+  COMPAT_PATHS_MAX_AUTO_PRUNE_RATIO,
 } from '../scripts/lib/compat-paths-floor-guard.mjs';
 
 describe('assertCompatFloor', () => {
@@ -43,5 +46,37 @@ describe('assertCompatFloor', () => {
   it('coerces non-numeric counts to 0 (defensive)', () => {
     expect(() => assertCompatFloor(undefined, undefined)).not.toThrow();
     expect(() => assertCompatFloor(NaN, NaN)).not.toThrow();
+  });
+});
+
+describe('assertCompatPruneSafety', () => {
+  it('sets bounded automatic prune limits for large accumulators', () => {
+    expect(COMPAT_PATHS_MAX_AUTO_PRUNE_COUNT).toBe(50_000);
+    expect(COMPAT_PATHS_MAX_AUTO_PRUNE_RATIO).toBe(0.10);
+  });
+
+  it('catches a destructive cohort loss even while the store stays above the floor', () => {
+    expect(() => assertCompatPruneSafety(200_000, 150_000)).toThrow(/ABORT prune/);
+  });
+
+  it('catches the absolute removal limit even when the percentage is small', () => {
+    expect(() => assertCompatPruneSafety(1_000_000, 949_999)).toThrow(/50000 paths/);
+  });
+
+  it('catches the percentage limit even when the removed count is small', () => {
+    expect(() => assertCompatPruneSafety(200_000, 179_999)).toThrow(/10%/);
+  });
+
+  it('allows a cleanup exactly at both automatic limits', () => {
+    expect(() => assertCompatPruneSafety(1_000_000, 950_000)).not.toThrow();
+    expect(() => assertCompatPruneSafety(200_000, 180_000)).not.toThrow();
+  });
+
+  it('preserves bootstrap behavior for stores below the established floor', () => {
+    expect(() => assertCompatPruneSafety(10_000, 0)).not.toThrow();
+  });
+
+  it('allows an explicit reviewed override for a large prune', () => {
+    expect(() => assertCompatPruneSafety(657_594, 0, { allowLargePrune: true })).not.toThrow();
   });
 });

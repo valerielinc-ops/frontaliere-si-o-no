@@ -27,6 +27,8 @@
  */
 
 export const COMPAT_PATHS_SANITY_FLOOR = 150_000;
+export const COMPAT_PATHS_MAX_AUTO_PRUNE_COUNT = 50_000;
+export const COMPAT_PATHS_MAX_AUTO_PRUNE_RATIO = 0.10;
 
 /**
  * Throw if writing `nextCount` paths would catastrophically truncate an
@@ -50,6 +52,46 @@ export function assertCompatFloor(prevCount, nextCount, opts = {}) {
         `while the existing accumulator has ${prev} → catastrophic truncation avoided. ` +
         `The source read may be incomplete or the update may have removed a large cohort. ` +
         `NOT overwriting. Investigate the input, resolver, or writer and restore if needed.`
+    );
+  }
+}
+
+/**
+ * Guard a destructive prune of the large compatibility accumulator.
+ *
+ * The historical floor catches a complete/truncating read failure, but alone
+ * allows a resolver regression to drop a large cohort while leaving the store
+ * above 150k. Automatic pruning is therefore limited to 50k paths and 10% of
+ * the existing store. A reviewed, intentional large cleanup can explicitly
+ * bypass both guards with `allowLargePrune: true`.
+ *
+ * @param {number} prevCount paths currently on disk
+ * @param {number} nextCount paths about to be written
+ * @param {object} [opts]
+ * @param {string} [opts.label='seo-404-compat-paths.json'] accumulator label
+ * @param {boolean} [opts.allowLargePrune=false] explicit reviewed override
+ * @throws {Error} when an automatic prune exceeds either safety limit
+ */
+export function assertCompatPruneSafety(prevCount, nextCount, opts = {}) {
+  if (opts.allowLargePrune === true) return;
+
+  const label = opts.label ?? 'seo-404-compat-paths.json';
+  assertCompatFloor(prevCount, nextCount, { ...opts, label });
+
+  const prev = Number(prevCount) || 0;
+  const next = Number(nextCount) || 0;
+  if (prev < COMPAT_PATHS_SANITY_FLOOR) return;
+
+  const removed = Math.max(0, prev - next);
+  const removalRatio = removed / prev;
+  if (removed > COMPAT_PATHS_MAX_AUTO_PRUNE_COUNT || removalRatio > COMPAT_PATHS_MAX_AUTO_PRUNE_RATIO) {
+    throw new Error(
+      `❌ ABORT prune of ${label}: ${removed} of ${prev} paths would be removed ` +
+        `(${(removalRatio * 100).toFixed(1)}%). Automatic pruning is limited to ` +
+        `${COMPAT_PATHS_MAX_AUTO_PRUNE_COUNT} paths and ` +
+        `${COMPAT_PATHS_MAX_AUTO_PRUNE_RATIO * 100}% of a large accumulator. ` +
+        `Review the dropped paths and resolver; only then rerun with ` +
+        `PRUNE_404_ALLOW_LARGE_PRUNE=1 to authorize this cleanup.`,
     );
   }
 }
