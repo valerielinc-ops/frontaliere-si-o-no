@@ -2974,7 +2974,7 @@
       "id": "c-and-a-schweiz-725c0514ab7a",
       "slug": "collaborateur-de-vente-m-w-d-cdd-50-marin-1-c-a-schweiz-marin",
       "slugByLocale": {
-        "it": "collaborateur-de-vente-m-w-d-cdd-50-marin-1-c-a-schweiz-marin",
+        "it": "addetto-a-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-marin-1-c-a-schweiz-marin-ch",
         "en": "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch",
         "de": "verkaufsmitarbeiter-m-w-d-befristeter-vertrag-50-marin-1-c-a-schweiz-marin-ch",
         "fr": "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
@@ -3020,13 +3020,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch",
-        "addetto-a-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-marin-1-c-a-schweiz-marin-ch"
+        "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch",
-          "addetto-a-alle-vendite-m-f-d-contratto-a-tempo-determinato-50-marin-1-c-a-schweiz-marin-ch"
+          "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
         ],
         "de": [
           "collaborateur-de-vente-f-m-d-cdd-50-marin-1-c-and-a-schweiz-ch"
@@ -3286,8 +3284,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a",
         "it": "collaboratore-trice-im-vendita-m-w-d-40-per-sihlcity-befristet-bis-ende-dezember-2026-c-a-schweiz-zurich",
-        "en": "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a",
-        "fr": "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
+        "en": "sales-assistant-m-f-d-40-for-sihlcity-fixed-term-until-the-end-of-december-2026-c-a-schweiz-zurich-ch",
+        "fr": "collaborateur-de-vente-h-f-d-40-pour-sihlcity-a-duree-determinee-jusqu-a-fin-decembre-2026-c-a-schweiz-zurich-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3331,9 +3329,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
+        ],
+        "en": [
+          "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
+        ],
+        "fr": [
           "mitarbeiter-im-verkauf-w-m-d-40-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
         ]
       },
@@ -3362,8 +3365,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a",
         "it": "collaboratore-trice-im-vendita-m-w-d-80-per-sihlcity-befristet-bis-ende-dezember-2026-c-a-schweiz-zurich",
-        "en": "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a",
-        "fr": "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
+        "en": "sales-assistant-m-f-d-80-for-sihlcity-fixed-term-until-the-end-of-december-2026-c-a-schweiz-zurich-ch",
+        "fr": "collaborateur-de-vente-h-f-d-80-pour-sihlcity-a-duree-determinee-jusqu-a-fin-decembre-2026-c-a-schweiz-zurich-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3407,9 +3410,14 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
+        ],
+        "en": [
+          "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
+        ],
+        "fr": [
           "mitarbeiter-im-verkauf-w-m-d-80-fur-sihlcity-befristet-bis-ende-dezember-2026-c-and-a"
         ]
       },

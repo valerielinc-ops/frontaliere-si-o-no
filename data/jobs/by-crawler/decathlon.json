@@ -3923,7 +3923,6 @@
         ]
       },
       "firstSeenAt": "2026-10-20T09:22:35.210Z",
-      "needsRetranslation": true,
       "salaryMin": 28400,
       "salaryMax": 43000,
       "salarySource": "estimated",
@@ -3940,12 +3939,12 @@
     },
     {
       "id": "decathlon-9cb7983414c4",
-      "slug": "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-brig-glis",
+      "slug": "sport-leader-sales-advisor-m-f-d-temporary-80-brig-decathlon-brig-glis",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-brig-glis",
+        "it": "sport-leader-sales-advisor-m-f-d-temporary-80-brig-decathlon-brig-glis",
         "en": "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-80-brig-decathlon-brig-glis"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3991,11 +3990,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-brig-glis"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-befristet-80-brig-decathlon-brig-glis"
       ],
       "salaryMin": 57600,
       "salaryMax": 88800,
@@ -4014,12 +4018,12 @@
     },
     {
       "id": "decathlon-fffbe89b7b17",
-      "slug": "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch",
+      "slug": "consulente-sportivo-ciclo-m-f-cdi-60-80-villeneuve-decathlon-villeneuve",
       "slugByLocale": {
         "fr": "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch",
-        "it": "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch",
-        "en": "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch",
-        "de": "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch"
+        "it": "consulente-sportivo-ciclo-m-f-cdi-60-80-villeneuve-decathlon-villeneuve",
+        "en": "sports-counsellor-cycle-m-f-cdi-60-80-villeneuve-decathlon-villeneuve",
+        "de": "sportberater-zyklus-m-w-cdi-60-80-villeneuve-decathlon-villeneuve"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4076,7 +4080,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:22:54.780Z"
+      "firstSeenAt": "2026-10-20T21:22:54.780Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-cycle-h-f-cdi-60-80-villeneuve-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-8bf3722494e0",

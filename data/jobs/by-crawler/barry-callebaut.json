@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "barry-callebaut-5a770904a360",
-      "slug": "pricing-manager-maternity-cover-barry-callebaut-ch",
+      "slug": "pricing-manager-sostituzione-maternita-barry-callebaut-zurich",
       "slugByLocale": {
         "en": "pricing-manager-maternity-cover-barry-callebaut-ch",
-        "it": "pricing-manager-maternity-cover-barry-callebaut-ch",
-        "de": "pricing-manager-maternity-cover-barry-callebaut-ch",
-        "fr": "pricing-manager-maternity-cover-barry-callebaut-ch"
+        "it": "pricing-manager-sostituzione-maternita-barry-callebaut-zurich",
+        "de": "pricing-manager-mutterschaftsvertretung-barry-callebaut-zurich",
+        "fr": "pricing-manager-remplacement-maternite-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -67,16 +67,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-20T21:28:04.716Z"
+      "firstSeenAt": "2026-10-20T21:28:04.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pricing-manager-maternity-cover-barry-callebaut-ch"
+        ],
+        "de": [
+          "pricing-manager-maternity-cover-barry-callebaut-ch"
+        ],
+        "fr": [
+          "pricing-manager-maternity-cover-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pricing-manager-maternity-cover-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-446962d74bf5",
-      "slug": "senior-legal-counsel-barry-callebaut-ch",
+      "slug": "consigliere-legale-senior-barry-callebaut-zurich",
       "slugByLocale": {
         "en": "senior-legal-counsel-barry-callebaut-ch",
-        "it": "senior-legal-counsel-barry-callebaut-ch",
-        "de": "senior-legal-counsel-barry-callebaut-ch",
-        "fr": "senior-legal-counsel-barry-callebaut-ch"
+        "it": "consigliere-legale-senior-barry-callebaut-zurich",
+        "de": "senior-jurist-barry-callebaut-zurich",
+        "fr": "conseiller-juridique-principal-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -134,7 +148,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-20T21:28:04.716Z"
+      "firstSeenAt": "2026-10-20T21:28:04.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-legal-counsel-barry-callebaut-ch"
+        ],
+        "de": [
+          "senior-legal-counsel-barry-callebaut-ch"
+        ],
+        "fr": [
+          "senior-legal-counsel-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-legal-counsel-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-c7e75d02d8f9",

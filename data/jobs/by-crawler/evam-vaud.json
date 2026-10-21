@@ -1334,7 +1334,6 @@
         "responsable-de-foyers-100-cdi-evam-vaud-ch"
       ],
       "firstSeenAt": "2026-10-19T21:35:12.462Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1356,7 +1355,7 @@
       "slugByLocale": {
         "fr": "gestionnaire-de-dossiers-front-office-100-cdi-evam-vevey",
         "it": "gestionnaire-de-dossiers-front-office-100-cdi-evam-vevey",
-        "en": "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch",
+        "en": "front-office-folder-manager-100-cdi-evam-vevey",
         "de": "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
@@ -1405,6 +1404,9 @@
         ],
         "fr": [
           "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [
@@ -1432,7 +1434,7 @@
       "slugByLocale": {
         "fr": "gestionnaire-de-dossiers-front-office-100-cdi-evam-yverdon-les-bains",
         "it": "gestionnaire-de-dossiers-front-office-100-cdi-evam-yverdon-les-bains",
-        "en": "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch-2",
+        "en": "front-office-folder-manager-100-cdi-evam-yverdon-les-bains",
         "de": "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch-2"
       },
       "company": "EVAM",
@@ -1482,6 +1484,9 @@
         ],
         "fr": [
           "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch"
+        ],
+        "en": [
+          "gestionnaire-de-dossiers-front-office-100-cdi-evam-vaud-ch-2"
         ]
       },
       "previousSlugs": [

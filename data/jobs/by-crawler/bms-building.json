@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bms-building-11784011dc17",
-      "slug": "logisticien-a-100-f-h-d-bms-building-ch",
+      "slug": "100-logistica-m-f-d-bms-building-materials-bussigny-pres-lausanne",
       "slugByLocale": {
         "fr": "logisticien-a-100-f-h-d-bms-building-ch",
-        "it": "logisticien-a-100-f-h-d-bms-building-ch",
-        "en": "logisticien-a-100-f-h-d-bms-building-ch",
-        "de": "logisticien-a-100-f-h-d-bms-building-ch"
+        "it": "100-logistica-m-f-d-bms-building-materials-bussigny-pres-lausanne",
+        "en": "100-logistician-m-f-d-bms-building-materials-bussigny-pres-lausanne",
+        "de": "100-logistiker-m-w-d-bms-building-materials-bussigny-pres-lausanne"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -103,16 +103,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-08T23:20:02.726Z"
+      "firstSeenAt": "2026-09-08T23:20:02.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logisticien-a-100-f-h-d-bms-building-ch"
+        ],
+        "en": [
+          "logisticien-a-100-f-h-d-bms-building-ch"
+        ],
+        "de": [
+          "logisticien-a-100-f-h-d-bms-building-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logisticien-a-100-f-h-d-bms-building-ch"
+      ]
     },
     {
       "id": "bms-building-8ed11e24c523",
-      "slug": "verkaufsberater-servizio-interno-wand-e-bodenbelage-100-m-w-d-bms-building-materials-visp",
+      "slug": "consulente-di-vendita-interno-per-rivestimenti-murali-e-pavimenti-100-m-f-d-bms-building-materials-visp",
       "slugByLocale": {
         "de": "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch",
-        "it": "verkaufsberater-servizio-interno-wand-e-bodenbelage-100-m-w-d-bms-building-materials-visp",
-        "en": "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch",
-        "fr": "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch"
+        "it": "consulente-di-vendita-interno-per-rivestimenti-murali-e-pavimenti-100-m-f-d-bms-building-materials-visp",
+        "en": "sales-consultant-indoor-service-wall-and-flooring-100-m-f-d-bms-building-materials-visp",
+        "fr": "consultant-commercial-mur-de-service-interieur-et-plancher-100-h-f-d-bms-building-materials-visp"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -186,14 +200,21 @@
           "Datenschutz"
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch",
+          "verkaufsberater-servizio-interno-wand-e-bodenbelage-100-m-w-d-bms-building-materials-visp"
+        ],
+        "en": [
+          "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch"
+        ],
+        "fr": [
           "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch"
+        "verkaufsberater-innendienst-wand-und-bodenbelage-100-m-w-d-bms-building-ch",
+        "verkaufsberater-servizio-interno-wand-e-bodenbelage-100-m-w-d-bms-building-materials-visp"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
