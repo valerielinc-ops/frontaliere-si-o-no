@@ -366,6 +366,16 @@ describe('static article body source literals', () => {
     return `${quote}${escaped}${quote}`;
   }
 
+  function translationModuleSource(recordName: string, properties: string): string {
+    return [
+      `const ${recordName}: Record<string, string> = {`,
+      properties,
+      '};',
+      `export default ${recordName};`,
+      '',
+    ].join('\n');
+  }
+
   function writeArticleSeoFixture(rootDir: string, ids: readonly string[]): void {
     const seoFile = path.join(rootDir, 'services', 'seo', 'seo-blog-ch.ts');
     fs.mkdirSync(path.dirname(seoFile), { recursive: true });
@@ -402,7 +412,10 @@ describe('static article body source literals', () => {
         // literals. These 24 headings were extracted from the corresponding
         // six article records in all four locales; the complete bodies remain
         // in the corpus repository and are not imported by this site test.
-        fs.writeFileSync(path.join(localeDir, `${id}.ts`), `export default ${JSON.stringify({ [key]: body })};\n`);
+        fs.writeFileSync(
+          path.join(localeDir, `${id}.ts`),
+          translationModuleSource('body', `  ${JSON.stringify(key)}: ${JSON.stringify(body)},`),
+        );
       }
     }
 
@@ -412,14 +425,12 @@ describe('static article body source literals', () => {
       { q: 'What does the static FAQ parser preserve?', a: 'It preserves escaped quotes, JSON structure, and enough answer text for the rendered schema.' },
       { q: 'Can a static FAQ be written with a different source delimiter?', a: 'Yes, the parser reads static single, double, and template literals without evaluating code.' },
     ]);
-    const literalBodySource = [
-      'export default {',
+    const literalBodySource = translationModuleSource('body', [
       `  ${quoteStaticTsString(`blog.article.${fixtureId}.body1`, "'")}: ${quoteStaticTsString('## Body one: double quoted value\n\nA line with "escaped quotes" and café.', '"')},`,
       `  ${quoteStaticTsString(`blog.article.${fixtureId}.body2`, '"')}: ${quoteStaticTsString("## Body two: single quoted value\n\nAn apostrophe: it's preserved, with a path \\\\server and a [source link](https://example.test/source).", "'")},`,
-      `  ${quoteStaticTsString(`blog.article.${fixtureId}.body3`, '`')}: ${quoteStaticTsString('## Body three: template value\n\nInline `code` and literal ${articleId} remain text.\n\nA slash before two source newlines: \\\n\nThis paragraph must stay separate.', '`')},`,
-      `  ${quoteStaticTsString(`blog.article.${fixtureId}.faq`, '`')}: ${quoteStaticTsString(faq, '"')},`,
-      '};',
-    ].join('\n');
+      `  ${quoteStaticTsString(`blog.article.${fixtureId}.body3`, '"')}: ${quoteStaticTsString('## Body three: template value\n\nInline `code` and literal ${articleId} remain text.\n\nA slash before two source newlines: \\\n\nThis paragraph must stay separate.', '`')},`,
+      `  ${quoteStaticTsString(`blog.article.${fixtureId}.faq`, '"')}: ${quoteStaticTsString(faq, '"')},`,
+    ].join('\n'));
     fs.writeFileSync(path.join(fixtureDir, `${fixtureId}.ts`), literalBodySource);
 
     const rendered = await renderArticlePages({
@@ -460,7 +471,7 @@ describe('static article body source literals', () => {
     fs.mkdirSync(localeDir, { recursive: true });
     fs.writeFileSync(
       path.join(localeDir, `${articleId}.ts`),
-      `export default { "blog.article.${articleId}.body1": getArticleBody() };\n`,
+      translationModuleSource('body', `  "blog.article.${articleId}.body1": getArticleBody(),`),
     );
 
     await expect(renderArticlePages({
@@ -468,7 +479,7 @@ describe('static article body source literals', () => {
       distDir,
       section: 'svizzera',
       onlyArticleId: articleId,
-    })).rejects.toThrow(/not a static string/);
+    })).rejects.toThrow(/must have a static string literal value/);
   });
 
   it.each([
@@ -483,7 +494,7 @@ describe('static article body source literals', () => {
     fs.mkdirSync(localeDir, { recursive: true });
     fs.writeFileSync(
       path.join(localeDir, `${articleId}.ts`),
-      `export default { "blog.article.${articleId}.body1": ${valueExpression} };\n`,
+      translationModuleSource('body', `  "blog.article.${articleId}.body1": ${valueExpression},`),
     );
 
     await expect(renderArticlePages({

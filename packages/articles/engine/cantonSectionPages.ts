@@ -62,7 +62,7 @@ import { ARTICLE_HUB_GRID_OPEN, renderArticleHubCards } from './articlesHubCards
 import { LOCALE_OG, cantonMethodologyAccordionHtml, cantonTopicHubLinks } from './articleHubPagesPlugin';
 import { rewriteBlogImageRefs } from './blogImageCdnFinalize';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
-import { readArticleDates, readArticleExcerpts, readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
+import { readArticleDates, readArticleMetadata, readBlogUrlSlugs } from './shared/articleReaders';
 import type { ArticleSection } from '../articleSections';
 
 type Locale = ArticleLocale;
@@ -504,10 +504,16 @@ export function readCantonSectionLandingArticles(
   }
   const registry = registrySrc ? readArticleRegistryMetadata(registrySrc) : [];
   const dates = readArticleDates(fs, np, rootDir, cfg.registryFile);
-  const itTitles = new Map(readArticleSlugs(fs, np, rootDir, 'it', cfg.metaPrefix).map((a) => [a.slug, a.title]));
-  const titles = locale === 'it' ? itTitles : new Map(readArticleSlugs(fs, np, rootDir, locale, cfg.metaPrefix).map((a) => [a.slug, a.title]));
-  const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it', cfg.metaPrefix);
-  const excerpts = locale === 'it' ? itExcerpts : readArticleExcerpts(fs, np, rootDir, locale, cfg.metaPrefix);
+  const itMetadata = readArticleMetadata(fs, np, rootDir, 'it', cfg.metaPrefix);
+  const localeMetadata = locale === 'it'
+    ? itMetadata
+    : readArticleMetadata(fs, np, rootDir, locale, cfg.metaPrefix);
+  const itTitles = new Map(itMetadata.articles.map((article) => [article.slug, article.title]));
+  const titles = locale === 'it'
+    ? itTitles
+    : new Map(localeMetadata.articles.map((article) => [article.slug, article.title]));
+  const itExcerpts = itMetadata.excerpts;
+  const excerpts = localeMetadata.excerpts;
   const urlSlugs = readBlogUrlSlugs(fs, np, rootDir, cfg.slugDataFile, cfg.slugConst);
 
   const out: CantonLandingArticle[] = [];

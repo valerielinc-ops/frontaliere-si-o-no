@@ -10,6 +10,13 @@ const rootDir = process.cwd();
 let distDir: string | undefined;
 let fixtureRoot: string | undefined;
 
+function translationRecordModule(values: Record<string, string>): string {
+  const properties = Object.entries(values)
+    .map(([key, value]) => `  ${JSON.stringify(key)}: ${JSON.stringify(value)},`)
+    .join('\n');
+  return `const translations: Record<string, string> = {\n${properties}\n};\nexport default translations;\n`;
+}
+
 function writeMiazzinaFixtureRoot(): string {
   fixtureRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'article-miazzina-fixture-'));
   const write = (relativePath: string, contents: string) => {
@@ -17,9 +24,7 @@ function writeMiazzinaFixtureRoot(): string {
     fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.writeFileSync(target, contents);
   };
-  const bodySource = Object.entries(miazzinaFrenchBody)
-    .map(([key, value]) => "    '" + key + "': `" + value + "`,")
-    .join('\n');
+  const bodySource = translationRecordModule(miazzinaFrenchBody);
 
   write('data/blog-articles-data.ts', [
     "const RAW_ARTICLES = [",
@@ -48,7 +53,7 @@ function writeMiazzinaFixtureRoot(): string {
   ].join('\n'));
   write(
     'services/locales/blog-body/fr/miazzina-pendolare-fisco-ticino.ts',
-    'export const body = {\n' + bodySource + '\n};\n',
+    bodySource,
   );
   return fixtureRoot;
 }
@@ -91,9 +96,10 @@ describe('article prompt-placeholder robots protection', () => {
     const italianBody = 'Contenuto dimostrativo per mantenere la pagina indicizzabile. '.repeat(35);
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const body = locale === 'it' ? italianBody : '...';
-      write(`services/locales/blog-body/${locale}/${articleId}.ts`, `export const body = {
-        'blog.article.${articleId}.body1': \`${body}\`,
-      };`);
+      write(
+        `services/locales/blog-body/${locale}/${articleId}.ts`,
+        translationRecordModule({ [`blog.article.${articleId}.body1`]: body }),
+      );
     }
 
     const result = await renderArticlePages({
