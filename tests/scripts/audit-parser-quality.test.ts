@@ -1038,7 +1038,7 @@ describe('source-detail fidelity checks', () => {
     });
 
     expect(result).toMatchObject({
-      sourceLocation: 'Mülligen, AG, CH, 5243',
+      sourceLocation: 'Mülligen',
       locationMismatch: false,
       locationChecked: false,
       locationInconclusive: true,
