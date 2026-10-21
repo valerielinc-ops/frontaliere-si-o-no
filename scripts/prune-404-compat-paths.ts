@@ -16,6 +16,10 @@
  * the resolving paths still ship. Idempotent; exits 0 even with nothing to do.
  */
 import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  assertCompatFloor,
+  COMPAT_PATHS_SANITY_FLOOR,
+} from './lib/compat-paths-floor-guard.mjs';
 
 // Sharded accumulator (issue #2988): the logical {paths} set lives across
 // data/seo-404-compat/part-*.json. Read/write only via the store helpers.
@@ -77,6 +81,15 @@ async function main(): Promise<void> {
     console.log(`[prune-404-compat] ${kept.length} paths, all resolve — no change.`);
     return;
   }
+
+  // A resolver regression can make valid historical routes look non-resolving.
+  // Keep the established accumulator floor as a last line of defense before
+  // rewriting shards; the strict read above protects against incomplete input,
+  // while this protects against an unexpectedly destructive prune result.
+  assertCompatFloor(before.length, kept.length, {
+    floor: COMPAT_PATHS_SANITY_FLOOR,
+    label: 'seo-404-compat prune',
+  });
 
   writeCompatPaths({ ...data, paths: kept }, ROOT);
   console.log(

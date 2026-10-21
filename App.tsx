@@ -766,6 +766,7 @@ const App: React.FC = () => {
 
  // Normalize the recipient email read by the shared parser.
  const email = normalizeNewsletterEmail(rawEmail);
+ const assistedApplicationOrderId = url.searchParams.get('assisted_application_order_id');
 
  if (!autologinCode && !legacyAuthToken) return;
  if (!email || !email.includes('@')) return;
@@ -779,7 +780,7 @@ const App: React.FC = () => {
  if (autologinCode) {
  // New flow: exchange HMAC code for a fresh custom token via Cloud Function
  const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
- const result = await exchangeNewsletterAuthCode(email, autologinCode);
+ const result = await exchangeNewsletterAuthCode(email, autologinCode, assistedApplicationOrderId);
  if (result.success && result.authToken) {
  user = await signInWithCustomAuthToken(result.authToken);
  }

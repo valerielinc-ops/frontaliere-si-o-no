@@ -323,22 +323,36 @@ export function nationalSlugBody(legacyPath, locale) {
   return body || null;
 }
 
+/**
+ * Read the contiguous live sitemap shards. A 404 marks the end; transport or
+ * other HTTP failures abort so callers never build/prune from a partial set.
+ */
 export async function fetchLiveClusterSet() {
   const live = new Set();
   for (let n = 1; n <= 20; n++) {
     const idx = String(n).padStart(3, '0');
     const url = `${BASE}/sitemap-search-clusters-${idx}.xml`;
-    let xml;
+    let res;
     try {
-      const res = await fetch(url, {
+      res = await fetch(url, {
         headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
         signal: AbortSignal.timeout(DEFAULT_LIVE_CHECK_TIMEOUT_MS),
       });
-      if (!res.ok) break; // no more shards
-      xml = await res.text();
-    } catch {
-      break;
+    } catch (err) {
+      throw new Error(
+        `[build-search-cluster-301-map] failed to fetch sitemap shard ${idx}: ${err?.message ?? err}`,
+      );
     }
+
+    if (res.status === 404) break; // explicit end of the contiguous shard set
+    if (!res.ok) {
+      throw new Error(
+        `[build-search-cluster-301-map] sitemap shard ${idx} returned HTTP ${res.status}; ` +
+          'refusing to use an incomplete live set.',
+      );
+    }
+
+    const xml = await res.text();
     for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
       live.add(m[1].replace(BASE, ''));
     }

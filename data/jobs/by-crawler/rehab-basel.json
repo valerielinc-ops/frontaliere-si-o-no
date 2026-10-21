@@ -358,7 +358,7 @@
       "slug": "specialista-in-fisioterapia-60-80-m-f-d-rehab-basel-basel",
       "slugByLocale": {
         "it": "specialista-in-fisioterapia-60-80-m-f-d-rehab-basel-basel",
-        "en": "fachexpert-in-physiotherapie-60-80-m-w-d-rehab-basel",
+        "en": "physiotherapy-specialist-60-80-m-f-d-rehab-basel-basel",
         "de": "fachexpertin-in-physiotherapie-60-80-m-w-d-rehab-basel-basel",
         "fr": "specialiste-en-kinesitherapie-60-a-80-h-f-d-rehab-basel-basel"
       },
@@ -405,8 +405,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "physiotherapy-specialist-60-80-m-f-d-rehab-basel-basel",
-          "fachexpert-in-physiotherapie-60-80-m-w-d-rehab-basel-basel"
+          "fachexpert-in-physiotherapie-60-80-m-w-d-rehab-basel-basel",
+          "fachexpert-in-physiotherapie-60-80-m-w-d-rehab-basel"
         ],
         "it": [
           "fachexpert-in-physiotherapie-60-80-m-w-d-rehab-basel-basel"
@@ -420,7 +420,7 @@
       },
       "previousSlugs": [
         "fachexpert-in-physiotherapie-60-80-m-w-d-rehab-basel-basel",
-        "physiotherapy-specialist-60-80-m-f-d-rehab-basel-basel"
+        "fachexpert-in-physiotherapie-60-80-m-w-d-rehab-basel"
       ],
       "firstSeenAt": "2026-09-17T03:44:40.660Z",
       "salaryMin": 70400,
@@ -1238,12 +1238,12 @@
     },
     {
       "id": "rehab-basel-6779a7e7a46d",
-      "slug": "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel",
+      "slug": "terapista-nella-terapia-fisica-60-m-f-d-rehab-basel-basel",
       "slugByLocale": {
         "de": "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel",
-        "it": "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel",
-        "en": "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel",
-        "fr": "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel"
+        "it": "terapista-nella-terapia-fisica-60-m-f-d-rehab-basel-basel",
+        "en": "therapist-in-physical-therapy-60-m-f-d-rehab-basel-basel",
+        "fr": "therapeute-en-physiotherapie-60-h-f-d-rehab-basel-basel"
       },
       "company": "REHAB Basel",
       "companyKey": "rehab-basel",
@@ -1301,7 +1301,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:25:01.036Z"
+      "firstSeenAt": "2026-10-21T09:25:01.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel"
+        ],
+        "en": [
+          "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel"
+        ],
+        "fr": [
+          "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "therapeut-in-physikalische-therapie-60-m-w-d-rehab-basel-basel"
+      ]
     }
   ]
 }

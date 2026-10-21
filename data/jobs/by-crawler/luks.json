@@ -926,7 +926,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -973,7 +973,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +981,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -10355,7 +10355,7 @@
       "id": "luks-5e1f8ddfed0d",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
+        "it": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-specialist-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
         "fr": "specialiste-des-soins-infirmiers-hf-fh-urogynecologie-60-luzerner-kantonsspital-luks-luzern"
@@ -10403,13 +10403,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-          "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
@@ -16060,9 +16058,9 @@
     },
     {
       "id": "luks-5d80ee6615cc",
-      "slug": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+      "slug": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+        "it": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
         "en": "medical-secretary-medical-secretary-gastroenterology-hepatology-80-90-luzerner-kantonsspital-luks-luzern",
         "de": "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
         "fr": "secretaire-medical-secretaire-medical-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
@@ -16111,12 +16109,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-        "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+        "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-          "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+          "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern"
@@ -16645,7 +16643,7 @@
         "de": "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern",
         "it": "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern-95b80e7533",
         "en": "nursing-professional-40-100-10-west-luzerner-kantonsspital-luks-luzern",
-        "fr": "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"
+        "fr": "professionnels-des-soins-infirmiers-40-100-10-ouest-luzerner-kantonsspital-luks-luzern-7336b3"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16721,6 +16719,9 @@
         "it": [
           "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern",
           "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"
         ]
       },
       "previousSlugs": [
@@ -16748,7 +16749,7 @@
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
         "it": "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern-e670ec5a7b",
-        "en": "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
+        "en": "nursing-expert-level-1-80-100-10-west-luzerner-kantonsspital-luks-luzern-cdde55",
         "fr": "expert-en-soins-infirmiers-de-niveau-1-10-ouest-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
@@ -16804,6 +16805,9 @@
         "it": [
           "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
           "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern"
         ]
       },
       "previousSlugs": [
@@ -16827,12 +16831,12 @@
     },
     {
       "id": "luks-dc057ef65507",
-      "slug": "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern",
+      "slug": "team-leader-team-leader-cura-geriatria-acuta-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern",
-        "it": "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern",
-        "en": "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern",
-        "fr": "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern"
+        "it": "team-leader-team-leader-cura-geriatria-acuta-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "team-leader-team-leader-care-acute-geriatrics-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "chef-d-equipe-chef-d-equipe-soins-de-geriatrie-aigue-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16891,7 +16895,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:25:02.868Z"
+      "firstSeenAt": "2026-10-21T09:25:02.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-pflege-akutgeriatrie-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-3c4b1c863640",
@@ -16919,7 +16937,6 @@
         "de": "Das Luzerner Kantonsspital mit den Standorten Luzern, Sursee und Wolhusen ist ein Unternehmen der LUKS Gruppe und gehört damit einer der führenden Spitalgruppen der Schweiz an. Die über 8500 Mitarbeitenden sind mit Herzlichkeit, Kompetenz und Engagement rund um die Uhr für das Wohl der Patientinnen und Patienten da. Die Kliniken und Institute der LUKS Gruppe bieten medizinische Leistungen von höchster Qualität.<br/><br/>Für unsere Bettenabteilung 9. OG mit den Fachgebieten Viszeral- und Gefässchirurgie mit insgesamt 34 Betten suchen wir per sofort oder nach Vereinbarung Verstärkung.\n\nAufgaben:\n• Im Tandemmodell arbeiten Sie eng mit Ihren Teamkolleginnen/Teamkollegen zusammen, um unsere Patientinnen/Patienten im Rahmen der familien- und patientenzentrierten Pflege bestmöglich zu betreuen\n\n• Dabei pflegen Sie eine enge Zusammenarbeit mit den Angehörigen der Patientinnen/Patienten, um deren Bedürfnisse und Wünsche bestmöglich zu berücksichtigen\n\n• Ihr Engagement für die Begleitung und Unterstützung von Lernenden ist von zentraler Bedeutung und trägt massgeblich zur Weiterentwicklung unseres Teams bei\n\n• Ihre aktive Teilnahme an Veränderungsprozessen und Ihre Mitwirkung an der Teamentwicklung vervollständigen Ihr umfassendes Aufgabenspektrum und tragen zur kontinuierlichen Verbesserung unserer Arbeit bei\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachfrau/diplomierter Pflegefachmann HF/FH\n\n• Die Arbeit im Team macht Ihnen Freude, Sie sind belastbar, verfügen über eine schnelle Auffassungsgabe und üben Ihren Beruf mit Freude und Engagement aus\n\n• In herausfordernden Situationen bewahren Sie stets den nötigen Überblick und einen kühlen Kopf\n\n• Ihren Mitmenschen und unseren Patientinnen/Patienten begegnen Sie mit Wertschätzung und Einfühlungsvermögen\n\nWir bieten:\n• Unser breites Spektrum an internen Bildungsangeboten ermöglicht Ihnen eine zielgerichtete und individuelle Kompetenzentwicklung sowie -förderung, die Ihren beruflichen Weg maßgeschneidert unterstützt\n\n• Durch Ihre interdisziplinäre Zusammenarbeit haben Sie die Gelegenheit, Ihr berufliches Netzwerk kontinuierlich zu erweitern und von den Erfahrungen anderer Fachbereiche zu profitieren\n\n• Neben unseren attraktiven Anstellungsbedingungen profitieren Sie von zahlreichen interessanten Mitarbeiterangeboten beim grössten Arbeitgeber der Zentralschweiz\n\n• In unserem dynamischen Unternehmen mit grossem Wachstumspotential haben Sie die Chance, einen wertvollen Beitrag zu leisten und die Gesundheitsversorgung aktiv mitzugestalten",
         "fr": "L'Hôpital cantonal de Lucerne avec ses emplacements à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient donc à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24h/24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre service lit 9ème étage avec les spécialités de chirurgie viscérale et vasculaire avec un total de 34 lits, nous sommes à la recherche de renfort immédiatement ou d'un accord.\n\nTâches :\n• Dans le modèle en tandem, vous travaillez en étroite collaboration avec vos coéquipiers afin de mieux servir nos patients dans le cadre de soins axés sur la famille et le patient.\n\n• Vous maintenez une coopération étroite avec les parents des patients afin de prendre en compte au mieux leurs besoins et leurs souhaits.\n\n• Votre engagement à accompagner et à soutenir les apprenants est central et contribue de manière significative au développement de notre équipe\n\n• Votre participation active aux processus de changement et votre participation au développement d'équipe complètent votre gamme complète de tâches et contribuent à l'amélioration continue de notre travail\n\nExigences\n• Vous avez suivi une formation en tant qu'infirmière/infirmière agréée HF/FH\n\n• Travailler en équipe vous rend heureux, vous êtes résilient, avez une appréhension rapide et pratiquez votre profession avec joie et engagement\n\n• Préserver dans des situations difficiles Vous avez toujours la vue d'ensemble nécessaire et une tête cool\n\n• Vous traitez vos semblables et nos patients avec reconnaissance et empathie\n\nNous offrons:\n• Notre large gamme d'offres éducatives internes vous permet de développer et de promouvoir vos compétences individuelles de manière ciblée et personnalisée.\n\n• Grâce à votre coopération interdisciplinaire, vous avez la possibilité d'élargir continuellement votre réseau professionnel et de bénéficier de l'expérience d'autres disciplines.\n\n• En plus de nos conditions d'emploi attrayantes, vous bénéficiez de nombreuses offres d'emploi intéressantes auprès du plus grand employeur de Suisse centrale.\n\n• Dans notre entreprise dynamique avec un grand potentiel de croissance, vous avez l'occasion d'apporter une contribution précieuse et de façonner activement les soins de santé."
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-viszeral-und-gefaesschirurgie/c07cecb1-22e0-4a2f-9651-43969a482b92",
@@ -17013,7 +17030,6 @@
         "de": "Das Luzerner Kantonsspital mit den Standorten Luzern, Sursee und Wolhusen ist ein Unternehmen der LUKS Gruppe und gehört damit einer der führenden Spitalgruppen der Schweiz an. Die über 8500 Mitarbeitenden sind mit Herzlichkeit, Kompetenz und Engagement rund um die Uhr für das Wohl der Patientinnen und Patienten da. Die Kliniken und Institute der LUKS Gruppe bieten medizinische Leistungen von höchster Qualität.<br/><br/>Für unsere Bettenabteilung 8. OG Orthopädie und Unfallchirurgie mit insgesamt 24 Betten suchen wir per 01. Dezember 2026 oder nach Vereinbarung\n\nAufgaben:\n• Sie übernehmen als Zonenverantwortliche die Koordination der Pflege und des Pflegeprozesses in der interprofessionellen Zusammenarbeit. Dabei fördern Sie den interdisziplinären Austausch und tragen so maßgeblich zur ganzheitlichen Versorgung der Patientinnen und Patienten bei\n\n• Das Wohlergehen unserer Patientinnen und Patienten steht für Sie im Mittelpunkt und Sie arbeiten eng mit den Angehörigen der Patienten zusammen\n\n• Ihre aktive Beteiligung an Veränderungsprozessen und an der Teamentwicklung rundet Ihr Tätigkeitsfeld ab\n\n• Ihr Engagement in der Anleitung, Begleitung und Beurteilung von Auszubildenden ist von grosser Bedeutung. Sie fördern deren fachliche und persönliche Entwicklung durch gezielte Unterstützung, konstruktives Feedback und eine wertschätzende Lernatmosphäre\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH. Sie bringen das nötige Wissen und die praktischen Fähigkeiten mit, um auch in anspruchsvollen Situationen professionell zu handeln\n\n• Sie verfügen über eine ausgeprägte Sozialkompetenz im Umgang mit Patientinnen und Patienten sowie deren Angehörigen und begegnen diesen mit Empathie, Wertschätzung und Einfühlungsvermögen\n\n• Herausfordernde Situationen meistern Sie mit einem klaren Kopf und einem sicheren Überblick, was Ihre Fähigkeit zur Belastbarkeit unterstreicht\n\n• Teamarbeit macht Ihnen Freude, Ihre offene und lösungsorientierte Art fördert ein positives Arbeitsklima und unterstützt eine effiziente Zusammenarbeit im Team\n\nWir bieten:\n• Sie haben die Möglichkeit, in einem dynamischen Betrieb mit grossem Wachstumspotential einen wertvollen Beitrag zu leisten und durch die interdisziplinäre Tätigkeit Ihr Netzwerk zu erweitern\n\n• Ihre Weiterentwicklung ist uns wichtig: Dank unserer grossen Vielfalt an internen Bildungsangeboten profitieren Sie von einer zielgerichteten und individuellen Kompetenzentwicklung und -förderung\n\n• Eine betreute und sorgfältige Einarbeitung gewährleistet Ihnen einen reibungslosen Einstieg und wir bieten Ihnen danach die Möglichkeit im zwei Schichten Modell zu arbeiten und aus den Schichten Früh-/ Spät- und Nachtdienst zwei Schichten auszuwählen\n\n• Als Teil des größten Arbeitgebers der Zentralschweiz profitieren Sie von einer Vielzahl attraktiver Benefits. Dazu gehören beispielsweise Schichtzulagen von CHF 20.00 pro Stunde und eine Zeitgutschrift von 16 Minuten pro Stunde für Nachtdienste von 23:00 bis 06:00 Uhr",
         "fr": "L'Hôpital cantonal de Lucerne avec ses emplacements à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient donc à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24h/24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre département de lit 8ème OG orthopédie et chirurgie de traumatisme avec un total de 24 lits nous sommes à la recherche de 01. Décembre 2026 ou par accord\n\nTâches :\n• En tant que gestionnaires de zone, vous prenez en charge la coordination des soins et le processus de soins dans la coopération interprofessionnelle. Ce faisant, vous encouragez les échanges interdisciplinaires et contribuez ainsi de manière significative aux soins holistiques des patients.\n\n• Le bien-être de nos patients est le centre d'intérêt pour vous et vous travaillez en étroite collaboration avec vos proches.\n\n• Votre participation active aux processus de changement et au développement d'équipes complète votre domaine d'activité\n\n• Votre engagement envers l'orientation, l'accompagnement et l'évaluation des stagiaires est d'une grande importance. Ils favorisent leur épanouissement professionnel et personnel par un soutien ciblé, une rétroaction constructive et une atmosphère d'apprentissage reconnaissante\n\nExigences\n• Vous avez suivi une formation d'infirmière qualifiée HF/FH. Ils apportent les connaissances et les compétences pratiques nécessaires pour agir professionnellement même dans des situations exigeantes\n\n• Ils ont une forte compétence sociale dans le traitement des patients et de leurs proches et les rencontrent avec empathie, appréciation et empathie.\n\n• Vous maîtrisez des situations difficiles avec une tête claire et un aperçu sécurisé, ce qui souligne votre capacité à être résilient.\n\n• Le travail d'équipe vous rend heureux, votre nature ouverte et orientée vers la solution favorise un environnement de travail positif et soutient une coopération efficace au sein de l'équipe\n\nNous offrons:\n• Vous avez la possibilité d'apporter une contribution précieuse à une opération dynamique avec un grand potentiel de croissance et d'élargir votre réseau par une activité interdisciplinaire.\n\n• Votre développement est important pour nous : grâce à notre grande variété d'offres éducatives internes, vous bénéficiez d'un développement et d'une promotion ciblés et individuels des compétences.\n\n• Une formation supervisée et soignée assure un démarrage en douceur et nous vous offrons la possibilité de travailler dans un modèle à deux équipes et de choisir deux équipes à partir des équipes de service tôt / tard et de nuit.\n\n• En tant que membre du plus grand employeur de Suisse centrale, vous bénéficiez d'un grand nombre d'avantages intéressants. Cela comprend, par exemple, des indemnités de poste de CHF 20,00 par heure et un crédit de temps de 16 minutes par heure pour les services de nuit de 23:00 à 06:00"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-orthopaedie-und-unfallchirurgie/38e4b7b0-5dd9-4012-abe1-071f5f3a4dfe",
@@ -17088,7 +17104,6 @@
         "de": "Das Luzerner Kantonsspital mit den Standorten Luzern, Sursee und Wolhusen ist ein Unternehmen der LUKS Gruppe und gehört damit einer der führenden Spitalgruppen der Schweiz an. Die über 8000 Mitarbeitenden sind mit Herzlichkeit, Kompetenz und Engagement rund um die Uhr für das Wohl der Patientinnen und Patienten da. Die Kliniken und Institute der LUKS Gruppe bieten medizinische Leistungen von höchster Qualität.<br/><br/>Für unsere Bettenabteilung 8. OG Schwerpunkt Akutgeriatrie mit insgesamt 20 Betten suchen wir per sofort oder nach Vereinbarung Verstärkung.\n\nAufgaben:\n• Sie übernehmen als Zonenverantwortliche die Koordination der Pflege und des Pflegeprozesses in der interprofessionellen Zusammenarbeit. Dabei fördern Sie den interdisziplinären Austausch und tragen so maßgeblich zur ganzheitlichen Versorgung der Patientinnen und Patienten bei\n\n• Das Wohlergehen unserer Patientinnen und Patienten steht für Sie im Mittelpunkt und Sie arbeiten eng mit den Angehörigen der Patienten zusammen\n\n• Ihre aktive Beteiligung an Veränderungsprozessen und an der Teamentwicklung rundet Ihr Tätigkeitsfeld ab\n\n• Ihr Engagement in der Anleitung, Begleitung und Beurteilung von Auszubildenden ist von grosser Bedeutung. Sie fördern deren fachliche und persönliche Entwicklung durch gezielte Unterstützung, konstruktives Feedback und eine wertschätzende Lernatmosphäre\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH. Sie bringen das nötige Wissen und die praktischen Fähigkeiten mit, um auch in anspruchsvollen Situationen professionell zu handeln\n\n• Sie verfügen über ausgeprägte Sozialkompetenz im Umgang mit geriatrischen Patientinnen und Patienten sowie deren Angehörigen und begegnen diesen mit Empathie, Wertschätzung und Einfühlungsvermögen\n\n• Herausfordernde Situationen meistern Sie mit einem klaren Kopf und einem sicheren Überblick, was Ihre Fähigkeit zur Belastbarkeit unterstreicht\n\n• Teamarbeit macht Ihnen Freude, Ihre offene und lösungsorientierte Art fördert ein positives Arbeitsklima und unterstützt eine effiziente Zusammenarbeit im Team\n\nWir bieten:\n• Sie haben die Möglichkeit, in einem dynamischen Betrieb mit grossem Wachstumspotential einen wertvollen Beitrag zu leisten und durch die interdisziplinäre Tätigkeit Ihr Netzwerk zu erweitern\n\n• Ihre Weiterentwicklung ist uns wichtig: Dank unserer grossen Vielfalt an internen Bildungsangeboten profitieren Sie von einer zielgerichteten und individuellen Kompetenzentwicklung und -förderung\n\n• Eine betreute und sorgfältige Einarbeitung gewährleistet Ihnen einen reibungslosen Einstieg und wir bieten Ihnen danach die Möglichkeit im zwei Schichten Modell zu arbeiten und aus den Schichten Früh-/ Spät- und Nachtdienst zwei Schichten auszuwählen\n\n• Als Teil des größten Arbeitgebers der Zentralschweiz profitieren Sie von einer Vielzahl attraktiver Benefits. Dazu gehören beispielsweise Schichtzulagen von CHF 20.00 pro Stunde und eine Zeitgutschrift von 16 Minuten pro Stunde für Nachtdienste von 23:00 bis 06:00 Uhr",
         "fr": "L'Hôpital cantonal de Lucerne avec ses emplacements à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient donc à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 000 employés sont là avec chaleur, compétence et engagement 24 heures sur 24. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre département de lit 8ème OG focalisation médecine de soins aigus avec un total de 20 lits, nous sommes à la recherche de renforcement immédiatement ou par accord.\n\nTâches :\n• En tant que gestionnaires de zone, vous prenez en charge la coordination des soins et le processus de soins dans la coopération interprofessionnelle. Ce faisant, vous encouragez les échanges interdisciplinaires et contribuez ainsi de manière significative aux soins holistiques des patients.\n\n• Le bien-être de nos patients est l'objectif pour vous et vous travaillez en étroite collaboration avec les patients parents.\n\n• Votre participation active aux processus de changement et au développement d'équipes complète votre domaine d'activité\n\n• Votre engagement envers l'orientation, l'accompagnement et l'évaluation des stagiaires est d'une grande importance. Ils favorisent leur épanouissement professionnel et personnel par un soutien ciblé, une rétroaction constructive et une atmosphère d'apprentissage reconnaissante\n\nExigences\n• Vous avez suivi une formation d'infirmière qualifiée HF/FH. Ils apportent les connaissances et les compétences pratiques nécessaires pour agir professionnellement même dans des situations exigeantes\n\n• Ils ont de solides compétences sociales dans le traitement des patients gériatriques et de leurs proches et les rencontrent avec empathie, appréciation et empathie.\n\n• Vous maîtrisez des situations difficiles avec une tête claire et un aperçu sécurisé, ce qui souligne votre capacité à être résilient.\n\n• Le travail d'équipe vous rend heureux, votre nature ouverte et orientée vers la solution favorise un environnement de travail positif et soutient une coopération efficace au sein de l'équipe\n\nNous offrons:\n• Vous avez la possibilité d'apporter une contribution précieuse à une opération dynamique avec un grand potentiel de croissance et d'élargir votre réseau par une activité interdisciplinaire.\n\n• Votre développement est important pour nous : grâce à notre grande variété d'offres éducatives internes, vous bénéficiez d'un développement et d'une promotion ciblés et individuels des compétences.\n\n• Une formation supervisée et soignée assure un départ en douceur et nous vous offrons la possibilité de travailler dans un modèle de deux quarts et de choisir deux quarts de travail à partir des quarts de service tôt / tard et de nuit.\n\n• En tant que membre du plus grand employeur de Suisse centrale, vous bénéficiez d'un grand nombre d'avantages intéressants. Cela comprend, par exemple, des indemnités de poste de CHF 20,00 par heure et un crédit de temps de 16 minutes par heure pour les services de nuit de 23:00 à 06:00"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie/39bc5da6-80de-4305-918e-f19066985662",
@@ -17167,7 +17182,6 @@
         "de": "Das Luzerner Kantonsspital mit den Standorten Luzern, Sursee und Wolhusen ist ein Unternehmen der LUKS Gruppe und gehört damit einer der führenden Spitalgruppen der Schweiz an. Die über 8500 Mitarbeitenden sind mit Herzlichkeit, Kompetenz und Engagement rund um die Uhr für das Wohl der Patientinnen und Patienten da. Die Kliniken und Institute der LUKS Gruppe bieten medizinische Leistungen von höchster Qualität. Für unser Team suchen wir per 12. April 2027 oder nach Vereinbarung für mindestens 3 Monate\n\nAufgaben:\n• Sie helfen mit beim Erfassen der Patientendaten im SAP\n\n• Sie unterstützen das Team beim Kontrollieren der Analysenaufträgen inkl. den zugehörigen Untersuchungsmaterialien und beim Erfassen der Aufträge im Laborinformationssystem\n\n• Sie helfen mit beim Freiscannen der Untersuchungsmaterialien zur Analyse und bei Auskünften betreffend Analysen und deren Resultate\n\n• Sie helfen mit beim Vorbereiten der Materialien zur externen Analyse und beim Archivieren der Laborformulare und Befunde\n\n• Sie unterstützen das Team in administrativen Belangen\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene kaufmännische Berufslehre oder eine gleichwertige Ausbildung und bringen gute Informatikkenntnisse (Excel, Word, Power Point) mit\n\n• Sie sind verschwiegen und physisch und psychisch belastbar\n\nWir bieten:\n• Sie leisten einen wichtigen Beitrag zu Teamwork und multidisziplinärer Zusammenarbeit\n\n• Der Zivildiensteinsatz kann nicht als Praktikum oder Weiterbildung angerechnet werden",
         "fr": "L'hôpital cantonal de Lucerne avec ses sites de Lucerne, Sursee et Wolhusen est une entreprise du groupe LUKS et fait donc partie de l'un des principaux groupes hospitaliers de Suisse. Les quelque 7500 employés sont disponibles 24 heures sur 24 avec chaleur, compétence et engagement pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. Pour notre équipe, nous recherchons des tâches à partir du 18/01/2027 ou sur rendez-vous pendant au moins 3 mois :\n• Vous aidez à enregistrer les données des patients dans SAP\n• Vous aidez l'équipe à contrôler les commandes d'analyse, y compris les matériaux d'analyse associés et à enregistrer les commandes dans le système d'information du laboratoire\n• Vous aidez à numériser librement les matériaux d'analyse pour l'analyse et à obtenir des informations sur les analyses et leurs résultats\n• Vous aidez à préparer les matériaux pour l'analyse externe et à archiver les formulaires et les résultats de laboratoire\n• Vous assistez l'équipe dans les questions administratives Exigences :\n• Vous disposez d'un apprentissage commercial complet ou d'une formation équivalente et vous apportez de bonnes connaissances en informatique (Excel, Word, Power Point)\n• Vous êtes discret et physiquement et psychologiquement résilient Nous offrons :\n• Vous apportez une contribution importante au travail d'équipe et à la coopération multidisciplinaire\n• Le service civil ne peut pas être utilisé comme stage ou comme service"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/zivildienstleistende-als-allrounder-administration-haematologie-labor-pflichtenheft-101147/168b31ab-468c-416e-91a6-f9d71b33bc4f",
@@ -17245,12 +17259,12 @@
     },
     {
       "id": "luks-7241b910476f",
-      "slug": "pflegefachfrau-pflegefachmann-kinderwunsch-e-hormonzentrum-frauenklinik-60-luzerner-kantonsspital-luks-luzern",
+      "slug": "infermiera-infermiere-centro-per-la-fertilita-e-gli-ormoni-clinica-ginecologica-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern",
-        "it": "pflegefachfrau-pflegefachmann-kinderwunsch-e-hormonzentrum-frauenklinik-60-luzerner-kantonsspital-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern",
-        "fr": "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern"
+        "it": "infermiera-infermiere-centro-per-la-fertilita-e-gli-ormoni-clinica-ginecologica-60-luzerner-kantonsspital-luks-luzern",
+        "en": "nurse-nurse-specialist-child-desire-and-hormone-center-women-s-clinic-60-luzerner-kantonsspital-luks-luzern",
+        "fr": "infirmiere-infirmiere-specialiste-centre-de-desir-d-enfant-et-d-hormones-clinique-pour-femmes-60-luzerner-kantonsspital"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17269,7 +17283,6 @@
         "en": "The Lucerne Canton Hospital with its locations in Lucerne, Sursee and Wolhusen is a company of the LUKS Group and thus belongs to one of the leading hospital groups in Switzerland. The more than 8,500 employees are there with warmth, competence and commitment around the clock for the well-being of patients. The clinics and institutes of the LUKS Group offer medical services of the highest quality. <br/><br/ >For our team we are looking for reinforcement immediately or by agreement.\n\nTasks:\n• You organize the daily practice on your own responsibility and ensure that the office hours run smoothly\n\n• They support our medical team in investigations and treatments in the area of desire to have children. In exchange with different occupational groups, you will make your working day varied\n\n• They advise and accompany our patients on the phone in a friendly and competent manner and take care of the administrative processes\n\n• Their regular working hours are from Monday to Friday, with the willingness to work occasionally on Saturdays. They appreciate the close cooperation in a small team\n\nRequirements\n• They have completed training as a nurse HF/FH and preferably already bring experience from the field of an outpatient practical activity incl. blood draws and infusion therapies with\n\n• An independent, precise way of working distinguishes you, you also like to work in a team and always keep the necessary overview in challenging situations\n\n• As an empathetic, integrating personality, you bring a high understanding of quality, customer orientation and patient safety.\n\n• You have experience with the common IT systems and are used to documenting exactly in different systems\n\nWe offer:\n• We offer you the opportunity to participate in a diverse and responsible field of activity with a high level of self-responsibility and, together with the team, to further expand the competence of the fertility and hormone center.\n\n• We are a modern and dedicated clinic with certified specialist centers and are among the leading women's clinics in Switzerland\n\n• Through our diverse internal educational offer, we can specifically promote your personal and professional development\n\n• You benefit from a large network and numerous benefits at the largest employer in Central Switzerland",
         "fr": "L'hôpital du canton de Lucerne avec ses implantations à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient ainsi à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24 heures sur 24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre équipe, nous cherchons du renfort immédiatement ou d'un commun accord.\n\nTâches :\n• Vous organisez la pratique quotidienne sur votre propre responsabilité et assurez-vous que les heures de bureau fonctionnent en douceur\n\n• Ils soutiennent notre équipe médicale dans les enquêtes et les traitements dans le domaine du désir d'avoir des enfants. En échange avec différents groupes professionnels, vous ferez varier votre journée de travail\n\n• Ils conseillent et accompagnent nos patients au téléphone de manière amicale et compétente et prennent soin des processus administratifs\n\n• Leurs heures de travail normales sont du lundi au vendredi, avec la volonté de travailler occasionnellement le samedi. Ils apprécient la coopération étroite dans une petite équipe\n\nExigences\n• Ils ont suivi une formation en tant qu'infirmière HF/FH et apportent de préférence déjà de l'expérience dans le domaine d'une activité pratique ambulatoire y compris. les prélèvements sanguins et les thérapies pour perfusion avec\n\n• Une façon de travailler indépendante et précise vous distingue, vous aimez aussi travailler en équipe et toujours garder l'aperçu nécessaire dans des situations difficiles\n\n• En tant que personnalité empathique et intégratrice, vous apportez une compréhension élevée de la qualité, de l'orientation client et de la sécurité des patients.\n\n• Vous avez de l'expérience avec les systèmes informatiques communs et sont utilisés pour documenter exactement dans différents systèmes\n\nNous offrons:\n• Nous vous offrons la possibilité de participer à un domaine d'activité diversifié et responsable avec un haut niveau d'autoresponsabilité et, avec l'équipe, d'élargir encore la compétence du centre de fertilité et d'hormones.\n\n• Nous sommes une clinique moderne et dédiée avec des centres spécialisés certifiés et sommes parmi les principales cliniques pour femmes en Suisse\n\n• Grâce à notre offre éducative interne diversifiée, nous pouvons spécifiquement promouvoir votre développement personnel et professionnel\n\n• Vous bénéficiez d'un vaste réseau et de nombreux avantages auprès du plus grand employeur de Suisse centrale"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik/74111670-0b37-40d0-8eb2-0b209fff6127",
@@ -17299,11 +17312,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern",
+          "pflegefachfrau-pflegefachmann-kinderwunsch-e-hormonzentrum-frauenklinik-60-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern"
+        ],
+        "fr": [
           "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern"
+        "pflegefachfrau-pflegefachmann-kinderwunsch-und-hormonzentrum-frauenklinik-60-luks-luzern",
+        "pflegefachfrau-pflegefachmann-kinderwunsch-e-hormonzentrum-frauenklinik-60-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 51900,
       "salaryMax": 72300,
@@ -17323,7 +17344,7 @@
       "id": "luks-83a5c02c855c",
       "slug": "infermiere-i-infermiere-specialista-in-chirurgia-viscerale-e-vascolare-40-100-ospedale-di-lucerna-luzerner-kantonsspital-luks-be77a25dd8",
       "slugByLocale": {
-        "it": "infermiere-i-infermiere-specialista-in-chirurgia-viscerale-e-vascolare-40-100-ospedale-di-lucerna-luzerner-kantonsspital-luks-be77a25dd8",
+        "it": "infermiere-i-infermiere-specialista-in-chirurgia-viscerale-e-vascolare-40-100-ospedale-di-lucerna-luzerner-kantonsspital",
         "en": "nursing-specialist-in-visceral-and-vascular-surgery-40-100-lucerne-cantonal-hospital-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern",
         "fr": "infirmier-infirmier-specialise-en-chirurgie-viscerale-et-vasculaire-40-100-hopital-cantonal-de-lucerne-luzerner"
@@ -17389,13 +17410,11 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern",
-        "infermiere-i-infermiere-specialista-in-chirurgia-viscerale-e-vascolare-40-100-ospedale-di-lucerna-luzerner-kantonsspital"
+        "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern",
-          "infermiere-i-infermiere-specialista-in-chirurgia-viscerale-e-vascolare-40-100-ospedale-di-lucerna-luzerner-kantonsspital"
+          "pflegefachfrau-pflegefachmann-hf-40-100-viszeral-und-gefasschirurgie-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T13:05:07.948Z",
@@ -17418,7 +17437,7 @@
       "id": "luks-fd5f50a6536d",
       "slug": "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern-4a9dfff075",
       "slugByLocale": {
-        "it": "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern-4a9dfff075",
+        "it": "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-expert-level-1-80-100-10-west-luzerner-kantonsspital-luks-luzern",
         "de": "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
         "fr": "expert-en-soins-infirmiers-de-niveau-1-10-ouest-luzerner-kantonsspital-luks-luzern"
@@ -17473,13 +17492,11 @@
         ]
       },
       "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
-        "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern"
+        "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern",
-          "esperto-a-di-assistenza-infermieristica-di-livello-1-10-west-luzerner-kantonsspital-luks-luzern"
+          "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern"
         ],
         "en": [
           "pflegeexpertin-pflegeexperte-stufe-1-80-100-10-west-luks-luzern"
@@ -17505,7 +17522,7 @@
       "id": "luks-10e2f20dabe5",
       "slug": "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern-299e548801",
       "slugByLocale": {
-        "it": "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern-299e548801",
+        "it": "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-professional-40-100-10-west-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern",
         "fr": "professionnels-des-soins-infirmiers-40-100-10-ouest-luzerner-kantonsspital-luks-luzern"
@@ -17581,13 +17598,11 @@
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern",
-        "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern",
-          "infermiere-infermiere-di-professione-40-100-10-ovest-luzerner-kantonsspital-luks-luzern"
+          "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"
         ],
         "fr": [
           "pflegefachfrau-pflegefachmann-40-100-10-west-luks-luzern"

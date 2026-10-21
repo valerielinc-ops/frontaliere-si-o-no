@@ -1,0 +1,23 @@
+{
+  "companyKey": "cultura-ch",
+  "companyName": "cultura",
+  "companyHost": "museums.ch",
+  "platform": "museums.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.museums.ch/de/fachwelt/angebote/stellenboerse-3036.html"
+  ],
+  "detailTemplate": "/de/fachwelt/angebote/stellenboerse/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Veröffentlicht am: 20.10.2026 Stagista Arti visive per 9 mesi (80%) Pro Helvetia La Fondazione svizzera per la cultura Pro Helvetia conta circa 110 collaborator",
+    "Veröffentlicht am: 20.10.2026 Place de stage en Arts visuels pour une durée de 9 mois (80%) Pro Helvetia Pro Helvetia est la Fondation suisse pour la culture in",
+    "Veröffentlicht am: 20.10.2026 Praktikum Visuelle Künste für 9 Monate (80%) Pro Helvetia Pro Helvetia ist die Schweizer Kulturstiftung des Bundes, bei der sich r",
+    "Veröffentlicht am: 19.10.2026 Conservateur·trice des collections minéralogiques et pétrographiques Etat de Vaud - Direction générale de la culture - Naturéum En",
+    "Veröffentlicht am: 19.10.2026 Mitarbeiter:in im Bereich Kommunikation (20–25 %, befristet) Stadtbibliothek Biel/Bienne Die Stadtbibliothek Biel/Bienne ist die g"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:22:45.943Z"
+}

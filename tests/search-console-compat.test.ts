@@ -412,7 +412,7 @@ describe('Search Console 404 compatibility resolver', () => {
     });
     // The shared station resolver accepts case drift in the route segment.
     expect(resolveSearchConsoleCompatTarget('/prezzi-benzina-svizzera/bellinzona/Stazioni/socar/')).toEqual({
-      canonicalPath: '/prezzi-benzina-svizzera/bellinzona/benzina-oggi/',
+      canonicalPath: '/prezzi-benzina/bellinzona/oggi/',
       kind: 'legacy',
       locale: 'it',
     });

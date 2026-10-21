@@ -902,12 +902,12 @@
     },
     {
       "id": "chopard-84b518477237",
-      "slug": "responsable-sante-securite-h-f-chopard-meyrin",
+      "slug": "health-safety-manager-m-f-chopard-meyrin",
       "slugByLocale": {
         "fr": "responsable-sante-securite-h-f-chopard-meyrin",
-        "it": "responsable-sante-securite-h-f-chopard-meyrin",
+        "it": "health-safety-manager-m-f-chopard-meyrin",
         "en": "responsable-sante-securite-h-f-chopard-meyrin",
-        "de": "responsable-sante-securite-h-f-chopard-meyrin"
+        "de": "gesundheits-und-sicherheitsmanager-m-w-chopard-meyrin"
       },
       "company": "Chopard",
       "companyKey": "chopard",
@@ -967,7 +967,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:21:09.152Z"
+      "firstSeenAt": "2026-10-21T09:21:09.152Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-sante-securite-h-f-chopard-meyrin"
+        ],
+        "de": [
+          "responsable-sante-securite-h-f-chopard-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-sante-securite-h-f-chopard-meyrin"
+      ]
     },
     {
       "id": "chopard-d63ba48aea54",

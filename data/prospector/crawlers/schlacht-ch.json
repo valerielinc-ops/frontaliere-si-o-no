@@ -1,0 +1,22 @@
+{
+  "companyKey": "schlacht-ch",
+  "companyName": "Wirtschaft zur Schlacht",
+  "companyHost": "schlacht.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.schlacht.ch/%C3%BCber-uns/offene-stellen"
+  ],
+  "detailTemplate": "/%C3%BCber-uns/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Koch/Chef de Partie <source type=\"image/webp\" srcset=\"/bilder/hauptbilder/food/_AUTOx400_crop_center-center_none/14313/food-wirtschaft-schlacht-sempach-33.webp",
+    "Service-Mitarbeiter/in <source type=\"image/webp\" srcset=\"/bilder/hauptbilder/winkelried-saeaeli/_AUTOx400_crop_center-center_none/14370/winkelried-saeaeli-wirts",
+    "Ferien- oder Teilzeit-Job <source type=\"image/webp\" srcset=\"/bilder/hauptbilder/diverses/_AUTOx400_crop_center-center_none/24127/kaffee-gipfeli-wirtschaft-schla"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:23:16.121Z"
+}

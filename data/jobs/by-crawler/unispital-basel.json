@@ -6810,7 +6810,7 @@
       "id": "unispital-basel-4ffb557747e5",
       "slug": "station-manager-stazione-dei-polmoni-universitatsspital-basel-basel-ba51ee5d97",
       "slugByLocale": {
-        "it": "station-manager-stazione-dei-polmoni-universitatsspital-basel-basel-ba51ee5d97",
+        "it": "station-manager-stazione-dei-polmoni-universitatsspital-basel-basel",
         "en": "station-manager-lung-station-universitatsspital-basel-basel",
         "de": "stationsleiterin-stationsleiter-lungenstation-unispital-basel-ch",
         "fr": "gestionnaire-de-station-poste-de-plongee-universitatsspital-basel-basel"
@@ -6858,14 +6858,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stationsleiterin-stationsleiter-lungenstation-unispital-basel-ch",
-        "stationsleiterin-stationsleiter-lungenstation-universitatsspital-basel-basel",
-        "station-manager-stazione-dei-polmoni-universitatsspital-basel-basel"
+        "stationsleiterin-stationsleiter-lungenstation-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stationsleiterin-stationsleiter-lungenstation-unispital-basel-ch",
-          "stationsleiterin-stationsleiter-lungenstation-universitatsspital-basel-basel",
-          "station-manager-stazione-dei-polmoni-universitatsspital-basel-basel"
+          "stationsleiterin-stationsleiter-lungenstation-universitatsspital-basel-basel"
         ],
         "en": [
           "stationsleiterin-stationsleiter-lungenstation-universitatsspital-basel-basel"
@@ -11353,12 +11351,12 @@
     },
     {
       "id": "unispital-basel-9a3a8363518b",
-      "slug": "teamleiterin-teamleiter-administration-unispital-basel-ch",
+      "slug": "team-leader-team-leader-administration-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-administration-unispital-basel-ch",
-        "it": "teamleiterin-teamleiter-administration-unispital-basel-ch",
+        "it": "team-leader-team-leader-administration-universitatsspital-basel-basel",
         "en": "teamleiterin-teamleiter-administration-unispital-basel-ch",
-        "fr": "teamleiterin-teamleiter-administration-unispital-basel-ch"
+        "fr": "chef-d-equipe-chef-d-equipe-administration-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11416,7 +11414,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:25:47.616Z"
+      "firstSeenAt": "2026-10-21T09:25:47.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-administration-unispital-basel-ch"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-administration-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-administration-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-0e8395bdea35",
@@ -11468,7 +11477,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27855",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stationsleiterin-stationsleiter-lungenstation-unispital-basel-ch",

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-20T10:49:23.342Z",
+  "assembledAt": "2026-10-21T10:58:35.908Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -59431,10 +59431,10 @@
       "endDate": "2026-11-17",
       "startTime": "01:00",
       "category": "Event",
-      "venue": "6353 Weggis",
+      "venue": "Weggis",
       "comune": "Weggis",
       "canton": "LU",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/traditional-farmers-festival/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/traditional-farmers-festival/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -59442,6 +59442,15 @@
         "lng": 8.4289889
       },
       "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Weggis"
+      },
       "sourceDescriptionHash": "feb9569d1c7cec4861f6abd04a53610cf8108e4060499d6eb2fa715858e920de"
     },
     {
@@ -92612,6 +92621,15 @@
         "lng": 8.5087026
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
       "sourceDescriptionHash": "0bc3ea43301c5dd1281072a87a85c069b704e87ddb884cf4ff72cdf97dc482a3"
     },
     {
@@ -267663,7 +267681,7 @@
       "venue": "Riom-Parsonz",
       "comune": "Surses",
       "canton": "GR",
-      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/origen-alvetta/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/origen-alvetta/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -268772,6 +268790,460 @@
         "name": "Rorschach"
       },
       "sourceDescriptionHash": "599362b15903cb6891aa03ca37da828993febf625d38fced0e943559fc059fc9"
+    },
+    {
+      "id": "myswitzerland:7a91e384520a4289a895e46f77d50418",
+      "title": "BGV-Plausch-Jassturnier",
+      "titleByLocale": {
+        "it": "BGV-Plausch-Jassturnier",
+        "en": "BGV-Plausch-Jassturnier",
+        "de": "BGV-Plausch-Jassturnier",
+        "fr": "BGV-Plausch-Jassturnier"
+      },
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "Turbenthal",
+      "comune": "Turbenthal",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bgv-plausch-jassturnier/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.431237,
+        "lng": 8.84261
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Turbenthal"
+      },
+      "sourceDescriptionHash": "b6dd0b88dab910a4e91912eaea6ffa425642ddb8e74945dc88ed55682fd93c78"
+    },
+    {
+      "id": "myswitzerland:78dd68f4d5f04de49b15d137a814722c",
+      "title": "Popchor Sweet'n'Sour Jahreskonzerte \"WE ARE FAMILY\"",
+      "titleByLocale": {
+        "it": "Popchor Sweet'n'Sour Jahreskonzerte \"WE ARE FAMILY\"",
+        "en": "Popchor Sweet'n'Sour Jahreskonzerte \"WE ARE FAMILY\"",
+        "de": "Popchor Sweet'n'Sour Jahreskonzerte \"WE ARE FAMILY\"",
+        "fr": "Popchor Sweet'n'Sour Jahreskonzerte \"WE ARE FAMILY\""
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-15",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Pfäffikon SZ",
+      "comune": "Pfäffikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/popchor-sweetnsour-jahreskonzerte-we-are-family/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1961711,
+        "lng": 8.7713588
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Pfäffikon SZ"
+      },
+      "sourceDescriptionHash": "eeb6877580c7c76ee675063d39681f63e08a6af1ccdda384afcfe3ab1ab743a6"
+    },
+    {
+      "id": "myswitzerland:77953dbfa55c4746b8c7c87d4e3ffb94",
+      "title": "Une après-midi d’Halloween sur la magique Promenade des Six-Pompes !",
+      "titleByLocale": {
+        "it": "Une après-midi d’Halloween sur la magique Promenade des Six-Pompes !",
+        "en": "Une après-midi d’Halloween sur la magique Promenade des Six-Pompes !",
+        "de": "Une après-midi d’Halloween sur la magique Promenade des Six-Pompes !",
+        "fr": "Une après-midi d’Halloween sur la magique Promenade des Six-Pompes !"
+      },
+      "startDate": "2026-10-28",
+      "endDate": "2026-10-28",
+      "startTime": "15:00",
+      "category": "Event",
+      "venue": "La Chaux-de-Fonds",
+      "comune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/une-apresmidi-dhalloween-sur-la-magique-promenade-des-sixpompes/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1047058,
+        "lng": 6.8317571
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "La Chaux-de-Fonds"
+      },
+      "sourceDescriptionHash": "b533682e2fbba7e43c7e02edd065a8e514b58780726a9da474eff1cdc6f11162"
+    },
+    {
+      "id": "myswitzerland:776b6c144650437cba301b366304c8fa",
+      "title": "Brigitte Meyer",
+      "titleByLocale": {
+        "it": "Brigitte Meyer",
+        "en": "Brigitte Meyer",
+        "de": "Brigitte Meyer",
+        "fr": "Brigitte Meyer"
+      },
+      "startDate": "2026-12-03",
+      "endDate": "2026-12-03",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Neuchâtel",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/brigitte-meyer/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9939514,
+        "lng": 6.9335068
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Neuchâtel"
+      },
+      "sourceDescriptionHash": "67392299160fd3ac8b43b32d1d580e331dd98736b33db71ae4415fdbd3438ff4"
+    },
+    {
+      "id": "myswitzerland:76f706976a7d4618abdb7bc01feb7b08",
+      "title": "SKIES - Klavierabend mit Nikola Pešić",
+      "titleByLocale": {
+        "it": "SKIES - Klavierabend mit Nikola Pešić",
+        "en": "SKIES - Klavierabend mit Nikola Pešić",
+        "de": "SKIES - Klavierabend mit Nikola Pešić",
+        "fr": "SKIES - Klavierabend mit Nikola Pešić"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Schaffhausen",
+      "comune": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/skies-klavierabend-mit-nikola-pei/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.6953485,
+        "lng": 8.6319634
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Nikola Pešić"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "5e6b9f330c0d77252d49220ed47855d8fd5eb19d8cc1afd3e7dbf971df0079a4"
+    },
+    {
+      "id": "myswitzerland:76a54bc4c3254a8caf1f190a5c5037c1",
+      "title": "Lecture de poèmes de Ted Joans par Jake Lamar",
+      "titleByLocale": {
+        "it": "Lecture de poèmes de Ted Joans par Jake Lamar",
+        "en": "Lecture de poèmes de Ted Joans par Jake Lamar",
+        "de": "Lecture de poèmes de Ted Joans par Jake Lamar",
+        "fr": "Lecture de poèmes de Ted Joans par Jake Lamar"
+      },
+      "startDate": "2027-01-28",
+      "endDate": "2027-01-28",
+      "startTime": "18:30",
+      "category": "Event",
+      "venue": "Lausanne",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/lecture-de-poemes-de-ted-joans-par-jake-lamar/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5184198,
+        "lng": 6.624533
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Lausanne"
+      },
+      "sourceDescriptionHash": "f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a"
+    },
+    {
+      "id": "myswitzerland:75bbe13182ae451186e5f701b23ffe02",
+      "title": "A Special Christmas Concert for the Children of Lebanon",
+      "titleByLocale": {
+        "it": "A Special Christmas Concert for the Children of Lebanon",
+        "en": "A Special Christmas Concert for the Children of Lebanon",
+        "de": "Einzigartiges Weihnachtskonzert für die Kinder im Libanon",
+        "fr": "Concert exceptionnel de Noël pour les enfants du Liban"
+      },
+      "startDate": "2026-12-20",
+      "endDate": "2026-12-20",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Vevey",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/a-special-christmas-concert-for-the-children-of-lebanon/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4621001,
+        "lng": 6.8469314
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Vevey"
+      },
+      "sourceDescriptionHash": "43e6e788878049a65e9a80bc24cb57234455b335df74cd5102ec1386632d3739"
+    },
+    {
+      "id": "myswitzerland:75313094f2b14e1b8ab320bdff220287",
+      "title": "Chocol'art. Atelier pour enfant",
+      "titleByLocale": {
+        "it": "Chocol'art. Atelier pour enfant",
+        "en": "Chocol'art. Atelier pour enfant",
+        "de": "Chocol'art. Atelier pour enfant",
+        "fr": "Chocol'art. Atelier pour enfant"
+      },
+      "startDate": "2026-10-28",
+      "endDate": "2026-10-28",
+      "startTime": "16:00",
+      "category": "Event",
+      "venue": "Neuchâtel",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/chocolart-atelier-pour-enfant/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9912869,
+        "lng": 6.9352398
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Neuchâtel"
+      },
+      "sourceDescriptionHash": "de322477adb1092e03422c70e893666e1469a81d98b867e424bebcaf8340df6d"
+    },
+    {
+      "id": "myswitzerland:73f2ae6479a34d27a9083410e311cd07",
+      "title": "Das Thurbad öffnet seine Tore",
+      "titleByLocale": {
+        "it": "Das Thurbad öffnet seine Tore",
+        "en": "Das Thurbad öffnet seine Tore",
+        "de": "Das Thurbad öffnet seine Tore",
+        "fr": "Das Thurbad öffnet seine Tore"
+      },
+      "startDate": "2027-05-01",
+      "endDate": "2027-05-01",
+      "startTime": "09:00",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/das-thurbad-oeffnet-seine-tore/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5548057,
+        "lng": 9.1078395
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Weinfelden"
+      },
+      "sourceDescriptionHash": "eccff4a9b79c42ff09fa38a884824351255a3f1a02f37bd0f86e163d279f70a3"
+    },
+    {
+      "id": "myswitzerland:729d927e85ae4487aaeab88ee2f6ebad",
+      "title": "ATELIER CÉRAMIQUE ALTARY",
+      "titleByLocale": {
+        "it": "ATELIER CÉRAMIQUE ALTARY",
+        "en": "ATELIER CÉRAMIQUE ALTARY",
+        "de": "ATELIER CÉRAMIQUE ALTARY",
+        "fr": "ATELIER CÉRAMIQUE ALTARY"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Môtiers",
+      "comune": "Val-de-Travers",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/atelier-ceramique-altary/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9091818,
+        "lng": 6.6140358
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Môtiers"
+      },
+      "sourceDescriptionHash": "017cebd8c8448a124ce013d6f4f0967e11d3fa54666e6daef972cc75204f0c2a"
+    },
+    {
+      "id": "myswitzerland:7275833265fb46bd8a84441cc044e725",
+      "title": "Le verger en fête. Fête d’automne et Bourse aux arbres",
+      "titleByLocale": {
+        "it": "Le verger en fête. Fête d’automne et Bourse aux arbres",
+        "en": "Le verger en fête. Fête d’automne et Bourse aux arbres",
+        "de": "Le verger en fête. Fête d’automne et Bourse aux arbres",
+        "fr": "Le verger en fête. Fête d’automne et Bourse aux arbres"
+      },
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-25",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Neuchâtel",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/le-verger-en-fete-fete-dautomne-et-bourse-aux-arbres/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0026688,
+        "lng": 6.9118328
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Neuchâtel"
+      },
+      "sourceDescriptionHash": "1acb99274281669e7abfba194f005c3820f2aefd6a29cb09b66a341b43fccccf"
+    },
+    {
+      "id": "myswitzerland:7039f957449340cbb6427f3af8d7f5d9",
+      "title": "More Than Mode Black Christmas",
+      "titleByLocale": {
+        "it": "More Than Mode Black Christmas",
+        "en": "More Than Mode Black Christmas",
+        "de": "More Than Mode Black Christmas",
+        "fr": "More Than Mode Black Christmas"
+      },
+      "startDate": "2026-12-24",
+      "endDate": "2026-12-24",
+      "startTime": "23:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/more-than-mode-black-christmas/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3839834,
+        "lng": 8.5328258
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "81f09d3e4eda61eed8d4115a02c90325d94d4ada30a21974f4cb160c291e94d5"
+    },
+    {
+      "id": "myswitzerland:6fe3b9640c93418f9fb9d687ae24c6b7",
+      "title": "What Are Children's Image Rights on Social Media?",
+      "titleByLocale": {
+        "it": "What Are Children's Image Rights on Social Media?",
+        "en": "What Are Children's Image Rights on Social Media?",
+        "de": "Welche Bildrechte haben Kinder in den sozialen Netzwerken?",
+        "fr": "Quels droits à l’image pour les enfants sur les réseaux"
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2026-11-18",
+      "startTime": "00:00",
+      "category": "Event",
+      "venue": "Vevey",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/what-are-childrens-image-rights-on-social-media/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4592972,
+        "lng": 6.8430176
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Vevey"
+      },
+      "sourceDescriptionHash": "a7113f3397264e5a9eb6868d40d877757d4fc2e82676cd90d5b65c8f73ef6468"
     }
   ]
 }

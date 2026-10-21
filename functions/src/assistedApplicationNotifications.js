@@ -20,7 +20,11 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { createHash } from 'node:crypto';
-import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import {
+  bridgeEmailCascadeCredentialsToEnv,
+  getAutologinPolicyConfig,
+  getNewsletterSecrets,
+} from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
@@ -30,6 +34,8 @@ import {
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
+import { mintAutologinCode, resolveAutologinPolicy } from './lib/autologinCode.js';
+import { makeAuthenticatedUrl } from './lib/newsletterUrls.js';
 import { flowRefFor, isAutomationEnabledFor } from './assistedApplicationAutomation.js';
 import { REVIEW_TOKEN_TTL_MS, getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -187,6 +193,55 @@ export function buildOrderPageUrl(order, orderId, locale = resolveOrderLocale(or
   const url = new URL(base);
   url.searchParams.set('assisted_application_order_id', String(orderId));
   return url.toString();
+}
+
+/**
+ * Add the same recipient session signal used by job-alert links to an order
+ * page. The page is intentionally opted into the session-gated perimeter: it
+ * contains the candidate's payment/order data and cannot be treated as a
+ * public job-board destination.
+ */
+export function buildAuthenticatedOrderPageUrl(order, orderId, locale, autologin = null) {
+  const pageUrl = buildOrderPageUrl(order, orderId, locale);
+  if (!autologin?.email || !autologin?.autologinCode) return pageUrl;
+  return makeAuthenticatedUrl(pageUrl, autologin.email, {
+    autologinCode: autologin.autologinCode,
+    sessionGated: 'assisted application order page requires the recipient session',
+    utmSource: 'assisted_application',
+    utmMedium: 'email',
+    utmCampaign: 'customer_payment_recovery',
+  });
+}
+
+/** Mint one recipient-scoped code for all internal links in one email. */
+async function resolveCustomerAutologin(email) {
+  const normalizedEmail = String(email || '').trim().toLowerCase();
+  if (!normalizedEmail) return null;
+  // Keep older test/runtime doubles and staged rollbacks on the historical
+  // unsigned-link behavior until both Remote Config helpers are deployed.
+  if (typeof getNewsletterSecrets !== 'function' || typeof getAutologinPolicyConfig !== 'function') return null;
+  try {
+    const [{ newsletterSecret }, policyConfig] = await Promise.all([
+      getNewsletterSecrets(),
+      getAutologinPolicyConfig(),
+    ]);
+    if (!newsletterSecret) return null;
+    const policy = resolveAutologinPolicy(policyConfig);
+    const autologinCode = mintAutologinCode(normalizedEmail, {
+      secret: newsletterSecret,
+      scheme: policy.mintScheme,
+    });
+    return autologinCode ? { email: normalizedEmail, autologinCode } : null;
+  } catch (error) {
+    // Autologin is an enhancement of the transactional mail, not a reason to
+    // suppress a due payment reminder. The unsigned URL remains the safe
+    // fallback and the error is deliberately redacted.
+    console.warn(
+      '[assistedApplicationNotifications] autologin unavailable:',
+      error instanceof Error ? error.message : String(error),
+    );
+    return null;
+  }
 }
 
 /**
@@ -691,6 +746,8 @@ function orderVars(order, orderId, locale, nowMs) {
   return {
     job: clean(order?.jobTitle, 200) || '—',
     company: clean(order?.companyName, 200) || '—',
+    location: clean(order?.location || order?.addressLocality || order?.canton, 160),
+    logoUrl: safeHttpsUrl(order?.companyLogo || order?.companyLogoUrl || order?.logoUrl),
     price: formatPrice(order, locale),
     date: formatDate(timestampMillis(order?.submittedAt) || nowMs, locale),
     orderId: String(orderId),
@@ -699,8 +756,15 @@ function orderVars(order, orderId, locale, nowMs) {
 
 function jobBlock(order, copy, vars) {
   const jobUrl = safeHttpsUrl(order?.jobUrl);
-  const html = brandJobCard({ title: vars.job, company: vars.company, url: jobUrl, linkLabel: copy.jobLink });
-  const text = `${vars.job}\n${vars.company}${jobUrl ? `\n${copy.jobLink}: ${jobUrl}` : ''}`;
+  const html = brandJobCard({
+    title: vars.job,
+    company: vars.company,
+    location: vars.location,
+    logoUrl: vars.logoUrl,
+    url: jobUrl,
+    linkLabel: copy.jobLink,
+  });
+  const text = `${vars.job}\n${vars.company}${vars.location ? `\n${vars.location}` : ''}${jobUrl ? `\n${copy.jobLink}: ${jobUrl}` : ''}`;
   return { html, text };
 }
 
@@ -717,16 +781,21 @@ const WHATSAPP_CV_STEP = 2;
 /**
  * Build a customer-facing message.
  * @param {'intro'|'recovery'|'reminder'|'received'|'submitted'} kind
- * @param {{nowMs?:number, automation?:boolean, reviewUrl?:string}} [options] reviewUrl: the review page of an
+ * @param {{nowMs?:number, automation?:boolean, reviewUrl?:string, autologin?:object}} [options] reviewUrl: the review page of an
  *   automated order («inviata» only, submittedReviewUrl), where the candidate keeps the documents
  * @returns {{subject:string, html:string, text:string, locale:string}}
  */
-export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), automation = false, reviewUrl = '' } = {}) {
+export function buildCustomerEmail(kind, order, orderId, {
+  nowMs = Date.now(),
+  automation = false,
+  reviewUrl = '',
+  autologin = null,
+} = {}) {
   const locale = resolveOrderLocale(order);
   const copy = COPY[locale] || COPY.it;
   const vars = orderVars(order, orderId, locale, nowMs);
   const greeting = copy.greeting(clean(order?.applicantName, 80).split(' ')[0] || '');
-  const pageUrl = buildOrderPageUrl(order, orderId, locale);
+  const pageUrl = buildAuthenticatedOrderPageUrl(order, orderId, locale, autologin);
   const job = jobBlock(order, copy, vars);
   const foot = footer(copy, vars);
   const htmlParts = [paragraph(esc(greeting))];
@@ -836,9 +905,13 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
  * user. The links return to the order page, where the server can re-check the
  * provider before opening a checkout; the email never embeds a provider URL.
  * @param {Array<object>} orders
- * @param {{nowMs?:number, reminderStage?:1|2}} [options]
+ * @param {{nowMs?:number, reminderStage?:1|2, orderPageUrlFor?:(order:object, orderId:string, locale:string)=>string}} [options]
  */
-export function buildPendingPaymentDigestEmail(orders, { nowMs = Date.now(), reminderStage = 1 } = {}) {
+export function buildPendingPaymentDigestEmail(orders, {
+  nowMs = Date.now(),
+  reminderStage = 1,
+  orderPageUrlFor = buildOrderPageUrl,
+} = {}) {
   const list = (Array.isArray(orders) ? orders : [])
     .filter((order) => order && (order.orderId || order.id))
     .map((order) => ({ ...order, orderId: String(order.orderId || order.id) }));
@@ -864,7 +937,7 @@ export function buildPendingPaymentDigestEmail(orders, { nowMs = Date.now(), rem
   for (const order of list) {
     const vars = orderVars(order, order.orderId, locale, nowMs);
     const job = jobBlock(order, baseCopy, vars);
-    const pageUrl = buildOrderPageUrl(order, order.orderId, locale);
+    const pageUrl = orderPageUrlFor(order, order.orderId, locale);
     const paymentLabel = fill(copy.paymentLabel, vars);
     htmlParts.push(
       brandSectionLabel(copy.orderLabel),
@@ -1030,7 +1103,7 @@ async function ensureEmailProviders() {
  * @param {FirebaseFirestore.Firestore} args.db
  * @param {string} args.orderId
  * @param {string} args.key  one of NOTIFICATION_KEYS
- * @param {(order: object) => {subject:string, html:string, text:string}} args.build
+ * @param {(order: object, options?: {autologin?: object|null}) => {subject:string, html:string, text:string}} args.build
  * @param {string} [args.recipientOverride] send to this address instead (test mode:
  *   nothing is recorded on the order, so the real send stays possible)
  * @param {object} [args.meta] extra fields recorded next to the send (e.g. variant)
@@ -1070,9 +1143,10 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     return { ok: false, key, reason: 'no_email_provider_configured' };
   }
 
-  const message = build(order);
   const isCustomer = isCustomerAudience(key, audience);
   const customerEmail = customerEmailFor(order);
+  const autologin = isCustomer && !testMode ? await resolveCustomerAutologin(to) : null;
+  const message = build(order, { autologin });
   const payload = {
     from: isCustomer ? ASSISTED_APPLICATION_SENDER : INTERNAL_SENDER,
     to: [to],
@@ -1151,7 +1225,12 @@ export async function sendPendingPaymentDigest({
   if (!digestId || orderIds.length === 0) return { ok: false, reason: 'invalid_digest' };
 
   const key = NOTIFICATION_KEYS.customerPaymentRecovery;
-  const message = buildPendingPaymentDigestEmail(orders, { nowMs, reminderStage });
+  const autologin = await resolveCustomerAutologin(recipient);
+  const message = buildPendingPaymentDigestEmail(orders, {
+    nowMs,
+    reminderStage,
+    orderPageUrlFor: (order, orderId, locale) => buildAuthenticatedOrderPageUrl(order, orderId, locale, autologin),
+  });
   const digestRef = db.collection(ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION).doc(String(digestId));
   await digestRef.set({
     kind: 'payment_recovery_digest',
@@ -1219,7 +1298,7 @@ export async function sendPaidOrderNotifications(
     db,
     orderId,
     key: NOTIFICATION_KEYS.customerIntro,
-    build: (order) => buildCustomerEmail(variant, view(order), orderId, { nowMs, automation: automationOn }),
+    build: (order, { autologin } = {}) => buildCustomerEmail(variant, view(order), orderId, { nowMs, automation: automationOn, autologin }),
     recipientOverride,
     meta: { variant },
     nowMs,
@@ -1281,7 +1360,7 @@ export async function handleAssistedApplicationOrderWritten(
         db,
         orderId,
         key: NOTIFICATION_KEYS.customerMaterialsReceived,
-        build: (order) => buildCustomerEmail('received', order, orderId, { nowMs, automation: receivedAutomation }),
+        build: (order, { autologin } = {}) => buildCustomerEmail('received', order, orderId, { nowMs, automation: receivedAutomation, autologin }),
         nowMs,
       }));
       results.push(await sendOrderNotification({
@@ -1299,7 +1378,7 @@ export async function handleAssistedApplicationOrderWritten(
         db,
         orderId,
         key: NOTIFICATION_KEYS.customerSubmitted,
-        build: (order) => buildCustomerEmail('submitted', order, orderId, { nowMs, reviewUrl }),
+        build: (order, { autologin } = {}) => buildCustomerEmail('submitted', order, orderId, { nowMs, reviewUrl, autologin }),
         nowMs,
       }));
     }
@@ -1364,7 +1443,7 @@ export async function runAssistedApplicationNotificationSweep({ db, nowMs = Date
         db,
         orderId: doc.id,
         key: NOTIFICATION_KEYS.customerReminder,
-        build: (current) => buildCustomerEmail('reminder', current, doc.id, { nowMs }),
+        build: (current, { autologin } = {}) => buildCustomerEmail('reminder', current, doc.id, { nowMs, autologin }),
         nowMs,
       });
       if (result.ok) summary.reminders += 1;

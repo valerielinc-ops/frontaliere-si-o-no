@@ -1,13 +1,5 @@
 [
   {
-    "at": "2026-08-31T10:07:33.889Z",
-    "collection": "CC-MAIN-2026-34",
-    "totalPages": 1210,
-    "pagesRead": 20,
-    "employers": 42,
-    "outage": false
-  },
-  {
     "at": "2026-09-04T08:29:00.335Z",
     "collection": "CC-MAIN-2026-34",
     "totalPages": 1210,
@@ -482,5 +474,168 @@
     "failedPages": [],
     "coverageRate": 0,
     "outage": true
+  },
+  {
+    "at": "2026-10-21T09:22:17.178Z",
+    "collection": "CC-MAIN-2026-39",
+    "totalPages": 1196,
+    "pagesRead": 10,
+    "employers": 168,
+    "outcome": "partial",
+    "errorCode": "http_504",
+    "failedPages": [
+      {
+        "page": 58,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 116,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 174,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 232,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 290,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 348,
+        "outcome": "unavailable",
+        "errorCode": "http_502"
+      },
+      {
+        "page": 406,
+        "outcome": "unavailable",
+        "errorCode": "http_502"
+      },
+      {
+        "page": 522,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 638,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 696,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 754,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 870,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 928,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 1044,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 1102,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 1160,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 1189,
+        "outcome": "unavailable",
+        "errorCode": "http_404"
+      },
+      {
+        "page": 109,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 167,
+        "outcome": "unavailable",
+        "errorCode": "http_502"
+      },
+      {
+        "page": 225,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 283,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 399,
+        "outcome": "unavailable",
+        "errorCode": "http_502"
+      },
+      {
+        "page": 457,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 573,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 631,
+        "outcome": "malformed",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 747,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 805,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 863,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      },
+      {
+        "page": 979,
+        "outcome": "unavailable",
+        "errorCode": "http_504"
+      },
+      {
+        "page": 1095,
+        "outcome": "partial",
+        "errorCode": "malformed_rows"
+      }
+    ],
+    "coverageRate": 0.5602,
+    "outage": false
   }
 ]

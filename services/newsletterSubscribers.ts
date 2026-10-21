@@ -2479,12 +2479,18 @@ export async function confirmNewsletterSubscription(
 export async function exchangeNewsletterAuthCode(
  email: string,
  code: string,
+ assistedApplicationOrderId?: string | null,
 ): Promise<{ success: boolean; authToken?: string; error?: string; optOutEligible?: boolean }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
  // The single biggest contributor to #5746: 2.720 of the 3.131 logged
  // address+credential pairs in the measured week were this call.
- const resp = await postManageSubscription('exchange_auth_code', { email: normalizedEmail, token: code });
+ const orderId = String(assistedApplicationOrderId || '').trim();
+ const resp = await postManageSubscription('exchange_auth_code', {
+  email: normalizedEmail,
+  token: code,
+  ...(orderId ? { assisted_application_order_id: orderId } : {}),
+ });
  const data = await resp.json();
  if (resp.ok && data.success && data.authToken) {
  return { success: true, authToken: data.authToken };

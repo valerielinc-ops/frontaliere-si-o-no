@@ -300,7 +300,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:04.079Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47400,
       "salarySource": "estimated",
@@ -700,7 +699,7 @@
       "slug": "supporto-di-vendita-nella-zona-non-alimentare-20-principalmente-sabato-assegnazioni-m-f-d-temporaneo-fino-al-31-12-2026",
       "slugByLocale": {
         "it": "supporto-di-vendita-nella-zona-non-alimentare-20-principalmente-sabato-assegnazioni-m-f-d-temporaneo-fino-al-31-12-2026",
-        "en": "sales-support-kassentatigkeit-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12-2026-globus",
+        "en": "sales-support-pos-in-the-non-food-sector-20-mainly-saturday-assignments-m-f-d-temporary-until-31-12-2026-globus-zurich",
         "de": "sales-support-kassentatigkeit-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d",
         "fr": "soutien-aux-ventes-dans-la-zone-non-alimentaire-20-principalement-le-samedi-affectations-h-f-d-temporaire-jusqu-au-31-12"
       },
@@ -750,7 +749,8 @@
         "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-befristet-bis-31-12-2026-globus-zurich-bahnhofstrasse",
         "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12",
         "sales-support-kassentatigkeit-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d",
-        "sales-support-in-the-non-food-area-20-mainly-saturday-assignments-m-f-d-temporary-until-31-12-2026-globus-zurich"
+        "sales-support-in-the-non-food-area-20-mainly-saturday-assignments-m-f-d-temporary-until-31-12-2026-globus-zurich",
+        "sales-support-kassentatigkeit-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12-2026-globus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -762,7 +762,8 @@
           "sales-support-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12"
         ],
         "en": [
-          "sales-support-in-the-non-food-area-20-mainly-saturday-assignments-m-f-d-temporary-until-31-12-2026-globus-zurich"
+          "sales-support-in-the-non-food-area-20-mainly-saturday-assignments-m-f-d-temporary-until-31-12-2026-globus-zurich",
+          "sales-support-kassentatigkeit-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-befristet-bis-31-12-2026-globus"
         ]
       },
       "firstSeenAt": "2026-09-30T21:13:23.154Z",
@@ -864,7 +865,7 @@
       "slug": "gestione-della-qualita-m-f-d-globus-zurich-headquarter",
       "slugByLocale": {
         "it": "gestione-della-qualita-m-f-d-globus-zurich-headquarter",
-        "en": "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter",
+        "en": "manager-quality-management-m-f-d-globus-zurich-headquarter",
         "de": "manager-qualitatsmanagement-w-m-d-globus-ch",
         "fr": "gestionnaire-gestion-de-la-qualite-h-f-d-globus-zurich-headquarter"
       },
@@ -912,8 +913,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter",
-        "manager-qualitatsmanagement-w-m-d-globus-ch",
-        "manager-quality-management-m-f-d-globus-zurich-headquarter"
+        "manager-qualitatsmanagement-w-m-d-globus-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -921,7 +921,7 @@
           "manager-qualitatsmanagement-w-m-d-globus-ch"
         ],
         "en": [
-          "manager-quality-management-m-f-d-globus-zurich-headquarter"
+          "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter"
         ],
         "fr": [
           "manager-qualitatsmanagement-w-m-d-globus-zurich-headquarter"

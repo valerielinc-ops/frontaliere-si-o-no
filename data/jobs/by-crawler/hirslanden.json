@@ -26422,12 +26422,12 @@
     {
       "id": "hirslanden-af1ba4ca7e43",
       "externalId": "1449744233",
-      "slug": "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site",
+      "slug": "assistente-medico-assistente-medico-chirurgia-viscerale-100-hirslanden-klinik-hirslanden-klinik-beau-site",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site",
-        "it": "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site",
-        "en": "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site",
-        "fr": "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site"
+        "it": "assistente-medico-assistente-medico-chirurgia-viscerale-100-hirslanden-klinik-hirslanden-klinik-beau-site",
+        "en": "assistant-physician-assistant-physician-visceral-surgery-100-hirslanden-klinik-hirslanden-klinik-beau-site",
+        "fr": "medecin-adjoint-medecin-adjoint-chirurgie-viscerale-100-hirslanden-klinik-hirslanden-klinik-beau-site"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26485,7 +26485,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:18:38.843Z"
+      "firstSeenAt": "2026-10-21T09:18:38.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-viszeralchirurgie-100-hirslanden-hirslanden-klinik-beau-site"
+      ]
     },
     {
       "id": "hirslanden-4ef58308bfdd",

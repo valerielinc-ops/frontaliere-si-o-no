@@ -1,7 +1,6 @@
 {
   "crawlerKey": "med-ipersonal",
   "assembledAt": "2026-10-21T09:48:33.801Z",
-  "runId": "39576552622",
   "jobs": [
     {
       "id": "med-ipersonal-276059ffab3c",
@@ -293,10 +292,6 @@
       "postedDate": "2026-10-15",
       "postingDateSource": "reported",
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-in-der-region-alt-st-johann-gesucht/",
-      "previousSlugs": [
-        "elektroplaner-region-alt-st-johann-ipersonal-ag-alt-st-johann-st-gallen",
-        "progettista-elettrico-a-region-alt-st-johann-ipersonal-ag-alt-st-johann"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "elektroplaner-region-alt-st-johann-ipersonal-ag-alt-st-johann-st-gallen",
@@ -309,8 +304,10 @@
           "elektroplaner-region-alt-st-johann-ipersonal-ag-alt-st-johann-st-gallen"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-20T21:42:59.764Z",
+      "previousSlugs": [
+        "elektroplaner-region-alt-st-johann-ipersonal-ag-alt-st-johann-st-gallen",
+        "progettista-elettrico-a-region-alt-st-johann-ipersonal-ag-alt-st-johann"
+      ],
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -323,7 +320,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-20T21:42:59.764Z"
     },
     {
       "id": "med-ipersonal-bc46a1cf6f49",
@@ -962,5 +960,6 @@
       },
       "firstSeenAt": "2026-10-20T09:36:53.050Z"
     }
-  ]
+  ],
+  "runId": "39576552622"
 }

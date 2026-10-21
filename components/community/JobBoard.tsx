@@ -831,6 +831,18 @@ function companyLogoUrl(job: Pick<JobListing, 'company' | 'companyKey' | 'compan
  return null;
 }
 
+/** Only persist fetchable HTTPS logos on an assisted order; initials data URIs stay client-side. */
+function assistedApplicationCompanyLogo(job: JobListing): string | null {
+ const logo = companyLogoUrl(job);
+ if (!logo) return null;
+ try {
+  const parsed = new URL(logo, typeof window !== 'undefined' ? window.location.origin : PUBLIC_SITE_URL);
+  return parsed.protocol === 'https:' ? parsed.toString() : null;
+ } catch {
+  return null;
+ }
+}
+
 export function normalizeIncomingJob(raw: any): JobListing {
  const title = String(raw?.title || '').trim();
  const description = String(raw?.description || '').trim();
@@ -7614,6 +7626,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobUrl: String(job.url || job.applyUrl || ''),
     companyName: String(job.company || ''),
     jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    companyLogo: assistedApplicationCompanyLogo(job),
+    location: String(job.location || job.addressLocality || '').trim() || null,
+    canton: String(job.canton || '').trim() || null,
     experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
     copyVariant: assistedApplicationCopyVariant,
     successUrl: currentPath,
@@ -8529,6 +8544,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  if (assistedApplicationOrderId) {
+  if (newsletterAutologinInFlight) {
+   return <div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle" role="status">{t('jobBoard.assisted.loading')}</div>;
+  }
   return (
    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
     <AssistedApplicationUpload

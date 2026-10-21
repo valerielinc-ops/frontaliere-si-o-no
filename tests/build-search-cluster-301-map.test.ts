@@ -2,14 +2,17 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import {
   LOCALE_CONFIG,
   LOCALES,
   assertNonEmptyLegacyMap,
+  fetchLiveClusterSet,
   legacyClusterUrls,
 } from '@/scripts/build-search-cluster-301-map.mjs';
+
+afterEach(() => vi.unstubAllGlobals());
 
 // One realistic legacy per-canton cluster URL per locale (issue #2918 item 1:
 // coverage was IT-only until PR #3300 extended LOCALE_CONFIG to en/de/fr —
@@ -80,5 +83,40 @@ describe('build-search-cluster-301-map: zero-map-after-match guard (issue #2918 
       const out = legacyClusterUrls(file);
       expect(() => assertNonEmptyLegacyMap(out, file)).toThrow(/ZERO/);
     });
+  });
+});
+
+describe('fetchLiveClusterSet', () => {
+  const sitemap =
+    '<urlset><url><loc>https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-infermiera-lugano/</loc></url></urlset>';
+
+  it('stops only at an explicit missing-shard response', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(sitemap, { status: 200 }))
+      .mockResolvedValueOnce(new Response('', { status: 404 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchLiveClusterSet()).resolves.toEqual(
+      new Set(['/cerca-lavoro-svizzera/ricerca-infermiera-lugano/']),
+    );
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('aborts instead of treating a network failure as the end of a partial live set', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(sitemap, { status: 200 }))
+      .mockRejectedValueOnce(new Error('network unavailable'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchLiveClusterSet()).rejects.toThrow(/sitemap shard 002: network unavailable/);
+  });
+
+  it.each([500, 503])('aborts on HTTP %s instead of using a partial live set', async (status) => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(sitemap, { status: 200 }))
+      .mockResolvedValueOnce(new Response('', { status }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchLiveClusterSet()).rejects.toThrow(`sitemap shard 002 returned HTTP ${status}`);
   });
 });
