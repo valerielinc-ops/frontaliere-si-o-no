@@ -8543,6 +8543,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.circolare-221-deduzione-figli-2027.title': 'Impôt à la source 2027 : déduction par enfant de 264 CHF',
     'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Publication : Berne, 20 octobre 2026 État de la circulaire : 1er janvier 2027 Déduction pour chaque enfant : 264 CHF Valeur médiane des revenus : 5\'925 CHF par mois',
     'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.title': 'Montres suisses : exportations à 2,2 milliards en septembre, +11,7 %',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.excerpt': 'En septembre 2026, les exportations augmentent de 11,7 % à 2,2 milliards de francs ; 1,4 million de pièces (+19,9 %).',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.molestie-lavoro-pmi-svizzere.title': 'Harcèlement au travail dans les PME : les chiffres et le projet KMU konkret+',
+    'blog.article.molestie-lavoro-pmi-svizzere.excerpt': 'Depuis le Covid, les signalements augmentent dans les PME suisses.',
+    'blog.article.molestie-lavoro-pmi-svizzere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma approuve le premier ETF suisse en Bitcoin',
+    'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma autorise le premier fonds public directement investi en Bitcoin Le fonds est négocié en bourse La décision fait suite à l\'intérêt croissant pour les cryptomonnaies',
+    'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.guasto-sistemi-skyguide-scali.title': 'Panne des systèmes : capacité aérienne suisse à 50 %',
+    'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Panne technique des systèmes de Skyguide mardi après-midi Skyguide opère à 50 % de sa capacité par mesure de précaution Décollages et atterrissages brièvement suspendus à Zurich',
+    'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

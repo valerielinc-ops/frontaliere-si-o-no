@@ -8543,6 +8543,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.circolare-221-deduzione-figli-2027.title': 'Quellensteuer 2027: Abzug pro Kind auf 264 CHF',
     'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Veröffentlichung: Bern, 20.',
     'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.title': 'Schweizer Uhren: Exporte im September bei 2,2 Milliarden, +11,7%',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.excerpt': 'Im September 2026 steigen die Exporte um 11,7% auf 2,2 Milliarden Franken; 1,4 Millionen Stück (+19,9%).',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.molestie-lavoro-pmi-svizzere.title': 'Belästigung am Arbeitsplatz in KMU: die Daten und das Projekt KMU konkret+',
+    'blog.article.molestie-lavoro-pmi-svizzere.excerpt': 'Seit Covid nehmen die Meldungen in Schweizer KMU zu.',
+    'blog.article.molestie-lavoro-pmi-svizzere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma genehmigt den ersten Schweizer Bitcoin-ETF',
+    'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma genehmigt den ersten Publikumsfonds mit direkter Anlage in Bitcoin Der Fonds wird an der Börse gehandelt Die Entscheidung folgt dem wachsenden Interesse an Kryptowährungen',
+    'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.guasto-sistemi-skyguide-scali.title': 'Störung der Systeme: Schweizer Luftverkehrskapazität bei 50%',
+    'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Technische Störung der Skyguide-Systeme am Dienstagnachmittag Skyguide arbeitet vorsorglich mit 50% der Kapazität Starts und Landungen in Zürich kurzzeitig ausgesetzt',
+    'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
