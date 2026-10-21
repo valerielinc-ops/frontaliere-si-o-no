@@ -6,6 +6,7 @@ import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-
 import { careerPagesOnIndexPage, loadCursor, planCommonCrawlPages, sweepSwissCareerPages } from '../scripts/lib/prospector/sources/commoncrawl-careers.mjs';
 import { fetchOsmBusinesses } from '../scripts/lib/prospector/sources/osm-overpass.mjs';
 import { fetchSecoEmployers } from '../scripts/lib/prospector/sources/seco-jobroom.mjs';
+import { loadSecoPageCursors, saveSecoPageCursors } from '../scripts/lib/prospector/sources/seco-page-cursors.mjs';
 
 function response(url: string, status: number, body = '') {
   return {
@@ -44,6 +45,7 @@ describe('Prospector discovery source outcomes', () => {
   it('retains SECO results while marking a later page failure as partial', async () => {
     let pageCalls = 0;
     const row = {
+      id: 'ad-example',
       jobAdvertisement: {
         jobContent: {
           company: { name: 'Example Sagl', city: 'Lugano' },
@@ -69,11 +71,218 @@ describe('Prospector discovery source outcomes', () => {
     expect(result.employers.map(({ name }) => name)).toEqual(['Example Sagl']);
   });
 
+  it('resumes SECO after a stable ad ID when new ads shift the date-descending feed', async () => {
+    const ad = (id: string, employer = id) => ({
+      id,
+      jobAdvertisement: {
+        jobContent: {
+          company: { name: employer, city: 'Lugano' },
+          jobDescriptions: [{ title: 'Techniker' }],
+        },
+      },
+    });
+    const firstPages = new Map([[0, [ad('A')]], [1, [ad('B')]]]);
+    const firstRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify(firstPages.get(page) || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(firstRun).toMatchObject({
+      outcome: 'partial', errorCode: 'page_limit_reached', headId: 'A', nextAfterId: 'A', nextAfterPageHint: 0,
+    });
+
+    const secondPages = new Map([[0, [ad('X')]], [1, [ad('A')]], [2, [ad('B')]]]);
+    const secondRunPages: number[] = [];
+    const secondRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: firstRun.headId,
+      startAfterId: firstRun.nextAfterId,
+      startPageHint: firstRun.nextAfterPageHint,
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        secondRunPages.push(page);
+        return response(String(url), 200, JSON.stringify(secondPages.get(page) || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(secondRunPages).toEqual([0, 1, 2]);
+    expect(secondRun.employers.map(({ name }) => name)).toEqual(['X', 'B']);
+    expect(secondRun).toMatchObject({ outcome: 'partial', nextAfterId: 'B' });
+  });
+
+  it('advances a bounded SECO head scan across runs instead of stalling on its prefix', async () => {
+    const ad = (id: string) => ({
+      id,
+      jobAdvertisement: { jobContent: { company: { name: id }, jobDescriptions: [] } },
+    });
+    const firstRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify(page === 0 ? [ad('A')] : []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    const secondRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: firstRun.headId,
+      startAfterId: firstRun.nextAfterId,
+      startPageHint: firstRun.nextAfterPageHint,
+      headSearchPages: 1,
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([[ad('X')], [ad('A')]][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(secondRun).toMatchObject({
+      outcome: 'partial', errorCode: 'head_cursor_not_found', headId: 'X', nextAfterId: 'X',
+    });
+
+    const thirdRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: secondRun.headId,
+      startAfterId: secondRun.nextAfterId,
+      startPageHint: secondRun.nextAfterPageHint,
+      pageSize: 1,
+      maxPages: 2,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([[ad('X')], [ad('A')], [ad('B')]][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(thirdRun.employers.map(({ name }) => name)).toEqual(['A', 'B']);
+  });
+
+  it('preserves the last stable SECO head boundary across an all-malformed page', async () => {
+    const ad = (id: string) => ({
+      id,
+      jobAdvertisement: { jobContent: { company: { name: id }, jobDescriptions: [] } },
+    });
+    const malformedAd = { jobAdvertisement: { jobContent: { company: { name: 'No stable ID' } } } };
+    const firstRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify(page === 0 ? [ad('A')] : []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    const secondRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: firstRun.headId,
+      startAfterId: firstRun.nextAfterId,
+      startPageHint: firstRun.nextAfterPageHint,
+      headSearchPages: 2,
+      pageSize: 1,
+      maxPages: 1,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([[ad('X')], [malformedAd], [ad('A')]][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(secondRun).toMatchObject({
+      outcome: 'partial', errorCode: 'head_cursor_not_found', headId: 'X', nextAfterId: 'X', nextAfterPageHint: 0,
+    });
+
+    const thirdRun = await fetchSecoEmployers({
+      cantons: ['TI'],
+      headId: secondRun.headId,
+      startAfterId: secondRun.nextAfterId,
+      startPageHint: secondRun.nextAfterPageHint,
+      pageSize: 1,
+      maxPages: 2,
+      fetchImpl: async (url) => {
+        const page = Number(new URL(String(url)).searchParams.get('page'));
+        return response(String(url), 200, JSON.stringify([
+          [ad('X')], [malformedAd], [ad('Y')], [ad('A')], [ad('B')],
+        ][page] || []));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(thirdRun.employers.map(({ name }) => name)).toEqual(['Y']);
+    expect(thirdRun).toMatchObject({ outcome: 'partial', nextAfterId: 'Y', nextAfterPageHint: 2 });
+  });
+
+  it('skips an SECO row without an ID and advances to the next stable ad', async () => {
+    const ad = (id: string) => ({
+      id,
+      jobAdvertisement: { jobContent: { company: { name: id }, jobDescriptions: [] } },
+    });
+    const result = await fetchSecoEmployers({
+      cantons: ['TI'],
+      pageSize: 3,
+      maxPages: 1,
+      fetchImpl: async (url) => response(String(url), 200, JSON.stringify([
+        ad('A'),
+        { jobAdvertisement: { jobContent: { company: { name: 'No stable ID' } } } },
+        ad('B'),
+      ])),
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(result.outcome).toBe('partial');
+    expect(result.employers.map(({ name }) => name)).toEqual(['A', 'B']);
+    expect(result).toMatchObject({ headId: 'A', nextAfterId: 'B', nextAfterPageHint: 0 });
+  });
+
+  it('loads and saves per-canton SECO page cursors without sharing mutable defaults', () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-seco-cursors-'));
+    const cursorFile = path.join(dir, 'seco-page-cursors.json');
+    expect(loadSecoPageCursors(cursorFile)).toEqual({ version: 2, updatedAt: null, cantons: {} });
+    fs.writeFileSync(cursorFile, JSON.stringify({
+      version: 1,
+      updatedAt: null,
+      cantons: { TI: { nextPage: 3, onlineSinceDays: 30, updatedAt: '2026-10-19T03:00:00.000Z' } },
+    }));
+    expect(loadSecoPageCursors(cursorFile)).toMatchObject({
+      version: 2,
+      cantons: { TI: { headId: null, afterId: null, afterPageHint: 0, onlineSinceDays: 30 } },
+      updatedAt: null,
+    });
+    saveSecoPageCursors(loadSecoPageCursors(cursorFile), cursorFile);
+    expect(JSON.parse(fs.readFileSync(cursorFile, 'utf8')).version).toBe(2);
+    expect(loadSecoPageCursors(path.join(dir, 'other.json')).cantons).toEqual({});
+  });
+
   it('marks SECO rows without an employer name as malformed source data', async () => {
     const result = await fetchSecoEmployers({
       cantons: ['TI'],
       pageSize: 2,
       fetchImpl: async (url) => response(String(url), 200, JSON.stringify([{
+        id: 'ad-malformed-company',
         jobAdvertisement: { jobContent: { company: { name: ' ' }, jobDescriptions: [{ title: 'Tecnico' }] } },
       }])),
       lookupImpl,
@@ -153,9 +362,85 @@ describe('Prospector discovery source outcomes', () => {
     expect(result).toMatchObject({
       businesses: expect.any(Array),
       outcome: 'partial',
-      errorCode: 'result_limit_reached',
+      errorCode: 'partition_result_limit_reached',
     });
     expect(result.businesses).toHaveLength(2);
+  });
+
+  it('recovers a capped Overpass union through tag partitions and deduplicates employers', async () => {
+    const row = (name: string, host: string, tag: string) => ({
+      tags: { name, website: `https://${host}`, [tag]: 'yes' },
+    });
+    const initial = [row('Alpha AG', 'alpha.example', 'office'), row('Beta AG', 'beta.example', 'shop'), row('Epsilon AG', 'epsilon.example', 'amenity')];
+    const queries: string[] = [];
+    const result = await fetchOsmBusinesses('TI', {
+      limit: 3,
+      fetchImpl: async (url, init) => {
+        const form = new URLSearchParams(String(init?.body || ''));
+        const query = form.get('data') || '';
+        const requestIndex = queries.length;
+        queries.push(query);
+        let elements = initial;
+        if (requestIndex === 0) {
+          elements = initial;
+        } else if (query.includes('["office"]') && !query.includes('["shop"]')) {
+          elements = [row('Alpha AG', 'alpha.example', 'office'), row('Gamma AG', 'gamma.example', 'office')];
+        } else if (query.includes('["shop"]') && !query.includes('["amenity"]')) {
+          elements = [row('Beta AG', 'beta.example', 'shop'), row('Delta AG', 'delta.example', 'shop')];
+        } else if (query.includes('["healthcare"]') || query.includes('["tourism"]') || query.includes('["amenity"]')) {
+          elements = [];
+        }
+        return response(String(url), 200, JSON.stringify({ elements }));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(queries).toHaveLength(6);
+    expect(result).toMatchObject({ outcome: 'complete', errorCode: null });
+    expect(result.businesses.map(({ domain }) => domain).sort()).toEqual([
+      'alpha.example', 'beta.example', 'delta.example', 'epsilon.example', 'gamma.example',
+    ]);
+  });
+
+  it('splits an individually capped Overpass family into narrower name ranges', async () => {
+    const row = (name: string, host: string) => ({ tags: { name, website: `https://${host}`, office: 'yes' } });
+    const alpha = row('Alpha AG', 'alpha.example');
+    const beta = row('Beta AG', 'beta.example');
+    const gamma = row('Gamma AG', 'gamma.example');
+    const delta = row('Delta AG', 'delta.example');
+    let request = 0;
+    const queries: string[] = [];
+    const result = await fetchOsmBusinesses('ZH', {
+      limit: 3,
+      fetchImpl: async (url, init) => {
+        const query = new URLSearchParams(String(init?.body || '')).get('data') || '';
+        queries.push(query);
+        const index = request++;
+        let elements: any[] = [];
+        const hasNamePartition = query.includes('["name"~"^') || query.includes('["name"!~"^');
+        if (index === 0 || (query.includes('["website"]["office"]') && !query.includes('["shop"]') && !hasNamePartition)) {
+          elements = [alpha, beta, gamma];
+        } else if (query.includes('["name"~"^[A-M]",i]')) {
+          elements = [alpha, beta, gamma];
+        } else if (query.includes('["name"~"^[N-Z]",i]')) {
+          elements = [delta];
+        } else if (query.includes('["name"~"^[A-F]",i]')) {
+          elements = [alpha, beta];
+        } else if (query.includes('["name"~"^[G-M]",i]')) {
+          elements = [gamma];
+        }
+        return response(String(url), 200, JSON.stringify({ elements }));
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(queries.length).toBeGreaterThan(8);
+    expect(result).toMatchObject({ outcome: 'complete', errorCode: null });
+    expect(result.businesses.map(({ domain }) => domain).sort()).toEqual([
+      'alpha.example', 'beta.example', 'delta.example', 'gamma.example',
+    ]);
   });
 
   it('marks an empty HTTP 200 Common Crawl page malformed instead of checkpointing it', async () => {
@@ -284,5 +569,28 @@ describe('Prospector discovery source outcomes', () => {
     expect(recovered).toMatchObject({ outcome: 'complete', pagesRead: [0], failedPages: [], coverageRate: 1 });
     expect(recovered.employers).toEqual([{ host: 'example.ch', url: 'https://example.ch/jobs/careers' }]);
     expect(loadCursor(cursorFile).sweptPages).toEqual([0]);
+  });
+
+  it('does not write Common Crawl cursor or health state when persistence is disabled', async () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-dry-run-'));
+    const cursorFile = path.join(dir, 'cursor.json');
+    const healthFile = path.join(dir, 'health.json');
+    await sweepSwissCareerPages({
+      collection: 'CC-MAIN-test',
+      pages: 1,
+      persist: false,
+      cursorFile,
+      healthFile,
+      fetchImpl: async (input) => {
+        const url = String(input);
+        if (url.includes('showNumPages=true')) return response(url, 200, '{"pages":1}');
+        return response(url, 200, '{"url":"https://example.ch/jobs/careers"}\n');
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(fs.existsSync(cursorFile)).toBe(false);
+    expect(fs.existsSync(healthFile)).toBe(false);
   });
 });

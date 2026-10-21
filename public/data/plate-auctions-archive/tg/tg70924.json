@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109789",
+      "sourceKey": "TG",
+      "sourceRecordId": "109789",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "70924",
+      "normalizedPlate": "TG70924",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 1,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-17T15:35:53.535Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109789",
+      "sourceFetchedAt": "2026-10-17T15:35:53.535Z",
+      "lastVerifiedAt": "2026-10-17T15:35:53.535Z",
+      "firstSeenAt": "2026-10-07T06:06:06.221Z",
+      "lastSeenAt": "2026-10-17T15:35:53.535Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3a4909f3041a"
+    }
+  ]
+}

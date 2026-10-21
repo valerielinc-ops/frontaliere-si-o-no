@@ -33,8 +33,8 @@ on:
         description: 'Sorgenti: own,seco,osm,web'
         default: 'own,seco,web,osm'
       trace_limit:
-        description: 'Quanti candidati tracciare; 450 conserva la stessa attesa minima tra richieste allo stesso host'
-        default: '450'
+        description: 'Quanti candidati tracciare; 750 mantiene concurrency e attesa per host misurate'
+        default: '750'
       expand_platforms:
         description: 'Quante piattaforme espandere'
         default: '4'
@@ -67,7 +67,7 @@ env:
   # `own` erano gia' nazionali per costruzione.
   CANTONS: ${{ github.event.inputs.cantons || 'all' }}
   SOURCES: ${{ github.event.inputs.sources || 'own,seco,web,osm' }}
-  TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '450' }}
+  TRACE_LIMIT: ${{ github.event.inputs.trace_limit || '750' }}
   EXPAND_PLATFORMS: ${{ github.event.inputs.expand_platforms || '4' }}
   WEB_PAGES: ${{ github.event.inputs.web_pages || '40' }}
   OSM_CANTONS: ${{ github.event.inputs.osm_cantons || '3' }}
@@ -176,10 +176,13 @@ jobs:
         run: node scripts/prospect-trace.mjs --limit="$TRACE_LIMIT"
 
       - name: Expand platforms
-        run: node scripts/prospect-expand.mjs --platforms="$EXPAND_PLATFORMS" --max-probe=200
+        run: node scripts/prospect-expand.mjs --platforms="$EXPAND_PLATFORMS" --shared-platforms=1 --max-probe=200
 
       - name: Synthesize crawlers
-        run: node scripts/prospect-synthesize.mjs --limit=60
+        # Run 39394799814 produced 10 specs from 60 attempts in under two
+        # minutes. A 120-candidate budget increases validated acquisition
+        # capacity while the scheduler reserves slots for older employers.
+        run: node scripts/prospect-synthesize.mjs --limit=120
 
       - name: Grade extraction against the live pages
         run: node scripts/prospect-validate.mjs --limit=60 --sample=3

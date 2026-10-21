@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-10-20T09:29:10.086Z",
+  "assembledAt": "2026-10-20T21:42:52.518Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/ingegnere-di-programmazione-machine-cnc-di-rettifica",
@@ -38,7 +38,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-20T09:28:53.964Z",
+      "crawledAt": "2026-10-20T21:42:35.791Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -47,6 +47,7 @@
         "canton": "TI",
         "location": "Agno"
       },
+      "firstSeenAt": "2026-10-20T09:28:53.964Z",
       "addressLocality": "Agno",
       "addressRegion": "TI",
       "salaryMin": 58000,
@@ -62,8 +63,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-20T09:28:53.964Z"
+      }
     },
     {
       "url": "https://www.mikron.com/en/production-planning-analyst-ordonnanceur-fmd",
@@ -101,7 +101,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-20T09:28:56.142Z",
+      "crawledAt": "2026-10-20T21:42:38.006Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -164,7 +164,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-20T09:28:57.189Z",
+      "crawledAt": "2026-10-20T21:42:39.036Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -227,7 +227,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-20T09:28:58.242Z",
+      "crawledAt": "2026-10-20T21:42:40.143Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -290,7 +290,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-20T09:29:01.395Z",
+      "crawledAt": "2026-10-20T21:42:43.385Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -353,7 +353,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-20T09:29:02.588Z",
+      "crawledAt": "2026-10-20T21:42:44.467Z",
       "source": "mikron-html-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -442,7 +442,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -90,6 +90,40 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
     expect(store.candidates[key].status).toBe('production');
   });
 
+  it('keeps transient domain-resolution failures retryable after the permanent-guess threshold', () => {
+    const now = Date.now();
+    const candidate = {
+      key: 'example@lugano',
+      traceAttempts: 4,
+      reason: 'dominio temporaneamente non verificabile',
+      traceRetryAt: new Date(now - 1).toISOString(),
+    };
+
+    expect(isTraceRetryDue(candidate, now)).toBe(true);
+    expect(scheduleTraceRetry(candidate, candidate.reason, now)).toMatchObject({
+      traceAttempts: 5,
+      traceRetryable: true,
+      traceRetryAt: new Date(now + 30 * DAY_MS).toISOString(),
+    });
+  });
+
+  it('keeps the SECO legal name as source-backed identity across other source updates', () => {
+    const store = storeWith({
+      'example.ch': { key: 'example.ch', status: 'new', name: 'Example Careers' },
+    });
+    upsertCandidate(store, {
+      key: 'example.ch', name: 'Example SA', secoEmployerName: 'Example SA', adCount: 2,
+    }, 'seco');
+    upsertCandidate(store, {
+      key: 'example.ch', name: 'Example Group', secoEmployerName: 'Untrusted rewrite',
+    }, 'osm');
+
+    expect(store.candidates['example.ch']).toMatchObject({
+      name: 'Example Careers',
+      secoEmployerName: 'Example SA',
+    });
+  });
+
   it('compacts an old rejected record and blocks the same key after rediscovery', () => {
     const key = 'mpi-age.de.umantis.com';
     const store = storeWith({

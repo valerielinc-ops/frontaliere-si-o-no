@@ -1,7 +1,7 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-10-20T09:20:23.734Z",
+  "generatedAt": "2026-10-20T21:21:57.056Z",
   "total": 6,
   "discovered": null,
   "parsed": 5,
@@ -12,30 +12,30 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8752,
-  "avgDurationMs": 8752,
+  "durationMs": 8709,
+  "avgDurationMs": 8709,
   "durationHistory": [
-    8752
+    8709
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "wagerenhof-cede64748036",
-      "slug": "collaboratore-trice-in-reinigung-100-stiftung-wagerenhof-uster",
+      "slug": "addetto-a-alle-pulizie-100-stiftung-wagerenhof-uster",
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
       "companyDomain": "wagerenhof.ch",
       "title": "Mitarbeiter/-in Reinigung 100%",
-      "needsRetranslation": true,
       "location": "Uster",
       "canton": "ZH",
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-558&cHash=01109588e3acd3a3edf2cfc10cdcd6f0",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:20:05.774Z",
+      "crawledAt": "2026-10-20T21:21:36.494Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,20 +52,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-558&cHash=01109588e3acd3a3edf2cfc10cdcd6f0",
+      "firstSeenAt": "2026-10-20T09:20:05.774Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-20T09:20:05.774Z",
-      "_qualityScore": 82,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +80,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-562&cHash=e9603f4487b6014c03dc9f38bcb94f52",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:20:09.511Z",
+      "crawledAt": "2026-10-20T21:21:40.177Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +122,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-547&cHash=38a5c966d2c75a5e139852370a2fcc58",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:20:08.598Z",
+      "crawledAt": "2026-10-20T21:21:39.285Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -165,7 +164,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:20:07.676Z",
+      "crawledAt": "2026-10-20T21:21:38.360Z",
       "addressLocality": "Bauma",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -207,7 +206,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-561&cHash=91d15e7cd9facb6dbfda04f48178fe18",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:20:06.742Z",
+      "crawledAt": "2026-10-20T21:21:37.397Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -270,7 +269,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -280,5 +279,5 @@
       }
     }
   ],
-  "codeCommit": "a1bd59ecfe0dd8e9073ead0a9cb11e2d39e2c95a"
+  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
 }

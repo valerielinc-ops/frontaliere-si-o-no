@@ -7,8 +7,8 @@ import {
   jobsDiffer,
 } from './job-identity.mjs';
 import {
-  jobStatsHistoryCompactionCutoffDate,
   JOB_STATS_HISTORY_RETENTION_LIMIT,
+  jobStatsHistoryCompactionCutoffDate,
 } from './job-stats-history-store.mjs';
 import { AGGREGATE_KEY, createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
 
@@ -208,15 +208,20 @@ function createHistoryEntry(date, totalJobs) {
   };
 }
 
-function finalizeHistoryEntry(entry) {
+function finalizeHistoryEntry(entry, currentDate) {
   const next = cloneEntry(entry);
   next.addedKeys = Array.from(new Set(safeArray(next.addedKeys))).sort();
   next.updatedKeys = Array.from(new Set(safeArray(next.updatedKeys))).sort();
   next.removedKeys = Array.from(new Set(safeArray(next.removedKeys))).sort();
-  next.added = next.addedKeys.length;
-  // updatedKeys/removedKeys are slimmed away on past days (see
-  // slimVerboseKeyArrays): when the array is empty we MUST keep the persisted
-  // scalar count rather than overwrite it with 0.
+  // `addedKeys` are retained only inside the 30-day dedup window. Once an old
+  // entry is compacted, keep its scalar count for the long-range history view.
+  // Current-day retries still have keys, so their count remains deduplicated.
+  const isOutsideVerboseWindow = next.date < jobStatsHistoryCompactionCutoffDate(currentDate);
+  next.added = isOutsideVerboseWindow
+    ? Math.max(next.addedKeys.length, Number(next.added || 0))
+    : next.addedKeys.length > 0 ? next.addedKeys.length : Number(next.added || 0);
+  // updatedKeys/removedKeys are slimmed on past days (see
+  // slimVerboseKeyArrays); when empty, retain the persisted scalar count.
   next.updated = next.updatedKeys.length > 0 ? next.updatedKeys.length : Number(next.updated || 0);
   next.removed = next.removedKeys.length > 0 ? next.removedKeys.length : Number(next.removed || 0);
 
@@ -278,7 +283,11 @@ function deduplicateEntriesByDate(entries) {
     for (const field of ['addedKeys', 'updatedKeys', 'removedKeys']) {
       existing[field] = Array.from(new Set([...safeArray(existing[field]), ...safeArray(e[field])]));
     }
-    existing.added = existing.addedKeys.length;
+    existing.added = Math.max(
+      existing.addedKeys.length,
+      Number(existing.added || 0),
+      Number(e.added || 0),
+    );
     // updatedKeys/removedKeys may have been slimmed on either side; fall back to
     // the larger of (unioned array length, persisted scalar count).
     existing.updated = Math.max(existing.updatedKeys.length, Number(existing.updated || 0), Number(e.updated || 0));
@@ -402,7 +411,7 @@ export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJ
   }
 
   history.entries = history.entries
-    .map((item) => finalizeHistoryEntry(item))
+    .map((item) => finalizeHistoryEntry(item, date))
     .sort((a, b) => a.date.localeCompare(b.date))
     .slice(-limit);
 
@@ -411,7 +420,7 @@ export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJ
 
   // Compact old entries: strip verbose fields for entries older than COMPACT_AFTER_DAYS
   // to keep each history shard under GitHub's 100 MB file size limit.
-  const compactCutoff = jobStatsHistoryCompactionCutoffDate(now);
+  const compactCutoff = jobStatsHistoryCompactionCutoffDate(date);
   for (const e of history.entries) {
     if (e.date < compactCutoff) {
       e.addedKeys = [];
@@ -559,8 +568,9 @@ function lastDaysEntries(entries = [], now, days) {
 
 export function buildJobsStatsSummary(currentJobs = [], history = {}, options = {}) {
   const now = options.now || new Date().toISOString();
-  const entries = safeArray(history?.entries).map((entry) => finalizeHistoryEntry(entry));
-  const todayEntry = entries.find((entry) => entry.date === zurichDate(now)) || createHistoryEntry(zurichDate(now), safeArray(currentJobs).length);
+  const currentDate = zurichDate(now);
+  const entries = safeArray(history?.entries).map((entry) => finalizeHistoryEntry(entry, currentDate));
+  const todayEntry = entries.find((entry) => entry.date === currentDate) || createHistoryEntry(currentDate, safeArray(currentJobs).length);
   const last7d = lastDaysEntries(entries, now, 7);
   const last30d = lastDaysEntries(entries, now, 30);
 

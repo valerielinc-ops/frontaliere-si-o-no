@@ -32,6 +32,8 @@ import { gradeExtraction } from './lib/prospector/validate.mjs';
 import {
   classifyValidationFailure,
   isValidationRetryDue,
+  needsProductionQualityAudit,
+  prioritizeProductionAuditSpecs,
   prioritizeValidationSpecs,
   validationRetryAt,
 } from './lib/prospector/validation-schedule.mjs';
@@ -177,19 +179,18 @@ if (onlyKey) specs = specs.filter((s) => s.companyKey === onlyKey);
 
 // Il budget giornaliero e' fisso (`limit`, 40 nel workflow). Senza questo
 // filtro i candidati gia'
-// `production`/`promoting` (che non possono piu' avanzare: `setStatus` e'
-// forward-only, vedi candidate-store.mjs) e i `rejected`/`dead` (terminali)
-// restano nel file indefinitamente e occupano ogni giorno gli slot
+// `promoting` (che aspetta la riconciliazione della PR) e i `rejected`/`dead`
+// (terminali) restano nel file indefinitamente e occupano ogni giorno gli slot
 // alfabeticamente precoci — misurato su #6303: nel run del 2026-08-29,
 // 24 dei 40 slot andavano a candidati che non potevano piu' beneficiare di
 // una rivalidazione, mentre 43 spec restavano fuori dal giro per sempre,
 // alcuni bloccati per giorni a "1 giorno su 2" di stabilita' o senza
 // logo/jobLike mai misurati. Chi non puo' piu' avanzare non deve competere
 // per lo slot con chi puo'.
-const DONE_STATUSES = new Set(['production', 'awaiting_first_crawl', 'promoting', 'rejected', 'dead']);
-// ALIGN the version even for a promoting candidate, which is skipped here while
-// its PR is open. If that PR closes, PROMOTE requeues it using this new version
-// and cannot reuse validation history from the older quality contract.
+const DONE_STATUSES = new Set(['awaiting_first_crawl', 'promoting', 'rejected', 'dead']);
+// ALIGN before status filtering so a promoted or production candidate cannot
+// reuse history from an older quality contract. Production rows with missing
+// current-contract proof are selected for a separate audit below.
 specs = specs.filter((s) => {
   const c = candidateForSpec(s);
   alignCandidateQualityContractVersion(c, s);
@@ -201,6 +202,29 @@ specs = specs.filter((s) => {
 // oldest-first fra nuovi candidati e retry, evitando che la coda non validata
 // monopolizzi l'intero budget.
 const scheduledAt = new Date();
+const PRODUCTION_AUDIT_LIMIT = 5;
+const ownership = loadSourceHostOwnership(ROOT, { urls: true });
+const productionAuditCandidates = [];
+const regularSpecs = [];
+for (const spec of specs) {
+  const candidate = candidateForSpec(spec);
+  if (candidate?.status === 'production') {
+    const owner = tenantHostOwner(candidate, ownership.byHost);
+    const otherOwner = owner && owner !== spec.companyKey;
+    if (!otherOwner
+      && needsProductionQualityAudit(spec, candidate, {
+        date: scheduledAt,
+        adapterVersionFor: (item) => sourceCrawlerAdapterFor(item)?.version || null,
+      })) productionAuditCandidates.push(spec);
+    continue;
+  }
+  if (!candidate || !DONE_STATUSES.has(candidate.status) || canRevalidateRejectedCandidate(spec, candidate)) {
+    regularSpecs.push(spec);
+  }
+}
+const productionAuditSpecs = prioritizeProductionAuditSpecs(productionAuditCandidates, candidateForSpec, {
+  adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
+}).slice(0, PRODUCTION_AUDIT_LIMIT);
 const deferredForBackoff = specs.filter((spec) => {
   const candidate = candidateForSpec(spec);
   return candidate && !isValidationRetryDue(candidate, scheduledAt, {
@@ -208,22 +232,21 @@ const deferredForBackoff = specs.filter((spec) => {
     sourceAdapterVersion: sourceCrawlerAdapterFor(spec)?.version,
   });
 }).length;
-specs = prioritizeValidationSpecs(specs, candidateForSpec, {
+specs = [
+  ...productionAuditSpecs,
+  ...prioritizeValidationSpecs(regularSpecs, candidateForSpec, {
   limit,
   date: scheduledAt,
   adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
-});
+  }),
+];
 
 console.log('═══ Prospector · VALIDATE ═══');
-console.log(`spec da validare: ${specs.length}   campione base: ${sampleSize} (adattivo fino a 8) · rinviate per backoff: ${deferredForBackoff}\n`);
+console.log(`spec da validare: ${specs.length}   audit produzione: ${productionAuditSpecs.length}/${PRODUCTION_AUDIT_LIMIT}   campione base: ${sampleSize} (adattivo fino a 8) · rinviate per backoff: ${deferredForBackoff}\n`);
 
 const reports = [];
 const tally = { good: 0, weak: 0, bad: 0, insufficient: 0 };
 let duplicates = 0;
-
-// What we already crawl, keyed by the individual vacancy URL. Read once: the
-// slices are large and the answer cannot change during a run.
-const ownership = loadSourceHostOwnership(ROOT, { urls: true });
 
 for (const spec of specs) {
   const adapter = sourceCrawlerAdapterFor(spec);
@@ -234,17 +257,26 @@ for (const spec of specs) {
   // `good` for weeks on a tenant `bethesda-spital` had been crawling since May
   // (issue 5253). Asked before `runSpec`, so a known duplicate costs no fetch.
   const candidate = candidateForSpec(spec);
+  const productionAudit = candidate?.status === 'production';
   const validationStartedAt = new Date().toISOString();
   const tenantOwner = tenantHostOwner(candidate, ownership.byHost);
   if (tenantOwner) {
-    duplicates++;
-    console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${tenantOwner} — tenant ${candidate.tenantHost} gia' letto`);
-    setStatus(store, candidate.key, 'rejected', {
-      qualityVerdict: 'duplicate',
-      qualityProblems: [`duplica ${tenantOwner}: il tenant ${candidate.tenantHost} e' gia' la fonte di data/jobs/by-crawler/${tenantOwner}.json`],
-      duplicateOf: tenantOwner,
-    }, dryRun ? null : undefined);
-    continue;
+    if (productionAudit && tenantOwner === spec.companyKey) {
+      // Its current production slice is the expected owner; auditing it must
+      // not turn its own source identity into a duplicate rejection.
+    } else if (productionAudit) {
+      console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} audit produzione saltato: tenant già letto da ${tenantOwner}`);
+      continue;
+    } else {
+      duplicates++;
+      console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${tenantOwner} — tenant ${candidate.tenantHost} gia' letto`);
+      setStatus(store, candidate.key, 'rejected', {
+        qualityVerdict: 'duplicate',
+        qualityProblems: [`duplica ${tenantOwner}: il tenant ${candidate.tenantHost} e' gia' la fonte di data/jobs/by-crawler/${tenantOwner}.json`],
+        duplicateOf: tenantOwner,
+      }, dryRun ? null : undefined);
+      continue;
+    }
   }
 
   // Stessa ragione dello stadio di sintesi: qui si rende di nuovo il DOM di
@@ -291,7 +323,11 @@ for (const spec of specs) {
     runtimeObservation = err?.specRuntimeObservation || failedRuntimeObservation(err);
     console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} osservazione runtime incompleta: ${(err instanceof Error ? err.message : String(err)).slice(0, 100)}`);
   }
-  const validationSnapshot = createValidationSnapshot(vacancies, new Date().toISOString());
+  const validationSnapshot = createValidationSnapshot(
+    vacancies,
+    new Date().toISOString(),
+    process.env.GITHUB_RUN_ID || null,
+  );
   const validationSnapshotSummary = { ...validationSnapshot };
   delete validationSnapshotSummary.ids;
   // Does this "new employer" simply re-publish vacancies we already carry?
@@ -303,7 +339,7 @@ for (const spec of specs) {
   // `exclude` is not optional here: this stage re-grades candidates that are
   // already `promoted`/`production`, and a live crawler matches its OWN slice at
   // 100% — without it, every established crawler would reject itself.
-  const twin = matchExistingCrawlerForCompleteSnapshot(
+  const twin = productionAudit ? null : matchExistingCrawlerForCompleteSnapshot(
     (vacancies || []).map((v) => v?.url || ''),
     ownership,
     { exclude: spec.companyKey },
@@ -333,6 +369,7 @@ for (const spec of specs) {
       anomalyIds: candidate?.validationAnomalyIds || [],
       expectedIdentity: {
         name: candidate?.name || spec.companyName,
+        secoName: candidate?.secoEmployerName,
         domain: candidate?.domain || spec.companyHost,
         tenantHost: candidate?.tenantHost || spec.tenantHost,
       },
@@ -417,7 +454,7 @@ for (const spec of specs) {
 
   if (candidate) {
     const rejectedRevalidation = canRevalidateRejectedCandidate(spec, candidate);
-    const next = candidateStatusAfterValidation(report);
+    const next = productionAudit ? 'production' : candidateStatusAfterValidation(report);
     const qualityProblems = [...report.problems];
     let sourceBackedLocationProblem = '';
     // `good` is the extraction-quality verdict, not a waiver for PROMOTE's
@@ -518,7 +555,9 @@ for (const spec of specs) {
       validationAnomalyIds: candidate.validationAnomalyIds,
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
     };
-    if (candidate.status === 'promoted' && next === 'validated') {
+    if (productionAudit) {
+      setStatus(store, candidate.key, 'production', statusPatch, dryRun ? null : undefined);
+    } else if (candidate.status === 'promoted' && next === 'validated') {
       requeuePromotedCandidate(
         store,
         candidate.key,

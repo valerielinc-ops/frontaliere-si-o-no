@@ -11,6 +11,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 
 import { writeFileAtomic } from './atomic-shard-write.mjs';
 import { assertAccumulatorByteFloor } from './accumulator-byte-floor-guard.mjs';
@@ -21,24 +22,49 @@ export const JOB_STATS_HISTORY_MANIFEST_FILE = `${JOB_STATS_HISTORY_SHARD_DIR}/m
 export const JOB_STATS_HISTORY_RETENTION_LIMIT = 180;
 export const JOB_STATS_HISTORY_COMPACT_AFTER_DAYS = 30;
 
-export function jobStatsHistoryCompactionCutoffDate(now = new Date()) {
-  const cutoff = new Date(
-    new Date(now).getTime() - JOB_STATS_HISTORY_COMPACT_AFTER_DAYS * 86_400_000,
-  );
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Europe/Zurich',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(cutoff);
-  const map = Object.fromEntries(parts.map((part) => [part.type, part.value]));
-  return `${map.year}-${map.month}-${map.day}`;
-}
-
 const MONTH_RE = /^\d{4}-(?:0[1-9]|1[0-2])$/;
 const DATE_RE = /^\d{4}-(?:0[1-9]|1[0-2])-\d{2}$/;
 const MONTH_SHARD_RE = /^(\d{4}-(?:0[1-9]|1[0-2]))\.json$/;
 const DAY_SHARD_RE = /^(\d{4}-(?:0[1-9]|1[0-2])-\d{2})\.json$/;
+const AGE_COMPACTION_FIELDS = [
+  'addedKeys',
+  'updatedKeys',
+  'removedKeys',
+  'companyStats',
+  'locationStats',
+  'titleStats',
+];
+
+function isValidHistoryDate(value) {
+  if (typeof value !== 'string' || !DATE_RE.test(value)) return false;
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  return Number.isFinite(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
+}
+
+/** The first date that may be fully compacted for a run on `currentDate`. */
+export function jobStatsHistoryCompactionCutoffDate(currentDate) {
+  if (!isValidHistoryDate(currentDate)) return '';
+  const cutoff = new Date(`${currentDate}T00:00:00.000Z`);
+  cutoff.setUTCDate(cutoff.getUTCDate() - JOB_STATS_HISTORY_COMPACT_AFTER_DAYS);
+  return cutoff.toISOString().slice(0, 10);
+}
+
+/** Latest daily date attested by the post-push history manifest, or empty. */
+export function jobStatsHistoryManifestCurrentDate(raw, options = {}) {
+  try {
+    const manifest = JSON.parse(String(raw));
+    if (manifest?.version !== 2
+      || manifest?.format !== 'daily-entry-shards'
+      || !Array.isArray(manifest.days)) return '';
+    if (manifest.days.length === 0 || !manifest.days.every(isValidHistoryDate)) return '';
+    const currentDate = [...manifest.days].sort().at(-1) || '';
+    const notAfterDate = String(options.notAfterDate || '');
+    if (notAfterDate && (!isValidHistoryDate(notAfterDate) || currentDate > notAfterDate)) return '';
+    return currentDate;
+  } catch {
+    return '';
+  }
+}
 
 export function isJobStatsHistoryDailyShardPath(filePath) {
   const normalized = String(filePath).replace(/\\/g, '/');
@@ -262,12 +288,6 @@ function isCompactedHistoryEntry(entry = {}) {
   );
 }
 
-function isFullyCompactedHistoryEntry(entry = {}) {
-  return isCompactedHistoryEntry(entry)
-    && entry.addedKeys.length === 0
-    && ['companyStats', 'locationStats', 'titleStats'].every((bucket) => entry[bucket].length === 0);
-}
-
 function hasSameHistoryCounters(previous = {}, next = {}) {
   return previous.date === next.date
     && ['totalJobs', 'added', 'updated', 'removed'].every((field) =>
@@ -369,24 +389,49 @@ function preservesCompactionPayload(previous = {}, next = {}) {
 }
 
 /**
- * Prove that a historical rewrite either preserves counters and action
- * payloads during locale migration, or drops all detail only after the
- * explicit compaction cutoff while retaining the scalar counters.
+ * Prove that a compacted historical rewrite preserves the logical counters
+ * and every action-bearing payload. Descriptor-only title rows may be
+ * re-keyed or collapsed during locale migration; they are not consumed by
+ * the history leaders and therefore are not part of the retained payload.
  *
  * This predicate is shared with the post-push byte guard. Keeping the proof
  * in one place prevents a semantically safe locale migration from being
  * written by the producer and then auto-reverted by the generic detector.
  */
-export function isSafeJobStatsHistoryRewrite(previous = {}, next = {}, options = {}) {
-  const compactionCutoffDate = String(options.compactionCutoffDate || '');
-  const isExplicitCompaction = DATE_RE.test(compactionCutoffDate)
-    && previous.date < compactionCutoffDate
-    && isFullyCompactedHistoryEntry(next);
-
+export function isSafeJobStatsHistoryRewrite(previous = {}, next = {}) {
   return DATE_RE.test(String(previous.date || ''))
     && hasSameHistoryCounters(previous, next)
     && isCompactedHistoryEntry(next)
-    && (preservesCompactionPayload(previous, next) || isExplicitCompaction);
+    && preservesCompactionPayload(previous, next);
+}
+
+/**
+ * Prove the separate, age-gated transition that discards all six verbose
+ * fields after their 30-day consumer window. Every other key must survive
+ * byte-for-value, including the scalar daily counters.
+ */
+export function isSafeJobStatsHistoryAgeCompaction(previous = {}, next = {}, options = {}) {
+  const cutoff = jobStatsHistoryCompactionCutoffDate(String(options.currentDate || ''));
+  if (!cutoff || !isValidHistoryDate(previous.date) || previous.date !== next.date || previous.date >= cutoff) {
+    return false;
+  }
+
+  if (!['totalJobs', 'added', 'updated', 'removed'].every((field) =>
+    Number.isSafeInteger(previous[field])
+    && previous[field] >= 0
+    && previous[field] === next[field]
+  )) return false;
+
+  if (!AGE_COMPACTION_FIELDS.every((field) =>
+    Array.isArray(previous[field])
+    && Array.isArray(next[field])
+    && next[field].length === 0
+  )) return false;
+
+  const withoutVerboseFields = (entry) => Object.fromEntries(
+    Object.entries(entry).filter(([key]) => !AGE_COMPACTION_FIELDS.includes(key)),
+  );
+  return isDeepStrictEqual(withoutVerboseFields(previous), withoutVerboseFields(next));
 }
 
 export function isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw, options = {}) {
@@ -400,7 +445,15 @@ export function isSafeJobStatsHistoryShardRewrite(previousRaw, nextRaw, options 
     const nextEntries = historyEntries(nextDocument);
     if (previousEntries.length !== 1 || nextEntries.length !== 1) return false;
 
-    return isSafeJobStatsHistoryRewrite(previousEntries[0], nextEntries[0], options);
+    if (isSafeJobStatsHistoryRewrite(previousEntries[0], nextEntries[0])) return true;
+
+    // The writer always emits this canonical wrapper. Do not let the new age
+    // proof discard any unrecognized shard-level metadata around `entries`.
+    const hasCanonicalWrapper = (document) =>
+      Object.keys(document).length === 1 && Object.hasOwn(document, 'entries');
+    if (!hasCanonicalWrapper(previousDocument) || !hasCanonicalWrapper(nextDocument)) return false;
+
+    return isSafeJobStatsHistoryAgeCompaction(previousEntries[0], nextEntries[0], options);
   } catch {
     return false;
   }
@@ -513,12 +566,10 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
     // logical counters are preserved; an empty/degraded fallback therefore
     // remains fail-closed even if it happens to have the compacted shape.
     const existing = existingByFile.get(shardFile) || { exists: false, ok: true, entries: [] };
-    const existingEntry = existing.entries.find((item) => item.date === date);
     const isControlledHistoricalRewrite = date < currentDate
       && existing.ok
-      && isSafeJobStatsHistoryRewrite(existingEntry || {}, entry, {
-        compactionCutoffDate: options.compactionCutoffDate,
-      });
+      && existing.raw !== undefined
+      && isSafeJobStatsHistoryShardRewrite(existing.raw, serialized, { currentDate });
     if (fs.existsSync(shardFile) && !isControlledHistoricalRewrite) {
       assertAccumulatorByteFloor(
         fs.statSync(shardFile).size,
@@ -526,16 +577,27 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
         { label: shardFile },
       );
     }
-    return { shardFile, serialized, existingRaw: existing.raw };
+    return {
+      shardFile,
+      serialized,
+      existingExists: existing.exists,
+      existingRaw: existing.raw,
+    };
   });
 
   let shardChanged = false;
   const written = new Set();
   fs.mkdirSync(path.resolve(rootDir, JOB_STATS_HISTORY_SHARD_DIR), { recursive: true });
-  for (const { shardFile, serialized, existingRaw } of planned) {
-    // `existingRaw` was already read during planning; avoid a second full
-    // shard read while retaining the same atomic replacement primitive.
+  for (const { shardFile, serialized, existingExists, existingRaw } of planned) {
     if (existingRaw !== serialized) {
+      // Do not overwrite a newer concurrent writer with a proof made against
+      // the planning snapshot. This is an optimistic compare immediately
+      // before the atomic replacement; a mismatch fails closed.
+      const currentExists = fs.existsSync(shardFile);
+      const currentRaw = currentExists ? fs.readFileSync(shardFile, 'utf8') : undefined;
+      if (currentExists !== existingExists || (currentExists && currentRaw !== existingRaw)) {
+        throw new Error(`Job stats history shard changed after planning; refusing stale rewrite: ${shardFile}`);
+      }
       writeFileAtomic(shardFile, serialized);
       shardChanged = true;
     }
@@ -571,9 +633,6 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
       version: 2,
       format: 'daily-entry-shards',
       legacyFallback: JOB_STATS_HISTORY_LEGACY_FILE,
-      ...(DATE_RE.test(String(options.compactionCutoffDate || ''))
-        ? { compactionCutoffDate: options.compactionCutoffDate }
-        : {}),
       days,
     }, null, 2) + '\n',
   );

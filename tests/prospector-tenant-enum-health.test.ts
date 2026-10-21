@@ -124,6 +124,75 @@ describe('Prospector tenant enumeration source outcomes', () => {
     expect(result.probed[0].failureStatuses).toContain(503);
   });
 
+  it('advances the bounded tenant probe window across runs', async () => {
+    const hosts = Array.from({ length: 5 }, (_, index) => `tenant-${index}.vendor.example`);
+    const probed: string[] = [];
+    const fetcher = async (url: string) => {
+      probed.push(new URL(url).hostname);
+      return response('', 200);
+    };
+    const target = { ...platform, hostSamples: hosts };
+    const first = await enumerateTenants(target, {
+      maxProbe: 2, useCommonCrawl: false, useCertSpotter: false, fetcher,
+    });
+    const second = await enumerateTenants(target, {
+      maxProbe: 2, probeOffset: first.nextProbeOffset,
+      useCommonCrawl: false, useCertSpotter: false, fetcher,
+    });
+    const third = await enumerateTenants(target, {
+      maxProbe: 2, probeOffset: second.nextProbeOffset,
+      useCommonCrawl: false, useCertSpotter: false, fetcher,
+    });
+
+    expect(first.discovered).toEqual(hosts.slice(0, 2));
+    expect(second.discovered).toEqual(hosts.slice(2, 4));
+    expect(third.discovered).toEqual([hosts[4], hosts[0]]);
+    expect(new Set(probed)).toEqual(new Set(hosts));
+  });
+
+  it('retries transient tenant failures before the large circular probe window returns', async () => {
+    const hosts = Array.from({ length: 5 }, (_, index) => `tenant-${index}.vendor.example`);
+    const calls = new Map<string, number>();
+    const fetcher = async (url: string) => {
+      const host = new URL(url).hostname;
+      calls.set(host, (calls.get(host) || 0) + 1);
+      return response('', host === 'tenant-0.vendor.example' && calls.get(host) === 1 ? 503 : 200);
+    };
+    const target = { ...platform, hostSamples: hosts };
+    const first = await enumerateTenants(target, {
+      maxProbe: 2, useCommonCrawl: false, useCertSpotter: false, fetcher,
+    });
+    const second = await enumerateTenants(target, {
+      maxProbe: 2, probeOffset: first.nextProbeOffset, retryHosts: first.retryHosts,
+      useCommonCrawl: false, useCertSpotter: false, fetcher,
+    });
+
+    expect(first.retryHosts).toEqual([{ host: 'tenant-0.vendor.example', attempts: 1 }]);
+    expect(second.discovered[0]).toBe('tenant-0.vendor.example');
+    expect(calls.get('tenant-0.vendor.example')).toBe(2);
+    expect(second.retryHosts).toEqual([]);
+  });
+
+  it('reserves retry capacity for fresh failures without evicting pending hosts', async () => {
+    const oldRetries = Array.from({ length: 498 }, (_, index) => ({
+      host: `old-${index}.vendor.example`, attempts: 1,
+    }));
+    const freshHosts = ['fresh-a.vendor.example', 'fresh-b.vendor.example'];
+    const result = await enumerateTenants({ ...platform, hostSamples: freshHosts }, {
+      maxProbe: 4,
+      retryHosts: oldRetries,
+      useCommonCrawl: false,
+      useCertSpotter: false,
+      fetcher: async () => response('', 503),
+    });
+
+    expect(result.retryHosts).toHaveLength(500);
+    expect(result.retryHosts.map(({ host }) => host)).toEqual(expect.arrayContaining(freshHosts));
+    expect(result.retryHosts.map(({ host }) => host)).toEqual(expect.arrayContaining(
+      oldRetries.map(({ host }) => host),
+    ));
+  });
+
   it.each([
     ['robots.txt', { blockedByRobots: true }],
     ['public URL policy', { policyBlocked: true }],

@@ -20,6 +20,12 @@ const isoDateFromToday = (offsetDays: number) => {
   return date.toISOString().slice(0, 10);
 };
 
+const dateOffset = (dateValue: string, offsetDays: number) => {
+  const date = new Date(`${dateValue}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() + offsetDays);
+  return date.toISOString().slice(0, 10);
+};
+
 function safeRewriteShards(date: string) {
   const previousShard = JSON.stringify({ entries: [{
     date,
@@ -88,6 +94,51 @@ function safeRewriteShards(date: string) {
     }],
   }] });
   return { previousShard, nextShard };
+}
+
+function ageCompactionShards(date: string) {
+  const previous = {
+    date,
+    totalJobs: 10,
+    added: 1,
+    updated: 2,
+    removed: 0,
+    addedKeys: ['url:added'],
+    updatedKeys: ['url:updated-1', 'url:updated-2'],
+    removedKeys: [],
+    companyStats: [{
+      key: 'company',
+      name: 'Company',
+      addedKeys: ['url:added'],
+      updatedKeys: ['url:updated-1', 'url:updated-2'],
+      removedKeys: [],
+      updatedCount: 2,
+    }],
+    locationStats: [{ key: 'location', name: 'Location', addedKeys: [] }],
+    titleStats: [{ key: 'title', name: 'Title', addedKeys: [] }],
+    sourceVersion: 'preserve-this-field',
+  };
+  const next = {
+    ...previous,
+    addedKeys: [],
+    updatedKeys: [],
+    removedKeys: [],
+    companyStats: [],
+    locationStats: [],
+    titleStats: [],
+  };
+  return {
+    previousShard: JSON.stringify({ entries: [previous] }),
+    nextShard: JSON.stringify({ entries: [next] }),
+  };
+}
+
+function historyManifest(currentDate: string, shardDate: string) {
+  return JSON.stringify({
+    version: 2,
+    format: 'daily-entry-shards',
+    days: [shardDate, currentDate].sort(),
+  });
 }
 
 beforeEach(() => {
@@ -194,6 +245,79 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
 
     const written = writeSpy.mock.calls.map((c) => c[0]).join('');
     expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
+  it('ignores an exact age compaction only when the after-ref manifest proves the cutoff', async () => {
+    const currentDate = isoDateFromToday(0);
+    const historicalDate = dateOffset(currentDate, -31);
+    const jobStatsFile = `data/jobs-stats-history/${historicalDate}.json`;
+    const { previousShard, nextShard } = ageCompactionShards(historicalDate);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${jobStatsFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2779208' : '306';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const [ref, file] = args[2].split(':');
+        if (file === jobStatsFile) return ref === BEFORE ? previousShard : nextShard;
+        if (file === 'data/jobs-stats-history/manifest.json' && ref === AFTER) {
+          return historyManifest(currentDate, historicalDate);
+        }
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    expect(JSON.parse(written)).toEqual([]);
+    writeSpy.mockRestore();
+  });
+
+  it.each([
+    ['a date inside the 30-day window', (date: string) => historyManifest(dateOffset(date, 29), date)],
+    ['a future manifest date', (date: string) => historyManifest(dateOffset(date, 33), date)],
+    ['a missing manifest', () => null],
+    ['a malformed manifest', () => '{"format":"daily-entry-shards","days":["bad-date"]}'],
+  ])('keeps the shrink violation for %s', async (_label, manifestFor) => {
+    const today = isoDateFromToday(0);
+    const historicalDate = dateOffset(today, -31);
+    const jobStatsFile = `data/jobs-stats-history/${historicalDate}.json`;
+    const { previousShard, nextShard } = ageCompactionShards(historicalDate);
+    const manifest = manifestFor(historicalDate);
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'merge-base') return '';
+      if (args[0] === 'diff') return `${jobStatsFile}\n`;
+      if (args[0] === 'cat-file' && args[1] === '-s') {
+        const ref = args[2].split(':')[0];
+        return ref === BEFORE ? '2779208' : '306';
+      }
+      if (args[0] === 'cat-file' && args[1] === 'blob') {
+        const [ref, file] = args[2].split(':');
+        if (file === jobStatsFile) return ref === BEFORE ? previousShard : nextShard;
+        if (file === 'data/jobs-stats-history/manifest.json' && ref === AFTER) {
+          if (manifest === null) throw new Error('manifest unavailable');
+          return manifest;
+        }
+      }
+      return '';
+    });
+    const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    const { main } = await import('../scripts/ci/guard-data-integrity.mjs');
+    main();
+
+    const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+    const violations = JSON.parse(written);
+    expect(violations).toHaveLength(1);
+    expect(violations[0].file).toBe(jobStatsFile);
     writeSpy.mockRestore();
   });
 
