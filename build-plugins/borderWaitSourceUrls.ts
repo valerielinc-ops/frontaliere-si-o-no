@@ -1,6 +1,6 @@
 /** Primary provider sites; composite/unattributed signals deliberately have no invented source URL. */
 export const BORDER_WAIT_SOURCE_URLS: Record<string, string> = {
-  bazg: 'https://www.bazg.admin.ch/',
+  bazg: 'https://www.bazg.admin.ch/it',
   here: 'https://www.here.com/',
   tomtom: 'https://www.tomtom.com/',
   google: 'https://www.google.com/maps/',

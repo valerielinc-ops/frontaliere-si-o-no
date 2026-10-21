@@ -74,6 +74,7 @@ const HEALTH_FALLBACK_COPY: Record<Locale, {
 
 const HealthPremiumStats: React.FC = () => {
  const { t, locale } = useTranslation();
+ const priminfoPremiumUrl = `https://www.priminfo.admin.ch/${locale === 'it' ? 'it' : locale === 'fr' ? 'fr' : 'de'}/praemien`;
  const fallbackCopy = HEALTH_FALLBACK_COPY[locale];
  const [data, setData] = useState<HealthData | null>(null);
  const [loading, setLoading] = useState(true);
@@ -223,7 +224,7 @@ const HealthPremiumStats: React.FC = () => {
       </a>
      </div>
      <a
-      href="https://www.priminfo.admin.ch"
+      href={priminfoPremiumUrl}
       target="_blank"
       rel="noopener noreferrer"
       className="mt-5 inline-flex items-center gap-1 text-xs text-muted underline underline-offset-4 hover:text-body"
@@ -249,7 +250,7 @@ const HealthPremiumStats: React.FC = () => {
  Classifica completa dei premi LAMal medi per {allCommunes.length} comuni di Ticino e Grigioni. Dati ufficiali UFSP {data.year}.
  </p>
  <div className="mt-3">
- <DataFreshness lastUpdated={data.fetchedAt} dateKind="fetched" referenceYear={data.year} source="UFSP / Priminfo" sourceUrl="https://www.priminfo.admin.ch/" variant="badge" />
+ <DataFreshness lastUpdated={data.fetchedAt} dateKind="fetched" referenceYear={data.year} source="UFSP / Priminfo" sourceUrl={priminfoPremiumUrl} variant="badge" />
  </div>
  </div>
 
@@ -408,7 +409,7 @@ const HealthPremiumStats: React.FC = () => {
  Dati ufficiali UFSP/BAG {data.year}. Premi standard, adulti 26+, franchigia 300 CHF, senza copertura infortuni.
  </p>
  <p>
- Fonte: <a href="https://www.priminfo.admin.ch" target="_blank" rel="noopener noreferrer" className="underline">priminfo.admin.ch</a>
+ Fonte: <a href={priminfoPremiumUrl} target="_blank" rel="noopener noreferrer" className="underline">priminfo.admin.ch</a>
  {' · '}
  <a href="https://opendata.swiss/en/dataset/health-insurance-premiums" target="_blank" rel="noopener noreferrer" className="underline inline-flex items-center gap-1">
  OpenData Swiss <ExternalLink size={8} />

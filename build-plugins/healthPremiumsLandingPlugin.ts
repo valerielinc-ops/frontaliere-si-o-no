@@ -278,13 +278,20 @@ const PREMIUM_FRESHNESS_COPY = {
   fr: { year: 'Année des primes', fetched: 'Données récupérées', generated: 'Page générée', missing: 'date non documentée', stale: 'Primes d’une année antérieure : vérifiez la prime actuelle à la source.', source: 'Source' },
 };
 
+const PRIMINFO_PREMIUM_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/it/praemien',
+  en: '/de/praemien',
+  de: '/de/praemien',
+  fr: '/fr/praemien',
+};
+
 function renderPremiumFreshness(dataset: HealthPremiumsDataset, locale: HealthPremiumLocale, today: Date): string {
   const copy = PREMIUM_FRESHNESS_COPY[locale];
   const fetchedAt = sourceDateIso(dataset.fetchedAt, today);
   const oldYear = Number.isInteger(dataset.year) && dataset.year! < today.getUTCFullYear();
   return `<p class="text-xs text-muted" data-premium-freshness="${oldYear ? 'stale' : fetchedAt ? 'dated' : 'unknown'}">
     ${esc(copy.year)}: ${esc(dataset.year ?? '—')} · ${esc(copy.fetched)}: ${fetchedAt ? `<time datetime="${esc(fetchedAt)}">${esc(formatSourceDate(dataset.fetchedAt, locale, today))}</time>` : esc(copy.missing)} ·
-    ${esc(copy.source)}: <a href="https://www.priminfo.admin.ch/" class="underline">UFSP / BAG / FOPH / OFSP — Priminfo</a>
+    ${esc(copy.source)}: <a href="https://www.priminfo.admin.ch${PRIMINFO_PREMIUM_PATH[locale]}" class="underline">UFSP / BAG / FOPH / OFSP — Priminfo</a>
     ${oldYear ? `<strong>${esc(copy.stale)}</strong>` : ''}
     <span class="block">${esc(copy.generated)}: <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></span>
   </p>`;

@@ -92,7 +92,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
         "En tant qu'employé : non. L'ORP n'assiste que les personnes inscrites au chômage suisse (domicile en Suisse). Frontalier résidant en Italie en recherche : consultation libre de arbeit.swiss (SECO) et sites ORP cantonaux [source : site SECO ORP]. Participation aux événements/forums possible. En cas de perte d'emploi : règl. UE 883/2004 art. 65 : l'ORP suisse peut assister au placement pendant la NASpI italienne, prestation italienne [source : Eur-Lex règl. 883/2004]. Les CPI de Lombardie ont des guichets transfrontaliers (Côme, Varèse). EURES pour la mobilité UE.",
     },
     sources: [
-      'https://www.arbeit.swiss/',
+      'https://www.arbeit.swiss/it',
       'https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX%3A32004R0883',
     ],
   },
