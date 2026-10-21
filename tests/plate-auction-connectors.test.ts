@@ -17,7 +17,7 @@ import {
 import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
-import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
+import { parseShAuctionRows, SH_AUCTION_URL } from '../scripts/plate-auctions/connectors/sh.mjs';
 import {
   fetchSzPlateAuctions,
   parseSzAuctionRows,
@@ -92,6 +92,10 @@ const ECARI_NO_RUNNING_AUCTION_FR = readFileSync(join(__dirname, 'fixtures/ecari
 const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
+  it('uses the live localized SH auction catalogue endpoint', () => {
+    expect(SH_AUCTION_URL).toBe('https://www.auktion-stva.sh.ch/de/');
+  });
+
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
     const html = '<a href="/cars.pdf">Cars</a><a href="/motorcycles.pdf">Motorcycles</a>';
     expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source', pattern: /trailer\.pdf/i })).toBeUndefined();

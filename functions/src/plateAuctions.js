@@ -291,13 +291,13 @@ const CONNECTORS = {
   sh: {
     canton: 'Sciaffusa',
     plateCode: 'SH',
-    url: 'https://www.auktion-stva.sh.ch/',
+    url: 'https://www.auktion-stva.sh.ch/de/',
     parserVersion: '1.1.0',
     parse(html, fetchedAt) {
       return parseCardSource(html, {
         canton: 'Sciaffusa',
         plateCode: 'SH',
-        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/',
+        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/de/',
         detailBaseUrl: 'https://www.auktion-stva.sh.ch',
         fetchedAt,
       });

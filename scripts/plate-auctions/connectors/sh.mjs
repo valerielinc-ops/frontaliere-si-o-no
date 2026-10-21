@@ -6,7 +6,7 @@ import { fetchCardCantonAuctions, parseCardCantonAuctions } from "./cards.mjs";
 
 export const SH_CANTON = "Sciaffusa";
 export const SH_PLATE_CODE = "SH";
-export const SH_AUCTION_URL = "https://www.auktion-stva.sh.ch/";
+export const SH_AUCTION_URL = "https://www.auktion-stva.sh.ch/de/";
 
 export function parseShAuctionRows(
   html,
