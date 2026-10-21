@@ -479,7 +479,7 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
       return {
         cv: written,
         facts: checkTailoredCvFacts(written, { cvText, profile, answers: { ...answers, notes: candidateNotes } }),
-        languageCheck: checkTailoredCvLanguage(written, { profile, language }),
+        languageCheck: checkTailoredCvLanguage(written, { profile, language, type: kind.type }),
       };
     };
     let { cv, facts, languageCheck } = await write();

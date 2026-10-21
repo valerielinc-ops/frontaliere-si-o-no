@@ -42,7 +42,11 @@ const LOCALIZED_EDUCATION = OBJ({ index: { type: 'integer' }, degree: S(), insti
 const LOCALIZED_RECOGNITION = OBJ({ index: { type: 'integer' }, title: S(), issuer: S() });
 const LOCALIZED_TEST = OBJ({ index: { type: 'integer' }, name: S(), results: S() });
 const LOCALIZED_PROJECT = OBJ({ index: { type: 'integer' }, name: S(), description: S() });
-const LOCALIZED_LANGUAGE = OBJ({ index: { type: 'integer' }, language: S() });
+const LOCALIZED_LANGUAGE = OBJ({
+  index: { type: 'integer' },
+  language: S('The spoken-language name in the posting language'),
+  level: S('The proficiency level in the posting language; preserve standardized CEFR codes'),
+});
 const LOCALIZED_REFERENCE = OBJ({ index: { type: 'integer' }, role: S(), organisation: S() });
 const LOCALIZED_PROFILE = OBJ({
   headline: S('The profile headline translated into the posting language'),
@@ -112,7 +116,7 @@ Rules (from career-ops):
 - competencies: 6-8 short keyword phrases, each a skill the CV names or clearly demonstrates.
 - experience: one entry per role of the profile, with its index; keep every role. Each bullet: text, source (the index of the role's highlight it rewrites; -1 only when it truly rewrites none) and requirement (the index of the requirement it answers, -1 if none). For each role, 2-5 bullets, the strongest evidence for this posting first, results before tasks, short sentences, action verbs, no passive voice. Put a key term of the posting in the first bullet when the role truly supports it. A role with nothing relevant keeps 1-2 plain bullets.
 - skills: the technical skills and tools the CV names, the ones the posting asks for first.
-- localized: this is required display copy for every profile field that the code prints. It must mirror every non-empty source array item by its index: translate role titles, places, education degrees and grades, recognition titles, test results, project descriptions, spoken-language names, interests, reference roles, the driving-licence description and every original experience highlight into the posting language. Also translate the profile headline and contact location. Do not leave a required translated value empty. Do not copy an English, German, French or Italian sentence unchanged when the posting language differs. Keep candidate names, employer names, institution and organisation proper names, product and tool names, certificate names, URLs, dates and numbers exactly when they are official or factual; translate the surrounding description. The localized experience highlights are used when a role's adapted bullets are rejected, so they must contain the complete translated fallback for that role.
+- localized: this is required display copy for every profile field that the code prints. It must mirror every non-empty source array item by its index: translate role titles, places, education degrees and grades, recognition titles, test results, project descriptions, spoken-language names and proficiency levels, interests, reference roles, the driving-licence description and every original experience highlight into the posting language. Also translate the profile headline and contact location. Do not leave a required translated value empty. Do not copy an English, German, French or Italian sentence unchanged when the posting language differs. Keep candidate names, employer names, institution and organisation proper names, product and tool names, certificate names, URLs, dates and numbers exactly when they are official or factual; translate the surrounding description. The localized experience highlights are used when a role's adapted bullets are rejected, so they must contain the complete translated fallback for that role.
 - The top-level headline, summary, competencies, experience bullets and skills are also written in the posting language. The localized headline must be the same target-language headline as headline.
 - candidateType apprentice (an apprenticeship applicant, 14-16 years old): headline and summary "" (the code writes the trade as a goal); the bullets of the taster placements (Schnupperlehre, stage d'orientation) say what the candidate did and learned there, in plain words.
 - The section headings and the dates are written by the code: never write them.
@@ -304,6 +308,7 @@ function sanitizeLocalizedProfile(raw) {
     languages: (Array.isArray(raw.languages) ? raw.languages : []).map((item) => ({
       index: Number(item?.index),
       language: localizedString(item?.language, 60),
+      level: localizedString(item?.level, 80),
     })),
     interests: (Array.isArray(raw.interests) ? raw.interests : []).map((item) => localizedString(item, 160)).filter(Boolean).slice(0, 10),
     references: (Array.isArray(raw.references) ? raw.references : []).map((item) => ({
@@ -317,6 +322,13 @@ function sanitizeLocalizedProfile(raw) {
 
 const nonEmpty = (value) => String(value || '').trim().length > 0;
 const sameDisplayText = (first, second) => nonEmpty(first) && nonEmpty(second) && normalizeText(first) === normalizeText(second);
+const STANDARD_LANGUAGE_LEVEL_RE = /^(?:[abc][0-2](?:\+)?|[0-9](?:[.,][0-9])?)$/i;
+
+function requireLocalizedLanguageLevel(issues, value, source, field) {
+  requireLocalized(issues, value, source, field, {
+    rejectUnchanged: nonEmpty(source) && !STANDARD_LANGUAGE_LEVEL_RE.test(normalizeText(source)),
+  });
+}
 
 // A small set of unambiguous prose signals catches a model that rewrites an
 // English fallback in different words, while leaving product and tool names
@@ -465,7 +477,7 @@ function requireLocalized(issues, value, source, field, { rejectUnchanged = fals
  * language display text, and a rejected rewrite must have a translated role
  * fallback.
  */
-export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it' } = {}) {
+export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it', type = cv?.type || 'qualified' } = {}) {
   const sourceLanguage = String(profile.cvLanguage || '').toLowerCase().slice(0, 2);
   if (sourceLanguage === language) {
     const issues = [];
@@ -482,7 +494,7 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it' } = 
   }
 
   requireLocalized(issues, localized.headline, profile.headline, 'headline', { rejectUnchanged: true });
-  if (cv.type !== 'apprentice' && nonEmpty(profile.headline) && nonEmpty(localized.headline)
+  if (type !== 'apprentice' && nonEmpty(profile.headline) && nonEmpty(localized.headline)
     && normalizeText(cv.headline) !== normalizeText(localized.headline)) {
     issues.push({ field: 'localized', kind: 'mismatch', token: 'headline', context: 'the renderer would print a different, possibly source-language headline' });
   }
@@ -519,9 +531,12 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it' } = 
     requireLocalized(issues, translation?.description, item.description, `projects[${index}].description`, { rejectUnchanged: true });
   });
   (profile.languages || []).forEach((item, index) => {
-    const value = localizedAt(localized.languages, index)?.language;
-    if (sameDisplayText(value, item.language) && isCanonicalTargetLanguageLabel(value, language)) return;
-    requireLocalized(issues, value, item.language, `languages[${index}].language`, { rejectUnchanged: true });
+    const translation = localizedAt(localized.languages, index);
+    const value = translation?.language;
+    if (!(sameDisplayText(value, item.language) && isCanonicalTargetLanguageLabel(value, language))) {
+      requireLocalized(issues, value, item.language, `languages[${index}].language`, { rejectUnchanged: true });
+    }
+    requireLocalizedLanguageLevel(issues, translation?.level, item.level, `languages[${index}].level`);
   });
   (profile.interests || []).forEach((item, index) => requireLocalized(issues, localized.interests?.[index], item, `interests[${index}]`, { rejectUnchanged: true }));
   (profile.references || []).forEach((item, index) => {
@@ -544,7 +559,10 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it' } = 
       continue;
     }
     const signals = languageSignals(value, language);
-    if (signals.length >= 2) issues.push({ field, kind: 'language', token: signals.slice(0, 4).join(', '), context: `source-language prose remains in the ${language} generated field` });
+    // A generated field is one language decision. One unambiguous source-language
+    // prose signal is enough; requiring two let a short value such as "Experience"
+    // survive in an Italian CV.
+    if (signals.length >= 1) issues.push({ field, kind: 'language', token: signals.slice(0, 4).join(', '), context: `source-language prose remains in the ${language} generated field` });
   }
 
   const text = tailoredCvPlainText(cv, { identity: { name: '', phone: '', email: '' }, profile });
@@ -724,7 +742,7 @@ function localizedCvFactPairs(cv, profile = {}) {
   addStringList('certifications', localized.certifications, profile.certifications);
   addIndexed('aptitudeTests', localized.aptitudeTests, profile.aptitudeTests, [['name', 'name'], ['results', 'results']]);
   addIndexed('projects', localized.projects, profile.projects, [['name', 'name'], ['description', 'description']]);
-  addIndexed('languages', localized.languages, profile.languages, [['language', 'language']]);
+  addIndexed('languages', localized.languages, profile.languages, [['language', 'language'], ['level', 'level']]);
   addStringList('interests', localized.interests, profile.interests);
   addIndexed('references', localized.references, profile.references, [['role', 'role'], ['organisation', 'organisation']]);
   add('drivingLicence', localized.drivingLicence, profile.drivingLicence);

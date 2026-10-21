@@ -280,7 +280,7 @@ describe('tailored CV by type', () => {
         experience: [{ index: 0, role: 'Responsabile IT senior delle applicazioni di gruppo', location: 'Bienne, Svizzera', highlights: ['Ha progettato e guidato lo sviluppo di DottNet, utilizzato da 10 utenti.'] }],
         education: [{ index: 0, degree: 'Laurea magistrale in informatica', institution: 'Università di Milano', grade: '' }],
         recognitions: [], certifications: ['Leadership Agile professionale'], aptitudeTests: [], projects: [],
-        languages: [{ index: 0, language: 'Inglese' }], interests: ['Tecnologia e ciclismo'], references: [], drivingLicence: '',
+        languages: [{ index: 0, language: 'Inglese', level: 'C1' }], interests: ['Tecnologia e ciclismo'], references: [], drivingLicence: '',
       },
     };
     const cv = sanitizeTailoredCv(raw, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
@@ -293,6 +293,7 @@ describe('tailored CV by type', () => {
     expect(text).toContain('Ha progettato e guidato lo sviluppo di DottNet, utilizzato da 10 utenti.');
     expect(text).toContain('Leadership Agile professionale');
     expect(text).toContain('Tecnologia e ciclismo');
+    expect(document.sections.find((section: any) => section.kind === 'languages').pairs).toEqual([['Inglese', 'C1']]);
     expect(text).not.toContain('Architected and led development');
     expect(document.contact[0]).toBe('Varese, Italia');
 
@@ -301,10 +302,11 @@ describe('tailored CV by type', () => {
 
     const untranslatedLanguage = sanitizeTailoredCv({
       ...raw,
-      localized: { ...raw.localized, languages: [{ index: 0, language: 'English' }] },
+      localized: { ...raw.localized, languages: [{ index: 0, language: 'English', level: 'Native' }] },
     }, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
     expect(checkTailoredCvLanguage(untranslatedLanguage, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
       expect.objectContaining({ token: 'languages[0].language', kind: 'unchanged' }),
+      expect.objectContaining({ token: 'languages[0].level', kind: 'unchanged' }),
     ]));
 
     const untranslatedSummary = sanitizeTailoredCv({ ...raw, summary: 'Built CRM for Swiss clients' }, {
@@ -313,6 +315,18 @@ describe('tailored CV by type', () => {
     expect(checkTailoredCvLanguage(untranslatedSummary, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
       expect.objectContaining({ field: 'summary', kind: 'language' }),
     ]));
+
+    const shortUntranslatedSummary = sanitizeTailoredCv({ ...raw, summary: 'Experience' }, {
+      profile: { cvLanguage: 'en', summary: 'Professional' }, cvText: '', language: 'it',
+    });
+    expect(checkTailoredCvLanguage(shortUntranslatedSummary, { profile: { cvLanguage: 'en', summary: 'Professional' }, language: 'it' }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ field: 'summary', kind: 'language' }),
+    ]));
+
+    const apprenticeCv = sanitizeTailoredCv({
+      headline: 'Kochlehrling', localized: { headline: 'Assistent', experience: [], education: [], recognitions: [], certifications: [], aptitudeTests: [], projects: [], languages: [], interests: [], references: [], drivingLicence: '' },
+    }, { profile: { cvLanguage: 'en', headline: 'Assistant' }, cvText: '', language: 'de', type: 'apprentice' });
+    expect(checkTailoredCvLanguage(apprenticeCv, { profile: { cvLanguage: 'en', headline: 'Assistant' }, language: 'de', type: 'apprentice' }).ok).toBe(true);
   });
 
   it('rejects source-language prose while allowing ordinary target-language CV phrases', () => {
