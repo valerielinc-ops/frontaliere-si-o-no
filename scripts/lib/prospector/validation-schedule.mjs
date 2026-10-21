@@ -71,6 +71,48 @@ export function isValidationRetryDue(candidate, now = Date.now(), { qualityContr
 }
 
 /**
+ * Production output is never downgraded by this audit. The audit only fills
+ * missing current-contract evidence, requiring two complete good observations
+ * on distinct UTC days before calling its evidence current and stable.
+ */
+export function needsProductionQualityAudit(spec, candidate, {
+  date = new Date(),
+  adapterVersionFor,
+  minimumDays = 2,
+} = {}) {
+  const now = date instanceof Date ? date : new Date(date);
+  const today = now.toISOString().slice(0, 10);
+  const history = historyFor(spec, candidate, adapterVersionFor)
+    .slice()
+    .sort((a, b) => String(a?.at || '').localeCompare(String(b?.at || '')));
+  const latest = history.at(-1);
+  const lastUnstableIndex = history.findLastIndex((entry) =>
+    entry.runtimeSnapshotComplete !== true || entry.verdict !== 'good');
+  const stabilityHistory = history.slice(lastUnstableIndex + 1);
+  const goodDays = new Set(stabilityHistory
+    .filter((entry) => entry.runtimeSnapshotComplete === true && entry.verdict === 'good')
+    .map((entry) => utcDay(entry.at))
+    .filter(Boolean));
+  if (latest?.runtimeSnapshotComplete === true && latest.verdict === 'good'
+    && goodDays.size >= minimumDays) return false;
+
+  const retryAt = Date.parse(String(latest?.retryAfterAt || ''));
+  if (latest?.runtimeSnapshotComplete === false && Number.isFinite(retryAt) && retryAt > now.getTime()) return false;
+  if (latest && utcDay(latest.at) === today) return false;
+  return true;
+}
+
+/** Rotate due production audits by their oldest current-contract observation. */
+export function prioritizeProductionAuditSpecs(specs, candidateForSpec, options = {}) {
+  const adapterVersionFor = options.adapterVersionFor;
+  return specs.slice().sort((a, b) => {
+    const aAt = lastAt(a, candidateForSpec(a), adapterVersionFor);
+    const bAt = lastAt(b, candidateForSpec(b), adapterVersionFor);
+    return aAt.localeCompare(bAt) || String(a.companyKey).localeCompare(String(b.companyKey));
+  });
+}
+
+/**
  * Order validation work without letting never-validated alphabetical entries
  * consume every slot while one-good-day candidates wait indefinitely for the
  * second, distinct-day observation.

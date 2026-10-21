@@ -45,17 +45,14 @@ const QUESTION_PROPERTIES = {
   options: LIST(S),
   validation: ANSWER_VALIDATION_SCHEMA,
 };
-const ACTION_REQUIRED = Object.keys(ACTION_PROPERTIES).filter((key) => key !== 'context');
-const QUESTION_REQUIRED = Object.keys(QUESTION_PROPERTIES).filter((key) => key !== 'context');
-const OPTIONAL_CONTEXT_OBJ = (properties, required) => ({ type: 'object', properties, required, additionalProperties: false });
-
 export const AGENT_SCHEMA = OBJ({
+  // The strict response broker requires every nested object property to be required.
   status: { type: 'string', enum: ['act', 'done', 'needs_candidate', 'stuck'] },
   reason: S,
-  actions: LIST(OPTIONAL_CONTEXT_OBJ(ACTION_PROPERTIES, ACTION_REQUIRED)),
+  actions: LIST(OBJ(ACTION_PROPERTIES)),
   advanceRef: S,
   submitRef: S,
-  questions: LIST(OPTIONAL_CONTEXT_OBJ(QUESTION_PROPERTIES, QUESTION_REQUIRED)),
+  questions: LIST(OBJ(QUESTION_PROPERTIES)),
 });
 
 // Codex turns on one page, actions in one turn, characters of snapshot.
@@ -147,6 +144,7 @@ export const HINTS = {
   refused: 'The page did not move on after Next: the form refused a value or a required answer is missing. Look for error messages and fix them.',
   no_form_controls: 'No standard form controls were found on this page: its questions are custom widgets.',
   unclear_fields: 'Some required fields have no readable label (generated ids such as "select-input-_r_p_"): find their real question on the page and answer it.',
+  required_fields_unfilled: 'The portal still has required fields unfilled. Inspect the current page and repair every required field you can answer from the candidate profile, CV/documents, or previously saved portal answers. This includes custom controls and CV/document uploads when the matching file is available. Do not ask again for known answers and do not invent facts; use needs_candidate only for required information that is genuinely unavailable.',
 };
 
 export function agentSystemPrompt(candidateLocale) {

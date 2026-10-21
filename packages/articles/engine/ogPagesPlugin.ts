@@ -241,6 +241,165 @@ function readStaticTsStringLiteral(source: string, start: number, sourcePath: st
  throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
 }
 
+interface ScannedTemplateLiteral {
+ end: number;
+ hasInterpolation: boolean;
+}
+
+const REGEX_AFTER_KEYWORDS = new Set([
+ 'case', 'delete', 'do', 'else', 'in', 'instanceof', 'new', 'of', 'return', 'throw',
+ 'typeof', 'void', 'yield', 'await',
+]);
+
+function skipRegularExpressionLiteral(source: string, start: number, sourcePath: string): number {
+ let inCharacterClass = false;
+ let cursor = start + 1;
+ while (cursor < source.length) {
+  const char = source[cursor];
+  if (char === '\\') {
+   cursor += 2;
+   continue;
+  }
+  if (char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029') {
+   throw new Error(`[og-pages] Unterminated regular expression literal in ${sourcePath}`);
+  }
+  if (char === '[') {
+   inCharacterClass = true;
+   cursor += 1;
+   continue;
+  }
+  if (char === ']' && inCharacterClass) {
+   inCharacterClass = false;
+   cursor += 1;
+   continue;
+  }
+  if (char === '/' && !inCharacterClass) {
+   cursor += 1;
+   while (/[A-Za-z]/.test(source[cursor] || '')) cursor += 1;
+   return cursor;
+  }
+  cursor += 1;
+ }
+
+ throw new Error(`[og-pages] Unterminated regular expression literal in ${sourcePath}`);
+}
+
+function skipTemplateExpression(source: string, start: number, sourcePath: string): number {
+ let depth = 1;
+ let cursor = start;
+ let canStartRegex = true;
+ while (cursor < source.length) {
+  if (source.startsWith('//', cursor)) {
+   cursor += 2;
+   while (cursor < source.length && source[cursor] !== '\n' && source[cursor] !== '\r') cursor += 1;
+   continue;
+  }
+  if (source.startsWith('/*', cursor)) {
+   const close = source.indexOf('*/', cursor + 2);
+   if (close === -1) throw new Error(`[og-pages] Unterminated comment in ${sourcePath}`);
+   cursor = close + 2;
+   continue;
+  }
+
+  const char = source[cursor];
+  if (char === "'" || char === '"') {
+   cursor = readStaticTsStringLiteral(source, cursor, sourcePath).end;
+   canStartRegex = false;
+   continue;
+  }
+  if (char === '`') {
+   cursor = scanTemplateLiteral(source, cursor, sourcePath).end;
+   canStartRegex = false;
+   continue;
+  }
+  if (char === '/' && canStartRegex) {
+   cursor = skipRegularExpressionLiteral(source, cursor, sourcePath);
+   canStartRegex = false;
+   continue;
+  }
+  if (char === '/') {
+   cursor += 1;
+   canStartRegex = true;
+   continue;
+  }
+  if (char === '{') {
+   depth += 1;
+   cursor += 1;
+   canStartRegex = true;
+   continue;
+  }
+  if (char === '}') {
+   depth -= 1;
+   cursor += 1;
+   if (depth === 0) return cursor;
+   canStartRegex = false;
+   continue;
+  }
+
+  if (/\s/.test(char)) {
+   cursor += 1;
+   continue;
+  }
+  if (/[A-Za-z_$]/.test(char)) {
+   let end = cursor + 1;
+   while (end < source.length && /[A-Za-z0-9_$]/.test(source[end])) end += 1;
+   canStartRegex = REGEX_AFTER_KEYWORDS.has(source.slice(cursor, end));
+   cursor = end;
+   continue;
+  }
+  if ('([{,;:=!?&|+\-*%^~<>'.includes(char)) {
+   canStartRegex = true;
+   cursor += 1;
+   continue;
+  }
+  if (')]}'.includes(char) || char === '.') {
+   canStartRegex = false;
+   cursor += 1;
+   continue;
+  }
+  canStartRegex = false;
+  cursor += 1;
+ }
+
+ throw new Error(`[og-pages] Unterminated template expression in ${sourcePath}`);
+}
+
+function scanTemplateLiteral(source: string, start: number, sourcePath: string): ScannedTemplateLiteral {
+ let cursor = start + 1;
+ let hasInterpolation = false;
+ while (cursor < source.length) {
+  const char = source[cursor];
+  if (char === '\\') {
+   if (source[cursor + 1] === '\r' && source[cursor + 2] === '\n') {
+    cursor += 3;
+   } else {
+    cursor += 2;
+   }
+   continue;
+  }
+  if (char === '`') return { end: cursor + 1, hasInterpolation };
+  if (char === '$' && source[cursor + 1] === '{') {
+   hasInterpolation = true;
+   cursor = skipTemplateExpression(source, cursor + 2, sourcePath);
+   continue;
+  }
+  cursor += 1;
+ }
+
+ throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
+}
+
+/**
+ * Skip a dynamic template while scanning for article keys. Its expression can
+ * contain arbitrary strings and nested templates, so none of those tokens may
+ * be interpreted as article data. Article values still use the strict reader
+ * below and therefore keep rejecting dynamic content.
+ */
+function skipNonArticleTemplateLiteral(source: string, start: number, sourcePath: string): number | null {
+ const scanned = scanTemplateLiteral(source, start, sourcePath);
+ return scanned.hasInterpolation ? scanned.end : null;
+}
+
 function skipStaticTsTrivia(source: string, start: number, sourcePath: string): number {
  let cursor = start;
  while (cursor < source.length) {
@@ -328,6 +487,14 @@ export function parseStaticBlogBodySource(source: string, sourcePath: string): R
   if (char !== "'" && char !== '"' && char !== '`') {
    cursor += 1;
    continue;
+  }
+
+  if (char === '`') {
+   const skippedTemplateEnd = skipNonArticleTemplateLiteral(source, cursor, sourcePath);
+   if (skippedTemplateEnd !== null) {
+    cursor = skippedTemplateEnd;
+    continue;
+   }
   }
 
   const keyToken = readStaticTsStringLiteral(source, cursor, sourcePath);

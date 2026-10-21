@@ -42,6 +42,8 @@ import { registrableDomain, normalizeHost, sameOrg } from './registrable.mjs';
  * @property {number} tenantCount
  * @property {string} [lastExpandedAt]               last enumeration attempt
  * @property {number} [expansionAttempts]            number of enumeration attempts
+ * @property {number} [expansionProbeOffset]          next position in the ranked tenant probe queue
+ * @property {{ host: string, attempts: number }[]} [expansionRetryHosts] transient tenant probes due for another attempt
  * @property {{ at: string, outcome: string, discoveredHosts: number, liveTenants: number, probeLimitReached: boolean, sources: Record<string, { outcome: string, items: number, errorCode: string|null }> }} [lastExpansion]
  * @property {string} discoveredAt
  * @property {string} [note]
@@ -238,6 +240,25 @@ export function tenantIsInPath(platform) {
 }
 
 /**
+ * Shared-host vendors whose first path segment identifies the tenant. These
+ * need a separate, bounded slug-probe budget; host enumeration cannot find
+ * tenants on a single shared host.
+ */
+export function enumerablePathTenantPlatforms(registry) {
+  return sharedHostPlatforms(registry)
+    .filter((platform) => tenantIsInPath(platform))
+    .sort((a, b) => {
+      const aAt = Date.parse(a.lastExpandedAt || '');
+      const bAt = Date.parse(b.lastExpandedAt || '');
+      const aNever = !Number.isFinite(aAt);
+      const bNever = !Number.isFinite(bAt);
+      if (aNever !== bNever) return Number(bNever) - Number(aNever);
+      if (!aNever && aAt !== bAt) return aAt - bAt;
+      return (b.seenOn.length - a.seenOn.length) || a.domain.localeCompare(b.domain);
+    });
+}
+
+/**
  * The platform an arbitrary host belongs to, if the registry knows it.
  *
  * @param {ReturnType<typeof loadRegistry>} registry
@@ -270,13 +291,24 @@ export function recordExpansionAttempt(platform, at = new Date().toISOString()) 
  * response bodies, URLs, and tenant identities stay out of this health record.
  *
  * @param {Platform} platform
- * @param {{ outcome?: string, discovered?: string[], live?: any[], probeLimitReached?: boolean, sourceOutcomes?: Record<string, { outcome?: string, items?: number, errorCode?: string|null }> }} result
+ * @param {{ outcome?: string, discovered?: string[], live?: any[], retryHosts?: { host: string, attempts: number }[], probeLimitReached?: boolean, nextProbeOffset?: number, sourceOutcomes?: Record<string, { outcome?: string, items?: number, errorCode?: string|null }> }} result
  * @param {string} [at]
  * @returns {Platform}
  */
 export function recordExpansionResult(platform, result = {}, at = new Date().toISOString()) {
   const allowed = new Set(['complete', 'partial', 'unavailable', 'malformed']);
   const outcome = allowed.has(result.outcome) ? result.outcome : 'unavailable';
+  if (Number.isSafeInteger(result.nextProbeOffset) && result.nextProbeOffset >= 0) {
+    platform.expansionProbeOffset = result.nextProbeOffset;
+  }
+  if (Array.isArray(result.retryHosts)) {
+    platform.expansionRetryHosts = result.retryHosts
+      .filter((entry) => entry && typeof entry.host === 'string' && Number.isSafeInteger(entry.attempts)
+        && entry.attempts >= 1 && entry.attempts < 4)
+      .slice(0, 500)
+      .map(({ host, attempts }) => ({ host: normalizeHost(host), attempts }))
+      .filter((entry) => entry.host);
+  }
   const sources = {};
   for (const [name, source] of Object.entries(result.sourceOutcomes || {})) {
     const sourceOutcome = source?.outcome;

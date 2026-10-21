@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-10-20T09:28:08.609Z",
+  "assembledAt": "2026-10-20T21:27:20.737Z",
   "jobs": [
     {
       "id": "badrutts-palace-7fc4aec52ba7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:28:02.883Z",
+      "crawledAt": "2026-10-20T21:27:15.813Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6165453-food-receiver-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:28:02.878Z",
+      "crawledAt": "2026-10-20T21:27:15.810Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -125,6 +125,24 @@
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6165453-food-receiver-m-f-d",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "food-receiver-m-f-d-badrutts-palace-ch",
+        "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "food-receiver-m-f-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "fr": [
+          "food-receiver-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "firstSeenAt": "2026-10-19T21:33:29.664Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -138,25 +156,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-10-19T21:33:29.664Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "food-receiver-m-f-d-badrutts-palace-ch"
-        ],
-        "de": [
-          "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "fr": [
-          "food-receiver-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "previousSlugs": [
-        "food-receiver-m-f-d-badrutts-palace-ch",
-        "food-receiver-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "food-receiver-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "badrutts-palace-a71a288a5a6f",
@@ -189,7 +189,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6185658-hairstylist-m-f-d-peak-season",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:28:02.873Z",
+      "crawledAt": "2026-10-20T21:27:15.808Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6412797-chef-de-partie-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:28:02.869Z",
+      "crawledAt": "2026-10-20T21:27:15.805Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -342,7 +342,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:28:02.865Z",
+      "crawledAt": "2026-10-20T21:27:15.804Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:28:02.861Z",
+      "crawledAt": "2026-10-20T21:27:15.802Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -526,7 +526,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8454502-pizzaiolo-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:28:02.854Z",
+      "crawledAt": "2026-10-20T21:27:15.799Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -606,7 +606,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T09:28:02.835Z",
+      "crawledAt": "2026-10-20T21:27:15.791Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",

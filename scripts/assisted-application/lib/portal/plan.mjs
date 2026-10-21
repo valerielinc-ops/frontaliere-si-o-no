@@ -527,6 +527,8 @@ const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment percentage|employment level|pensum|carico di lavoro|percentuale di lavoro|grado di occupazione|tasso di occupazione|taux d['’]activit[ée]|pourcentage de travail)\b/i;
 const CURRENT_WORKLOAD_RE = /\b(?:current|currently|present|actual|attuale|attualmente|derzeit|zurzeit|actuel(?:le)?|gegenw(?:ä|ae)rtig)\b/i;
+const REFERRAL_SOURCE_QUESTION_RE = /\b(?:how (?:did|do) you (?:hear|learn|find out)|where did you (?:hear|find out)|how did you find (?:the )?(?:job|position|role)|come (?:hai|ha|avete) (?:saputo|scoperto|trovato)|come (?:sei|è) venut[oa] a conoscenza|come (?:hai|ha) conosciuto|wie haben (?:sie|du) (?:von|über|ueber)|wie bist du auf|comment (?:avez-vous|as-tu) (?:entendu|découvert)|source (?:of|for) (?:your )?(?:application|candidature)|referral source)\b/i;
+const REFERRAL_SOURCE_DETAIL_RE = /^\s*(?:please specify|specify|indicate|enter|provide|describe)\s+(?:the\s+)?source\s*[?:]?\s*$/i;
 const START_DATE_QUESTION_RE = /\b(?:earliest (?:possible )?(?:start(?:ing)? date|date (?:you can|to) start)|when can you start|available to start|start(?:ing)? date|date of starting|date you can start|begin(?:ning)? of employment|entry date|date d['’]entr[ée]e|date de prise de fonction|data di inizio|data di assunzione|eintrittsdatum|fr(?:ü|ueh)estm(?:ö|oe)glicher start)\b/i;
 const CONTEXTUAL_START_DATE_LABEL_RE = /^\s*(?:start(?:ing)? date|date of starting|entry date|date d['’]entr[ée]e|data di inizio)(?:\s*(?::\s*)?\(?\s*(?:[dtgj]{1,4}[./-]m{1,4}[./-][ayj]{2,4}|[ayj]{4}[./-]m{1,2}[./-][dtgj]{1,2})\s*\)?)?\s*[?:]?\s*$/i;
 const AVAILABILITY_QUESTION_RE = /\b(?:availability|available for work|disponibilit[àa]|verf(?:ü|ue)gbarkeit|disponibilit[ée])\b/i;
@@ -593,6 +595,8 @@ export function questionTopic(label, context = '') {
       : LANGUAGE_PROFICIENCY_QUESTION_RE.test(text) ? 'proficiency' : 'ability';
     return `language:${languageCode}:${modality}:${kind}`;
   }
+  if (REFERRAL_SOURCE_DETAIL_RE.test(text)) return 'referral_source_detail';
+  if (REFERRAL_SOURCE_QUESTION_RE.test(text)) return 'referral_source';
   const titleInPersonalDetails = /^\s*(?:title|titel|titre|titolo)\s*$/i.test(text)
     && /\b(?:personal (?:information|details|data)|contact details|candidate details|dati personali|pers(?:ö|oe)nliche (?:daten|angaben)|coordonn[ée]es personnelles)\b/i.test(context)
     && !/\b(?:job|position|role|degree|qualification|education|experience|lavoro|posizione|ruolo|laurea|formazione|studium)\b/i.test(context);
@@ -1105,6 +1109,33 @@ function salutationFieldAnswer(candidate, field, previous = '') {
   return matches.length === 1 ? { value: String(matches[0]?.label ?? matches[0]), source: 'answers' } : null;
 }
 
+const REFERRAL_JOB_BOARD_OPTION_RE = /\b(?:online\s+)?(?:job\s*(?:board|portal|site|website)|career\s+(?:site|portal)|employment\s+(?:site|portal)|stellen(?:portal|b[oö]rse|boerse)|job[böo]rse|portail\s+d['’]?emploi|site\s+d['’]?emploi|portale?\s+(?:di\s+)?lavoro|sito\s+(?:di\s+)?annunci)\b/i;
+const REFERRAL_OTHER_WEBSITE_RE = /\b(?:other\s+(?:website|web\s*site)|autre\s+site|altro\s+sito|altra\s+pagina\s+web|sonstige\s+webseite)\b/i;
+const REFERRAL_INTERNET_OPTION_RE = /\b(?:internet|web\s+search|search\s+engine|websuche|ricerca\s+online|recherche\s+(?:sur\s+)?internet)\b/i;
+
+function referralSourceAnswer(field) {
+  const topic = questionTopic(field?.label, field?.context);
+  if (!['referral_source', 'referral_source_detail'].includes(topic)) return null;
+  const options = Array.isArray(field?.options) ? field.options : [];
+  if (!options.length) {
+    return ['text', 'textarea'].includes(field?.kind) || ['text', 'textarea'].includes(field?.inputType)
+      ? { value: 'frontaliereticino.ch', source: 'rule' }
+      : null;
+  }
+  const ranked = options.map((option) => {
+    const label = String(option?.label ?? '').trim();
+    const score = REFERRAL_JOB_BOARD_OPTION_RE.test(label) ? 4
+      : REFERRAL_OTHER_WEBSITE_RE.test(label) ? 3
+        : REFERRAL_INTERNET_OPTION_RE.test(label) ? 2
+          : /^\s*(?:other|others|altro|altra|autre|andere|sonstiges|sonstige)(?:\s*[\(:-].*)?\s*$/i.test(label) ? 1 : 0;
+    return { label, score };
+  }).filter((option) => option.label && option.score > 0);
+  if (!ranked.length) return null;
+  const bestScore = Math.max(...ranked.map((option) => option.score));
+  const best = ranked.filter((option) => option.score === bestScore);
+  return best.length === 1 ? { value: best[0].label, source: 'rule' } : null;
+}
+
 function isInferredProfileLanguageAnswer(candidate, field, answer) {
   const inferred = languageAnswerForField(candidate, field);
   return Boolean(inferred && inferred.source === 'profile'
@@ -1117,6 +1148,8 @@ export function candidateAnswerForField(candidate, field) {
   const previous = recordedAnswerForQuestion(candidate, field?.label, field?.context);
   const salutation = salutationFieldAnswer(candidate, field, previous);
   if (salutation) return salutation;
+  const referralSource = referralSourceAnswer(field);
+  if (referralSource) return referralSource;
   if (['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic)) {
     const stated = previous || addressQuestionAnswer(candidate, topic);
     if (!stated) return null;

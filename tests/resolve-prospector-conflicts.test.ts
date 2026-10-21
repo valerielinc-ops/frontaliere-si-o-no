@@ -142,6 +142,7 @@ describe('Prospector rebase conflict resolver', () => {
           listingPaths: [],
           tenantCount: 1,
           discoveredAt: iso(-1000),
+          expansionRetryHosts: [{ host: 'base.vendor.example', attempts: 1 }],
         },
       },
     };
@@ -151,17 +152,115 @@ describe('Prospector rebase conflict resolver', () => {
     upstream.platforms.vendor.hostHits['one.vendor.example'] = 2;
     upstream.platforms.vendor.hostHits['two.vendor.example'] = 2;
     upstream.platforms.vendor.tenantCount = 2;
+    upstream.platforms.vendor.lastExpandedAt = iso(1000);
+    upstream.platforms.vendor.expansionRetryHosts = [{ host: 'upstream.vendor.example', attempts: 1 }];
     const local = structuredClone(base);
     local.platforms.vendor.status = 'supported';
     local.platforms.vendor.seenOn.push('three.example');
     local.platforms.vendor.hostHits['one.vendor.example'] = 3;
     local.platforms.vendor.tenantCount = 3;
+    local.platforms.vendor.lastExpandedAt = iso(2000);
+    local.platforms.vendor.expansionRetryHosts = [{ host: 'local.vendor.example', attempts: 2 }];
 
     const merged = mergeProspectorPath('data/prospector/platforms.json', base, upstream, local) as typeof base;
     expect(merged.platforms.vendor.status).toBe('supported');
     expect(merged.platforms.vendor.seenOn).toEqual(['one.example', 'two.example', 'three.example']);
     expect(merged.platforms.vendor.hostHits).toEqual({ 'one.vendor.example': 4, 'two.vendor.example': 2 });
     expect(merged.platforms.vendor.tenantCount).toBe(3);
+    expect(merged.platforms.vendor.expansionRetryHosts).toEqual([
+      { host: 'local.vendor.example', attempts: 2 },
+      { host: 'upstream.vendor.example', attempts: 1 },
+    ]);
+  });
+
+  it('preserves concurrent retry additions and applies a confirmed removal of an unchanged base retry', () => {
+    const base = {
+      version: 1,
+      updatedAt: iso(0),
+      platforms: {
+        vendor: {
+          domain: 'vendor.example',
+          status: 'candidate',
+          seenOn: [],
+          markers: [],
+          hostSamples: [],
+          hostHits: {},
+          pathHits: {},
+          listingPaths: [],
+          tenantCount: 0,
+          lastExpandedAt: iso(0),
+          expansionRetryHosts: [
+            { host: 'resolved.vendor.example', attempts: 1 },
+            { host: 'still-pending.vendor.example', attempts: 1 },
+          ],
+        },
+      },
+    };
+    const upstream = structuredClone(base);
+    upstream.platforms.vendor.expansionRetryHosts = [
+      { host: 'still-pending.vendor.example', attempts: 2 },
+      { host: 'upstream-new.vendor.example', attempts: 1 },
+    ];
+    upstream.platforms.vendor.lastExpandedAt = iso(1000);
+    const local = structuredClone(base);
+    local.platforms.vendor.expansionRetryHosts = [
+      { host: 'local-new.vendor.example', attempts: 1 },
+    ];
+    local.platforms.vendor.lastExpandedAt = iso(2000);
+
+    const merged = mergeProspectorPath('data/prospector/platforms.json', base, upstream, local) as typeof base;
+
+    expect(merged.platforms.vendor.expansionRetryHosts).toEqual([
+      { host: 'local-new.vendor.example', attempts: 1 },
+      { host: 'still-pending.vendor.example', attempts: 2 },
+      { host: 'upstream-new.vendor.example', attempts: 1 },
+    ]);
+  });
+
+  it('keeps the expansion offset from the run whose timestamp wins the registry merge', () => {
+    const base = { platforms: { vendor: { expansionProbeOffset: 0, lastExpandedAt: iso(0) } } };
+    const upstream = { platforms: { vendor: { expansionProbeOffset: 11, lastExpandedAt: iso(2000) } } };
+    const local = { platforms: { vendor: { expansionProbeOffset: 22, lastExpandedAt: iso(1000) } } };
+
+    const merged = mergeProspectorPath('data/prospector/platforms.json', base, upstream, local) as typeof base;
+
+    expect(merged.platforms.vendor.expansionProbeOffset).toBe(11);
+    expect(merged.platforms.vendor.lastExpandedAt).toBe(iso(2000));
+  });
+
+  it('keeps the newest run’s unprobed retry queue ahead of older branch additions at capacity', () => {
+    const baseRetries = Array.from({ length: 300 }, (_, index) => ({
+      host: `pending-${index}.vendor.example`, attempts: 1,
+    }));
+    const base = { platforms: { vendor: { expansionRetryHosts: baseRetries, lastExpandedAt: iso(0) } } };
+    const upstream = {
+      platforms: {
+        vendor: {
+          expansionRetryHosts: [...baseRetries, ...Array.from({ length: 150 }, (_, index) => ({
+            host: `upstream-${index}.vendor.example`, attempts: 1,
+          }))],
+          lastExpandedAt: iso(1000),
+        },
+      },
+    };
+    const local = {
+      platforms: {
+        vendor: {
+          expansionRetryHosts: [...baseRetries, ...Array.from({ length: 150 }, (_, index) => ({
+            host: `local-${index}.vendor.example`, attempts: 1,
+          }))],
+          lastExpandedAt: iso(2000),
+        },
+      },
+    };
+
+    const merged = mergeProspectorPath('data/prospector/platforms.json', base, upstream, local) as typeof base;
+    const mergedHosts = merged.platforms.vendor.expansionRetryHosts.map(({ host }) => host);
+
+    expect(mergedHosts).toHaveLength(500);
+    expect(mergedHosts.slice(0, 300)).toEqual(baseRetries.map(({ host }) => host));
+    expect(mergedHosts.slice(300, 450)).toEqual(Array.from({ length: 150 }, (_, index) => `local-${index}.vendor.example`));
+    expect(mergedHosts.slice(450)).toEqual(Array.from({ length: 50 }, (_, index) => `upstream-${index}.vendor.example`));
   });
 
   it('unisce report per azienda, ricalcola tally e annunci coperti', () => {
@@ -205,6 +304,23 @@ describe('Prospector rebase conflict resolver', () => {
     expect(merged.at(-1)?.pagesRead).toBe(61);
     expect(merged.some((sample) => sample.pagesRead === 60)).toBe(true);
     expect(merged.some((sample) => sample.pagesRead === 0)).toBe(false);
+  });
+
+  it('mantiene il cursore SECO più recente per canton nei push concorrenti', () => {
+    const base: any = {
+      version: 1,
+      updatedAt: iso(0),
+      cantons: { TI: { nextPage: 2, onlineSinceDays: 30, updatedAt: iso(0) } },
+    };
+    const upstream = structuredClone(base);
+    upstream.cantons.TI = { nextPage: 7, onlineSinceDays: 30, updatedAt: iso(1000) };
+    upstream.cantons.ZH = { nextPage: 4, onlineSinceDays: 30, updatedAt: iso(900) };
+    const local = structuredClone(base);
+    local.cantons.TI = { nextPage: 5, onlineSinceDays: 30, updatedAt: iso(2000) };
+
+    const merged = mergeProspectorPath('data/prospector/seco-page-cursors.json', base, upstream, local) as typeof base;
+    expect(merged.cantons).toEqual({ TI: local.cantons.TI, ZH: upstream.cantons.ZH });
+    expect(merged.updatedAt).toBe(local.updatedAt);
   });
 
   it('non accetta un path conflitto inatteso', () => {

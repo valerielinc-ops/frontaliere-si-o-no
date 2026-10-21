@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lwphr",
-  "assembledAt": "2026-10-20T09:17:24.731Z",
+  "assembledAt": "2026-10-20T21:18:57.385Z",
   "jobs": [
     {
       "title": "Mansioni principali:",
@@ -42,15 +42,15 @@
         "fr": "blessures-principales-lwp-ledermann-wieting-partners"
       },
       "id": "lwphr-1e0e2eaa71b7",
-      "firstSeenAt": "2026-10-19T21:15:35.245Z",
+      "previousSlugs": [
+        "mansioni-principali-lwp-ledermann-wieting-partners"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "mansioni-principali-lwp-ledermann-wieting-partners"
         ]
       },
-      "previousSlugs": [
-        "mansioni-principali-lwp-ledermann-wieting-partners"
-      ],
+      "firstSeenAt": "2026-10-19T21:15:35.245Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
