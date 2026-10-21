@@ -25,7 +25,7 @@ import {
   SZ_PUBLIC_API_RELAY_URL,
 } from '../scripts/plate-auctions/connectors/sz.mjs';
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
-import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
+import { parseTgAuctionRows, TG_AUCTION_URL } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
 import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
@@ -94,6 +94,15 @@ const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari
 describe('expanded plate-auction connectors', () => {
   it('uses the live localized SH auction catalogue endpoint', () => {
     expect(SH_AUCTION_URL).toBe('https://www.auktion-stva.sh.ch/de/');
+  });
+
+  it('uses the canonical TG auction host for catalogue and detail links', () => {
+    expect(TG_AUCTION_URL).toBe('https://auktion.tg.ch/de/');
+    const [row] = parseTgAuctionRows(CARD_SAMPLE, { fetchedAt: '2026-10-21T22:00:00.000Z' });
+    expect(row).toMatchObject({
+      officialAuctionUrl: TG_AUCTION_URL,
+      officialDetailUrl: 'https://auktion.tg.ch/de/auction/109715',
+    });
   });
 
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
