@@ -37,6 +37,15 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('jobs.six-group.com', 'www.six-group.com') })).toBe(applyUrl);
   });
 
+  it('opens a same-job employer apply route from its matching posting page', () => {
+    const applyUrl = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/apply';
+    const postingUrl = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/';
+
+    expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('903-pipe-project-manager-it', '879-google-cloud-platform') })).toBe(applyUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('www.alten.ch', 'alten.ch') })).toBe(applyUrl);
+  });
+
   it('stops before filling a form that names neither the company nor the role', () => {
     const job = { company: 'Ospedale Regionale di Lugano SA', title: 'Infermiere/a diplomato/a' };
     expect(postingMatch('Ospedale Regionale di Lugano · Candidatura · Infermiera diplomata', job)).toBe('match');

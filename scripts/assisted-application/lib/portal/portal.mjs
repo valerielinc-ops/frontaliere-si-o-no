@@ -156,21 +156,47 @@ const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
 
+function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    const applyId = /^\/talentcommunity\/apply\/([^/]+)\/?$/i.exec(apply.pathname)?.[1];
+    const postingId = /^\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
+    return apply.origin === posting.origin && Boolean(applyId) && postingId === applyId;
+  } catch {
+    return false;
+  }
+}
+
 /**
- * SAP SuccessFactors' Jobs2Web apply route can redirect to the employer's
- * careers homepage when opened cold. Enter through the matching job detail
- * page first so its normal Apply link establishes the portal session. Match
- * both origin and posting id: a stale or unrelated posting URL must never
- * change which application the runner opens.
+ * Employer-hosted job apply routes can redirect to a generic application page
+ * when opened cold. Enter through the matching job detail page first so its
+ * normal Apply link establishes the portal session. Match both origin and the
+ * complete job route: a stale or unrelated posting URL must never change
+ * which application the runner opens.
  */
+function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    const applyRoute = /^(.*\/jobs\/)([^/]+)\/apply\/?$/i.exec(apply.pathname);
+    const postingRoute = /^(.*\/jobs\/)([^/]+)\/?$/i.exec(posting.pathname);
+    return apply.origin === posting.origin
+      && Boolean(applyRoute && postingRoute)
+      && applyRoute[1] === postingRoute[1]
+      && applyRoute[2] === postingRoute[2];
+  } catch {
+    return false;
+  }
+}
+
 export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   const directUrl = String(applyUrl || '');
   try {
     const apply = new URL(directUrl);
     const posting = new URL(String(postingUrl || ''));
-    const applyId = /^\/talentcommunity\/apply\/([^/]+)\/?$/i.exec(apply.pathname)?.[1];
-    const postingId = /^\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
-    if (apply.origin === posting.origin && applyId && postingId === applyId) return posting.href;
+    if (isSuccessFactorsPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })
+      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
   } catch {
     // Keep the given application URL when either address is absent or invalid.
   }
@@ -182,7 +208,7 @@ function portalChannelType(ctx = {}) {
   // A branded SuccessFactors tenant has an employer hostname, so the draft's
   // hostname classifier can call it `employer_site`. The exact same-origin,
   // same-requisition Jobs2Web route proves which ATS rules apply.
-  if (portalEntryUrl(ctx) !== String(ctx.applyUrl || '')) return 'successfactors';
+  if (isSuccessFactorsPostingEntry(ctx)) return 'successfactors';
   return ctx.channelType || '';
 }
 
