@@ -31,6 +31,7 @@ import type { ArticleLocale as HubLocale } from '../siteShell';
 import { parseArticleUrlSlugs } from './articleReaderSource.mjs';
 // Explicit `.ts`: resolved from build-plugins/shared through its symlink twin.
 import { parseArticleRegistryEntries } from './articleRegistryEntries.ts';
+import { readStaticObjectEntries } from './ts-literals.mjs';
 
 /**
  * Read article slugs from blog-meta-{lang}.ts. Each line keyed
@@ -55,21 +56,20 @@ export function readArticleSlugs(
 ): Array<{ slug: string; title: string }> {
   const file = np.resolve(rootDir, metaDir, `${metaPrefix}-${locale}.ts`);
   const out: Array<{ slug: string; title: string }> = [];
+  if (!fs.existsSync(file)) return out;
+  let src: string;
   try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const seen = new Set<string>();
-    const rx = /'blog\.article\.([^']+?)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
-      if (seen.has(slug)) continue;
-      seen.add(slug);
-      const title = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
-      out.push({ slug, title });
-    }
+    src = fs.readFileSync(file, 'utf-8');
   } catch (err) {
     console.warn(`[seo-hubs] failed to read ${metaPrefix}-${locale}.ts`, err);
+    return out;
+  }
+  const seen = new Set<string>();
+  for (const { key, value } of readStaticObjectEntries(src, file, { errorLabel: 'seo-hubs' })) {
+    const match = /^blog\.article\.(.+)\.(title|excerpt)$/u.exec(key);
+    if (!match || match[2] !== 'title' || seen.has(match[1])) continue;
+    seen.add(match[1]);
+    out.push({ slug: match[1], title: value });
   }
   return out;
 }
@@ -131,18 +131,17 @@ export function readArticleExcerpts(
 ): Map<string, string> {
   const file = np.resolve(rootDir, metaDir, `${metaPrefix}-${locale}.ts`);
   const out = new Map<string, string>();
+  if (!fs.existsSync(file)) return out;
+  let src: string;
   try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    const rx = /'blog\.article\.([^']+?)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
-      const excerpt = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
-      out.set(slug, excerpt);
-    }
+    src = fs.readFileSync(file, 'utf-8');
   } catch (err) {
     console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
+    return out;
+  }
+  for (const { key, value } of readStaticObjectEntries(src, file, { errorLabel: 'seo-hubs' })) {
+    const match = /^blog\.article\.(.+)\.(title|excerpt)$/u.exec(key);
+    if (match?.[2] === 'excerpt') out.set(match[1], value);
   }
   return out;
 }

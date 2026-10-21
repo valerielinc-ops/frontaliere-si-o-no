@@ -37,6 +37,7 @@ import {
 } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes.ts';
+import { readStaticObjectEntries } from './shared/ts-literals.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { articleSectionEntry } from './shared/articleSectionCore.mjs';
@@ -436,15 +437,14 @@ function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field)
   const src = fs.readFileSync(filePath, 'utf-8');
 
   const out = new Map(); // articleId → value
-  // Handle escaped single quotes (e.g. dell\'Italia) by matching \\' as part of the value
-  const re = new RegExp(`'blog\\.article\\.([^']+)\\.${field}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g');
-  let match;
-  while ((match = re.exec(src)) !== null) {
+  for (const { key, value } of readStaticObjectEntries(src, filePath, { errorLabel: 'rss' })) {
+    const match = /^blog\.article\.([^.]+?)\.(title|excerpt)$/u.exec(key);
+    if (!match || match[2] !== field) continue;
     // The shared helper, not a lone `\\'` replace: the writer also escapes
     // backslashes and newlines, so a partial unescape leaves literal `\\n` in
     // 16 excerpts. This is the field that WINS over article.excerpt in
     // renderFeed, so it is the primary path, not the fallback.
-    out.set(match[1], unescapeQuoted(match[2], "'"));
+    out.set(match[1], value);
   }
   return out;
 }
