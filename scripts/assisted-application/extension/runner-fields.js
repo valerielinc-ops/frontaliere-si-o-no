@@ -103,24 +103,26 @@
     const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
     if (groupLabel && !groupLabel.contains(element)
       && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
-    const marker = (node) => {
+    const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i;
+    const marker = (node, adjacent = false) => {
       const text = clean(node.innerText || node.textContent);
       const className = String(node.className?.baseVal || node.className || '');
+      const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
       let pseudo = '';
       try {
         pseudo = `${window.getComputedStyle(node, '::before').content} ${window.getComputedStyle(node, '::after').content}`;
       } catch {
         // Some portal-owned nodes do not expose computed styles.
       }
-      return REQUIRED_LABEL.test(text)
-        || /required|mandatory|pflichtfeld/i.test(className)
-        || /\*/.test(pseudo.replace(/["']/g, ''));
+      return (adjacent ? inline && REQUIRED_MARKER_ONLY.test(text) : REQUIRED_LABEL.test(text))
+        || (inline || !adjacent) && /required|mandatory|pflichtfeld/i.test(className)
+        || (inline || !adjacent) && /\*/.test(pseudo.replace(/["']/g, ''));
     };
     if ([...labels].some(marker)) return true;
     return [...labels].some((label) => ['previousSibling', 'nextSibling'].some((direction) => {
       let sibling = label[direction];
       while (sibling?.nodeType === 3 && !clean(sibling.textContent)) sibling = sibling[direction];
-      return Boolean(sibling && marker(sibling));
+      return Boolean(sibling && marker(sibling, true));
     }));
   };
   const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
