@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T12:38:14.154Z",
+  "generatedAt": "2026-10-21T15:21:37.112Z",
   "totalEvents": 14750,
   "events": [
     {
@@ -24101,55 +24101,6 @@
       "imageProvider": "openai-codex"
     },
     {
-      "id": "ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet",
-      "title": "Tournée estivale des Communes - Samedis du Vélo 11 juillet",
-      "startDate": "2026-07-11",
-      "endDate": "2026-07-11",
-      "category": "Animation",
-      "region": "Genève",
-      "venue": "Place de Pont Rouge sous le gigantesque totem à horloge rouge",
-      "url": "https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet",
-      "sourceKey": "ge-agenda",
-      "sourceName": "PRO VELO Genève",
-      "comune": "Lancy",
-      "canton": "GE",
-      "previousRoutes": [
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04"
-        }
-      ],
-      "recoveryEvidence": {
-        "sourceSnapshot": "ffa8339eddb6910fa5dfdab3598bbd3ec7b51d7b",
-        "sourceGeneratedAt": "2026-07-07T09:25:23.155Z",
-        "reportedRoute": "/fr/evenements/geneve/geneve/tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04/",
-        "primaryUrl": "https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet",
-        "supportingUrl": "https://www.geneve-communes.ch/agenda?date_type=this_weekend&f%5B0%5D=dates_range%3A%28min%3A1783756800%2Cmax%3A1783756800%29",
-        "programUrl": "https://www.pro-velo-geneve.ch/samedis_du_velo_geneve",
-        "locationUrl": "https://www.lancy.ch/annuaire/place-de-pont-rouge",
-        "checkedAt": "2026-10-19",
-        "matchingFields": [
-          "endDate",
-          "venue",
-          "eventProgram"
-        ],
-        "supportingMatchingFields": [
-          "title",
-          "startDate",
-          "recurrenceDates"
-        ],
-        "supersededParsedStartDate": "2027-07-04",
-        "supersededParsedComune": "Genève"
-      },
-      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-primavera-estate.webp",
-      "imageAssetId": "event-generico-svizzera-urbana-primavera-estate",
-      "imageLicense": "generated-provider",
-      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
-      "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
-    },
-    {
       "id": "myswitzerland:90f3b7eb4fb4466ca2a404a06919906d",
       "title": "Wochenmarkt",
       "titleByLocale": {
@@ -27926,6 +27877,55 @@
         "fr": "À Lucerne, une visite thématique présente l’histoire des bistrots de la ville avec des récits et du vin. La rencontre se termine par un moment détendu en fin de journée."
       },
       "descriptionRewriteValidated": true
+    },
+    {
+      "id": "ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet",
+      "title": "Tournée estivale des Communes - Samedis du Vélo 11 juillet",
+      "startDate": "2026-07-11",
+      "endDate": "2026-07-11",
+      "category": "Animation",
+      "region": "Genève",
+      "venue": "Place de Pont Rouge sous le gigantesque totem à horloge rouge",
+      "url": "https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet",
+      "sourceKey": "ge-agenda",
+      "sourceName": "PRO VELO Genève",
+      "comune": "Lancy",
+      "canton": "GE",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04"
+        }
+      ],
+      "recoveryEvidence": {
+        "sourceSnapshot": "ffa8339eddb6910fa5dfdab3598bbd3ec7b51d7b",
+        "sourceGeneratedAt": "2026-07-07T09:25:23.155Z",
+        "reportedRoute": "/fr/evenements/geneve/geneve/tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04/",
+        "primaryUrl": "https://www.pro-velo-geneve.ch/tourn_e_samedi_du_v_lo_lancy_en_juillet",
+        "supportingUrl": "https://www.geneve-communes.ch/agenda?date_type=this_weekend&f%5B0%5D=dates_range%3A%28min%3A1783756800%2Cmax%3A1783756800%29",
+        "programUrl": "https://www.pro-velo-geneve.ch/samedis_du_velo_geneve",
+        "locationUrl": "https://www.lancy.ch/annuaire/place-de-pont-rouge",
+        "checkedAt": "2026-10-19",
+        "matchingFields": [
+          "endDate",
+          "venue",
+          "eventProgram"
+        ],
+        "supportingMatchingFields": [
+          "title",
+          "startDate",
+          "recurrenceDates"
+        ],
+        "supersededParsedStartDate": "2027-07-04",
+        "supersededParsedComune": "Genève"
+      },
+      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-primavera-estate.webp",
+      "imageAssetId": "event-generico-svizzera-urbana-primavera-estate",
+      "imageLicense": "generated-provider",
+      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
+      "imageCredit": "frontaliereticino.ch",
+      "imageProvider": "openai-codex"
     },
     {
       "id": "myswitzerland:47282f5340c048d29e2aef28f4d75373",
@@ -230833,7 +230833,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Lucerna, questa mostra esamina la notte da diverse prospettive e considera l’influenza dell’illuminazione crescente sugli animali e sulle persone. Il programma di accompagnamento comprende un incontro inaugurale, osservazioni del cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione urbana.",
+      "descriptionByLocale": {
+        "it": "A Lucerna, questa mostra esamina la notte da diverse prospettive e considera l’influenza dell’illuminazione crescente sugli animali e sulle persone. Il programma di accompagnamento comprende un incontro inaugurale, osservazioni del cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione urbana.",
+        "en": "In Luzern, this exhibition explores the night from different perspectives and examines how increasing brightness affects animals and people. Its accompanying programme includes an opening event, guided viewing of the starry sky, a bat excursion and a tour about the city’s lighting.",
+        "de": "Die Ausstellung in Luzern betrachtet die Nacht aus verschiedenen Perspektiven und thematisiert die Auswirkungen zunehmender Helligkeit auf Tiere und Menschen. Zum Begleitprogramm gehören eine Eröffnung, Termine zur Beobachtung des Sternenhimmels, eine Fledermaus-Exkursion und ein Rundgang zur Stadtbeleuchtung.",
+        "fr": "À Lucerne, cette exposition aborde la nuit sous plusieurs angles et examine les effets d’une luminosité croissante sur les animaux et les êtres humains. Le programme associé prévoit une ouverture, des séances d’observation du ciel étoilé, une excursion consacrée aux chauves-souris et une visite consacrée à l’éclairage de la ville."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:196a61cdd03b42f083202f2d852aaf49",
@@ -404071,7 +404079,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Teatro Foce di Lugano è in programma uno spettacolo musicale-teatrale dedicato alla vita e ai ricordi di un musicista. La rappresentazione unisce narrazione e chitarra, dura 80 minuti ed è indicata a partire dai 12 anni.",
+      "descriptionByLocale": {
+        "it": "Al Teatro Foce di Lugano è in programma uno spettacolo musicale-teatrale dedicato alla vita e ai ricordi di un musicista. La rappresentazione unisce narrazione e chitarra, dura 80 minuti ed è indicata a partire dai 12 anni.",
+        "en": "Teatro Foce in Lugano hosts a musical-theatrical performance centred on a musician’s life and memories. It combines spoken storytelling with guitar, runs for 80 minutes, and is intended for audiences aged 12 and over.",
+        "de": "Im Teatro Foce in Lugano steht eine musikalisch-theatralische Aufführung über das Leben und die Erinnerungen eines Musikers auf dem Programm. Sie verbindet erzählte Passagen mit Gitarrenmusik, dauert 80 Minuten und richtet sich an Personen ab zwölf Jahren.",
+        "fr": "Le Teatro Foce de Lugano accueille un spectacle musical et théâtral consacré à la vie et aux souvenirs d’un musicien. La représentation associe récit parlé et guitare, dure 80 minutes et s’adresse au public dès 12 ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:ulisse-systeme-stockage-lacustre-saisonnier-chaleur-solaire-rejets-thermiques",
@@ -593064,7 +593080,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone jazz con esecuzioni di composizioni originali. Si svolge al Zeughaus Kultur, nel Canton Vallese, ed è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone jazz con esecuzioni di composizioni originali. Si svolge al Zeughaus Kultur, nel Canton Vallese, ed è organizzato da Guidle.",
+        "en": "The event presents jazz featuring original compositions. It takes place at Zeughaus Kultur in the canton of Valais and is organized by Guidle.",
+        "de": "Die Veranstaltung bietet Jazz mit Eigenkompositionen. Sie findet im Zeughaus Kultur im Kanton Wallis statt und wird von Guidle organisiert.",
+        "fr": "Le rendez-vous propose du jazz avec des compositions originales. Il se tient au Zeughaus Kultur, dans le canton du Valais, et est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d054d0875c244c7fac371e4e09f9fa7c",
@@ -596860,7 +596884,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "L’appuntamento di hard rock riunisce Rhapsody of Fire e Serious Black alla Z7 Konzertfabrik Pratteln. La manifestazione si tiene nel comune di Pratteln, nel cantone BL.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di hard rock riunisce Rhapsody of Fire e Serious Black alla Z7 Konzertfabrik Pratteln. La manifestazione si tiene nel comune di Pratteln, nel cantone BL.",
+        "en": "This hard-rock event features Rhapsody of Fire and Serious Black at Z7 Konzertfabrik Pratteln. It takes place in Pratteln, in canton BL.",
+        "de": "Die Hardrock-Veranstaltung führt Rhapsody of Fire und Serious Black in der Z7 Konzertfabrik Pratteln zusammen. Sie findet in Pratteln im Kanton BL statt.",
+        "fr": "Ce rendez-vous de hard rock réunit Rhapsody of Fire et Serious Black à la Z7 Konzertfabrik Pratteln. Il se déroule à Pratteln, dans le canton BL."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:95c3d9e2b143470d9d8d1dae2dd1e708",
@@ -597642,7 +597674,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento a Lausanne è dedicato alla lettura di poesie di Ted Joans. Jake Lamar è indicato come la persona che legge i testi.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a Lausanne è dedicato alla lettura di poesie di Ted Joans. Jake Lamar è indicato come la persona che legge i testi.",
+        "en": "The event in Lausanne consists of a reading of poems by Ted Joans. Jake Lamar is identified as the reader.",
+        "de": "Die Veranstaltung in Lausanne umfasst eine Lesung von Gedichten von Ted Joans. Jake Lamar ist als Vorleser angegeben.",
+        "fr": "À Lausanne, l’événement comprend une lecture de poèmes de Ted Joans. Jake Lamar est indiqué comme la personne qui assure la lecture."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0f13801519924179b59454abade4f145",
@@ -609460,7 +609500,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di musica pop con Grüezi Italia si svolge presso lo Stadtsaal Wil, nel cantone SG. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop con Grüezi Italia si svolge presso lo Stadtsaal Wil, nel cantone SG. Guidle è indicato come organizzatore.",
+        "en": "This pop event features Grüezi Italia at Stadtsaal Wil in canton SG. Guidle is listed as the organizer.",
+        "de": "Die Popveranstaltung mit Grüezi Italia findet im Stadtsaal Wil im Kanton SG statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Cet événement de musique pop avec Grüezi Italia se déroule au Stadtsaal Wil, dans le canton de SG. Guidle en est l’organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:94774",
@@ -612533,7 +612581,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento, presentato come Landhaus Live, è un evento rock al Restaurant Landhaus Liebefeld, nel cantone BE. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento, presentato come Landhaus Live, è un evento rock al Restaurant Landhaus Liebefeld, nel cantone BE. Guidle è indicato come organizzatore.",
+        "en": "Billed as Landhaus Live, the rock event takes place at Restaurant Landhaus Liebefeld in canton BE. Guidle is the listed organizer.",
+        "de": "Der als Landhaus Live bezeichnete Rockanlass findet im Restaurant Landhaus Liebefeld im Kanton BE statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Présenté sous le nom de Landhaus Live, l’événement rock a lieu au Restaurant Landhaus Liebefeld, dans le canton de BE. Guidle en est l’organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AkEhfbU",
@@ -614639,7 +614695,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento pop con Sleeping with Sirens si svolge presso X-TRA, nel cantone ZH. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento pop con Sleeping with Sirens si svolge presso X-TRA, nel cantone ZH. Guidle è indicato come organizzatore.",
+        "en": "This pop event features Sleeping with Sirens at X-TRA in canton ZH. Guidle is listed as the organizer.",
+        "de": "Der Popanlass mit Sleeping with Sirens findet im X-TRA im Kanton ZH statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Cet événement pop avec Sleeping with Sirens a lieu au X-TRA, dans le canton de ZH. Guidle en est l’organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AAmjasS",
@@ -626369,7 +626433,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di musica pop è associato a Grüezi Italia. Si tiene al KKThun di Thun e il prezzo indicato è di 2 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop è associato a Grüezi Italia. Si tiene al KKThun di Thun e il prezzo indicato è di 2 CHF.",
+        "en": "This pop music event features Grüezi Italia. It takes place at KKThun in Thun, and the listed price is CHF 2.",
+        "de": "Bei der Popmusik-Veranstaltung tritt Grüezi Italia auf. Der Veranstaltungsort ist das KKThun in Thun; der angegebene Preis beträgt 2 CHF.",
+        "fr": "Cet événement de musique pop est associé à Grüezi Italia. Il a lieu au KKThun, à Thun, et le prix indiqué est de 2 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f954bfc5a87442559adafb3764dd5747",
@@ -626716,7 +626788,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Un percorso musicale all’Ortsmuseum Küsnacht accompagna le spiegazioni con canti classici e nuovi modi di avvicinarsi alle opere esposte. L’evento è classificato nella categoria della musica di altro genere.",
+      "descriptionByLocale": {
+        "it": "Un percorso musicale all’Ortsmuseum Küsnacht accompagna le spiegazioni con canti classici e nuovi modi di avvicinarsi alle opere esposte. L’evento è classificato nella categoria della musica di altro genere.",
+        "en": "A musical tour at Ortsmuseum Küsnacht combines explanations with classical songs and new ways of approaching the exhibited works. The event is classified as other music.",
+        "de": "Die Führung im Ortsmuseum Küsnacht verknüpft Erläuterungen mit klassischem Liedrepertoire. Sie eröffnet zusätzliche Zugänge zu den ausgestellten Werken.",
+        "fr": "Une visite musicale à l’Ortsmuseum Küsnacht associe des explications, des chants classiques et de nouvelles manières d’aborder les œuvres exposées. L’événement relève de la catégorie des autres musiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:71ab6e5b77c24fd1bb8d7d93d67efbda",
@@ -627208,7 +627288,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento jazz al Theater Lindau presenta Rebecca Trescher Tentett. Il Jazzclub Lindau è coinvolto come partner della collaborazione.",
+      "descriptionByLocale": {
+        "it": "L’evento jazz al Theater Lindau presenta Rebecca Trescher Tentett. Il Jazzclub Lindau è coinvolto come partner della collaborazione.",
+        "en": "The jazz event at Theater Lindau features Rebecca Trescher Tentett. Jazzclub Lindau is involved as a cooperation partner.",
+        "de": "Bei der Jazzveranstaltung im Theater Lindau tritt das Rebecca Trescher Tentett auf. Der Jazzclub Lindau ist als Kooperationspartner eingebunden.",
+        "fr": "Le rendez-vous de jazz au Theater Lindau accueille Rebecca Trescher Tentett. Le Jazzclub Lindau est associé à la collaboration."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:01b44542bb13433ea442c9097c18475d",
@@ -627672,7 +627760,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un concerto per famiglie dedicato a una fiaba musicale con Tino Flautino. L’argovia philharmonic presenta l’appuntamento insieme a Maurice Steger e Jolanda Steiner al Kultur- und Kongresshaus di Aarau.",
+      "descriptionByLocale": {
+        "it": "È un concerto per famiglie dedicato a una fiaba musicale con Tino Flautino. L’argovia philharmonic presenta l’appuntamento insieme a Maurice Steger e Jolanda Steiner al Kultur- und Kongresshaus di Aarau.",
+        "en": "This family concert presents a musical fairy tale centred on Tino Flautino. The argovia philharmonic appears with Maurice Steger and Jolanda Steiner at the Kultur- und Kongresshaus in Aarau.",
+        "de": "Das Familienkonzert verbindet eine musikalische Erzählung mit der Geschichte von Tino Flautino. Das argovia philharmonic gestaltet den Anlass gemeinsam mit Maurice Steger und Jolanda Steiner im Kultur- und Kongresshaus in Aarau.",
+        "fr": "Ce concert familial propose un conte musical consacré à Tino Flautino. L’argovia philharmonic se produit avec Maurice Steger et Jolanda Steiner au Kultur- und Kongresshaus d’Aarau."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4ycD19",
@@ -628118,7 +628214,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alhambra; cantone: GE; categoria: A cappella; organizzatore: Guidle; partecipante: Laboratorium Piesni; data: 2027-03-07; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alhambra; cantone: GE; categoria: A cappella; organizzatore: Guidle; partecipante: Laboratorium Piesni; data: 2027-03-07; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Alhambra; canton: GE; category: A cappella; organiser: Guidle; participant: Laboratorium Piesni; date: 2027-03-07; time: 19:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Alhambra; kanton: GE; kategorie: A cappella; veranstalter: Guidle; mitwirkender: Laboratorium Piesni; datum: 2027-03-07; uhrzeit: 19:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Alhambra; canton: GE; catégorie: A cappella; organisateur: Guidle; participant: Laboratorium Piesni; date: 2027-03-07; heure: 19:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:246cbf92d9c342c2976597557026890d",
@@ -629921,7 +630025,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Salzhaus; comune: Winterthur; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Stiu, Kurds; data: 2027-03-10; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Salzhaus; comune: Winterthur; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Stiu, Kurds; data: 2027-03-10; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Salzhaus; municipality: Winterthur; canton: ZH; category: Pop generalmente; organiser: Guidle; participant: Stiu, Kurds; date: 2027-03-10; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Salzhaus; gemeinde: Winterthur; kanton: ZH; kategorie: Pop generalmente; veranstalter: Guidle; mitwirkender: Stiu, Kurds; datum: 2027-03-10; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Salzhaus; commune: Winterthur; canton: ZH; catégorie: Pop generalmente; organisateur: Guidle; participant: Stiu, Kurds; date: 2027-03-10; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:94591",
@@ -631861,7 +631973,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Giulia Dabalà è una cantante e produttrice svizzero-italiana. L’appuntamento al Burghof Lörrach rientra nel pop e accosta elementi sperimentali a sonorità elettroniche e influenze art-pop contemporanee.",
+      "descriptionByLocale": {
+        "it": "Giulia Dabalà è una cantante e produttrice svizzero-italiana. L’appuntamento al Burghof Lörrach rientra nel pop e accosta elementi sperimentali a sonorità elettroniche e influenze art-pop contemporanee.",
+        "en": "Giulia Dabalà is a Swiss-Italian singer and producer. The event at Burghof Lörrach is rooted in pop and combines experimental elements with electronic sounds and contemporary art-pop influences.",
+        "de": "Giulia Dabalà ist eine schweizerisch-italienische Sängerin und Produzentin. Die Veranstaltung im Burghof Lörrach ist dem Pop zugeordnet und verbindet experimentelle Ansätze mit elektronischen Klängen und zeitgenössischen Art-Pop-Einflüssen.",
+        "fr": "Giulia Dabalà est une chanteuse et productrice helvético-italienne. Le rendez-vous au Burghof Lörrach s’inscrit dans la pop et associe des éléments expérimentaux à des sonorités électroniques et à des influences d’art-pop contemporain."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AZQdpFL",
@@ -633031,7 +633151,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al KiM – Kultur in Mogelsberg è previsto uno spettacolo di musica comica con Chrissi Sokoll e band. L’evento appartiene alla categoria della musica comica.",
+      "descriptionByLocale": {
+        "it": "Al KiM – Kultur in Mogelsberg è previsto uno spettacolo di musica comica con Chrissi Sokoll e band. L’evento appartiene alla categoria della musica comica.",
+        "en": "KiM – Kultur in Mogelsberg hosts a comedy-music event with Chrissi Sokoll and the band. It is categorized as comedy music.",
+        "de": "Im KiM – Kultur in Mogelsberg findet ein Anlass mit Chrissi Sokoll und Band statt. Die Veranstaltung gehört zur Kategorie musikalische Comedy.",
+        "fr": "Le KiM – Kultur in Mogelsberg accueille un spectacle de musique comique avec Chrissi Sokoll et le groupe. L’événement relève de la catégorie de la musique comique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AvUGqa8",
@@ -633958,7 +634086,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il concerto alla Z7 Konzertfabrik Pratteln combina elementi del folk tradizionale con sonorità rock moderne. Il programma comprende anche nuovi canti marinareschi.",
+      "descriptionByLocale": {
+        "it": "Il concerto alla Z7 Konzertfabrik Pratteln combina elementi del folk tradizionale con sonorità rock moderne. Il programma comprende anche nuovi canti marinareschi.",
+        "en": "At Z7 Konzertfabrik Pratteln, the concert combines traditional folk with modern rock sounds. The programme also includes new seafaring songs.",
+        "de": "Das Konzert in der Z7 Konzertfabrik Pratteln verbindet traditionellen Folk mit modernen Rockklängen. Zum Programm gehören außerdem neue Seemannslieder.",
+        "fr": "Le concert à la Z7 Konzertfabrik Pratteln associe le folk traditionnel à des sonorités rock modernes. Il comprend également de nouveaux chants marins."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AmRQxrP",
@@ -635362,7 +635498,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’appuntamento propone uno spettacolo tributo dedicato a Phil Collins e ai Genesis. La serata si svolge al Volkshaus Zürich, nella città di Zurigo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone uno spettacolo tributo dedicato a Phil Collins e ai Genesis. La serata si svolge al Volkshaus Zürich, nella città di Zurigo.",
+        "en": "The event presents a tribute show dedicated to Phil Collins and Genesis. It takes place at Volkshaus Zürich in Zürich.",
+        "de": "Bei dieser Tribute-Show steht die Musik von Phil Collins und Genesis im Mittelpunkt. Die Veranstaltung findet im Volkshaus Zürich in Zürich statt.",
+        "fr": "Ce spectacle propose un hommage musical à Phil Collins et à Genesis. Il se déroule au Volkshaus Zürich, à Zurich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c37ffbdbae1c4cb4aab7cb111d12fc5f",
@@ -636111,7 +636255,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Milchwerk Radolfzell.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Milchwerk Radolfzell.",
+        "en": "The event brings together selected moments from more than 20 musicals. The performance is held at Milchwerk Radolfzell.",
+        "de": "Die Veranstaltung bündelt ausgewählte Höhepunkte aus mehr als 20 Musicals. Sie findet im Milchwerk Radolfzell statt.",
+        "fr": "Le rendez-vous propose une sélection de moments issus de plus de 20 comédies musicales. La représentation a lieu au Milchwerk Radolfzell."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:6755ead3d9274553804073d79dbf391e",
@@ -636438,7 +636590,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Remo Forrer è al centro di un appuntamento musicale di genere pop. L’evento si svolge al Kaufleuten e ha Guidle come organizzatore.",
+      "descriptionByLocale": {
+        "it": "Remo Forrer è al centro di un appuntamento musicale di genere pop. L’evento si svolge al Kaufleuten e ha Guidle come organizzatore.",
+        "en": "Remo Forrer is the focus of this pop music event. It takes place at Kaufleuten and is organized by Guidle.",
+        "de": "Remo Forrer steht im Mittelpunkt dieser Popveranstaltung. Der Anlass findet im Kaufleuten statt und wird von Guidle organisiert.",
+        "fr": "Remo Forrer est au centre de ce rendez-vous musical de catégorie pop. L’événement se déroule au Kaufleuten et est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ArtDucm",
@@ -636505,7 +636665,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "THÉA è un appuntamento musicale all’Alhambra. Il programma propone un concerto di THÉA.",
+      "descriptionByLocale": {
+        "it": "THÉA è un appuntamento musicale all’Alhambra. Il programma propone un concerto di THÉA.",
+        "en": "THÉA is a music event at Alhambra. The programme features a concert by THÉA.",
+        "de": "THÉA ist eine Musikveranstaltung im Alhambra. Vorgesehen ist ein Konzert mit THÉA.",
+        "fr": "THÉA est un rendez-vous musical à l’Alhambra. La programmation comprend un concert de THÉA."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2ca9c0f7ac7e4700a4a3b6d4c005aa0a",
@@ -637061,7 +637229,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater Winterthur; comune: Winterthur; cantone: ZH; categoria: Musical; organizzatore: Guidle; data: 2027-03-17; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater Winterthur; comune: Winterthur; cantone: ZH; categoria: Musical; organizzatore: Guidle; data: 2027-03-17; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Theater Winterthur; municipality: Winterthur; canton: ZH; category: Musical; organiser: Guidle; date: 2027-03-17; time: 19:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Theater Winterthur; gemeinde: Winterthur; kanton: ZH; kategorie: Musical; veranstalter: Guidle; datum: 2027-03-17; uhrzeit: 19:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Theater Winterthur; commune: Winterthur; canton: ZH; catégorie: Musical; organisateur: Guidle; date: 2027-03-17; heure: 19:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a73b1b7fd78942d2b343c5b7e0927a79",
@@ -637603,7 +637779,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Burghof Lörrach.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Burghof Lörrach.",
+        "en": "The event brings together selected moments from more than 20 musicals. The performance is held at Burghof Lörrach.",
+        "de": "Die Veranstaltung bündelt ausgewählte Höhepunkte aus mehr als 20 Musicals. Sie findet im Burghof Lörrach statt.",
+        "fr": "Le rendez-vous propose une sélection de moments issus de plus de 20 comédies musicales. La représentation a lieu au Burghof Lörrach."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:4216ea96cd62433ab85bc1c1afa64265",
@@ -637934,7 +638118,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un appuntamento blues al Restaurant Landhaus Liebefeld. Il programma presenta Philipp Fankhauser nell’ambito di un tour dedicato ai quarant’anni di attività sul palco.",
+      "descriptionByLocale": {
+        "it": "L’evento è un appuntamento blues al Restaurant Landhaus Liebefeld. Il programma presenta Philipp Fankhauser nell’ambito di un tour dedicato ai quarant’anni di attività sul palco.",
+        "en": "This blues event takes place at Restaurant Landhaus Liebefeld. It features Philipp Fankhauser as part of a tour marking forty years on stage.",
+        "de": "Die Bluesveranstaltung findet im Restaurant Landhaus Liebefeld statt. Sie gehört zu einer Tournee mit Philipp Fankhauser, die vierzig Jahre auf der Bühne thematisiert.",
+        "fr": "Cette manifestation de blues a lieu au Restaurant Landhaus Liebefeld. Elle s’inscrit dans une tournée de Philipp Fankhauser consacrée à quarante années sur scène."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AxTt3LK",
@@ -656813,7 +657005,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento annuncia l’apertura del Thurbad a Weinfelden. La struttura è la piscina all’aperto di Weinfelden e accoglie gli ospiti.",
+      "descriptionByLocale": {
+        "it": "L’evento annuncia l’apertura del Thurbad a Weinfelden. La struttura è la piscina all’aperto di Weinfelden e accoglie gli ospiti.",
+        "en": "The event marks the opening of Thurbad in Weinfelden. It concerns the town’s outdoor swimming pool, which welcomes guests.",
+        "de": "Die Veranstaltung markiert die Öffnung des Thurbads in Weinfelden. Dabei nimmt das Freibad der Gemeinde den Betrieb auf und empfängt seine Gäste.",
+        "fr": "L’événement marque l’ouverture du Thurbad à Weinfelden. Il concerne la piscine extérieure de la commune, qui accueille ses visiteurs."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:cf180834cab74a0dae3967199f5c4692",

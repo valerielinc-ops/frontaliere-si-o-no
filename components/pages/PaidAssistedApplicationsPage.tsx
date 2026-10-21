@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, CalendarDays, MapPin } from 'lucid
 import { useTranslation, type Locale } from '@/services/i18n';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { buildPath } from '@/services/router';
+import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import { generateInitialsLogo } from '@/services/logoService';
@@ -181,7 +182,7 @@ function ApplicationDossier({
             </div>
             {application.jobUrl && (
               <a
-                href={application.jobUrl}
+                href={normalizeExternalJobDetailUrl(application.jobUrl)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-11 items-center gap-1.5 self-start text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 sm:self-auto"

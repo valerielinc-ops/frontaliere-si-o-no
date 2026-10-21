@@ -48,8 +48,11 @@ import {
   articleSectionPrefixes,
   assertNoCrossSourceChains,
   assertNoInternalChains,
+  assertNoCanonicalOverrideRedirectTargets,
+  findCanonicalOverrideRedirectTargets,
   findCrossSourceChains,
   findInternalChains,
+  loadArticleCanonicalOverrides,
   loadArticleRedirects,
   parseArticlePath,
   parseArticleRedirects,
@@ -57,6 +60,8 @@ import {
   readPublishedArticlePaths,
   withTrailingSlash,
 } from '../build-plugins/shared/articleRedirects.mjs';
+import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
+import { loadArticleRouteRedirects, resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const REDIRECTS_ABS = resolve(ROOT, ARTICLE_REDIRECTS_FILE);
@@ -67,6 +72,10 @@ const REDIRECTS_ABS = resolve(ROOT, ARTICLE_REDIRECTS_FILE);
  * this file red in a sparse worktree and green in CI.
  */
 const HARDCODED = readHardcodedRedirects(ROOT);
+const CANONICAL_OVERRIDES = loadSwissArticleCanonicalOverrides({ readFileSync }, [
+  resolve(ROOT, 'packages/articles/engine/shared/frontaliere-article-canonical-overrides.json'),
+  resolve(ROOT, 'data/swiss-article-canonical-overrides.json'),
+]);
 
 describe('articleSectionPrefixes — derived, not hand-copied', () => {
   it('covers both sections in all four locales with the real URL prefixes', () => {
@@ -243,6 +252,24 @@ describe('loadArticleRedirects', () => {
   });
 });
 
+describe('loadArticleCanonicalOverrides', () => {
+  it('tollera solo i file opzionali realmente assenti', () => {
+    const missing = Object.assign(new Error('missing'), { code: 'ENOENT' });
+    const loaded = loadArticleCanonicalOverrides('/fixture', (file) => {
+      if (file.endsWith('frontaliere-article-canonical-overrides.json')) {
+        return JSON.stringify({ overrides: { old: '/winner/' } });
+      }
+      throw missing;
+    });
+    expect(loaded).toEqual({ old: '/winner/' });
+  });
+
+  it('propaga JSON malformato invece di trattare la mappa come assente', () => {
+    expect(() => loadArticleCanonicalOverrides('/fixture', () => '{not-json'))
+      .toThrow(/impossibile leggere o interpretare la mappa canonical/u);
+  });
+});
+
 describe(`${ARTICLE_REDIRECTS_FILE} — the real file`, () => {
   /**
    * The file's presence is asserted HERE, not in the loader: the loader must
@@ -273,6 +300,27 @@ describe(`${ARTICLE_REDIRECTS_FILE} — the real file`, () => {
 
   it('forms no redirect chain across the two sources', () => {
     expect(() => assertNoCrossSourceChains(HARDCODED, loadArticleRedirects(ROOT))).not.toThrow();
+  });
+
+  it('resolves generated links to the final route, not the transition bridge', () => {
+    const redirects = loadArticleRouteRedirects(
+      { readFileSync },
+      REDIRECTS_ABS,
+      resolve(ROOT, 'build-plugins/legacyRedirectsPlugin.ts'),
+    );
+    for (const [from, to] of Object.entries(redirects)) {
+      expect(resolveArticleRouteHref(from, { redirects })).toBe(to);
+    }
+  });
+
+  it('keeps canonical overrides scoped to their article section', () => {
+    const canonicalOverrides = {
+      'same-slug': 'https://frontaliereticino.ch/articoli-svizzera/swiss-winner/',
+    };
+    expect(resolveArticleRouteHref('/articoli-svizzera/same-slug/', { canonicalOverrides }))
+      .toBe('/articoli-svizzera/swiss-winner/');
+    expect(resolveArticleRouteHref('/articoli-frontaliere/same-slug/', { canonicalOverrides }))
+      .toBe('/articoli-frontaliere/same-slug/');
   });
 });
 
@@ -558,5 +606,26 @@ describe('every entry is in a valid phase of a rename (see the truth table above
    */
   it.each(entries)('%s → %s does not redirect to another placeholder slug', (_from, to) => {
     expect(to).not.toMatch(/\/slug-[^/]+\/$/);
+  });
+
+  it('redirects never stop at a shadowed canonical route', () => {
+    expect(findCanonicalOverrideRedirectTargets(redirects, CANONICAL_OVERRIDES)).toEqual([]);
+    expect(() => assertNoCanonicalOverrideRedirectTargets(redirects, CANONICAL_OVERRIDES)).not.toThrow();
+  });
+
+  it('resolves root-relative canonical override winners', () => {
+    const redirectMap = {
+      '/en/cross-border-articles/old-title/': '/en/cross-border-articles/renamed-title/',
+    };
+    const overrides = {
+      'renamed-title': '/en/cross-border-articles/final-title/',
+    };
+    expect(findCanonicalOverrideRedirectTargets(redirectMap, overrides)).toEqual([
+      {
+        from: '/en/cross-border-articles/old-title/',
+        to: '/en/cross-border-articles/renamed-title/',
+        winner: '/en/cross-border-articles/final-title/',
+      },
+    ]);
   });
 });

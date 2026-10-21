@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "my-504c86923bce",
-      "slug": "spontanbewerbung-5-teo-jakob-ag-meiringen",
+      "slug": "applicazione-spontanea-5-teo-jakob-ag-meiringen",
       "slugByLocale": {
         "de": "spontanbewerbung-5-meiringen-my-ch",
-        "it": "spontanbewerbung-5-teo-jakob-ag-meiringen",
-        "en": "spontanbewerbung-5-teo-jakob-ag-meiringen",
-        "fr": "spontanbewerbung-5-teo-jakob-ag-meiringen"
+        "it": "applicazione-spontanea-5-teo-jakob-ag-meiringen",
+        "en": "spontaneous-application-5-teo-jakob-ag-meiringen",
+        "fr": "application-spontanee-5-teo-jakob-ag-meiringen"
       },
       "company": "Teo Jakob AG",
       "companyKey": "my",
@@ -58,11 +58,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-5-meiringen-my-ch"
+          "spontanbewerbung-5-meiringen-my-ch",
+          "spontanbewerbung-5-teo-jakob-ag-meiringen"
+        ],
+        "en": [
+          "spontanbewerbung-5-teo-jakob-ag-meiringen"
+        ],
+        "fr": [
+          "spontanbewerbung-5-teo-jakob-ag-meiringen"
         ]
       },
       "previousSlugs": [
-        "spontanbewerbung-5-meiringen-my-ch"
+        "spontanbewerbung-5-meiringen-my-ch",
+        "spontanbewerbung-5-teo-jakob-ag-meiringen"
       ],
       "salaryMin": 3400,
       "salaryMax": 5200,

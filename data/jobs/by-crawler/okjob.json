@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "okjob-19a89abcfc22",
-      "slug": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc",
+      "slug": "infermiera-hf-fh-80-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc",
-        "it": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc",
+        "it": "infermiera-hf-fh-80-100-m-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc",
         "en": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc",
-        "fr": "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc"
+        "fr": "infirmiere-diplomee-hf-fh-80-100-h-f-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc"
       },
       "slugDisambiguator": "19a89abc",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -68,16 +68,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:32:32.187Z"
+      "firstSeenAt": "2026-10-19T09:32:32.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-80-100-m-w-d-ok-job-sa-succursale-di-mendrisio-4051-basel-19a89abc"
+      ]
     },
     {
       "id": "okjob-3e7243a27944",
       "slug": "falegname-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2",
       "slugByLocale": {
         "it": "falegname-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2",
-        "en": "falegname-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2",
-        "de": "falegname-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2",
-        "fr": "falegname-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2"
+        "en": "woodworking-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2",
+        "de": "holzbearbeitung-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2",
+        "fr": "travail-du-bois-ok-job-sa-succursale-di-mendrisio-6850-mendrisio-3e7243a2"
       },
       "slugDisambiguator": "3e7243a2",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -140,12 +151,12 @@
     },
     {
       "id": "okjob-7b8c99e81033",
-      "slug": "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8",
+      "slug": "operatore-trice-di-macchine-di-produzione-di-cioccolato-e-snack-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8",
       "slugByLocale": {
         "de": "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8",
-        "it": "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8",
-        "en": "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8",
-        "fr": "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8"
+        "it": "operatore-trice-di-macchine-di-produzione-di-cioccolato-e-snack-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8",
+        "en": "production-machine-operator-for-chocolate-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8",
+        "fr": "operateur-trice-de-machines-de-production-chocolat-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8"
       },
       "slugDisambiguator": "7b8c99e8",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -191,7 +202,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -205,16 +215,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-19T09:32:32.150Z"
+      "firstSeenAt": "2026-10-19T09:32:32.150Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8"
+        ],
+        "en": [
+          "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8"
+        ],
+        "fr": [
+          "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmaschinenfuhrer-in-schokolade-snacks-ok-job-sa-succursale-di-mendrisio-4051-basel-7b8c99e8"
+      ]
     },
     {
       "id": "okjob-1b0aedd4e4ff",
-      "slug": "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4",
+      "slug": "cfc-pittore-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4",
       "slugByLocale": {
         "fr": "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4",
-        "it": "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4",
-        "en": "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4",
-        "de": "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4"
+        "it": "cfc-pittore-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4",
+        "en": "cfc-painter-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4",
+        "de": "cfc-maler-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4"
       },
       "slugDisambiguator": "1b0aedd4",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -273,16 +297,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-10T09:33:28.177Z"
+      "firstSeenAt": "2026-10-10T09:33:28.177Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4"
+        ],
+        "en": [
+          "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4"
+        ],
+        "de": [
+          "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4"
+        ]
+      },
+      "previousSlugs": [
+        "peintre-cfc-ok-job-sa-succursale-di-mendrisio-2000-neuchatel-1b0aedd4"
+      ]
     },
     {
       "id": "okjob-e77876691ca0",
-      "slug": "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669",
+      "slug": "autista-di-autogru-cat-ce-con-patentino-di-gru-a-100-m-f-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669",
       "slugByLocale": {
         "de": "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669",
-        "it": "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669",
-        "en": "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669",
-        "fr": "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669"
+        "it": "autista-di-autogru-cat-ce-con-patentino-di-gru-a-100-m-f-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669",
+        "en": "crane-truck-driver-cat-ce-with-crane-operator-s-license-a-100-m-f-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669",
+        "fr": "chauffeur-se-de-camion-grue-cat-ce-avec-permis-de-grutier-a-100-h-f-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669"
       },
       "slugDisambiguator": "e7787669",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -327,17 +365,24 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e79d3abe"
+          "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e79d3abe",
+          "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669"
         ],
         "de": [
           "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e79d3abe"
+        ],
+        "en": [
+          "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669"
+        ],
+        "fr": [
+          "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669"
         ]
       },
       "previousSlugs": [
-        "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e79d3abe"
+        "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e79d3abe",
+        "kranchauffeur-in-kat-ce-mit-kranfuhrerausweis-a-100-m-w-d-ok-job-sa-succursale-di-mendrisio-basel-e7787669"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

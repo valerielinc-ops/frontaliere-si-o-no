@@ -8,6 +8,12 @@ interface JobBoardResultsLoaderProps {
    * eventual list length so results reconcile in place with zero CLS.
    */
   cards?: number;
+  /**
+   * Fixed-height reservations for in-feed ad positions in the eventual list.
+   * The real AdSense slot mounts after results resolve; keeping its registry
+   * height in the loading footprint prevents later cards from moving.
+   */
+  infeedAdSlots?: ReadonlyArray<{ afterCard: number; minHeight: number }>;
   className?: string;
 }
 
@@ -24,7 +30,11 @@ interface JobBoardResultsLoaderProps {
  *   global prefers-reduced-motion rule (index.css) neutralises; message rotation
  *   is paused for motion-sensitive users too.
  */
-export const JobBoardResultsLoader: React.FC<JobBoardResultsLoaderProps> = ({ cards = 6, className = '' }) => {
+export const JobBoardResultsLoader: React.FC<JobBoardResultsLoaderProps> = ({
+  cards = 6,
+  infeedAdSlots = [],
+  className = '',
+}) => {
   const { t } = useTranslation();
   // Static t() calls (not template literals) so the i18n-completeness test
   // verifies every key exists across all four locales.
@@ -74,14 +84,24 @@ export const JobBoardResultsLoader: React.FC<JobBoardResultsLoaderProps> = ({ ca
       {/* Shimmer skeleton cards — sized to the real JobCard so the list resolves
           in place (no CLS). The sweep is decorative → hidden from a11y tree. */}
       <div className="space-y-3" aria-hidden="true">
-        {Array.from({ length: cards }).map((_, i) => (
-          <div
-            key={i}
-            className="job-loader-card relative h-24 overflow-hidden rounded-xl border border-edge bg-surface-raised sm:h-[120px]"
-          >
-            <div className="job-loader-shimmer absolute inset-0" />
-          </div>
-        ))}
+        {Array.from({ length: cards }).map((_, i) => {
+          const position = i + 1;
+          const adSlot = infeedAdSlots.find((slot) => slot.afterCard === position);
+          return (
+            <React.Fragment key={position}>
+              <div className="job-loader-card relative h-24 overflow-hidden rounded-xl border border-edge bg-surface-raised sm:h-[120px]">
+                <div className="job-loader-shimmer absolute inset-0" />
+              </div>
+              {adSlot && (
+                <div
+                  className="job-loader-ad-reserve my-3 [contain:layout]"
+                  style={{ minHeight: adSlot.minHeight }}
+                  aria-hidden="true"
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
       </div>
     </div>
   );
