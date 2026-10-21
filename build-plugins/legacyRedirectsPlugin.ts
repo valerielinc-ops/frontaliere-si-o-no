@@ -336,6 +336,21 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/en/swiss-articles/news-not-relevant/': '/en/swiss-articles/',
  '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': '/de/schweiz-artikel/',
  '/fr/articles-suisse/information-non-pertinente/': '/fr/articles-suisse/',
+ // ── GSC 404 retirement decisions (2026-10-21) ───────────────────────────
+ // Search Console reported these old article URLs as not found. Each was
+ // checked against the current site/corpus slug registries and the live apex
+ // (404 on 2026-10-21). Six have no surviving article with the same subject or
+ // safe one-hop substitute; the one documented equivalent is kept as a direct
+ // 301. The other section-root targets are retirement declarations only and
+ // EDGE_RETIRED_PATHS derives them as 410 rather than sending Google to a
+ // soft-404 hub.
+ '/articoli-frontaliere/lombardia-sport-ticino/': '/articoli-frontaliere/',
+ '/fr/articles-frontalier/tesin-lombardie-manufacture/': '/fr/articles-frontalier/',
+ '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/': '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
+ '/de/grenzgaenger-artikel/rekorde-schneefall-bosco-gurin-2026/': '/de/grenzgaenger-artikel/',
+ '/de/grenzgaenger-artikel/transport-agency-como-renewed/': '/de/grenzgaenger-artikel/',
+ '/fr/articles-frontalier/suisse-service-public-frais-tv/': '/fr/articles-frontalier/',
+ '/en/cross-border-articles/varese-drunk-accident/': '/en/cross-border-articles/',
  // ── Bing blocked URLs (2026-03-27) — old slugs → current canonical ──
  // IT: category or slug renames
  '/compara-servizi/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',
