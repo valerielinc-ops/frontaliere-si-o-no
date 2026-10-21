@@ -52,6 +52,7 @@ import {
   findCanonicalOverrideRedirectTargets,
   findCrossSourceChains,
   findInternalChains,
+  loadArticleCanonicalOverrides,
   loadArticleRedirects,
   parseArticlePath,
   parseArticleRedirects,
@@ -248,6 +249,24 @@ describe('loadArticleRedirects', () => {
       existsSync: () => true,
       readFileSync: () => '{ not json',
     })).toThrow(/JSON non valido/);
+  });
+});
+
+describe('loadArticleCanonicalOverrides', () => {
+  it('tollera solo i file opzionali realmente assenti', () => {
+    const missing = Object.assign(new Error('missing'), { code: 'ENOENT' });
+    const loaded = loadArticleCanonicalOverrides('/fixture', (file) => {
+      if (file.endsWith('frontaliere-article-canonical-overrides.json')) {
+        return JSON.stringify({ overrides: { old: '/winner/' } });
+      }
+      throw missing;
+    });
+    expect(loaded).toEqual({ old: '/winner/' });
+  });
+
+  it('propaga JSON malformato invece di trattare la mappa come assente', () => {
+    expect(() => loadArticleCanonicalOverrides('/fixture', () => '{not-json'))
+      .toThrow(/impossibile leggere o interpretare la mappa canonical/u);
   });
 });
 

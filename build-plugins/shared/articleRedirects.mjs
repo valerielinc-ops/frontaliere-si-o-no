@@ -519,12 +519,17 @@ export function loadArticleCanonicalOverrides(rootDir, readFile = readFileSync) 
     try {
       const parsed = JSON.parse(String(readFile(path.join(rootDir, relative), 'utf-8')));
       const entries = parsed?.overrides;
-      if (!entries || typeof entries !== 'object' || Array.isArray(entries)) continue;
+      if (!entries || typeof entries !== 'object' || Array.isArray(entries)) {
+        throw new Error('la proprietà `overrides` deve essere un oggetto');
+      }
       for (const [slug, winner] of Object.entries(entries)) {
         if (typeof slug === 'string' && typeof winner === 'string') out[slug] = winner;
       }
-    } catch {
-      // A missing optional map is the documented safe default.
+    } catch (err) {
+      const code = err && typeof err === 'object' && 'code' in err ? err.code : undefined;
+      if (code === 'ENOENT') continue;
+      const message = err instanceof Error ? err.message : String(err);
+      throw new Error(`${relative}: impossibile leggere o interpretare la mappa canonical — ${message}`, { cause: err });
     }
   }
   return out;
