@@ -117,7 +117,7 @@ function writeCantonCorpus(root: string, section: string): void {
     const meta = ARTICLES.map((a) => ` 'blog.article.${a.id}.title': 'Titolo ${a.id} ${locale}',\n 'blog.article.${a.id}.excerpt': 'Estratto ${a.id} ${locale}, abbastanza lungo da comparire nella scheda.',`).join('\n');
     const metaFile = path.join(root, 'services/locales', `${core.metaPrefix}-${locale}.ts`);
     fs.mkdirSync(path.dirname(metaFile), { recursive: true });
-    fs.writeFileSync(metaFile, `const meta = {\n${meta}\n};\nexport default meta;\n`);
+    fs.writeFileSync(metaFile, `const meta: Record<string, string> = {\n${meta}\n};\nexport default meta;\n`);
     const bodyDir = path.join(root, 'services/locales', core.bodyDir, locale);
     fs.mkdirSync(bodyDir, { recursive: true });
     for (const a of ARTICLES) {
