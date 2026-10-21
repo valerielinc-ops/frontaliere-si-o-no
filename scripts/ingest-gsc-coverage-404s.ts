@@ -60,7 +60,7 @@ import { fileURLToPath } from 'node:url';
 
 import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -203,7 +203,7 @@ function main(): void {
   let prevCompat: string[] = [];
   let compatUnion: string[] = [];
   if (ALSO_COMPAT) {
-    prevCompat = readCompatPaths(ROOT).paths.map((p) => String(p));
+    prevCompat = readCompatPathsStrict(ROOT).paths.map((p) => String(p));
     // Use coverageUnion (full accumulated coverage set) not just `seen` (current CSV batch):
     // on subsequent runs without new CSVs the existing 999 coverage paths would otherwise
     // be silently skipped, leaving TI paths without rich soft-landings.
@@ -232,7 +232,7 @@ function main(): void {
   let wrote = 'data/gsc-coverage-404s.json';
   if (ALSO_COMPAT) {
     // Preserve any extra metadata keys on the compat store (source/lastUpdated).
-    const existing = readCompatPaths(ROOT);
+    const existing = readCompatPathsStrict(ROOT);
     const { paths: _ignored, ...compatMeta } = existing as Record<string, unknown> & { paths?: unknown };
     if (!compatMeta.source) compatMeta.source = 'gsc-export+url-inspection';
     writeCompatPaths({ ...compatMeta, paths: compatUnion, lastUpdated: today }, ROOT);

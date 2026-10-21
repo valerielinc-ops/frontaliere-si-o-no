@@ -46,7 +46,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPaths, writeCompatPaths, COMPAT_SHARD_DIR } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, writeCompatPaths, COMPAT_SHARD_DIR } from './lib/compat-paths-store.mjs';
 import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 
@@ -162,7 +162,7 @@ async function main() {
       `(${skipped} asset/infra, ${lowCount} below min-count=${opts.minCount} skipped).`,
   );
 
-  const compat = readCompatPaths(ROOT);
+  const compat = readCompatPathsStrict(ROOT);
   const compatSet = new Set(Array.isArray(compat.paths) ? compat.paths : []);
   const before = compatSet.size;
   for (const p of candidates) compatSet.add(p);
@@ -191,7 +191,7 @@ async function main() {
   // Floor-guard (shared helper): the compat accumulator is a ~390k-path set;
   // a degraded empty read must never overwrite it. Adding paths only grows the
   // set, so this fires only if the on-disk read silently collapsed.
-  const prevCount = readCompatPaths(ROOT).paths?.length ?? 0;
+  const prevCount = readCompatPathsStrict(ROOT).paths?.length ?? 0;
   assertCompatFloor(prevCount, updated.paths.length, {
     floor: COMPAT_PATHS_SANITY_FLOOR,
     label: COMPAT_PATH,

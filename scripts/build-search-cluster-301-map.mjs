@@ -61,7 +61,7 @@ import {
   SEARCH_QUERY_BOILERPLATE_TOKENS,
 } from '../services/searchQueryBoilerplate.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
-import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import {
   DEFAULT_LIVE_CHECK_USER_AGENT,
@@ -484,14 +484,14 @@ async function main() {
   // Feed every resolved legacy URL into the seo-404-compat accumulator (issue
   // #4590 audit finding: 9922/9922 map entries were never accumulator-fed
   // since this script's creation, #2917 — legacyRedirectsPlugin.ts only emits
-  // a real bridge/redirect page for paths present in readCompatPaths(), and
+  // a real bridge/redirect page for paths present in readCompatPathsStrict(), and
   // this map alone was never wired into that store). Computing a target for
   // `oldUrl` above IS the proof it's a dead legacy URL — no need to wait on
   // discover-404s-via-cloudflare.mjs (can't see these: they answer HTTP 200,
   // a soft-404 SPA fallback, never a real 4xx in the CF log it scans) or
   // discover-404s-via-inspection.mjs (never queues this URL family as an
   // inspection candidate at all).
-  const compat = readCompatPaths(ROOT);
+  const compat = readCompatPathsStrict(ROOT);
   const compatSet = new Set(compat.paths);
   const prevCompatCount = compatSet.size;
   for (const oldUrl of Object.keys(map)) compatSet.add(oldUrl);
