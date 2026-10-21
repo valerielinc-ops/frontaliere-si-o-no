@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import {
   buildJobsStatsArtifacts,
+  buildJobsStatsSummary,
   updateJobsStatsHistory,
 } from '../scripts/lib/job-board-stats.mjs';
+import { mergeJobStatsHistoryEntries } from '../scripts/lib/job-stats-history-store.mjs';
 
 function job(overrides: Record<string, unknown> = {}) {
   return {
@@ -22,7 +24,75 @@ function job(overrides: Record<string, unknown> = {}) {
   };
 }
 
+function zurichDate(dateValue: Date) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Zurich',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(dateValue);
+}
+
+function dateOffset(dateValue: string, offsetDays: number) {
+  const date = new Date(`${dateValue}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() + offsetDays);
+  return date.toISOString().slice(0, 10);
+}
+
 describe('job-board-stats', () => {
+  it('keeps the scalar added count on later runs after age compaction drops addedKeys', () => {
+    const currentDate = zurichDate(new Date());
+    const nextDate = dateOffset(currentDate, 1);
+    const oldDate = dateOffset(currentDate, -31);
+    const addedKeys = Array.from({ length: 4 }, (_, i) => `url:https://example.com/old-${i}`);
+    const oldEntry = {
+      date: oldDate,
+      totalJobs: 12,
+      added: addedKeys.length,
+      updated: 3,
+      removed: 1,
+      addedKeys,
+      updatedKeys: ['url:update-1', 'url:update-2', 'url:update-3'],
+      removedKeys: ['url:removed-1'],
+      companyStats: [{
+        key: 'company',
+        name: 'Company',
+        addedKeys,
+        updatedKeys: ['url:update-1', 'url:update-2', 'url:update-3'],
+        removedKeys: ['url:removed-1'],
+        updatedCount: 3,
+        removedCount: 1,
+      }],
+      locationStats: [],
+      titleStats: [],
+    };
+    const firstNow = new Date(`${currentDate}T12:00:00.000Z`).toISOString();
+    const nextNow = new Date(`${nextDate}T12:00:00.000Z`).toISOString();
+
+    const first = buildJobsStatsArtifacts({
+      previousJobs: [],
+      currentJobs: [],
+      existingHistory: { version: 1, generatedAt: firstNow, entries: [oldEntry] },
+      now: firstNow,
+    });
+    const compacted = first.history.entries.find((entry) => entry.date === oldDate)!;
+    expect(compacted).toMatchObject({ added: 4, updated: 3, removed: 1, addedKeys: [] });
+    expect(compacted.companyStats).toEqual([]);
+
+    const second = buildJobsStatsArtifacts({
+      previousJobs: [],
+      currentJobs: [],
+      existingHistory: first.history,
+      now: nextNow,
+    });
+    expect(second.history.entries.find((entry) => entry.date === oldDate)).toMatchObject({
+      added: 4,
+      updated: 3,
+      removed: 1,
+      addedKeys: [],
+    });
+  });
+
   it('collapses duplicate same-date retry entries before building the baseline (#6720)', () => {
     const now = new Date();
     const date = new Intl.DateTimeFormat('en-CA', {
@@ -57,6 +127,88 @@ describe('job-board-stats', () => {
 
     expect(history.entries).toHaveLength(1);
     expect(history.entries[0]).toMatchObject({ date, added: 2 });
+  });
+
+  it('preserves compacted added totals while deduplicating mixed same-date history entries', () => {
+    const currentDate = zurichDate(new Date());
+    const oldDate = dateOffset(currentDate, -31);
+    const compacted = {
+      date: oldDate,
+      totalJobs: 10,
+      added: 4,
+      updated: 3,
+      removed: 1,
+      addedKeys: [],
+      updatedKeys: [],
+      removedKeys: [],
+      companyStats: [],
+      locationStats: [],
+      titleStats: [],
+    };
+    const verbose = {
+      ...compacted,
+      added: 1,
+      addedKeys: ['url:https://example.com/partial-verbose-key'],
+    };
+
+    for (const duplicateEntries of [
+      [compacted, { ...compacted }],
+      [compacted, verbose],
+      [verbose, compacted],
+    ]) {
+      const history = updateJobsStatsHistory(
+        { entries: duplicateEntries },
+        {},
+        [],
+        { now: new Date(`${currentDate}T12:00:00.000Z`).toISOString() },
+      );
+      const merged = history.entries.find((entry) => entry.date === oldDate);
+
+      expect(history.entries.filter((entry) => entry.date === oldDate)).toHaveLength(1);
+      expect(merged).toMatchObject({ added: 4, addedKeys: [] });
+    }
+  });
+
+  it('preserves compacted added totals across sibling merge then history update', () => {
+    const currentDate = zurichDate(new Date());
+    const oldDate = dateOffset(currentDate, -31);
+    const partialVerboseKey = 'url:https://example.com/partial-verbose-key';
+    const compacted = {
+      date: oldDate,
+      totalJobs: 10,
+      added: 4,
+      updated: 3,
+      removed: 1,
+      addedKeys: [],
+      updatedKeys: [],
+      removedKeys: [],
+      companyStats: [],
+      locationStats: [],
+      titleStats: [],
+    };
+    const verbose = {
+      ...compacted,
+      added: 1,
+      addedKeys: [partialVerboseKey],
+    };
+    const [mergedSibling] = mergeJobStatsHistoryEntries([compacted], [verbose]);
+
+    expect(mergedSibling).toMatchObject({ added: 4, addedKeys: [partialVerboseKey] });
+
+    const now = new Date(`${currentDate}T12:00:00.000Z`).toISOString();
+    const history = updateJobsStatsHistory(
+      { entries: [mergedSibling] },
+      {},
+      [],
+      { now },
+    );
+
+    expect(history.entries.find((entry) => entry.date === oldDate)).toMatchObject({
+      added: 4,
+      addedKeys: [],
+    });
+    expect(buildJobsStatsSummary([], { entries: [mergedSibling] }, { now }).history.find((entry) => entry.date === oldDate))
+      .toMatchObject({ added: 4 });
   });
 
   it('builds daily history and canonical summary links for current jobs and recent changes', () => {
