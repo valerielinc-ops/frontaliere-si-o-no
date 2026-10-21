@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 747,
+      "5": 748,
       "6": 5054
     },
-    "publishedCovers": 7484,
+    "publishedCovers": 7485,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204995,6 +204995,39 @@
         "provider": "openai-codex",
         "assetId": "article-hackeraggio-ipct-casse-pensioni-ticino",
         "imageUrl": "/images/blog/article-hackeraggio-ipct-casse-pensioni-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-heiden-risparmi-preventivo-2027": {
+      "cover": "/images/blog/article-heiden-risparmi-preventivo-2027.webp",
+      "hash": "4397974a475c2eefdb1e1bf7f76c39d29a60a121eea6d4111753ffec48f4d91b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "heiden-risparmi-preventivo-2027",
+          "category": "fiscale",
+          "date": "2026-10-21T19:28:07.751Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-heiden-risparmi-preventivo-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-heiden-risparmi-preventivo-2027",
+        "imageUrl": "/images/blog/article-heiden-risparmi-preventivo-2027.webp",
         "evidence": "generated-engine-record"
       }
     },
