@@ -15,6 +15,7 @@ import {
 import {
   buildSoftLandingThinHtml,
 } from '../build-plugins/shared/softLandingThinShell';
+import { getPathHistory, reset as resetWriteRegistry } from '../build-plugins/sharedWriteRegistry';
 
 const ACTIVE_PAGE = `<!DOCTYPE html>
 <html lang="it">
@@ -66,6 +67,7 @@ let tempDirs: string[] = [];
 afterEach(() => {
   for (const dir of tempDirs) fs.rmSync(dir, { recursive: true, force: true });
   tempDirs = [];
+  resetWriteRegistry();
 });
 
 describe('jobsSeoPages disk-backed HTML retention', () => {
@@ -132,13 +134,13 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     const collectorWrittenKeys = () => hasCollectorWrittenHtml(
       fixture.distDir,
       fixture.relativePath,
-      (filePath) => collector.hasWritten(filePath),
+      (filePath) => getPathHistory().has(filePath),
     ) ? new Set([cacheKey]) : new Set<string>();
 
     expect(hasCollectorWrittenHtml(
       fixture.distDir,
       fixture.relativePath,
-      (filePath) => collector.hasWritten(filePath),
+      (filePath) => getPathHistory().has(filePath),
     )).toBe(false);
     expect(releaseDiskBackedHtmlCache(cache, collectorWrittenKeys())).toBe(0);
     const fallbackHtml = readCachedOrEmittedHtml(
@@ -156,7 +158,13 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(hasCollectorWrittenHtml(
       fixture.distDir,
       fixture.relativePath,
-      (filePath) => collector.hasWritten(filePath),
+      (filePath) => getPathHistory().has(filePath),
+    )).toBe(true);
+    collector.forgetWrittenPaths();
+    expect(hasCollectorWrittenHtml(
+      fixture.distDir,
+      fixture.relativePath,
+      (filePath) => getPathHistory().has(filePath),
     )).toBe(true);
     expect(releaseDiskBackedHtmlCache(cache, collectorWrittenKeys())).toBe(1);
     const diskHtml = readCachedOrEmittedHtml(
@@ -188,10 +196,11 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     cache.set('it:/cerca-lavoro-ticino/job-collision/', ACTIVE_PAGE);
     pendingPaths.set('it:/cerca-lavoro-ticino/job-collision/', 'cerca-lavoro-ticino/job-collision');
     const isWritten = (relativePath: string) =>
-      hasCollectorWrittenHtml(distDir, relativePath, (filePath) => collector.hasWritten(filePath));
+      hasCollectorWrittenHtml(distDir, relativePath, (filePath) => getPathHistory().has(filePath));
 
-    // Nothing is on disk before the chunk boundary flushes the collector.
-    expect(written.some(isWritten)).toBe(false);
+    // Claims are recorded when add() is called, but nothing is on disk before
+    // the chunk boundary flushes the collector.
+    expect(written.some((relativePath) => fs.existsSync(path.join(distDir, relativePath, 'index.html')))).toBe(false);
 
     const released = await releaseFlushedHtmlCacheChunk(
       cache,
