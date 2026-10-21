@@ -1048,6 +1048,32 @@ function clusterMatchingJobCount(ctx: ClusterContext): number {
     : ctx.matchingJobs.length;
 }
 
+/**
+ * Choose one stable URL when multiple candidates in the same locale collapse
+ * to the same normalized keyword + city. Hreflang requires one reciprocal
+ * URL per locale, so an insertion-order overwrite would make some pages point
+ * at a sibling URL that does not point back to them.
+ */
+function preferHreflangVariant(candidate: ClusterContext, current: ClusterContext): boolean {
+  const candidateHasGscEvidence = candidate.candidate.gscMatch === true;
+  const currentHasGscEvidence = current.candidate.gscMatch === true;
+  if (candidateHasGscEvidence !== currentHasGscEvidence) return candidateHasGscEvidence;
+
+  const candidateJobCount = Number.isFinite(candidate.candidate.jobCount)
+    ? candidate.candidate.jobCount
+    : 0;
+  const currentJobCount = Number.isFinite(current.candidate.jobCount)
+    ? current.candidate.jobCount
+    : 0;
+  if (candidateJobCount !== currentJobCount) {
+    return candidateJobCount > currentJobCount;
+  }
+
+  // Input ordering comes from harvested data and can change between runs. A
+  // lexical tie-break keeps the representative identical across every shard.
+  return candidate.candidate.slug < current.candidate.slug;
+}
+
 export interface ClusterContextBuildOptions {
   /** Maximum jobs to retain for this context. */
   readonly maxJobs?: number;
@@ -3157,9 +3183,8 @@ function renderHreflang(
   // lives in ONE place — shared/localeAlternateBlock.ts — because
   // jobsSeoPagesPlugin's three search-landing emitters need the identical
   // rule and a second literal copy is exactly the drift AGENTS.md #6
-  // forbids. This plugin was already correct: its alternates come from
-  // `byKeywordCity`, i.e. contexts the build planned. #5114 was the OTHER
-  // emitter, which templated all four locales unconditionally.
+  // forbids. The alternates come from `byKeywordCity`, which contains only
+  // self-canonical contexts eligible to carry a reciprocal set.
   const byLocale = new Map(hreflang.map((h) => [h.locale as string, h.url]));
   return buildLocaleAlternateBlock({
     eligibleLocales: byLocale.keys(),
@@ -5034,7 +5059,11 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         `\x1b[36m[related-search-clusters]\x1b[0m registered ${plannedPathCount} planned keyword-landing path(s) (plan total ${keywordLandingPlanSize()})`,
       );
 
-      // Group by (normalized keyword + city) for cross-locale hreflang lookup.
+      // Group self-canonical pages by (normalized keyword + city) for
+      // cross-locale hreflang lookup. Below-floor contexts render as noindex
+      // bridges canonicalized to their locale hub and deliberately emit no
+      // hreflang; including one here would make every sibling point one-way
+      // at a page that cannot return the alternate.
       // The composite key is also reused inside the per-cluster render loop
       // (the `altKey` lookup against `byKeywordCity`), so we cache it onto a
       // side Map keyed by ctx — `normalizeText` is NFKD + regex per call,
@@ -5046,12 +5075,18 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       for (const ctx of contexts) {
         const key = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
         altKeyByCtx.set(ctx, key);
+        if (isClusterBelowFloor(ctx, enriched[`${ctx.candidate.locale}::${ctx.candidate.slug}`])) {
+          continue;
+        }
         let inner = byKeywordCity.get(key);
         if (!inner) {
           inner = new Map();
           byKeywordCity.set(key, inner);
         }
-        inner.set(ctx.candidate.locale, ctx);
+        const current = inner.get(ctx.candidate.locale);
+        if (!current || preferHreflangVariant(ctx, current)) {
+          inner.set(ctx.candidate.locale, ctx);
+        }
       }
       profileRecord('group-hreflang', __tGroupHreflang);
 
@@ -5229,7 +5264,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // in practice) ctx-not-in-map path.
         const altKey = altKeyByCtx.get(ctx) ?? `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
         const altMap = byKeywordCity.get(altKey);
-        const hreflang = altMap
+        // Only the selected representative can own this locale in the
+        // reciprocal set. Ambiguous same-locale siblings emit no hreflang;
+        // otherwise their self reference would have to point at a different
+        // canonical URL and break the return-link invariant.
+        const isLocaleRepresentative = altMap?.get(ctx.candidate.locale) === ctx;
+        const hreflang = altMap && isLocaleRepresentative
           ? Array.from(altMap.entries()).map(([loc, otherCtx]) => ({
               locale: loc,
               url: `${BASE_URL}${buildClusterPath(loc, otherCtx.candidate.slug, otherCtx.cantonGroup)}`,
