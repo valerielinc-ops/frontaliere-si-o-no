@@ -28610,6 +28610,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guasto-sistemi-skyguide-scali',
+    category: 'novita',
+    date: '2026-10-21T05:09:46.733Z',
+    image: '/images/blog/article-guasto-sistemi-skyguide-scali.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -8552,6 +8552,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma approva il primo ETF svizzero in Bitcoin',
     'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute',
     'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.guasto-sistemi-skyguide-scali.title': 'Guasto ai sistemi: capacità aerea svizzera al 50%',
+    'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi brevemente a Zurigo',
+    'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

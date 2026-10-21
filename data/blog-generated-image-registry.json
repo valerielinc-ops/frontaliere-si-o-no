@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 724,
-  "generatedAt": "2026-10-21T04:37:08.275Z",
+  "assetCount": 726,
+  "generatedAt": "2026-10-21T05:43:50.204Z",
   "assets": [
     {
       "schema": 1,
@@ -30468,6 +30468,49 @@
     },
     {
       "schema": 1,
+      "assetId": "article-fisco-vaud-indennita-abuso-imposte",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "8d5680b25f456d0a3f76dc1fcf964d7dbc62782731dd6f7098fefc79aacec735",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "7cc7cc4fad1c62739790bf9d121c15ca8074ce31413d4a86354f2b3139636698",
+      "bytes": 46608,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-21T04:19:23.418Z",
+      "verifiedAt": "2026-10-21T04:19:30.443Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-fisco-vaud-indennita-abuso-imposte.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic editorial scene with fiscal/legal documents; no text, logos, people, or specific event."
+      }
+    },
+    {
+      "schema": 1,
       "assetId": "article-glarona-mercato-immobiliare-2026",
       "kind": "generated",
       "provider": "openai-codex",
@@ -30507,6 +30550,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial illustration of residential buildings in a Swiss mountain setting; no people, text, logos, or event-specific cues."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-guasto-sistemi-skyguide-scali",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "4f2d18b985dbe0a035ab2c718e84c59e500aae541e3d72f1e5d7f831b83de345",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "ce021014f5d7ad2b7d54f422650149ecde4ab615b07d398c604f2c3c7750599f",
+      "bytes": 78058,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-21T05:09:38.921Z",
+      "verifiedAt": "2026-10-21T05:09:46.276Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-guasto-sistemi-skyguide-scali.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic airport scene with aircraft and control tower; no readable text, logos, people, or event-specific identifiers."
       }
     },
     {

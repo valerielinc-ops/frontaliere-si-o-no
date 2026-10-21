@@ -8552,6 +8552,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma approves the first Swiss Bitcoin ETF',
     'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma authorizes the first direct public Bitcoin fund The fund is traded on the stock exchange The decision follows growing interest in cryptocurrencies',
     'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.guasto-sistemi-skyguide-scali.title': 'System failure: Swiss air capacity at 50%',
+    'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Technical failure in Skyguide systems Tuesday afternoon Skyguide operates at 50% capacity as a precaution Takeoffs and landings briefly suspended in Zurich',
+    'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

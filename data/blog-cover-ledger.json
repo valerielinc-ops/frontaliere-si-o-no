@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 722,
+      "5": 724,
       "6": 5054
     },
-    "publishedCovers": 7459,
+    "publishedCovers": 7461,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204206,6 +204206,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-fisco-vaud-indennita-abuso-imposte": {
+      "cover": "/images/blog/article-fisco-vaud-indennita-abuso-imposte.webp",
+      "hash": "7cc7cc4fad1c62739790bf9d121c15ca8074ce31413d4a86354f2b3139636698",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "fisco-vaud-indennita-abuso-imposte",
+          "category": "fiscale",
+          "date": "2026-10-21T04:19:30.522Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fisco-vaud-indennita-abuso-imposte.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fisco-vaud-indennita-abuso-imposte",
+        "imageUrl": "/images/blog/article-fisco-vaud-indennita-abuso-imposte.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-glarona-mercato-immobiliare-2026": {
       "cover": "/images/blog/article-glarona-mercato-immobiliare-2026.webp",
       "hash": "ec13bfad148583ed7998edc4aba38b62e9dbdc32b0ef49313ea51fde2b17596b",
@@ -204236,6 +204269,39 @@
         "provider": "openai-codex",
         "assetId": "article-glarona-mercato-immobiliare-2026",
         "imageUrl": "/images/blog/article-glarona-mercato-immobiliare-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-guasto-sistemi-skyguide-scali": {
+      "cover": "/images/blog/article-guasto-sistemi-skyguide-scali.webp",
+      "hash": "ce021014f5d7ad2b7d54f422650149ecde4ab615b07d398c604f2c3c7750599f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "guasto-sistemi-skyguide-scali",
+          "category": "novita",
+          "date": "2026-10-21T05:09:46.733Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-guasto-sistemi-skyguide-scali.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-guasto-sistemi-skyguide-scali",
+        "imageUrl": "/images/blog/article-guasto-sistemi-skyguide-scali.webp",
         "evidence": "generated-engine-record"
       }
     },

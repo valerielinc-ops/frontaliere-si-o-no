@@ -2873,6 +2873,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7': { it: 'orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7', en: 'swiss-watches-exports-at-2-2-billion-in-september-11-7', de: 'schweizer-uhren-exporte-im-september-bei-2-2-milliarden-11-7', fr: 'montres-suisses-exportations-a-2-2-milliards-en-septembre-11-7' },
  'molestie-lavoro-pmi-svizzere': { it: 'molestie-lavoro-pmi-svizzere', en: 'workplace-harassment-swiss-smes', de: 'arbeitsplatz-belastigung-schweizer-kmu', fr: 'harcelement-travail-pme-suisses' },
  'finma-etf-bitcoin-primo-fondo': { it: 'finma-etf-bitcoin-primo-fondo', en: 'finma-approves-first-swiss-bitcoin-etf', de: 'finma-gibt-ersten-schweizer-bitcoin-etf-frei', fr: 'finma-autorise-premier-etf-bitcoin-suisse' },
+ 'guasto-sistemi-skyguide-scali': { it: 'guasto-sistemi-skyguide-scali', en: 'skyguide-system-fault-airports', de: 'skyguide-systemstoerung-flughaefen', fr: 'panne-systeme-skyguide-aeroports' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
