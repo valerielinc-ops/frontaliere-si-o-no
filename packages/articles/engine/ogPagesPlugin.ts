@@ -26,6 +26,13 @@ import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
+import {
+ findFirstTopLevelObject,
+ parseStaticSource,
+ readStaticObjectProperties,
+ readStaticString,
+ staticPropertyName,
+} from './shared/staticSourceAst.mjs';
 import { createImageCreditReader, imageObjectCreditFields, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
@@ -320,49 +327,30 @@ export function parseStaticBlogBodySource(source: string, sourcePath: string): R
  const out: Record<string, Record<string, string>> = {};
  const expectedArticleId = path.basename(sourcePath, '.ts');
  let bodyFieldCount = 0;
- let cursor = 0;
+ const sourceFile = parseStaticSource(source, sourcePath, {
+  errorPrefix: '[og-pages]',
+  rejectInterpolatedTemplates: true,
+ });
+ const object = findFirstTopLevelObject(sourceFile);
+ if (!object) throw new Error(`[og-pages] Existing article body file has no static object: ${sourcePath}`);
 
- while (cursor < source.length) {
-  cursor = skipStaticTsTrivia(source, cursor, sourcePath);
-  if (cursor >= source.length) break;
-  const char = source[cursor];
-  if (char !== "'" && char !== '"' && char !== '`') {
-   cursor += 1;
-   continue;
-  }
-
-  const keyToken = readStaticTsStringLiteral(source, cursor, sourcePath);
-  const key = decodeStaticTsStringLiteral(keyToken.raw, keyToken.quote);
+ for (const property of readStaticObjectProperties(object, sourcePath)) {
+  const key = staticPropertyName(property.name);
+  if (!key) continue;
   const match = /^blog\.article\.(.+)\.(body\d+|faq)$/.exec(key);
-  if (!match) {
-   cursor = keyToken.end;
-   continue;
-  }
+  if (!match) continue;
   if (match[1] !== expectedArticleId) {
    throw new Error(`[og-pages] Article body key ${match[1]} does not match file ${sourcePath}`);
   }
-
-  const colonIndex = skipStaticTsTrivia(source, keyToken.end, sourcePath);
-  if (source[colonIndex] !== ':') {
-   throw new Error(`[og-pages] Malformed article body property ${key} in ${sourcePath}`);
-  }
-  const valueIndex = skipStaticTsTrivia(source, colonIndex + 1, sourcePath);
-  const valueQuote = source[valueIndex];
-  if (valueQuote !== "'" && valueQuote !== '"' && valueQuote !== '`') {
-   throw new Error(`[og-pages] Article body property ${key} is not a static string in ${sourcePath}`);
-  }
-  const valueToken = readStaticTsStringLiteral(source, valueIndex, sourcePath);
-  const valueDelimiter = skipStaticTsTrivia(source, valueToken.end, sourcePath);
-  if (source[valueDelimiter] !== ',' && source[valueDelimiter] !== '}') {
-   throw new Error(`[og-pages] Article body property ${key} must have a static string literal value in ${sourcePath}`);
-  }
-  const decoded = decodeStaticTsStringLiteral(valueToken.raw, valueToken.quote);
+  const decoded = readStaticString(property.initializer, sourceFile, {
+   label: `Article body property ${key}`,
+   errorPrefix: '[og-pages]',
+  });
   const field = match[2];
   const value = field === 'faq' ? decoded : repairLegacyDoubleEscapedBreaks(decoded);
   if (!out[match[1]]) out[match[1]] = {};
   out[match[1]][field] = value;
   if (field !== 'faq') bodyFieldCount += 1;
-  cursor = valueToken.end;
  }
 
  if (bodyFieldCount === 0) {
@@ -1068,12 +1056,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // corpus) and reads its slugs from the core entry the descriptor carries.
  const blogIndexSlug: Record<string, string> = SHELL_INDEX_SLUGS_BY_KIND[SECTION.kind](shell, SECTION);
 
- // Meta fields flatten line breaks to spaces; body/FAQ literals keep them for
- // Markdown and JSON structure.
- const unescapeTsString = (value: string): string =>
- decodeTsStringEscapes(value, { newlineAs: ' ' });
-
-
  const parseBlogMetaLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
@@ -1084,12 +1066,20 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (isMissingPathError(err)) return out;
  throw err;
  }
- const rx = /'blog\.article\.([^']+)\.(title|excerpt|imageAlt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
- let m: RegExpExecArray | null;
- while ((m = rx.exec(src)) !== null) {
- const articleId = m[1];
- const field = m[2] as 'title' | 'excerpt' | 'imageAlt';
- const value = unescapeTsString(m[3]);
+ const sourceFile = parseStaticSource(src, p, { errorPrefix: '[og-pages]' });
+ const object = findFirstTopLevelObject(sourceFile);
+ if (!object) throw new SyntaxError(`[og-pages] ${p} has no static article metadata object`);
+ for (const property of readStaticObjectProperties(object, p)) {
+ const key = staticPropertyName(property.name);
+ const match = key && /^blog\.article\.(.+)\.(title|excerpt|imageAlt)$/.exec(key);
+ if (!match) continue;
+ const articleId = match[1];
+ const field = match[2] as 'title' | 'excerpt' | 'imageAlt';
+ const value = readStaticString(property.initializer, sourceFile, {
+  label: `${key} in ${p}`,
+  newlineAs: ' ',
+  errorPrefix: '[og-pages]',
+ });
  if (!out[articleId]) out[articleId] = {};
  out[articleId][field] = value;
  }
