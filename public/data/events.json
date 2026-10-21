@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T15:21:37.112Z",
-  "totalEvents": 14750,
+  "generatedAt": "2026-10-21T18:23:55.423Z",
+  "totalEvents": 14747,
   "events": [
     {
       "id": "myswitzerland:e5955a176fa94905a6d8d2906b0bad80",
@@ -169473,6 +169473,16 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "visites-flash-afterwork-de-lexposition-sylvia-2026-09-27"
+        },
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "evento-senza-data"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "visites-flash-afterwork-de-lexposition-sylvia-2026-10-07-2"
         }
       ],
       "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
@@ -169487,56 +169497,6 @@
         "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Visite commentée; organiser: Ville de Genève Agenda; date: 2026-10-07; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
         "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Visite commentée; veranstalter: Ville de Genève Agenda; datum: 2026-10-07; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
         "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Visite commentée; organisateur: Ville de Genève Agenda; date: 2026-10-07; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
-      },
-      "descriptionRewriteValidated": true
-    },
-    {
-      "id": "ge-agenda:visites-flash-afterwork-exposition-sylvia-sleigh-2",
-      "title": "Visites Flash Afterwork de l’exposition Sylvia Sleigh",
-      "startDate": "2026-10-07",
-      "category": "Visite commentée",
-      "region": "Genève",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/visites-flash-afterwork-exposition-sylvia-sleigh-2",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-07T12:29:18.047Z",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Ville de Genève Agenda",
-        "url": "https://www.geneve.ch/agenda"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Ville de Genève Agenda"
-      },
-      "sourceDescriptionHash": "88997068a67440624a24c079489e5156a6c20dc945e6530905527e8be416e07f",
-      "previousRoutes": [
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "visites-flash-afterwork-de-lexposition-sylvia-2026-10-07-2"
-        }
-      ],
-      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
-      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
-      "imageLicense": "generated-provider",
-      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
-      "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex",
-      "description": "L’evento propone una breve visita guidata dopo la giornata lavorativa. Il percorso riguarda l’esposizione dedicata a Sylvia Sleigh.",
-      "descriptionByLocale": {
-        "it": "L’evento propone una breve visita guidata dopo la giornata lavorativa. Il percorso riguarda l’esposizione dedicata a Sylvia Sleigh.",
-        "en": "The event offers a short guided tour after the working day. The tour concerns the exhibition devoted to Sylvia Sleigh.",
-        "de": "Die Veranstaltung bietet nach dem Arbeitstag eine kurze Führung. Inhaltlich geht es um die Ausstellung zu Sylvia Sleigh.",
-        "fr": "Cette proposition prend la forme d’une courte visite commentée après le travail. Elle porte sur l’exposition consacrée à Sylvia Sleigh."
       },
       "descriptionRewriteValidated": true
     },
@@ -206812,56 +206772,6 @@
       "imageProvider": "openai-codex"
     },
     {
-      "id": "ge-agenda:yoga-0",
-      "title": "Yoga",
-      "startDate": "2026-10-13",
-      "category": "Sport",
-      "region": "Genève",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/yoga-0",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-07T12:29:18.047Z",
-      "price": {
-        "amount": 30,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Ville de Genève Agenda",
-        "url": "https://www.geneve.ch/agenda"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Ville de Genève Agenda"
-      },
-      "sourceDescriptionHash": "cff1f9a78e7d2e1a86378d05fd0cac904f24ece1080f612cce655c75055615f8",
-      "previousRoutes": [
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "yoga-2026-10-13-2"
-        }
-      ],
-      "imageUrl": "/images/events/library/event-sport-svizzera-urbana-autunno-inverno.webp",
-      "imageAssetId": "event-sport-svizzera-urbana-autunno-inverno",
-      "imageLicense": "generated-provider",
-      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
-      "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex",
-      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Sport; organizzatore: Ville de Genève Agenda; data: 2026-10-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
-      "descriptionByLocale": {
-        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Sport; organizzatore: Ville de Genève Agenda; data: 2026-10-13; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
-        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Sport; organiser: Ville de Genève Agenda; date: 2026-10-13; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
-        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Sport; veranstalter: Ville de Genève Agenda; datum: 2026-10-13; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
-        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Sport; organisateur: Ville de Genève Agenda; date: 2026-10-13; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
-      },
-      "descriptionRewriteValidated": true
-    },
-    {
       "id": "ge-agenda:yoga",
       "title": "Yoga",
       "startDate": "2026-10-13",
@@ -206889,6 +206799,18 @@
         "name": "Ville de Genève Agenda"
       },
       "sourceDescriptionHash": "cff1f9a78e7d2e1a86378d05fd0cac904f24ece1080f612cce655c75055615f8",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "evento-senza-data"
+        },
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "yoga-2026-10-13-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-sport-svizzera-urbana-autunno-inverno.webp",
       "imageAssetId": "event-sport-svizzera-urbana-autunno-inverno",
       "imageLicense": "generated-provider",
@@ -261867,54 +261789,12 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-29"
-        }
-      ],
-      "imageUrl": "/images/events/library/event-generico-svizzera-urbana-autunno-inverno.webp",
-      "imageAssetId": "event-generico-svizzera-urbana-autunno-inverno",
-      "imageLicense": "generated-provider",
-      "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
-      "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex",
-      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Animation; organizzatore: Ville de Genève Agenda; data: 2026-10-17; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
-      "descriptionByLocale": {
-        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Animation; organizzatore: Ville de Genève Agenda; data: 2026-10-17; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
-        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Animation; organiser: Ville de Genève Agenda; date: 2026-10-17; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
-        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Animation; veranstalter: Ville de Genève Agenda; datum: 2026-10-17; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
-        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Animation; organisateur: Ville de Genève Agenda; date: 2026-10-17; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
-      },
-      "descriptionRewriteValidated": true
-    },
-    {
-      "id": "ge-agenda:escape-game-plein-vieille-ville-0",
-      "title": "Escape Game en plein air dans la Vieille Ville",
-      "startDate": "2026-10-21",
-      "endDate": "2026-10-25",
-      "category": "Animation",
-      "region": "Genève",
-      "comune": "Genève",
-      "comuneMatch": "region",
-      "canton": "GE",
-      "url": "https://www.geneve.ch/agenda/escape-game-plein-vieille-ville-0",
-      "sourceKey": "ge-agenda",
-      "sourceName": "Ville de Genève Agenda",
-      "crawledAt": "2026-10-21T11:01:59.098Z",
-      "price": {
-        "amount": 20,
-        "currency": "CHF",
-        "isFree": false,
-        "url": "https://www.alea-escape.com/"
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Ville de Genève Agenda",
-        "url": "https://www.geneve.ch/agenda"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Ville de Genève Agenda"
-      },
-      "sourceDescriptionHash": "8e7069c93a55b7ad9dcab03bdba9f9b75d9e30ac118bbc3854c168875605475a",
-      "previousRoutes": [
+        },
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "evento-senza-data"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
@@ -261929,11 +261809,6 @@
           "canton": "GE",
           "comune": "Genève",
           "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-14-2"
-        },
-        {
-          "canton": "GE",
-          "comune": "Genève",
-          "slug": "escape-game-en-plein-air-dans-la-vieille-ville-2026-09-11"
         },
         {
           "canton": "GE",
@@ -346852,7 +346727,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Atelier; organizzatore: Ville de Genève Agenda; data: 2026-10-31; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Atelier; organiser: Ville de Genève Agenda; date: 2026-10-31; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Atelier; veranstalter: Ville de Genève Agenda; datum: 2026-10-31; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Atelier; organisateur: Ville de Genève Agenda; date: 2026-10-31; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:journee-tesicule-check-your-balls",
@@ -402379,7 +402262,15 @@
       },
       "imageSourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
       "imageCopyrightNotice": "© Hugo Sykes",
-      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/"
+      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Cinema teatro; comune: Chiasso; cantone: TI; categoria: teatro; organizzatore: Tio.ch Agenda; data: 2026-11-10; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Cinema teatro; comune: Chiasso; cantone: TI; categoria: teatro; organizzatore: Tio.ch Agenda; data: 2026-11-10; ora: 20:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Cinema teatro; municipality: Chiasso; canton: TI; category: teatro; organiser: Tio.ch Agenda; date: 2026-11-10; time: 20:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Cinema teatro; gemeinde: Chiasso; kanton: TI; kategorie: teatro; veranstalter: Tio.ch Agenda; datum: 2026-11-10; uhrzeit: 20:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Cinema teatro; commune: Chiasso; canton: TI; catégorie: teatro; organisateur: Tio.ch Agenda; date: 2026-11-10; heure: 20:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AGi5FgT",
@@ -402620,7 +402511,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Teatro Sociale; comune: Bellinzona; cantone: TI; categoria: teatro; organizzatore: Tio.ch Agenda; data: 2026-11-10; ora: 20:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Teatro Sociale; comune: Bellinzona; cantone: TI; categoria: teatro; organizzatore: Tio.ch Agenda; data: 2026-11-10; ora: 20:45. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Teatro Sociale; municipality: Bellinzona; canton: TI; category: teatro; organiser: Tio.ch Agenda; date: 2026-11-10; time: 20:45. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Teatro Sociale; gemeinde: Bellinzona; kanton: TI; kategorie: teatro; veranstalter: Tio.ch Agenda; datum: 2026-11-10; uhrzeit: 20:45. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Teatro Sociale; commune: Bellinzona; canton: TI; catégorie: teatro; organisateur: Tio.ch Agenda; date: 2026-11-10; heure: 20:45. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:installation-oeuvre-bodil-manz",
@@ -402655,7 +402554,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Inauguration – Vernissage – Portes ouvertes; organizzatore: Ville de Genève Agenda; data: 2026-11-10; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Inauguration – Vernissage – Portes ouvertes; organizzatore: Ville de Genève Agenda; data: 2026-11-10; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Inauguration – Vernissage – Portes ouvertes; organiser: Ville de Genève Agenda; date: 2026-11-10; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Inauguration – Vernissage – Portes ouvertes; veranstalter: Ville de Genève Agenda; datum: 2026-11-10; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Inauguration – Vernissage – Portes ouvertes; organisateur: Ville de Genève Agenda; date: 2026-11-10; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A8wVR9g",
@@ -402869,7 +402776,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro Leoni; comune: Locarno; cantone: TI; categoria: conferenze; organizzatore: Tio.ch Agenda; data: 2026-11-10; ora: 18:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Centro Leoni; comune: Locarno; cantone: TI; categoria: conferenze; organizzatore: Tio.ch Agenda; data: 2026-11-10; ora: 18:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Centro Leoni; municipality: Locarno; canton: TI; category: conferenze; organiser: Tio.ch Agenda; date: 2026-11-10; time: 18:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Centro Leoni; gemeinde: Locarno; kanton: TI; kategorie: conferenze; veranstalter: Tio.ch Agenda; datum: 2026-11-10; uhrzeit: 18:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Centro Leoni; commune: Locarno; canton: TI; catégorie: conferenze; organisateur: Tio.ch Agenda; date: 2026-11-10; heure: 18:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A8Zcsiv",
@@ -404938,7 +404853,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; organizzatore: Ville de Genève Agenda; data: 2026-11-11; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Conférence - Rencontre; organizzatore: Ville de Genève Agenda; data: 2026-11-11; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Conférence - Rencontre; organiser: Ville de Genève Agenda; date: 2026-11-11; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Conférence - Rencontre; veranstalter: Ville de Genève Agenda; datum: 2026-11-11; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Conférence - Rencontre; organisateur: Ville de Genève Agenda; date: 2026-11-11; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a5dea1f435184b7391ac0e26f494826d",
@@ -407192,7 +407115,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Lecture; organizzatore: Ville de Genève Agenda; data: 2026-11-11; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Lecture; organizzatore: Ville de Genève Agenda; data: 2026-11-11; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Lecture; organiser: Ville de Genève Agenda; date: 2026-11-11; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Lecture; veranstalter: Ville de Genève Agenda; datum: 2026-11-11; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Lecture; organisateur: Ville de Genève Agenda; date: 2026-11-11; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AJFLXN1",
@@ -408250,7 +408181,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-11; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: comune: Genève; cantone: GE; categoria: Concert; organizzatore: Ville de Genève Agenda; data: 2026-11-11; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: municipality: Genève; canton: GE; category: Concert; organiser: Ville de Genève Agenda; date: 2026-11-11; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: gemeinde: Genève; kanton: GE; kategorie: Concert; veranstalter: Ville de Genève Agenda; datum: 2026-11-11; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : commune: Genève; canton: GE; catégorie: Concert; organisateur: Ville de Genève Agenda; date: 2026-11-11; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:563a94485ab941958779bea53aa10c70",
@@ -608825,7 +608764,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento hip-hop si svolge alla Halle 622. Il programma è legato al tour di Masego.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento hip-hop si svolge alla Halle 622. Il programma è legato al tour di Masego.",
+        "en": "This hip-hop event takes place at Halle 622. The programme is associated with Masego’s tour.",
+        "de": "Die Hip-Hop-Veranstaltung findet in der Halle 622 statt. Das Programm steht im Zusammenhang mit einer Tour von Masego.",
+        "fr": "Ce rendez-vous hip-hop a lieu à la Halle 622. Le programme est associé à la tournée de Masego."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:57c5c2419ce94dbf903f8c9812662831",
@@ -609450,7 +609397,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento è un musical associato a Disney Die Schöne und das Biest. La rappresentazione si tiene al Montforthaus Feldkirch.",
+      "descriptionByLocale": {
+        "it": "L’evento è un musical associato a Disney Die Schöne und das Biest. La rappresentazione si tiene al Montforthaus Feldkirch.",
+        "en": "This event is a musical associated with Disney Die Schöne und das Biest. The performance takes place at Montforthaus Feldkirch.",
+        "de": "Die Veranstaltung ist ein Musical und wird Disney Die Schöne und das Biest zugeordnet. Die Aufführung findet im Montforthaus Feldkirch statt.",
+        "fr": "Cet événement est une comédie musicale associée à Disney Die Schöne und das Biest. La représentation a lieu au Montforthaus Feldkirch."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AsE9yb8",
@@ -627556,7 +627511,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "The Repeatles è un evento di genere rock al Mahogany Hall Bern, a Berna. Il prezzo d’ingresso indicato è di 25 CHF.",
+      "descriptionByLocale": {
+        "it": "The Repeatles è un evento di genere rock al Mahogany Hall Bern, a Berna. Il prezzo d’ingresso indicato è di 25 CHF.",
+        "en": "The Repeatles is a rock event at Mahogany Hall Bern in Bern. The listed admission price is CHF 25.",
+        "de": "The Repeatles ist eine Rockveranstaltung im Mahogany Hall Bern in Bern. Der angegebene Eintrittspreis beträgt 25 CHF.",
+        "fr": "The Repeatles est un événement de rock au Mahogany Hall Bern, à Berne. Le prix d’entrée indiqué est de 25 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7db71b803ce24c6fba674fd42acd1ac9",

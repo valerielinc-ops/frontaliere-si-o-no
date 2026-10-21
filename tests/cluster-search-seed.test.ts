@@ -274,7 +274,7 @@ describe('cluster search seed — rendered page', () => {
     return dir;
   }
 
-  function render() {
+  function render(activeJobSitemapLocs: ReadonlySet<string> | null = null) {
     return renderClusterPage({
       distDir: makeDist(),
       dateStamp: '2026-08-19',
@@ -306,6 +306,7 @@ describe('cluster search seed — rendered page', () => {
       enriched: undefined,
       hreflang: [],
       related: [],
+      activeJobSitemapLocs,
     });
   }
 
@@ -341,6 +342,16 @@ describe('cluster search seed — rendered page', () => {
     expect(m[1]).not.toContain('ats.example');
     expect(m[1]).not.toContain('xxx');
     expect(m[1].length).toBeLessThan(1200);
+  });
+
+  it('filters raw-corpus job links to the emitted self-canonical registry', () => {
+    const page = render(new Set([
+      'https://frontaliereticino.ch/cerca-lavoro-zurigo/assistente-psicologo-neuropsicologia/',
+    ]));
+    const list = /<ul class=(?:"cluster-seo-jobs"|cluster-seo-jobs)>([\s\S]*?)<\/ul>/.exec(page.html)?.[1] || '';
+    expect(list).toContain('/cerca-lavoro-zurigo/assistente-psicologo-neuropsicologia/');
+    expect(list).not.toContain('/cerca-lavoro-neuchatel/');
+    expect(list).not.toContain('/cerca-lavoro-ticino/');
   });
 
   it('seeds the localized title and slug on a non-Italian cluster page', () => {

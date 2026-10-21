@@ -70,7 +70,7 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
         "La réforme AVS21 adoptée le 25.09.2022 (en vigueur 01.01.2024) introduit l'« âge de référence » (65 ans hommes et femmes) avec phases transitoires pour les femmes 1961-1969 [source : Fedlex AVS21, modif. LAVS 17.12.2021]. En 2026 l'âge des femmes est 64 ans 9 mois. Anticipation 1-24 mois (réduction 6,8 %/an) ou ajournement jusqu'à 70 ans (+5,2 %/an). L'Accord CH-UE permet la totalisation des périodes suisses + italiennes pour atteindre les 15 ans pro-rata [source : OFAS mémento 10.02]. Demande 3-4 mois avant à la caisse de compensation, formulaire 318.370.",
     },
     sources: [
-      'https://www.bsv.admin.ch/bsv/de/home/sozialversicherungen/ahv/reformen-revisionen/ahv-21.html',
+      'https://www.bsv.admin.ch/de/ahv-21',
       'https://www.ahv-iv.ch/p/10.02.i',
     ],
   },

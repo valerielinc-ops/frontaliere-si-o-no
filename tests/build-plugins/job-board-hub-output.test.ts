@@ -191,9 +191,18 @@ describe('job-board emitted output', () => {
     const pageWord = { it: 'pagina', en: 'page', de: 'seite', fr: 'page' };
     for (const locale of locales) {
       const hub = hubPath(locale, 'ZH');
+      const firstPage = htmlDoc(hub);
+      const firstItemList = structured(firstPage).find((entry) => entry['@type'] === 'ItemList');
+      // The first canton-root sample is intentionally dominated by
+      // listing-only records. They emit reachable noindex detail pages for
+      // pagination, but must not be advertised from an indexable root as an
+      // ItemList target. The graph fix therefore omits the empty filtered
+      // ItemList instead of reintroducing raw noindex links.
+      expect(firstItemList).toBeUndefined();
       const lastPage = htmlDoc(`${hub}${pageWord[locale]}-7/`);
       const itemList = structured(lastPage).find((entry) => entry['@type'] === 'ItemList');
-      expect(itemList.numberOfItems).toBe(8);
+      expect(itemList.numberOfItems).toBe(itemList.itemListElement.length);
+      expect(itemList.itemListElement).toHaveLength(0);
       expect(lastPage.querySelector('link[rel="next"]')).toBeNull();
       expect(fs.existsSync(path.join(root, 'dist', hub, `${pageWord[locale]}-8/index.html`))).toBe(false);
       expect(htmlDoc(hub).querySelector(`[data-explore-pagination] a[href$="/${pageWord[locale]}-7/"]`)).toBeTruthy();

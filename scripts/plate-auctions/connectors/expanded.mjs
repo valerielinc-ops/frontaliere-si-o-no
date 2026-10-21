@@ -31,7 +31,7 @@ export const EXPANDED_ECARI_SOURCES = Object.freeze({
 
 export const EXPANDED_CARD_SOURCES = Object.freeze({
   ag: { canton: 'Argovia', plateCode: 'AG', officialAuctionUrl: 'https://www.auktion-ag.ch', detailBaseUrl: 'https://www.auktion-ag.ch' },
-  be: { canton: 'Berna', plateCode: 'BE', officialAuctionUrl: 'https://www.auktion-be.ch/de/', detailBaseUrl: 'https://www.auktion-be.ch' },
+  be: { canton: 'Berna', plateCode: 'BE', officialAuctionUrl: 'https://auktion-be.ch/de/', detailBaseUrl: 'https://auktion-be.ch' },
   vd: { canton: 'Vaud', plateCode: 'VD', officialAuctionUrl: 'https://www.encheres-vd.ch/de/', detailBaseUrl: 'https://www.encheres-vd.ch' },
 });
 
@@ -74,8 +74,8 @@ export function parseExpandedCard(sourceKey, html, { fetchedAt = new Date().toIS
   return parseCardCantonAuctions(html, { ...config, fetchedAt });
 }
 
-export async function fetchExpandedCard(sourceKey) {
+export async function fetchExpandedCard(sourceKey, options = {}) {
   const config = EXPANDED_CARD_SOURCES[sourceKey];
   if (!config) throw new Error(`Unknown expanded card source: ${sourceKey}`);
-  return fetchCardCantonAuctions(config);
+  return fetchCardCantonAuctions(config, options);
 }

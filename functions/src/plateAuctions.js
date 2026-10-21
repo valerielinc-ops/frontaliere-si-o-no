@@ -147,8 +147,8 @@ const CONNECTORS = {
   be: makeCardConnector({
     canton: 'Berna',
     plateCode: 'BE',
-    url: 'https://www.auktion-be.ch/de/',
-    detailBaseUrl: 'https://www.auktion-be.ch',
+    url: 'https://auktion-be.ch/de/',
+    detailBaseUrl: 'https://auktion-be.ch',
   }),
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
@@ -291,13 +291,13 @@ const CONNECTORS = {
   sh: {
     canton: 'Sciaffusa',
     plateCode: 'SH',
-    url: 'https://www.auktion-stva.sh.ch/',
+    url: 'https://www.auktion-stva.sh.ch/de/',
     parserVersion: '1.1.0',
     parse(html, fetchedAt) {
       return parseCardSource(html, {
         canton: 'Sciaffusa',
         plateCode: 'SH',
-        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/',
+        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/de/',
         detailBaseUrl: 'https://www.auktion-stva.sh.ch',
         fetchedAt,
       });

@@ -303,7 +303,8 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     const plugin = readRepoFile('build-plugins/jobsSeoPagesPlugin.ts');
 
     expect(plugin).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
-    expect(plugin).toContain('numberOfItems: cappedJobs.length,');
+    expect(plugin).toContain('const itemListItems = mapCantonJobsToListItems(cappedJobs, locale);');
+    expect(plugin).toContain('numberOfItems: itemListItems.length,');
     expect(plugin).toContain('const jobListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const openRolesListHtml = jobCardListBody(listedCompanyJobs, locale);');
     expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
@@ -332,8 +333,9 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
 
     expect(plugin).toContain('const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);');
     expect(plugin).not.toContain('COMPANY_CANTON_JOB_CAP');
-    expect(plugin).toContain('numberOfItems: cappedJobs.length,');
-    expect(plugin).toContain('itemListElement: cappedJobs.map((job: any, i: number) =>');
+    expect(plugin).toContain('const itemListItems = mapCantonJobsToListItems(cappedJobs, locale);');
+    expect(plugin).toContain('numberOfItems: itemListItems.length,');
+    expect(plugin).toContain('itemListElement: itemListItems,');
     expect(plugin).toContain('const listHtml = jobCardListBody(cappedJobs, locale);');
     expect(plugin).toContain('const jobCardListBody = (jobs: ReadonlyArray<any>, locale:');
     expect(plugin).toContain('shouldPlaceInfeedAd(i + 1)');

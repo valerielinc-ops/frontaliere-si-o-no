@@ -309,9 +309,8 @@ describe('packages/articles/engine/rssFeeds', () => {
       "export default { 'blog.article.alpha.body1': 'Alpha body before failure.' };",
       'const other = `prefix ${compute()} suffix`;',
     ].join('\n');
-    const dynamicBodyKey = "export default { [`blog.article.${id}.body1`]: 'body' };";
 
-    for (const source of [dynamicBefore, dynamicAfter, dynamicBodyKey]) {
+    for (const source of [dynamicBefore, dynamicAfter]) {
       const root = makeFixture();
       fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
       expect(() => buildAllRssFeeds({
@@ -323,6 +322,98 @@ describe('packages/articles/engine/rssFeeds', () => {
         layout: LAYOUT,
       })).toThrow(/Interpolated template literal is not supported/u);
     }
+  });
+
+  it('rejects computed body keys, including getter methods', () => {
+    const sources = [
+      {
+        source: [
+          'const translations: Record<string, string> = {',
+          "  [`blog.article.${id}.body2`]: 'body',",
+          '};',
+          'export default translations;',
+        ].join('\n'),
+        error: /Interpolated template literal is not supported/u,
+      },
+      {
+        source: [
+          'const translations: Record<string, string> = {',
+          "  ['blog.article.alpha.body2']: 'computed body',",
+          '};',
+          'export default translations;',
+        ].join('\n'),
+        error: /computed article translation keys are not supported/u,
+      },
+      [
+        'const translations: Record<string, string> = {',
+        "  'blog.article.alpha.body1': 'Alpha body text long enough to pass the RSS minimum length.',",
+        "  get 'blog.article.alpha.body2'() { return 'Optional body'; },",
+        '};',
+        'export default translations;',
+      ].join('\n'),
+    ];
+
+    for (const item of sources) {
+      const source = typeof item === 'string' ? item : item.source;
+      const error = typeof item === 'string'
+        ? /article translation records must contain only static property assignments/u
+        : item.error;
+      const root = makeFixture();
+      fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+      expect(() => buildAllRssFeeds({
+        repairSerpSnippet,
+        fs,
+        path,
+        rootDir: root,
+        registries: { frontaliere: REGISTRY },
+        layout: LAYOUT,
+      })).toThrow(error);
+    }
+  });
+
+  it('rejects unrelated non-string values instead of emitting a partial feed', () => {
+    const root = makeFixture();
+    const source = [
+      'const translations: Record<string, string> = {',
+      "  'blog.article.alpha.body1': 'Alpha body text long enough to pass the RSS minimum length.',",
+      "  'labels': ['x'],",
+      '};',
+      'export default translations;',
+    ].join('\n');
+    fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+
+    expect(() => buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    })).toThrow(/article translation labels must have a static string literal value/u);
+  });
+
+  it('does not interpret bracket or fake-key text inside body strings as extra fields', () => {
+    const root = makeFixture();
+    const bodyText = "Alpha body text long enough to pass the RSS minimum length; labels[index], items[index](arg), and the literal 'blog.article.alpha.body2': 'FAKE_RSS_BODY_SENTINEL' stay in this body.";
+    const source = [
+      'const translations: Record<string, string> = {',
+      `  'blog.article.alpha.body1': ${JSON.stringify(bodyText)},`,
+      '};',
+      'export default translations;',
+    ].join('\n');
+    fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+
+    const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const it = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
+    expect(it).toContain('labels[index], items[index](arg)');
+    expect(it.match(/FAKE_RSS_BODY_SENTINEL/gu)).toHaveLength(1);
   });
 
   it('accepts escaped interpolation and ignores template markers in comments and quotes', () => {

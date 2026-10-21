@@ -4,6 +4,7 @@ import {
   fetchHtml,
   parseZhAuctionCards,
 } from "../../../functions/src/plateAuctionsCore.js";
+import { fetchWithPublicApiRelay } from './api-relay.mjs';
 
 export function parseCardCantonAuctions(
   html,
@@ -25,10 +26,19 @@ export function parseCardCantonAuctions(
   });
 }
 
-export async function fetchCardCantonAuctions(config) {
-  const html = await fetchHtml(config.officialAuctionUrl);
-  return parseCardCantonAuctions(html, {
-    ...config,
-    fetchedAt: new Date().toISOString(),
+export async function fetchCardCantonAuctions(config, { now = new Date() } = {}) {
+  return fetchWithPublicApiRelay({
+    sourceKey: String(config.plateCode).toLowerCase(),
+    plateCode: config.plateCode,
+    officialAuctionUrl: config.officialAuctionUrl,
+    now,
+    logLabel: `fetch${config.plateCode}PlateAuctions`,
+    direct: async () => {
+      const html = await fetchHtml(config.officialAuctionUrl);
+      return parseCardCantonAuctions(html, {
+        ...config,
+        fetchedAt: now.toISOString(),
+      });
+    },
   });
 }
