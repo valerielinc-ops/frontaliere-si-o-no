@@ -12,6 +12,9 @@ export interface CandidateAssistedApplication {
   orderId: string;
   jobTitle: string;
   companyName: string;
+  companyKey?: string | null;
+  location?: string | null;
+  jobUrl?: string | null;
   source: 'single' | 'concierge';
   status: AssistedApplicationCandidateStatus;
   updatedAt: string | null;
@@ -33,6 +36,23 @@ const CANDIDATE_STATUSES = new Set<AssistedApplicationCandidateStatus>([
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function safeHttpsUrl(value: unknown): string | null {
+  if (typeof value !== 'string' || value.length > 2048) return null;
+  try {
+    const url = new URL(value);
+    if (url.protocol !== 'https:' || !url.hostname || url.username || url.password) return null;
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function optionalLocation(value: unknown): string | null {
+  if (typeof value !== 'string') return null;
+  const location = value.replace(/\s+/g, ' ').trim().slice(0, 180);
+  return location || null;
 }
 
 function parseCandidateApplication(value: unknown): CandidateAssistedApplication | null {
@@ -58,6 +78,9 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     orderId: value.orderId,
     jobTitle: value.jobTitle,
     companyName: value.companyName,
+    ...(typeof value.companyKey === 'string' ? { companyKey: value.companyKey.trim().slice(0, 200) || null } : {}),
+    ...(Object.prototype.hasOwnProperty.call(value, 'location') ? { location: optionalLocation(value.location) } : {}),
+    ...(Object.prototype.hasOwnProperty.call(value, 'jobUrl') ? { jobUrl: safeHttpsUrl(value.jobUrl) } : {}),
     source,
     status: value.status as AssistedApplicationCandidateStatus,
     updatedAt,

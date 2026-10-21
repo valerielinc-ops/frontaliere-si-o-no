@@ -32,6 +32,23 @@ function boundedText(value, maxLength) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
 }
 
+function safeHttpsUrl(value) {
+  const candidate = boundedText(value, 2048);
+  if (!candidate) return null;
+  try {
+    const url = new URL(candidate);
+    if (url.protocol !== 'https:' || !url.hostname || url.username || url.password) return null;
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function candidateLocation(value) {
+  const location = boundedText(value, 240).replace(/\s+/g, ' ').slice(0, 180);
+  return location || null;
+}
+
 export function candidateStatusForAssistedApplication(order) {
   const submissionStatus = boundedText(order?.submissionStatus, 80);
   const automationState = boundedText(order?.automationState, 80);
@@ -50,6 +67,9 @@ function serializeCandidateApplication(doc, order) {
     orderId: boundedText(doc.id, 200),
     jobTitle: boundedText(order.jobTitle, 300),
     companyName: boundedText(order.companyName, 200),
+    companyKey: boundedText(order.companyId || order.companyName, 200) || null,
+    location: candidateLocation(order.location),
+    jobUrl: safeHttpsUrl(order.jobUrl),
     source: order.billingMode === 'application_concierge' ? 'concierge' : 'single',
     status,
     updatedAt: latestIsoDate(order.automationUpdatedAt, order.updatedAt, order.statusChangedAt, order.createdAt),

@@ -21,7 +21,7 @@ import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
 
 type JobLike = {
  company?: string;
- companyKey?: string;
+ companyKey?: string | null;
  companyDomain?: string;
  url?: string;
  /** Publisher-provided logo URL (projected from the publish form, https-only). */
