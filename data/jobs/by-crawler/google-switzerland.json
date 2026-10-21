@@ -1,6 +1,7 @@
 {
   "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-10-20T21:18:31.990Z",
+  "assembledAt": "2026-10-21T09:18:40.688Z",
+  "runId": "39574073077",
   "jobs": [
     {
       "id": "google-switzerland-30025ee810c0",
@@ -33,7 +34,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/105458081579573958-software-engineer-iii-aiml-dsphtp-optimisation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:23.767Z",
+      "crawledAt": "2026-10-21T09:18:35.750Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -109,7 +110,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/77684590197514950-data-science-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:22.913Z",
+      "crawledAt": "2026-10-21T09:18:35.239Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -184,7 +185,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/87748812042314438-software-engineer-iii-infrastructure-rankembed",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:22.383Z",
+      "crawledAt": "2026-10-21T09:18:34.755Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -259,7 +260,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123047855462982342-research-scientist-gemini-vision-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:21.842Z",
+      "crawledAt": "2026-10-21T09:18:34.244Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -340,7 +341,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/119732976081609414-software-engineer-ii-coop-and-marketplaces",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:21.328Z",
+      "crawledAt": "2026-10-21T09:18:33.733Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -418,7 +419,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/106113082882695878-forward-deployed-engineer-iii-applied-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:20.811Z",
+      "crawledAt": "2026-10-21T09:18:33.005Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -497,7 +498,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79730131723002566-software-engineer-iii-shopping-graph-feeds-infrastructure",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:20.294Z",
+      "crawledAt": "2026-10-21T09:18:32.510Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -547,8 +548,8 @@
       "id": "google-switzerland-6cfd548a3fe2",
       "slug": "ingegnere-software-senior-ingegneria-dell-affidabilita-del-sito-youtube-ml-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich",
         "it": "ingegnere-software-senior-ingegneria-dell-affidabilita-del-sito-youtube-ml-google-switzerland-zurich",
+        "en": "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich",
         "de": "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich",
         "fr": "ingenieur-logiciel-senior-ingenierie-de-fiabilite-des-sites-youtube-ml-google-switzerland-zurich"
       },
@@ -557,24 +558,24 @@
       "companyDomain": "google.com",
       "title": "Senior Software Engineer, Site Reliability Engineering, YouTube ML",
       "titleByLocale": {
-        "en": "Senior Software Engineer, Site Reliability Engineering, YouTube ML",
         "it": "Ingegnere software senior, Ingegneria dell'affidabilità del sito, YouTube ML",
+        "en": "Senior Software Engineer, Site Reliability Engineering, YouTube ML",
         "de": "Senior-Softwareentwickler/in, Site Reliability Engineering, YouTube ML",
         "fr": "Ingénieur logiciel senior, ingénierie de fiabilité des sites, YouTube ML"
       },
       "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree in Computer Science, a related field, or equivalent practical experience.\n\n• 5 years of experience with software development in one or more programming languages.\n\n• 3 years of experience in designing, analyzing, and troubleshooting large-scale distributed systems.\n\n• 2 years of experience leading projects and providing technical leadership.\n\nPreferred qualifications:\n\n• Master's degree in Computer Science or Engineering.\n\nAbout the job\n Site Reliability Engineering (SRE) combines software and systems engineering to build and run large-scale, massively distributed, fault-tolerant systems. SRE ensures that Google's services—both our internally critical and our externally-visible systems—have reliability, uptime appropriate to users' needs and a fast rate of improvement. Additionally SRE’s will keep an ever-watchful eye on our systems capacity and performance.\n\nMuch of our software development focuses on optimizing existing systems, building infrastructure and eliminating work through automation. On the SRE team, you’ll have the opportunity to manage the complex challenges of scale which are unique to Google, while using your expertise in coding, algorithms, complexity analysis and large-scale system design.\n\nSRE's culture of intellectual curiosity, problem solving and openness is key to its success. Our organization brings together people with a wide variety of backgrounds, experiences and perspectives. We encourage them to collaborate, think big and take risks in a blame-free environment. We promote self-direction to work on meaningful projects, while we also strive to create an environment that provides the support and mentorship needed to learn and grow.\n\nTo learn more: check out our books on Site Reliability Engineering or read a career profile about why a Software Engineer chose to join SRE.\n The ML, Systems, & Cloud AI (MSCA) organization at Google designs, implements, and manages the hardware, software, machine learning, and systems infrastructure for all Google services (Search, YouTube, etc.) and Google Cloud. Our end users are Googlers, Cloud customers and the billions of people who use Google services around the world.\n We prioritize security, efficiency, and reliability across everything we do - from developing our latest TPUs to running a global network, while driving towards shaping the future of hyperscale computing. Our global impact spans software and hardware, including Google Cloud’s Vertex AI, the leading AI platform for bringing Gemini models to enterprise customers.\n\nResponsibilities\n\n• Engage in and improve the whole lifecycle of services—from inception and design, through to deployment, operation and refinement.\n\n• Support services before they go live through activities such as system design consulting, developing software platforms and frameworks, capacity planning and launch reviews.\n\n• Maintain services once they are live by measuring and monitoring availability, latency and overall system health.\n\n• Scale systems sustainably through mechanisms like automation, and evolve systems by pushing for changes that improve reliability and velocity.\n\n• Practice sustainable incident response and blameless postmortems.",
       "descriptionByLocale": {
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree in Computer Science, a related field, or equivalent practical experience.\n\n• 5 years of experience with software development in one or more programming languages.\n\n• 3 years of experience in designing, analyzing, and troubleshooting large-scale distributed systems.\n\n• 2 years of experience leading projects and providing technical leadership.\n\nPreferred qualifications:\n\n• Master's degree in Computer Science or Engineering.\n\nAbout the job\n Site Reliability Engineering (SRE) combines software and systems engineering to build and run large-scale, massively distributed, fault-tolerant systems. SRE ensures that Google's services—both our internally critical and our externally-visible systems—have reliability, uptime appropriate to users' needs and a fast rate of improvement. Additionally SRE’s will keep an ever-watchful eye on our systems capacity and performance.\n\nMuch of our software development focuses on optimizing existing systems, building infrastructure and eliminating work through automation. On the SRE team, you’ll have the opportunity to manage the complex challenges of scale which are unique to Google, while using your expertise in coding, algorithms, complexity analysis and large-scale system design.\n\nSRE's culture of intellectual curiosity, problem solving and openness is key to its success. Our organization brings together people with a wide variety of backgrounds, experiences and perspectives. We encourage them to collaborate, think big and take risks in a blame-free environment. We promote self-direction to work on meaningful projects, while we also strive to create an environment that provides the support and mentorship needed to learn and grow.\n\nTo learn more: check out our books on Site Reliability Engineering or read a career profile about why a Software Engineer chose to join SRE.\n The ML, Systems, & Cloud AI (MSCA) organization at Google designs, implements, and manages the hardware, software, machine learning, and systems infrastructure for all Google services (Search, YouTube, etc.) and Google Cloud. Our end users are Googlers, Cloud customers and the billions of people who use Google services around the world.\n We prioritize security, efficiency, and reliability across everything we do - from developing our latest TPUs to running a global network, while driving towards shaping the future of hyperscale computing. Our global impact spans software and hardware, including Google Cloud’s Vertex AI, the leading AI platform for bringing Gemini models to enterprise customers.\n\nResponsibilities\n\n• Engage in and improve the whole lifecycle of services—from inception and design, through to deployment, operation and refinement.\n\n• Support services before they go live through activities such as system design consulting, developing software platforms and frameworks, capacity planning and launch reviews.\n\n• Maintain services once they are live by measuring and monitoring availability, latency and overall system health.\n\n• Scale systems sustainably through mechanisms like automation, and evolve systems by pushing for changes that improve reliability and velocity.\n\n• Practice sustainable incident response and blameless postmortems.",
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea in Informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 5 anni di esperienza con lo sviluppo del software in uno o più linguaggi di programmazione.\n\n• 3 anni di esperienza nella progettazione, analisi e risoluzione dei problemi di sistemi distribuiti su larga scala.\n\n• 2 anni di esperienza leader progetti e fornire leadership tecnica.\n\nPreferiti:\n\n• Laurea magistrale in Informatica o Ingegneria.\n\nRiguardo al lavoro\n Site Reliability Engineering (SRE) combina software e ingegneria dei sistemi per la costruzione e l'esecuzione di sistemi su larga scala, distribuiti massicciamente, tolleranti ai guasti. SRE assicura che i servizi di Google, sia i nostri sistemi internamente critici che quelli esterni, abbiano affidabilità, uptime adeguati alle esigenze degli utenti e una velocità di miglioramento rapida. Inoltre SRE manterrà un occhio sempre attento alla capacità e alle prestazioni dei nostri sistemi.\n\nGran parte del nostro sviluppo software si concentra sull'ottimizzazione dei sistemi esistenti, l'edilizia e l'eliminazione del lavoro attraverso l'automazione. Nel team SRE avrete la possibilità di gestire le complesse sfide di scala che sono uniche per Google, utilizzando le vostre competenze nel codifica, algoritmi, analisi della complessità e progettazione di sistemi su larga scala.\n\nLa cultura della curiosità intellettuale di SRE, la risoluzione dei problemi e l'apertura è fondamentale per il suo successo. La nostra organizzazione riunisce persone con una vasta gamma di sfondi, esperienze e prospettive. Li incoraggiamo a collaborare, pensare in grande e correre rischi in un ambiente privo di colpa. Promuoviamo l'auto-direzione a lavorare su progetti significativi, mentre ci sforziamo anche di creare un ambiente che fornisce il supporto e la mentorship necessari per imparare e crescere.\n\nPer saperne di più: controllare i nostri libri su Site Reliability Engineering o leggere un profilo di carriera sul perché un Software Engineer ha scelto di aderire SRE.\n L'organizzazione ML, Systems, & Cloud AI (MSCA) di Google progetta, implementa e gestisce l'hardware, il software, l'apprendimento automatico e l'infrastruttura di sistemi per tutti i servizi di Google (Search, YouTube, ecc.) e Google Cloud. I nostri utenti finali sono Googlers, i clienti Cloud e i miliardi di persone che utilizzano i servizi Google in tutto il mondo.\n Prepariamo la sicurezza, l'efficienza e l'affidabilità in tutto ciò che facciamo - dallo sviluppo delle nostre ultime TPU all'esecuzione di una rete globale, mentre guidiamo verso la definizione del futuro dell'iperscale computing. Il nostro impatto globale abbraccia software e hardware, tra cui Vertex AI di Google Cloud, la piattaforma AI leader per portare i modelli Gemini ai clienti aziendali.\n\nresponsabilità\n\n• Impegnarsi e migliorare l'intero ciclo di vita dei servizi, dall'inizio e dal design, fino all'implementazione, al funzionamento e alla raffinatezza.\n\n• I servizi di supporto prima di passare dal vivo attraverso attività come la consulenza di progettazione di sistema, lo sviluppo di piattaforme software e quadri, la pianificazione delle capacità e le recensioni di lancio.\n\n• Mantenere i servizi una volta che sono live misurando e monitorando la disponibilità, latenza e la salute generale del sistema.\n\n• Sistemi di scala in modo sostenibile attraverso meccanismi come l'automazione e sistemi evoluti, spingendo per cambiamenti che migliorano l'affidabilità e la velocità.\n\n• Praticare risposta agli incidenti sostenibili e postmortems incolpabili.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 5 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen.\n\n• 3 Jahre Erfahrung im Entwerfen, Analysieren und Beheben von großen verteilten Systemen.\n\n• 2 Jahre Erfahrung als Leiter von Projekten und technische Führung.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Informatik oder Ingenieurwissenschaften.\n\nÜber den Job\n Site Reliability Engineering (SRE) kombiniert Software und System Engineering, um groß angelegte, massiv verteilte, fehlertolerante Systeme zu bauen und auszuführen. SRE stellt sicher, dass die Dienste von Google - sowohl unsere intern kritischen als auch unsere extern sichtbaren Systeme - Zuverlässigkeit, Verfügbarkeit entsprechend den Bedürfnissen der Benutzer und eine schnelle Verbesserungsrate aufweisen. Darüber hinaus werden SREs die Kapazität und Leistung unserer Systeme ständig im Auge behalten.\n\nEin Großteil unserer Softwareentwicklung konzentriert sich auf die Optimierung bestehender Systeme, den Aufbau von Infrastruktur und den Abbau von Arbeit durch Automatisierung. Im SRE-Team haben Sie die Möglichkeit, die komplexen Herausforderungen der Skalierung, die für Google einzigartig sind, zu bewältigen und gleichzeitig Ihre Expertise in den Bereichen Codierung, Algorithmen, Komplexitätsanalyse und groß angelegtes Systemdesign zu nutzen.\n\nDie Kultur der intellektuellen Neugier, Problemlösung und Offenheit von SRE ist der Schlüssel zum Erfolg. Unsere Organisation bringt Menschen mit einer Vielzahl von Hintergründen, Erfahrungen und Perspektiven zusammen. Wir ermutigen sie, zusammenzuarbeiten, groß zu denken und Risiken in einer schuldfreien Umgebung einzugehen. Wir fördern die Selbstorientierung, um an sinnvollen Projekten zu arbeiten, während wir uns auch bemühen, ein Umfeld zu schaffen, das die Unterstützung und Mentorschaft bietet, die zum Lernen und Wachsen erforderlich ist.\n\nUm mehr zu erfahren: Schauen Sie sich unsere Bücher über Site Reliability Engineering an oder lesen Sie ein Karriereprofil darüber, warum sich ein Software Engineer für SRE entschieden hat.\n Die ML, Systems & Cloud AI (MSCA) -Organisation bei Google entwirft, implementiert und verwaltet die Hardware, Software, maschinelles Lernen und Systeminfrastruktur für alle Google-Dienste (Search, YouTube usw.) und Google Cloud. Unsere Endbenutzer sind Googler, Cloud-Kunden und Milliarden von Menschen, die Google-Dienste auf der ganzen Welt nutzen.\n Wir setzen bei allem, was wir tun, auf Sicherheit, Effizienz und Zuverlässigkeit - von der Entwicklung unserer neuesten TPUs bis hin zum Betrieb eines globalen Netzwerks, während wir die Zukunft des Hyperscale Computing gestalten. Unsere globale Wirkung erstreckt sich auf Software und Hardware, einschließlich Vertex AI von Google Cloud, der führenden KI-Plattform für die Bereitstellung von Gemini-Modellen für Unternehmenskunden.\n\nZuständigkeiten\n\n• Engagieren und verbessern Sie den gesamten Lebenszyklus von Diensten - von der Einführung und dem Design bis hin zur Bereitstellung, zum Betrieb und zur Verfeinerung.\n\n• Supportdienste, bevor sie durch Aktivitäten wie Systemdesignberatung, Entwicklung von Softwareplattformen und Frameworks, Kapazitätsplanung und Launch Reviews live gehen.\n\n• Pflegen Sie die Dienste, sobald sie live sind, indem Sie die Verfügbarkeit, Latenz und den allgemeinen Systemzustand messen und überwachen.\n\n• Skalieren Sie Systeme nachhaltig durch Mechanismen wie Automatisierung und entwickeln Sie Systeme, indem Sie auf Veränderungen drängen, die die Zuverlässigkeit und Geschwindigkeit verbessern.\n\n• Üben Sie nachhaltige Incident Response und tadellose Postmortems.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat en informatique, domaine connexe ou expérience pratique équivalente.\n\n• 5 ans d'expérience dans le développement de logiciels dans un ou plusieurs langages de programmation.\n\n• 3 ans d'expérience dans la conception, l'analyse et le dépannage de systèmes distribués à grande échelle.\n\n• 2 ans d'expérience à la tête de projets et à la direction technique.\n\nTitres préférés:\n\n• Maîtrise en informatique ou en génie.\n\nSur le travail\n Site Reliability Engineering (SRE) combine l'ingénierie des logiciels et des systèmes pour construire et exécuter des systèmes à grande échelle, massivement distribués, tolérants aux défauts. SRE s'assure que les services de Google – à la fois nos systèmes internes critiques et nos systèmes externes visibles – sont fiables, adaptés aux besoins des utilisateurs et à un rythme d'amélioration rapide. En outre, les SRE's garderont un œil permanent sur la capacité et les performances de nos systèmes.\n\nUne grande partie de notre développement de logiciels est axée sur l'optimisation des systèmes existants, la construction d'infrastructures et l'élimination du travail par l'automatisation. Sur l'équipe SRE, vous aurez la possibilité de gérer les défis complexes d'échelle qui sont uniques à Google, tout en utilisant votre expertise dans le codage, les algorithmes, l'analyse de complexité et la conception de systèmes à grande échelle.\n\nLa culture de curiosité intellectuelle, de résolution de problèmes et d'ouverture de SRE est la clé de son succès. Notre organisation réunit des gens ayant une grande variété d'horizons, d'expériences et de perspectives. Nous les encourageons à collaborer, à penser grand et à prendre des risques dans un environnement sans blâme. Nous encourageons l'auto-direction à travailler sur des projets significatifs, tout en nous efforçant de créer un environnement qui offre le soutien et le mentorat nécessaires pour apprendre et grandir.\n\nPour en savoir plus, consultez nos livres sur Site Reliability Engineering ou consultez un profil de carrière sur les raisons pour lesquelles un ingénieur logiciel a choisi de rejoindre SRE.\n L'organisation ML, Systems, & Cloud AI (MSCA) de Google conçoit, met en œuvre et gère le matériel, les logiciels, l'apprentissage automatique et l'infrastructure de systèmes pour tous les services Google (Recherche, YouTube, etc.) et Google Cloud. Nos utilisateurs finaux sont Googlers, les clients Cloud et les milliards de personnes qui utilisent les services Google dans le monde entier.\n Nous privilégions la sécurité, l'efficacité et la fiabilité dans tout ce que nous faisons - du développement de nos derniers TPU à l'exploitation d'un réseau mondial, tout en conduisant vers l'élaboration de l'avenir de l'informatique hyperéchelle. Notre impact mondial s'étend sur les logiciels et le matériel, y compris sur Google Cloud.\n\nResponsabilités\n\n• Intégrer et améliorer l'ensemble du cycle de vie des services – depuis le début et la conception jusqu'au déploiement, à l'exploitation et au raffinement.\n\n• Les services d'appui avant qu'ils ne passent par des activités telles que le conseil en conception de systèmes, l'élaboration de plates-formes et de cadres logiciels, la planification des capacités et les examens de lancement.\n\n• Maintenir les services une fois qu'ils sont en vie en mesurant et en surveillant la disponibilité, la latence et la santé globale du système.\n\n• Systèmes d'échelle durable grâce à des mécanismes comme l'automatisation, et d'évolution des systèmes en poussant à des changements qui améliorent la fiabilité et la vitesse.\n\n• Pratiquer une intervention d'incident durable et des postmortems irréprochables."
+        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea in Informatica, un campo correlato, o esperienza pratica equivalente.\n\n• 5 anni di esperienza con lo sviluppo del software in uno o più linguaggi di programmazione.\n\n• 3 anni di esperienza nella progettazione, analisi e risoluzione dei problemi di sistemi distribuiti su larga scala.\n\n• 2 anni di esperienza leader progetti e fornire leadership tecnica.\n\nPreferiti:\n\n• Laurea magistrale in Informatica o Ingegneria.\n\nRiguardo al lavoro\nSite Reliability Engineering (SRE) combina software e ingegneria dei sistemi per la costruzione e l'esecuzione di sistemi su larga scala, distribuiti massicciamente, tolleranti ai guasti. SRE assicura che i servizi di Google, sia i nostri sistemi internamente critici che quelli esterni, abbiano affidabilità, uptime adeguati alle esigenze degli utenti e una velocità di miglioramento rapida. Inoltre SRE manterrà un occhio sempre attento alla capacità e alle prestazioni dei nostri sistemi.\n\nGran parte del nostro sviluppo software si concentra sull'ottimizzazione dei sistemi esistenti, l'edilizia e l'eliminazione del lavoro attraverso l'automazione. Nel team SRE avrete la possibilità di gestire le complesse sfide di scala che sono uniche per Google, utilizzando le vostre competenze nel codifica, algoritmi, analisi della complessità e progettazione di sistemi su larga scala.\n\nLa cultura della curiosità intellettuale di SRE, la risoluzione dei problemi e l'apertura è fondamentale per il suo successo. La nostra organizzazione riunisce persone con una vasta gamma di sfondi, esperienze e prospettive. Li incoraggiamo a collaborare, pensare in grande e correre rischi in un ambiente privo di colpa. Promuoviamo l'auto-direzione a lavorare su progetti significativi, mentre ci sforziamo anche di creare un ambiente che fornisce il supporto e la mentorship necessari per imparare e crescere.\n\nPer saperne di più: controllare i nostri libri su Site Reliability Engineering o leggere un profilo di carriera sul perché un Software Engineer ha scelto di aderire SRE.\nL'organizzazione ML, Systems, & Cloud AI (MSCA) di Google progetta, implementa e gestisce l'hardware, il software, l'apprendimento automatico e l'infrastruttura di sistemi per tutti i servizi di Google (Search, YouTube, ecc.) e Google Cloud. I nostri utenti finali sono Googlers, i clienti Cloud e i miliardi di persone che utilizzano i servizi Google in tutto il mondo.\nPrepariamo la sicurezza, l'efficienza e l'affidabilità in tutto ciò che facciamo - dallo sviluppo delle nostre ultime TPU all'esecuzione di una rete globale, mentre guidiamo verso la definizione del futuro dell'iperscale computing. Il nostro impatto globale abbraccia software e hardware, tra cui Vertex AI di Google Cloud, la piattaforma AI leader per portare i modelli Gemini ai clienti aziendali.\n\nresponsabilità\n\n• Impegnarsi e migliorare l'intero ciclo di vita dei servizi, dall'inizio e dal design, fino all'implementazione, al funzionamento e alla raffinatezza.\n\n• I servizi di supporto prima di passare dal vivo attraverso attività come la consulenza di progettazione di sistema, lo sviluppo di piattaforme software e quadri, la pianificazione delle capacità e le recensioni di lancio.\n\n• Mantenere i servizi una volta che sono live misurando e monitorando la disponibilità, latenza e la salute generale del sistema.\n\n• Sistemi di scala in modo sostenibile attraverso meccanismi come l'automazione e sistemi evoluti, spingendo per cambiamenti che migliorano l'affidabilità e la velocità.\n\n• Praticare risposta agli incidenti sostenibili e postmortems incolpabili.",
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree in Computer Science, a related field, or equivalent practical experience.\n\n• 5 years of experience with software development in one or more programming languages.\n\n• 3 years of experience in designing, analyzing, and troubleshooting large-scale distributed systems.\n\n• 2 years of experience leading projects and providing technical leadership.\n\nPreferred qualifications:\n\n• Master's degree in Computer Science or Engineering.\n\nAbout the job\nSite Reliability Engineering (SRE) combines software and systems engineering to build and run large-scale, massively distributed, fault-tolerant systems. SRE ensures that Google's services—both our internally critical and our externally-visible systems—have reliability, uptime appropriate to users' needs and a fast rate of improvement. Additionally SRE’s will keep an ever-watchful eye on our systems capacity and performance.\n\nMuch of our software development focuses on optimizing existing systems, building infrastructure and eliminating work through automation. On the SRE team, you’ll have the opportunity to manage the complex challenges of scale which are unique to Google, while using your expertise in coding, algorithms, complexity analysis and large-scale system design.\n\nSRE's culture of intellectual curiosity, problem solving and openness is key to its success. Our organization brings together people with a wide variety of backgrounds, experiences and perspectives. We encourage them to collaborate, think big and take risks in a blame-free environment. We promote self-direction to work on meaningful projects, while we also strive to create an environment that provides the support and mentorship needed to learn and grow.\n\nTo learn more: check out our books on Site Reliability Engineering or read a career profile about why a Software Engineer chose to join SRE.\nThe ML, Systems, & Cloud AI (MSCA) organization at Google designs, implements, and manages the hardware, software, machine learning, and systems infrastructure for all Google services (Search, YouTube, etc.) and Google Cloud. Our end users are Googlers, Cloud customers and the billions of people who use Google services around the world.\nWe prioritize security, efficiency, and reliability across everything we do - from developing our latest TPUs to running a global network, while driving towards shaping the future of hyperscale computing. Our global impact spans software and hardware, including Google Cloud’s Vertex AI, the leading AI platform for bringing Gemini models to enterprise customers.\n\nResponsibilities\n\n• Engage in and improve the whole lifecycle of services—from inception and design, through to deployment, operation and refinement.\n\n• Support services before they go live through activities such as system design consulting, developing software platforms and frameworks, capacity planning and launch reviews.\n\n• Maintain services once they are live by measuring and monitoring availability, latency and overall system health.\n\n• Scale systems sustainably through mechanisms like automation, and evolve systems by pushing for changes that improve reliability and velocity.\n\n• Practice sustainable incident response and blameless postmortems.",
+        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss in Informatik, einem verwandten Bereich oder gleichwertige praktische Erfahrung.\n\n• 5 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen.\n\n• 3 Jahre Erfahrung im Entwerfen, Analysieren und Beheben von großen verteilten Systemen.\n\n• 2 Jahre Erfahrung als Leiter von Projekten und technische Führung.\n\nBevorzugte Qualifikationen:\n\n• Master-Abschluss in Informatik oder Ingenieurwissenschaften.\n\nÜber den Job\nSite Reliability Engineering (SRE) kombiniert Software und System Engineering, um groß angelegte, massiv verteilte, fehlertolerante Systeme zu bauen und auszuführen. SRE stellt sicher, dass die Dienste von Google - sowohl unsere intern kritischen als auch unsere extern sichtbaren Systeme - Zuverlässigkeit, Verfügbarkeit entsprechend den Bedürfnissen der Benutzer und eine schnelle Verbesserungsrate aufweisen. Darüber hinaus werden SREs die Kapazität und Leistung unserer Systeme ständig im Auge behalten.\n\nEin Großteil unserer Softwareentwicklung konzentriert sich auf die Optimierung bestehender Systeme, den Aufbau von Infrastruktur und den Abbau von Arbeit durch Automatisierung. Im SRE-Team haben Sie die Möglichkeit, die komplexen Herausforderungen der Skalierung, die für Google einzigartig sind, zu bewältigen und gleichzeitig Ihre Expertise in den Bereichen Codierung, Algorithmen, Komplexitätsanalyse und groß angelegtes Systemdesign zu nutzen.\n\nDie Kultur der intellektuellen Neugier, Problemlösung und Offenheit von SRE ist der Schlüssel zum Erfolg. Unsere Organisation bringt Menschen mit einer Vielzahl von Hintergründen, Erfahrungen und Perspektiven zusammen. Wir ermutigen sie, zusammenzuarbeiten, groß zu denken und Risiken in einer schuldfreien Umgebung einzugehen. Wir fördern die Selbstorientierung, um an sinnvollen Projekten zu arbeiten, während wir uns auch bemühen, ein Umfeld zu schaffen, das die Unterstützung und Mentorschaft bietet, die zum Lernen und Wachsen erforderlich ist.\n\nUm mehr zu erfahren: Schauen Sie sich unsere Bücher über Site Reliability Engineering an oder lesen Sie ein Karriereprofil darüber, warum sich ein Software Engineer für SRE entschieden hat.\nDie ML, Systems & Cloud AI (MSCA) -Organisation bei Google entwirft, implementiert und verwaltet die Hardware, Software, maschinelles Lernen und Systeminfrastruktur für alle Google-Dienste (Search, YouTube usw.) und Google Cloud. Unsere Endbenutzer sind Googler, Cloud-Kunden und Milliarden von Menschen, die Google-Dienste auf der ganzen Welt nutzen.\nWir setzen bei allem, was wir tun, auf Sicherheit, Effizienz und Zuverlässigkeit - von der Entwicklung unserer neuesten TPUs bis hin zum Betrieb eines globalen Netzwerks, während wir die Zukunft des Hyperscale Computing gestalten. Unsere globale Wirkung erstreckt sich auf Software und Hardware, einschließlich Vertex AI von Google Cloud, der führenden KI-Plattform für die Bereitstellung von Gemini-Modellen für Unternehmenskunden.\n\nZuständigkeiten\n\n• Engagieren und verbessern Sie den gesamten Lebenszyklus von Diensten - von der Einführung und dem Design bis hin zur Bereitstellung, zum Betrieb und zur Verfeinerung.\n\n• Supportdienste, bevor sie durch Aktivitäten wie Systemdesignberatung, Entwicklung von Softwareplattformen und Frameworks, Kapazitätsplanung und Launch Reviews live gehen.\n\n• Pflegen Sie die Dienste, sobald sie live sind, indem Sie die Verfügbarkeit, Latenz und den allgemeinen Systemzustand messen und überwachen.\n\n• Skalieren Sie Systeme nachhaltig durch Mechanismen wie Automatisierung und entwickeln Sie Systeme, indem Sie auf Veränderungen drängen, die die Zuverlässigkeit und Geschwindigkeit verbessern.\n\n• Üben Sie nachhaltige Incident Response und tadellose Postmortems.",
+        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat en informatique, domaine connexe ou expérience pratique équivalente.\n\n• 5 ans d'expérience dans le développement de logiciels dans un ou plusieurs langages de programmation.\n\n• 3 ans d'expérience dans la conception, l'analyse et le dépannage de systèmes distribués à grande échelle.\n\n• 2 ans d'expérience à la tête de projets et à la direction technique.\n\nTitres préférés:\n\n• Maîtrise en informatique ou en génie.\n\nSur le travail\nSite Reliability Engineering (SRE) combine l'ingénierie des logiciels et des systèmes pour construire et exécuter des systèmes à grande échelle, massivement distribués, tolérants aux défauts. SRE s'assure que les services de Google – à la fois nos systèmes internes critiques et nos systèmes externes visibles – sont fiables, adaptés aux besoins des utilisateurs et à un rythme d'amélioration rapide. En outre, les SRE's garderont un œil permanent sur la capacité et les performances de nos systèmes.\n\nUne grande partie de notre développement de logiciels est axée sur l'optimisation des systèmes existants, la construction d'infrastructures et l'élimination du travail par l'automatisation. Sur l'équipe SRE, vous aurez la possibilité de gérer les défis complexes d'échelle qui sont uniques à Google, tout en utilisant votre expertise dans le codage, les algorithmes, l'analyse de complexité et la conception de systèmes à grande échelle.\n\nLa culture de curiosité intellectuelle, de résolution de problèmes et d'ouverture de SRE est la clé de son succès. Notre organisation réunit des gens ayant une grande variété d'horizons, d'expériences et de perspectives. Nous les encourageons à collaborer, à penser grand et à prendre des risques dans un environnement sans blâme. Nous encourageons l'auto-direction à travailler sur des projets significatifs, tout en nous efforçant de créer un environnement qui offre le soutien et le mentorat nécessaires pour apprendre et grandir.\n\nPour en savoir plus, consultez nos livres sur Site Reliability Engineering ou consultez un profil de carrière sur les raisons pour lesquelles un ingénieur logiciel a choisi de rejoindre SRE.\nL'organisation ML, Systems, & Cloud AI (MSCA) de Google conçoit, met en œuvre et gère le matériel, les logiciels, l'apprentissage automatique et l'infrastructure de systèmes pour tous les services Google (Recherche, YouTube, etc.) et Google Cloud. Nos utilisateurs finaux sont Googlers, les clients Cloud et les milliards de personnes qui utilisent les services Google dans le monde entier.\nNous privilégions la sécurité, l'efficacité et la fiabilité dans tout ce que nous faisons - du développement de nos derniers TPU à l'exploitation d'un réseau mondial, tout en conduisant vers l'élaboration de l'avenir de l'informatique hyperéchelle. Notre impact mondial s'étend sur les logiciels et le matériel, y compris sur Google Cloud.\n\nResponsabilités\n\n• Intégrer et améliorer l'ensemble du cycle de vie des services – depuis le début et la conception jusqu'au déploiement, à l'exploitation et au raffinement.\n\n• Les services d'appui avant qu'ils ne passent par des activités telles que le conseil en conception de systèmes, l'élaboration de plates-formes et de cadres logiciels, la planification des capacités et les examens de lancement.\n\n• Maintenir les services une fois qu'ils sont en vie en mesurant et en surveillant la disponibilité, la latence et la santé globale du système.\n\n• Systèmes d'échelle durable grâce à des mécanismes comme l'automatisation, et d'évolution des systèmes en poussant à des changements qui améliorent la fiabilité et la vitesse.\n\n• Pratiquer une intervention d'incident durable et des postmortems irréprochables."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/111782570709918406-senior-software-engineer-site-reliability-engineering-youtube-ml",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:19.762Z",
+      "crawledAt": "2026-10-21T09:18:31.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -607,6 +608,18 @@
           "2 years of experience leading projects and providing technical leadership."
         ]
       },
+      "previousSlugs": [
+        "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich"
+        ],
+        "fr": [
+          "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-20T21:18:19.762Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -619,19 +632,7 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-20T21:18:19.762Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich"
-        ],
-        "fr": [
-          "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "senior-software-engineer-site-reliability-engineering-youtube-ml-google-switzerland-zurich"
-      ]
+      }
     },
     {
       "id": "google-switzerland-9f1ce7d787a1",
@@ -664,7 +665,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81313308207915718-group-product-manager-search-content-platform",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:19.217Z",
+      "crawledAt": "2026-10-21T09:18:31.068Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -752,7 +753,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/144035840220111558-software-engineer-iii-cloud-ai-for-science-full-stack",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:18.566Z",
+      "crawledAt": "2026-10-21T09:18:30.515Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -831,7 +832,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/142200254949663430-senior-software-engineer-search-ads-in-ai-experiences",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:18.048Z",
+      "crawledAt": "2026-10-21T09:18:30.014Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -910,7 +911,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86601143093732038-software-engineering-manager-securityprivacy",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:17.526Z",
+      "crawledAt": "2026-10-21T09:18:29.496Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -991,7 +992,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/115399839411249862-applied-ml-graph-neural-network-research-software-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:16.838Z",
+      "crawledAt": "2026-10-21T09:18:28.992Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1080,7 +1081,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/130911348950213318-software-engineer-iii-centerpiece",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:16.311Z",
+      "crawledAt": "2026-10-21T09:18:28.481Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1156,7 +1157,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/117969264941376198-privacy-engineer-iii-platforms-security-and-privacy",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:15.796Z",
+      "crawledAt": "2026-10-21T09:18:27.975Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1231,7 +1232,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/104587629684499142-software-engineer-iii-data-protection-acceleration",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:15.259Z",
+      "crawledAt": "2026-10-21T09:18:27.421Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1305,7 +1306,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/103525461723620038-agentic-data-cloud-sales-specialist-dach",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:14.717Z",
+      "crawledAt": "2026-10-21T09:18:26.930Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1386,7 +1387,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79953021198312134-senior-ux-design-manager-youtube-studio-and-support",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:14.158Z",
+      "crawledAt": "2026-10-21T09:18:26.417Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1467,7 +1468,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86715874555110086-senior-software-engineer-site-reliability-engineering",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:13.626Z",
+      "crawledAt": "2026-10-21T09:18:25.882Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1546,7 +1547,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/107329108383277766-software-engineer-iii-commerce-actor-safety-intelligence",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:13.070Z",
+      "crawledAt": "2026-10-21T09:18:25.031Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1623,7 +1624,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/92934080961618630-security-engineer-operational-technology-google-cloud-ciso",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:12.478Z",
+      "crawledAt": "2026-10-21T09:18:24.529Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1703,7 +1704,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/79119194099983046-software-engineer-iii-merchant-shopping-intelligence-and-agents",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:11.938Z",
+      "crawledAt": "2026-10-21T09:18:24.024Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1778,7 +1779,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118581896928993990-technical-lead-xr-semantic-perception",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:11.397Z",
+      "crawledAt": "2026-10-21T09:18:23.516Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1868,7 +1869,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/97084041571771078-infotasks-productivity-agents-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:10.859Z",
+      "crawledAt": "2026-10-21T09:18:22.971Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1927,8 +1928,8 @@
       "id": "google-switzerland-5fd4f0c027ea",
       "slug": "software-engineer-iii-youtube-trust-and-safety-automation-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "software-engineer-iii-youtube-trust-and-safety-automation-google-switzerland-zurich",
         "it": "software-engineer-iii-youtube-trust-and-safety-automation-google-switzerland-zurich",
+        "en": "software-engineer-iii-youtube-trust-and-safety-automation-google-switzerland-zurich",
         "de": "software-engineer-iii-youtube-trust-and-safety-automation-google-switzerland-zurich",
         "fr": "software-engineer-iii-youtube-trust-and-safety-automation-google-switzerland-zurich"
       },
@@ -1937,24 +1938,24 @@
       "companyDomain": "google.com",
       "title": "Software Engineer III, YouTube Trust and Safety Automation",
       "titleByLocale": {
-        "en": "Software Engineer III, YouTube Trust and Safety Automation",
         "it": "Software Ingegnere III, YouTube Trust and Safety Automation",
+        "en": "Software Engineer III, YouTube Trust and Safety Automation",
         "de": "Software Ingenieur III, YouTube Trust and Safety Automation",
         "fr": "Software Ingénieur III, YouTube Trust and Safety Automation"
       },
       "description": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages (C++, Python, SQL), or 1 year of experience with an advanced degree.\n\n• 1 year of experience with one or more of the following: Speech/audio (e.g., technology duplicating and responding to the human voice), reinforcement learning (e.g., sequential decision making), ML infrastructure, or specialization in another ML field.\n\n• 1 year of experience with end-to-end Machine Learning (e.g., model deployment, model evaluation, data processing, debugging).\n\nPreferred qualifications:\n\n• MS or PhD in Machine Learning (e.g., Computer Vision).\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with Machine Learning (ML), Computer Vision and data analysis (headroom analysis/opportunity sizing).\n\n• Experience developing accessible technologies.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nIn this team, you are a Software Engineer (SWE) in a team that builds state of the art video content understanding for YouTube Trust & Safety, with a focus on the efficient enforcement via automated decisions and ranking for review by a human or Large Language Model (LLM) expert.\n\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n Responsibilities\n\n• Analyze and understand gaps in our Video and Channels content understanding.\n\n• Build classifiers for YouTube videos and livestreams using various modalities (video, image, audio, audio transcripts, metadata).\n\n• Build efficient infrastructure to orchestrate classifiers and take enforcement actions.\n\n• Utilize human review and Gemini compute capacity to maximize safety on the platform.\n\n• Collaborate with research, operations, and product teams and Design, build, productionize, and maintain your solutions.",
       "descriptionByLocale": {
-        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages (C++, Python, SQL), or 1 year of experience with an advanced degree.\n\n• 1 year of experience with one or more of the following: Speech/audio (e.g., technology duplicating and responding to the human voice), reinforcement learning (e.g., sequential decision making), ML infrastructure, or specialization in another ML field.\n\n• 1 year of experience with end-to-end Machine Learning (e.g., model deployment, model evaluation, data processing, debugging).\n\nPreferred qualifications:\n\n• MS or PhD in Machine Learning (e.g., Computer Vision).\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with Machine Learning (ML), Computer Vision and data analysis (headroom analysis/opportunity sizing).\n\n• Experience developing accessible technologies.\n\nAbout the job\n Google's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nIn this team, you are a Software Engineer (SWE) in a team that builds state of the art video content understanding for YouTube Trust & Safety, with a focus on the efficient enforcement via automated decisions and ranking for review by a human or Large Language Model (LLM) expert.\n\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\n Responsibilities\n\n• Analyze and understand gaps in our Video and Channels content understanding.\n\n• Build classifiers for YouTube videos and livestreams using various modalities (video, image, audio, audio transcripts, metadata).\n\n• Build efficient infrastructure to orchestrate classifiers and take enforcement actions.\n\n• Utilize human review and Gemini compute capacity to maximize safety on the platform.\n\n• Collaborate with research, operations, and product teams and Design, build, productionize, and maintain your solutions.",
-        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione (C++, Python, SQL), o 1 anno di esperienza con un grado avanzato.\n\n• 1 anno di esperienza con uno o più dei seguenti: Speech/audio (ad esempio, la tecnologia che duplica e risponde alla voce umana), l'apprendimento di rinforzo (ad esempio, il processo decisionale sequenziale), l'infrastruttura ML o la specializzazione in un altro campo ML.\n\n• 1 anno di esperienza con Machine Learning end-to-end (ad esempio, distribuzione del modello, valutazione del modello, elaborazione dei dati, debug).\n\nPreferiti:\n\n• MS o PhD in Machine Learning (ad esempio, Computer Vision).\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza con Machine Learning (ML), Computer Vision e analisi dei dati (analisi delle camere/opportunità di dimensionamento).\n\n• Esperienza nello sviluppo di tecnologie accessibili.\n\nRiguardo al lavoro\n Gli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e la memorizzazione dei dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. In qualità di ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\n\nIn questo team, sei un Ingegnere Software (SWE) in un team che costruisce la comprensione dei contenuti video all'avanguardia per YouTube Trust & Safety, con un focus sull'applicazione efficiente attraverso decisioni automatizzate e la classifica per la revisione da parte di un esperto umano o Large Language Model (LLM).\n\nSu YouTube, crediamo che tutti meritino di avere una voce, e che il mondo è un posto migliore quando ascoltiamo, condividiamo e costruiamo la comunità attraverso le nostre storie. Lavoriamo insieme per dare a tutti il potere di condividere la loro storia, esplorare ciò che amano, e connettersi tra loro nel processo. Lavorando all'incrocio tra tecnologia all'avanguardia e creatività senza limiti, ci muoviamo alla velocità della cultura con un obiettivo comune per mostrare alle persone il mondo. Esploriamo nuove idee, risolviamo problemi reali, e divertiamo — e lo facciamo tutti insieme.\n responsabilità\n\n• Analizzare e comprendere le lacune nella comprensione dei contenuti video e dei canali.\n\n• Costruire classificatori per video di YouTube e livestream utilizzando varie modalità (video, immagine, audio, trascrizioni audio, metadati).\n\n• Costruisci infrastrutture efficienti per orchestrare i classificatori e intraprendere azioni di esecuzione.\n\n• Utilizzare la revisione umana e la capacità di calcolo Gemini per massimizzare la sicurezza sulla piattaforma.\n\n• Collaborare con team di ricerca, operazioni e prodotti e Design, costruire, produrre e mantenere le vostre soluzioni.",
-        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen (C++, Python, SQL) oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 1 Jahr Erfahrung mit einem oder mehreren der folgenden Themen: Sprache / Audio (z. B. Technologie, die die menschliche Stimme dupliziert und darauf reagiert), Verstärkungslernen (z. B. sequentielle Entscheidungsfindung), ML-Infrastruktur oder Spezialisierung in einem anderen ML-Bereich.\n\n• 1 Jahr Erfahrung mit End-to-End Machine Learning (z. B. Modellbereitstellung, Modellbewertung, Datenverarbeitung, Debugging).\n\nBevorzugte Qualifikationen:\n\n• MS oder PhD in Machine Learning (z. B. Computer Vision).\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung mit Machine Learning (ML), Computer Vision und Datenanalyse (Headroom-Analyse / Opportunity-Sizing).\n\n• Erfahrung in der Entwicklung zugänglicher Technologien.\n\nÜber den Job\n Die Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Rechnen, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und enthusiastisch zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\n\nIn diesem Team sind Sie ein Software Engineer (SWE) in einem Team, das das Verständnis von Videoinhalten für YouTube Trust & Safety auf dem neuesten Stand der Technik aufbaut, wobei der Schwerpunkt auf der effizienten Durchsetzung durch automatisierte Entscheidungen und dem Ranking für die Überprüfung durch einen Experten für menschliche oder große Sprachmodelle (LLM) liegt.\n\nBei YouTube glauben wir, dass jeder eine Stimme verdient und dass die Welt ein besserer Ort ist, wenn wir durch unsere Geschichten zuhören, teilen und eine Gemeinschaft aufbauen. Wir arbeiten zusammen, um jedem die Kraft zu geben, seine Geschichte zu teilen, zu erforschen, was sie lieben, und sich dabei miteinander zu verbinden. An der Schnittstelle von Spitzentechnologie und grenzenloser Kreativität bewegen wir uns mit der Geschwindigkeit der Kultur mit dem gemeinsamen Ziel, den Menschen die Welt zu zeigen. Wir erforschen neue Ideen, lösen echte Probleme und haben Spaß - und das alles zusammen.\n Zuständigkeiten\n\n• Analysieren und verstehen Sie Lücken in unserem Verständnis von Video- und Channel-Inhalten.\n\n• Erstellen Sie Klassifikatoren für YouTube-Videos und Livestreams mit verschiedenen Modalitäten (Video, Bild, Audio, Audio-Transkripte, Metadaten).\n\n• Aufbau einer effizienten Infrastruktur zur Orchestrierung von Klassifikatoren und Durchführung von Durchsetzungsmaßnahmen.\n\n• Verwenden Sie menschliche Überprüfung und Gemini-Rechenkapazität, um die Sicherheit auf der Plattform zu maximieren.\n\n• Arbeiten Sie mit Forschungs-, Betriebs- und Produktteams zusammen und entwerfen, bauen, produzieren und pflegen Sie Ihre Lösungen.",
-        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation (C++, Python, SQL), ou 1 an d'expérience avec un diplôme avancé.\n\n• 1 an d'expérience avec un ou plusieurs des éléments suivants : discours/audio (p. ex., duplication de la technologie et réponse à la voix humaine), renforcement de l'apprentissage (p. ex., prise de décision séquentielle), infrastructure ML ou spécialisation dans un autre domaine ML.\n\n• 1 an d'expérience en apprentissage automatique de bout en bout (p. ex. déploiement de modèles, évaluation de modèles, traitement des données, débogage).\n\nTitres préférés:\n\n• MS ou doctorat en apprentissage automatique (p. ex., vision informatique).\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience de l'apprentissage automatique (ML), de la vision informatique et de l'analyse des données (analyse de la salle de classe/dimensionnement des possibilités).\n\n• Expérience du développement de technologies accessibles.\n\nSur le travail\n Les ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et l'autre. Nos produits doivent traiter l'information à grande échelle et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la récupération d'information, l'informatique distribuée, la conception de systèmes à grande échelle, la mise en réseau et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur en logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google.Vous aurez l'occasion de changer d'équipes et de projets au fur et à mesure que vous et notre entreprise à rythme rapide grandirez et évoluerez. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes dans l'ensemble de la pile alors que nous continuons à faire avancer la technologie.\n\nDans cette équipe, vous êtes un ingénieur logiciel (SWE) dans une équipe qui construit l'état de la compréhension de contenu vidéo pour YouTube Trust & Safety, en mettant l'accent sur l'application efficace par des décisions automatisées et le classement pour examen par un expert en LLM.\n\nSur YouTube, nous croyons que tout le monde mérite d'avoir une voix, et que le monde est un meilleur endroit quand nous écoutons, partageons et construisons la communauté à travers nos histoires. Nous travaillons ensemble pour donner à chacun le pouvoir de partager son histoire, d'explorer ce qu'il aime et de se connecter dans le processus. Travaillant à l'intersection d'une technologie de pointe et d'une créativité illimitée, nous agissons à la vitesse de la culture avec un objectif commun de montrer aux gens le monde. Nous explorons de nouvelles idées, résolvons de vrais problèmes et nous nous amusons — et nous le faisons tous ensemble.\n Responsabilités\n\n• Analyser et comprendre les lacunes de notre compréhension du contenu de la vidéo et des canaux.\n\n• Créez des classificateurs pour les vidéos et les flux en direct YouTube en utilisant différentes modalités (vidéo, image, audio, transcriptions audio, métadonnées).\n\n• Construire une infrastructure efficace pour orchestrer les classificateurs et prendre des mesures d'exécution.\n\n• Utiliser l'examen humain et la capacité de calcul Gemini pour maximiser la sécurité sur la plateforme.\n\n• Collaborer avec des équipes de recherche, d'exploitation et de produits et concevoir, construire, produire et maintenir vos solutions."
+        "it": "Nella maggior parte dei casi, questa posizione richiede interviste in persona come parte del processo di assunzione.\n\nTitolo minimo:\n\n• Corso di laurea o esperienza pratica equivalente.\n\n• 2 anni di esperienza con lo sviluppo software in uno o più linguaggi di programmazione (C++, Python, SQL), o 1 anno di esperienza con un grado avanzato.\n\n• 1 anno di esperienza con uno o più dei seguenti: Speech/audio (ad esempio, la tecnologia che duplica e risponde alla voce umana), l'apprendimento di rinforzo (ad esempio, il processo decisionale sequenziale), l'infrastruttura ML o la specializzazione in un altro campo ML.\n\n• 1 anno di esperienza con Machine Learning end-to-end (ad esempio, distribuzione del modello, valutazione del modello, elaborazione dei dati, debug).\n\nPreferiti:\n\n• MS o PhD in Machine Learning (ad esempio, Computer Vision).\n\n• 2 anni di esperienza con strutture dati e algoritmi.\n\n• Esperienza con Machine Learning (ML), Computer Vision e analisi dei dati (analisi delle camere/opportunità di dimensionamento).\n\n• Esperienza nello sviluppo di tecnologie accessibili.\n\nRiguardo al lavoro\nGli ingegneri software di Google sviluppano le tecnologie di nuova generazione che cambiano come miliardi di utenti si connettono, esplorano e interagiscono con le informazioni e l'un l'altro. I nostri prodotti hanno bisogno di gestire le informazioni su vasta scala, e estendere ben oltre la ricerca web. Siamo alla ricerca di ingegneri che portano idee fresche da tutte le aree, tra cui il recupero di informazioni, il calcolo distribuito, la progettazione di sistemi su larga scala, la rete e la memorizzazione dei dati, la sicurezza, l'intelligenza artificiale, l'elaborazione del linguaggio naturale, il design dell'interfaccia utente e il mobile; la lista va avanti e sta crescendo ogni giorno. In qualità di ingegnere del software, lavorerai su un progetto specifico critico per le esigenze di Google con opportunità di cambiare team e progetti mentre tu e il nostro business veloce crescere ed evolvere. Abbiamo bisogno che i nostri ingegneri siano versatili, esibiscano qualità di leadership e siano entusiasti di affrontare nuovi problemi in tutto il mondo, mentre continuiamo a spingere avanti la tecnologia.\n\nIn questo team, sei un Ingegnere Software (SWE) in un team che costruisce la comprensione dei contenuti video all'avanguardia per YouTube Trust & Safety, con un focus sull'applicazione efficiente attraverso decisioni automatizzate e la classifica per la revisione da parte di un esperto umano o Large Language Model (LLM).\n\nSu YouTube, crediamo che tutti meritino di avere una voce, e che il mondo è un posto migliore quando ascoltiamo, condividiamo e costruiamo la comunità attraverso le nostre storie. Lavoriamo insieme per dare a tutti il potere di condividere la loro storia, esplorare ciò che amano, e connettersi tra loro nel processo. Lavorando all'incrocio tra tecnologia all'avanguardia e creatività senza limiti, ci muoviamo alla velocità della cultura con un obiettivo comune per mostrare alle persone il mondo. Esploriamo nuove idee, risolviamo problemi reali, e divertiamo — e lo facciamo tutti insieme.\nresponsabilità\n\n• Analizzare e comprendere le lacune nella comprensione dei contenuti video e dei canali.\n\n• Costruire classificatori per video di YouTube e livestream utilizzando varie modalità (video, immagine, audio, trascrizioni audio, metadati).\n\n• Costruisci infrastrutture efficienti per orchestrare i classificatori e intraprendere azioni di esecuzione.\n\n• Utilizzare la revisione umana e la capacità di calcolo Gemini per massimizzare la sicurezza sulla piattaforma.\n\n• Collaborare con team di ricerca, operazioni e prodotti e Design, costruire, produrre e mantenere le vostre soluzioni.",
+        "en": "In most instances, this position requires in-person interviews as part of the hiring process.\n\nMinimum qualifications:\n\n• Bachelor’s degree or equivalent practical experience.\n\n• 2 years of experience with software development in one or more programming languages (C++, Python, SQL), or 1 year of experience with an advanced degree.\n\n• 1 year of experience with one or more of the following: Speech/audio (e.g., technology duplicating and responding to the human voice), reinforcement learning (e.g., sequential decision making), ML infrastructure, or specialization in another ML field.\n\n• 1 year of experience with end-to-end Machine Learning (e.g., model deployment, model evaluation, data processing, debugging).\n\nPreferred qualifications:\n\n• MS or PhD in Machine Learning (e.g., Computer Vision).\n\n• 2 years of experience with data structures and algorithms.\n\n• Experience with Machine Learning (ML), Computer Vision and data analysis (headroom analysis/opportunity sizing).\n\n• Experience developing accessible technologies.\n\nAbout the job\nGoogle's software engineers develop the next-generation technologies that change how billions of users connect, explore, and interact with information and one another. Our products need to handle information at massive scale, and extend well beyond web search. We're looking for engineers who bring fresh ideas from all areas, including information retrieval, distributed computing, large-scale system design, networking and data storage, security, artificial intelligence, natural language processing, UI design and mobile; the list goes on and is growing every day. As a software engineer, you will work on a specific project critical to Google’s needs with opportunities to switch teams and projects as you and our fast-paced business grow and evolve. We need our engineers to be versatile, display leadership qualities and be enthusiastic to take on new problems across the full-stack as we continue to push technology forward.\n\nIn this team, you are a Software Engineer (SWE) in a team that builds state of the art video content understanding for YouTube Trust & Safety, with a focus on the efficient enforcement via automated decisions and ranking for review by a human or Large Language Model (LLM) expert.\n\nAt YouTube, we believe that everyone deserves to have a voice, and that the world is a better place when we listen, share, and build community through our stories. We work together to give everyone the power to share their story, explore what they love, and connect with one another in the process. Working at the intersection of cutting-edge technology and boundless creativity, we move at the speed of culture with a shared goal to show people the world. We explore new ideas, solve real problems, and have fun — and we do it all together.\nResponsibilities\n\n• Analyze and understand gaps in our Video and Channels content understanding.\n\n• Build classifiers for YouTube videos and livestreams using various modalities (video, image, audio, audio transcripts, metadata).\n\n• Build efficient infrastructure to orchestrate classifiers and take enforcement actions.\n\n• Utilize human review and Gemini compute capacity to maximize safety on the platform.\n\n• Collaborate with research, operations, and product teams and Design, build, productionize, and maintain your solutions.",
+        "de": "In den meisten Fällen erfordert diese Position persönliche Interviews als Teil des Einstellungsprozesses.\n\nMindestqualifikationen:\n\n• Bachelor-Abschluss oder gleichwertige praktische Erfahrung.\n\n• 2 Jahre Erfahrung mit Softwareentwicklung in einer oder mehreren Programmiersprachen (C++, Python, SQL) oder 1 Jahr Erfahrung mit einem fortgeschrittenen Abschluss.\n\n• 1 Jahr Erfahrung mit einem oder mehreren der folgenden Themen: Sprache / Audio (z. B. Technologie, die die menschliche Stimme dupliziert und darauf reagiert), Verstärkungslernen (z. B. sequentielle Entscheidungsfindung), ML-Infrastruktur oder Spezialisierung in einem anderen ML-Bereich.\n\n• 1 Jahr Erfahrung mit End-to-End Machine Learning (z. B. Modellbereitstellung, Modellbewertung, Datenverarbeitung, Debugging).\n\nBevorzugte Qualifikationen:\n\n• MS oder PhD in Machine Learning (z. B. Computer Vision).\n\n• 2 Jahre Erfahrung mit Datenstrukturen und Algorithmen.\n\n• Erfahrung mit Machine Learning (ML), Computer Vision und Datenanalyse (Headroom-Analyse / Opportunity-Sizing).\n\n• Erfahrung in der Entwicklung zugänglicher Technologien.\n\nÜber den Job\nDie Software-Ingenieure von Google entwickeln Technologien der nächsten Generation, die die Art und Weise verändern, wie Milliarden von Nutzern Informationen miteinander verbinden, erforschen und interagieren. Unsere Produkte müssen Informationen in großem Umfang verarbeiten und weit über die Websuche hinausgehen. Wir suchen Ingenieure, die frische Ideen aus allen Bereichen einbringen, einschließlich Informationsabruf, verteiltes Rechnen, groß angelegtes Systemdesign, Netzwerk- und Datenspeicherung, Sicherheit, künstliche Intelligenz, Verarbeitung natürlicher Sprache, UI-Design und Mobile; Die Liste geht weiter und wächst jeden Tag. Als Software-Ingenieur arbeiten Sie an einem bestimmten Projekt, das für die Bedürfnisse von Google von entscheidender Bedeutung ist, mit Möglichkeiten, Teams und Projekte zu wechseln, während Sie und unser schnelllebiges Geschäft wachsen und sich weiterentwickeln. Wir brauchen unsere Ingenieure, um vielseitig zu sein, Führungsqualitäten zu zeigen und enthusiastisch zu sein, neue Probleme auf dem gesamten Stapel anzunehmen, während wir die Technologie weiter vorantreiben.\n\nIn diesem Team sind Sie ein Software Engineer (SWE) in einem Team, das das Verständnis von Videoinhalten für YouTube Trust & Safety auf dem neuesten Stand der Technik aufbaut, wobei der Schwerpunkt auf der effizienten Durchsetzung durch automatisierte Entscheidungen und dem Ranking für die Überprüfung durch einen Experten für menschliche oder große Sprachmodelle (LLM) liegt.\n\nBei YouTube glauben wir, dass jeder eine Stimme verdient und dass die Welt ein besserer Ort ist, wenn wir durch unsere Geschichten zuhören, teilen und eine Gemeinschaft aufbauen. Wir arbeiten zusammen, um jedem die Kraft zu geben, seine Geschichte zu teilen, zu erforschen, was sie lieben, und sich dabei miteinander zu verbinden. An der Schnittstelle von Spitzentechnologie und grenzenloser Kreativität bewegen wir uns mit der Geschwindigkeit der Kultur mit dem gemeinsamen Ziel, den Menschen die Welt zu zeigen. Wir erforschen neue Ideen, lösen echte Probleme und haben Spaß - und das alles zusammen.\nZuständigkeiten\n\n• Analysieren und verstehen Sie Lücken in unserem Verständnis von Video- und Channel-Inhalten.\n\n• Erstellen Sie Klassifikatoren für YouTube-Videos und Livestreams mit verschiedenen Modalitäten (Video, Bild, Audio, Audio-Transkripte, Metadaten).\n\n• Aufbau einer effizienten Infrastruktur zur Orchestrierung von Klassifikatoren und Durchführung von Durchsetzungsmaßnahmen.\n\n• Verwenden Sie menschliche Überprüfung und Gemini-Rechenkapazität, um die Sicherheit auf der Plattform zu maximieren.\n\n• Arbeiten Sie mit Forschungs-, Betriebs- und Produktteams zusammen und entwerfen, bauen, produzieren und pflegen Sie Ihre Lösungen.",
+        "fr": "Dans la plupart des cas, ce poste exige des entrevues en personne dans le cadre du processus d'embauche.\n\nTitres minimums:\n\n• Baccalauréat ou expérience pratique équivalente.\n\n• 2 ans d'expérience en développement logiciel dans un ou plusieurs langages de programmation (C++, Python, SQL), ou 1 an d'expérience avec un diplôme avancé.\n\n• 1 an d'expérience avec un ou plusieurs des éléments suivants : discours/audio (p. ex., duplication de la technologie et réponse à la voix humaine), renforcement de l'apprentissage (p. ex., prise de décision séquentielle), infrastructure ML ou spécialisation dans un autre domaine ML.\n\n• 1 an d'expérience en apprentissage automatique de bout en bout (p. ex. déploiement de modèles, évaluation de modèles, traitement des données, débogage).\n\nTitres préférés:\n\n• MS ou doctorat en apprentissage automatique (p. ex., vision informatique).\n\n• 2 ans d'expérience dans les structures de données et les algorithmes.\n\n• Expérience de l'apprentissage automatique (ML), de la vision informatique et de l'analyse des données (analyse de la salle de classe/dimensionnement des possibilités).\n\n• Expérience du développement de technologies accessibles.\n\nSur le travail\nLes ingénieurs logiciels de Google développent les technologies de prochaine génération qui changent comment des milliards d'utilisateurs se connectent, explorent et interagissent avec l'information et l'autre. Nos produits doivent traiter l'information à grande échelle et s'étendre bien au-delà de la recherche web. Nous recherchons des ingénieurs qui apportent de nouvelles idées dans tous les domaines, y compris la récupération d'information, l'informatique distribuée, la conception de systèmes à grande échelle, la mise en réseau et le stockage de données, la sécurité, l'intelligence artificielle, le traitement du langage naturel, la conception d'interface utilisateur et mobile; la liste continue et augmente chaque jour. En tant qu'ingénieur en logiciel, vous travaillerez sur un projet spécifique critique pour les besoins de Google.Vous aurez l'occasion de changer d'équipes et de projets au fur et à mesure que vous et notre entreprise à rythme rapide grandirez et évoluerez. Nous avons besoin de nos ingénieurs pour être polyvalents, faire preuve de qualités de leadership et être enthousiastes à affronter de nouveaux problèmes dans l'ensemble de la pile alors que nous continuons à faire avancer la technologie.\n\nDans cette équipe, vous êtes un ingénieur logiciel (SWE) dans une équipe qui construit l'état de la compréhension de contenu vidéo pour YouTube Trust & Safety, en mettant l'accent sur l'application efficace par des décisions automatisées et le classement pour examen par un expert en LLM.\n\nSur YouTube, nous croyons que tout le monde mérite d'avoir une voix, et que le monde est un meilleur endroit quand nous écoutons, partageons et construisons la communauté à travers nos histoires. Nous travaillons ensemble pour donner à chacun le pouvoir de partager son histoire, d'explorer ce qu'il aime et de se connecter dans le processus. Travaillant à l'intersection d'une technologie de pointe et d'une créativité illimitée, nous agissons à la vitesse de la culture avec un objectif commun de montrer aux gens le monde. Nous explorons de nouvelles idées, résolvons de vrais problèmes et nous nous amusons — et nous le faisons tous ensemble.\nResponsabilités\n\n• Analyser et comprendre les lacunes de notre compréhension du contenu de la vidéo et des canaux.\n\n• Créez des classificateurs pour les vidéos et les flux en direct YouTube en utilisant différentes modalités (vidéo, image, audio, transcriptions audio, métadonnées).\n\n• Construire une infrastructure efficace pour orchestrer les classificateurs et prendre des mesures d'exécution.\n\n• Utiliser l'examen humain et la capacité de calcul Gemini pour maximiser la sécurité sur la plateforme.\n\n• Collaborer avec des équipes de recherche, d'exploitation et de produits et concevoir, construire, produire et maintenir vos solutions."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/108203660361507526-software-engineer-iii-youtube-trust-and-safety-automation",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:10.334Z",
+      "crawledAt": "2026-10-21T09:18:22.408Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -1981,12 +1982,10 @@
       ],
       "requirementsByLocale": {
         "en": [
-          "Bachelor’s degree or equivalent practical experience.",
-          "2 years of experience with software development in one or more programming languages (C++, Python, SQL), or 1 year of experience with an advanced degree.",
-          "1 year of experience with one or more of the following: Speech/audio (e.g., technology duplicating and responding to the human voice), reinforcement learning (e.g., sequential decision making), ML infrastructure, or specialization in another ML field.",
-          "1 year of experience with end-to-end Machine Learning (e.g., model deployment, model evaluation, data processing, debugging)."
+          "Bachelor’s degree or equivalent practical experience."
         ]
       },
+      "firstSeenAt": "2026-10-20T21:18:10.334Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1999,8 +1998,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-20T21:18:10.334Z"
+      }
     },
     {
       "id": "google-switzerland-a594597cb70d",
@@ -2033,7 +2031,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/136447603670688454-senior-software-engineer-xr-world-context",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:09.791Z",
+      "crawledAt": "2026-10-21T09:18:21.914Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2110,7 +2108,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/100862281352389318-senior-product-manager-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:09.264Z",
+      "crawledAt": "2026-10-21T09:18:21.393Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2197,7 +2195,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111285665542349510-research-scientist-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:08.729Z",
+      "crawledAt": "2026-10-21T09:18:20.901Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2298,7 +2296,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/73520749326803654-senior-ux-researcher-youtube-creator",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:08.215Z",
+      "crawledAt": "2026-10-21T09:18:20.384Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2375,7 +2373,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118063353716187846-staff-ux-designer-lead-studio-content-publishing",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:07.645Z",
+      "crawledAt": "2026-10-21T09:18:19.831Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2462,7 +2460,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/142747733357142726-software-engineering-site-reliability-engineering-bsms-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:07.018Z",
+      "crawledAt": "2026-10-21T09:18:19.257Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2545,7 +2543,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/137367585665491654-software-engineer-iii-deep-fusion-search",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:06.457Z",
+      "crawledAt": "2026-10-21T09:18:18.701Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2619,7 +2617,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/138300785422148294-manager-ai-outcome-customer-engineering-north",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:05.911Z",
+      "crawledAt": "2026-10-21T09:18:18.156Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2701,7 +2699,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/88276811699364550-cloud-abuse-security-engineer",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:05.361Z",
+      "crawledAt": "2026-10-21T09:18:17.652Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2779,7 +2777,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123274137962455750-senior-security-engineer-google-threat-intelligence-group-threat-analyst",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:04.849Z",
+      "crawledAt": "2026-10-21T09:18:17.103Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2867,7 +2865,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/118334068726080198-staff-software-engineer-site-reliability-engineering-connections",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:04.323Z",
+      "crawledAt": "2026-10-21T09:18:16.605Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -2957,7 +2955,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/102064172115600070-staff-software-engineer-shopping-graph",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:03.816Z",
+      "crawledAt": "2026-10-21T09:18:16.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3038,7 +3036,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86562756823524038-software-engineer-iii-full-stack-retail-advertiser-intelligence",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:03.290Z",
+      "crawledAt": "2026-10-21T09:18:15.588Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3121,7 +3119,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/112693881165750982-software-engineer-iii-aiml-youtube-shopping-creator",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:02.722Z",
+      "crawledAt": "2026-10-21T09:18:15.083Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3198,7 +3196,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/131768088625324742-senior-staff-software-engineer-site-reliability-engineering-privacy-security-and-safety",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:02.204Z",
+      "crawledAt": "2026-10-21T09:18:14.581Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3285,7 +3283,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/109189301668848326-staff-software-engineer-site-reliability-engineering-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:01.648Z",
+      "crawledAt": "2026-10-21T09:18:14.035Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3372,7 +3370,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82521418083771078-staff-research-data-scientist-ads-metrics",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:01.021Z",
+      "crawledAt": "2026-10-21T09:18:13.499Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3442,7 +3440,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/110222556983632582-software-engineer-iii-site-reliability-engineering-prod-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:18:00.462Z",
+      "crawledAt": "2026-10-21T09:18:12.831Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3517,7 +3515,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/136295776576774854-software-engineer-iii-youtube-viewcount-and-aggregations",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:59.672Z",
+      "crawledAt": "2026-10-21T09:18:12.313Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3593,7 +3591,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/84561862556820166-data-scientist-product-ms-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:59.128Z",
+      "crawledAt": "2026-10-21T09:18:11.819Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3668,7 +3666,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/93078491720753862-software-engineering-phd-intern-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:58.550Z",
+      "crawledAt": "2026-10-21T09:18:11.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3743,7 +3741,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/123236883416130246-staff-research-engineer-generative-ai-cloud-ai-research-coscientist",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:58.004Z",
+      "crawledAt": "2026-10-21T09:18:10.839Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3834,7 +3832,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:57.394Z",
+      "crawledAt": "2026-10-21T09:18:10.336Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3912,7 +3910,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/82143346071347910-software-engineer-iii-search-ads-quality-and-ai",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:56.855Z",
+      "crawledAt": "2026-10-21T09:18:09.821Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -3984,8 +3982,8 @@
       "id": "google-switzerland-9ae9b19aac56",
       "slug": "ricercatore-scientifico-segnali-degli-utenti-dai-log-agentici-deepmind-google-switzerland-zurich",
       "slugByLocale": {
-        "en": "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich",
         "it": "ricercatore-scientifico-segnali-degli-utenti-dai-log-agentici-deepmind-google-switzerland-zurich",
+        "en": "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich",
         "de": "forschungswissenschaftler-in-nutzersignale-aus-agentischen-protokollen-deepmind-google-switzerland-zurich",
         "fr": "chercheur-signaux-des-utilisateurs-issus-des-journaux-d-agents-deepmind-google-switzerland-zurich"
       },
@@ -3994,24 +3992,24 @@
       "companyDomain": "google.com",
       "title": "Research Scientist, User Signals from Agentic Logs, DeepMind",
       "titleByLocale": {
-        "en": "Research Scientist, User Signals from Agentic Logs, DeepMind",
         "it": "Ricercatore scientifico, Segnali degli utenti dai log agentici, DeepMind",
+        "en": "Research Scientist, User Signals from Agentic Logs, DeepMind",
         "de": "Forschungswissenschaftler/in, Nutzersignale aus agentischen Protokollen, DeepMind",
         "fr": "Chercheur, signaux des utilisateurs issus des journaux d’agents, DeepMind"
       },
       "description": "Minimum qualifications:\n\n• PhD in Machine Learning, natural language processing, or a related field (or equivalent practical experience).\n\n• Experience with software development using Python and one or more deep learning frameworks (e.g., PyTorch or JAX).\n\n• Research experience in post-training, reinforcement learning (RL), agentic RL, preference learning, or reward modeling.\n\n• First-author (or co-author) publication in one or more peer-reviewed machine learning or natural language processing (NLP) conferences (e.g., NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nPreferred qualifications:\n\n• First-author publications at top ML/NLP venues (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Experience with modern alignment and post-training methods (e.g., RLHF, DPO, PPO, rejection sampling, or self-play).\n\n• Experience modeling multi-turn interaction data, agent trajectories/logs, or user feedback (implicit and explicit signals).\n\n• Experience training or evaluating reward models, critique models, or automated evaluators (e.g., LLM-as-a-judge).\n\n• Experience in agentic post-training.\n\nAbout the job\nAs a part of the Gemini User Signals team, a Research Scientist will help drive the post-training strategy of our most advanced models, dedicated to establishing the \"flywheel\" of alignment, converting complex user interactions and feedback into training signals that fundamentally improve model behavior. In this role, you will lead research into reward modeling, preference optimization, and data-centric strategies to close the loop between user deployment and model training. You will help define the horizontal recipes that allow us to scale these insights across different modalities and model families.Artificial intelligence will be one of humanity’s most transformative inventions. At Google DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n\nWe are pushing the boundaries across multiple domains. Our global teams offer varied learning opportunities and career pathways for those driven to achieve exceptional results through collective effort.\n Responsibilities\n\n• Design and implement mechanisms to harvest, filter, and utilize high-quality user signals (implicit and explicit) to iteratively improve Gemini models.\n\n• Develop and refine reward models and critique models that accurately capture user intent and satisfaction, serving as the foundation for Reinforcement Learning from Human Feedback (RLHF) and other alignment techniques.\n\n• Create and validate \"horizontal\" post-training recipes that can be robustly applied across different model sizes and modalities (including text and audio).\n\n• Investigate novel methods for weighting, synthesizing, and selecting data to maximize the impact of user signals on model performance.\n\n• Establish rigorous evaluation frameworks to measure the correlation between offline metrics (reward model accuracy) and online user satisfaction.",
       "descriptionByLocale": {
-        "en": "Minimum qualifications:\n\n• PhD in Machine Learning, natural language processing, or a related field (or equivalent practical experience).\n\n• Experience with software development using Python and one or more deep learning frameworks (e.g., PyTorch or JAX).\n\n• Research experience in post-training, reinforcement learning (RL), agentic RL, preference learning, or reward modeling.\n\n• First-author (or co-author) publication in one or more peer-reviewed machine learning or natural language processing (NLP) conferences (e.g., NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nPreferred qualifications:\n\n• First-author publications at top ML/NLP venues (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Experience with modern alignment and post-training methods (e.g., RLHF, DPO, PPO, rejection sampling, or self-play).\n\n• Experience modeling multi-turn interaction data, agent trajectories/logs, or user feedback (implicit and explicit signals).\n\n• Experience training or evaluating reward models, critique models, or automated evaluators (e.g., LLM-as-a-judge).\n\n• Experience in agentic post-training.\n\nAbout the job\nAs a part of the Gemini User Signals team, a Research Scientist will help drive the post-training strategy of our most advanced models, dedicated to establishing the \"flywheel\" of alignment, converting complex user interactions and feedback into training signals that fundamentally improve model behavior. In this role, you will lead research into reward modeling, preference optimization, and data-centric strategies to close the loop between user deployment and model training. You will help define the horizontal recipes that allow us to scale these insights across different modalities and model families.Artificial intelligence will be one of humanity’s most transformative inventions. At Google DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n\nWe are pushing the boundaries across multiple domains. Our global teams offer varied learning opportunities and career pathways for those driven to achieve exceptional results through collective effort.\n Responsibilities\n\n• Design and implement mechanisms to harvest, filter, and utilize high-quality user signals (implicit and explicit) to iteratively improve Gemini models.\n\n• Develop and refine reward models and critique models that accurately capture user intent and satisfaction, serving as the foundation for Reinforcement Learning from Human Feedback (RLHF) and other alignment techniques.\n\n• Create and validate \"horizontal\" post-training recipes that can be robustly applied across different model sizes and modalities (including text and audio).\n\n• Investigate novel methods for weighting, synthesizing, and selecting data to maximize the impact of user signals on model performance.\n\n• Establish rigorous evaluation frameworks to measure the correlation between offline metrics (reward model accuracy) and online user satisfaction.",
-        "it": "Titolo minimo:\n\n• PhD in Machine Learning, elaborazione del linguaggio naturale, o un campo relativo (o esperienza pratica equivalente).\n\n• Esperienza con lo sviluppo software utilizzando Python e uno o più framework di apprendimento profondo (ad esempio, PyTorch o JAX).\n\n• Esperienza di ricerca in post-formazione, apprendimento di rinforzo (RL), agentec RL, apprendimento delle preferenze, o modellazione di ricompensa.\n\n• Pubblicazione del primo autore (o coautore) in una o più conferenze di apprendimento automatico peer-reviewed o di elaborazione del linguaggio naturale (NLP) (ad esempio, NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nPreferiti:\n\n• Pubblicazioni per la prima volta nelle migliori sedi ML/NLP (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Esperienza con moderni metodi di allineamento e post-formazione (ad esempio, RLHF, DPO, PPO, campionamento del rifiuto, o self-play).\n\n• Prova a modellare dati di interazione multi-turn, traiettorie/log dell'agente o feedback dell'utente (segnamenti impliciti ed espliciti).\n\n• Esperienza di formazione o valutazione di modelli di ricompensa, modelli di critica, o valutatori automatizzati (ad esempio, LLM-as-a-judge).\n\n• Esperienza in agentic post-formazione.\n\nRiguardo al lavoro\nCome parte del team Gemini User Signals, uno scienziato di ricerca aiuterà a guidare la strategia di post-training dei nostri modelli più avanzati, dedicato a stabilire il \"volante\" di allineamento, convertire complesse interazioni utente e feedback in segnali di formazione che fondamentalmente migliorare il comportamento del modello. In questo ruolo, si porterà la ricerca nella modellazione della ricompensa, ottimizzazione delle preferenze e strategie data-centric per chiudere il loop tra l'implementazione degli utenti e la formazione del modello. Ti aiuterà a definire le ricette orizzontali che ci permettono di scalare queste intuizioni in diverse modalità e famiglie modello. L’intelligenza artificiale sarà una delle invenzioni più trasformative dell’umanità. A Google DeepMind, siamo un laboratorio AI pionieristico con team interdisciplinari eccezionali focalizzati sull'avanzamento dello sviluppo AI per risolvere complesse sfide globali e accelerare l'innovazione di prodotto di alta qualità per miliardi di utenti. Utilizziamo le nostre tecnologie per un ampio beneficio pubblico e una scoperta scientifica, assicurando la sicurezza e l'etica sono sempre la nostra massima priorità.\n\nStiamo spingendo i confini attraverso più domini. I nostri team globali offrono diverse opportunità di apprendimento e percorsi di carriera per coloro che sono spinti a raggiungere risultati eccezionali attraverso lo sforzo collettivo.\n responsabilità\n\n• Progettare e implementare meccanismi per raccogliere, filtrare e utilizzare segnali utente di alta qualità (impliciti ed espliciti) per migliorare in modo iterativo i modelli Gemini.\n\n• Sviluppare e affinare modelli di ricompensa e modelli di critica che catturano con precisione l'intento e la soddisfazione dell'utente, servendo come base per l'apprendimento di rinforzo da Human Feedback (RLHF) e altre tecniche di allineamento.\n\n• Creare e convalidare ricette post-training \"orizzontali\" che possono essere applicate in modo robusto in diverse dimensioni e modalità del modello (tra cui testo e audio).\n\n• Indagare nuovi metodi per pesare, sintetizzare e selezionare i dati per massimizzare l'impatto dei segnali utente sulle prestazioni del modello.\n\n• Stabilire rigorosi framework di valutazione per misurare la correlazione tra metriche offline (ricompensa l'accuratezza del modello) e la soddisfazione dell'utente online.",
-        "de": "Mindestqualifikationen:\n\n• PhD in Machine Learning, Natural Language Processing oder einem verwandten Bereich (oder gleichwertiger praktischer Erfahrung).\n\n• Erfahrung in der Softwareentwicklung mit Python und einem oder mehreren Deep Learning Frameworks (z.B. PyTorch oder JAX).\n\n• Forschungserfahrung in Post-Training, Reinforcement Learning (RL), Agentic RL, Preference Learning oder Belohnungsmodellierung.\n\n• Erstautor (oder Co-Autor) Veröffentlichung in einer oder mehreren Peer-Review-Konferenzen für maschinelles Lernen oder natürliche Sprachverarbeitung (NLP) (z. B. NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nBevorzugte Qualifikationen:\n\n• Erstautorenpublikationen an führenden ML/NLP-Locations (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Erfahrung mit modernen Ausrichtungs- und Nachtrainingsmethoden (z. B. RLHF, DPO, PPO, Ablehnungsprobenahme oder Selbstspiel).\n\n• Erleben Sie die Modellierung von Multiturn-Interaktionsdaten, Agenten-Trajektorien/Logs oder Benutzerfeedback (implizite und explizite Signale).\n\n• Erleben Sie Training oder Bewertung von Belohnungsmodellen, Kritikmodellen oder automatisierten Bewertern (z. B. LLM-as-a-Richter).\n\n• Erfahrung im agentischen Post-Training.\n\nÜber den Job\nAls Teil des Gemini User Signals-Teams wird ein Research Scientist dazu beitragen, die Post-Training-Strategie unserer fortschrittlichsten Modelle voranzutreiben, die sich der Etablierung des \"Flywheel\" der Ausrichtung widmen und komplexe Benutzerinteraktionen und Feedback in Trainingssignale umwandeln, die das Modellverhalten grundlegend verbessern. In dieser Rolle leiten Sie die Forschung zu Belohnungsmodellierung, Präferenzoptimierung und datenzentrierten Strategien, um die Schleife zwischen Benutzerbereitstellung und Modellschulung zu schließen. Sie werden helfen, die horizontalen Rezepte zu definieren, mit denen wir diese Erkenntnisse über verschiedene Modalitäten und Modellfamilien skalieren können. Künstliche Intelligenz wird eine der transformativsten Erfindungen der Menschheit sein. Bei Google DeepMind sind wir ein wegweisendes KI-Labor mit außergewöhnlichen interdisziplinären Teams, die sich darauf konzentrieren, die KI-Entwicklung voranzutreiben, um komplexe globale Herausforderungen zu lösen und qualitativ hochwertige Produktinnovationen für Milliarden von Nutzern zu beschleunigen. Wir nutzen unsere Technologien für den breiten öffentlichen Nutzen und wissenschaftliche Entdeckungen, Sicherheit und Ethik sind immer unsere höchste Priorität.\n\nWir verschieben die Grenzen über mehrere Domänen hinweg. Unsere globalen Teams bieten vielfältige Lernmöglichkeiten und Karrierewege für diejenigen, die durch gemeinsame Anstrengungen außergewöhnliche Ergebnisse erzielen wollen.\n Zuständigkeiten\n\n• Entwerfen und implementieren Sie Mechanismen zum Sammeln, Filtern und Verwenden hochwertiger Benutzersignale (implizit und explizit), um Gemini-Modelle iterativ zu verbessern.\n\n• Entwickeln und verfeinern Sie Belohnungsmodelle und Kritikmodelle, die Benutzerabsicht und -zufriedenheit genau erfassen und als Grundlage für Reinforcement Learning aus menschlichem Feedback (RLHF) und andere Ausrichtungstechniken dienen.\n\n• Erstellen und validieren Sie \"horizontale\" Nachschulungsrezepte, die robust auf verschiedene Modellgrößen und -modalitäten (einschließlich Text und Audio) angewendet werden können.\n\n• Untersuchen Sie neuartige Methoden zum Gewichten, Synthetisieren und Auswählen von Daten, um die Auswirkungen von Benutzersignalen auf die Modellleistung zu maximieren.\n\n• Etablieren Sie strenge Bewertungsrahmen, um die Korrelation zwischen Offline-Metriken (Genauigkeit des Belohnungsmodells) und der Online-Benutzerzufriedenheit zu messen.",
-        "fr": "Titres minimums:\n\n• Doctorat en apprentissage automatique, traitement du langage naturel ou domaine connexe (ou expérience pratique équivalente).\n\n• Expérience du développement logiciel en utilisant Python et un ou plusieurs cadres d'apprentissage approfondi (p. ex. PyTorch ou JAX).\n\n• Expérience de recherche en post-formation, renforcement de l'apprentissage (RL), agent RL, apprentissage de préférence ou modélisation de récompense.\n\n• Publication du premier auteur (ou du coauteur) dans une ou plusieurs conférences d'apprentissage automatique ou de traitement des langues naturelles (p. ex. NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nTitres préférés:\n\n• Publications des premiers auteurs dans les principaux sites du ML/NLP (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Expérience des méthodes modernes d'alignement et de post-formation (p. ex. RLHF, DPO, PPO, échantillonnage de rejet ou auto-évaluation).\n\n• Expérimentez la modélisation de données d'interaction multi-tours, de trajectoires/logs d'agents ou de rétroaction de l'utilisateur (signaux implicites et explicites).\n\n• Expérience de la formation ou de l'évaluation de modèles de récompense, de modèles de critique ou d'évaluateurs automatisés (p. ex., LLM-as-a-jug).\n\n• Expérience en post-formation.\n\nSur le travail\nDans le cadre de l'équipe Gemini User Signals, un chercheur scientifique aidera à piloter la stratégie post-formation de nos modèles les plus avancés, dédié à l'établissement de la « roue volante » de l'alignement, la conversion d'interactions utilisateur complexes et de rétroaction en signaux de formation qui améliorent fondamentalement le comportement du modèle. Dans ce rôle, vous dirigerez la recherche sur la modélisation de récompense, l'optimisation des préférences et les stratégies centrées sur les données pour fermer la boucle entre le déploiement des utilisateurs et la formation des modèles. Vous aiderez à définir les recettes horizontales qui nous permettent d'évaluer ces idées à travers différentes modalités et familles modèles. L'intelligence artificielle sera l'une des inventions les plus transformatrices de l'humanité. Chez Google DeepMind, nous sommes un laboratoire d'IA pionnier avec des équipes interdisciplinaires exceptionnelles qui visent à faire progresser le développement de l'IA pour résoudre des défis mondiaux complexes et accélérer l'innovation de produits de haute qualité pour des milliards d'utilisateurs. Nous utilisons nos technologies à des fins d'intérêt général et de découverte scientifique, en veillant à ce que la sécurité et l'éthique soient toujours notre priorité absolue.\n\nNous repoussons les frontières entre plusieurs domaines. Nos équipes mondiales offrent des possibilités d'apprentissage et des parcours de carrière variés pour ceux qui sont motivés par des résultats exceptionnels grâce à des efforts collectifs.\n Responsabilités\n\n• Concevoir et mettre en œuvre des mécanismes pour récolter, filtrer et utiliser des signaux d'utilisateur de haute qualité (implicits et explicites) pour améliorer les modèles Gemini.\n\n• Élaborer et affiner des modèles de récompense et des modèles de critique qui tiennent compte avec précision de l'intention et de la satisfaction des utilisateurs, servant de fondement à l'apprentissage du renforcement par la rétroaction humaine (RLHF) et à d'autres techniques d'alignement.\n\n• Créer et valider des recettes \"horizontales\" post-formation qui peuvent être appliquées avec robustesse selon les tailles et les modalités du modèle (y compris le texte et l'audio).\n\n• Étudier de nouvelles méthodes de pondération, de synthèse et de sélection des données pour maximiser l'impact des signaux des utilisateurs sur la performance du modèle.\n\n• Établir des cadres d'évaluation rigoureux pour mesurer la corrélation entre les mesures hors ligne (exactitude du modèle de récompense) et la satisfaction des utilisateurs en ligne."
+        "it": "Titolo minimo:\n\n• PhD in Machine Learning, elaborazione del linguaggio naturale, o un campo relativo (o esperienza pratica equivalente).\n\n• Esperienza con lo sviluppo software utilizzando Python e uno o più framework di apprendimento profondo (ad esempio, PyTorch o JAX).\n\n• Esperienza di ricerca in post-formazione, apprendimento di rinforzo (RL), agentec RL, apprendimento delle preferenze, o modellazione di ricompensa.\n\n• Pubblicazione del primo autore (o coautore) in una o più conferenze di apprendimento automatico peer-reviewed o di elaborazione del linguaggio naturale (NLP) (ad esempio, NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nPreferiti:\n\n• Pubblicazioni per la prima volta nelle migliori sedi ML/NLP (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Esperienza con moderni metodi di allineamento e post-formazione (ad esempio, RLHF, DPO, PPO, campionamento del rifiuto, o self-play).\n\n• Prova a modellare dati di interazione multi-turn, traiettorie/log dell'agente o feedback dell'utente (segnamenti impliciti ed espliciti).\n\n• Esperienza di formazione o valutazione di modelli di ricompensa, modelli di critica, o valutatori automatizzati (ad esempio, LLM-as-a-judge).\n\n• Esperienza in agentic post-formazione.\n\nRiguardo al lavoro\nCome parte del team Gemini User Signals, uno scienziato di ricerca aiuterà a guidare la strategia di post-training dei nostri modelli più avanzati, dedicato a stabilire il \"volante\" di allineamento, convertire complesse interazioni utente e feedback in segnali di formazione che fondamentalmente migliorare il comportamento del modello. In questo ruolo, si porterà la ricerca nella modellazione della ricompensa, ottimizzazione delle preferenze e strategie data-centric per chiudere il loop tra l'implementazione degli utenti e la formazione del modello. Ti aiuterà a definire le ricette orizzontali che ci permettono di scalare queste intuizioni in diverse modalità e famiglie modello. L’intelligenza artificiale sarà una delle invenzioni più trasformative dell’umanità. A Google DeepMind, siamo un laboratorio AI pionieristico con team interdisciplinari eccezionali focalizzati sull'avanzamento dello sviluppo AI per risolvere complesse sfide globali e accelerare l'innovazione di prodotto di alta qualità per miliardi di utenti. Utilizziamo le nostre tecnologie per un ampio beneficio pubblico e una scoperta scientifica, assicurando la sicurezza e l'etica sono sempre la nostra massima priorità.\n\nStiamo spingendo i confini attraverso più domini. I nostri team globali offrono diverse opportunità di apprendimento e percorsi di carriera per coloro che sono spinti a raggiungere risultati eccezionali attraverso lo sforzo collettivo.\nresponsabilità\n\n• Progettare e implementare meccanismi per raccogliere, filtrare e utilizzare segnali utente di alta qualità (impliciti ed espliciti) per migliorare in modo iterativo i modelli Gemini.\n\n• Sviluppare e affinare modelli di ricompensa e modelli di critica che catturano con precisione l'intento e la soddisfazione dell'utente, servendo come base per l'apprendimento di rinforzo da Human Feedback (RLHF) e altre tecniche di allineamento.\n\n• Creare e convalidare ricette post-training \"orizzontali\" che possono essere applicate in modo robusto in diverse dimensioni e modalità del modello (tra cui testo e audio).\n\n• Indagare nuovi metodi per pesare, sintetizzare e selezionare i dati per massimizzare l'impatto dei segnali utente sulle prestazioni del modello.\n\n• Stabilire rigorosi framework di valutazione per misurare la correlazione tra metriche offline (ricompensa l'accuratezza del modello) e la soddisfazione dell'utente online.",
+        "en": "Minimum qualifications:\n\n• PhD in Machine Learning, natural language processing, or a related field (or equivalent practical experience).\n\n• Experience with software development using Python and one or more deep learning frameworks (e.g., PyTorch or JAX).\n\n• Research experience in post-training, reinforcement learning (RL), agentic RL, preference learning, or reward modeling.\n\n• First-author (or co-author) publication in one or more peer-reviewed machine learning or natural language processing (NLP) conferences (e.g., NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nPreferred qualifications:\n\n• First-author publications at top ML/NLP venues (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Experience with modern alignment and post-training methods (e.g., RLHF, DPO, PPO, rejection sampling, or self-play).\n\n• Experience modeling multi-turn interaction data, agent trajectories/logs, or user feedback (implicit and explicit signals).\n\n• Experience training or evaluating reward models, critique models, or automated evaluators (e.g., LLM-as-a-judge).\n\n• Experience in agentic post-training.\n\nAbout the job\nAs a part of the Gemini User Signals team, a Research Scientist will help drive the post-training strategy of our most advanced models, dedicated to establishing the \"flywheel\" of alignment, converting complex user interactions and feedback into training signals that fundamentally improve model behavior. In this role, you will lead research into reward modeling, preference optimization, and data-centric strategies to close the loop between user deployment and model training. You will help define the horizontal recipes that allow us to scale these insights across different modalities and model families.Artificial intelligence will be one of humanity’s most transformative inventions. At Google DeepMind, we are a pioneering AI lab with exceptional interdisciplinary teams focused on advancing AI development to solve complex global challenges and accelerate high-quality product innovation for billions of users. We use our technologies for widespread public benefit and scientific discovery, ensuring safety and ethics are always our highest priority.\n\nWe are pushing the boundaries across multiple domains. Our global teams offer varied learning opportunities and career pathways for those driven to achieve exceptional results through collective effort.\nResponsibilities\n\n• Design and implement mechanisms to harvest, filter, and utilize high-quality user signals (implicit and explicit) to iteratively improve Gemini models.\n\n• Develop and refine reward models and critique models that accurately capture user intent and satisfaction, serving as the foundation for Reinforcement Learning from Human Feedback (RLHF) and other alignment techniques.\n\n• Create and validate \"horizontal\" post-training recipes that can be robustly applied across different model sizes and modalities (including text and audio).\n\n• Investigate novel methods for weighting, synthesizing, and selecting data to maximize the impact of user signals on model performance.\n\n• Establish rigorous evaluation frameworks to measure the correlation between offline metrics (reward model accuracy) and online user satisfaction.",
+        "de": "Mindestqualifikationen:\n\n• PhD in Machine Learning, Natural Language Processing oder einem verwandten Bereich (oder gleichwertiger praktischer Erfahrung).\n\n• Erfahrung in der Softwareentwicklung mit Python und einem oder mehreren Deep Learning Frameworks (z.B. PyTorch oder JAX).\n\n• Forschungserfahrung in Post-Training, Reinforcement Learning (RL), Agentic RL, Preference Learning oder Belohnungsmodellierung.\n\n• Erstautor (oder Co-Autor) Veröffentlichung in einer oder mehreren Peer-Review-Konferenzen für maschinelles Lernen oder natürliche Sprachverarbeitung (NLP) (z. B. NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nBevorzugte Qualifikationen:\n\n• Erstautorenpublikationen an führenden ML/NLP-Locations (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Erfahrung mit modernen Ausrichtungs- und Nachtrainingsmethoden (z. B. RLHF, DPO, PPO, Ablehnungsprobenahme oder Selbstspiel).\n\n• Erleben Sie die Modellierung von Multiturn-Interaktionsdaten, Agenten-Trajektorien/Logs oder Benutzerfeedback (implizite und explizite Signale).\n\n• Erleben Sie Training oder Bewertung von Belohnungsmodellen, Kritikmodellen oder automatisierten Bewertern (z. B. LLM-as-a-Richter).\n\n• Erfahrung im agentischen Post-Training.\n\nÜber den Job\nAls Teil des Gemini User Signals-Teams wird ein Research Scientist dazu beitragen, die Post-Training-Strategie unserer fortschrittlichsten Modelle voranzutreiben, die sich der Etablierung des \"Flywheel\" der Ausrichtung widmen und komplexe Benutzerinteraktionen und Feedback in Trainingssignale umwandeln, die das Modellverhalten grundlegend verbessern. In dieser Rolle leiten Sie die Forschung zu Belohnungsmodellierung, Präferenzoptimierung und datenzentrierten Strategien, um die Schleife zwischen Benutzerbereitstellung und Modellschulung zu schließen. Sie werden helfen, die horizontalen Rezepte zu definieren, mit denen wir diese Erkenntnisse über verschiedene Modalitäten und Modellfamilien skalieren können. Künstliche Intelligenz wird eine der transformativsten Erfindungen der Menschheit sein. Bei Google DeepMind sind wir ein wegweisendes KI-Labor mit außergewöhnlichen interdisziplinären Teams, die sich darauf konzentrieren, die KI-Entwicklung voranzutreiben, um komplexe globale Herausforderungen zu lösen und qualitativ hochwertige Produktinnovationen für Milliarden von Nutzern zu beschleunigen. Wir nutzen unsere Technologien für den breiten öffentlichen Nutzen und wissenschaftliche Entdeckungen, Sicherheit und Ethik sind immer unsere höchste Priorität.\n\nWir verschieben die Grenzen über mehrere Domänen hinweg. Unsere globalen Teams bieten vielfältige Lernmöglichkeiten und Karrierewege für diejenigen, die durch gemeinsame Anstrengungen außergewöhnliche Ergebnisse erzielen wollen.\nZuständigkeiten\n\n• Entwerfen und implementieren Sie Mechanismen zum Sammeln, Filtern und Verwenden hochwertiger Benutzersignale (implizit und explizit), um Gemini-Modelle iterativ zu verbessern.\n\n• Entwickeln und verfeinern Sie Belohnungsmodelle und Kritikmodelle, die Benutzerabsicht und -zufriedenheit genau erfassen und als Grundlage für Reinforcement Learning aus menschlichem Feedback (RLHF) und andere Ausrichtungstechniken dienen.\n\n• Erstellen und validieren Sie \"horizontale\" Nachschulungsrezepte, die robust auf verschiedene Modellgrößen und -modalitäten (einschließlich Text und Audio) angewendet werden können.\n\n• Untersuchen Sie neuartige Methoden zum Gewichten, Synthetisieren und Auswählen von Daten, um die Auswirkungen von Benutzersignalen auf die Modellleistung zu maximieren.\n\n• Etablieren Sie strenge Bewertungsrahmen, um die Korrelation zwischen Offline-Metriken (Genauigkeit des Belohnungsmodells) und der Online-Benutzerzufriedenheit zu messen.",
+        "fr": "Titres minimums:\n\n• Doctorat en apprentissage automatique, traitement du langage naturel ou domaine connexe (ou expérience pratique équivalente).\n\n• Expérience du développement logiciel en utilisant Python et un ou plusieurs cadres d'apprentissage approfondi (p. ex. PyTorch ou JAX).\n\n• Expérience de recherche en post-formation, renforcement de l'apprentissage (RL), agent RL, apprentissage de préférence ou modélisation de récompense.\n\n• Publication du premier auteur (ou du coauteur) dans une ou plusieurs conférences d'apprentissage automatique ou de traitement des langues naturelles (p. ex. NeurIPS, ICML, ICLR, ACL, EMNLP).\n\nTitres préférés:\n\n• Publications des premiers auteurs dans les principaux sites du ML/NLP (NeurIPS, ICML, ICLR, ACL, EMNLP).\n\n• Expérience des méthodes modernes d'alignement et de post-formation (p. ex. RLHF, DPO, PPO, échantillonnage de rejet ou auto-évaluation).\n\n• Expérimentez la modélisation de données d'interaction multi-tours, de trajectoires/logs d'agents ou de rétroaction de l'utilisateur (signaux implicites et explicites).\n\n• Expérience de la formation ou de l'évaluation de modèles de récompense, de modèles de critique ou d'évaluateurs automatisés (p. ex., LLM-as-a-jug).\n\n• Expérience en post-formation.\n\nSur le travail\nDans le cadre de l'équipe Gemini User Signals, un chercheur scientifique aidera à piloter la stratégie post-formation de nos modèles les plus avancés, dédié à l'établissement de la « roue volante » de l'alignement, la conversion d'interactions utilisateur complexes et de rétroaction en signaux de formation qui améliorent fondamentalement le comportement du modèle. Dans ce rôle, vous dirigerez la recherche sur la modélisation de récompense, l'optimisation des préférences et les stratégies centrées sur les données pour fermer la boucle entre le déploiement des utilisateurs et la formation des modèles. Vous aiderez à définir les recettes horizontales qui nous permettent d'évaluer ces idées à travers différentes modalités et familles modèles. L'intelligence artificielle sera l'une des inventions les plus transformatrices de l'humanité. Chez Google DeepMind, nous sommes un laboratoire d'IA pionnier avec des équipes interdisciplinaires exceptionnelles qui visent à faire progresser le développement de l'IA pour résoudre des défis mondiaux complexes et accélérer l'innovation de produits de haute qualité pour des milliards d'utilisateurs. Nous utilisons nos technologies à des fins d'intérêt général et de découverte scientifique, en veillant à ce que la sécurité et l'éthique soient toujours notre priorité absolue.\n\nNous repoussons les frontières entre plusieurs domaines. Nos équipes mondiales offrent des possibilités d'apprentissage et des parcours de carrière variés pour ceux qui sont motivés par des résultats exceptionnels grâce à des efforts collectifs.\nResponsabilités\n\n• Concevoir et mettre en œuvre des mécanismes pour récolter, filtrer et utiliser des signaux d'utilisateur de haute qualité (implicits et explicites) pour améliorer les modèles Gemini.\n\n• Élaborer et affiner des modèles de récompense et des modèles de critique qui tiennent compte avec précision de l'intention et de la satisfaction des utilisateurs, servant de fondement à l'apprentissage du renforcement par la rétroaction humaine (RLHF) et à d'autres techniques d'alignement.\n\n• Créer et valider des recettes \"horizontales\" post-formation qui peuvent être appliquées avec robustesse selon les tailles et les modalités du modèle (y compris le texte et l'audio).\n\n• Étudier de nouvelles méthodes de pondération, de synthèse et de sélection des données pour maximiser l'impact des signaux des utilisateurs sur la performance du modèle.\n\n• Établir des cadres d'évaluation rigoureux pour mesurer la corrélation entre les mesures hors ligne (exactitude du modèle de récompense) et la satisfaction des utilisateurs en ligne."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://www.google.com/about/careers/applications/jobs/results/104448828152652486-research-scientist-user-signals-from-agentic-logs-deepmind",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:56.329Z",
+      "crawledAt": "2026-10-21T09:18:09.328Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4040,10 +4038,24 @@
         "en": [
           "PhD in Machine Learning, natural language processing, or a related field (or equivalent practical experience).",
           "Experience with software development using Python and one or more deep learning frameworks (e.g., PyTorch or JAX).",
-          "Research experience in post-training, reinforcement learning (RL), agentic RL, preference learning, or reward modeling.",
-          "First-author (or co-author) publication in one or more peer-reviewed machine learning or natural language processing (NLP) conferences (e.g., NeurIPS, ICML, ICLR, ACL, EMNLP)."
+          "Research experience in post-training, reinforcement learning (RL), agentic RL, preference learning, or reward modeling."
         ]
       },
+      "previousSlugs": [
+        "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
+        ],
+        "de": [
+          "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
+        ],
+        "fr": [
+          "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-10-20T21:17:56.329Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -4056,22 +4068,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-20T21:17:56.329Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
-        ],
-        "de": [
-          "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
-        ],
-        "fr": [
-          "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "research-scientist-user-signals-from-agentic-logs-deepmind-google-switzerland-zurich"
-      ]
+      }
     },
     {
       "id": "google-switzerland-0716eeed2002",
@@ -4104,7 +4101,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/136746430315274950-ai-outcome-customer-engineer-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:55.793Z",
+      "crawledAt": "2026-10-21T09:18:08.807Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4205,7 +4202,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/134588982343148230-senior-forward-deployed-engineer-genai-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:55.268Z",
+      "crawledAt": "2026-10-21T09:18:08.268Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4283,7 +4280,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/81427103366423238-staff-software-engineer-generative-ai-commerce",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:54.748Z",
+      "crawledAt": "2026-10-21T09:18:07.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4362,7 +4359,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/117158278479127238-software-engineer-iii-shopping-ads",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:54.087Z",
+      "crawledAt": "2026-10-21T09:18:07.204Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4438,7 +4435,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/111514322084995782-staff-forward-deployed-engineer-genai-google-cloud",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:53.545Z",
+      "crawledAt": "2026-10-21T09:18:06.558Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4516,7 +4513,7 @@
       "url": "https://www.google.com/about/careers/applications/jobs/results/135429165993075398-ai-strategic-pursuit-lead-automotive-agent-google-cloud-emea",
       "source": "Google Switzerland Dedicated Parser (server-rendered HTML)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:17:53.012Z",
+      "crawledAt": "2026-10-21T09:18:06.020Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Brandschenkestrasse 110",
@@ -4647,7 +4644,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
