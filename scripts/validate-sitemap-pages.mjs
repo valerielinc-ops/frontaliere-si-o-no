@@ -109,6 +109,7 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { flatString } from './lib/flat-string.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 import { discoverSoft404Sitemaps, soft404PopulationError } from './lib/soft404-sitemap-discovery.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
@@ -180,12 +181,14 @@ function countWords(text) {
   return text.split(' ').filter(w => w.length > 0).length;
 }
 
-/** soft404 + content-quality both use this exact noindex regex shape.
- *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
+/** soft404 + content-quality share this quote-balanced robots parser. */
 function hasNoindex(html) {
-  // soft404 uses match(); content-quality uses test() — same intent, same outcome.
-  // Attribute-order-independent (#3060): content-before-name must not slip past.
-  return /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
 }
 
 function hasJobPostingSchema(html) {
@@ -337,9 +340,13 @@ function findHtmlFile_vc(url) {
 }
 
 function extractCanonical_vc(content) {
-  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
-  const match = content.match(/<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/);
-  return match ? match[1] : null;
+  for (const { raw } of scanMarkupStartTags(content, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readAttr(raw, 'href').trim();
+    if (href) return decodeEntities(href);
+  }
+  return null;
 }
 
 const isLegitLegacyAlias = isLegitLegacyAliasCanonicalization;

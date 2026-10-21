@@ -152,6 +152,20 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(readSitemap()).not.toContain('missing-canonical');
   });
 
+  it('keeps an explicitly classified canonical bridge', async () => {
+    const bridge = `${BASE}/cerca-lavoro-ticino/previous-job-slug/`;
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([bridge]), 'utf-8');
+    writePage(
+      bridge,
+      `<html><head><link rel="canonical" href="${HEALTHY}"></head>` +
+        '<body>__BRIDGE_TARGET_SLUG__</body></html>',
+    );
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    expect(readSitemap()).toContain(bridge);
+  });
+
   it('parses quote-free canonical attributes before applying the self-canonical check', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([UNQUOTED_CANONICAL]), 'utf-8');
     writePage(UNQUOTED_CANONICAL, unquotedCanonical(`${BASE}/cerca-lavoro-svizzera/`));

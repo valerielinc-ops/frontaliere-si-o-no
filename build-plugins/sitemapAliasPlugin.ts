@@ -40,9 +40,11 @@ import {
   dropUrlBlocksByLoc,
   extractSitemapLocs,
   getFinalSitemapMirrorLocs,
+  isClusterSitemapFilename,
   reconcileSitemapJobsWithDist,
   reconcileSitemapSearchClustersWithDist,
 } from './relatedSearchClustersPlugin';
+import { isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
 
 /**
  * Filenames that must NEVER appear in the sitemap index itself:
@@ -65,7 +67,6 @@ const EXCLUDED_SITEMAP_FILES = new Set<string>([
 /** Match `sitemap-<name>.xml` — underscore separator is reserved for legacy. */
 const SITEMAP_FILE_PATTERN = /^sitemap-[a-z0-9][a-z0-9-]*\.xml$/i;
 const ARTICLE_SITEMAP_FILE_PATTERN = /^sitemap-(?:blog(?:-ch)?|locale-variants(?:-\d+)?|news)\.xml$/i;
-const NOINDEX_ROBOTS_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
 
 export interface DiscoveredSitemap {
   file: string;
@@ -108,69 +109,87 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
 }
 
 /**
- * Remove noindex article URLs from the article sitemap families.
+ * Reconcile a sitemap family against the final HTML bytes in dist/.
  *
- * Article pages can be temporarily noindex while an upstream corpus repair
- * replaces a prompt placeholder. The HTML remains live for users and links,
- * but a noindex URL must not remain in `sitemap-blog*`, the locale-variant
- * backfill, or the news sitemap. Missing HTML is kept: a locale shard may
- * own that page in another artifact, so absence in this dist is not evidence
- * that the URL is invalid.
+ * The final artifact is the source of truth: a present page is eligible only
+ * when it is indexable and self-canonical, except for canonical bridge rules
+ * already classified by `canonicalExemptions`. Missing HTML stays advertised
+ * here because article and static locale shards can be completed by a sibling
+ * artifact; the dedicated sitemap-completeness gate owns that invariant.
  */
-export async function reconcileArticleSitemapsWithDist(distDir: string): Promise<number> {
+async function reconcileSitemapFamilyWithDist(
+  distDir: string,
+  filePredicate: (file: string) => boolean,
+  familyLabel: string,
+): Promise<number> {
   if (!fs.existsSync(distDir)) return 0;
 
   const files = fs
     .readdirSync(distDir)
-    .filter((file) => ARTICLE_SITEMAP_FILE_PATTERN.test(file))
+    .filter(filePredicate)
     .map((file) => ({ file, xml: fs.readFileSync(path.join(distDir, file), 'utf-8') }));
   if (files.length === 0) return 0;
 
   const locs = [...new Set(files.flatMap(({ xml }) => extractSitemapLocs(xml)))];
-  const noindexLocs = new Set<string>();
-  await Promise.all(locs.map(async (loc) => {
-    let pathname: string;
-    try {
-      pathname = new URL(loc).pathname.replace(/\/+$/, '');
-    } catch {
-      return;
-    }
-    const relative = pathname.replace(/^\/+/, '');
-    if (!relative) return;
-    const candidates = [
-      path.join(distDir, relative, 'index.html'),
-      path.join(distDir, `${relative}.html`),
-    ];
-    for (const candidate of candidates) {
-      try {
-        const html = await fs.promises.readFile(candidate, 'utf-8');
-        if (NOINDEX_ROBOTS_RE.test(html)) noindexLocs.add(loc);
-        return;
-      } catch (error) {
-        if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error;
-        // A missing page may belong to another locale shard; retain its loc.
-      }
-    }
-  }));
+  if (locs.length === 0) return 0;
 
-  if (noindexLocs.size === 0) return 0;
+  const kept = new Set(await dropOverwrittenLocs(distDir, locs, {
+    inspectForeignPresent: true,
+    keepMissing: true,
+    preserveCanonicalExemptions: true,
+  }));
+  const dropLocs = [...new Set(locs.filter((loc) => !kept.has(loc)))];
+  if (dropLocs.length === 0) return 0;
 
   let dropped = 0;
+  const changedFiles: string[] = [];
   for (const { file, xml } of files) {
-    const next = dropUrlBlocksByLoc(xml, [...noindexLocs]);
+    const next = dropUrlBlocksByLoc(xml, dropLocs);
     if (next.dropped === 0) continue;
     dropped += next.dropped;
     const target = path.join(distDir, file);
     if (extractSitemapLocs(next.xml).length === 0) fs.rmSync(target, { force: true });
     else fs.writeFileSync(target, next.xml, 'utf-8');
+    changedFiles.push(file);
   }
 
   if (dropped > 0) {
     console.log(
-      `\x1b[33m[sitemap-alias]\x1b[0m removed ${dropped} noindex article URL(s) from sitemap dist output`,
+      `\x1b[33m[sitemap-alias]\x1b[0m final dist-truth reconciliation removed ${dropped} ` +
+        `${familyLabel} URL(s) whose final HTML was noindex, redirect, or non-self-canonical ` +
+        `(files=${changedFiles.join(', ')})`,
     );
   }
   return dropped;
+}
+
+/** Remove noindex/non-self-canonical article URLs while retaining shard-missing URLs. */
+export async function reconcileArticleSitemapsWithDist(distDir: string): Promise<number> {
+  return reconcileSitemapFamilyWithDist(
+    distDir,
+    (file) => ARTICLE_SITEMAP_FILE_PATTERN.test(file),
+    'article sitemap',
+  );
+}
+
+/**
+ * Apply the same final-dist predicate to sitemap families not owned by one of
+ * the specialized dynamic reconcilers above. Keeping the population derived
+ * from the emitted filenames prevents a new sitemap producer from silently
+ * bypassing the noindex/canonical contract.
+ */
+async function reconcileRemainingSitemapsWithDist(distDir: string): Promise<number> {
+  return reconcileSitemapFamilyWithDist(
+    distDir,
+    (file) =>
+      SITEMAP_FILE_PATTERN.test(file) &&
+      !EXCLUDED_SITEMAP_FILES.has(file) &&
+      !ARTICLE_SITEMAP_FILE_PATTERN.test(file) &&
+      !isClusterSitemapFilename(file) &&
+      !isJobSitemapFilename(file) &&
+      !isFuelSitemapFile(file),
+    'static sitemap',
+  );
 }
 
 /**
@@ -462,6 +481,8 @@ export async function reconcileFinalSitemapsWithDist(
   await reconcileSitemapSearchClustersWithDist(distDir);
   await reconcileSitemapJobsWithDist(distDir, mirrorLocs);
   await reconcileSitemapFuelWithDist(distDir);
+  await reconcileArticleSitemapsWithDist(distDir);
+  await reconcileRemainingSitemapsWithDist(distDir);
 }
 
 export function sitemapAliasPlugin(rootDir: string): Plugin {
@@ -493,11 +514,6 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
           await jobsSeoPagesFlushed;
         }
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
-
-        // Article translations can be temporarily quarantined with
-        // `noindex,follow` while the corpus retranslation lands. Keep those
-        // live recovery pages out of the article sitemap families.
-        await reconcileArticleSitemapsWithDist(distDir);
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized

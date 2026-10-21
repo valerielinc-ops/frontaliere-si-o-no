@@ -9,6 +9,8 @@ import { extractSitemapLocs } from '../build-plugins/relatedSearchClustersPlugin
 const BASE = 'https://frontaliereticino.ch';
 const NOINDEX = `${BASE}/de/grenzgaenger-artikel/placeholder-article/`;
 const HEALTHY = `${BASE}/en/cross-border-articles/real-article/`;
+const DRIFT = `${BASE}/fr/articles-frontalier/canonical-drift-article/`;
+const BRIDGE = `${BASE}/it/articoli-frontalieri/previous-article-slug/`;
 const MISSING = `${BASE}/fr/articles-frontalier/foreign-shard-article/`;
 
 const urlset = (locs: string[]) =>
@@ -30,11 +32,20 @@ beforeEach(() => {
   dist = fs.mkdtempSync(path.join(os.tmpdir(), 'article-sitemap-dist-truth-'));
   fs.writeFileSync(
     path.join(dist, 'sitemap-locale-variants-001.xml'),
-    urlset([NOINDEX, HEALTHY, MISSING]),
+    urlset([NOINDEX, HEALTHY, DRIFT, BRIDGE, MISSING]),
     'utf8',
   );
-  writePage(NOINDEX, '<meta name="robots" content="noindex,follow">');
-  writePage(HEALTHY, `<meta name="robots" content="index,follow">`);
+  writePage(
+    NOINDEX,
+    `<meta name="robots" content="noindex,follow"><link rel="canonical" href="${NOINDEX}">`,
+  );
+  writePage(HEALTHY, `<link rel="canonical" href="${HEALTHY}">`);
+  writePage(DRIFT, `<link rel="canonical" href="${HEALTHY}">`);
+  writePage(
+    BRIDGE,
+    `<meta name="robots" content="index,follow"><link rel="canonical" href="${HEALTHY}">` +
+      '<!-- __BRIDGE_TARGET_SLUG__ -->',
+  );
 });
 
 afterEach(() => {
@@ -47,15 +58,16 @@ describe('reconcileArticleSitemapsWithDist', () => {
     const removed = await reconcileArticleSitemapsWithDist(dist);
     const xml = fs.readFileSync(path.join(dist, 'sitemap-locale-variants-001.xml'), 'utf8');
 
-    expect(removed).toBe(1);
-    expect(extractSitemapLocs(xml)).toEqual([HEALTHY, MISSING]);
+    expect(removed).toBe(2);
+    expect(extractSitemapLocs(xml)).toEqual([HEALTHY, BRIDGE, MISSING]);
     expect(fs.existsSync(path.join(dist, 'de/grenzgaenger-artikel/placeholder-article/index.html'))).toBe(true);
   });
 
-  it('does not alter a sitemap when no indexed article is found', async () => {
+  it('does not alter a sitemap when no article HTML is found', async () => {
     const file = path.join(dist, 'sitemap-locale-variants-001.xml');
+    fs.writeFileSync(file, urlset([HEALTHY, MISSING]), 'utf8');
     const before = fs.readFileSync(file, 'utf8');
-    fs.rmSync(path.join(dist, 'de'), { recursive: true, force: true });
+    fs.rmSync(path.join(dist, 'en'), { recursive: true, force: true });
 
     await reconcileArticleSitemapsWithDist(dist);
 

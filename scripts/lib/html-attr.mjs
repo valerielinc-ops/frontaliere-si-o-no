@@ -166,6 +166,25 @@ export function scanStartTags(html = '', tagName = '') {
 }
 
 /**
+ * Scan document markup while ignoring comments and raw-text elements.
+ *
+ * `scanStartTags` is intentionally a lightweight tag tokenizer and can also
+ * see element-shaped text inside a script or comment. SEO metadata readers
+ * must not treat that text as live document markup, so the funnel-critical
+ * callers use this boundary-aware wrapper.
+ *
+ * @param {string} html
+ * @param {string} [tagName]
+ * @returns {ReturnType<typeof scanStartTags>}
+ */
+export function scanMarkupStartTags(html = '', tagName = '') {
+  const markup = String(html || '')
+    .replace(/<!--[\s\S]*?(?:-->|$)/g, ' ')
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?(?:<\/\1\s*>|$)/gi, ' ');
+  return scanStartTags(markup, tagName);
+}
+
+/**
  * Read the first requested HTML attribute without crossing another value.
  *
  * @param {string} attrs Attribute soup (the inside of a start tag) or raw HTML.
