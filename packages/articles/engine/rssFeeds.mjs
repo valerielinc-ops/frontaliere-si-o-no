@@ -337,10 +337,9 @@ function skipLineComment(source, startIndex) {
  *
  * @param {string} source
  * @param {number} startIndex
- * @param {string} sourcePath
- * @returns {{ quote: '"' | "'" | '`', value: string, end: number } | null}
+ * @returns {{ quote: '"' | "'" | '`', value: string, end: number, dynamic?: boolean } | null}
  */
-function readStaticStringLiteral(source, startIndex, sourcePath) {
+function readStaticStringLiteral(source, startIndex) {
   const quote = source[startIndex];
   if (!STATIC_LITERAL_QUOTES.has(quote)) return null;
 
@@ -356,7 +355,14 @@ function readStaticStringLiteral(source, startIndex, sourcePath) {
       continue;
     }
     if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
-      throw new Error(`[rss] Interpolated template literal is not supported in static article body source: ${sourcePath}`);
+      const end = readTemplateLiteralEnd(source, startIndex);
+      if (end === -1) return null;
+      return {
+        quote,
+        value: source.slice(startIndex + 1, end - 1),
+        end,
+        dynamic: true,
+      };
     }
     if (quote !== '`' && (char === '\n' || char === '\r')) return null;
     if (char === quote) {
@@ -461,6 +467,118 @@ function skipRegexLiteral(source, startIndex) {
       while (/[A-Za-z]/u.test(source[cursor + 1] || '')) cursor += 1;
       return cursor + 1;
     }
+  }
+  return -1;
+}
+
+function skipExpressionString(source, startIndex, quote) {
+  let cursor = startIndex + 1;
+  while (cursor < source.length) {
+    if (source[cursor] === '\\') {
+      cursor += source[cursor + 1] === '\r' && source[cursor + 2] === '\n' ? 3 : 2;
+    } else if (source[cursor] === quote) {
+      return cursor + 1;
+    } else if (source[cursor] === '\n' || source[cursor] === '\r') {
+      return -1;
+    } else {
+      cursor += 1;
+    }
+  }
+  return -1;
+}
+
+// Skip a template interpolation as a small JS expression, preserving nested
+// braces while ignoring braces inside strings, comments, regexes and templates.
+function skipTemplateExpression(source, startIndex) {
+  let cursor = startIndex + 2;
+  let braceDepth = 1;
+  let previousToken = null;
+  const parens = [];
+
+  while (cursor < source.length) {
+    if (/\s/u.test(source[cursor])) {
+      cursor += 1;
+      continue;
+    }
+    if (source.startsWith('//', cursor)) {
+      cursor = skipLineComment(source, cursor);
+      continue;
+    }
+    if (source.startsWith('/*', cursor)) {
+      const close = source.indexOf('*/', cursor + 2);
+      if (close === -1) return -1;
+      cursor = close + 2;
+      continue;
+    }
+
+    const char = source[cursor];
+    if (char === '"' || char === "'") {
+      cursor = skipExpressionString(source, cursor, char);
+      if (cursor === -1) return -1;
+      previousToken = 'literal';
+      continue;
+    }
+    if (char === '`') {
+      cursor = readTemplateLiteralEnd(source, cursor);
+      if (cursor === -1) return -1;
+      previousToken = 'literal';
+      continue;
+    }
+    if (char === '/' && (previousToken === null || REGEX_PREFIX_TOKENS.has(previousToken))) {
+      const regexEnd = skipRegexLiteral(source, cursor);
+      if (regexEnd !== -1) {
+        cursor = regexEnd;
+        previousToken = 'literal';
+        continue;
+      }
+    }
+    if (/[A-Za-z_$]/u.test(char)) {
+      const start = cursor++;
+      while (cursor < source.length && /[A-Za-z0-9_$]/u.test(source[cursor])) cursor += 1;
+      previousToken = source.slice(start, cursor);
+      continue;
+    }
+    if (/[0-9]/u.test(char)) {
+      cursor += 1;
+      while (cursor < source.length && /[A-Za-z0-9_.]/u.test(source[cursor])) cursor += 1;
+      previousToken = 'literal';
+      continue;
+    }
+
+    const punctuator = MULTI_CHAR_PUNCTUATORS.find((candidate) => source.startsWith(candidate, cursor));
+    const value = punctuator || char;
+    if (value === '{') braceDepth += 1;
+    else if (value === '}') {
+      braceDepth -= 1;
+      if (braceDepth === 0) return cursor + 1;
+    } else if (value === '(') {
+      parens.push(CONTROL_CONDITION_KEYWORDS.has(previousToken));
+    } else if (value === ')') {
+      previousToken = parens.pop() ? ')control' : ')';
+      cursor += value.length;
+      continue;
+    }
+    previousToken = value;
+    cursor += value.length;
+  }
+
+  return -1;
+}
+
+function readTemplateLiteralEnd(source, startIndex) {
+  let cursor = startIndex + 1;
+  while (cursor < source.length) {
+    if (source[cursor] === '\\') {
+      cursor += source[cursor + 1] === '\r' && source[cursor + 2] === '\n' ? 3 : 2;
+      continue;
+    }
+    if (source[cursor] === '`') return cursor + 1;
+    if (source.startsWith('${', cursor)) {
+      cursor = skipTemplateExpression(source, cursor);
+      if (cursor === -1) return -1;
+      continue;
+    }
+    cursor += 1;
   }
   return -1;
 }
@@ -607,9 +725,14 @@ function scanStaticSourceTokens(source, sourcePath) {
       continue;
     }
     if (source[cursor] === '"' || source[cursor] === "'" || source[cursor] === '`') {
-      const literal = readStaticStringLiteral(source, cursor, sourcePath);
+      const literal = readStaticStringLiteral(source, cursor);
       if (!literal) throw new Error(`[rss] Unterminated string literal in ${sourcePath}`);
-      tokens.push({ kind: 'literal', value: source.slice(cursor, literal.end), start: cursor, end: literal.end });
+      tokens.push({
+        kind: literal.dynamic ? 'dynamic-template' : 'literal',
+        value: source.slice(cursor, literal.end),
+        start: cursor,
+        end: literal.end,
+      });
       cursor = literal.end;
       previousToken = 'literal';
       continue;
@@ -979,6 +1102,9 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
     if (findComputedBodyKey(sourceTokens, bodyObjectRange) !== -1) {
       throw new Error(`[rss] Computed article body property is not supported in static source: ${filePath}`);
     }
+    if (sourceTokens.some((token) => token.kind === 'dynamic-template')) {
+      throw new Error(`[rss] Interpolated template literal is not supported in static article body source: ${filePath}`);
+    }
     const articleParts = new Map(); // articleId → { body1: '...', body2: '...' }
     let cursor = 0;
     while (cursor < src.length) {
@@ -989,7 +1115,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
         continue;
       }
 
-      const keyLiteral = readStaticStringLiteral(src, cursor, filePath);
+      const keyLiteral = readStaticStringLiteral(src, cursor);
       if (!keyLiteral) throw new Error(`[rss] Unterminated string literal in ${filePath}`);
       const afterKey = skipStaticTrivia(src, keyLiteral.end, filePath);
 
@@ -1004,7 +1130,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
       if (!STATIC_LITERAL_QUOTES.has(src[valueStart])) {
         throw new Error(`[rss] Body property ${key} must have a static string literal value in ${filePath}`);
       }
-      const valueLiteral = readStaticStringLiteral(src, valueStart, filePath);
+      const valueLiteral = readStaticStringLiteral(src, valueStart);
       if (!valueLiteral) throw new Error(`[rss] Unterminated body value for ${key} in ${filePath}`);
       const afterValue = skipStaticTrivia(src, valueLiteral.end, filePath);
       if (src[afterValue] !== ',' && src[afterValue] !== '}') {
