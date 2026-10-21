@@ -41,6 +41,12 @@ function manifestWithTransportedTwins() {
         baseline: { site: 'cccc', corpus: 'dddd', alignedAt: '2026-10-16' },
       },
       {
+        path: 'scripts/ci/mint-app-token.mjs',
+        sitePath: 'scripts/ci/mint-app-token.mjs',
+        mode: 'identical',
+        baseline: { site: 'eeee', corpus: 'ffff', alignedAt: '2026-10-16' },
+      },
+      {
         path: 'generator/scripts/lib/article-factuality-gates.mjs',
         sitePath: 'scripts/lib/article-factuality-gates.mjs',
         mode: 'identical',
