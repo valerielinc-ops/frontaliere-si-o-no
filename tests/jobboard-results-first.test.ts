@@ -21,7 +21,7 @@ describe('JobBoard category pages — results-first ordering', () => {
     expect(loadingBlock).toContain('if (companySlugFilter) {');
     expect(loadingBlock).toContain('<JobBoardRailShell isDesktopLg={isDesktopLg}>');
     expect(source.slice(resolvingStart, resolvingStart + 180)).toMatch(
-      /const resultsResolving =\s*\(jobsLoading\s*\|\|/,
+      /const resultsResolving =\s*\(?\s*jobsLoading\s*\|\|/,
     );
   });
 
