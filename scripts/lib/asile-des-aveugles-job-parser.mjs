@@ -286,10 +286,8 @@ export function parseAsileDetailPage(
 
     const workload = /(?:^|\n)Taux d['’]activité\s*:\s*([^\n]+)/iu.exec(description)?.[1] || '';
     const contract = /(?:^|\n)Nature du contrat\s*:\s*([^\n]+)/iu.exec(description)?.[1] || '';
-    if (!/^100\s*%$/.test(normalizeSpace(workload)) || !/^CDI$/i.test(normalizeSpace(contract))) {
-      throw new Error('Asile des aveugles detail no longer proves a 100% CDI contract');
-    }
-    if (!isAsileDesAveuglesTargetLocation(location)) {
+    const isTargetLocation = isAsileDesAveuglesTargetLocation(location);
+    if (!isTargetLocation) {
       if (allowSameCantonNonTargetLocation && isKnownNonTargetVaudLocation(location)) {
         return {
           sourceId: identity.id,
@@ -302,6 +300,9 @@ export function parseAsileDetailPage(
         };
       }
       throw new Error('Asile des aveugles detail has no source-backed Lausanne workplace');
+    }
+    if (!/^100\s*%$/.test(normalizeSpace(workload)) || !/^CDI$/i.test(normalizeSpace(contract))) {
+      throw new Error('Asile des aveugles detail no longer proves a 100% CDI contract');
     }
 
     return {
