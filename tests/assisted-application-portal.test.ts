@@ -336,13 +336,27 @@ describe('legacy portal sections', () => {
     };
     let mounted = false;
     const trigger = { click: vi.fn(async () => { mounted = true; }), isVisible: vi.fn(async () => true) };
-    const fileInput = { setInputFiles: vi.fn(async () => {}), waitFor: vi.fn(async () => {}) };
+    const handle = (identity: string) => ({
+      identity,
+      evaluate: vi.fn(async (_read: unknown, other: { identity?: string }) => other?.identity === identity),
+    });
+    const existingCv = handle('existing-cv');
+    const existingLetter = handle('existing-letter');
+    const fileInput = {
+      ...handle('new-cv-input'),
+      setInputFiles: vi.fn(async () => {}),
+      waitFor: vi.fn(async () => {}),
+    };
     const frame = {
       url: () => snapshot.url,
       evaluate: vi.fn(async () => snapshot),
       locator: vi.fn((selector: string) => {
         if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
-        if (selector === 'input[type="file"]') return { count: vi.fn(async () => mounted ? 1 : 0), nth: () => fileInput };
+        if (selector === 'input[type="file"]') return {
+          count: vi.fn(async () => mounted ? 1 : 0),
+          elementHandles: vi.fn(async () => mounted ? [fileInput, existingCv, existingLetter] : [existingCv, existingLetter]),
+          nth: () => fileInput,
+        };
         return { count: vi.fn(async () => 0) };
       }),
     };

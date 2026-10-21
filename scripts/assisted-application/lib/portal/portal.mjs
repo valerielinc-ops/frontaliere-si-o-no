@@ -1291,35 +1291,46 @@ async function dialogFileInputCount(frame) {
   }
 }
 
-async function fileInputCount(frame) {
+async function fileInputHandles(frame) {
   try {
     const input = frame.locator(FILE_INPUT_SELECTOR);
-    if (typeof input.count !== 'function') return null;
-    return await input.count();
+    if (typeof input.elementHandles !== 'function') return null;
+    return await input.elementHandles();
   } catch {
     return null;
   }
 }
 
-/** Finds one newly mounted file input when the portal does not expose a dialog role. */
-async function newlyMountedFileInput(page, preferredFrame, beforeCounts, timeoutMs = 8_000) {
+async function sameElement(left, right) {
+  try {
+    return await left.evaluate((element, other) => element === other, right);
+  } catch {
+    return null;
+  }
+}
+
+/** Finds one newly mounted file input in the frame of the clicked upload control. */
+async function newlyMountedFileInput(page, preferredFrame, beforeHandles, timeoutMs = 8_000) {
+  if (!Array.isArray(beforeHandles)) return null;
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
-    const candidates = [];
-    let ambiguous = false;
-    let supportedFrames = 0;
-    for (const frame of orderedUploadFrames(page, preferredFrame)) {
-      const count = await fileInputCount(frame);
-      if (count === null) continue;
-      supportedFrames += 1;
-      const previousCount = beforeCounts.get(frame) || 0;
-      const added = count - previousCount;
-      if (added > 1) ambiguous = true;
-      else if (added === 1) candidates.push(frame.locator(FILE_INPUT_SELECTOR).nth(previousCount));
+    const afterHandles = await fileInputHandles(preferredFrame);
+    if (!Array.isArray(afterHandles)) return null;
+    const added = [];
+    for (const after of afterHandles) {
+      let known = false;
+      for (const before of beforeHandles) {
+        const equal = await sameElement(after, before);
+        if (equal === null) return null;
+        if (equal) {
+          known = true;
+          break;
+        }
+      }
+      if (!known) added.push(after);
     }
-    if (!ambiguous && candidates.length === 1) return candidates[0];
-    // Keep the helper useful with the light mocks used by the unit tests.
-    if (supportedFrames === 0) return null;
+    if (added.length === 1) return added[0];
+    if (added.length > 1) return null;
     await page.waitForTimeout(150);
   }
   return null;
@@ -1372,13 +1383,11 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   const framesBeforeClick = page.frames();
   const preferredFrame = framesBeforeClick[triggerFrame] || page.mainFrame();
   const beforeCounts = new Map();
-  const beforeFileInputCounts = new Map();
   for (const frame of framesBeforeClick) {
     const count = await dialogFileInputCount(frame);
     if (count !== null) beforeCounts.set(frame, count);
-    const fileCount = await fileInputCount(frame);
-    if (fileCount !== null) beforeFileInputCounts.set(frame, fileCount);
   }
+  const beforeFileInputHandles = await fileInputHandles(preferredFrame);
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
   const preexistingDialog = [...beforeCounts.values()].some((count) => count > 0);
@@ -1401,7 +1410,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   const chooserTarget = chooserPromise.then((chooser) => chooser ? { chooser } : null);
   const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts)
     .then((input) => input ? { input } : null, () => null);
-  const mountedInputTarget = newlyMountedFileInput(page, preferredFrame, beforeFileInputCounts)
+  const mountedInputTarget = newlyMountedFileInput(page, preferredFrame, beforeFileInputHandles)
     .then((input) => input ? { input } : null, () => null);
   const firstTarget = await Promise.race([
     chooserTarget.then((target) => ({ source: 'chooser', target })),
