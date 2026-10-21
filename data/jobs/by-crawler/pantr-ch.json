@@ -1,14 +1,14 @@
 {
   "crawlerKey": "pantr-ch",
-  "assembledAt": "2026-10-20T21:46:22.506Z",
+  "assembledAt": "2026-10-21T09:56:44.926Z",
   "jobs": [
     {
       "id": "pantr-ch-3f33f51fbed2",
       "slug": "responsabile-di-mandati-fiduciari-pantr-gmbh-horgen-3f33f51fbed2",
       "slugByLocale": {
-        "de": "mandatsleiter-in-treuhand-pantr-gmbh-horgen-3f33f51fbed2",
         "it": "responsabile-di-mandati-fiduciari-pantr-gmbh-horgen-3f33f51fbed2",
         "en": "fiduciary-services-mandate-manager-pantr-gmbh-horgen-3f33f51fbed2",
+        "de": "mandatsleiter-in-treuhand-pantr-gmbh-horgen-3f33f51fbed2",
         "fr": "responsable-de-mandats-fiduciaires-pantr-gmbh-horgen-3f33f51fbed2"
       },
       "slugDisambiguator": "3f33f51fbed2",
@@ -34,7 +34,7 @@
       "url": "https://pantr.ch/jobs/mandatsleiter-in-treuhand-55/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.462Z",
+      "crawledAt": "2026-10-21T09:56:36.921Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,19 +53,17 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/mandatsleiter-in-treuhand-55/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "requirementsByLocale": {},
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -89,9 +87,9 @@
       "id": "pantr-ch-8be2a12f1474",
       "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-st-gallen-8be2a12f1474",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-st-gallen-8be2a12f1474",
         "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-st-gallen-8be2a12f1474",
         "en": "fiduciary-services-clerk-pantr-gmbh-st-gallen-8be2a12f1474",
+        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-st-gallen-8be2a12f1474",
         "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-st-gallen-8be2a12f1474"
       },
       "slugDisambiguator": "8be2a12f1474",
@@ -117,7 +115,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-33/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.462Z",
+      "crawledAt": "2026-10-21T09:56:36.922Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -136,9 +134,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-33/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -172,9 +168,9 @@
       "id": "pantr-ch-6a1c5b127063",
       "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-stansstad-6a1c5b127063",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-stansstad-6a1c5b127063",
         "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-stansstad-6a1c5b127063",
         "en": "fiduciary-services-clerk-pantr-gmbh-stansstad-6a1c5b127063",
+        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-stansstad-6a1c5b127063",
         "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-stansstad-6a1c5b127063"
       },
       "slugDisambiguator": "6a1c5b127063",
@@ -200,7 +196,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-73/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.461Z",
+      "crawledAt": "2026-10-21T09:56:36.919Z",
       "addressLocality": "Stansstad",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -219,9 +215,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-73/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -283,7 +277,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-treuhand-71/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.461Z",
+      "crawledAt": "2026-10-21T09:56:36.919Z",
       "addressLocality": "Muri",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -302,9 +296,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-treuhand-71/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -336,12 +328,12 @@
     },
     {
       "id": "pantr-ch-fe078173d863",
-      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-steinhausen-zug-fe078173d863",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-steinhausen-fe078173d863",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863",
-        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-steinhausen-zug-fe078173d863",
-        "en": "fiduciary-services-clerk-pantr-gmbh-steinhausen-zug-fe078173d863",
-        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-steinhausen-zug-fe078173d863"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-steinhausen-fe078173d863",
+        "en": "fiduciary-services-clerk-pantr-gmbh-steinhausen-fe078173d863",
+        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-steinhausen-fe078173d863"
       },
       "slugDisambiguator": "fe078173d863",
       "company": "Pantr GmbH",
@@ -366,7 +358,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-59/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.461Z",
+      "crawledAt": "2026-10-21T09:56:36.920Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -385,9 +377,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-59/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -404,17 +394,23 @@
       "firstSeenAt": "2026-10-20T21:46:15.461Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863",
+          "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-steinhausen-zug-fe078173d863"
         ],
         "en": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863",
+          "fiduciary-services-clerk-pantr-gmbh-steinhausen-zug-fe078173d863"
         ],
         "fr": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863",
+          "collaborateur-trice-en-fiduciaire-pantr-gmbh-steinhausen-zug-fe078173d863"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863"
+        "sachbearbeiter-in-treuhand-pantr-gmbh-steinhausen-zug-fe078173d863",
+        "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-steinhausen-zug-fe078173d863",
+        "fiduciary-services-clerk-pantr-gmbh-steinhausen-zug-fe078173d863",
+        "collaborateur-trice-en-fiduciaire-pantr-gmbh-steinhausen-zug-fe078173d863"
       ]
     },
     {
@@ -449,7 +445,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-treuhand-69/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.460Z",
+      "crawledAt": "2026-10-21T09:56:36.918Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -468,9 +464,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-treuhand-69/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -532,7 +526,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-controlling-63/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.460Z",
+      "crawledAt": "2026-10-21T09:56:36.918Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -549,9 +543,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/leiter-in-controlling-63/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-controlling-pantr-gmbh-olten-6984df26d8f8"
@@ -586,9 +578,9 @@
       "id": "pantr-ch-cb7ed49a40ea",
       "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-cb7ed49a40ea",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-zug-cb7ed49a40ea",
         "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-cb7ed49a40ea",
         "en": "fiduciary-services-clerk-pantr-gmbh-zug-cb7ed49a40ea",
+        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-zug-cb7ed49a40ea",
         "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-zug-cb7ed49a40ea"
       },
       "slugDisambiguator": "cb7ed49a40ea",
@@ -614,7 +606,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-57/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.459Z",
+      "crawledAt": "2026-10-21T09:56:36.917Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -633,9 +625,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-57/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -667,12 +657,12 @@
     },
     {
       "id": "pantr-ch-cbd1dcfe4ea7",
-      "slug": "addetto-a-alla-contabilita-ai-servizi-fiduciari-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
+      "slug": "addetto-a-alla-contabilita-ai-servizi-fiduciari-pantr-gmbh-zug-cbd1dcfe4ea7",
       "slugByLocale": {
         "de": "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
-        "it": "addetto-a-alla-contabilita-ai-servizi-fiduciari-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
-        "en": "accounting-fiduciary-services-clerk-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
-        "fr": "collaborateur-trice-en-comptabilite-fiduciaire-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
+        "it": "addetto-a-alla-contabilita-ai-servizi-fiduciari-pantr-gmbh-zug-cbd1dcfe4ea7",
+        "en": "accounting-fiduciary-services-clerk-pantr-gmbh-zug-cbd1dcfe4ea7",
+        "fr": "collaborateur-trice-en-comptabilite-fiduciaire-pantr-gmbh-zug-cbd1dcfe4ea7"
       },
       "slugDisambiguator": "cbd1dcfe4ea7",
       "company": "Pantr GmbH",
@@ -697,7 +687,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-rechnungswesen-treuhand-49/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.459Z",
+      "crawledAt": "2026-10-21T09:56:36.916Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -716,9 +706,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-rechnungswesen-treuhand-49/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -735,26 +723,32 @@
       "firstSeenAt": "2026-10-20T21:46:15.459Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
+          "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
+          "addetto-a-alla-contabilita-ai-servizi-fiduciari-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
         ],
         "en": [
-          "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
+          "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
+          "accounting-fiduciary-services-clerk-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
         ],
         "fr": [
-          "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
+          "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
+          "collaborateur-trice-en-comptabilite-fiduciaire-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
+        "sachbearbeiter-in-rechnungswesen-treuhand-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
+        "addetto-a-alla-contabilita-ai-servizi-fiduciari-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
+        "accounting-fiduciary-services-clerk-pantr-gmbh-zug-zug-cbd1dcfe4ea7",
+        "collaborateur-trice-en-comptabilite-fiduciaire-pantr-gmbh-zug-zug-cbd1dcfe4ea7"
       ]
     },
     {
       "id": "pantr-ch-0a2d75aec633",
       "slug": "responsabile-di-mandati-fiduciari-pantr-gmbh-zurich-0a2d75aec633",
       "slugByLocale": {
-        "de": "mandatsleiter-in-treuhand-pantr-gmbh-zurich-0a2d75aec633",
         "it": "responsabile-di-mandati-fiduciari-pantr-gmbh-zurich-0a2d75aec633",
         "en": "fiduciary-services-mandate-manager-pantr-gmbh-zurich-0a2d75aec633",
+        "de": "mandatsleiter-in-treuhand-pantr-gmbh-zurich-0a2d75aec633",
         "fr": "responsable-de-mandats-fiduciaires-pantr-gmbh-zurich-0a2d75aec633"
       },
       "slugDisambiguator": "0a2d75aec633",
@@ -780,7 +774,7 @@
       "url": "https://pantr.ch/jobs/mandatsleiter-in-treuhand-47/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.459Z",
+      "crawledAt": "2026-10-21T09:56:36.916Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -799,19 +793,17 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/mandatsleiter-in-treuhand-47/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "requirementsByLocale": {},
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -833,12 +825,12 @@
     },
     {
       "id": "pantr-ch-92e10c274458",
-      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-zug-92e10c274458",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-92e10c274458",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458",
-        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-zug-92e10c274458",
-        "en": "fiduciary-services-clerk-pantr-gmbh-zug-zug-92e10c274458",
-        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-zug-zug-92e10c274458"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-92e10c274458",
+        "en": "fiduciary-services-clerk-pantr-gmbh-zug-92e10c274458",
+        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-zug-92e10c274458"
       },
       "slugDisambiguator": "92e10c274458",
       "company": "Pantr GmbH",
@@ -863,7 +855,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-75/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.458Z",
+      "crawledAt": "2026-10-21T09:56:36.914Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -882,27 +874,31 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-75/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-cc26061141df",
-          "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458",
+          "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-zug-92e10c274458"
         ],
         "de": [
           "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-cc26061141df"
         ],
         "en": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458",
+          "fiduciary-services-clerk-pantr-gmbh-zug-zug-92e10c274458"
         ],
         "fr": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458",
+          "collaborateur-trice-en-fiduciaire-pantr-gmbh-zug-zug-92e10c274458"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-cc26061141df",
-        "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458"
+        "sachbearbeiter-in-treuhand-pantr-gmbh-zug-zug-92e10c274458",
+        "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zug-zug-92e10c274458",
+        "fiduciary-services-clerk-pantr-gmbh-zug-zug-92e10c274458",
+        "collaborateur-trice-en-fiduciaire-pantr-gmbh-zug-zug-92e10c274458"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -923,9 +919,9 @@
       "id": "pantr-ch-dacb242c0406",
       "slug": "responsabile-di-mandati-fiduciari-pantr-gmbh-zug-dacb242c0406",
       "slugByLocale": {
-        "de": "mandatsleiter-in-treuhand-pantr-gmbh-zug-dacb242c0406",
         "it": "responsabile-di-mandati-fiduciari-pantr-gmbh-zug-dacb242c0406",
         "en": "fiduciary-services-mandate-manager-pantr-gmbh-zug-dacb242c0406",
+        "de": "mandatsleiter-in-treuhand-pantr-gmbh-zug-dacb242c0406",
         "fr": "responsable-de-mandats-fiduciaires-pantr-gmbh-zug-dacb242c0406"
       },
       "slugDisambiguator": "dacb242c0406",
@@ -951,7 +947,7 @@
       "url": "https://pantr.ch/jobs/mandatsleiter-in-treuhand-43/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.458Z",
+      "crawledAt": "2026-10-21T09:56:36.915Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -970,19 +966,17 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/mandatsleiter-in-treuhand-43/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "requirementsByLocale": {},
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       },
@@ -1006,9 +1000,9 @@
       "id": "pantr-ch-04dda852724a",
       "slug": "junior-caso-ufficiale-treuhand-pantr-gmbh-zurich-04dda852724a",
       "slugByLocale": {
-        "de": "junior-sachbearbeiter-treuhand-pantr-gmbh-zurich-04dda852724a",
         "it": "junior-caso-ufficiale-treuhand-pantr-gmbh-zurich-04dda852724a",
         "en": "junior-case-officer-treuhand-pantr-gmbh-zurich-04dda852724a",
+        "de": "junior-sachbearbeiter-treuhand-pantr-gmbh-zurich-04dda852724a",
         "fr": "m-treuhand-officier-auxiliaire-pantr-gmbh-zurich-04dda852724a"
       },
       "slugDisambiguator": "04dda852724a",
@@ -1034,7 +1028,7 @@
       "url": "https://pantr.ch/jobs/junior-sachbearbeiter-treuhand-81/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.457Z",
+      "crawledAt": "2026-10-21T09:56:36.906Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1053,9 +1047,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/junior-sachbearbeiter-treuhand-81/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1117,7 +1109,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-treuhand-79/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.457Z",
+      "crawledAt": "2026-10-21T09:56:36.913Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1136,9 +1128,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-treuhand-79/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1172,9 +1162,9 @@
       "id": "pantr-ch-334dea74b979",
       "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-kriens-334dea74b979",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-kriens-334dea74b979",
         "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-kriens-334dea74b979",
         "en": "fiduciary-services-clerk-pantr-gmbh-kriens-334dea74b979",
+        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-kriens-334dea74b979",
         "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-kriens-334dea74b979"
       },
       "slugDisambiguator": "334dea74b979",
@@ -1200,7 +1190,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-77/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.457Z",
+      "crawledAt": "2026-10-21T09:56:36.913Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1217,9 +1207,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-77/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1252,11 +1240,11 @@
     },
     {
       "id": "pantr-ch-54f24c531fb4",
-      "slug": "senior-contabile-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
+      "slug": "senior-contabile-pantr-gmbh-glattbrugg-54f24c531fb4",
       "slugByLocale": {
         "de": "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
-        "it": "senior-contabile-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
-        "en": "senior-accountants-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
+        "it": "senior-contabile-pantr-gmbh-glattbrugg-54f24c531fb4",
+        "en": "senior-accountants-pantr-gmbh-glattbrugg-54f24c531fb4",
         "fr": "comptables-principaux-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
       },
       "slugDisambiguator": "54f24c531fb4",
@@ -1265,10 +1253,10 @@
       "companyDomain": "pantr.ch",
       "title": "Senior Accountant",
       "titleByLocale": {
-        "de": "Senior Buchhalter",
-        "fr": "Comptables principaux",
         "it": "Senior Contabile",
-        "en": "Senior accountants"
+        "en": "Senior accountants",
+        "de": "Senior Buchhalter",
+        "fr": "Comptables principaux"
       },
       "description": "Für unseren Kunden, einen der führenden Schweizer Dienstleister im Bereich der Pensionskassenverwaltung mit rund 90 Mitarbeitenden, suchen wir eine abschluss- und bilanzsichere Persönlichkeit als Senior Accountant Stiftungsbuchhaltungen. In dieser verantwortungsvollen Rolle übernimmst du die eigenständige Betreuung autonomer Pensionskassen in einem dynamischen, wachstumsorientierten Umfeld. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Finanz- & Wertschriftenwesen: Verantwortung für die autonome Führung der Finanz- und Wertschriftenbuchhaltung inklusive der Nebenbücher für zugewiesene Pensionskassen.\n- Abschlüsse: Erstellen der Jahresabschlüsse nach Swiss GAAP FER 26 sowie Sicherstellung der Abstimmungen zwischen der technischen Verwaltung und der Finanzbuchhaltung.\n- Schnittstelle & Revision: Enger, bereichsübergreifender Austausch mit der Geschäftsführung sowie der Kundenbetreuung und erste Ansprechperson für die externe Revisionsstelle.\n- Digitalisierung: Aktive Mitarbeit bei der Prozessoptimierung, dem Vorantreiben digitaler Initiativen und der Gestaltung in internen Arbeitsgruppen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossene Ausbildung im Treuhandwesen, Fachausweis Finanz- und Rechnungswesen oder eine vergleichbare qualifizierte Weiterbildung.\n- Erfahrung: Mehrjährige fundierte Erfahrung in der Buchhaltung sowie absolute Bilanz- und Abschlusssicherheit (idealerweise im Umfeld von Pensionskassen oder Versicherungen; Swiss GAAP FER 26-Kenntnisse sind ein klarer Vorteil).\n- IT-Skills: Erfahrung im Umgang mit grossen Datenmengen, sehr gute Excel-Kenntnisse sowie idealerweise Erfahrung mit dem ERP-System Abacus.\n- Persönlichkeit: Ein analytisches Mindset, eine exakte und strukturierte Arbeitsweise sowie eine offene, optimistische Natur mit hohem Verantwortungsbewusstsein.\nDas erwartet dich beim Kunden:\n- Kultur & Freiraum: Eine sehr selbständige Tätigkeit mit grossem Gestaltungsspielraum, flachen Hierarchien, kurzen Entscheidungswegen und einem Team, das Erfolge gemeinsam feiert.\n- Arbeitsmodell: Zeitgemässes hybrides Arbeiten (Homeoffice-Möglichkeit) in modernen, optimal an den ÖV angebundenen Büros in Glattbrugg.\n- Benefits: Überdurchschnittliche Sozialleistungen sowie ein attraktiver ZVV Bonus Pass für den Arbeitsweg.",
       "descriptionByLocale": {
@@ -1282,7 +1270,7 @@
       "url": "https://pantr.ch/jobs/senior-accountant-96/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.456Z",
+      "crawledAt": "2026-10-21T09:56:36.904Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1301,9 +1289,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/senior-accountant-96/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1320,27 +1306,31 @@
       "firstSeenAt": "2026-10-20T21:46:15.456Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
+          "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
+          "senior-contabile-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
         ],
         "en": [
-          "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
+          "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
+          "senior-accountants-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
         ],
         "fr": [
           "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
         ]
       },
       "previousSlugs": [
-        "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
+        "senior-accountant-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
+        "senior-contabile-pantr-gmbh-glattbrugg-zurich-54f24c531fb4",
+        "senior-accountants-pantr-gmbh-glattbrugg-zurich-54f24c531fb4"
       ]
     },
     {
       "id": "pantr-ch-81b0286cd36b",
-      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-dubendorf-81b0286cd36b",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
-        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
-        "en": "fiduciary-services-clerk-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
-        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-dubendorf-81b0286cd36b",
+        "en": "fiduciary-services-clerk-pantr-gmbh-dubendorf-81b0286cd36b",
+        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-dubendorf-81b0286cd36b"
       },
       "slugDisambiguator": "81b0286cd36b",
       "company": "Pantr GmbH",
@@ -1365,7 +1355,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-94/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.456Z",
+      "crawledAt": "2026-10-21T09:56:36.905Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1384,9 +1374,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-94/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1403,27 +1391,33 @@
       "firstSeenAt": "2026-10-20T21:46:15.456Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
+          "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
         ],
         "en": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
+          "fiduciary-services-clerk-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
         ],
         "fr": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
+          "collaborateur-trice-en-fiduciaire-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
+        "sachbearbeiter-in-treuhand-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
+        "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
+        "fiduciary-services-clerk-pantr-gmbh-dubendorf-zurich-81b0286cd36b",
+        "collaborateur-trice-en-fiduciaire-pantr-gmbh-dubendorf-zurich-81b0286cd36b"
       ]
     },
     {
       "id": "pantr-ch-87ff266c0934",
-      "slug": "contabile-esperto-a-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
+      "slug": "contabile-esperto-a-pantr-gmbh-oberwil-lieli-87ff266c0934",
       "slugByLocale": {
         "de": "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
-        "it": "contabile-esperto-a-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
-        "en": "experienced-accountant-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
-        "fr": "comptable-experimente-e-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
+        "it": "contabile-esperto-a-pantr-gmbh-oberwil-lieli-87ff266c0934",
+        "en": "experienced-accountant-pantr-gmbh-oberwil-lieli-87ff266c0934",
+        "fr": "comptable-experimente-e-pantr-gmbh-oberwil-lieli-87ff266c0934"
       },
       "slugDisambiguator": "87ff266c0934",
       "company": "Pantr GmbH",
@@ -1448,7 +1442,7 @@
       "url": "https://pantr.ch/jobs/erfarhene-r-buchhalter-in-100/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.455Z",
+      "crawledAt": "2026-10-21T09:56:36.902Z",
       "addressLocality": "Oberwil-Lieli",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1467,9 +1461,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/erfarhene-r-buchhalter-in-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1486,17 +1478,23 @@
       "firstSeenAt": "2026-10-20T21:46:15.455Z",
       "previousSlugsByLocale": {
         "it": [
-          "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
+          "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
+          "contabile-esperto-a-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
         ],
         "en": [
-          "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
+          "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
+          "experienced-accountant-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
         ],
         "fr": [
-          "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
+          "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
+          "comptable-experimente-e-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
         ]
       },
       "previousSlugs": [
-        "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
+        "erfarhene-r-buchhalter-in-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
+        "contabile-esperto-a-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
+        "experienced-accountant-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934",
+        "comptable-experimente-e-pantr-gmbh-oberwil-lieli-aargau-87ff266c0934"
       ]
     },
     {
@@ -1514,10 +1512,10 @@
       "companyDomain": "pantr.ch",
       "title": "Corporate Accountant",
       "titleByLocale": {
-        "de": "Corporate Buchhalter",
-        "fr": "Comptables des entreprises",
         "it": "Corporate Contabile",
-        "en": "Corporate accountants"
+        "en": "Corporate accountants",
+        "de": "Corporate Buchhalter",
+        "fr": "Comptables des entreprises"
       },
       "description": "Für ein modernes, stark wachsendes Unternehmen aus der Gesundheitsbranche suchen wir eine analytische und umsetzungsstarke Persönlichkeit als Group Accountant. In dieser anspruchsvollen Schlüsselfunktion treibst du die Harmonisierung der Gruppenprozesse voran und begleitest strategische Sonderprojekte. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Konzernabschluss: Unterstützung bei der Erstellung der konsolidierten Monats-, Quartals- und Jahresabschlüsse nach IFRS und HGB mit eigenen Verantwortungsbereichen.\n- Prozessoptimierung: Analyse, Standardisierung und kontinuierliche Optimierung der operativen Buchhaltungsprozesse, Kontierungslogiken und Richtlinien (Accounting Manuals) innerhalb der Gruppe.\n- Schnittstelle & Audit: Zentrale Ansprechperson für Wirtschaftsprüfer im Rahmen von Vor- und Hauptprüfungen sowie Überwachung der lokalen Prüfungsfortschritte.\n- Sonderprojekte: Begleitung und Koordination von strategischen Projekten wie der Integration neuer Gesellschaften (M&A), Systemumstellungen oder der Einführung neuer IFRS-Standards in Abstimmung mit den Stakeholdern.\nDas bringst du mit:\n- Ausbildung: Erfolgreich abgeschlossenes betriebswirtschaftliches Studium mit Schwerpunkt Rechnungslegung/Accounting oder eine vergleichbare Qualifikation (z. B. Fachausweis).\n- Fachwissen: Sehr gute, fundierte Kenntnisse in den Bilanzierungsstandards nach IFRS und idealerweise HGB.\n- Projekt-Skills: Ausgeprägte Projektmanagement-Fähigkeiten sowie die Kompetenz, Themen eigenständig voranzutreiben und mit verschiedenen Fachbereichen zu koordinieren.\n- Arbeitsweise: Analytisch-konzeptionelles Denkvermögen, eine strukturierte und eigenverantwortliche Arbeitsweise sowie Kommunikationsstärke und Durchsetzungsfähigkeit.\n- Sprachen: Sehr gute Deutschkenntnisse in Wort und Schrift.\nDas erwartet dich beim Kunden:\n- Wachstum & Dynamik: Eine verantwortungsvolle und anspruchsvolle Tätigkeit mit hervorragenden Entwicklungsmöglichkeiten in einem expandierenden Unternehmen.\n- Arbeitsklima: Vielseitige Herausforderungen in spannenden, zukunftsweisenden Projekten innerhalb einer angenehmen und hochprofessionellen Arbeitsatmosphäre.\n- Gestaltungsspielraum: Die Chance, Gruppenrichtlinien und Best Practices aktiv mitzugestalten und nachhaltig zu prägen.",
       "descriptionByLocale": {
@@ -1531,7 +1529,7 @@
       "url": "https://pantr.ch/jobs/corporate-accountant-98/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.455Z",
+      "crawledAt": "2026-10-21T09:56:36.903Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1550,9 +1548,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/corporate-accountant-98/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1586,9 +1582,9 @@
       "id": "pantr-ch-e004788b2535",
       "slug": "impiegato-a-junior-nel-settore-fiduciario-pantr-gmbh-zurich-e004788b2535",
       "slugByLocale": {
-        "de": "junior-sachbearbeiter-in-treuhand-pantr-gmbh-zurich-e004788b2535",
         "it": "impiegato-a-junior-nel-settore-fiduciario-pantr-gmbh-zurich-e004788b2535",
         "en": "junior-fiduciary-administrative-specialist-pantr-gmbh-zurich-e004788b2535",
+        "de": "junior-sachbearbeiter-in-treuhand-pantr-gmbh-zurich-e004788b2535",
         "fr": "collaborateur-trice-junior-en-fiduciaire-pantr-gmbh-zurich-e004788b2535"
       },
       "slugDisambiguator": "e004788b2535",
@@ -1614,7 +1610,7 @@
       "url": "https://pantr.ch/jobs/junior-sachbearbeiter-in-treuhand-92/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.454Z",
+      "crawledAt": "2026-10-21T09:56:36.900Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1633,9 +1629,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/junior-sachbearbeiter-in-treuhand-92/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1669,9 +1663,9 @@
       "id": "pantr-ch-97ea50b120cf",
       "slug": "servizi-finanziari-pantr-gmbh-zurich-97ea50b120cf",
       "slugByLocale": {
-        "de": "assistent-wirtschaftsprufung-financial-services-pantr-gmbh-zurich-97ea50b120cf",
         "it": "servizi-finanziari-pantr-gmbh-zurich-97ea50b120cf",
         "en": "assistant-auditor-financial-services-pantr-gmbh-zurich-97ea50b120cf",
+        "de": "assistent-wirtschaftsprufung-financial-services-pantr-gmbh-zurich-97ea50b120cf",
         "fr": "auditeur-adjoint-services-financiers-pantr-gmbh-zurich-97ea50b120cf"
       },
       "slugDisambiguator": "97ea50b120cf",
@@ -1697,7 +1691,7 @@
       "url": "https://pantr.ch/jobs/assistent-wirtschaftspruefung-financial-services-88/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.454Z",
+      "crawledAt": "2026-10-21T09:56:36.901Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1716,9 +1710,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/assistent-wirtschaftspruefung-financial-services-88/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1750,12 +1742,12 @@
     },
     {
       "id": "pantr-ch-af598df38b17",
-      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-chur-graubunden-af598df38b17",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-chur-af598df38b17",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17",
-        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-chur-graubunden-af598df38b17",
-        "en": "fiduciary-services-clerk-pantr-gmbh-chur-graubunden-af598df38b17",
-        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-chur-graubunden-af598df38b17"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-chur-af598df38b17",
+        "en": "fiduciary-services-clerk-pantr-gmbh-chur-af598df38b17",
+        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-chur-af598df38b17"
       },
       "slugDisambiguator": "af598df38b17",
       "company": "Pantr GmbH",
@@ -1780,7 +1772,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-103/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.453Z",
+      "crawledAt": "2026-10-21T09:56:36.898Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1799,9 +1791,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-103/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-09daa25a48a9",
         "impiegato-a-nel-settore-fiduciario-pantr-gmbh-chur-graubunden-09daa25a48a9",
@@ -1810,29 +1800,35 @@
         "impiegato-a-nel-settore-fiduciario-pantr-gmbh-chur-09daa25a48a9",
         "trust-administration-clerk-pantr-gmbh-chur-09daa25a48a9",
         "collaborateur-trice-en-fiduciaire-pantr-gmbh-chur-09daa25a48a9",
-        "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17"
+        "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17",
+        "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-chur-graubunden-af598df38b17",
+        "fiduciary-services-clerk-pantr-gmbh-chur-graubunden-af598df38b17",
+        "collaborateur-trice-en-fiduciaire-pantr-gmbh-chur-graubunden-af598df38b17"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-09daa25a48a9",
           "impiegato-a-nel-settore-fiduciario-pantr-gmbh-chur-graubunden-09daa25a48a9",
           "impiegato-a-nel-settore-fiduciario-pantr-gmbh-chur-09daa25a48a9",
-          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17",
+          "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-chur-graubunden-af598df38b17"
         ],
         "en": [
           "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-09daa25a48a9",
           "trust-administration-clerk-pantr-gmbh-chur-graubunden-09daa25a48a9",
           "trust-administration-clerk-pantr-gmbh-chur-09daa25a48a9",
-          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17",
+          "fiduciary-services-clerk-pantr-gmbh-chur-graubunden-af598df38b17"
+        ],
+        "de": [
+          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-09daa25a48a9"
         ],
         "fr": [
           "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-09daa25a48a9",
           "collaborateur-trice-en-fiduciaire-pantr-gmbh-chur-graubunden-09daa25a48a9",
           "collaborateur-trice-en-fiduciaire-pantr-gmbh-chur-09daa25a48a9",
-          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17"
-        ],
-        "de": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-09daa25a48a9"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-chur-graubunden-af598df38b17",
+          "collaborateur-trice-en-fiduciaire-pantr-gmbh-chur-graubunden-af598df38b17"
         ]
       },
       "salaryMin": 57500,
@@ -1852,12 +1848,12 @@
     },
     {
       "id": "pantr-ch-f24c8f2e0275",
-      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-thal-f24c8f2e0275",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
-        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
-        "en": "fiduciary-services-clerk-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
-        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-thal-f24c8f2e0275",
+        "en": "fiduciary-services-clerk-pantr-gmbh-thal-f24c8f2e0275",
+        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-thal-f24c8f2e0275"
       },
       "slugDisambiguator": "f24c8f2e0275",
       "company": "Pantr GmbH",
@@ -1882,7 +1878,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-51/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.453Z",
+      "crawledAt": "2026-10-21T09:56:36.899Z",
       "addressLocality": "Thal",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1901,9 +1897,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-51/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1920,27 +1914,33 @@
       "firstSeenAt": "2026-10-20T21:46:15.453Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
+          "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
         ],
         "en": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
+          "fiduciary-services-clerk-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
         ],
         "fr": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
+          "collaborateur-trice-en-fiduciaire-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
+        "sachbearbeiter-in-treuhand-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
+        "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
+        "fiduciary-services-clerk-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275",
+        "collaborateur-trice-en-fiduciaire-pantr-gmbh-thal-sankt-gallen-f24c8f2e0275"
       ]
     },
     {
       "id": "pantr-ch-67b18344cfb5",
-      "slug": "impiegato-a-fiduciario-a-e-finanziario-a-con-affinita-per-l-informatica-pantr-gmbh-chur-graubunden-67b18344cfb5",
+      "slug": "impiegato-a-fiduciario-a-e-finanziario-a-con-affinita-per-l-informatica-pantr-gmbh-chur-67b18344cfb5",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5",
-        "it": "impiegato-a-fiduciario-a-e-finanziario-a-con-affinita-per-l-informatica-pantr-gmbh-chur-graubunden-67b18344cfb5",
-        "en": "fiduciary-finance-administrative-specialist-with-an-affinity-for-it-pantr-gmbh-chur-graubunden-67b18344cfb5",
-        "fr": "collaborateur-trice-en-fiduciaire-et-finances-avec-affinite-pour-l-informatique-pantr-gmbh-chur-graubunden-67b18344cfb5"
+        "it": "impiegato-a-fiduciario-a-e-finanziario-a-con-affinita-per-l-informatica-pantr-gmbh-chur-67b18344cfb5",
+        "en": "fiduciary-finance-administrative-specialist-with-an-affinity-for-it-pantr-gmbh-chur-67b18344cfb5",
+        "fr": "collaborateur-trice-en-fiduciaire-et-finances-avec-affinite-pour-l-informatique-pantr-gmbh-chur-67b18344cfb5"
       },
       "slugDisambiguator": "67b18344cfb5",
       "company": "Pantr GmbH",
@@ -1965,7 +1965,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-finanzen-mit-it-affinitaet-104/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.452Z",
+      "crawledAt": "2026-10-21T09:56:36.896Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1984,9 +1984,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-finanzen-mit-it-affinitaet-104/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2003,27 +2001,33 @@
       "firstSeenAt": "2026-10-20T21:46:15.452Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5"
+          "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5",
+          "impiegato-a-fiduciario-a-e-finanziario-a-con-affinita-per-l-informatica-pantr-gmbh-chur-graubunden-67b18344cfb5"
         ],
         "en": [
-          "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5"
+          "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5",
+          "fiduciary-finance-administrative-specialist-with-an-affinity-for-it-pantr-gmbh-chur-graubunden-67b18344cfb5"
         ],
         "fr": [
-          "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5"
+          "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5",
+          "collaborateur-trice-en-fiduciaire-et-finances-avec-affinite-pour-l-informatique-pantr-gmbh-chur-graubunden-67b18344cfb5"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5"
+        "sachbearbeiter-in-treuhand-finanzen-mit-it-affinitat-pantr-gmbh-chur-graubunden-67b18344cfb5",
+        "impiegato-a-fiduciario-a-e-finanziario-a-con-affinita-per-l-informatica-pantr-gmbh-chur-graubunden-67b18344cfb5",
+        "fiduciary-finance-administrative-specialist-with-an-affinity-for-it-pantr-gmbh-chur-graubunden-67b18344cfb5",
+        "collaborateur-trice-en-fiduciaire-et-finances-avec-affinite-pour-l-informatique-pantr-gmbh-chur-graubunden-67b18344cfb5"
       ]
     },
     {
       "id": "pantr-ch-40e36edea65c",
-      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zurich-zurich-40e36edea65c",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zurich-40e36edea65c",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c",
-        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zurich-zurich-40e36edea65c",
-        "en": "fiduciary-services-clerk-pantr-gmbh-zurich-zurich-40e36edea65c",
-        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-zurich-zurich-40e36edea65c"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zurich-40e36edea65c",
+        "en": "fiduciary-services-clerk-pantr-gmbh-zurich-40e36edea65c",
+        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-zurich-40e36edea65c"
       },
       "slugDisambiguator": "40e36edea65c",
       "company": "Pantr GmbH",
@@ -2048,7 +2052,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-110/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.451Z",
+      "crawledAt": "2026-10-21T09:56:36.892Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2067,27 +2071,31 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-110/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-b90b7c620032",
-          "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c",
+          "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zurich-zurich-40e36edea65c"
         ],
         "de": [
           "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-b90b7c620032"
         ],
         "en": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c",
+          "fiduciary-services-clerk-pantr-gmbh-zurich-zurich-40e36edea65c"
         ],
         "fr": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c",
+          "collaborateur-trice-en-fiduciaire-pantr-gmbh-zurich-zurich-40e36edea65c"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-b90b7c620032",
-        "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c"
+        "sachbearbeiter-in-treuhand-pantr-gmbh-zurich-zurich-40e36edea65c",
+        "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-zurich-zurich-40e36edea65c",
+        "fiduciary-services-clerk-pantr-gmbh-zurich-zurich-40e36edea65c",
+        "collaborateur-trice-en-fiduciaire-pantr-gmbh-zurich-zurich-40e36edea65c"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2110,8 +2118,8 @@
       "slugByLocale": {
         "de": "leiter-in-buchhaltung-pantr-gmbh-zurich-zurich-5529c326f7b2",
         "it": "responsabile-della-contabilita-pantr-gmbh-zurich-zurich-5529c326f7b2",
-        "en": "head-of-accounting-pantr-gmbh-zurich-zurich-5529c326f7b2",
-        "fr": "responsable-de-la-comptabilite-pantr-gmbh-zurich-zurich-5529c326f7b2"
+        "en": "head-of-accounting-pantr-gmbh-zurich-5529c326f7b2",
+        "fr": "responsable-de-la-comptabilite-pantr-gmbh-zurich-5529c326f7b2"
       },
       "slugDisambiguator": "5529c326f7b2",
       "company": "Pantr GmbH",
@@ -2136,7 +2144,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-buchhaltung-108/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.451Z",
+      "crawledAt": "2026-10-21T09:56:36.894Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2155,24 +2163,26 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/leiter-in-buchhaltung-108/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-buchhaltung-pantr-gmbh-zurich-zurich-5529c326f7b2",
           "responsabile-buchhaltung-pantr-gmbh-zurich"
         ],
         "en": [
-          "leiter-in-buchhaltung-pantr-gmbh-zurich-zurich-5529c326f7b2"
+          "leiter-in-buchhaltung-pantr-gmbh-zurich-zurich-5529c326f7b2",
+          "head-of-accounting-pantr-gmbh-zurich-zurich-5529c326f7b2"
         ],
         "fr": [
-          "leiter-in-buchhaltung-pantr-gmbh-zurich-zurich-5529c326f7b2"
+          "leiter-in-buchhaltung-pantr-gmbh-zurich-zurich-5529c326f7b2",
+          "responsable-de-la-comptabilite-pantr-gmbh-zurich-zurich-5529c326f7b2"
         ]
       },
       "previousSlugs": [
         "leiter-in-buchhaltung-pantr-gmbh-zurich-zurich-5529c326f7b2",
-        "responsabile-buchhaltung-pantr-gmbh-zurich"
+        "responsabile-buchhaltung-pantr-gmbh-zurich",
+        "head-of-accounting-pantr-gmbh-zurich-zurich-5529c326f7b2",
+        "responsable-de-la-comptabilite-pantr-gmbh-zurich-zurich-5529c326f7b2"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -2193,9 +2203,9 @@
       "id": "pantr-ch-4bf329c583ca",
       "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-koniz-4bf329c583ca",
       "slugByLocale": {
-        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-koniz-4bf329c583ca",
         "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-koniz-4bf329c583ca",
         "en": "fiduciary-services-clerk-pantr-gmbh-koniz-4bf329c583ca",
+        "de": "sachbearbeiter-in-treuhand-pantr-gmbh-koniz-4bf329c583ca",
         "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-koniz-4bf329c583ca"
       },
       "slugDisambiguator": "4bf329c583ca",
@@ -2221,7 +2231,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-105/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.451Z",
+      "crawledAt": "2026-10-21T09:56:36.894Z",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2240,9 +2250,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-105/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2274,12 +2282,12 @@
     },
     {
       "id": "pantr-ch-58dad2a096d0",
-      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-richterswil-zurich-58dad2a096d0",
+      "slug": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-richterswil-58dad2a096d0",
       "slugByLocale": {
         "de": "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0",
-        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-richterswil-zurich-58dad2a096d0",
-        "en": "fiduciary-services-clerk-pantr-gmbh-richterswil-zurich-58dad2a096d0",
-        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-richterswil-zurich-58dad2a096d0"
+        "it": "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-richterswil-58dad2a096d0",
+        "en": "fiduciary-services-clerk-pantr-gmbh-richterswil-58dad2a096d0",
+        "fr": "collaborateur-trice-en-fiduciaire-pantr-gmbh-richterswil-58dad2a096d0"
       },
       "slugDisambiguator": "58dad2a096d0",
       "company": "Pantr GmbH",
@@ -2304,7 +2312,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-114/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.450Z",
+      "crawledAt": "2026-10-21T09:56:36.890Z",
       "addressLocality": "Richterswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2323,9 +2331,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-in-treuhand-114/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2342,27 +2348,33 @@
       "firstSeenAt": "2026-10-20T21:46:15.450Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0",
+          "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-richterswil-zurich-58dad2a096d0"
         ],
         "en": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0",
+          "fiduciary-services-clerk-pantr-gmbh-richterswil-zurich-58dad2a096d0"
         ],
         "fr": [
-          "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0"
+          "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0",
+          "collaborateur-trice-en-fiduciaire-pantr-gmbh-richterswil-zurich-58dad2a096d0"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0"
+        "sachbearbeiter-in-treuhand-pantr-gmbh-richterswil-zurich-58dad2a096d0",
+        "impiegato-a-amministrativo-a-fiduciario-a-pantr-gmbh-richterswil-zurich-58dad2a096d0",
+        "fiduciary-services-clerk-pantr-gmbh-richterswil-zurich-58dad2a096d0",
+        "collaborateur-trice-en-fiduciaire-pantr-gmbh-richterswil-zurich-58dad2a096d0"
       ]
     },
     {
       "id": "pantr-ch-947d84097c0e",
-      "slug": "personale-treuhand-contabilita-pantr-gmbh-bern-bern-947d84097c0e",
+      "slug": "personale-treuhand-contabilita-pantr-gmbh-bern-947d84097c0e",
       "slugByLocale": {
         "de": "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e",
-        "it": "personale-treuhand-contabilita-pantr-gmbh-bern-bern-947d84097c0e",
-        "en": "personnel-treuhand-accounting-pantr-gmbh-bern-bern-947d84097c0e",
-        "fr": "personnel-treuhand-comptabilite-pantr-gmbh-bern-bern-947d84097c0e"
+        "it": "personale-treuhand-contabilita-pantr-gmbh-bern-947d84097c0e",
+        "en": "personnel-treuhand-accounting-pantr-gmbh-bern-947d84097c0e",
+        "fr": "personnel-treuhand-comptabilite-pantr-gmbh-bern-947d84097c0e"
       },
       "slugDisambiguator": "947d84097c0e",
       "company": "Pantr GmbH",
@@ -2387,7 +2399,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-treuhand-rechnungswesen-120/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.449Z",
+      "crawledAt": "2026-10-21T09:56:36.888Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2406,9 +2418,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/sachbearbeiter-treuhand-rechnungswesen-120/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2425,17 +2435,23 @@
       "firstSeenAt": "2026-10-20T21:46:15.449Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e"
+          "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e",
+          "personale-treuhand-contabilita-pantr-gmbh-bern-bern-947d84097c0e"
         ],
         "en": [
-          "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e"
+          "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e",
+          "personnel-treuhand-accounting-pantr-gmbh-bern-bern-947d84097c0e"
         ],
         "fr": [
-          "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e"
+          "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e",
+          "personnel-treuhand-comptabilite-pantr-gmbh-bern-bern-947d84097c0e"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e"
+        "sachbearbeiter-treuhand-rechnungswesen-pantr-gmbh-bern-bern-947d84097c0e",
+        "personale-treuhand-contabilita-pantr-gmbh-bern-bern-947d84097c0e",
+        "personnel-treuhand-accounting-pantr-gmbh-bern-bern-947d84097c0e",
+        "personnel-treuhand-comptabilite-pantr-gmbh-bern-bern-947d84097c0e"
       ]
     },
     {
@@ -2470,7 +2486,7 @@
       "url": "https://pantr.ch/jobs/fachperson-finanz-und-rechnungswesen-118/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.449Z",
+      "crawledAt": "2026-10-21T09:56:36.889Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2489,9 +2505,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/fachperson-finanz-und-rechnungswesen-118/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "fachperson-finanz-und-rechnungswesen-pantr-gmbh-bern-bern-f1a9d0e99683",
@@ -2555,7 +2569,7 @@
       "url": "https://pantr.ch/jobs/senior-buchhalter-in-126/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.448Z",
+      "crawledAt": "2026-10-21T09:56:36.886Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2574,9 +2588,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/senior-buchhalter-in-126/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2610,9 +2622,9 @@
       "id": "pantr-ch-e7c368b1eba8",
       "slug": "capo-delle-finanze-e-dei-servizi-membro-della-gl-pantr-gmbh-thalwil-e7c368b1eba8",
       "slugByLocale": {
-        "de": "leitung-finanzen-services-mitglied-der-gl-pantr-gmbh-thalwil-e7c368b1eba8",
         "it": "capo-delle-finanze-e-dei-servizi-membro-della-gl-pantr-gmbh-thalwil-e7c368b1eba8",
         "en": "head-of-finance-services-member-of-gl-pantr-gmbh-thalwil-e7c368b1eba8",
+        "de": "leitung-finanzen-services-mitglied-der-gl-pantr-gmbh-thalwil-e7c368b1eba8",
         "fr": "responsable-des-finances-et-des-services-membre-de-gl-pantr-gmbh-thalwil-e7c368b1eba8"
       },
       "slugDisambiguator": "e7c368b1eba8",
@@ -2638,7 +2650,7 @@
       "url": "https://pantr.ch/jobs/leitung-finanzen-services-mitglied-der-gl-124/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.448Z",
+      "crawledAt": "2026-10-21T09:56:36.887Z",
       "addressLocality": "Thalwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2657,19 +2669,17 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/leitung-finanzen-services-mitglied-der-gl-124/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 113000,
-      "salaryMax": 198500,
+      "requirementsByLocale": {},
+      "salaryMin": 189000,
+      "salaryMax": 331500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 113000,
-          "maxValue": 198500,
+          "minValue": 189000,
+          "maxValue": 331500,
           "unitText": "YEAR"
         }
       },
@@ -2691,11 +2701,11 @@
     },
     {
       "id": "pantr-ch-9bb03bc2169d",
-      "slug": "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+      "slug": "controllore-di-affari-pantr-gmbh-munchenstein-9bb03bc2169d",
       "slugByLocale": {
         "de": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "it": "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "en": "business-controllers-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+        "it": "controllore-di-affari-pantr-gmbh-munchenstein-9bb03bc2169d",
+        "en": "business-controllers-pantr-gmbh-munchenstein-9bb03bc2169d",
         "fr": "controleur-d-entreprise-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
       },
       "slugDisambiguator": "9bb03bc2169d",
@@ -2704,10 +2714,10 @@
       "companyDomain": "pantr.ch",
       "title": "Business Controller",
       "titleByLocale": {
-        "de": "Business Controller",
-        "fr": "Contrôleur d'entreprise",
         "it": "Controllore di affari",
-        "en": "Business controllers"
+        "en": "Business controllers",
+        "de": "Business Controller",
+        "fr": "Contrôleur d'entreprise"
       },
       "description": "Für eine führende, zukunftsorientierte Unternehmensgruppe im Bereich moderner Infrastrukturlösungen suchen wir eine analytisch starke Persönlichkeit mit vernetztem Denkvermögen. In dieser anspruchsvollen Funktion verbindest du Controlling, Business Intelligence und Digitalisierung, um komplexe Projekte finanziell transparent zu steuern. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas bewirkst du in dieser Funktion:\n- Projektcontrolling & Analyse: Finanziell transparente Steuerung von Projekten sowie die Erstellung von Soll-Ist-Vergleichen und fundierten Abweichungsanalysen zur Ermittlung von Ursachen.\n- Planung & Steuerung: Erarbeitung von verlässlichen Forecasts, Budgets und Finanzplanungen als fundierte Entscheidungsgrundlage sowie die frühzeitige Identifikation von Chancen, Risiken und Optimierungspotenzialen.\n- Reporting & Business Intelligence: Weiterentwicklung von Kennzahlen, Dashboards und Management-Reports sowie die aktive Mitgestaltung moderner Reporting-Lösungen mittels Power BI zur Weiterentwicklung der internen BI-Landschaft.\n- Schnittstelle & Beratung: Enge Zusammenarbeit und Beratung des CFOs, der Geschäftsleitung sowie der Projektleitenden bei finanziellen Fragestellungen mittels aussagekräftiger Analysen.\n- Prozessoptimierung: Aktive Mitwirkung bei Digitalisierungs- und Automatisierungsprojekten zur Effizienzsteigerung der finanzspezifischen Prozesse.\nDas bringt dich zur perfekten Ergänzung:\n- Ausbildung: Abgeschlossenes Studium (FH, HF, Universität) mit Schwerpunkt Finanzen, Controlling, Betriebswirtschaft oder eine vergleichbare höhere Fachausbildung.\n- Erfahrung: Mehrjährige fundierte Berufserfahrung im Controlling, idealerweise mit klarem Fokus auf das Projektcontrolling sowie Praxis in den Bereichen Budgetierung, Forecasting und Kostenrechnung.\n- IT-Skills: Versierter Umgang mit ERP-Systemen (idealerweise Abacus) sowie fundierte Praxis mit Power BI oder vergleichbaren Business-Intelligence-Lösungen, um Daten verständlich aufzubereiten.\n- Persönlichkeit: Strukturierte, präzise Arbeitsweise, rasche Auffassungsgabe für komplexe Zusammenhänge sowie eine klare, adressatengerechte Kommunikation gegenüber unterschiedlichen Anspruchsgruppen.\nDas erwartet dich beim Kunden:\n- Arbeitsplatz & Infrastruktur: Ein top ausgestattetes, modernes Gebäude mit innovativen Büros, zahlreichen Parkmöglichkeiten direkt vor Ort sowie ein eigenes Personalrestaurant für entspannte Pausen.\n- Entwicklung & Karriere: Individuelle Karrierewege mit der Option, zusätzliche Verantwortung zu übernehmen, sowie vielfältige interne und externe Weiterbildungsangebote.\n- Kultur & Benefits: Ein offenes, kollegiales Arbeitsklima mit regelmässigen Teamevents (z. B. eine jährliche Aktivwoche) sowie Zugang zu einer kostenlosen, betrieblichen Sozialberatung bei persönlichen, familiären oder finanziellen Herausforderungen.",
       "descriptionByLocale": {
@@ -2721,7 +2731,7 @@
       "url": "https://pantr.ch/jobs/business-controller-132/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.446Z",
+      "crawledAt": "2026-10-21T09:56:36.884Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2738,9 +2748,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/business-controller-132/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2758,17 +2766,21 @@
       "firstSeenAt": "2026-10-07T21:52:19.213Z",
       "previousSlugsByLocale": {
         "it": [
-          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+          "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
         ],
         "en": [
-          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+          "business-controllers-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
         ],
         "fr": [
           "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
         ]
       },
       "previousSlugs": [
-        "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+        "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+        "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+        "business-controllers-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
       ]
     },
     {
@@ -2777,8 +2789,8 @@
       "slugByLocale": {
         "de": "leiter-in-finanz-und-rechnungswesen-pantr-gmbh-reiden-luzern-4220242f286b",
         "it": "responsabile-delle-finanze-e-della-contabilita-pantr-gmbh-reiden-luzern-4220242f286b",
-        "en": "head-of-finance-and-accounting-pantr-gmbh-reiden-luzern-4220242f286b",
-        "fr": "responsable-des-finances-et-de-la-comptabilite-pantr-gmbh-reiden-luzern-4220242f286b"
+        "en": "head-of-finance-and-accounting-pantr-gmbh-reiden-4220242f286b",
+        "fr": "responsable-des-finances-et-de-la-comptabilite-pantr-gmbh-reiden-4220242f286b"
       },
       "slugDisambiguator": "4220242f286b",
       "company": "Pantr GmbH",
@@ -2803,7 +2815,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-finanz-und-rechnungswesen-128/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.446Z",
+      "crawledAt": "2026-10-21T09:56:36.885Z",
       "addressLocality": "Reiden",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2822,24 +2834,26 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/leiter-in-finanz-und-rechnungswesen-128/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-finanz-und-rechnungswesen-pantr-gmbh-reiden-luzern-4220242f286b",
           "responsabile-finanz-e-rechnungswesen-pantr-gmbh-reiden"
         ],
         "en": [
-          "leiter-in-finanz-und-rechnungswesen-pantr-gmbh-reiden-luzern-4220242f286b"
+          "leiter-in-finanz-und-rechnungswesen-pantr-gmbh-reiden-luzern-4220242f286b",
+          "head-of-finance-and-accounting-pantr-gmbh-reiden-luzern-4220242f286b"
         ],
         "fr": [
-          "leiter-in-finanz-und-rechnungswesen-pantr-gmbh-reiden-luzern-4220242f286b"
+          "leiter-in-finanz-und-rechnungswesen-pantr-gmbh-reiden-luzern-4220242f286b",
+          "responsable-des-finances-et-de-la-comptabilite-pantr-gmbh-reiden-luzern-4220242f286b"
         ]
       },
       "previousSlugs": [
         "leiter-in-finanz-und-rechnungswesen-pantr-gmbh-reiden-luzern-4220242f286b",
-        "responsabile-finanz-e-rechnungswesen-pantr-gmbh-reiden"
+        "responsabile-finanz-e-rechnungswesen-pantr-gmbh-reiden",
+        "head-of-finance-and-accounting-pantr-gmbh-reiden-luzern-4220242f286b",
+        "responsable-des-finances-et-de-la-comptabilite-pantr-gmbh-reiden-luzern-4220242f286b"
       ],
       "salaryMin": 178000,
       "salaryMax": 313000,
@@ -2862,8 +2876,8 @@
       "slugByLocale": {
         "de": "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
         "it": "responsabile-finanzen-controlling-pantr-gmbh-gumligen",
-        "en": "head-of-finance-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
-        "fr": "responsable-finances-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
+        "en": "head-of-finance-controlling-pantr-gmbh-gumligen-71516d1b8477",
+        "fr": "responsable-finances-controlling-pantr-gmbh-gumligen-71516d1b8477"
       },
       "slugDisambiguator": "71516d1b8477",
       "company": "Pantr GmbH",
@@ -2888,7 +2902,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-finanzen-controlling-134/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.445Z",
+      "crawledAt": "2026-10-21T09:56:36.883Z",
       "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2907,22 +2921,24 @@
       "postingDateSource": "reported",
       "applyUrl": "https://pantr.ch/jobs/leiter-in-finanzen-controlling-134/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
         ],
         "en": [
-          "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
+          "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
+          "head-of-finance-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
         ],
         "fr": [
-          "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
+          "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
+          "responsable-finances-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
         ]
       },
       "previousSlugs": [
-        "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
+        "leiter-in-finanzen-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
+        "head-of-finance-controlling-pantr-gmbh-gumligen-bern-71516d1b8477",
+        "responsable-finances-controlling-pantr-gmbh-gumligen-bern-71516d1b8477"
       ],
       "salaryMin": 175000,
       "salaryMax": 307500,
@@ -2971,7 +2987,7 @@
       "url": "https://pantr.ch/jobs/financial-accountant-138/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.444Z",
+      "crawledAt": "2026-10-21T09:56:36.880Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3056,7 +3072,7 @@
       "url": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.444Z",
+      "crawledAt": "2026-10-21T09:56:36.881Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3137,7 +3153,7 @@
       "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.443Z",
+      "crawledAt": "2026-10-21T09:56:36.878Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3218,7 +3234,7 @@
       "url": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.442Z",
+      "crawledAt": "2026-10-21T09:56:36.875Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3301,7 +3317,7 @@
       "url": "https://pantr.ch/jobs/steuerberater-159/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.442Z",
+      "crawledAt": "2026-10-21T09:56:36.877Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3382,7 +3398,7 @@
       "url": "https://pantr.ch/jobs/treuhaender-in-mit-eidg-fachausweis-oder-in-ausbildung-182/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.441Z",
+      "crawledAt": "2026-10-21T09:56:36.874Z",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -3464,7 +3480,7 @@
       "url": "https://pantr.ch/jobs/senior-business-controller-196/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.440Z",
+      "crawledAt": "2026-10-21T09:56:36.873Z",
       "addressLocality": "Oberkirch",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3544,7 +3560,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.439Z",
+      "crawledAt": "2026-10-21T09:56:36.871Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3625,7 +3641,7 @@
       "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.438Z",
+      "crawledAt": "2026-10-21T09:56:36.869Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3703,7 +3719,7 @@
       "url": "https://pantr.ch/jobs/sachbearbeiter-in-finanzen-255/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:46:15.437Z",
+      "crawledAt": "2026-10-21T09:56:36.867Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3752,5 +3768,6 @@
         }
       }
     }
-  ]
+  ],
+  "runId": "39576691826"
 }
