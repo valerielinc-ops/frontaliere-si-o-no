@@ -812,7 +812,9 @@ async function acquireFromCli(namespaces, request, env = process.env) {
   const owner = env.FRONTALIERE_R2_IMAGE_LEASE_OWNER ?? randomUUID();
   const leaseId = env.FRONTALIERE_R2_IMAGE_LEASE_ID ?? randomUUID();
   const requestedAcquiredAt = Number(env.FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT);
-  const pendingAcquiredAt = Number.isFinite(requestedAcquiredAt) ? requestedAcquiredAt : Date.now();
+  const pendingAcquiredAt = Number.isFinite(requestedAcquiredAt) && requestedAcquiredAt >= 1
+    ? requestedAcquiredAt
+    : Date.now();
   const pendingLeases = namespaces.map((namespace) => ({
     namespace,
     owner,

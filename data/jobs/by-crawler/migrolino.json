@@ -526,7 +526,7 @@
           "selbstandige-r-franchisepartner-in-fur-migrolino-shop-in-lugano-migrolino-lugano"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:13:38.983Z",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -540,7 +540,8 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-1885e3187a77",

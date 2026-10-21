@@ -1,0 +1,24 @@
+{
+  "companyKey": "voi",
+  "companyName": "Voi",
+  "companyHost": "jobs.migros.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/migros-gruppe/offene-stellen?BRAND=9748"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/voi/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "VOI, Genossenschaft Migros Aare Praktikant*​in Detailhandel ‧ 30 – 60% 4704 Niederbipp Praktikum",
+    "VOI, Genossenschaft Migros Aare Franchisepartner*​in /​ Geschäftsleiter*​in ‧ 100% 3400 Burgdorf",
+    "VOI, Genossenschaft Migros Aare Praktikant*​in Detailhandel ‧ 100% 5504 Othmarsingen Praktikum",
+    "VOI, Genossenschaft Migros Aare Mitarbeiter*​in Verkauf/​Kasse ‧ 20 – 80% 3380 Wangen an der Aare Nebenerwerb / Auf Stundenbasis",
+    "VOI, Genossenschaft Migros Aare Mitarbeiter*​in Verkauf/​Kasse ‧ 80 – 100% 4912 Aarwangen Festanstellung (unbefristet)"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:10:05.739Z"
+}

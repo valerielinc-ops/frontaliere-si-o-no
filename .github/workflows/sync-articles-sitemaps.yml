@@ -656,6 +656,7 @@ jobs:
           ## Non implementato (ancora)
           - Nessun residuo in questa PR: gli artefatti sincronizzati vengono validati prima della pubblicazione.
           EOF
+          # Keep the stable refresh branch mergeable when main advances while its PR is open.
           GH_TOKEN="${GITHUB_PAT:-}" bash scripts/lib/open-data-refresh-pr.sh \
             --path packages/articles/content \
             --path public/sitemap-blog.xml \
@@ -683,6 +684,8 @@ jobs:
             --path data/blog-generated-image-registry.json \
             --path data/published-blog-generated-image-evidence.json \
             --path data/blog-cover-corpus-baseline.json \
+            --reconcile-main \
+            --reconcile-refresh-paths \
             --branch chore/sync-articles-sitemaps \
             --commit-message "🗺️ Sync article sitemaps, feeds and ticker from the articles API" \
             --title "chore(data): sync article corpus and public feeds" \

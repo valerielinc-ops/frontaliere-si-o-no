@@ -47,7 +47,10 @@ permissions:
   issues: write
 
 concurrency:
-  group: article-hub-landing-watchdog
+  # The watchdog reads the same served pages that rerender-article-hubs writes.
+  # Sharing the group makes a probe wait for an in-flight rerender instead of
+  # opening a transient stale-page issue while the repair is still publishing.
+  group: article-hub-surfaces
   cancel-in-progress: false
 
 jobs:

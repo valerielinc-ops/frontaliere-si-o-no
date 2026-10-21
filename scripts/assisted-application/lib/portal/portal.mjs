@@ -257,7 +257,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -337,22 +337,46 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
 /**
  * Keep portal answers usable when an ATS changes a question's wording or
  * regenerates its field id between account creation and the application form.
- * Exact ids win; canonical topics match well-defined candidate facts and
- * retain distinctions such as salary period/currency and language modality.
+ * Current answers win; canonical topics also reuse an unambiguous answer from
+ * the previous portal run when an ATS regenerates its field id.
  */
-function portalAnswersForQuestions(questions, answers) {
-  const items = questions.map((question) => ({ question, answer: String(answers[question.id] ?? '').trim() }))
-    .filter((item) => item.answer);
+function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+  const items = questions.map((question) => ({
+    question: question.question,
+    context: question.context || '',
+    answer: String(answers[question.id] ?? '').trim(),
+    source: 'answers',
+    current: true,
+  })).filter((item) => item.answer);
+  const keyFor = (item) => portalQuestionKey(item.question, item.context) || portalQuestionId(item.question, item.context);
+  const currentKeys = new Set(questions
+    .filter((question) => Object.hasOwn(answers, question.id))
+    .map((question) => keyFor({ question: question.question, context: question.context || '' })));
+  const priorGroups = new Map();
+  for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
+    const question = String(item?.question || '').trim();
+    const answer = String(item?.answer || '').trim();
+    if (!question || !answer) continue;
+    const prior = { question, context: String(item?.context || ''), answer, source: String(item?.source || 'answers') };
+    const key = keyFor(prior);
+    if (currentKeys.has(key)) continue;
+    const group = priorGroups.get(key) || [];
+    group.push(prior);
+    priorGroups.set(key, group);
+  }
+  for (const group of priorGroups.values()) {
+    const values = new Set(group.map((item) => item.answer.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase()));
+    if (values.size === 1) items.unshift(group[0]);
+  }
   const seen = new Map();
   for (const item of items) {
-    const key = portalQuestionKey(item.question.question, item.question.context);
+    const key = keyFor(item);
     const previous = seen.get(key);
-    // Prefer an answer stored under this exact question id over an alias found
-    // only by semantic topic.
-    const exact = String(answers[item.question.id] ?? '').trim();
-    if (!previous || exact || !String(answers[previous.question.id] ?? '').trim()) seen.set(key, item);
+    if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer, ...(question.context ? { context: question.context } : {}) }));
+  return [...seen.values()].map(({ question, answer, context, source }) => ({
+    question, answer, source, ...(context ? { context: context.slice(0, 240) } : {}),
+  }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
@@ -399,6 +423,10 @@ function hasApplicationForm(snapshot) {
  */
 export function hasApplicationSurface(snapshot) {
   return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
+}
+
+export function needsPortalOptionRead(snapshot = {}) {
+  return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
 }
 
 /** A SuccessFactors page resumed between account creation and OTP submission. */
@@ -1108,6 +1136,7 @@ export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expan
 export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
 export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
+const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?file)?|select(?:\s+(?:a\s+)?file)?|upload(?:\s+(?:a\s+)?file)?|attach(?:\s+(?:a\s+)?file)?|durchsuchen|datei\s+(?:auswählen|hochladen)|parcourir|choisir(?:\s+un)?\s+fichier|sélectionner(?:\s+un)?\s+fichier|sfoglia(?:\s+file)?|scegli(?:\s+(?:un\s+)?file)?|seleziona(?:re)?\s+file|carica(?:re)?\s+file|joindre|importer)\s*[.…]*$/i;
 // JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
@@ -1152,9 +1181,11 @@ export function uploadButtonFor(snapshot, kind) {
   const named = findButton(buttons, pattern);
   if (named) return named;
   const candidates = buttons.filter((button) => {
-    if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    if (button.disabled || button.chrome) return false;
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
-    return contextPattern.test(context);
+    const hasDocumentContext = contextPattern.test(context);
+    return hasDocumentContext && (ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())
+      || FILE_PICKER_ACTION_RE.test(String(button.text || '').trim()));
   });
   return candidates.length === 1 ? candidates[0] : null;
 }
@@ -1181,8 +1212,9 @@ function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
   const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
   if (contextPattern.test(context)) return true;
   const association = successFactorsButtonAssociation(button);
+  const application = snapshot || {};
   return isSuccessFactorsPage(page)
-    && ownAccountForm(snapshot || {})
+    && (ownAccountForm(application) || sendsApplication(application) || hasApplicationForm(application))
     && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
     && successFactorsDocumentAssociationMatches(association, kind);
 }
@@ -1275,15 +1307,14 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     if (!attempt(cvKey)) break;
     const namedTriggerButton = uploadButtonFor(current, 'cv');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+      && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cv')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = iconTriggerButton && !namedTriggerButton
-      ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cv', current) && triggerButton
-        ? locatorFor(page, triggerButton)
-        : null;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
@@ -1298,15 +1329,14 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+      && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cover_letter')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = iconTriggerButton && !namedTriggerButton
-      ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current) && triggerButton
-        ? locatorFor(page, triggerButton)
-        : null;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
@@ -1764,11 +1794,16 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
  */
-async function requiredLeftEmpty(page) {
-  for (const field of (await extractFields(page, NAVIGATION)).fields) {
+async function requiredLeftEmpty(page, uploaded = new Set()) {
+  const url = page.url();
+  const snapshot = await extractFields(page, NAVIGATION);
+  const fields = snapshot.fields || [];
+  for (const field of fields) {
     if (!field.required) continue;
-    const filled = field.kind === 'file'
-      ? await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
+    const uploadedKey = uploadedPortalFieldKey(url, field);
+    const filled = field.kind === 'file' || field.inputType === 'file'
+      ? uploaded.has(uploadedKey)
+        || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
       : holdsValue(field);
     if (!filled) return true;
   }
@@ -2080,7 +2115,7 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
-    if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
+    if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
@@ -2148,12 +2183,42 @@ export async function submitViaPortal(ctx) {
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
     const noteUpload = (document, files = 1) => {
-      if (document) evidence.uploads.push({ document: String(document), files: Number(files) || 1 });
+      if (!document) return;
+      const name = String(document);
+      evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source) => {
+    const record = (question, answer, source, context = '') => {
       if (!question || !String(answer ?? '').trim()) return;
-      given.set(question, { question: String(question).slice(0, 200), answer: String(answer).slice(0, 2000), source: source || '' });
+      const label = String(question).slice(0, 200);
+      const surrounding = String(context || '').slice(0, 240);
+      const key = portalQuestionKey(label, surrounding) || portalQuestionId(label, surrounding) || label;
+      given.set(key, {
+        question: label,
+        answer: String(answer).slice(0, 2000),
+        source: source || '',
+        ...(surrounding ? { context: surrounding } : {}),
+      });
       evidence.answers = [...given.values()].slice(0, 80);
+    };
+    const candidateWithRecordedAnswers = (candidate, current) => {
+      const answerKey = (item) => portalQuestionKey(item.question, item.context)
+        || portalQuestionId(item.question, item.context);
+      const recorded = [...given.values()];
+      const recordedKeys = new Set(recorded.map(answerKey));
+      const visibleAnswers = (current?.fields || [])
+        .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
+        .map((field) => ({
+          question: String(field.label || field.name || field.id || '').slice(0, 200),
+          answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
+          context: String(field.context || '').slice(0, 240),
+          source: 'answers',
+        }))
+        .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
+      const currentAnswers = [...visibleAnswers, ...recorded];
+      const currentKeys = new Set(currentAnswers.map(answerKey));
+      const previous = (candidate?.portalQuestionsAnswered || [])
+        .filter((item) => !currentKeys.has(answerKey(item)));
+      return { ...candidate, portalQuestionsAnswered: [...previous, ...currentAnswers] };
     };
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
@@ -2168,7 +2233,7 @@ export async function submitViaPortal(ctx) {
           page,
           hint,
           errors: current.errors || [],
-          candidate: ctx.candidate,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, current),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
@@ -2182,7 +2247,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -2397,7 +2462,12 @@ export async function submitViaPortal(ctx) {
       if (workable(snapshot)) {
         // The planner never sees a password field, nor what a retry finds typed in it.
         const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
-        const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        const plan = await planPage({
+          snapshot: planned,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, planned),
+          candidateLocale: ctx.candidateLocale,
+          codex: ctx.codex,
+        });
         const cvField = snapshot.fields.find(isCvFileField);
         // This synthetic action is executed by applyActions below, which resolves
         // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions
@@ -2486,7 +2556,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source);
+          record(field.label || field.name || field.id, answer, action.source, field.context);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
@@ -2571,7 +2641,7 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            if (!await requiredLeftEmpty(page)) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page, uploaded)) finalByAgent = await submitLocator(page, agent.submitRef);
           }
         }
       }
@@ -2629,7 +2699,7 @@ export async function submitViaPortal(ctx) {
         continue;
       }
       // The final button: a usual or learned name (the runner's), or the one the agent named.
-      const final = submit
+      let final = submit
         ? { label: submit.text, by: 'runner', click: () => clickButton(page, submit) }
         : finalByAgent && { label: finalByAgent.name, by: 'agent', click: () => clickSubmitButton(page, finalByAgent) };
       if (!final) {
@@ -2639,6 +2709,38 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         return await handoff('portal_needs_candidate');
+      }
+      // A normal send button is not evidence that the portal form is complete.
+      // Let the agent repair any required fields the deterministic fill missed;
+      // never click Send while a required answer or upload is still empty.
+      if (await requiredLeftEmpty(page, uploaded)) {
+        evidence.steps.at(-1).requiredFieldsUnfilled = true;
+        const repairUrl = page.url();
+        const repair = await runAgent(after, 'required_fields_unfilled');
+        if (repair?.status === 'needs_candidate') return askCandidate(repair.questions);
+        if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
+        if (repair.moved || page.url() !== repairUrl) {
+          snapshot = await awaitFields(page, await extractFields(page));
+          step -= 1;
+          continue;
+        }
+        after = await extractFields(page, NAVIGATION);
+        if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
+        const repairedControls = pageControls(after.buttons, known, page.url());
+        if (repairedControls.next && !repairedControls.submit) {
+          snapshot = after;
+          step -= 1;
+          continue;
+        }
+        if (repairedControls.submit) {
+          final = { label: repairedControls.submit.text, by: 'runner', click: () => clickButton(page, repairedControls.submit) };
+        } else if (repair.submitRef) {
+          const repairedSubmit = await submitLocator(page, repair.submitRef);
+          if (!repairedSubmit) return await handoff('portal_required_fields_unfilled');
+          final = { label: repairedSubmit.name || String(repair.submitRef), by: 'agent', click: () => clickSubmitButton(page, repairedSubmit) };
+        } else {
+          return await handoff('portal_required_fields_unfilled');
+        }
       }
       if (ctx.dryRun) {
         evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');

@@ -336,6 +336,11 @@ async function fetchJobListings() {
     for await (const job of fetchSuccessFactorsJobs(CAREER_URL, {
       locationFilters: SF_LOCATION_FILTERS,
       company: SWISS_RE_COMPANY_NAME,
+      // The global board had 272 cards in the 2026-09-25 capture. The shared
+      // client defaults to 10 pages, which would silently omit its tail.
+      // It stops at the source's end signal (or a repeated page) well before
+      // this defensive ceiling on a normal crawl.
+      maxPages: 100,
     })) {
       out.push({
         title: job.title,

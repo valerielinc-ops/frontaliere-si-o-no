@@ -211,6 +211,16 @@ function qualifierFamilyForToken(token: string): string | null {
   return familyForToken(token, QUALIFIER_FAMILIES);
 }
 
+/**
+ * Cheap preflight for callers that already have the query's role tokens.
+ * Taxonomy resolution is only needed when a token could actually be a
+ * qualifier; ordinary role queries must stay on the existing occupation
+ * matcher without paying for a second tokenization and profession scan.
+ */
+export function hasPotentialJobSearchQualifier(tokens: readonly string[]): boolean {
+  return tokens.some((token) => qualifierFamilyForToken(token) !== null);
+}
+
 function titleStrings(job: JobOccupationFields, locale: string): string[] {
   return unique([
     String(job.title || ''),
@@ -325,8 +335,13 @@ function professionPhraseTokens(queryTokens: readonly string[], professionId: st
  * phrase and its `responsabile` token is not reinterpreted as leadership.
  * Unknown non-boilerplate words stay in the professional core (fail closed).
  */
-export function getJobSearchRoleProfile(query: string): JobSearchRoleProfile {
-  const roleTokens = occupationalRoleTokens(splitRoleRegion(tokenize(query)).role.map(stemSearchToken));
+export function getJobSearchRoleProfile(
+  query: string,
+  roleTokensOverride?: readonly string[],
+): JobSearchRoleProfile {
+  const roleTokens = roleTokensOverride
+    ? [...roleTokensOverride]
+    : occupationalRoleTokens(splitRoleRegion(tokenize(query)).role.map(stemSearchToken));
   const professionId = matchProfession(query);
   const phraseTokens = professionPhraseTokens(roleTokens, professionId);
   const qualifierByFamily = new Map<string, string[]>();

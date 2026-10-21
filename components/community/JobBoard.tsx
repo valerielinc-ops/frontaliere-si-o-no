@@ -25,6 +25,7 @@ const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
+const JobViewersActivityPrompt = lazyRetry(() => import('@/components/community/JobViewersActivityPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 // The inline action arrives with the detail; its registration modal loads on click.
 import CompanyFollowCta, { CompanyFollowPopup } from '@/components/community/CompanyFollowCta';
@@ -8121,6 +8122,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ const jobViewersActivityPromptJsx = (
+  isJobDetailView
+  && selectedJob
+  && authResolved
+  && (!authUser?.uid || authUser.isAnonymous === true)
+  && !isCrawlerVisitor
+  && !isLikelyBotVisitor
+ ) ? (
+  <Suspense fallback={null}>
+   <JobViewersActivityPrompt key={String(selectedJob.id)} jobId={String(selectedJob.id)} />
+  </Suspense>
+ ) : null;
+
  // Anonymous job-detail visitors have the strongest intent signal before the
  // apply click, but the authenticated prompt above cannot serve them. Keep a
  // visible, category-based alert CTA in the detail header and hand anonymous
@@ -10569,6 +10583,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </article>
  {detailAlertCtaJsx}
  {jobDetailPromptJsx}
+ {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
  </div>
@@ -11092,6 +11107,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </nav>
  {jobDetailPromptJsx}
+ {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
  </div>
@@ -11973,6 +11989,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {jobDetailPromptJsx}
+ {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
 

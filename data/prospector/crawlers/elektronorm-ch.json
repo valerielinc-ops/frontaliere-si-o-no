@@ -1,0 +1,20 @@
+{
+  "companyKey": "elektronorm-ch",
+  "companyName": "elektronorm",
+  "companyHost": "schibli.com",
+  "platform": "schibli.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.schibli.com/"
+  ],
+  "detailTemplate": "/karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "&emsp; Lehrstellen &emsp;",
+    "Die Schibli-Gruppe als Arbeitgeberin"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:10:12.738Z"
+}

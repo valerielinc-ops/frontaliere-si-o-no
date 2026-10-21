@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3996.title': 'Des alertes plus discrètes sur les offres',
+ 'whatsNew.v3996.jobViewers.title': 'Un bref signal pendant la lecture d’une offre',
+ 'whatsNew.v3996.jobViewers.desc': 'Un discret avis d’activité peut apparaître sur la page d’une offre. Il est refermable, disparaît automatiquement et ne s’affiche qu’une fois par session.',
  'whatsNew.v3995.title': 'Comparer le carburant et le coût du trajet',
  'whatsNew.v3995.fuelTrip.title': 'Comparer les prix à la pompe et le détour',
  'whatsNew.v3995.fuelTrip.desc': 'Saisissez des prix comparables, les litres et le total des kilomètres supplémentaires aller-retour pour estimer l’écart brut et net, les frais supplémentaires et le seuil d’équilibre. Les prix connus indiquent leur source et leur date ; la conversion utilise uniquement un taux BCE daté.',
@@ -817,6 +820,7 @@ const frCore: Record<string, string> = {
  'jobBoard.saved.emptyHint': "Touchez l'icône signet d'une offre pour la retrouver ici. Une fois par semaine, nous vous la rappelons par e-mail : vous pouvez désactiver le rappel depuis votre profil ou depuis le lien dans l'e-mail.",
  'jobBoard.saveAuthPrompt.title': 'Connectez-vous pour enregistrer des offres',
  'jobBoard.saveAuthPrompt.body': "Enregistrer une offre nécessite un compte gratuit — ainsi vos offres enregistrées restent en sécurité sur tous vos appareils. Une fois par semaine, nous vous rappelons par e-mail les offres enregistrées ; vous pouvez désactiver ce rappel depuis votre profil ou depuis le lien dans l'e-mail.",
+ 'jobBoard.viewers.message': '{count} autres personnes consultent cette offre d’emploi.',
  'jobBoard.saveAuthPrompt.dismiss': 'Pas maintenant',
  'jobBoard.saveAuthPrompt.or': 'ou',
  'jobBoard.saveAuthPrompt.emailCta': 'Continuer avec e-mail',

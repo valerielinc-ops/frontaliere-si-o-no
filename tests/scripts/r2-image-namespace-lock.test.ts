@@ -322,6 +322,45 @@ globalThis.fetch = async (url) => {
     }
   });
 
+  it.each(['0', '-1'])('falls back to a current timestamp for an invalid CLI acquiredAt of %s', (requestedAcquiredAt) => {
+    const temp = mkdtempSync(join(tmpdir(), 'image-lease-cli-acquired-at-'));
+    try {
+      const preload = join(temp, 'stub-r2-fetch.mjs');
+      writeFileSync(preload, `
+globalThis.fetch = async () => ({
+  status: 200,
+  headers: { get: (name) => name.toLowerCase() === 'etag' ? 'image-lease-etag' : undefined },
+  text: async () => '',
+});
+`);
+
+      const result = spawnSync(process.execPath, [
+        resolve(import.meta.dirname, '../../scripts/lib/r2-image-namespace-lock.mjs'),
+        'acquire',
+        '--namespace',
+        'blog',
+      ], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          NODE_OPTIONS: `--import=${preload}`,
+          FRONTALIERE_R2_IMAGE_LEASE_ACQUIRED_AT: requestedAcquiredAt,
+          R2_S3_ENDPOINT: 'https://r2.invalid',
+          R2_BUCKET: 'test-bucket',
+          R2_ACCESS_KEY_ID: 'test-access-key',
+          R2_SECRET_ACCESS_KEY: 'test-secret-key',
+        },
+        timeout: 5_000,
+      });
+
+      expect(result.status).toBe(0);
+      const context = JSON.parse(result.stdout);
+      expect(context.leases[0].acquiredAt).toBeGreaterThanOrEqual(1);
+    } finally {
+      rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
   it('acquires in stable order, verifies the owner and lease id, and releases in reverse order', async () => {
     const { request, calls, objects } = fakeR2();
     let now = 1_000;

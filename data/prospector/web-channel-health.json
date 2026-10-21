@@ -1,13 +1,5 @@
 [
   {
-    "at": "2026-08-30T09:33:17.545Z",
-    "collection": "CC-MAIN-2026-34",
-    "totalPages": 1210,
-    "pagesRead": 20,
-    "employers": 149,
-    "outage": false
-  },
-  {
     "at": "2026-08-31T10:07:33.889Z",
     "collection": "CC-MAIN-2026-34",
     "totalPages": 1210,
@@ -478,5 +470,17 @@
     "pagesRead": 20,
     "employers": 139,
     "outage": false
+  },
+  {
+    "at": "2026-10-20T22:23:05.390Z",
+    "collection": "CC-MAIN-2026-39",
+    "totalPages": 0,
+    "pagesRead": 0,
+    "employers": 0,
+    "outcome": "unavailable",
+    "errorCode": "http_504",
+    "failedPages": [],
+    "coverageRate": 0,
+    "outage": true
   }
 ]

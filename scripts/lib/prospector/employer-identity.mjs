@@ -33,19 +33,25 @@ function hostMatchesTenant(host, tenantHost) {
  * @param {{ company?: string }} detail
  * @param {string} observedUrl
  * @param {Record<string, any>} spec
- * @param {{ name?: string, domain?: string, tenantHost?: string }} [expected]
+ * @param {{ name?: string, secoName?: string, domain?: string, tenantHost?: string }} [expected]
  * @returns {{ status: 'match'|'mismatch'|'unknown', evidence: string, expectedName: string, observedName: string, observedHost: string }}
  */
 export function checkEmployerIdentity(detail = {}, observedUrl = '', spec = {}, expected = {}) {
   const expectedName = String(expected.name || spec.companyName || '').trim();
+  const expectedNames = [...new Set([expected.name, expected.secoName, spec.companyName]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean))];
   const observedName = String(detail.company || '').trim();
   let observedHost = '';
   try { observedHost = normalizeHost(new URL(observedUrl).hostname); } catch { /* no URL host proof */ }
 
   if (observedName) {
-    const similarity = nameSimilarity(observedName, expectedName);
-    if (similarity >= 0.8) {
-      return { status: 'match', evidence: 'structured_name', expectedName, observedName, observedHost };
+    const matchedName = expectedNames.find((name) => nameSimilarity(observedName, name) >= 0.8);
+    if (matchedName) {
+      const evidence = matchedName === expected.secoName && matchedName !== expected.name
+        ? 'structured_seco_name'
+        : 'structured_name';
+      return { status: 'match', evidence, expectedName: matchedName, observedName, observedHost };
     }
     return { status: 'mismatch', evidence: 'structured_name_mismatch', expectedName, observedName, observedHost };
   }
