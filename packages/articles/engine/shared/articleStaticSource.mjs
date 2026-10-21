@@ -154,7 +154,7 @@ function readStringLiteralValue(node, sourceFile, sourcePath, key) {
  *
  * @param {string} source complete TypeScript module text
  * @param {string} sourcePath diagnostic filename
- * @returns {Array<{articleId:string,field:string,value:string,index:number}>}
+ * @returns {Array<{articleId:string,field:string,value:string,index:number,valueStart:number,valueEnd:number}>}
  */
 export function parseStaticArticleTranslationEntries(source, sourcePath) {
   const sourceFile = parseSourceFile(source, sourcePath);
@@ -186,6 +186,12 @@ export function parseStaticArticleTranslationEntries(source, sourcePath) {
       field,
       value,
       index: property.name.getStart(sourceFile, false),
+      // The raw span excludes the literal's quote/backtick delimiters. These
+      // UTF-16 source offsets let legacy readers preserve their own decoding
+      // of selected literal values without retaining AST nodes or copying
+      // every source string into the result.
+      valueStart: property.initializer.getStart(sourceFile, false) + 1,
+      valueEnd: property.initializer.getEnd() - 1,
     });
   }
 

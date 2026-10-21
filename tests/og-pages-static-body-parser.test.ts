@@ -131,12 +131,16 @@ describe('article source entry projection', () => {
         field: 'title',
         value: 'Titolo',
         index: source.indexOf(`'blog.article.${ARTICLE_ID}.title'`),
+        valueStart: source.indexOf("'Titolo'") + 1,
+        valueEnd: source.indexOf("'Titolo'") + 1 + 'Titolo'.length,
       },
       {
         articleId: ARTICLE_ID,
         field: 'body1',
         value: 'Prima riga\nseconda riga',
         index: source.indexOf(`'blog.article.${ARTICLE_ID}.body1'`),
+        valueStart: source.indexOf("'Prima riga") + 1,
+        valueEnd: source.indexOf("'Prima riga") + 1 + 'Prima riga\\nseconda riga'.length,
       },
     ]);
     expect([...map].map(([id, fields]) => [id, [...fields]])).toEqual([

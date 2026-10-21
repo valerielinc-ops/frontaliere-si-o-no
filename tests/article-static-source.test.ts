@@ -3,6 +3,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 
 import {
+  parseStaticArticleTranslationEntries,
   parseStaticArticleTranslationSource,
   parseStaticBlogBodySource,
 } from '../packages/articles/engine/shared/articleStaticSource.mjs';
@@ -53,6 +54,32 @@ describe('static article TypeScript source reader', () => {
       ['excerpt', 'prima\nseconda'],
     ]);
     expect(parsed.get('beta')?.get('imageAlt')).toBe('A ${literal} image');
+  });
+
+  it('returns UTF-16 source spans for raw literal contents without delimiters', () => {
+    const source = [
+      '// Emoji before the property verifies offsets use TypeScript UTF-16 positions: 🧭',
+      'const translations: Record<string, string> = {',
+      '  "blog.article.alpha.faq": "[{\\"q\\":\\"Città\\",\\"a\\":\\"l\'Italia\\"}]",',
+      "  'blog.article.alpha.body1': `Città\\n'l'Italia'`,",
+      '};',
+      'export default translations;',
+    ].join('\n');
+    const entries = parseStaticArticleTranslationEntries(source, 'blog-body/it/alpha.ts');
+
+    expect(entries).toHaveLength(2);
+    for (const entry of entries) {
+      expect(entry.index).toBe(source.indexOf(entry.field === 'faq' ? '"blog.article.alpha.faq"' : "'blog.article.alpha.body1'"));
+      expect(source[entry.valueStart - 1]).toMatch(/["`]/u);
+      expect(source[entry.valueEnd]).toMatch(/["`]/u);
+      expect(source.slice(entry.valueStart, entry.valueEnd)).toBe(
+        entry.field === 'faq'
+          ? '[{\\"q\\":\\"Città\\",\\"a\\":\\"l\'Italia\\"}]'
+          : 'Città\\n\'l\'Italia\'',
+      );
+    }
+    expect(entries[0].value).toBe('[{"q":"Città","a":"l\'Italia"}]');
+    expect(entries[1].value).toBe("Città\n'l'Italia'");
   });
 
   it('accepts a structurally valid empty metadata module but still rejects an empty body module', () => {
