@@ -306,6 +306,13 @@ describe('tailored CV by type', () => {
     expect(checkTailoredCvLanguage(untranslatedLanguage, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
       expect.objectContaining({ token: 'languages[0].language', kind: 'unchanged' }),
     ]));
+
+    const untranslatedSummary = sanitizeTailoredCv({ ...raw, summary: 'Built CRM for Swiss clients' }, {
+      profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it',
+    });
+    expect(checkTailoredCvLanguage(untranslatedSummary, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ field: 'summary', kind: 'language' }),
+    ]));
   });
 });
 

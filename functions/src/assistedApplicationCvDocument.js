@@ -122,7 +122,7 @@ export function buildCvDocument(cv, { identity, profile = {}, language = 'it', t
     });
   const certifications = translatedList(profile.certifications || [], localized.certifications);
   const interests = translatedList(profile.interests || [], localized.interests);
-  const languages = (profile.languages || []).filter((item) => item.language).map((item, index) => {
+  const languages = (profile.languages || []).map((item, index) => ({ item, index })).filter(({ item }) => item.language).map(({ item, index }) => {
     const translation = atIndex(localized.languages, index);
     return [translation?.language || item.language, item.level || ''];
   });

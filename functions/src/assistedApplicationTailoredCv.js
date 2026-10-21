@@ -267,10 +267,10 @@ const sameDisplayText = (first, second) => nonEmpty(first) && nonEmpty(second) &
 // English fallback in different words, while leaving product and tool names
 // such as "Project Management", "Azure" and "DevOps" alone.
 const LANGUAGE_SIGNALS = {
-  it: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
-  de: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'gestito', 'laurea', 'formazione', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
-  fr: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'gestito', 'laurea', 'formazione', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium'],
-  en: ['sviluppato', 'sviluppata', 'gestito', 'gestita', 'esperienza', 'esperienze', 'formazione', 'laurea', 'diploma', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
+  it: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre', 'personnes', 'equipe', 'projet', 'projets'],
+  de: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
+  fr: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium'],
+  en: ['sviluppato', 'sviluppata', 'gestito', 'gestita', 'creato', 'creata', 'ridotto', 'ridotta', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'esperienza', 'esperienze', 'sviluppo', 'formazione', 'laurea', 'diploma', 'competenze', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
 };
 
 function languageSignals(text, language) {
@@ -347,6 +347,22 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it' } = 
     requireLocalized(issues, translation?.organisation, item.organisation, `references[${index}].organisation`);
   });
   requireLocalized(issues, localized.drivingLicence, profile.drivingLicence, 'drivingLicence', { rejectUnchanged: true });
+
+  const generatedFields = [
+    ['summary', cv.summary, profile.summary],
+    ['competencies', (cv.competencies || []).join('\n'), ''],
+    ['experience', (cv.experience || []).filter((role) => role.rewritten).flatMap((role) => role.bullets || []).join('\n'), ''],
+    ['skills', (cv.skills || []).join('\n'), ''],
+  ];
+  for (const [field, value, source] of generatedFields) {
+    if (!nonEmpty(value)) continue;
+    if (sameDisplayText(value, source)) {
+      issues.push({ field, kind: 'unchanged', token: String(value).slice(0, 120), context: 'generated text is unchanged from the source-language profile' });
+      continue;
+    }
+    const signals = languageSignals(value, language);
+    if (signals.length >= 2) issues.push({ field, kind: 'language', token: signals.slice(0, 4).join(', '), context: `source-language prose remains in the ${language} generated field` });
+  }
 
   const text = tailoredCvPlainText(cv, { identity: { name: '', phone: '', email: '' }, profile });
   const signals = languageSignals(text, language);
@@ -499,9 +515,25 @@ function localizedCvText(localized) {
   ].filter(Boolean).join('\n');
 }
 
-/** Everything Codex wrote, as the fact gate reads it (a headline written in code is not). */
+function localizedCvSourceNames(profile = {}) {
+  return [
+    profile.fullName, profile.location,
+    ...(profile.experience || []).flatMap((item) => [item.role, item.employer, item.location]),
+    ...(profile.education || []).flatMap((item) => [item.degree, item.institution]),
+    ...(profile.recognitions || []).flatMap((item) => [item.title, item.issuer]),
+    ...(profile.certifications || []),
+    ...(profile.aptitudeTests || []).flatMap((item) => [item.name, item.results]),
+    ...(profile.projects || []).flatMap((item) => [item.name, item.url]),
+    ...(profile.languages || []).map((item) => item.language),
+    ...(profile.interests || []),
+    ...(profile.references || []).flatMap((item) => [item.name, item.role, item.organisation]),
+    profile.drivingLicence,
+  ].filter(Boolean);
+}
+
+/** Everything in the model's main rewrite, as the source-language fact gate reads it. */
 export function tailoredCvGeneratedText(cv) {
-  return [cv.headlineSource === 'model' || !cv.headlineSource ? cv.headline : '', cv.summary, cv.competencies.join(' · '), ...cv.experience.filter((role) => role.rewritten).flatMap((role) => role.bullets), cv.skills.join(', '), localizedCvText(cv.localized)].join('\n');
+  return [cv.headlineSource === 'model' || !cv.headlineSource ? cv.headline : '', cv.summary, cv.competencies.join(' · '), ...cv.experience.filter((role) => role.rewritten).flatMap((role) => role.bullets), cv.skills.join(', ')].join('\n');
 }
 
 /**
@@ -518,8 +550,26 @@ export function checkTailoredCvFacts(cv, { cvText, profile, answers }) {
   // numberSources: the same texts without their contact data, so the digits of the CV's phone
   // number, e-mail address or link back no figure ("un team di 45 persone").
   const index = buildFactIndex(sources, { claimSources: sources, numberSources: sources });
-  const texts = { tailoredCv: tailoredCvGeneratedText(cv) };
-  return withPermitClaims(checkGeneratedFacts(texts, index), texts, index, { status: profile?.permitStatus });
+  const generated = tailoredCvGeneratedText(cv);
+  const localized = localizedCvText(cv.localized);
+  const mainFacts = checkGeneratedFacts({ tailoredCv: generated }, index);
+  // Translated prose is checked against the same candidate facts, but its source
+  // fields are indexed as names so translated places, titles and institutions do
+  // not become invented tools or entities merely because their spelling changed.
+  const localizedIndex = buildFactIndex(sources, {
+    claimSources: sources,
+    numberSources: sources,
+    nameSources: localizedCvSourceNames(profile),
+  });
+  const localizedFacts = localized
+    ? checkGeneratedFacts({ localizedProfile: localized }, localizedIndex)
+    : { ok: true, unsupported: [], advisories: [] };
+  const facts = {
+    ok: mainFacts.ok && localizedFacts.ok,
+    unsupported: [...mainFacts.unsupported, ...localizedFacts.unsupported],
+    advisories: [...(mainFacts.advisories || []), ...(localizedFacts.advisories || [])],
+  };
+  return withPermitClaims(facts, { tailoredCv: generated }, index, { status: profile?.permitStatus });
 }
 
 /** The tailored CV as a document (assistedApplicationCvDocument.js): the Swiss sections of its type. */
