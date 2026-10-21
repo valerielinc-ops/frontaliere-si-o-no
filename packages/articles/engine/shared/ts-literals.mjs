@@ -133,12 +133,20 @@ export function readStaticObjectEntries(
       }
     }
 
-    entries.push({
+    const entry = {
       key: decodeStaticStringLiteral(keyLiteral.value, keyLiteral.quote),
       value: decodeStaticStringLiteral(valueLiteral.value, valueLiteral.quote),
       keyQuote: keyLiteral.quote,
       valueQuote: valueLiteral.quote,
+    };
+    // Preserve source spelling and offsets for compatibility adapters without
+    // changing the enumerable reader contract used by existing consumers.
+    Object.defineProperties(entry, {
+      rawKey: { value: keyLiteral.value },
+      rawValue: { value: valueLiteral.value },
+      start: { value: cursor },
     });
+    entries.push(entry);
     cursor = valueLiteral.end;
   }
   return entries;
