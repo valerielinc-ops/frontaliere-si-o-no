@@ -9651,9 +9651,9 @@
     },
     {
       "id": "unispital-basel-07d0562abde3",
-      "slug": "study-coordinator-kardiologie-universitatsspital-basel",
+      "slug": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "study-coordinator-kardiologie-universitatsspital-basel",
+        "it": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
         "en": "study-coorindator-cardiology-universitatsspital-basel-basel",
         "de": "study-coordinator-kardiologie-unispital-basel-ch",
         "fr": "coordonateur-de-l-etude-cardiologie-universitatsspital-basel-basel"
@@ -9703,14 +9703,14 @@
         "studio-coorindator-cardiologia-universitatsspital-basel-basel",
         "study-coordinator-kardiologie-unispital-basel-ch",
         "study-coorindator-kardiologie-unispital-basel-ch",
-        "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
+        "study-coordinator-kardiologie-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studio-coorindator-cardiologia-universitatsspital-basel-basel",
           "study-coordinator-kardiologie-unispital-basel-ch",
           "study-coorindator-kardiologie-unispital-basel-ch",
-          "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
+          "study-coordinator-kardiologie-universitatsspital-basel"
         ]
       },
       "firstSeenAt": "2026-10-14T21:24:36.351Z",
@@ -10665,12 +10665,12 @@
     },
     {
       "id": "unispital-basel-f193e5e0ea50",
-      "slug": "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel",
+      "slug": "project-manager-project-manager-gestione-aggiuntiva-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-mehrleistungsmanagement-unispital-basel-ch",
-        "it": "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel",
-        "en": "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel-basel",
-        "fr": "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel-basel"
+        "it": "project-manager-project-manager-gestione-aggiuntiva-universitatsspital-basel-basel",
+        "en": "project-manager-project-manager-additional-management-universitatsspital-basel-basel",
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-gestion-supplementaire-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10717,11 +10717,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "projektleiterin-projektleiter-mehrleistungsmanagement-unispital-basel-ch"
+          "projektleiterin-projektleiter-mehrleistungsmanagement-unispital-basel-ch",
+          "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel"
+        ],
+        "en": [
+          "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-mehrleistungsmanagement-unispital-basel-ch"
+        "projektleiterin-projektleiter-mehrleistungsmanagement-unispital-basel-ch",
+        "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel",
+        "projektleiterin-projektleiter-mehrleistungsmanagement-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10820,10 +10829,10 @@
     },
     {
       "id": "unispital-basel-f28483de89a2",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+      "slug": "dipl-infermieristica-professionale-hf-fh-imc-universitatsspital-basel-basel-1de7cb",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "it": "dipl-infermieristica-professionale-hf-fh-imc-universitatsspital-basel-basel-1de7cb",
         "en": "dipl-nursing-professional-hf-fh-imc-universitatsspital-basel-basel",
         "fr": "dipl-professionnels-des-soins-infirmiers-hf-fh-imc-universitatsspital-basel-basel"
       },
@@ -10870,11 +10879,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -10893,12 +10904,12 @@
     },
     {
       "id": "unispital-basel-52e20d37aee0",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel",
+      "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch",
-        "it": "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel",
-        "en": "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel",
-        "fr": "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel"
+        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-universitatsspital-basel-basel",
+        "en": "radiology-specialist-radiology-specialist-hf-universitatsspital-basel-basel",
+        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10945,11 +10956,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch"
+          "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch",
+          "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch",
+        "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

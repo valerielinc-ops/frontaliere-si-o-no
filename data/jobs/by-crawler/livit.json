@@ -2432,12 +2432,12 @@
     },
     {
       "id": "livit-52c9f23623b3",
-      "slug": "gerant-e-d-immeubles-livit-ag-geneve",
+      "slug": "gestione-degli-edifici-livit-ag-geneve",
       "slugByLocale": {
         "fr": "gerant-e-d-immeubles-livit-geneve",
-        "it": "gerant-e-d-immeubles-livit-ag-geneve",
-        "en": "gerant-e-d-immeubles-livit-geneve",
-        "de": "gerant-e-d-immeubles-livit-geneve"
+        "it": "gestione-degli-edifici-livit-ag-geneve",
+        "en": "building-manager-livit-ag-geneve",
+        "de": "gebaudeleiter-livit-ag-geneve"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2485,11 +2485,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gerant-e-d-immeubles-livit-geneve",
+          "gerant-e-d-immeubles-livit-ag-geneve"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-livit-geneve"
+        ],
+        "de": [
           "gerant-e-d-immeubles-livit-geneve"
         ]
       },
       "previousSlugs": [
-        "gerant-e-d-immeubles-livit-geneve"
+        "gerant-e-d-immeubles-livit-geneve",
+        "gerant-e-d-immeubles-livit-ag-geneve"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

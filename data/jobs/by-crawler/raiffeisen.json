@@ -9,7 +9,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -55,11 +55,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -443,7 +443,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -502,7 +502,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -525,7 +525,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -704,7 +704,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -754,7 +754,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -764,7 +764,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -875,7 +875,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -925,14 +925,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -11487,12 +11485,12 @@
     },
     {
       "id": "raiffeisen-2d68cb117cd3",
-      "slug": "responsable-du-departement-placement-raiffeisen-nyon",
+      "slug": "capo-del-dipartimento-di-investimento-raiffeisen-nyon",
       "slugByLocale": {
         "fr": "responsable-du-departement-placement-raiffeisen-nyon",
-        "it": "responsable-du-departement-placement-raiffeisen-nyon",
-        "en": "responsable-du-departement-placement-raiffeisen-nyon",
-        "de": "responsable-du-departement-placement-raiffeisen-nyon"
+        "it": "capo-del-dipartimento-di-investimento-raiffeisen-nyon",
+        "en": "head-of-the-investment-department-raiffeisen-nyon",
+        "de": "leiter-der-investmentabteilung-raiffeisen-nyon"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11551,16 +11549,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:17:33.689Z"
+      "firstSeenAt": "2026-10-20T21:17:33.689Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-departement-placement-raiffeisen-nyon"
+        ],
+        "en": [
+          "responsable-du-departement-placement-raiffeisen-nyon"
+        ],
+        "de": [
+          "responsable-du-departement-placement-raiffeisen-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-departement-placement-raiffeisen-nyon"
+      ]
     },
     {
       "id": "raiffeisen-4a464e955a09",
-      "slug": "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye",
+      "slug": "consigliere-per-la-gestione-dei-capitali-raiffeisen-belmont-broye",
       "slugByLocale": {
         "fr": "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye",
-        "it": "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye",
-        "en": "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye",
-        "de": "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye"
+        "it": "consigliere-per-la-gestione-dei-capitali-raiffeisen-belmont-broye",
+        "en": "capital-management-advisor-raiffeisen-belmont-broye",
+        "de": "capital-management-berater-raiffeisen-belmont-broye"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11619,13 +11631,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:17:33.661Z"
+      "firstSeenAt": "2026-10-20T21:17:33.661Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye"
+        ],
+        "en": [
+          "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye"
+        ],
+        "de": [
+          "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-gestion-de-fortune-raiffeisen-belmont-broye"
+      ]
     },
     {
       "id": "raiffeisen-d95768a88ff7",
       "slug": "consulente-finanziario-schema-di-successione-raiffeisen-einsiedeln-8640772dd6",
       "slugByLocale": {
-        "it": "consulente-finanziario-schema-di-successione-raiffeisen-einsiedeln-8640772dd6",
+        "it": "consulente-finanziario-schema-di-successione-raiffeisen-einsiedeln",
         "en": "financial-advisor-succession-scheme-raiffeisen-einsiedeln",
         "de": "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln",
         "fr": "conseiller-financier-regime-de-succession-raiffeisen-einsiedeln"
@@ -11674,13 +11700,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln",
-        "consulente-finanziario-schema-di-successione-raiffeisen-einsiedeln"
+        "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln",
-          "consulente-finanziario-schema-di-successione-raiffeisen-einsiedeln"
+          "vermogensberater-in-nachfolgeregelung-raiffeisen-einsiedeln"
         ]
       },
       "firstSeenAt": "2026-08-04T22:18:26.745Z",

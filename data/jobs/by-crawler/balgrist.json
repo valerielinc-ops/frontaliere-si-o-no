@@ -3763,12 +3763,12 @@
     },
     {
       "id": "balgrist-e58cb827482c",
-      "slug": "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich",
+      "slug": "esperta-esperto-di-ferite-o-responsabile-della-gestione-delle-ferite-m-f-d-80-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich",
-        "it": "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich",
-        "en": "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich",
-        "fr": "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich"
+        "it": "esperta-esperto-di-ferite-o-responsabile-della-gestione-delle-ferite-m-f-d-80-universitatsklinik-balgrist-zurich",
+        "en": "wound-expert-or-wound-manager-m-f-d-80-universitatsklinik-balgrist-zurich",
+        "fr": "expert-ou-gestionnaire-de-plaies-h-f-d-80-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -3816,11 +3816,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich",
+          "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich"
+        ],
+        "en": [
+          "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich"
+        ],
+        "fr": [
           "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich"
         ]
       },
       "previousSlugs": [
-        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich"
+        "wundexpertin-wundexperten-oder-wundmanagerin-wundmanager-m-w-d-80-balgrist-zurich",
+        "wundexpertin-wundexperten-o-wundmanagerin-wundmanager-m-w-d-80-universitatsklinik-balgrist-zurich"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,

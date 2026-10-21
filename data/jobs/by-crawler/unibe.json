@@ -737,7 +737,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -785,7 +785,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -796,7 +796,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+          "data-science-officer-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -1219,9 +1219,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -1271,13 +1271,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern"
         ],
         "en": [
           "it-systemadministrator-in-universitat-bern-bern"
@@ -3734,7 +3734,7 @@
         "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
-        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
+        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3780,7 +3780,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-        "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3791,7 +3791,7 @@
         ],
         "fr": [
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-          "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-20T09:31:08.059Z",
@@ -3894,12 +3894,12 @@
     },
     {
       "id": "unibe-49854a19511b",
-      "slug": "projektmanager-in-schweizer-register-per-seltene-krankheiten-universitat-bern",
+      "slug": "responsabile-di-progetto-registro-svizzero-delle-malattie-rare-universitat-bern-bern",
       "slugByLocale": {
         "de": "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern",
-        "it": "projektmanager-in-schweizer-register-per-seltene-krankheiten-universitat-bern",
-        "en": "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern",
-        "fr": "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern"
+        "it": "responsabile-di-progetto-registro-svizzero-delle-malattie-rare-universitat-bern-bern",
+        "en": "project-manager-swiss-register-for-rare-diseases-universitat-bern-bern",
+        "fr": "chef-fe-de-projet-registre-suisse-des-maladies-rares-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3947,11 +3947,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern",
+          "projektmanager-in-schweizer-register-per-seltene-krankheiten-universitat-bern"
+        ],
+        "en": [
+          "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern"
+        ],
+        "fr": [
           "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern"
         ]
       },
       "previousSlugs": [
-        "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern"
+        "projektmanager-in-schweizer-register-fur-seltene-krankheiten-unibe-bern",
+        "projektmanager-in-schweizer-register-per-seltene-krankheiten-universitat-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

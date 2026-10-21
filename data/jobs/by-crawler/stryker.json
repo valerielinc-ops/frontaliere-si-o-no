@@ -318,12 +318,12 @@
     },
     {
       "id": "stryker-61a612a84a9e",
-      "slug": "apprentice-manufacturing-stryker-ch",
+      "slug": "produzione-di-apprendisti-stryker-selzach-744fac",
       "slugByLocale": {
         "de": "apprentice-manufacturing-stryker-ch",
-        "it": "apprentice-manufacturing-stryker-ch",
+        "it": "produzione-di-apprendisti-stryker-selzach-744fac",
         "en": "apprentice-manufacturing-stryker-selzach",
-        "fr": "apprentice-manufacturing-stryker-ch"
+        "fr": "fabrication-d-apprentis-stryker-selzach-744fac"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -383,16 +383,27 @@
         }
       },
       "postalCode": "2545",
-      "firstSeenAt": "2026-09-08T23:34:49.375Z"
+      "firstSeenAt": "2026-09-08T23:34:49.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentice-manufacturing-stryker-ch"
+        ],
+        "fr": [
+          "apprentice-manufacturing-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprentice-manufacturing-stryker-ch"
+      ]
     },
     {
       "id": "stryker-80c9159bc6fe",
-      "slug": "apprentice-manufacturing-stryker-ch-2",
+      "slug": "produzione-di-apprendisti-stryker-selzach-d60cc6",
       "slugByLocale": {
         "de": "apprentice-manufacturing-stryker-ch-jkisbu",
-        "it": "apprentice-manufacturing-stryker-ch-2",
+        "it": "produzione-di-apprendisti-stryker-selzach-d60cc6",
         "en": "apprentice-manufacturing-stryker-selzach",
-        "fr": "apprentice-manufacturing-stryker-ch-2"
+        "fr": "fabrication-d-apprentis-stryker-selzach-d60cc6"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -455,14 +466,19 @@
       "firstSeenAt": "2026-09-08T23:34:49.375Z",
       "previousSlugsByLocale": {
         "it": [
-          "apprentice-manufacturing-stryker-ch"
+          "apprentice-manufacturing-stryker-ch",
+          "apprentice-manufacturing-stryker-ch-2"
         ],
         "de": [
           "apprentice-manufacturing-stryker-ch"
+        ],
+        "fr": [
+          "apprentice-manufacturing-stryker-ch-2"
         ]
       },
       "previousSlugs": [
-        "apprentice-manufacturing-stryker-ch"
+        "apprentice-manufacturing-stryker-ch",
+        "apprentice-manufacturing-stryker-ch-2"
       ]
     },
     {

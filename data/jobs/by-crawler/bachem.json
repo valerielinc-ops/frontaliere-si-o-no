@@ -395,7 +395,7 @@
       "id": "bachem-b104f0bfb9c9",
       "slug": "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
-        "it": "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag",
+        "it": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "en": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "de": "head-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
         "fr": "gestion-des-installations-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
@@ -443,13 +443,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
-        "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
+        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
-          "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
+          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
         ],
         "de": [
           "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
@@ -776,12 +774,12 @@
     },
     {
       "id": "bachem-fdd5c352a251",
-      "slug": "qa-review-manager-a-100-bachem-bubendorf",
+      "slug": "responsabile-della-revisione-qa-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "qa-review-manager-a-100-bachem-bubendorf",
-        "it": "qa-review-manager-a-100-bachem-bubendorf",
+        "it": "responsabile-della-revisione-qa-a-100-bachem-ag-bubendorf",
         "en": "qa-review-manager-a-100-bachem-bubendorf",
-        "fr": "qa-review-manager-a-100-bachem-bubendorf"
+        "fr": "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -843,26 +841,29 @@
       "firstSeenAt": "2026-10-06T21:40:48.052Z",
       "previousSlugs": [
         "responsabile-della-revisione-qa-a-100-bachem-ag-bubendorf",
-        "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf"
+        "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf",
+        "qa-review-manager-a-100-bachem-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-della-revisione-qa-a-100-bachem-ag-bubendorf",
-          "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf"
+          "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf",
+          "qa-review-manager-a-100-bachem-bubendorf"
         ],
         "fr": [
-          "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf"
+          "gestionnaire-de-l-examen-de-l-aq-a-100-bachem-ag-bubendorf",
+          "qa-review-manager-a-100-bachem-bubendorf"
         ]
       }
     },
     {
       "id": "bachem-912f6f43ba4e",
-      "slug": "scientific-writer-qc-a-100-bachem-bubendorf",
+      "slug": "scrittore-scientifico-qc-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "scientific-writer-qc-a-100-bachem-bubendorf",
-        "it": "scientific-writer-qc-a-100-bachem-bubendorf",
+        "it": "scrittore-scientifico-qc-a-100-bachem-ag-bubendorf",
         "en": "scientific-writer-qc-a-100-bachem-bubendorf",
-        "fr": "scientific-writer-qc-a-100-bachem-bubendorf"
+        "fr": "redacteur-scientifique-qc-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -921,7 +922,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:26:58.457Z"
+      "firstSeenAt": "2026-10-20T21:26:58.457Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientific-writer-qc-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "scientific-writer-qc-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "scientific-writer-qc-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-909bf85805f0",
@@ -1085,12 +1097,12 @@
     },
     {
       "id": "bachem-6e870bc38142",
-      "slug": "scientist-qc-analytical-development-a-100-bachem-bubendorf",
+      "slug": "scienziato-qc-sviluppo-analitico-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "scientist-qc-analytical-development-a-100-bachem-bubendorf",
-        "it": "scientist-qc-analytical-development-a-100-bachem-bubendorf",
+        "it": "scienziato-qc-sviluppo-analitico-a-100-bachem-ag-bubendorf",
         "en": "scientist-qc-analytical-development-a-100-bachem-bubendorf",
-        "fr": "scientist-qc-analytical-development-a-100-bachem-bubendorf"
+        "fr": "scientifique-qc-developpement-analytique-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -1149,7 +1161,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:26:57.440Z"
+      "firstSeenAt": "2026-10-20T21:26:57.440Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-qc-analytical-development-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "scientist-qc-analytical-development-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-qc-analytical-development-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-2339a5ffe3dd",

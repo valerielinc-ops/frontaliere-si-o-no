@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "seniorenzentrum-engelhof-c355fb1536e4",
-      "slug": "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof",
+      "slug": "apprendista-operatrice-operatore-sociosanitario-afc-seniorenzentrum-engelhof-altendorf",
       "slugByLocale": {
         "de": "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof",
-        "it": "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof",
-        "en": "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof",
-        "fr": "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof"
+        "it": "apprendista-operatrice-operatore-sociosanitario-afc-seniorenzentrum-engelhof-altendorf",
+        "en": "trainee-healthcare-professional-efz-seniorenzentrum-engelhof-altendorf",
+        "fr": "apprenti-e-assistant-e-en-soins-et-sante-communautaire-cfc-seniorenzentrum-engelhof-altendorf"
       },
       "company": "Seniorenzentrum Engelhof",
       "companyKey": "seniorenzentrum-engelhof",
@@ -68,16 +68,30 @@
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-20T21:42:48.666Z"
+      "firstSeenAt": "2026-10-20T21:42:48.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof"
+        ],
+        "en": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof"
+        ],
+        "fr": [
+          "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof"
+      ]
     },
     {
       "id": "seniorenzentrum-engelhof-bdb1625ddc45",
-      "slug": "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof",
+      "slug": "apprendista-assistente-di-cura-e-accompagnamento-cfp-seniorenzentrum-engelhof-altendorf",
       "slugByLocale": {
         "de": "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof",
-        "it": "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof",
-        "en": "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof",
-        "fr": "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof"
+        "it": "apprendista-assistente-di-cura-e-accompagnamento-cfp-seniorenzentrum-engelhof-altendorf",
+        "en": "apprentice-assistant-in-health-social-care-eba-seniorenzentrum-engelhof-altendorf",
+        "fr": "apprenti-e-assistant-e-en-sante-et-social-afp-seniorenzentrum-engelhof-altendorf"
       },
       "company": "Seniorenzentrum Engelhof",
       "companyKey": "seniorenzentrum-engelhof",
@@ -136,7 +150,21 @@
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-20T21:42:48.664Z"
+      "firstSeenAt": "2026-10-20T21:42:48.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof"
+        ],
+        "en": [
+          "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof"
+        ],
+        "fr": [
+          "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-r-assistent-in-gesundheit-soziales-eba-altendorf-seniorenzentrum-engelhof"
+      ]
     }
   ]
 }

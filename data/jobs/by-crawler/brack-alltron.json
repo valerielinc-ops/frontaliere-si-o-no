@@ -2479,11 +2479,11 @@
     },
     {
       "id": "brack-alltron-82d62de0e318",
-      "slug": "key-account-manager-offentliche-hand-brack-alltron-magenwil",
+      "slug": "key-account-manager-mani-pubbliche-brack-alltron-ag-magenwil",
       "slugByLocale": {
         "de": "key-account-manager-offentliche-hand-brack-alltron-magenwil",
-        "it": "key-account-manager-offentliche-hand-brack-alltron-magenwil",
-        "en": "key-account-manager-offentliche-hand-brack-alltron-magenwil",
+        "it": "key-account-manager-mani-pubbliche-brack-alltron-ag-magenwil",
+        "en": "key-account-manager-public-hands-brack-alltron-ag-magenwil",
         "fr": "key-account-manager-offentliche-hand-brack-alltron-magenwil"
       },
       "company": "Brack.Alltron AG",
@@ -2543,7 +2543,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-20T21:20:48.945Z"
+      "firstSeenAt": "2026-10-20T21:20:48.945Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-offentliche-hand-brack-alltron-magenwil"
+        ],
+        "en": [
+          "key-account-manager-offentliche-hand-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-offentliche-hand-brack-alltron-magenwil"
+      ]
     }
   ]
 }

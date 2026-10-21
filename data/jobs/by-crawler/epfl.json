@@ -6181,11 +6181,11 @@
     },
     {
       "id": "epfl-fc9f5e5a377e",
-      "slug": "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne",
+      "slug": "assistente-amministrativo-ve-ufficio-informazioni-sugli-alloggi-epfl-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne",
-        "it": "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne",
-        "en": "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne",
+        "it": "assistente-amministrativo-ve-ufficio-informazioni-sugli-alloggi-epfl-lausanne",
+        "en": "administrative-assistant-ve-housing-information-office-epfl-lausanne",
         "de": "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne"
       },
       "company": "EPFL",
@@ -6247,7 +6247,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-20T21:19:26.707Z"
+      "firstSeenAt": "2026-10-20T21:19:26.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-bureau-information-logement-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-830b705e54b0",
