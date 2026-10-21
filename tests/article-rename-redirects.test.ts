@@ -593,4 +593,20 @@ describe('every entry is in a valid phase of a rename (see the truth table above
     expect(findCanonicalOverrideRedirectTargets(redirects, CANONICAL_OVERRIDES)).toEqual([]);
     expect(() => assertNoCanonicalOverrideRedirectTargets(redirects, CANONICAL_OVERRIDES)).not.toThrow();
   });
+
+  it('resolves root-relative canonical override winners', () => {
+    const redirectMap = {
+      '/en/cross-border-articles/old-title/': '/en/cross-border-articles/renamed-title/',
+    };
+    const overrides = {
+      'renamed-title': '/en/cross-border-articles/final-title/',
+    };
+    expect(findCanonicalOverrideRedirectTargets(redirectMap, overrides)).toEqual([
+      {
+        from: '/en/cross-border-articles/old-title/',
+        to: '/en/cross-border-articles/renamed-title/',
+        winner: '/en/cross-border-articles/final-title/',
+      },
+    ]);
+  });
 });

@@ -220,7 +220,9 @@ export function findCanonicalOverrideRedirectTargets(redirects, canonicalOverrid
     if (typeof winnerUrl !== 'string') continue;
     let winnerPath;
     try {
-      winnerPath = new URL(winnerUrl).pathname;
+      // Canonical overrides are emitted as either absolute URLs or root-relative
+      // paths; resolve both forms before comparing article route ownership.
+      winnerPath = new URL(winnerUrl, 'https://frontaliereticino.ch').pathname;
     } catch {
       continue;
     }
