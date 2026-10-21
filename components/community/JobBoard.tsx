@@ -5606,6 +5606,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
   (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
  ) || returnVisitResultsPending;
 
+ // The canonical unfiltered listing has a deterministic first viewport: the
+ // first page is `pageSize` cards when that footprint is available. During a
+ // short/empty resolution, only the currently known result count is safe to
+ // reserve; otherwise the loader would mount a full page and then collapse it
+ // into a short list or empty state, recreating the CLS this branch fixes.
+ // Filtered and editorial views keep their existing six-card loader because
+ // their final result count is unknown.
+ const isUnfilteredListing = activeFilterCount === 0
+  && salaryRangeFilter.min === null
+  && !searchSlugFilter
+  && !companySlugFilter
+  && !locationSlugFilter
+  && !editorialLandingDescriptor
+  && !clusterSeedApplies;
+ const loadingCardCount = isUnfilteredListing
+  ? Math.min(pageSize, filteredJobs.length)
+  : 6;
+
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
  const isUsingSearchFallback = useMemo(() => {
@@ -6921,6 +6939,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  );
  };
+
+ const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing && loadingCardCount > 0
+  ? Array.from({ length: loadingCardCount }, (_, index) => index + 1)
+   .filter((position) => position < loadingCardCount)
+   .filter((position) => shouldPlaceInfeedAd(position, {
+    canton: initialFilterCanton,
+    adExperimentActive,
+   }))
+   .map((afterCard) => ({
+    afterCard,
+    minHeight: (isMobile ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP).placeholderMinHeight,
+   }))
+  : [];
 
  // Interleave one in-feed ad after every Nth job card (shared `shouldPlaceInfeedAd`
  // cadence), never after the last card. Used by the editorial-landing sections;
@@ -11922,7 +11953,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sized to the loaded layout so the count + cards reconcile in place (no
  CLS) and the user never sees a bare "0 risultati" mid-fetch (#2968). */}
  {resultsResolving && (
- <JobBoardResultsLoader cards={6} />
+ <JobBoardResultsLoader
+  cards={loadingCardCount}
+  infeedAdSlots={loadingInfeedAdSlots}
+ />
  )}
 
  {filteredJobs.length === 0 && !resultsResolving && showSavedOnly && (
@@ -11994,7 +12028,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
 
  {/* AdSense — end-of-list multiplex */}
- {filteredJobs.length > 0 && (
+ {(filteredJobs.length > 0 || (resultsResolving && isUnfilteredListing)) && (
  <React.Fragment key={`endlist-${adRefreshKey}`}>
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
