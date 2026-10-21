@@ -18,6 +18,7 @@ import {
 } from '../build-plugins/shared/autoSectorHubPaths';
 import { buildAutoSectorHubPage } from '../build-plugins/autoSectorHubPagesPlugin';
 import { SECTOR_HUB_SECTION } from '../build-plugins/shared/jobSectorPaths';
+import { BASE_URL } from '../build-plugins/constants';
 
 const DESCRIPTION = Array.from({ length: 60 }, () => 'contenuto').join(' ');
 
@@ -74,6 +75,13 @@ describe('automatic sector hub publication', () => {
       const page = buildAutoSectorHubPage('', locale, publication, jobs, '2026-10-20');
       expect(page.indexable).toBe(true);
       expect(page.html).toContain('"@type":"BreadcrumbList"');
+      expect(page.html).toMatch(/<a\b[^>]*href="\/"[^>]*class(?:="s-bcl"|=s-bcl)[^>]*>/);
+      const jsonLdBlocks = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1]));
+      const breadcrumb = jsonLdBlocks.find((block) => block['@type'] === 'BreadcrumbList') as {
+        itemListElement?: Array<{ item?: string }>;
+      } | undefined;
+      expect(breadcrumb?.itemListElement?.[0]?.item).toBe(BASE_URL);
     }
   });
 

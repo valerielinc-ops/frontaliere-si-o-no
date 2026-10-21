@@ -275,7 +275,7 @@ export function buildAutoSectorHubPage(
         '@type': 'ListItem',
         position: 1,
         name: copy.breadcrumbHome,
-        item: `${BASE_URL}${SECTOR_HUB_LOCALE_PREFIX[locale]}/`,
+        item: BASE_URL,
       },
       {
         '@type': 'ListItem',
