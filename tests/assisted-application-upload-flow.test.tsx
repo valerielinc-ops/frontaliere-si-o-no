@@ -16,6 +16,7 @@ const mocks = vi.hoisted(() => ({
   ref: vi.fn(),
   uploadBytes: vi.fn(),
   trackEvent: vi.fn(),
+  fetch: vi.fn(),
 }));
 
 vi.mock('@/services/firebase', () => ({ getApp: mocks.getApp }));
@@ -47,6 +48,7 @@ vi.mock('@/services/i18n', async () => {
 
   return {
     getLocale: () => 'it',
+    useLocale: () => ['it', vi.fn()],
     useTranslation: () => ({ locale: 'it', t: translate }),
   };
 });
@@ -73,9 +75,13 @@ let orderData = paidOrder();
 describe('assisted application consent and CV upload flow', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.stubGlobal('fetch', mocks.fetch);
     orderData = paidOrder();
     mocks.getApp.mockResolvedValue({});
-    mocks.getAuth.mockReturnValue({ authStateReady: async () => {}, currentUser: { uid: 'candidate-test-user' } });
+    mocks.getAuth.mockReturnValue({
+      authStateReady: async () => {},
+      currentUser: { uid: 'candidate-test-user', getIdToken: async () => 'candidate-token' },
+    });
     mocks.getFirestore.mockReturnValue({});
     mocks.doc.mockReturnValue({ id: ORDER_ID });
     mocks.getDoc.mockImplementation(async () => ({ exists: () => true, data: () => orderData }));
@@ -84,6 +90,7 @@ describe('assisted application consent and CV upload flow', () => {
     mocks.getStorage.mockReturnValue({});
     mocks.ref.mockImplementation((_storage, path) => ({ path }));
     mocks.uploadBytes.mockResolvedValue({ metadata: { fullPath: `assisted-application-uploads/${ORDER_ID}/cv.pdf` } });
+    mocks.fetch.mockResolvedValue({ ok: true, status: 200, json: async () => ({}) });
   });
 
   afterEach(cleanup);
@@ -154,5 +161,29 @@ describe('assisted application consent and CV upload flow', () => {
 
     expect(screen.queryByLabelText(itCore['jobBoard.assisted.name'])).toBeNull();
     expect(screen.queryByRole('button', { name: itCore['jobBoard.assisted.fileCta'] })).toBeNull();
+  });
+
+  it('offers a server-verified payment resume action while the order is pending', async () => {
+    orderData = paidOrder({
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+      paymentProvider: 'stripe',
+      stripeCheckoutSessionId: 'cs_pending',
+    });
+    mocks.fetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ ok: true, status: 'paid', orderId: ORDER_ID }),
+    });
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+
+    const resumeButton = await screen.findByRole('button', { name: itCore['jobBoard.assisted.pendingCta'] });
+    await user.click(resumeButton);
+    await waitFor(() => expect(mocks.fetch).toHaveBeenCalledWith(
+      expect.stringContaining('/resumeAssistedApplicationPayment'),
+      expect.objectContaining({ method: 'POST', body: JSON.stringify({ orderId: ORDER_ID }) }),
+    ));
+    expect(screen.getByText(itCore['jobBoard.assisted.pending'])).toBeTruthy();
   });
 });

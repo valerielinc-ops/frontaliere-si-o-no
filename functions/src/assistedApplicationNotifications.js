@@ -19,10 +19,12 @@
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
+import { createHash } from 'node:crypto';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
+  ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
@@ -78,6 +80,7 @@ export const MATERIALS_REMINDER_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 export const NOTIFICATION_KEYS = Object.freeze({
   customerIntro: 'customer_intro',
   ownerNewOrder: 'owner_new_order',
+  customerPaymentRecovery: 'customer_payment_recovery',
   customerReminder: 'customer_materials_reminder',
   customerMaterialsReceived: 'customer_materials_received',
   ownerMaterialsUploaded: 'owner_materials_uploaded',
@@ -86,6 +89,7 @@ export const NOTIFICATION_KEYS = Object.freeze({
 
 const CUSTOMER_KEYS = new Set([
   NOTIFICATION_KEYS.customerIntro,
+  NOTIFICATION_KEYS.customerPaymentRecovery,
   NOTIFICATION_KEYS.customerReminder,
   NOTIFICATION_KEYS.customerMaterialsReceived,
   NOTIFICATION_KEYS.customerSubmitted,
@@ -578,6 +582,97 @@ const COPY = {
   },
 };
 
+// Copy for the operational payment-recovery digest. It is intentionally
+// separate from the post-payment concierge copy above: this message is about
+// an unfinished checkout, never about newsletter engagement or a completed
+// service. Placeholders: {job}, {count}, {price}.
+const PAYMENT_RECOVERY_COPY = {
+  it: {
+    singleSubject: 'Completa il pagamento per la tua candidatura a {job}',
+    multipleSubject: 'Hai candidature assistite da completare',
+    leadSingle: 'hai iniziato una candidatura assistita per {job}, ma il pagamento di {price} è ancora in sospeso. Se vuoi completarla, riprendi da qui: bastano pochi secondi.',
+    leadMultiple: 'hai {count} candidature assistite che aspettano solo il pagamento. Le ho raccolte in questa email, così puoi completare soltanto quelle che ti interessano.',
+    followupSingle: 'ti lascio un ultimo promemoria per la candidatura a {job}: il pagamento di {price} non risulta ancora completato.',
+    followupMultiple: 'ti lascio un ultimo promemoria: {count} candidature assistite risultano ancora in attesa del pagamento.',
+    heroSingle: 'Completiamo l’ultimo passaggio',
+    heroMultiple: 'Le tue candidature aspettano il pagamento',
+    followupHeroSingle: 'Resta solo il pagamento',
+    followupHeroMultiple: 'Resta solo un passaggio',
+    preheaderSingle: 'Il pagamento è ancora in sospeso: puoi riprendere da qui.',
+    preheaderMultiple: 'Una sola email per ritrovare tutte le candidature in sospeso.',
+    orderLabel: 'Candidatura assistita',
+    orderLabelPlural: 'Candidature assistite',
+    paymentLabel: 'Pagamento da completare: {price}',
+    sessionRefreshed: 'La sessione precedente era scaduta: ne ho preparata una nuova.',
+    cta: 'Completa il pagamento',
+    alreadyPaid: 'Se hai già pagato, non pagare una seconda volta: apri la pagina dell’ordine e attendi che si aggiorni, oppure rispondi a questa email.',
+    noLonger: 'Se hai cambiato idea, puoi semplicemente ignorare questa email o rispondere per chiedere aiuto.',
+  },
+  en: {
+    singleSubject: 'Complete payment for your {job} application',
+    multipleSubject: 'You have assisted applications to complete',
+    leadSingle: 'you started an assisted application for {job}, but the {price} payment is still pending. If you would like to complete it, you can pick it up here in a few seconds.',
+    leadMultiple: 'you have {count} assisted applications waiting for payment. I have collected them in this email, so you can complete only the ones you still want.',
+    followupSingle: 'one last reminder for your application to {job}: the {price} payment still does not appear to be complete.',
+    followupMultiple: 'one last reminder: {count} assisted applications are still waiting for payment.',
+    heroSingle: 'Let’s complete the last step',
+    heroMultiple: 'Your applications are waiting for payment',
+    followupHeroSingle: 'Only payment is left',
+    followupHeroMultiple: 'Only one step is left',
+    preheaderSingle: 'Your payment is still pending: pick up where you left off.',
+    preheaderMultiple: 'One email to find all your pending applications.',
+    orderLabel: 'Assisted application',
+    orderLabelPlural: 'Assisted applications',
+    paymentLabel: 'Payment to complete: {price}',
+    sessionRefreshed: 'The previous session expired, so I prepared a new one.',
+    cta: 'Complete payment',
+    alreadyPaid: 'If you have already paid, do not pay again: open your order page and wait for it to update, or reply to this email.',
+    noLonger: 'If you have changed your mind, you can ignore this email or reply if you need help.',
+  },
+  fr: {
+    singleSubject: 'Complétez le paiement pour votre candidature à {job}',
+    multipleSubject: 'Vous avez des candidatures assistées à compléter',
+    leadSingle: 'vous avez commencé une candidature assistée pour {job}, mais le paiement de {price} est encore en attente. Si vous souhaitez la terminer, reprenez ici : quelques secondes suffisent.',
+    leadMultiple: 'vous avez {count} candidatures assistées en attente de paiement. Je les ai regroupées dans cet e-mail pour que vous puissiez terminer uniquement celles qui vous intéressent encore.',
+    followupSingle: 'un dernier rappel pour votre candidature à {job} : le paiement de {price} ne semble toujours pas terminé.',
+    followupMultiple: 'un dernier rappel : {count} candidatures assistées sont toujours en attente de paiement.',
+    heroSingle: 'Terminons la dernière étape',
+    heroMultiple: 'Vos candidatures attendent le paiement',
+    followupHeroSingle: 'Il ne reste que le paiement',
+    followupHeroMultiple: 'Il ne reste qu’une étape',
+    preheaderSingle: 'Votre paiement est encore en attente : reprenez ici.',
+    preheaderMultiple: 'Un seul e-mail pour retrouver toutes vos candidatures en attente.',
+    orderLabel: 'Candidature assistée',
+    orderLabelPlural: 'Candidatures assistées',
+    paymentLabel: 'Paiement à compléter : {price}',
+    sessionRefreshed: 'La session précédente a expiré : j’en ai préparé une nouvelle.',
+    cta: 'Compléter le paiement',
+    alreadyPaid: 'Si vous avez déjà payé, ne payez pas une deuxième fois : ouvrez la page de la commande et attendez sa mise à jour, ou répondez à cet e-mail.',
+    noLonger: 'Si vous avez changé d’avis, vous pouvez ignorer cet e-mail ou répondre si vous avez besoin d’aide.',
+  },
+  de: {
+    singleSubject: 'Schliesse die Zahlung für deine Bewerbung auf {job} ab',
+    multipleSubject: 'Du hast begleitete Bewerbungen abzuschliessen',
+    leadSingle: 'du hast eine begleitete Bewerbung für {job} begonnen, aber die Zahlung von {price} ist noch offen. Wenn du sie abschliessen möchtest, kannst du hier in wenigen Sekunden weitermachen.',
+    leadMultiple: 'du hast {count} begleitete Bewerbungen, die noch auf die Zahlung warten. Ich habe sie in dieser E-Mail gesammelt, damit du nur die abschliesst, die dich noch interessieren.',
+    followupSingle: 'eine letzte Erinnerung an deine Bewerbung auf {job}: Die Zahlung von {price} scheint noch nicht abgeschlossen zu sein.',
+    followupMultiple: 'eine letzte Erinnerung: {count} begleitete Bewerbungen warten noch auf die Zahlung.',
+    heroSingle: 'Schliessen wir den letzten Schritt ab',
+    heroMultiple: 'Deine Bewerbungen warten auf die Zahlung',
+    followupHeroSingle: 'Nur die Zahlung fehlt noch',
+    followupHeroMultiple: 'Nur ein Schritt fehlt noch',
+    preheaderSingle: 'Deine Zahlung ist noch offen: Hier kannst du weitermachen.',
+    preheaderMultiple: 'Eine E-Mail für alle deine offenen Bewerbungen.',
+    orderLabel: 'Begleitete Bewerbung',
+    orderLabelPlural: 'Begleitete Bewerbungen',
+    paymentLabel: 'Zahlung abzuschliessen: {price}',
+    sessionRefreshed: 'Die vorherige Sitzung ist abgelaufen: Ich habe eine neue vorbereitet.',
+    cta: 'Zahlung abschliessen',
+    alreadyPaid: 'Wenn du bereits bezahlt hast, zahle nicht noch einmal: Öffne deine Bestellseite und warte auf die Aktualisierung oder antworte auf diese E-Mail.',
+    noLonger: 'Wenn du es dir anders überlegt hast, kannst du diese E-Mail ignorieren oder bei Fragen antworten.',
+  },
+};
+
 function fill(template, vars) {
   return String(template).replace(/\{(\w+)\}/g, (_, key) => (vars[key] ?? ''));
 }
@@ -730,6 +825,92 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
       heroSubtitle: `${vars.job} — ${vars.company}`,
       bodyHtml: htmlParts.join(''),
       footerLines: foot.footerLines,
+    }),
+    text: textParts.join('\n\n'),
+    locale,
+  };
+}
+
+/**
+ * Build one operational email for every pending assisted application of one
+ * user. The links return to the order page, where the server can re-check the
+ * provider before opening a checkout; the email never embeds a provider URL.
+ * @param {Array<object>} orders
+ * @param {{nowMs?:number, reminderStage?:1|2}} [options]
+ */
+export function buildPendingPaymentDigestEmail(orders, { nowMs = Date.now(), reminderStage = 1 } = {}) {
+  const list = (Array.isArray(orders) ? orders : [])
+    .filter((order) => order && (order.orderId || order.id))
+    .map((order) => ({ ...order, orderId: String(order.orderId || order.id) }));
+  if (list.length === 0) throw new Error('pending_payment_digest_without_orders');
+
+  const primary = [...list].sort((left, right) => (
+    (timestampMillis(right.createdAt) || 0) - (timestampMillis(left.createdAt) || 0)
+  ))[0];
+  const locale = resolveOrderLocale(primary);
+  const copy = PAYMENT_RECOVERY_COPY[locale] || PAYMENT_RECOVERY_COPY.it;
+  const baseCopy = COPY[locale] || COPY.it;
+  const multiple = list.length > 1;
+  const primaryVars = orderVars(primary, primary.orderId, locale, nowMs);
+  const firstName = clean(primary?.applicantName, 80).split(' ')[0] || '';
+  const greeting = baseCopy.greeting(firstName);
+  const leadTemplate = reminderStage >= 2
+    ? (multiple ? copy.followupMultiple : copy.followupSingle)
+    : (multiple ? copy.leadMultiple : copy.leadSingle);
+  const lead = fill(leadTemplate, { ...primaryVars, count: String(list.length) });
+  const htmlParts = [paragraph(esc(greeting)), paragraph(fillHtml(leadTemplate, { ...primaryVars, count: String(list.length) }))];
+  const textParts = [greeting, lead];
+
+  for (const order of list) {
+    const vars = orderVars(order, order.orderId, locale, nowMs);
+    const job = jobBlock(order, baseCopy, vars);
+    const pageUrl = buildOrderPageUrl(order, order.orderId, locale);
+    const paymentLabel = fill(copy.paymentLabel, vars);
+    htmlParts.push(
+      brandSectionLabel(copy.orderLabel),
+      job.html,
+      paragraph(`<strong>${esc(paymentLabel)}</strong>`),
+      ...(order.paymentRecoverySessionRefreshed ? [brandFinePrint(esc(copy.sessionRefreshed))] : []),
+      brandButton(pageUrl, copy.cta),
+    );
+    textParts.push(
+      `${copy.orderLabel}: ${vars.job}\n${vars.company}`,
+      paymentLabel,
+      ...(order.paymentRecoverySessionRefreshed ? [copy.sessionRefreshed] : []),
+      `${copy.cta}: ${pageUrl}`,
+    );
+  }
+
+  htmlParts.push(
+    brandCallout(esc(copy.alreadyPaid)),
+    paragraph(esc(copy.noLonger)),
+    brandSignature(baseCopy.signature, baseCopy.signatureRole),
+  );
+  textParts.push(copy.alreadyPaid, copy.noLonger, baseCopy.signature);
+
+  const orderReferences = list.map((order) => order.orderId).join(', ');
+  const footerLines = [
+    `${baseCopy.orderRef}: ${orderReferences}`,
+    baseCopy.privacy,
+  ];
+  textParts.push(`--\nFrontaliere Ticino · ${SITE_ORIGIN}/\n${footerLines.join('\n')}`);
+
+  const heroTitle = reminderStage >= 2
+    ? (multiple ? copy.followupHeroMultiple : copy.followupHeroSingle)
+    : (multiple ? copy.heroMultiple : copy.heroSingle);
+  const subject = multiple
+    ? copy.multipleSubject
+    : fill(copy.singleSubject, primaryVars);
+  return {
+    subject: clean(subject, 180),
+    html: renderBrandedEmail({
+      locale,
+      preheader: multiple ? copy.preheaderMultiple : copy.preheaderSingle,
+      badge: baseCopy.badge,
+      heroTitle,
+      heroSubtitle: multiple ? `${list.length} ${copy.orderLabelPlural}` : `${primaryVars.job} — ${primaryVars.company}`,
+      bodyHtml: htmlParts.join(''),
+      footerLines,
     }),
     text: textParts.join('\n\n'),
     locale,
@@ -939,6 +1120,74 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     ...meta,
   });
   return { ok: true, key, to, provider: outcome.provider || null };
+}
+
+/** Stable campaign id for one user's order-set and reminder stage. */
+export function paymentRecoveryDigestId(userId, orderIds, reminderStage) {
+  const fingerprint = [...new Set((Array.isArray(orderIds) ? orderIds : []).map(String))].sort().join('|');
+  const hash = createHash('sha256')
+    .update(`${String(userId || '')}|${fingerprint}|${Number(reminderStage) || 1}`)
+    .digest('hex')
+    // Keep `aa--{orderId}--{key}` within the 64-character provider-tag
+    // contract even with the longer recovery notification key.
+    .slice(0, 24);
+  return `digest-${hash}`;
+}
+
+/** Send the already-claimed grouped payment-recovery message. */
+export async function sendPendingPaymentDigest({
+  db,
+  orders,
+  to,
+  userId,
+  digestId,
+  reminderStage = 1,
+  nowMs = Date.now(),
+} = {}) {
+  const recipient = String(to || '').trim().toLowerCase();
+  if (!recipient) return { ok: false, reason: 'no_recipient' };
+  if (!(await ensureEmailProviders())) return { ok: false, reason: 'no_email_provider_configured' };
+  const orderIds = (Array.isArray(orders) ? orders : []).map((order) => String(order?.orderId || '')).filter(Boolean);
+  if (!digestId || orderIds.length === 0) return { ok: false, reason: 'invalid_digest' };
+
+  const key = NOTIFICATION_KEYS.customerPaymentRecovery;
+  const message = buildPendingPaymentDigestEmail(orders, { nowMs, reminderStage });
+  const digestRef = db.collection(ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION).doc(String(digestId));
+  await digestRef.set({
+    kind: 'payment_recovery_digest',
+    userId: String(userId || ''),
+    email: recipient,
+    orderIds,
+    reminderStage,
+    updatedAt: new Date(nowMs),
+  }, { merge: true });
+
+  const payload = {
+    from: ASSISTED_APPLICATION_SENDER,
+    to: [recipient],
+    subject: message.subject,
+    html: message.html,
+    text: message.text,
+    ...assistedEmailTracking(digestId, key),
+  };
+  const { failed, ambiguous, sent } = await sendEmailCascade(
+    [{ payload, recipient: { email: recipient }, meta: { orderId: digestId, key } }],
+    { delayMs: 0, onSent: makeMailerooRefOnSent(async () => db, { isJobAlert: false }) },
+  );
+  if (failed.length > 0) {
+    return {
+      ok: false,
+      ambiguous: Boolean(failed[0].ambiguousDelivery),
+      reason: `send_failed:${failed[0].error || 'unknown'}`,
+    };
+  }
+  return {
+    ok: true,
+    ambiguous: ambiguous.length > 0,
+    provider: sent[0]?.provider || null,
+    messageId: sent[0]?.messageId || null,
+    to: recipient,
+  };
 }
 
 // ── Lifecycle wiring ─────────────────────────────────────────────────────

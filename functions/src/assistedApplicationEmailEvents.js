@@ -17,7 +17,10 @@
 
 import { createHash } from 'node:crypto';
 import { FieldValue } from 'firebase-admin/firestore';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import {
+  ASSISTED_APPLICATIONS_COLLECTION,
+  ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION,
+} from './assistedApplicationConstants.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
 
 export const ASSISTED_EMAIL_TYPE = 'assisted-application';
@@ -25,6 +28,7 @@ export const EMAIL_EVENTS_SUBCOLLECTION = 'email_events';
 const CAMPAIGN_RE = /^aa--([A-Za-z0-9_-]{1,64}?)--([a-z0-9_]{1,60})$/;
 const COUNTERS = { delivered: 'delivered', open: 'opens', click: 'clicks', bounce: 'bounces', complaint: 'complaints' };
 const LAST_AT = { delivered: 'deliveredAt', open: 'lastOpenAt', click: 'lastClickAt', bounce: 'bouncedAt', complaint: 'complainedAt' };
+const PAYMENT_RECOVERY_DIGEST_RE = /^digest-[A-Za-z0-9_-]{1,64}$/;
 
 /** `aa--{orderId}--{key}`: Resend tag values allow letters, digits, `_` and `-` only. */
 export function assistedCampaignId(orderId, key) {
@@ -52,6 +56,12 @@ export function assistedEmailTracking(orderId, key, { clicks = true } = {}) {
     ],
     tracking: Boolean(clicks),
   };
+}
+
+function eventTargetRef(db, target) {
+  return PAYMENT_RECOVERY_DIGEST_RE.test(target.orderId)
+    ? db.collection(ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION).doc(target.orderId)
+    : db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(target.orderId);
 }
 
 /** The cascade's onSent: the Maileroo reference record with the campaign id. */
@@ -88,7 +98,7 @@ export async function recordAssistedEmailEvent(db, { campaign, type, provider, m
   if (!COUNTERS[type]) return { assisted: true, recorded: false, reason: `untracked_type:${type}` };
   const at = eventDate(occurredAt);
   const link = type === 'click' ? linkWithoutQuery(url) : '';
-  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(target.orderId);
+  const orderRef = eventTargetRef(db, target);
   const order = await orderRef.get();
   if (!order.exists) return { assisted: true, recorded: false, reason: 'order_not_found' };
 
