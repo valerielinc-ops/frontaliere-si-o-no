@@ -149,7 +149,7 @@ export async function buildDraft(ctx) {
   let requirements;
   if (reuse) {
     // Capped and defaulted as a fresh read.
-    profile = sanitizeProfile(previousDraft.profile, { legacy: true });
+    profile = sanitizeProfile(previousDraft.profile, { legacy: true, cvText });
     requirements = previousDraft.requirementsRaw;
     log('reusing profile and requirements of the previous round');
   } else {
@@ -168,7 +168,7 @@ export async function buildDraft(ctx) {
         timeoutMs: CODEX_TIMEOUT_MS,
       }),
     ]);
-    profile = sanitizeProfile(profileRaw);
+    profile = sanitizeProfile(profileRaw, { cvText });
     requirements = verifyQuotes(sanitizeRequirements(requirementsRaw), postingText);
   }
   // The CV may state a locality and province without spelling out the CAP or
@@ -358,9 +358,13 @@ export async function buildDraft(ctx) {
     // document labels.
     questions = questions.filter(notAnsweredByUpload);
     const known = new Set(questions.map((question) => portalQuestionKey(question.question, question.context) || question.id));
-    questions.push(...(Array.isArray(portal.questions) ? portal.questions : [])
-      .filter((question) => !known.has(portalQuestionKey(question.question, question.context) || question.id))
-      .filter(notAnsweredByUpload));
+    for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
+      if (!notAnsweredByUpload(question)) continue;
+      const key = portalQuestionKey(question.question, question.context) || question.id;
+      if (known.has(key)) continue;
+      known.add(key);
+      questions.push(question);
+    }
     log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked

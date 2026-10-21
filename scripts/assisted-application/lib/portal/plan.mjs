@@ -461,9 +461,20 @@ function hasMultipleLanguageTargets(question) {
   return false;
 }
 
+const CONDITIONAL_LANGUAGE_FOLLOWUP_RE = /(?:[?.!,;:–—-]\s*)?(?:if\s+(?:so|yes|you\s+do|you\s+can)|falls\s+ja|wenn\s+ja|si\s+oui|si\s+c['’]est\s+le\s+cas|se\s+s[iì]|in\s+caso\s+affermativo|in\s+tal\s+caso)\b/iu;
+
 function singleLanguageCode(question) {
-  if (hasMultipleLanguageTargets(question)) return '';
-  const codes = languageCodesIn(question);
+  const text = String(question || '');
+  const followup = CONDITIONAL_LANGUAGE_FOLLOWUP_RE.exec(text);
+  let target = text;
+  if (followup) {
+    const head = text.slice(0, followup.index);
+    const headCodes = languageCodesIn(head);
+    const followupCodes = languageCodesIn(text.slice(followup.index));
+    if (headCodes.length === 1 && followupCodes.every((code) => headCodes.includes(code))) target = head;
+  }
+  if (hasMultipleLanguageTargets(target)) return '';
+  const codes = languageCodesIn(target);
   return codes.length === 1 ? codes[0] : '';
 }
 
