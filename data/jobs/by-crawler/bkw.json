@@ -2520,13 +2520,11 @@
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
         "bauleiter-in-elektro-alle-bkw-zuchwil",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
         "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-ca58a950ad",
           "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
         ],
         "en": [
@@ -4205,13 +4203,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauleiter-in-elektro-alle-bkw-ch",
-        "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
         "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch",
-          "direttore-trice-lavori-elektro-alle-bkw-zuchwil-7956696a26",
           "direttore-trice-lavori-elektro-alle-bkw-zuchwil"
         ],
         "en": [
@@ -9682,11 +9678,24 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch"
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-60056585",
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-b064b5be",
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-766f9983",
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-311b48df",
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-93585616"
+        ],
+        "de": [
+          "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-60056585"
         ]
       },
       "previousSlugs": [
-        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch"
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch",
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-60056585",
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-b064b5be",
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-766f9983",
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-311b48df",
+        "elektroniker-in-fur-energie-und-gebaudetechnik-alle-bkw-ch-93585616"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -25434,7 +25443,6 @@
         ]
       },
       "firstSeenAt": "2026-10-15T09:16:30.000Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -25949,7 +25957,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch"
