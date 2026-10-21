@@ -3,6 +3,7 @@ import { buildSalaryAnswer, searchSalaryMedian, hasSalaryIntent } from './shared
 import {
   getJobSearchRoleProfile,
   getJobSearchRoleTokens,
+  hasPotentialJobSearchQualifier,
   matchesJobSearchRoleProfile,
   prepareJobOccupationTerms,
   matchesPreparedJobOccupation,
@@ -1703,8 +1704,15 @@ export function buildClusterContext(
 
   const __tMatch = profileStart();
   const roles = getJobSearchRoleTokens(keyword);
-  const roleProfile = getJobSearchRoleProfile(keyword);
-  const matching = roleProfile.qualifierTokens.length > 0
+  // Most harvested queries are ordinary occupation searches. Avoid running
+  // the qualifier classifier (which also scans the profession taxonomy) for
+  // those queries: `roles` is already the exact input the occupation matcher
+  // needs. Qualified queries still use the same profile predicate, while
+  // reusing these precomputed role tokens instead of tokenizing a second time.
+  const roleProfile = hasPotentialJobSearchQualifier(roles)
+    ? getJobSearchRoleProfile(keyword, roles)
+    : null;
+  const matching = roleProfile?.qualifierTokens.length
     ? index.matchingSearchIntentJobs(
       candidate.locale,
       tokens,

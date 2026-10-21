@@ -34,6 +34,21 @@ const jobs: RawJob[] = [
 afterEach(() => vi.restoreAllMocks());
 
 describe('build-scoped occupational terms', () => {
+  it('does not classify ordinary role queries through the qualifier taxonomy', () => {
+    const profile = vi.spyOn(relevance, 'getJobSearchRoleProfile');
+    const candidate: CandidateEntry = {
+      slug: 'fixture-infermiere-lugano',
+      locale: 'it',
+      jobCount: 5,
+      sampleTerms: ['infermiere Lugano'],
+      editorialCollision: null,
+    };
+
+    buildClusterContext(candidate, new TokenIndex(jobs), jobs);
+
+    expect(profile).not.toHaveBeenCalled();
+  });
+
   it('preserves complete cluster contexts across locales and repeated candidates', () => {
     const cached = new TokenIndex(jobs);
     const legacy = new LegacyIndex(jobs);
