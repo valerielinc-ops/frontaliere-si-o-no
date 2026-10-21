@@ -14,7 +14,9 @@
  * corpus floor and publish readers also execute it under plain Node.
  */
 
-import ts from 'typescript';
+import { loadArticleSourceTypeScript } from './typescriptRuntime.mjs';
+
+const ts = loadArticleSourceTypeScript();
 
 const SCRIPT_KIND_BY_EXTENSION = new Map([
   ['.js', ts.ScriptKind.JS],

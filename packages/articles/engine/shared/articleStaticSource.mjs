@@ -1,50 +1,10 @@
-import { createRequire } from 'node:module';
-import { isAbsolute, resolve, basename } from 'node:path';
+import { basename } from 'node:path';
 import { repairLegacyDoubleEscapedBreaks } from './tsStringEscapes.ts';
+import { loadArticleSourceTypeScript } from './typescriptRuntime.mjs';
 
-const TYPESCRIPT_VERSION = '5.8.3';
 const ARTICLE_KEY_PREFIX = 'blog.article.';
 const ARTICLE_TRANSLATION_KEY = /^blog\.article\.(.+)\.([A-Za-z][A-Za-z0-9]*)$/;
-const require = createRequire(import.meta.url);
-
-/**
- * Load the pinned compiler without creating a Program or evaluating article
- * source. Corpus workflows pass an isolated compiler path; the site uses its
- * already-pinned package dependency for local builds and tests.
- */
-function loadTypeScript() {
-  const configuredEntry = process.env.ARTICLE_SOURCE_TYPESCRIPT;
-  let compilerEntry;
-
-  if (configuredEntry !== undefined) {
-    if (typeof configuredEntry !== 'string' || configuredEntry.trim() === '' || !isAbsolute(configuredEntry)) {
-      throw new Error('ARTICLE_SOURCE_TYPESCRIPT must be an absolute path to the pinned TypeScript compiler entry.');
-    }
-    compilerEntry = resolve(configuredEntry);
-  } else {
-    try {
-      compilerEntry = require.resolve('typescript');
-    } catch (error) {
-      throw new Error(
-        'The article source reader requires TypeScript 5.8.3; set ARTICLE_SOURCE_TYPESCRIPT to its compiler entry.',
-        { cause: error },
-      );
-    }
-  }
-
-  const ts = require(compilerEntry);
-  if (ts.version !== TYPESCRIPT_VERSION) {
-    throw new Error(
-      `The article source reader requires TypeScript ${TYPESCRIPT_VERSION}; received ${String(ts.version)} from ${compilerEntry}.`,
-    );
-  }
-  if (typeof ts.createSourceFile !== 'function' || typeof ts.forEachChild !== 'function') {
-    throw new Error(`TypeScript ${TYPESCRIPT_VERSION} is missing the AST API required by the article source reader.`);
-  }
-  return ts;
-}
-
-const ts = loadTypeScript();
+const ts = loadArticleSourceTypeScript();
 
 function locationSuffix(sourceFile, node) {
   const position = sourceFile.getLineAndCharacterOfPosition(node.getStart(sourceFile, false));
