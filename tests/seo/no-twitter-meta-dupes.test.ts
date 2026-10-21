@@ -1,29 +1,36 @@
 /**
- * Regression gate: forbid ANY `<meta name="twitter:*">` emission in
- * build-plugins/*.ts and services/*.ts.
+ * Regression gate for static X Card metadata.
  *
- * Why: X (Twitter) is not a meaningful traffic source for this site
- * (SEO funnel for Swiss-Italian frontalieri). LinkedIn / Facebook /
- * WhatsApp / Discord / Slack all use og:* — twitter:* tags add bytes
- * to every page (~48 MB across 825k HTML pages on the May 21 2026
- * artifact) without value.
- *
- * Also forbids client-side `updateOrCreateMetaTag('name', 'twitter:*', ...)`
- * in services/*.ts — the SPA's runtime meta injection had the same
- * cost (per-route DOM mutation) for zero benefit.
- *
- * If X ever becomes a relevant traffic source, re-introduce these by
- * deleting this test AND adding them centrally in
- * build-plugins/htmlTemplate.ts so all pages emit them consistently
- * (the prior fragmented per-plugin pattern is what caused the original
- * duplication problem — see PR #473).
+ * Static tags belong to the shared builder so page emitters cannot drift or
+ * add a second copy. The builder's rendered output and override behavior are
+ * checked by `seoPageShell-identities.test.ts`; the static page plugin test
+ * below pins coverage across all three HTML templates. Runtime DOM injection
+ * remains prohibited because the approved policy is build-time metadata.
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-const STATIC_META_RE = /<meta\s+name="twitter:[a-z][a-z0-9:_-]*"/g;
-const RUNTIME_META_RE = /updateOrCreateMetaTag\(\s*['"]name['"]\s*,\s*['"]twitter:[a-z][a-z0-9:_-]*['"]/g;
+const STATIC_META_RE = /<meta\b(?=[^>]*\sname\s*=\s*(?:"twitter:[a-z][a-z0-9:_-]*"|'twitter:[a-z][a-z0-9:_-]*'|twitter:[a-z][a-z0-9:_-]*(?=\s|\/?>)))[^>]*>/gi;
+const RUNTIME_META_RE = /updateOrCreateMetaTag\(\s*['"]name['"]\s*,\s*['"]twitter:[a-z][a-z0-9:_-]*['"]/gi;
+const SHARED_TWITTER_META_SOURCE = 'build-plugins/shared/twitterCardMeta.ts';
+
+type StaticMetaSource = { file: string; lines: string[] };
+
+function matchStaticMeta(source: string): RegExpMatchArray[] {
+  STATIC_META_RE.lastIndex = 0;
+  return [...source.matchAll(STATIC_META_RE)];
+}
+
+function assertStaticMetaIsCentralized(offenders: StaticMetaSource[]): void {
+  const scattered = offenders.filter((offender) => offender.file !== SHARED_TWITTER_META_SOURCE);
+  if (scattered.length > 0) {
+    const report = scattered.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
+    throw new Error(
+      `Static twitter:* tags must come from ${SHARED_TWITTER_META_SOURCE}:\n${report}`,
+    );
+  }
+}
 
 function walkTs(root: string): string[] {
   const out: string[] = [];
@@ -49,7 +56,7 @@ function findOffenders(root: string, re: RegExp, fastFilter: string) {
     // Fast substring pre-filter — services/ has ~10k .ts files (146 MB), most
     // are blog/locale content with no meta code. Skipping them via an
     // includes() check turns this gate from ~minutes to <1 s.
-    if (!src.includes(fastFilter)) continue;
+    if (fastFilter && !src.toLowerCase().includes(fastFilter.toLowerCase())) continue;
     re.lastIndex = 0;
     const matches = [...src.matchAll(re)];
     if (matches.length === 0) continue;
@@ -64,26 +71,51 @@ function findOffenders(root: string, re: RegExp, fastFilter: string) {
   return offenders;
 }
 
-describe('no twitter:* meta in source', () => {
-  it('forbids static <meta name="twitter:*"> in build-plugins/*.ts', () => {
-    const offenders = findOffenders('build-plugins', STATIC_META_RE, 'twitter:');
-    if (offenders.length > 0) {
-      const report = offenders.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
-      throw new Error(
-        `twitter:* meta re-introduced in build-plugins/*.ts:\n${report}\n` +
-        `X is not a traffic source — see tests/seo/no-twitter-meta-dupes.test.ts.`,
-      );
-    }
-    expect(offenders).toEqual([]);
+describe('Twitter card metadata policy', () => {
+  it('rejects copied tags with reordered and case-insensitive attributes', () => {
+    const fixture = [
+      "<META property='og:title' NAME = 'TWITTER:card' content='copied'>",
+      '<meta content=summary NAME=TWITTER:title/>',
+    ].join('\n');
+    const matches = matchStaticMeta(fixture);
+    expect(matches.map((match) => match[0])).toHaveLength(2);
+
+    const candidate = {
+      file: 'build-plugins/copiedMeta.ts',
+      lines: matches.map((match) => match[0]),
+    };
+    expect(() => assertStaticMetaIsCentralized([candidate])).toThrow(/must come from/);
   });
 
-  it('forbids client-side updateOrCreateMetaTag("name","twitter:*",…) in services/*.ts', () => {
+  it('centralizes static tags in the shared builder and covers every static-page shell', () => {
+    const offenders = findOffenders('build-plugins', STATIC_META_RE, 'twitter:');
+    assertStaticMetaIsCentralized(offenders);
+    expect(offenders).toHaveLength(1);
+    expect(offenders[0]?.file).toBe(SHARED_TWITTER_META_SOURCE);
+
+    const shell = readFileSync('build-plugins/shared/seoPageShell.ts', 'utf8');
+    expect(shell).toContain("import { buildTwitterCardMetaTags } from './twitterCardMeta';");
+    expect(shell.match(/buildTwitterCardMetaTags\s*\(/g) ?? []).toHaveLength(1);
+
+    const staticPages = readFileSync('build-plugins/staticPagesPlugin.ts', 'utf8');
+    expect(staticPages).toContain("import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';");
+    expect(staticPages.match(/const twitterCardMeta = buildTwitterCardMetaTags\s*\(/g) ?? []).toHaveLength(1);
+    const htmlTemplates = staticPages
+      .split('return `<!DOCTYPE html>')
+      .slice(1)
+      .map((template) => template.split('</html>`', 1)[0] ?? '');
+    expect(htmlTemplates).toHaveLength(3);
+    for (const template of htmlTemplates) {
+      expect(template.match(/\$\{twitterCardMeta\}/g) ?? []).toHaveLength(1);
+    }
+  });
+
+  it('keeps client-side updateOrCreateMetaTag("name","twitter:*",…) absent from services/*.ts', () => {
     const offenders = findOffenders('services', RUNTIME_META_RE, 'updateOrCreateMetaTag(');
     if (offenders.length > 0) {
       const report = offenders.map((o) => `${o.file}:\n  ${o.lines.join('\n  ')}`).join('\n');
       throw new Error(
-        `Client-side twitter:* meta re-introduced in services/*.ts:\n${report}\n` +
-        `X is not a traffic source — see tests/seo/no-twitter-meta-dupes.test.ts.`,
+        `Client-side twitter:* metadata is not part of the approved static-card contract:\n${report}`,
       );
     }
     expect(offenders).toEqual([]);
