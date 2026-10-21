@@ -13548,6 +13548,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.negozio-ticino-fisco-frontiere.title': 'Ladenbesitzer im Tessin: Gehalt',
     'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Quellensteuer nur in der Schweiz, neues Abkommen per 1.',
     'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.title': 'Grenzgänger: Treffen zu Steuern, Vorsorge und Gesundheit',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.excerpt': 'Samstag, 24. (Verbania)',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

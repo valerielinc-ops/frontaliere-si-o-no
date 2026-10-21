@@ -112684,6 +112684,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-luino-incontro-fisco-previdenza-sanita': {
+    title: 'Frontalieri a Luino: incontro su fisco, previdenza e sanità il 24 ottobre',
+    description: 'Sabato 24 ottobre, incontro a Palazzo Verbania Tre sessioni su fisco, salute e previdenza Accoglienza dalle 9.30; lavori alle 10 Ingresso libero',
+    keywords: 'frontalieri, ticino, svizzera, italia, luino, incontro, fisco, previdenza',
+    ogTitle: 'Frontalieri a Luino: incontro su fisco, previdenza e sanità',
+    ogDescription: 'Sabato 24 ottobre, incontro a Palazzo Verbania Tre sessioni su fisco, salute e previdenza Accoglienza dalle 9.30; lavori alle 10 Ingresso libero, posti limitati',
+    canonicalPath: '/articoli-frontaliere/frontalieri-luino-incontro-fisco-previdenza-sanita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri a Luino: incontro su fisco, previdenza e sanità il 24 ottobre",
+      "description": "Sabato 24 ottobre, incontro a Palazzo Verbania Tre sessioni su fisco, salute e previdenza Accoglienza dalle 9.30; lavori alle 10 Ingresso libero",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T09:25:14+00:00",
+      "dateModified": "2026-10-21T09:25:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-luino-incontro-fisco-previdenza-sanita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

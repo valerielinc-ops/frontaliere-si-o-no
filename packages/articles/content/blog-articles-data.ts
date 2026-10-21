@@ -45723,6 +45723,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-luino-incontro-fisco-previdenza-sanita',
+ category: 'fiscale',
+ date: '2026-10-21T09:25:13.625Z',
+ image: '/images/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

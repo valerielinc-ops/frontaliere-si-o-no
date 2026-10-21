@@ -13550,6 +13550,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.negozio-ticino-fisco-frontiere.title': 'Frontaliere responsabile di negozio in Ticino: stipendio',
     'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Imposta alla fonte solo in Svizzera, nuovo accordo in vigore dal 1° gennaio 2024 e contributi AVS, AD/AC e LPP: il quadro per il frontaliere.',
     'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.title': 'Frontalieri a Luino: incontro su fisco, previdenza e sanità il 24 ottobre',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.excerpt': 'Sabato 24 ottobre, incontro a Palazzo Verbania Tre sessioni su fisco, salute e previdenza Accoglienza dalle 9.30; lavori alle 10 Ingresso libero, posti limitati',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

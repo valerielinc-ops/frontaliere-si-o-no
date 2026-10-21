@@ -13551,6 +13551,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.negozio-ticino-fisco-frontiere.title': 'Frontalier responsable de magasin au Tessin : salaire',
     'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Imposée à la source uniquement en Suisse, nouvel accord en vigueur depuis le 1er janvier 2024 et cotisations AVS, AD/AC et LPP : le cadre pour le frontalier.',
     'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.title': 'Réunion pour frontaliers : fiscalité, prévoyance, santé',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.excerpt': 'Samedi 24 octobre, rencontre au Palazzo Verbania Trois sessions sur la fiscalité, la santé et la prévoyance Accueil à partir de 9.30 ; début des travaux à 10',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;
