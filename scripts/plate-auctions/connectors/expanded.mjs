@@ -7,6 +7,7 @@
  */
 import {
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
+  VD_BROWSER_USER_AGENT,
   fetchHtml,
 } from '../../../functions/src/plateAuctionsCore.js';
 import {
@@ -32,7 +33,7 @@ export const EXPANDED_ECARI_SOURCES = Object.freeze({
 export const EXPANDED_CARD_SOURCES = Object.freeze({
   ag: { canton: 'Argovia', plateCode: 'AG', officialAuctionUrl: 'https://www.auktion-ag.ch', detailBaseUrl: 'https://www.auktion-ag.ch' },
   be: { canton: 'Berna', plateCode: 'BE', officialAuctionUrl: 'https://auktion-be.ch/de/', detailBaseUrl: 'https://auktion-be.ch' },
-  vd: { canton: 'Vaud', plateCode: 'VD', officialAuctionUrl: 'https://www.encheres-vd.ch/fr/', detailBaseUrl: 'https://www.encheres-vd.ch' },
+  vd: { canton: 'Vaud', plateCode: 'VD', officialAuctionUrl: 'https://www.encheres-vd.ch/fr/', detailBaseUrl: 'https://www.encheres-vd.ch', userAgent: VD_BROWSER_USER_AGENT },
 });
 
 export function parseExpandedEcari(sourceKey, html, { fetchedAt = new Date().toISOString() } = {}) {

@@ -17,6 +17,7 @@ import {
   parseZhAuctionCards,
   isExplicitlyEmptyCatalogue,
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
+  VD_BROWSER_USER_AGENT,
   withEcariEmptyState,
 } from './plateAuctionsCore.js';
 import { isDeepStrictEqual, promisify } from 'node:util';
@@ -65,12 +66,13 @@ function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' })
   };
 }
 
-function makeCardConnector({ canton, plateCode, url, detailBaseUrl, parserVersion = '1.1.0' }) {
+function makeCardConnector({ canton, plateCode, url, detailBaseUrl, userAgent, parserVersion = '1.1.0' }) {
   return {
     canton,
     plateCode,
     url,
     parserVersion,
+    ...(userAgent ? { userAgent } : {}),
     parse(html, fetchedAt) {
       return parseCardSource(html, {
         canton,
@@ -220,6 +222,7 @@ const CONNECTORS = {
     plateCode: 'VD',
     url: 'https://www.encheres-vd.ch/fr/',
     detailBaseUrl: 'https://www.encheres-vd.ch',
+    userAgent: VD_BROWSER_USER_AGENT,
   }),
   ti: {
     canton: 'Ticino',
@@ -795,6 +798,7 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         : config.parse(await (fetcher || fetchHtml)(config.url, {
           timeoutMs: 20000,
           ...(key === 'fr' ? { ca: SWISSSIGN_RSA_TLS_OV_ICA_2022_1 } : {}),
+          ...(config.userAgent ? { userAgent: config.userAgent } : {}),
         }), fetchedAt);
       const sourceRef = db.collection(PLATE_AUCTION_SOURCE_COLLECTION).doc(key);
       const previous = { docs: await readSourceRows(db, config.plateCode) };

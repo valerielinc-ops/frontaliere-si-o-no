@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
 import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+import { VD_BROWSER_USER_AGENT } from '../functions/src/plateAuctionsCore.js';
 import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
@@ -509,6 +510,22 @@ describe('plate-auction Cloud Function: FR e TI geo-fenced, raccolti da Zurigo',
 });
 
 describe('plate-auction Cloud Function: card catalogue between auction rounds', () => {
+  it('uses the browser-facing request identity for live VD cards', async () => {
+    const firestore = statefulFirestore();
+    const calls: Array<{ url: string; options?: Record<string, unknown> }> = [];
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string, options?: Record<string, unknown>) => {
+        calls.push({ url, options });
+        return url.includes('encheres-vd.ch') ? EXPANDED_CARD_EMPTY_SAMPLE : '';
+      },
+      now: new Date('2026-10-21T22:00:00.000Z'),
+    });
+    expect(result.summaries.vd).toMatchObject({ status: 'active' });
+    expect(calls.find((call) => call.url === 'https://www.encheres-vd.ch/fr/')?.options?.userAgent)
+      .toBe(VD_BROWSER_USER_AGENT);
+  });
+
   it('keeps an empty official card page healthy and closes expired VD rows', async () => {
     const fetchedAt = '2026-10-04T21:30:00.000Z';
     const firestore = statefulFirestore([{

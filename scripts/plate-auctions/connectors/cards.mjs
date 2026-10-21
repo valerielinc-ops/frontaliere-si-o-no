@@ -34,7 +34,9 @@ export async function fetchCardCantonAuctions(config, { now = new Date() } = {})
     now,
     logLabel: `fetch${config.plateCode}PlateAuctions`,
     direct: async () => {
-      const html = await fetchHtml(config.officialAuctionUrl);
+      const html = await fetchHtml(config.officialAuctionUrl, {
+        ...(config.userAgent ? { userAgent: config.userAgent } : {}),
+      });
       return parseCardCantonAuctions(html, {
         ...config,
         fetchedAt: now.toISOString(),

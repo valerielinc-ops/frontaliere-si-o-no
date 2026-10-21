@@ -8,6 +8,7 @@ import {
   FIXED_PRICE_SOURCE_CONFIGS,
   isEcariCatalogueExplicitlyEmpty,
   isExplicitlyEmptyCatalogue,
+  VD_BROWSER_USER_AGENT,
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
@@ -27,7 +28,7 @@ import {
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
-import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { fetchExpandedCard, parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -369,6 +370,22 @@ describe('expanded plate-auction connectors', () => {
             : 'https://auktion-be.ch') + '/de/auction/1768',
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
+    }
+  });
+
+  it('uses the browser-facing request identity only for the VD portal', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response(EXPANDED_CARD_SAMPLE.replace('/de/auction/', '/fr/auction/'), { status: 200 }));
+    try {
+      await expect(fetchExpandedCard('vd', { now: new Date('2026-10-21T22:00:00.000Z') })).resolves.toHaveLength(1);
+      expect(fetchMock).toHaveBeenCalledWith(
+        'https://www.encheres-vd.ch/fr/',
+        expect.objectContaining({
+          headers: expect.objectContaining({ 'User-Agent': VD_BROWSER_USER_AGENT }),
+        }),
+      );
+    } finally {
+      fetchMock.mockRestore();
     }
   });
 
