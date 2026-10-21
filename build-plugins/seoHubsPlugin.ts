@@ -969,7 +969,7 @@ function readCompanySlugs(fs: typeof fsT, np: typeof npT, rootDir: string): stri
 // `readArticleExcerpts` (was a private copy here) now lives in
 // `packages/articles/engine/shared/articleReaders.ts` alongside the title and
 // slug readers it belongs with — the topic-cluster hubs (#5001) parse the same
-// meta files, and a second literal copy of that regex is exactly the drift
+// meta files, and a second literal copy of that parser is exactly the drift
 // that module was created to prevent (AGENTS.md #6). Imported at the top.
 
 interface BuildHtmlArgs {
@@ -2525,15 +2525,17 @@ function readArticleDates(
   registryFile: string,
 ): Map<string, string> {
   const out = new Map<string, string>();
+  let src: string;
   try {
-    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
-    // Same field-order-independent parser as the package's reader: the regex
-    // here required `category` right after `id`, so an entry with `updatedAt`
-    // first had no date. `date: ''` (unknown) stays out of the map.
-    for (const entry of parseArticleRegistryEntries(src)) {
-      if (entry.date) out.set(entry.id, entry.date);
-    }
-  } catch { /* registry absent — keep insertion order */ }
+    src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
+  } catch { /* registry absent — keep insertion order */ return out; }
+  // Same field-order-independent parser as the package's reader: the old
+  // regex required `category` right after `id`, so an entry with `updatedAt`
+  // first had no date. `date: ''` (unknown) stays out of the map. Parser
+  // errors remain fatal so the hub cannot silently publish an incomplete order.
+  for (const entry of parseArticleRegistryEntries(src)) {
+    if (entry.date) out.set(entry.id, entry.date);
+  }
   return out;
 }
 
