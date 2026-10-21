@@ -31,6 +31,7 @@
 
 import { esc } from '../htmlTemplate';
 import { SLUG_TABLES } from '../../services/routeSlugs.data';
+import { buildRootHubPath } from '../borderWaitData';
 
 // ── Types ──────────────────────────────────────────────────────
 
@@ -492,6 +493,9 @@ function hubBaseKey(hub: HubKey): keyof HubSlugs {
 }
 
 function buildSubTabHref(hub: HubKey, spec: SubTabSpec, locale: HubLocale): string {
+  // The border-wait hub moved to its own section; the previous guide URL 301s.
+  if (hub === 'guida' && spec.key === 'border') return buildRootHubPath(locale);
+
   const slugs = HUB_SLUGS[locale];
   const prefix = localePrefix(locale);
   const hubSlug = slugs[hubBaseKey(hub)];
