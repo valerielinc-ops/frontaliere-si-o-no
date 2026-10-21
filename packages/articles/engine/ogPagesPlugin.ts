@@ -893,7 +893,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // Meta fields flatten line breaks to spaces; body/FAQ literals keep them for
  // Markdown and JSON structure. Values from the AST are already decoded, so
  // flatten only the presentation whitespace without unescaping a second time.
- const flattenMetaValue = (value: string): string => value.replace(/\r/gu, '').replace(/[\n\t]/gu, ' ');
+ const flattenMetaValue = (value: string): string => value.replace(/[\r\n]+/gu, ' ');
  const parseBlogMetaLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
