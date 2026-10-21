@@ -3,7 +3,11 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/articleReaderSource.mjs';
-import { readBlogUrlSlugs } from '../packages/articles/engine/shared/articleReaders';
+import {
+  readArticleExcerpts,
+  readArticleSlugs,
+  readBlogUrlSlugs,
+} from '../packages/articles/engine/shared/articleReaders';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
@@ -61,6 +65,15 @@ describe('parseArticleUrlSlugs', () => {
     )).toThrow(/duplicate article id/i);
   });
 
+  it('rejects dynamic locale values instead of publishing a partial slug map', () => {
+    expect(() => parseArticleUrlSlugs(
+      `const BLOG_SLUGS = {
+        article: { it: makeSlug(), en: 'en', de: 'de', fr: 'fr' },
+      };`,
+      'BLOG_SLUGS',
+    )).toThrow(/malformed locale map|static string/i);
+  });
+
   it('does not let the shared reader swallow a parser contract error', () => {
     const fakeFs = {
       existsSync: () => true,
@@ -107,6 +120,46 @@ describe('parseArticleUrlSlugs', () => {
     expect(() => parseArticleUrlSlugs(`const BLOG_SLUGS = {
       // 'stale': { it: 'it', en: 'en', de: 'de', fr: 'fr' },
     };`, 'BLOG_SLUGS')).toThrow(/empty(?: or malformed)? slug map/i);
+  });
+
+  it('uses the same AST boundary for metadata keys and values', () => {
+    const fakeFs = {
+      existsSync: () => true,
+      readFileSync: () => `const blogMeta = {
+        'blog.article.article.title': titleFromRuntime,
+        'blog.article.article.excerpt': excerptFromRuntime,
+      };`,
+    };
+    const fakePath = { resolve: (...parts: string[]) => parts.join('/') };
+
+    expect(() => readArticleSlugs(
+      fakeFs as never,
+      fakePath as never,
+      '/root',
+      'it',
+    )).toThrow(/static string/i);
+    expect(() => readArticleExcerpts(
+      fakeFs as never,
+      fakePath as never,
+      '/root',
+      'it',
+    )).toThrow(/static string/i);
+  });
+
+  it('reads all top-level metadata chunks instead of stopping at the first object', () => {
+    const fakeFs = {
+      existsSync: () => true,
+      readFileSync: () => `
+        const blogMetaChunkA = { 'blog.article.first.title': 'First' };
+        const blogMetaChunkB = { 'blog.article.second.title': 'Second' };
+      `,
+    };
+    const fakePath = { resolve: (...parts: string[]) => parts.join('/') };
+
+    expect(readArticleSlugs(fakeFs as never, fakePath as never, '/root', 'it')).toEqual([
+      { slug: 'first', title: 'First' },
+      { slug: 'second', title: 'Second' },
+    ]);
   });
 });
 

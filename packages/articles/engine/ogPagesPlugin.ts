@@ -28,6 +28,7 @@ import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import {
  findFirstTopLevelObject,
+ findTopLevelObjects,
  parseStaticSource,
  readStaticObjectProperties,
  readStaticString,
@@ -199,128 +200,9 @@ function isMissingPathError(error: unknown): boolean {
   return (error as NodeJS.ErrnoException).code === 'ENOENT';
 }
 
-interface StaticTsStringLiteral {
- quote: string;
- raw: string;
- end: number;
-}
-
-/**
- * Read one static TypeScript string literal without evaluating source code.
- * Locale files are data modules, so interpolated template literals are not a
- * supported representation: accepting one as a partial string would silently
- * emit a body different from the module's runtime value.
- */
-function readStaticTsStringLiteral(source: string, start: number, sourcePath: string): StaticTsStringLiteral {
- const quote = source[start];
- if (quote !== "'" && quote !== '"' && quote !== '`') {
-  throw new Error(`[og-pages] Expected a quoted literal in ${sourcePath}`);
- }
-
- let cursor = start + 1;
- while (cursor < source.length) {
-  const char = source[cursor];
-  if (char === '\\') {
-   // A backslash consumes the next code unit. Keep CRLF together so a TS line
-   // continuation is not mistaken for the end of an ordinary string.
-   if (source[cursor + 1] === '\r' && source[cursor + 2] === '\n') {
-    cursor += 3;
-   } else {
-    cursor += 2;
-   }
-   continue;
-  }
-  if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
-   throw new Error(`[og-pages] Interpolated template literal is not static article data: ${sourcePath}`);
-  }
-  // esbuild accepts U+2028/U+2029 inside generated corpus literals and
-  // preserves them as string data. Treat those separators like other body
-  // content so this source scanner stays aligned with the TS loader; raw LF
-  // and CR remain invalid in ordinary quoted literals.
-  if (quote !== '`' && (char === '\n' || char === '\r')) {
-   throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
-  }
-  if (char === quote) {
-   return { quote, raw: source.slice(start + 1, cursor), end: cursor + 1 };
-  }
-  cursor += 1;
- }
-
- throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
-}
-
-function skipStaticTsTrivia(source: string, start: number, sourcePath: string): number {
- let cursor = start;
- while (cursor < source.length) {
-  if (/\s/.test(source[cursor])) {
-   cursor += 1;
-   continue;
-  }
-  if (source.startsWith('//', cursor)) {
-   cursor += 2;
-   while (cursor < source.length && source[cursor] !== '\n' && source[cursor] !== '\r') cursor += 1;
-   continue;
-  }
-  if (source.startsWith('/*', cursor)) {
-   const close = source.indexOf('*/', cursor + 2);
-   if (close === -1) throw new Error(`[og-pages] Unterminated comment in ${sourcePath}`);
-   cursor = close + 2;
-   continue;
-  }
-  break;
- }
- return cursor;
-}
-
-/**
- * Match TypeScript's static literal escapes while retaining the historical
- * body decoder's handling of newlines, tabs, and malformed JSON escapes.
- */
-function decodeStaticTsStringLiteral(raw: string, quote: string): string {
- let value = '';
- for (let cursor = 0; cursor < raw.length;) {
-  if (raw[cursor] !== '\\') {
-   value += raw[cursor];
-   cursor += 1;
-   continue;
-  }
-
-  const escaped = raw[cursor + 1];
-  if (escaped === undefined) {
-   value += '\\';
-   cursor += 1;
-   continue;
-  }
-
-  // A line continuation consumes exactly one backslash. Runs are handled
-  // left-to-right, so `\\` plus a physical newline keeps both the literal
-  // backslash and newline in a template value.
-  if (escaped === '\r' || escaped === '\n' || escaped === '\u2028' || escaped === '\u2029') {
-   cursor += escaped === '\r' && raw[cursor + 2] === '\n' ? 3 : 2;
-   continue;
-  }
-
-  if (quote === '`' && (escaped === '`' || escaped === '$')) {
-   // Escaped delimiters are template syntax, and must be consumed before
-   // output is appended so a produced backslash is never reinterpreted.
-   value += escaped;
-   cursor += 2;
-   continue;
-  }
-
-  // Decode one source escape at a time. This keeps the shared decoder's
-  // established escape policy without allowing output from one escape to be
-  // parsed again by a later template-specific replace pass.
-  const escapeLength = escaped === 'u' && /^[0-9a-fA-F]{4}$/.test(raw.slice(cursor + 2, cursor + 6)) ? 6 : 2;
-  value += decodeTsStringEscapes(raw.slice(cursor, cursor + escapeLength), { newlineAs: '\n' });
-  cursor += escapeLength;
- }
- return value;
-}
-
 /**
  * Extract body/FAQ properties from a static TypeScript record. Unlike the
- * former quote-specific regex, this scans source tokens so keys inside comments
+ * former quote-specific regex, this reads compiler AST properties so keys inside comments
  * or body values cannot be mistaken for record properties.
  */
 export function parseStaticBlogBodySource(source: string, sourcePath: string): Record<string, Record<string, string>> {
@@ -1067,21 +949,23 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  throw err;
  }
  const sourceFile = parseStaticSource(src, p, { errorPrefix: '[og-pages]' });
- const object = findFirstTopLevelObject(sourceFile);
- if (!object) throw new SyntaxError(`[og-pages] ${p} has no static article metadata object`);
- for (const property of readStaticObjectProperties(object, p)) {
- const key = staticPropertyName(property.name);
- const match = key && /^blog\.article\.(.+)\.(title|excerpt|imageAlt)$/.exec(key);
- if (!match) continue;
- const articleId = match[1];
- const field = match[2] as 'title' | 'excerpt' | 'imageAlt';
- const value = readStaticString(property.initializer, sourceFile, {
-  label: `${key} in ${p}`,
-  newlineAs: ' ',
-  errorPrefix: '[og-pages]',
- });
- if (!out[articleId]) out[articleId] = {};
- out[articleId][field] = value;
+ const objects = findTopLevelObjects(sourceFile);
+ if (objects.length === 0) throw new SyntaxError(`[og-pages] ${p} has no static article metadata object`);
+ for (const object of objects) {
+  for (const property of readStaticObjectProperties(object, p)) {
+   const key = staticPropertyName(property.name);
+   const match = key && /^blog\.article\.(.+)\.(title|excerpt|imageAlt)$/.exec(key);
+   if (!match) continue;
+   const articleId = match[1];
+   const field = match[2] as 'title' | 'excerpt' | 'imageAlt';
+   const value = readStaticString(property.initializer, sourceFile, {
+    label: `${key} in ${p}`,
+    newlineAs: ' ',
+    errorPrefix: '[og-pages]',
+   });
+   if (!out[articleId]) out[articleId] = {};
+   out[articleId][field] = value;
+  }
  }
  return out;
  };

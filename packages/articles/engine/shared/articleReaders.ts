@@ -8,9 +8,9 @@
  * must agree on how many `/{hub}/tutti/page-N/` pages exist, or the trailing
  * pages ship orphaned (no incoming internal link → out of crawl reach). The
  * union helper in `articleArchiveUnion.ts` used to RE-INLINE the emitter's two
- * registry-parsing regexes ({@link readArticleSlugs} meta title-keys +
+ * registry-parsing readers ({@link readArticleSlugs} meta title-keys +
  * {@link readBlogUrlSlugs} slug-map keys). Byte-identical copies drift the
- * moment one side's regex changes (new meta format, different escaping) — the
+ * moment one side's parser changes (new meta format, different escaping) — the
  * exact #1486/#1497 class the "single source of truth" PR claimed impossible
  * by construction. Hoisting BOTH readers here, imported by the emitter and the
  * union helper, makes that drift impossible by construction (AGENTS.md #6).
@@ -32,7 +32,7 @@ import { parseArticleUrlSlugs } from './articleReaderSource.mjs';
 // Explicit `.ts`: resolved from build-plugins/shared through its symlink twin.
 import { parseArticleRegistryEntries } from './articleRegistryEntries.ts';
 import {
-  findFirstTopLevelObject,
+  findTopLevelObjects,
   parseStaticSource,
   readStaticObjectProperties,
   readStaticString,
@@ -50,7 +50,7 @@ import {
  * defaults to the site layout (`services/locales`, where the symlinks into
  * this package's `content/` live) so every existing caller is unchanged. The
  * articles repository publishes from the corpus directly and passes its own
- * (`content`) — same reader, no second copy of the parse regex to drift.
+ * (`content`) — same reader, no second copy of the AST extraction to drift.
  */
 export function readArticleSlugs(
   fs: typeof fsT,
@@ -71,22 +71,24 @@ export function readArticleSlugs(
     return out;
   }
   const sourceFile = parseStaticSource(src, file, { errorPrefix: '[seo-hubs]' });
-  const object = findFirstTopLevelObject(sourceFile);
-  if (!object) throw new SyntaxError(`[seo-hubs] ${file} has no static article metadata object`);
+  const objects = findTopLevelObjects(sourceFile);
+  if (objects.length === 0) throw new SyntaxError(`[seo-hubs] ${file} has no static article metadata object`);
   const seen = new Set<string>();
-  for (const property of readStaticObjectProperties(object, file)) {
-    const key = staticPropertyName(property.name);
-    const match = key && /^blog\.article\.(.+)\.title$/.exec(key);
-    if (!match || seen.has(match[1])) continue;
-    seen.add(match[1]);
-    out.push({
-      slug: match[1],
-      title: readStaticString(property.initializer, sourceFile, {
-        label: `${key} in ${file}`,
-        newlineAs: ' ',
-        errorPrefix: '[seo-hubs]',
-      }),
-    });
+  for (const object of objects) {
+    for (const property of readStaticObjectProperties(object, file)) {
+      const key = staticPropertyName(property.name);
+      const match = key && /^blog\.article\.(.+)\.title$/.exec(key);
+      if (!match || seen.has(match[1])) continue;
+      seen.add(match[1]);
+      out.push({
+        slug: match[1],
+        title: readStaticString(property.initializer, sourceFile, {
+          label: `${key} in ${file}`,
+          newlineAs: ' ',
+          errorPrefix: '[seo-hubs]',
+        }),
+      });
+    }
   }
   return out;
 }
@@ -94,7 +96,7 @@ export function readArticleSlugs(
 /**
  * `id → date` out of a section's registry, for chronological ordering.
  *
- * Read with a regex and not an import for the reason the article engine
+ * Read from the source AST and not by importing for the reason the article engine
  * already gives elsewhere: the registry is a TS module with extensionless
  * relative specifiers, and this code runs under plain Node ESM on the
  * fast-publish path.
@@ -115,16 +117,19 @@ export function readArticleDates(
   registryFile: string,
 ): Map<string, string> {
   const out = new Map<string, string>();
+  let src: string;
   try {
-    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
-    // Field-order-independent (./articleRegistryEntries.ts): the regex here
-    // required `category` right after `id`, so an entry with `updatedAt` first
-    // had no date and fell out of the chronological order. `date: ''`
-    // (unknown) stays out of the map, as before.
-    for (const entry of parseArticleRegistryEntries(src)) {
-      if (entry.date) out.set(entry.id, entry.date);
-    }
-  } catch { /* registry absent — keep insertion order */ }
+    src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
+  } catch { /* registry absent — keep insertion order */ return out; }
+  // Field-order-independent (./articleRegistryEntries.ts): the old regex here
+  // required `category` right after `id`, so an entry with `updatedAt` first
+  // had no date and fell out of the chronological order. `date: ''`
+  // (unknown) stays out of the map, as before. Parser errors remain fatal so a
+  // malformed registry cannot silently degrade to a plausible but incomplete
+  // archive order.
+  for (const entry of parseArticleRegistryEntries(src)) {
+    if (entry.date) out.set(entry.id, entry.date);
+  }
   return out;
 }
 
@@ -134,7 +139,7 @@ export function readArticleDates(
  *
  * Hoisted here (issue #5001) from a private copy in `seoHubsPlugin.ts`: the
  * topic-cluster hubs need the same excerpts, both to render card previews and
- * to feed the TF-IDF topic assignment, and a second literal copy of this regex
+ * to feed the TF-IDF topic assignment, and a second literal copy of this AST
  * is the drift this module exists to prevent (AGENTS.md #6). `seoHubsPlugin`
  * now calls this one.
  */
@@ -157,17 +162,19 @@ export function readArticleExcerpts(
     return out;
   }
   const sourceFile = parseStaticSource(src, file, { errorPrefix: '[seo-hubs]' });
-  const object = findFirstTopLevelObject(sourceFile);
-  if (!object) throw new SyntaxError(`[seo-hubs] ${file} has no static article metadata object`);
-  for (const property of readStaticObjectProperties(object, file)) {
-    const key = staticPropertyName(property.name);
-    const match = key && /^blog\.article\.(.+)\.excerpt$/.exec(key);
-    if (!match) continue;
-    out.set(match[1], readStaticString(property.initializer, sourceFile, {
-      label: `${key} in ${file}`,
-      newlineAs: ' ',
-      errorPrefix: '[seo-hubs]',
-    }));
+  const objects = findTopLevelObjects(sourceFile);
+  if (objects.length === 0) throw new SyntaxError(`[seo-hubs] ${file} has no static article metadata object`);
+  for (const object of objects) {
+    for (const property of readStaticObjectProperties(object, file)) {
+      const key = staticPropertyName(property.name);
+      const match = key && /^blog\.article\.(.+)\.excerpt$/.exec(key);
+      if (!match) continue;
+      out.set(match[1], readStaticString(property.initializer, sourceFile, {
+        label: `${key} in ${file}`,
+        newlineAs: ' ',
+        errorPrefix: '[seo-hubs]',
+      }));
+    }
   }
   return out;
 }

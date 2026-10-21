@@ -22,6 +22,11 @@ import fs from 'node:fs';
 import { renderSitemapLastmod } from './shared/sitemapLastmod';
 import { decodeHtmlText } from '../packages/articles/engine/shared/htmlEntities';
 import { parseArticleRegistryEntries } from '../packages/articles/engine/shared/articleRegistryEntries';
+import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/articleReaderSource.mjs';
+
+function isMissingPathError(error: unknown): boolean {
+ return (error as NodeJS.ErrnoException)?.code === 'ENOENT';
+}
 import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
@@ -1776,18 +1781,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .map(({ id, category, date, image }) => ({ id, category, date, image }))
  .sort((a, b) => b.date.localeCompare(a.date))
  .slice(0, 5);
- } catch { /* non-fatal */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ }
  try {
  const routerBlogSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const rx = /["']([^"']+)["']:\s*\{\s*it:\s*["']([^"']+)["'],\s*en:\s*["']([^"']+)["'],\s*de:\s*["']([^"']+)["'],\s*fr:\s*["']([^"']+)["']/g;
- let m: RegExpExecArray | null;
- while ((m = rx.exec(routerBlogSrc)) !== null) {
- articleSlugByLocale.it[m[1]] = m[2];
- articleSlugByLocale.en[m[1]] = m[3];
- articleSlugByLocale.de[m[1]] = m[4];
- articleSlugByLocale.fr[m[1]] = m[5];
+ const registry = parseArticleUrlSlugs(routerBlogSrc, 'BLOG_SLUGS');
+ for (const [articleId, slugs] of Object.entries(registry)) {
+ articleSlugByLocale.it[articleId] = slugs.it;
+ articleSlugByLocale.en[articleId] = slugs.en;
+ articleSlugByLocale.de[articleId] = slugs.de;
+ articleSlugByLocale.fr[articleId] = slugs.fr;
  }
- } catch { /* non-fatal */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ }
  // Parse article titles from seo-blog*.ts for readable link text
  try {
  let seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog.ts'), 'utf-8');

@@ -80,6 +80,9 @@ export function parseArticleUrlSlugs(source, slugConst) {
     }
 
     let localeProperties;
+    if (!isObjectLiteral(property.initializer)) {
+      malformed(`malformed slug map for ${slugConst}`);
+    }
     try {
       localeProperties = readStaticObjectProperties(
         property.initializer,
@@ -92,9 +95,7 @@ export function parseArticleUrlSlugs(source, slugConst) {
     const fields = {};
     for (const localeProperty of localeProperties) {
       const locale = staticPropertyName(localeProperty.name);
-      if (!locale || !LOCALES.includes(locale)) {
-        malformed(`malformed locale map for ${articleId}`);
-      }
+      if (!locale || !LOCALES.includes(locale)) continue;
       if (Object.prototype.hasOwnProperty.call(fields, locale)) {
         malformed(`duplicate locale ${locale} for ${articleId}`);
       }

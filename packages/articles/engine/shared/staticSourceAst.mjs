@@ -47,7 +47,7 @@ function parseErrorPrefix(errorPrefix) {
  *
  * @param {string} source
  * @param {string} fileName
- * @param {{ errorPrefix?: string, rejectInterpolatedTemplates?: boolean }} [options]
+ * @param {{ errorPrefix?: string, rejectInterpolatedTemplates?: boolean, interpolationMessage?: string }} [options]
  * @returns {import('typescript').SourceFile}
  */
 export function parseStaticSource(source, fileName = 'static-source.ts', options = {}) {
@@ -80,9 +80,8 @@ export function parseStaticSource(source, fileName = 'static-source.ts', options
     };
     visit(sourceFile);
     if (interpolation) {
-      throw new Error(
-        `${parseErrorPrefix(options.errorPrefix)}Interpolated template literal is not static article data: ${fileName}`,
-      );
+      throw new Error(options.interpolationMessage
+        ?? `${parseErrorPrefix(options.errorPrefix)}Interpolated template literal is not static article data: ${fileName}`);
     }
   }
 
@@ -247,31 +246,56 @@ export function findTopLevelVariable(sourceFile, name) {
 
 /** @param {import('typescript').SourceFile} sourceFile */
 export function findFirstTopLevelObject(sourceFile) {
+  return findTopLevelObjects(sourceFile)[0] ?? null;
+}
+
+/**
+ * Meta chunks are sometimes concatenated by publish scripts. Keep every
+ * top-level object initializer so the caller cannot silently read only the
+ * first locale chunk.
+ *
+ * @param {import('typescript').SourceFile} sourceFile
+ * @returns {import('typescript').ObjectLiteralExpression[]}
+ */
+export function findTopLevelObjects(sourceFile) {
+  const objects = [];
   for (const statement of sourceFile.statements) {
     if (ts.isVariableStatement(statement)) {
       for (const declaration of statement.declarationList.declarations) {
         const initializer = declaration.initializer && unwrapStaticExpression(declaration.initializer);
-        if (initializer && ts.isObjectLiteralExpression(initializer)) return initializer;
+        if (initializer && ts.isObjectLiteralExpression(initializer)) objects.push(initializer);
       }
     }
     if (ts.isExportAssignment(statement)) {
       const expression = unwrapStaticExpression(statement.expression);
-      if (ts.isObjectLiteralExpression(expression)) return expression;
+      if (ts.isObjectLiteralExpression(expression)) objects.push(expression);
     }
   }
-  return null;
+  return objects;
 }
 
 /** @param {import('typescript').SourceFile} sourceFile */
 export function findFirstTopLevelArray(sourceFile) {
+  return findTopLevelArrays(sourceFile)[0] ?? null;
+}
+
+/**
+ * Generated registries are split into many `RAW_ARTICLES_CHUNK_N` arrays.
+ * Return every direct top-level static array so no shard silently disappears.
+ *
+ * @param {import('typescript').SourceFile} sourceFile
+ * @returns {import('typescript').ArrayLiteralExpression[]}
+ */
+export function findTopLevelArrays(sourceFile) {
+  const arrays = [];
   for (const statement of sourceFile.statements) {
     if (!ts.isVariableStatement(statement)) continue;
     for (const declaration of statement.declarationList.declarations) {
       const initializer = declaration.initializer && unwrapStaticExpression(declaration.initializer);
-      if (initializer && ts.isArrayLiteralExpression(initializer)) return initializer;
+      if (initializer && ts.isArrayLiteralExpression(initializer)) arrays.push(initializer);
     }
   }
-  return null;
+  return arrays;
 }
 
 /**

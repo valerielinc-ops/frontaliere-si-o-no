@@ -1,5 +1,5 @@
 import {
-  findFirstTopLevelArray,
+  findTopLevelArrays,
   findObjectLiterals,
   isObjectLiteral,
   parseStaticSource,
@@ -37,8 +37,9 @@ import {
  * corpus saying the date is UNKNOWN, and the renderers handle it
  * (`./sourceDates`).
  *
- * The shared scanner is pure and import-free, so this reader stays inside the
- * `packages/articles` confinement boundary and the corpus can run it unchanged.
+ * The AST helper is a plain-Node `.mjs` module with an explicit TypeScript
+ * runtime dependency, so this reader stays inside the `packages/articles`
+ * confinement boundary and the corpus can mirror it unchanged.
  */
 
 export interface ArticleRegistryEntry {
@@ -56,12 +57,27 @@ export interface ArticleRegistryEntry {
  * keeps its first occurrence.
  */
 export function parseArticleRegistryEntries(source: string): ArticleRegistryEntry[] {
-  const sourceFile = parseStaticSource(source, 'article-registry.ts', {
-    errorPrefix: '[article-registry]',
-  });
-  const array = findFirstTopLevelArray(sourceFile);
-  const objects = array
-    ? array.elements.filter((element) => isObjectLiteral(element))
+  let sourceFile;
+  try {
+    sourceFile = parseStaticSource(source, 'article-registry.ts', {
+      errorPrefix: '[article-registry]',
+    });
+  } catch (error) {
+    // Unit callers and a few legacy publish helpers pass a comma-separated
+    // object fragment rather than a complete module. Parse that fragment as a
+    // synthetic array, still through the compiler, instead of reviving a
+    // delimiter scanner just for the compatibility shape.
+    try {
+      sourceFile = parseStaticSource(`const __article_registry_fragment = [${source}];`, 'article-registry-fragment.ts', {
+        errorPrefix: '[article-registry]',
+      });
+    } catch {
+      throw error;
+    }
+  }
+  const arrays = findTopLevelArrays(sourceFile);
+  const objects = arrays.length > 0
+    ? arrays.flatMap((array) => array.elements.filter((element) => isObjectLiteral(element)))
     : findObjectLiterals(sourceFile);
   const out: ArticleRegistryEntry[] = [];
   const seen = new Set<string>();

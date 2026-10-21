@@ -39,6 +39,7 @@ import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes.ts';
 import {
   findFirstTopLevelObject,
+  findTopLevelObjects,
   parseStaticSource,
   readStaticObjectProperties,
   readStaticString,
@@ -335,21 +336,23 @@ function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field)
   if (!fs.existsSync(filePath)) return new Map();
   const src = fs.readFileSync(filePath, 'utf-8');
   const sourceFile = parseStaticSource(src, filePath, { errorPrefix: '[rss]' });
-  const object = findFirstTopLevelObject(sourceFile);
-  if (!object) throw new Error(`[rss] ${filePath} has no static article metadata object`);
+  const objects = findTopLevelObjects(sourceFile);
+  if (objects.length === 0) throw new Error(`[rss] ${filePath} has no static article metadata object`);
   const out = new Map(); // articleId → value
-  for (const property of readStaticObjectProperties(object, filePath)) {
-    const key = staticPropertyName(property.name);
-    const match = key && new RegExp(`^blog\\.article\\.(.+)\\.${field}$`).exec(key);
-    if (!match) continue;
-    // The AST reader, not a partial quote replacement: the writer also
-    // escapes backslashes and Unicode, and this value wins over the registry
-    // fallback in renderFeed.
-    out.set(match[1], readStaticString(property.initializer, sourceFile, {
-      label: `${key} in ${filePath}`,
-      newlineAs: ' ',
-      errorPrefix: '[rss]',
-    }));
+  for (const object of objects) {
+    for (const property of readStaticObjectProperties(object, filePath)) {
+      const key = staticPropertyName(property.name);
+      const match = key && new RegExp(`^blog\\.article\\.(.+)\\.${field}$`).exec(key);
+      if (!match) continue;
+      // The AST reader, not a partial quote replacement: the writer also
+      // escapes backslashes and Unicode, and this value wins over the registry
+      // fallback in renderFeed.
+      out.set(match[1], readStaticString(property.initializer, sourceFile, {
+        label: `${key} in ${filePath}`,
+        newlineAs: ' ',
+        errorPrefix: '[rss]',
+      }));
+    }
   }
   return out;
 }
@@ -368,29 +371,32 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
     const sourceFile = parseStaticSource(src, filePath, {
       errorPrefix: '[rss]',
       rejectInterpolatedTemplates: true,
+      interpolationMessage: `[rss] Interpolated template literal is not supported in static article body source: ${filePath}`,
     });
-    const object = findFirstTopLevelObject(sourceFile);
-    if (!object) throw new Error(`[rss] ${filePath} has no static article body object`);
+    const objects = findTopLevelObjects(sourceFile);
+    if (objects.length === 0) throw new Error(`[rss] ${filePath} has no static article body object`);
     const articleParts = new Map(); // articleId → { body1: '...', body2: '...' }
-    for (const property of readStaticObjectProperties(object, filePath)) {
-      const key = staticPropertyName(property.name);
-      if (!key) continue;
-      const keyMatch = BLOG_BODY_KEY.exec(key);
-      if (!keyMatch) continue;
-      const [, id, part] = keyMatch;
-      if (!articleParts.has(id)) articleParts.set(id, new Map());
-      // Unescape here, not at render: this text goes straight into
-      // <content:encoded>, and it is the one parsed field that actually
-      // reaches the served bytes — the title/description paths are masked by
-      // the locale-meta lookup winning in renderFeed, this one is not.
-      // All three quote styles are accepted, but interpolated templates are
-      // rejected above: evaluating source code here would make the feed differ
-      // from the static corpus that the OG reader consumes.
-      const decoded = readStaticString(property.initializer, sourceFile, {
-        label: `Body property ${key}`,
-        errorPrefix: '[rss]',
-      });
-      articleParts.get(id).set(part, repairLegacyDoubleEscapedBreaks(decoded));
+    for (const object of objects) {
+      for (const property of readStaticObjectProperties(object, filePath)) {
+        const key = staticPropertyName(property.name);
+        if (!key) continue;
+        const keyMatch = BLOG_BODY_KEY.exec(key);
+        if (!keyMatch) continue;
+        const [, id, part] = keyMatch;
+        if (!articleParts.has(id)) articleParts.set(id, new Map());
+        // Unescape here, not at render: this text goes straight into
+        // <content:encoded>, and it is the one parsed field that actually
+        // reaches the served bytes — the title/description paths are masked by
+        // the locale-meta lookup winning in renderFeed, this one is not.
+        // All three quote styles are accepted, but interpolated templates are
+        // rejected above: evaluating source code here would make the feed differ
+        // from the static corpus that the OG reader consumes.
+        const decoded = readStaticString(property.initializer, sourceFile, {
+          label: `Body property ${key}`,
+          errorPrefix: '[rss]',
+        });
+        articleParts.get(id).set(part, repairLegacyDoubleEscapedBreaks(decoded));
+      }
     }
 
     for (const [id, parts] of articleParts) {
