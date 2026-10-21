@@ -168,6 +168,15 @@ export function explicitLanguageEntries(profile) {
     .filter((item) => String(item?.language ?? '').trim());
 }
 
+/** Whether every listed language entry names exactly one recognized language. */
+export function hasCompleteLanguageList(profile) {
+  const rawEntries = Array.isArray(profile?.languages) ? profile.languages : [];
+  const entries = explicitLanguageEntries(profile);
+  return entries.length > 0
+    && entries.length === rawEntries.length
+    && entries.every((item) => languageCodesForEntry(item.language).length === 1);
+}
+
 /** Whether the CV has a dedicated heading that introduces its spoken-language list. */
 export function hasExplicitLanguageSection(cvText) {
   return String(cvText ?? '').split(/\r?\n/).some((line) => {
@@ -186,14 +195,12 @@ export function hasExplicitLanguageSection(cvText) {
 export function languageExplicitlyAbsent(profile, question) {
   if (profile?.languagesExplicitList !== true || profile?.languagesListTruncated === true) return false;
   const entries = explicitLanguageEntries(profile);
-  if (!entries.length) return false;
+  if (!hasCompleteLanguageList(profile)) return false;
   const text = String(question ?? '');
   if (!isLanguageAbilityQuestion(text)) return false;
   const requested = languageCodesIn(text);
   if (requested.length !== 1) return false;
-  const listedCodes = entries.map((item) => languageCodesForEntry(item.language));
-  if (listedCodes.some((codes) => codes.length !== 1)) return false;
-  const listed = new Set(listedCodes.map(([code]) => code));
+  const listed = new Set(entries.map((item) => languageCodesForEntry(item.language)[0]));
   return !listed.has(requested[0]);
 }
 

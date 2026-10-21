@@ -32,7 +32,7 @@ import { answerMessage, safePattern, validateAnswer } from './lib/answerRules.js
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitOptions, permitStatusOf } from './lib/permitStatus.js';
 import { civilStatusCode, civilStatusOptions, cvPersonalFacts, isSalutation, personalFieldLabel, salutationFor, salutationGenderFromName, salutationOptions } from './lib/personalFacts.js';
-import { hasExplicitLanguageSection, isLanguageAbilityQuestion, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
+import { hasCompleteLanguageList, hasExplicitLanguageSection, isLanguageAbilityQuestion, languageCodesIn, languageExplicitlyAbsent } from './lib/languageFacts.js';
 
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 const LANGUAGE_LEVEL_RE = /\b(?:level|proficiency|fluency|fluent|niveau|livello|grado|kenntnis|kenntnisse|maitrise|maîtrise)\b/i;
@@ -373,16 +373,17 @@ export function candidateWithEdits({ order, draft, flow }) {
   if (profile.languagesListTruncated === undefined) {
     profile.languagesListTruncated = Array.isArray(profile.languages)
       && profile.languages.length >= LEGACY_LANGUAGE_LIST_LIMIT;
-    profile.languagesExplicitList = profile.languagesExplicitList === true && !profile.languagesListTruncated;
   }
+  const completeLanguageList = !profile.languagesListTruncated && hasCompleteLanguageList(profile);
+  profile.languagesExplicitList = completeLanguageList
+    && (profile.languagesExplicitList === true || hasExplicitLanguageSection(draft?.factSources?.text));
   if (has(overrides, 'location')) profile.location = overrides.location;
   if (has(overrides, 'linkedin')) profile.linkedin = overrides.linkedin;
   if (has(overrides, 'languages')) {
     profile.languages = splitLanguages(overrides.languages);
     profile.languagesListTruncated = false;
-    profile.languagesExplicitList = Boolean(overrides.languages.trim());
+    profile.languagesExplicitList = Boolean(overrides.languages.trim()) && hasCompleteLanguageList(profile);
   }
-  if (!has(overrides, 'languages') && profile.languagesListTruncated !== true && hasExplicitLanguageSection(draft?.factSources?.text)) profile.languagesExplicitList = true;
   if (has(overrides, 'workPermit')) profile.workPermit = overrides.workPermit;
   if (has(overrides, 'availability')) profile.availability = overrides.availability;
   if (has(overrides, 'dateOfBirth')) profile.dateOfBirth = overrides.dateOfBirth;
