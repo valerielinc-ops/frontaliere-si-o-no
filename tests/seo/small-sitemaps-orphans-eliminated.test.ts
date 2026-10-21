@@ -83,6 +83,22 @@ function normalisePath(href: string): string {
   return h;
 }
 
+const SMALL_SITEMAP_HUB_ROOTS: ReadonlyArray<string> = [
+  '/traffico-dogane/',
+  '/de/wartezeit-grenze/',
+  '/en/border-wait/',
+  '/fr/temps-attente-douane/',
+  '/mercato-lavoro-ticino/',
+  '/lavoro-infermieri-svizzera/',
+  '/agenzie-del-lavoro-lugano/',
+  '/costo-vita-lugano-ticino/',
+  ...REPORT_SITEMAP_LINKS.map(({ href }) => href),
+  '/guides/guida-completa-frontaliere-2026/',
+  '/guides/guida-completa-frontaliere-2026.pdf',
+  '/guida-frontaliere/mappa-live-valichi/',
+  '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/',
+];
+
 // ── Tier B — border-wait cross-locale linking ─────────────────────
 
 describe('border-wait root hubs — every locale anchor-links to every other locale\'s root hub', () => {
@@ -160,22 +176,6 @@ describe('mappa-del-sito hub — synthetic BFS reachability', () => {
     '/glossario-frontaliere/addizionale-regionale/',
     '/glossario-frontaliere/lohnausweis/',
     '/glossario-frontaliere/cu/',
-  ];
-
-  const SMALL_SITEMAP_HUB_ROOTS: ReadonlyArray<string> = [
-    '/traffico-dogane/',
-    '/de/wartezeit-grenze/',
-    '/en/border-wait/',
-    '/fr/temps-attente-douane/',
-    '/mercato-lavoro-ticino/',
-    '/lavoro-infermieri-svizzera/',
-    '/agenzie-del-lavoro-lugano/',
-    '/costo-vita-lugano-ticino/',
-    ...REPORT_SITEMAP_LINKS.map(({ href }) => href),
-    '/guides/guida-completa-frontaliere-2026/',
-    '/guides/guida-completa-frontaliere-2026.pdf',
-    '/guida-frontaliere/mappa-live-valichi/',
-    '/fr/calculer-salaire/calcul-salaire-net-frontalier-suisse/',
   ];
 
   // Synthesise the hub HTML the same way staticPagesPlugin does.
