@@ -480,9 +480,10 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
 
   it('reads the real map without hitting either guard', () => {
     // The immutable base contains 197 literal pairs (the old 195 plus the
-    // cookie and French NASpI aliases). This observed A2 alias and the two
-    // explicit legacy nav aliases bring the inventory to 200.
-    expect(Object.keys(HARDCODED).length).toBe(200);
+    // cookie and French NASpI aliases). This observed A2 alias, the two
+    // explicit legacy nav aliases and seven GSC 404 retirements bring the
+    // inventory to 207.
+    expect(Object.keys(HARDCODED).length).toBe(207);
   });
 });
 

@@ -23,6 +23,55 @@ import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
 import { listingEvidenceFields } from './detail-extract.mjs';
 
+const MAX_SYNTHESIS_FETCHES = 5;
+const CAREER_LINK_RX = /(?:^|[\/_-])(?:jobs?|careers?|vacancies|karriere|stellen(?:angebote)?|offene-stellen|emplois?|carrieres?|offres-d-emploi|lavora|carriere|posizioni-aperte|offerte-di-lavoro|posti-vacanti)(?:[/?#._-]|$)/i;
+const CAREER_LINK_TEXT_RX = /\b(jobs?|careers?|vacancies|karriere|stellen|emplois?|carri[eè]re|lavora|posizioni|offerte di lavoro|posti vacanti)\b/i;
+
+function normalizedHttpUrl(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(String(value));
+    if (!/^https?:$/.test(url.protocol)) return '';
+    url.hash = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+function synthesisSeeds(candidate) {
+  const careerSeeds = [candidate.careersUrl, ...(Array.isArray(candidate.careersUrls) ? candidate.careersUrls : [])]
+    .map(normalizedHttpUrl)
+    .filter(Boolean);
+  const tenantHost = normalizeHost(candidate.tenantHost || '');
+  const employerHost = normalizeHost(candidate.domain || '');
+  const seen = new Set();
+  const uniqueSeeds = (values) => {
+    const seeds = [];
+    for (const value of values) {
+      const normalized = normalizedHttpUrl(value);
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      seeds.push(normalized);
+    }
+    return seeds;
+  };
+  const priority = uniqueSeeds([
+    careerSeeds[0],
+    tenantHost ? `https://${tenantHost}/` : null,
+    employerHost ? `https://${employerHost}/` : null,
+  ]);
+  const alternates = uniqueSeeds(careerSeeds.slice(1));
+  return { priority, alternates };
+}
+
+function careerLinksFromPage(body, baseUrl) {
+  return extractLinks(body, baseUrl)
+    .filter((link) => CAREER_LINK_RX.test(new URL(link.url).pathname)
+      || CAREER_LINK_TEXT_RX.test(link.text || ''))
+    .map((link) => link.url);
+}
+
 /**
  * @typedef {Object} CrawlerSpec
  * @property {string} companyKey
@@ -205,34 +254,138 @@ export function isExpectedSynthesisError(err) {
  * Learn a spec by crawling the candidate's careers page for real.
  *
  * @param {Record<string, any>} candidate
- * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, vacancies: any[], retryable?: boolean }>}
+ * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, reasonCode?: string, vacancies: any[], retryable?: boolean, diagnostics?: Record<string, any> }>}
  */
 export async function synthesizeSpec(candidate, runtime = {}) {
-  const seed = candidate.careersUrl || (candidate.tenantHost ? `https://${candidate.tenantHost}/` : null)
-    || (candidate.domain ? `https://${candidate.domain}/` : null);
-  if (!seed) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
+  const { priority, alternates } = synthesisSeeds(candidate);
+  if (!priority.length && !alternates.length) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
 
-  const res = await politeFetch(seed, {
-    fetchImpl: runtime.fetchImpl,
-    lookupImpl: runtime.lookupImpl,
-    sleepImpl: runtime.sleepImpl,
-  });
-  if (!res.ok) {
-    const blocked = res.blockedByRobots || res.policyBlocked;
-    const status = Number(res.status) || 0;
+  const pendingPriority = [...priority];
+  const pendingInitial = [...alternates];
+  const pendingDiscovered = [];
+  const queued = new Set([...pendingPriority, ...pendingInitial]);
+  const attempted = new Set();
+  const failures = [];
+  let reachablePages = 0;
+  let malformedResponses = 0;
+  let extracted = null;
+  let suppliedSeedsAttempted = 0;
+  while ((pendingPriority.length || pendingInitial.length || pendingDiscovered.length)
+    && attempted.size < MAX_SYNTHESIS_FETCHES) {
+    let seed;
+    if (pendingPriority.length) {
+      seed = pendingPriority.shift();
+      suppliedSeedsAttempted++;
+    } else if (pendingDiscovered.length) {
+      seed = pendingDiscovered.shift();
+    } else if (pendingInitial.length && suppliedSeedsAttempted < MAX_SYNTHESIS_FETCHES - 1) {
+      seed = pendingInitial.shift();
+      suppliedSeedsAttempted++;
+    } else if (pendingInitial.length) {
+      // Use the fifth slot for another supplied seed only when no discovered
+      // careers link is waiting to be followed.
+      seed = pendingInitial.shift();
+      suppliedSeedsAttempted++;
+    } else {
+      break;
+    }
+    if (attempted.has(seed)) continue;
+    attempted.add(seed);
+    let response;
+    try {
+      response = await politeFetch(seed, {
+        fetchImpl: runtime.fetchImpl,
+        lookupImpl: runtime.lookupImpl,
+        sleepImpl: runtime.sleepImpl,
+      });
+    } catch (error) {
+      failures.push({
+        ok: false,
+        status: 0,
+        url: seed,
+        transportError: error instanceof Error ? error.message : 'fetch_failed',
+      });
+      continue;
+    }
+    if (!response || typeof response !== 'object' || typeof response.ok !== 'boolean') {
+      malformedResponses++;
+      failures.push({
+        ok: false,
+        status: Number(response?.status) || 0,
+        url: typeof response?.url === 'string' ? response.url : seed,
+        transportError: response?.transportError || 'missing_or_invalid_fetch_response',
+        malformedResponse: true,
+      });
+      continue;
+    }
+    if (response.ok && typeof response.body !== 'string') {
+      malformedResponses++;
+      failures.push({
+        ok: false,
+        status: Number(response.status) || 0,
+        url: typeof response.url === 'string' && response.url ? response.url : seed,
+        transportError: 'missing_response_body',
+        malformedResponse: true,
+      });
+      continue;
+    }
+    const res = {
+      ...response,
+      url: typeof response.url === 'string' && response.url ? response.url : seed,
+      body: response.body,
+    };
+    if (!res.ok) {
+      failures.push(res);
+      continue;
+    }
+    reachablePages++;
+    const links = extractLinks(res.body, res.url);
+    const result = extractVacancies(res.body, res.url, links);
+    if (result.vacancies.length) {
+      extracted = { res, vacancies: result.vacancies, via: result.via };
+      break;
+    }
+    // A homepage often points to the real career listing. Follow only links
+    // whose path or authored label signals recruitment, and extractLinks
+    // already limits these links to the page's own origin.
+    for (const link of careerLinksFromPage(res.body, res.url)) {
+      const normalizedLink = normalizedHttpUrl(link);
+      if (!normalizedLink || queued.has(normalizedLink) || attempted.has(normalizedLink)) continue;
+      queued.add(normalizedLink);
+      pendingDiscovered.push(normalizedLink);
+    }
+  }
+  if (!extracted) {
+    if (reachablePages > 0 && malformedResponses === 0) {
+      return {
+        spec: null,
+        reason: 'nessun annuncio estratto dal seed',
+        reasonCode: 'no_verified_vacancies',
+        retryable: true,
+        vacancies: [],
+        diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
+      };
+    }
+    const isRetryableFetchFailure = (attempt) => {
+      if (attempt.blockedByRobots || attempt.policyBlocked) return false;
+      if (attempt.malformedResponse) return true;
+      const status = Number(attempt.status) || 0;
+      return status > 0 ? isRetryableTraceStatus(status) : Boolean(attempt.transportError);
+    };
+    const retryableFailures = failures.filter(isRetryableFetchFailure);
+    const failure = retryableFailures.at(-1) || failures.at(-1) || {};
+    const blocked = failure.blockedByRobots || failure.policyBlocked;
     return {
       spec: null,
-      reason: `seed irraggiungibile (${res.status})`,
+      reason: `seed irraggiungibile (${failure.status || 0})`,
+      reasonCode: retryableFailures.length ? 'transient_seed_failure' : (blocked ? 'policy_blocked' : 'seed_unreachable'),
       vacancies: [],
-      retryable: !blocked && (status > 0
-        ? isRetryableTraceStatus(status)
-        : Boolean(res.transportError)),
+      retryable: retryableFailures.length > 0,
+      diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
     };
   }
 
-  const links = extractLinks(res.body, res.url);
-  const { vacancies, via } = extractVacancies(res.body, res.url, links);
-  if (!vacancies.length) return { spec: null, reason: 'nessun annuncio estratto dal seed', vacancies: [] };
+  const { res, vacancies, via } = extracted;
 
   // A synthesised spec must not silently learn an unreviewed ATS/CDN origin.
   // Existing promoted specs may name `allowedDetailOrigins` explicitly, but

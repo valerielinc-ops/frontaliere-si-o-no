@@ -185,6 +185,20 @@ export function loadChannelHealth(file = WEB_CHANNEL_HEALTH_PATH) {
   return parsed;
 }
 
+function cachedPageCountForCollection(collection, cursor, healthHistory) {
+  const cursorTotalPages = Number(cursor?.collection === collection ? cursor.totalPages : 0);
+  if (Number.isSafeInteger(cursorTotalPages) && cursorTotalPages > 0) return cursorTotalPages;
+
+  for (let index = healthHistory.length - 1; index >= 0; index--) {
+    const entry = healthHistory[index];
+    const totalPages = Number(entry?.totalPages);
+    if (entry?.collection === collection && Number.isSafeInteger(totalPages) && totalPages > 0) {
+      return totalPages;
+    }
+  }
+  return 0;
+}
+
 /**
  * Appends one run's yield to the channel health history, capped to the most
  * recent {@link HEALTH_HISTORY_LIMIT} entries. `outage` is true only for an
@@ -338,6 +352,7 @@ export function planCommonCrawlPages(cursor, totalPages, wanted, requestedStride
  */
 export async function sweepSwissCareerPages(opts = {}) {
   const wanted = opts.pages ?? 40;
+  const healthFile = opts.healthFile || WEB_CHANNEL_HEALTH_PATH;
   // Recorded on every exit, including the outage ones below: a run that comes
   // back with `totalPages: 0` because the index answered nothing looks
   // identical, from a single console line, to a legitimately quiet night — the
@@ -354,7 +369,7 @@ export async function sweepSwissCareerPages(opts = {}) {
         errorCode: result.errorCode,
         failedPages: result.failedPages,
         coverageRate: result.coverageRate,
-        }, opts.healthFile || WEB_CHANNEL_HEALTH_PATH);
+        }, healthFile);
       } catch {
         console.error('::warning::Common Crawl health history non aggiornata; lo sweep prosegue senza sovrascrivere lo storico.');
       }
@@ -362,18 +377,44 @@ export async function sweepSwissCareerPages(opts = {}) {
     return result;
   };
 
+  const cursorFile = opts.cursorFile || CURSOR_PATH;
+  const cursor = loadCursor(cursorFile);
+  cursor.collectionHistory = Array.isArray(cursor.collectionHistory) ? cursor.collectionHistory : [];
+  let healthHistory = [];
+  try {
+    healthHistory = loadChannelHealth(healthFile);
+  } catch (error) {
+    console.warn(`storico Common Crawl non leggibile; page count cache non disponibile: ${String(error?.message || error).slice(0, 200)}`);
+  }
+  const cachedPageCount = (collection) => cachedPageCountForCollection(collection, cursor, healthHistory);
   const collectionResult = opts.collection
     ? { collection: opts.collection, outcome: 'complete', errorCode: null }
     : await latestCollection(opts);
-  const collection = collectionResult.collection;
+  const usedCachedCollection = !collectionResult.collection
+    && Boolean(cursor.collection)
+    && cachedPageCount(cursor.collection) > 0;
+  const collection = collectionResult.collection || (usedCachedCollection ? cursor.collection : null);
   if (!collection) return finish({
     employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection: null,
     outcome: collectionResult.outcome, errorCode: collectionResult.errorCode, coverageRate: 0,
   });
 
-  const cursorFile = opts.cursorFile || CURSOR_PATH;
-  const cursor = loadCursor(cursorFile);
-  cursor.collectionHistory = Array.isArray(cursor.collectionHistory) ? cursor.collectionHistory : [];
+  const pageCount = await chPageCount(collection, opts);
+  const hasFreshPageCount = pageCount.totalPages > 0;
+  const cachedTotalPages = cachedPageCount(collection);
+  const canUseCachedPageCount = !hasFreshPageCount
+    && cursor.collection === collection
+    && cachedTotalPages > 0;
+  const totalPages = hasFreshPageCount
+    ? pageCount.totalPages
+    : canUseCachedPageCount ? cachedTotalPages : 0;
+  if (!totalPages) return finish({
+    employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection,
+    outcome: pageCount.outcome, errorCode: pageCount.errorCode, coverageRate: 0,
+  });
+
+  // Do not supersede a working cursor until the new collection has a usable
+  // page count. A transient metadata failure must leave the old sweep intact.
   if (cursor.collection !== collection) {
     if (cursor.collection && Number(cursor.totalPages) > 0) {
       const oldTotal = Number(cursor.totalPages);
@@ -395,16 +436,12 @@ export async function sweepSwissCareerPages(opts = {}) {
     cursor.pendingPages = [];
     cursor.stride = 0;
   }
-  const pageCount = await chPageCount(collection, opts);
-  const totalPages = pageCount.totalPages;
-  if (!totalPages) return finish({
-    employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection,
-    outcome: pageCount.outcome, errorCode: pageCount.errorCode, coverageRate: 0,
-  });
 
+  const degradedMetadata = canUseCachedPageCount || usedCachedCollection;
   const seen = new Set((Array.isArray(cursor.sweptPages) ? cursor.sweptPages : [])
     .filter((page) => Number.isSafeInteger(page) && page >= 0 && page < totalPages));
-  const plan = planCommonCrawlPages(cursor, totalPages, wanted, opts.stride);
+  const requestedStride = opts.stride ?? (degradedMetadata ? cursor.stride : undefined);
+  const plan = planCommonCrawlPages(cursor, totalPages, wanted, requestedStride);
   const pages = plan.pages;
   const pendingPages = new Set(plan.pendingPages);
 
@@ -424,12 +461,16 @@ export async function sweepSwissCareerPages(opts = {}) {
     }
   }
 
-  const outcome = failedPages.length === 0
+  const sweepOutcome = failedPages.length === 0
     ? 'complete'
     : pagesRead.length > 0 || failedPages.some((failure) => failure.outcome === 'partial')
       ? 'partial'
       : failedPages.every((failure) => failure.outcome === 'malformed') ? 'malformed' : 'unavailable';
-  const errorCode = failedPages[0]?.errorCode || null;
+  const outcome = degradedMetadata ? 'partial' : sweepOutcome;
+  const errorCode = (usedCachedCollection && collectionResult.errorCode)
+    || (canUseCachedPageCount && pageCount.errorCode)
+    || failedPages[0]?.errorCode
+    || null;
   const coverageRate = seen.size / totalPages;
 
   if (opts.persist !== false) {
