@@ -544,6 +544,27 @@ describe('prospector candidate store — cross-source identity and ledger recove
     expect(Object.values(store.candidates).every((candidate) => !candidate.domain)).toBe(true);
   });
 
+  it('does not promote an unconfirmed registry platform host to an employer key', () => {
+    // ashbyhq.com is intentionally still a `candidate` platform in the
+    // registry. Until that status is confirmed, two employers on the host
+    // must remain name/city keyed instead of collapsing to ashbyhq.com.
+    const acme = { name: 'Acme SA', city: 'Lugano', domain: 'jobs.ashbyhq.com' };
+    const beta = { name: 'Beta AG', city: 'Bellinzona', domain: 'jobs.ashbyhq.com' };
+
+    expect(candidateKey(acme)).toBe('acme@lugano');
+    expect(candidateKey(beta)).toBe('beta@bellinzona');
+
+    const store = storeWith({});
+    const acmeResult = upsertCandidate(store, acme, 'web');
+    const betaResult = upsertCandidate(store, beta, 'seco');
+
+    expect(acmeResult.key).not.toBe(betaResult.key);
+    expect(acmeResult.key).not.toContain('ashbyhq.com');
+    expect(betaResult.key).not.toContain('ashbyhq.com');
+    expect(Object.keys(store.candidates)).toHaveLength(2);
+    expect(Object.values(store.candidates).every((candidate) => !candidate.domain)).toBe(true);
+  });
+
   it('rejects composed tenant keys for a shared ATS host when its path is missing', () => {
     const acme = {
       key: 'jobs@smartrecruiters.com',

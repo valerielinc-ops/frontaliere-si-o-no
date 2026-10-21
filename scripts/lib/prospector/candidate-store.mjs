@@ -66,7 +66,12 @@ function platformEntryForDomain(domain) {
 
 function isKnownSharedPlatformDomain(domain) {
   const platform = platformEntryForDomain(domain);
-  return Boolean(platform && (platform.status === 'confirmed' || platform.status === 'supported'));
+  // A candidate registry entry is deliberately unproven: it may be a vendor
+  // host seen only once, so reducing it to an employer key can merge unrelated
+  // tenants before the registry has enough evidence to classify the host.
+  // Treat every non-rejected registry entry as shared until an evidence-bound
+  // employer identity is available on the candidate itself.
+  return Boolean(platform && platform.status !== 'rejected');
 }
 
 function candidateEmployerDomain(value) {
