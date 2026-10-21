@@ -1,6 +1,7 @@
 {
   "crawlerKey": "swica",
-  "assembledAt": "2026-10-20T21:21:45.914Z",
+  "assembledAt": "2026-10-21T09:23:39.180Z",
+  "runId": "39575724942",
   "jobs": [
     {
       "id": "swica-c77bbc77017c",
@@ -34,7 +35,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/7d81878c-e2d8-4eba-9819-013813722c42",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:38.592Z",
+      "crawledAt": "2026-10-21T09:23:12.633Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Bahnhofstrasse 8",
@@ -117,7 +118,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/89735a66-1b63-4240-87d7-cff574aa1984",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:38.130Z",
+      "crawledAt": "2026-10-21T09:23:12.174Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -211,7 +212,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-fallmanagement-krankentaggeld-alle/2429d8ab-a822-4d37-a3a7-f7d3e0e5f248",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:37.675Z",
+      "crawledAt": "2026-10-21T09:23:11.718Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -291,7 +292,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/126b47f4-f1c5-43e8-8656-249b202fab69",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:37.216Z",
+      "crawledAt": "2026-10-21T09:23:11.252Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -371,7 +372,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/25201503-b1ea-4c26-ab8e-1d096e3b305e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:36.848Z",
+      "crawledAt": "2026-10-21T09:23:10.886Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -451,7 +452,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/lehre-als-kauffrau-kaufmann-efz-kranken-und-sozialversicherungen-2027/01c12200-43f3-4044-9a15-2ff1e584af40",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:36.502Z",
+      "crawledAt": "2026-10-21T09:23:10.502Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Hirschengraben 8",
@@ -541,7 +542,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/care-manager-privatkunden/98824056-e64d-4f18-825b-aa901ef30d5f",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:36.147Z",
+      "crawledAt": "2026-10-21T09:23:10.149Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Hirschmattstrasse 32",
@@ -603,87 +604,6 @@
       }
     },
     {
-      "id": "swica-b0239374f17e",
-      "slug": "versicherungsberater-cambio-carriera-alle-swica-gesundheitsorganisation-biel",
-      "slugByLocale": {
-        "it": "versicherungsberater-cambio-carriera-alle-swica-gesundheitsorganisation-biel",
-        "en": "insurance-consultants-cross-entry-all-swica-gesundheitsorganisation-biel",
-        "de": "versicherungsberater-quereinstieg-alle-swica-biel",
-        "fr": "consultants-en-assurance-swica-gesundheitsorganisation-biel"
-      },
-      "company": "SWICA Gesundheitsorganisation",
-      "companyKey": "swica",
-      "companyDomain": "swica.ch",
-      "title": "Versicherungsberater Quereinstieg (alle)",
-      "titleByLocale": {
-        "it": "Consulenti assicurativi Cross-entry (tutti)",
-        "en": "Insurance consultants Cross-entry (all)",
-        "de": "Versicherungsberater Quereinstieg (alle)",
-        "fr": "Consultants en assurance"
-      },
-      "description": "Menschen beraten, für Gesundheitsthemen gewinnen – und dabei selbst wachsen. Als Versicherungsberaterin oder Versicherungsberater bei SWICA bist du nah bei unseren Kundinnen und Kunden: zu Hause, in der Agentur oder digital. Du überzeugst mit Empathie und baust langfristige Beziehungen auf. Und das bei der Nummer 1 in Kundenzufriedenheit. Quereinsteigerinnen und Quereinsteiger willkommen – wir machen dich zum Profi.\nDu bist eine motivierte Persönlichkeit mit Verkaufsflair, hoher Leistungsbereitschaft und Freude am Kontakt mit Menschen? Du gehst aktiv auf andere zu, baust gerne Beziehungen auf und bringst idealerweise ein gutes Netzwerk in Verein, Sport oder Gesellschaft mit? Die notwendige Zertifizierung zur Beratung unserer Kunden wirst du in der Probezeit mit professioneller Unterstützung unserer Markt Academy absolvieren.\n So gestaltest du Gesundheit mit\n\n• Gewinnung von Neukunden im Privat- und Geschäftsumfeld durch aktives Networking im Einzugsgebiet Biel/Seeland und Berner Jura\n• Beratung von Privat- und Geschäftskunden, welche über unser Telemarketing und Eigenaktivitäten akquirie, Vrt wurden\n• Ausbau des Kundenstammes sowie Sicherstellung einer hohen Kundenzufriedenheit\n• Aktivitäten zur Bestandserhaltung im Auftrag des Vorgesetzten\n• Unterstützung des Vorgesetzten bei der Beschaffung, Aufbereitung und Analyse von Informationen zu Markt, Konkurrenz und Branchenentwicklung\n• Aktive Mitarbeit bei Verkaufsaktivitäten und Events\n• Erreichung der jährlichen Verkaufsziele\n Das zeichnet dich aus\n\n• Erfolgsorientierte Persönlichkeit mit einer hohen Leistungsbereitschaft\n• Abgeschlossene Grundausbildung sowie einige Jahre Berufserfahrung\n• VBV-Ausbildung vorhanden oder Bereitschaft, diese zu absolvieren\n• Kommunikationsstarke Persönlichkeit mit stilsicherem Deutsch sowie sehr guten bis verhandlungssicheren Französischkenntnissen\n• Gewinnende und belastbare Persönlichkeit kombiniert mit einer hohen Kunden- und Dienstleistungsorientierung\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und der Möglichkeit für Ferienzukauf nimmst du dir Auszeiten, wann du sie brauchst.\n• Wir schätzen deine Arbeit und honorieren sie – mit Flottenrabatten bei verschiedenen Autoherstellern, einer Jahrespauschale und grosszügiger Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
-      "descriptionByLocale": {
-        "it": "Consultare le persone, vincere per argomenti di salute – e crescere te stesso. Come consulente di assicurazione presso SWICA, siete vicini ai nostri clienti: a casa, in agenzia o digitalmente. Convinci con l'empatia e costruisci relazioni a lungo termine. E questo al numero 1 nella soddisfazione del cliente. Cross-starters benvenuto – vi facciamo un professionista.\nSei una personalità motivata con un tocco di vendita, alta disponibilità a svolgere e piacere a contatto con le persone? Ti avvicini attivamente agli altri, come costruire relazioni e portare idealmente una buona rete in club, sport o società? Completa la certificazione necessaria per consigliare i nostri clienti durante il periodo di prova con il supporto professionale della nostra Market Academy.\nQuesto è il modo in cui si forma la salute\n\n• Acquisizione di nuovi clienti nell'ambiente privato e commerciale attraverso una rete attiva nelle aree di cattura Biel/Seeland e Bern Jura\n• Consulenza clienti privati e aziendali che sono stati acquisiti tramite le nostre attività di telemarketing e proprietari\n• Espansione della base clienti e garanzia di un alto livello di soddisfazione del cliente\n• Attività di conservazione a nome del superiore\n• Sostegno del supervisore nell'approvvigionamento, nella preparazione e nell'analisi delle informazioni sul mercato, sulla concorrenza e sullo sviluppo industriale\n• Partecipazione attiva alle attività di vendita ed eventi\n• Realizzazione di obiettivi di vendita annuali\nQuesto ti distingue\n\n• Personalità orientata al successo con un'alta volontà di eseguire\n• Formazione di base completa e alcuni anni di esperienza professionale\n• Formazione VBV disponibile o disposta a completarlo\n• Forte personalità di comunicazione con elegante tedesco e molto buono a conoscenza negoziabile del francese\n• personalità vincente e resiliente combinata con un alto livello di orientamento del cliente e del servizio\nPerché SWICA\n\n• Costruiamo sull'umanità. Ecco perché ci concentriamo sull'apertura, il rispetto e la fiducia nel nostro lavoro quotidiano. Ci assumiamo la responsabilità e pensiamo in termini di soluzioni – insieme, per i nostri clienti. Questo è anche il motivo per cui siamo stati il numero 1 nella soddisfazione del cliente per molti anni.\n• Ci fidiamo di te e ti diamo spazio. Con orari di lavoro annuali, almeno 5 settimane di vacanza e la possibilità di acquisto di vacanza, si prende il tempo libero quando ne hai bisogno.\n• Apprezziamo il vostro lavoro e lo premiamo – con sconti della flotta a vari produttori di auto, una somma forfettaria annuale e una partecipazione generosa all'assicurazione di base e aggiuntiva per voi e la vostra famiglia.\n• Vi offriamo prospettive. Con un generoso regolamento di formazione, sosteniamo il vostro sviluppo professionale e personale – per il vostro ruolo oggi e per i vostri obiettivi di domani.\n• Perché la salute è tutto. Con la nostra gestione della salute aziendale e le offerte specifiche per la regione, ci occupiamo del vostro benessere. E se si tratta altrimenti: 100% salario netto continuato pagamento.\n• Pensiamo a lungo termine. Con tre piani di risparmio, deduzione di coordinamento pensum-dipendente e benefici ben al di sopra del minimo legale, si garantisce bene per il vostro futuro.\nSabina Ille, è felice di darvi informazioni.",
-        "en": "Advising people, winning for health topics – and growing yourself. As an insurance consultant at SWICA, you are close to our customers: at home, in the agency or digitally. You convince with empathy and build long-term relationships. And this at number 1 in customer satisfaction. Cross-starters welcome – we make you a professional.\nAre you a motivated personality with a sales flair, high willingness to perform and pleasure in contact with people? You actively approach others, like to build relationships and ideally bring a good network into club, sport or society? You will complete the necessary certification to advise our customers during the probationary period with the professional support of our Market Academy.\nThis is how you shape health\n\n• Acquisition of new customers in the private and business environment through active networking in the Biel/Seeland and Bern Jura catchment areas\n• Advising private and business customers who have been acquired via our telemarketing and proprietary activities\n• Expansion of the customer base and ensuring a high level of customer satisfaction\n• Conservation activities on behalf of the superior\n• Support of the supervisor in the procurement, preparation and analysis of information on the market, competition and industry development\n• Active participation in sales activities and events\n• Achievement of annual sales targets\nThis sets you apart\n\n• Success-oriented personality with a high willingness to perform\n• Completed basic training and some years of professional experience\n• VBV training available or willing to complete it\n• Strong communication personality with stylish German as well as very good to negotiable knowledge of French\n• Winning and resilient personality combined with a high level of customer and service orientation\nWhy SWICA\n\n• We build on humanity. That is why we focus on openness, respect and trust in our everyday work. We take on responsibility and think in terms of solutions – together, for our customers. This is also why we have been number 1 in customer satisfaction for many years.\n• We trust you and give you space. With annual working hours, at least 5 weeks of vacation and the possibility of holiday purchase, you take time off when you need it.\n• We appreciate your work and reward it – with fleet discounts at various car manufacturers, an annual lump sum and generous participation in the basic and additional insurance for you and your family.\n• We offer you prospects. With a generous training regulations, we support your professional and personal development – for your role today and for your goals of tomorrow.\n• Because health is everything. With our company health management and region-specific offers, we take care of your well-being. And if it comes otherwise: 100% net wage continued payment.\n• We think long term. With three savings plans, pensum-dependent coordination deduction and benefits well above the legal minimum, you ensure good for your future.\nSabina Ille, is happy to give you information.",
-        "de": "Menschen beraten, für Gesundheitsthemen gewinnen – und dabei selbst wachsen. Als Versicherungsberaterin oder Versicherungsberater bei SWICA bist du nah bei unseren Kundinnen und Kunden: zu Hause, in der Agentur oder digital. Du überzeugst mit Empathie und baust langfristige Beziehungen auf. Und das bei der Nummer 1 in Kundenzufriedenheit. Quereinsteigerinnen und Quereinsteiger willkommen – wir machen dich zum Profi.\nDu bist eine motivierte Persönlichkeit mit Verkaufsflair, hoher Leistungsbereitschaft und Freude am Kontakt mit Menschen? Du gehst aktiv auf andere zu, baust gerne Beziehungen auf und bringst idealerweise ein gutes Netzwerk in Verein, Sport oder Gesellschaft mit? Die notwendige Zertifizierung zur Beratung unserer Kunden wirst du in der Probezeit mit professioneller Unterstützung unserer Markt Academy absolvieren.\nSo gestaltest du Gesundheit mit\n\n• Gewinnung von Neukunden im Privat- und Geschäftsumfeld durch aktives Networking im Einzugsgebiet Biel/Seeland und Berner Jura\n• Beratung von Privat- und Geschäftskunden, welche über unser Telemarketing und Eigenaktivitäten akquirie, Vrt wurden\n• Ausbau des Kundenstammes sowie Sicherstellung einer hohen Kundenzufriedenheit\n• Aktivitäten zur Bestandserhaltung im Auftrag des Vorgesetzten\n• Unterstützung des Vorgesetzten bei der Beschaffung, Aufbereitung und Analyse von Informationen zu Markt, Konkurrenz und Branchenentwicklung\n• Aktive Mitarbeit bei Verkaufsaktivitäten und Events\n• Erreichung der jährlichen Verkaufsziele\nDas zeichnet dich aus\n\n• Erfolgsorientierte Persönlichkeit mit einer hohen Leistungsbereitschaft\n• Abgeschlossene Grundausbildung sowie einige Jahre Berufserfahrung\n• VBV-Ausbildung vorhanden oder Bereitschaft, diese zu absolvieren\n• Kommunikationsstarke Persönlichkeit mit stilsicherem Deutsch sowie sehr guten bis verhandlungssicheren Französischkenntnissen\n• Gewinnende und belastbare Persönlichkeit kombiniert mit einer hohen Kunden- und Dienstleistungsorientierung\nWarum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und der Möglichkeit für Ferienzukauf nimmst du dir Auszeiten, wann du sie brauchst.\n• Wir schätzen deine Arbeit und honorieren sie – mit Flottenrabatten bei verschiedenen Autoherstellern, einer Jahrespauschale und grosszügiger Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\nSabina Ille, gibt dir gerne Auskunft.",
-        "fr": "Conseiller les gens, gagner pour des sujets de santé – et grandir vous-même. En tant que consultant en assurance chez SWICA, vous êtes proche de nos clients : à la maison, dans l'agence ou numériquement. Vous convainquez avec empathie et construisez des relations à long terme. Et ceci au numéro 1 dans la satisfaction du client. Nous vous faisons un professionnel.\nÊtes-vous une personnalité motivée avec un style de vente, une grande volonté de jouer et de plaisir en contact avec les gens? Vous approchez activement les autres, comme construire des relations et idéalement apporter un bon réseau dans le club, le sport ou la société? Vous compléterez la certification nécessaire pour conseiller nos clients pendant la période de stage avec le soutien professionnel de notre Académie de marché.\nVoilà comment vous façonnez la santé\n\n• Acquisition de nouveaux clients dans l'environnement privé et commercial grâce à une mise en réseau active dans les bassins versants de Biel/Seeland et de Bern Jura\n• Conseiller les clients privés et commerciaux qui ont été acquis par le biais de nos activités de télémarketing et de propriété\n• Élargissement de la clientèle et garantie d'un haut niveau de satisfaction de la clientèle\n• Activités de conservation au nom du supérieur\n• Appui du superviseur à l'acquisition, à la préparation et à l'analyse des informations sur le marché, la concurrence et le développement de l'industrie\n• Participation active aux activités et événements de vente\n• Réalisation des objectifs annuels en matière de ventes\nCela vous distingue\n\n• Personnalité orientée vers le succès avec une grande volonté de réaliser\n• Formation de base terminée et quelques années d'expérience professionnelle\n• Formation VBV disponible ou prêt à l'achever\n• Personnalité de communication forte avec l'allemand élégant ainsi que très bonne à la connaissance négociable du français\n• Personnalité gagnante et résiliente associée à un niveau élevé d'orientation client et de service\nPourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous nous concentrons sur l'ouverture, le respect et la confiance dans notre travail quotidien. Nous assumons la responsabilité et pensons en termes de solutions – ensemble, pour nos clients. C'est aussi la raison pour laquelle nous sommes le numéro 1 en satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous donnons de l'espace. Avec des heures de travail annuelles, au moins 5 semaines de vacances et la possibilité d'acheter des vacances, vous prenez des congés lorsque vous en avez besoin.\n• Nous apprécions votre travail et le récompensons – avec des rabais sur la flotte dans divers constructeurs automobiles, une somme forfaitaire annuelle et une participation généreuse à l'assurance de base et supplémentaire pour vous et votre famille.\n• Nous vous offrons des perspectives. Avec une réglementation de formation généreuse, nous soutenons votre développement professionnel et personnel – pour votre rôle aujourd'hui et pour vos objectifs de demain.\n• Parce que la santé est tout. Avec notre entreprise de gestion de la santé et des offres spécifiques à la région, nous prenons soin de votre bien-être. Et s'il en est autrement : 100% de salaire net continu.\n• Nous pensons à long terme. Avec trois régimes d'épargne, une déduction de coordination dépendante du capital-investissement et des avantages bien au-dessus du minimum légal, vous assurez le bien pour votre avenir.\nSabina Ille, est heureuse de vous donner des informations."
-      },
-      "needsRetranslation": false,
-      "location": "Biel",
-      "canton": "BE",
-      "url": "https://jobs.swica.ch/offene-stellen/versicherungsberater-quereinstieg-alle/1bd55bc3-8057-4b0a-869b-2664d77e5be7",
-      "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:35.690Z",
-      "addressLocality": "Biel",
-      "addressRegion": "BE",
-      "streetAddress": "Aarbergstrasse 121",
-      "postalCode": "2502",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-21",
-      "postedDate": "2026-07-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.swica.ch/offene-stellen/versicherungsberater-quereinstieg-alle/1bd55bc3-8057-4b0a-869b-2664d77e5be7",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "versicherungsberater-quereinstieg-alle-swica-biel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "versicherungsberater-quereinstieg-alle-swica-biel"
-        ],
-        "en": [
-          "versicherungsberater-quereinstieg-alle-swica-biel"
-        ],
-        "fr": [
-          "versicherungsberater-quereinstieg-alle-swica-biel"
-        ]
-      },
-      "firstSeenAt": "2026-07-21T22:44:18.579Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "swica-e77a7c8fa913",
       "slug": "servizi-del-personale-all-estero-tutti-swica-gesundheitsorganisation-basel",
       "slugByLocale": {
@@ -715,7 +635,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungen-ausland-alle/0f0ca9a5-8730-47fb-97c8-4ef72ddd5cb1",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:35.326Z",
+      "crawledAt": "2026-10-21T09:23:09.705Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt 56",
@@ -809,7 +729,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/leiter-agentur-alle/ea1d7774-446c-4dbc-8b8a-45d805024f45",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:34.976Z",
+      "crawledAt": "2026-10-21T09:23:09.348Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "streetAddress": "Bahnhofstrasse 86",
@@ -861,86 +781,6 @@
       }
     },
     {
-      "id": "swica-c2d5a8d03193",
-      "slug": "indennita-giornaliera-medica-servizio-e-supporto-tutti-swica-gesundheitsorganisation-bern",
-      "slugByLocale": {
-        "it": "indennita-giornaliera-medica-servizio-e-supporto-tutti-swica-gesundheitsorganisation-bern",
-        "en": "medical-day-allowance-service-support-all-swica-gesundheitsorganisation-bern",
-        "de": "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern",
-        "fr": "indemnite-journaliere-medicale-service-et-soutien-tous-swica-gesundheitsorganisation-bern"
-      },
-      "company": "SWICA Gesundheitsorganisation",
-      "companyKey": "swica",
-      "companyDomain": "swica.ch",
-      "title": "Sachbearbeiter Krankentaggeld Service & Support (alle)",
-      "titleByLocale": {
-        "it": "Indennità giornaliera medica Servizio e supporto (tutti)",
-        "en": "Medical day allowance Service & Support (all)",
-        "de": "Sachbearbeiter Krankentaggeld Service & Support (alle)",
-        "fr": "Indemnité journalière médicale Service et soutien (tous)"
-      },
-      "description": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\n So gestaltest du Gesundheit mit\nFür diese spannende und verantwortungsvolle Funktion suchen wir eine zuverlässige, strukturierte und belastbare Persönlichkeit mit ausgeprägter Dienstleistungsorientierung und Freude daran, in einem anspruchsvollen Umfeld selbstständig Verantwortung zu übernehmen.\nDu arbeitest eng mit erfahrenen Mitarbeitenden der KTG-Fallbearbeitung zusammen und übernimmst einen wichtigen Beitrag dazu, dass unsere Leistungsfälle effizient, zuverlässig und kundenorientiert bearbeitet werden.\nDabei kannst du deine Fachkenntnisse einbringen, Verantwortung für eigene Aufgabenbereiche übernehmen und dich fachlich im KTG- und Leistungsmanagement weiterentwickeln.\n\n• Du stellst die Erfassung, Triage und administrative Bearbeitung neuer KTG-Fallmeldungen sicher und bearbeitest die dir zugewiesenen Kleinfälle selbstständig.\n• Du unterstützt die Fallbearbeitenden bei der Vor- und Nachbearbeitung von Leistungsfällen und sorgst für eine effiziente administrative Abwicklung.\n• Du bearbeitest Leistungskorrekturen, offene Aufgaben und Falldossiers in Syrius und stellst eine termingerechte Erledigung sicher.\n• Du koordinierst und bearbeitest die verschiedenen KTG-/ATG-Postfächer und Postkörbe.\n• Du übernimmst administrative Aufgaben rund um Falldossiers, Korrespondenz, Akten und abgeschlossene Leistungsfälle.\n• Du erfasst und verarbeitest Rechnungen von medizinischen und weiteren Netzwerkpartnern, beispielsweise von Ärzt:innen, Gutachter:innen und Case-Management-Partnern.\n• Du unterstützt unsere Kund:innen bei der eCase-Fallerfassung und bei entsprechenden Anfragen.\n• Du führst definierte Kontrollen im Rahmen des internen Kontrollsystems (IKS) durch und dokumentierst diese.\n• Du arbeitest eng mit den Mitarbeitenden der KTG-Fallbearbeitung zusammen und stellst einen reibungslosen Informations- und Aufgabenfluss sicher.\n• Du übernimmst bei Bedarf Stellvertretungen innerhalb des Service- und Supportteams.\n Das zeichnet dich aus\n\n• Abgeschlossene Berufsausbildung (EFZ) als Kauffrau/Kaufmann oder in einem medizinischen Beruf\n• Mehrjährige Bürotätigkeit\n• Medizinische Kenntnisse von Vorteil\n• Kenntnisse der Versicherungsapplikation Syrius von Vorteil\n• Gute Anwenderkenntnisse in Word und Excel\n• Ausgeprägte Zahlenaffinität und Freude an einer sorgfältigen und genauen Arbeitsweise\n• Strukturierte, selbstständige und zuverlässige Persönlichkeit\n• Hohe Dienstleistungsorientierung und Freude an der Zusammenarbeit im Team\n• Sehr gute mündliche und schriftliche Ausdrucksfähigkeit in Deutsch\n• Gute Französisch- oder Englischkenntnisse von Vorteil\n• Bereitschaft, Verantwortung zu übernehmen und sich fachlich kontinuierlich weiterzuentwickeln\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
-      "descriptionByLocale": {
-        "it": "Ci impegniamo per la salute, perché la salute è tutto. Ci impegniamo in questo senso anche come datori di lavoro. Siamo convinti che solo in un mondo lavorativo sano i migliori talenti si sentono a proprio agio e progrediscono: professionalmente e personalmente. Diamo tutto per questo.\nEcco come modelli la tua salute\nPer questo ruolo entusiasmante e responsabile, cerchiamo una personalità affidabile, strutturata e resiliente con un forte orientamento al servizio e gioia nell'assumersi responsabilità in modo indipendente in un ambiente esigente.\nLavorerai a stretto contatto con i dipendenti esperti nell'elaborazione dei casi KTG e fornirai un contributo importante per garantire che i nostri casi di benefit siano elaborati in modo efficiente, affidabile e orientato al cliente.\nPuoi contribuire con le tue conoscenze specialistiche, assumerti la responsabilità delle tue aree di responsabilità e svilupparti professionalmente nel KTG e nella gestione delle prestazioni.\n\n• Garantisci la registrazione, il triage e l'elaborazione amministrativa delle nuove segnalazioni di casi KTG ed elabori in modo indipendente i piccoli casi che ti vengono assegnati.\n• Sostieni gli operatori del caso nella fase preliminare e successiva all'elaborazione dei casi di indennità e garantisci un'elaborazione amministrativa efficiente.\n• Elabori le correzioni delle prestazioni, apri le attività e i file dei casi in Syrius e ti assicuri che siano completati in tempo.\n• Coordini ed elabori le varie caselle di posta KTG/ATG e i cestini della posta.\n• Ti occuperai di compiti amministrativi relativi a fascicoli, corrispondenza, fascicoli e casi di benefici completati.\n• Registrate ed elaborate le fatture dei medici e di altri partner della rete, come medici, esperti e partner di gestione dei casi.\n• Supportate i nostri clienti nella registrazione del caso eCase e nelle relative richieste.\n• Eseguite i controlli definiti come parte del sistema di controllo interno (ICS) e documentateli.\n• Lavori a stretto contatto con i dipendenti della gestione dei casi KTG e garantisci un flusso regolare di informazioni e attività.\n• Se necessario, assumerai dei sostituti all'interno del team di servizio e di supporto.\nQuesto è ciò che ti distingue\n\n• Formazione professionale completata (EFZ) come imprenditrice o professione medica\n• Diversi anni di lavoro d'ufficio\n• La conoscenza medica è un vantaggio\n• La conoscenza dell'applicazione assicurativa Syrius costituisce un vantaggio\n• Buona conoscenza di Word ed Excel\n• Forte affinità per i numeri e mi piace lavorare con attenzione e precisione\n• Personalità strutturata, indipendente e affidabile\n• Elevato orientamento al servizio e piacere di lavorare insieme in una squadra\n• Ottime capacità di espressione orale e scritta in tedesco\n• Costituisce titolo preferenziale una buona conoscenza della lingua francese o inglese\n• Disponibilità ad assumersi responsabilità e ad evolversi continuamente professionalmente\nPerché SWICA\n\n• Costruiamo sull'umanità. Ecco perché mettiamo apertura, rispetto e fiducia al centro del nostro lavoro quotidiano. Ci impegniamo, ci assumiamo la responsabilità e pensiamo a soluzioni – insieme, per i nostri clienti. Anche per questo da molti anni siamo i numeri 1 nella soddisfazione del cliente.\n• Abbiamo fiducia in te e ti diamo spazio. Con orario di lavoro annuale, almeno 5 settimane di ferie e, se lo si desidera, ferie aggiuntive. Con modelli part-time e uno spazioso ufficio in casa nell'ambito della posizione, puoi strutturare la tua vita quotidiana in modo ampiamente flessibile.\n• Apprezziamo e premiamo il vostro lavoro – con un salario adeguato al mercato, fino a 1500 franchi, un sussidio annuo per desideri personali e un generoso contributo all'assicurazione di base e complementare per voi e la vostra famiglia.\n• Vi offriamo prospettive. Supportiamo il tuo sviluppo professionale e personale con generose norme di formazione – per il tuo ruolo oggi e per i tuoi obiettivi domani.\n• Perché la salute è tutto. Con la nostra gestione della salute aziendale e le offerte specifiche per regione ci prendiamo cura del vostro benessere. E se le cose vanno diversamente: stipendio netto al 100% pagamento continuato.\n• Pensiamo a lungo termine. Con tre piani di risparmio, una trattenuta di coordinamento in funzione del carico di lavoro e prestazioni nettamente superiori al minimo legale potrete prendervi cura del vostro futuro.\nSabina Ille, sarà lieta di darvi informazioni.",
-        "en": "We are committed to health – because health is everything. We are committed to this, also as an employer. We are convinced that only in a healthy working world do the best talents feel comfortable and advance: professionally and personally. We give everything for that.\nThis is how you shape your health\nFor this exciting and responsible role, we are looking for a reliable, structured and resilient personality with a strong service orientation and joy in taking on responsibility independently in a demanding environment.\nYou will work closely with experienced KTG case processing employees and make an important contribution to ensuring that our benefit cases are processed efficiently, reliably and in a customer-oriented manner.\nYou can contribute your specialist knowledge, take responsibility for your own areas of responsibility and develop professionally in KTG and performance management.\n\n• You ensure the recording, triage and administrative processing of new KTG case reports and independently process the small cases assigned to you.\n• You support case workers in the pre- and post-processing of benefit cases and ensure efficient administrative processing.\n• You process performance corrections, open tasks and case files in Syrius and ensure that they are completed on time.\n• You coordinate and process the various KTG/ATG mailboxes and mail baskets.\n• You will take on administrative tasks relating to case dossiers, correspondence, files and completed benefit cases.\n• You record and process invoices from medical and other network partners, such as doctors, experts and case management partners.\n• You support our customers with eCase case registration and with corresponding inquiries.\n• You carry out defined controls as part of the internal control system (ICS) and document them.\n• You work closely with the KTG case management employees and ensure a smooth flow of information and tasks.\n• If necessary, you will take on deputies within the service and support team.\nThis is what sets you apart\n\n• Completed vocational training (EFZ) as a businesswoman or in a medical profession\n• Several years of office work\n• Medical knowledge an advantage\n• Knowledge of the Syrius insurance application is an advantage\n• Good user knowledge of Word and Excel\n• Strong affinity for numbers and enjoy working carefully and accurately\n• Structured, independent and reliable personality\n• High service orientation and enjoyment of working together in a team\n• Very good oral and written expression skills in German\n• Good knowledge of French or English is an advantage\n• Willingness to take on responsibility and continually develop professionally\nWhy SWICA\n\n• We build on humanity. That's why we put openness, respect and trust at the center of our everyday work. We get involved, take responsibility and think of solutions – together, for our customers. This is also why we have been number 1 in customer satisfaction for many years.\n• We trust you and give you space. With annual working hours, at least 5 weeks of vacation and, if desired, additional vacation time. With part-time models and a spacious home office within the scope of the position, you can structure your everyday life largely flexibly.\n• We value and reward your work – with a wage in line with the market, up to 1,500 francs an annual allowance for personal wishes and a generous contribution to the basic and supplementary insurance for you and your family.\n• We offer you perspectives. We support your professional and personal development with generous training regulations – for your role today and for your goals tomorrow.\n• Because health is everything. With our company health management and region-specific offers, we take care of your well-being. And if things turn out differently: 100% net salary continued payment.\n• We think long-term. With three savings plans, a workload-dependent coordination deduction and benefits well above the legal minimum, you can take good care of your future.\nSabina Ille, will be happy to give you information.",
-        "de": "Wir engagieren uns für die Gesundheit – weil Gesundheit alles ist. Dafür setzen wir uns ein, auch als Arbeitgeberin. Wir sind überzeugt: Nur in einer gesunden Arbeitswelt fühlen sich die besten Talente wohl und kommen weiter: beruflich wie persönlich. Dafür geben wir alles.\nSo gestaltest du Gesundheit mit\nFür diese spannende und verantwortungsvolle Funktion suchen wir eine zuverlässige, strukturierte und belastbare Persönlichkeit mit ausgeprägter Dienstleistungsorientierung und Freude daran, in einem anspruchsvollen Umfeld selbstständig Verantwortung zu übernehmen.\nDu arbeitest eng mit erfahrenen Mitarbeitenden der KTG-Fallbearbeitung zusammen und übernimmst einen wichtigen Beitrag dazu, dass unsere Leistungsfälle effizient, zuverlässig und kundenorientiert bearbeitet werden.\nDabei kannst du deine Fachkenntnisse einbringen, Verantwortung für eigene Aufgabenbereiche übernehmen und dich fachlich im KTG- und Leistungsmanagement weiterentwickeln.\n\n• Du stellst die Erfassung, Triage und administrative Bearbeitung neuer KTG-Fallmeldungen sicher und bearbeitest die dir zugewiesenen Kleinfälle selbstständig.\n• Du unterstützt die Fallbearbeitenden bei der Vor- und Nachbearbeitung von Leistungsfällen und sorgst für eine effiziente administrative Abwicklung.\n• Du bearbeitest Leistungskorrekturen, offene Aufgaben und Falldossiers in Syrius und stellst eine termingerechte Erledigung sicher.\n• Du koordinierst und bearbeitest die verschiedenen KTG-/ATG-Postfächer und Postkörbe.\n• Du übernimmst administrative Aufgaben rund um Falldossiers, Korrespondenz, Akten und abgeschlossene Leistungsfälle.\n• Du erfasst und verarbeitest Rechnungen von medizinischen und weiteren Netzwerkpartnern, beispielsweise von Ärzt:innen, Gutachter:innen und Case-Management-Partnern.\n• Du unterstützt unsere Kund:innen bei der eCase-Fallerfassung und bei entsprechenden Anfragen.\n• Du führst definierte Kontrollen im Rahmen des internen Kontrollsystems (IKS) durch und dokumentierst diese.\n• Du arbeitest eng mit den Mitarbeitenden der KTG-Fallbearbeitung zusammen und stellst einen reibungslosen Informations- und Aufgabenfluss sicher.\n• Du übernimmst bei Bedarf Stellvertretungen innerhalb des Service- und Supportteams.\nDas zeichnet dich aus\n\n• Abgeschlossene Berufsausbildung (EFZ) als Kauffrau/Kaufmann oder in einem medizinischen Beruf\n• Mehrjährige Bürotätigkeit\n• Medizinische Kenntnisse von Vorteil\n• Kenntnisse der Versicherungsapplikation Syrius von Vorteil\n• Gute Anwenderkenntnisse in Word und Excel\n• Ausgeprägte Zahlenaffinität und Freude an einer sorgfältigen und genauen Arbeitsweise\n• Strukturierte, selbstständige und zuverlässige Persönlichkeit\n• Hohe Dienstleistungsorientierung und Freude an der Zusammenarbeit im Team\n• Sehr gute mündliche und schriftliche Ausdrucksfähigkeit in Deutsch\n• Gute Französisch- oder Englischkenntnisse von Vorteil\n• Bereitschaft, Verantwortung zu übernehmen und sich fachlich kontinuierlich weiterzuentwickeln\nWarum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\nSabina Ille, gibt dir gerne Auskunft.",
-        "fr": "Nous nous engageons en faveur de la santé – parce que la santé est primordiale. Nous nous y engageons également en tant qu’employeur. Nous sommes convaincus que ce n'est que dans un monde du travail sain que les meilleurs talents se sentent à l'aise et progressent : professionnellement et personnellement. On donne tout pour ça.\nC'est ainsi que vous façonnez votre santé\nPour ce rôle passionnant et responsable, nous recherchons une personnalité fiable, structurée et résiliente, avec une forte orientation service et une joie d'assumer des responsabilités de manière indépendante dans un environnement exigeant.\nVous travaillerez en étroite collaboration avec des employés expérimentés du traitement des dossiers de KTG et apporterez une contribution importante pour garantir que nos dossiers de prestations soient traités de manière efficace, fiable et orientée client.\nVous pouvez apporter vos connaissances spécialisées, assumer la responsabilité de vos propres domaines de responsabilité et vous développer professionnellement dans le KTG et la gestion des performances.\n\n• Vous assurez l'enregistrement, le tri et le traitement administratif des nouvelles déclarations de cas KTG et traitez en toute autonomie les petits dossiers qui vous sont confiés.\n• Vous assistez les assistants sociaux dans le pré- et post-traitement des dossiers de prestations et assurez un traitement administratif efficace.\n• Vous traitez les corrections de performance, ouvrez les tâches et les dossiers dans Syrius et assurez-vous qu'ils sont terminés à temps.\n• Vous coordonnez et traitez les différentes boîtes aux lettres et corbeilles postales KTG/ATG.\n• Vous assumerez des tâches administratives liées aux dossiers, à la correspondance, aux dossiers et aux dossiers de prestations complétés.\n• Vous enregistrez et traitez les factures des partenaires médicaux et autres partenaires du réseau, tels que les médecins, les experts et les partenaires de gestion de cas.\n• Vous assistez nos clients dans l'enregistrement des dossiers eCase et dans les demandes correspondantes.\n• Vous effectuez les contrôles définis dans le cadre du système de contrôle interne (ICS) et les documentez.\n• Vous travaillez en étroite collaboration avec les employés de gestion de cas de KTG et assurez un flux fluide d'informations et de tâches.\n• Si nécessaire, vous recruterez des adjoints au sein de l'équipe de service et de support.\nC'est ce qui vous distingue\n\n• Formation professionnelle terminée (EFZ) en tant que femme d'affaires ou dans une profession médicale\n• Plusieurs années de travail de bureau\n• Connaissances médicales, un avantage\n• La connaissance de l'application d'assurance Syrius est un avantage\n• Bonne connaissance utilisateur de Word et Excel\n• Forte affinité pour les chiffres et plaisir à travailler avec soin et précision\n• Personnalité structurée, indépendante et fiable\n• Grande orientation vers le service et plaisir de travailler en équipe\n• Très bonnes compétences d'expression orale et écrite en allemand\n• Une bonne connaissance du français ou de l'anglais est un avantage\n• Volonté d'assumer des responsabilités et de se développer continuellement professionnellement\nPourquoi SWICA\n\n• Nous bâtissons sur l'humanité. C'est pourquoi nous plaçons l'ouverture, le respect et la confiance au centre de notre travail quotidien. Nous nous impliquons, assumons nos responsabilités et réfléchissons à des solutions – ensemble, pour nos clients. C'est aussi pour cela que nous sommes numéro 1 en matière de satisfaction client depuis de nombreuses années.\n• Nous vous faisons confiance et vous laissons de l'espace. Avec une durée de travail annuelle, au moins 5 semaines de vacances et, si vous le souhaitez, des vacances supplémentaires. Avec des modèles à temps partiel et un bureau à domicile spacieux dans le cadre du poste, vous pouvez structurer votre vie quotidienne de manière largement flexible.\n• Nous valorisons et récompensons votre travail – avec un salaire conforme au marché, jusqu'à 1'500 francs, une allocation annuelle pour souhaits personnels et une généreuse contribution à l'assurance de base et complémentaire pour vous et votre famille.\n• Nous vous proposons des perspectives. Nous soutenons votre développement professionnel et personnel par des réglementations de formation généreuses – pour votre rôle d’aujourd’hui et pour vos objectifs de demain.\n• Parce que la santé est primordiale. Avec notre gestion de la santé en entreprise et nos offres spécifiques aux régions, nous veillons à votre bien-être. Et si les choses se passent autrement : maintien du paiement du salaire net à 100 %.\n• Nous pensons à long terme. Avec trois plans d'épargne, une déduction de coordination en fonction de la charge de travail et des prestations bien supérieures au minimum légal, vous pouvez prendre soin de votre avenir.\nSabina Ille, se fera un plaisir de vous renseigner."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-krankentaggeld-service-support-alle/5f9b5f12-4347-40b9-82f9-59e8cb00a6ac",
-      "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:34.632Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "streetAddress": "Schwarzenburgstrasse 160",
-      "postalCode": "3004",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-01",
-      "postedDate": "2026-09-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-krankentaggeld-service-support-alle/5f9b5f12-4347-40b9-82f9-59e8cb00a6ac",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-        ],
-        "en": [
-          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-        ],
-        "fr": [
-          "sachbearbeiter-krankentaggeld-service-amp-support-alle-swica-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T14:19:11.123Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "swica-b8aab8b27986",
       "slug": "dottor-telemedicina-tutti-sante24-winterthur",
       "slugByLocale": {
@@ -972,7 +812,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/arzt-aerztin-telemedizin-alle/841d2cc0-3ea4-4918-8288-93d443706025",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:34.177Z",
+      "crawledAt": "2026-10-21T09:23:08.897Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1056,7 +896,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-software-packager-alle/e0f4de32-2298-4e4b-92ac-665eea2eabb5",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:33.822Z",
+      "crawledAt": "2026-10-21T09:23:08.441Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1134,7 +974,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/underwriter-unternehmensgeschaeft-alle/f9ff186b-22fa-48a3-888f-4409cd056563",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:33.362Z",
+      "crawledAt": "2026-10-21T09:23:07.992Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1215,7 +1055,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/2aa8a610-024b-48e3-b95b-7355e65404c0",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:33.014Z",
+      "crawledAt": "2026-10-21T09:23:07.637Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Poststrasse 19",
@@ -1295,7 +1135,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/application-manager-coredata-automation-alle/00e48b77-75d6-4793-8049-37b04ecb1f75",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:32.650Z",
+      "crawledAt": "2026-10-21T09:23:07.274Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -1372,7 +1212,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-m365-engineer-alle/b157ce54-2866-4607-a862-c0593e94009a",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:32.285Z",
+      "crawledAt": "2026-10-21T09:23:06.914Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1450,7 +1290,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/2627f149-a164-42a5-a6e3-020d219b5621",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:31.921Z",
+      "crawledAt": "2026-10-21T09:23:06.563Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "streetAddress": "Kasernenstrasse 6",
@@ -1531,7 +1371,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/899c86e0-9b46-4f47-8b00-13c932e99421",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:31.578Z",
+      "crawledAt": "2026-10-21T09:23:06.207Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt",
@@ -1616,7 +1456,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/1ecd2939-cc80-4d0b-9b91-d483ade65e33",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:31.121Z",
+      "crawledAt": "2026-10-21T09:23:05.744Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenvorstadt",
@@ -1697,7 +1537,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/senior-martech-specialist-alle/a77d0da5-e9e3-4fcd-b0fd-589e4d649b42",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:30.764Z",
+      "crawledAt": "2026-10-21T09:23:05.376Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Römerstrasse 37",
@@ -1774,7 +1614,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/conseiller-service-clientele-neuchatel-tous/d6bbb7af-c36c-4dca-933c-57e33003d422",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:21:30.294Z",
+      "crawledAt": "2026-10-21T09:23:04.872Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Rue du Seyon 5",
@@ -1855,7 +1695,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-leistungsmanagement-uvg-alle/3d0002cf-95ad-4201-a4f2-c10c81142e0e",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:29.838Z",
+      "crawledAt": "2026-10-21T09:23:04.403Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Zürcherstrasse 31",
@@ -1935,7 +1775,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/7d83d97b-f7d8-4ba1-a743-1069a127338d",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:29.493Z",
+      "crawledAt": "2026-10-21T09:23:04.036Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "streetAddress": "Bahnhofstrasse 8",
@@ -2016,7 +1856,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-gesundheit-alle/5267c4f4-f29e-4096-abfb-09aae5df5a92",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:29.035Z",
+      "crawledAt": "2026-10-21T09:23:03.569Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "Aeschenplatz",
@@ -2097,7 +1937,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/underwriter-unternehmensgeschaeft-alle/e7917d0b-28ec-4e70-a09e-3f8cf84e1b9c",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:28.673Z",
+      "crawledAt": "2026-10-21T09:23:03.218Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -2178,7 +2018,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/kundenberater-alle/e359d94a-74c5-4318-b4d6-384af4898864",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:28.217Z",
+      "crawledAt": "2026-10-21T09:23:02.736Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Teufener Strasse 5",
@@ -2259,7 +2099,7 @@
       "url": "https://jobs.swica.ch/offene-stellen/sachbearbeiter-vertragsservices-alle/e4184180-4ded-4f76-84fe-6fb210931906",
       "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:21:27.744Z",
+      "crawledAt": "2026-10-21T09:23:02.376Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Zollstrasse 42",
@@ -2307,6 +2147,144 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "swica-9ec8a148213b",
+      "slug": "kundenberater-aussendienst-quereinstieg-moglich-alle-swica-biel",
+      "slugByLocale": {
+        "de": "kundenberater-aussendienst-quereinstieg-moglich-alle-swica-biel",
+        "it": "kundenberater-aussendienst-quereinstieg-moglich-alle-swica-biel",
+        "en": "kundenberater-aussendienst-quereinstieg-moglich-alle-swica-biel",
+        "fr": "kundenberater-aussendienst-quereinstieg-moglich-alle-swica-biel"
+      },
+      "company": "SWICA Gesundheitsorganisation",
+      "companyKey": "swica",
+      "companyDomain": "swica.ch",
+      "title": "Kundenberater Aussendienst Quereinstieg möglich (alle)",
+      "titleByLocale": {
+        "de": "Kundenberater Aussendienst Quereinstieg möglich (alle)",
+        "it": "Kundenberater Aussendienst Cambio carriera möglich (alle)",
+        "en": "Kundenberater Aussendienst Quereinstieg möglich (alle)",
+        "fr": "Kundenberater Aussendienst Quereinstieg möglich (alle)"
+      },
+      "description": "Du arbeitest gerne mit Menschen, möchtest beruflich den nächsten Schritt machen und bist bereit, Verantwortung für deinen Erfolg zu übernehmen? Dann bist du bei SWICA genau richtig.\nFür unser Verkaufsteam in der Region Biel suchen wir motivierte Persönlichkeiten mit Freude am Kundenkontakt und dem Ehrgeiz, sich weiterzuentwickeln. Versicherungswissen musst du nicht mitbringen. Viel wichtiger sind Eigeninitiative, Fleiss und die Motivation, täglich etwas zu bewegen.\nBei SWICA profitierst du von einer fundierten Ausbildung, persönlicher Unterstützung durch erfahrene Kolleginnen und Kollegen sowie auch einem professionellen Support bei der Kundengewinnung. So kannst du dich auf das konzentrieren, was wirklich zählt: Menschen beraten, langfristige Beziehungen aufbauen und mit passenden Lösungen für Kundinnen und Kunden einen wichtigen Beitrag zu ihrer gesundheitlichen Zukunft und einer hohen Kundenzufriedenheit leisten. Wer Verantwortung übernimmt, Einsatz zeigt und Kunden begeistert, findet bei SWICA attraktive Entwicklungs- und Erfolgsperspektiven.\nOb du heute in der Gastronomie, im Detailhandel, im Handwerk, Gartenbau, in einer Dienstleistungsbranche oder im Verkauf tätig bist: Wenn du gerne auf Menschen zugehst und etwas erreichen möchtest, freuen wir uns darauf, dich kennenzulernen.\n So gestaltest du Gesundheit mit\n\n• Beratung von Privat- und Geschäftskunden zu Gesundheitsfragen sowie bei der Wahl von Versicherungslösungen, die sie heute und in Zukunft optimal begleiten\n• Betreuung von Interessenten und Kunden, welche über unser Telemarketing, Marketingaktivitäten sowie eigene Marktbearbeitung gewonnen werden\n• Aufbau und Weiterentwicklung eines eigenen Kundenportfolios im Privat- und Geschäftskundenbereich\n• Pflege langfristiger Kundenbeziehungen sowie Sicherstellung einer hohen Kundenzufriedenheit\n• Aktiver Aufbau und Pflege von Kontakten sowie Networking im Einzugsgebiet Biel/Seeland und Berner Jura\n• Aktive Mitarbeit bei Verkaufsaktivitäten, Partnerschaften und regionalen Events\n Das zeichnet dich aus\n\n• Erfolgsorientierte Persönlichkeit mit hoher Eigenmotivation und Leistungsbereitschaft\n• Freude daran, Verantwortung zu übernehmen und selbstständig zu arbeiten\n• Ausgeprägte Kontaktfreude sowie die Fähigkeit, Beziehungen aufzubauen\n• Abgeschlossene Grundausbildung sowie einige Jahre Berufserfahrung\n• Kommunikationsstarke Persönlichkeit mit stilsicherem Deutsch sowie guten bis verhandlungssicheren Französischkenntnissen\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n• Du musst kein Versicherungsprofi sein. Die erforderlichen Zertifizierungen für die Kundenberatung erwirbst du mit unserer Unterstützung während deiner Einarbeitung.\n• Idealerweise verfügst du über Kontakte oder ein Netzwerk in der Region\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und der Möglichkeit für Ferienzukauf nimmst du dir Auszeiten, wann du sie brauchst.\n• Wir schätzen deine Arbeit und honorieren sie – mit Flottenrabatten bei verschiedenen Autoherstellern, einer Jahrespauschale und grosszügiger Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
+      "descriptionByLocale": {
+        "de": "Du arbeitest gerne mit Menschen, möchtest beruflich den nächsten Schritt machen und bist bereit, Verantwortung für deinen Erfolg zu übernehmen? Dann bist du bei SWICA genau richtig.\nFür unser Verkaufsteam in der Region Biel suchen wir motivierte Persönlichkeiten mit Freude am Kundenkontakt und dem Ehrgeiz, sich weiterzuentwickeln. Versicherungswissen musst du nicht mitbringen. Viel wichtiger sind Eigeninitiative, Fleiss und die Motivation, täglich etwas zu bewegen.\nBei SWICA profitierst du von einer fundierten Ausbildung, persönlicher Unterstützung durch erfahrene Kolleginnen und Kollegen sowie auch einem professionellen Support bei der Kundengewinnung. So kannst du dich auf das konzentrieren, was wirklich zählt: Menschen beraten, langfristige Beziehungen aufbauen und mit passenden Lösungen für Kundinnen und Kunden einen wichtigen Beitrag zu ihrer gesundheitlichen Zukunft und einer hohen Kundenzufriedenheit leisten. Wer Verantwortung übernimmt, Einsatz zeigt und Kunden begeistert, findet bei SWICA attraktive Entwicklungs- und Erfolgsperspektiven.\nOb du heute in der Gastronomie, im Detailhandel, im Handwerk, Gartenbau, in einer Dienstleistungsbranche oder im Verkauf tätig bist: Wenn du gerne auf Menschen zugehst und etwas erreichen möchtest, freuen wir uns darauf, dich kennenzulernen.\n So gestaltest du Gesundheit mit\n\n• Beratung von Privat- und Geschäftskunden zu Gesundheitsfragen sowie bei der Wahl von Versicherungslösungen, die sie heute und in Zukunft optimal begleiten\n• Betreuung von Interessenten und Kunden, welche über unser Telemarketing, Marketingaktivitäten sowie eigene Marktbearbeitung gewonnen werden\n• Aufbau und Weiterentwicklung eines eigenen Kundenportfolios im Privat- und Geschäftskundenbereich\n• Pflege langfristiger Kundenbeziehungen sowie Sicherstellung einer hohen Kundenzufriedenheit\n• Aktiver Aufbau und Pflege von Kontakten sowie Networking im Einzugsgebiet Biel/Seeland und Berner Jura\n• Aktive Mitarbeit bei Verkaufsaktivitäten, Partnerschaften und regionalen Events\n Das zeichnet dich aus\n\n• Erfolgsorientierte Persönlichkeit mit hoher Eigenmotivation und Leistungsbereitschaft\n• Freude daran, Verantwortung zu übernehmen und selbstständig zu arbeiten\n• Ausgeprägte Kontaktfreude sowie die Fähigkeit, Beziehungen aufzubauen\n• Abgeschlossene Grundausbildung sowie einige Jahre Berufserfahrung\n• Kommunikationsstarke Persönlichkeit mit stilsicherem Deutsch sowie guten bis verhandlungssicheren Französischkenntnissen\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n• Du musst kein Versicherungsprofi sein. Die erforderlichen Zertifizierungen für die Kundenberatung erwirbst du mit unserer Unterstützung während deiner Einarbeitung.\n• Idealerweise verfügst du über Kontakte oder ein Netzwerk in der Region\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und der Möglichkeit für Ferienzukauf nimmst du dir Auszeiten, wann du sie brauchst.\n• Wir schätzen deine Arbeit und honorieren sie – mit Flottenrabatten bei verschiedenen Autoherstellern, einer Jahrespauschale und grosszügiger Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
+        "it": "Du arbeitest gerne mit Menschen, möchtest beruflich den nächsten Schritt machen und bist bereit, Verantwortung für deinen Erfolg zu übernehmen? Dann bist du bei SWICA genau richtig.\nFür unser Verkaufsteam in der Region Biel suchen wir motivierte Persönlichkeiten mit Freude am Kundenkontakt und dem Ehrgeiz, sich weiterzuentwickeln. Versicherungswissen musst du nicht mitbringen. Viel wichtiger sind Eigeninitiative, Fleiss und die Motivation, täglich etwas zu bewegen.\nBei SWICA profitierst du von einer fundierten Ausbildung, persönlicher Unterstützung durch erfahrene Kolleginnen und Kollegen sowie auch einem professionellen Support bei der Kundengewinnung. So kannst du dich auf das konzentrieren, was wirklich zählt: Menschen beraten, langfristige Beziehungen aufbauen und mit passenden Lösungen für Kundinnen und Kunden einen wichtigen Beitrag zu ihrer gesundheitlichen Zukunft und einer hohen Kundenzufriedenheit leisten. Wer Verantwortung übernimmt, Einsatz zeigt und Kunden begeistert, findet bei SWICA attraktive Entwicklungs- und Erfolgsperspektiven.\nOb du heute in der Gastronomie, im Detailhandel, im Handwerk, Gartenbau, in einer Dienstleistungsbranche oder im Verkauf tätig bist: Wenn du gerne auf Menschen zugehst und etwas erreichen möchtest, freuen wir uns darauf, dich kennenzulernen.\n So gestaltest du Gesundheit mit\n\n• Beratung von Privat- und Geschäftskunden zu Gesundheitsfragen sowie bei der Wahl von Versicherungslösungen, die sie heute und in Zukunft optimal begleiten\n• Betreuung von Interessenten und Kunden, welche über unser Telemarketing, Marketingaktivitäten sowie eigene Marktbearbeitung gewonnen werden\n• Aufbau und Weiterentwicklung eines eigenen Kundenportfolios im Privat- und Geschäftskundenbereich\n• Pflege langfristiger Kundenbeziehungen sowie Sicherstellung einer hohen Kundenzufriedenheit\n• Aktiver Aufbau und Pflege von Kontakten sowie Networking im Einzugsgebiet Biel/Seeland und Berner Jura\n• Aktive Mitarbeit bei Verkaufsaktivitäten, Partnerschaften und regionalen Events\n Das zeichnet dich aus\n\n• Erfolgsorientierte Persönlichkeit mit hoher Eigenmotivation und Leistungsbereitschaft\n• Freude daran, Verantwortung zu übernehmen und selbstständig zu arbeiten\n• Ausgeprägte Kontaktfreude sowie die Fähigkeit, Beziehungen aufzubauen\n• Abgeschlossene Grundausbildung sowie einige Jahre Berufserfahrung\n• Kommunikationsstarke Persönlichkeit mit stilsicherem Deutsch sowie guten bis verhandlungssicheren Französischkenntnissen\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n• Du musst kein Versicherungsprofi sein. Die erforderlichen Zertifizierungen für die Kundenberatung erwirbst du mit unserer Unterstützung während deiner Einarbeitung.\n• Idealerweise verfügst du über Kontakte oder ein Netzwerk in der Region\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und der Möglichkeit für Ferienzukauf nimmst du dir Auszeiten, wann du sie brauchst.\n• Wir schätzen deine Arbeit und honorieren sie – mit Flottenrabatten bei verschiedenen Autoherstellern, einer Jahrespauschale und grosszügiger Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
+        "en": "Du arbeitest gerne mit Menschen, möchtest beruflich den nächsten Schritt machen und bist bereit, Verantwortung für deinen Erfolg zu übernehmen? Dann bist du bei SWICA genau richtig.\nFür unser Verkaufsteam in der Region Biel suchen wir motivierte Persönlichkeiten mit Freude am Kundenkontakt und dem Ehrgeiz, sich weiterzuentwickeln. Versicherungswissen musst du nicht mitbringen. Viel wichtiger sind Eigeninitiative, Fleiss und die Motivation, täglich etwas zu bewegen.\nBei SWICA profitierst du von einer fundierten Ausbildung, persönlicher Unterstützung durch erfahrene Kolleginnen und Kollegen sowie auch einem professionellen Support bei der Kundengewinnung. So kannst du dich auf das konzentrieren, was wirklich zählt: Menschen beraten, langfristige Beziehungen aufbauen und mit passenden Lösungen für Kundinnen und Kunden einen wichtigen Beitrag zu ihrer gesundheitlichen Zukunft und einer hohen Kundenzufriedenheit leisten. Wer Verantwortung übernimmt, Einsatz zeigt und Kunden begeistert, findet bei SWICA attraktive Entwicklungs- und Erfolgsperspektiven.\nOb du heute in der Gastronomie, im Detailhandel, im Handwerk, Gartenbau, in einer Dienstleistungsbranche oder im Verkauf tätig bist: Wenn du gerne auf Menschen zugehst und etwas erreichen möchtest, freuen wir uns darauf, dich kennenzulernen.\n So gestaltest du Gesundheit mit\n\n• Beratung von Privat- und Geschäftskunden zu Gesundheitsfragen sowie bei der Wahl von Versicherungslösungen, die sie heute und in Zukunft optimal begleiten\n• Betreuung von Interessenten und Kunden, welche über unser Telemarketing, Marketingaktivitäten sowie eigene Marktbearbeitung gewonnen werden\n• Aufbau und Weiterentwicklung eines eigenen Kundenportfolios im Privat- und Geschäftskundenbereich\n• Pflege langfristiger Kundenbeziehungen sowie Sicherstellung einer hohen Kundenzufriedenheit\n• Aktiver Aufbau und Pflege von Kontakten sowie Networking im Einzugsgebiet Biel/Seeland und Berner Jura\n• Aktive Mitarbeit bei Verkaufsaktivitäten, Partnerschaften und regionalen Events\n Das zeichnet dich aus\n\n• Erfolgsorientierte Persönlichkeit mit hoher Eigenmotivation und Leistungsbereitschaft\n• Freude daran, Verantwortung zu übernehmen und selbstständig zu arbeiten\n• Ausgeprägte Kontaktfreude sowie die Fähigkeit, Beziehungen aufzubauen\n• Abgeschlossene Grundausbildung sowie einige Jahre Berufserfahrung\n• Kommunikationsstarke Persönlichkeit mit stilsicherem Deutsch sowie guten bis verhandlungssicheren Französischkenntnissen\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n• Du musst kein Versicherungsprofi sein. Die erforderlichen Zertifizierungen für die Kundenberatung erwirbst du mit unserer Unterstützung während deiner Einarbeitung.\n• Idealerweise verfügst du über Kontakte oder ein Netzwerk in der Region\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und der Möglichkeit für Ferienzukauf nimmst du dir Auszeiten, wann du sie brauchst.\n• Wir schätzen deine Arbeit und honorieren sie – mit Flottenrabatten bei verschiedenen Autoherstellern, einer Jahrespauschale und grosszügiger Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft.",
+        "fr": "Du arbeitest gerne mit Menschen, möchtest beruflich den nächsten Schritt machen und bist bereit, Verantwortung für deinen Erfolg zu übernehmen? Dann bist du bei SWICA genau richtig.\nFür unser Verkaufsteam in der Region Biel suchen wir motivierte Persönlichkeiten mit Freude am Kundenkontakt und dem Ehrgeiz, sich weiterzuentwickeln. Versicherungswissen musst du nicht mitbringen. Viel wichtiger sind Eigeninitiative, Fleiss und die Motivation, täglich etwas zu bewegen.\nBei SWICA profitierst du von einer fundierten Ausbildung, persönlicher Unterstützung durch erfahrene Kolleginnen und Kollegen sowie auch einem professionellen Support bei der Kundengewinnung. So kannst du dich auf das konzentrieren, was wirklich zählt: Menschen beraten, langfristige Beziehungen aufbauen und mit passenden Lösungen für Kundinnen und Kunden einen wichtigen Beitrag zu ihrer gesundheitlichen Zukunft und einer hohen Kundenzufriedenheit leisten. Wer Verantwortung übernimmt, Einsatz zeigt und Kunden begeistert, findet bei SWICA attraktive Entwicklungs- und Erfolgsperspektiven.\nOb du heute in der Gastronomie, im Detailhandel, im Handwerk, Gartenbau, in einer Dienstleistungsbranche oder im Verkauf tätig bist: Wenn du gerne auf Menschen zugehst und etwas erreichen möchtest, freuen wir uns darauf, dich kennenzulernen.\n So gestaltest du Gesundheit mit\n\n• Beratung von Privat- und Geschäftskunden zu Gesundheitsfragen sowie bei der Wahl von Versicherungslösungen, die sie heute und in Zukunft optimal begleiten\n• Betreuung von Interessenten und Kunden, welche über unser Telemarketing, Marketingaktivitäten sowie eigene Marktbearbeitung gewonnen werden\n• Aufbau und Weiterentwicklung eines eigenen Kundenportfolios im Privat- und Geschäftskundenbereich\n• Pflege langfristiger Kundenbeziehungen sowie Sicherstellung einer hohen Kundenzufriedenheit\n• Aktiver Aufbau und Pflege von Kontakten sowie Networking im Einzugsgebiet Biel/Seeland und Berner Jura\n• Aktive Mitarbeit bei Verkaufsaktivitäten, Partnerschaften und regionalen Events\n Das zeichnet dich aus\n\n• Erfolgsorientierte Persönlichkeit mit hoher Eigenmotivation und Leistungsbereitschaft\n• Freude daran, Verantwortung zu übernehmen und selbstständig zu arbeiten\n• Ausgeprägte Kontaktfreude sowie die Fähigkeit, Beziehungen aufzubauen\n• Abgeschlossene Grundausbildung sowie einige Jahre Berufserfahrung\n• Kommunikationsstarke Persönlichkeit mit stilsicherem Deutsch sowie guten bis verhandlungssicheren Französischkenntnissen\n• Gewinnende, belastbare und kundenorientierte Persönlichkeit\n• Du musst kein Versicherungsprofi sein. Die erforderlichen Zertifizierungen für die Kundenberatung erwirbst du mit unserer Unterstützung während deiner Einarbeitung.\n• Idealerweise verfügst du über Kontakte oder ein Netzwerk in der Region\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und der Möglichkeit für Ferienzukauf nimmst du dir Auszeiten, wann du sie brauchst.\n• Wir schätzen deine Arbeit und honorieren sie – mit Flottenrabatten bei verschiedenen Autoherstellern, einer Jahrespauschale und grosszügiger Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Sabina Ille, gibt dir gerne Auskunft."
+      },
+      "needsRetranslation": true,
+      "location": "Biel",
+      "canton": "BE",
+      "url": "https://jobs.swica.ch/offene-stellen/kundenberater-aussendienst-quereinstieg-moeglich-alle/428da041-2223-40bb-a917-97fd8591b987",
+      "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-21T09:23:02.029Z",
+      "addressLocality": "Biel",
+      "addressRegion": "BE",
+      "streetAddress": "Aarbergstrasse 121",
+      "postalCode": "2502",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Servizio Clienti",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.swica.ch/offene-stellen/kundenberater-aussendienst-quereinstieg-moeglich-alle/428da041-2223-40bb-a917-97fd8591b987",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-21T09:23:02.029Z"
+    },
+    {
+      "id": "swica-72599555f1a3",
+      "slug": "regionalleiter-vertrieb-privatkunden-alle-swica-winterthur",
+      "slugByLocale": {
+        "de": "regionalleiter-vertrieb-privatkunden-alle-swica-winterthur",
+        "it": "regionalleiter-vertrieb-privatkunden-alle-swica-winterthur",
+        "en": "regionalleiter-vertrieb-privatkunden-alle-swica-winterthur",
+        "fr": "regionalleiter-vertrieb-privatkunden-alle-swica-winterthur"
+      },
+      "company": "SWICA Gesundheitsorganisation",
+      "companyKey": "swica",
+      "companyDomain": "swica.ch",
+      "title": "Regionalleiter Vertrieb Privatkunden (alle)",
+      "titleByLocale": {
+        "de": "Regionalleiter Vertrieb Privatkunden (alle)",
+        "it": "Regionalleiter Vertrieb Privatkunden (alle)",
+        "en": "Regionalleiter Vertrieb Privatkunden (alle)",
+        "fr": "Regionalleiter Vertrieb Privatkunden (alle)"
+      },
+      "description": "Kurze Wege, schnelle Entscheide: Du bist mittendrin, arbeitest an vielfältigen Projekten und gestaltest Lösungen aktiv mit. Du bringst deine Ideen direkt ein und siehst, wie sie Wirkung entfalten. Das macht den Unterschied.\nIn dieser anspruchsvollen Funktion trägst du die Gesamtverantwortung für das Privatkundengeschäft der Region Ostschweiz mit ca. 110 Mitarbeitern verteilt über fünfzehn Standorte (Generalagenturen/Agenturen). Dabei bist du direkt dem Regionaldirektor unterstellt. Dein Arbeitsort ist sowohl in St. Gallen wie auch in Winterthur.\n So gestaltest du Gesundheit mit\n\n• Sicherstellung der notwendigen Massnahmen zur Erreichung der Portefeuille- und Produktionsziele im Privatkundengeschäft im Gebiet der Region Ostschweiz\n• Planung und Umsetzung der notwendigen Massnahmen zur Erreichung der Kundenzufriedenheitsziele\n• Sicherstellung des Lead- und Kampagnenmanagements zwischen den Bereichen Kundenbetreuung und Vertrieb Privatkunden sowie Umsetzung der Gewinnungskampagnen\n• Erste fachliche Ansprechperson in der Region für alle vertriebsrelevanten Kundenprozesse im Privatkundengeschäft\n• Erstellung und Umsetzung eines regionalen Marketingplans im Privatkundengeschäft inkl. Markanalyse\n• Durchführung von regionalen Marketingaktionen im Privatkundengeschäft in Koordination mit dem Regionaldirektor\n• Unterstützung der Generaldirektion in Projekten und Verantwortung für Teilprojekte sowie Mitwirkung bei der Optimierung der Prozesse\n• Führung, Ausbildung und Förderung der organisatorischen Einheit Vertrieb Privatkunden\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertig, ergänzt durch eine betriebswirtschaftliche und/oder verkaufsspezifische Weiterbildung, Mindeststufe HF\n• Mehrjährige Berufserfahrung in ähnlicher Position, vorzugsweise in der Kranken-/Sozialversicherungsbranche oder Privatassekuranz\n• Versicherungsvermittler/-in VBV, Profil Allbranche\n• Führungs- und Coachingerfahrung im Vertrieb\n• Akquisitions- und Verkaufsflair\n• Umfassendes Beziehungsnetz im Verkaufsgebiet sowie ausgeprägte Marktkenntnisse\n• Sehr gute kommunikative Fähigkeiten mündlich/schriftlich sowie repräsentative Persönlichkeit mit einwandfreier und situationsgerechter Auftrittskompetenz\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Iris Kübler, HR Managerin, gibt dir gerne Auskunft.",
+      "descriptionByLocale": {
+        "de": "Kurze Wege, schnelle Entscheide: Du bist mittendrin, arbeitest an vielfältigen Projekten und gestaltest Lösungen aktiv mit. Du bringst deine Ideen direkt ein und siehst, wie sie Wirkung entfalten. Das macht den Unterschied.\nIn dieser anspruchsvollen Funktion trägst du die Gesamtverantwortung für das Privatkundengeschäft der Region Ostschweiz mit ca. 110 Mitarbeitern verteilt über fünfzehn Standorte (Generalagenturen/Agenturen). Dabei bist du direkt dem Regionaldirektor unterstellt. Dein Arbeitsort ist sowohl in St. Gallen wie auch in Winterthur.\n So gestaltest du Gesundheit mit\n\n• Sicherstellung der notwendigen Massnahmen zur Erreichung der Portefeuille- und Produktionsziele im Privatkundengeschäft im Gebiet der Region Ostschweiz\n• Planung und Umsetzung der notwendigen Massnahmen zur Erreichung der Kundenzufriedenheitsziele\n• Sicherstellung des Lead- und Kampagnenmanagements zwischen den Bereichen Kundenbetreuung und Vertrieb Privatkunden sowie Umsetzung der Gewinnungskampagnen\n• Erste fachliche Ansprechperson in der Region für alle vertriebsrelevanten Kundenprozesse im Privatkundengeschäft\n• Erstellung und Umsetzung eines regionalen Marketingplans im Privatkundengeschäft inkl. Markanalyse\n• Durchführung von regionalen Marketingaktionen im Privatkundengeschäft in Koordination mit dem Regionaldirektor\n• Unterstützung der Generaldirektion in Projekten und Verantwortung für Teilprojekte sowie Mitwirkung bei der Optimierung der Prozesse\n• Führung, Ausbildung und Förderung der organisatorischen Einheit Vertrieb Privatkunden\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertig, ergänzt durch eine betriebswirtschaftliche und/oder verkaufsspezifische Weiterbildung, Mindeststufe HF\n• Mehrjährige Berufserfahrung in ähnlicher Position, vorzugsweise in der Kranken-/Sozialversicherungsbranche oder Privatassekuranz\n• Versicherungsvermittler/-in VBV, Profil Allbranche\n• Führungs- und Coachingerfahrung im Vertrieb\n• Akquisitions- und Verkaufsflair\n• Umfassendes Beziehungsnetz im Verkaufsgebiet sowie ausgeprägte Marktkenntnisse\n• Sehr gute kommunikative Fähigkeiten mündlich/schriftlich sowie repräsentative Persönlichkeit mit einwandfreier und situationsgerechter Auftrittskompetenz\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Iris Kübler, HR Managerin, gibt dir gerne Auskunft.",
+        "it": "Kurze Wege, schnelle Entscheide: Du bist mittendrin, arbeitest an vielfältigen Projekten und gestaltest Lösungen aktiv mit. Du bringst deine Ideen direkt ein und siehst, wie sie Wirkung entfalten. Das macht den Unterschied.\nIn dieser anspruchsvollen Funktion trägst du die Gesamtverantwortung für das Privatkundengeschäft der Region Ostschweiz mit ca. 110 Mitarbeitern verteilt über fünfzehn Standorte (Generalagenturen/Agenturen). Dabei bist du direkt dem Regionaldirektor unterstellt. Dein Arbeitsort ist sowohl in St. Gallen wie auch in Winterthur.\n So gestaltest du Gesundheit mit\n\n• Sicherstellung der notwendigen Massnahmen zur Erreichung der Portefeuille- und Produktionsziele im Privatkundengeschäft im Gebiet der Region Ostschweiz\n• Planung und Umsetzung der notwendigen Massnahmen zur Erreichung der Kundenzufriedenheitsziele\n• Sicherstellung des Lead- und Kampagnenmanagements zwischen den Bereichen Kundenbetreuung und Vertrieb Privatkunden sowie Umsetzung der Gewinnungskampagnen\n• Erste fachliche Ansprechperson in der Region für alle vertriebsrelevanten Kundenprozesse im Privatkundengeschäft\n• Erstellung und Umsetzung eines regionalen Marketingplans im Privatkundengeschäft inkl. Markanalyse\n• Durchführung von regionalen Marketingaktionen im Privatkundengeschäft in Koordination mit dem Regionaldirektor\n• Unterstützung der Generaldirektion in Projekten und Verantwortung für Teilprojekte sowie Mitwirkung bei der Optimierung der Prozesse\n• Führung, Ausbildung und Förderung der organisatorischen Einheit Vertrieb Privatkunden\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertig, ergänzt durch eine betriebswirtschaftliche und/oder verkaufsspezifische Weiterbildung, Mindeststufe HF\n• Mehrjährige Berufserfahrung in ähnlicher Position, vorzugsweise in der Kranken-/Sozialversicherungsbranche oder Privatassekuranz\n• Versicherungsvermittler/-in VBV, Profil Allbranche\n• Führungs- und Coachingerfahrung im Vertrieb\n• Akquisitions- und Verkaufsflair\n• Umfassendes Beziehungsnetz im Verkaufsgebiet sowie ausgeprägte Marktkenntnisse\n• Sehr gute kommunikative Fähigkeiten mündlich/schriftlich sowie repräsentative Persönlichkeit mit einwandfreier und situationsgerechter Auftrittskompetenz\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Iris Kübler, HR Managerin, gibt dir gerne Auskunft.",
+        "en": "Kurze Wege, schnelle Entscheide: Du bist mittendrin, arbeitest an vielfältigen Projekten und gestaltest Lösungen aktiv mit. Du bringst deine Ideen direkt ein und siehst, wie sie Wirkung entfalten. Das macht den Unterschied.\nIn dieser anspruchsvollen Funktion trägst du die Gesamtverantwortung für das Privatkundengeschäft der Region Ostschweiz mit ca. 110 Mitarbeitern verteilt über fünfzehn Standorte (Generalagenturen/Agenturen). Dabei bist du direkt dem Regionaldirektor unterstellt. Dein Arbeitsort ist sowohl in St. Gallen wie auch in Winterthur.\n So gestaltest du Gesundheit mit\n\n• Sicherstellung der notwendigen Massnahmen zur Erreichung der Portefeuille- und Produktionsziele im Privatkundengeschäft im Gebiet der Region Ostschweiz\n• Planung und Umsetzung der notwendigen Massnahmen zur Erreichung der Kundenzufriedenheitsziele\n• Sicherstellung des Lead- und Kampagnenmanagements zwischen den Bereichen Kundenbetreuung und Vertrieb Privatkunden sowie Umsetzung der Gewinnungskampagnen\n• Erste fachliche Ansprechperson in der Region für alle vertriebsrelevanten Kundenprozesse im Privatkundengeschäft\n• Erstellung und Umsetzung eines regionalen Marketingplans im Privatkundengeschäft inkl. Markanalyse\n• Durchführung von regionalen Marketingaktionen im Privatkundengeschäft in Koordination mit dem Regionaldirektor\n• Unterstützung der Generaldirektion in Projekten und Verantwortung für Teilprojekte sowie Mitwirkung bei der Optimierung der Prozesse\n• Führung, Ausbildung und Förderung der organisatorischen Einheit Vertrieb Privatkunden\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertig, ergänzt durch eine betriebswirtschaftliche und/oder verkaufsspezifische Weiterbildung, Mindeststufe HF\n• Mehrjährige Berufserfahrung in ähnlicher Position, vorzugsweise in der Kranken-/Sozialversicherungsbranche oder Privatassekuranz\n• Versicherungsvermittler/-in VBV, Profil Allbranche\n• Führungs- und Coachingerfahrung im Vertrieb\n• Akquisitions- und Verkaufsflair\n• Umfassendes Beziehungsnetz im Verkaufsgebiet sowie ausgeprägte Marktkenntnisse\n• Sehr gute kommunikative Fähigkeiten mündlich/schriftlich sowie repräsentative Persönlichkeit mit einwandfreier und situationsgerechter Auftrittskompetenz\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Iris Kübler, HR Managerin, gibt dir gerne Auskunft.",
+        "fr": "Kurze Wege, schnelle Entscheide: Du bist mittendrin, arbeitest an vielfältigen Projekten und gestaltest Lösungen aktiv mit. Du bringst deine Ideen direkt ein und siehst, wie sie Wirkung entfalten. Das macht den Unterschied.\nIn dieser anspruchsvollen Funktion trägst du die Gesamtverantwortung für das Privatkundengeschäft der Region Ostschweiz mit ca. 110 Mitarbeitern verteilt über fünfzehn Standorte (Generalagenturen/Agenturen). Dabei bist du direkt dem Regionaldirektor unterstellt. Dein Arbeitsort ist sowohl in St. Gallen wie auch in Winterthur.\n So gestaltest du Gesundheit mit\n\n• Sicherstellung der notwendigen Massnahmen zur Erreichung der Portefeuille- und Produktionsziele im Privatkundengeschäft im Gebiet der Region Ostschweiz\n• Planung und Umsetzung der notwendigen Massnahmen zur Erreichung der Kundenzufriedenheitsziele\n• Sicherstellung des Lead- und Kampagnenmanagements zwischen den Bereichen Kundenbetreuung und Vertrieb Privatkunden sowie Umsetzung der Gewinnungskampagnen\n• Erste fachliche Ansprechperson in der Region für alle vertriebsrelevanten Kundenprozesse im Privatkundengeschäft\n• Erstellung und Umsetzung eines regionalen Marketingplans im Privatkundengeschäft inkl. Markanalyse\n• Durchführung von regionalen Marketingaktionen im Privatkundengeschäft in Koordination mit dem Regionaldirektor\n• Unterstützung der Generaldirektion in Projekten und Verantwortung für Teilprojekte sowie Mitwirkung bei der Optimierung der Prozesse\n• Führung, Ausbildung und Förderung der organisatorischen Einheit Vertrieb Privatkunden\n Das zeichnet dich aus\n\n• Abgeschlossene kaufmännische Grundausbildung oder gleichwertig, ergänzt durch eine betriebswirtschaftliche und/oder verkaufsspezifische Weiterbildung, Mindeststufe HF\n• Mehrjährige Berufserfahrung in ähnlicher Position, vorzugsweise in der Kranken-/Sozialversicherungsbranche oder Privatassekuranz\n• Versicherungsvermittler/-in VBV, Profil Allbranche\n• Führungs- und Coachingerfahrung im Vertrieb\n• Akquisitions- und Verkaufsflair\n• Umfassendes Beziehungsnetz im Verkaufsgebiet sowie ausgeprägte Marktkenntnisse\n• Sehr gute kommunikative Fähigkeiten mündlich/schriftlich sowie repräsentative Persönlichkeit mit einwandfreier und situationsgerechter Auftrittskompetenz\n Warum SWICA\n\n• Wir bauen auf Menschlichkeit. Darum stellen wir in unserem Arbeitsalltag Offenheit, Respekt und Vertrauen ins Zentrum. Dabei packen wir an, übernehmen Verantwortung und denken in Lösungen – zusammen, für unsere Kundinnen und Kunden. Auch deshalb sind wir seit vielen Jahren die Nummer 1 in der Kundenzufriedenheit.\n• Wir vertrauen dir und geben dir Raum. Mit Jahresarbeitszeit, mindestens 5 Wochen Ferien und auf Wunsch auch Ferienzukauf. Mit Teilzeitmodellen und grosszügigem Home Office im Rahmen der Möglichkeiten der Stelle gestaltest du deinen Alltag weitgehend flexibel.\n• Wir schätzen und honorieren deine Arbeit – mit einem marktgerechten Lohn, bis zu 1500 Franken Jahrespauschale für persönliche Wünsche und einer grosszügigen Beteiligung an der Grund- und Zusatzversicherung für dich und deine Familie.\n• Wir bieten dir Perspektiven. Mit einem grosszügigen Weiterbildungsreglement unterstützen wir deine berufliche und persönliche Entwicklung – für deine heutige Rolle und für deine Ziele von morgen.\n• Weil Gesundheit alles ist. Mit unserem betrieblichen Gesundheitsmanagement und regionenspezifischen Angeboten kümmern wir uns um dein Wohlbefinden. Und falls es doch anders kommt: 100% Nettolohn-Fortzahlung.\n• Wir denken langfristig. Mit drei Sparplänen, pensumsabhängigem Koordinationsabzug und Leistungen deutlich über dem gesetzlichen Minimum sorgst du gut für deine Zukunft vor.\n Iris Kübler, HR Managerin, gibt dir gerne Auskunft."
+      },
+      "needsRetranslation": true,
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://jobs.swica.ch/offene-stellen/regionalleiter-vertrieb-privatkunden-alle/a596554a-6401-4e12-bac9-73713238c23d",
+      "source": "SWICA Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-21T09:23:01.573Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "streetAddress": "Zürcherstrasse 31",
+      "postalCode": "8400",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.swica.ch/offene-stellen/regionalleiter-vertrieb-privatkunden-alle/a596554a-6401-4e12-bac9-73713238c23d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-21T09:23:01.573Z"
     }
   ]
 }
