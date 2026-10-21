@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
@@ -11,6 +12,17 @@ import {
   unescapeTsString,
 } from '../scripts/lib/unescape-ts-string.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
+
+function readTrackedSource(relativePath: string): string {
+  const root = path.resolve(__dirname, '..');
+  const absolutePath = path.resolve(root, relativePath);
+  try {
+    return readFileSync(absolutePath, 'utf8');
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error;
+    return execFileSync('git', ['show', `HEAD:${relativePath}`], { cwd: root, encoding: 'utf8' });
+  }
+}
 
 describe('static article body preview source reader', () => {
   const sourcePath = 'services/locales/blog-body/it/alpha.ts';
@@ -87,7 +99,7 @@ describe('static article body preview source reader', () => {
   it('matches the legacy preview repair on a tracked source and verifies placeholder/robots wiring', () => {
     const relativePath = 'packages/articles/content/blog-body/it/139-frontalieri-ticino-special-olympics.ts';
     const absolutePath = path.resolve(__dirname, '..', relativePath);
-    const source = readFileSync(absolutePath, 'utf-8');
+    const source = readTrackedSource(relativePath);
     const actual = parseStaticArticleBodyPreviews(source, absolutePath);
     const expected: Record<string, { body1?: string; body2?: string; body3?: string }> = Object.create(null);
     const legacyPattern = /'blog\.article\.([^']+)\.(body1|body2|body3)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;

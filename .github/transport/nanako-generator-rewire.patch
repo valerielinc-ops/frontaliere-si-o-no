@@ -819,6 +819,13 @@ index 7ccfe25..3c3b0ff 100644
    try {
      if (!existsSync(metaPath)) return [];
      return extractItTitlesFromMeta(readFileSync(metaPath, 'utf-8'));
+diff --git a/generator/scripts/lib/meta-field-regex.mjs b/generator/scripts/lib/meta-field-regex.mjs
+index 0000000..0000000 100644
+--- a/generator/scripts/lib/meta-field-regex.mjs
++++ b/generator/scripts/lib/meta-field-regex.mjs
+@@ -16 +16 @@
+-import { parseStaticArticleTranslationEntries } from '../../packages/articles/engine/shared/articleStaticSource.mjs';
++import { parseStaticArticleTranslationEntries } from '../../../engine/shared/articleStaticSource.mjs';
 diff --git a/generator/scripts/lib/corpus-paths.mjs b/generator/scripts/lib/corpus-paths.mjs
 new file mode 100644
 index 0000000..2a020a0
