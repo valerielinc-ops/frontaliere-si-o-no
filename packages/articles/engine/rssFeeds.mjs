@@ -428,7 +428,61 @@ function skipStaticTrivia(source, startIndex, sourcePath) {
   return cursor;
 }
 
+function lastStaticTokenBefore(source, endIndex) {
+  let cursor = 0;
+  let previous = null;
+
+  while (cursor < endIndex) {
+    const char = source[cursor];
+    if (/\s/u.test(char)) {
+      cursor += 1;
+      continue;
+    }
+    if (source.startsWith('//', cursor)) {
+      cursor = Math.min(skipLineComment(source, cursor), endIndex);
+      continue;
+    }
+    if (source.startsWith('/*', cursor)) {
+      const close = source.indexOf('*/', cursor + 2);
+      if (close === -1 || close >= endIndex) return previous;
+      cursor = close + 2;
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') {
+      const quote = char;
+      cursor += 1;
+      while (cursor < endIndex) {
+        if (source[cursor] === '\\') {
+          cursor += 2;
+          continue;
+        }
+        if (source[cursor] === quote) {
+          cursor += 1;
+          break;
+        }
+        cursor += 1;
+      }
+      previous = 'literal';
+      continue;
+    }
+    if (/[A-Za-z_$]/u.test(char)) {
+      const wordStart = cursor;
+      cursor += 1;
+      while (cursor < endIndex && /[A-Za-z0-9_$]/u.test(source[cursor])) cursor += 1;
+      previous = source.slice(wordStart, cursor);
+      continue;
+    }
+    previous = char;
+    cursor += 1;
+  }
+
+  return previous;
+}
+
 function isComputedPropertyStart(source, startIndex) {
+  const previous = lastStaticTokenBefore(source, startIndex);
+  if (previous !== '{' && previous !== ',' && previous !== 'get' && previous !== 'async') return false;
+
   let depth = 0;
   let quote = '';
 
