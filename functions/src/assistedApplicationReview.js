@@ -514,11 +514,14 @@ export function cvChangesView(draft, flow) {
   const view = (id, adapted, original) => ({ id, adapted, original, use: choices[id]?.use || 'adapted', text: choices[id]?.text || '' });
   return {
     summary: cv.summary ? view('summary', cv.summary, String(draft.profile?.summary || '')) : null,
-    roles: (cv.experience || []).filter((role) => role.rewritten && role.lines?.length).map((role, index) => ({
-      title: cv.localized?.experience?.find((item) => Number(item?.index) === index)?.role || role.role,
-      employer: role.employer,
-      lines: role.lines.map((line) => view(line.id, line.text, line.original)),
-    })),
+    roles: (cv.experience || [])
+      .map((role, index) => ({ role, index }))
+      .filter(({ role }) => role.rewritten && role.lines?.length)
+      .map(({ role, index }) => ({
+        title: cv.localized?.experience?.find((item) => Number(item?.index) === index)?.role || role.role,
+        employer: role.employer,
+        lines: role.lines.map((line) => view(line.id, line.text, line.original)),
+      })),
   };
 }
 
