@@ -8,7 +8,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, EVENTS_INDEX_PATH, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   renderEventsIndexPage,
   eventLd,
@@ -2036,5 +2036,16 @@ describe('event navigation uses localized destinations', () => {
     expect(html).toContain(`href="${calculator}"`);
     expect(html).not.toContain(`href="/${locale}/articoli-frontaliere/"`);
     expect(html).not.toContain(`href="/${locale}/calcola-stipendio/"`);
+  });
+
+  it.each(['it', 'en', 'de', 'fr'] as const)('links the %s events index to its sibling locale indexes', (locale) => {
+    const { html } = renderEventsIndexPage({
+      locale, cantonStats: [], events: [], dateStamp: new Date().toISOString().slice(0, 10),
+      weekendDays: new Set(), distDir: os.tmpdir(),
+    });
+    for (const target of ['it', 'en', 'de', 'fr'] as const) {
+      if (target === locale) continue;
+      expect(html).toContain(`href="${EVENTS_INDEX_PATH[target]}/"`);
+    }
   });
 });

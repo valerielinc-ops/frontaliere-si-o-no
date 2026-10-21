@@ -949,6 +949,7 @@ interface NationalCopy {
   faqA2: string;
   methodologyTitle: string;
   methodology: string;
+  otherLanguages: string;
   // Pill label on every per-canton hub linking back up to this index page.
   allCantonsLabel: string;
 }
@@ -976,6 +977,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Come raccogliamo gli eventi',
     methodology:
       "Gli eventi sono raccolti automaticamente dalle agende pubbliche di ogni cantone e aggiornati ogni giorno. Ogni evento è attribuito a un cantone e, quando possibile, a un comune preciso. Verifica sempre data, orario e luogo sulla pagina originale dell'organizzatore prima di spostarti: orari e disponibilità possono cambiare.",
+    otherLanguages: 'Altre lingue:',
     allCantonsLabel: 'Tutta la Svizzera',
   },
   en: {
@@ -1000,6 +1002,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'How we collect events',
     methodology:
       "Events are collected automatically from each canton's public agendas and refreshed every day. Every event is attributed to a canton and, where possible, to a specific municipality. Always check date, time and venue on the organiser's original page before travelling: times and availability can change.",
+    otherLanguages: 'Other languages:',
     allCantonsLabel: 'All of Switzerland',
   },
   de: {
@@ -1024,6 +1027,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Wie wir Veranstaltungen sammeln',
     methodology:
       'Die Veranstaltungen werden automatisch aus den öffentlichen Agenden jedes Kantons gesammelt und täglich aktualisiert. Jeder Anlass wird einem Kanton und, wenn möglich, einer genauen Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters, bevor du losfährst: Zeiten und Verfügbarkeit können sich ändern.',
+    otherLanguages: 'Weitere Sprachen:',
     allCantonsLabel: 'Ganze Schweiz',
   },
   fr: {
@@ -1048,9 +1052,28 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Comment nous recueillons les événements',
     methodology:
       "Les événements sont recueillis automatiquement dans les agendas publics de chaque canton et actualisés chaque jour. Chaque événement est attribué à un canton et, si possible, à une commune précise. Vérifiez toujours la date, l'horaire et le lieu sur la page d'origine de l'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.",
+    otherLanguages: 'Autres langues :',
     allCantonsLabel: 'Toute la Suisse',
   },
 };
+
+const EVENT_LOCALE_LABEL: Record<Locale, string> = {
+  it: 'Italiano',
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+};
+
+function renderEventsIndexLocaleLinks(locale: Locale, copy: NationalCopy): string {
+  const links = LOCALES.filter((target) => target !== locale)
+    .map(
+      (target) =>
+        `<a class="rounded-full border border-edge bg-surface px-3 py-1 text-xs font-semibold text-link hover:border-accent-border" href="${nationalIndexPath(target)}" hreflang="${target}" lang="${target}">${EVENT_LOCALE_LABEL[target]}</a>`,
+    )
+    .join('');
+
+  return `<nav class="mb-4 flex flex-wrap items-center gap-2" aria-label="${esc(copy.otherLanguages)}"><span class="mr-1 text-xs font-semibold text-muted">${esc(copy.otherLanguages)}</span>${links}</nav>`;
+}
 
 /** Canonical path for the Swiss-wide index hub (`EVENTS_INDEX_PATH` + trailing slash). */
 function nationalIndexPath(locale: Locale): string {
@@ -2660,6 +2683,8 @@ export function renderEventsIndexPage(params: {
       <span class="mx-2">/</span>
       <span>${esc(copy.breadcrumbLabel)}</span>
     </nav>
+
+    ${renderEventsIndexLocaleLinks(locale, copy)}
 
     <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
       <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">🇨🇭</div>
