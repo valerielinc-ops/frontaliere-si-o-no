@@ -5602,8 +5602,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
- const resultsResolving = (jobsLoading || resultDerivationPending || fallbackResultsResolving || returnVisitResultsPending)
- && !clusterSeedApplies;
+ const resultsResolving = (
+  (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
+ ) || returnVisitResultsPending;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
