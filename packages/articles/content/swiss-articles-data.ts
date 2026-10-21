@@ -28620,6 +28620,17 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tamedia-zurigo-protesta-licenziamenti-ia',
+    category: 'novita',
+    date: '2026-10-21T07:32:04.450Z',
+    image: '/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    canton: ['ZH'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

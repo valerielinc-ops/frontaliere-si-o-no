@@ -8555,6 +8555,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guasto-sistemi-skyguide-scali.title': 'Panne des systèmes : capacité aérienne suisse à 50 %',
     'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Panne technique des systèmes de Skyguide mardi après-midi Skyguide opère à 50 % de sa capacité par mesure de précaution Décollages et atterrissages brièvement suspendus à Zurich',
     'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia: 100+ protestent contre 34 suppressions de postes',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'Plus de 100 employés protestent à Zurich Tamedia annonce 34 postes à temps plein en moins Les suppressions concernent 41 employés Les travailleurs demandent des investissements',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

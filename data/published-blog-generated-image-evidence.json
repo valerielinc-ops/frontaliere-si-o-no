@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "d619ff06934ab36914cf5f47af3f1f9bab2734f1",
+  "commit": "b8857460f2f038713ecef3a70ea7827a2b27ecef",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -32258,6 +32258,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic editorial scene with an anonymous foreground figure; no visible text, signage, logos, watermark, or specific real event."
+      }
+    },
+    "/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp": {
+      "schema": 1,
+      "assetId": "article-tamedia-zurigo-protesta-licenziamenti-ia",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "1aaefb7b82270ac2a9f836d53afe36d6a80f027378ba0617da4a539d32ed4f91",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "51a667880b75a16f37c83fd5b993d125c7c39b518c9ffd6ac7f2c7bc08a2ca26",
+      "bytes": 134276,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-21T07:31:48.625Z",
+      "verifiedAt": "2026-10-21T07:32:03.985Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic editorial illustration with blank signs; no readable text, logos, or identifiable people."
       }
     },
     "/images/places/lugano-view.webp": {

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 725,
+      "5": 726,
       "6": 5054
     },
-    "publishedCovers": 7462,
+    "publishedCovers": 7463,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204632,6 +204632,39 @@
         "provider": "openai-codex",
         "assetId": "article-negozio-ticino-fisco-frontiere",
         "imageUrl": "/images/blog/article-negozio-ticino-fisco-frontiere.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-tamedia-zurigo-protesta-licenziamenti-ia": {
+      "cover": "/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp",
+      "hash": "51a667880b75a16f37c83fd5b993d125c7c39b518c9ffd6ac7f2c7bc08a2ca26",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tamedia-zurigo-protesta-licenziamenti-ia",
+          "category": "novita",
+          "date": "2026-10-21T07:32:04.450Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-tamedia-zurigo-protesta-licenziamenti-ia",
+        "imageUrl": "/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp",
         "evidence": "generated-engine-record"
       }
     }
