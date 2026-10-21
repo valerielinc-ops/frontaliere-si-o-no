@@ -391,6 +391,13 @@ const CV_LANGUAGE_MARKERS = {
   fr: new Set(['nous', 'vous', 'avec', 'pour', 'dans', 'votre', 'notre', 'sont', 'cette', 'etre', 'avoir', 'vos', 'une', 'des', 'sur', 'les', 'par', 'qui', 'entreprise', 'experience', 'competences', 'poste', 'profil', 'missions', 'responsabilites', 'candidature', 'formation', 'environnement', 'au', 'du', 'gestion', 'equipe', 'service', 'clients', 'ingenieur', 'ingenieure', 'vendeur', 'vendeuse']),
   en: new Set(['the', 'and', 'with', 'this', 'you', 'your', 'will', 'are', 'for', 'our', 'have', 'that', 'from', 'experience', 'requirements', 'responsibilities', 'qualifications', 'position', 'role', 'about', 'skills', 'ability', 'team', 'working', 'apply', 'required', 'career', 'opportunity', 'knowledge', 'proficiency', 'environment', 'benefits', 'built', 'swiss', 'clients', 'financial', 'reporting', 'systems', 'system', 'design', 'accounting', 'budget', 'forecast', 'revenue', 'customer', 'service', 'delivery', 'software', 'engineering', 'operations', 'management', 'project', 'sales', 'improved', 'conversion', 'architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'led', 'created', 'implemented', 'supported', 'coordinated']),
 };
+const CV_LANGUAGE_ROLE_MARKERS = Object.fromEntries(Object.keys(CV_LANGUAGE_MARKERS).map((language) => [
+  language,
+  new Set([
+    ...CV_LANGUAGE_MARKERS[language],
+    ...HEADLINE_TRANSLATION_GROUPS.flatMap((group) => (group[language] || []).map(normalizeText)),
+  ]),
+]));
 
 // A small number of common role phrases are too short for reliable n-gram
 // classification and need an exact target/source-language marker.
@@ -424,11 +431,9 @@ function containsLanguagePhraseEvidence(text, language) {
     .some((phrase) => padded.includes(` ${normalizeText(phrase)} `));
 }
 
-function hasLanguageMarkerEvidence(text, language) {
-  const tokens = new Set(normalizeText(text).replace(/[/.]/g, ' ').split(' ')
+function languageMarkerTokens(text) {
+  return new Set(normalizeText(text).replace(/[/.]/g, ' ').split(' ')
     .filter((word) => !/^[0-9]+$/.test(word) && !CV_LANGUAGE_PHRASE_MODIFIERS.has(word)));
-  return Array.from(CV_LANGUAGE_MARKERS[language] || [])
-    .some((marker) => normalizeText(marker).length >= 4 && tokens.has(normalizeText(marker)));
 }
 
 function hasNonTargetLanguagePhraseEvidence(text, targetLanguage) {
@@ -437,12 +442,13 @@ function hasNonTargetLanguagePhraseEvidence(text, targetLanguage) {
 }
 
 function hasNonTargetLanguageMarkerEvidence(text, targetLanguage) {
-  const targetMarkers = new Set(CV_LANGUAGE_MARKERS[targetLanguage] || []);
-  return Object.keys(CV_LANGUAGE_MARKERS)
+  const tokens = languageMarkerTokens(text);
+  const targetMarkers = new Set(CV_LANGUAGE_ROLE_MARKERS[targetLanguage] || []);
+  return Object.keys(CV_LANGUAGE_ROLE_MARKERS)
     .some((language) => language !== targetLanguage
-      && Array.from(CV_LANGUAGE_MARKERS[language] || []).some((marker) => marker.length >= 4
+      && Array.from(CV_LANGUAGE_ROLE_MARKERS[language] || []).some((marker) => marker.length >= 4
         && !targetMarkers.has(marker)
-        && hasLanguageMarkerEvidence(text, language)));
+        && tokens.has(marker)));
 }
 
 function cvLanguageTextWithoutNeutralTerms(text) {
