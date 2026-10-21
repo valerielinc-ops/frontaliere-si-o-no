@@ -36,7 +36,7 @@ export const COMPAT_PATHS_SANITY_FLOOR = 150_000;
  * @param {number} nextCount  paths about to be written
  * @param {object} [opts]
  * @param {number} [opts.floor=COMPAT_PATHS_SANITY_FLOOR]  sanity floor
- * @param {string} [opts.label='seo-404-compat-paths.json'] file label for the message
+ * @param {string} [opts.label='seo-404-compat-paths.json'] accumulator label for the message
  * @throws {Error} when nextCount < floor && prevCount >= floor
  */
 export function assertCompatFloor(prevCount, nextCount, opts = {}) {
@@ -47,9 +47,9 @@ export function assertCompatFloor(prevCount, nextCount, opts = {}) {
   if (next < floor && prev >= floor) {
     throw new Error(
       `❌ ABORT write to ${label}: ${next} path < floor ${floor} ` +
-        `while the existing file has ${prev} → catastrophic truncation avoided. ` +
-        `The initial read of the accumulator likely failed (empty fallback). ` +
-        `NOT overwriting. Investigate (corrupt file / mid-write race) and restore if needed.`
+        `while the existing accumulator has ${prev} → catastrophic truncation avoided. ` +
+        `The source read may be incomplete or the update may have removed a large cohort. ` +
+        `NOT overwriting. Investigate the input, resolver, or writer and restore if needed.`
     );
   }
 }
