@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "lu-motorcycle-catalogue-8019",
+      "sourceKey": "LU",
+      "sourceRecordId": "motorcycle-catalogue-8019",
+      "canton": "Lucerna",
+      "platePrefix": "LU",
+      "plateNumber": "8019",
+      "normalizedPlate": "LU8019",
+      "listingType": "fixed-price",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "startingPriceChf": 150,
+      "closedAt": "2026-10-21T04:46:03.997Z",
+      "officialAuctionUrl": "https://strassenverkehrsamt.lu.ch/strassenverkehr/fahrzeug/kontrollschilderboerse_wunschkontrollschild",
+      "officialDetailUrl": "https://strassenverkehrsamt.lu.ch/downloads/strassenverkehrsamt/kontrollschilder/wunschschilder.pdf",
+      "sourceFetchedAt": "2026-10-21T04:46:03.997Z",
+      "lastVerifiedAt": "2026-10-21T04:46:03.997Z",
+      "firstSeenAt": "2026-09-30T05:37:19.028Z",
+      "lastSeenAt": "2026-10-21T04:46:03.997Z",
+      "sourceCategory": "fixed-price-catalogue",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0b7568dcac5b"
+    }
+  ]
+}
