@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { CheckCircle2, Eye, FileText, Loader2, LockKeyhole, UploadCloud } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { CheckCircle2, CreditCard, Eye, FileText, Loader2, LockKeyhole, UploadCloud } from 'lucide-react';
+import { useLocale, useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
+import {
+  getAssistedApplicationPaymentRecoveryErrorCode,
+  resumeAssistedApplicationPayment,
+} from '@/services/assistedApplicationPaymentRecovery';
 import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -29,6 +34,7 @@ interface AssistedApplicationOrder {
   copyVariant?: AssistedApplicationCopyVariant;
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
+  paymentFailureReason?: string | null;
   consentVersion?: string | null;
   consentedAt?: unknown;
   cvStorageKey?: string | null;
@@ -107,6 +113,7 @@ export default function AssistedApplicationUpload({
   onRequireAuth,
 }: AssistedApplicationUploadProps) {
   const { t } = useTranslation();
+  const [locale] = useLocale();
   const [status, setStatus] = useState<PageStatus>('loading');
   const [order, setOrder] = useState<AssistedApplicationOrder | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -122,6 +129,10 @@ export default function AssistedApplicationUpload({
   const [cvStorageKey, setCvStorageKey] = useState<string | null>(null);
   const [cvFileName, setCvFileName] = useState<string | null>(null);
   const [submitBusy, setSubmitBusy] = useState(false);
+  const [paymentResumeBusy, setPaymentResumeBusy] = useState(false);
+  const [sumUpPayment, setSumUpPayment] = useState<{ checkoutId: string; orderId: string } | null>(null);
+  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
+  const [sumUpPaymentError, setSumUpPaymentError] = useState<string | null>(null);
   const cvInputRef = useRef<HTMLInputElement>(null);
   const paymentCompletionTracked = useRef(false);
 
@@ -174,6 +185,10 @@ export default function AssistedApplicationUpload({
           });
         }
         return true;
+      }
+      if (data.paymentStatus === 'failed' && data.paymentFailureReason === 'checkout_session_expired') {
+        setStatus('pending');
+        return false;
       }
       if (data.paymentStatus === 'failed' || data.paymentStatus === 'refunded') {
         setStatus('error');
@@ -229,6 +244,80 @@ export default function AssistedApplicationUpload({
       data,
     );
   }, [orderId]);
+
+  const handleResumePayment = async () => {
+    if (paymentResumeBusy) return;
+    setPaymentResumeBusy(true);
+    setError(null);
+    trackAssistedApplicationEvent('checkout_resumed', orderEventContext(order));
+    try {
+      const [{ getApp }, authModule] = await Promise.all([
+        import('@/services/firebase'),
+        import('firebase/auth'),
+      ]);
+      const auth = authModule.getAuth(await getApp());
+      if (typeof auth.authStateReady === 'function') await auth.authStateReady();
+      const currentUser = auth.currentUser || authUser;
+      if (!currentUser?.getIdToken) {
+        setStatus('auth_required');
+        onRequireAuth?.();
+        return;
+      }
+      const result = await resumeAssistedApplicationPayment(orderId, currentUser);
+      if (result.status === 'paid') {
+        await refreshOrder();
+        return;
+      }
+      if (result.paymentProvider === 'sumup' && result.checkoutId) {
+        setSumUpPayment({ checkoutId: result.checkoutId, orderId });
+        setSumUpPaymentError(null);
+        return;
+      }
+      if (result.url) {
+        window.location.assign(result.url);
+        return;
+      }
+      throw new Error('payment_session_unavailable');
+    } catch (resumeError) {
+      const code = getAssistedApplicationPaymentRecoveryErrorCode(resumeError);
+      const messageKey = code === 'job_unavailable'
+        ? 'jobBoard.assisted.paymentJobUnavailable'
+        : code === 'payment_processing'
+          ? 'jobBoard.assisted.paymentProcessing'
+          : 'jobBoard.assisted.paymentResumeError';
+      setError(t(messageKey));
+      trackAssistedApplicationEvent('checkout_failed', {
+        ...orderEventContext(order),
+        reason: code,
+      });
+    } finally {
+      setPaymentResumeBusy(false);
+    }
+  };
+
+  const handleSumUpResponse = (type: string) => {
+    if (type === 'success') {
+      setSumUpPaymentBusy(true);
+      setSumUpPaymentError(null);
+      // The widget callback is not the source of truth: the webhook updates
+      // Firestore, then the existing order poll renders the paid state.
+      setSumUpPayment(null);
+      setSumUpPaymentBusy(false);
+      void refreshOrder();
+      return;
+    }
+    if (type === 'fail' || type === 'error') {
+      setSumUpPaymentBusy(false);
+      setSumUpPaymentError(t('jobBoard.assisted.paymentResumeError'));
+      setError(t('jobBoard.assisted.paymentResumeError'));
+    }
+  };
+
+  const closeSumUpPayment = () => {
+    if (sumUpPaymentBusy) return;
+    setSumUpPayment(null);
+    setSumUpPaymentError(null);
+  };
 
   const handleConsentChange = (checked: boolean) => {
     if (!checked) {
@@ -463,9 +552,21 @@ export default function AssistedApplicationUpload({
         )}
 
         {status === 'pending' && (
-          <div className="flex items-start gap-3 rounded-xl border border-warning-border bg-warning-subtle/60 p-4" role="status">
+          <div className="flex flex-col gap-4 rounded-xl border border-warning-border bg-warning-subtle/60 p-4 sm:flex-row sm:items-start" role="status">
             <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-warning" aria-hidden="true" />
-            <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.pending')}</p>
+            <div className="min-w-0 flex-1 space-y-3">
+              <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.pending')}</p>
+              <button
+                type="button"
+                onClick={() => { void handleResumePayment(); }}
+                disabled={paymentResumeBusy}
+                aria-busy={paymentResumeBusy}
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-on-accent hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-wait disabled:opacity-60"
+              >
+                {paymentResumeBusy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <CreditCard className="h-4 w-4" aria-hidden="true" />}
+                {t(paymentResumeBusy ? 'jobBoard.assisted.pendingStarting' : 'jobBoard.assisted.pendingCta')}
+              </button>
+            </div>
           </div>
         )}
 
@@ -619,6 +720,22 @@ export default function AssistedApplicationUpload({
           </div>
         )}
       </section>
+      {sumUpPayment && (
+        <SumUpPaymentWidget
+          checkoutId={sumUpPayment.checkoutId}
+          locale={locale}
+          amountCents={ASSISTED_APPLICATION_PRICE_EUR_CENTS}
+          title={t('jobBoard.assisted.paymentTitle')}
+          onResponse={handleSumUpResponse}
+          onError={() => {
+            setSumUpPaymentError(t('jobBoard.assisted.paymentResumeError'));
+            setError(t('jobBoard.assisted.paymentResumeError'));
+          }}
+          onClose={closeSumUpPayment}
+          error={sumUpPaymentError}
+          busy={sumUpPaymentBusy}
+        />
+      )}
     </main>
   );
 }

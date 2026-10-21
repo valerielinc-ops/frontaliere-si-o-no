@@ -82,6 +82,23 @@ describe('assisted e-mail events', () => {
     expect(await recordAssistedEmailEvent(seeded().db, { ...first, campaign: assistedCampaignId('gone', 'x') })).toMatchObject({ recorded: false, reason: 'order_not_found' });
   });
 
+  it('routes payment-recovery engagement to the digest ledger and keeps the tag bounded', async () => {
+    const digestId = `digest-${'a'.repeat(24)}`;
+    const campaign = assistedCampaignId(digestId, 'customer_payment_recovery');
+    const { db, docs } = memoryDb({ [`assisted_application_payment_recovery/${digestId}`]: {} });
+    expect(campaign.length).toBeLessThanOrEqual(64);
+    expect(await recordAssistedEmailEvent(db, {
+      campaign,
+      type: 'open',
+      provider: 'resend',
+      messageId: 'recovery-1',
+      occurredAt: '2026-10-01T10:00:00Z',
+    })).toEqual({ assisted: true, recorded: true });
+    expect(docs.get(`assisted_application_payment_recovery/${digestId}`)!.emailEngagement.customer_payment_recovery)
+      .toMatchObject({ opens: 1 });
+    expect(docs.has(`assisted_applications/${digestId}`)).toBe(false);
+  });
+
   it('lands the four providers on the order, never on the newsletter or the job ranking', async () => {
     const providers: Array<[string, (db: any) => Promise<any>]> = [
       ['resend', (db) => applyResendWebhookEvent({
