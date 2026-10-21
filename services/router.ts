@@ -60,7 +60,7 @@ import { isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salary
 import { isExchangeSsgPath, parseExchangeSsgPath } from './exchangeSsgPaths';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, buildCompanyCityCurrentPath, parseCompanyCityPath, parseWeeklyEmployersPath, parseWeeklyEmployersTopHubPath } from '../build-plugins/weeklyEmployersData';
-import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
+import { BORDER_WAIT_ROUTES, buildOggiPath, buildRootHubPath, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } from '../build-plugins/careerLandingsData';
 import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
@@ -3787,12 +3787,15 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  case 'guida': {
  const sub = route.guidaSubTab || 'first-day';
  const slugKey = GUIDA_SUB_TO_SLUG[sub];
+ if (sub === 'border') {
+ const path = route.borderCrossing
+ ? buildOggiPath(lang, route.borderCrossing)
+ : buildRootHubPath(lang);
+ return finish(path + hashSuffix);
+ }
  const base = (sub === 'first-day'
  ? `${prefix}/${table.guida}`
  : `${prefix}/${table.guida}/${table[slugKey]}`);
- if (sub === 'border' && route.borderCrossing) {
- return finish(`${base}/${route.borderCrossing}${hashSuffix}`);
- }
  return finish(`${base}${hashSuffix}`);
  }
  case 'vita': {

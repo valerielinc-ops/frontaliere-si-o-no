@@ -32,7 +32,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/job-board/',
+        href: '/cerca-lavoro-svizzera/',
         label: {
           it: 'Offerte di lavoro in Ticino',
           en: 'Ticino job board',
@@ -145,7 +145,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/diritto-lavoro-frontalieri/',
+        href: '/guida-frontaliere/',
         label: {
           it: 'Diritto del lavoro',
           en: 'Labour law',
@@ -253,7 +253,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/job-board/',
+        href: '/cerca-lavoro-svizzera/',
         label: {
           it: 'Offerte Ticino aggiornate',
           en: 'Latest Ticino jobs',

@@ -29,7 +29,7 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/diritto-lavoro-frontalieri/',
+        href: '/guida-frontaliere/',
         label: {
           it: 'Diritto del lavoro',
           en: 'Labour law',
@@ -222,7 +222,7 @@ export const FAQ_diritti: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/tfr-calculator/',
+        href: '/tfr-liquidazione-frontaliere/',
         label: {
           it: 'Calcolatore TFR',
           en: 'TFR calculator',

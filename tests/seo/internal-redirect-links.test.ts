@@ -8,6 +8,12 @@ const linkSources = [
   'build-plugins/editorialContent.ts',
   'build-plugins/faqHubPlugin.ts',
   'build-plugins/staticPagesPlugin.ts',
+  'data/faq-hub/category-diritti.ts',
+  'data/faq-hub/category-fisco.ts',
+  'data/faq-hub/category-lamal.ts',
+  'data/faq-hub/category-lavoro.ts',
+  'data/faq-hub/category-stipendi.ts',
+  'data/faq-hub/category-vita-quotidiana.ts',
 ];
 
 const redirectPaths = new Set([

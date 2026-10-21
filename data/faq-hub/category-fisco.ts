@@ -218,7 +218,7 @@ export const FAQ_fisco: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/calcolatore/',
+        href: '/calcola-stipendio/',
         label: {
           it: 'Calcolatore netto frontaliere',
           en: 'Cross-border net calculator',
