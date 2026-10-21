@@ -235,6 +235,87 @@ describe('legacy portal sections', () => {
     expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
   });
 
+  it('uses SuccessFactors’ native file chooser for the English Resume/CV dialog', async () => {
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'language', kind: 'combobox', label: 'English US ‎(English US)‎', required: false },
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Email Address: *', required: true },
+        { id: 'email-repeat', kind: 'text', inputType: 'email', label: 'Retype Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Choose Password: *', required: true },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Retype Password: *', required: true },
+        { id: 'first-name', kind: 'text', label: 'First Name: *', required: true },
+        { id: 'last-name', kind: 'text', label: 'Last Name: *', required: true },
+        { id: 'salutation', kind: 'combobox', label: 'Salutation', required: false },
+        { id: 'phone', kind: 'text', label: 'Primary Phone (incl Prefix)*', required: true },
+        { id: 'address-1', kind: 'text', label: 'Address line 1:', required: false },
+        { id: 'address-2', kind: 'text', label: 'Address line 2:', required: false },
+        { id: 'city', kind: 'text', label: 'City:*', required: true },
+        { id: 'postal', kind: 'text', label: 'Zip/Postal Code:', required: false },
+        { id: 'country', kind: 'combobox', label: 'Country:', required: true },
+        { id: 'correspondence', kind: 'combobox', label: 'Correspondence [dato del candidato]', required: false },
+        { id: 'notice', kind: 'text', label: 'What is your notice period?', required: false },
+        { id: 'permit', kind: 'combobox', label: 'Do you hold a valid work [dato del candidato] for Switzerland?', required: true },
+        { id: 'source', kind: 'combobox', label: 'How did you hear about [dato del candidato] position?', required: true },
+        { id: 'source-detail', kind: 'text', label: 'Please specify source', required: false },
+        { id: 'workload', kind: 'textarea', label: 'What is your preferred workload?', required: true },
+        { id: 'salary', kind: 'textarea', label: 'What is your salary expectation? ([dato del candidato]% / Total comp. p.a. in CHF)', required: true },
+        { id: 'start-date', kind: 'textarea', label: 'When would be your next possible starting date?', required: true },
+        { id: 'residence', kind: 'select', label: 'Country/Region of Residence:*', required: true },
+        { id: 'notification', kind: 'checkbox', label: 'Notification:', required: false },
+        { id: 'criminal-record', kind: 'radio', label: 'Could you provide a clean criminal register record?', required: true },
+        { id: 'german', kind: 'radio', label: 'Do you [dato del candidato] German? If so, how would you describe your proficiency level?', required: true },
+      ],
+      buttons: [
+        { id: 'resume-trigger', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false },
+        { id: 'cover-trigger', text: 'Cover Letter (PDF preferred): Attach a Cover Letter Opens a dialog', disabled: false },
+        { id: 'icon', text: '', disabled: false },
+        { id: 'privacy', text: 'Read and accept the data privacy statement.', disabled: false },
+        { id: 'apply', text: 'Apply', disabled: false },
+      ],
+      captcha: false,
+      passwordVisible: true,
+      errors: ['Country is required', 'Do you hold a valid work [dato del candidato] for Switzerland? is required', 'How did you hear about [dato del candidato] position? is required'],
+      text: '',
+    };
+    const trigger = { click: vi.fn(async () => {}), isVisible: vi.fn(async () => true) };
+    const input = { evaluate: vi.fn(async () => ['candidate-cv.pdf']) };
+    const chooser = {
+      isMultiple: vi.fn(() => false),
+      setFiles: vi.fn(async () => {}),
+      element: vi.fn(async () => input),
+    };
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async () => snapshot),
+      locator: vi.fn((selector: string) => selector === '[data-aa-id="resume-trigger"]'
+        ? { first: () => trigger }
+        : { count: vi.fn(async () => 0) }),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForEvent: vi.fn(async () => chooser),
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { allInnerTexts: vi.fn(async () => []) }),
+      getByText: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => true) }) })),
+      on: vi.fn(),
+      off: vi.fn(),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async (ms: number) => { await new Promise((resolve) => setTimeout(resolve, ms)); }),
+    };
+
+    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/fixtures/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(page.waitForEvent).toHaveBeenCalledWith('filechooser', { timeout: 8_000 });
+    expect(chooser.setFiles).toHaveBeenCalledWith('/fixtures/candidate-cv.pdf');
+    expect(trigger.click).toHaveBeenCalledOnce();
+  });
+
   it('matches separate generic SuccessFactors upload icons to their document association', async () => {
     const clicked: string[] = [];
     const base = {

@@ -35,7 +35,7 @@ import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { resolveResidenceAddress } from './residence-address.mjs';
-import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -1288,6 +1288,16 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, timeoutMs = 8
   return null;
 }
 
+/** Watch before the click: a SuccessFactors upload control may open the browser file chooser instead of a DOM dialog. */
+function fileChooserAfterClick(page) {
+  if (typeof page.waitForEvent !== 'function') return Promise.resolve(null);
+  try {
+    return Promise.resolve(page.waitForEvent('filechooser', { timeout: 8_000 })).catch(() => null);
+  } catch {
+    return Promise.resolve(null);
+  }
+}
+
 /** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
 async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
   const framesBeforeClick = page.frames();
@@ -1300,18 +1310,37 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
   if ([...beforeCounts.values()].some((count) => count > 0)) return 'unavailable';
+  const chooserPromise = fileChooserAfterClick(page);
   try {
     if (trigger.snapshot) await clickButton(page, trigger.snapshot);
     else await trigger.click({ timeout: 6_000 });
   } catch {
     return 'unavailable';
   }
+  const dialogPromise = dialogFileInput(page, preferredFrame, beforeCounts);
+  const target = await Promise.race([
+    chooserPromise.then((chooser) => chooser ? { chooser } : null),
+    dialogPromise.then((input) => input ? { input } : null),
+  ]);
+  if (target?.chooser) {
+    try {
+      const chooser = target.chooser;
+      const receipt = await chooseChooserFiles(page, chooser, file);
+      if (receipt.accepted) return 'uploaded';
+      const input = await chooser.element().catch(() => null);
+      return input && await uploadReceipt(page, input, [file], { acceptedResponse: receipt.accepted })
+        ? 'uploaded'
+        : 'uploaded_unconfirmed';
+    } catch {
+      return 'unavailable';
+    }
+  }
   // Some SuccessFactors tenants keep the attachment control and its modal in
   // an application iframe. `page.locator()` only queries the main frame, so
   // searching there can report a failed upload even after the dialog opened.
   // The dialog must be visible and contain a newly attached file input; this
   // prevents selecting a stale or unrelated document picker.
-  const input = await dialogFileInput(page, preferredFrame, beforeCounts);
+  const input = target?.input || await dialogPromise;
   if (!input) {
     await page.keyboard.press('Escape').catch(() => {});
     return 'unavailable';
