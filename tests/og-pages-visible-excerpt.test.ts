@@ -70,8 +70,12 @@ it('preserves an explicitly empty excerpt, falls back only when it is absent, an
   },`;
   write('services/seo/seo-blog.ts', `export const entries = {${ids.map(seoEntry).join('')}\n};`);
   write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify(Object.fromEntries(ids.map(id => [id, { it: id, en: `en-${id}`, de: `de-${id}`, fr: `fr-${id}` }])))};`);
-  write('services/locales/blog-meta-it.ts', `'blog.article.excerpt-empty.excerpt': '',`);
-  write('services/locales/blog-meta-en.ts', `'blog.article.excerpt-empty.excerpt': 'In short: **Questions the board has prepared answers for**',`);
+  write('services/locales/blog-meta-it.ts', `export default {
+  'blog.article.excerpt-empty.excerpt': '',
+};`);
+  write('services/locales/blog-meta-en.ts', `export default {
+  'blog.article.excerpt-empty.excerpt': 'In short: **Questions the board has prepared answers for**',
+};`);
 
   const distDir = path.join(rootDir, 'dist');
   const result = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });

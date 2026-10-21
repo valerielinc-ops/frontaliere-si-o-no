@@ -12,6 +12,7 @@
  * ratchet. Hard fails (the original Semrush issue this gate exists for):
  *   - mismatch         : <link rel="canonical"> URL ≠ sitemap <loc>
  *   - missing-canonical: HTML exists but has no <link rel="canonical">
+ *   - noindex-in-sitemap: HTML declares noindex but is advertised in a sitemap
  *
  * "mismatch" excludes the non-self canonicals the build emits ON PURPOSE —
  * previousSlug bridges, legacy root aliases, same-section job consolidation.
@@ -37,8 +38,8 @@
  *   node scripts/audit-sitemap-canonicals.mjs --limit=100
  *   node scripts/audit-sitemap-canonicals.mjs --feature=jobs
  *
- * Pure Node, no deps. Plain regex parsing — sitemaps emitted by our build
- * plugins are well-formed; an XML parser would be overkill.
+ * Pure Node, no deps. Sitemap XML is read with lightweight regexes and HTML
+ * head tags use the shared quote-balanced tokenizer.
  */
 
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
@@ -48,6 +49,7 @@ import { fileURLToPath } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { classifyCanonicalMismatch } from './lib/canonicalExemptions.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -72,7 +74,7 @@ if (args.has('help') || args.has('h')) {
     '  --limit=N      Print up to N offenders to stderr (default 50).\n' +
     '  --feature=NAME Restrict to sitemap files whose name contains NAME (e.g. "jobs").\n' +
     '\n' +
-    'Run after `npm run build`. Exits 1 if any mismatch / missing-html / missing-canonical.\n'
+    'Run after `npm run build`. Exits 1 if any mismatch / noindex / missing-canonical.\n'
   );
   process.exit(0);
 }
@@ -176,23 +178,22 @@ function locToHtmlPath(loc) {
  * @returns {string|null}
  */
 function extractCanonical(html) {
-  // Find all <link …> tags, then pick whichever has rel="canonical".
-  // Quote-flexible — PR #478 baked removeAttributeQuotes upstream. URL hrefs
-  // that end in `/` keep their quotes (upstream-rejected to avoid `/>`
-  // collision), so the double/single quote branches still match canonical URLs;
-  // the third branch handles unquoted hrefs for completeness.
-  const linkRe = /<link\b[^>]*>/gi;
-  let m;
-  while ((m = linkRe.exec(html)) !== null) {
-    const tag = m[0];
-    if (!/rel\s*=\s*["']?canonical["']?/i.test(tag)) continue;
-    const href =
-      tag.match(/href\s*=\s*"([^"]+)"/i) ||
-      tag.match(/href\s*=\s*'([^']+)'/i) ||
-      tag.match(/href\s*=\s*([^"'\s>]+)/i);
-    if (href && href[1]) return decodeEntities(href[1].trim());
+  for (const { raw } of scanMarkupStartTags(html, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readAttr(raw, 'href').trim();
+    if (href) return decodeEntities(href);
   }
   return null;
+}
+
+function hasNoindex(html) {
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
 }
 
 /**
@@ -245,7 +246,7 @@ async function main() {
     process.exit(2);
   }
 
-  /** @type {{category: 'mismatch'|'missing-html'|'missing-canonical', sitemap: string, loc: string, canonical: string|null}[]} */
+  /** @type {{category: 'mismatch'|'missing-html'|'missing-canonical'|'noindex-in-sitemap', sitemap: string, loc: string, canonical: string|null}[]} */
   const offenders = [];
   /** @type {Record<string, number>} Legitimate non-self canonicals, by reason. */
   const exempt = Object.create(null);
@@ -282,6 +283,10 @@ async function main() {
         html = readHeadOrAllSync(htmlPath);
       } catch (err) {
         offenders.push({ category: 'missing-html', sitemap, loc, canonical: null });
+        continue;
+      }
+      if (hasNoindex(html)) {
+        offenders.push({ category: 'noindex-in-sitemap', sitemap, loc, canonical: null });
         continue;
       }
       const canonical = extractCanonical(html);
@@ -321,6 +326,7 @@ async function main() {
     mismatch: 0,
     'missing-html': 0,
     'missing-canonical': 0,
+    'noindex-in-sitemap': 0,
   };
   for (const o of offenders) counts[o.category]++;
 
@@ -332,14 +338,14 @@ async function main() {
 
   process.stdout.write(
     `audit-sitemap-canonicals: scanned ${sitemapFiles.length} sitemap file(s), checked ${totalChecked} URL(s)\n` +
-      `OK: ${okCount}, mismatches: ${counts.mismatch}, missing-html: ${counts['missing-html']}, missing-canonical: ${counts['missing-canonical']}\n` +
+      `OK: ${okCount}, mismatches: ${counts.mismatch}, noindex-in-sitemap: ${counts['noindex-in-sitemap']}, missing-html: ${counts['missing-html']}, missing-canonical: ${counts['missing-canonical']}\n` +
       (exemptTotal > 0
         ? `legitimate non-self canonicals: ${exemptTotal} (${exemptPairs.map(([k, v]) => `${k}=${v}`).join(', ')})\n`
         : '')
   );
 
-  // Hard fails: mismatch + missing-canonical (the Semrush "non-canonical URL"
-  // class). missing-html is a separate stale-sitemap concern — warn only.
+  // Hard fails: mismatch + missing-canonical + noindex-in-sitemap. missing-html
+  // is a separate stale-sitemap concern — warn only.
   const hardFailers = offenders.filter(o => o.category !== 'missing-html');
   const warners = offenders.filter(o => o.category === 'missing-html');
 
@@ -388,7 +394,7 @@ async function main() {
       `Sitemap <loc> URLs MUST self-canonicalize. See CLAUDE.md SEO rules.\n\n`
   );
 
-  const order = ['mismatch', 'missing-canonical'];
+  const order = ['noindex-in-sitemap', 'mismatch', 'missing-canonical'];
   const byCat = new Map();
   for (const c of order) byCat.set(c, []);
   for (const o of hardFailers) byCat.get(o.category).push(o);
