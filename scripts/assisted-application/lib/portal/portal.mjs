@@ -1794,13 +1794,13 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
  */
-async function requiredLeftEmpty(page, uploaded = new Set(), uploadedDocuments = new Set()) {
+async function requiredLeftEmpty(page, uploaded = new Set(), uploadedDocuments = new Set(), cvUploadRequested = false) {
   const url = page.url();
   const snapshot = await extractFields(page, NAVIGATION);
   const fields = snapshot.fields || [];
   for (const field of fields) {
     const cvField = isCvFileField(field);
-    if (!field.required && !cvField) continue;
+    if (!field.required && !(cvUploadRequested && cvField)) continue;
     const uploadedKey = uploadedPortalFieldKey(url, field);
     const filled = field.kind === 'file' || field.inputType === 'file'
       ? uploaded.has(uploadedKey) || (cvField && uploadedDocuments.has('cv'))
@@ -1812,7 +1812,7 @@ async function requiredLeftEmpty(page, uploaded = new Set(), uploadedDocuments =
     || (isSuccessFactorsPage(page)
       && (sendsApplication(snapshot) || hasApplicationForm(snapshot))
       && successFactorsIconButtonFor(snapshot, 'cv')));
-  if (hasCvUploadControl && !uploadedDocuments.has('cv')) return true;
+  if (cvUploadRequested && hasCvUploadControl && !uploadedDocuments.has('cv')) return true;
   return false;
 }
 
@@ -2189,6 +2189,7 @@ export async function submitViaPortal(ctx) {
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
     const uploadedDocuments = new Set();
+    const cvUploadRequested = documentPaths(ctx.files, 'cv').length > 0;
     const noteUpload = (document, files = 1) => {
       if (!document) return;
       const name = String(document);
@@ -2649,7 +2650,7 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            if (!await requiredLeftEmpty(page, uploaded, uploadedDocuments)) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page, uploaded, uploadedDocuments, cvUploadRequested)) finalByAgent = await submitLocator(page, agent.submitRef);
           }
         }
       }
@@ -2721,7 +2722,7 @@ export async function submitViaPortal(ctx) {
       // A normal send button is not evidence that the portal form is complete.
       // Let the agent repair any required fields the deterministic fill missed;
       // never click Send while a required answer or upload is still empty.
-      if (await requiredLeftEmpty(page, uploaded, uploadedDocuments)) {
+      if (await requiredLeftEmpty(page, uploaded, uploadedDocuments, cvUploadRequested)) {
         evidence.steps.at(-1).requiredFieldsUnfilled = true;
         const repairUrl = page.url();
         const repair = await runAgent(after, 'required_fields_unfilled');
@@ -2733,7 +2734,7 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         after = await extractFields(page, NAVIGATION);
-        if (await requiredLeftEmpty(page, uploaded, uploadedDocuments)) return await handoff('portal_required_fields_unfilled');
+        if (await requiredLeftEmpty(page, uploaded, uploadedDocuments, cvUploadRequested)) return await handoff('portal_required_fields_unfilled');
         const repairedControls = pageControls(after.buttons, known, page.url());
         if (repairedControls.next && !repairedControls.submit) {
           snapshot = after;
