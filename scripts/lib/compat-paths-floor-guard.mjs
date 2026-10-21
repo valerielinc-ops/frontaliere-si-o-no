@@ -31,7 +31,7 @@ export const COMPAT_PATHS_SANITY_FLOOR = 150_000;
 export const COMPAT_PATHS_MAX_AUTO_PRUNE_COUNT = 50_000;
 export const COMPAT_PATHS_MAX_AUTO_PRUNE_RATIO = 0.10;
 export const COMPAT_PATHS_MAX_AUTO_PRUNE_FAMILY_RATIO = 0.25;
-export const COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE = 20;
+export const COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE = 2;
 
 const LOCALES = new Set(['de', 'en', 'fr', 'it']);
 
@@ -138,7 +138,7 @@ export function assertCompatPruneSafety(prevCount, nextCount, opts = {}) {
  * @param {object} [opts]
  * @param {string} [opts.label='seo-404-compat-paths.json']
  * @param {boolean} [opts.allowLargePrune=false]
- * @throws {Error} when a route family with at least 20 paths disappears or
+ * @throws {Error} when a route family with at least 2 paths disappears or
  *                  loses an unexpected cohort
  */
 export function assertCompatPruneFamilySafety(familyTotals, familyRemoved, opts = {}) {
@@ -150,6 +150,24 @@ export function assertCompatPruneFamilySafety(familyTotals, familyRemoved, opts 
       `❌ ABORT prune of ${label}: route-family evidence is missing; ` +
         'refusing to write without checking localized path loss.',
     );
+  }
+
+  for (const [family, total] of familyTotals) {
+    if (typeof family !== 'string' || family.length === 0 || !Number.isSafeInteger(total) || total < 0) {
+      throw new Error(
+        `❌ ABORT prune of ${label}: route-family evidence is invalid; ` +
+          'expected non-negative safe-integer counts keyed by family.',
+      );
+    }
+  }
+  for (const [family, removed] of familyRemoved) {
+    const total = familyTotals.get(family);
+    if (!familyTotals.has(family) || !Number.isSafeInteger(removed) || removed < 0 || removed > total) {
+      throw new Error(
+        `❌ ABORT prune of ${label}: route-family evidence is inconsistent; ` +
+          'every removed count must be between zero and its family total.',
+      );
+    }
   }
 
   const suspicious = [];
