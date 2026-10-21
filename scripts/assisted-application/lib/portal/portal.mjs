@@ -1345,12 +1345,25 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     if (trace) trace.target = 'chooser';
     try {
       const chooser = target.chooser;
+      // SuccessFactors can replace the file input while handling the native
+      // chooser's change event. Capture the triggering element before the
+      // selection so the receipt check still has a stable reference when the
+      // post-selection `chooser.element()` points at no node.
+      const initialInput = await chooser.element().catch(() => null);
+      if (trace) trace.chooserElementBeforeSelection = Boolean(initialInput);
       const receipt = await chooseChooserFiles(page, chooser, file);
       if (trace) trace.chooserResponse = receipt.accepted ? 'accepted' : 'not_confirmed';
       if (receipt.accepted) return finish('uploaded');
-      const input = await chooser.element().catch(() => null);
-      if (trace) trace.chooserElement = Boolean(input);
-      const received = Boolean(input && await uploadReceipt(page, input, [file], { acceptedResponse: receipt.accepted }));
+      const refreshedInput = await chooser.element().catch(() => null);
+      const inputs = [...new Set([initialInput, refreshedInput].filter(Boolean))];
+      if (trace) trace.chooserElement = inputs.length > 0;
+      let received = false;
+      for (const input of inputs) {
+        if (await uploadReceipt(page, input, [file], { acceptedResponse: receipt.accepted })) {
+          received = true;
+          break;
+        }
+      }
       if (trace) trace.portalReceipt = received;
       return finish(received ? 'uploaded' : 'uploaded_unconfirmed');
     } catch (error) {

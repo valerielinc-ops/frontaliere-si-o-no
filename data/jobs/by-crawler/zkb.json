@@ -90,12 +90,12 @@
     },
     {
       "id": "zkb-7001544d71d3",
-      "slug": "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich",
+      "slug": "segretario-a-della-direzione-generale-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "sekretar-in-generaldirektion-zkb-zurich",
-        "it": "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich",
-        "en": "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich",
-        "fr": "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich"
+        "it": "segretario-a-della-direzione-generale-zurcher-kantonalbank-zurich",
+        "en": "secretary-to-the-general-directorate-zurcher-kantonalbank-zurich",
+        "fr": "secretaire-de-la-direction-generale-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -146,11 +146,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "sekretar-in-generaldirektion-zkb-zurich"
+          "sekretar-in-generaldirektion-zkb-zurich",
+          "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich"
+        ],
+        "en": [
+          "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich"
+        ],
+        "fr": [
+          "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich"
         ]
       },
       "previousSlugs": [
-        "sekretar-in-generaldirektion-zkb-zurich"
+        "sekretar-in-generaldirektion-zkb-zurich",
+        "sekretar-in-generaldirektion-zurcher-kantonalbank-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -420,7 +428,7 @@
         "it": "ufficiale-di-conformita-m-f-d-zurcher-kantonalbank-zurich",
         "en": "compliance-officer-m-w-d-zkb-zurich",
         "de": "compliance-officer-m-w-d-zkb-zurich",
-        "fr": "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -469,14 +477,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "compliance-officer-m-w-d-zkb-zurich",
-        "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+        "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-m-w-d-zkb-zurich"
         ],
         "fr": [
-          "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+          "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-10-19T09:16:47.839Z",

@@ -13405,7 +13405,7 @@
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
         "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
@@ -13452,7 +13452,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13460,7 +13460,7 @@
         ],
         "en": [
           "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-          "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -16340,12 +16340,12 @@
     },
     {
       "id": "usz-c7801c50f6af",
-      "slug": "pflegefachperson-per-la-poliklinik-orl-60-80-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-a-per-il-policlinico-orl-60-80-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch",
-        "it": "pflegefachperson-per-la-poliklinik-orl-60-80-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch",
-        "fr": "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch"
+        "it": "infermiere-a-per-il-policlinico-orl-60-80-universitatsspital-zurich-usz-zurich",
+        "en": "nurse-for-the-polyclinic-orl-60-80-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmiere-pour-la-polyclinique-orl-60-80-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16392,11 +16392,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch",
+          "pflegefachperson-per-la-poliklinik-orl-60-80-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch"
+        "pflegefachperson-fur-die-poliklinik-orl-60-80-usz-ch",
+        "pflegefachperson-per-la-poliklinik-orl-60-80-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -16415,12 +16423,12 @@
     },
     {
       "id": "usz-7338588775b4",
-      "slug": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
+      "slug": "fellowship-clinica-in-microchirurgia-linfatica-robotica-e-biologia-lymfatica-80-100-universitatsspital-zurich-usz-7c34c0",
       "slugByLocale": {
         "en": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
-        "it": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
+        "it": "fellowship-clinica-in-microchirurgia-linfatica-robotica-e-biologia-lymfatica-80-100-universitatsspital-zurich-usz-7c34c0",
         "de": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch",
-        "fr": "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+        "fr": "bourse-clinique-en-microchirurgie-lymphatique-robotique-et-biologie-lymphatique-80-100-universitatsspital-zurich-7c34c0"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16478,7 +16486,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T19:49:54.947Z"
+      "firstSeenAt": "2026-09-23T19:49:54.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+        ],
+        "fr": [
+          "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-fellowship-in-robotic-lymphatic-microsurgery-amp-lymphatic-biology-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-c1ae63707b3a",
@@ -16486,7 +16505,7 @@
       "slugByLocale": {
         "de": "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch",
         "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich-06819c560f",
-        "en": "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch",
+        "en": "special-care-expert-expert-anesthesia-care-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich-6a6012",
         "fr": "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -16535,6 +16554,9 @@
         "it": [
           "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch",
           "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -16562,7 +16584,7 @@
       "slugByLocale": {
         "de": "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch",
         "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich-28f60ad327",
-        "en": "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch",
+        "en": "special-care-expert-expert-anesthesia-care-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich-b3ea39",
         "fr": "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
@@ -16611,6 +16633,9 @@
         "it": [
           "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch",
           "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -17162,7 +17187,7 @@
       "id": "usz-5a53d92b0ee7",
       "slug": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich-b8e8c9105b",
       "slugByLocale": {
-        "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich-b8e8c9105b",
+        "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich",
         "en": "special-care-expert-expert-anesthesia-care-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich",
         "de": "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch",
         "fr": "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich"
@@ -17212,16 +17237,14 @@
         "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-campus",
         "special-care-expert-expert-anesthesia-care-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-campus",
         "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-f-d-op-60-100-universitatsspital-zurich-usz-campus",
-        "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch",
-        "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich"
+        "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-campus",
           "special-care-expert-expert-anesthesia-care-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-campus",
           "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-f-d-op-60-100-universitatsspital-zurich-usz-campus",
-          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch",
-          "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-zurich"
+          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-f-d-op-60-100-usz-ch"
         ],
         "en": [
           "special-care-expert-expert-anesthesia-care-m-f-d-f-d-op-60-100-universitatsspital-zurich-usz-campus",
@@ -17253,7 +17276,7 @@
       "id": "usz-8584ecc07944",
       "slug": "professionista-della-salute-efz-hemato-oncologia-60-100-universitatsspital-zurich-usz-zurich-7449601ccf",
       "slugByLocale": {
-        "it": "professionista-della-salute-efz-hemato-oncologia-60-100-universitatsspital-zurich-usz-zurich-7449601ccf",
+        "it": "professionista-della-salute-efz-hemato-oncologia-60-100-universitatsspital-zurich-usz-zurich",
         "en": "health-professional-efz-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
         "de": "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch",
         "fr": "professionnels-de-la-sante-efz-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich"
@@ -17303,16 +17326,14 @@
         "fachperson-gesundheit-cfc-hamato-onkologie-60-100-universitatsspital-zurich-usz-campus",
         "health-professional-efz-hemato-oncology-60-100-universitatsspital-zurich-usz-campus",
         "professionnels-de-la-sante-efz-hemato-oncologie-60-100-universitatsspital-zurich-usz-campus",
-        "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch",
-        "professionista-della-salute-efz-hemato-oncologia-60-100-universitatsspital-zurich-usz-zurich"
+        "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-cfc-hamato-onkologie-60-100-universitatsspital-zurich-usz-campus",
           "health-professional-efz-hemato-oncology-60-100-universitatsspital-zurich-usz-campus",
           "professionnels-de-la-sante-efz-hemato-oncologie-60-100-universitatsspital-zurich-usz-campus",
-          "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch",
-          "professionista-della-salute-efz-hemato-oncologia-60-100-universitatsspital-zurich-usz-zurich"
+          "fachperson-gesundheit-efz-hamato-onkologie-60-100-usz-ch"
         ],
         "en": [
           "health-professional-efz-hemato-oncology-60-100-universitatsspital-zurich-usz-campus",
@@ -17344,7 +17365,7 @@
       "id": "usz-334d54910b1f",
       "slug": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich-7538e90223",
       "slugByLocale": {
-        "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich-7538e90223",
+        "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich",
         "en": "special-care-expert-expert-anesthesia-care-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich",
         "de": "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch",
         "fr": "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich"
@@ -17391,13 +17412,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch",
-        "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich"
+        "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch",
-          "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-aufn-b-op-80-100-universitatsspital-zurich-usz-zurich"
+          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch"
         ],
         "en": [
           "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-aufn-b-op-80-100-usz-ch"
@@ -17427,7 +17446,7 @@
       "id": "usz-87ec02ec6f55",
       "slug": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-zurich-90d5d84486",
       "slugByLocale": {
-        "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-zurich-90d5d84486",
+        "it": "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-zurich",
         "en": "special-care-expert-expert-anesthesia-care-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-zurich",
         "de": "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-nora-weissezone-50-100-usz-ch",
         "fr": "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-zurich"
@@ -17477,16 +17496,14 @@
         "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-campus",
         "special-care-expert-expert-anesthesia-care-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-campus",
         "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-campus",
-        "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-nora-weissezone-50-100-usz-ch",
-        "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-zurich"
+        "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-nora-weissezone-50-100-usz-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-campus",
           "special-care-expert-expert-anesthesia-care-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-campus",
           "soins-speciaux-soins-d-anesthesie-expert-expert-h-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-campus",
-          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-nora-weissezone-50-100-usz-ch",
-          "cura-speciale-esperto-esperto-anestesia-cura-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-zurich"
+          "spezialpflege-expertin-experte-anasthesiepflege-w-m-d-nora-weissezone-50-100-usz-ch"
         ],
         "en": [
           "special-care-expert-expert-anesthesia-care-m-f-d-nora-whitezone-50-100-universitatsspital-zurich-usz-campus",

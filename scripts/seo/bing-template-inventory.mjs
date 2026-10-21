@@ -14,9 +14,11 @@
 
 import { FUEL_INDEX_SLUG, FUEL_SECTION_SLUG } from '../../build-plugins/shared/fuelRouteSlugs.mjs';
 import { isBlogSectionPath } from '../lib/articleSections.mjs';
+import { isEventsSectionPath } from '../lib/eventsSections.mjs';
 import { isHealthFacilitiesSectionPath } from '../lib/healthFacilitiesSections.mjs';
 import { isJobBoardSectionPathname } from '../lib/jobBoardSections.mjs';
 import { isPlateAuctionSectionPath } from '../lib/plateAuctionSections.mjs';
+import { isPharmacySectionPath } from '../lib/pharmacySections.mjs';
 import { BING_METADATA_FINDING_CODES } from './bing-finding-codes.mjs';
 
 export const TEMPLATE_FINDING_CODES = BING_METADATA_FINDING_CODES;
@@ -35,7 +37,37 @@ function isFuelIndexPath(pathname) {
     FUEL_INDEX_SEGMENTS.some((segment) => pathname.startsWith(`${section}${segment}/`)));
 }
 
-const FAMILY_DEFINITIONS = Object.freeze([
+// The shared events matcher deliberately accepts a normalised path fragment
+// so analytics/audit callers can reuse it.  The inventory receives a complete
+// URL, therefore require the canonical locale/root pair first: this keeps a
+// nearby non-target such as `/blog/events/...` actionable instead of claiming
+// it as an events page merely because it contains an events segment.
+const EVENTS_ROUTE_PREFIXES = Object.freeze([
+  '/eventi/',
+  '/en/events/',
+  '/de/veranstaltungen/',
+  '/fr/evenements/',
+]);
+
+function isEventsTemplatePath(pathname) {
+  return EVENTS_ROUTE_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+    && isEventsSectionPath(pathname);
+}
+
+// calculatorLegacyAliasPlugin emits exactly these three non-Italian legacy
+// paths.  `pathnameFor()` removes query parameters before this matcher runs,
+// so prefilled calculator state remains part of the same template family.
+const CALCULATOR_LEGACY_ALIAS_PATHS = Object.freeze(new Set([
+  '/en/calcola-stipendio/',
+  '/de/calcola-stipendio/',
+  '/fr/calcola-stipendio/',
+]));
+
+function isCalculatorLegacyAliasPath(pathname) {
+  return CALCULATOR_LEGACY_ALIAS_PATHS.has(pathname);
+}
+
+const CORE_FAMILY_DEFINITIONS = Object.freeze([
   {
     id: 'article-pages',
     label: 'Articoli editoriali',
@@ -94,6 +126,42 @@ const FAMILY_DEFINITIONS = Object.freeze([
   },
 ]);
 
+const ADDITIONAL_FAMILY_DEFINITIONS = Object.freeze([
+  {
+    id: 'event-pages',
+    label: 'Pagine eventi',
+    sourcePaths: Object.freeze([
+      'build-plugins/eventsSeoPagesPlugin.ts',
+      'build-plugins/shared/titleSuffix.ts',
+    ]),
+    matches: isEventsTemplatePath,
+  },
+  {
+    id: 'pharmacy-pages',
+    label: 'Pagine farmacie',
+    sourcePaths: Object.freeze([
+      'build-plugins/pharmacyDirectoryPagesPlugin.ts',
+      'build-plugins/pharmacyHubPlugin.ts',
+      'build-plugins/shared/titleSuffix.ts',
+    ]),
+    matches: isPharmacySectionPath,
+  },
+  {
+    id: 'calculator-legacy-alias-pages',
+    label: 'Alias legacy del calcolatore',
+    sourcePaths: Object.freeze([
+      'build-plugins/calculatorLegacyAliasPlugin.ts',
+      'build-plugins/shared/titleSuffix.ts',
+    ]),
+    matches: isCalculatorLegacyAliasPath,
+  },
+]);
+
+const FAMILY_DEFINITIONS = Object.freeze([
+  ...CORE_FAMILY_DEFINITIONS,
+  ...ADDITIONAL_FAMILY_DEFINITIONS,
+]);
+
 const UNKNOWN_FAMILY = Object.freeze({
   id: 'unknown',
   label: 'Template non classificato',
@@ -115,9 +183,10 @@ const AMBIGUOUS_FAMILY = Object.freeze({
  * the code version that produced it.
  */
 export const BING_TEMPLATE_TABLE = Object.freeze([
-  ...FAMILY_DEFINITIONS,
+  ...CORE_FAMILY_DEFINITIONS,
   UNKNOWN_FAMILY,
   AMBIGUOUS_FAMILY,
+  ...ADDITIONAL_FAMILY_DEFINITIONS,
 ].map(({ matches: _matcher, ...family }) => Object.freeze({
   id: family.id,
   label: family.label,

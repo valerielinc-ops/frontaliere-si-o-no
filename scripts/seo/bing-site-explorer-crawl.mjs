@@ -44,7 +44,10 @@ import {
 } from './bing-finding-codes.mjs';
 import { BING_TEMPLATE_TABLE, templateIndexFor } from './bing-template-inventory.mjs';
 
-export const CRAWLER_SCHEMA_VERSION = 2;
+// v3 adds the event, pharmacy and calculator-legacy-alias template families
+// to the compact referrer table. The table is embedded in each frontier
+// manifest, so older artifacts remain inspectable with their own table.
+export const CRAWLER_SCHEMA_VERSION = 3;
 export const SITEMAP_SCOPE = 'sitemap';
 export const FRONTIER_SCOPE = 'discovered-frontier';
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';

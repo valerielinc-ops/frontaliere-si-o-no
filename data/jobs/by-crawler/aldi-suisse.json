@@ -453,8 +453,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-glattbrugg",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "en": "sales-associate-m-w-d-aldi-suisse-glattbrugg",
+        "fr": "vendeur-se-m-w-d-aldi-suisse-glattbrugg"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -534,6 +534,12 @@
       "crawledAt": "2026-10-21T09:31:22.988Z",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "en": [
+          "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        ],
+        "fr": [
           "mitarbeiter-verkauf-m-w-d-aldi-suisse"
         ]
       },
