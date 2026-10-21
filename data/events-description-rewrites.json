@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-20T21:21:41.558Z",
+  "generatedAt": "2026-10-20T22:20:42.759Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -27305,6 +27305,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-17T23:14:50.592Z"
+    },
+    "guidle:AHpSCgM::f3fc41791ba5be2b8af9810046437ad3c9e774e0f993e6519a05396b85a0478e": {
+      "id": "guidle:AHpSCgM",
+      "sourceDescriptionHash": "f3fc41791ba5be2b8af9810046437ad3c9e774e0f993e6519a05396b85a0478e",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mühle Hunziken; comune: Rubigen; cantone: BE; categoria: Rock generalmente; organizzatore: Guidle; data: 2027-03-12; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mühle Hunziken; comune: Rubigen; cantone: BE; categoria: Rock generalmente; organizzatore: Guidle; data: 2027-03-12; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Mühle Hunziken; municipality: Rubigen; canton: BE; category: Rock generalmente; organiser: Guidle; date: 2027-03-12; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Mühle Hunziken; gemeinde: Rubigen; kanton: BE; kategorie: Rock generalmente; veranstalter: Guidle; datum: 2027-03-12; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Mühle Hunziken; commune: Rubigen; canton: BE; catégorie: Rock generalmente; organisateur: Guidle; date: 2027-03-12; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T22:16:51.717Z"
     },
     "guidle:AHQSbrP::bbc07bd40b71071bbc0ef66a9ba75ffa350453d44ba204f6bbea5f36040f9776": {
       "id": "guidle:AHQSbrP",
@@ -95079,6 +95093,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T11:14:19.002Z"
+    },
+    "myswitzerland:795734d1c91d40de93417c22a667d893::599362b15903cb6891aa03ca37da828993febf625d38fced0e943559fc059fc9": {
+      "id": "myswitzerland:795734d1c91d40de93417c22a667d893",
+      "sourceDescriptionHash": "599362b15903cb6891aa03ca37da828993febf625d38fced0e943559fc059fc9",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Rorschach; cantone: SG; categoria: Event; organizzatore: MySwitzerland; data: 2027-02-21; ora: 11:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Rorschach; cantone: SG; categoria: Event; organizzatore: MySwitzerland; data: 2027-02-21; ora: 11:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Rorschach; canton: SG; category: Event; organiser: MySwitzerland; date: 2027-02-21; time: 11:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Rorschach; kanton: SG; kategorie: Event; veranstalter: MySwitzerland; datum: 2027-02-21; uhrzeit: 11:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Rorschach; canton: SG; catégorie: Event; organisateur: MySwitzerland; date: 2027-02-21; heure: 11:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-20T22:16:51.700Z"
     },
     "myswitzerland:795c98f510e24fb786c04335603b4b59::5842c7ea5dcaf129a338f13265acb267a237ed13354a5ca4c23e52dfd9023e07": {
       "id": "myswitzerland:795c98f510e24fb786c04335603b4b59",
@@ -163145,15 +163173,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AHpSCgM::f3fc41791ba5be2b8af9810046437ad3c9e774e0f993e6519a05396b85a0478e": {
-      "id": "guidle:AHpSCgM",
-      "sourceDescriptionHash": "f3fc41791ba5be2b8af9810046437ad3c9e774e0f993e6519a05396b85a0478e",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-20T21:17:14.298Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AHQ94is::dfa1efbc4ce1f9efb166b71b4d6e266a5413b2990e0b75b953984de175a1b6bf": {
       "id": "guidle:AHQ94is",
       "sourceDescriptionHash": "dfa1efbc4ce1f9efb166b71b4d6e266a5413b2990e0b75b953984de175a1b6bf",
@@ -167183,15 +167202,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T02:28:54.355Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:795734d1c91d40de93417c22a667d893::599362b15903cb6891aa03ca37da828993febf625d38fced0e943559fc059fc9": {
-      "id": "myswitzerland:795734d1c91d40de93417c22a667d893",
-      "sourceDescriptionHash": "599362b15903cb6891aa03ca37da828993febf625d38fced0e943559fc059fc9",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-20T20:20:47.153Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
