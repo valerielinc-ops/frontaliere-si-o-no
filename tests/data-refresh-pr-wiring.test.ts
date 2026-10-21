@@ -64,7 +64,7 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(fastPublish).toContain('--branch "chore/fast-publish-article-sitemap-${{ inputs.section }}"');
     expect(fastPublish).toContain('--path "public/$dist_path"');
     expect(rerender).toContain("- 'packages/articles/content/**'");
-    expect(rerender).not.toContain('workflow_run:');
+    expect(rerender).toContain('workflow_run:');
   });
 
   it('keeps the shared publisher on the PR path, never main', () => {
