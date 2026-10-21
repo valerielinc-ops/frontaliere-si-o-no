@@ -5398,10 +5398,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
  strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
- const returnVisitNewJobs = useMemo(() => {
-  if (!enablePersonalization) return [];
-  return preReturnVisitFilteredJobs.filter(isNewSincePreviousVisit);
- }, [enablePersonalization, isNewSincePreviousVisit, preReturnVisitFilteredJobs]);
+ // INP: this corpus can contain the full loaded board. A synchronous filter
+ // here runs again for every render (including a card/detail transition), so
+ // the interaction pays the whole scan before React can paint. Keep the
+ // return-visit result on the same frame-budgeted path as the other board
+ // derivations; only publish a complete current-revision result.
+ const emptyReturnVisitNewJobs = useMemo<JobListing[]>(() => [], []);
+ const createReturnVisitNewJobsAccumulator = useCallback((): JobListing[] => [], []);
+ const visitReturnVisitNewJob = useCallback((matches: JobListing[], job: JobListing) => {
+  if (isNewSincePreviousVisit(job)) matches.push(job);
+ }, [isNewSincePreviousVisit]);
+ const finishReturnVisitNewJobs = useCallback((matches: JobListing[]) => matches, []);
+ const returnVisitNewJobsDerivation = useInterruptibleDerivation({
+  items: preReturnVisitFilteredJobs,
+  enabled: enablePersonalization,
+  emptyValue: emptyReturnVisitNewJobs,
+  createAccumulator: createReturnVisitNewJobsAccumulator,
+  visit: visitReturnVisitNewJob,
+ finish: finishReturnVisitNewJobs,
+ });
+ const returnVisitNewJobs = returnVisitNewJobsDerivation.value;
+ const returnVisitResultsPending = deferredShowSinceLastVisitOnly && returnVisitNewJobsDerivation.pending;
  const filteredJobs = useMemo(
   () => deferredShowSinceLastVisitOnly ? returnVisitNewJobs : preReturnVisitFilteredJobs,
   [deferredShowSinceLastVisitOnly, preReturnVisitFilteredJobs, returnVisitNewJobs],
@@ -5434,9 +5451,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // The loaded result set is authoritative for the root hub's metadata too.
  useEffect(() => {
-  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending) return;
+  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending || returnVisitResultsPending) return;
   updateJobBoardListingMetadata(locale, initialFilterCanton || 'TI', filteredJobs.length);
- }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, filteredJobs.length]);
+ }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, returnVisitResultsPending, filteredJobs.length]);
 
  // Resolve the hub identity from the same company-route candidates that drive
  // the visible filter. A display-name collision is intentionally not guessed:
@@ -5585,8 +5602,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
- const resultsResolving = (jobsLoading || resultDerivationPending || fallbackResultsResolving)
- && !clusterSeedApplies;
+ const resultsResolving = (
+  (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
+ ) || returnVisitResultsPending;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
