@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksa",
-  "assembledAt": "2026-10-20T21:18:02.226Z",
+  "assembledAt": "2026-10-21T09:17:39.084Z",
   "jobs": [
     {
       "id": "ksa-412a5d2d5392",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4317/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.349Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -95,7 +95,7 @@
       "slug": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
       "slugByLocale": {
         "it": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
-        "en": "care-expert-care-expert-kantonsspital-aarau-ksa-aarau",
+        "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
         "de": "pflegeexpertin-pflegeexperte-ksa-ch",
         "fr": "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau-4b8fef"
       },
@@ -121,7 +121,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5631/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.349Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -147,7 +147,7 @@
         "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
         "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau",
         "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
-        "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
+        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -158,7 +158,7 @@
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci"
         ],
         "en": [
-          "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
+          "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo"
@@ -210,7 +210,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5227/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.349Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -291,7 +291,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4993/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.349Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -436,7 +436,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksa-67317abd503b",
@@ -445,7 +446,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "en": "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -469,7 +470,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4319/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.349Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -493,7 +494,8 @@
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-ksa-ch-9zu87s",
         "expert-care-kantonsspital-aarau-ksa-aarau",
-        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
+        "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
+        "soins-d-experts-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -506,7 +508,7 @@
         ],
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-          "expert-care-kantonsspital-aarau-ksa-aarau"
+          "soins-d-experts-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -555,7 +557,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4766/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.349Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -646,7 +648,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/1927/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.349Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -720,7 +722,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5744/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -796,7 +798,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5715/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -874,7 +876,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5479/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -948,7 +950,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4773/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1022,7 +1024,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5288/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1107,7 +1109,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5738/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1183,7 +1185,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5687/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1273,7 +1275,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2913/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1323,7 +1325,7 @@
         "it": "paramedico-fa-kantonsspital-aarau-ksa-aarau",
         "en": "paramedic-fa-kantonsspital-aarau-ksa-aarau",
         "de": "transportsanitater-in-fa-ksa-ch",
-        "fr": "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+        "fr": "paramedic-fa-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1347,7 +1349,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5711/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1369,8 +1371,7 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau",
-        "transportsanitater-in-fa-ksa-ch",
-        "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+        "transportsanitater-in-fa-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1381,7 +1382,7 @@
           "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+          "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
@@ -1404,7 +1405,7 @@
       "slug": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
-        "en": "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in",
+        "en": "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau",
         "de": "still-und-laktationsberater-in-ksa-ch",
         "fr": "still-und-laktationsberater-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -1430,7 +1431,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5485/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1452,14 +1453,14 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "still-und-laktationsberater-in-ksa-ch",
-        "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
+        "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
       ],
       "previousSlugsByLocale": {
         "it": [
           "still-und-laktationsberater-in-ksa-ch"
         ],
         "en": [
-          "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
+          "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -1508,7 +1509,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5698/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1593,7 +1594,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4883/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1648,7 +1649,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1672,7 +1673,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4369/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1695,7 +1696,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch",
-        "expert-care-kantonsspital-aarau-ksa-aarau"
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1703,7 +1704,7 @@
           "fachexpertin-fachexperte-pflege-ksa-ch"
         ],
         "fr": [
-          "expert-care-kantonsspital-aarau-ksa-aarau"
+          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -1752,7 +1753,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5459/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1826,7 +1827,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5671/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -1924,7 +1925,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5682/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2002,7 +2003,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5675/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2086,7 +2087,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5432/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2134,7 +2135,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
+        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
@@ -2160,7 +2161,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4814/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2195,9 +2196,6 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
-        ],
-        "en": [
-          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -2246,7 +2244,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5662/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2320,7 +2318,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5486/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2398,7 +2396,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/3601/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2476,7 +2474,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5625/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.807Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2545,7 +2543,7 @@
       "id": "ksa-89883f785c0b",
       "slug": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "valutatore-immobiliare-graubundner-kantonalbank-chur",
+        "it": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
         "en": "nursing-professional-in-training-additional-module-b-or-c-kantonsspital-aarau-ksa-aarau",
         "de": "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "fr": "professionnel-infirmier-en-formation-module-supplementaire-b-ou-c-kantonsspital-aarau-ksa-aarau"
@@ -2572,7 +2570,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/1910/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2595,12 +2593,14 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau",
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
+        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
+        "valutatore-immobiliare-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
+          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
+          "valutatore-immobiliare-graubundner-kantonalbank-chur"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau"
@@ -2655,7 +2655,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/3238/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.348Z",
+      "crawledAt": "2026-10-21T09:16:18.808Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2709,7 +2709,7 @@
         "it": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
         "en": "care-controller-in-kantonsspital-aarau-ksa-aarau",
         "de": "pflegecontroller-in-ksa-ch",
-        "fr": "controleur-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2733,7 +2733,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5597/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2755,14 +2755,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegecontroller-in-ksa-ch",
-        "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
+        "controleur-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegecontroller-in-ksa-ch"
         ],
         "fr": [
-          "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
+          "controleur-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-29T09:11:24.714Z",
@@ -2811,7 +2811,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5553/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2885,7 +2885,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2987/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -2959,7 +2959,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2903/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3043,7 +3043,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2897/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3109,7 +3109,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5545/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3183,7 +3183,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5750/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3230,7 +3230,7 @@
       "id": "ksa-6cf6025271ef",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
       "slugByLocale": {
-        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
         "en": "healthcare-professional-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
@@ -3257,7 +3257,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5745/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3301,11 +3301,14 @@
         "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
+        "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
+        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
+          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
           "professional-health-kantonsspital-aarau-ksa-aarau-917953",
           "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953",
           "salute-professionale-kantonsspital-aarau-ksa-aarau-b22c58",
@@ -3373,7 +3376,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5743/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3449,7 +3452,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5654/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3531,7 +3534,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5712/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3605,7 +3608,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4839/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3681,7 +3684,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5447/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3760,7 +3763,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5673/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3840,7 +3843,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5643/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -3948,7 +3951,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4586/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4027,7 +4030,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5633/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.805Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4101,7 +4104,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5771/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4175,7 +4178,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/1493/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.347Z",
+      "crawledAt": "2026-10-21T09:16:18.806Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4251,7 +4254,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5487/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4302,7 +4305,7 @@
         "it": "risorse-umane-business-partner-kantonsspital-aarau-ksa-aarau",
         "en": "hr-business-partner-ksa-ch",
         "de": "hr-business-partner-ksa-ch",
-        "fr": "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+        "fr": "hr-business-partner-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4326,7 +4329,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5679/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4348,14 +4351,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "hr-business-partner-ksa-ch",
-        "hr-business-partner-kantonsspital-aarau-ksa-aarau"
+        "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-ksa-ch"
         ],
         "fr": [
-          "hr-business-partner-kantonsspital-aarau-ksa-aarau"
+          "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-10-06T09:16:55.314Z",
@@ -4404,7 +4407,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5759/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4480,7 +4483,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5785/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4556,7 +4559,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5768/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4634,7 +4637,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5680/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4708,7 +4711,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5636/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4793,7 +4796,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5770/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4869,7 +4872,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5696/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4916,7 +4919,7 @@
       "id": "ksa-0b6c3dd0024c",
       "slug": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
+        "it": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "de": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
@@ -4943,7 +4946,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5128/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -4969,12 +4972,14 @@
         ],
         "it": [
           "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "ergotherapeut-in-ksa-ch"
+          "ergotherapeut-in-ksa-ch",
+          "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "ergotherapeut-in-ksa-ch"
+        "ergotherapeut-in-ksa-ch",
+        "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
       "salaryMin": 88000,
@@ -4996,7 +5001,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7"
       },
@@ -5022,7 +5027,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/3602/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5043,8 +5048,7 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5052,9 +5056,6 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
-        ],
-        "en": [
-          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -5103,7 +5104,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5387/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5178,7 +5179,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5784/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5252,7 +5253,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5783/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5326,7 +5327,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5782/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.803Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5400,7 +5401,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5781/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5474,7 +5475,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5780/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5548,7 +5549,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5779/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5622,7 +5623,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5778/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5696,7 +5697,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5777/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5770,7 +5771,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5776/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5844,7 +5845,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5775/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5918,7 +5919,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5774/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -5992,7 +5993,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5773/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6066,7 +6067,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5772/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.346Z",
+      "crawledAt": "2026-10-21T09:16:18.804Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6140,7 +6141,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4451/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6230,7 +6231,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5323/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6311,7 +6312,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5273/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6363,7 +6364,7 @@
         "it": "materiale-professionale-specializzato-kantonsspital-aarau-ksa-aarau",
         "en": "professional-specialist-material-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-        "fr": "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
+        "fr": "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6387,7 +6388,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5436/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6410,7 +6411,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-        "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
+        "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6424,7 +6425,7 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-kantonsspital-aarau-ksa-aarau",
-          "dipl-infirmiere-specialiste-hf-kantonsspital-aarau-ksa-aarau"
+          "materiel-professionnel-specialise-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-10-12T09:13:55.329Z",
@@ -6473,7 +6474,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5791/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6557,7 +6558,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5747/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6637,7 +6638,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5787/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6711,7 +6712,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5721/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6785,7 +6786,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5762/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6859,7 +6860,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5602/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6914,7 +6915,7 @@
       "id": "ksa-55d25c285595",
       "slug": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
+        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
@@ -6941,7 +6942,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5753/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -6964,11 +6965,15 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
-        "fachfrau-fachmann-gesundheit-ksa-ch"
+        "fachfrau-fachmann-gesundheit-ksa-ch",
+        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
+        "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch"
+          "fachfrau-fachmann-gesundheit-ksa-ch",
+          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau-4f4cf15906",
+          "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
@@ -7026,7 +7031,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5741/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7129,7 +7134,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5740/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7208,7 +7213,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5458/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7293,7 +7298,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2779/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.345Z",
+      "crawledAt": "2026-10-21T09:16:18.802Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7379,7 +7384,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5195/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.800Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7443,7 +7448,7 @@
         "it": "collaboratore-trice-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
         "en": "employee-patient-hospitality-kantonsspital-aarau-ksa-aarau",
         "de": "mitarbeiter-in-patientenhotellerie-ksa-ch",
-        "fr": "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
+        "fr": "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7467,7 +7472,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5699/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.800Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7490,7 +7495,7 @@
       "previousSlugs": [
         "mitarbeiter-in-patientenhotellerie-ksa-ch",
         "mitarbeiter-in-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
-        "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
+        "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7501,7 +7506,7 @@
         ],
         "fr": [
           "mitarbeiter-in-patientenhotellerie-kantonsspital-aarau-ksa-aarau",
-          "collaborateur-trice-en-hotellerie-hospitaliere-kantonsspital-aarau-ksa-aarau"
+          "depenses-de-representation-des-employes-et-des-patients-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-02T23:07:29.745Z",
@@ -7524,7 +7529,7 @@
       "slug": "ergoterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
-        "en": "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-ergotherapeut-in-handrehabilitation-ksa-ch",
         "fr": "ergotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
@@ -7550,7 +7555,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5801/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7572,7 +7577,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-ergotherapeut-in-handrehabilitation-ksa-ch",
-        "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau"
+        "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7580,7 +7585,7 @@
         ],
         "en": [
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch",
-          "dipl-ergotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau"
+          "qualified-occupational-therapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
           "dipl-ergotherapeut-in-handrehabilitation-ksa-ch"
@@ -7632,7 +7637,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/2912/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7714,7 +7719,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4675/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7798,7 +7803,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5664/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.800Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7872,7 +7877,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5737/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.800Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -7951,7 +7956,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4117/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.800Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8025,7 +8030,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5731/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.800Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8099,7 +8104,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5714/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8188,7 +8193,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/4637/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.800Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8269,7 +8274,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5074/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.344Z",
+      "crawledAt": "2026-10-21T09:16:18.801Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8336,7 +8341,7 @@
       "slug": "fisioterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-riabilitazione-della-mano-kantonsspital-aarau-ksa-aarau",
-        "en": "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-physiotherapeut-in-handrehabilitation-ksa-ch",
         "fr": "physiotherapeute-diplome-e-readaptation-de-la-main-kantonsspital-aarau-ksa-aarau"
       },
@@ -8362,7 +8367,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5802/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.343Z",
+      "crawledAt": "2026-10-21T09:16:18.799Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8384,7 +8389,7 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-physiotherapeut-in-handrehabilitation-ksa-ch",
-        "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau"
+        "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8392,7 +8397,7 @@
         ],
         "en": [
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch",
-          "dipl-physiotherapeut-in-handrehabilitation-kantonsspital-aarau-ksa-aarau"
+          "qualified-physiotherapist-hand-rehabilitation-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
           "dipl-physiotherapeut-in-handrehabilitation-ksa-ch"
@@ -8444,7 +8449,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5742/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.343Z",
+      "crawledAt": "2026-10-21T09:16:18.799Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8526,7 +8531,7 @@
       "url": "https://recruitingapp-122706.umantis.com/Vacancies/5786/Application/CheckLogin/1",
       "source": "KSA Dedicated Parser (Umantis tenant 122706)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:52.342Z",
+      "crawledAt": "2026-10-21T09:16:18.798Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "5000",
@@ -8661,7 +8666,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
-  ]
+  ],
+  "runId": "39573937168"
 }
