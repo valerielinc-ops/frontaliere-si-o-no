@@ -94,24 +94,44 @@ export function decideLatestPublish({
   publishRuns,
   lastSuccessfulDeployment,
   activeDeployment = null,
+  successfulDeploymentShas = [],
   maxAttempts = DEFAULT_MAX_PUBLISH_ATTEMPTS,
 } = {}) {
   const candidate = successfulBuilds(builds)[0];
   if (!candidate) return skip('no-successful-build', 'no successful main build is available to publish');
 
-  const activeRun = (Array.isArray(publishRuns) ? publishRuns : []).find((run) => LIVE_STATUSES.has(text(run?.status)));
-  if (activeRun) {
-    return skip('publish-moving', `publish run ${text(activeRun.id) || '<unknown>'} is ${text(activeRun.status)}`);
+  const candidateSha = text(candidate.headSha || candidate.head_sha);
+  const publishedSha = text(lastSuccessfulDeployment?.sha);
+  if (publishedSha === candidateSha) {
+    return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
   }
 
   if (activeDeployment) {
     return skip('pages-moving', `Pages deployment ${text(activeDeployment.id) || '<unknown>'} is ${text(activeDeployment.state)}`);
   }
 
-  const candidateSha = text(candidate.headSha || candidate.head_sha);
-  const publishedSha = text(lastSuccessfulDeployment?.sha);
-  if (publishedSha === candidateSha) {
-    return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
+  // deploy-publish.yml deliberately keeps its long validate-dist and
+  // post-deploy tails independent from the `pages-deploy` concurrency lock.
+  // A workflow run can therefore remain in_progress after its Pages upload
+  // has succeeded. The deployment API records the dispatch ref (`head_sha`),
+  // while `source_sha` identifies the older build artifact and may differ.
+  // Treat only an active run whose own ref has not been published as a blocker;
+  // an unreadable ref remains fail-closed.
+  const deployedRevisions = new Set(
+    [
+      ...(Array.isArray(successfulDeploymentShas) ? successfulDeploymentShas : []),
+      publishedSha,
+    ]
+      .map((sha) => text(sha).toLowerCase())
+      .filter(Boolean),
+  );
+  const activeRun = (Array.isArray(publishRuns) ? publishRuns : []).find((run) => {
+    if (!LIVE_STATUSES.has(text(run?.status))) return false;
+    const runRevision = text(run?.headSha || run?.head_sha).toLowerCase();
+    return !runRevision || !deployedRevisions.has(runRevision);
+  });
+  if (activeRun) {
+    return skip('publish-moving', `publish run ${text(activeRun.id) || '<unknown>'} is ${text(activeRun.status)}`);
   }
 
   const attempts = (Array.isArray(publishRuns) ? publishRuns : [])
@@ -200,6 +220,7 @@ async function inspectDeployments(repo) {
   if (!Array.isArray(deployments)) throw new Error('Pages deployment listing is malformed');
   let lastSuccessfulDeployment = null;
   let activeDeployment = null;
+  const successfulDeploymentShas = new Set();
   for (const deployment of deployments) {
     const id = numericId(deployment?.id);
     if (!id) continue;
@@ -211,14 +232,23 @@ async function inspectDeployments(repo) {
       activeDeployment = { id, state };
     }
     if (!lastSuccessfulDeployment && state === 'success') {
+      const deploymentSha = text(deployment?.sha);
+      if (deploymentSha) successfulDeploymentShas.add(deploymentSha);
       lastSuccessfulDeployment = {
         id,
-        sha: text(deployment?.sha),
+        sha: deploymentSha,
         publishedAt: text(latest?.created_at),
       };
+    } else if (state === 'success') {
+      const deploymentSha = text(deployment?.sha);
+      if (deploymentSha) successfulDeploymentShas.add(deploymentSha);
     }
   }
-  return { lastSuccessfulDeployment, activeDeployment };
+  return {
+    lastSuccessfulDeployment,
+    activeDeployment,
+    successfulDeploymentShas: [...successfulDeploymentShas],
+  };
 }
 
 function appendSummary(message) {

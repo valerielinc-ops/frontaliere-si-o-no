@@ -9,6 +9,7 @@ import {
 
 const SHA_OLD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const SHA_LATEST = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
+const SHA_OLDER_TAIL = 'cccccccccccccccccccccccccccccccccccccccc';
 
 const build = (id: number, headSha: string, completedAt: string, conclusion = 'success') => ({
   id,
@@ -51,6 +52,50 @@ describe('decideLatestPublish', () => {
       lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T09:00:00Z'),
       activeDeployment: { id: 123, state: 'in_progress' },
     })).toMatchObject({ action: 'skip', reason: 'pages-moving' });
+  });
+
+  it('does not let a completed Pages upload tail block the next publish', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 99,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_OLD,
+        displayTitle: `Publish Pages build 1 @ ${SHA_OLD}`,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+  });
+
+  it('also ignores an older publish tail when a newer revision is already live', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 98,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_OLDER_TAIL,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+      successfulDeploymentShas: [SHA_OLD, SHA_OLDER_TAIL],
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+  });
+
+  it('still waits for a publish run whose Pages upload has not succeeded', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 97,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_LATEST,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'publish-moving' });
   });
 
   it('treats an exact successful deployment as already live', () => {
