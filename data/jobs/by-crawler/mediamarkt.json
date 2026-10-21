@@ -3995,12 +3995,12 @@
     },
     {
       "id": "mediamarkt-99656",
-      "slug": "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich",
+      "slug": "collaboratore-trice-alle-vendite-per-il-sabato-20-m-f-d-mediamarkt-zurich",
       "slugByLocale": {
         "de": "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
-        "it": "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich",
-        "en": "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
-        "fr": "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
+        "it": "collaboratore-trice-alle-vendite-per-il-sabato-20-m-f-d-mediamarkt-zurich",
+        "en": "saturday-sales-assistant-20-m-f-d-mediamarkt-zurich",
+        "fr": "auxiliaire-du-samedi-employe-e-de-vente-20-h-f-d-mediamarkt-zurich"
       },
       "company": "MediaMarkt",
       "companyKey": "mediamarkt",
@@ -4048,14 +4048,33 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
+          "addetto-a-alle-vendite-per-il-sabato-20-m-f-d-mediamarkt-zurich",
+          "saturday-sales-assistant-20-m-f-d-mediamarkt-zurich",
+          "auxiliaire-du-samedi-collaborateur-rice-vente-20-h-f-d-mediamarkt-zurich",
+          "samstagsaushilfe-mitarbeiter-in-sales-20-m-w-d-mediamarkt-zurich",
+          "samstagsaushilfe-mitarbeiter-in-vente-20-m-w-d-mediamarkt-zurich",
+          "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich"
+        ],
+        "en": [
+          "saturday-sales-assistant-20-m-f-d-mediamarkt-zurich",
+          "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
+        ],
+        "fr": [
+          "auxiliaire-du-samedi-collaborateur-rice-vente-20-h-f-d-mediamarkt-zurich",
           "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch"
+        "samstagsaushilfe-mitarbeiter-in-verkauf-20-m-w-d-mediamarkt-zurich-ch",
+        "addetto-a-alle-vendite-per-il-sabato-20-m-f-d-mediamarkt-zurich",
+        "saturday-sales-assistant-20-m-f-d-mediamarkt-zurich",
+        "auxiliaire-du-samedi-collaborateur-rice-vente-20-h-f-d-mediamarkt-zurich",
+        "samstagsaushilfe-mitarbeiter-in-sales-20-m-w-d-mediamarkt-zurich",
+        "samstagsaushilfe-mitarbeiter-in-vente-20-m-w-d-mediamarkt-zurich",
+        "samstagsaushilfe-collaboratore-trice-in-vendita-20-m-w-d-mediamarkt-zurich"
       ],
       "salaryMin": 16600,
       "salaryMax": 25500,

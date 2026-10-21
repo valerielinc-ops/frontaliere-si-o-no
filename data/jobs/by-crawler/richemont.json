@@ -16015,12 +16015,12 @@
     },
     {
       "id": "richemont-b4850eed8770",
-      "slug": "operateur-premontage-semi-automatise-f-h-richemont-le-brassus",
+      "slug": "operatore-semiautomatico-preassembly-m-f-vacheron-constantin-le-brassus",
       "slugByLocale": {
         "fr": "operateur-premontage-semi-automatise-f-h-richemont-le-brassus",
-        "it": "operateur-premontage-semi-automatise-f-h-richemont-le-brassus",
-        "en": "operateur-premontage-semi-automatise-f-h-richemont-le-brassus",
-        "de": "operateur-premontage-semi-automatise-f-h-richemont-le-brassus"
+        "it": "operatore-semiautomatico-preassembly-m-f-vacheron-constantin-le-brassus",
+        "en": "semi-automated-pre-assembly-operator-m-f-vacheron-constantin-le-brassus",
+        "de": "halbautomatischer-vormontagebetreiber-m-w-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -16078,16 +16078,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:29:16.307Z"
+      "firstSeenAt": "2026-10-21T09:29:16.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-premontage-semi-automatise-f-h-richemont-le-brassus"
+        ],
+        "en": [
+          "operateur-premontage-semi-automatise-f-h-richemont-le-brassus"
+        ],
+        "de": [
+          "operateur-premontage-semi-automatise-f-h-richemont-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-premontage-semi-automatise-f-h-richemont-le-brassus"
+      ]
     },
     {
       "id": "richemont-166202ecf8a5",
-      "slug": "programmeur-f-h-richemont-le-brassus",
+      "slug": "programmatore-m-f-vacheron-constantin-le-brassus",
       "slugByLocale": {
         "fr": "programmeur-f-h-richemont-le-brassus",
-        "it": "programmeur-f-h-richemont-le-brassus",
-        "en": "programmeur-f-h-richemont-le-brassus",
-        "de": "programmeur-f-h-richemont-le-brassus"
+        "it": "programmatore-m-f-vacheron-constantin-le-brassus",
+        "en": "m-f-programmer-vacheron-constantin-le-brassus",
+        "de": "m-w-programmierer-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -16145,16 +16159,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:29:16.293Z"
+      "firstSeenAt": "2026-10-21T09:29:16.293Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "programmeur-f-h-richemont-le-brassus"
+        ],
+        "en": [
+          "programmeur-f-h-richemont-le-brassus"
+        ],
+        "de": [
+          "programmeur-f-h-richemont-le-brassus"
+        ]
+      },
+      "previousSlugs": [
+        "programmeur-f-h-richemont-le-brassus"
+      ]
     },
     {
       "id": "richemont-ed8ab144eaed",
-      "slug": "sales-advisor-richemont-zurich",
+      "slug": "sales-consulente-panerai-zurich",
       "slugByLocale": {
         "en": "sales-advisor-richemont-zurich",
-        "it": "sales-advisor-richemont-zurich",
-        "de": "sales-advisor-richemont-zurich",
-        "fr": "sales-advisor-richemont-zurich"
+        "it": "sales-consulente-panerai-zurich",
+        "de": "sales-berater-panerai-zurich",
+        "fr": "sales-conseiller-panerai-zurich"
       },
       "company": "Panerai",
       "companyKey": "richemont",
@@ -16213,7 +16241,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-21T09:29:16.200Z"
+      "firstSeenAt": "2026-10-21T09:29:16.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-advisor-richemont-zurich"
+        ],
+        "de": [
+          "sales-advisor-richemont-zurich"
+        ],
+        "fr": [
+          "sales-advisor-richemont-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sales-advisor-richemont-zurich"
+      ]
     }
   ],
   "runId": "39574905298"

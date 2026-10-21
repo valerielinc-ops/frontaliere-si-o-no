@@ -14,6 +14,7 @@ import {
   UserCheck,
 } from 'lucide-react';
 import { useAuth } from '@/services/authService';
+import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import {
   ASSISTED_APPLICATION_ADMIN_STATUSES,
   fetchAssistedApplicationCandidateView,
@@ -584,7 +585,7 @@ export default function AssistedApplicationAdmin() {
                   </DataRow>
                   <DataRow label="Annuncio">
                     <div className="flex flex-col items-start gap-1">
-                      {order.jobUrl ? <a className="inline-flex items-center gap-1 text-link hover:underline" href={order.jobUrl} target="_blank" rel="noreferrer">Apri annuncio <ExternalLink size={12} aria-hidden="true" /></a> : order.jobId || '—'}
+                      {order.jobUrl ? <a className="inline-flex items-center gap-1 text-link hover:underline" href={normalizeExternalJobDetailUrl(order.jobUrl)} target="_blank" rel="noreferrer">Apri annuncio <ExternalLink size={12} aria-hidden="true" /></a> : order.jobId || '—'}
                       <button
                         type="button"
                         onClick={() => { void toggleCandidatePreview(order); }}

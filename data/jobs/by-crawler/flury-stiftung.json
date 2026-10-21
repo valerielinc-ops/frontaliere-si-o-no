@@ -571,7 +571,7 @@
       "id": "flury-stiftung-01dc11423612",
       "slug": "demenza-80-100-pensione-jenaz-flury-stiftung-jenaz",
       "slugByLocale": {
-        "de": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+        "de": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch-jenp0b",
         "it": "demenza-80-100-pensione-jenaz-flury-stiftung-jenaz",
         "en": "station-management-dementia-80-100-retirement-home-jenaz-flury-stiftung-jenaz",
         "fr": "gestion-de-gare-dementia-80-100-maison-de-retraite-jenaz-flury-stiftung-jenaz"
@@ -646,6 +646,9 @@
           "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
         ],
         "fr": [
+          "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+        ],
+        "de": [
           "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
         ]
       },
@@ -2027,12 +2030,12 @@
     },
     {
       "id": "flury-stiftung-f18e892d8c2c",
-      "slug": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+      "slug": "demenza-80-100-pensione-jenaz-flury-stiftung-jenaz-34cc6d",
       "slugByLocale": {
         "de": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
-        "it": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
-        "en": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
-        "fr": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+        "it": "demenza-80-100-pensione-jenaz-flury-stiftung-jenaz-34cc6d",
+        "en": "station-management-dementia-80-100-retirement-home-jenaz-flury-stiftung-jenaz-34cc6d",
+        "fr": "gestion-de-gare-demence-80-100-maison-de-retraite-jenaz-flury-stiftung-jenaz"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -2094,7 +2097,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-20T21:40:03.820Z"
+      "firstSeenAt": "2026-10-20T21:40:03.820Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+        ],
+        "en": [
+          "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+        ],
+        "fr": [
+          "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+      ]
     }
   ],
   "runId": "39576413169"

@@ -23,7 +23,7 @@ import {
  type CantonLocale,
 } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { loadArticleRedirects, assertNoCrossSourceChains, assertNoInternalChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
+import { loadArticleRedirects, loadArticleCanonicalOverrides, assertNoCanonicalOverrideRedirectTargets, assertNoCrossSourceChains, assertNoInternalChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
@@ -667,6 +667,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  redirects[from] = to;
  articleRenameCount++;
  }
+ assertNoCanonicalOverrideRedirectTargets(redirects, loadArticleCanonicalOverrides(rootDir));
  }
 
  const getHreflangHtml = (targetPath: string): string => {

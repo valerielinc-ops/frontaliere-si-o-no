@@ -766,12 +766,12 @@
     },
     {
       "id": "csl-behring-fd2684a5281a",
-      "slug": "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch",
+      "slug": "direttore-f-m-x-global-procurement-logistica-warehousing-csl-behring-bern",
       "slugByLocale": {
         "en": "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch",
-        "it": "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch",
-        "de": "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch",
-        "fr": "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch"
+        "it": "direttore-f-m-x-global-procurement-logistica-warehousing-csl-behring-bern",
+        "de": "direktor-f-m-x-global-procurement-logistik-warehousing-csl-behring-bern",
+        "fr": "directeur-h-f-x-achats-mondiaux-logistique-et-entreposage-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -830,7 +830,21 @@
         }
       },
       "postalCode": "3004",
-      "firstSeenAt": "2026-10-21T09:57:01.373Z"
+      "firstSeenAt": "2026-10-21T09:57:01.373Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch"
+        ],
+        "de": [
+          "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch"
+        ],
+        "fr": [
+          "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-f-m-x-global-procurement-logistics-warehousing-csl-behring-ch"
+      ]
     }
   ]
 }

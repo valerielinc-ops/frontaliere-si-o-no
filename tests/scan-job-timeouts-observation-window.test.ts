@@ -251,6 +251,42 @@ describe('run-list pagination integrity', () => {
     const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
     await expect(main()).rejects.toThrow(/risposta runs cancelled non leggibile \(page=2\)/);
   });
+
+  it('keeps scanning when the live total_count drifts before the final page', async () => {
+    const oldRuns = Array.from({ length: 100 }, (_, index) => runFixture(index + 1, {
+      updated_at: iso(60 * MINUTE),
+    }));
+    const finalRuns = Array.from({ length: 46 }, (_, index) => runFixture(index + 701, {
+      updated_at: index === 0 ? iso(MINUTE) : iso(60 * MINUTE),
+    }));
+
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] !== 'api') return '';
+      if (args[1].includes('/runs?status=cancelled')) {
+        const query = new URLSearchParams(args[1].split('?')[1]);
+        const page = Number(query.get('page'));
+        if (page <= 7) return JSON.stringify({ total_count: 745, workflow_runs: oldRuns });
+        if (page === 8) return JSON.stringify({ total_count: 745, workflow_runs: finalRuns });
+        return JSON.stringify({ total_count: 745, workflow_runs: [] });
+      }
+      if (args[1].includes('status=failure') || args[1].includes('status=startup_failure')) {
+        return JSON.stringify({ total_count: 0, workflow_runs: [] });
+      }
+      if (args[1].includes(`/runs/${finalRuns[0].id}/jobs`)) {
+        return JSON.stringify({ jobs: [] });
+      }
+      return '{}';
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await expect(main()).resolves.toBeUndefined();
+
+    const cancelledCalls = execFileSync.mock.calls.filter(
+      (call) => call[0] === 'gh' && call[1][0] === 'api'
+        && call[1][1].includes('actions/runs?status=cancelled'),
+    );
+    expect(cancelledCalls.some((call) => call[1][1].includes('page=8'))).toBe(true);
+  });
 });
 
 describe('host-kill settle — the next overlapping scan still owns the run', () => {

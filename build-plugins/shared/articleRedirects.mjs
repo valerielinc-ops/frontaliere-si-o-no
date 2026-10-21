@@ -54,6 +54,7 @@ import path from 'node:path';
 
 import { SITE_RENDERED_ARTICLE_SECTIONS } from './articleSectionCore.mjs';
 import { parseSlugRegistry } from '../../scripts/lib/article-slug-registry.mjs';
+import { parseLiteralRedirectMap } from '../../packages/articles/engine/shared/articleRouteOwnership.mjs';
 
 /** Repo-relative path of the redirect map. */
 export const ARTICLE_REDIRECTS_FILE = 'data/article-redirects.json';
@@ -199,6 +200,56 @@ export function parseArticleRedirects(raw, opts = {}) {
   return out;
 }
 
+/**
+ * Find rename bridges whose target is a shadowed article. A shadowed page is
+ * intentionally 200/live with a canonical hint, not a transition endpoint;
+ * sending a redirect bridge there would make the canonical chain terminate on
+ * the wrong route. The caller supplies the already-loaded per-section maps so
+ * this parser stays independent of the engine's repository layout.
+ *
+ * @param {Record<string, string>} redirects
+ * @param {Record<string, string>} canonicalOverrides
+ * @returns {Array<{from: string, to: string, winner: string}>}
+ */
+export function findCanonicalOverrideRedirectTargets(redirects, canonicalOverrides) {
+  const out = [];
+  for (const [fromRaw, toRaw] of Object.entries(redirects ?? {})) {
+    const to = parseArticlePath(toRaw);
+    if (!to) continue;
+    const winnerUrl = canonicalOverrides?.[to.slug];
+    if (typeof winnerUrl !== 'string') continue;
+    let winnerPath;
+    try {
+      // Canonical overrides are emitted as either absolute URLs or root-relative
+      // paths; resolve both forms before comparing article route ownership.
+      winnerPath = new URL(winnerUrl, 'https://frontaliereticino.ch').pathname;
+    } catch {
+      continue;
+    }
+    const winner = parseArticlePath(winnerPath);
+    if (!winner || winner.locale !== to.locale || winner.section !== to.section || winner.path === to.path) continue;
+    out.push({ from: withTrailingSlash(fromRaw), to: to.path, winner: winner.path });
+  }
+  return out;
+}
+
+/**
+ * @param {Record<string, string>} redirects
+ * @param {Record<string, string>} canonicalOverrides
+ * @param {{ file?: string }} [opts]
+ */
+export function assertNoCanonicalOverrideRedirectTargets(redirects, canonicalOverrides, opts = {}) {
+  const file = opts.file ?? ARTICLE_REDIRECTS_FILE;
+  const offenders = findCanonicalOverrideRedirectTargets(redirects, canonicalOverrides);
+  if (offenders.length === 0) return;
+  throw new Error(
+    `${file}: ${offenders.length} redirect target(s) are shadowed canonical routes. ` +
+    'A transition must point directly at the final winner, never at a live page ' +
+    'whose canonical points elsewhere.\n' +
+    offenders.map(({ from, to, winner }) => `  ${from} → ${to} → ${winner}`).join('\n'),
+  );
+}
+
 /** Where the hand-authored half of the redirect map lives. */
 export const LEGACY_REDIRECTS_SOURCE = 'build-plugins/legacyRedirectsPlugin.ts';
 
@@ -228,32 +279,9 @@ const HARDCODED_SCAN_FLOOR = 50;
 export function readHardcodedRedirects(rootDir, io = {}) {
   const readFile = io.readFileSync ?? readFileSync;
   const src = String(readFile(path.join(rootDir, LEGACY_REDIRECTS_SOURCE), 'utf-8'));
-  /** @type {Record<string, string>} */
-  const out = {};
-  let n = 0;
-  let dynamic = 0;
-  /** @type {string[]} */
-  const unsupported = [];
-
-  // One pass that classifies EVERY line shaped like a map key, instead of a
-  // regex that quietly matches a subset. A canary on the total ("more than 50")
-  // only catches a scan that broke completely; it says nothing about a scan
-  // that silently skips the twenty entries someone reformatted. Here a key line
-  // this parser cannot read is an error, not an absence:
-  //   group 2 = key, group 3 = single-quoted path value (a pair),
-  //   group 4 = backtick (a computed value — one exists today, `/job-board/`,
-  //   whose target is resolveCantonSection(); it is a job path and can never
-  //   collide with an article redirect), group 5 = anything else.
-  for (const m of src.matchAll(/^[ \t]*(['"])(\/[^'"\n]*)\1\s*:\s*(?:'(\/[^'\n]*)'|(`)|(\S))/gm)) {
-    if (m[3] !== undefined) {
-      out[withTrailingSlash(m[2])] = withTrailingSlash(m[3]);
-      n++;
-    } else if (m[4] !== undefined) {
-      dynamic++;
-    } else {
-      unsupported.push(m[2]);
-    }
-  }
+  // One pass classifies EVERY line shaped like a map key instead of using a
+  // second regex that could drift from the renderer's ownership reader.
+  const { entries: out, literalCount: n, unsupported } = parseLiteralRedirectMap(src);
 
   if (unsupported.length > 0) {
     throw new Error(
@@ -464,7 +492,47 @@ export function loadArticleRedirects(rootDir, io = {}) {
   } catch (err) {
     throw new Error(`${ARTICLE_REDIRECTS_FILE}: JSON non valido — ${err instanceof Error ? err.message : String(err)}`);
   }
-  return parseArticleRedirects(parsed);
+  const redirects = parseArticleRedirects(parsed);
+  const canonicalOverrides = loadArticleCanonicalOverrides(rootDir, readFile);
+  assertNoCanonicalOverrideRedirectTargets(redirects, canonicalOverrides);
+  return redirects;
+}
+
+/**
+ * The redirect validator is a raw-node module, so it cannot import the
+ * TypeScript loader used by the article engine. Keep this tiny layout reader
+ * local to the build-side guard; the renderer uses the shared engine loader.
+ * Missing maps are valid for sparse/corpus checkouts.
+ *
+ * @param {string} rootDir
+ * @param {(path: string, encoding: string) => string} readFile
+ * @returns {Record<string, string>}
+ */
+export function loadArticleCanonicalOverrides(rootDir, readFile = readFileSync) {
+  const paths = [
+    'packages/articles/engine/shared/frontaliere-article-canonical-overrides.json',
+    'data/swiss-article-canonical-overrides.json',
+    'content/swiss-article-canonical-overrides.json',
+  ];
+  const out = {};
+  for (const relative of paths) {
+    try {
+      const parsed = JSON.parse(String(readFile(path.join(rootDir, relative), 'utf-8')));
+      const entries = parsed?.overrides;
+      if (!entries || typeof entries !== 'object' || Array.isArray(entries)) {
+        throw new Error('la proprietà `overrides` deve essere un oggetto');
+      }
+      for (const [slug, winner] of Object.entries(entries)) {
+        if (typeof slug === 'string' && typeof winner === 'string') out[slug] = winner;
+      }
+    } catch (err) {
+      const code = err && typeof err === 'object' && 'code' in err ? err.code : undefined;
+      if (code === 'ENOENT') continue;
+      const message = err instanceof Error ? err.message : String(err);
+      throw new Error(`${relative}: impossibile leggere o interpretare la mappa canonical — ${message}`, { cause: err });
+    }
+  }
+  return out;
 }
 
 /**

@@ -39,6 +39,9 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
+import { CANONICAL_OVERRIDE_FILES } from '../packages/articles/engine/shared/canonicalOverrideFiles.mjs';
+import { loadArticleRouteRedirects, resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
+import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
@@ -1750,6 +1753,25 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  async closeBundle() {
 
  const distDir = np.resolve(rootDir, 'dist');
+
+ const articleRouteMaps = {
+   redirects: loadArticleRouteRedirects(
+     fs,
+     np.resolve(rootDir, 'data/article-redirects.json'),
+     np.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
+   ),
+   canonicalOverrides: {
+     ...loadSwissArticleCanonicalOverrides(
+       fs,
+       CANONICAL_OVERRIDE_FILES.frontaliere.map((candidate) => np.resolve(rootDir, candidate)),
+     ),
+     ...loadSwissArticleCanonicalOverrides(
+       fs,
+       CANONICAL_OVERRIDE_FILES.svizzera.map((candidate) => np.resolve(rootDir, candidate)),
+     ),
+   },
+ };
+ const resolveArticleHref = (href: string): string => resolveArticleRouteHref(href, articleRouteMaps);
 
  /* ── Buffered write system via shared WriteCollector ── */
  const collector = new WriteCollector({ distDir, pluginName: 'staticPagesPlugin' });
@@ -3789,10 +3811,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  );
  }
  // Deduplicate (don't repeat links already in main nav or pointing to self)
- const allHrefs = new Set(navLinks.map(l => l.href));
+ const resolvedNavLinks = navLinks.map((link) => ({ ...link, href: resolveArticleHref(link.href) }));
+ const resolvedContextualLinks = contextualLinks.map((link) => ({ ...link, href: resolveArticleHref(link.href) }));
+ const allHrefs = new Set(resolvedNavLinks.map(l => l.href));
  allHrefs.add(canonicalPath);
- const filteredContextual = contextualLinks.filter(l => !allHrefs.has(l.href));
- const allLinks = [...navLinks, ...filteredContextual];
+ const filteredContextual = resolvedContextualLinks.filter(l => !allHrefs.has(l.href));
+ const allLinks = [...resolvedNavLinks, ...filteredContextual];
  const navHtml = allLinks.map(l => `<a href="${l.href}">${l.label}</a>`).join(' | ');
  const relatedHtml = filteredContextual.length
  ? `<h2 class="s-fd95FC">${RELATED_HEADING[locale] ?? RELATED_HEADING['it']}</h2><ul class="s-2u1Hmp">${filteredContextual.map((l) => `<li class="s-wP4Jn1"><a href="${l.href}">${l.label}</a></li>`).join('')}</ul>`
@@ -5405,7 +5429,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .filter((e: Record<string, unknown>) => e['@type'] === 'Question' && e.name && (e as Record<string, Record<string, unknown>>).acceptedAnswer?.text)
  .slice(0, 5);
  if (qas.length > 0 && !salaryLandingPath) {
- faqHtml = `<section class="s-UBICn_"><h2 class="s-p8nQEt">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl class="s-q3nqK4">${qas.map((q: Record<string, Record<string, string>>) => `<dt class="s-IJKL8M">${esc(String(q.name))}</dt><dd class="s-xVCIev">${renderPlainTextLinks(String(q.acceptedAnswer?.text ?? ''))}</dd>`).join('')}</dl></section>`;
+ faqHtml = `<section class="s-UBICn_"><h2 class="s-p8nQEt">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl class="s-q3nqK4">${qas.map((q: Record<string, Record<string, string>>) => `<dt class="s-IJKL8M">${esc(String(q.name))}</dt><dd class="s-xVCIev">${renderPlainTextLinks(String(q.acceptedAnswer?.text ?? ''), { resolveHref: resolveArticleHref })}</dd>`).join('')}</dl></section>`;
  }
  break;
  }
@@ -5514,7 +5538,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { key: 'body1', text: localizedBody?.body1 },
  { key: 'body2', text: localizedBody?.body2 },
  { key: 'body3', text: localizedBody?.body3 },
- ]);
+ ], { resolveHref: resolveArticleHref });
  const blogFallbackSections = buildArticleSeoSections(
  localeKey as 'it' | 'en' | 'de' | 'fr',
  seoData.ogT,
@@ -5715,6 +5739,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  sectionSlug: swissListSlug,
  localePrefix: swissLocalePrefix,
  resolveSlug: (id) => swissIdToSlug[swissCardLocale]?.[id],
+ resolveHref: resolveArticleHref,
  resolveMeta: (_id, artPath) => {
  const artSeo = seoMap.get(seoKey(artPath));
  return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;
@@ -5773,6 +5798,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  sectionSlug: blogListSlug,
  localePrefix,
  resolveSlug: (id) => articleIdToSlug[cardLocale]?.[id],
+ resolveHref: resolveArticleHref,
  resolveMeta: (_id, artPath) => {
  const artSeo = seoMap.get(seoKey(artPath));
  return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;

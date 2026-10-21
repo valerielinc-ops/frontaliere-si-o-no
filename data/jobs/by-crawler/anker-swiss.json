@@ -4616,10 +4616,10 @@
     },
     {
       "id": "anker-swiss-90e983976cc9",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-schwarzenburg-90e98397",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-schwarzenburg-90e98397",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-schwarzenburg-90e98397",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-schwarzenburg-90e98397",
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-schwarzenburg-90e98397",
         "en": "sanitary-installer-100-anker-swiss-ticino-ag-schwarzenburg-90e98397",
         "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-schwarzenburg-90e98397"
       },
@@ -4679,7 +4679,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:17.416Z"
+      "firstSeenAt": "2026-09-19T23:05:17.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-schwarzenburg-90e98397"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-schwarzenburg-90e98397"
+      ]
     },
     {
       "id": "anker-swiss-d83ea93f2638",
@@ -8711,12 +8719,12 @@
     },
     {
       "id": "anker-swiss-faf939f67fc8",
-      "slug": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+      "slug": "giardini-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
       "slugByLocale": {
         "de": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-        "it": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-        "en": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-        "fr": "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
+        "it": "giardini-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+        "en": "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
+        "fr": "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
       },
       "slugDisambiguator": "faf939f6",
       "company": "Anker Swiss Ticino AG",
@@ -8764,32 +8772,30 @@
         "de": []
       },
       "previousSlugs": [
-        "giardini-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-        "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
-        "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
         "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
         "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
         "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-        "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
+        "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+        "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "giardini-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-          "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
+          "giardini-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
         ],
         "en": [
-          "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-          "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
+          "gardeners-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
         ],
         "de": [
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
         ],
         "fr": [
-          "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6",
           "gartner-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
-          "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157"
+          "jardiniers-100-anker-swiss-ticino-ag-frauenkappelen-26cf2157",
+          "gartner-100-anker-swiss-ticino-ag-frauenkappelen-faf939f6"
         ]
       },
       "salaryMin": 68500,
@@ -14615,12 +14621,12 @@
     },
     {
       "id": "anker-swiss-fb669a37850e",
-      "slug": "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37",
+      "slug": "camion-autista-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37",
       "slugByLocale": {
         "de": "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37",
-        "it": "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37",
-        "en": "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37",
-        "fr": "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37"
+        "it": "camion-autista-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37",
+        "en": "truck-chauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37",
+        "fr": "chauffeur-de-camion-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37"
       },
       "slugDisambiguator": "fb669a37",
       "company": "Anker Swiss Ticino AG",
@@ -14680,16 +14686,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:30:42.612Z"
+      "firstSeenAt": "2026-10-21T09:30:42.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37"
+        ],
+        "en": [
+          "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37"
+        ],
+        "fr": [
+          "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-100-anker-swiss-ticino-ag-birmensdorf-zh-fb669a37"
+      ]
     },
     {
       "id": "anker-swiss-4cbee7004aae",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-sissach-4cbee700",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-sissach-4cbee700",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-sissach-4cbee700",
+        "fr": "metaux-100-anker-swiss-ticino-ag-sissach-4cbee700"
       },
       "slugDisambiguator": "4cbee700",
       "company": "Anker Swiss Ticino AG",
@@ -14749,7 +14769,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:30:42.611Z"
+      "firstSeenAt": "2026-10-21T09:30:42.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-sissach-4cbee700"
+      ]
     },
     {
       "id": "anker-swiss-d5522a92b391",
@@ -14757,8 +14791,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-munsingen-d5522a92",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-munsingen",
-        "en": "elektroinstallateur-100-anker-swiss-ticino-ag-munsingen-d5522a92",
-        "fr": "elektroinstallateur-100-anker-swiss-ticino-ag-munsingen-d5522a92"
+        "en": "electrical-installer-100-anker-swiss-ticino-ag-munsingen-d5522a92",
+        "fr": "installateur-electrique-100-anker-swiss-ticino-ag-munsingen-d5522a92"
       },
       "slugDisambiguator": "d5522a92",
       "company": "Anker Swiss Ticino AG",
@@ -14807,6 +14841,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-munsingen-d5522a92"
+        ],
+        "en": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-munsingen-d5522a92"
+        ],
+        "fr": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-munsingen-d5522a92"
         ]
       },
