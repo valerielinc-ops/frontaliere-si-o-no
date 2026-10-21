@@ -254,8 +254,13 @@ function isMissingCanonicalTrailingSlash(text) {
 // #11297, #11281, #11206, #11126). One bucket summed them, so an emitter gate
 // could never bring the count down and the escalation re-fired on parser work.
 // Split by WHERE the finding is located, threshold unchanged: a finding whose
-// located paths are ALL crawler parsers counts in `structured-data-parser`;
-// anything else (emitter paths, mixed, or no path) stays `structured-data`.
+// located paths are ALL crawler parsers counts in `structured-data-parser`.
+// The remaining emitter/mixed lexicon is not one rule: a BreadcrumbList URL,
+// a missing ItemList and a stale JobPosting cache have different repairs. Keep
+// that broad class report-only and give the mandatory JobPosting-field contract
+// its own precise rule bucket below. Everything else remains available to the
+// fingerprint safety net instead of making unrelated schema defects look like
+// one recurring rule.
 const STRUCTURED_DATA_RE = /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i;
 
 // I18N-naming is a precise failure class, not a translation-area lexicon.
@@ -295,8 +300,10 @@ const UNVALIDATED_CLAIM_RE =
 export const TAXONOMY = [
   { key: 'structured-data-parser', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'jobposting'],
     escalation: 'rule', why: "predicato sulla posizione: tutti i path del finding sono parser del crawler (isCrawlerParserFinding), cioe' la classe che il gate dei parser misura" },
+  { key: 'structured-data-required-fields', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'mandatory fields', 'basesalary'],
+    escalation: 'rule', why: "predicato sul contratto JobPosting: un campo obbligatorio o il blocco JobPosting manca, e il gate di completezza puo' misurare la stessa violazione" },
   { key: 'structured-data', re: STRUCTURED_DATA_RE, docKeys: ['structured data', 'json-ld', 'basesalary'],
-    escalation: 'ambiguous', why: "resto lessicale dopo lo split dei parser, ma i suoi termini (basesalary, postalcode, hiringorganization) sono i campi obbligatori del Non-Negotiable 3: non si puo' dire che sia solo argomento, resta nell'escalation" },
+    escalation: 'topic', why: "lessico generico del JSON-LD: breadcrumb, identita', ItemList, cache e contenuto hanno rimedi diversi; resta nel report, mentre le sottoclassi con un predicato comune escalano" },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'],
     escalation: 'ambiguous', why: "quattro alternative nominano la violazione (test mancante), la quinta 'test coverage' e' argomento e nessun guard le separa: resta nell'escalation" },
   { key: 'time-bomb-hardcoded', re: /hardcoded|time-?bomb|absolute date|aged? out|invecchia|date assolut/i, docKeys: ['date assolut', 'time-bomb', 'daysago'],
@@ -799,6 +806,25 @@ export function isStructuredDataFinding(text) {
     && findingLocationPaths(text).some(isSiteEmitterPath);
 }
 
+// A generic structured-data mention is not enough to prove that the
+// Non-Negotiable #3 contract was violated. Keep the rule bucket narrow: it
+// needs one of the required JobPosting fields plus an explicit defect, or an
+// explicit missing/schema-less JobPosting block. The broad topic bucket below
+// still records every other real structured-data finding for reporting.
+const STRUCTURED_DATA_REQUIRED_FIELD_RE =
+  /\b(?:baseSalary|postalCode|streetAddress|datePosted|hiringOrganization|jobLocation|employmentType)\b|`(?:title|description)`/i;
+const STRUCTURED_DATA_CONTRACT_DEFECT_RE =
+  /\b(?:absent|blank|empty|incomplete|invalid|lack\w*|missing|no|omit\w*|drop\w*|lose\w*|without|schema[- ]?less|manc\w*|vuot\w*|assent\w*|omett\w*|perd\w*|senz\w*)\b/i;
+
+export function isStructuredDataRequiredFieldFinding(text) {
+  const statement = reviewerFindingStatement(stripNegatedImpactClauses(stripFindingLocationLabel(text)));
+  if (!isStructuredDataFinding(text)) return false;
+  if (STRUCTURED_DATA_REQUIRED_FIELD_RE.test(statement)) {
+    return STRUCTURED_DATA_CONTRACT_DEFECT_RE.test(statement);
+  }
+  return /\bjobposting\b[\s\S]{0,180}\b(?:absent|blank|empty|incomplete|missing|no|schema[- ]?less|without)\b|\b(?:absent|blank|empty|incomplete|missing|no|schema[- ]?less|without)\b[\s\S]{0,180}\bjobposting\b/i.test(statement);
+}
+
 /**
  * Removes only the leading review location (`path:L<n>:` or `PR body:L<n>:`).
  * The location is an address, not reviewer prose, so process-bucket guards can
@@ -848,6 +874,7 @@ export function bucketFinding(text) {
     }
     if (t.key === 'canonical-trailing-slash' && !isMissingCanonicalTrailingSlash(scannable)) continue;
     if (t.key === 'structured-data-parser' && !isCrawlerParserFinding(text)) continue;
+    if (t.key === 'structured-data-required-fields' && !isStructuredDataRequiredFieldFinding(text)) continue;
     if (t.key === 'structured-data' && !isStructuredDataFinding(text)) continue;
     // A review line starts with one or more file locations before its severity
     // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`

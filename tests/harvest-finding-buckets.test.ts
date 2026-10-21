@@ -34,11 +34,13 @@ import { describe, it, expect } from 'vitest';
 import {
   bucketEscalationKind,
   bucketFinding,
+  considerBuckets,
   stripNegatedImpactClauses,
   tallyFindings,
   isGenuinePrBodyContractViolation,
   isGenuineCanonicalSitemapFinding,
   findingLocationPaths,
+  isStructuredDataRequiredFieldFinding,
 } from '../scripts/ci/harvest-agent-lessons.mjs';
 
 // Verbatim dalle review claude delle PR citate in #901.
@@ -85,20 +87,20 @@ describe('bucketFinding — la ricognizione negata non fa punteggio', () => {
     expect(bucketFinding("🟡 Nit: il refactor e' neutro; nessun impatto su structured data o JSON-LD.")).not.toBe('structured-data');
     expect(bucketFinding('🟡 Nit: nulla tocca il router o `parsePath`.')).not.toBe('router-nav');
     // e il difetto vero sugli stessi bucket resta contato
-    expect(bucketFinding('🔴 Important: il JSON-LD emette `baseSalary` senza valuta.')).toBe('structured-data');
+    expect(bucketFinding('🔴 Important: il JSON-LD emette `baseSalary` senza valuta.')).toBe('structured-data-required-fields');
   });
 
   it('lo strip si ferma al confine di frase: il resto della riga resta scansionabile', () => {
     const line = "🔴 Important: nessun impatto su `dist/api/` o sulle sitemap. Il JSON-LD pero' emette `baseSalary` senza valuta.";
     expect(stripNegatedImpactClauses(line)).toMatch(/baseSalary/);
-    expect(bucketFinding(line)).toBe('structured-data');
+    expect(bucketFinding(line)).toBe('structured-data-required-fields');
   });
 
   it('tratta en dash e trattino ASCII spaziato come confini di frase', () => {
     for (const separator of ['–', ' - ']) {
       const line = `🟡 Nit: nessun impatto su \`dist/api/\` ${separator} 🔴 Important: il JSON-LD emette \`baseSalary\` senza valuta.`;
       expect(stripNegatedImpactClauses(line)).toMatch(/baseSalary/);
-      expect(bucketFinding(line)).toBe('structured-data');
+      expect(bucketFinding(line)).toBe('structured-data-required-fields');
     }
   });
 
@@ -244,7 +246,7 @@ describe('bucketFinding — le tre imprecisioni chiuse dalla review di corpus#90
   it("il punto SEGUITO da spazio resta confine: la frase dopo la ricognizione e' ancora scansionabile", () => {
     const line = '🔴 Important: nessun impatto su `manifest.json` o sulle sitemap. Il JSON-LD emette `baseSalary` senza valuta.';
     expect(stripNegatedImpactClauses(line)).toMatch(/baseSalary/);
-    expect(bucketFinding(line)).toBe('structured-data');
+    expect(bucketFinding(line)).toBe('structured-data-required-fields');
   });
 
   it('la coda contrastiva sopravvive a un punto nel nome del file negato', () => {
@@ -542,9 +544,9 @@ describe('bucketFinding — structured-data separa emettitori del sito e parser 
     });
   }
 
-  it('un path misto (parser + emettitore) o nessun path resta structured-data', () => {
-    expect(bucketFinding('scripts/lib/cnp-job-parser.mjs:L39, build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: il JobPosting perde `baseSalary`.')).toBe('structured-data');
-    expect(bucketFinding('🔴 Important: il JSON-LD emette `baseSalary` senza valuta.')).toBe('structured-data');
+  it('un path misto (parser + emettitore) o nessun path resta nel bucket del contratto', () => {
+    expect(bucketFinding('scripts/lib/cnp-job-parser.mjs:L39, build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: il JobPosting perde `baseSalary`.')).toBe('structured-data-required-fields');
+    expect(bucketFinding('🔴 Important: il JSON-LD emette `baseSalary` senza valuta.')).toBe('structured-data-required-fields');
   });
 
   it('un path citato nella prosa non è la posizione del finding', () => {
@@ -597,8 +599,8 @@ describe('bucketFinding — un campo del JobPosting fuori dallo schema non è st
   }
 
   it('un termine di campo su un emettitore del sito conta anche senza la parola «schema»', () => {
-    expect(bucketFinding('build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: `baseSalary` perde la valuta.')).toBe('structured-data');
-    expect(bucketFinding('services/seo/jobPostingLd.ts:L4: 🔴 Important: `postalCode` resta vuoto.')).toBe('structured-data');
+    expect(bucketFinding('build-plugins/jobsSeoPagesPlugin.ts:L10: 🔴 Important: `baseSalary` perde la valuta.')).toBe('structured-data-required-fields');
+    expect(bucketFinding('services/seo/jobPostingLd.ts:L4: 🔴 Important: `postalCode` resta vuoto.')).toBe('structured-data-required-fields');
   });
 
   it('il path non presta il contesto di schema alla frase del finding', () => {
@@ -619,6 +621,56 @@ describe('bucketFinding — un campo del JobPosting fuori dallo schema non è st
     }));
     const { counts } = tallyFindings(prs);
     expect(counts['structured-data']).toBe(STRUCTURED_DATA_SCHEMA_FINDINGS.length);
+  });
+});
+
+// Verbatim (troncati dopo il predicato che decide il bucket) dalle review che
+// hanno riaperto 12816 il 2026-10-21. Sono difetti reali, ma appartengono a
+// classi diverse: breadcrumb URL, identità del record, fallback di località,
+// ItemList, cache JobPosting e marker del tenant. Il lessico comune JSON-LD non
+// è una regola condivisa che possa guidare una escalation unica.
+const STRUCTURED_DATA_REOPENED_FINDINGS_12816: Array<[string, string]> = [
+  ['#14266', 'build-plugins/autoSectorHubPagesPlugin.ts:L278: 🔴 Important: [funnel] The `BreadcrumbList` home item uses the locale prefix while the rendered Home breadcrumb links to `/`; this publishes a structured trail different from the visible trail. Make the JSON-LD home item use the same canonical Home href.'],
+  ['#14205', 'scripts/lib/prospector/extract.mjs:L1238: 🔴 Important: [funnel] `renderedTitleConfirmsRequestedRecord` clears `unresolvedStructuredIdentity` on normalized H1/title equality alone, even when the selector rejected every structured record; a same-title non-target page can publish geography for the wrong vacancy.'],
+  ['#14115', 'scripts/lib/ipersonal-spec-runtime.mjs:L336: 🔴 Important: [correctness] Clearing `recordTitle` disables the stale-schema guard without enforcing that the selected JSON-LD `JobPosting` belongs to the detail URL, so a page containing related records can publish the wrong geography.'],
+  ['#13397', 'scripts/lib/html-attr.mjs:L256; scripts/lib/sbb-job-parser.mjs:L226; scripts/update-sbb-jobs.mjs:L1073: 🔴 Important: [correctness] The summary parser accepts any `<text>, <percent>%` prefix and the updater trusts it before JSON-LD/API fallbacks without validating it as a vacancy locality.'],
+  ['#13364', 'build-plugins/eventsSeoPagesPlugin.ts:L2797: 🔴 Important: [contract] `renderHistoricalEventsArchivePage()` emits indexable archive pages with `jsonLdScripts: []`, so the aggregate archive has no `ItemList` structured data for its event URLs.'],
+  ['#13286', 'build-plugins/jobsSeoPagesPlugin.ts:L3388: 🔴 Important: [correctness] a cache hit whose pre-fix HTML was emitted without a `JobPosting` block remains schema-less even when the resolver returns the safe default.'],
+  ['#13229', 'scripts/lib/prospector/spec-crawler.mjs:L436: 🔴 Important: [correctness] the comparison sends an entity-encoded href directly to `sameListingUrl()` while JSON-LD/detail candidates carry the decoded URL, so the valid other-tenant row remains in the missing denominator.'],
+];
+
+describe('bucketFinding — la ricorrenza 12816 non collassa difetti structured-data eterogenei', () => {
+  it('mantiene escalabile solo il contratto JobPosting con un predicato preciso', () => {
+    const fieldFinding = STRUCTURED_DATA_REOPENED_FINDINGS_12816.find(([pr]) => pr === '#13286')?.[1] || '';
+    const genericFinding = STRUCTURED_DATA_REOPENED_FINDINGS_12816.find(([pr]) => pr === '#14266')?.[1] || '';
+    expect(isStructuredDataRequiredFieldFinding(fieldFinding)).toBe(true);
+    expect(bucketFinding(fieldFinding)).toBe('structured-data-required-fields');
+    expect(isStructuredDataRequiredFieldFinding(genericFinding)).toBe(false);
+    expect(bucketFinding(genericFinding)).toBe('structured-data');
+  });
+
+  it('non riapre il bucket topic quando la finestra contiene questi sette finding', () => {
+    const prs = STRUCTURED_DATA_REOPENED_FINDINGS_12816.map(([number, line]) => ({
+      number: Number(number.slice(1)),
+      mergedAt: '2026-10-20T00:00:00Z',
+      reviews: [{ author: { login: 'claude' }, body: `## Findings\n${line}\n` }],
+    }));
+    const { counts, examples } = tallyFindings(prs);
+    expect(counts['structured-data']).toBeLessThan(6);
+    expect(counts['structured-data-required-fields']).toBe(1);
+
+    const [topic] = considerBuckets({
+      source: 'reviewer-finding',
+      counts,
+      examples,
+      corpus: 'structured data mandatory fields are documented',
+      threshold: 3,
+    }).filter((cluster) => cluster.key === 'structured-data');
+    expect(topic).toMatchObject({
+      escalationKind: 'topic',
+      recurringDespiteRule: false,
+      topicAboveLimit: false,
+    });
   });
 });
 
