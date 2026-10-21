@@ -5415,9 +5415,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   emptyValue: emptyReturnVisitNewJobs,
   createAccumulator: createReturnVisitNewJobsAccumulator,
   visit: visitReturnVisitNewJob,
-  finish: finishReturnVisitNewJobs,
+ finish: finishReturnVisitNewJobs,
  });
  const returnVisitNewJobs = returnVisitNewJobsDerivation.value;
+ const returnVisitResultsPending = deferredShowSinceLastVisitOnly && returnVisitNewJobsDerivation.pending;
  const filteredJobs = useMemo(
   () => deferredShowSinceLastVisitOnly ? returnVisitNewJobs : preReturnVisitFilteredJobs,
   [deferredShowSinceLastVisitOnly, preReturnVisitFilteredJobs, returnVisitNewJobs],
@@ -5450,9 +5451,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // The loaded result set is authoritative for the root hub's metadata too.
  useEffect(() => {
-  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending) return;
+  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending || returnVisitResultsPending) return;
   updateJobBoardListingMetadata(locale, initialFilterCanton || 'TI', filteredJobs.length);
- }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, filteredJobs.length]);
+ }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, returnVisitResultsPending, filteredJobs.length]);
 
  // Resolve the hub identity from the same company-route candidates that drive
  // the visible filter. A display-name collision is intentionally not guessed:
@@ -5601,8 +5602,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
- const resultsResolving = (jobsLoading || resultDerivationPending || fallbackResultsResolving
-  || (deferredShowSinceLastVisitOnly && returnVisitNewJobsDerivation.pending))
+ const resultsResolving = (jobsLoading || resultDerivationPending || fallbackResultsResolving || returnVisitResultsPending)
  && !clusterSeedApplies;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
