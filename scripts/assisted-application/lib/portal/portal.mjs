@@ -1308,7 +1308,9 @@ async function waitForInputDetached(input, timeoutMs = 60_000) {
       return true;
     }
     if (typeof input?.waitForElementState === 'function') {
-      await input.waitForElementState('detached', { timeout: timeoutMs });
+      // ElementHandle.waitForElementState accepts `hidden`; a detached
+      // handle satisfies that state as well. `detached` is a Locator state.
+      await input.waitForElementState('hidden', { timeout: timeoutMs });
       return true;
     }
   } catch {
