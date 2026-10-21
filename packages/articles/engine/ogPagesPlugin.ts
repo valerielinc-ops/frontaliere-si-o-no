@@ -833,6 +833,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fs,
  SECTION.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
  );
+ const articleLinkCanonicalOverrides: Record<string, string> = {};
+ for (const descriptor of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
+  Object.assign(
+   articleLinkCanonicalOverrides,
+   loadSwissArticleCanonicalOverrides(
+    fs,
+    descriptor.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
+   ),
+  );
+ }
  const articleRedirects = loadArticleRouteRedirects(
   fs,
   np.resolve(rootDir, 'data/article-redirects.json'),
@@ -840,7 +850,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  );
  const articleRouteMaps = {
   redirects: articleRedirects,
-  canonicalOverrides: articleCanonicalOverrides,
+  canonicalOverrides: articleLinkCanonicalOverrides,
  };
  const resolveArticleHref = (href: string): string => resolveArticleRouteHref(href, articleRouteMaps);
 

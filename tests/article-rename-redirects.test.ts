@@ -293,6 +293,16 @@ describe(`${ARTICLE_REDIRECTS_FILE} — the real file`, () => {
       expect(resolveArticleRouteHref(from, { redirects })).toBe(to);
     }
   });
+
+  it('keeps canonical overrides scoped to their article section', () => {
+    const canonicalOverrides = {
+      'same-slug': 'https://frontaliereticino.ch/articoli-svizzera/swiss-winner/',
+    };
+    expect(resolveArticleRouteHref('/articoli-svizzera/same-slug/', { canonicalOverrides }))
+      .toBe('/articoli-svizzera/swiss-winner/');
+    expect(resolveArticleRouteHref('/articoli-frontaliere/same-slug/', { canonicalOverrides }))
+      .toBe('/articoli-frontaliere/same-slug/');
+  });
 });
 
 /**
