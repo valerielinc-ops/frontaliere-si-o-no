@@ -67,7 +67,7 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/diritto-opzione-lamal/',
+        href: '/guida-frontaliere/lamal-frontalieri/',
         label: {
           it: 'Diritto di opzione LAMal',
           en: 'LAMal option right',
@@ -209,7 +209,7 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/statistiche/confronta-premi/',
+        href: '/statistiche/premi-malattia-comuni/',
         label: {
           it: 'Confronto premi LAMal',
           en: 'LAMal premium comparison',

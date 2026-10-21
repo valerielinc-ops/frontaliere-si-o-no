@@ -145,7 +145,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/guida-frontaliere/diritto-lavoro-frontalieri/',
+        href: '/guida-frontaliere/',
         label: {
           it: 'Diritto del lavoro',
           en: 'Labour law',

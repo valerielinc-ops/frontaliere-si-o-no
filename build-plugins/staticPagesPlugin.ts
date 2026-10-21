@@ -71,6 +71,7 @@ import { normalizeArticleStructuredData, normalizeStructuredData } from '../serv
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_HUB_SEO, GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
+import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 // Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
 // sospendeva il plugin prima di arrivare al render delle pagine, e
 // `seoHeroCardsPlugin` drena il registry delle hero card nello stesso tick
@@ -1429,6 +1430,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: PHARMACY_HUB_PATH.en, label: 'Pharmacies and duties' },
  { href: PHARMACY_DUTY_HUB_PATH.en, label: 'On-duty pharmacies' },
  { href: buildPlateAuctionPath({ locale: 'en', view: 'hub' }), label: 'Plate auctions' },
+ { href: `${EVENTS_INDEX_PATH.en}/`, label: 'Events' },
  { href: '/en/taxes-and-pension/', label: 'Taxes & Pensions' },
  { href: '/en/cross-border-guide/', label: 'Cross-Border Guide' },
  { href: buildFaqHubPath('en'), label: 'FAQ' },
@@ -1447,6 +1449,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: PHARMACY_HUB_PATH.de, label: 'Apotheken und Notdienst' },
  { href: PHARMACY_DUTY_HUB_PATH.de, label: 'Notdienst-Apotheken' },
  { href: buildPlateAuctionPath({ locale: 'de', view: 'hub' }), label: 'Kontrollschildauktionen' },
+ { href: `${EVENTS_INDEX_PATH.de}/`, label: 'Veranstaltungen' },
  { href: '/de/grenzgaenger-besteuerung-leitfaden-2026/', label: 'Steuern & Vorsorge' },
  { href: '/de/grenzgaenger-ratgeber/', label: 'Grenzgänger-Leitfaden' },
  { href: buildFaqHubPath('de'), label: 'FAQ' },
@@ -1465,6 +1468,7 @@ export const NAV_LABELS: Readonly<Record<HpSeoLocale, ReadonlyArray<{ href: stri
  { href: PHARMACY_HUB_PATH.fr, label: 'Pharmacies et gardes' },
  { href: PHARMACY_DUTY_HUB_PATH.fr, label: 'Pharmacies de garde' },
  { href: buildPlateAuctionPath({ locale: 'fr', view: 'hub' }), label: 'Enchères de plaques' },
+ { href: `${EVENTS_INDEX_PATH.fr}/`, label: 'Événements' },
  { href: '/fr/impots-et-retraite/', label: 'Impôts & Retraite' },
  { href: '/fr/guide-frontalier/', label: 'Guide Frontalier' },
  { href: buildFaqHubPath('fr'), label: 'FAQ' },
