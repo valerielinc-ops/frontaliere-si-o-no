@@ -12354,28 +12354,28 @@
       "queries": [
         {
           "query": "case anziani ticino offerte di lavoro",
-          "clicks": 109,
-          "impressions": 1276
+          "clicks": 111,
+          "impressions": 1296
         },
         {
           "query": "offerte di lavoro casa di riposo svizzera",
-          "clicks": 80,
-          "impressions": 817
+          "clicks": 82,
+          "impressions": 826
         },
         {
           "query": "offerte lavoro casa di riposo svizzera",
-          "clicks": 78,
-          "impressions": 794
+          "clicks": 81,
+          "impressions": 804
         },
         {
           "query": "case anziani lugano posti di lavoro",
           "clicks": 37,
-          "impressions": 393
+          "impressions": 397
         },
         {
           "query": "offerte di lavoro casa anziani ticino",
-          "clicks": 33,
-          "impressions": 257
+          "clicks": 34,
+          "impressions": 265
         },
         {
           "query": "casa anziani comunale bellinzona offerte di lavoro",
@@ -12385,17 +12385,17 @@
         {
           "query": "offerte lavoro casa anziani ticino",
           "clicks": 27,
-          "impressions": 246
+          "impressions": 254
         },
         {
           "query": "casa anziani chiasso lavoro",
-          "clicks": 24,
-          "impressions": 180
+          "clicks": 26,
+          "impressions": 188
         },
         {
           "query": "case di riposo ticino lavora con noi",
           "clicks": 21,
-          "impressions": 158
+          "impressions": 160
         },
         {
           "query": "casa anziani mendrisio lavoro",
@@ -12443,18 +12443,18 @@
           "impressions": 23
         },
         {
+          "query": "casa anziani sementina offerte di lavoro",
+          "clicks": 1,
+          "impressions": 19
+        },
+        {
           "query": "offerte di lavoro casa di riposo per anziani",
           "clicks": 2,
           "impressions": 18
-        },
-        {
-          "query": "casa anziani sementina offerte di lavoro",
-          "clicks": 1,
-          "impressions": 18
         }
       ],
-      "totalImpressions": 5461,
-      "totalClicks": 494,
+      "totalImpressions": 5540,
+      "totalClicks": 504,
       "topQuery": "case anziani ticino offerte di lavoro",
       "title": "Case anziani",
       "titleByLocale": {
@@ -61167,6 +61167,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire/"
+      },
+      "queries": [
+        {
+          "query": "banking jobs zurich",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "banking jobs zurich",
+      "title": "Senior test manager core banking pricing system integration h contract par l intermediaire de notre partenaire",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire",
+        "en": "senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire",
+        "de": "senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire",
+        "fr": "senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire",
+        "en": "/en/find-jobs-zurich/senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire",
+        "de": "/de/jobs-im-zurich/senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire",
+        "fr": "/fr/trouver-emploi-zurich/senior-test-manager-core-banking-pricing-system-integration-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

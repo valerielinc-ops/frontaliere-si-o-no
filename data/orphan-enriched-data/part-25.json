@@ -28203,10 +28203,10 @@
         "fr": "centre-rim-des-employes-a-galliker-transport-ag-altishofen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/employee-rim-center-a-galliker-transport-ag-altishofen",
-        "en": "/en/find-jobs-ticino/employee-rim-center-a-galliker-transport-ag-altishofen",
-        "de": "/de/jobs-im-tessin/employee-rim-center-a-galliker-transport-ag-altishofen",
-        "fr": "/fr/trouver-emploi-tessin/employee-rim-center-a-galliker-transport-ag-altishofen"
+        "it": "/cerca-lavoro-lucerna/employee-rim-center-a-galliker-transport-ag-altishofen",
+        "en": "/en/find-jobs-lucerne/employee-rim-center-a-galliker-transport-ag-altishofen",
+        "de": "/de/jobs-in-luzern/employee-rim-center-a-galliker-transport-ag-altishofen",
+        "fr": "/fr/trouver-emploi-lucerne/employee-rim-center-a-galliker-transport-ag-altishofen"
       },
       "sourceUrl": "https://apply.refline.ch/878019/0475/pub/1/index.html",
       "googleStatus": "unknown",
@@ -40827,10 +40827,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-elm-gl",
-        "en": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-elm-gl",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-elm-gl",
+        "en": "apprenticeship-as-retail-specialist-efz-food-volg-elm-gl",
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-elm-gl",
-        "fr": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-elm-gl"
+        "fr": "place-d-apprentissage-de-gestionnaire-du-commerce-de-detail-cfc-alimentation-volg-elm-gl"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-elm-gl",
@@ -40844,6 +40844,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -48754,6 +48755,63 @@
       ]
     },
     {
+      "slug": "oberlangenegg",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/oberlangenegg/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/oberlangenegg/"
+      },
+      "queries": [
+        {
+          "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "title": "Oberlangenegg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "oberlangenegg",
+        "en": "oberlangenegg",
+        "de": "oberlangenegg",
+        "fr": "oberlangenegg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/oberlangenegg",
+        "en": "/en/find-jobs-bern/oberlangenegg",
+        "de": "/de/jobs-im-bern/oberlangenegg",
+        "fr": "/fr/trouver-emploi-berne/oberlangenegg"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "oberwil",
       "locale": "fr",
       "path": "/fr/trouver-emploi-bale/oberwil/",
@@ -49613,6 +49671,79 @@
         "en": "/en/find-jobs-bern/opticien-fielmann-group-bern",
         "de": "/de/jobs-im-bern/opticien-fielmann-group-bern",
         "fr": "/fr/trouver-emploi-berne/opticien-fielmann-group-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "opticien-ne-h-f-d-fielmann-group-fribourg",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-fribourg/opticien-ne-h-f-d-fielmann-group-fribourg/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-fribourg/opticien-ne-h-f-d-fielmann-group-fribourg/"
+      },
+      "queries": [
+        {
+          "query": "fielmann fribourg",
+          "clicks": 0,
+          "impressions": 19
+        },
+        {
+          "query": "opticien suisse emploi",
+          "clicks": 1,
+          "impressions": 2
+        },
+        {
+          "query": "poste coiffeur",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "poste coiffure",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 23,
+      "totalClicks": 1,
+      "topQuery": "fielmann fribourg",
+      "title": "Opticien ne h fielmann group",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Fribourg",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "opticien-ne-h-f-d-fielmann-group-fribourg",
+        "en": "opticien-ne-h-f-d-fielmann-group-fribourg",
+        "de": "opticien-ne-h-f-d-fielmann-group-fribourg",
+        "fr": "opticien-ne-h-f-d-fielmann-group-fribourg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/opticien-ne-h-f-d-fielmann-group-fribourg",
+        "en": "/en/find-jobs-fribourg/opticien-ne-h-f-d-fielmann-group-fribourg",
+        "de": "/de/jobs-im-freiburg/opticien-ne-h-f-d-fielmann-group-fribourg",
+        "fr": "/fr/trouver-emploi-fribourg/opticien-ne-h-f-d-fielmann-group-fribourg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -55431,10 +55562,10 @@
         "fr": "rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee",
-        "en": "/en/find-jobs-lucerne/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee",
+        "it": "/cerca-lavoro-berna/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee",
+        "en": "/en/find-jobs-bern/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee",
         "de": "/de/jobs-im-luzern/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee",
-        "fr": "/fr/trouver-emploi-lucerne/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee"
+        "fr": "/fr/trouver-emploi-berne/rayonleiter-in-grundnahrungsmittel-coop-genossenschaft-herzogenbuchsee"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
