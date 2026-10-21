@@ -134,6 +134,21 @@ describe('assertCompatPruneFamilySafety', () => {
     )).toThrow(/localized route-family loss/);
   });
 
+  it('keeps singleton pruning automatic while protecting the two-path boundary', () => {
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['it/singleton', 1]]),
+      new Map([['it/singleton', 1]]),
+    )).not.toThrow();
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['it/two-path', 2]]),
+      new Map([['it/two-path', 1]]),
+    )).not.toThrow();
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['it/two-path', 2]]),
+      new Map([['it/two-path', 2]]),
+    )).toThrow(/localized route-family loss/);
+  });
+
   it('protects a route family starting at the minimum established size', () => {
     expect(() => assertCompatPruneFamilySafety(
       new Map([['it/articoli-frontaliere', 20]]),
