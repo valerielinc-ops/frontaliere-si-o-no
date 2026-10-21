@@ -220,7 +220,76 @@ function mergeCandidate(upstream, local) {
   if (upstream.firstSeenAt || local.firstSeenAt) merged.firstSeenAt = oldest(upstream.firstSeenAt, local.firstSeenAt);
   if (upstream.updatedAt || local.updatedAt) merged.updatedAt = newest(upstream.updatedAt, local.updatedAt);
   if (upstream.rejectedAt || local.rejectedAt) merged.rejectedAt = newest(upstream.rejectedAt, local.rejectedAt);
+  resolveLegacySynthesisRecovery(merged, upstream, local);
   return merged;
+}
+
+function resolveLegacySynthesisRecovery(merged, upstream, local) {
+  // Keep the normal monotonic status merge for live progress. This special
+  // ordering only resolves terminal-rejection conflicts against a recovery.
+  if (merged.status !== 'rejected') return;
+  // `synthesisOutcome` is per-attempt and changes to `transient_seed_failure`
+  // after a retry. The queue timestamp is the durable recovery marker.
+  const candidates = [upstream, local];
+  const recoveries = candidates
+    .map((candidate) => ({ candidate, queuedAt: Date.parse(String(candidate?.synthesisRecoveryQueuedAt || '')) }))
+    .filter(({ queuedAt }) => Number.isFinite(queuedAt));
+  if (!recoveries.length) return;
+
+  // Queue time alone is insufficient: a branch from an older queue can carry
+  // a later terminal attempt than a newer queue's transient failure. Compare
+  // every marked state with unmarked terminal rejections by effective state
+  // time; a truly later queue remains eligible to reopen the candidate.
+  const terminalRejections = candidates.filter((candidate) =>
+    candidate?.status === 'rejected'
+      && !Number.isFinite(Date.parse(String(candidate.synthesisRecoveryQueuedAt || ''))));
+  const winner = [...recoveries.map(({ candidate }) => candidate), ...terminalRejections]
+    .sort(compareSynthesisState)
+    .at(-1);
+  if (!winner) return;
+  const synthesisFields = [
+    'synthesisRetryable',
+    'synthesisAttempts',
+    'synthesisLastAttemptAt',
+    'synthesisRetryAt',
+    'synthesisRetryExhausted',
+    'synthesisOutcome',
+    'synthesisDiagnostics',
+    'synthesisRecoveryQueuedAt',
+    'reopenedAt',
+  ];
+  for (const field of synthesisFields) {
+    if (hasOwn(winner, field)) merged[field] = clone(winner[field]);
+    else delete merged[field];
+  }
+
+  merged.status = winner.status;
+  if (hasOwn(winner, 'reason')) merged.reason = clone(winner.reason);
+  else delete merged.reason;
+  if (hasOwn(winner, 'rejectedAt')) merged.rejectedAt = clone(winner.rejectedAt);
+  else delete merged.rejectedAt;
+}
+
+function compareSynthesisState(left, right) {
+  const stateAt = (candidate) => {
+    if (candidate?.status === 'rejected') {
+      const rejectedAt = Date.parse(String(candidate.rejectedAt || ''));
+      if (Number.isFinite(rejectedAt)) return rejectedAt;
+    }
+    const eventTimes = [candidate?.synthesisLastAttemptAt, candidate?.synthesisRecoveryQueuedAt];
+    const parsedTimes = eventTimes.map((value) => Date.parse(String(value || ''))).filter(Number.isFinite);
+    if (parsedTimes.length) return Math.max(...parsedTimes);
+    const updatedAt = Date.parse(String(candidate?.updatedAt || ''));
+    if (Number.isFinite(updatedAt)) return updatedAt;
+    return Number.NEGATIVE_INFINITY;
+  };
+  const leftAt = stateAt(left);
+  const rightAt = stateAt(right);
+  if (leftAt !== rightAt) return leftAt > rightAt ? 1 : -1;
+  if ((left?.status === 'rejected') !== (right?.status === 'rejected')) {
+    return left?.status === 'rejected' ? 1 : -1;
+  }
+  return 0;
 }
 
 function mergeCounter(upstream, local, base) {
@@ -251,6 +320,33 @@ function mergePlatform(upstream, local, base = {}) {
       }
       merged[field] = Object.fromEntries(Object.keys(values).sort().map((key) => [key, values[key]]));
     }
+  }
+  if (isObject(upstream.hostEmployers) || isObject(local.hostEmployers)) {
+    const values = {};
+    for (const host of new Set([
+      ...Object.keys(objectOrEmpty(upstream.hostEmployers)),
+      ...Object.keys(objectOrEmpty(local.hostEmployers)),
+    ])) {
+      values[host] = [...new Set([
+        ...(Array.isArray(upstream.hostEmployers?.[host]) ? upstream.hostEmployers[host] : []),
+        ...(Array.isArray(local.hostEmployers?.[host]) ? local.hostEmployers[host] : []),
+      ].map(String))].sort();
+    }
+    merged.hostEmployers = Object.fromEntries(Object.keys(values).sort().map((host) => [host, values[host]]));
+  }
+  if (isObject(upstream.hostEmployerUnknown) || isObject(local.hostEmployerUnknown)
+    || isObject(base.hostEmployerUnknown)) {
+    const hosts = new Set([
+      ...Object.keys(objectOrEmpty(base.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(upstream.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(local.hostEmployerUnknown)),
+    ]);
+    const values = Object.fromEntries([...hosts].sort()
+      .filter((host) => base.hostEmployerUnknown?.[host] === true
+        || upstream.hostEmployerUnknown?.[host] === true
+        || local.hostEmployerUnknown?.[host] === true)
+      .map((host) => [host, true]));
+    merged.hostEmployerUnknown = values;
   }
   if (upstream.tenantCount !== undefined || local.tenantCount !== undefined) {
     merged.tenantCount = Math.max(Number(upstream.tenantCount) || 0, Number(local.tenantCount) || 0);
@@ -367,11 +463,25 @@ function reportKey(report) {
 }
 
 function mergeValidationDocument(base, upstream, local) {
-  const result = documentMeta(base, upstream, local, new Set(['generatedAt', 'tally', 'promotedVacancies', 'reports']));
+  const result = documentMeta(base, upstream, local, new Set(['generatedAt', 'tally', 'promotedVacancies', 'reports', 'validationSchedule']));
   result.generatedAt = newest(base?.generatedAt, upstream?.generatedAt, local?.generatedAt);
   const toMap = (reports) => Object.fromEntries((Array.isArray(reports) ? reports : []).map((report) => [reportKey(report), report]));
   const reports = mergeMap(toMap(base?.reports), toMap(upstream?.reports), toMap(local?.reports), (_upstream, localValue) => clone(localValue));
   result.reports = Object.values(reports).sort((a, b) => reportKey(a).localeCompare(reportKey(b)));
+
+  result.validationSchedule = mergeMap(
+    base?.validationSchedule,
+    upstream?.validationSchedule,
+    local?.validationSchedule,
+    (upstreamEntry, localEntry) => {
+      const upstreamAt = Date.parse(String(upstreamEntry?.at || ''));
+      const localAt = Date.parse(String(localEntry?.at || ''));
+      if (Number.isFinite(upstreamAt) && (!Number.isFinite(localAt) || upstreamAt > localAt)) {
+        return clone(upstreamEntry);
+      }
+      return clone(localEntry);
+    },
+  );
 
   const tally = Object.fromEntries(VALIDATION_VERDICTS.map((verdict) => [verdict, 0]));
   for (const report of result.reports) {

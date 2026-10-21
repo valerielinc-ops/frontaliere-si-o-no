@@ -1,11 +1,27 @@
 import { qualityContractVersionOf } from './quality-contract.mjs';
 
+export function parseValidationLimit(value) {
+  const limit = Number(value);
+  if (!Number.isSafeInteger(limit) || limit < 0) {
+    throw new Error('--limit must be a non-negative safe integer');
+  }
+  return limit;
+}
+
 function utcDay(value) {
   return String(value || '').slice(0, 10);
 }
 
-function historyFor(spec, candidate, adapterVersionFor) {
-  const history = Array.isArray(candidate?.validationHistory) ? candidate.validationHistory : [];
+function historyFor(spec, candidate, adapterVersionFor, previousValidationForSpec) {
+  const history = Array.isArray(candidate?.validationHistory) ? candidate.validationHistory.slice() : [];
+  const previous = previousValidationForSpec?.(spec);
+  const previousAt = String(previous?.at || previous?.validationStartedAt || '');
+  if (previous && previousAt
+    && !history.some((entry) => String(entry?.at || entry?.validationStartedAt || '') === previousAt)) {
+    history.push({ ...previous, at: previousAt });
+  }
+  history.sort((a, b) => String(a?.at || a?.validationStartedAt || '')
+    .localeCompare(String(b?.at || b?.validationStartedAt || '')));
   const adapterVersion = adapterVersionFor?.(spec) || null;
   const contractVersion = qualityContractVersionOf(spec);
   const currentContract = history.filter((entry) => qualityContractVersionOf(entry) === contractVersion);
@@ -14,13 +30,13 @@ function historyFor(spec, candidate, adapterVersionFor) {
     : currentContract.filter((entry) => !entry.sourceAdapterVersion);
 }
 
-function lastAt(spec, candidate, adapterVersionFor) {
-  const history = historyFor(spec, candidate, adapterVersionFor);
+function lastAt(spec, candidate, adapterVersionFor, previousValidationForSpec) {
+  const history = historyFor(spec, candidate, adapterVersionFor, previousValidationForSpec);
   return String(history.at(-1)?.at || '');
 }
 
-function validationSortAt(spec, candidate, adapterVersionFor) {
-  return lastAt(spec, candidate, adapterVersionFor)
+function validationSortAt(spec, candidate, adapterVersionFor, previousValidationForSpec) {
+  return lastAt(spec, candidate, adapterVersionFor, previousValidationForSpec)
     || String(candidate?.firstSeenAt || candidate?.updatedAt || spec?.firstSeenAt || spec?.updatedAt || '\uffff');
 }
 
@@ -31,6 +47,7 @@ export const VALIDATION_RETRY_DELAYS_HOURS = Object.freeze({
   timeout: 6,
   pagination: 12,
   empty_listing: 24,
+  all_rows_filtered: 24,
   runtime: 24,
 });
 
@@ -47,7 +64,14 @@ export function classifyValidationFailure(report = {}) {
   if (/enotfound|eai_again|name_not_resolved|dns|resolve(host|d|ing)?/.test(text)) return 'dns';
   if (/timeout|timed out|aborterror|etimedout/.test(text)) return 'timeout';
   if (/pagination|page token|next page|cursor/.test(text)) return 'pagination';
-  if (Number(report.vacancyCount) === 0) return 'empty_listing';
+  const observation = report.runtimeObservation || {};
+  const listingCount = observation.listingCount;
+  const publishableCount = observation.publishableCount ?? report.vacancyCount;
+  if (Number.isSafeInteger(listingCount) && listingCount > 0
+    && Number.isSafeInteger(publishableCount) && publishableCount === 0) return 'all_rows_filtered';
+  if (listingCount === 0
+    && observation.exactListingCount === true
+    && observation.listingPopulationComplete === true) return 'empty_listing';
   return 'runtime';
 }
 
@@ -55,6 +79,23 @@ export function validationRetryAt(category, at = Date.now()) {
   const delayHours = VALIDATION_RETRY_DELAYS_HOURS[category] ?? VALIDATION_RETRY_DELAYS_HOURS.runtime;
   const base = at instanceof Date ? at.getTime() : new Date(at).getTime();
   return new Date(base + delayHours * 3_600_000).toISOString();
+}
+
+/** Keep report verdict and retry metadata aligned with snapshot completeness. */
+export function applyValidationRuntimeState(report, runtimeSnapshotComplete, at = Date.now()) {
+  report.runtimeSnapshotComplete = runtimeSnapshotComplete === true;
+  if (!report.runtimeSnapshotComplete) {
+    report.verdict = 'weak';
+    const failure = report.runtimeObservation?.failure || 'snapshot runtime incompleto';
+    const problem = `runtime snapshot incompleto: ${String(failure).slice(0, 300)}`;
+    if (!Array.isArray(report.problems)) report.problems = [];
+    report.problems.push(problem);
+  }
+  report.runtimeFailureCategory = report.runtimeSnapshotComplete ? null : classifyValidationFailure(report);
+  report.retryAfterAt = report.runtimeSnapshotComplete
+    ? null
+    : validationRetryAt(report.runtimeFailureCategory, at);
+  return report;
 }
 
 export function isValidationRetryDue(candidate, now = Date.now(), { qualityContractVersion, sourceAdapterVersion } = {}) {
@@ -78,11 +119,12 @@ export function isValidationRetryDue(candidate, now = Date.now(), { qualityContr
 export function needsProductionQualityAudit(spec, candidate, {
   date = new Date(),
   adapterVersionFor,
+  previousValidationForSpec,
   minimumDays = 2,
 } = {}) {
   const now = date instanceof Date ? date : new Date(date);
   const today = now.toISOString().slice(0, 10);
-  const history = historyFor(spec, candidate, adapterVersionFor)
+  const history = historyFor(spec, candidate, adapterVersionFor, previousValidationForSpec)
     .slice()
     .sort((a, b) => String(a?.at || '').localeCompare(String(b?.at || '')));
   const latest = history.at(-1);
@@ -105,9 +147,10 @@ export function needsProductionQualityAudit(spec, candidate, {
 /** Rotate due production audits by their oldest current-contract observation. */
 export function prioritizeProductionAuditSpecs(specs, candidateForSpec, options = {}) {
   const adapterVersionFor = options.adapterVersionFor;
+  const previousValidationForSpec = options.previousValidationForSpec;
   return specs.slice().sort((a, b) => {
-    const aAt = lastAt(a, candidateForSpec(a), adapterVersionFor);
-    const bAt = lastAt(b, candidateForSpec(b), adapterVersionFor);
+    const aAt = lastAt(a, candidateForSpec(a), adapterVersionFor, previousValidationForSpec);
+    const bAt = lastAt(b, candidateForSpec(b), adapterVersionFor, previousValidationForSpec);
     return aAt.localeCompare(bAt) || String(a.companyKey).localeCompare(String(b.companyKey));
   });
 }
@@ -126,7 +169,7 @@ export function prioritizeProductionAuditSpecs(specs, candidateForSpec, options 
  *
  * @param {any[]} specs
  * @param {(spec: any) => any} candidateForSpec
- * @param {{ limit?: number, date?: Date|string|number, adapterVersionFor?: (spec: any) => string|null }} [options]
+ * @param {{ limit?: number, date?: Date|string|number, adapterVersionFor?: (spec: any) => string|null, previousValidationForSpec?: (spec: any) => any }} [options]
  * @returns {any[]}
  */
 export function prioritizeValidationSpecs(specs, candidateForSpec, options = {}) {
@@ -139,7 +182,7 @@ export function prioritizeValidationSpecs(specs, candidateForSpec, options = {})
 
   for (const spec of specs) {
     const candidate = candidateForSpec(spec);
-    const history = historyFor(spec, candidate, options.adapterVersionFor);
+    const history = historyFor(spec, candidate, options.adapterVersionFor, options.previousValidationForSpec);
     const latestAttempt = history.at(-1);
     const retryAt = Date.parse(String(latestAttempt?.retryAfterAt || ''));
     if (latestAttempt?.runtimeSnapshotComplete === false
@@ -163,8 +206,8 @@ export function prioritizeValidationSpecs(specs, candidateForSpec, options = {})
     }
   }
 
-  const compareOldest = (a, b) => validationSortAt(a, candidateForSpec(a), options.adapterVersionFor)
-    .localeCompare(validationSortAt(b, candidateForSpec(b), options.adapterVersionFor))
+  const compareOldest = (a, b) => validationSortAt(a, candidateForSpec(a), options.adapterVersionFor, options.previousValidationForSpec)
+    .localeCompare(validationSortAt(b, candidateForSpec(b), options.adapterVersionFor, options.previousValidationForSpec))
     || String(a.companyKey).localeCompare(String(b.companyKey));
   dueSecondDay.sort(compareOldest);
   retryable.sort(compareOldest);

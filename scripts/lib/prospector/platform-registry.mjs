@@ -37,6 +37,8 @@ import { registrableDomain, normalizeHost, sameOrg } from './registrable.mjs';
  * @property {string[]} hostSamples     example tenant hosts
  * @property {'subdomain'|'shared'|'mixed'|'unknown'} tenantShape
  * @property {Record<string, number>} hostHits  full host -> employers seen on it
+ * @property {Record<string, string[]>} hostEmployers full host -> verified employer domains seen on it
+ * @property {Record<string, boolean>} hostEmployerUnknown full host -> an owner could not be verified
  * @property {Record<string, number>} pathHits     first DETAIL url segment -> times seen
  * @property {string[]} listingPaths                 listing paths learned from our own adapters
  * @property {number} tenantCount
@@ -110,6 +112,30 @@ export function isPlatformEligible(host) {
 }
 
 /**
+ * Return an employer's registrable domain only when the input is domain-shaped.
+ * Crawler feeds also put company names in this field; those are useful as
+ * observations, but must never become verified tenant owners.
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export function verifiedEmployerDomain(value) {
+  const raw = String(value || '').trim();
+  if (!raw || /\s/.test(raw)) return '';
+  const host = normalizeHost(raw);
+  if (host.length > 253) return '';
+  const labels = host.split('.');
+  if (labels.length < 2 || labels.some((label) => label.length > 63
+    || !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label))) return '';
+  const tld = labels.at(-1);
+  if (!/^(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i.test(tld)) return '';
+  const domain = registrableDomain(host);
+  // Reject public suffixes such as `co.uk`, which are domain-shaped but do not
+  // identify an employer.
+  return domain.includes('.') && registrableDomain(`owner.${domain}`) === domain ? domain : '';
+}
+
+/**
  * Record that `employerDomain` publishes its vacancies on `tenantHost`.
  * Promotes candidate -> confirmed once enough UNRELATED employers agree.
  *
@@ -118,14 +144,14 @@ export function isPlatformEligible(host) {
  * not two, and `sameOrg` collapses them.
  *
  * @param {ReturnType<typeof loadRegistry>} registry
- * @param {{ tenantHost: string, employerDomain: string, markers?: string[], note?: string, path?: string }} obs
+ * @param {{ tenantHost: string, employerDomain?: string, markers?: string[], note?: string, path?: string }} obs
  * @returns {{ platform: Platform|null, promoted: boolean, created: boolean }}
  */
 export function observePlatform(registry, { tenantHost, employerDomain, markers = [], note, path }) {
   const host = normalizeHost(tenantHost);
   if (!isPlatformEligible(host)) return { platform: null, promoted: false, created: false };
   const domain = registrableDomain(host);
-  const employer = registrableDomain(employerDomain || '');
+  const employer = verifiedEmployerDomain(employerDomain);
   // The employer's own domain is never a platform, however many subdomains it has.
   if (employer && sameOrg(domain, employer)) return { platform: null, promoted: false, created: false };
 
@@ -141,6 +167,8 @@ export function observePlatform(registry, { tenantHost, employerDomain, markers 
       hostSamples: [],
       tenantShape: 'unknown',
       hostHits: {},
+      hostEmployers: {},
+      hostEmployerUnknown: {},
       pathHits: {},
       tenantCount: 0,
       discoveredAt: new Date().toISOString(),
@@ -170,6 +198,18 @@ export function observePlatform(registry, { tenantHost, employerDomain, markers 
   // nonetheless a single shared host, which an is-there-a-dot test gets wrong.
   p.hostHits = p.hostHits || {};
   p.hostHits[host] = (p.hostHits[host] || 0) + 1;
+
+  // Counts alone do not tell whether one host is shared by several employers:
+  // a single Umantis tenant can contribute many vacancy URLs. Preserve the
+  // actual employer domains per host so identity keys can rely on host-specific
+  // evidence instead of a platform-wide `mixed` classification.
+  const employerIdentity = verifiedEmployerDomain(employerDomain);
+  p.hostEmployerUnknown = p.hostEmployerUnknown || {};
+  if (!employerIdentity) p.hostEmployerUnknown[host] = true;
+  if (employerIdentity) {
+    p.hostEmployers = p.hostEmployers || {};
+    p.hostEmployers[host] = [...new Set([...(p.hostEmployers[host] || []), employerIdentity])].sort();
+  }
 
   // Learn WHERE on the host the vacancies sit. Probing a tenant's bare root is
   // not enough: an Umantis tenant root serves a login form and the listing

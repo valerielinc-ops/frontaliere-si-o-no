@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { fetchAllRecruitingapp2649Jobs } from '../scripts/lib/recruitingapp-2649-job-parser.mjs';
 import { fetchAllRecruitingapp2677Jobs } from '../scripts/lib/recruitingapp-2677-job-parser.mjs';
+import { extractApleonaDetailFields } from '../scripts/lib/apleona-schweiz-ag-job-parser.mjs';
 import {
   productionRuntimeOptionsFor,
   SOURCE_CRAWLER_ADAPTERS,
@@ -48,6 +49,8 @@ describe('prospector source-crawler adapters', () => {
     }
     expect(productionRuntimeOptionsFor({ companyKey: 'proman-fleurier' }))
       .toMatchObject({ listingExtractor: expect.any(Function), detailExtractor: expect.any(Function) });
+    expect(productionRuntimeOptionsFor({ companyKey: 'apleona-schweiz-ag' })?.detailExtractor)
+      .toBe(extractApleonaDetailFields);
     expect(productionRuntimeOptionsFor({ companyKey: 'recruitingapp-2649' })).toBeNull();
     expect(productionRuntimeOptionsFor({ companyKey: 'recruitingapp-2677' })).toBeNull();
     expect(productionRuntimeOptionsFor({ companyKey: 'unrelated' })).toBeNull();
