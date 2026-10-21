@@ -224,6 +224,34 @@ describe('assisted-application payment recovery policy', () => {
     expect(applyStripe).toHaveBeenCalledOnce();
   });
 
+  it('reconciles a paid SumUp checkout with the handler database factory', async () => {
+    const order = pendingOrder('order-sumup-paid', {
+      paymentProvider: 'sumup',
+      stripeCheckoutSessionId: null,
+      sumupCheckoutId: 'sumup-paid',
+    });
+    const db = makeDb();
+    const applySumUp = vi.fn(async (_checkout: Row, context: { db: () => unknown }) => {
+      expect(typeof context.db).toBe('function');
+      expect(context.db()).toBe(db);
+      return { paymentStatus: 'paid' };
+    });
+    const result = await recovery.inspectPendingAssistedApplicationPayment({
+      db,
+      orderId: order.orderId,
+      order,
+      retrieveSumUp: vi.fn(async () => ({
+        id: order.sumupCheckoutId,
+        checkout_reference: order.orderId,
+        status: 'PAID',
+      })),
+      applySumUp,
+    });
+
+    expect(result).toEqual({ status: 'paid' });
+    expect(applySumUp).toHaveBeenCalledOnce();
+  });
+
   it('creates a replacement session only after an explicit provider expiry', async () => {
     const order = pendingOrder('order-expired', { stripeRequestKey: 'initial-checkout-key' });
     const db = makeDb({ assisted_applications: { [order.orderId]: order } });

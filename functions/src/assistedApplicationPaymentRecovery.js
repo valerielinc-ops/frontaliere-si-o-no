@@ -366,7 +366,7 @@ export async function inspectPendingAssistedApplicationPayment({
     }
     const status = String(checkout?.status || '').toUpperCase();
     if (status === 'PAID') {
-      const result = await applySumUp(checkout, { db, ts: FieldValue.serverTimestamp() });
+      const result = await applySumUp(checkout, { db: () => db, ts: FieldValue.serverTimestamp() });
       return result?.paymentStatus === 'paid' ? { status: 'paid' } : { status: 'error', reason: 'sumup_paid_amount_mismatch' };
     }
     if (status === 'PENDING' || status === 'OPEN') return { status: 'open' };
