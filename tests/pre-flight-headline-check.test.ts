@@ -16,6 +16,7 @@
  */
 
 import { describe, expect, it } from 'vitest';
+import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { tokenizeIt, jaccardSim, containmentSim } from '../scripts/lib/it-text-similarity.mjs';
@@ -189,6 +190,50 @@ describe('readStaticMetaFieldEntries', () => {
           { id: 'second', value: 'Second excerpt' },
         ],
       });
+  });
+
+  it('parses each source module once when projecting multiple fields', () => {
+    const compilerShim = resolve(ROOT, 'tests/__fixtures__/counting-typescript.cjs');
+    const readerPath = resolve(ROOT, 'scripts/lib/meta-field-regex.mjs');
+    const childScript = `
+      const paths = [];
+      globalThis.__articleSourceParsePaths = paths;
+      process.env.ARTICLE_SOURCE_TYPESCRIPT = ${JSON.stringify(compilerShim)};
+      const { pathToFileURL } = await import('node:url');
+      const { readStaticMetaFields } = await import(pathToFileURL(${JSON.stringify(readerPath)}));
+      const source = (id) => [
+        'const blogMeta: Record<string, string> = {',
+        "  'blog.article." + id + ".title': 'Title',",
+        "  'blog.article." + id + ".excerpt': 'Excerpt',",
+        '};',
+        'export default blogMeta;',
+      ].join('\\n');
+      const result = readStaticMetaFields([
+        { source: source('first'), sourcePath: 'first.ts' },
+        { source: source('second'), sourcePath: 'second.ts' },
+      ], ['title', 'excerpt']);
+      process.stdout.write(JSON.stringify({ paths, result }));
+    `;
+    const child = spawnSync(process.execPath, ['--input-type=module', '-e', childScript], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      timeout: 10_000,
+    });
+
+    expect(child.error).toBeUndefined();
+    expect(child.status).toBe(0);
+    const output = JSON.parse(child.stdout);
+    expect(output.paths).toEqual(['first.ts', 'second.ts']);
+    expect(output.result).toEqual({
+      title: [
+        { id: 'first', value: 'Title' },
+        { id: 'second', value: 'Title' },
+      ],
+      excerpt: [
+        { id: 'first', value: 'Excerpt' },
+        { id: 'second', value: 'Excerpt' },
+      ],
+    });
   });
 });
 
