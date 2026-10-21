@@ -9,7 +9,6 @@ import { fileURLToPath } from 'node:url';
 import { buildJobsStatsArtifacts, buildJobKeysSnapshot } from './lib/job-board-stats.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import {
-  jobStatsHistoryCompactionCutoffDate,
   readJobsStatsHistory,
   writeJobsStatsHistory,
 } from './lib/job-stats-history-store.mjs';
@@ -68,10 +67,7 @@ export function generateJobBoardStats(now = new Date().toISOString()) {
     now,
   });
 
-  writeJobsStatsHistory(history, ROOT, {
-    currentDate: history.entries.at(-1)?.date,
-    compactionCutoffDate: jobStatsHistoryCompactionCutoffDate(now),
-  });
+  writeJobsStatsHistory(history, ROOT, { currentDate: history.entries.at(-1)?.date });
   writeJson(DATA_SUMMARY_PATH, summary);
   writeJson(PUBLIC_SUMMARY_PATH, summary);
 
