@@ -91,6 +91,17 @@ on:
   repository_dispatch:
     types: [articles-published]
 
+  # 2b. THE PARITY RECOVERY. The publisher dispatch is the fast path, but it
+  # is not a durable delivery guarantee: the corpus can make the hub/API
+  # visible and fail before notifying this repository. Hydrated parity is the
+  # independent served-bytes observer for exactly that gap. A failed
+  # non-manual parity run must therefore replay this existing locked writer;
+  # waiting for the six-hour safety schedule leaves React dropping the new
+  # card in the meantime.
+  workflow_run:
+    workflows: ["Hydrated article parity"]
+    types: [completed]
+
   # 3. THE SAFETY NET. The schedule covers missed dispatches and any corpus
   #    refresh that does not change the watched renderer paths. Cheap when
   #    there is nothing to do: an unchanged tree makes
@@ -136,6 +147,13 @@ concurrency:
 
 jobs:
   plan:
+    # A manual forced-failure probe is an observability test, not permission to
+    # publish. Every other parity failure is a measured served hub/client
+    # mismatch (or a failed read that needs the same bounded recovery path).
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'failure' &&
+       github.event.workflow_run.event != 'workflow_dispatch')
     # Which sections run as separate matrix jobs. A push, publisher dispatch or
     # schedule means both: the renderers and the corpus they read are shared,
     # so either kind of change affects the two sections identically. A manual
