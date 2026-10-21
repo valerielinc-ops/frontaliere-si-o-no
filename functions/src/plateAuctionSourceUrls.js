@@ -9,3 +9,14 @@
  * drift apart.
  */
 export const GR_ECARI_CATALOGUE_URL = 'https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_CH';
+
+/**
+ * BE publishes the same official catalogue on both host aliases. The edge
+ * currently returns 404 for one alias intermittently while the other still
+ * serves the catalogue, so both collectors try the registry URL first and
+ * the official alias second. A failure on both URLs still degrades the source.
+ */
+export const BE_AUCTION_URLS = Object.freeze([
+  'https://auktion-be.ch/de/',
+  'https://www.auktion-be.ch/de/',
+]);
