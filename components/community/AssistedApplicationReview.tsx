@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
 import { AssistedApplicationFitNotice } from '@/components/community/AssistedApplicationFitNotice';
 import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
@@ -783,7 +784,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <h2 className="text-base font-bold text-heading">{t('jobBoard.assisted.review.handoffTitle')}</h2>
             <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.review.handoffBody')}</p>
             {data.job.applyUrl && (
-              <a href={data.job.applyUrl} target="_blank" rel="noreferrer" className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover">
+              <a href={normalizeExternalJobDetailUrl(data.job.applyUrl)} target="_blank" rel="noreferrer" className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-accent px-4 text-sm font-semibold text-on-accent hover:bg-accent-hover">
                 <ExternalLink className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.openPortal')}
               </a>
             )}

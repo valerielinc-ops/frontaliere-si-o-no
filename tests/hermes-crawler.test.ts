@@ -2,6 +2,8 @@ import { describe, it, expect } from 'vitest';
 import {
   HERMES_KEY,
   HERMES_COMPANY_NAME,
+  buildHermesJobId,
+  buildHermesJobDetailUrl,
   hermesAddressFields,
   isHermesJob,
   isTrustedDomain,
@@ -13,6 +15,14 @@ describe('Hermès crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(HERMES_KEY).toBe('hermes');
     expect(HERMES_COMPANY_NAME).toBe('Hermès');
+  });
+
+  it('builds Oracle career-site detail links with the singular job route', () => {
+    expect(buildHermesJobDetailUrl('23993')).toBe('https://talents.hermes.com/en/sites/CX/job/23993');
+  });
+
+  it('keeps historical job ids stable while changing the external route', () => {
+    expect(buildHermesJobId('23993')).toBe('hermes-6a5a5af20aa5');
   });
 
   it('uses postal code 1204 only for the exact Genève HQ locality', () => {

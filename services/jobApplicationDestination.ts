@@ -25,6 +25,27 @@ function hostOf(rawUrl: string): string {
   }
 }
 
+/**
+ * Career Site Builder job details use `/sites/{site}/job/{id}`. Some feeds
+ * expose the plural `/jobs/{id}` form, which loads the site shell but resolves
+ * to a not-found page. Restrict the rewrite to that exact numeric detail route
+ * so job-search URLs and other ATS path shapes are left intact.
+ */
+export function normalizeExternalJobDetailUrl(rawUrl: string): string {
+  try {
+    const url = new URL(rawUrl);
+    if (url.protocol !== 'https:' && url.protocol !== 'http:') return rawUrl;
+
+    const match = url.pathname.match(/^(.*\/sites\/[^/]+)\/jobs\/(\d+)\/?$/);
+    if (!match) return rawUrl;
+
+    url.pathname = `${match[1]}/job/${match[2]}`;
+    return url.toString();
+  } catch {
+    return rawUrl;
+  }
+}
+
 function isOracleCandidateUrl(rawUrl: string): boolean {
   try {
     const parsed = new URL(rawUrl);
@@ -80,8 +101,10 @@ export function resolveJobApplicationUrl(
   const isDeadDestination = (url: string): boolean =>
     isKnownDeadJobDestination(url) || isRetiredKnownEmployerOracleUrl(url, job);
 
-  if (!isDeadDestination(candidate)) return candidate;
+  if (!isDeadDestination(candidate)) return normalizeExternalJobDetailUrl(candidate);
 
-  if (sourceUrl && !isDeadDestination(sourceUrl)) return sourceUrl;
-  return employerFallback(job) || String(fallbackUrl || '').trim();
+  if (sourceUrl && !isDeadDestination(sourceUrl)) {
+    return normalizeExternalJobDetailUrl(sourceUrl);
+  }
+  return normalizeExternalJobDetailUrl(employerFallback(job) || String(fallbackUrl || '').trim());
 }
