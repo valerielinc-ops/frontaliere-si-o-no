@@ -374,10 +374,10 @@ const LANGUAGE_SIGNALS = {
 
 const LANGUAGE_TERM_EXCEPTIONS = new Set(['project management', 'azure', 'devops', 'built in functions', 'team']);
 
-// Compact trigram profiles detect the language of short rendered fields more
-// reliably than requiring one word from a target-language whitelist. Keep the
-// profiles in step with scripts/lib/detect-language.mjs; this copy stays in
-// functions/ because Firebase deploys that directory as a standalone package.
+// Compact trigram profiles help classify rendered fields when several
+// language-specific trigrams match. Requiring multiple hits keeps names and
+// shared technical terms from dominating. Keep profiles aligned with
+// scripts/lib/detect-language.mjs; Firebase deploys functions/ standalone.
 const CV_LANGUAGE_TRIGRAMS = {
   it: ['ion', 'one', 'zio', 'del', 'ell', 'lla', 'per', 'ent', 'azi', 'are', 'con', 'ato', 'tti', 'nte', 'gli', 'che', 'ale', 'eri', 'ien', 'ita', 'ore', 'att', 'all', 'ess', 'nto', 'pre', 'pro', 'ist', 'str', 'raz', 'ter', 'com', 'sta', 'tto', 'tra', 'enz', 'nza', 'ono', 'ili', 'ual', 'ort', 'oll', 'riz', 'ica', 'osi', 'ann', 'tat', 'gio'],
   en: ['the', 'ing', 'and', 'ion', 'tio', 'ati', 'ent', 'for', 'you', 'our', 'exp', 'per', 'ith', 'wit', 'wor', 'ork', 'ies', 'ers', 'ons', 'ble', 'ili', 'pro', 'rie', 'enc', 'nce', 'ndi', 'com', 'men', 'all', 'abi', 'ess', 'kin', 'ive', 'rea', 'ien', 'est', 'ski', 'qui', 'red', 'equ', 'req', 'ire', 'hir', 'hin', 'rin', 'ter', 'res', 'ale', 'app'],
@@ -386,11 +386,64 @@ const CV_LANGUAGE_TRIGRAMS = {
 };
 
 const CV_LANGUAGE_MARKERS = {
-  it: new Set(['requisiti', 'candidato', 'candidatura', 'offerta', 'competenze', 'esperienza', 'conoscenze', 'azienda', 'lavoro', 'profilo', 'responsabilita', 'responsabile', 'specialista', 'supporto', 'ricerca', 'sviluppo', 'gestione', 'cliente', 'settore', 'formazione', 'contratto', 'mansioni', 'commerciale', 'di', 'progetto', 'progetti']),
+  it: new Set(['requisiti', 'candidato', 'candidatura', 'offerta', 'competenze', 'esperienza', 'conoscenze', 'azienda', 'lavoro', 'profilo', 'responsabilita', 'responsabile', 'specialista', 'supporto', 'ricerca', 'sviluppo', 'gestione', 'cliente', 'settore', 'formazione', 'contratto', 'mansioni', 'commerciale', 'di', 'progetto', 'progetti', 'laurea', 'magistrale', 'informatica', 'tecnologia', 'ciclismo', 'reparto', 'addetto', 'vendite', 'infermiere', 'infermiera']),
   de: new Set(['und', 'oder', 'bei', 'wir', 'fur', 'ist', 'auf', 'aus', 'mit', 'das', 'eine', 'sich', 'werden', 'uber', 'ihre', 'unser', 'nach', 'kann', 'sind', 'dieser', 'arbeit', 'umgebung', 'arbeitsort', 'erfahrung', 'verantwortlich', 'anforderungen', 'aufgaben', 'kenntnisse', 'qualifikationen', 'berufserfahrung']),
-  fr: new Set(['nous', 'vous', 'avec', 'pour', 'dans', 'votre', 'notre', 'sont', 'cette', 'etre', 'avoir', 'vos', 'une', 'des', 'sur', 'les', 'par', 'qui', 'entreprise', 'experience', 'competences', 'poste', 'profil', 'missions', 'responsabilites', 'candidature', 'formation', 'environnement', 'au', 'du', 'gestion', 'equipe', 'service', 'clients']),
+  fr: new Set(['nous', 'vous', 'avec', 'pour', 'dans', 'votre', 'notre', 'sont', 'cette', 'etre', 'avoir', 'vos', 'une', 'des', 'sur', 'les', 'par', 'qui', 'entreprise', 'experience', 'competences', 'poste', 'profil', 'missions', 'responsabilites', 'candidature', 'formation', 'environnement', 'au', 'du', 'gestion', 'equipe', 'service', 'clients', 'ingenieur', 'ingenieure', 'vendeur', 'vendeuse']),
   en: new Set(['the', 'and', 'with', 'this', 'you', 'your', 'will', 'are', 'for', 'our', 'have', 'that', 'from', 'experience', 'requirements', 'responsibilities', 'qualifications', 'position', 'role', 'about', 'skills', 'ability', 'team', 'working', 'apply', 'required', 'career', 'opportunity', 'knowledge', 'proficiency', 'environment', 'benefits', 'built', 'swiss', 'clients', 'financial', 'reporting', 'systems', 'system', 'design', 'accounting', 'budget', 'forecast', 'revenue', 'customer', 'service', 'delivery', 'software', 'engineering', 'operations', 'management', 'project', 'sales', 'improved', 'conversion', 'architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'led', 'created', 'implemented', 'supported', 'coordinated']),
 };
+
+// A small number of common role phrases are too short for reliable n-gram
+// classification and need an exact target/source-language marker.
+const CV_LANGUAGE_PHRASE_MARKERS = {
+  it: ['capo turno', 'analista aziendale', 'analista dati', 'patente di guida'],
+  fr: ['chef de projet', 'chef de service', 'vendeur en magasin', 'vendeuse en magasin'],
+  en: ['product owner', 'business analyst', 'data analyst', 'support specialist'],
+};
+const CV_LANGUAGE_PHRASE_MODIFIERS = new Set(['senior', 'junior', 'lead', 'principal', 'associate']);
+const MIN_TARGET_LANGUAGE_CONFIDENCE = 0.3;
+const MIN_LANGUAGE_TRIGRAM_HITS = 3;
+
+function languagePhraseMarkers(language) {
+  return Object.prototype.hasOwnProperty.call(CV_LANGUAGE_PHRASE_MARKERS, language)
+    ? CV_LANGUAGE_PHRASE_MARKERS[language]
+    : [];
+}
+
+function hasLanguagePhraseEvidence(text, language) {
+  const normalized = normalizeText(text).split(' ')
+    .filter((word) => !/^\d+$/.test(word) && !CV_LANGUAGE_PHRASE_MODIFIERS.has(word))
+    .join(' ');
+  return languagePhraseMarkers(language)
+    .some((phrase) => normalizeText(phrase) === normalized);
+}
+
+function containsLanguagePhraseEvidence(text, language) {
+  const normalized = normalizeText(text);
+  const padded = ` ${normalized} `;
+  return languagePhraseMarkers(language)
+    .some((phrase) => padded.includes(` ${normalizeText(phrase)} `));
+}
+
+function hasLanguageMarkerEvidence(text, language) {
+  const tokens = new Set(normalizeText(text).replace(/[/.]/g, ' ').split(' ')
+    .filter((word) => !/^[0-9]+$/.test(word) && !CV_LANGUAGE_PHRASE_MODIFIERS.has(word)));
+  return Array.from(CV_LANGUAGE_MARKERS[language] || [])
+    .some((marker) => normalizeText(marker).length >= 4 && tokens.has(normalizeText(marker)));
+}
+
+function hasNonTargetLanguagePhraseEvidence(text, targetLanguage) {
+  return Object.keys(CV_LANGUAGE_PHRASE_MARKERS)
+    .some((language) => language !== targetLanguage && containsLanguagePhraseEvidence(text, language));
+}
+
+function hasNonTargetLanguageMarkerEvidence(text, targetLanguage) {
+  const targetMarkers = new Set(CV_LANGUAGE_MARKERS[targetLanguage] || []);
+  return Object.keys(CV_LANGUAGE_MARKERS)
+    .some((language) => language !== targetLanguage
+      && Array.from(CV_LANGUAGE_MARKERS[language] || []).some((marker) => marker.length >= 4
+        && !targetMarkers.has(marker)
+        && hasLanguageMarkerEvidence(text, language)));
+}
 
 function cvLanguageTextWithoutNeutralTerms(text) {
   let normalized = normalizeText(text);
@@ -413,21 +466,23 @@ function targetLanguageSignals(text, language) {
 function hasLanguageEvidence(text, language) {
   const normalized = cvLanguageTextWithoutNeutralTerms(text);
   if (!normalized) return true;
+  const hasTargetPhrase = hasLanguagePhraseEvidence(normalized, language);
   // Short technical phrases and names can fool the trigram detector; only
-  // target-exclusive words count as positive evidence.
+  // target-exclusive words or exact target-language phrases count as evidence.
   const signals = targetLanguageSignals(normalized, language);
   // A short marker like "di" or "du" can belong to a proper name; require
   // two distinct short markers when no longer target-exclusive word exists.
   const shortSignals = new Set(signals.filter((word) => word.length < 4));
-  return signals.some((word) => word.length >= 4) || shortSignals.size >= 2;
+  return hasTargetPhrase || signals.some((word) => word.length >= 4) || shortSignals.size >= 2;
 }
 
 function hasSourceLanguageEvidence(text, sourceLanguage, targetLanguage) {
   const normalized = cvLanguageTextWithoutNeutralTerms(text);
+  const hasSourcePhrase = containsLanguagePhraseEvidence(normalized, sourceLanguage);
   return Boolean(sourceLanguage)
     && sourceLanguage !== targetLanguage
     && Boolean(normalized)
-    && hasLanguageEvidence(normalized, sourceLanguage);
+    && (hasSourcePhrase || hasLanguageEvidence(normalized, sourceLanguage));
 }
 
 function detectCvTextLanguage(text) {
@@ -446,10 +501,12 @@ function detectCvTextLanguage(text) {
     for (const marker of CV_LANGUAGE_MARKERS[language]) if (tokens.has(marker)) markerHits += 1;
     return [language, trigramScore + markerHits * 15];
   }));
+  const matchedTrigramCounts = Object.fromEntries(Object.entries(CV_LANGUAGE_TRIGRAMS)
+    .map(([language, profile]) => [language, profile.filter((trigram) => trigrams.has(trigram)).length]));
   const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
   const [language, score] = ranked[0];
   const runnerUp = ranked[1]?.[1] || 0;
-  if (score === 0) return null;
+  if (score === 0 || matchedTrigramCounts[language] < MIN_LANGUAGE_TRIGRAM_HITS) return null;
   const confidence = Math.min(1, (score - runnerUp) / score);
   return confidence >= 0.3 ? { language, confidence } : null;
 }
@@ -466,15 +523,15 @@ function isCanonicalTargetLanguageLabel(value, language) {
 
 function renderedLanguageFields(cv, profile = {}) {
   const fields = [
-    { field: 'headline', text: cv?.localized?.headline || cv?.headline, minWords: 3 },
-    ...(cv?.type !== 'apprentice' ? [{ field: 'summary', text: cv?.summary, minWords: 3 }] : []),
-    ...(cv?.type !== 'apprentice' ? (cv?.competencies || []).map((text, index) => ({ field: `competencies[${index}]`, text, minWords: 3 })) : []),
+    { field: 'headline', text: cv?.localized?.headline || cv?.headline },
+    ...(cv?.type !== 'apprentice' ? [{ field: 'summary', text: cv?.summary }] : []),
+    ...(cv?.type !== 'apprentice' ? (cv?.competencies || []).map((text, index) => ({ field: `competencies[${index}]`, text })) : []),
     ...(cv?.experience || []).filter((role) => role.rewritten).flatMap((role, roleIndex) => (role.bullets || [])
-      .map((text, bulletIndex) => ({ field: `experience[${roleIndex}].bullets[${bulletIndex}]`, text, minWords: 3 }))),
-    ...(cv?.skills || []).map((text, index) => ({ field: `skills[${index}]`, text, minWords: 5 })),
+      .map((text, bulletIndex) => ({ field: `experience[${roleIndex}].bullets[${bulletIndex}]`, text }))),
+    ...(cv?.skills || []).map((text, index) => ({ field: `skills[${index}]`, text })),
   ];
-  const add = (field, text, minWords = 4) => {
-    if (nonEmpty(text)) fields.push({ field: `localized.${field}`, text, minWords });
+  const add = (field, text) => {
+    if (nonEmpty(text)) fields.push({ field: `localized.${field}`, text });
   };
   const localized = cv?.localized || {};
 
@@ -486,7 +543,7 @@ function renderedLanguageFields(cv, profile = {}) {
     add(`experience[${index}].role`, translation?.role || role.role);
     if (!role.rewritten) {
       const fallbackBullets = translation?.highlights?.length ? translation.highlights : role.bullets;
-      (fallbackBullets || []).forEach((text, bulletIndex) => add(`experience[${index}].highlights[${bulletIndex}]`, text, 3));
+      (fallbackBullets || []).forEach((text, bulletIndex) => add(`experience[${index}].highlights[${bulletIndex}]`, text));
     }
   });
   (profile.education || []).forEach((item, index) => {
@@ -525,21 +582,34 @@ function renderedLanguageFields(cv, profile = {}) {
 
 function addRenderedLanguageIssues(issues, cv, profile, language) {
   const sourceLanguage = String(profile?.cvLanguage || '').toLowerCase().slice(0, 2);
-  for (const { field, text: rendered, minWords } of renderedLanguageFields(cv, profile)) {
+  for (const { field, text: rendered } of renderedLanguageFields(cv, profile)) {
     const words = normalizeText(rendered).split(' ').filter(Boolean);
-    const detected = words.length >= minWords ? detectCvTextLanguage(rendered) : null;
+    const detected = detectCvTextLanguage(rendered);
     const signals = languageSignals(rendered, language);
+    const hasTargetEvidence = hasLanguageEvidence(rendered, language);
+    const hasTargetPhrase = hasLanguagePhraseEvidence(rendered, language);
+    const hasConfidentTargetDetection = detected?.language === language
+      && detected.confidence >= MIN_TARGET_LANGUAGE_CONFIDENCE;
     const requiresTargetEvidence = Boolean(sourceLanguage)
       && (language !== 'en' || sourceLanguage !== language);
     const localizedRole = /^localized\.experience\[\d+\]\.role$/.test(field);
+    const shortRoleWordCount = normalizeText(rendered).replace(/[/.]/g, ' ').split(' ').filter(Boolean).length;
+    const hasNonTargetRoleMarker = localizedRole
+      && shortRoleWordCount <= 2
+      && hasNonTargetLanguageMarkerEvidence(rendered, language);
+    const needsTargetEvidence = !field.startsWith('localized.') || localizedRole;
     const lacksTargetEvidence = requiresTargetEvidence
-      && (!field.startsWith('localized.') || localizedRole)
+      && needsTargetEvidence
       && words.length >= 3
-      && (!detected || detected.language !== language)
-      && !hasLanguageEvidence(rendered, language);
+      && !hasTargetEvidence
+      && !hasConfidentTargetDetection;
     const hasSourceEvidence = hasSourceLanguageEvidence(rendered, sourceLanguage, language);
+    const hasNonTargetPhrase = hasNonTargetLanguagePhraseEvidence(rendered, language);
     const hasMultipleForeignSignals = !detected && signals.length >= 2;
-    if ((detected && detected.language !== language) || lacksTargetEvidence || hasSourceEvidence || hasMultipleForeignSignals) {
+    const detectedForeignLanguage = detected
+      && detected.language !== language
+      && !(hasTargetPhrase && !hasSourceEvidence);
+    if (detectedForeignLanguage || lacksTargetEvidence || hasSourceEvidence || hasNonTargetPhrase || hasNonTargetRoleMarker || hasMultipleForeignSignals) {
       issues.push({ field: 'rendered', kind: 'language', token: field, context: `no ${language} language signal in rendered CV field` });
     }
   }
