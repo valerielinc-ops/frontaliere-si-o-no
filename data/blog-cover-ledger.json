@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 715,
+      "5": 716,
       "6": 5054
     },
-    "publishedCovers": 7452,
+    "publishedCovers": 7453,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204104,6 +204104,39 @@
         "provider": "openai-codex",
         "assetId": "article-guida-saldatore-ticino-frontiera",
         "imageUrl": "/images/blog/article-guida-saldatore-ticino-frontiera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lucerna-riduce-imposte": {
+      "cover": "/images/blog/article-lucerna-riduce-imposte.webp",
+      "hash": "3bae3b9dddb84e89330f7257fdbec1f87f5d4813b8c14cfc28886c90202c50c5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "lucerna-riduce-imposte",
+          "category": "fiscale",
+          "date": "2026-10-21T01:30:31.409Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-riduce-imposte.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lucerna-riduce-imposte",
+        "imageUrl": "/images/blog/article-lucerna-riduce-imposte.webp",
         "evidence": "generated-engine-record"
       }
     },
