@@ -28,7 +28,7 @@ const DEFAULT_LIMITS = Object.freeze({
 const PATCH_OPTS = ['--no-color', '--no-ext-diff', '--no-renames', '--src-prefix=a/', '--dst-prefix=b/'];
 
 export function makeGitRunner(cwd) {
-  return function git(args, { input, maxBuffer = 512 * 1024 * 1024 } = {}) {
+  return function git(args, { input, maxBuffer = 512 * 1024 * 1024, env } = {}) {
     try {
       return execFileSync('git', ['-c', 'core.quotePath=false', ...args], {
         cwd,
@@ -36,6 +36,7 @@ export function makeGitRunner(cwd) {
         encoding: 'utf8',
         stdio: [input === undefined ? 'ignore' : 'pipe', 'pipe', 'ignore'],
         maxBuffer,
+        ...(env ? { env: { ...process.env, ...env } } : {}),
       });
     } catch {
       return null;
@@ -103,14 +104,29 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
   const out = (args, opts) => git(args, opts);
   const ok = (args) => out(args) !== null;
 
-  // Solo i positivi in memoria: un HEAD di PR assente può arrivare con un fetch
-  // di refs/pull/N/head durante lo stesso sweep.
+  // Le verifiche di presenza non devono attivare il lazy fetch dei clone
+  // parziali: quando un commit manca, il percorso promisor può scandire tutti
+  // i pack per stabilire se l'oggetto è promesso. L'assenza è memoizzata per
+  // evitare di ripetere quel probe nello stesso sweep; dopo un fetch chiamare
+  // hasCommit(rev, { refresh: true }) per rileggere l'object database.
   const present = new Set();
-  const hasCommit = (rev) => {
+  const absent = new Set();
+  const hasCommit = (rev, { refresh = false } = {}) => {
     if (!rev) return false;
-    if (present.has(rev)) return true;
-    const found = ok(['cat-file', '-e', `${rev}^{commit}`]);
-    if (found) present.add(rev);
+    if (!refresh) {
+      if (present.has(rev)) return true;
+      if (absent.has(rev)) return false;
+    }
+    const found = out(['cat-file', '-e', `${rev}^{commit}`], {
+      env: { GIT_NO_LAZY_FETCH: '1' },
+    }) !== null;
+    if (found) {
+      present.add(rev);
+      absent.delete(rev);
+    } else {
+      present.delete(rev);
+      absent.add(rev);
+    }
     return found;
   };
   const isAncestor = (a, b) => ok(['merge-base', '--is-ancestor', a, b]);

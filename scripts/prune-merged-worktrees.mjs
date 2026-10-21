@@ -778,7 +778,7 @@ function commitIsAncestorOfPrHead(localTip, pr) {
   // taking too long to generate» appena i due commit sono lontani (misurato il
   // 2026-10-02 su #8862, #8849, #10025, #10051, #10417): la prova remota da
   // sola lasciava report-only proprio i branch di risoluzione più vecchi.
-  if (gitOk(['cat-file', '-e', `${prHead}^{commit}`]) || ensurePrHead({ number: pr?.number, headRefOid: prHead })) {
+  if (prover.hasCommit(prHead) || ensurePrHead({ number: pr?.number, headRefOid: prHead })) {
     const provenLocally = gitOk(['merge-base', '--is-ancestor', localTip, prHead]);
     ancestryProofCache.set(key, provenLocally);
     return provenLocally;
@@ -1161,7 +1161,7 @@ function ensurePrHead(pr) {
       } catch { /* PR assente o rete giù: niente prova */ }
     });
   } catch { return false; }
-  return run?.acquired === true && prover.hasCommit(oid);
+  return run?.acquired === true && prover.hasCommit(oid, { refresh: true });
 }
 
 // PR MERGED su main in cui cercare il contenuto, in ordine di plausibilità.

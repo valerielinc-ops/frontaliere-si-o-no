@@ -485,6 +485,33 @@ describe('fatti letti da git', () => {
     expect(prover.hasCommit(g('rev-parse', 'HEAD'))).toBe(true);
   });
 
+  it('il probe di presenza evita lazy fetch, memorizza l’assenza e la rivaluta dopo un fetch', () => {
+    const sha = 'e'.repeat(40);
+    const calls: Array<{ args: string[]; options?: { env?: Record<string, string> } }> = [];
+    let available = false;
+    const isolated = makeContentProver({
+      mainRef: 'origin/main',
+      git: (args: string[], options?: { env?: Record<string, string> }) => {
+        calls.push({ args, options });
+        if (args[0] !== 'cat-file') return null;
+        return available ? '' : null;
+      },
+    });
+
+    expect(isolated.hasCommit(sha)).toBe(false);
+    expect(isolated.hasCommit(sha)).toBe(false);
+    expect(calls).toHaveLength(1);
+    expect(calls[0]).toMatchObject({
+      args: ['cat-file', '-e', `${sha}^{commit}`],
+      options: { env: { GIT_NO_LAZY_FETCH: '1' } },
+    });
+
+    available = true;
+    expect(isolated.hasCommit(sha, { refresh: true })).toBe(true);
+    expect(isolated.hasCommit(sha)).toBe(true);
+    expect(calls).toHaveLength(2);
+  });
+
   it('un puntatore .git verso un gitdir sparito è un residuo', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prune-gitptr-'));
     fs.writeFileSync(path.join(dir, '.git'), `gitdir: ${path.join(dir, 'non-esiste')}\n`);
