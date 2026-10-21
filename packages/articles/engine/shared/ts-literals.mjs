@@ -8,7 +8,7 @@
  */
 
 const STATIC_LITERAL_QUOTES = new Set(['"', "'", '`']);
-const TS_ESCAPE_RX = /\\(u[0-9a-fA-F]{4}|[\s\S])/g;
+const TS_ESCAPE_RX = /\\(u[0-9a-fA-F]{4}|\r\n|[\s\S])/g;
 
 /** Read one static JavaScript/TypeScript string literal. */
 export function readStaticStringLiteral(source, startIdx, sourcePath = 'source', errorLabel = 'static-literal') {
@@ -68,8 +68,11 @@ export function skipStaticTrivia(source, startIdx, sourcePath = 'source', errorL
       continue;
     }
     if (source.startsWith('//', cursor)) {
-      const newline = source.indexOf('\n', cursor + 2);
-      cursor = newline < 0 ? source.length : newline;
+      let newline = cursor + 2;
+      while (newline < source.length && source[newline] !== '\n' && source[newline] !== '\r') {
+        newline += 1;
+      }
+      cursor = newline;
       continue;
     }
     if (source.startsWith('/*', cursor)) {
@@ -122,6 +125,12 @@ export function readStaticObjectEntries(
     if ((!terminal || !allowTerminalFragment)
       && source[afterValue] !== ',' && source[afterValue] !== '}') {
       throw new Error(`[${errorLabel}] Static property must end with ',' or '}' in ${sourcePath}`);
+    }
+    if (source[afterValue] === ',') {
+      const nextToken = skipStaticTrivia(source, afterValue + 1, sourcePath, errorLabel);
+      if (nextToken >= source.length) {
+        throw new Error(`[${errorLabel}] Static property cannot end with a dangling comma in ${sourcePath}`);
+      }
     }
 
     entries.push({

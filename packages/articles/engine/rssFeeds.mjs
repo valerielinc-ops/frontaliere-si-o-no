@@ -438,7 +438,7 @@ function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field)
 
   const out = new Map(); // articleId → value
   for (const { key, value } of readStaticObjectEntries(src, filePath, { errorLabel: 'rss' })) {
-    const match = /^blog\.article\.([^.]+?)\.(title|excerpt)$/u.exec(key);
+    const match = /^blog\.article\.(.+?)\.(title|excerpt)$/u.exec(key);
     if (!match || match[2] !== field) continue;
     // The shared helper, not a lone `\\'` replace: the writer also escapes
     // backslashes and newlines, so a partial unescape leaves literal `\\n` in
