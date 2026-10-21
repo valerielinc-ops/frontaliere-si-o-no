@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-09-30T05:20:33.123Z",
-    "label": "after",
-    "total": 31897,
-    "needsRetranslation": 17603,
-    "suppressed": 149,
-    "incomplete": 18696,
-    "complete": 13201,
-    "slotsPresent": 13201,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 13201,
-    "sourceCopyExcused": 551,
-    "slotsPresentByLength": 31512,
-    "languageVerified": 15770,
-    "missingByLocale": {
-      "it": 5276,
-      "en": 5425,
-      "de": 1122,
-      "fr": 5175
-    },
-    "queueAge": {
-      "count": 17603,
-      "withTimestamp": 17603,
-      "oldestAgeDays": 720.2,
-      "p50AgeDays": 10.3,
-      "p90AgeDays": 87.8,
-      "buckets": {
-        "0-1d": 1285,
-        "1-2d": 1927,
-        "2-7d": 5083,
-        "0-7d": 8295,
-        "7-30d": 4024,
-        "30-90d": 3696,
-        "90-180d": 1579,
-        "180d+": 9
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 221,
-      "withTimestamp": 221,
-      "oldestAgeDays": 109.8,
-      "p50AgeDays": 0.3,
-      "p90AgeDays": 0.8,
-      "buckets": {
-        "0-1d": 211,
-        "1-2d": 0,
-        "2-7d": 0,
-        "0-7d": 211,
-        "7-30d": 6,
-        "30-90d": 2,
-        "90-180d": 2,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "genderFormRepair": {
-      "measured": false,
-      "status": "partial",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 12143,
-      "sampled": 120,
-      "processed": 18,
-      "residual": 1,
-      "residualRate": 0.05555555555555555
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 3597
-      },
-      {
-        "company": "STA Personal AG",
-        "pending": 1704
-      },
-      {
-        "company": "Stellentreff AG",
-        "pending": 965
-      },
-      {
-        "company": "Stellenpartner AG",
-        "pending": 802
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 677
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 673
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 399
-      },
-      {
-        "company": "VOLG",
-        "pending": 382
-      },
-      {
-        "company": "BKW",
-        "pending": 317
-      },
-      {
-        "company": "Galenica AG (Galenica)",
-        "pending": 280
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-30T05:36:13.470Z",
     "label": "before",
     "total": 31897,
@@ -27234,5 +27122,112 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-10-21T05:46:05.122Z",
+    "label": "before",
+    "total": 32786,
+    "needsRetranslation": 2524,
+    "suppressed": 126,
+    "incomplete": 2930,
+    "complete": 29856,
+    "slotsPresent": 29856,
+    "flaggedAmongSlotsPresent": 80,
+    "verifiedTranslated": 29776,
+    "sourceCopyExcused": 299,
+    "slotsPresentByLength": 32728,
+    "languageVerified": 31682,
+    "missingByLocale": {
+      "it": 416,
+      "en": 403,
+      "de": 72,
+      "fr": 368
+    },
+    "queueAge": {
+      "count": 2524,
+      "withTimestamp": 2524,
+      "oldestAgeDays": 190.8,
+      "p50AgeDays": 31.3,
+      "p90AgeDays": 108.8,
+      "buckets": {
+        "0-1d": 336,
+        "1-2d": 38,
+        "2-7d": 88,
+        "0-7d": 462,
+        "7-30d": 786,
+        "30-90d": 854,
+        "90-180d": 410,
+        "180d+": 12
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 953,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 112,
+      "byCrawler": {
+        "sta": 34,
+        "stellentreff": 78
+      }
+    },
+    "predicateVersion": "9ad1b9af9e7185cb",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 793,
+      "complete": 754
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 478
+      },
+      {
+        "company": "VOLG",
+        "pending": 134
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 131
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 124
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 118
+      },
+      {
+        "company": "Medbase",
+        "pending": 107
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 88
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 83
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 77
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 67
+      }
+    ]
   }
 ]

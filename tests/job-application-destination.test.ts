@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   isKnownDeadJobDestination,
+  normalizeExternalJobDetailUrl,
   resolveJobApplicationUrl,
 } from '../services/jobApplicationDestination';
 
@@ -45,5 +46,27 @@ describe('job application destination fallback', () => {
   it('does not replace a healthy direct application URL', () => {
     const url = 'https://careers.example.com/jobs/123/apply';
     expect(resolveJobApplicationUrl({ applyUrl: url, url: 'https://careers.example.com/jobs/123' })).toBe(url);
+  });
+
+  it('normalizes the verified Hermes job-detail route and keeps tracking params', () => {
+    expect(resolveJobApplicationUrl({
+      applyUrl: 'https://talents.hermes.com/en/sites/CX/jobs/23993/?utm_source=frontaliereticino&utm_campaign=job-board',
+    })).toBe('https://talents.hermes.com/en/sites/CX/job/23993?utm_source=frontaliereticino&utm_campaign=job-board');
+  });
+
+  it('leaves unrelated external URL shapes unchanged', () => {
+    const urls = [
+      'https://talents.hermes.com/en/sites/CX/job/23993',
+      'https://careers.example.com/jobs/23993/',
+      'https://careers.example.com/en/sites/CX/jobs/store-manager-23993/',
+      'https://careers.example.com/en/sites/CX/jobs/',
+    ];
+    for (const url of urls) {
+      expect(resolveJobApplicationUrl({ applyUrl: url })).toBe(url);
+    }
+
+    const unrelatedAtsUrl = 'https://other.example/sites/acme/jobs/123?utm_source=x';
+    expect(normalizeExternalJobDetailUrl(unrelatedAtsUrl)).toBe(unrelatedAtsUrl);
+    expect(resolveJobApplicationUrl({ applyUrl: unrelatedAtsUrl })).toBe(unrelatedAtsUrl);
   });
 });

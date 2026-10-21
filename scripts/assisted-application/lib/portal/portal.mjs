@@ -177,6 +177,15 @@ export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   return directUrl;
 }
 
+function portalChannelType(ctx = {}) {
+  if (ctx.channelType === 'successfactors') return ctx.channelType;
+  // A branded SuccessFactors tenant has an employer hostname, so the draft's
+  // hostname classifier can call it `employer_site`. The exact same-origin,
+  // same-requisition Jobs2Web route proves which ATS rules apply.
+  if (portalEntryUrl(ctx) !== String(ctx.applyUrl || '')) return 'successfactors';
+  return ctx.channelType || '';
+}
+
 /**
  * The browser's own user agent without "Headless", on the machine's real
  * system: some ATS turn away a browser that calls itself HeadlessChrome
@@ -853,10 +862,10 @@ const isSuccessFactorsUrl = (url) => {
  * same mixed form before that dialog is opened. A bare «Submit» or «Konto
  * erstellen» under a password stays a registration.
  */
-export function ownAccountForm(snapshot) {
+export function ownAccountForm(snapshot, channelType = '') {
   const labels = (snapshot.fields || []).map((field) => `${field.label || ''} ${field.context || ''}`).join(' ');
   const hasCvFileField = (snapshot.fields || []).some(isCvFileField);
-  const mixedApplication = isSuccessFactorsUrl(snapshot.url)
+  const mixedApplication = (channelType === 'successfactors' || isSuccessFactorsUrl(snapshot.url))
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
@@ -1136,6 +1145,7 @@ export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expan
 export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
 export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
+const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?file)?|select(?:\s+(?:a\s+)?file)?|upload(?:\s+(?:a\s+)?file)?|attach(?:\s+(?:a\s+)?file)?|durchsuchen|datei\s+(?:auswählen|hochladen)|parcourir|choisir(?:\s+un)?\s+fichier|sélectionner(?:\s+un)?\s+fichier|sfoglia(?:\s+file)?|scegli(?:\s+(?:un\s+)?file)?|seleziona(?:re)?\s+file|carica(?:re)?\s+file|joindre|importer)\s*[.…]*$/i;
 // JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
@@ -1180,9 +1190,11 @@ export function uploadButtonFor(snapshot, kind) {
   const named = findButton(buttons, pattern);
   if (named) return named;
   const candidates = buttons.filter((button) => {
-    if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    if (button.disabled || button.chrome) return false;
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
-    return contextPattern.test(context);
+    const hasDocumentContext = contextPattern.test(context);
+    return hasDocumentContext && (ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())
+      || FILE_PICKER_ACTION_RE.test(String(button.text || '').trim()));
   });
   return candidates.length === 1 ? candidates[0] : null;
 }
@@ -1199,18 +1211,21 @@ function successFactorsIconButtonFor(snapshot, kind) {
   return candidates.length === 1 ? candidates[0] : null;
 }
 
-function isSuccessFactorsPage(page) {
-  return isSuccessFactorsUrl(page.url());
+function isSuccessFactorsPage(page, channelType = '') {
+  // Branded SuccessFactors career sites use their own host, so the ATS
+  // classifier from the application draft is stronger than a vendor-host list.
+  return channelType === 'successfactors' || isSuccessFactorsUrl(page.url());
 }
 
-function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
+function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null, channelType = '') {
   if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
   const contextPattern = kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
   const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
   if (contextPattern.test(context)) return true;
   const association = successFactorsButtonAssociation(button);
-  return isSuccessFactorsPage(page)
-    && ownAccountForm(snapshot || {})
+  const application = snapshot || {};
+  return isSuccessFactorsPage(page, channelType)
+    && (ownAccountForm(application, channelType) || sendsApplication(application) || hasApplicationForm(application))
     && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
     && successFactorsDocumentAssociationMatches(association, kind);
 }
@@ -1248,7 +1263,7 @@ async function uploadThroughDialog(page, trigger, file) {
  * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
  * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable', cvFieldKey?: string}>}
  */
-export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map() } = {}) {
+export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map(), channelType = '' } = {}) {
   let current = snapshot;
   const where = anonymizePath(page.url());
   const attempt = (key) => {
@@ -1303,15 +1318,14 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     if (!attempt(cvKey)) break;
     const namedTriggerButton = uploadButtonFor(current, 'cv');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
+      && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cv')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = iconTriggerButton && !namedTriggerButton
-      ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cv', current) && triggerButton
-        ? locatorFor(page, triggerButton)
-        : null;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
     cv = await uploadThroughDialog(page, trigger, cvFile);
@@ -1326,15 +1340,14 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page) && ownAccountForm(current)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
+      && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cover_letter')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = iconTriggerButton && !namedTriggerButton
-      ? { snapshot: triggerButton }
-      : iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current) && triggerButton
-        ? locatorFor(page, triggerButton)
-        : null;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current, channelType)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
@@ -1794,11 +1807,14 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  */
 async function requiredLeftEmpty(page, uploaded = new Set()) {
   const url = page.url();
-  for (const field of (await extractFields(page, NAVIGATION)).fields) {
+  const snapshot = await extractFields(page, NAVIGATION);
+  const fields = snapshot.fields || [];
+  for (const field of fields) {
     if (!field.required) continue;
     const uploadedKey = uploadedPortalFieldKey(url, field);
     const filled = field.kind === 'file' || field.inputType === 'file'
-      ? uploaded.has(uploadedKey) || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
+      ? uploaded.has(uploadedKey)
+        || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
       : holdsValue(field);
     if (!filled) return true;
   }
@@ -2029,6 +2045,7 @@ export async function readPortalQuestions(ctx) {
  */
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
+  const channelType = portalChannelType(ctx);
   const extensionPath = !ctx.launch && process.env.NOPECHA_EXTENSION_PATH;
   const log = ctx.log || (() => {});
   // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
@@ -2145,7 +2162,7 @@ export async function submitViaPortal(ctx) {
     // An application form with its own password field is the form: checked now.
     let postingCheckPending = match === 'mismatch'
       && (snapshot.passwordVisible || initialOtpAccount)
-      && !ownAccountForm(snapshot)
+      && !ownAccountForm(snapshot, channelType)
       && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
@@ -2178,7 +2195,9 @@ export async function submitViaPortal(ctx) {
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
     const noteUpload = (document, files = 1) => {
-      if (document) evidence.uploads.push({ document: String(document), files: Number(files) || 1 });
+      if (!document) return;
+      const name = String(document);
+      evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
     const record = (question, answer, source, context = '') => {
       if (!question || !String(answer ?? '').trim()) return;
@@ -2193,6 +2212,26 @@ export async function submitViaPortal(ctx) {
       });
       evidence.answers = [...given.values()].slice(0, 80);
     };
+    const candidateWithRecordedAnswers = (candidate, current) => {
+      const answerKey = (item) => portalQuestionKey(item.question, item.context)
+        || portalQuestionId(item.question, item.context);
+      const recorded = [...given.values()];
+      const recordedKeys = new Set(recorded.map(answerKey));
+      const visibleAnswers = (current?.fields || [])
+        .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
+        .map((field) => ({
+          question: String(field.label || field.name || field.id || '').slice(0, 200),
+          answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
+          context: String(field.context || '').slice(0, 240),
+          source: 'answers',
+        }))
+        .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
+      const currentAnswers = [...visibleAnswers, ...recorded];
+      const currentKeys = new Set(currentAnswers.map(answerKey));
+      const previous = (candidate?.portalQuestionsAnswered || [])
+        .filter((item) => !currentKeys.has(answerKey(item)));
+      return { ...candidate, portalQuestionsAnswered: [...previous, ...currentAnswers] };
+    };
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
     const agentTried = new Set();
@@ -2206,7 +2245,7 @@ export async function submitViaPortal(ctx) {
           page,
           hint,
           errors: current.errors || [],
-          candidate: ctx.candidate,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, current),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
@@ -2281,7 +2320,7 @@ export async function submitViaPortal(ctx) {
       }
       // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
       const openSections = async () => {
-        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
+        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries, channelType });
         snapshot = opened.snapshot;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
@@ -2301,7 +2340,7 @@ export async function submitViaPortal(ctx) {
       // sections still closed, the CV field inside one (review of #11033): it is the
       // form's page, so the posting is checked and the sections are opened BEFORE it
       // is taken for a login page.
-      if (snapshot.passwordVisible && !ownAccountForm(snapshot) && sendsApplication(snapshot)) {
+      if (snapshot.passwordVisible && !ownAccountForm(snapshot, channelType) && sendsApplication(snapshot)) {
         if (postingCheckPending) {
           postingCheckPending = false;
           evidence.postingMatch = await formMatch();
@@ -2312,7 +2351,7 @@ export async function submitViaPortal(ctx) {
       }
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
-      let ownAccount = ownAccountForm(snapshot);
+      let ownAccount = ownAccountForm(snapshot, channelType);
       if (ownAccount && !ctx.accounts) return await handoff('account');
       if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
@@ -2383,7 +2422,7 @@ export async function submitViaPortal(ctx) {
       if (profile.counts.length) evidence.steps.at(-1).profileSections = profile.counts;
       if (profile.handoff) return await handoff(profile.handoff);
       // A section just opened may hold the form’s own password field.
-      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot);
+      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot, channelType);
       // Inside the form, any page with a field is planned: a step with one
       // question and its Next disabled until it is answered (JOIN's work
       // authorization) is not a dead end. Nothing to fill and nowhere to go is.
@@ -2435,7 +2474,12 @@ export async function submitViaPortal(ctx) {
       if (workable(snapshot)) {
         // The planner never sees a password field, nor what a retry finds typed in it.
         const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
-        const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        const plan = await planPage({
+          snapshot: planned,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, planned),
+          candidateLocale: ctx.candidateLocale,
+          codex: ctx.codex,
+        });
         const cvField = snapshot.fields.find(isCvFileField);
         // This synthetic action is executed by applyActions below, which resolves
         // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions

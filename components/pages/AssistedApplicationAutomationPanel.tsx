@@ -8,6 +8,7 @@ import {
 } from '@/services/assistedApplicationAdminService';
 import { LEGACY_RENDERER_NOTE } from '@/services/assistedApplicationPdfRendererStatus';
 import { sentSummaryIt } from '@/services/assistedApplicationSentRecord';
+import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 
 /**
  * Owner view of the automated assisted application for one order: flow
@@ -240,7 +241,8 @@ export default function AssistedApplicationAutomationPanel({
         result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit', { confirmNotReceived: true });
       }
       markedByExtension.current = false;
-      window.postMessage({ source: 'frontaliere-queue', type: 'fill-order', kit: result.kit }, window.location.origin);
+      const kit = { ...(result.kit as Record<string, unknown>), applyUrl: portalUrl };
+      window.postMessage({ source: 'frontaliere-queue', type: 'fill-order', kit }, window.location.origin);
       await onChanged({ ok: true, text: 'Portale aperto in una nuova scheda: l’estensione compila e si ferma sul pulsante d’invio, che premi tu.' });
     } catch (error) {
       await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Kit di compilazione non disponibile.' });
@@ -248,7 +250,10 @@ export default function AssistedApplicationAutomationPanel({
       setBusy(null);
     }
   };
-  const portalUrl = draft?.channel?.type !== 'email' ? (draft?.channel?.applyUrl || draft?.job?.applyUrl || '') : '';
+  const rawPortalUrl = draft?.channel?.applyUrl || draft?.job?.applyUrl || '';
+  const portalUrl = draft?.channel?.type !== 'email'
+    ? normalizeExternalJobDetailUrl(rawPortalUrl)
+    : '';
 
   // Kept in memory only for this view: the password never goes to the order list.
   const [revealed, setRevealed] = useState<Record<string, string>>({});
@@ -409,7 +414,7 @@ export default function AssistedApplicationAutomationPanel({
             <p><strong>Verdetto:</strong> {VERDICT_LABELS[draft.verdict || ''] || '—'} · <strong>Canale:</strong> {draft.channel?.label || '—'}{draft.channel?.requiresAccount ? ' (richiede account)' : ''} · <strong>Lingua lettera:</strong> {draft.language || '—'} · <strong>CV letto con:</strong> {draft.cvTextMethod || '—'}</p>
             {draft.summaryIt && <p className="mt-1 text-subtle">{draft.summaryIt}</p>}
             {draft.checksIt.length > 0 && <ul className="mt-1 list-disc pl-5 text-xs text-subtle">{draft.checksIt.map((item) => <li key={item}>{item}</li>)}</ul>}
-            {draft.job?.applyUrl && <a className="mt-1 inline-block text-xs text-link hover:underline" href={draft.job.applyUrl} target="_blank" rel="noreferrer">Pagina di candidatura</a>}
+            {draft.job?.applyUrl && <a className="mt-1 inline-block text-xs text-link hover:underline" href={normalizeExternalJobDetailUrl(draft.job.applyUrl)} target="_blank" rel="noreferrer">Pagina di candidatura</a>}
           </div>
 
           {(draft.ats || draft.legitimacy || draft.tailoredCv) && (

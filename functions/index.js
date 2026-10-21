@@ -108,6 +108,10 @@ import {
   runAssistedApplicationNotificationSweep,
 } from './src/assistedApplicationNotifications.js';
 import {
+  handleResumeAssistedApplicationPayment,
+  runAssistedApplicationPaymentRecoverySweep,
+} from './src/assistedApplicationPaymentRecovery.js';
+import {
   handleRunnerEvent,
   isAutomationEnabledFor,
   maybeStartAutomation,
@@ -2044,6 +2048,36 @@ export const createAssistedApplicationCheckout = onRequest(
   },
 );
 
+// Resume an assisted-application payment from the order page or its recovery
+// email. The server re-checks ownership, the public posting and the provider
+// state before returning a live checkout URL/id.
+export const resumeAssistedApplicationPayment = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleResumeAssistedApplicationPayment(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[resumeAssistedApplicationPayment]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
 // Application concierge endpoints use their own parent service and proposal API.
 // Expire active concierge entitlements after their fixed 30-day window. The
 // candidate endpoints enforce the same timestamp, so this is only a backstop.
@@ -2969,6 +3003,33 @@ export const sweepAssistedApplicationNotifications = onSchedule(
         '[sweepAssistedApplicationNotifications]',
         error instanceof Error ? error.message : String(error),
       );
+    }
+  },
+);
+
+// Recover unpaid assisted-application checkouts without sending a message
+// until the provider and the public posting have both been checked. The
+// workflow groups all eligible orders by user and is idempotent per reminder.
+export const sweepAssistedApplicationPaymentRecovery = onSchedule(
+  {
+    region: 'europe-west6',
+    schedule: 'every 60 minutes',
+    timeZone: 'Europe/Zurich',
+    memory: '512MiB',
+    timeoutSeconds: 540,
+  },
+  async () => {
+    try {
+      const summary = await runAssistedApplicationPaymentRecoverySweep({ db: getAdminDb() });
+      if (summary.sent || summary.regenerated || summary.promoted || summary.errors) {
+        console.log('[sweepAssistedApplicationPaymentRecovery]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[sweepAssistedApplicationPaymentRecovery]',
+        error instanceof Error ? error.message : String(error),
+      );
+      throw error;
     }
   },
 );

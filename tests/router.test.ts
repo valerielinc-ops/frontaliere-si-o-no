@@ -52,6 +52,24 @@ const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 /* ─────────── buildPath — valid paths ─────────── */
 
 describe('Router — buildPath', () => {
+  it.each([
+    ['it', '/traffico-dogane/'],
+    ['en', '/en/border-wait/'],
+    ['de', '/de/wartezeit-grenze/'],
+    ['fr', '/fr/temps-attente-douane/'],
+  ] as const)('emits the canonical %s border traffic route', (locale, expected) => {
+    expect(buildPath({ activeTab: 'guida', guidaSubTab: 'border' }, locale)).toBe(expected);
+  });
+
+  it.each([
+    ['it', '/traffico-dogane/ponte-tresa/oggi/'],
+    ['en', '/en/border-wait/ponte-tresa/today/'],
+    ['de', '/de/wartezeit-grenze/ponte-tresa/heute/'],
+    ['fr', '/fr/temps-attente-douane/ponte-tresa/aujourd-hui/'],
+  ] as const)('emits the canonical %s border crossing route', (locale, expected) => {
+    expect(buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: 'ponte-tresa' }, locale)).toBe(expected);
+  });
+
   describe('Calcolatore subtabs produce valid paths', () => {
     for (const locale of ALL_LOCALES) {
       for (const sub of CALCOLATORE_SUBS) {

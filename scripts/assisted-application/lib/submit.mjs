@@ -440,6 +440,7 @@ export async function submitApplication(ctx) {
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         postingUrl: order.jobUrl || channel.postingUrl || '',
+        channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
         job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' },

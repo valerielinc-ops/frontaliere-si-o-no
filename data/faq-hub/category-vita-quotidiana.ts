@@ -32,7 +32,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/costo-della-vita/',
+        href: '/compara-servizi/costo-della-vita/',
         label: {
           it: 'Costo della vita CH vs IT',
           en: 'Cost of living CH vs IT',
@@ -66,7 +66,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/comparatori/cambio-valuta/',
+        href: '/compara-servizi/cambio-franco-euro/',
         label: {
           it: 'Comparatore cambio valuta',
           en: 'Currency exchange comparator',

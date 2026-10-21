@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3996.title': 'Avvisi più discreti sulle offerte',
+ 'whatsNew.v3996.jobViewers.title': 'Un breve segnale mentre leggi un annuncio',
+ 'whatsNew.v3996.jobViewers.desc': 'Nel dettaglio di un’offerta può comparire un avviso di attività. È discreto, si chiude da solo e non si ripete nella stessa sessione.',
  'whatsNew.v3995.title': 'Confronto carburante con i costi del viaggio',
  'whatsNew.v3995.fuelTrip.title': 'Prezzi e deviazione nello stesso calcolo',
  'whatsNew.v3995.fuelTrip.desc': 'Inserisci prezzi confrontabili, litri e chilometri aggiuntivi totali andata e ritorno per stimare differenza lorda e netta, costi extra e pareggio. I prezzi noti mostrano fonte e data; la conversione usa solo un cambio BCE datato.',
@@ -853,6 +856,7 @@ const translations: Record<string, string> = {
  'jobBoard.saved.emptyHint': "Tocca l'icona segnalibro su un annuncio per ritrovarlo qui. Una volta a settimana te lo ricordiamo via email: puoi disattivare il promemoria dal profilo o dal link nell'email.",
  'jobBoard.saveAuthPrompt.title': 'Accedi per salvare gli annunci',
  'jobBoard.saveAuthPrompt.body': 'Salvare un annuncio richiede un account gratuito: così i tuoi annunci restano al sicuro su tutti i dispositivi. Una volta a settimana ti ricordiamo via email quelli salvati; puoi disattivare il promemoria dal profilo o dal link nell’email.',
+ 'jobBoard.viewers.message': 'Altri {count} utenti stanno visualizzando questa offerta di lavoro.',
  'jobBoard.saveAuthPrompt.dismiss': 'Non ora',
  'jobBoard.saveAuthPrompt.or': 'oppure',
  'jobBoard.saveAuthPrompt.emailCta': 'Continua con email',
@@ -1099,7 +1103,13 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.loading': 'Verifica dello stato del pagamento…',
  'jobBoard.assisted.authRequired': 'Per proteggere il tuo ordine e il CV, accedi prima di continuare.',
  'jobBoard.assisted.authCta': 'Accedi per continuare',
- 'jobBoard.assisted.pending': 'Il pagamento sarà confermato solo dal webhook Stripe. Aggiorniamo automaticamente questa pagina appena la conferma arriva.',
+ 'jobBoard.assisted.pending': 'Il pagamento è ancora in sospeso. Puoi completarlo qui; la candidatura si sbloccherà appena la conferma arriva.',
+ 'jobBoard.assisted.pendingCta': 'Completa il pagamento',
+ 'jobBoard.assisted.pendingStarting': 'Avvio del pagamento…',
+ 'jobBoard.assisted.paymentTitle': 'Completa il pagamento',
+ 'jobBoard.assisted.paymentResumeError': 'Non siamo riusciti a riprendere il pagamento. Riprova tra poco.',
+ 'jobBoard.assisted.paymentProcessing': 'Il pagamento è in verifica. Attendi qualche istante e aggiorna la pagina.',
+ 'jobBoard.assisted.paymentJobUnavailable': 'Questo annuncio non è più disponibile. Non è stato avviato un nuovo pagamento.',
  'jobBoard.assisted.paymentFailed': 'Il pagamento non è stato confermato. Non caricare dati e riprova dal link dell’annuncio.',
  'jobBoard.assisted.checkoutError': 'Non siamo riusciti ad avviare il pagamento. Riprova tra poco.',
  'jobBoard.assisted.paidConfirmed': 'Pagamento confermato. Ora puoi inviare il CV e i dati necessari per questo annuncio.',

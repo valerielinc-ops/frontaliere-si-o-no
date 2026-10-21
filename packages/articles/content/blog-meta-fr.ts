@@ -13542,6 +13542,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ricerca-cisl-frontalieri-2026.title': 'Étude de la CISL : baisse du pouvoir d\'achat des travailleurs frontaliers',
     'blog.article.ricerca-cisl-frontalieri-2026.excerpt': '1.542 réponses recueillies en mai 2026 31,7% plus d\'une heure et demie dans les déplacements 87,8% considère la « taxe sur la santé » pénalisante 76,9% n\'évalue pas',
     'blog.article.ricerca-cisl-frontalieri-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.ville-ponti-frontalieri-confronto.title': 'Travailleurs frontaliers, aux Ville Ponti le débat sur le travail',
+    'blog.article.ville-ponti-frontalieri-confronto.excerpt': '24 octobre : colloque aux Ville Ponti de Varese À 10 heures, la recherche sur les travailleurs frontaliers Deux tables rondes sur l’économie et les institutions Conclusions',
+    'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.guida-saldatore-ticino-frontiera.title': 'Soudeur frontalier au Tessin : salaire et conditions requises',
+    'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'Permis G, impôt à la source et cotisations : le cadre vérifié pour les personnes qui envisagent de travailler comme soudeur frontalier au Tessin, avec un accord en vigueur depuis 2024.',
+    'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.negozio-ticino-fisco-frontiere.title': 'Frontalier responsable de magasin au Tessin : salaire',
+    'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Imposée à la source uniquement en Suisse, nouvel accord en vigueur depuis le 1er janvier 2024 et cotisations AVS, AD/AC et LPP : le cadre pour le frontalier.',
+    'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

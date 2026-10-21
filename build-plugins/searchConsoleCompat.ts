@@ -13,6 +13,7 @@ import {
  type FuelDailyLocale,
  type FuelType,
 } from './fuelDailyData';
+import { resolveFuelStation } from '../scripts/lib/fuel-station-aliases.mjs';
 import { isProfessionCantonPath } from './professionCantonData';
 import { isSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { isProfessionCityPath } from './professionCityData';
@@ -261,11 +262,12 @@ const COMPAT_REDIRECTS: Record<string, string> = {
 };
 
 /**
- * Fuel sub-path 404s → that fuel section's localized "today" landing, derived
- * from FUEL_SECTION_SLUG (single source of truth) so the canonical can never
- * drift onto a renamed/legacy alias (e.g. FR diesel is `prix-gasoil-suisse`,
- * NOT the legacy `prix-diesel` which 301-redirects) and diesel↔diesel /
- * benzina↔benzina is preserved (a benzina 404 must not land on the diesel page).
+ * Other fuel-section sub-path 404s → that fuel section's localized "today"
+ * landing, derived from FUEL_SECTION_SLUG (single source of truth) so the
+ * canonical can never drift onto a renamed/legacy alias (e.g. FR diesel is
+ * `prix-gasoil-suisse`, NOT the legacy `prix-diesel` which 301-redirects) and
+ * diesel↔diesel / benzina↔benzina is preserved. Station details are resolved
+ * above with their city context before reaching this broader section fallback.
  */
 const FUEL_SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = (() => {
  const out: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = [];
@@ -576,6 +578,20 @@ export function resolveSearchConsoleCompatTarget(
  kind: 'legacy',
  locale: inferLocale(path),
  };
+ }
+
+ // A station detail has a more useful, city-specific target than the broad
+ // fuel-section fallback below. The compat store can contain the same raw
+ // paths as legacy-aliases.json, so both producers must share this resolver.
+ if (/\/(?:stazioni|stations|tankstellen)\//i.test(path)) {
+  const station = resolveFuelStation(path);
+  if (station) {
+   return {
+    canonicalPath: station.canonicalPath,
+    kind: 'legacy',
+    locale: station.locale as SupportedLocale,
+   };
+  }
  }
 
  const locale = inferLocale(path);

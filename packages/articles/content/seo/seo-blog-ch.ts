@@ -107934,6 +107934,201 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7': {
+    title: 'Orologi svizzeri: export a 2,2 miliardi a settembre, +11,7%',
+    description: 'A settembre 2026 le esportazioni salgono dell\'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).',
+    keywords: 'frontalieri, ticino, svizzera, italia, orologi, svizzeri, export, miliardi',
+    ogTitle: 'Orologi svizzeri: export a 2,2 miliardi a settembre',
+    ogDescription: 'A settembre 2026 le esportazioni salgono dell\'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).',
+    canonicalPath: '/articoli-svizzera/orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orologi svizzeri: export a 2,2 miliardi a settembre, +11,7%",
+      "description": "A settembre 2026 le esportazioni salgono dell'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T23:39:40+00:00",
+      "dateModified": "2026-10-20T23:39:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-molestie-lavoro-pmi-svizzere': {
+    title: 'Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+',
+    description: 'Dal Covid aumentano le segnalazioni nelle PMI svizzere. Il 44% delle donne riferisce molestie sul lavoro. Spesso chi molesta occupa una posizione',
+    keywords: 'frontalieri, ticino, svizzera, italia, molestie, lavoro, nelle, dati',
+    ogTitle: 'Molestie sul lavoro: dati e prevenzione nelle PMI svizzere',
+    ogDescription: 'Dal Covid aumentano le segnalazioni nelle PMI svizzere.',
+    canonicalPath: '/articoli-svizzera/molestie-lavoro-pmi-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+",
+      "description": "Dal Covid aumentano le segnalazioni nelle PMI svizzere. Il 44% delle donne riferisce molestie sul lavoro. Spesso chi molesta occupa una posizione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-molestie-lavoro-pmi-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T01:06:01+00:00",
+      "dateModified": "2026-10-21T01:06:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/molestie-lavoro-pmi-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finma-etf-bitcoin-primo-fondo': {
+    title: 'Finma approva il primo ETF svizzero in Bitcoin',
+    description: 'Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute',
+    keywords: 'frontalieri, ticino, svizzera, italia, finma, approva, primo, svizzero',
+    ogTitle: 'Finma approva il primo ETF svizzero in Bitcoin',
+    ogDescription: 'Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute',
+    canonicalPath: '/articoli-svizzera/finma-etf-bitcoin-primo-fondo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finma approva il primo ETF svizzero in Bitcoin",
+      "description": "Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-finma-etf-bitcoin-primo-fondo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T03:02:49+00:00",
+      "dateModified": "2026-10-21T03:02:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finma-etf-bitcoin-primo-fondo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guasto-sistemi-skyguide-scali': {
+    title: 'Guasto ai sistemi: capacità aerea svizzera al 50%',
+    description: 'Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi',
+    keywords: 'frontalieri, ticino, svizzera, italia, guasto, sistemi, capacità, aerea',
+    ogTitle: 'Guasto Skyguide: capacità aerea al 50%',
+    ogDescription: 'Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi brevemente a Zurigo',
+    canonicalPath: '/articoli-svizzera/guasto-sistemi-skyguide-scali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guasto ai sistemi: capacità aerea svizzera al 50%",
+      "description": "Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-guasto-sistemi-skyguide-scali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T05:09:46+00:00",
+      "dateModified": "2026-10-21T05:09:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guasto-sistemi-skyguide-scali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tamedia-zurigo-protesta-licenziamenti-ia': {
+    title: 'Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno',
+    description: 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamedia, oltre, piazza, zurigo',
+    ogTitle: 'Tamedia: 100+ dipendenti in piazza a Zurigo contro i tagli',
+    ogDescription: 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono investimenti',
+    canonicalPath: '/articoli-svizzera/tamedia-zurigo-protesta-licenziamenti-ia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno",
+      "description": "Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T07:32:04+00:00",
+      "dateModified": "2026-10-21T07:32:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tamedia-zurigo-protesta-licenziamenti-ia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

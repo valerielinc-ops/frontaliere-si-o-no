@@ -22,6 +22,8 @@ function report(affectedCompanies: Array<Record<string, unknown>>) {
     lowQualityJobCount: 0,
     pendingDeploy: 0,
     pendingDeployJobCount: 0,
+    external: 0,
+    externalJobCount: 0,
     qualityUnverified: 0,
     qualityUnverifiedJobCount: 0,
     unverified: 0,
@@ -98,6 +100,35 @@ describe('audit-missing-company-logos reportIssue', () => {
     expect(args.description).toContain('| pending-deploy |');
     expect(args.description).toContain('non conta come copertura valida');
     expect(args.description).toContain('https://jobs.example.ch/job/pending');
+  });
+
+  it('publishes external sources as a stable-CDN gap', async () => {
+    const createIssue = vi.fn();
+    const externalCompany = {
+      companyKey: 'imerys',
+      companyName: 'Imerys',
+      status: 'external',
+      affectedJobCount: 1,
+      externalJobCount: 1,
+      examples: {
+        external: 'https://jobs.example.ch/job/imerys',
+        broken: null,
+        missing: null,
+        pendingDeploy: null,
+        lowQuality: null,
+        qualityUnverified: null,
+      },
+    };
+    const externalReport = report([externalCompany]);
+    externalReport.external = 1;
+    externalReport.externalJobCount = 1;
+
+    await reportIssue(externalReport, { createIssue, resolveIssue: vi.fn() });
+
+    const [args] = createIssue.mock.calls[0];
+    expect(args.description).toContain('| external |');
+    expect(args.description).toContain('sorgente esterna da rendere stabile sul CDN');
+    expect(args.description).toContain('https://jobs.example.ch/job/imerys');
   });
 
   it('does not swallow a close that GitHub refused', async () => {

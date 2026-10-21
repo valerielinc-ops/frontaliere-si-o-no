@@ -73,6 +73,7 @@ vi.mock('../functions/src/emailCascade.js', () => ({
 
 const {
   buildCustomerEmail,
+  buildPendingPaymentDigestEmail,
   buildOwnerEmail,
   buildOrderPageUrl,
   localeFromSiteUrl,
@@ -268,6 +269,48 @@ describe('brand shell', () => {
     expect(html).toContain('&quot;quoted&quot;');
     expect(html).not.toContain('<img src=x>');
     expect(html).toContain('<p>trusted</p>');
+  });
+});
+
+describe('pending-payment recovery digest', () => {
+  it('keeps one order per section and preserves the incumbent email shell', () => {
+    const first = paidOrder({
+      orderId: 'pending-1',
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+      jobTitle: 'Addetto/a vendite',
+      createdAt: new Date(NOW - 4 * HOUR),
+    });
+    const second = paidOrder({
+      orderId: 'pending-2',
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+      jobTitle: 'Tecnico/a di laboratorio',
+      createdAt: new Date(NOW - 3 * HOUR),
+      paymentRecoverySessionRefreshed: true,
+    });
+
+    const email = buildPendingPaymentDigestEmail([first, second], { nowMs: NOW, reminderStage: 1 });
+    expect(email.subject).toBe('Hai candidature assistite da completare');
+    expect(email.html.startsWith('<!DOCTYPE html>')).toBe(true);
+    expect(email.html).toContain('Addetto/a vendite');
+    expect(email.html).toContain('Tecnico/a di laboratorio');
+    expect(email.html).toContain('La sessione precedente era scaduta');
+    expect(email.html.match(/Completa il pagamento/g)?.length).toBe(2);
+    expect(email.html).toContain('#0f172a');
+    expect(email.text).toContain('pending-1');
+    expect(email.text).toContain('pending-2');
+  });
+
+  it('uses a calmer final reminder and does not imply a second charge is safe', () => {
+    const email = buildPendingPaymentDigestEmail([paidOrder({
+      orderId: 'pending-final',
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+    })], { nowMs: NOW, reminderStage: 2 });
+    expect(email.subject).toContain('Completa il pagamento');
+    expect(email.text).toContain('un ultimo promemoria');
+    expect(email.text).toContain('non pagare una seconda volta');
   });
 });
 

@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3996.title': 'Dezente Hinweise zu Stellenangeboten',
+ 'whatsNew.v3996.jobViewers.title': 'Ein kurzer Hinweis beim Lesen eines Stellenangebots',
+ 'whatsNew.v3996.jobViewers.desc': 'Auf der Detailseite eines Stellenangebots kann ein dezenter Aktivitätshinweis erscheinen. Er lässt sich schließen, wird automatisch ausgeblendet und erscheint nur einmal pro Sitzung.',
  'whatsNew.v3995.title': 'Kraftstoffvergleich mit Fahrtkosten',
  'whatsNew.v3995.fuelTrip.title': 'Zapfsäulenpreise und Umwegkosten vergleichen',
  'whatsNew.v3995.fuelTrip.desc': 'Geben Sie vergleichbare Preise, Liter und die gesamten zusätzlichen Kilometer für Hin- und Rückfahrt ein, um Brutto- und Nettodifferenz, Zusatzkosten und Ausgleichspunkte zu berechnen. Bekannte Preise zeigen Quelle und Datum; umgerechnet wird nur mit einem datierten EZB-Kurs.',
@@ -817,6 +820,7 @@ const deCore: Record<string, string> = {
  'jobBoard.saved.emptyHint': 'Tippen Sie auf das Lesezeichen-Symbol einer Stelle, um sie hier wiederzufinden. Einmal pro Woche erinnern wir Sie per E-Mail daran: Die Erinnerung können Sie im Profil oder über den Link in der E-Mail abschalten.',
  'jobBoard.saveAuthPrompt.title': 'Anmelden, um Stellen zu speichern',
  'jobBoard.saveAuthPrompt.body': 'Zum Speichern einer Stelle ist ein kostenloses Konto nötig — so bleiben deine gespeicherten Stellen auf allen Geräten sicher. Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen; die Erinnerung kannst du im Profil oder über den Link in der E-Mail abschalten.',
+ 'jobBoard.viewers.message': 'Weitere {count} Personen sehen sich dieses Stellenangebot gerade an.',
  'jobBoard.saveAuthPrompt.dismiss': 'Nicht jetzt',
  'jobBoard.saveAuthPrompt.or': 'oder',
  'jobBoard.saveAuthPrompt.emailCta': 'Mit E-Mail fortfahren',
@@ -1059,7 +1063,13 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.loading': 'Zahlungsstatus wird geprüft…',
  'jobBoard.assisted.authRequired': 'Melde dich zuerst an, um deine Bestellung und deinen Lebenslauf zu schützen.',
  'jobBoard.assisted.authCta': 'Anmelden und fortfahren',
- 'jobBoard.assisted.pending': 'Die Zahlung wird nur durch den Stripe-Webhook bestätigt. Diese Seite wird automatisch aktualisiert, sobald die Bestätigung eintrifft.',
+ 'jobBoard.assisted.pending': 'Deine Zahlung ist noch offen. Du kannst sie hier abschliessen; die Bewerbung wird freigeschaltet, sobald die Bestätigung eintrifft.',
+ 'jobBoard.assisted.pendingCta': 'Zahlung abschliessen',
+ 'jobBoard.assisted.pendingStarting': 'Zahlung wird gestartet…',
+ 'jobBoard.assisted.paymentTitle': 'Zahlung abschliessen',
+ 'jobBoard.assisted.paymentResumeError': 'Die Zahlung konnte nicht fortgesetzt werden. Bitte versuche es in Kürze erneut.',
+ 'jobBoard.assisted.paymentProcessing': 'Deine Zahlung wird geprüft. Warte kurz und aktualisiere die Seite.',
+ 'jobBoard.assisted.paymentJobUnavailable': 'Diese Stelle ist nicht mehr verfügbar. Es wurde keine neue Zahlung gestartet.',
  'jobBoard.assisted.paymentFailed': 'Die Zahlung wurde nicht bestätigt. Lade keine Daten hoch und versuche es über den Link der Stelle erneut.',
  'jobBoard.assisted.checkoutError': 'Die Zahlung konnte nicht gestartet werden. Bitte versuche es in Kürze erneut.',
  'jobBoard.assisted.paidConfirmed': 'Zahlung bestätigt. Du kannst jetzt den Lebenslauf und die nötigen Angaben für diese Stelle senden.',

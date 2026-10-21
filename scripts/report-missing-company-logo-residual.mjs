@@ -46,7 +46,8 @@ async function main() {
     .join('; ');
   console.log(
     `[report-missing-company-logo-residual] Residuo: ${residual.affectedCompanies.length} aziende, `
-      + `${residual.missingJobCount} missing, ${residual.pendingDeployJobCount || 0} pending-deploy annunci.`,
+      + `${residual.missingJobCount} missing, ${residual.externalJobCount || 0} external, `
+      + `${residual.pendingDeployJobCount || 0} pending-deploy annunci.`,
   );
   if (reasons) console.log(`[report-missing-company-logo-residual] ${reasons}`);
 }

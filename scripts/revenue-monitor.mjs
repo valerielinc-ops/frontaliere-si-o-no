@@ -70,6 +70,7 @@ import {
   weightedQuantile,
 } from './lib/ga4-service-account.mjs';
 import { parseAffiliateCsv, parseAffiliateExport, reconcileAffiliateTransactions } from './lib/affiliateRevenue.mjs';
+import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 const PUBLISHER_SLICE_FILE = resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'publisher-submitted.json');
 const REPORTS_DIR = resolve(__dirname, '..', 'reports');
 // Full reports live in the gitignored reports/ dir (kept as workflow artifacts
@@ -81,6 +82,7 @@ const AFFILIATE_EXPORT_FILE = process.env.AFFILIATE_REVENUE_EXPORT_FILE
   ? resolve(process.env.AFFILIATE_REVENUE_EXPORT_FILE)
   : null;
 const AFFILIATE_REVENUE_AMOUNT_FORMAT = process.env.AFFILIATE_REVENUE_AMOUNT_FORMAT || null;
+const TI_JOB_BOARD_PATH = `/${SECTION_LEGACY_TI.it}/`;
 
 // ── Baseline captured Apr 6-19 2026 (see docs/revenue-optimization-remaining.md) ──
 // CTR baselines by URL bucket derived from GSC 28-day query bucketed by path prefix
@@ -107,7 +109,7 @@ export const BASELINE = {
       '/articoli-frontaliere/':  3.1,
       '/fisco/':                 3.9,
       '/guida-frontaliere/':     3.5,
-      '/cerca-lavoro-ticino/':   null,
+      [TI_JOB_BOARD_PATH]:       null,
     },
   },
   posthog: {
@@ -128,7 +130,7 @@ export const MAX_BASELINE_AGE_DAYS = 30;
 // URL buckets for GSC CTR tracking. Matched as URL-contains on the page dimension.
 export const GSC_BUCKETS = [
   '/job-board/',
-  '/cerca-lavoro-ticino/',
+  TI_JOB_BOARD_PATH,
   '/calcola-stipendio/',
   '/articoli-frontaliere/',
   '/fisco/',

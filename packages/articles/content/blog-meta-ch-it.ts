@@ -8543,6 +8543,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.circolare-221-deduzione-figli-2027.title': 'Imposta alla fonte 2027: deduzione per figlio a 264 CHF',
     'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Pubblicazione: Berna, 20 ottobre 2026 Stato della circolare: 1° gennaio 2027 Deduzione per ogni figlio: 264 CHF Valore mediano dei redditi: 5\'925 CHF al mese',
     'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.title': 'Orologi svizzeri: export a 2,2 miliardi a settembre, +11,7%',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.excerpt': 'A settembre 2026 le esportazioni salgono dell\'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.molestie-lavoro-pmi-svizzere.title': 'Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+',
+    'blog.article.molestie-lavoro-pmi-svizzere.excerpt': 'Dal Covid aumentano le segnalazioni nelle PMI svizzere.',
+    'blog.article.molestie-lavoro-pmi-svizzere.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma approva il primo ETF svizzero in Bitcoin',
+    'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute',
+    'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.guasto-sistemi-skyguide-scali.title': 'Guasto ai sistemi: capacità aerea svizzera al 50%',
+    'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi brevemente a Zurigo',
+    'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono investimenti',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

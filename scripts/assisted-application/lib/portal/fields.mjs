@@ -97,6 +97,43 @@ export function extractFieldsInPage() {
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
+  const hasRequiredMarker = (element, labelText) => {
+    const labels = new Set();
+    for (const label of element.labels || []) labels.add(label);
+    const direct = element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
+    if (direct) labels.add(direct);
+    const wrapping = element.closest('label');
+    if (wrapping) labels.add(wrapping);
+    for (const id of (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+      const node = document.getElementById(id);
+      if (node) labels.add(node);
+    }
+    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
+    if (groupLabel && !groupLabel.contains(element)
+      && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+    const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i;
+    const marker = (node, adjacent = false) => {
+      const text = clean(node.innerText || node.textContent);
+      const className = String(node.className?.baseVal || node.className || '');
+      const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
+      let pseudo = '';
+      try {
+        pseudo = `${window.getComputedStyle(node, '::before').content} ${window.getComputedStyle(node, '::after').content}`;
+      } catch {
+        // Some portal-owned nodes do not expose computed styles.
+      }
+      return (adjacent ? inline && REQUIRED_MARKER_ONLY.test(text) : REQUIRED_LABEL.test(text))
+        || (inline || !adjacent) && /required|mandatory|pflichtfeld/i.test(className)
+        || (inline || !adjacent) && /\*/.test(pseudo.replace(/["']/g, ''));
+    };
+    if ([...labels].some(marker)) return true;
+    return [...labels].some((label) => ['previousSibling', 'nextSibling'].some((direction) => {
+      let sibling = label[direction];
+      while (sibling?.nodeType === 3 && !clean(sibling.textContent)) sibling = sibling[direction];
+      return Boolean(sibling && marker(sibling, true));
+    }));
+  };
   const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
   const hasSiteSearchIdentity = (element) => [
     element.getAttribute('type'),
@@ -313,7 +350,8 @@ export function extractFieldsInPage() {
       const question = groupQuestion(element);
       const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
-      entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
+      entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
+        || hasRequiredMarker(element, question || labelFor(element));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
       // The chosen option, so a page planned again does not choose it again.
       if (element.checked) entry.value = labelFor(element);
@@ -336,7 +374,7 @@ export function extractFieldsInPage() {
       label,
       context: sectionContext(element),
       section: headingBefore(element),
-      required: required || REQUIRED_LABEL.test(label),
+      required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
@@ -376,7 +414,7 @@ export function extractFieldsInPage() {
       name: '',
       label,
       context: sectionContext(element),
-      required: element.hasAttribute('required') || REQUIRED_LABEL.test(label),
+      required: element.hasAttribute('required') || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
       maxLength: null,
@@ -412,7 +450,7 @@ export function extractFieldsInPage() {
     let entry = ariaGroups.get(container);
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -427,15 +465,16 @@ export function extractFieldsInPage() {
     // The site's own language menu is not part of the application, nor any other menu of its header,
     // navigation or footer (Workday's «settingsSelectorButton», read as a field of every page of the form).
     if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || isSiteChromeControl(element)) continue;
+    const fieldLabel = label === clean(element.innerText) ? groupQuestion(element) || label : label;
     fields.push({
       id: idFor(element),
       kind: 'listbox',
       ...dialogMeta(element),
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
-      label: label === clean(element.innerText) ? groupQuestion(element) || label : label,
+      label: fieldLabel,
       context: sectionContext(element),
-      required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(label),
+      required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: clean(element.innerText || element.textContent),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
@@ -459,6 +498,9 @@ export function extractFieldsInPage() {
     element.value,
     element.getAttribute('aria-label'),
     element.getAttribute('title'),
+    // SuccessFactors attachment controls can have no visible glyph text; their
+    // accessible name points to visually hidden text through `aria-labelledby`.
+    (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' '),
   ].map(clean).find(Boolean) || '';
   const buttonAccessibleLabel = (element) => {
     const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/)
