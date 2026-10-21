@@ -55,6 +55,10 @@ describe('implausibilityReasons — layer 6', () => {
       .toContain('too-many-words');
   });
 
+  it('keeps a source-backed slash-separated region out of the page-furniture bucket', () => {
+    expect(implausibilityReasons('Biel / Solothurn / Mittelland')).toEqual([]);
+  });
+
   it('catches a doubled word even inside a short value', () => {
     expect(implausibilityReasons('Geneva GENEVA')).toEqual(['repeated-word']);
     // Folding is diacritic- and punctuation-insensitive, because the two copies

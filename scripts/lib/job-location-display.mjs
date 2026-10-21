@@ -228,6 +228,26 @@ function classifyTail(token) {
 }
 
 /**
+ * A source-backed location list such as `Biel / Solothurn / Mittelland` is a
+ * multi-site region, not a single city. Treat only a spaced-slash list as
+ * such: bilingual aliases like `Biel/Bienne` remain usable city labels, and
+ * markup/URL fragments remain audit findings instead of being hidden here.
+ *
+ * @param {unknown} location
+ * @returns {boolean}
+ */
+export function isSlashSeparatedMultiLocation(location) {
+  const value = String(location || '').trim();
+  if (!value || /https?:\/\//i.test(value) || /[<>{}|]/.test(value)) return false;
+  const parts = value.split(/\s+\/\s+/).map((part) => part.trim()).filter(Boolean);
+  if (parts.length < 2) return false;
+  return parts.every((part) => {
+    const words = part.split(/\s+/).filter(Boolean);
+    return words.length <= 3 && /\p{L}/u.test(part);
+  });
+}
+
+/**
  * Split a job location into the parts a UI should print.
  *
  * Pure, allocation-light and safe on anything: an empty location yields an

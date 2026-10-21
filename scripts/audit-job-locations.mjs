@@ -204,6 +204,13 @@ function sameRecordedPlace(crawlerCity, publishedCity) {
   const b = publishedCity.toLowerCase();
   if (!a || !b) return false;
   if (a === b) return true;
+  // Strip only a trailing source canton/country marker before comparing. The
+  // Galenica record is `Seewen SZ` while assembly publishes `Seewen`; feeding
+  // the decorated value directly to the municipality parser leaves the
+  // official locality unresolved and makes the independent source look like
+  // a rewrite.
+  const normalized = splitJobLocation(crawlerCity, '').city.toLowerCase();
+  if (normalized === b) return true;
   const inner = swissCityFromLocationField(crawlerCity);
   return Boolean(inner) && inner.toLowerCase() === b;
 }
@@ -258,13 +265,18 @@ function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   if (!crawlerRecord?.canton || !city || !storedCanton) return false;
   if (crawlerRecord.canton !== storedCanton) return false;
   const sourceLocation = crawlerRecord.location || crawlerRecord.city;
+  // A crawler canton is frequently an employer-level stamp. It becomes
+  // useful evidence for an ambiguous official locality only when the same
+  // source row also names that locality; never let a missing or different
+  // source place certify a published city by canton alone.
+  if (!sourceLocation || !sameRecordedPlace(sourceLocation, city)) return false;
   const sourceCanton = crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation);
   // The source adapter may have preserved an explicit per-posting canton
   // marker that the assembled locality normalizer stripped from the public
   // city field. It is valid evidence for a homonym only when it agrees with
   // the crawler's own stamp; do not let it hide a source conflict.
-  if (sourceCanton === storedCanton && sameRecordedPlace(sourceLocation, city)) return true;
-  if (!isKnownSwissMunicipalityInCanton(city, storedCanton)) return false;
+  if (sourceCanton === storedCanton) return true;
+  if (!isKnownSwissMunicipalityInCanton(city, storedCanton, { allowOfficialLocality: true })) return false;
   return inferCantonFromJobEvidence({
     cityText: city,
     locationText: sourceLocation,
@@ -469,6 +481,12 @@ for (const job of jobsToAudit) {
         severity: 'wrong',
       });
     }
+  } else if (crawlerBacksStoredCanton(crawlerRecord, city, cantonUpper)) {
+    // A bare official locality can look foreign to the generic text helper
+    // (`Au` is also ISO country code AU). A matching per-posting crawler
+    // canton is stronger source evidence and keeps the audit fail-closed for
+    // genuinely foreign rows without turning this into a first-match guess.
+    results.correct.push({ id, company, city, storedCanton });
   } else if (isForeign && cantonUpper) {
     // Foreign city tagged with a Swiss canton
     results.foreignInSwiss.push({
