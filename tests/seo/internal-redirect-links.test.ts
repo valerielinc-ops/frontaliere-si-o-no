@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { renderHubChrome } from '../../build-plugins/shared/hubChrome';
+import { buildRootHubPath } from '../../build-plugins/borderWaitData';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from '../../build-plugins/shared/borderWaitLegacyRedirects';
 
 const root = path.resolve(__dirname, '../..');
@@ -78,6 +79,10 @@ describe('internal links to legacy redirects', () => {
       for (const hubKey of hubKeys) {
         const html = renderHubChrome({ hubKey, activeSubTab: '', locale, innerHtml: '' });
         const hrefs = [...html.matchAll(/\bhref="([^"]+)"/g)].map((match) => match[1]);
+
+        if (hubKey === 'guida') {
+          expect(hrefs, `${locale}/guida links to the canonical border-wait hub`).toContain(buildRootHubPath(locale));
+        }
 
         for (const href of hrefs) {
           const target = new URL(href, 'https://frontaliereticino.ch');
