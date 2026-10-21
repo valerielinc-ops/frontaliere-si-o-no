@@ -20,7 +20,7 @@ import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, 
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
@@ -232,7 +232,7 @@ const TOPICS = [
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
 const contextKey = (context) => normalizedPortalContext(context);
-const questionKey = (question, context = '') => portalQuestionKey(question, boundedPortalContext(context));
+const questionKey = (question, context = '', section = '', autocomplete = '') => portalQuestionKey(question, boundedPortalContext(context), boundedPortalContext(section), autocomplete);
 const agentTopicKey = (question, context = '') => {
   const topic = topicOf(question);
   return topic >= 0 ? `agent_topic_${topic}|${contextKey(context)}` : '';
@@ -253,26 +253,27 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
   const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
-    ...answeredItems.map((item) => questionKey(item.question, item.context)).filter(Boolean),
+    ...answeredItems.map((item) => questionKey(item.question, item.context, item.section, item.autocomplete)).filter(Boolean),
     ...answeredItems.map((item) => agentTopicKey(item.question, boundedPortalContext(item.context))).filter(Boolean),
   ]);
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
-  const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
+  const isAnswered = (question, context = '', section = '', autocomplete = '') => Boolean(candidateAnswerForQuestion(candidate, question, context, { section, autocomplete }))
     || nativeLanguageKnown(candidate, question, context)
     || (isLanguageAbilityQuestion(`${question} ${context}`)
-      && Boolean(candidateAnswerForField(candidate, { label: question, context, kind: 'text', options: [] })))
-    || (isAddressTopic(questionTopic(question, context)) && Boolean(candidateAnswerForField(candidate, { label: question, context, options: [] })))
+      && Boolean(candidateAnswerForField(candidate, { label: question, context, section, autocomplete, kind: 'text', options: [] })))
+    || (isAddressTopic(questionTopic(question, context, { section, autocomplete })) && Boolean(candidateAnswerForField(candidate, { label: question, context, section, autocomplete, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
     || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
       && normalizedPortalContext(item.context) === normalizedPortalContext(context))
-    || answeredTopics.has(questionKey(question, context))
+    || answeredTopics.has(questionKey(question, context, section, autocomplete))
     || answeredTopics.has(agentTopicKey(question, context));
   const questions = [];
   const ask = (item) => {
     const question = questionFromLabel(item.question);
     const context = boundedPortalContext(item.context);
-    if (!question || isAnswered(question, context) || questions.some((other) => other.question === question && other.context === context)) return;
+    const section = boundedPortalContext(item.section);
+    if (!question || isAnswered(question, context, section, item.autocomplete) || questions.some((other) => other.question === question && other.context === context && other.section === section)) return;
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
@@ -283,10 +284,11 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     return (languageAction && hasLanguageActionAnswer(action))
       || SENSITIVE.test(question)
       || KNOCK_OUT.test(question)
-      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context));
+      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context, { section: action.section }));
   });
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
+    const section = boundedPortalContext(action.section);
     const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
     if (!String(action.question || '').trim() && languageLabelOnly) {
       action.question = languageLabelFallback(context);
@@ -295,14 +297,15 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     }
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
-    const addressTopic = questionTopic(action.question, context);
+    const addressTopic = questionTopic(action.question, context, { section });
+    const addressNeedsProvenance = isAddressLikeQuestion(action.question) && !isAddressTopic(addressTopic);
     if (languageIntent) {
-      const previous = candidateAnswerForQuestion(candidate, action.question, context);
+      const previous = candidateAnswerForQuestion(candidate, action.question, context, { section });
       if (previous) {
         if (action.action !== 'press') action.value = previous;
         action.answer = previous;
         action.source = 'answers';
-        grounded.add(questionKey(action.question, context));
+        grounded.add(questionKey(action.question, context, section));
         continue;
       }
     }
@@ -310,6 +313,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
       const profileAnswer = candidateAnswerForField(candidate, {
         label: action.question,
         context,
+        section,
         kind: 'text',
         options: [],
       });
@@ -317,24 +321,24 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         if (action.action !== 'press') action.value = profileAnswer.value;
         action.answer = profileAnswer.value;
         action.source = profileAnswer.source;
-        grounded.add(questionKey(action.question, context));
+        grounded.add(questionKey(action.question, context, section));
         continue;
       }
     }
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
       && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
-      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, options: [] });
+      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, section, options: [] });
       if (knownAddress) {
         // A custom widget still has to receive the form-language option the
         // model saw. Accept equivalent country labels; correct a wrong model
         // value to the deterministic candidate value before the action runs.
-        if (!answeredByCandidate(candidate, action.question, answer, context)) {
+        if (!answeredByCandidate(candidate, action.question, answer, context, { section })) {
           action.value = knownAddress.value;
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
-        grounded.add(questionKey(action.question, context));
+        grounded.add(questionKey(action.question, context, section));
         continue;
       }
     }
@@ -345,12 +349,14 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const native = action.source !== 'widget' && nativeLanguageAnswerMatches(candidate, action.question, answer, context);
-    const fromCandidate = languageIntent || languageAbility || languageLabelOnly
-      ? answeredByCandidate(candidate, action.question, answer, context)
+    const fromCandidate = isAddressLikeQuestion(action.question)
+      ? addressNeedsProvenance && answeredByCandidate(candidate, action.question, answer, context, { section })
+      : languageIntent || languageAbility || languageLabelOnly
+      ? answeredByCandidate(candidate, action.question, answer, context, { section })
       : own !== null
-        ? own || answeredByCandidate(candidate, action.question, answer, context)
+        ? own || answeredByCandidate(candidate, action.question, answer, context, { section })
         : knockOut
-          ? answeredByCandidate(candidate, action.question, answer, context)
+          ? answeredByCandidate(candidate, action.question, answer, context, { section })
           : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = (knockOut || languageAbility) && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(`${action.question} ${context}`, answer, action.evidence);
@@ -359,20 +365,21 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
     if (fromCandidate || (languageAbility && (native || quoted))
       || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
-      grounded.add(questionKey(action.question, context));
+      grounded.add(questionKey(action.question, context, section));
     }
   }
   const refused = new Set();
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
-    const key = questionKey(action.question, context);
+    const section = boundedPortalContext(action.section);
+    const key = questionKey(action.question, context, section);
     if (grounded.has(key)) continue;
     refused.add(key);
-    ask({ question: action.question, ...(context ? { context } : {}) });
+    ask({ question: action.question, ...(context ? { context } : {}), ...(section ? { section } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context)) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context, action.section)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
