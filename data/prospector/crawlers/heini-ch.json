@@ -1,0 +1,23 @@
+{
+  "companyKey": "heini-ch",
+  "companyName": "Heini",
+  "companyHost": "yousty.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/firmen/2237470-heini-conditorei-ag"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Detailhandelsassistent/in EBA Bäckerei-Confiserie, Luzern",
+    "Bäcker/in-Konditor/in-Confiseur/in EFZ, Luzern",
+    "Bäcker/in-Konditor/in-Confiseur/in EBA, Luzern",
+    "Detailhandelsfachmann/-frau EFZ Gestalten von Einkaufserlebnissen Bäckerei-Confiserie, Luzern"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:22:24.736Z"
+}
