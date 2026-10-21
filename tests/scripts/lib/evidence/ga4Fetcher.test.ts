@@ -2,7 +2,25 @@ import { describe, expect, it, vi } from 'vitest';
 
 import * as ga4Mod from '../../../../scripts/lib/evidence/ga4Fetcher.mjs';
 
-const { fetchGa4Pages } = ga4Mod as any;
+const { fetchGa4Pages, parseGa4BlogMetaItSource } = ga4Mod as any;
+
+describe('GA4 blog metadata source reader', () => {
+  it('reads titles from a complete module and rejects malformed present metadata', () => {
+    const source = [
+      'const blogMetaIt: Record<string, string> = {',
+      "  'blog.article.alpha.title': 'Titolo Alpha',",
+      "  'blog.article.alpha.excerpt': 'Excerpt',",
+      "  'blog.article.beta.excerpt': 'No title',",
+      '};',
+      'export default blogMetaIt;',
+    ].join('\n');
+    expect(parseGa4BlogMetaItSource(source, 'fixture-blog-meta-it.ts')).toEqual({
+      'blog.article.alpha.title': 'Titolo Alpha',
+    });
+    expect(() => parseGa4BlogMetaItSource('const meta = {', 'fixture-blog-meta-it.ts'))
+      .toThrow(/TypeScript syntax error/u);
+  });
+});
 
 function jsonRes(body: unknown, { ok = true, status = 200 }: { ok?: boolean; status?: number } = {}) {
   return {

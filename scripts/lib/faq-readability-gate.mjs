@@ -6,7 +6,7 @@
  * BACKGROUND
  * ----------
  * `packages/articles/engine/ogPagesPlugin.ts` reads `.faq` (a JSON array of
- * `{q, a}` pairs, stored as a single-quoted TS string literal) with:
+ * `{q, a}` pairs stored in a TS string literal) with:
  *
  *     decode -> JSON.parse -> keep pairs where q.length > 10 && a.length > 20
  *            -> require at least 2 pairs to survive
@@ -37,9 +37,7 @@ import path from 'node:path';
 
 import { unescapeTsString, tsStringEscapesWithNewlineAs } from './unescape-ts-string.mjs';
 import { BODY_DIRS, LOCALES } from './blog-body-io.mjs';
-
-/** Matches `'blog.article.<id>.faq': '<escaped JSON array>'`. */
-const FAQ_RX = /'blog\.article\.([^']+)\.faq'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+import { parseStaticArticleTranslationEntries } from '../../packages/articles/engine/shared/articleStaticSource.mjs';
 
 // `.faq` decodes with `\n` -> a real newline, same as
 // ogPagesPlugin.ts's `unescapeTsStringRaw` — matching newline handling makes
@@ -59,9 +57,13 @@ const FAQ_ESCAPES = tsStringEscapesWithNewlineAs('\n');
  * @returns {boolean}
  */
 export function faqDecodesReadable(rawSourceText) {
+  return isReadableFaqValue(unescapeTsString(rawSourceText, FAQ_ESCAPES));
+}
+
+function isReadableFaqValue(value) {
   let parsed;
   try {
-    parsed = JSON.parse(unescapeTsString(rawSourceText, FAQ_ESCAPES));
+    parsed = JSON.parse(value);
   } catch {
     return false;
   }
@@ -73,8 +75,10 @@ export function faqDecodesReadable(rawSourceText) {
 }
 
 /**
- * Scans every `.faq` field under `services/locales/blog-body{,-ch}/<locale>`
- * and reports how many fail `faqDecodesReadable`.
+ * Scans complete static body translation modules under
+ * `services/locales/blog-body{,-ch}/<locale>` and reports how many decoded
+ * `.faq` values fail the readability contract. Missing directories/files are
+ * skipped; malformed present modules throw.
  *
  * @param {{ root?: string }} [opts] - repo root; defaults to `process.cwd()`.
  * @returns {{ total: number, unreadable: number, offenders: Array<{ bodyDir: string, locale: string, file: string, id: string }> }}
@@ -100,12 +104,11 @@ export function scanCorpusFaqReadability(opts = {}) {
         } catch {
           continue;
         }
-        let m;
-        FAQ_RX.lastIndex = 0;
-        while ((m = FAQ_RX.exec(src)) !== null) {
+        for (const { articleId, field, value } of parseStaticArticleTranslationEntries(src, path.join(dir, file))) {
+          if (field !== 'faq') continue;
           total++;
-          if (!faqDecodesReadable(m[2])) {
-            offenders.push({ bodyDir, locale, file, id: m[1] });
+          if (!isReadableFaqValue(value)) {
+            offenders.push({ bodyDir, locale, file, id: articleId });
           }
         }
       }

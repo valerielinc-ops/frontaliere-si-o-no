@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
+import { parseEmbeddingArticleMetadata } from '../scripts/build-article-embeddings.mjs';
 
 /**
  * Regression guard for the evidence-embeddings builder (#main-red 2026-06-11).
@@ -40,5 +41,25 @@ describe('build-article-embeddings — degraded paths preserve perArticle', () =
     );
     expect(meta.perArticle).toBeTypeOf('object');
     expect(Object.keys(meta.perArticle).length).toBe(meta.count);
+  });
+});
+
+describe('build-article-embeddings metadata source reader', () => {
+  it('projects title and excerpt from a complete static module and rejects malformed source', () => {
+    const source = [
+      'const blogMetaIt: Record<string, string> = {',
+      "  'blog.article.alpha.title': 'Alpha title',",
+      "  'blog.article.alpha.excerpt': 'Alpha excerpt',",
+      "  'blog.article.invalid_id.title': 'Not an embedding slug',",
+      "  'other': 'Ignored',",
+      '};',
+      'export default blogMetaIt;',
+    ].join('\n');
+
+    expect(parseEmbeddingArticleMetadata(source, 'fixture-blog-meta-it.ts')).toEqual(new Map([
+      ['alpha', { title: 'Alpha title', excerpt: 'Alpha excerpt' }],
+    ]));
+    expect(() => parseEmbeddingArticleMetadata('const blogMetaIt = {', 'fixture-blog-meta-it.ts'))
+      .toThrow(/TypeScript syntax error/u);
   });
 });

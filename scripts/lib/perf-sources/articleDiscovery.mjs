@@ -1,14 +1,12 @@
 // Article discovery + metadata parsing for fetch-article-performance.mjs.
 //
-// We deliberately avoid bundling the TS files. Instead we grep them for the
-// shapes we need:
-//   - blog-meta-{it,en,de,fr}.ts  -> 'blog.article.<slug>.title' / .excerpt
-//   - services/seo/seo-blog*.ts   -> articleSection + datePublished per slug
-//
-// This keeps the fetcher dependency-free (no tsx, no esbuild round-trip).
+// We avoid compiling or evaluating these data modules. Blog metadata uses the
+// shared TypeScript AST reader; seo-blog files are a different object schema
+// and keep their dedicated structured-data reader.
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
+import { parseStaticArticleTranslationSource } from '../../../packages/articles/engine/shared/articleStaticSource.mjs';
 
 const LOCALES = /** @type {const} */ (['it', 'en', 'de', 'fr']);
 
@@ -26,25 +24,14 @@ const URL_PREFIX_BY_LOCALE = {
  *   'blog.article.<slug>.excerpt': 'Excerpt...',
  * Indentation can be 1 or more spaces — both shapes appear in the file.
  */
-export function parseBlogMetaFile(text) {
+export function parseBlogMetaFile(text, sourcePath = 'blog-meta.ts') {
   const out = new Map();
-  // Capture either single- or double-quoted string values; allow embedded
-  // escaped quotes.
-  const re = /['"]blog\.article\.([a-z0-9-]+)\.(title|excerpt)['"]\s*:\s*(['"])((?:\\.|(?!\3).)*)\3/g;
-  let m;
-  while ((m = re.exec(text)) !== null) {
-    const slug = m[1];
-    const field = m[2];
-    const raw = m[4];
-    // Unescape simple JS string escapes (\\ \' \" \n)
-    const value = raw.replace(/\\(['"\\nrt])/g, (_, c) => {
-      if (c === 'n') return '\n';
-      if (c === 'r') return '\r';
-      if (c === 't') return '\t';
-      return c;
-    });
-    if (!out.has(slug)) out.set(slug, { title: '', excerpt: '' });
-    out.get(slug)[field] = value;
+  const translations = parseStaticArticleTranslationSource(text, sourcePath);
+  for (const [slug, fields] of translations) {
+    const title = fields.get('title');
+    const excerpt = fields.get('excerpt');
+    if (title === undefined && excerpt === undefined) continue;
+    out.set(slug, { title: title ?? '', excerpt: excerpt ?? '' });
   }
   return out;
 }
@@ -59,7 +46,7 @@ export function discoverArticles({ rootDir }) {
     const file = path.join(rootDir, 'services', 'locales', `blog-meta-${locale}.ts`);
     if (!existsSync(file)) continue;
     const text = readFileSync(file, 'utf-8');
-    const parsed = parseBlogMetaFile(text);
+    const parsed = parseBlogMetaFile(text, file);
     for (const [slug, fields] of parsed) {
       if (!articles.has(slug)) articles.set(slug, { byLocale: {} });
       articles.get(slug).byLocale[locale] = fields;
