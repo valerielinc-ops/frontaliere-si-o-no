@@ -377,6 +377,14 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
    cursor += 1;
    continue;
   }
+  if (source.startsWith('...', cursor)) {
+   // Spread introduces an operand; unlike member access, the following
+   // keyword may still permit a regex literal: [...typeof /x/].
+   canStartRegex = true;
+   afterMemberAccess = false;
+   cursor += 3;
+   continue;
+  }
   if (char === '.') {
    canStartRegex = false;
    afterMemberAccess = true;
