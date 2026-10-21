@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "source": "nanakokyobashi-rgb/frontaliere-articles",
-  "sourceCommit": "d644b77f29000decb553080c65a740a293045825",
+  "sourceCommit": "552d8befd40b0d5087aa12efaa5638e81ea3e4bd",
   "generatedAt": "2026-10-21",
   "registries": {
     "packages/articles/content/blog-articles-data.ts": {
@@ -11,15 +11,15 @@
     },
     "packages/articles/content/swiss-articles-data.ts": {
       "corpusPath": "content/swiss-articles-data.ts",
-      "articles": 2847,
-      "distinctImages": 2838
+      "articles": 2848,
+      "distinctImages": 2839
     }
   },
   "publishedArtifacts": {
     "cantonArticles": {
       "path": "public/canton-articles.json",
       "present": true,
-      "sha256": "c2cab5ad56ad4a124c2d98f23220a532c3e31afaedfddbf2da879854363f73f1",
+      "sha256": "be4976b6ec1514f5ecb9ce4f036d92edd97c8c9a815562e3940bcc644aef10ce",
       "articleCount": 256
     }
   }

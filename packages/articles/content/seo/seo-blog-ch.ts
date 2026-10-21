@@ -108129,6 +108129,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pacchetto-imprese-sgravi': {
+    title: 'Pacchetto competitività: oltre il 90% attuato o in corso',
+    description: 'Oltre il 90% delle 60 misure è attuato o in attuazione. 16 misure sono in vigore e 39 in attuazione. Il pacchetto mira a ridurre gli oneri normativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pacchetto, competitività, oltre, attuato',
+    ogTitle: 'Competitività svizzera: oltre il 90% attuato o in corso',
+    ogDescription: 'Oltre il 90% delle 60 misure è attuato o in attuazione.',
+    canonicalPath: '/articoli-svizzera/pacchetto-imprese-sgravi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pacchetto competitività: oltre il 90% attuato o in corso",
+      "description": "Oltre il 90% delle 60 misure è attuato o in attuazione. 16 misure sono in vigore e 39 in attuazione. Il pacchetto mira a ridurre gli oneri normativi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pacchetto-imprese-sgravi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T10:00:03+00:00",
+      "dateModified": "2026-10-21T10:00:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pacchetto-imprese-sgravi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1315,13 +1315,21 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
     if (trigger.snapshot) await clickButton(page, trigger.snapshot);
     else await trigger.click({ timeout: 6_000 });
   } catch {
-    return 'unavailable';
+    // The control may open its picker and then detach while the click is
+    // settling. Still inspect both upload paths before treating that click as
+    // a failure.
   }
-  const dialogPromise = dialogFileInput(page, preferredFrame, beforeCounts);
-  const target = await Promise.race([
-    chooserPromise.then((chooser) => chooser ? { chooser } : null),
-    dialogPromise.then((input) => input ? { input } : null),
+  const chooserTarget = chooserPromise.then((chooser) => chooser ? { chooser } : null);
+  const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts)
+    .then((input) => input ? { input } : null, () => null);
+  const firstTarget = await Promise.race([
+    chooserTarget.then((target) => ({ source: 'chooser', target })),
+    dialogTarget.then((target) => ({ source: 'dialog', target })),
   ]);
+  // A timeout from one strategy is not evidence that the other failed. In
+  // particular, the chooser watcher starts before the click, so it can time
+  // out while the dialog watcher is still in its post-click window.
+  const target = firstTarget.target || await (firstTarget.source === 'chooser' ? dialogTarget : chooserTarget);
   if (target?.chooser) {
     try {
       const chooser = target.chooser;
@@ -1340,7 +1348,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
   // searching there can report a failed upload even after the dialog opened.
   // The dialog must be visible and contain a newly attached file input; this
   // prevents selecting a stale or unrelated document picker.
-  const input = target?.input || await dialogPromise;
+  const input = target?.input;
   if (!input) {
     await page.keyboard.press('Escape').catch(() => {});
     return 'unavailable';

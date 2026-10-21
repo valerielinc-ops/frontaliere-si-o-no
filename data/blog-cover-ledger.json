@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 728,
+      "5": 729,
       "6": 5054
     },
-    "publishedCovers": 7465,
+    "publishedCovers": 7466,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204731,6 +204731,39 @@
         "provider": "openai-codex",
         "assetId": "article-frontalieri-luino-incontro-fisco-previdenza-sanita",
         "imageUrl": "/images/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-pacchetto-imprese-sgravi": {
+      "cover": "/images/blog/article-pacchetto-imprese-sgravi.webp",
+      "hash": "9c5c8a3c4a730418665e4d46c8e1dc6b78c35525cc2f997af13eeffdba331b52",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "pacchetto-imprese-sgravi",
+          "category": "novita",
+          "date": "2026-10-21T10:00:03.042Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-pacchetto-imprese-sgravi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-pacchetto-imprese-sgravi",
+        "imageUrl": "/images/blog/article-pacchetto-imprese-sgravi.webp",
         "evidence": "generated-engine-record"
       }
     }
