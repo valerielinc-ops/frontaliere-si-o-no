@@ -67,12 +67,17 @@ import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { SECTION_LEGACY_TI_PATH, SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
+import {
+  MARKET_REPORT_SLUG,
+  REPORT_LOCALES,
+  type ReportLocale,
+} from './shared/reportRoutes';
 
 // ── Types ─────────────────────────────────────────────────────────
 
-type Locale = 'it' | 'en' | 'de' | 'fr';
+type Locale = ReportLocale;
 
-const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
+const LOCALES = REPORT_LOCALES;
 
 const LOCALE_PREFIX: Record<Locale, string> = {
   it: '',
@@ -81,12 +86,7 @@ const LOCALE_PREFIX: Record<Locale, string> = {
   fr: '/fr',
 };
 
-const REPORT_SLUG: Record<Locale, string> = {
-  it: 'reports/mercato-lavoro-frontalieri-ticino-2026',
-  en: 'reports/ticino-cross-border-job-market-2026',
-  de: 'reports/tessiner-grenzgaenger-arbeitsmarkt-2026',
-  fr: 'reports/marche-emploi-frontaliers-tessin-2026',
-};
+export const REPORT_SLUG = MARKET_REPORT_SLUG;
 
 const OG_LOCALE: Record<Locale, string> = {
   it: 'it_CH',
