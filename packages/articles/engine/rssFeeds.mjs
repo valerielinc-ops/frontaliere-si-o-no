@@ -323,181 +323,26 @@ function parseBlogSlugs(fs, path, rootDir, slugFile, slugConst) {
 
 const STATIC_LITERAL_QUOTES = new Set(['"', "'", '`']);
 
-const REGEX_AFTER_KEYWORDS = new Set([
-  'case', 'delete', 'do', 'else', 'in', 'instanceof', 'new', 'of', 'return', 'throw',
-  'typeof', 'void', 'yield', 'await',
-]);
-
-/**
- * A keyword used as a member property is a value, not a regex prefix:
- * `value.return / /.../` starts with division followed by a regex literal.
- */
-function canStartRegexAfterMember(word, afterMemberAccess) {
-  return !afterMemberAccess && REGEX_AFTER_KEYWORDS.has(word);
-}
-
 function skipLineComment(source, startIndex) {
   let cursor = startIndex + 2;
   while (cursor < source.length && source[cursor] !== '\n' && source[cursor] !== '\r') cursor += 1;
   return cursor;
 }
 
-function skipRegularExpressionLiteral(source, startIndex, sourcePath) {
-  let inCharacterClass = false;
-  let cursor = startIndex + 1;
-  while (cursor < source.length) {
-    const char = source[cursor];
-    if (char === '\\') {
-      cursor += 2;
-      continue;
-    }
-    if (char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029') {
-      throw new Error(`[rss] Unterminated regular expression literal in ${sourcePath}`);
-    }
-    if (char === '[') {
-      inCharacterClass = true;
-      cursor += 1;
-      continue;
-    }
-    if (char === ']' && inCharacterClass) {
-      inCharacterClass = false;
-      cursor += 1;
-      continue;
-    }
-    if (char === '/' && !inCharacterClass) {
-      cursor += 1;
-      while (/[A-Za-z]/.test(source[cursor] || '')) cursor += 1;
-      return cursor;
-    }
-    cursor += 1;
-  }
-  throw new Error(`[rss] Unterminated regular expression literal in ${sourcePath}`);
-}
-
-function skipTemplateExpression(source, startIndex, sourcePath) {
-  let depth = 1;
-  let cursor = startIndex;
-  let canStartRegex = true;
-  let afterMemberAccess = false;
-
-  while (cursor < source.length) {
-    if (source.startsWith('//', cursor)) {
-      cursor = skipLineComment(source, cursor);
-      continue;
-    }
-    if (source.startsWith('/*', cursor)) {
-      const close = source.indexOf('*/', cursor + 2);
-      if (close === -1) throw new Error(`[rss] Unterminated comment in ${sourcePath}`);
-      cursor = close + 2;
-      continue;
-    }
-
-    const char = source[cursor];
-    if (char === "'" || char === '"' || char === '`') {
-      const literal = readStaticStringLiteral(source, cursor, sourcePath);
-      if (!literal) throw new Error(`[rss] Unterminated string literal in ${sourcePath}`);
-      cursor = literal.end;
-      canStartRegex = false;
-      afterMemberAccess = false;
-      continue;
-    }
-    if ((char === '+' && source[cursor + 1] === '+') || (char === '-' && source[cursor + 1] === '-')) {
-      // Consume update operators as one token. Preserving the current context
-      // keeps postfix updates after an operand from turning the following `/`
-      // into a regex start, while prefix updates remain valid before an operand.
-      cursor += 2;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '/' && canStartRegex) {
-      cursor = skipRegularExpressionLiteral(source, cursor, sourcePath);
-      canStartRegex = false;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '/') {
-      cursor += 1;
-      canStartRegex = true;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '{') {
-      depth += 1;
-      cursor += 1;
-      canStartRegex = true;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (char === '}') {
-      depth -= 1;
-      cursor += 1;
-      if (depth === 0) return cursor;
-      canStartRegex = false;
-      afterMemberAccess = false;
-      continue;
-    }
-    if (/\s/.test(char)) {
-      cursor += 1;
-      continue;
-    }
-    if (/[A-Za-z_$]/.test(char)) {
-      let end = cursor + 1;
-      while (end < source.length && /[A-Za-z0-9_$]/.test(source[end])) end += 1;
-      canStartRegex = canStartRegexAfterMember(source.slice(cursor, end), afterMemberAccess);
-      cursor = end;
-      afterMemberAccess = false;
-      continue;
-    }
-    if ('([{,;:=!?&|+\-*%^~<>'.includes(char)) {
-      canStartRegex = true;
-      afterMemberAccess = false;
-      cursor += 1;
-      continue;
-    }
-    if (source.startsWith('...', cursor)) {
-      // Spread introduces an operand; unlike member access, the following
-      // keyword may still permit a regex literal: [...typeof /x/].
-      canStartRegex = true;
-      afterMemberAccess = false;
-      cursor += 3;
-      continue;
-    }
-    if (char === '.') {
-      canStartRegex = false;
-      afterMemberAccess = true;
-      cursor += 1;
-      continue;
-    }
-    if (')]}'.includes(char)) {
-      canStartRegex = false;
-      afterMemberAccess = false;
-      cursor += 1;
-      continue;
-    }
-    canStartRegex = false;
-    afterMemberAccess = false;
-    cursor += 1;
-  }
-
-  throw new Error(`[rss] Unterminated template expression in ${sourcePath}`);
-}
-
 /**
  * Read one JS/TS string literal without treating another quote style inside it
- * as a terminator. Template interpolations are scanned, including nested
- * templates and regex literals in their expressions, so callers can reject a
- * dynamic key/value without accidentally stopping at an inner delimiter.
+ * as a terminator. Any unescaped template interpolation aborts extraction of
+ * this source file so the generated feed cannot contain a partial body.
  *
  * @param {string} source
  * @param {number} startIndex
  * @param {string} sourcePath
- * @returns {{ quote: '"' | "'" | '`', value: string, end: number, dynamic: boolean } | null}
+ * @returns {{ quote: '"' | "'" | '`', value: string, end: number } | null}
  */
 function readStaticStringLiteral(source, startIndex, sourcePath) {
   const quote = source[startIndex];
   if (!STATIC_LITERAL_QUOTES.has(quote)) return null;
 
-  let dynamic = false;
   let cursor = startIndex + 1;
   while (cursor < source.length) {
     const char = source[cursor];
@@ -510,9 +355,7 @@ function readStaticStringLiteral(source, startIndex, sourcePath) {
       continue;
     }
     if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
-      dynamic = true;
-      cursor = skipTemplateExpression(source, cursor + 2, sourcePath);
-      continue;
+      throw new Error(`[rss] Interpolated template literal is not supported in static article body source: ${sourcePath}`);
     }
     if (quote !== '`' && (char === '\n' || char === '\r')) return null;
     if (char === quote) {
@@ -520,7 +363,6 @@ function readStaticStringLiteral(source, startIndex, sourcePath) {
         quote,
         value: source.slice(startIndex + 1, cursor),
         end: cursor + 1,
-        dynamic,
       };
     }
     cursor += 1;
@@ -588,12 +430,6 @@ function skipStaticTrivia(source, startIndex, sourcePath) {
 
 const BLOG_BODY_KEY = /^blog\.article\.(.+)\.(body\d+)$/;
 
-function isDynamicBodyKey(source, literal, afterLiteral) {
-  return literal.dynamic
-    && source[afterLiteral] === ':'
-    && /^blog\.article\.[\s\S]+\.body\d+$/.test(literal.value);
-}
-
 function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field) {
   const filePath = path.join(rootDir, localesDir, metaFileName);
   if (!fs.existsSync(filePath)) return new Map();
@@ -637,13 +473,6 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
       const keyLiteral = readStaticStringLiteral(src, cursor, filePath);
       if (!keyLiteral) throw new Error(`[rss] Unterminated string literal in ${filePath}`);
       const afterKey = skipStaticTrivia(src, keyLiteral.end, filePath);
-      if (keyLiteral.dynamic) {
-        if (isDynamicBodyKey(src, keyLiteral, afterKey)) {
-          throw new Error(`[rss] Dynamic body key is not static in ${filePath}`);
-        }
-        cursor = keyLiteral.end;
-        continue;
-      }
 
       const key = decodeStaticStringLiteral(keyLiteral.value, keyLiteral.quote);
       const keyMatch = BLOG_BODY_KEY.exec(key);
@@ -658,9 +487,6 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
       }
       const valueLiteral = readStaticStringLiteral(src, valueStart, filePath);
       if (!valueLiteral) throw new Error(`[rss] Unterminated body value for ${key} in ${filePath}`);
-      if (valueLiteral.dynamic) {
-        throw new Error(`[rss] Dynamic body value is not static for ${key} in ${filePath}`);
-      }
       const afterValue = skipStaticTrivia(src, valueLiteral.end, filePath);
       if (src[afterValue] !== ',' && src[afterValue] !== '}') {
         throw new Error(`[rss] Body property ${key} must end with ',' or '}' in ${filePath}`);
