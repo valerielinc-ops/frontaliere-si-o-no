@@ -2365,13 +2365,16 @@ jobs:
         # calcola soltanto la lista di test da escludere dal related run.
         # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
         # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
-        # delegati.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group') }}
+        # delegati. Il percorso `workflow_dispatch` ritesta una PR indicata
+        # dall'input `pr` mentre il checkout resta su `main`: saltare questo
+        # step lascia il file assente e fa fallire il runner prima di poter
+        # applicare il suo comportamento fail-safe.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (github.event_name == 'pull_request' || github.event_name == 'push' || github.event_name == 'merge_group' || github.event_name == 'workflow_dispatch') }}
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          BASE_REF: ${{ github.base_ref }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr }}
+          BASE_REF: ${{ github.base_ref || 'main' }}
           BEFORE_SHA: ${{ github.event.before }}
           MERGE_GROUP_BASE_SHA: ${{ github.event.merge_group.base_sha }}
           AFTER_SHA: ${{ github.sha }}
