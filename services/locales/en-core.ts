@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3996.title': 'Less intrusive job alerts',
+ 'whatsNew.v3996.jobViewers.title': 'A brief signal while you read a job listing',
+ 'whatsNew.v3996.jobViewers.desc': 'A small activity notice may appear on a job detail page. It is dismissible, closes automatically and appears only once per session.',
  'whatsNew.v3995.title': 'Fuel comparison with trip costs',
  'whatsNew.v3995.fuelTrip.title': 'Compare pump prices and detour costs',
  'whatsNew.v3995.fuelTrip.desc': 'Enter comparable prices, litres and total additional round-trip kilometres to estimate gross and net difference, extra costs and break-even points. Known prices show their source and date; conversion uses only a dated ECB rate.',
@@ -814,6 +817,7 @@ const enCore: Record<string, string> = {
  'jobBoard.saved.emptyHint': 'Tap the bookmark icon on a job to find it here. Once a week we email you a reminder of it: you can turn the reminder off in your profile or from the link in the email.',
  'jobBoard.saveAuthPrompt.title': 'Sign in to save jobs',
  'jobBoard.saveAuthPrompt.body': 'Saving a job requires a free account — that way your saved jobs stay safe across all your devices. Once a week we email you a reminder of the jobs you saved; you can turn it off in your profile or from the link in the email.',
+ 'jobBoard.viewers.message': 'There are {count} other people viewing this job.',
  'jobBoard.saveAuthPrompt.dismiss': 'Not now',
  'jobBoard.saveAuthPrompt.or': 'or',
  'jobBoard.saveAuthPrompt.emailCta': 'Continue with email',
