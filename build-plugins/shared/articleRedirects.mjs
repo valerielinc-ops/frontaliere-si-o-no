@@ -199,6 +199,54 @@ export function parseArticleRedirects(raw, opts = {}) {
   return out;
 }
 
+/**
+ * Find rename bridges whose target is a shadowed article. A shadowed page is
+ * intentionally 200/live with a canonical hint, not a transition endpoint;
+ * sending a redirect bridge there would make the canonical chain terminate on
+ * the wrong route. The caller supplies the already-loaded per-section maps so
+ * this parser stays independent of the engine's repository layout.
+ *
+ * @param {Record<string, string>} redirects
+ * @param {Record<string, string>} canonicalOverrides
+ * @returns {Array<{from: string, to: string, winner: string}>}
+ */
+export function findCanonicalOverrideRedirectTargets(redirects, canonicalOverrides) {
+  const out = [];
+  for (const [fromRaw, toRaw] of Object.entries(redirects ?? {})) {
+    const to = parseArticlePath(toRaw);
+    if (!to) continue;
+    const winnerUrl = canonicalOverrides?.[to.slug];
+    if (typeof winnerUrl !== 'string') continue;
+    let winnerPath;
+    try {
+      winnerPath = new URL(winnerUrl).pathname;
+    } catch {
+      continue;
+    }
+    const winner = parseArticlePath(winnerPath);
+    if (!winner || winner.path === to.path) continue;
+    out.push({ from: withTrailingSlash(fromRaw), to: to.path, winner: winner.path });
+  }
+  return out;
+}
+
+/**
+ * @param {Record<string, string>} redirects
+ * @param {Record<string, string>} canonicalOverrides
+ * @param {{ file?: string }} [opts]
+ */
+export function assertNoCanonicalOverrideRedirectTargets(redirects, canonicalOverrides, opts = {}) {
+  const file = opts.file ?? ARTICLE_REDIRECTS_FILE;
+  const offenders = findCanonicalOverrideRedirectTargets(redirects, canonicalOverrides);
+  if (offenders.length === 0) return;
+  throw new Error(
+    `${file}: ${offenders.length} redirect target(s) are shadowed canonical routes. ` +
+    'A transition must point directly at the final winner, never at a live page ' +
+    'whose canonical points elsewhere.\n' +
+    offenders.map(({ from, to, winner }) => `  ${from} → ${to} → ${winner}`).join('\n'),
+  );
+}
+
 /** Where the hand-authored half of the redirect map lives. */
 export const LEGACY_REDIRECTS_SOURCE = 'build-plugins/legacyRedirectsPlugin.ts';
 
@@ -464,7 +512,42 @@ export function loadArticleRedirects(rootDir, io = {}) {
   } catch (err) {
     throw new Error(`${ARTICLE_REDIRECTS_FILE}: JSON non valido — ${err instanceof Error ? err.message : String(err)}`);
   }
-  return parseArticleRedirects(parsed);
+  const redirects = parseArticleRedirects(parsed);
+  const canonicalOverrides = loadCanonicalOverrideMap(rootDir, readFile);
+  assertNoCanonicalOverrideRedirectTargets(redirects, canonicalOverrides);
+  return redirects;
+}
+
+/**
+ * The redirect validator is a raw-node module, so it cannot import the
+ * TypeScript loader used by the article engine. Keep this tiny layout reader
+ * local to the build-side guard; the renderer uses the shared engine loader.
+ * Missing maps are valid for sparse/corpus checkouts.
+ *
+ * @param {string} rootDir
+ * @param {(path: string, encoding: string) => string} readFile
+ * @returns {Record<string, string>}
+ */
+function loadCanonicalOverrideMap(rootDir, readFile) {
+  const paths = [
+    'packages/articles/engine/shared/frontaliere-article-canonical-overrides.json',
+    'data/swiss-article-canonical-overrides.json',
+    'content/swiss-article-canonical-overrides.json',
+  ];
+  const out = {};
+  for (const relative of paths) {
+    try {
+      const parsed = JSON.parse(String(readFile(path.join(rootDir, relative), 'utf-8')));
+      const entries = parsed?.overrides;
+      if (!entries || typeof entries !== 'object' || Array.isArray(entries)) continue;
+      for (const [slug, winner] of Object.entries(entries)) {
+        if (typeof slug === 'string' && typeof winner === 'string') out[slug] = winner;
+      }
+    } catch {
+      // A missing optional map is the documented safe default.
+    }
+  }
+  return out;
 }
 
 /**

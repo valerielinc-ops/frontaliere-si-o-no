@@ -61,6 +61,9 @@ import { getSiteShell, type ArticleLocale } from './siteShell';
 import { ARTICLE_SECTIONS, activeArticleSection, type ArticleSection, type ArticleSectionKind } from '../articleSections';
 import { articleSectionKind, twinOf } from './shared/articleSectionCore.mjs';
 import { readArticleArchiveUnionSlugs } from './shared/articleArchiveUnion';
+import { CANONICAL_OVERRIDE_FILES } from './shared/canonicalOverrideFiles.mjs';
+import { loadArticleRouteRedirects, resolveArticleRoutePath } from './shared/articleRouteOwnership.mjs';
+import { loadSwissArticleCanonicalOverrides } from './shared/swissArticleCanonicalOverrides';
 import {
   readArticleDates,
   readArticleExcerpts,
@@ -1342,6 +1345,18 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
   // page count and the navigator link count can never drift (single source
   // of truth; issue #1486/#1497).
   const unionSlugs = readArticleArchiveUnionSlugs(fs, np, rootDir, section);
+  const canonicalOverrideCandidates = kind === 'frontaliere'
+    ? CANONICAL_OVERRIDE_FILES.frontaliere
+    : kind === 'national'
+      ? CANONICAL_OVERRIDE_FILES.svizzera
+      : [];
+  const articleRouteMaps = {
+    redirects: loadArticleRouteRedirects(fs, np.resolve(rootDir, 'data/article-redirects.json')),
+    canonicalOverrides: loadSwissArticleCanonicalOverrides(
+      fs,
+      canonicalOverrideCandidates.map((candidate) => np.resolve(rootDir, candidate)),
+    ),
+  };
 
   for (const locale of locales ?? HUB_LOCALES) {
     const basePath = archiveBases[locale];
@@ -1377,7 +1392,12 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const excerpt = rawExcerpt && rawExcerpt.length > 140
         ? rawExcerpt.slice(0, 137).trimEnd() + '…'
         : rawExcerpt;
-      items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt, id: slug });
+      items.push({
+        href: resolveArticleRoutePath(`${prefix}/${blogSection}/${urlSlug}/`, articleRouteMaps),
+        label,
+        excerpt,
+        id: slug,
+      });
     }
 
     // Newest first. `masterSlugs` is a Set filled from the meta chunk and the

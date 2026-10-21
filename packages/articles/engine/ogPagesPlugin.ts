@@ -15,6 +15,7 @@ import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
+import { loadArticleRouteRedirects, resolveArticleRouteHref } from './shared/articleRouteOwnership.mjs';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { normalizeArticleExcerptPlain, stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
@@ -832,6 +833,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fs,
  SECTION.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
  );
+ const articleRedirects = loadArticleRouteRedirects(
+  fs,
+  np.resolve(rootDir, 'data/article-redirects.json'),
+ );
+ const articleRouteMaps = {
+  redirects: articleRedirects,
+  canonicalOverrides: articleCanonicalOverrides,
+ };
+ const resolveArticleHref = (href: string): string => resolveArticleRouteHref(href, articleRouteMaps);
 
  // Issue #6337: articleId -> reviewerAuthorSlug map for the `reviewedBy`
  // JSON-LD signal (E-E-A-T on fiscal/legal YMYL content). Section-agnostic,
@@ -1558,7 +1568,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const items = hubItem + picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
- const href = `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`;
+ const href = resolveArticleRouteHref(
+  `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`,
+  articleRouteMaps,
+ );
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
@@ -1735,7 +1748,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const nb = parseInt(b.replace('body', ''), 10);
  return na - nb;
  }) : [];
- const bodySections = cleanupArticleBodySections(allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })));
+ const bodySections = cleanupArticleBodySections(
+  allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })),
+  { resolveHref: resolveArticleHref },
+ );
  const canonicalPath = withTrailingSlash(urlPath);
  const full = `${BASE_URL}${canonicalPath}`;
  // Issue #3010 item 1: shadowed near-duplicate variants (see
@@ -2107,7 +2123,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  : 'Domande frequenti';
  visibleFaqHtml = `<details class="s-lfB4Bo"><summary class="s-qAjSfB">${faqLabel}</summary><dl class="s-4vhLHi">` +
  useFaqPairs.slice(0, 10).map(pair =>
- `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer)}</dd>`
+ `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer, { resolveHref: resolveArticleHref })}</dd>`
  ).join('') +
  `</dl></details>`;
  }

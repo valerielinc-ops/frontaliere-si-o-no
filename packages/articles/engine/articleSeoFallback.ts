@@ -254,8 +254,9 @@ const safeInlineHref = (value: string): string | null => {
  * Links are tokenized before escaping and restored only after all text has been
  * escaped, preserving the complete archived wording without reopening HTML.
  */
-export const renderArticleInlineMarkup = (line: string): string => {
+export const renderArticleInlineMarkup = (line: string, opts: ArticleBodyRenderOptions = {}): string => {
  const { esc } = getSiteShell();
+ const resolveHref = opts.resolveHref ?? ((href: string) => href);
  const links: string[] = [];
  const renderEscapedInlineText = (value: string): string => esc(value)
   .replace(/`([^`]+)`/g, '<code>$1</code>')
@@ -267,14 +268,15 @@ export const renderArticleInlineMarkup = (line: string): string => {
   // identifiers such as `MOPS_DanceSyndrome` remain intact.
   .replace(/(^|[\s([>{\"'“‘])(_{1,3})(?=\S)([^\n]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’<])/g, '$1<em>$3</em>');
  const stashLink = (label: string, href: string): string => {
-  const safeHref = safeInlineHref(href);
-  if (!safeHref) return label;
-  const token = `\u0000inline-link-${links.length}\u0000`;
+ const safeHref = safeInlineHref(href);
+ if (!safeHref) return label;
+ const resolvedHref = safeInlineHref(resolveHref(safeHref)) ?? safeHref;
+ const token = `\u0000inline-link-${links.length}\u0000`;
   // Markdown link labels can themselves contain emphasis, for example
   // `[**Riforma disoccupazione frontalieri**](https://...)`. Escape the
   // label first and then render only its inline formatting; restoring the
   // complete anchor after that keeps both the label and href safe.
-  links.push(`<a href="${esc(safeHref)}">${renderEscapedInlineText(decodeInlineHtmlEntities(label))}</a>`);
+  links.push(`<a href="${esc(resolvedHref)}">${renderEscapedInlineText(decodeInlineHtmlEntities(label))}</a>`);
   return token;
  };
 
@@ -318,12 +320,17 @@ const TABLE_SEPARATOR_RX = /^\|(\s*:?-{2,}:?\s*\|)+\s*$/;
 const parseTableCells = (line: string): string[] =>
  line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
 
-const renderTableBlock = (headerLine: string, bodyLines: string[], tableNumber: number): string => {
+const renderTableBlock = (
+ headerLine: string,
+ bodyLines: string[],
+ tableNumber: number,
+ opts: ArticleBodyRenderOptions = {},
+): string => {
  const { esc } = getSiteShell();
  const headerCells = parseTableCells(headerLine);
  const caption = headerCells.find((cell) => cell.trim()) ?? 'Table';
  const accessibleCaption = `Table ${tableNumber}: ${caption}`;
- const head = headerCells.map((cell) => `<th scope="col">${renderArticleInlineMarkup(cell)}</th>`).join('');
+ const head = headerCells.map((cell) => `<th scope="col">${renderArticleInlineMarkup(cell, opts)}</th>`).join('');
  const body = bodyLines.length > 0
   ? bodyLines
    .map((row) => {
@@ -332,16 +339,20 @@ const renderTableBlock = (headerLine: string, bodyLines: string[], tableNumber: 
     // occasionally omits a trailing cell; padding it avoids leaving a
     // column header without an associated data cell for screen readers.
     const normalizedCells = headerCells.map((_header, index) => cells[index] ?? '—');
-    return `<tr>${normalizedCells.map((cell) => `<td>${renderArticleInlineMarkup(cell)}</td>`).join('')}</tr>`;
+    return `<tr>${normalizedCells.map((cell) => `<td>${renderArticleInlineMarkup(cell, opts)}</td>`).join('')}</tr>`;
    })
    .join('')
   : `<tr><td colspan="${Math.max(headerCells.length, 1)}">—</td></tr>`;
- return `<table aria-label="${esc(accessibleCaption)}"><caption class="sr-only">${renderArticleInlineMarkup(accessibleCaption)}</caption><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+ return `<table aria-label="${esc(accessibleCaption)}"><caption class="sr-only">${renderArticleInlineMarkup(accessibleCaption, opts)}</caption><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
 };
 
 // Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)
 // into an ordered list of self-contained HTML blocks (one per heading/paragraph/list/quote).
-const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] => {
+const buildArticleBodyBlocks = (
+ text: string,
+ tableNumberOffset = 0,
+ opts: ArticleBodyRenderOptions = {},
+): string[] => {
  const lines = normalizeArticleMarkdown(text).split('\n');
  const out: string[] = [];
  let paragraphBuf: string[] = [];
@@ -350,7 +361,7 @@ const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] =
 
  const flushParagraph = () => {
  if (paragraphBuf.length) {
- out.push(`<p>${renderArticleInlineMarkup(paragraphBuf.join(' '))}</p>`);
+ out.push(`<p>${renderArticleInlineMarkup(paragraphBuf.join(' '), opts)}</p>`);
  paragraphBuf = [];
  }
  };
@@ -392,7 +403,7 @@ const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] =
  const sourceLevelAttr = heading[1].length >= 3
   ? ` data-source-heading-level="${heading[1].length}"`
   : '';
- out.push(`<h${level}${sourceLevelAttr}>${renderArticleInlineMarkup(heading[2])}</h${level}>`);
+ out.push(`<h${level}${sourceLevelAttr}>${renderArticleInlineMarkup(heading[2], opts)}</h${level}>`);
  i++;
  continue;
  }
@@ -411,7 +422,7 @@ const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] =
  i++;
  }
  tablesRendered += 1;
- out.push(renderTableBlock(headerLine, bodyLines, tableNumberOffset + tablesRendered));
+ out.push(renderTableBlock(headerLine, bodyLines, tableNumberOffset + tablesRendered, opts));
  continue;
  }
 
@@ -419,7 +430,7 @@ const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] =
  flushParagraph();
  const items: string[] = [];
  while (i < lines.length && LIST_LINE_RX.test(lines[i].trim())) {
- items.push(`<li>${renderArticleInlineMarkup(lines[i].trim().replace(LIST_LINE_RX, ''))}</li>`);
+ items.push(`<li>${renderArticleInlineMarkup(lines[i].trim().replace(LIST_LINE_RX, ''), opts)}</li>`);
  i++;
  }
  out.push(`<ul>${items.join('')}</ul>`);
@@ -433,7 +444,7 @@ const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] =
  quoteLines.push(lines[i].trim().replace(QUOTE_LINE_RX, ''));
  i++;
  }
- out.push(`<blockquote><p>${renderArticleInlineMarkup(quoteLines.join(' '))}</p></blockquote>`);
+ out.push(`<blockquote><p>${renderArticleInlineMarkup(quoteLines.join(' '), opts)}</p></blockquote>`);
  continue;
  }
 
@@ -448,8 +459,11 @@ const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] =
 // summaries have their own explicit budgets in ogPagesPlugin.ts; applying one of
 // those budgets here would publish a page that visibly ends with an ellipsis and
 // under-report the article's actual word count to search engines.
-const renderArticleBodyHtml = (text: string, tableNumberOffset = 0): string =>
- buildArticleBodyBlocks(text, tableNumberOffset).join('');
+const renderArticleBodyHtml = (
+ text: string,
+ tableNumberOffset = 0,
+ opts: ArticleBodyRenderOptions = {},
+): string => buildArticleBodyBlocks(text, tableNumberOffset, opts).join('');
 
 const tokenizeTopic = (value: string): string[] =>
  value
@@ -659,16 +673,21 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
 
 export type ArticleBodySectionInput = { key: string; text: string | undefined };
 export type ArticleBodySectionRendered = { key: string; html: string };
+export type ArticleHrefResolver = (href: string) => string;
+export type ArticleBodyRenderOptions = { resolveHref?: ArticleHrefResolver };
 
 // Keeps each rendered body paired with its source key (body1/body2/body3, ...)
 // through both filter passes below, so a caller pairing a heading to `key`
 // never shifts onto the wrong body when an intermediate section is empty.
-export function cleanupArticleBodySections(sections: ArticleBodySectionInput[]): ArticleBodySectionRendered[] {
+export function cleanupArticleBodySections(
+ sections: ArticleBodySectionInput[],
+ opts: ArticleBodyRenderOptions = {},
+): ArticleBodySectionRendered[] {
  let tableNumberOffset = 0;
  return sections
  .filter((section): section is { key: string; text: string } => !!section.text)
  .map((section) => {
-  const html = renderArticleBodyHtml(section.text, tableNumberOffset);
+  const html = renderArticleBodyHtml(section.text, tableNumberOffset, opts);
   tableNumberOffset += (html.match(/<table\b/g) ?? []).length;
   return { key: section.key, html };
  })
