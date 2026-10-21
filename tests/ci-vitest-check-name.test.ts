@@ -497,7 +497,9 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
 
   it('materializza gli artifact del diff sul solo percorso PR trusted', () => {
     const collector = TESTS_YML.match(/- name: Collect changed paths[\s\S]*?(?=\n      - name:)/)?.[0] || '';
-    expect(collector).not.toContain("github.event_name == 'workflow_dispatch'");
+    expect(collector).toContain("github.event_name == 'workflow_dispatch'");
+    expect(collector).toContain('github.event.pull_request.number || inputs.pr');
+    expect(collector).toContain("github.base_ref || 'main'");
     expect(collector).toContain(': > changed-paths.txt');
     expect(collector).toContain('changed-paths-status.txt');
   });

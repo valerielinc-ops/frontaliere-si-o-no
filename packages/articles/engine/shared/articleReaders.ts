@@ -8,9 +8,9 @@
  * must agree on how many `/{hub}/tutti/page-N/` pages exist, or the trailing
  * pages ship orphaned (no incoming internal link → out of crawl reach). The
  * union helper in `articleArchiveUnion.ts` used to RE-INLINE the emitter's two
- * registry-parsing regexes ({@link readArticleSlugs} meta title-keys +
+ * registry readers ({@link readArticleSlugs} meta title-keys +
  * {@link readBlogUrlSlugs} slug-map keys). Byte-identical copies drift the
- * moment one side's regex changes (new meta format, different escaping) — the
+ * moment one side's parser changes (new meta format, different escaping) — the
  * exact #1486/#1497 class the "single source of truth" PR claimed impossible
  * by construction. Hoisting BOTH readers here, imported by the emitter and the
  * union helper, makes that drift impossible by construction (AGENTS.md #6).
@@ -27,14 +27,17 @@ import type npT from 'node:path';
 import type { ArticleLocale as HubLocale } from '../siteShell';
 // @ts-ignore The site symlink can make tsc resolve this shared source from
 // build-plugins/shared, where this engine-local sibling is not visible at the
+// link path; runtime resolution follows the package source path.
+import { parseStaticArticleTranslationSource } from './articleStaticSource.mjs';
+// @ts-ignore The site symlink can make tsc resolve this shared source from
+// build-plugins/shared, where this engine-local sibling is not visible at the
 // link path; Node/Vite resolve the realpath correctly at runtime.
 import { parseArticleUrlSlugs } from './articleReaderSource.mjs';
 // Explicit `.ts`: resolved from build-plugins/shared through its symlink twin.
 import { parseArticleRegistryEntries } from './articleRegistryEntries.ts';
-import { readStaticObjectEntries } from './ts-literals.mjs';
 
 /**
- * Read article slugs from blog-meta-{lang}.ts. Each line keyed
+ * Read article slugs from blog-meta-{lang}.ts. Each property keyed
  * `'blog.article.<slug>.title'` is one article. The `slug` returned is
  * the canonical `BlogArticleId` key (matches `BLOG_SLUGS` keys in
  * `routerBlogData.ts`) — NOT the URL slug. Use {@link readBlogUrlSlugs}
@@ -44,7 +47,7 @@ import { readStaticObjectEntries } from './ts-literals.mjs';
  * defaults to the site layout (`services/locales`, where the symlinks into
  * this package's `content/` live) so every existing caller is unchanged. The
  * articles repository publishes from the corpus directly and passes its own
- * (`content`) — same reader, no second copy of the parse regex to drift.
+ * (`content`) — same AST reader, no second copy of the parse logic to drift.
  */
 export function readArticleSlugs(
   fs: typeof fsT,
@@ -54,24 +57,41 @@ export function readArticleSlugs(
   metaPrefix = 'blog-meta',
   metaDir = 'services/locales',
 ): Array<{ slug: string; title: string }> {
+  return readArticleMetadata(fs, np, rootDir, locale, metaPrefix, metaDir).articles;
+}
+
+/**
+ * Read one locale's article title and excerpt fields in a single AST pass.
+ * Callers that render both the title list and its descriptions should use this
+ * operation rather than invoking the two projections separately.
+ */
+export function readArticleMetadata(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  locale: HubLocale,
+  metaPrefix = 'blog-meta',
+  metaDir = 'services/locales',
+): { articles: Array<{ slug: string; title: string }>; excerpts: Map<string, string> } {
   const file = np.resolve(rootDir, metaDir, `${metaPrefix}-${locale}.ts`);
-  const out: Array<{ slug: string; title: string }> = [];
-  if (!fs.existsSync(file)) return out;
+  const articles: Array<{ slug: string; title: string }> = [];
+  const excerpts = new Map<string, string>();
+  if (!fs.existsSync(file)) return { articles, excerpts };
   let src: string;
   try {
     src = fs.readFileSync(file, 'utf-8');
   } catch (err) {
     console.warn(`[seo-hubs] failed to read ${metaPrefix}-${locale}.ts`, err);
-    return out;
+    return { articles, excerpts };
   }
-  const seen = new Set<string>();
-  for (const { key, value } of readStaticObjectEntries(src, file, { errorLabel: 'seo-hubs' })) {
-    const match = /^blog\.article\.(.+)\.(title|excerpt)$/u.exec(key);
-    if (!match || match[2] !== 'title' || seen.has(match[1])) continue;
-    seen.add(match[1]);
-    out.push({ slug: match[1], title: value });
+  const translations = parseStaticArticleTranslationSource(src, file);
+  for (const [articleId, fields] of translations) {
+    const title = fields.get('title');
+    if (title !== undefined) articles.push({ slug: articleId, title });
+    const excerpt = fields.get('excerpt');
+    if (excerpt !== undefined) excerpts.set(articleId, excerpt);
   }
-  return out;
+  return { articles, excerpts };
 }
 
 /**
@@ -117,7 +137,7 @@ export function readArticleDates(
  *
  * Hoisted here (issue #5001) from a private copy in `seoHubsPlugin.ts`: the
  * topic-cluster hubs need the same excerpts, both to render card previews and
- * to feed the TF-IDF topic assignment, and a second literal copy of this regex
+ * to feed the TF-IDF topic assignment, and a second literal copy of this parser
  * is the drift this module exists to prevent (AGENTS.md #6). `seoHubsPlugin`
  * now calls this one.
  */
@@ -129,21 +149,7 @@ export function readArticleExcerpts(
   metaPrefix = 'blog-meta',
   metaDir = 'services/locales',
 ): Map<string, string> {
-  const file = np.resolve(rootDir, metaDir, `${metaPrefix}-${locale}.ts`);
-  const out = new Map<string, string>();
-  if (!fs.existsSync(file)) return out;
-  let src: string;
-  try {
-    src = fs.readFileSync(file, 'utf-8');
-  } catch (err) {
-    console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
-    return out;
-  }
-  for (const { key, value } of readStaticObjectEntries(src, file, { errorLabel: 'seo-hubs' })) {
-    const match = /^blog\.article\.(.+)\.(title|excerpt)$/u.exec(key);
-    if (match?.[2] === 'excerpt') out.set(match[1], value);
-  }
-  return out;
+  return readArticleMetadata(fs, np, rootDir, locale, metaPrefix, metaDir).excerpts;
 }
 
 /**

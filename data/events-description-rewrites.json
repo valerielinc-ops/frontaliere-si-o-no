@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-21T18:22:15.537Z",
+  "generatedAt": "2026-10-21T19:21:48.605Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -14467,6 +14467,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T21:39:47.651Z"
+    },
+    "guidle:A1FujGB::cff79eac6bc29237fd17f88912f8e226d857e21f904c29f9b83f5540b8008859": {
+      "id": "guidle:A1FujGB",
+      "sourceDescriptionHash": "cff79eac6bc29237fd17f88912f8e226d857e21f904c29f9b83f5540b8008859",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Plaza Klub; cantone: ZH; categoria: Rock generalmente; organizzatore: Live NationAmbleEurope 2027Türöffnung: 19:00 UhrBeginn: 19:30; data: 2027-02-14; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Plaza Klub; cantone: ZH; categoria: Rock generalmente; organizzatore: Live NationAmbleEurope 2027Türöffnung: 19:00 UhrBeginn: 19:30; data: 2027-02-14; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Plaza Klub; canton: ZH; category: Rock generalmente; organiser: Live NationAmbleEurope 2027Türöffnung: 19:00 UhrBeginn: 19:30; date: 2027-02-14; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Plaza Klub; kanton: ZH; kategorie: Rock generalmente; veranstalter: Live NationAmbleEurope 2027Türöffnung: 19:00 UhrBeginn: 19:30; datum: 2027-02-14; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Plaza Klub; canton: ZH; catégorie: Rock generalmente; organisateur: Live NationAmbleEurope 2027Türöffnung: 19:00 UhrBeginn: 19:30; date: 2027-02-14; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T19:16:50.301Z"
     },
     "guidle:A1gDgEm::e8c9972beaaae27ae01e477fb2ee78edff61c44db0af3afef849dbcd2f0392b5": {
       "id": "guidle:A1gDgEm",
@@ -37218,6 +37232,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T19:14:34.543Z"
     },
+    "guidle:ArwfAvs::1e9869fe9d4ce5671fbb049b48d0e26c1e0418e6d8899608a3377da34a7a0a34": {
+      "id": "guidle:ArwfAvs",
+      "sourceDescriptionHash": "1e9869fe9d4ce5671fbb049b48d0e26c1e0418e6d8899608a3377da34a7a0a34",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theatre du Crochetan; comune: Monthey; cantone: VS; categoria: Hip-Hop; organizzatore: Guidle; data: 2027-01-21; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theatre du Crochetan; comune: Monthey; cantone: VS; categoria: Hip-Hop; organizzatore: Guidle; data: 2027-01-21; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Theatre du Crochetan; municipality: Monthey; canton: VS; category: Hip-Hop; organiser: Guidle; date: 2027-01-21; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Theatre du Crochetan; gemeinde: Monthey; kanton: VS; kategorie: Hip-Hop; veranstalter: Guidle; datum: 2027-01-21; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Theatre du Crochetan; commune: Monthey; canton: VS; catégorie: Hip-Hop; organisateur: Guidle; date: 2027-01-21; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T19:16:50.276Z"
+    },
     "guidle:ARwk6Ms::610ee8ae020e6d5c38743fa1fe13fbc44ee201509e91c5483ef7ed383753ffe5": {
       "id": "guidle:ARwk6Ms",
       "sourceDescriptionHash": "610ee8ae020e6d5c38743fa1fe13fbc44ee201509e91c5483ef7ed383753ffe5",
@@ -40227,6 +40255,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T16:15:27.257Z"
+    },
+    "guidle:Aueg29a::790cb393a527a577dad6d4600556533196d7953822697cb7cd727116ecdbcd80": {
+      "id": "guidle:Aueg29a",
+      "sourceDescriptionHash": "790cb393a527a577dad6d4600556533196d7953822697cb7cd727116ecdbcd80",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturzentrum Kammgarn; cantone: SH; categoria: Musica del europa orientale / Balcani; organizzatore: Guidle; partecipante: I Am From Bosnia – Take; data: 2027-02-06; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kulturzentrum Kammgarn; cantone: SH; categoria: Musica del europa orientale / Balcani; organizzatore: Guidle; partecipante: I Am From Bosnia – Take; data: 2027-02-06; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kulturzentrum Kammgarn; canton: SH; category: Musica del europa orientale / Balcani; organiser: Guidle; participant: I Am From Bosnia – Take; date: 2027-02-06; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kulturzentrum Kammgarn; kanton: SH; kategorie: Musica del europa orientale / Balcani; veranstalter: Guidle; mitwirkender: I Am From Bosnia – Take; datum: 2027-02-06; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kulturzentrum Kammgarn; canton: SH; catégorie: Musica del europa orientale / Balcani; organisateur: Guidle; participant: I Am From Bosnia – Take; date: 2027-02-06; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T19:16:50.290Z"
     },
     "guidle:AUfqreX::d3113948803bd234bff83e6c6eaf70846e0ae4606a69068c96e5ad0606f1f55c": {
       "id": "guidle:AUfqreX",
@@ -164264,15 +164306,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:A1FujGB::cff79eac6bc29237fd17f88912f8e226d857e21f904c29f9b83f5540b8008859": {
-      "id": "guidle:A1FujGB",
-      "sourceDescriptionHash": "cff79eac6bc29237fd17f88912f8e226d857e21f904c29f9b83f5540b8008859",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-21T17:21:14.703Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:A1JuikM::2e5a8cb3fc3fe66c37447d7bcfd195e31f795f662c82b6fe53684f256ab36308": {
       "id": "guidle:A1JuikM",
       "sourceDescriptionHash": "2e5a8cb3fc3fe66c37447d7bcfd195e31f795f662c82b6fe53684f256ab36308",
@@ -165785,15 +165818,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ArwfAvs::1e9869fe9d4ce5671fbb049b48d0e26c1e0418e6d8899608a3377da34a7a0a34": {
-      "id": "guidle:ArwfAvs",
-      "sourceDescriptionHash": "1e9869fe9d4ce5671fbb049b48d0e26c1e0418e6d8899608a3377da34a7a0a34",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-21T17:22:56.948Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AS1QvJP::b8a0c1f23ee7c492a3c934a39006c77e909c7b14c39b9061f02d308734244832": {
       "id": "guidle:AS1QvJP",
       "sourceDescriptionHash": "b8a0c1f23ee7c492a3c934a39006c77e909c7b14c39b9061f02d308734244832",
@@ -165962,15 +165986,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T23:19:27.767Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Aueg29a::790cb393a527a577dad6d4600556533196d7953822697cb7cd727116ecdbcd80": {
-      "id": "guidle:Aueg29a",
-      "sourceDescriptionHash": "790cb393a527a577dad6d4600556533196d7953822697cb7cd727116ecdbcd80",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-21T17:21:48.542Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
