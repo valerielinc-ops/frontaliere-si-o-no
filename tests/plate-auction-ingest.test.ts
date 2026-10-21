@@ -220,12 +220,23 @@ describe('plate-auction ingest resilience', () => {
       lastVerifiedAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
       lastSeenAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
     }));
-    const stillListed = previousCatalogue.slice(14).map((row) => ({
-      ...row,
-      sourceFetchedAt: NOW.toISOString(),
-      lastVerifiedAt: NOW.toISOString(),
-      lastSeenAt: NOW.toISOString(),
-    }));
+    const stillListed = [
+      ...previousCatalogue.slice(14).map((row) => ({
+        ...row,
+        sourceFetchedAt: NOW.toISOString(),
+        lastVerifiedAt: NOW.toISOString(),
+        lastSeenAt: NOW.toISOString(),
+      })),
+      ...Array.from({ length: 14 }, (_unused, index) => ({
+        ...previousCatalogue[0],
+        id: `tg-new-${index}`,
+        plateNumber: String(50 + index),
+        normalizedPlate: `TG${50 + index}`,
+        sourceFetchedAt: NOW.toISOString(),
+        lastVerifiedAt: NOW.toISOString(),
+        lastSeenAt: NOW.toISOString(),
+      })),
+    ];
 
     const snapshot = await collectPlateAuctions({
       selectedCantons: ['tg'],
@@ -234,8 +245,10 @@ describe('plate-auction ingest resilience', () => {
       now: NOW,
     });
 
-    expect(snapshot.sources.tg).toMatchObject({ status: 'active', rowCount: 50 });
-    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG')).toHaveLength(50);
+    // The 14 missing cards remain visible alongside the 50 fetched cards, so
+    // the published row count is 64 even though the source is healthy.
+    expect(snapshot.sources.tg).toMatchObject({ status: 'active', rowCount: 64 });
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG')).toHaveLength(64);
     expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG' && auction.missingSince)).toHaveLength(14);
     expect(snapshot.history.filter((auction) => auction.sourceKey === 'TG')).toEqual([]);
   });
