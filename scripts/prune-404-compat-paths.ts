@@ -13,7 +13,7 @@
  *
  * Run this BEFORE committing the store in those workflows: it drops
  * non-resolving paths while preserving resolving paths. It fails closed on
- * large global losses and when a route family of at least 2 URLs disappears
+ * large global losses and when a route family of at least 20 URLs disappears
  * or loses over 25%. After reviewing an intentional cleanup, opt in with
  * PRUNE_404_ALLOW_LARGE_PRUNE=1. Idempotent; exits 0 when nothing changes.
  */

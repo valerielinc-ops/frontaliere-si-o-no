@@ -95,7 +95,7 @@ describe('assertCompatPruneFamilySafety', () => {
 
   it('sets a localized-loss threshold independent of the global accumulator size', () => {
     expect(COMPAT_PATHS_MAX_AUTO_PRUNE_FAMILY_RATIO).toBe(0.25);
-    expect(COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE).toBe(2);
+    expect(COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE).toBe(20);
   });
 
   it('catches a resolver regression isolated to one route family', () => {
@@ -114,21 +114,32 @@ describe('assertCompatPruneFamilySafety', () => {
     )).not.toThrow();
   });
 
-  it('blocks complete deletion of a smaller route family', () => {
+  it('blocks complete deletion of an established route family', () => {
     expect(() => assertCompatPruneFamilySafety(
       new Map([['fr/articles-frontalier', 99]]),
       new Map([['fr/articles-frontalier', 99]]),
     )).toThrow(/localized route-family loss/);
   });
 
-  it('protects a two-path family from both partial and total loss', () => {
+  it('allows pruning unestablished families below the minimum size', () => {
     expect(() => assertCompatPruneFamilySafety(
-      new Map([['it/articoli-frontaliere', 2]]),
-      new Map([['it/articoli-frontaliere', 1]]),
+      new Map([['it/articoli-frontaliere', 19]]),
+      new Map([['it/articoli-frontaliere', 19]]),
+    )).not.toThrow();
+  });
+
+  it('protects a route family starting at the minimum established size', () => {
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['it/articoli-frontaliere', 20]]),
+      new Map([['it/articoli-frontaliere', 5]]),
+    )).not.toThrow();
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['it/articoli-frontaliere', 20]]),
+      new Map([['it/articoli-frontaliere', 6]]),
     )).toThrow(/localized route-family loss/);
     expect(() => assertCompatPruneFamilySafety(
-      new Map([['it/articoli-frontaliere', 2]]),
-      new Map([['it/articoli-frontaliere', 2]]),
+      new Map([['it/articoli-frontaliere', 20]]),
+      new Map([['it/articoli-frontaliere', 20]]),
     )).toThrow(/localized route-family loss/);
   });
 
