@@ -44,7 +44,7 @@ const OUT_OF_SCOPE_DETAIL_HTML = `<!doctype html>
     écoute, autonomie, rigueur, collaboration, disponibilité et une bonne maîtrise du français.
     Les professionnels participent aux transmissions, à la sécurité, à l'accueil et au suivi
     des situations complexes dans un environnement médico-social dynamique.</p>
-    <p>Taux d'activité: 100%<br>Nature du contrat: CDI<br>
+    <p>Taux d'activité: 80-100%<br>Nature du contrat: Contrat de durée indéterminée<br>
     Entrée en fonction: à convenir<br>Lieu de travail: EMS Clair-Soleil, Ecublens</p>
   </div>
 </body></html>`;
@@ -217,8 +217,24 @@ describe('Fondation Asile des aveugles source-backed crawler', () => {
     });
   });
 
-  it('keeps the 100% CDI contract guard active for skipped siblings', () => {
-    const invalidContract = OUT_OF_SCOPE_DETAIL_HTML
+  it('skips a known same-canton sibling before applying the Lausanne contract guard', () => {
+    const sibling = parseAsileDetailPage(
+      OUT_OF_SCOPE_DETAIL_HTML,
+      OUT_OF_SCOPE_DETAIL_URL,
+      'Assistant-e en soins et santé communautaire',
+      { allowSameCantonNonTargetLocation: true },
+    );
+
+    expect(sibling).toMatchObject({
+      location: 'EMS Clair-Soleil, Ecublens',
+      canton: 'VD',
+      workload: '80-100%',
+      contract: 'Contrat de durée indéterminée',
+    });
+  });
+
+  it('keeps the 100% CDI contract guard active for the configured Lausanne target', () => {
+    const invalidContract = DETAIL_HTML
       .replace('Taux d\'activité: 100%', 'Taux d\'activité: 50%')
       .replace('Nature du contrat: CDI', 'Nature du contrat: CDD');
 
