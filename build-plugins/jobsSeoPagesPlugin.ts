@@ -1419,9 +1419,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
  logBuildMem('jobsSeoPages: collector created', collector);
  const _ensuredDirs = new Set<string>();
+ const MAX_JOBS_ENSURED_DIR_CACHE_ENTRIES = 16_384;
  function _md(dir: string) {
- if (_ensuredDirs.has(dir)) return;
+ if (_ensuredDirs.has(dir)) {
+  _ensuredDirs.delete(dir);
+  _ensuredDirs.add(dir);
+  return;
+ }
  fs.mkdirSync(dir, { recursive: true });
+ if (_ensuredDirs.size >= MAX_JOBS_ENSURED_DIR_CACHE_ENTRIES) {
+  const oldest = _ensuredDirs.values().next().value;
+  if (oldest !== undefined) _ensuredDirs.delete(oldest);
+ }
  _ensuredDirs.add(dir);
  }
  // Profile-mode opt-out for HTML minification.
@@ -1436,13 +1445,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // requires extending `postWalkWorker.mjs` to run `minifyHtml` across the
  // existing 4-worker pool — tracked as a follow-up.
  const __SKIP_MINIFY = process.env.JOBS_SEO_SKIP_MINIFY === '1';
- const _writtenPaths = new Set<string>();
+ const pathWasClaimed = (filePath: string): boolean => getPathHistory().has(filePath);
  function _qw(filePath: string, content: string) {
- _writtenPaths.add(filePath);
  collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
  const hasCollectorWrittenHtmlForPath = (relativePath: string): boolean =>
-  hasCollectorWrittenHtml(distDir, relativePath, (filePath) => collector.hasWritten(filePath));
+  // WriteCollector.forgetWrittenPaths() is deliberately lossy; ownership must
+  // remain queryable through the build-lifetime shared registry after a chunk
+  // acknowledgement is released.
+  hasCollectorWrittenHtml(distDir, relativePath, pathWasClaimed);
 
  type JobsSeoLocaleSized = Record<(typeof JOB_SEO_LOCALES)[number], { size: number }>;
  type JobsSeoMemContext = {
@@ -1461,7 +1472,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   previousSlugClaimants?: ReadonlyMap<unknown, unknown>;
   winnerByPrevSlugKey?: ReadonlyMap<unknown, unknown>;
   crossLocaleCacheReads?: ReadonlyMap<unknown, unknown>;
-  writtenPaths?: ReadonlySet<unknown>;
   activeJobDirs?: ReadonlySet<unknown>;
   emittedActiveJobPaths?: ReadonlySet<unknown>;
   legacyTiBridgeDirs?: ReadonlySet<unknown>;
@@ -1477,7 +1487,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
 
  const jobsSeoMemContext: JobsSeoMemContext = {
-  writtenPaths: _writtenPaths,
   jobsEnsuredDirs: _ensuredDirs,
   canonical: { tuples: 0, inputs: 0, chunks: 0, results: 0, resultEntries: 0 },
   sitemap: {
@@ -1541,7 +1550,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    previousSlugClaimants: jobsSeoMemContext.previousSlugClaimants?.size ?? 0,
    previousSlugWinners: jobsSeoMemContext.winnerByPrevSlugKey?.size ?? 0,
    crossLocaleCacheReads: jobsSeoMemContext.crossLocaleCacheReads?.size ?? 0,
-   _writtenPaths: jobsSeoMemContext.writtenPaths?.size ?? 0,
+   collectorWrittenPaths: collector.writtenPathCount,
    activeJobDirs: jobsSeoMemContext.activeJobDirs?.size ?? 0,
    emittedActiveJobPaths: jobsSeoMemContext.emittedActiveJobPaths?.size ?? 0,
    legacyTiBridgeDirs: jobsSeoMemContext.legacyTiBridgeDirs?.size ?? 0,
@@ -1674,13 +1683,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // back to job.description for some locales) hits the cache.
  // `localizeFallbackCanonical()` is called fresh per-locale — only swaps the
  // 4 extra section headings and recomputes the (cheap) readingMinutes.
- // The pre-pass still populates every fallback tuple before the main loop so
- // the worker result is reused across locales. Entries are now reference-counted
- // by the active readers and evicted at their last use; without that boundary
- // the ~21k cleaned descriptions stayed live until the end of all active pages
- // and added roughly 2.4 GB to the peak heap (run 36088944074). The size cap
- // remains a safety net for an unexpected/untracked access pattern.
- const CANONICAL_CLEANED_CACHE_MAX = 30000;
+ // The pre-pass is only an optimization: a cache miss can always rebuild the
+ // pure value. Keep the working set deliberately small because the corpus has
+ // ~21k distinct fallback tuples, while one cleaned value retains the parsed
+ // description and several derived arrays. The old 30k cap never engaged, so
+ // the worker merge held the whole corpus through the active-page peak even
+ // after the last-reader eviction fix (issue #12763 recurrence).
+ const CANONICAL_CLEANED_CACHE_MAX = 2048;
  const canonicalCleanedCache = new Map<string, CleanedFallbackContent>();
  jobsSeoMemContext.canonicalCleanedCache = canonicalCleanedCache;
  const canonicalFallbackUsesRemaining = new Map<string, number>();
@@ -1693,6 +1702,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // emit completes) so the end-of-build diagnostic log keeps reporting the
  // true peak size, not the post-clear `0`.
  let _canonicalCleanedCacheSizeAtEnd = 0;
+ const cacheCanonicalCleaned = (key: string, cleaned: CleanedFallbackContent): void => {
+   if (!canonicalCleanedCache.has(key) && canonicalCleanedCache.size >= CANONICAL_CLEANED_CACHE_MAX) {
+     const oldestKey = canonicalCleanedCache.keys().next().value;
+     if (oldestKey !== undefined) {
+       canonicalCleanedCache.delete(oldestKey);
+       _canonicalCleanedEvictions += 1;
+     }
+   }
+   canonicalCleanedCache.set(key, cleaned);
+   _canonicalCleanedCachePeakEntries = Math.max(
+     _canonicalCleanedCachePeakEntries,
+     canonicalCleanedCache.size,
+   );
+ };
  const releaseCanonicalCleanedAfterUse = (key: string): void => {
    const remaining = canonicalFallbackUsesRemaining.get(key);
    if (remaining === undefined) return;
@@ -1718,18 +1741,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    }
    _canonicalCleanedMisses += 1;
    const result = canonicalizeFallbackCleaned(description, requirements);
-   if (canonicalCleanedCache.size >= CANONICAL_CLEANED_CACHE_MAX) {
-     const oldestKey = canonicalCleanedCache.keys().next().value;
-     if (oldestKey !== undefined) {
-       canonicalCleanedCache.delete(oldestKey);
-       _canonicalCleanedEvictions += 1;
-     }
-   }
-   canonicalCleanedCache.set(key, result);
-   _canonicalCleanedCachePeakEntries = Math.max(
-     _canonicalCleanedCachePeakEntries,
-     canonicalCleanedCache.size,
-   );
+   cacheCanonicalCleaned(key, result);
    releaseCanonicalCleanedAfterUse(key);
    return result;
  };
@@ -3151,7 +3163,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   }
  }
 
- // ── Canonical-fallback worker pre-pass ─────────────────────────────
+ // ── Canonical-fallback worker batches ──────────────────────────────
  //
  // `canonicalizeFallbackCleaned` is pure (regex + string passes, no I/O)
  // and runs once per UNIQUE (description, requirements) tuple. Run 26440498634
@@ -3160,25 +3172,37 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // dedup across locales; the worker pool parallelizes the remaining unique
  // work across the runner's vCPUs (GH free-tier = 2; self-hosted = up to N).
  //
- // Pre-collect every unique tuple needed by the upcoming active-job loop,
- // dispatch to N workers, await results, then populate `canonicalCleanedCache`.
- // The main loop's `memoCanonicalCleaned` calls then hit 100 %.
+ // Pre-collect the unique tuples for one bounded active-job batch, dispatch
+ // them to N workers, merge the results, and then render that same batch.
+ // Keeping the worker result and cache bounded is important: pre-collecting
+ // the full corpus briefly retained ~21k cleaned values before the active
+ // loop could release them.
  //
  // Opt-out: set `JOBS_SEO_FALLBACK_WORKERS=0` to keep the inline single-
  // threaded path (useful for A/B timing or debugging worker overhead).
- await (async () => {
+ // At most four locale variants are emitted per job, so 512 jobs keep each
+ // pre-pass at or below the 2,048-entry canonical cache cap.
+ const CANONICAL_FALLBACK_JOB_BATCH_SIZE = 512;
+ const precomputeCanonicalFallbackWorkerBatch = async (
+ batchJobs: any[],
+ batchIndex: number,
+ ): Promise<void> => {
  const optOut = process.env.JOBS_SEO_FALLBACK_WORKERS === '0';
  if (optOut) {
-  logJobsSeoMem('after-canonical-prepass', { canonicalPrepassSkipped: 1 });
+  logJobsSeoMem('after-canonical-prepass', { canonicalPrepassSkipped: 1, canonicalPrepassBatch: batchIndex });
   return;
  }
+ // Every active-job batch is rendered immediately after this function. Drop
+ // any unused values from the previous batch before spawning workers so the
+ // bounded cache is also a hard bound between batches.
+ canonicalCleanedCache.clear();
  const tStart = Date.now();
  // Phase 1: enumerate unique tuples (skip cache hits — usually none at
  // this point, but harmless to check).
  const tStartEnum = Date.now();
  const seen = new Set<string>();
  const tuples: Array<{ key: string; description: string; requirements: string[] }> = [];
- for (const job of validJobs) {
+ for (const job of batchJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
  // Per-locale shard build (BUILD_LOCALE): the cleaned canonical
@@ -3239,11 +3263,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Inline single-threaded path — same code as the worker body.
  for (const t of tuples) {
  const cleaned = canonicalizeFallbackCleaned(t.description, t.requirements);
- canonicalCleanedCache.set(t.key, cleaned);
- _canonicalCleanedCachePeakEntries = Math.max(
-  _canonicalCleanedCachePeakEntries,
-  canonicalCleanedCache.size,
- );
+ cacheCanonicalCleaned(t.key, cleaned);
  }
  jobsSeoMemContext.canonical.chunks = 1;
  jobsSeoMemContext.canonical.results = 1;
@@ -3251,7 +3271,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  logJobsSeoMem('after-canonical-prepass');
  // eslint-disable-next-line no-console
  console.log(
- `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=1 wall_ms=${Date.now() - tStart}`,
+  `[jobs-seo-profile] canonical-fallback-pre-pass batch=${batchIndex} tuples=${tuples.length} workers=1 wall_ms=${Date.now() - tStart}`,
  );
  return;
  }
@@ -3289,19 +3309,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  );
  const dispatchMs = Date.now() - tStartDispatch;
 
- // Phase 4: merge — populate cache. The cache cap is intentionally
- // bypassed here: the pre-pass output is exactly what the main loop will
- // need, so evicting would just cause inline recomputation right after.
+ // Phase 4: merge — populate the same bounded cache used by the main loop.
+ // A large corpus skips this phase above; for smaller inputs the cap is still
+ // enforced so this optimization cannot silently become an unbounded retainer.
  const tStartMerge = Date.now();
  let canonicalResultEntries = 0;
  for (const r of results) {
  for (const entry of r.entries) {
  canonicalResultEntries++;
- canonicalCleanedCache.set(entry.key, entry.cleaned);
- _canonicalCleanedCachePeakEntries = Math.max(
-  _canonicalCleanedCachePeakEntries,
-  canonicalCleanedCache.size,
- );
+   cacheCanonicalCleaned(entry.key, entry.cleaned);
  }
  }
  const mergeMs = Date.now() - tStartMerge;
@@ -3317,9 +3333,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const workerWorkMin = Math.min(...results.map((r) => r.profile.workMs));
  // eslint-disable-next-line no-console
  console.log(
- `[jobs-seo-profile] canonical-fallback-pre-pass tuples=${tuples.length} workers=${workerCount} wall_ms=${Date.now() - tStart} enum_ms=${enumMs} chunk_ms=${chunkMs} dispatch_ms=${dispatchMs} merge_ms=${mergeMs} worker_import_p99_ms=${workerImportP99.toFixed(0)} worker_work_min_ms=${workerWorkMin.toFixed(0)} worker_work_avg_ms=${workerWorkAvg.toFixed(0)} worker_work_p99_ms=${workerWorkP99.toFixed(0)}`,
+  `[jobs-seo-profile] canonical-fallback-pre-pass batch=${batchIndex} tuples=${tuples.length} workers=${workerCount} wall_ms=${Date.now() - tStart} enum_ms=${enumMs} chunk_ms=${chunkMs} dispatch_ms=${dispatchMs} merge_ms=${mergeMs} worker_import_p99_ms=${workerImportP99.toFixed(0)} worker_work_min_ms=${workerWorkMin.toFixed(0)} worker_work_avg_ms=${workerWorkAvg.toFixed(0)} worker_work_p99_ms=${workerWorkP99.toFixed(0)}`,
  );
- })();
+ };
 
  // ── Evergreen employer hubs: hand the ad's authority to the page that
  //    outlives it (`/aziende/<slug>/`) ─────────────────────────────────────
@@ -3393,10 +3409,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    () => collector.flush(),
    hasCollectorWrittenHtmlForPath,
   );
+  collector.forgetWrittenPaths();
   activeHtmlCacheChunks++;
  };
 
- for (const job of validJobs) {
+ for (let activeJobIndex = 0; activeJobIndex < validJobs.length; activeJobIndex++) {
+  if (activeJobIndex % CANONICAL_FALLBACK_JOB_BATCH_SIZE === 0) {
+   await precomputeCanonicalFallbackWorkerBatch(
+    validJobs.slice(activeJobIndex, activeJobIndex + CANONICAL_FALLBACK_JOB_BATCH_SIZE),
+    Math.floor(activeJobIndex / CANONICAL_FALLBACK_JOB_BATCH_SIZE),
+   );
+  }
+  const job = validJobs[activeJobIndex];
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
   if (activeHtmlPaths.size >= ACTIVE_HTML_CACHE_CHUNK_SIZE) await releaseActiveHtmlCacheChunk();
  const perLocaleSlug = {
@@ -5496,12 +5520,12 @@ ${companyFollowHtml}
  const rawRelPath = `${localePrefix[locale]}/${sectionSlug}/${rawFullSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const rawDir = np.join(distDir, rawRelPath);
  const rawDirIndex = np.join(rawDir, 'index.html');
- if (!_writtenPaths.has(rawDirIndex) && !fs.existsSync(rawDirIndex)) {
+ if (!pathWasClaimed(rawDirIndex) && !fs.existsSync(rawDirIndex)) {
  _md(rawDir);
  _qw(rawDirIndex, companyHtml);
  }
  const rawFlat = np.join(distDir, rawRelPath + '.html');
- if (!_writtenPaths.has(rawFlat) && !fs.existsSync(rawFlat)) {
+ if (!pathWasClaimed(rawFlat) && !fs.existsSync(rawFlat)) {
  _md(np.dirname(rawFlat));
  _qwFlat(rawFlat, companyHtml);
  }
@@ -5549,12 +5573,12 @@ ${companyFollowHtml}
  });
  const aliasDir = np.join(distDir, aliasRelPath);
  const aliasDirIndex = np.join(aliasDir, 'index.html');
- if (!_writtenPaths.has(aliasDirIndex) && !fs.existsSync(aliasDirIndex)) {
+ if (!pathWasClaimed(aliasDirIndex) && !fs.existsSync(aliasDirIndex)) {
  _md(aliasDir);
  _qw(aliasDirIndex, aliasHtml);
  }
  const aliasFlat = np.join(distDir, aliasRelPath + '.html');
- if (!_writtenPaths.has(aliasFlat) && !fs.existsSync(aliasFlat)) {
+ if (!pathWasClaimed(aliasFlat) && !fs.existsSync(aliasFlat)) {
  _md(np.dirname(aliasFlat));
  _qwFlat(aliasFlat, aliasHtml);
  }
@@ -5942,7 +5966,7 @@ ${companyFollowHtml}
  // fallback) -- alternates would all be dead too if the IT canonical isn't.
  const itDirIndex = np.join(distDir, itPath.slice(1).replace(/\/$/, ''), 'index.html');
  const itFlatHtml = np.join(distDir, itPath.replace(/\/+$/, '').slice(1) + '.html');
- const itEmitted = _writtenPaths.has(itDirIndex) || _writtenPaths.has(itFlatHtml) || fs.existsSync(itDirIndex) || fs.existsSync(itFlatHtml);
+ const itEmitted = pathWasClaimed(itDirIndex) || pathWasClaimed(itFlatHtml) || fs.existsSync(itDirIndex) || fs.existsSync(itFlatHtml);
  if (!itEmitted) return;
  const localePaths = new Map<typeof localeList[number], string>();
  localePaths.set('it', itPath);
@@ -5965,7 +5989,7 @@ ${companyFollowHtml}
  if (locale !== 'it') {
  const dirIndex = np.join(distDir, path.slice(1).replace(/\/$/, ''), 'index.html');
  const flatHtml = np.join(distDir, path.replace(/\/+$/, '').slice(1) + '.html');
- const emitted = _writtenPaths.has(dirIndex) || _writtenPaths.has(flatHtml) || fs.existsSync(dirIndex) || fs.existsSync(flatHtml);
+ const emitted = pathWasClaimed(dirIndex) || pathWasClaimed(flatHtml) || fs.existsSync(dirIndex) || fs.existsSync(flatHtml);
  if (!emitted) continue;
  }
  editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${path}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
@@ -6012,12 +6036,12 @@ ${companyFollowHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -7101,12 +7125,12 @@ ${staticAnalyticsHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -8119,7 +8143,7 @@ ${staticAnalyticsHtml}
  const p = localePaths.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  cityHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.85</priority>\n </url>`);
  }
@@ -8246,7 +8270,7 @@ ${staticAnalyticsHtml}
  const p = pgLocalePaths.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
@@ -8379,7 +8403,7 @@ ${staticAnalyticsHtml}
  const p = pgLocalePathsCanton.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
  }
@@ -8515,7 +8539,7 @@ ${staticAnalyticsHtml}
  const p = catLocalePaths.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
  }
@@ -8668,7 +8692,7 @@ ${staticAnalyticsHtml}
  const p = catLocalePathsCanton.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  categorySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${catSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n <changefreq>weekly</changefreq>\n <priority>0.6</priority>\n </url>`);
  }
@@ -8949,7 +8973,7 @@ ${staticAnalyticsHtml}
  const p = localePaths.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  sectorHubSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.8</priority>\n </url>`);
  }
@@ -9238,12 +9262,12 @@ ${staticAnalyticsHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -9469,7 +9493,7 @@ ${staticAnalyticsHtml}
  const p = localePaths.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  companyCantonSitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
  }
@@ -9538,12 +9562,12 @@ ${staticAnalyticsHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!_writtenPaths.has(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -9733,7 +9757,7 @@ ${staticAnalyticsHtml}
  const p = localePaths.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  companyCitySitemapEntries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <changefreq>daily</changefreq>\n <priority>0.65</priority>\n </url>`);
  }
@@ -10070,7 +10094,7 @@ ${staticAnalyticsHtml}
  if (!kwEmittedLocales.has(l)) continue;
  } else if (l !== 'it') {
  const dirIndex = np.join(distDir, kwLocalePaths.get(l)!.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  kwSitemapLocales.add(l);
  }
@@ -10352,7 +10376,7 @@ ${staticAnalyticsHtml}
  if (isEditorialDuplicate || overrideUrl !== lUrl) continue;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, lp.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${sAlternates}\n${sXDefault}\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
@@ -10555,7 +10579,7 @@ ${staticAnalyticsHtml}
  if (isEditorialDuplicate || overrideUrl !== lUrl) continue;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, cp.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  searchSitemapEntries.push(` <url>\n <loc>${lUrl}</loc>\n${cAlternates}\n${cXDefault}\n <changefreq>weekly</changefreq>\n <priority>0.5</priority>\n </url>`);
  }
@@ -10942,7 +10966,7 @@ ${staticAnalyticsHtml}
  const p = localePaths.get(l)!;
  if (l !== 'it') {
  const dirIndex = np.join(distDir, p.slice(1), 'index.html');
- if (!_writtenPaths.has(dirIndex) && !fs.existsSync(dirIndex)) continue;
+ if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) continue;
  }
  entries.push(` <url>\n <loc>${BASE_URL}${p}</loc>\n${alternateLinks}\n${xDefault}\n <changefreq>weekly</changefreq>\n <priority>0.7</priority>\n </url>`);
  }
@@ -12169,6 +12193,11 @@ ${staticAnalyticsHtml}
  }
 
  /* ── Expired-job soft-landing pages ────────────────────────── */
+ // The active-page cache has finished checking its flushed paths. Drop that
+ // acknowledgement journal before the historical emit, which can write
+ // millions of files; path ownership remains available in sharedWriteRegistry.
+ await collector.awaitDrainSlot(0);
+ collector.forgetWrittenPaths();
  // 1. Read tracking file + merge current jobs
  // Sharded registry (data/all-known-job-slugs/part-*.json, #4248) — the store
  // is the ONLY reader/writer, never the raw file (AGENTS.md #6).
@@ -12853,7 +12882,7 @@ ${staticAnalyticsHtml}
  // Include ALL tracking keys except direct bridge slugs. Keys that happen to
  // match a currentSlug value are included because their locale paths may differ
  // from the active job's paths — writeSoftLandingPage already skips paths
- // where active or bridge pages exist (via _writtenPaths / activeJobDirs).
+ // where active or bridge pages exist (via the shared claim registry / activeJobDirs).
  // Exclude RESERVED_HUB_SLUGS from soft-landing emission. Pre-existing
  // tracking entries imported from gsc-404 (e.g. slug "infermieri") would
  // otherwise overwrite the legitimate sector/city hub HTML at
@@ -13277,7 +13306,7 @@ ${staticAnalyticsHtml}
  // Never overwrite ANY page already written by an earlier phase
  // (active jobs, company pages, search pages, editorial pages)
  const targetFile = np.join(distDir, normPath, 'index.html');
- if (_writtenPaths.has(targetFile)) return false;
+ if (pathWasClaimed(targetFile)) return false;
  if (activeJobDirs.has(normPath)) return false;
 
  const outDir = np.join(distDir, normPath);
@@ -13310,7 +13339,14 @@ ${staticAnalyticsHtml}
  let expiredHtmlCacheChunks = 0;
  let expiredHtmlCacheReleasedEntries = 0;
  const releaseExpiredHtmlCacheChunk = async (): Promise<void> => {
-  if (expiredHtmlCacheOnDisk.size === 0) return;
+  if (expiredHtmlCacheOnDisk.size === 0) {
+   // Even chunks without cross-locale cache entries may have completed many
+   // historical writes. Drain their acknowledgements before releasing them;
+   // awaitDrainSlot(2) in the caller only bounds in-flight flushes.
+   await collector.awaitDrainSlot(0);
+   collector.forgetWrittenPaths();
+   return;
+  }
   await collector.flush();
   const confirmedDiskKeys = new Set<string>();
   for (const key of expiredHtmlCacheOnDisk) {
@@ -13320,6 +13356,7 @@ ${staticAnalyticsHtml}
   }
   expiredHtmlCacheReleasedEntries += releaseDiskBackedHtmlCache(expiredSoftLandingCache, confirmedDiskKeys);
   expiredHtmlCacheOnDisk.clear();
+  collector.forgetWrittenPaths();
   expiredHtmlCacheChunks++;
  };
  const expiredCacheKeys = new Set<string>();
@@ -13497,7 +13534,7 @@ ${staticAnalyticsHtml}
  // Per-locale shard build (BUILD_LOCALE): skip the expensive soft-landing
  // render/emit for locales this shard isn't responsible for (this loop is
  // ~57% of jobs-seo wall, 319k pages). The expired sitemap (it/main-owned,
- // built below from `paths` + _writtenPaths(IT) + cross-locale alternates)
+ // built below from `paths` + the shared claim registry (IT) + cross-locale alternates)
  // is unaffected. No-op in the default all-locale build.
  if (!shouldEmitLocale(locale)) continue;
  const __tExpiredSoftLanding = startTimer();
@@ -14168,7 +14205,7 @@ ${staticAnalyticsHtml}
  // survives sanitizeSitemapHreflangReciprocity().
  const itPath = paths.it ? withSlash(paths.it) : '';
  const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
- const itPageOverwritten = itPageFile && _writtenPaths.has(itPageFile);
+ const itPageOverwritten = itPageFile && pathWasClaimed(itPageFile);
  if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
  // The same cluster decision that governs HTML also governs sitemap
  // alternates. `unclaimedLocales` is captured BEFORE this cluster claims its
@@ -14187,7 +14224,7 @@ ${staticAnalyticsHtml}
  const lFullPath = withSlash(lPath);
  if (l !== 'it') {
  const lPageFile = np.join(distDir, lFullPath.slice(1).replace(/\/$/, ''), 'index.html');
- if (!_writtenPaths.has(lPageFile) && !fs.existsSync(lPageFile)) continue;
+ if (!pathWasClaimed(lPageFile) && !fs.existsSync(lPageFile)) continue;
  }
  expiredSitemapLocales.add(l);
  }
@@ -14356,7 +14393,7 @@ ${staticAnalyticsHtml}
  const outDir = np.join(distDir, relPath.replace(/^\//, ''));
  const indexFile = np.join(outDir, 'index.html');
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
- if (_writtenPaths.has(indexFile)) continue;
+ if (pathWasClaimed(indexFile)) continue;
  const __tCrossLocaleExpired = startTimer();
  const crossLocaleExpiredReuseInput = incrementalManifests
   ? {
@@ -14390,7 +14427,6 @@ ${staticAnalyticsHtml}
  jobsSeoReuse?.finish(crossLocaleExpiredReuse, noindexCrossLocaleExpiredHtml);
  _md(outDir);
  _qw(indexFile, noindexCrossLocaleExpiredHtml);
- _writtenPaths.add(indexFile);
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleExpiredReuseInput);
  }
@@ -14553,7 +14589,9 @@ ${staticAnalyticsHtml}
  const oldSlug = key.slice(secondSep + 2);
  if (candidates.length > 1) multiClaimantKeys += 1;
  const winner = resolveWinner(previousSlugWinners, canton, locale, oldSlug, candidates, nowIso);
- if (winner) winnerByPrevSlugKey.set(key, winner.winnerJobIdentifier);
+ // A single claimant is already the winner by construction; retaining its
+ // key and identifier only duplicates the much larger claimant index.
+ if (candidates.length > 1 && winner) winnerByPrevSlugKey.set(key, winner.winnerJobIdentifier);
  }
  if (multiClaimantKeys > 0) {
  console.log(
@@ -15095,7 +15133,7 @@ ${staticAnalyticsHtml}
  const indexFile = np.join(outDir, 'index.html');
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
- if (_writtenPaths.has(indexFile)) continue;
+ if (pathWasClaimed(indexFile)) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
@@ -15127,7 +15165,6 @@ ${staticAnalyticsHtml}
  jobsSeoReuse?.finish(crossLocaleActiveReuse, noindexCrossLocaleActiveHtml);
  _md(outDir);
  _qw(indexFile, noindexCrossLocaleActiveHtml);
- _writtenPaths.add(indexFile);
  if (incrementalManifests) {
   registerIncrementalPage(baseLocale, relPath, 'cross-locale-reconciliation', crossLocaleActiveReuseInput);
  }
@@ -15182,7 +15219,7 @@ ${staticAnalyticsHtml}
  // spread-copy dei ~22k job di data/jobs.json) ha il suo ultimo lettore nel
  // loop cross-locale-active qui sopra; gli indici related e la companyMap
  // sono gia' stati rilasciati ai rispettivi ultimi lettori. Il self-heal
- // legge `tracking` e `_writtenPaths`, mai i job. Svuotare l'array NON basta
+ // legge `tracking` e il registry dei path, mai i job. Svuotare l'array NON basta
  // da solo — ogni container ancora vivo che punta agli stessi oggetti va
  // svuotato nello stesso punto, o il rilascio e' un no-op silenzioso. Il
  // checkpoint subito sotto dice al prossimo deploy se questo blocco libera
@@ -15194,7 +15231,7 @@ ${staticAnalyticsHtml}
  // sortedForPagination L8681, implicitPreviousSlugs L11766,
  // companyActiveJobsMap L12342, selectRecentJobs (unico lettore di
  // recentJobPools) L12712 — tutti prima di questo punto; il self-heal legge
- // solo tracking/_writtenPaths/activeJobDirs (che infatti NON vengono
+ // solo tracking/registry/activeJobDirs (che infatti NON vengono
  // toccati qui). jobsByCantonCity/cantonLatestJobs della review NON sono
  // qui: sono block-scoped nella fase city-hubs (tsc li rifiuta a questo
  // punto), quindi escono di scope da soli.
@@ -15411,7 +15448,7 @@ ${staticAnalyticsHtml}
  // all-locale build (the it/main shard still heals every locale).
  if (!shouldEmitLocale(locale)) continue;
  const absFile = np.join(distDir, relPath.replace(/^\//, ''), 'index.html');
- if (_writtenPaths.has(absFile)) continue;
+ if (pathWasClaimed(absFile)) continue;
  // Backpressure, as in the other bulk-emit loops: this loop queues ~68k
  // historical pages × 2 files synchronously, so without a yield the
  // WriteCollector's flushes cannot progress and every page's HTML stays in
@@ -15500,10 +15537,9 @@ ${staticAnalyticsHtml}
  }));
 
  // Last-reader release, proven by after-self-heal: the final safety-net loop
- // has consumed tracking, _writtenPaths and activeJobDirs. Do not clear
+ // has consumed tracking and activeJobDirs. Do not clear
  // pathHistory; the write-registry report still owns that cross-plugin state.
  for (const key of Object.keys(tracking)) delete tracking[key];
- _writtenPaths.clear();
  activeJobDirs.clear();
  historicalArchiveFallbacks.clear();
 
