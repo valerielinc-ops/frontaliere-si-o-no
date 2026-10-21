@@ -433,7 +433,7 @@ describe('renderEventDetailPage', () => {
     expect(titleTag.length).toBeGreaterThan(0);
     expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('Lugano');
-    expect(h1.length).toBeLessThanOrEqual(100);
+    expect(h1.length).toBeLessThanOrEqual(70);
     expect(h1).toContain('Lugano');
     expect(h1).toContain('2026-10-18');
   });
@@ -463,8 +463,8 @@ describe('renderEventDetailPage', () => {
     expect(headings[1]).toContain('En anglais');
     expect(titles[0].length).toBeLessThanOrEqual(60);
     expect(titles[1].length).toBeLessThanOrEqual(60);
-    expect(headings[0].length).toBeLessThanOrEqual(100);
-    expect(headings[1].length).toBeLessThanOrEqual(100);
+    expect(headings[0].length).toBeLessThanOrEqual(70);
+    expect(headings[1].length).toBeLessThanOrEqual(70);
   });
 
   it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {

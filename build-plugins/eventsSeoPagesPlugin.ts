@@ -3611,11 +3611,11 @@ function eventDateToken(startDate: string, endDate: string | undefined, locale: 
   }) || normalizedStart;
 }
 
-const EVENT_H1_MAX_CHARS = 100;
+const EVENT_H1_MAX_CHARS = 70;
 
 /** The visible heading carries the two facts that distinguish same-titled
- * events in the crawl: scheduled date and municipality. Keep the source title
- * intact unless the combined heading would become an unusable wall of text. */
+ * events in the crawl: scheduled date and municipality. Keep both within the
+ * audit's 70-character H1 budget, shortening the source title when needed. */
 function eventDetailHeading(rawTitle: string, dateToken: string, comune: string): string {
   const suffix = ` — ${comune}${dateToken ? ` · ${dateToken}` : ''}`;
   const { title, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
