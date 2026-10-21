@@ -87,6 +87,7 @@ describe('plate-auction sources registry schema', () => {
   it('keeps live public catalogues active and Ricardo catalogues blocked', () => {
     expect(registry.sources.vs.status).toBe('active');
     expect(registry.sources.vs.accessMethod).toBe('html-scrape');
+    expect(registry.sources.vd.officialUrl).toBe('https://www.encheres-vd.ch/fr/');
     expect(registry.sources.gr.status).toBe('active');
     expect(registry.sources.zh.status).toBe('active');
     // TI e FR sono attivi: la «Pagina non disponibile» e il timeout su 443

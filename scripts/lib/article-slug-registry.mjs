@@ -20,11 +20,10 @@
  * that issue #4881 Fase 6 collapsed six hand-copied tuples into. A new section
  * or a renamed hub slug shipped there is picked up here for free.
  *
- * The parse is textual on purpose: these files are generated, plain node cannot
- * import TypeScript, and both callers run outside the Vite build. The block
- * extractor counts braces rather than matching a closing `};` so an indented
- * literal (the redirect table lives inside a function) is read as reliably as a
- * top-level one.
+ * The parser is compiler-AST based and runs under plain Node through the
+ * package's pinned TypeScript runtime. The row-count helpers below remain
+ * textual because they measure source coverage independently of the parsed
+ * locale shape.
  */
 
 import { readFileSync } from 'node:fs';
@@ -33,6 +32,7 @@ import {
   ARTICLE_SECTION_CORE,
   SITE_RENDERED_ARTICLE_SECTIONS,
 } from '../../build-plugins/shared/articleSectionCore.mjs';
+import { parseArticleUrlSlugs } from '../../packages/articles/engine/shared/articleReaderSource.mjs';
 
 /** Canonical section keys, in canonical order: `frontaliere`, `svizzera`. */
 export const ARTICLE_SECTION_KEYS = Object.freeze(
@@ -109,26 +109,7 @@ export function extractObjectLiteral(src, constName) {
  * callers that use this parser as a safety gate.
  */
 export function parseSlugRegistry(src, constName) {
-  const block = extractObjectLiteral(src, constName);
-  const entryRx = /["']([^"']+)["']\s*:\s*\{([^{}]*)\}/g;
-  const localeRx = /(?:^|[,{\s])["']?(it|en|de|fr)["']?\s*:\s*["']([^"']+)["']/g;
-  /** @type {Record<string, {it: string, en: string, de: string, fr: string}>} */
-  const slugs = {};
-  let m;
-  while ((m = entryRx.exec(block)) !== null) {
-    const locales = {};
-    let locale;
-    while ((locale = localeRx.exec(m[2])) !== null) locales[locale[1]] = locale[2];
-    if (['it', 'en', 'de', 'fr'].every((key) => locales[key])) {
-      slugs[m[1]] = {
-        it: locales.it,
-        en: locales.en,
-        de: locales.de,
-        fr: locales.fr,
-      };
-    }
-  }
-  return slugs;
+  return parseArticleUrlSlugs(src, constName);
 }
 
 /** Count registry rows independently of the locale-key shape. */

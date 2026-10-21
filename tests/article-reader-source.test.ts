@@ -64,6 +64,15 @@ describe('parseArticleUrlSlugs', () => {
     )).toThrow(/duplicate article id/i);
   });
 
+  it('rejects dynamic locale values instead of publishing a partial slug map', () => {
+    expect(() => parseArticleUrlSlugs(
+      `const BLOG_SLUGS = {
+        article: { it: makeSlug(), en: 'en', de: 'de', fr: 'fr' },
+      };`,
+      'BLOG_SLUGS',
+    )).toThrow(/malformed locale map|static string/i);
+  });
+
   it('does not let the shared reader swallow a parser contract error', () => {
     const fakeFs = {
       existsSync: () => true,

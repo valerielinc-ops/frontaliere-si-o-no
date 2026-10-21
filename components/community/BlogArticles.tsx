@@ -2115,8 +2115,14 @@ function BlogArticlesContent({
  const retryStateReady = bodyLoadIssue?.handoff === true
   && blogReady
   && !!selectedArticleObj;
- const articleReadyForStaticTakeover = (deferUntilArticleReady && !!selectedArticle)
-  || retryStateReady
+ // A completed registry attempt with no matching record is an explicit
+ // unavailable state, not a loading state: release the static snapshot so the
+ // user gets the retry affordance rather than an indefinite handoff.
+ const registryResolutionFailed = registryAttemptComplete
+  && !!selectedArticle
+  && !selectedArticleObj;
+ const articleReadyForStaticTakeover = retryStateReady
+  || registryResolutionFailed
   || isStaticArticleReadyForTakeover({
    deferUntilReady: deferUntilArticleReady,
    blogReady,
@@ -2295,9 +2301,9 @@ function BlogArticlesContent({
   </div>
  );
 
- // During the static article handoff, replace the snapshot with a neutral
- // loading state immediately, then keep the retry state visible on failure.
- if (deferUntilArticleReady && !articleReadyForStaticTakeover) return null;
+ // App.tsx keeps this React shell collapsed while the static article snapshot
+ // owns the body. Render the loading state here so the handoff can remain
+ // pending without suppressing the accessible loading contract.
 
  // ── Loading blog translations ──────────────────────
  if (!blogReady) {

@@ -150,6 +150,12 @@ describe('parseArticleRegistryEntries', () => {
     expect(entries).toHaveLength(1);
     expect(entries[0]).toMatchObject({ id: 'a', image: '/images/a.jpg' });
   });
+
+  it('rejects dynamic values for recognized fields instead of dropping the entry', () => {
+    expect(() => parseArticleRegistryEntries(`const ARTICLES = [
+      { id: getId(), category: 'fiscale', date: '2026-01-01', image: '/images/a.jpg' },
+    ];`)).toThrow(/static string/i);
+  });
 });
 
 describe('hub cards built from the registry', () => {
