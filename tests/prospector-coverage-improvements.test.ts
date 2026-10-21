@@ -7,16 +7,29 @@ import {
   classifyValidationFailure,
   isValidationRetryDue,
   needsProductionQualityAudit,
+  parseValidationLimit,
   prioritizeProductionAuditSpecs,
   prioritizeValidationSpecs,
   validationRetryAt,
 } from '../scripts/lib/prospector/validation-schedule.mjs';
 import { prioritizeSynthesisCandidates } from '../scripts/lib/prospector/synthesis-schedule.mjs';
 import { adaptiveValidationSampleSize, selectValidationSample } from '../scripts/lib/prospector/validation-sample.mjs';
-import { comparePublicationSnapshots, createValidationSnapshot } from '../scripts/lib/prospector/snapshot-comparison.mjs';
+import {
+  comparePublicationSnapshots,
+  createValidationSnapshot,
+  validationSnapshotMetadataFor,
+} from '../scripts/lib/prospector/snapshot-comparison.mjs';
 import { reconcileAwaitingFirstCrawls } from '../scripts/lib/prospector/production-output.mjs';
 
 describe('Prospector validation evidence and production feedback', () => {
+  it('rejects non-finite, fractional, and negative validation limits', () => {
+    expect(parseValidationLimit('40')).toBe(40);
+    expect(parseValidationLimit(0)).toBe(0);
+    expect(() => parseValidationLimit('Infinity')).toThrow('--limit must be a non-negative safe integer');
+    expect(() => parseValidationLimit('1.5')).toThrow('--limit must be a non-negative safe integer');
+    expect(() => parseValidationLimit('-1')).toThrow('--limit must be a non-negative safe integer');
+  });
+
   let dir = '';
 
   afterEach(() => {
@@ -37,9 +50,29 @@ describe('Prospector validation evidence and production feedback', () => {
     )).toMatchObject({ status: 'match', evidence: 'company_domain' });
     expect(checkEmployerIdentity(
       {},
-      'https://acme.umantis.com/jobs',
-      { companyName: 'ACME AG', tenantHost: 'acme.umantis.com' },
+      'https://recruitingapp-2761.umantis.com/Vacancies/123/Description/1',
+      { companyName: 'EOC', tenantHost: 'recruitingapp-2761.umantis.com' },
     )).toMatchObject({ status: 'match', evidence: 'tenant_host' });
+    expect(checkEmployerIdentity(
+      {},
+      'https://jobs.smartrecruiters.com/beta/123/detail',
+      { companyName: 'ACME AG', tenantHost: 'jobs.smartrecruiters.com/acme', careersUrl: 'https://jobs.smartrecruiters.com/acme/456/detail' },
+    ).status).toBe('unknown');
+    expect(checkEmployerIdentity(
+      {},
+      'https://jobs.smartrecruiters.com/acme/123/detail',
+      { companyName: 'ACME AG', tenantHost: 'jobs.smartrecruiters.com/acme', careersUrl: 'https://jobs.smartrecruiters.com/acme/456/detail' },
+    )).toMatchObject({ status: 'match', evidence: 'tenant_host' });
+    expect(checkEmployerIdentity(
+      {},
+      'https://jobs.dualoo.com/portal/other-tenant/job-1',
+      { companyName: 'ACME AG', tenantHost: 'jobs.dualoo.com', careersUrl: 'https://jobs.dualoo.com/portal/acme-tenant/job-2' },
+    ).status).toBe('unknown');
+    expect(checkEmployerIdentity(
+      {},
+      'https://teamtailor.com/jobs/1',
+      { companyName: 'ACME AG', tenantHost: 'teamtailor.com' },
+    ).status).toBe('unknown');
     expect(checkEmployerIdentity(
       { company: 'Different Employer SA' },
       'https://jobs.acme.ch/openings/1',
@@ -152,6 +185,28 @@ describe('Prospector validation evidence and production feedback', () => {
     const retryAt = validationRetryAt('timeout', now);
     expect(classifyValidationFailure({ runErrors: ['HTTP 429 too many requests'] })).toBe('rate_limited');
     expect(classifyValidationFailure({ samples: [{ status: 404 }] })).toBe('not_found');
+    expect(classifyValidationFailure({
+      vacancyCount: 0,
+      runtimeObservation: {
+        listingCount: 4,
+        publishableCount: 0,
+        exactListingCount: true,
+        listingPopulationComplete: true,
+      },
+    })).toBe('all_rows_filtered');
+    expect(classifyValidationFailure({
+      vacancyCount: 0,
+      runtimeObservation: {
+        listingCount: 0,
+        publishableCount: 0,
+        exactListingCount: true,
+        listingPopulationComplete: true,
+      },
+    })).toBe('empty_listing');
+    expect(classifyValidationFailure({
+      vacancyCount: 0,
+      runtimeObservation: { listingCount: 0, exactListingCount: false, listingPopulationComplete: false },
+    })).toBe('runtime');
     expect(Date.parse(retryAt)).toBeGreaterThan(now);
 
     const spec = { companyKey: 'example.ch', qualityContractVersion: 3 };
@@ -170,6 +225,35 @@ describe('Prospector validation evidence and production feedback', () => {
 
     candidate.validationHistory[0].qualityContractVersion = 2;
     expect(isValidationRetryDue(candidate, now, { qualityContractVersion: 3 })).toBe(true);
+  });
+
+  it('uses persisted schedule state for specs without candidate records', () => {
+    const now = Date.now();
+    const retryAt = new Date(now + 6 * 60 * 60 * 1000).toISOString();
+    const retrying = { companyKey: 'retry.example', qualityContractVersion: 3 };
+    const neverRun = { companyKey: 'new.example', qualityContractVersion: 3 };
+    const previous = new Map([[retrying.companyKey, {
+      at: new Date(now - 60 * 60 * 1000).toISOString(),
+      qualityContractVersion: 3,
+      sourceAdapterVersion: null,
+      verdict: 'weak',
+      runtimeSnapshotComplete: false,
+      retryAfterAt: retryAt,
+    }]]);
+    const options = {
+      limit: 2,
+      adapterVersionFor: () => null,
+      previousValidationForSpec: (spec: { companyKey: string }) => previous.get(spec.companyKey),
+    };
+
+    expect(prioritizeValidationSpecs([retrying, neverRun], () => null, {
+      ...options,
+      date: now,
+    })).toEqual([neverRun]);
+    expect(prioritizeValidationSpecs([retrying, neverRun], () => null, {
+      ...options,
+      date: Date.parse(retryAt),
+    })).toEqual([retrying, neverRun]);
   });
 
   it('compares aligned public output snapshots by hashed stable URL identity', () => {
@@ -204,6 +288,62 @@ describe('Prospector validation evidence and production feedback', () => {
     ], validationAt), published))
       .toMatchObject({ classification: 'time_aligned_estimate', reason: 'run_id_missing' });
     expect(comparePublicationSnapshots(validation, null).classification).toBe('missing');
+  });
+
+  it('keeps incomplete and inconsistent snapshots out of publication comparisons', () => {
+    const validationAt = '2026-10-20T12:00:00.000Z';
+    const published = {
+      assembledAt: validationAt,
+      runId: 'run-1',
+      jobs: [{ url: 'https://jobs.example/1' }],
+    };
+    const partialMetadata = validationSnapshotMetadataFor({
+      exactListingCount: false,
+      listingPopulationComplete: false,
+      promotionObservationComplete: false,
+    });
+    expect(partialMetadata).toMatchObject({
+      exactListingCount: false,
+      listingPopulationComplete: false,
+      runtimeSnapshotComplete: false,
+      complete: false,
+    });
+    const partial = createValidationSnapshot(
+      [{ url: 'https://jobs.example/1' }], validationAt, 'run-1', partialMetadata,
+    );
+    expect(comparePublicationSnapshots(partial, published)).toMatchObject({
+      classification: 'incomplete',
+      reason: 'validation_snapshot_incomplete',
+      shared: null,
+      validationOnly: null,
+      publishedOnly: null,
+    });
+    expect(comparePublicationSnapshots(partial, null)).toMatchObject({
+      classification: 'incomplete',
+      reason: 'validation_snapshot_incomplete',
+    });
+
+    const inconsistent = {
+      ...createValidationSnapshot([{ url: 'https://jobs.example/1' }], validationAt, 'run-1'),
+      rowCount: 2,
+    };
+    expect(comparePublicationSnapshots(inconsistent, published)).toMatchObject({
+      classification: 'incomplete',
+      reason: 'validation_snapshot_ids_inconsistent',
+      shared: null,
+      validationOnly: null,
+      publishedOnly: null,
+    });
+    expect(comparePublicationSnapshots(
+      createValidationSnapshot([{ url: 'https://jobs.example/1' }], validationAt, 'run-1'),
+      { ...published, jobs: [...published.jobs, ...published.jobs] },
+    )).toMatchObject({
+      classification: 'incomplete',
+      reason: 'published_snapshot_ids_inconsistent',
+      shared: null,
+      validationOnly: null,
+      publishedOnly: null,
+    });
   });
 
   it('requires a fresh non-empty public slice before marking a merged crawler production', () => {

@@ -8,6 +8,7 @@ import {
 import { isGmoExpectedDetailFilter } from '../gmo-job-parser.mjs';
 import { isMedimeoExpectedDetailFilter } from '../medimeo-job-parser.mjs';
 import { isMedimeoChExpectedDetailFilter } from '../medimeo-ch-job-parser.mjs';
+import { extractApleonaDetailFields } from '../apleona-schweiz-ag-job-parser.mjs';
 import { fetchAllRecruitingapp2649Jobs, isRecruitingapp2649ExpectedDetailFilter } from '../recruitingapp-2649-job-parser.mjs';
 import {
   extractPromanFleurierDetailFields,
@@ -75,6 +76,7 @@ export function sourceCrawlerAdapterFor(spec) {
 }
 
 const PRODUCTION_RUNTIME_OPTIONS = Object.freeze({
+  'apleona-schweiz-ag': Object.freeze({ detailExtractor: extractApleonaDetailFields }),
   gmo: Object.freeze({ isExpectedDetailFilter: isGmoExpectedDetailFilter }),
   medimeo: Object.freeze({ isExpectedDetailFilter: isMedimeoExpectedDetailFilter }),
   'medimeo-ch': Object.freeze({ isExpectedDetailFilter: isMedimeoChExpectedDetailFilter }),

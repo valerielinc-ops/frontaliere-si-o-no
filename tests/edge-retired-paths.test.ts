@@ -380,11 +380,12 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     // observed DE alias) + 8 for the nanako#915 / nanako#943
     // same-section duplicate retirements of 2026-09-05 + 1 for the historical
     // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
-    // upstream-aborted article URLs from the 2026-10-07 corpus sync.
+    // upstream-aborted article URLs from the 2026-10-07 corpus sync + 7 GSC
+    // 404 decisions checked on 2026-10-21 (one moved, six gone).
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 101,
-      gone: 36,
-      moved: 65,
+      total: 108,
+      gone: 42,
+      moved: 66,
     });
   });
 });
@@ -438,6 +439,48 @@ describe('the 16 retired-article URLs of 2026-08-06', () => {
       expect(to, `${p} must move to its substitute`).not.toBeNull();
       expect(isSectionRoot(to as string), `${p} → ${to} is a hub, not a document`).toBe(false);
     }
+  });
+});
+
+describe('the seven GSC 404 article retirements of 2026-10-21', () => {
+  const GSC_404_RETIREMENTS = [
+    '/articoli-frontaliere/lombardia-sport-ticino/',
+    '/fr/articles-frontalier/tesin-lombardie-manufacture/',
+    '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/',
+    '/de/grenzgaenger-artikel/rekorde-schneefall-bosco-gurin-2026/',
+    '/de/grenzgaenger-artikel/transport-agency-como-renewed/',
+    '/fr/articles-frontalier/suisse-service-public-frais-tv/',
+    '/en/cross-border-articles/varese-drunk-accident/',
+  ];
+
+  it('keeps the inventory pinned to the seven reviewed URLs', () => {
+    expect(GSC_404_RETIREMENTS).toHaveLength(7);
+    expect(GSC_404_RETIREMENTS.filter((path) => RETIRED_TABLE[path] === null)).toHaveLength(6);
+    expect(RETIRED_TABLE['/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/']).toBe(
+      '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
+    );
+  });
+
+  for (const path of GSC_404_RETIREMENTS) {
+    if (path === '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/') continue;
+    it(`${path} answers 410 and noindex`, async () => {
+      const response = retiredEdgeResponse(new URL(APEX + path)) as Response | null;
+      expect(response).not.toBeNull();
+      expect(response!.status).toBe(410);
+      expect(response!.headers.get('X-Robots-Tag')).toContain('noindex');
+      expect(await response!.text()).toMatch(/<meta name="robots" content="noindex[^"]*">/);
+    });
+  }
+
+  it('redirects the encoded French equivalent to the current article', () => {
+    const response = retiredEdgeResponse(
+      new URL(`${APEX}/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/`),
+    ) as Response | null;
+    expect(response).not.toBeNull();
+    expect(response!.status).toBe(301);
+    expect(response!.headers.get('Location')).toBe(
+      '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
+    );
   });
 });
 

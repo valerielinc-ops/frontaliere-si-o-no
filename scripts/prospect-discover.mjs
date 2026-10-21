@@ -31,9 +31,12 @@ import {
   saveCandidates,
   upsertCandidate,
   candidateKey,
+  reconcileCandidateDuplicates,
   reviveRetryableDeadCandidate,
   statusCounts,
   pruneTerminal,
+  startLedgerPhase,
+  finishLedgerPhase,
 } from './lib/prospector/candidate-store.mjs';
 import { loadRegistry, saveRegistry, observePlatform } from './lib/prospector/platform-registry.mjs';
 import { registrableDomain, sameOrg } from './lib/prospector/registrable.mjs';
@@ -78,16 +81,21 @@ const pages = boundedInt('pages', arg('pages', undefined), 40, 1, 100);
 const days = boundedInt('days', arg('days', undefined), 30, 1, 365);
 const limit = boundedInt('limit', arg('limit', undefined), 100000, 0, 1000000);
 const dryRun = flag('dry-run');
+startLedgerPhase('discover', { dryRun });
 const discoveryHealthRun = startDiscoveryHealthRun();
 
 const coverage = loadCoverage();
 const store = loadCandidates();
 const registry = loadRegistry();
+const duplicateReconciliation = reconcileCandidateDuplicates(store, dryRun ? null : undefined);
 const secoPageCursors = sources.includes('seco') ? loadSecoPageCursors() : null;
 
 console.log('═══ Prospector · DISCOVER ═══');
 console.log(`cantoni: ${cantons.join(',')}  sorgenti: ${sources.join(',')}  finestra SECO: ${days}g`);
 console.log(`già coperti: ${coverage.crawlerCount} crawler, ${coverage.names.size} nomi, ${coverage.domains.size} domini\n`);
+if (duplicateReconciliation.merged) {
+  console.log(`duplicati cross-source riconciliati: ${duplicateReconciliation.merged} chiavi unite in ${duplicateReconciliation.groupsChecked} gruppi verificati`);
+}
 
 let filed = 0;
 let skippedCovered = 0;
@@ -103,14 +111,16 @@ const sourcePartial = { seco: 0, osm: 0, web: 0 };
 /**
  * @param {Record<string, any>} candidate
  * @param {string} source
+ * @param {Record<string, any>} [sourceMetadata]
  */
-function file(candidate, source) {
+function file(candidate, source, sourceMetadata = {}) {
   if (filed >= limit) return;
-  const cov = isCovered(coverage, candidate);
+  const observation = { ...candidate, ...sourceMetadata };
+  const cov = isCovered(coverage, observation);
   if (cov.covered) { skippedCovered++; return; }
-  const key = candidate.key || candidateKey(candidate);
-  reviveRetryableDeadCandidate(store, key, candidate, dryRun ? null : undefined, source);
-  const { created } = upsertCandidate(store, candidate, source);
+  const key = observation.key || candidateKey(observation);
+  reviveRetryableDeadCandidate(store, key, observation, dryRun ? null : undefined, source);
+  const { created } = upsertCandidate(store, observation, source);
   if (created) { filed++; perSource[source] = (perSource[source] || 0) + 1; }
 }
 
@@ -127,11 +137,11 @@ if (sources.includes('own')) {
   const census = censusFromOwnCrawls();
   console.log(`OWN : ${census.jobCount} annunci già crawlati → ${census.platforms.length} piattaforme con ≥2 datori (${census.weakHosts} host deboli scartati)`);
   for (const p of census.platforms) {
-    for (const [employer, host, jobPath] of p.employerHosts) {
+    for (const [, host, jobPath, employerDomain] of p.employerHosts) {
       observePlatform(registry, {
         tenantHost: host,
         path: jobPath,
-        employerDomain: employer.replace(/\s+/g, '-'),
+        employerDomain,
         note: `own-crawl census: ${p.employers.length} datori`,
       });
     }
@@ -292,7 +302,9 @@ if (sources.includes('web')) {
   for (const e of sweep.employers) {
     // The careers URL is already known, so these skip domain resolution
     // entirely — the most expensive and most failure-prone step in TRACE.
-    file({ name: e.host.split('.')[0], domain: e.host, careersUrl: e.url, country: 'CH' }, 'web');
+    file({ name: e.host.split('.')[0], domain: e.host, careersUrl: e.url, country: 'CH' }, 'web', {
+      commoncrawlCollection: sweep.collection,
+    });
   }
   if (sweep.outcome) recordSourceOutcome('web', {
     outcome: sweep.outcome,
@@ -343,3 +355,7 @@ if (dryRun) {
   }
   console.log('\nscritti data/prospector/candidates.json e platforms.json');
 }
+finishLedgerPhase(process.exitCode ? 'source_outage' : (dryRun ? 'dry_run' : 'complete'), {
+  inputCount: Object.values(perSource).reduce((sum, value) => sum + Number(value || 0), 0),
+  successCount: filed,
+});
