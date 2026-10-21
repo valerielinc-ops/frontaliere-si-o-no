@@ -31,6 +31,7 @@ import type { ArticleLocale as HubLocale } from '../siteShell';
 import { parseArticleUrlSlugs } from './articleReaderSource.mjs';
 // Explicit `.ts`: resolved from build-plugins/shared through its symlink twin.
 import { parseArticleRegistryEntries } from './articleRegistryEntries.ts';
+import { readMetaFieldEntries } from './meta-field-reader.mjs';
 
 /**
  * Read article slugs from blog-meta-{lang}.ts. Each line keyed
@@ -59,16 +60,13 @@ export function readArticleSlugs(
     if (!fs.existsSync(file)) return out;
     const src = fs.readFileSync(file, 'utf-8');
     const seen = new Set<string>();
-    const rx = /'blog\.article\.([^']+?)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
+    for (const { id: slug, value: title } of readMetaFieldEntries(src, 'title')) {
       if (seen.has(slug)) continue;
       seen.add(slug);
-      const title = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
       out.push({ slug, title });
     }
   } catch (err) {
+    if (err instanceof Error && err.message.startsWith('[meta-fields]')) throw err;
     console.warn(`[seo-hubs] failed to read ${metaPrefix}-${locale}.ts`, err);
   }
   return out;
@@ -134,14 +132,11 @@ export function readArticleExcerpts(
   try {
     if (!fs.existsSync(file)) return out;
     const src = fs.readFileSync(file, 'utf-8');
-    const rx = /'blog\.article\.([^']+?)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const slug = m[1];
-      const excerpt = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
-      out.set(slug, excerpt);
+    for (const { id, value } of readMetaFieldEntries(src, 'excerpt')) {
+      out.set(id, value);
     }
   } catch (err) {
+    if (err instanceof Error && err.message.startsWith('[meta-fields]')) throw err;
     console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
   }
   return out;

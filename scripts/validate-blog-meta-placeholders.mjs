@@ -161,7 +161,9 @@ const parseTitles = (filePath) => {
         out[entry.id][field] = entry.value;
       }
     }
-  } catch { /* file may not exist */ }
+  } catch (err) {
+    if (err?.code !== 'ENOENT') throw err;
+  }
   return out;
 };
 
