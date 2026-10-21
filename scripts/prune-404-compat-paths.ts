@@ -12,13 +12,17 @@
  * autonomous loop ~83min, no PR accountable).
  *
  * Run this BEFORE committing the store in those workflows: it drops
- * non-resolving paths while preserving resolving paths. On a large accumulator
- * it fails closed if a prune would remove over 50k paths or 10% of the store;
- * after reviewing an intentional bulk cleanup, opt in with
+ * non-resolving paths while preserving resolving paths. It fails closed on
+ * large global losses and when a route family of at least 20 URLs disappears
+ * or loses over 25%; after reviewing an intentional cleanup, opt in with
  * PRUNE_404_ALLOW_LARGE_PRUNE=1. Idempotent; exits 0 when nothing changes.
  */
 import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
-import { assertCompatPruneSafety } from './lib/compat-paths-floor-guard.mjs';
+import {
+  assertCompatPruneFamilySafety,
+  assertCompatPruneSafety,
+  compatPathFamily,
+} from './lib/compat-paths-floor-guard.mjs';
 
 // Sharded accumulator (issue #2988): the logical {paths} set lives across
 // data/seo-404-compat/part-*.json. Read/write only via the store helpers.
@@ -69,11 +73,19 @@ async function main(): Promise<void> {
   const seen = new Set<string>();
   const kept: string[] = [];
   const dropped: string[] = [];
+  const familyTotals = new Map<string, number>();
+  const familyDropped = new Map<string, number>();
   for (const p of before) {
     if (seen.has(p)) continue; // also de-dup (raw appends can repeat)
     seen.add(p);
-    if (resolveSearchConsoleCompatTarget(p) !== null) kept.push(p);
-    else dropped.push(p);
+    const family = compatPathFamily(p);
+    familyTotals.set(family, (familyTotals.get(family) ?? 0) + 1);
+    if (resolveSearchConsoleCompatTarget(p) !== null) {
+      kept.push(p);
+    } else {
+      dropped.push(p);
+      familyDropped.set(family, (familyDropped.get(family) ?? 0) + 1);
+    }
   }
 
   const removed = before.length - kept.length;
@@ -83,12 +95,17 @@ async function main(): Promise<void> {
   }
 
   // A resolver regression can make a large cohort look non-resolving while
-  // leaving the accumulator above its historical floor. The strict read plus
-  // prune guard prevent partial-input writes and unexpectedly large deletions.
+  // leaving the accumulator above its historical floor. The strict read,
+  // global limits, and per-route-family guard prevent partial-input writes and
+  // localized false deletions that are small in the global total.
   if (ALLOW_LARGE_PRUNE) {
-    console.warn('[prune-404-compat] PRUNE_404_ALLOW_LARGE_PRUNE=1 — size guards are explicitly bypassed.');
+    console.warn('[prune-404-compat] PRUNE_404_ALLOW_LARGE_PRUNE=1 — prune safety guards are explicitly bypassed.');
   }
   assertCompatPruneSafety(before.length, kept.length, {
+    label: 'seo-404-compat prune',
+    allowLargePrune: ALLOW_LARGE_PRUNE,
+  });
+  assertCompatPruneFamilySafety(familyTotals, familyDropped, {
     label: 'seo-404-compat prune',
     allowLargePrune: ALLOW_LARGE_PRUNE,
   });
