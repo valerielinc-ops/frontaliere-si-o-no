@@ -362,18 +362,36 @@ export async function sweepSwissCareerPages(opts = {}) {
     return result;
   };
 
+  const cursorFile = opts.cursorFile || CURSOR_PATH;
+  const cursor = loadCursor(cursorFile);
+  cursor.collectionHistory = Array.isArray(cursor.collectionHistory) ? cursor.collectionHistory : [];
   const collectionResult = opts.collection
     ? { collection: opts.collection, outcome: 'complete', errorCode: null }
     : await latestCollection(opts);
-  const collection = collectionResult.collection;
+  const usedCachedCollection = !collectionResult.collection
+    && Boolean(cursor.collection)
+    && Number(cursor.totalPages) > 0;
+  const collection = collectionResult.collection || (usedCachedCollection ? cursor.collection : null);
   if (!collection) return finish({
     employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection: null,
     outcome: collectionResult.outcome, errorCode: collectionResult.errorCode, coverageRate: 0,
   });
 
-  const cursorFile = opts.cursorFile || CURSOR_PATH;
-  const cursor = loadCursor(cursorFile);
-  cursor.collectionHistory = Array.isArray(cursor.collectionHistory) ? cursor.collectionHistory : [];
+  const pageCount = await chPageCount(collection, opts);
+  const hasFreshPageCount = pageCount.totalPages > 0;
+  const canUseCachedPageCount = !hasFreshPageCount
+    && cursor.collection === collection
+    && Number(cursor.totalPages) > 0;
+  const totalPages = hasFreshPageCount
+    ? pageCount.totalPages
+    : canUseCachedPageCount ? Number(cursor.totalPages) : 0;
+  if (!totalPages) return finish({
+    employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection,
+    outcome: pageCount.outcome, errorCode: pageCount.errorCode, coverageRate: 0,
+  });
+
+  // Do not supersede a working cursor until the new collection has a usable
+  // page count. A transient metadata failure must leave the old sweep intact.
   if (cursor.collection !== collection) {
     if (cursor.collection && Number(cursor.totalPages) > 0) {
       const oldTotal = Number(cursor.totalPages);
@@ -395,12 +413,6 @@ export async function sweepSwissCareerPages(opts = {}) {
     cursor.pendingPages = [];
     cursor.stride = 0;
   }
-  const pageCount = await chPageCount(collection, opts);
-  const totalPages = pageCount.totalPages;
-  if (!totalPages) return finish({
-    employers: [], pagesRead: [], failedPages: [], totalPages: 0, collection,
-    outcome: pageCount.outcome, errorCode: pageCount.errorCode, coverageRate: 0,
-  });
 
   const seen = new Set((Array.isArray(cursor.sweptPages) ? cursor.sweptPages : [])
     .filter((page) => Number.isSafeInteger(page) && page >= 0 && page < totalPages));
@@ -424,12 +436,17 @@ export async function sweepSwissCareerPages(opts = {}) {
     }
   }
 
-  const outcome = failedPages.length === 0
+  const sweepOutcome = failedPages.length === 0
     ? 'complete'
     : pagesRead.length > 0 || failedPages.some((failure) => failure.outcome === 'partial')
       ? 'partial'
       : failedPages.every((failure) => failure.outcome === 'malformed') ? 'malformed' : 'unavailable';
-  const errorCode = failedPages[0]?.errorCode || null;
+  const degradedMetadata = canUseCachedPageCount || usedCachedCollection;
+  const outcome = degradedMetadata ? 'partial' : sweepOutcome;
+  const errorCode = (usedCachedCollection && collectionResult.errorCode)
+    || (canUseCachedPageCount && pageCount.errorCode)
+    || failedPages[0]?.errorCode
+    || null;
   const coverageRate = seen.size / totalPages;
 
   if (opts.persist !== false) {

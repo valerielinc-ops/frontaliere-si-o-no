@@ -31,8 +31,32 @@ function fingerprint(ids) {
   return createHash('sha256').update(ids.join('\n')).digest('hex').slice(0, 24);
 }
 
+/**
+ * Carry the runtime's completeness evidence into the snapshot. Listing
+ * enumeration and promotion completeness are separate facts: comparison is
+ * safe only when both are known to be complete.
+ */
+export function validationSnapshotMetadataFor(observation, runtimeFailed = false) {
+  const exactListingCount = observation?.exactListingCount === true;
+  const listingPopulationComplete = observation?.listingPopulationComplete === true;
+  const observationComplete = (observation?.promotionObservationComplete
+    ?? observation?.complete) === true && !runtimeFailed;
+  const complete = exactListingCount && listingPopulationComplete && observationComplete;
+  return {
+    exactListingCount,
+    listingPopulationComplete,
+    runtimeSnapshotComplete: complete,
+    complete,
+  };
+}
+
 /** Persist hashed identities and the workflow run that observed them. */
-export function createValidationSnapshot(rows, observedAt = new Date().toISOString(), runId = null) {
+export function createValidationSnapshot(
+  rows,
+  observedAt = new Date().toISOString(),
+  runId = null,
+  metadata = {},
+) {
   const ids = idsFor(rows);
   return {
     observedAt,
@@ -41,7 +65,42 @@ export function createValidationSnapshot(rows, observedAt = new Date().toISOStri
     uniqueIdentityCount: ids.length,
     ids,
     fingerprint: fingerprint(ids),
+    complete: metadata.complete ?? true,
+    exactListingCount: metadata.exactListingCount ?? true,
+    listingPopulationComplete: metadata.listingPopulationComplete ?? true,
+    runtimeSnapshotComplete: metadata.runtimeSnapshotComplete ?? metadata.complete ?? true,
   };
+}
+
+function validationSnapshotProblem(snapshot) {
+  if (snapshot?.complete !== true
+    || snapshot?.exactListingCount !== true
+    || snapshot?.listingPopulationComplete !== true
+    || snapshot?.runtimeSnapshotComplete !== true) {
+    return 'validation_snapshot_incomplete';
+  }
+  if (!Number.isSafeInteger(snapshot.rowCount) || snapshot.rowCount < 0
+    || !Number.isSafeInteger(snapshot.uniqueIdentityCount) || snapshot.uniqueIdentityCount < 0
+    || !Array.isArray(snapshot.ids)) {
+    return 'validation_snapshot_ids_unavailable';
+  }
+  if (snapshot.rowCount !== snapshot.ids.length
+    || snapshot.uniqueIdentityCount !== snapshot.ids.length
+    || new Set(snapshot.ids).size !== snapshot.ids.length
+    || snapshot.ids.some((id) => typeof id !== 'string' || !id)
+    || snapshot.fingerprint !== fingerprint(snapshot.ids)) {
+    return 'validation_snapshot_ids_inconsistent';
+  }
+  return null;
+}
+
+function publishedSnapshotProblem(publishedSlice) {
+  if (!Array.isArray(publishedSlice?.jobs)) return 'published_snapshot_ids_unavailable';
+  const ids = (publishedSlice.jobs || []).map(identityValue);
+  if (ids.some((id) => !id) || new Set(ids).size !== ids.length) {
+    return 'published_snapshot_ids_inconsistent';
+  }
+  return null;
 }
 
 /** Compare exact run matches, and label close cross-run counts as estimates. */
@@ -59,10 +118,14 @@ export function comparePublicationSnapshots(validationSnapshot, publishedSlice) 
     publishedOnly: null,
     deltaHours: null,
   };
+  const validationProblem = validationSnapshotProblem(validationSnapshot);
+  if (validationProblem) {
+    return { ...base, classification: 'incomplete', reason: validationProblem };
+  }
   if (!publishedSlice) return { ...base, classification: 'missing', reason: 'published_slice_missing' };
-  if (!Array.isArray(validationSnapshot?.ids) || !Array.isArray(publishedSlice.jobs)
-    || Number(validationSnapshot?.rowCount) === 0) {
-    return { ...base, reason: 'snapshot_ids_unavailable' };
+  const publishedProblem = publishedSnapshotProblem(publishedSlice);
+  if (publishedProblem) {
+    return { ...base, classification: 'incomplete', reason: publishedProblem };
   }
   const validationAt = Date.parse(String(validationSnapshot.observedAt || ''));
   const publishedAt = Date.parse(String(publishedSlice.assembledAt || ''));

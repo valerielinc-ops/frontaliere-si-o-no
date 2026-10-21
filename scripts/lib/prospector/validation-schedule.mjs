@@ -31,6 +31,7 @@ export const VALIDATION_RETRY_DELAYS_HOURS = Object.freeze({
   timeout: 6,
   pagination: 12,
   empty_listing: 24,
+  all_rows_filtered: 24,
   runtime: 24,
 });
 
@@ -47,7 +48,14 @@ export function classifyValidationFailure(report = {}) {
   if (/enotfound|eai_again|name_not_resolved|dns|resolve(host|d|ing)?/.test(text)) return 'dns';
   if (/timeout|timed out|aborterror|etimedout/.test(text)) return 'timeout';
   if (/pagination|page token|next page|cursor/.test(text)) return 'pagination';
-  if (Number(report.vacancyCount) === 0) return 'empty_listing';
+  const observation = report.runtimeObservation || {};
+  const listingCount = observation.listingCount;
+  const publishableCount = observation.publishableCount ?? report.vacancyCount;
+  if (Number.isSafeInteger(listingCount) && listingCount > 0
+    && Number.isSafeInteger(publishableCount) && publishableCount === 0) return 'all_rows_filtered';
+  if (listingCount === 0
+    && observation.exactListingCount === true
+    && observation.listingPopulationComplete === true) return 'empty_listing';
   return 'runtime';
 }
 

@@ -28,6 +28,10 @@ import {
   isSynthesisRetryDue,
   scheduleSynthesisRetry,
   statusCounts,
+  resolveCandidateKey,
+  startLedgerPhase,
+  finishLedgerPhase,
+  recordCandidateAttempt,
 } from './lib/prospector/candidate-store.mjs';
 import { synthesizeSpec, isExpectedSynthesisError } from './lib/prospector/synthesize.mjs';
 import { PROSPECTOR_DIR } from './lib/prospector/config.mjs';
@@ -44,11 +48,12 @@ const flag = (n) => argv.includes(`--${n}`);
 const limit = Number(arg('limit', 25));
 const onlyKey = arg('key', '');
 const dryRun = flag('dry-run');
+startLedgerPhase('synthesize', { dryRun });
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 const store = loadCandidates();
 const queue = onlyKey
-  ? [store.candidates[onlyKey]].filter(Boolean)
+  ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
   : prioritizeSynthesisCandidates(
     byStatus(store, 'traced').filter((candidate) => isSynthesisRetryDue(candidate)),
     limit,
@@ -60,6 +65,7 @@ console.log(`da sintetizzare: ${queue.length} candidati tracciati\n`);
 let written = 0;
 let refused = 0;
 let vacancies = 0;
+let retried = 0;
 
 for (const c of queue) {
   // Un datore rotto non deve affondare lo stadio. Il loop visita migliaia di
@@ -89,6 +95,7 @@ for (const c of queue) {
       reason: `sintesi in errore: ${message.slice(0, 120)}`,
       errorClass: expected ? 'expected' : 'unexpected',
     });
+    recordCandidateAttempt(c.key, { outcome: 'error', reasonCode: expected ? 'expected_input_error' : 'unexpected_error' }, dryRun ? null : undefined);
     if (expected) {
       console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} errore: ${message.slice(0, 70)}`);
     } else {
@@ -100,17 +107,33 @@ for (const c of queue) {
   if (!spec) {
     refused++;
     const failureReason = `sintesi fallita: ${reason}`;
-    if (retryable) {
-      const retry = scheduleSynthesisRetry(c, failureReason);
-      setStatus(store, c.key, 'traced', retry);
+    const retry = retryable ? scheduleSynthesisRetry(c, failureReason) : null;
+    if (retry?.synthesisRetryable) {
+      retried++;
+      setStatus(store, c.key, 'traced', {
+        ...retry,
+        synthesisOutcome: synth.reasonCode || 'retryable_failure',
+        synthesisDiagnostics: synth.diagnostics || null,
+        synthesisCommoncrawlCollection: c.commoncrawlCollection || null,
+      });
+      recordCandidateAttempt(c.key, {
+        outcome: 'retryable_failure', reasonCode: synth.reasonCode || 'retryable_failure', reason,
+      }, dryRun ? null : undefined);
       console.log(`  ↻ ${String(c.name).slice(0, 34).padEnd(36)} ${reason} — riprovo dopo ${retry.synthesisRetryAt}`);
     } else {
       setStatus(store, c.key, 'rejected', {
         reason: failureReason,
         synthesisRetryable: false,
         synthesisRetryAt: null,
+        synthesisCommoncrawlCollection: c.commoncrawlCollection || null,
+        ...(retry || {}),
       });
-      console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} ${reason}`);
+      recordCandidateAttempt(c.key, {
+        outcome: 'rejected',
+        reasonCode: retry?.synthesisRetryExhausted ? 'retry_limit_reached' : (synth.reasonCode || 'permanent_failure'),
+        reason,
+      }, dryRun ? null : undefined);
+      console.log(`  ✗ ${String(c.name).slice(0, 34).padEnd(36)} ${reason}${retry?.synthesisRetryExhausted ? ' — retry esauriti' : ''}`);
     }
     continue;
   }
@@ -130,6 +153,7 @@ for (const c of queue) {
     synthesisLastAttemptAt: null,
     synthesisRetryAt: null,
   });
+  recordCandidateAttempt(c.key, { outcome: 'succeeded', reasonCode: 'verified_vacancies', reason: `${found.length} vacancies` }, dryRun ? null : undefined);
   console.log(`  ✓ ${String(spec.companyName).slice(0, 34).padEnd(36)} ${spec.mode.padEnd(10)} ${String(found.length).padStart(3)} annunci  ${spec.companyHost}`);
 }
 
@@ -137,3 +161,4 @@ console.log(`\nspec scritte: ${written}   rifiutate: ${refused}   annunci copert
 console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 if (dryRun) console.log('\n--dry-run: niente scritto.');
 else { saveCandidates(store); console.log(`\nspec in ${path.relative(process.cwd(), SPEC_DIR)}/`); }
+finishLedgerPhase(dryRun ? 'dry_run' : 'complete', { inputCount: queue.length, successCount: written, retryCount: retried });

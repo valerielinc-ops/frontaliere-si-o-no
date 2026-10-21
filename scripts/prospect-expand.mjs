@@ -32,7 +32,7 @@ import {
   recordExpansionAttempt,
   recordExpansionResult,
 } from './lib/prospector/platform-registry.mjs';
-import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCounts, startLedgerPhase, finishLedgerPhase } from './lib/prospector/candidate-store.mjs';
 import { enumerateTenants } from './lib/prospector/tenant-enum.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
 import { registrableDomain, tenantLabel } from './lib/prospector/registrable.mjs';
@@ -53,6 +53,7 @@ const maxPlatforms = Number(arg('platforms', 3));
 const maxSharedPlatforms = Number(arg('shared-platforms', 1));
 const maxProbe = Number(arg('max-probe', 250));
 const dryRun = flag('dry-run');
+startLedgerPhase('expand', { dryRun });
 
 const registry = loadRegistry();
 const store = loadCandidates();
@@ -67,6 +68,7 @@ const targets = onlyPlatform
 
 if (!targets.length) {
   console.log('Nessuna piattaforma confermata da espandere. Serve prima uno stadio TRACE.');
+  finishLedgerPhase(dryRun ? 'dry_run' : 'no_targets', { inputCount: 0, successCount: 0 });
   process.exit(0);
 }
 
@@ -145,3 +147,8 @@ console.log(`\nnuovi datori dai tenant: ${filed}   già coperti: ${covered}`);
 console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 if (dryRun) console.log('\n--dry-run: niente scritto.');
 else { saveCandidates(store); saveRegistry(registry); console.log('\nstato salvato.'); }
+finishLedgerPhase(dryRun ? 'dry_run' : 'complete', {
+  inputCount: targets.length,
+  successCount: filed,
+  retryCount: covered,
+});

@@ -20,6 +20,12 @@ import {
   saveCandidates,
   setStatus,
   upsertCandidate,
+  candidateForKey,
+  reconcileCandidateDuplicates,
+  resolveCandidateKey,
+  startLedgerPhase,
+  finishLedgerPhase,
+  recordCandidateAttempt,
 } from '../scripts/lib/prospector/candidate-store.mjs';
 
 const DAY_MS = 86_400_000;
@@ -266,6 +272,175 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
     expect(Object.keys(store.rejectedTombstones)).toHaveLength(MAX_REJECTED_TOMBSTONES);
     expect(store.rejectedTombstones['rejected-00000.example']).toBeUndefined();
     expect(store.rejectedTombstones[`rejected-${String(MAX_REJECTED_TOMBSTONES + 1).padStart(5, '0')}.example`]).toBeDefined();
+  });
+});
+
+describe('prospector candidate store — cross-source identity and ledger recovery', () => {
+  it('merges a domainless name+city key into one verified cross-source employer and keeps the old key resolvable', () => {
+    const oldKey = 'acme-sa@lugano';
+    const domainKey = 'acme.ch';
+    const store = storeWith({
+      [oldKey]: {
+        key: oldKey, status: 'traced', name: 'Acme SA', city: 'Lugano',
+        careersUrl: 'https://acme.ch/jobs', sources: ['seco'],
+        sourceSeenAt: { seco: '2026-10-20T08:00:00.000Z' }, updatedAt: '2026-10-20T08:00:00.000Z',
+      },
+      [domainKey]: {
+        key: domainKey, status: 'new', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch',
+        sources: ['osm'], sourceSeenAt: { osm: '2026-10-20T09:00:00.000Z' }, updatedAt: '2026-10-20T09:00:00.000Z',
+      },
+    });
+
+    expect(reconcileCandidateDuplicates(store, null)).toMatchObject({ groupsChecked: 1, merged: 1 });
+    expect(Object.keys(store.candidates)).toEqual([oldKey]);
+    expect(store.candidateAliases[domainKey]).toBe(oldKey);
+    expect(resolveCandidateKey(store, domainKey)).toBe(oldKey);
+    expect(candidateForKey(store, domainKey)).toMatchObject({
+      key: oldKey, status: 'traced', domain: 'acme.ch', sources: ['seco', 'osm'],
+    });
+    expect(setStatus(store, domainKey, 'synthesized', { vacancyCount: 2 }, null)?.status).toBe('synthesized');
+  });
+
+  it('does not merge same-name records across different domains or cities', () => {
+    const store = storeWith({
+      'acme-a.ch': { key: 'acme-a.ch', status: 'new', name: 'Acme SA', city: 'Lugano', domain: 'acme-a.ch', sources: ['osm'] },
+      'acme-b.ch': { key: 'acme-b.ch', status: 'new', name: 'Acme SA', city: 'Lugano', domain: 'acme-b.ch', sources: ['seco'] },
+      'acme.ch': { key: 'acme.ch', status: 'new', name: 'Acme SA', city: 'Bellinzona', domain: 'acme.ch', sources: ['web'] },
+    });
+
+    expect(reconcileCandidateDuplicates(store, null)).toMatchObject({ merged: 0, skippedDomainConflict: 1 });
+    expect(Object.keys(store.candidates)).toHaveLength(3);
+  });
+
+  it('keeps an active candidate canonical when matching or merging a rejected duplicate', () => {
+    const rejectedKey = 'acme-legacy';
+    const activeKey = 'acme.ch';
+    const store = storeWith({
+      [rejectedKey]: {
+        key: rejectedKey, status: 'rejected', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch',
+        reason: 'vecchio esito terminale', sources: ['web'],
+      },
+      [activeKey]: {
+        key: activeKey, status: 'production', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch',
+        crawlerKey: 'acme-crawler', sources: ['own'],
+      },
+    });
+
+    expect(upsertCandidate(store, {
+      key: 'acme-new-key', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch',
+    }, 'seco')).toMatchObject({ key: activeKey, created: false });
+    expect(store.candidates[activeKey].status).toBe('production');
+
+    expect(reconcileCandidateDuplicates(store, null)).toMatchObject({ merged: 1 });
+    expect(store.candidateAliases[rejectedKey]).toBe(activeKey);
+    expect(store.candidates[activeKey]).toMatchObject({ status: 'production', sources: ['own', 'seco', 'web'] });
+    expect(store.candidates[rejectedKey]).toBeUndefined();
+  });
+
+  it('does not resolve through a stale identity-index group after source-backed identity changes', () => {
+    const store = storeWith({
+      'acme.ch': {
+        key: 'acme.ch', status: 'new', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch', sources: ['seco'],
+      },
+    });
+
+    // The domainless incoming key builds and reuses the lazy identity index.
+    expect(upsertCandidate(store, {
+      key: 'acme-old-key@lugano', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch',
+    }, 'osm')).toMatchObject({ key: 'acme.ch', created: false });
+    // A later source-backed SECO update changes the record's name and city.
+    upsertCandidate(store, {
+      key: 'acme.ch', name: 'Acme Group', city: 'Bellinzona', domain: 'acme.ch',
+    }, 'seco');
+
+    const separateEmployer = upsertCandidate(store, {
+      key: 'acme-second-key@lugano', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch',
+    }, 'web');
+    expect(separateEmployer).toEqual({ key: 'acme-second-key@lugano', created: true });
+    expect(store.candidates['acme-second-key@lugano']).toMatchObject({ name: 'Acme SA', city: 'Lugano', sources: ['web'] });
+    expect(store.candidates['acme.ch']).toMatchObject({ name: 'Acme Group', city: 'Bellinzona' });
+  });
+
+  it('reopens only the no-vacancy rejection on fresh SECO evidence or a new careers URL', () => {
+    const key = 'acme.ch';
+    const store = storeWith({
+      [key]: {
+        key, status: 'rejected', name: 'Acme SA', domain: 'acme.ch',
+        careersUrl: 'https://acme.ch/jobs', sources: ['web'],
+        reason: 'sintesi fallita: nessun annuncio estratto dal seed', rejectedAt: OLD,
+      },
+    }, { [key]: { rejectedAt: OLD } });
+
+    upsertCandidate(store, { key, name: 'Acme SA', domain: 'acme.ch', adCount: 2 }, 'seco');
+    expect(store.candidates[key]).toMatchObject({ status: 'traced', adCount: 2, reason: 'nuova evidenza SECO: sintesi riaperta' });
+    expect(store.rejectedTombstones[key]).toBeUndefined();
+
+    setStatus(store, key, 'rejected', { reason: 'sintesi fallita: nessun annuncio estratto dal seed' }, null);
+    upsertCandidate(store, { key, name: 'Acme SA', domain: 'acme.ch', careersUrl: 'https://acme.ch/karriere' }, 'web');
+    expect(store.candidates[key]).toMatchObject({ status: 'traced', careersUrl: 'https://acme.ch/karriere' });
+
+    setStatus(store, key, 'rejected', { reason: 'sintesi fallita: HTTP 403 permanente' }, null);
+    upsertCandidate(store, { key, name: 'Acme SA', domain: 'acme.ch', adCount: 4 }, 'seco');
+    expect(store.candidates[key].status).toBe('rejected');
+  });
+
+  it('reopens a no-vacancy rejection on a new Common Crawl collection, but not a repeated collection', () => {
+    const key = 'web-only.example';
+    const store = storeWith({
+      [key]: {
+        key, status: 'rejected', name: 'Web Only', domain: key,
+        careersUrl: 'https://web-only.example/jobs', sources: ['web'],
+        commoncrawlCollection: 'CC-MAIN-2026-41',
+        synthesisCommoncrawlCollection: 'CC-MAIN-2026-41',
+        reason: 'sintesi fallita: nessun annuncio estratto dal seed', rejectedAt: OLD,
+      },
+    }, { [key]: { rejectedAt: OLD } });
+
+    upsertCandidate(store, {
+      key, name: 'Web Only', domain: key,
+      careersUrl: 'https://web-only.example/jobs', commoncrawlCollection: 'CC-MAIN-2026-41',
+    }, 'web');
+    expect(store.candidates[key].status).toBe('rejected');
+
+    upsertCandidate(store, {
+      key, name: 'Web Only', domain: key,
+      careersUrl: 'https://web-only.example/jobs', commoncrawlCollection: 'CC-MAIN-2026-46',
+    }, 'web');
+    expect(store.candidates[key]).toMatchObject({
+      status: 'traced',
+      commoncrawlCollection: 'CC-MAIN-2026-46',
+      reason: 'nuova collection Common Crawl: sintesi riaperta',
+      synthesisAttempts: 0,
+    });
+  });
+
+  it('records run, attempt and phase metadata and suppresses dry-run ledger writes', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-ledger-context-'));
+    const ledger = path.join(dir, 'ledger.jsonl');
+    const dryLedger = path.join(dir, 'dry-ledger.jsonl');
+    try {
+      const store = storeWith({
+        'acme.ch': { key: 'acme.ch', status: 'traced' },
+      });
+      startLedgerPhase('synthesize', { runId: 'run-123', runAttempt: 2, ledgerFile: ledger });
+      recordCandidateAttempt('acme.ch', { outcome: 'retryable_failure', reasonCode: 'no_verified_vacancies' });
+      setStatus(store, 'acme.ch', 'traced', { synthesisRetryable: true });
+      finishLedgerPhase('complete', { inputCount: 1, retryCount: 1 });
+      const events = fs.readFileSync(ledger, 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+      expect(events.map((event) => event.eventType)).toEqual([
+        'phase_started', 'candidate_attempt', 'candidate_attempt', 'phase_finished',
+      ]);
+      for (const event of events) expect(event).toMatchObject({ runId: 'run-123', runAttempt: 2, phase: 'synthesize' });
+      expect(events.every((event) => typeof event.eventId === 'string' && event.eventId.length === 24)).toBe(true);
+
+      startLedgerPhase('synthesize', { runId: 'dry-run', ledgerFile: dryLedger, dryRun: true });
+      recordCandidateAttempt('acme.ch', { outcome: 'succeeded' });
+      finishLedgerPhase('dry_run');
+      expect(fs.existsSync(dryLedger)).toBe(false);
+    } finally {
+      finishLedgerPhase('test_cleanup');
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
 

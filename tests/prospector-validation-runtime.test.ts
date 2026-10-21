@@ -16,6 +16,7 @@ import {
   sourceAdapterRuntimeObservationFor,
 } from '../scripts/lib/prospector/source-adapters.mjs';
 import { matchExistingCrawlerForCompleteSnapshot } from '../scripts/lib/prospector/runtime-duplicate.mjs';
+import { validationSnapshotMetadataFor } from '../scripts/lib/prospector/snapshot-comparison.mjs';
 
 const PUBLIC_IP = [{ address: '93.184.216.34', family: 4 }];
 const DESCRIPTION = 'The successful candidate will plan and deliver reliable customer services, work with the engineering team, document procedures, solve operational issues, and support continuous improvement across the organisation. '.repeat(3);
@@ -635,6 +636,12 @@ describe('Prospector production validation', () => {
         fetchOutcome,
         exactListingCount: false,
         snapshotAccepted: false,
+        complete: false,
+      });
+      expect(validationSnapshotMetadataFor(observed.observation)).toMatchObject({
+        exactListingCount: false,
+        listingPopulationComplete: false,
+        runtimeSnapshotComplete: false,
         complete: false,
       });
     } finally {

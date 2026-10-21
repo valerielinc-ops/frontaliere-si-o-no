@@ -23,6 +23,40 @@ import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
 import { listingEvidenceFields } from './detail-extract.mjs';
 
+const MAX_SYNTHESIS_FETCHES = 5;
+const CAREER_LINK_RX = /(?:^|[\/_-])(?:jobs?|careers?|vacancies|karriere|stellen(?:angebote)?|offene-stellen|emplois?|carrieres?|offres-d-emploi|lavora|carriere|posizioni-aperte|offerte-di-lavoro|posti-vacanti)(?:[/?#._-]|$)/i;
+const CAREER_LINK_TEXT_RX = /\b(jobs?|careers?|vacancies|karriere|stellen|emplois?|carri[eè]re|lavora|posizioni|offerte di lavoro|posti vacanti)\b/i;
+
+function synthesisSeeds(candidate) {
+  const values = [
+    candidate.careersUrl,
+    ...(Array.isArray(candidate.careersUrls) ? candidate.careersUrls : []),
+    candidate.tenantHost ? `https://${candidate.tenantHost}/` : null,
+    candidate.domain ? `https://${candidate.domain}/` : null,
+  ];
+  const seen = new Set();
+  const seeds = [];
+  for (const value of values) {
+    if (!value) continue;
+    let url;
+    try { url = new URL(String(value)); } catch { continue; }
+    if (!/^https?:$/.test(url.protocol)) continue;
+    url.hash = '';
+    const normalized = url.toString();
+    if (seen.has(normalized)) continue;
+    seen.add(normalized);
+    seeds.push(normalized);
+  }
+  return seeds.slice(0, 3);
+}
+
+function careerLinksFromPage(body, baseUrl) {
+  return extractLinks(body, baseUrl)
+    .filter((link) => CAREER_LINK_RX.test(new URL(link.url).pathname)
+      || CAREER_LINK_TEXT_RX.test(link.text || ''))
+    .map((link) => link.url);
+}
+
 /**
  * @typedef {Object} CrawlerSpec
  * @property {string} companyKey
@@ -205,34 +239,77 @@ export function isExpectedSynthesisError(err) {
  * Learn a spec by crawling the candidate's careers page for real.
  *
  * @param {Record<string, any>} candidate
- * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, vacancies: any[], retryable?: boolean }>}
+ * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, reasonCode?: string, vacancies: any[], retryable?: boolean, diagnostics?: Record<string, any> }>}
  */
 export async function synthesizeSpec(candidate, runtime = {}) {
-  const seed = candidate.careersUrl || (candidate.tenantHost ? `https://${candidate.tenantHost}/` : null)
-    || (candidate.domain ? `https://${candidate.domain}/` : null);
-  if (!seed) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
+  const seeds = synthesisSeeds(candidate);
+  if (!seeds.length) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
 
-  const res = await politeFetch(seed, {
-    fetchImpl: runtime.fetchImpl,
-    lookupImpl: runtime.lookupImpl,
-    sleepImpl: runtime.sleepImpl,
-  });
-  if (!res.ok) {
-    const blocked = res.blockedByRobots || res.policyBlocked;
-    const status = Number(res.status) || 0;
+  const pending = [...seeds];
+  const queued = new Set(pending);
+  const attempted = new Set();
+  const failures = [];
+  let reachablePages = 0;
+  let extracted = null;
+  while (pending.length && attempted.size < MAX_SYNTHESIS_FETCHES) {
+    const seed = pending.shift();
+    if (attempted.has(seed)) continue;
+    attempted.add(seed);
+    const res = await politeFetch(seed, {
+      fetchImpl: runtime.fetchImpl,
+      lookupImpl: runtime.lookupImpl,
+      sleepImpl: runtime.sleepImpl,
+    });
+    if (!res.ok) {
+      failures.push(res);
+      continue;
+    }
+    reachablePages++;
+    const links = extractLinks(res.body, res.url);
+    const result = extractVacancies(res.body, res.url, links);
+    if (result.vacancies.length) {
+      extracted = { res, vacancies: result.vacancies, via: result.via };
+      break;
+    }
+    // A homepage often points to the real career listing. Follow only links
+    // whose path or authored label signals recruitment, and extractLinks
+    // already limits these links to the page's own origin.
+    for (const link of careerLinksFromPage(res.body, res.url)) {
+      if (queued.has(link) || attempted.has(link)) continue;
+      queued.add(link);
+      pending.push(link);
+    }
+  }
+  if (!extracted) {
+    if (reachablePages > 0) {
+      return {
+        spec: null,
+        reason: 'nessun annuncio estratto dal seed',
+        reasonCode: 'no_verified_vacancies',
+        retryable: true,
+        vacancies: [],
+        diagnostics: { attemptedUrls: attempted.size, reachablePages },
+      };
+    }
+    const isRetryableFetchFailure = (attempt) => {
+      if (attempt.blockedByRobots || attempt.policyBlocked) return false;
+      const status = Number(attempt.status) || 0;
+      return status > 0 ? isRetryableTraceStatus(status) : Boolean(attempt.transportError);
+    };
+    const retryableFailures = failures.filter(isRetryableFetchFailure);
+    const failure = retryableFailures.at(-1) || failures.at(-1) || {};
+    const blocked = failure.blockedByRobots || failure.policyBlocked;
     return {
       spec: null,
-      reason: `seed irraggiungibile (${res.status})`,
+      reason: `seed irraggiungibile (${failure.status || 0})`,
+      reasonCode: retryableFailures.length ? 'transient_seed_failure' : (blocked ? 'policy_blocked' : 'seed_unreachable'),
       vacancies: [],
-      retryable: !blocked && (status > 0
-        ? isRetryableTraceStatus(status)
-        : Boolean(res.transportError)),
+      retryable: retryableFailures.length > 0,
+      diagnostics: { attemptedUrls: attempted.size, reachablePages: 0 },
     };
   }
 
-  const links = extractLinks(res.body, res.url);
-  const { vacancies, via } = extractVacancies(res.body, res.url, links);
-  if (!vacancies.length) return { spec: null, reason: 'nessun annuncio estratto dal seed', vacancies: [] };
+  const { res, vacancies, via } = extracted;
 
   // A synthesised spec must not silently learn an unreviewed ATS/CDN origin.
   // Existing promoted specs may name `allowedDetailOrigins` explicitly, but

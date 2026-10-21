@@ -25,6 +25,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { CANDIDATES_PATH, LEDGER_PATH } from './config.mjs';
 import { registrableDomain } from './registrable.mjs';
 import { normalizeCompanyName } from './coverage.mjs';
@@ -44,6 +45,82 @@ export function candidateKey(c) {
   const n = normalizeCompanyName(c.name || '').replace(/\s+/g, '-');
   const city = String(c.city || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return [n, city].filter(Boolean).join('@') || `unknown-${Math.abs(hash(JSON.stringify(c)))}`;
+}
+
+function normalizeIdentityCity(value) {
+  return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function identityGroupKey(candidate) {
+  const name = normalizeCompanyName(candidate?.name || '').replace(/\s+/g, ' ').trim();
+  const city = normalizeIdentityCity(candidate?.city);
+  return name && city ? `${name}@${city}` : '';
+}
+
+function inferredLedgerPhase() {
+  const script = path.basename(process.argv[1] || '');
+  return script.match(/^prospect-(discover|trace|expand|synthesize|validate|promote)\.mjs$/)?.[1] || 'unknown';
+}
+
+function currentLedgerContext() {
+  const runAttemptRaw = process.env.GITHUB_RUN_ATTEMPT || process.env.PROSPECTOR_RUN_ATTEMPT || '1';
+  const runAttempt = Number.parseInt(runAttemptRaw, 10);
+  return {
+    runId: String(process.env.GITHUB_RUN_ID || process.env.PROSPECTOR_RUN_ID || LOCAL_RUN_ID),
+    runAttempt: Number.isSafeInteger(runAttempt) && runAttempt > 0 ? runAttempt : 1,
+    phase: inferredLedgerPhase(),
+    disabled: false,
+    file: undefined,
+  };
+}
+
+/** Begin a ledger scope for one Prospector stage. */
+export function startLedgerPhase(phase, options = {}) {
+  const current = currentLedgerContext();
+  activeLedgerContext = {
+    ...current,
+    ...options,
+    phase: String(phase || current.phase),
+    runId: String(options.runId || current.runId),
+    runAttempt: Number(options.runAttempt || current.runAttempt),
+    disabled: options.dryRun === true,
+    file: options.ledgerFile,
+    startedAtMs: Date.now(),
+  };
+  appendLedger({ eventType: 'phase_started', at: new Date(activeLedgerContext.startedAtMs).toISOString() });
+  if (!ledgerExitHookInstalled) {
+    ledgerExitHookInstalled = true;
+    process.once('exit', (code) => finishLedgerPhase(code ? 'failed' : 'complete'));
+  }
+  return { phase: activeLedgerContext.phase, startedAtMs: activeLedgerContext.startedAtMs };
+}
+
+/** Finish the current ledger scope and record its bounded run outcome. */
+export function finishLedgerPhase(outcome = 'complete', details = {}) {
+  if (!activeLedgerContext) return;
+  const context = activeLedgerContext;
+  appendLedger({
+    eventType: 'phase_finished',
+    at: new Date().toISOString(),
+    outcome: String(outcome || 'complete'),
+    durationMs: Math.max(0, Date.now() - context.startedAtMs),
+    ...(Number.isSafeInteger(details?.inputCount) ? { inputCount: details.inputCount } : {}),
+    ...(Number.isSafeInteger(details?.successCount) ? { successCount: details.successCount } : {}),
+    ...(Number.isSafeInteger(details?.retryCount) ? { retryCount: details.retryCount } : {}),
+  });
+  activeLedgerContext = null;
+}
+
+/** Record an attempt even when the candidate status does not change. */
+export function recordCandidateAttempt(key, { outcome, reasonCode, reason } = {}, file) {
+  appendLedger({
+    eventType: 'candidate_attempt',
+    key,
+    outcome: String(outcome || 'unknown'),
+    ...(reasonCode ? { reasonCode: String(reasonCode) } : {}),
+    ...(reason ? { reason: String(reason).slice(0, 300) } : {}),
+    at: new Date().toISOString(),
+  }, file);
 }
 
 /** @param {string} s */
@@ -69,6 +146,7 @@ export const MAX_REJECTED_TOMBSTONES = 10_000;
  */
 const RETRYABLE_TRACE_REASON_RX = /(?:sito|dominio|pagina|rete|host|dns|timeout|http|fetch).*(?:irraggiungibile|non risolto|non raggiungibile|tempor|errore|blocc|timeout)|(?:irraggiungibile|non raggiungibile|timeout)/i;
 const STAGE_RETRY_DELAYS_DAYS = [1, 3, 7, 14, 30];
+const MAX_SYNTHESIS_RETRIES = 5;
 const DOMAIN_RETRY_FRESH_OBSERVATION_AFTER = 4;
 const SECO_SIGNAL_FIELDS = new Set(['adCount', 'sampleTitles', 'applyHosts']);
 const SECO_IDENTITY_FIELDS = new Set(['secoEmployerName']);
@@ -84,12 +162,68 @@ const TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE = new Map([
 ]);
 const TRACE_EVIDENCE_SNAPSHOT_VERSION = 2;
 
-const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {} };
+const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {}, candidateAliases: {} };
 const TOMBSTONE_COUNTS = new WeakMap();
+const IDENTITY_INDEXES = new WeakMap();
+
+const LOCAL_RUN_ID = `local-${process.pid}-${Math.floor(Date.now() / 1000)}`;
+let activeLedgerContext = null;
+let ledgerExitHookInstalled = false;
 
 /** @param {unknown} value */
 function isObjectMap(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function aliasesFor(store) {
+  if (!isObjectMap(store.candidateAliases)) store.candidateAliases = {};
+  return store.candidateAliases;
+}
+
+/** Resolve a historical key retained by cross-source candidate reconciliation. */
+export function resolveCandidateKey(store, key) {
+  let resolved = String(key || '');
+  const aliases = aliasesFor(store);
+  const visited = new Set();
+  while (aliases[resolved] && !visited.has(resolved)) {
+    visited.add(resolved);
+    resolved = String(aliases[resolved]);
+  }
+  return resolved;
+}
+
+export function candidateForKey(store, key) {
+  return store.candidates[resolveCandidateKey(store, key)] || null;
+}
+
+function identityIndexFor(store) {
+  let index = IDENTITY_INDEXES.get(store);
+  if (index) return index;
+  index = new Map();
+  for (const [key, candidate] of Object.entries(store.candidates || {})) {
+    const group = identityGroupKey(candidate);
+    if (!group || resolveCandidateKey(store, key) !== key) continue;
+    if (!index.has(group)) index.set(group, new Set());
+    index.get(group).add(key);
+  }
+  IDENTITY_INDEXES.set(store, index);
+  return index;
+}
+
+function addToIdentityIndex(store, key, candidate) {
+  const group = identityGroupKey(candidate);
+  if (!group) return;
+  const index = identityIndexFor(store);
+  if (!index.has(group)) index.set(group, new Set());
+  index.get(group).add(key);
+}
+
+function distinctSources(candidates) {
+  return new Set(candidates.flatMap((candidate) => Array.isArray(candidate?.sources) ? candidate.sources : [])).size;
+}
+
+function candidateDomains(candidates) {
+  return new Set(candidates.map((candidate) => candidate?.domain ? registrableDomain(candidate.domain) : '').filter(Boolean));
 }
 
 /** @param {Record<string, any>} candidate */
@@ -235,6 +369,13 @@ function rememberRejected(store, candidate) {
   boundTombstones(store);
 }
 
+function forgetRejected(store, key) {
+  const tombstones = tombstonesFor(store);
+  if (!Object.prototype.hasOwnProperty.call(tombstones, key)) return;
+  delete tombstones[key];
+  TOMBSTONE_COUNTS.set(tombstones, Math.max(0, tombstoneCount(tombstones) - 1));
+}
+
 /**
  * @param {Record<string, any>} raw
  * @returns {ReturnType<typeof loadCandidates>}
@@ -244,11 +385,18 @@ function normalizeStore(raw) {
     ...raw,
     version: Math.max(Number(raw.version) || 1, STORE_VERSION),
     rejectedTombstones: {},
+    candidateAliases: {},
   };
   if (isObjectMap(raw.rejectedTombstones)) {
     for (const [key, value] of Object.entries(raw.rejectedTombstones)) {
       const rejectedAt = typeof value === 'string' ? value : value?.rejectedAt;
       if (key && rejectedAt) store.rejectedTombstones[key] = { rejectedAt: String(rejectedAt) };
+    }
+  }
+  if (isObjectMap(raw.candidateAliases)) {
+    for (const [key, value] of Object.entries(raw.candidateAliases)) {
+      const canonicalKey = typeof value === 'string' ? value : value?.canonicalKey;
+      if (key && canonicalKey && key !== canonicalKey) store.candidateAliases[key] = String(canonicalKey);
     }
   }
   // Backfill the compact index for stores written before tombstones existed.
@@ -363,14 +511,17 @@ export function isSynthesisRetryDue(candidate, now = Date.now()) {
  */
 export function scheduleSynthesisRetry(candidate, reason, now = Date.now()) {
   const attempts = Math.max(0, Number(candidate?.synthesisAttempts) || 0);
+  const nextAttempts = attempts + 1;
+  const retryable = nextAttempts <= MAX_SYNTHESIS_RETRIES;
   const delayDays = STAGE_RETRY_DELAYS_DAYS[Math.min(attempts, STAGE_RETRY_DELAYS_DAYS.length - 1)];
   const attemptedAt = new Date(now).toISOString();
   return {
     reason,
-    synthesisRetryable: true,
-    synthesisAttempts: attempts + 1,
+    synthesisRetryable: retryable,
+    synthesisRetryExhausted: !retryable,
+    synthesisAttempts: nextAttempts,
     synthesisLastAttemptAt: attemptedAt,
-    synthesisRetryAt: new Date(now + delayDays * 86_400_000).toISOString(),
+    synthesisRetryAt: retryable ? new Date(now + delayDays * 86_400_000).toISOString() : null,
   };
 }
 
@@ -388,11 +539,21 @@ export function scheduleSynthesisRetry(candidate, reason, now = Date.now()) {
  * @param {string} [source]
  * @returns {Record<string, any>|null}
  */
-export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFile = LEDGER_PATH, source = '') {
-  const candidate = store.candidates[key];
+export function reviveRetryableDeadCandidate(store, key, incoming = {}, ledgerFile, source = '') {
+  const requestedKey = key;
+  key = resolveCandidateKey(store, key);
+  let candidate = store.candidates[key];
+  if (!candidate) {
+    const identityMatch = findIncomingIdentityCandidate(store, incoming, source);
+    if (identityMatch) {
+      key = resolveCandidateKey(store, identityMatch);
+      candidate = store.candidates[key];
+      if (candidate && requestedKey !== key) aliasesFor(store)[requestedKey] = key;
+    }
+  }
   if (!candidate || candidate.status !== 'dead') return candidate || null;
   const sourceEvidenceFields = TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE.get(source);
-  const hasNewCareerUrl = sourceEvidenceFields?.has('careersUrl')
+  const hasNewCareerUrl = (sourceEvidenceFields?.has('careersUrl') || String(source).startsWith('tenant:'))
     && Boolean(incoming?.careersUrl)
     && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
   if (candidate.traceRetryable !== true && !hasNewCareerUrl) return candidate;
@@ -421,6 +582,169 @@ export function saveCandidates(store, file = CANDIDATES_PATH) {
   fs.renameSync(tmp, file);
 }
 
+function findIncomingIdentityCandidate(store, incoming, source) {
+  const group = identityGroupKey(incoming);
+  if (!group) return null;
+  const keys = identityIndexFor(store).get(group);
+  if (!keys?.size) return null;
+  const candidates = [...keys]
+    .map((key) => store.candidates[resolveCandidateKey(store, key)])
+    .filter((candidate) => candidate && identityGroupKey(candidate) === group);
+  const unique = [...new Map(candidates.map((candidate) => [candidate.key, candidate])).values()];
+  if (!unique.length || candidateDomains([...unique, incoming]).size !== 1
+    || distinctSources([...unique, { ...incoming, sources: [...(incoming.sources || []), source] }]) < 2) return null;
+  const crawlerKeys = new Set(unique.map((candidate) => candidate.crawlerKey).filter(Boolean));
+  if (incoming.crawlerKey) crawlerKeys.add(incoming.crawlerKey);
+  if (crawlerKeys.size > 1) return null;
+  return selectCanonicalCandidate(unique)?.key || null;
+}
+
+function mergeCareerUrls(target, ...values) {
+  const urls = new Set([
+    ...(Array.isArray(target.careersUrls) ? target.careersUrls : []),
+    target.careersUrl,
+    ...values.flatMap((value) => Array.isArray(value) ? value : [value]),
+  ].filter((value) => typeof value === 'string' && value.trim()));
+  if (urls.size) target.careersUrls = [...urls].slice(0, 12);
+}
+
+function mergeCandidateRecord(target, incoming, { preserveTerminalSeed = false } = {}) {
+  const previousSeed = target.careersUrl;
+  const previousWebObservation = String(target.sourceSeenAt?.web || '');
+  const incomingWebObservation = String(incoming.sourceSeenAt?.web || '');
+  for (const [field, value] of Object.entries(incoming)) {
+    if (value === undefined || value === null || value === '') continue;
+    if (['key', 'status', 'sources', 'sourceSeenAt', 'updatedAt', 'rejectedAt', 'reason', 'careersUrl', 'careersUrls', 'commoncrawlCollection'].includes(field)) continue;
+    if (field === 'validationHistory' && Array.isArray(value)) {
+      target.validationHistory = [...(target.validationHistory || []), ...value]
+        .filter((entry, index, all) => all.findIndex((other) => other?.at === entry?.at && other?.qualityContractVersion === entry?.qualityContractVersion) === index)
+        .sort((a, b) => String(a?.at || '').localeCompare(String(b?.at || '')))
+        .slice(-8);
+      continue;
+    }
+    if (Array.isArray(value) && Array.isArray(target[field])) {
+      target[field] = [...new Set([...target[field], ...value])].slice(-100);
+      continue;
+    }
+    if (target[field] === undefined || target[field] === null || target[field] === '') target[field] = value;
+  }
+  target.sources = [...new Set([...(target.sources || []), ...(incoming.sources || [])])];
+  target.sourceSeenAt = { ...(target.sourceSeenAt || {}) };
+  for (const [source, at] of Object.entries(incoming.sourceSeenAt || {})) {
+    if (!target.sourceSeenAt[source] || String(at) > String(target.sourceSeenAt[source])) target.sourceSeenAt[source] = at;
+  }
+  if (incoming.commoncrawlCollection
+    && (!target.commoncrawlCollection || incomingWebObservation >= previousWebObservation)) {
+    target.commoncrawlCollection = incoming.commoncrawlCollection;
+  }
+  mergeCareerUrls(target, incoming.careersUrl, incoming.careersUrls);
+  if (!preserveTerminalSeed && (!target.careersUrl || target.status !== 'rejected' && target.status !== 'dead')) {
+    target.careersUrl ||= incoming.careersUrl;
+  }
+  if (target.careersUrl && previousSeed && target.careersUrl !== previousSeed) mergeCareerUrls(target, previousSeed);
+  if (incoming.domain && !target.domain) target.domain = incoming.domain;
+  if (!target.crawlerKey && incoming.crawlerKey) target.crawlerKey = incoming.crawlerKey;
+  target.firstSeenAt = [target.firstSeenAt, incoming.firstSeenAt].filter(Boolean).sort()[0] || target.firstSeenAt;
+  target.updatedAt = [target.updatedAt, incoming.updatedAt].filter(Boolean).sort().at(-1) || target.updatedAt;
+}
+
+/**
+ * Consolidate only exact normalized name+city groups with at least two source
+ * families and one employer domain. Historical keys stay resolvable through
+ * `candidateAliases`, so crawler specs and old operator references continue to
+ * find the canonical record.
+ */
+export function reconcileCandidateDuplicates(store, ledgerFile) {
+  const groups = identityIndexFor(store);
+  const result = { groupsChecked: 0, merged: 0, skippedDomainConflict: 0, skippedEvidence: 0, skippedCrawlerConflict: 0 };
+  for (const [identity, rawKeys] of groups) {
+    const members = [...rawKeys]
+      .map((key) => store.candidates[key])
+      .filter((candidate) => candidate && identityGroupKey(candidate) === identity);
+    if (members.length < 2) continue;
+    result.groupsChecked++;
+    const domains = candidateDomains(members);
+    if (domains.size !== 1) { result.skippedDomainConflict++; continue; }
+    if (distinctSources(members) < 2) { result.skippedEvidence++; continue; }
+    if (new Set(members.map((candidate) => candidate.crawlerKey).filter(Boolean)).size > 1) {
+      result.skippedCrawlerConflict++;
+      continue;
+    }
+    const canonical = selectCanonicalCandidate(members);
+    const preserveTerminalSeed = canonical.status === 'rejected' || canonical.status === 'dead';
+    for (const member of members) {
+      if (member === canonical) continue;
+      mergeCandidateRecord(canonical, member, { preserveTerminalSeed });
+      aliasesFor(store)[member.key] = canonical.key;
+      for (const [alias, target] of Object.entries(aliasesFor(store))) {
+        if (target === member.key) aliasesFor(store)[alias] = canonical.key;
+      }
+      delete store.candidates[member.key];
+      forgetRejected(store, member.key);
+      appendLedger({
+        eventType: 'candidate_merged',
+        key: member.key,
+        canonicalKey: canonical.key,
+        reasonCode: 'same_name_city_single_domain_cross_source',
+        at: new Date().toISOString(),
+      }, ledgerFile);
+      result.merged++;
+    }
+    canonical.domain ||= [...domains][0];
+    canonical.updatedAt = new Date().toISOString();
+    if (canonical.status === 'rejected') rememberRejected(store, canonical);
+    if (canonical.status === 'dead') {
+      // Keep all known paths for a later explicit fresh-evidence revival, but
+      // retain the terminal seed until such evidence actually arrives.
+      mergeCareerUrls(canonical, canonical.careersUrls);
+    }
+  }
+  IDENTITY_INDEXES.delete(store);
+  return result;
+}
+
+function reopenEmptySynthesisRejection(store, key, candidate, incoming, source, ledgerFile) {
+  if (candidate?.status !== 'rejected'
+    || candidate.reason !== 'sintesi fallita: nessun annuncio estratto dal seed') return false;
+  const sourceEvidenceFields = TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE.get(source);
+  const newCareerUrl = Boolean(incoming?.careersUrl)
+    && (sourceEvidenceFields?.has('careersUrl') || String(source).startsWith('tenant:'))
+    && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
+  const freshSecoEvidence = source === 'seco' && Number(incoming?.adCount) > 0;
+  const priorWebCollection = candidate.synthesisCommoncrawlCollection || candidate.commoncrawlCollection || '';
+  const newCommoncrawlCollection = source === 'web'
+    && Boolean(incoming?.commoncrawlCollection)
+    && String(incoming.commoncrawlCollection) !== String(priorWebCollection);
+  if (!newCareerUrl && !freshSecoEvidence && !newCommoncrawlCollection) return false;
+  const at = new Date().toISOString();
+  const priorReason = candidate.reason;
+  candidate.status = 'traced';
+  candidate.reason = newCareerUrl
+    ? 'nuovo seed carriere: sintesi riaperta'
+    : (freshSecoEvidence ? 'nuova evidenza SECO: sintesi riaperta' : 'nuova collection Common Crawl: sintesi riaperta');
+  if (newCareerUrl) {
+    mergeCareerUrls(candidate, candidate.careersUrl, incoming.careersUrl);
+    candidate.careersUrl = String(incoming.careersUrl);
+  }
+  candidate.synthesisRetryable = false;
+  candidate.synthesisAttempts = 0;
+  candidate.synthesisLastAttemptAt = null;
+  candidate.synthesisRetryAt = null;
+  candidate.synthesisRetryExhausted = false;
+  candidate.synthesisOutcome = null;
+  candidate.synthesisDiagnostics = null;
+  candidate.reopenedAt = at;
+  delete candidate.rejectedAt;
+  candidate.updatedAt = at;
+  forgetRejected(store, key);
+  appendLedger({
+    eventType: 'candidate_reopened', key, from: 'rejected', to: 'traced', at,
+    reasonCode: newCareerUrl ? 'new_careers_url' : (freshSecoEvidence ? 'fresh_seco_ads' : 'new_commoncrawl_collection'),
+    reason: priorReason,
+  }, ledgerFile);
+  return true;
+}
+
 /**
  * Insert or merge a candidate. Merging never downgrades a status and never
  * loses a source attribution — the same employer legitimately arrives from the
@@ -433,13 +757,25 @@ export function saveCandidates(store, file = CANDIDATES_PATH) {
  * @returns {{ key: string, created: boolean }}
  */
 export function upsertCandidate(store, incoming, source) {
-  const key = incoming.key || candidateKey(incoming);
+  const requestedKey = incoming.key || candidateKey(incoming);
+  let key = resolveCandidateKey(store, requestedKey);
   const now = new Date().toISOString();
-  const existing = store.candidates[key];
+  let existing = store.candidates[key];
+  if (!existing) {
+    const identityMatch = findIncomingIdentityCandidate(store, incoming, source);
+    if (identityMatch) {
+      key = resolveCandidateKey(store, identityMatch);
+      existing = store.candidates[key];
+      if (key !== requestedKey) aliasesFor(store)[requestedKey] = key;
+    }
+  }
   if (!existing && tombstonesFor(store)[key]) return { key, created: false };
+  const reopenedNoVacancy = existing
+    ? reopenEmptySynthesisRejection(store, key, existing, incoming, source, activeLedgerContext?.file)
+    : false;
   // A repeated sighting must not refresh a rejected record's retention clock
   // or merge new diagnostic payload into a verdict that is already terminal.
-  if (existing?.status === 'rejected') {
+  if (existing?.status === 'rejected' && !reopenedNoVacancy) {
     rememberRejected(store, existing);
     return { key, created: false };
   }
@@ -466,16 +802,32 @@ export function upsertCandidate(store, incoming, source) {
       updatedAt: now,
       ...incoming,
     };
+    mergeCareerUrls(candidate, candidate.careersUrl, candidate.careersUrls);
     recordSourceObservation(candidate, source, now);
     if (source !== 'seco') {
       for (const field of [...SECO_SIGNAL_FIELDS, ...SECO_IDENTITY_FIELDS]) delete candidate[field];
     }
     store.candidates[key] = candidate;
+    addToIdentityIndex(store, key, candidate);
     return { key, created: true };
   }
   for (const [k, v] of Object.entries(incoming)) {
     if (v === undefined || v === null || v === '') continue;
     if (k === 'status' || k === 'sources' || k === 'sourceSeenAt') continue;
+    if (k === 'careersUrls' && Array.isArray(v)) {
+      mergeCareerUrls(existing, v);
+      continue;
+    }
+    if (k === 'careersUrl') {
+      mergeCareerUrls(existing, v);
+      if (reopenedNoVacancy || !existing[k]
+        || (sourcePreviouslySeen && TRACE_RETRY_EVIDENCE_FIELDS_BY_SOURCE.get(source)?.has(k))) existing[k] = v;
+      continue;
+    }
+    if (k === 'commoncrawlCollection') {
+      if (source === 'web') existing.commoncrawlCollection = v;
+      continue;
+    }
     if (SECO_SIGNAL_FIELDS.has(k)) {
       if (source === 'seco') existing[k] = v;
       continue;
@@ -498,14 +850,35 @@ export function upsertCandidate(store, incoming, source) {
     existing.synthesisAttempts = 0;
     existing.synthesisLastAttemptAt = null;
     existing.synthesisRetryAt = null;
+    existing.synthesisRetryExhausted = false;
+    existing.synthesisOutcome = null;
+    existing.synthesisDiagnostics = null;
     if (String(existing.reason || '').startsWith('sintesi fallita:')) existing.reason = null;
   }
   if (!existing.sources.includes(source)) existing.sources.push(source);
   existing.updatedAt = now;
+  addToIdentityIndex(store, key, existing);
   return { key, created: false };
 }
 
 const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', 'validated', 'promoted', 'promoting', 'awaiting_first_crawl', 'production'];
+
+function selectCanonicalCandidate(candidates) {
+  const active = candidates.filter((candidate) => candidate.status !== 'rejected' && candidate.status !== 'dead');
+  const pool = active.length ? active : candidates;
+  return pool.slice().sort((a, b) => {
+    if (active.length) {
+      const rank = ORDER.indexOf(b.status) - ORDER.indexOf(a.status);
+      if (rank) return rank;
+    } else if (a.status !== b.status) {
+      // If every record is terminal, preserve an explicit rejection over a
+      // transient dead verdict; otherwise use recency and a stable key tie-break.
+      if (a.status === 'rejected') return -1;
+      if (b.status === 'rejected') return 1;
+    }
+    return String(b.updatedAt || '').localeCompare(String(a.updatedAt || '')) || a.key.localeCompare(b.key);
+  })[0] || null;
+}
 
 /**
  * @param {ReturnType<typeof loadCandidates>} store
@@ -515,7 +888,8 @@ const ORDER = ['rejected', 'dead', 'new', 'resolved', 'traced', 'synthesized', '
  * @param {string} [ledgerFile] dove scrivere la voce di registro; un test che
  *   esercita una transizione non deve appendere al registro committato.
  */
-export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PATH) {
+export function setStatus(store, key, status, patch = {}, ledgerFile) {
+  key = resolveCandidateKey(store, key);
   const c = store.candidates[key];
   if (!c) return null;
   const prev = c.status;
@@ -536,7 +910,17 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
   Object.assign(c, patch, { updatedAt: new Date().toISOString() });
   if (c.status === 'rejected' && !c.rejectedAt) c.rejectedAt = c.updatedAt;
   if (prev === 'rejected' || c.status === 'rejected') rememberRejected(store, c);
-  if (prev !== c.status) appendLedger({ key, from: prev, to: c.status, at: c.updatedAt, reason: patch.reason }, ledgerFile);
+  if (prev !== c.status) appendLedger({ eventType: 'candidate_transition', key, from: prev, to: c.status, at: c.updatedAt, reason: patch.reason }, ledgerFile);
+  else if (Object.keys(patch).length) appendLedger({
+    eventType: 'candidate_attempt',
+    key,
+    status: c.status,
+    outcome: patch.synthesisRetryable === true || patch.traceRetryable === true
+      ? 'retryable_failure'
+      : (patch.qualityVerdict || 'updated'),
+    at: c.updatedAt,
+    reason: patch.reason,
+  }, ledgerFile);
   return c;
 }
 
@@ -553,7 +937,8 @@ export function setStatus(store, key, status, patch = {}, ledgerFile = LEDGER_PA
  * @param {string|null} [ledgerFile]
  * @returns {Record<string, any>|null}
  */
-export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile = LEDGER_PATH) {
+export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile) {
+  key = resolveCandidateKey(store, key);
   const c = store.candidates[key];
   if (!c || c.status !== 'promoted') return null;
   const at = new Date().toISOString();
@@ -562,7 +947,7 @@ export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile = LE
   );
   c.status = 'validated';
   Object.assign(c, safePatch, { updatedAt: at });
-  appendLedger({ key, from: 'promoted', to: 'validated', at, reason: safePatch.reason }, ledgerFile);
+  appendLedger({ eventType: 'candidate_transition', key, from: 'promoted', to: 'validated', at, reason: safePatch.reason }, ledgerFile);
   return c;
 }
 
@@ -578,7 +963,8 @@ export function requeuePromotedCandidate(store, key, patch = {}, ledgerFile = LE
  * @param {string|null} [ledgerFile]
  * @returns {Record<string, any>|null}
  */
-export function requeueClosedPromotionCandidate(store, key, pullRequest = {}, ledgerFile = LEDGER_PATH) {
+export function requeueClosedPromotionCandidate(store, key, pullRequest = {}, ledgerFile) {
+  key = resolveCandidateKey(store, key);
   const candidate = store.candidates[key];
   const associatedNumber = Number(candidate?.promotionPr);
   const verifiedNumber = Number(pullRequest.number);
@@ -606,6 +992,7 @@ export function requeueClosedPromotionCandidate(store, key, pullRequest = {}, le
   candidate.reason = `PR ${associatedNumber} chiusa senza merge, ricandidato`;
   candidate.updatedAt = at;
   appendLedger({
+    eventType: 'candidate_transition',
     key,
     from: 'promoting',
     to: 'promoted',
@@ -626,7 +1013,8 @@ export function requeueClosedPromotionCandidate(store, key, pullRequest = {}, le
  * @param {string|null} [ledgerFile]
  * @returns {Record<string, any>|null}
  */
-export function reopenRejectedCandidate(store, key, sourceAdapterVersion, ledgerFile = LEDGER_PATH) {
+export function reopenRejectedCandidate(store, key, sourceAdapterVersion, ledgerFile) {
+  key = resolveCandidateKey(store, key);
   const candidate = store.candidates[key];
   const version = String(sourceAdapterVersion || '').trim();
   if (!candidate || candidate.status !== 'rejected' || !version) return null;
@@ -650,7 +1038,7 @@ export function reopenRejectedCandidate(store, key, sourceAdapterVersion, ledger
   candidate.reason = `rivalutata con source adapter ${version}`;
   candidate.reopenedSourceAdapterVersion = version;
   delete candidate.rejectedAt;
-  appendLedger({ key, from: 'rejected', to: 'validated', at, reason: candidate.reason }, ledgerFile);
+  appendLedger({ eventType: 'candidate_reopened', key, from: 'rejected', to: 'validated', at, reason: candidate.reason }, ledgerFile);
   return candidate;
 }
 
@@ -658,13 +1046,27 @@ export function reopenRejectedCandidate(store, key, sourceAdapterVersion, ledger
  * @param {Record<string, any>} entry
  * @param {string} [file]
  */
-export function appendLedger(entry, file = LEDGER_PATH) {
+export function appendLedger(entry, file) {
   // `null` esplicito = non registrare: serve a una dry-run, che applica la
   // transizione in memoria per stamparla e poi butta via lo store.
-  if (!file) return;
+  if (activeLedgerContext?.disabled) return;
+  const target = file === undefined
+    ? (activeLedgerContext?.file === undefined ? LEDGER_PATH : activeLedgerContext.file)
+    : file;
+  if (!target) return;
+  const context = activeLedgerContext || currentLedgerContext();
+  const event = {
+    ...entry,
+    runId: entry.runId || context.runId,
+    runAttempt: Number(entry.runAttempt || context.runAttempt),
+    phase: entry.phase || context.phase,
+  };
+  if (!event.eventId) {
+    event.eventId = createHash('sha256').update(JSON.stringify(event)).digest('hex').slice(0, 24);
+  }
   try {
-    fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.appendFileSync(file, `${JSON.stringify(entry)}\n`);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.appendFileSync(target, `${JSON.stringify(event)}\n`);
   } catch { /* the ledger is diagnostic; never fail a run over it */ }
 }
 

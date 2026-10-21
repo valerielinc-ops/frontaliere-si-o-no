@@ -26,6 +26,9 @@ import {
   saveCandidates,
   setStatus,
   statusCounts,
+  candidateForKey,
+  startLedgerPhase,
+  finishLedgerPhase,
 } from './lib/prospector/candidate-store.mjs';
 import { observeSpecInProduction } from './lib/prospector/spec-crawler.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
@@ -46,7 +49,11 @@ import {
 import { matchExistingCrawlerForCompleteSnapshot } from './lib/prospector/runtime-duplicate.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
 import { DATA_ROOT, PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
-import { createValidationSnapshot, comparePublicationSnapshots } from './lib/prospector/snapshot-comparison.mjs';
+import {
+  createValidationSnapshot,
+  comparePublicationSnapshots,
+  validationSnapshotMetadataFor,
+} from './lib/prospector/snapshot-comparison.mjs';
 import {
   candidateStatusAfterValidation,
   GATE_DEFAULTS,
@@ -70,6 +77,7 @@ if (!Number.isSafeInteger(sampleSize) || sampleSize < 1 || sampleSize > 8) {
   throw new Error('--sample must be an integer between 1 and 8');
 }
 const dryRun = flag('dry-run');
+startLedgerPhase('validate', { dryRun });
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 const store = loadCandidates();
@@ -78,7 +86,7 @@ const byCrawlerKey = new Map();
 for (const c of Object.values(store.candidates)) if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
 
 function candidateForSpec(spec) {
-  return (spec.candidateKey && store.candidates[spec.candidateKey])
+  return (spec.candidateKey && candidateForKey(store, spec.candidateKey))
     || byCrawlerKey.get(spec.companyKey)
     || null;
 }
@@ -309,11 +317,7 @@ for (const spec of specs) {
     } else {
       const observed = await observeSpecInProduction(spec, productionRuntimeOptionsFor(spec) || {});
       vacancies = observed.vacancies;
-      runtimeObservation = {
-        ...observed.observation,
-        exactListingCount: true,
-        listingPopulationComplete: true,
-      };
+      runtimeObservation = observed.observation;
       observedDetailsByUrl = observed.detailPagesByUrl;
       titleEvidenceByUrl = observed.titleEvidenceByUrl;
     }
@@ -323,10 +327,12 @@ for (const spec of specs) {
     runtimeObservation = err?.specRuntimeObservation || failedRuntimeObservation(err);
     console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} osservazione runtime incompleta: ${(err instanceof Error ? err.message : String(err)).slice(0, 100)}`);
   }
+  const validationSnapshotMetadata = validationSnapshotMetadataFor(runtimeObservation, Boolean(runtimeFailure));
   const validationSnapshot = createValidationSnapshot(
     vacancies,
     new Date().toISOString(),
     process.env.GITHUB_RUN_ID || null,
+    validationSnapshotMetadata,
   );
   const validationSnapshotSummary = { ...validationSnapshot };
   delete validationSnapshotSummary.ids;
@@ -402,8 +408,7 @@ for (const spec of specs) {
   report.snapshotComparison = comparePublicationSnapshots(validationSnapshot, readPublishedSlice(spec.companyKey));
   report.prioritizedAnomalyIds = (candidate?.validationAnomalyIds || []).slice(0, 50);
   report.measuredVerdict = report.measuredVerdict || report.verdict;
-  report.runtimeSnapshotComplete = (runtimeObservation?.promotionObservationComplete
-    ?? runtimeObservation?.complete) === true && !runtimeFailure;
+  report.runtimeSnapshotComplete = validationSnapshotMetadata.runtimeSnapshotComplete;
   if (!report.runtimeSnapshotComplete) {
     report.verdict = 'weak';
     const failure = runtimeObservation?.failure || runtimeFailure?.message || 'snapshot runtime incompleto';
@@ -616,3 +621,8 @@ else {
   saveCandidates(store);
   console.log(`\nreport in ${path.relative(process.cwd(), VALIDATION_PATH)}`);
 }
+finishLedgerPhase(dryRun ? 'dry_run' : 'complete', {
+  inputCount: reports.length,
+  successCount: reports.filter((report) => report.runtimeSnapshotComplete).length,
+  retryCount: reports.filter((report) => !report.runtimeSnapshotComplete).length,
+});
