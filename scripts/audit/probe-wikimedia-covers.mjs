@@ -14,6 +14,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import sharp from 'sharp';
+import { readMetaFieldEntries } from '../lib/meta-field-regex.mjs';
 
 const ROOT = process.cwd();
 const CACHE_ROOT = path.join(ROOT, '.cache/blog-cover-ledger/wikimedia');
@@ -75,11 +76,8 @@ function clean(value) {
 function parseTitles(file) {
   const source = fs.readFileSync(file, 'utf8');
   const titles = new Map();
-  const rx = /'blog\.article\.([^']+)\.title':\s*'((?:\\.|[^'])*)'/g;
-  let match;
-  while ((match = rx.exec(source))) {
-    const value = match[2].replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\n/g, ' ');
-    titles.set(match[1], value);
+  for (const entry of readMetaFieldEntries(source, 'title')) {
+    titles.set(entry.id, entry.value.replace(/\\n/g, ' '));
   }
   return titles;
 }
