@@ -366,7 +366,7 @@ function requireLocalizedLanguageLevel(issues, value, source, field, { required 
 // English fallback in different words, while leaving product and tool names
 // such as "Project Management", "Azure" and "DevOps" alone.
 const LANGUAGE_SIGNALS = {
-  it: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'management', 'requirements', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre', 'personnes', 'equipe', 'projet', 'projets'],
+  it: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'account', 'clients', 'people', 'team', 'project', 'projects', 'management', 'requirements', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre', 'personnes', 'equipe', 'projet', 'projets'],
   de: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'management', 'requirements', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
   fr: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'management', 'requirements', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium'],
   en: ['sviluppato', 'sviluppata', 'gestito', 'gestita', 'creato', 'creata', 'ridotto', 'ridotta', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'esperienza', 'esperienze', 'sviluppo', 'formazione', 'laurea', 'diploma', 'competenze', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
@@ -389,7 +389,7 @@ const CV_LANGUAGE_MARKERS = {
   it: new Set(['requisiti', 'candidato', 'candidatura', 'offerta', 'competenze', 'esperienza', 'conoscenze', 'azienda', 'lavoro', 'profilo', 'responsabilita', 'responsabile', 'specialista', 'supporto', 'ricerca', 'sviluppo', 'gestione', 'cliente', 'settore', 'formazione', 'contratto', 'mansioni', 'commerciale', 'di', 'progetto', 'progetti', 'laurea', 'magistrale', 'informatica', 'tecnologia', 'ciclismo', 'reparto', 'addetto', 'vendite', 'infermiere', 'infermiera']),
   de: new Set(['und', 'oder', 'bei', 'wir', 'fur', 'ist', 'auf', 'aus', 'mit', 'das', 'eine', 'sich', 'werden', 'uber', 'ihre', 'unser', 'nach', 'kann', 'sind', 'dieser', 'arbeit', 'umgebung', 'arbeitsort', 'erfahrung', 'verantwortlich', 'anforderungen', 'aufgaben', 'kenntnisse', 'qualifikationen', 'berufserfahrung']),
   fr: new Set(['nous', 'vous', 'avec', 'pour', 'dans', 'votre', 'notre', 'sont', 'cette', 'etre', 'avoir', 'vos', 'une', 'des', 'sur', 'les', 'par', 'qui', 'entreprise', 'experience', 'competences', 'poste', 'profil', 'missions', 'responsabilites', 'candidature', 'formation', 'environnement', 'au', 'du', 'gestion', 'equipe', 'service', 'clients', 'ingenieur', 'ingenieure', 'vendeur', 'vendeuse']),
-  en: new Set(['the', 'and', 'with', 'this', 'you', 'your', 'will', 'are', 'for', 'our', 'have', 'that', 'from', 'experience', 'requirements', 'responsibilities', 'qualifications', 'position', 'role', 'about', 'skills', 'ability', 'team', 'working', 'apply', 'required', 'career', 'opportunity', 'knowledge', 'proficiency', 'environment', 'benefits', 'built', 'swiss', 'clients', 'financial', 'reporting', 'systems', 'system', 'design', 'accounting', 'budget', 'forecast', 'revenue', 'customer', 'service', 'delivery', 'software', 'engineering', 'operations', 'management', 'project', 'sales', 'improved', 'conversion', 'architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'led', 'created', 'implemented', 'supported', 'coordinated']),
+  en: new Set(['the', 'and', 'with', 'this', 'you', 'your', 'will', 'are', 'for', 'our', 'have', 'that', 'from', 'experience', 'requirements', 'responsibilities', 'qualifications', 'position', 'role', 'about', 'skills', 'ability', 'team', 'working', 'apply', 'required', 'career', 'opportunity', 'knowledge', 'proficiency', 'environment', 'benefits', 'built', 'swiss', 'clients', 'financial', 'reporting', 'systems', 'system', 'design', 'account', 'accounting', 'budget', 'forecast', 'revenue', 'customer', 'service', 'delivery', 'software', 'engineering', 'operations', 'management', 'project', 'sales', 'improved', 'conversion', 'architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'led', 'created', 'implemented', 'supported', 'coordinated']),
 };
 const CV_LANGUAGE_ROLE_MARKERS = Object.fromEntries(Object.keys(CV_LANGUAGE_MARKERS).map((language) => [
   language,
@@ -596,8 +596,7 @@ function addRenderedLanguageIssues(issues, cv, profile, language) {
     const hasTargetPhrase = hasLanguagePhraseEvidence(rendered, language);
     const hasConfidentTargetDetection = detected?.language === language
       && detected.confidence >= MIN_TARGET_LANGUAGE_CONFIDENCE;
-    const requiresTargetEvidence = Boolean(sourceLanguage)
-      && (language !== 'en' || sourceLanguage !== language);
+    const requiresTargetEvidence = Boolean(sourceLanguage) && sourceLanguage !== language;
     const localizedRole = /^localized\.experience\[\d+\]\.role$/.test(field);
     const shortRoleWordCount = normalizeText(rendered).replace(/[/.]/g, ' ').split(' ').filter(Boolean).length;
     const hasNonTargetRoleMarker = localizedRole
@@ -729,8 +728,7 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it', typ
     // detector deliberately requires more context to classify prose reliably.
     const words = normalizeText(value).split(' ').filter(Boolean);
     const detected = words.length >= 3 ? detectCvTextLanguage(value) : null;
-    const requiresTargetEvidence = Boolean(sourceLanguage)
-      && (language !== 'en' || sourceLanguage !== language);
+    const requiresTargetEvidence = Boolean(sourceLanguage) && sourceLanguage !== language;
     const lacksTargetEvidence = requiresTargetEvidence
       && words.length >= 3
       && (!detected || detected.language !== language)
