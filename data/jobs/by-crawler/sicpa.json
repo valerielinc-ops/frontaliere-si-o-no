@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-10-20T21:30:38.566Z",
+  "assembledAt": "2026-10-21T09:47:25.154Z",
   "jobs": [
     {
       "id": "sicpa-b69ba8b786f6",
@@ -34,7 +34,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Product-Owner/1449134733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:30:31.434Z",
+      "crawledAt": "2026-10-21T09:47:17.603Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:30:30.787Z",
+      "crawledAt": "2026-10-21T09:47:16.903Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -208,7 +208,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Patent-Counsel/1448011633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:30:30.150Z",
+      "crawledAt": "2026-10-21T09:47:16.059Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -290,7 +290,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technicien-Capteurs/1433994533/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:30:29.514Z",
+      "crawledAt": "2026-10-21T09:47:15.388Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -368,7 +368,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Business-Architect/1436219133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:30:28.869Z",
+      "crawledAt": "2026-10-21T09:47:14.629Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -441,7 +441,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Sovereign-Data-Program-Intern/1445306733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:30:27.654Z",
+      "crawledAt": "2026-10-21T09:47:13.900Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -514,7 +514,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:30:27.023Z",
+      "crawledAt": "2026-10-21T09:47:13.098Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -587,7 +587,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:30:26.395Z",
+      "crawledAt": "2026-10-21T09:47:12.176Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -660,7 +660,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:30:25.633Z",
+      "crawledAt": "2026-10-21T09:47:11.439Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -701,6 +701,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sicpa-3811aa4d831e",
+      "slug": "automaticien-sicpa-chavornay",
+      "slugByLocale": {
+        "fr": "automaticien-sicpa-chavornay",
+        "it": "automaticien-sicpa-chavornay",
+        "en": "automaticien-sicpa-chavornay",
+        "de": "automaticien-sicpa-chavornay"
+      },
+      "company": "SICPA SA",
+      "companyKey": "sicpa",
+      "companyDomain": "sicpa.com",
+      "title": "Automaticien",
+      "titleByLocale": {
+        "fr": "Automaticien",
+        "it": "Automaticien",
+        "en": "Automaticien",
+        "de": "Automaticien"
+      },
+      "description": "Afin de renforcer notre département Industrial Technologies au sein de notre site de production à Chavornay, nous recherchons un(e):\n\nMécanicien-électricien (CDD de 12 mois)\n\nROLE:\n\n• Dépanner les machines de production et les installations diverses;\n\n• Effectuer l’entretien préventif selon le planning;\n\n• Modifier ou installer de nouvelles machines;\n\n• Horaires d’équipe 2x8;\n\n• Assurer occasionnellement le service de piquet de nuit.\n\nPROFIL:\n\n•\n Formation technique en mécanique-électricité, automation ou polymécanique - détenteur de l’art. 15 OIBT (un atout);\n\n• 3-5 ans d’expérience dans l’industrie, la maintenance industrielle ou dans un poste similaire;\n\n• Connaissances en hydraulique, pneumatique, mécanique et autres domaines (PLC, ATEX) sont considérées comme un réel atout;\n\n• Polyvalence, sens aigu de l’organisation et de la gestion des priorités;\n\n• Rigoureux et précis, apte à résoudre les problèmes dans les meilleurs délais, résistance au stress;\n\n• Utilisateur confirmé des outils de bureautique;\n\n•\n Permis de conduire valide requis.\n\n• Français courant /niveau d’anglais technique, un plus.\n\n•\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.",
+      "descriptionByLocale": {
+        "fr": "Afin de renforcer notre département Industrial Technologies au sein de notre site de production à Chavornay, nous recherchons un(e):\n\nMécanicien-électricien (CDD de 12 mois)\n\nROLE:\n\n• Dépanner les machines de production et les installations diverses;\n\n• Effectuer l’entretien préventif selon le planning;\n\n• Modifier ou installer de nouvelles machines;\n\n• Horaires d’équipe 2x8;\n\n• Assurer occasionnellement le service de piquet de nuit.\n\nPROFIL:\n\n•\n Formation technique en mécanique-électricité, automation ou polymécanique - détenteur de l’art. 15 OIBT (un atout);\n\n• 3-5 ans d’expérience dans l’industrie, la maintenance industrielle ou dans un poste similaire;\n\n• Connaissances en hydraulique, pneumatique, mécanique et autres domaines (PLC, ATEX) sont considérées comme un réel atout;\n\n• Polyvalence, sens aigu de l’organisation et de la gestion des priorités;\n\n• Rigoureux et précis, apte à résoudre les problèmes dans les meilleurs délais, résistance au stress;\n\n• Utilisateur confirmé des outils de bureautique;\n\n•\n Permis de conduire valide requis.\n\n• Français courant /niveau d’anglais technique, un plus.\n\n•\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.",
+        "it": "Afin de renforcer notre département Industrial Technologies au sein de notre site de production à Chavornay, nous recherchons un(e):\n\nMécanicien-électricien (CDD de 12 mois)\n\nROLE:\n\n• Dépanner les machines de production et les installations diverses;\n\n• Effectuer l’entretien préventif selon le planning;\n\n• Modifier ou installer de nouvelles machines;\n\n• Horaires d’équipe 2x8;\n\n• Assurer occasionnellement le service de piquet de nuit.\n\nPROFIL:\n\n•\n Formation technique en mécanique-électricité, automation ou polymécanique - détenteur de l’art. 15 OIBT (un atout);\n\n• 3-5 ans d’expérience dans l’industrie, la maintenance industrielle ou dans un poste similaire;\n\n• Connaissances en hydraulique, pneumatique, mécanique et autres domaines (PLC, ATEX) sont considérées comme un réel atout;\n\n• Polyvalence, sens aigu de l’organisation et de la gestion des priorités;\n\n• Rigoureux et précis, apte à résoudre les problèmes dans les meilleurs délais, résistance au stress;\n\n• Utilisateur confirmé des outils de bureautique;\n\n•\n Permis de conduire valide requis.\n\n• Français courant /niveau d’anglais technique, un plus.\n\n•\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.",
+        "en": "Afin de renforcer notre département Industrial Technologies au sein de notre site de production à Chavornay, nous recherchons un(e):\n\nMécanicien-électricien (CDD de 12 mois)\n\nROLE:\n\n• Dépanner les machines de production et les installations diverses;\n\n• Effectuer l’entretien préventif selon le planning;\n\n• Modifier ou installer de nouvelles machines;\n\n• Horaires d’équipe 2x8;\n\n• Assurer occasionnellement le service de piquet de nuit.\n\nPROFIL:\n\n•\n Formation technique en mécanique-électricité, automation ou polymécanique - détenteur de l’art. 15 OIBT (un atout);\n\n• 3-5 ans d’expérience dans l’industrie, la maintenance industrielle ou dans un poste similaire;\n\n• Connaissances en hydraulique, pneumatique, mécanique et autres domaines (PLC, ATEX) sont considérées comme un réel atout;\n\n• Polyvalence, sens aigu de l’organisation et de la gestion des priorités;\n\n• Rigoureux et précis, apte à résoudre les problèmes dans les meilleurs délais, résistance au stress;\n\n• Utilisateur confirmé des outils de bureautique;\n\n•\n Permis de conduire valide requis.\n\n• Français courant /niveau d’anglais technique, un plus.\n\n•\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion.",
+        "de": "Afin de renforcer notre département Industrial Technologies au sein de notre site de production à Chavornay, nous recherchons un(e):\n\nMécanicien-électricien (CDD de 12 mois)\n\nROLE:\n\n• Dépanner les machines de production et les installations diverses;\n\n• Effectuer l’entretien préventif selon le planning;\n\n• Modifier ou installer de nouvelles machines;\n\n• Horaires d’équipe 2x8;\n\n• Assurer occasionnellement le service de piquet de nuit.\n\nPROFIL:\n\n•\n Formation technique en mécanique-électricité, automation ou polymécanique - détenteur de l’art. 15 OIBT (un atout);\n\n• 3-5 ans d’expérience dans l’industrie, la maintenance industrielle ou dans un poste similaire;\n\n• Connaissances en hydraulique, pneumatique, mécanique et autres domaines (PLC, ATEX) sont considérées comme un réel atout;\n\n• Polyvalence, sens aigu de l’organisation et de la gestion des priorités;\n\n• Rigoureux et précis, apte à résoudre les problèmes dans les meilleurs délais, résistance au stress;\n\n• Utilisateur confirmé des outils de bureautique;\n\n•\n Permis de conduire valide requis.\n\n• Français courant /niveau d’anglais technique, un plus.\n\n•\n\nREJOIGNEZ-NOUS!\n\n• Notre succès provient de nos employés talentueux et hautement qualifiés.\n\n• Une politique d’entreprise respectueuse et une vision à long terme sont les clés de notre réussite.\n\n• La diversité à tous les niveaux d'une organisation est une force.\n\n• Nous vous proposons un rôle passionnant et stimulant, dans une entreprise qui offre de belles perspectives de carrière et cela dans un environnement unique et absolument passionnant.\n\nVotre dossier sera traité avec la plus grande discrétion."
+      },
+      "needsRetranslation": true,
+      "location": "Chavornay",
+      "canton": "VD",
+      "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1448503333/",
+      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-21T09:47:19.039Z",
+      "addressLocality": "Chavornay",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1373",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16T00:00:00Z",
+      "postedDate": "2026-10-16T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1448503333/?locale=en_GB",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-04T12:00:35.162Z"
     }
-  ]
+  ],
+  "runId": "39575995434"
 }
