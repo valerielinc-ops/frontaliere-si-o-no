@@ -439,6 +439,7 @@ for (const spec of specs) {
         secoName: candidate?.secoEmployerName,
         domain: candidate?.domain || spec.companyHost,
         tenantHost: candidate?.tenantHost || spec.tenantHost,
+        careersUrl: candidate?.careersUrl || spec.seedUrls?.[0],
       },
       detailExtractor: adapter?.detailExtractor,
       observedDetailsByUrl,
