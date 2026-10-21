@@ -11806,7 +11806,7 @@
       "id": "raiffeisen-cf63eb9fb280",
       "slug": "collaboratore-marketing-m-f-raiffeisen-bulle-75a586df06",
       "slugByLocale": {
-        "it": "collaboratore-marketing-m-f-raiffeisen-bulle-75a586df06",
+        "it": "collaboratore-marketing-m-f-raiffeisen-bulle",
         "en": "marketing-collaborator-m-f-raiffeisen-bulle",
         "de": "marketing-mitarbeiter-m-w-raiffeisen-bulle",
         "fr": "collaborateur-marketing-f-h-raiffeisen-bulle"
@@ -11854,13 +11854,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-marketing-f-h-raiffeisen-bulle",
-        "collaboratore-marketing-m-f-raiffeisen-bulle"
+        "collaborateur-marketing-f-h-raiffeisen-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-marketing-f-h-raiffeisen-bulle",
-          "collaboratore-marketing-m-f-raiffeisen-bulle"
+          "collaborateur-marketing-f-h-raiffeisen-bulle"
         ],
         "en": [
           "collaborateur-marketing-f-h-raiffeisen-bulle"
@@ -11891,7 +11889,7 @@
       "slugByLocale": {
         "fr": "collaborateur-marketing-f-h-raiffeisen-bulle",
         "it": "collaboratore-marketing-m-f-raiffeisen-bulle-529de8d837",
-        "en": "collaborateur-marketing-f-h-raiffeisen-bulle",
+        "en": "marketing-collaborator-m-f-raiffeisen-bulle-685f3a",
         "de": "marketing-mitarbeiter-m-w-raiffeisen-bulle"
       },
       "company": "Raiffeisen",
@@ -11940,6 +11938,9 @@
         "it": [
           "collaborateur-marketing-f-h-raiffeisen-bulle",
           "collaboratore-marketing-m-f-raiffeisen-bulle"
+        ],
+        "en": [
+          "collaborateur-marketing-f-h-raiffeisen-bulle"
         ]
       },
       "previousSlugs": [
@@ -11963,12 +11964,12 @@
     },
     {
       "id": "raiffeisen-8c0bcb593f1d",
-      "slug": "senior-rechtskonsulent-con-fokus-finanzmarktrecht-e-anlagegeschaft-m-w-d-raiffeisen-zurich",
+      "slug": "consulente-legale-senior-con-focus-sul-diritto-dei-mercati-finanziari-e-sulle-attivita-d-investimento-m-f-d-raiffeisen",
       "slugByLocale": {
         "de": "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen",
-        "it": "senior-rechtskonsulent-con-fokus-finanzmarktrecht-e-anlagegeschaft-m-w-d-raiffeisen-zurich",
-        "en": "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen",
-        "fr": "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen"
+        "it": "consulente-legale-senior-con-focus-sul-diritto-dei-mercati-finanziari-e-sulle-attivita-d-investimento-m-f-d-raiffeisen",
+        "en": "senior-legal-consultant-with-focus-on-financial-market-law-and-investment-business-m-f-d-raiffeisen-zurich",
+        "fr": "conseiller-juridique-principal-en-droit-des-marches-financiers-et-en-affaires-d-investissement-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12016,11 +12017,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen",
+          "senior-rechtskonsulent-con-fokus-finanzmarktrecht-e-anlagegeschaft-m-w-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen"
+        ],
+        "fr": [
           "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen"
         ]
       },
       "previousSlugs": [
-        "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen"
+        "senior-rechtskonsulent-mit-fokus-finanzmarktrecht-und-anlagegeschaft-w-m-d-raiffeisen",
+        "senior-rechtskonsulent-con-fokus-finanzmarktrecht-e-anlagegeschaft-m-w-d-raiffeisen-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -12039,12 +12048,12 @@
     },
     {
       "id": "raiffeisen-3e83425ff358",
-      "slug": "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick",
+      "slug": "ingresso-bancario-secondo-wms-1-agosto-2027-31-luglio-2029-raiffeisen-frick",
       "slugByLocale": {
         "de": "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick",
-        "it": "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick",
-        "en": "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick",
-        "fr": "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
+        "it": "ingresso-bancario-secondo-wms-1-agosto-2027-31-luglio-2029-raiffeisen-frick",
+        "en": "bank-entry-according-to-wms-1-august-2027-31-july-2029-raiffeisen-frick",
+        "fr": "entree-bancaire-selon-wms-1er-aout-2027-31-juillet-2029-raiffeisen-frick"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12103,15 +12112,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:02:14.271Z"
+      "firstSeenAt": "2026-09-19T23:02:14.271Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
+        ],
+        "en": [
+          "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
+        ],
+        "fr": [
+          "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
+        ]
+      },
+      "previousSlugs": [
+        "bankeinstieg-nach-wms-1-august-2027-31-juli-2029-raiffeisen-frick"
+      ]
     },
     {
       "id": "raiffeisen-e4feb702f569",
-      "slug": "assistant-e-conseil-a-la-clientele-raiffeisen-echallens",
+      "slug": "assistente-di-consulenza-clienti-raiffeisen-echallens",
       "slugByLocale": {
         "fr": "assistant-e-conseil-a-la-clientele-raiffeisen-echallens",
-        "it": "assistant-e-conseil-a-la-clientele-raiffeisen-echallens",
-        "en": "assistant-e-conseil-a-la-clientele-raiffeisen-echallens",
+        "it": "assistente-di-consulenza-clienti-raiffeisen-echallens",
+        "en": "client-consulting-assistant-raiffeisen-echallens",
         "de": "assistant-e-conseil-a-la-clientele-raiffeisen-echallens"
       },
       "company": "Raiffeisen",
@@ -12171,7 +12194,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:25:12.959Z"
+      "firstSeenAt": "2026-10-21T09:25:12.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-conseil-a-la-clientele-raiffeisen-echallens"
+        ],
+        "en": [
+          "assistant-e-conseil-a-la-clientele-raiffeisen-echallens"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-conseil-a-la-clientele-raiffeisen-echallens"
+      ]
     }
   ],
   "runId": "39575175343"

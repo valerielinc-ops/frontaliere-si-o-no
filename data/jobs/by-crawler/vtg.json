@@ -13480,7 +13480,7 @@
     },
     {
       "id": "company-aepdzp",
-      "slug": "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp",
+      "slug": "elettricista-di-carri-armati-swiss-armed-forces-vtg-hinwil",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Panzerelektriker/-in",
       "location": "Hinwil",
@@ -13520,10 +13520,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp",
-        "en": "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp",
+        "it": "elettricista-di-carri-armati-swiss-armed-forces-vtg-hinwil",
+        "en": "armoured-vehicle-electrician-swiss-armed-forces-vtg-hinwil",
         "de": "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp",
-        "fr": "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp"
+        "fr": "electricien-ne-pour-vehicules-blindes-swiss-armed-forces-vtg-hinwil"
       },
       "sourceLang": "de",
       "postalCode": "8340",
@@ -13532,11 +13532,19 @@
       "streetAddress": "Ueberlandstrasse 17",
       "previousSlugsByLocale": {
         "it": [
-          "panzerelektriker-in-swiss-armed-forces-vtg-hinwil"
+          "panzerelektriker-in-swiss-armed-forces-vtg-hinwil",
+          "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp"
+        ],
+        "en": [
+          "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp"
+        ],
+        "fr": [
+          "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp"
         ]
       },
       "previousSlugs": [
-        "panzerelektriker-in-swiss-armed-forces-vtg-hinwil"
+        "panzerelektriker-in-swiss-armed-forces-vtg-hinwil",
+        "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -13555,7 +13563,7 @@
     },
     {
       "id": "company-5tjcvw",
-      "slug": "impiegato-a-in-logistica-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw",
+      "slug": "addetto-a-alla-logistica-in-magazzino-a-corsie-strette-swiss-armed-forces-vtg-hinwil",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Logistiker/-in Schmalganglager",
       "location": "Hinwil",
@@ -13595,10 +13603,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "impiegato-a-in-logistica-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw",
-        "en": "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw",
+        "it": "addetto-a-alla-logistica-in-magazzino-a-corsie-strette-swiss-armed-forces-vtg-hinwil",
+        "en": "narrow-aisle-warehouse-logistics-specialist-swiss-armed-forces-vtg-hinwil",
         "de": "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw",
-        "fr": "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw"
+        "fr": "logisticien-ne-d-entrepot-a-allees-etroites-swiss-armed-forces-vtg-hinwil"
       },
       "sourceLang": "de",
       "postalCode": "8340",
@@ -13607,11 +13615,20 @@
       "streetAddress": "Ueberlandstrasse 17",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil"
+          "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil",
+          "impiegato-a-in-logistica-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw"
+        ],
+        "en": [
+          "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw"
+        ],
+        "fr": [
+          "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil"
+        "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil",
+        "impiegato-a-in-logistica-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw",
+        "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

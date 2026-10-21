@@ -1244,12 +1244,12 @@
     },
     {
       "id": "postauto-e9b221037246",
-      "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
+      "slug": "controllore-trice-dei-biglietti-e-consulenza-alla-clientela-postauto-ag-brugg-ag",
       "slugByLocale": {
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-        "it": "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
+        "it": "controllore-trice-dei-biglietti-e-consulenza-alla-clientela-postauto-ag-brugg-ag",
+        "en": "ticket-inspector-and-customer-service-advisor-postauto-ag-brugg-ag",
+        "fr": "controleur-euse-de-billets-et-conseil-a-la-clientele-postauto-ag-brugg-ag"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1300,11 +1300,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
+          "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag"
+        ],
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
+        ],
+        "fr": [
           "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
         ]
       },
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag"
+        "ticketkontrolleur-in-und-kundenberatung-postauto-brugg-ag",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-ag-brugg-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

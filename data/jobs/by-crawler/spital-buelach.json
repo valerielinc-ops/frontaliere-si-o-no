@@ -2360,7 +2360,7 @@
       "id": "spital-buelach-980587a4dcd5",
       "slug": "dipl-tecnologia-chirurgica-specialistica-spital-bulach-bulach-8e21608ecd",
       "slugByLocale": {
-        "it": "dipl-tecnologia-chirurgica-specialistica-spital-bulach-bulach-8e21608ecd",
+        "it": "dipl-tecnologia-chirurgica-specialistica-spital-bulach-bulach",
         "en": "dipl-specialist-surgical-technology-spital-bulach-bulach",
         "de": "dipl-fachperson-operationstechnik-spital-buelach-bulach",
         "fr": "dipl-technologie-chirurgicale-specialisee-spital-bulach-bulach"
@@ -2409,13 +2409,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-fachperson-operationstechnik-spital-buelach-bulach",
-        "dipl-tecnologia-chirurgica-specialistica-spital-bulach-bulach"
+        "dipl-fachperson-operationstechnik-spital-buelach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-operationstechnik-spital-buelach-bulach",
-          "dipl-tecnologia-chirurgica-specialistica-spital-bulach-bulach"
+          "dipl-fachperson-operationstechnik-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-09-24T00:10:22.111Z",
@@ -2594,7 +2592,7 @@
       "id": "spital-buelach-9b8258cece35",
       "slug": "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach-bd92f57af7",
       "slugByLocale": {
-        "it": "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach-bd92f57af7",
+        "it": "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach",
         "en": "professional-trainers-nursing-medicine-spital-bulach-bulach",
         "de": "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
         "fr": "formateurs-professionnels-medecine-infirmiere-spital-bulach-bulach"
@@ -2643,13 +2641,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
-        "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach"
+        "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-in-pflege-medizin-spital-buelach-bulach",
-          "professional-trainers-medicina-dell-allattamento-spital-bulach-bulach"
+          "berufsbildner-in-pflege-medizin-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-09-24T00:10:22.115Z",
@@ -2750,7 +2746,7 @@
       "id": "spital-buelach-05acca0d1af8",
       "slug": "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach-b78afc790c",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach-b78afc790c",
+        "it": "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach",
         "en": "dipl-nursing-professional-private-station-spital-bulach-bulach",
         "de": "dipl-pflegefachperson-privatstation-spital-buelach-bulach",
         "fr": "dipl-poste-prive-professionnel-de-soins-infirmiers-spital-bulach-bulach"
@@ -2799,13 +2795,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-privatstation-spital-buelach-bulach",
-        "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach"
+        "dipl-pflegefachperson-privatstation-spital-buelach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-privatstation-spital-buelach-bulach",
-          "dipl-infermieristica-professionale-stazione-privata-spital-bulach-bulach"
+          "dipl-pflegefachperson-privatstation-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-09-24T00:10:22.108Z",
@@ -5236,12 +5230,12 @@
     },
     {
       "id": "spital-buelach-ffe367aaf936",
-      "slug": "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
+      "slug": "dipl-esperto-in-terapia-intensiva-spital-bulach-bulach-d111c0",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
-        "it": "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
-        "en": "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
-        "fr": "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+        "it": "dipl-esperto-in-terapia-intensiva-spital-bulach-bulach-d111c0",
+        "en": "dipl-expert-in-intensive-care-spital-bulach-bulach",
+        "fr": "dipl-expert-en-soins-intensifs-spital-bulach-bulach-d111c0"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -5300,16 +5294,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T00:10:22.128Z"
+      "firstSeenAt": "2026-09-24T00:10:22.128Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-a3c92789f4f3",
-      "slug": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
+      "slug": "tirocinante-nell-assistenza-in-geriatria-acuta-spital-bulach-bulach",
       "slugByLocale": {
         "de": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
-        "it": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
-        "en": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach",
-        "fr": "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        "it": "tirocinante-nell-assistenza-in-geriatria-acuta-spital-bulach-bulach",
+        "en": "nursing-intern-acute-geriatrics-spital-bulach-bulach",
+        "fr": "stagiaire-en-soins-en-geriatrie-aigue-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -5368,16 +5376,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T00:10:22.121Z"
+      "firstSeenAt": "2026-09-24T00:10:22.121Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        ],
+        "en": [
+          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-akutgeriatrie-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-78178ea3e946",
-      "slug": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
+      "slug": "dipl-chirurgia-dell-infermiera-spital-bulach-bulach-5f8a40",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
-        "it": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
-        "en": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        "it": "dipl-chirurgia-dell-infermiera-spital-bulach-bulach-5f8a40",
+        "en": "dipl-nurse-surgery-spital-bulach-bulach-5f8a40",
+        "fr": "dipl-chirurgie-infirmiere-spital-bulach-bulach-5f8a40"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -5436,7 +5458,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-24T00:10:22.126Z"
+      "firstSeenAt": "2026-09-24T00:10:22.126Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        ],
+        "en": [
+          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+      ]
     }
   ],
   "runId": "39576413169"

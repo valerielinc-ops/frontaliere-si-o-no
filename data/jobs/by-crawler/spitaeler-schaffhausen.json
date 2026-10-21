@@ -4743,7 +4743,7 @@
         "de": "mitarbeiter-in-room-service-spitaeler-schaffhausen-schaffhausen",
         "it": "collaboratore-trice-room-service-spitaler-schaffhausen",
         "en": "mitarbeiter-in-room-service-spitaler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-room-service-spitaler-schaffhausen-schaffhausen"
+        "fr": "employe-e-du-service-en-chambre-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4792,10 +4792,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-room-service-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-room-service-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-room-service-spitaeler-schaffhausen-schaffhausen"
+        "mitarbeiter-in-room-service-spitaeler-schaffhausen-schaffhausen",
+        "mitarbeiter-in-room-service-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

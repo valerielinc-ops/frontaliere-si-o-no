@@ -3016,7 +3016,7 @@
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "slugByLocale": {
         "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
+        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       },
@@ -3068,7 +3068,7 @@
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
         "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3078,7 +3078,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "de": [
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal-vla60g"
@@ -7800,12 +7800,12 @@
     },
     {
       "id": "ksbl-b7182533d276",
-      "slug": "pflegeexpert-in-come-advanced-practice-nurse-apn-altersmedizin-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "infermiere-a-esperto-a-come-advanced-practice-nurse-apn-in-medicina-geriatrica-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal",
-        "it": "pflegeexpert-in-come-advanced-practice-nurse-apn-altersmedizin-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal",
-        "fr": "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal"
+        "it": "infermiere-a-esperto-a-come-advanced-practice-nurse-apn-in-medicina-geriatrica-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "nursing-expert-as-advanced-practice-nurse-apn-in-geriatric-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "expert-e-en-soins-infirmiers-en-tant-qu-advanced-practice-nurse-apn-en-medecine-geriatrique-a-kantonsspital-baselland"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7852,11 +7852,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal",
+          "pflegeexpert-in-come-advanced-practice-nurse-apn-altersmedizin-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "en": [
+          "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal"
+        ],
+        "fr": [
           "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal"
+        "pflegeexpert-in-als-advanced-practice-nurse-apn-altersmedizin-a-ksbl-liestal",
+        "pflegeexpert-in-come-advanced-practice-nurse-apn-altersmedizin-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7875,12 +7883,12 @@
     },
     {
       "id": "ksbl-de0782bcf40a",
-      "slug": "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal",
+      "slug": "specialista-in-medicina-dell-eta-infermieristica-responsabile-specialista-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal",
-        "it": "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal",
-        "en": "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal",
-        "fr": "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal"
+        "it": "specialista-in-medicina-dell-eta-infermieristica-responsabile-specialista-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "specialist-responsible-specialist-nursing-age-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "specialiste-en-medecine-de-l-age-infirmiere-responsable-specialiste-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7938,7 +7946,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:56:29.683Z"
+      "firstSeenAt": "2026-10-21T09:56:29.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal"
+        ],
+        "en": [
+          "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal"
+        ],
+        "fr": [
+          "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-fachverantwortlicher-pflege-altersmedizin-a-ksbl-liestal"
+      ]
     }
   ],
   "runId": "39576413169"

@@ -10961,12 +10961,12 @@
     },
     {
       "id": "medbase-eb38b2317181",
-      "slug": "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-arzt-a-50-90-medbase-diepoldsau",
+      "slug": "medica-specialista-medico-specialista-in-medicina-interna-generale-oppure-medica-medico-pratico-a-a-50-90-medbase",
       "slugByLocale": {
         "de": "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase",
-        "it": "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-arzt-a-50-90-medbase-diepoldsau",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase"
+        "it": "medica-specialista-medico-specialista-in-medicina-interna-generale-oppure-medica-medico-pratico-a-a-50-90-medbase",
+        "en": "specialist-specialist-general-internal-medicine-or-practical-doctor-doctor-a-50-90-medbase-diepoldsau",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-ou-medecin-pratique-a-50-90-medbase-diepoldsau"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -11013,11 +11013,19 @@
       "jobReqId": "JR07890",
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase",
+          "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-arzt-a-50-90-medbase-diepoldsau"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase"
+        ],
+        "fr": [
           "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase"
+        "facharztin-facharzt-allgemeine-innere-medizin-oder-praktische-arztin-arzt-a-50-90-medbase",
+        "facharztin-facharzt-allgemeine-innere-medizin-o-praktische-arztin-arzt-a-50-90-medbase-diepoldsau"
       ],
       "salaryMin": 51800,
       "salaryMax": 78300,
@@ -11037,12 +11045,12 @@
     },
     {
       "id": "medbase-0fd3c319c030",
-      "slug": "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool",
+      "slug": "farmacista-con-funzione-di-sostituzione-medbase-winterthur-springerpool",
       "slugByLocale": {
         "de": "apotheker-in-in-springerfunktion-medbase-ch",
-        "it": "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool",
-        "en": "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool",
-        "fr": "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool"
+        "it": "farmacista-con-funzione-di-sostituzione-medbase-winterthur-springerpool",
+        "en": "pharmacist-in-a-relief-role-medbase-winterthur-springerpool",
+        "fr": "pharmacien-ne-remplacant-e-medbase-winterthur-springerpool"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -11089,11 +11097,19 @@
       "jobReqId": "JR07913",
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-in-in-springerfunktion-medbase-ch"
+          "apotheker-in-in-springerfunktion-medbase-ch",
+          "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool"
+        ],
+        "en": [
+          "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool"
+        ],
+        "fr": [
+          "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool"
         ]
       },
       "previousSlugs": [
-        "apotheker-in-in-springerfunktion-medbase-ch"
+        "apotheker-in-in-springerfunktion-medbase-ch",
+        "apotheker-in-in-springerfunktion-medbase-winterthur-springerpool"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

@@ -14030,12 +14030,12 @@
         "en": "Customer advisor, Gossau team",
         "fr": "Conseiller/ère à la clientèle, équipe Gossau"
       },
-      "slug": "kundenberater-in-team-gossau-post",
+      "slug": "consulente-alla-clientela-team-gossau-die-schweizerische-post-gossau-sg",
       "slugByLocale": {
         "de": "kundenberater-in-team-gossau-post",
-        "it": "kundenberater-in-team-gossau-post",
-        "en": "kundenberater-in-team-gossau-post",
-        "fr": "kundenberater-in-team-gossau-post"
+        "it": "consulente-alla-clientela-team-gossau-die-schweizerische-post-gossau-sg",
+        "en": "customer-advisor-gossau-team-die-schweizerische-post-gossau-sg",
+        "fr": "conseiller-ere-a-la-clientele-equipe-gossau-die-schweizerische-post-gossau-sg"
       },
       "sourceLang": "de",
       "department": "",
@@ -14072,7 +14072,21 @@
       "addressLocality": "Gossau SG",
       "addressRegion": "SG",
       "postalCode": "9000",
-      "firstSeenAt": "2026-10-21T09:53:19.361Z"
+      "firstSeenAt": "2026-10-21T09:53:19.361Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-team-gossau-post"
+        ],
+        "en": [
+          "kundenberater-in-team-gossau-post"
+        ],
+        "fr": [
+          "kundenberater-in-team-gossau-post"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-team-gossau-post"
+      ]
     }
   ],
   "runId": "39576691826"

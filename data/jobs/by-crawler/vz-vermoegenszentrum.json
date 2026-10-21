@@ -5660,7 +5660,7 @@
         "fr": "junior-investment-advisor-vz-vermoegenszentrum-ch",
         "it": "junior-investment-advisor-vz-vermogenszentrum-lausanne",
         "en": "junior-investment-advisor-vz-vermogenszentrum-lausanne",
-        "de": "junior-investment-advisor-vz-vermoegenszentrum-ch"
+        "de": "junior-investment-berater-vz-vermogenszentrum-lausanne-vaud"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -5724,6 +5724,9 @@
       "previousSlugsByLocale": {
         "it": [
           "junior-investment-advisor-vz-vermoegenszentrum-ch"
+        ],
+        "de": [
+          "junior-investment-advisor-vz-vermoegenszentrum-ch"
         ]
       },
       "previousSlugs": [
@@ -5746,12 +5749,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-6a8545de8d08",
-      "slug": "collaboratore-trice-in-kundenempfang-per-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz-vermogenszentrum-zurich",
+      "slug": "addetto-a-all-accoglienza-clienti-per-la-nostra-nuova-filiale-a-bulach-zh-inizio-marzo-2027-vz-vermogenszentrum-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz",
-        "it": "collaboratore-trice-in-kundenempfang-per-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz-vermogenszentrum-zurich",
-        "en": "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz",
-        "fr": "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz"
+        "it": "addetto-a-all-accoglienza-clienti-per-la-nostra-nuova-filiale-a-bulach-zh-inizio-marzo-2027-vz-vermogenszentrum-zurich",
+        "en": "customer-reception-staff-member-for-our-new-branch-in-bulach-zh-starting-march-2027-vz-vermogenszentrum-zurich-zurich",
+        "fr": "collaborateur-trice-a-l-accueil-clientele-pour-notre-nouvelle-succursale-a-bulach-zh-debut-mars-2027-vz-vermogenszentrum"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -5810,11 +5813,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz",
+          "collaboratore-trice-in-kundenempfang-per-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz"
+        ],
+        "fr": [
           "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz"
+        "mitarbeiter-in-kundenempfang-fur-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz",
+        "collaboratore-trice-in-kundenempfang-per-unsere-neue-filiale-in-bulach-zh-start-marz-2027-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

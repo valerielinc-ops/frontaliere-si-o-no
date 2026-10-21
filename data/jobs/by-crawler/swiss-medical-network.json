@@ -3796,11 +3796,11 @@
       },
       "slugByLocale": {
         "fr": "cmev-assistant-e-medical-e-swiss-medical-network",
-        "it": "cmev-assistant-e-medical-e-swiss-medical-network",
+        "it": "assistente-medico-cmev-swiss-medical-network-geneve",
         "en": "cmev-assistant-e-medical-e-swiss-medical-network",
-        "de": "cmev-assistant-e-medical-e-swiss-medical-network"
+        "de": "cmev-medizinischer-assistent-swiss-medical-network-geneve"
       },
-      "slug": "cmev-assistant-e-medical-e-swiss-medical-network",
+      "slug": "assistente-medico-cmev-swiss-medical-network-geneve",
       "category": "admin",
       "datePosted": "2026-10-21T07:35:12.932Z",
       "postedDate": "2026-10-21T07:35:12.932Z",
@@ -3829,7 +3829,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:18:32.246Z"
+      "firstSeenAt": "2026-10-21T09:18:32.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cmev-assistant-e-medical-e-swiss-medical-network"
+        ],
+        "de": [
+          "cmev-assistant-e-medical-e-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "cmev-assistant-e-medical-e-swiss-medical-network"
+      ]
     }
   ],
   "runId": "39574905298"

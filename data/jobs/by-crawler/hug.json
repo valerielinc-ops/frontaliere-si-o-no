@@ -3605,12 +3605,12 @@
     },
     {
       "id": "hug-30003aac7f3f",
-      "slug": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
+      "slug": "ingegnere-biomedico-o-ingegnere-per-la-gestione-delle-unita-operative-100-hug-geneve",
       "slugByLocale": {
         "fr": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "it": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "en": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve",
-        "de": "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        "it": "ingegnere-biomedico-o-ingegnere-per-la-gestione-delle-unita-operative-100-hug-geneve",
+        "en": "biomedical-engineer-or-engineer-for-the-management-of-operating-units-100-hug-geneve",
+        "de": "biomedizinischer-ingenieur-oder-ingenieur-fur-das-management-von-betriebseinheiten-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3669,16 +3669,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.345Z"
+      "firstSeenAt": "2026-10-21T09:24:49.345Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ],
+        "en": [
+          "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ],
+        "de": [
+          "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ou-ingenieure-biomedicale-pour-la-direction-des-blocs-operatoires-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-a88b541a61e7",
-      "slug": "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex",
+      "slug": "riscaldamento-tecnico-elettrico-o-es-siti-esterni-100-hug-thonex",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex",
-        "it": "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex",
-        "en": "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex",
-        "de": "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex"
+        "it": "riscaldamento-tecnico-elettrico-o-es-siti-esterni-100-hug-thonex",
+        "en": "electrician-or-es-technician-oriented-heating-external-sites-100-hug-thonex",
+        "de": "elektriker-oder-es-techniker-orientierte-heizung-externe-standorte-100-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3736,16 +3750,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1226"
+      "postalCode": "1226",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex"
+        ],
+        "en": [
+          "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex"
+        ],
+        "de": [
+          "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-es-orientee-chauffage-sites-externes-100-hug-thonex"
+      ]
     },
     {
       "id": "hug-78e0e9b2485a",
-      "slug": "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve",
+      "slug": "rappresentante-o-rappresentante-del-contraente-100-hug-geneve",
       "slugByLocale": {
         "fr": "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve",
-        "it": "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve",
-        "en": "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve",
-        "de": "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve"
+        "it": "rappresentante-o-rappresentante-del-contraente-100-hug-geneve",
+        "en": "representative-or-representative-of-the-contractor-100-hug-geneve",
+        "de": "vertreter-oder-vertreter-des-auftragnehmers-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3803,16 +3831,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve"
+        ],
+        "en": [
+          "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve"
+        ],
+        "de": [
+          "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "representant-ou-representante-du-maitre-d-ouvrage-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-ad8ede3a3324",
-      "slug": "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-dipartimento-di-chirurgia-80-al-90-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90",
-        "it": "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90",
-        "en": "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90",
-        "de": "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90"
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-dipartimento-di-chirurgia-80-al-90-hug-geneve",
+        "en": "community-health-and-care-assistant-department-of-surgery-80-to-90-hug-geneve",
+        "de": "fachfrau-oder-fachmann-gesundheit-abteilung-fur-chirurgie-80-bis-90-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3871,16 +3913,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.326Z"
+      "firstSeenAt": "2026-10-21T09:24:49.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90"
+        ],
+        "en": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90"
+        ],
+        "de": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-en-soins-et-sante-communautaire-departement-de-chirurgie-80-a-90"
+      ]
     },
     {
       "id": "hug-386aa89adce6",
-      "slug": "concepteur-ou-conceptrice-en-informatique-60-hug-thonex",
+      "slug": "computer-designer-60-hug-thonex",
       "slugByLocale": {
         "fr": "concepteur-ou-conceptrice-en-informatique-60-hug-thonex",
-        "it": "concepteur-ou-conceptrice-en-informatique-60-hug-thonex",
+        "it": "computer-designer-60-hug-thonex",
         "en": "concepteur-ou-conceptrice-en-informatique-60-hug-thonex",
-        "de": "concepteur-ou-conceptrice-en-informatique-60-hug-thonex"
+        "de": "computerdesigner-60-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3939,15 +3995,26 @@
         }
       },
       "postalCode": "1226",
-      "firstSeenAt": "2026-10-21T09:24:49.324Z"
+      "firstSeenAt": "2026-10-21T09:24:49.324Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "concepteur-ou-conceptrice-en-informatique-60-hug-thonex"
+        ],
+        "de": [
+          "concepteur-ou-conceptrice-en-informatique-60-hug-thonex"
+        ]
+      },
+      "previousSlugs": [
+        "concepteur-ou-conceptrice-en-informatique-60-hug-thonex"
+      ]
     },
     {
       "id": "hug-21517c3a5389",
-      "slug": "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva",
+      "slug": "assistente-di-ricerca-servizio-di-reumatologia-80-al-100-hug-geneva",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva",
-        "it": "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva",
-        "en": "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva",
+        "it": "assistente-di-ricerca-servizio-di-reumatologia-80-al-100-hug-geneva",
+        "en": "research-assistant-rheumatology-service-80-to-100-hug-geneva",
         "de": "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva"
       },
       "company": "HUG",
@@ -4007,16 +4074,27 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-21T09:24:49.311Z"
+      "firstSeenAt": "2026-10-21T09:24:49.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva"
+        ],
+        "en": [
+          "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-de-recherche-service-de-rhumatologie-80-a-100-hug-geneva"
+      ]
     },
     {
       "id": "hug-c8c7498bdf3d",
-      "slug": "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations",
+      "slug": "segretario-assistente-al-capo-dell-unita-di-investigazione-anaestesiologica-e-al-capo-dell-unita-paediatrica-del",
       "slugByLocale": {
         "fr": "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations",
-        "it": "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations",
-        "en": "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations",
-        "de": "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations"
+        "it": "segretario-assistente-al-capo-dell-unita-di-investigazione-anaestesiologica-e-al-capo-dell-unita-paediatrica-del",
+        "en": "secretary-assistant-to-the-head-of-the-anaesthesiology-investigation-unit-and-the-head-of-the-paediatric-unit-of-the",
+        "de": "sekretarin-assistentin-oder-assistent-der-leiterin-der-einheit-fur-anasthesiologische-untersuchungen-und-des-leiters-der"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4075,16 +4153,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.309Z"
+      "firstSeenAt": "2026-10-21T09:24:49.309Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations"
+        ],
+        "en": [
+          "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations"
+        ],
+        "de": [
+          "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-assistante-ou-assistant-de-la-responsable-de-l-unite-d-investigations"
+      ]
     },
     {
       "id": "hug-66352b9cffd0",
-      "slug": "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve",
+      "slug": "ingegnere-o-ingegnere-specializzato-in-riscaldamento-idraulico-100-hug-geneve",
       "slugByLocale": {
         "fr": "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve",
-        "it": "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve",
-        "en": "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve",
-        "de": "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve"
+        "it": "ingegnere-o-ingegnere-specializzato-in-riscaldamento-idraulico-100-hug-geneve",
+        "en": "engineer-or-engineer-specialist-in-hydraulic-heating-100-hug-geneve",
+        "de": "ingenieur-oder-ingenieur-spezialist-fur-hydraulische-heizung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4143,16 +4235,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.307Z"
+      "firstSeenAt": "2026-10-21T09:24:49.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve"
+        ],
+        "en": [
+          "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve"
+        ],
+        "de": [
+          "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieure-ou-ingenieur-specialiste-en-chauffage-hydraulique-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-72d8aff8241d",
-      "slug": "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve",
+      "slug": "infermiera-laureata-presso-il-dipartimento-di-radiooncologia-60-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve",
-        "it": "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve",
-        "en": "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve",
-        "de": "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve"
+        "it": "infermiera-laureata-presso-il-dipartimento-di-radiooncologia-60-al-100-hug-geneve",
+        "en": "nurse-graduated-from-the-radio-oncology-department-60-to-100-hug-geneve",
+        "de": "krankenschwester-absolvierte-die-radioonkologie-abteilung-60-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4211,16 +4317,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.305Z"
+      "firstSeenAt": "2026-10-21T09:24:49.305Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-diplomee-aupres-du-service-de-radio-oncologie-60-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-b1d666a34cea",
-      "slug": "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve",
+      "slug": "ricerca-infermiera-60-80-hug-geneve",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve",
-        "it": "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve",
-        "en": "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve",
-        "de": "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve"
+        "it": "ricerca-infermiera-60-80-hug-geneve",
+        "en": "research-nurse-60-to-80-hug-geneve",
+        "de": "research-nurse-60-bis-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4279,16 +4399,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.303Z"
+      "firstSeenAt": "2026-10-21T09:24:49.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-de-recherche-60-a-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-b14b68ba6c01",
-      "slug": "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve",
+      "slug": "consigliere-amministrativo-del-dipartimento-di-medicina-100-hug-geneve",
       "slugByLocale": {
         "fr": "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve",
-        "it": "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve",
-        "en": "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve",
-        "de": "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve"
+        "it": "consigliere-amministrativo-del-dipartimento-di-medicina-100-hug-geneve",
+        "en": "administrative-clerk-of-the-department-of-medicine-100-hug-geneve",
+        "de": "verwaltungsbeamter-der-abteilung-medizin-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4347,16 +4481,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.301Z"
+      "firstSeenAt": "2026-10-21T09:24:49.301Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve"
+        ],
+        "en": [
+          "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve"
+        ],
+        "de": [
+          "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "commise-ou-commis-administratif-aux-admissions-du-departement-de-medecine-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-299335ef25e3",
-      "slug": "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients",
+      "slug": "collaboratore-o-collaboratore-scientifico-coordinamento-delle-strade-pazienti-cross-border-e-partenariati-ospedalieri-70",
       "slugByLocale": {
         "fr": "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients",
-        "it": "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients",
-        "en": "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients",
-        "de": "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients"
+        "it": "collaboratore-o-collaboratore-scientifico-coordinamento-delle-strade-pazienti-cross-border-e-partenariati-ospedalieri-70",
+        "en": "collaborator-or-scientific-collaborator-coordination-of-cross-border-patient-pathways-and-hospital-partnerships-70-hug",
+        "de": "kollaborator-oder-wissenschaftlicher-kollaborator-koordination-von-grenzuberschreitenden-patientenpfaden-und"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4415,16 +4563,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.297Z"
+      "firstSeenAt": "2026-10-21T09:24:49.297Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients"
+        ],
+        "en": [
+          "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients"
+        ],
+        "de": [
+          "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-ou-collaboratrice-scientifique-coordination-des-parcours-patients"
+      ]
     },
     {
       "id": "hug-3b673cffda27",
-      "slug": "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug",
+      "slug": "ufficio-amministrativo-compensazione-e-servizi-di-assicurazione-sociale-100-hug-geneve",
       "slugByLocale": {
         "fr": "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug",
-        "it": "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug",
-        "en": "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug",
-        "de": "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug"
+        "it": "ufficio-amministrativo-compensazione-e-servizi-di-assicurazione-sociale-100-hug-geneve",
+        "en": "administrative-clerk-compensation-and-social-insurance-services-100-hug-geneve",
+        "de": "verwaltungsangestellte-entschadigungs-und-sozialversicherungsdienstleistungen-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4483,7 +4645,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-21T09:24:49.288Z"
+      "firstSeenAt": "2026-10-21T09:24:49.288Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug"
+        ],
+        "en": [
+          "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug"
+        ],
+        "de": [
+          "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "commis-ou-commise-administrative-service-remuneration-et-assurances-sociales-100-hug"
+      ]
     }
   ],
   "runId": "39574905298"

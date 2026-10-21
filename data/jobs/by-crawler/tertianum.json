@@ -22479,12 +22479,12 @@
     },
     {
       "id": "tertianum-d3c08393de39",
-      "slug": "pflegehelfer-in-srk-tertianum-rheinfelden",
+      "slug": "ausiliario-a-di-cura-srk-tertianum-rheinfelden",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-tertianum-rheinfelden",
-        "it": "pflegehelfer-in-srk-tertianum-rheinfelden",
-        "en": "pflegehelfer-in-srk-tertianum-rheinfelden",
-        "fr": "pflegehelfer-in-srk-tertianum-rheinfelden"
+        "it": "ausiliario-a-di-cura-srk-tertianum-rheinfelden",
+        "en": "nursing-assistant-srk-tertianum-rheinfelden",
+        "fr": "auxiliaire-de-sante-crs-tertianum-rheinfelden"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -22542,15 +22542,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:48:30.286Z"
+      "firstSeenAt": "2026-10-21T09:48:30.286Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-tertianum-rheinfelden"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-tertianum-rheinfelden"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-tertianum-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-tertianum-rheinfelden"
+      ]
     },
     {
       "id": "tertianum-d0f34b54f7be",
-      "slug": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
+      "slug": "assistente-sanitario-comunitario-swc-80-100-tertianum-nendaz",
       "slugByLocale": {
         "fr": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
-        "it": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
-        "en": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
+        "it": "assistente-sanitario-comunitario-swc-80-100-tertianum-nendaz",
+        "en": "community-health-assistant-swc-80-100-tertianum-nendaz",
         "de": "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
       },
       "company": "Tertianum",
@@ -22609,7 +22623,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:21:28.091Z"
+      "firstSeenAt": "2026-05-19T12:21:28.091Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
+        ],
+        "en": [
+          "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
+      ]
     },
     {
       "id": "tertianum-05fdedf760c6",
@@ -22617,8 +22642,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-40-80-tertianum-stadel",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-40-80-tertianum-stadel",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-40-80-tertianum-stadel",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-40-80-tertianum-stadel"
+        "en": "employee-employee-housekeeping-40-80-tertianum-stadel",
+        "fr": "employe-employe-de-menage-40-80-tertianum-stadel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -22666,6 +22691,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-40-80-tertianum-stadel"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-40-80-tertianum-stadel"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-40-80-tertianum-stadel"
         ]
       },

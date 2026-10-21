@@ -2290,10 +2290,10 @@
     },
     {
       "id": "buergenstock-hotels-46dbee1b63e1",
-      "slug": "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "chef-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
         "fr": "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
       },
@@ -2353,7 +2353,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:50:19.614Z"
+      "firstSeenAt": "2026-10-21T09:50:19.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-2857e8fcf120",

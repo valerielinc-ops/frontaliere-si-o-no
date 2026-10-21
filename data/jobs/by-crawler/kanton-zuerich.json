@@ -14029,7 +14029,7 @@
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
         "it": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich-a38393a55d",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich-ec85ba"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14080,11 +14080,15 @@
         "it": [
           "polizeiaspirant-in-kanton-zuerich-zurich",
           "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "polizeiaspirant-in-kanton-zuerich-zurich",
-        "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich"
+        "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
+        "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14180,12 +14184,12 @@
     },
     {
       "id": "kanton-zuerich-47482657afd2",
-      "slug": "sozialarbeiter-in-der-jugend-e-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur",
+      "slug": "assistente-sociale-nella-consulenza-per-giovani-e-famiglie-kjz-winterthur-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
         "de": "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kanton-zuerich",
-        "it": "sozialarbeiter-in-der-jugend-e-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur",
-        "en": "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur",
-        "fr": "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur"
+        "it": "assistente-sociale-nella-consulenza-per-giovani-e-famiglie-kjz-winterthur-kantonale-verwaltung-zurich-winterthur",
+        "en": "social-worker-in-youth-and-family-counseling-kjz-winterthur-kantonale-verwaltung-zurich-winterthur",
+        "fr": "travailleur-euse-social-e-dans-le-conseil-aux-jeunes-et-aux-familles-kjz-winterthur-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14236,11 +14240,20 @@
       "pensum": "60 - 90%",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kanton-zuerich"
+          "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kanton-zuerich",
+          "sozialarbeiter-in-der-jugend-e-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur"
+        ],
+        "en": [
+          "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur"
+        ],
+        "fr": [
+          "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kanton-zuerich"
+        "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kanton-zuerich",
+        "sozialarbeiter-in-der-jugend-e-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur",
+        "sozialarbeiter-in-in-der-jugend-und-familienberatung-kjz-winterthur-kantonale-verwaltung-zurich-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
