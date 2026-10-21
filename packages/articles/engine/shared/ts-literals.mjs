@@ -34,12 +34,18 @@ export function readStaticStringLiteral(source, startIdx, sourcePath = 'source',
   return null;
 }
 
-/** Decode a static literal using the same escape contract as the TS readers. */
-export function decodeStaticStringLiteral(raw, quote = "'") {
+/**
+ * Decode a static literal using the same escape contract as the TS readers.
+ * @param {string} raw
+ * @param {string} [quote]
+ * @param {{ newlineAs?: string }} [options]
+ */
+export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
+  const { newlineAs } = options;
   return raw.replace(TS_ESCAPE_RX, (whole, escape) => {
     switch (escape[0]) {
       case 'n': return '\n';
-      case 'r': return '';
+      case 'r': return newlineAs === undefined ? '' : '\r';
       case '\n': return '';
       case '\r': return '';
       case '\u2028': return '';
@@ -90,12 +96,24 @@ export function skipStaticTrivia(source, startIdx, sourcePath = 'source', errorL
  * Read object properties whose keys and values are static string literals.
  * Full object files require `,` or `}` after every value. A fragment caller
  * may opt into EOF termination explicitly with `allowTerminalFragment`.
+ * @param {string} source
+ * @param {string} [sourcePath]
+ * @param {{ errorLabel?: string, allowTerminalFragment?: boolean, newlineAs?: string }} [options]
  */
 export function readStaticObjectEntries(
   source,
   sourcePath = 'source',
-  { errorLabel = 'static-literal', allowTerminalFragment = false } = {},
+  options = {},
 ) {
+  const {
+    errorLabel = 'static-literal',
+    allowTerminalFragment = false,
+    newlineAs,
+  } = options;
+  if (newlineAs !== undefined && typeof newlineAs !== 'string') {
+    throw new TypeError('newlineAs must be a string when provided');
+  }
+
   const entries = [];
   let cursor = 0;
   while (cursor < source.length) {
@@ -128,14 +146,17 @@ export function readStaticObjectEntries(
     }
     if (source[afterValue] === ',') {
       const nextToken = skipStaticTrivia(source, afterValue + 1, sourcePath, errorLabel);
-      if (nextToken >= source.length) {
+      if (nextToken >= source.length && !allowTerminalFragment) {
         throw new Error(`[${errorLabel}] Static property cannot end with a dangling comma in ${sourcePath}`);
       }
     }
 
+    const decodedValue = decodeStaticStringLiteral(valueLiteral.value, valueLiteral.quote, { newlineAs });
     const entry = {
       key: decodeStaticStringLiteral(keyLiteral.value, keyLiteral.quote),
-      value: decodeStaticStringLiteral(valueLiteral.value, valueLiteral.quote),
+      value: newlineAs === undefined
+        ? decodedValue
+        : decodedValue.replace(/\r\n|\r|\n/gu, () => newlineAs),
       keyQuote: keyLiteral.quote,
       valueQuote: valueLiteral.quote,
     };
@@ -145,6 +166,7 @@ export function readStaticObjectEntries(
       rawKey: { value: keyLiteral.value },
       rawValue: { value: valueLiteral.value },
       start: { value: cursor },
+      end: { value: valueLiteral.end },
     });
     entries.push(entry);
     cursor = valueLiteral.end;
