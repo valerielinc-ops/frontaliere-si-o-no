@@ -471,6 +471,28 @@ describe('Prospector discovery source outcomes', () => {
     expect(visited.size).toBe(1230);
   });
 
+  it('defaults direct Common Crawl sweeps to 40 pages', async () => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-commoncrawl-default-'));
+    const pageCalls: number[] = [];
+    const result = await sweepSwissCareerPages({
+      collection: 'CC-MAIN-test',
+      persist: false,
+      cursorFile: path.join(dir, 'cursor.json'),
+      healthFile: path.join(dir, 'health.json'),
+      fetchImpl: async (input: string | URL) => {
+        const url = String(input);
+        if (url.includes('showNumPages=true')) return response(url, 200, '{"pages":1230}');
+        pageCalls.push(Number(new URL(url).searchParams.get('page')));
+        return response(url, 200, '{"url":"https://example.ch/jobs/careers"}\n');
+      },
+      lookupImpl,
+      sleepImpl,
+    });
+
+    expect(result.pagesRead).toHaveLength(40);
+    expect(pageCalls).toHaveLength(40);
+  });
+
   it('reserves at most half the batch for retries while unseen pages remain', () => {
     const plan = planCommonCrawlPages({
       collection: 'CC-MAIN-test', nextPage: 9, totalPages: 100, stride: 23,

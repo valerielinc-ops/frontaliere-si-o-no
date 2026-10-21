@@ -297,6 +297,7 @@ describe('platform registry', () => {
 describe('priorità della coda TRACE', () => {
   it('rejects malformed or excessive workflow budgets before queue selection', () => {
     expect(parseTraceLimit('750')).toBe(750);
+    expect(parseTraceLimit('1000')).toBe(1000);
     expect(parseTraceLimit(undefined, 40)).toBe(40);
     for (const value of ['abc', '-1', '1201', '1.5']) {
       expect(() => parseTraceLimit(value)).toThrow(/--limit must be an integer/);
