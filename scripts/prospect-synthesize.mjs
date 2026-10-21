@@ -32,11 +32,12 @@ import {
   startLedgerPhase,
   finishLedgerPhase,
   recordCandidateAttempt,
+  requeueLegacyNoVacancyCandidates,
 } from './lib/prospector/candidate-store.mjs';
 import { synthesizeSpec, isExpectedSynthesisError } from './lib/prospector/synthesize.mjs';
 import { PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
-import { prioritizeSynthesisCandidates } from './lib/prospector/synthesis-schedule.mjs';
+import { parseSynthesisLimit, prioritizeSynthesisCandidates } from './lib/prospector/synthesis-schedule.mjs';
 
 const argv = process.argv.slice(2);
 // `--dry-run` e' riconosciuto letteralmente: un refuso (`--dryrun`, `-n`) non
@@ -45,21 +46,35 @@ assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit'] });
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
-const limit = Number(arg('limit', 25));
+const limit = parseSynthesisLimit(arg('limit', 25));
 const onlyKey = arg('key', '');
 const dryRun = flag('dry-run');
 startLedgerPhase('synthesize', { dryRun });
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 const store = loadCandidates();
+const synthesisLimit = limit;
+const legacyRecoveryLimit = onlyKey ? 0 : Math.min(synthesisLimit, Math.ceil(synthesisLimit * 0.25));
+const legacyRecovery = legacyRecoveryLimit
+  ? requeueLegacyNoVacancyCandidates(store, legacyRecoveryLimit)
+  : [];
+const legacyRecoveryKeys = new Set(legacyRecovery.map((candidate) => candidate.key));
+const tracedQueue = onlyKey
+  ? []
+  : byStatus(store, 'traced').filter((candidate) => isSynthesisRetryDue(candidate)
+    && !legacyRecoveryKeys.has(candidate.key));
 const queue = onlyKey
   ? [store.candidates[resolveCandidateKey(store, onlyKey)]].filter(Boolean)
-  : prioritizeSynthesisCandidates(
-    byStatus(store, 'traced').filter((candidate) => isSynthesisRetryDue(candidate)),
-    limit,
-  );
+  : [
+    ...legacyRecovery,
+    ...prioritizeSynthesisCandidates(
+      tracedQueue,
+      legacyRecovery.length ? synthesisLimit - legacyRecovery.length : synthesisLimit,
+    ),
+  ];
 
 console.log('═══ Prospector · SYNTHESIZE ═══');
+if (legacyRecovery.length) console.log(`recupero seed senza annunci: ${legacyRecovery.length} candidati legacy in coda`);
 console.log(`da sintetizzare: ${queue.length} candidati tracciati\n`);
 
 let written = 0;
@@ -110,6 +125,8 @@ for (const c of queue) {
     const retry = retryable ? scheduleSynthesisRetry(c, failureReason) : null;
     if (retry?.synthesisRetryable) {
       retried++;
+      // The outcome describes this latest attempt. A legacy requeue's durable
+      // provenance remains in synthesisRecoveryQueuedAt for conflict merges.
       setStatus(store, c.key, 'traced', {
         ...retry,
         synthesisOutcome: synth.reasonCode || 'retryable_failure',

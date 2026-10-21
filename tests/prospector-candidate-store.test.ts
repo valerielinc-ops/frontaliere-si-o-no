@@ -5,7 +5,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
   loadCandidates,
   MAX_REJECTED_TOMBSTONES,
@@ -22,10 +22,12 @@ import {
   upsertCandidate,
   candidateForKey,
   reconcileCandidateDuplicates,
+  requeueLegacyNoVacancyCandidates,
   resolveCandidateKey,
   startLedgerPhase,
   finishLedgerPhase,
   recordCandidateAttempt,
+  candidateKey,
 } from '../scripts/lib/prospector/candidate-store.mjs';
 
 const DAY_MS = 86_400_000;
@@ -34,6 +36,9 @@ const OLD = new Date(Date.now() - 91 * DAY_MS).toISOString();
 function storeWith(candidates: Record<string, any>, rejectedTombstones: Record<string, any> = {}) {
   return { version: 1, updatedAt: null, candidates, rejectedTombstones };
 }
+
+beforeEach(() => startLedgerPhase('test', { runId: 'candidate-store-test', ledgerFile: null }));
+afterEach(() => finishLedgerPhase('test_cleanup'));
 
 describe('prospector candidate store — rejected tombstones (#6903)', () => {
   it('bootstraps only when the candidate file is missing', () => {
@@ -282,7 +287,7 @@ describe('prospector candidate store — cross-source identity and ledger recove
     const store = storeWith({
       [oldKey]: {
         key: oldKey, status: 'traced', name: 'Acme SA', city: 'Lugano',
-        careersUrl: 'https://acme.ch/jobs', sources: ['seco'],
+        website: 'https://acme.ch/', careersUrl: 'https://acme.ch/jobs', sources: ['seco'],
         sourceSeenAt: { seco: '2026-10-20T08:00:00.000Z' }, updatedAt: '2026-10-20T08:00:00.000Z',
       },
       [domainKey]: {
@@ -310,6 +315,139 @@ describe('prospector candidate store — cross-source identity and ledger recove
 
     expect(reconcileCandidateDuplicates(store, null)).toMatchObject({ merged: 0, skippedDomainConflict: 1 });
     expect(Object.keys(store.candidates)).toHaveLength(3);
+  });
+
+  it('does not merge a domainless same-name record into the only known domain', () => {
+    const domainlessKey = 'acme-sa@lugano';
+    const store = storeWith({
+      [domainlessKey]: {
+        key: domainlessKey, status: 'new', name: 'Acme SA', city: 'Lugano', sources: ['web'],
+      },
+      'acme.ch': {
+        key: 'acme.ch', status: 'new', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch', sources: ['seco'],
+      },
+    });
+
+    expect(reconcileCandidateDuplicates(store, null)).toMatchObject({ merged: 0, skippedDomainConflict: 1 });
+    expect(store.candidates[domainlessKey]).toBeDefined();
+    expect(store.candidates['acme.ch']).toBeDefined();
+    expect(upsertCandidate(store, {
+      key: 'acme-another-key@lugano', name: 'Acme SA', city: 'Lugano',
+    }, 'osm')).toMatchObject({ key: 'acme-another-key@lugano', created: true });
+  });
+
+  it('uses a domainless company homepage for identity and ignores a third-party careers host', () => {
+    const domainlessKey = 'acme-ltd@london';
+    const store = storeWith({
+      [domainlessKey]: {
+        key: domainlessKey, status: 'new', name: 'Acme Ltd', city: 'London',
+        website: 'https://www.acme.co.uk/', careersUrl: 'https://careers.acme.co.uk/jobs', sources: ['web'],
+      },
+      'acme.co.uk': {
+        key: 'acme.co.uk', status: 'new', name: 'Acme Ltd', city: 'London', domain: 'acme.co.uk', sources: ['seco'],
+      },
+      'acme-company@bogota': {
+        key: 'acme-company@bogota', status: 'new', name: 'Acme Co', city: 'Bogota',
+        website: 'https://www.acme.co/', careersUrl: 'https://jobs.acme.co/open', sources: ['web'],
+      },
+      'acme.co': {
+        key: 'acme.co', status: 'new', name: 'Acme Co', city: 'Bogota', domain: 'acme.co', sources: ['seco'],
+      },
+    });
+
+    expect(reconcileCandidateDuplicates(store, null)).toMatchObject({ merged: 2 });
+    const canonicalKey = resolveCandidateKey(store, domainlessKey);
+    expect(store.candidates[canonicalKey].domain).toBe('acme.co.uk');
+    const coCanonicalKey = resolveCandidateKey(store, 'acme-company@bogota');
+    expect(store.candidates[coCanonicalKey].domain).toBe('acme.co');
+    expect(upsertCandidate(store, {
+      key: 'acme-new-key@london', name: 'Acme Ltd', city: 'London',
+      careersUrl: 'https://jobs.acme.co.uk/current',
+    }, 'osm')).toMatchObject({ key: 'acme-new-key@london', created: true });
+  });
+
+  it('rejects public suffixes and does not infer employer identity from an ATS-only careers URL', () => {
+    const publicSuffixStore = storeWith({
+      'acme-uk@london': {
+        key: 'acme-uk@london', status: 'new', name: 'Acme Ltd', city: 'London', domain: 'co.uk', sources: ['web'],
+      },
+      'acme-uk-seco@london': {
+        key: 'acme-uk-seco@london', status: 'new', name: 'Acme Ltd', city: 'London', domain: 'co.uk', sources: ['seco'],
+      },
+      'foods-public-suffix@bogota': {
+        key: 'foods-public-suffix@bogota', status: 'new', name: 'Bogota Foods', city: 'Bogota', domain: 'com.co', sources: ['web'],
+      },
+      'foods-public-suffix-seco@bogota': {
+        key: 'foods-public-suffix-seco@bogota', status: 'new', name: 'Bogota Foods', city: 'Bogota', domain: 'com.co', sources: ['seco'],
+      },
+    });
+    expect(reconcileCandidateDuplicates(publicSuffixStore, null)).toMatchObject({ merged: 0, skippedDomainConflict: 2 });
+
+    const homepageStore = storeWith({
+      'acme-domainless@lugano': {
+        key: 'acme-domainless@lugano', status: 'new', name: 'Acme SA', city: 'Lugano',
+        website: 'https://acme.ch/', careersUrl: 'https://acme.jobs-board.example/jobs', sources: ['web'],
+      },
+      'acme.ch': {
+        key: 'acme.ch', status: 'new', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch', sources: ['seco'],
+      },
+    });
+    expect(reconcileCandidateDuplicates(homepageStore, null)).toMatchObject({ merged: 1, skippedDomainConflict: 0 });
+
+    const atsOnlyStore = storeWith({
+      'acme-ats-only@lugano': {
+        key: 'acme-ats-only@lugano', status: 'new', name: 'Acme SA', city: 'Lugano',
+        careersUrl: 'https://acme.jobs-board.example/jobs', sources: ['web'],
+      },
+      'acme.ch': {
+        key: 'acme.ch', status: 'new', name: 'Acme SA', city: 'Lugano', domain: 'acme.ch', sources: ['seco'],
+      },
+    });
+    expect(reconcileCandidateDuplicates(atsOnlyStore, null)).toMatchObject({ merged: 0, skippedDomainConflict: 1 });
+  });
+
+  it('uses a verified homepage when an explicit domain is an invalid public suffix', () => {
+    const store = storeWith({
+      'acme-domainless@lugano': {
+        key: 'acme-domainless@lugano', status: 'new', name: 'Acme SA', city: 'Lugano',
+        domain: 'co.uk', website: 'https://www.acme.co.uk/', sources: ['web'],
+      },
+      'acme.co.uk': {
+        key: 'acme.co.uk', status: 'new', name: 'Acme SA', city: 'Lugano',
+        domain: 'acme.co.uk', sources: ['seco'],
+      },
+    });
+
+    expect(candidateKey({ name: 'Acme SA', city: 'Lugano', domain: 'co.uk', website: 'https://acme.co.uk/' }))
+      .toBe('acme@lugano');
+    expect(candidateKey({ name: 'Acme SA', city: 'Lugano', website: 'https://acme.co.uk/' }))
+      .toBe('acme@lugano');
+    expect(reconcileCandidateDuplicates(store, null)).toMatchObject({ merged: 1, skippedDomainConflict: 0 });
+    const canonicalKey = resolveCandidateKey(store, 'acme-domainless@lugano');
+    expect(store.candidates[canonicalKey].domain).toBe('acme.co.uk');
+    expect(Object.keys(store.candidates)).toEqual([canonicalKey]);
+  });
+
+  it('does not use a public suffix as a candidate key or direct upsert target', () => {
+    const store = storeWith({
+      'com.co': {
+        key: 'com.co', status: 'new', name: 'Bogota Foods', city: 'Bogota', domain: 'com.co', sources: ['web'],
+      },
+      'bogota-foods@bogota': {
+        key: 'bogota-foods@bogota', status: 'new', name: 'Bogota Foods', city: 'Bogota', sources: ['osm'],
+      },
+    });
+    expect(candidateKey({ name: 'Bogota Foods', city: 'Bogota', domain: 'com.co' })).toBe('bogota-foods@bogota');
+
+    const upserted = upsertCandidate(store, {
+      key: 'com.co', name: 'Bogota Foods', city: 'Bogota', domain: 'com.co',
+    }, 'seco');
+    expect(upserted.created).toBe(true);
+    expect(upserted.key).toMatch(/^bogota-foods@bogota#unverified-/);
+    expect(store.candidates['com.co']).toMatchObject({ name: 'Bogota Foods', domain: 'com.co', sources: ['web'] });
+    expect(store.candidates['bogota-foods@bogota']).toMatchObject({ sources: ['osm'] });
+    expect(store.candidates[upserted.key]).not.toHaveProperty('domain');
+    expect(store.candidateAliases?.['com.co']).toBeUndefined();
   });
 
   it('keeps an active candidate canonical when matching or merging a rejected duplicate', () => {
@@ -371,9 +509,26 @@ describe('prospector candidate store — cross-source identity and ledger recove
       },
     }, { [key]: { rejectedAt: OLD } });
 
-    upsertCandidate(store, { key, name: 'Acme SA', domain: 'acme.ch', adCount: 2 }, 'seco');
+    const sameSecoEvidence = {
+      key, name: 'Acme SA', domain: 'acme.ch', adCount: 2,
+      sampleTitles: ['Tecnico di manutenzione'], applyHosts: ['apply.acme.ch'],
+    };
+    upsertCandidate(store, sameSecoEvidence, 'seco');
     expect(store.candidates[key]).toMatchObject({ status: 'traced', adCount: 2, reason: 'nuova evidenza SECO: sintesi riaperta' });
     expect(store.rejectedTombstones[key]).toBeUndefined();
+
+    setStatus(store, key, 'rejected', { reason: 'sintesi fallita: nessun annuncio estratto dal seed' }, null);
+    upsertCandidate(store, sameSecoEvidence, 'seco');
+    expect(store.candidates[key].status).toBe('rejected');
+
+    upsertCandidate(store, { ...sameSecoEvidence, sampleTitles: [], applyHosts: [] }, 'seco');
+    expect(store.candidates[key].status).toBe('rejected');
+
+    upsertCandidate(store, { ...sameSecoEvidence, adCount: 0, sampleTitles: ['New title'] }, 'seco');
+    expect(store.candidates[key].status).toBe('rejected');
+
+    upsertCandidate(store, { ...sameSecoEvidence, adCount: 3 }, 'seco');
+    expect(store.candidates[key]).toMatchObject({ status: 'traced', adCount: 3 });
 
     setStatus(store, key, 'rejected', { reason: 'sintesi fallita: nessun annuncio estratto dal seed' }, null);
     upsertCandidate(store, { key, name: 'Acme SA', domain: 'acme.ch', careersUrl: 'https://acme.ch/karriere' }, 'web');
@@ -412,6 +567,80 @@ describe('prospector candidate store — cross-source identity and ledger recove
       reason: 'nuova collection Common Crawl: sintesi riaperta',
       synthesisAttempts: 0,
     });
+  });
+
+  it('requeues one marked legacy batch per loaded store and continues on the next load', () => {
+    const oldRejectedAt = '2026-10-20T10:00:00.000Z';
+    const recentRejectedAt = '2026-10-21T10:00:00.000Z';
+    const store = storeWith({
+      'legacy-old.example': {
+        key: 'legacy-old.example', status: 'rejected', rejectedAt: oldRejectedAt,
+        reason: 'sintesi fallita: nessun annuncio estratto dal seed', synthesisRetryable: false,
+      },
+      'legacy-new.example': {
+        key: 'legacy-new.example', status: 'rejected', rejectedAt: recentRejectedAt,
+        reason: 'sintesi fallita: nessun annuncio estratto dal seed', synthesisRetryable: false,
+      },
+      'legacy-unmarked.example': {
+        key: 'legacy-unmarked.example', status: 'rejected', rejectedAt: recentRejectedAt,
+        reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+      },
+      'already-attempted.example': {
+        key: 'already-attempted.example', status: 'rejected', rejectedAt: recentRejectedAt,
+        reason: 'sintesi fallita: nessun annuncio estratto dal seed', synthesisRetryable: false, synthesisAttempts: 3,
+      },
+      'other-rejection.example': {
+        key: 'other-rejection.example', status: 'rejected', rejectedAt: recentRejectedAt,
+        reason: 'sintesi fallita: seed irraggiungibile (404)', synthesisRetryable: false,
+      },
+    }, {
+      'legacy-new.example': { rejectedAt: recentRejectedAt },
+    });
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-legacy-synthesis-recovery-'));
+    const ledger = path.join(dir, 'ledger.jsonl');
+
+    try {
+      startLedgerPhase('synthesize', { runId: 'run-legacy-recovery', ledgerFile: ledger });
+      const [recovered] = requeueLegacyNoVacancyCandidates(store, 1, ledger);
+      expect(recovered.key).toBe('legacy-new.example');
+      expect(recovered).toMatchObject({
+        status: 'traced',
+        synthesisAttempts: 0,
+        synthesisRetryable: false,
+        synthesisOutcome: 'legacy_no_vacancy_recovery',
+      });
+      expect(recovered.synthesisRecoveryQueuedAt).toBeTruthy();
+      expect(store.rejectedTombstones['legacy-new.example']).toBeUndefined();
+      const recoveryQueuedAt = recovered.synthesisRecoveryQueuedAt;
+      setStatus(store, recovered.key, 'traced', {
+        synthesisRetryable: true,
+        synthesisAttempts: 1,
+        synthesisOutcome: 'transient_seed_failure',
+      }, ledger);
+      expect(recovered.synthesisOutcome).toBe('transient_seed_failure');
+      expect(recovered.synthesisRecoveryQueuedAt).toBe(recoveryQueuedAt);
+      expect(requeueLegacyNoVacancyCandidates(store, 10, ledger)).toEqual([]);
+      expect(store.candidates['legacy-old.example'].status).toBe('rejected');
+      expect(store.candidates['legacy-unmarked.example'].status).toBe('rejected');
+      expect(store.candidates['already-attempted.example'].status).toBe('rejected');
+      expect(store.candidates['other-rejection.example'].status).toBe('rejected');
+      const nextRunStore = JSON.parse(JSON.stringify(store));
+      expect(requeueLegacyNoVacancyCandidates(nextRunStore, 10, ledger).map(({ key }) => key))
+        .toEqual(['legacy-old.example']);
+      const events = fs.readFileSync(ledger, 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+      expect(events).toContainEqual(expect.objectContaining({
+        eventType: 'candidate_reopened',
+        key: 'legacy-new.example',
+        from: 'rejected',
+        to: 'traced',
+        reasonCode: 'legacy_no_vacancy_recovery',
+        runId: 'run-legacy-recovery',
+        phase: 'synthesize',
+      }));
+    } finally {
+      finishLedgerPhase('test_cleanup');
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('records run, attempt and phase metadata and suppresses dry-run ledger writes', () => {

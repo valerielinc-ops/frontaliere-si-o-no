@@ -33,12 +33,12 @@ import {
 import { observeSpecInProduction } from './lib/prospector/spec-crawler.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
 import {
-  classifyValidationFailure,
+  applyValidationRuntimeState,
   isValidationRetryDue,
   needsProductionQualityAudit,
+  parseValidationLimit,
   prioritizeProductionAuditSpecs,
   prioritizeValidationSpecs,
-  validationRetryAt,
 } from './lib/prospector/validation-schedule.mjs';
 import { adaptiveValidationSampleSize } from './lib/prospector/validation-sample.mjs';
 import {
@@ -52,6 +52,7 @@ import { DATA_ROOT, PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospect
 import {
   createValidationSnapshot,
   comparePublicationSnapshots,
+  validationSnapshotAfterGradeFailure,
   validationSnapshotMetadataFor,
 } from './lib/prospector/snapshot-comparison.mjs';
 import {
@@ -70,7 +71,7 @@ assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit', 'sample
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
-const limit = Number(arg('limit', 40));
+const limit = parseValidationLimit(arg('limit', 40));
 const onlyKey = arg('key', '');
 const sampleSize = Number(arg('sample', 4));
 if (!Number.isSafeInteger(sampleSize) || sampleSize < 1 || sampleSize > 8) {
@@ -89,6 +90,62 @@ function candidateForSpec(spec) {
   return (spec.candidateKey && candidateForKey(store, spec.candidateKey))
     || byCrawlerKey.get(spec.companyKey)
     || null;
+}
+
+function validationScheduleEntry(report) {
+  const at = String(report?.at || report?.validationStartedAt || '');
+  if (!report?.companyKey || !Number.isFinite(Date.parse(at))
+    || typeof report.runtimeSnapshotComplete !== 'boolean') return null;
+  return {
+    at,
+    qualityContractVersion: report.qualityContractVersion ?? null,
+    sourceAdapterVersion: report.sourceAdapterVersion ?? null,
+    verdict: report.verdict || null,
+    runtimeSnapshotComplete: report.runtimeSnapshotComplete,
+    retryAfterAt: report.retryAfterAt || null,
+  };
+}
+
+function loadValidationScheduleState() {
+  const state = new Map();
+  let previous;
+  try {
+    previous = JSON.parse(fs.readFileSync(VALIDATION_PATH, 'utf8'));
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      console.warn(`stato retry VALIDATE non leggibile: ${String(error?.message || error).slice(0, 200)}`);
+    }
+    return state;
+  }
+
+  const schedule = previous?.validationSchedule;
+  if (schedule && typeof schedule === 'object' && !Array.isArray(schedule)) {
+    for (const [companyKey, saved] of Object.entries(schedule)) {
+      const entry = validationScheduleEntry({ companyKey, ...saved });
+      if (entry) state.set(companyKey, entry);
+    }
+  }
+  for (const report of Array.isArray(previous?.reports) ? previous.reports : []) {
+    const entry = validationScheduleEntry(report);
+    if (!entry) continue;
+    const key = String(report.companyKey);
+    const currentAt = Date.parse(state.get(key)?.at || '');
+    if (!state.has(key) || Date.parse(entry.at) >= currentAt) state.set(key, entry);
+  }
+  return state;
+}
+
+const validationScheduleState = loadValidationScheduleState();
+const previousValidationForSpec = (spec) => validationScheduleState.get(String(spec.companyKey || '')) || null;
+
+function validationRetryStateForSpec(spec) {
+  const candidate = candidateForSpec(spec);
+  const history = Array.isArray(candidate?.validationHistory) ? candidate.validationHistory.slice() : [];
+  const previous = previousValidationForSpec(spec);
+  if (previous && !history.some((entry) => String(entry?.at || '') === previous.at)) history.push(previous);
+  history.sort((a, b) => String(a?.at || '').localeCompare(String(b?.at || '')));
+  if (!candidate && !history.length) return null;
+  return { ...(candidate || {}), validationHistory: history };
 }
 
 function failedRuntimeObservation(error) {
@@ -223,6 +280,7 @@ for (const spec of specs) {
       && needsProductionQualityAudit(spec, candidate, {
         date: scheduledAt,
         adapterVersionFor: (item) => sourceCrawlerAdapterFor(item)?.version || null,
+        previousValidationForSpec,
       })) productionAuditCandidates.push(spec);
     continue;
   }
@@ -232,12 +290,14 @@ for (const spec of specs) {
 }
 const productionAuditSpecs = prioritizeProductionAuditSpecs(productionAuditCandidates, candidateForSpec, {
   adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
+  previousValidationForSpec,
 }).slice(0, PRODUCTION_AUDIT_LIMIT);
 const deferredForBackoff = specs.filter((spec) => {
-  const candidate = candidateForSpec(spec);
-  return candidate && !isValidationRetryDue(candidate, scheduledAt, {
+  const retryState = validationRetryStateForSpec(spec);
+  const adapterVersion = sourceCrawlerAdapterFor(spec)?.version || undefined;
+  return retryState && !isValidationRetryDue(retryState, scheduledAt, {
     qualityContractVersion: qualityContractVersionOf(spec),
-    sourceAdapterVersion: sourceCrawlerAdapterFor(spec)?.version,
+    ...(adapterVersion ? { sourceAdapterVersion: adapterVersion } : {}),
   });
 }).length;
 specs = [
@@ -246,6 +306,7 @@ specs = [
   limit,
   date: scheduledAt,
   adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
+  previousValidationForSpec,
   }),
 ];
 
@@ -327,14 +388,14 @@ for (const spec of specs) {
     runtimeObservation = err?.specRuntimeObservation || failedRuntimeObservation(err);
     console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} osservazione runtime incompleta: ${(err instanceof Error ? err.message : String(err)).slice(0, 100)}`);
   }
-  const validationSnapshotMetadata = validationSnapshotMetadataFor(runtimeObservation, Boolean(runtimeFailure));
-  const validationSnapshot = createValidationSnapshot(
+  let validationSnapshotMetadata = validationSnapshotMetadataFor(runtimeObservation, Boolean(runtimeFailure));
+  let validationSnapshot = createValidationSnapshot(
     vacancies,
     new Date().toISOString(),
     process.env.GITHUB_RUN_ID || null,
     validationSnapshotMetadata,
   );
-  const validationSnapshotSummary = { ...validationSnapshot };
+  let validationSnapshotSummary = { ...validationSnapshot };
   delete validationSnapshotSummary.ids;
   // Does this "new employer" simply re-publish vacancies we already carry?
   // Grading cannot tell: a duplicate tenant parses beautifully and scores
@@ -387,12 +448,18 @@ for (const spec of specs) {
     });
   } catch (err) {
     runtimeFailure ||= err;
-    runtimeObservation = {
-      ...(runtimeObservation || failedRuntimeObservation(err)),
-      complete: false,
-      promotionObservationComplete: false,
-      failure: String(err?.message || err).slice(0, 500),
-    };
+    const failedSnapshot = validationSnapshotAfterGradeFailure(
+      vacancies,
+      validationSnapshot.observedAt,
+      process.env.GITHUB_RUN_ID || null,
+      runtimeObservation || failedRuntimeObservation(err),
+      err,
+    );
+    runtimeObservation = failedSnapshot.runtimeObservation;
+    validationSnapshotMetadata = failedSnapshot.metadata;
+    validationSnapshot = failedSnapshot.snapshot;
+    validationSnapshotSummary = { ...validationSnapshot };
+    delete validationSnapshotSummary.ids;
     report = failedQualityReport(spec, vacancies, err);
   }
   report.companyName = spec.companyName;
@@ -408,16 +475,7 @@ for (const spec of specs) {
   report.snapshotComparison = comparePublicationSnapshots(validationSnapshot, readPublishedSlice(spec.companyKey));
   report.prioritizedAnomalyIds = (candidate?.validationAnomalyIds || []).slice(0, 50);
   report.measuredVerdict = report.measuredVerdict || report.verdict;
-  report.runtimeSnapshotComplete = validationSnapshotMetadata.runtimeSnapshotComplete;
-  if (!report.runtimeSnapshotComplete) {
-    report.verdict = 'weak';
-    const failure = runtimeObservation?.failure || runtimeFailure?.message || 'snapshot runtime incompleto';
-    report.problems.push(`runtime snapshot incompleto: ${String(failure).slice(0, 300)}`);
-  }
-  report.runtimeFailureCategory = report.runtimeSnapshotComplete ? null : classifyValidationFailure(report);
-  report.retryAfterAt = report.runtimeSnapshotComplete
-    ? null
-    : validationRetryAt(report.runtimeFailureCategory, Date.now());
+  applyValidationRuntimeState(report, validationSnapshotMetadata.runtimeSnapshotComplete);
 
   // Logo obbligatorio quanto jobLike: un candidato la cui azienda non ha un
   // logo verificabile non entra in produzione (vedi promotion-gate.mjs). La
@@ -607,9 +665,18 @@ console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 if (dryRun) { console.log('\n--dry-run: niente scritto.'); }
 else {
   fs.mkdirSync(path.dirname(VALIDATION_PATH), { recursive: true });
+  const nextValidationSchedule = new Map(validationScheduleState);
+  for (const report of reports) {
+    const entry = validationScheduleEntry(report);
+    if (!entry) continue;
+    const key = String(report.companyKey);
+    const currentAt = Date.parse(nextValidationSchedule.get(key)?.at || '');
+    if (!nextValidationSchedule.has(key) || Date.parse(entry.at) >= currentAt) nextValidationSchedule.set(key, entry);
+  }
   fs.writeFileSync(VALIDATION_PATH, `${JSON.stringify({
     generatedAt: new Date().toISOString(),
     qualityContractVersion: 3,
+    validationSchedule: Object.fromEntries([...nextValidationSchedule.entries()].sort(([a], [b]) => a.localeCompare(b))),
     tally,
     measuredTally,
     runtimeSnapshotTally,

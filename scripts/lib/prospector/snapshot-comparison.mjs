@@ -50,6 +50,26 @@ export function validationSnapshotMetadataFor(observation, runtimeFailed = false
   };
 }
 
+/**
+ * A grading exception invalidates the run snapshot even if the page
+ * observation itself was complete. Return a consistent failed observation,
+ * completeness metadata and snapshot for the caller's retry schedule.
+ */
+export function validationSnapshotAfterGradeFailure(rows, observedAt, runId, observation, error) {
+  const runtimeObservation = {
+    ...(observation && typeof observation === 'object' ? observation : {}),
+    complete: false,
+    promotionObservationComplete: false,
+    failure: String(error?.message || error || 'grade extraction failed').slice(0, 500),
+  };
+  const metadata = validationSnapshotMetadataFor(runtimeObservation, true);
+  return {
+    runtimeObservation,
+    metadata,
+    snapshot: createValidationSnapshot(rows, observedAt, runId, metadata),
+  };
+}
+
 /** Persist hashed identities and the workflow run that observed them. */
 export function createValidationSnapshot(
   rows,

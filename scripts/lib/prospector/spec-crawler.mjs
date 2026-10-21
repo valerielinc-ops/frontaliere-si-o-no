@@ -980,6 +980,19 @@ export function stripListingPageState(url, pageUrl, stateParams = []) {
   return detail.href;
 }
 
+function listingIdentityUrl(rawUrl) {
+  try {
+    const url = new URL(String(rawUrl));
+    // Fragments are not sent in HTTP requests. extractLinks removes fragment
+    // duplicates within one page; this key extends the same identity rule
+    // across paginated pages without changing the first URL retained for output.
+    url.hash = '';
+    return url.href;
+  } catch {
+    return String(rawUrl || '');
+  }
+}
+
 /**
  * The listing's next page, from an `<a>` or `<link>` carrying `rel="next"`.
  *
@@ -1303,7 +1316,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       try { await validateUrl(sourceUrl); } catch { continue; }
       if (templateRx && !matchesDetailTemplate(sourceUrl, templateRx)) continue;
       listingRowsForCoverage += 1;
-      if (bySlug.has(v.url)) continue;
+      const identityUrl = listingIdentityUrl(v.url);
+      if (bySlug.has(identityUrl)) continue;
       const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
       const publication = mergeSourcePostingDates({}, vacancy);
       const record = {
@@ -1331,7 +1345,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           configurable: true,
         });
       }
-      bySlug.set(v.url, record);
+      bySlug.set(identityUrl, record);
     }
   };
 

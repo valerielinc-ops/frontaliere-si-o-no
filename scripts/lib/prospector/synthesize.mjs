@@ -27,27 +27,42 @@ const MAX_SYNTHESIS_FETCHES = 5;
 const CAREER_LINK_RX = /(?:^|[\/_-])(?:jobs?|careers?|vacancies|karriere|stellen(?:angebote)?|offene-stellen|emplois?|carrieres?|offres-d-emploi|lavora|carriere|posizioni-aperte|offerte-di-lavoro|posti-vacanti)(?:[/?#._-]|$)/i;
 const CAREER_LINK_TEXT_RX = /\b(jobs?|careers?|vacancies|karriere|stellen|emplois?|carri[eè]re|lavora|posizioni|offerte di lavoro|posti vacanti)\b/i;
 
-function synthesisSeeds(candidate) {
-  const values = [
-    candidate.careersUrl,
-    ...(Array.isArray(candidate.careersUrls) ? candidate.careersUrls : []),
-    candidate.tenantHost ? `https://${candidate.tenantHost}/` : null,
-    candidate.domain ? `https://${candidate.domain}/` : null,
-  ];
-  const seen = new Set();
-  const seeds = [];
-  for (const value of values) {
-    if (!value) continue;
-    let url;
-    try { url = new URL(String(value)); } catch { continue; }
-    if (!/^https?:$/.test(url.protocol)) continue;
+function normalizedHttpUrl(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(String(value));
+    if (!/^https?:$/.test(url.protocol)) return '';
     url.hash = '';
-    const normalized = url.toString();
-    if (seen.has(normalized)) continue;
-    seen.add(normalized);
-    seeds.push(normalized);
+    return url.toString();
+  } catch {
+    return '';
   }
-  return seeds.slice(0, 3);
+}
+
+function synthesisSeeds(candidate) {
+  const careerSeeds = [candidate.careersUrl, ...(Array.isArray(candidate.careersUrls) ? candidate.careersUrls : [])]
+    .map(normalizedHttpUrl)
+    .filter(Boolean);
+  const tenantHost = normalizeHost(candidate.tenantHost || '');
+  const employerHost = normalizeHost(candidate.domain || '');
+  const seen = new Set();
+  const uniqueSeeds = (values) => {
+    const seeds = [];
+    for (const value of values) {
+      const normalized = normalizedHttpUrl(value);
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      seeds.push(normalized);
+    }
+    return seeds;
+  };
+  const priority = uniqueSeeds([
+    careerSeeds[0],
+    tenantHost ? `https://${tenantHost}/` : null,
+    employerHost ? `https://${employerHost}/` : null,
+  ]);
+  const alternates = uniqueSeeds(careerSeeds.slice(1));
+  return { priority, alternates };
 }
 
 function careerLinksFromPage(body, baseUrl) {
@@ -242,24 +257,83 @@ export function isExpectedSynthesisError(err) {
  * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, reasonCode?: string, vacancies: any[], retryable?: boolean, diagnostics?: Record<string, any> }>}
  */
 export async function synthesizeSpec(candidate, runtime = {}) {
-  const seeds = synthesisSeeds(candidate);
-  if (!seeds.length) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
+  const { priority, alternates } = synthesisSeeds(candidate);
+  if (!priority.length && !alternates.length) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
 
-  const pending = [...seeds];
-  const queued = new Set(pending);
+  const pendingPriority = [...priority];
+  const pendingInitial = [...alternates];
+  const pendingDiscovered = [];
+  const queued = new Set([...pendingPriority, ...pendingInitial]);
   const attempted = new Set();
   const failures = [];
   let reachablePages = 0;
+  let malformedResponses = 0;
   let extracted = null;
-  while (pending.length && attempted.size < MAX_SYNTHESIS_FETCHES) {
-    const seed = pending.shift();
+  let suppliedSeedsAttempted = 0;
+  while ((pendingPriority.length || pendingInitial.length || pendingDiscovered.length)
+    && attempted.size < MAX_SYNTHESIS_FETCHES) {
+    let seed;
+    if (pendingPriority.length) {
+      seed = pendingPriority.shift();
+      suppliedSeedsAttempted++;
+    } else if (pendingDiscovered.length) {
+      seed = pendingDiscovered.shift();
+    } else if (pendingInitial.length && suppliedSeedsAttempted < MAX_SYNTHESIS_FETCHES - 1) {
+      seed = pendingInitial.shift();
+      suppliedSeedsAttempted++;
+    } else if (pendingInitial.length) {
+      // Use the fifth slot for another supplied seed only when no discovered
+      // careers link is waiting to be followed.
+      seed = pendingInitial.shift();
+      suppliedSeedsAttempted++;
+    } else {
+      break;
+    }
     if (attempted.has(seed)) continue;
     attempted.add(seed);
-    const res = await politeFetch(seed, {
-      fetchImpl: runtime.fetchImpl,
-      lookupImpl: runtime.lookupImpl,
-      sleepImpl: runtime.sleepImpl,
-    });
+    let response;
+    try {
+      response = await politeFetch(seed, {
+        fetchImpl: runtime.fetchImpl,
+        lookupImpl: runtime.lookupImpl,
+        sleepImpl: runtime.sleepImpl,
+      });
+    } catch (error) {
+      failures.push({
+        ok: false,
+        status: 0,
+        url: seed,
+        transportError: error instanceof Error ? error.message : 'fetch_failed',
+      });
+      continue;
+    }
+    if (!response || typeof response !== 'object' || typeof response.ok !== 'boolean') {
+      malformedResponses++;
+      failures.push({
+        ok: false,
+        status: Number(response?.status) || 0,
+        url: typeof response?.url === 'string' ? response.url : seed,
+        transportError: response?.transportError || 'missing_or_invalid_fetch_response',
+        malformedResponse: true,
+      });
+      continue;
+    }
+    if (response.ok && typeof response.body !== 'string') {
+      malformedResponses++;
+      failures.push({
+        ok: false,
+        status: Number(response.status) || 0,
+        url: typeof response.url === 'string' && response.url ? response.url : seed,
+        transportError: 'missing_response_body',
+        malformedResponse: true,
+      });
+      continue;
+    }
+    const res = {
+      ...response,
+      url: typeof response.url === 'string' && response.url ? response.url : seed,
+      body: response.body,
+    };
     if (!res.ok) {
       failures.push(res);
       continue;
@@ -275,24 +349,26 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     // whose path or authored label signals recruitment, and extractLinks
     // already limits these links to the page's own origin.
     for (const link of careerLinksFromPage(res.body, res.url)) {
-      if (queued.has(link) || attempted.has(link)) continue;
-      queued.add(link);
-      pending.push(link);
+      const normalizedLink = normalizedHttpUrl(link);
+      if (!normalizedLink || queued.has(normalizedLink) || attempted.has(normalizedLink)) continue;
+      queued.add(normalizedLink);
+      pendingDiscovered.push(normalizedLink);
     }
   }
   if (!extracted) {
-    if (reachablePages > 0) {
+    if (reachablePages > 0 && malformedResponses === 0) {
       return {
         spec: null,
         reason: 'nessun annuncio estratto dal seed',
         reasonCode: 'no_verified_vacancies',
         retryable: true,
         vacancies: [],
-        diagnostics: { attemptedUrls: attempted.size, reachablePages },
+        diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
       };
     }
     const isRetryableFetchFailure = (attempt) => {
       if (attempt.blockedByRobots || attempt.policyBlocked) return false;
+      if (attempt.malformedResponse) return true;
       const status = Number(attempt.status) || 0;
       return status > 0 ? isRetryableTraceStatus(status) : Boolean(attempt.transportError);
     };
@@ -305,7 +381,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
       reasonCode: retryableFailures.length ? 'transient_seed_failure' : (blocked ? 'policy_blocked' : 'seed_unreachable'),
       vacancies: [],
       retryable: retryableFailures.length > 0,
-      diagnostics: { attemptedUrls: attempted.size, reachablePages: 0 },
+      diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
     };
   }
 

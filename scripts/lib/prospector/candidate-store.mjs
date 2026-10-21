@@ -27,7 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { CANDIDATES_PATH, LEDGER_PATH } from './config.mjs';
-import { registrableDomain } from './registrable.mjs';
+import { normalizeHost, registrableDomain } from './registrable.mjs';
 import { normalizeCompanyName } from './coverage.mjs';
 
 /** @typedef {'new'|'resolved'|'traced'|'dead'|'synthesized'|'validated'|'promoted'|'promoting'|'awaiting_first_crawl'|'production'|'rejected'} CandidateStatus */
@@ -41,7 +41,8 @@ import { normalizeCompanyName } from './coverage.mjs';
  * @returns {string}
  */
 export function candidateKey(c) {
-  if (c.domain) return registrableDomain(c.domain);
+  const domain = registrableCandidateDomain(c.domain);
+  if (domain) return domain;
   const n = normalizeCompanyName(c.name || '').replace(/\s+/g, '-');
   const city = String(c.city || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return [n, city].filter(Boolean).join('@') || `unknown-${Math.abs(hash(JSON.stringify(c)))}`;
@@ -165,6 +166,9 @@ const TRACE_EVIDENCE_SNAPSHOT_VERSION = 2;
 const EMPTY = { version: STORE_VERSION, updatedAt: null, candidates: {}, rejectedTombstones: {}, candidateAliases: {} };
 const TOMBSTONE_COUNTS = new WeakMap();
 const IDENTITY_INDEXES = new WeakMap();
+// One bounded legacy recovery batch per in-memory store; a later process load
+// gets a fresh store and can continue with the next candidates.
+const LEGACY_RECOVERY_BATCHES = new WeakSet();
 
 const LOCAL_RUN_ID = `local-${process.pid}-${Math.floor(Date.now() / 1000)}`;
 let activeLedgerContext = null;
@@ -222,8 +226,71 @@ function distinctSources(candidates) {
   return new Set(candidates.flatMap((candidate) => Array.isArray(candidate?.sources) ? candidate.sources : [])).size;
 }
 
+function registrableCandidateDomain(value) {
+  const raw = String(value ?? '').trim();
+  if (!raw) return '';
+  let host = '';
+  try {
+    const url = new URL(raw.startsWith('//') ? `https:${raw}` : raw.includes('://') ? raw : `https://${raw}`);
+    if (!/^https?:$/.test(url.protocol)) return '';
+    host = normalizeHost(url.hostname);
+  } catch {
+    return '';
+  }
+  if (!host.includes('.') || /^\d{1,3}(?:\.\d{1,3}){3}$/.test(host)) return '';
+  const domain = registrableDomain(host);
+  if (!domain.includes('.')) return '';
+  // For a known multi-label public suffix, adding one label produces a new
+  // registrable domain (for example `candidate.com.co`). A real eTLD+1 such
+  // as `acme.co` or `acme.co.uk` stays unchanged, so bare suffixes fail here.
+  return registrableDomain(`candidate.${domain}`) === domain ? domain : '';
+}
+
+function candidateIdentityDomain(candidate) {
+  const explicitDomain = registrableCandidateDomain(candidate?.domain);
+  if (explicitDomain) return explicitDomain;
+
+  // Domainless records can prove their employer identity through a company
+  // homepage. Careers URLs may point to a third-party ATS and are not identity
+  // evidence, even when their host happens to resemble the employer's name.
+  const urlFields = ['website', 'homepage', 'homePage', 'homepageUrl', 'homeUrl'];
+  const urls = urlFields.map((field) => candidate?.[field])
+    .filter((value) => typeof value === 'string' && value.trim());
+  if (!urls.length) return '';
+  const domains = urls.map(registrableCandidateDomain);
+  if (domains.some((domain) => !domain)) return '';
+  const unique = new Set(domains);
+  return unique.size === 1 ? [...unique][0] : '';
+}
+
 function candidateDomains(candidates) {
-  return new Set(candidates.map((candidate) => candidate?.domain ? registrableDomain(candidate.domain) : '').filter(Boolean));
+  const domains = candidates.map(candidateIdentityDomain);
+  // A missing/invalid domain is unknown evidence, not evidence that the
+  // record belongs to the one known domain in the group.
+  if (domains.some((domain) => !domain)) return new Set();
+  return new Set(domains);
+}
+
+function normalizedSecoSignalList(value) {
+  return Array.isArray(value)
+    ? value.map((item) => String(item ?? '').trim().replace(/\s+/g, ' ').toLowerCase())
+      .filter(Boolean).sort()
+    : [];
+}
+
+function hasFreshSecoEvidence(candidate, incoming) {
+  const incomingAdCount = Number(incoming?.adCount);
+  if (!Number.isSafeInteger(incomingAdCount) || incomingAdCount <= 0) return false;
+
+  const currentAdCount = Number(candidate?.adCount);
+  if (!Number.isSafeInteger(currentAdCount) || currentAdCount !== incomingAdCount) return true;
+
+  return ['sampleTitles', 'applyHosts'].some((field) => {
+    if (!Array.isArray(incoming?.[field])) return false;
+    const incomingSignals = normalizedSecoSignalList(incoming[field]);
+    if (!incomingSignals.length) return false;
+    return JSON.stringify(normalizedSecoSignalList(candidate?.[field])) !== JSON.stringify(incomingSignals);
+  });
 }
 
 /** @param {Record<string, any>} candidate */
@@ -690,7 +757,7 @@ export function reconcileCandidateDuplicates(store, ledgerFile) {
       }, ledgerFile);
       result.merged++;
     }
-    canonical.domain ||= [...domains][0];
+    if (!registrableCandidateDomain(canonical.domain)) canonical.domain = [...domains][0];
     canonical.updatedAt = new Date().toISOString();
     if (canonical.status === 'rejected') rememberRejected(store, canonical);
     if (canonical.status === 'dead') {
@@ -710,7 +777,7 @@ function reopenEmptySynthesisRejection(store, key, candidate, incoming, source, 
   const newCareerUrl = Boolean(incoming?.careersUrl)
     && (sourceEvidenceFields?.has('careersUrl') || String(source).startsWith('tenant:'))
     && String(incoming.careersUrl) !== String(candidate.careersUrl || '');
-  const freshSecoEvidence = source === 'seco' && Number(incoming?.adCount) > 0;
+  const freshSecoEvidence = source === 'seco' && hasFreshSecoEvidence(candidate, incoming);
   const priorWebCollection = candidate.synthesisCommoncrawlCollection || candidate.commoncrawlCollection || '';
   const newCommoncrawlCollection = source === 'web'
     && Boolean(incoming?.commoncrawlCollection)
@@ -746,6 +813,65 @@ function reopenEmptySynthesisRejection(store, key, candidate, incoming, source, 
 }
 
 /**
+ * Requeue a bounded batch of the legacy no-vacancy rejections that already
+ * carry retry-state fields but predate synthesis attempt accounting. These
+ * rows were rejected before synthesis could follow alternate careers links;
+ * older terminal records without the retry-state marker remain untouched.
+ *
+ * @param {ReturnType<typeof loadCandidates>} store
+ * @param {number} limit
+ * @param {string|null} [ledgerFile]
+ * @returns {Record<string, any>[]}
+ */
+export function requeueLegacyNoVacancyCandidates(store, limit, ledgerFile) {
+  const max = Math.max(0, Math.floor(Number(limit) || 0));
+  if (!max || LEGACY_RECOVERY_BATCHES.has(store)) return [];
+
+  const candidates = Object.values(store.candidates)
+    .filter((candidate) => candidate?.status === 'rejected'
+      && candidate.reason === 'sintesi fallita: nessun annuncio estratto dal seed'
+      && candidate.synthesisRetryable === false
+      && !Object.hasOwn(candidate, 'synthesisAttempts')
+      && candidate.synthesisRetryExhausted !== true
+      && !candidate.synthesisRecoveryQueuedAt)
+    .sort((a, b) => String(b.rejectedAt || b.updatedAt || '').localeCompare(String(a.rejectedAt || a.updatedAt || ''))
+      || String(a.key || '').localeCompare(String(b.key || '')))
+    .slice(0, max);
+  if (candidates.length) LEGACY_RECOVERY_BATCHES.add(store);
+
+  const at = new Date().toISOString();
+  for (const candidate of candidates) {
+    const priorReason = candidate.reason;
+    candidate.status = 'traced';
+    candidate.reason = 'sintesi senza annunci: recupero multi-seed in coda';
+    candidate.synthesisRetryable = false;
+    candidate.synthesisRetryExhausted = false;
+    candidate.synthesisAttempts = 0;
+    candidate.synthesisLastAttemptAt = null;
+    candidate.synthesisRetryAt = null;
+    // The outcome is overwritten by each attempt; this timestamp is the durable
+    // provenance the conflict resolver uses to recognize the legacy requeue.
+    candidate.synthesisOutcome = 'legacy_no_vacancy_recovery';
+    candidate.synthesisDiagnostics = null;
+    candidate.synthesisRecoveryQueuedAt = at;
+    candidate.reopenedAt = at;
+    candidate.updatedAt = at;
+    delete candidate.rejectedAt;
+    forgetRejected(store, candidate.key);
+    appendLedger({
+      eventType: 'candidate_reopened',
+      key: candidate.key,
+      from: 'rejected',
+      to: 'traced',
+      at,
+      reasonCode: 'legacy_no_vacancy_recovery',
+      reason: priorReason,
+    }, ledgerFile);
+  }
+  return candidates;
+}
+
+/**
  * Insert or merge a candidate. Merging never downgrades a status and never
  * loses a source attribution — the same employer legitimately arrives from the
  * SECO feed, a map extract and a tenant sweep, and knowing it came from three
@@ -757,7 +883,30 @@ function reopenEmptySynthesisRejection(store, key, candidate, incoming, source, 
  * @returns {{ key: string, created: boolean }}
  */
 export function upsertCandidate(store, incoming, source) {
-  const requestedKey = incoming.key || candidateKey(incoming);
+  const originalDomain = typeof incoming?.domain === 'string' ? incoming.domain.trim() : '';
+  const invalidDomain = Boolean(originalDomain && !registrableCandidateDomain(originalDomain));
+  if (invalidDomain) {
+    incoming = { ...incoming };
+    delete incoming.domain;
+  }
+  const suppliedKey = typeof incoming.key === 'string' ? incoming.key.trim() : '';
+  const keyLooksLikeHost = suppliedKey.includes('.') && !suppliedKey.includes('@');
+  const safeSuppliedKey = keyLooksLikeHost && !registrableCandidateDomain(suppliedKey) ? '' : suppliedKey;
+  const invalidHostKey = keyLooksLikeHost && !safeSuppliedKey;
+  const verifiedIdentityDomain = candidateIdentityDomain(incoming);
+  const invalidIdentityHint = [
+    invalidDomain ? originalDomain : '',
+    invalidHostKey ? suppliedKey : '',
+  ].filter(Boolean).join('|');
+  // An invalid suffix is not an identity and must not fall through to a
+  // same-name key already in the store. If a company homepage independently
+  // proves the identity, use it; otherwise isolate this unverified record.
+  const unverifiedKey = `${candidateKey(incoming)}#unverified-${createHash('sha256')
+    .update(invalidIdentityHint).digest('hex').slice(0, 12)}`;
+  const requestedKey = invalidIdentityHint
+    ? verifiedIdentityDomain || unverifiedKey
+    : safeSuppliedKey || candidateKey(incoming);
+  if (incoming.key !== requestedKey) incoming = { ...incoming, key: requestedKey };
   let key = resolveCandidateKey(store, requestedKey);
   const now = new Date().toISOString();
   let existing = store.candidates[key];

@@ -7,6 +7,7 @@ import {
   classifyValidationFailure,
   isValidationRetryDue,
   needsProductionQualityAudit,
+  parseValidationLimit,
   prioritizeProductionAuditSpecs,
   prioritizeValidationSpecs,
   validationRetryAt,
@@ -21,6 +22,14 @@ import {
 import { reconcileAwaitingFirstCrawls } from '../scripts/lib/prospector/production-output.mjs';
 
 describe('Prospector validation evidence and production feedback', () => {
+  it('rejects non-finite, fractional, and negative validation limits', () => {
+    expect(parseValidationLimit('40')).toBe(40);
+    expect(parseValidationLimit(0)).toBe(0);
+    expect(() => parseValidationLimit('Infinity')).toThrow('--limit must be a non-negative safe integer');
+    expect(() => parseValidationLimit('1.5')).toThrow('--limit must be a non-negative safe integer');
+    expect(() => parseValidationLimit('-1')).toThrow('--limit must be a non-negative safe integer');
+  });
+
   let dir = '';
 
   afterEach(() => {
@@ -196,6 +205,35 @@ describe('Prospector validation evidence and production feedback', () => {
 
     candidate.validationHistory[0].qualityContractVersion = 2;
     expect(isValidationRetryDue(candidate, now, { qualityContractVersion: 3 })).toBe(true);
+  });
+
+  it('uses persisted schedule state for specs without candidate records', () => {
+    const now = Date.now();
+    const retryAt = new Date(now + 6 * 60 * 60 * 1000).toISOString();
+    const retrying = { companyKey: 'retry.example', qualityContractVersion: 3 };
+    const neverRun = { companyKey: 'new.example', qualityContractVersion: 3 };
+    const previous = new Map([[retrying.companyKey, {
+      at: new Date(now - 60 * 60 * 1000).toISOString(),
+      qualityContractVersion: 3,
+      sourceAdapterVersion: null,
+      verdict: 'weak',
+      runtimeSnapshotComplete: false,
+      retryAfterAt: retryAt,
+    }]]);
+    const options = {
+      limit: 2,
+      adapterVersionFor: () => null,
+      previousValidationForSpec: (spec: { companyKey: string }) => previous.get(spec.companyKey),
+    };
+
+    expect(prioritizeValidationSpecs([retrying, neverRun], () => null, {
+      ...options,
+      date: now,
+    })).toEqual([neverRun]);
+    expect(prioritizeValidationSpecs([retrying, neverRun], () => null, {
+      ...options,
+      date: Date.parse(retryAt),
+    })).toEqual([retrying, neverRun]);
   });
 
   it('compares aligned public output snapshots by hashed stable URL identity', () => {

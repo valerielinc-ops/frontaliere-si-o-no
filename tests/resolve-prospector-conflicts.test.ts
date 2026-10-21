@@ -48,6 +48,391 @@ describe('Prospector rebase conflict resolver', () => {
     expect(merged.updatedAt).toBe(local.updatedAt);
   });
 
+  it('ordina il requeue legacy rispetto a rejection concorrenti dello stesso candidato', () => {
+    const rejectedReason = 'sintesi fallita: nessun annuncio estratto dal seed';
+    const recoveryAt = iso(3000);
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        legacy: {
+          key: 'legacy',
+          status: 'rejected',
+          reason: rejectedReason,
+          rejectedAt: iso(0),
+          updatedAt: iso(0),
+          synthesisRetryable: false,
+        },
+      },
+    };
+    const upstream = structuredClone(base);
+    upstream.candidates.legacy.sources = ['osm', 'web'];
+    upstream.candidates.legacy.updatedAt = iso(4000);
+    const local = structuredClone(base);
+    Object.assign(local.candidates.legacy, {
+      status: 'traced',
+      reason: 'sintesi senza annunci: recupero multi-seed in coda',
+      synthesisRetryable: false,
+      synthesisRetryExhausted: false,
+      synthesisAttempts: 0,
+      synthesisOutcome: 'legacy_no_vacancy_recovery',
+      synthesisRecoveryQueuedAt: recoveryAt,
+      reopenedAt: recoveryAt,
+      updatedAt: recoveryAt,
+    });
+    delete local.candidates.legacy.rejectedAt;
+
+    const mergedRecovery = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(mergedRecovery.candidates.legacy).toMatchObject({
+      status: 'traced',
+      synthesisOutcome: 'legacy_no_vacancy_recovery',
+      synthesisRecoveryQueuedAt: recoveryAt,
+    });
+    expect(mergedRecovery.candidates.legacy.rejectedAt).toBeUndefined();
+
+    const freshRejection = structuredClone(upstream);
+    Object.assign(freshRejection.candidates.legacy, {
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      rejectedAt: iso(5000),
+      updatedAt: iso(5000),
+      synthesisAttempts: 1,
+      synthesisOutcome: 'permanent_seed_failure',
+    });
+    const mergedRejection = mergeProspectorPath('data/prospector/candidates.json', base, freshRejection, local) as typeof base;
+    expect(mergedRejection.candidates.legacy).toMatchObject({
+      status: 'rejected',
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      synthesisOutcome: 'permanent_seed_failure',
+      synthesisAttempts: 1,
+    });
+    expect(mergedRejection.candidates.legacy.synthesisRecoveryQueuedAt).toBeUndefined();
+  });
+
+  it('preserves a retryable legacy recovery after its outcome changes in a concurrent run', () => {
+    const recoveryAt = iso(3000);
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        legacy: {
+          key: 'legacy',
+          status: 'rejected',
+          reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+          rejectedAt: iso(0),
+          updatedAt: iso(0),
+          synthesisRetryable: false,
+        },
+      },
+    };
+    const upstream = structuredClone(base);
+    upstream.candidates.legacy.sources = ['osm', 'web'];
+    upstream.candidates.legacy.updatedAt = iso(4000);
+
+    const local = structuredClone(base);
+    Object.assign(local.candidates.legacy, {
+      key: 'legacy',
+      status: 'traced',
+      reason: 'sintesi fallita: seed irraggiungibile (503)',
+      synthesisRetryable: true,
+      synthesisRetryExhausted: false,
+      synthesisAttempts: 1,
+      synthesisLastAttemptAt: iso(4000),
+      synthesisRetryAt: iso(86_400_000),
+      synthesisOutcome: 'transient_seed_failure',
+      synthesisRecoveryQueuedAt: recoveryAt,
+      reopenedAt: recoveryAt,
+      updatedAt: iso(4000),
+    });
+    delete local.candidates.legacy.rejectedAt;
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(merged.candidates.legacy).toMatchObject({
+      status: 'traced',
+      reason: 'sintesi fallita: seed irraggiungibile (503)',
+      synthesisRetryable: true,
+      synthesisAttempts: 1,
+      synthesisOutcome: 'transient_seed_failure',
+      synthesisRecoveryQueuedAt: recoveryAt,
+    });
+    expect(merged.candidates.legacy.rejectedAt).toBeUndefined();
+  });
+
+  it.each([
+    ['a definitive 404', {
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      attempts: 1,
+      exhausted: false,
+    }],
+    ['an exhausted retry', {
+      reason: 'sintesi fallita: seed irraggiungibile (503) — retry esauriti',
+      attempts: 6,
+      exhausted: true,
+    }],
+  ])('keeps the newer rejection after recovery over an intermediate concurrent rejection (%s)', (_label, latest) => {
+    const recoveryAt = iso(3000);
+    const upstreamRejectedAt = iso(5000);
+    const recoveredRejectedAt = iso(7000);
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        legacy: {
+          key: 'legacy',
+          status: 'rejected',
+          reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+          rejectedAt: iso(0),
+          updatedAt: iso(0),
+          synthesisRetryable: false,
+        },
+      },
+    };
+    const upstream = structuredClone(base);
+    Object.assign(upstream.candidates.legacy, {
+      reason: 'sintesi fallita: seed irraggiungibile (410)',
+      rejectedAt: upstreamRejectedAt,
+      updatedAt: upstreamRejectedAt,
+      synthesisAttempts: 1,
+      synthesisOutcome: 'permanent_seed_failure',
+    });
+
+    const local = structuredClone(base);
+    Object.assign(local.candidates.legacy, {
+      reason: latest.reason,
+      rejectedAt: recoveredRejectedAt,
+      updatedAt: recoveredRejectedAt,
+      synthesisRetryable: false,
+      synthesisRetryExhausted: latest.exhausted,
+      synthesisAttempts: latest.attempts,
+      synthesisOutcome: 'permanent_seed_failure',
+      synthesisRecoveryQueuedAt: recoveryAt,
+      reopenedAt: recoveryAt,
+    });
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(merged.candidates.legacy).toMatchObject({
+      status: 'rejected',
+      reason: latest.reason,
+      rejectedAt: recoveredRejectedAt,
+      synthesisRetryExhausted: latest.exhausted,
+      synthesisAttempts: latest.attempts,
+      synthesisRecoveryQueuedAt: recoveryAt,
+    });
+  });
+
+  it.each([
+    ['newer than', iso(7000), iso(6000)],
+    ['at the same time as', iso(7000), iso(7000)],
+  ])('keeps a terminal recovery rejection when it is %s the retryable branch attempt', (_label, terminalAt, retryableAt) => {
+    const recoveryAt = iso(3000);
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        legacy: {
+          key: 'legacy',
+          status: 'rejected',
+          reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+          rejectedAt: iso(0),
+          updatedAt: iso(0),
+          synthesisRetryable: false,
+        },
+      },
+    };
+
+    const upstream = structuredClone(base);
+    Object.assign(upstream.candidates.legacy, {
+      status: 'rejected',
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      rejectedAt: terminalAt,
+      updatedAt: terminalAt,
+      synthesisRetryable: false,
+      synthesisRetryExhausted: false,
+      synthesisAttempts: 1,
+      synthesisLastAttemptAt: terminalAt,
+      synthesisOutcome: 'permanent_seed_failure',
+      synthesisRecoveryQueuedAt: recoveryAt,
+      reopenedAt: recoveryAt,
+    });
+
+    const local = structuredClone(base);
+    Object.assign(local.candidates.legacy, {
+      status: 'traced',
+      reason: 'sintesi fallita: seed irraggiungibile (503)',
+      synthesisRetryable: true,
+      synthesisRetryExhausted: false,
+      synthesisAttempts: 1,
+      synthesisLastAttemptAt: retryableAt,
+      synthesisRetryAt: iso(Date.parse(retryableAt) + 86_400_000),
+      synthesisOutcome: 'transient_seed_failure',
+      synthesisRecoveryQueuedAt: recoveryAt,
+      reopenedAt: recoveryAt,
+      updatedAt: retryableAt,
+    });
+    delete local.candidates.legacy.rejectedAt;
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(merged.candidates.legacy).toMatchObject({
+      status: 'rejected',
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      rejectedAt: terminalAt,
+      synthesisRetryable: false,
+      synthesisRetryExhausted: false,
+      synthesisAttempts: 1,
+      synthesisLastAttemptAt: terminalAt,
+      synthesisOutcome: 'permanent_seed_failure',
+      synthesisRecoveryQueuedAt: recoveryAt,
+    });
+    expect(merged.candidates.legacy.synthesisRetryAt).toBeUndefined();
+  });
+
+  it('does not downgrade a synthesized candidate for a later retryable recovery branch', () => {
+    const recoveryAt = iso(3000);
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        legacy: {
+          key: 'legacy',
+          status: 'rejected',
+          reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+          rejectedAt: iso(0),
+          updatedAt: iso(0),
+          synthesisRetryable: false,
+        },
+      },
+    };
+
+    const upstream = structuredClone(base);
+    Object.assign(upstream.candidates.legacy, {
+      status: 'synthesized',
+      reason: null,
+      updatedAt: iso(7000),
+      synthesisRetryable: false,
+      synthesisRecoveryQueuedAt: recoveryAt,
+      synthesisLastAttemptAt: iso(7000),
+    });
+    delete upstream.candidates.legacy.rejectedAt;
+
+    const local = structuredClone(base);
+    Object.assign(local.candidates.legacy, {
+      status: 'traced',
+      reason: 'sintesi fallita: seed irraggiungibile (503)',
+      updatedAt: iso(8000),
+      synthesisRetryable: true,
+      synthesisAttempts: 1,
+      synthesisLastAttemptAt: iso(8000),
+      synthesisOutcome: 'transient_seed_failure',
+      synthesisRecoveryQueuedAt: recoveryAt,
+    });
+    delete local.candidates.legacy.rejectedAt;
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, upstream, local) as typeof base;
+    expect(merged.candidates.legacy.status).toBe('synthesized');
+  });
+
+  it('preserves a later terminal attempt even when another recovery has a newer queue marker', () => {
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        legacy: {
+          key: 'legacy',
+          status: 'rejected',
+          reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+          rejectedAt: iso(0),
+          updatedAt: iso(0),
+          synthesisRetryable: false,
+        },
+      },
+    };
+    const olderRecoveryTerminal = structuredClone(base);
+    Object.assign(olderRecoveryTerminal.candidates.legacy, {
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      rejectedAt: iso(9000),
+      updatedAt: iso(9000),
+      synthesisRetryable: false,
+      synthesisAttempts: 1,
+      synthesisOutcome: 'permanent_seed_failure',
+      synthesisRecoveryQueuedAt: iso(3000),
+    });
+
+    const newerRecoveryRetryable = structuredClone(base);
+    Object.assign(newerRecoveryRetryable.candidates.legacy, {
+      status: 'traced',
+      reason: 'sintesi fallita: seed irraggiungibile (503)',
+      rejectedAt: undefined,
+      updatedAt: iso(8000),
+      synthesisRetryable: true,
+      synthesisAttempts: 2,
+      synthesisLastAttemptAt: iso(8000),
+      synthesisRetryAt: iso(86_400_000),
+      synthesisOutcome: 'transient_seed_failure',
+      synthesisRecoveryQueuedAt: iso(6000),
+    });
+    delete newerRecoveryRetryable.candidates.legacy.rejectedAt;
+
+    const merged = mergeProspectorPath(
+      'data/prospector/candidates.json', base, olderRecoveryTerminal, newerRecoveryRetryable,
+    ) as typeof base;
+    expect(merged.candidates.legacy).toMatchObject({
+      status: 'rejected',
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      rejectedAt: iso(9000),
+      synthesisRecoveryQueuedAt: iso(3000),
+      synthesisOutcome: 'permanent_seed_failure',
+    });
+  });
+
+  it('allows a genuinely later requeue to reopen a previously terminal recovery', () => {
+    const base: any = {
+      version: 2,
+      updatedAt: iso(0),
+      candidates: {
+        legacy: {
+          key: 'legacy',
+          status: 'rejected',
+          reason: 'sintesi fallita: nessun annuncio estratto dal seed',
+          rejectedAt: iso(0),
+          updatedAt: iso(0),
+          synthesisRetryable: false,
+        },
+      },
+    };
+    const terminal = structuredClone(base);
+    Object.assign(terminal.candidates.legacy, {
+      reason: 'sintesi fallita: seed irraggiungibile (404)',
+      rejectedAt: iso(7000),
+      updatedAt: iso(7000),
+      synthesisRetryable: false,
+      synthesisAttempts: 1,
+      synthesisRecoveryQueuedAt: iso(3000),
+      synthesisOutcome: 'permanent_seed_failure',
+    });
+    const laterRequeue = structuredClone(base);
+    Object.assign(laterRequeue.candidates.legacy, {
+      status: 'traced',
+      reason: 'sintesi senza annunci: recupero multi-seed in coda',
+      updatedAt: iso(8000),
+      synthesisRetryable: false,
+      synthesisRetryExhausted: false,
+      synthesisAttempts: 0,
+      synthesisLastAttemptAt: null,
+      synthesisRetryAt: null,
+      synthesisRecoveryQueuedAt: iso(8000),
+      synthesisOutcome: 'legacy_no_vacancy_recovery',
+    });
+    delete laterRequeue.candidates.legacy.rejectedAt;
+
+    const merged = mergeProspectorPath('data/prospector/candidates.json', base, terminal, laterRequeue) as typeof base;
+    expect(merged.candidates.legacy).toMatchObject({
+      status: 'traced',
+      reason: 'sintesi senza annunci: recupero multi-seed in coda',
+      synthesisRecoveryQueuedAt: iso(8000),
+      synthesisOutcome: 'legacy_no_vacancy_recovery',
+    });
+    expect(merged.candidates.legacy.rejectedAt).toBeUndefined();
+  });
+
   it('mantiene i segnali SECO più freschi insieme ai timestamp delle altre fonti', () => {
     const base: any = {
       version: 2,
@@ -292,6 +677,33 @@ describe('Prospector rebase conflict resolver', () => {
     expect(merged.tally).toEqual({ good: 1, weak: 1, bad: 1, insufficient: 0 });
     expect(merged.promotedVacancies).toBe(4);
     expect(merged.generatedAt).toBe(local.generatedAt);
+  });
+
+  it('conserva per crawler lo stato retry più recente tra run concorrenti', () => {
+    const entry = (at: string, retryAfterAt: string | null) => ({
+      at,
+      qualityContractVersion: 3,
+      sourceAdapterVersion: null,
+      verdict: 'weak',
+      runtimeSnapshotComplete: false,
+      retryAfterAt,
+    });
+    const base: any = {
+      generatedAt: iso(0),
+      validationSchedule: { shared: entry(iso(0), iso(24 * 60 * 60 * 1000)) },
+      reports: [],
+    };
+    const upstream = structuredClone(base);
+    upstream.validationSchedule.shared = entry(iso(3000), iso(3000 + 24 * 60 * 60 * 1000));
+    upstream.validationSchedule.upstreamOnly = entry(iso(3000), iso(3000 + 24 * 60 * 60 * 1000));
+    const local = structuredClone(base);
+    local.validationSchedule.shared = entry(iso(2000), iso(2000 + 24 * 60 * 60 * 1000));
+    local.validationSchedule.localOnly = entry(iso(2000), iso(2000 + 24 * 60 * 60 * 1000));
+
+    const merged = mergeProspectorPath('data/prospector/validation.json', base, upstream, local) as typeof base;
+    expect(merged.validationSchedule.shared.at).toBe(iso(3000));
+    expect(merged.validationSchedule.upstreamOnly.at).toBe(iso(3000));
+    expect(merged.validationSchedule.localOnly.at).toBe(iso(2000));
   });
 
   it('unisce la storia Common Crawl e mantiene solo la finestra prevista', () => {

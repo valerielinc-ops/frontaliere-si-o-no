@@ -35,9 +35,15 @@ const STELLENTREFF_PAGE_57_OVERSHOOT = fs.readFileSync(
   'utf8',
 );
 
-function listingPage({ ids, page, total, next }: { ids: string[], page: number, total?: number, next?: string }) {
+function listingPage({ ids, page, total, next, fragments = {} }: {
+  ids: string[],
+  page: number,
+  total?: number,
+  next?: string,
+  fragments?: Record<string, string>,
+}) {
   const query = page > 1 ? `?sf_paged=${page}` : '';
-  const cards = ids.map((id) => `<div class="job"><h2><a href="${ORIGIN}/job/${id}/${query}" class="listing_link">Posizione ${id} a Lugano</a></h2></div>`).join('\n');
+  const cards = ids.map((id) => `<div class="job"><h2><a href="${ORIGIN}/job/${id}/${query}${fragments[id] || ''}" class="listing_link">Posizione ${id} a Lugano</a></h2></div>`).join('\n');
   const counter = total == null ? '' : `<p class="jobs_found"><span class="jobs_number">${total}</span> Jobs gefunden</p>`;
   const nextLink = next ? `<a class="nextpostslink" rel="next" aria-label="Nächste Seite" href="${next}">»</a>` : '';
   return `<html><head><title>Jobs</title></head><body>${counter}${cards}${nextLink}</body></html>`;
@@ -127,6 +133,33 @@ describe('spec.pagination', () => {
       `${ORIGIN}/`,
       `${ORIGIN}/?sf_paged=2`,
       `${ORIGIN}/?sf_paged=3`,
+    ]);
+  });
+
+  it('deduplica lo stesso annuncio tra pagine anche se i link hanno fragment diversi', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({
+        ids: ['sa1'],
+        page: 1,
+        total: 1,
+        next: `${ORIGIN}/?sf_paged=2`,
+        fragments: { sa1: '#open' },
+      }),
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({
+        ids: ['sa1'],
+        page: 2,
+        total: 1,
+        fragments: { sa1: '#details' },
+      }),
+    };
+
+    const { rows, fetched } = await collect(specWith({ pagination: PAGINATION }), pages);
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0].url).toBe(`${ORIGIN}/job/sa1/#open`);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([
+      `${ORIGIN}/`,
+      `${ORIGIN}/?sf_paged=2`,
     ]);
   });
 
