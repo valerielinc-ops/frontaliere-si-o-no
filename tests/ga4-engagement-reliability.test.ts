@@ -946,7 +946,6 @@ describe('le finestre dei report non mescolano calendario locale e formato UTC',
   const files = [
     'analytics-report.mjs',
     'gsc-content-opportunity-score.mjs',
-    'gsc-page-query-export.mjs',
     'refresh-gsc-position-rolling.mjs',
     'refresh-indexed-cluster-urls.mjs',
     'refresh-noslash-keep.mjs',
@@ -954,6 +953,14 @@ describe('le finestre dei report non mescolano calendario locale e formato UTC',
     'verify-post-deploy-seo.mjs',
     'submit-google-indexing.js',
     'send-newsletter.mjs',
+  ];
+
+  // GSC page exports use the Pacific-calendar adapter because their dates are
+  // Search Console calendar days, not runner dates. That adapter owns the
+  // shared UTC arithmetic, so verify the dependency chain instead of requiring
+  // a duplicate direct import in the consumer.
+  const filesUsingSharedWindowAdapter = [
+    { file: 'gsc-page-query-export.mjs', adapter: 'lib/gsc-final-window.mjs', symbol: 'shiftGscDay' },
   ];
 
   // Stessa invariante, ma questi costruiscono le finestre con i setter UTC
@@ -969,6 +976,18 @@ describe('le finestre dei report non mescolano calendario locale e formato UTC',
       const src = readFileSync(new URL(`../scripts/${file}`, import.meta.url), 'utf8');
       expect(src).toContain("from './lib/analytics-settled-window.mjs'");
       expect(src).toContain('utcDaysBefore(');
+      expect(src).not.toMatch(LOCAL_DATE_ARITHMETIC);
+    });
+  }
+
+  for (const { file, adapter, symbol } of filesUsingSharedWindowAdapter) {
+    it(`${file} costruisce le finestre tramite un adapter UTC condiviso`, () => {
+      const src = readFileSync(new URL(`../scripts/${file}`, import.meta.url), 'utf8');
+      const adapterSrc = readFileSync(new URL(`../scripts/${adapter}`, import.meta.url), 'utf8');
+      expect(src).toContain(`from './${adapter}'`);
+      expect(src).toContain(symbol);
+      expect(adapterSrc).toContain("from './analytics-settled-window.mjs'");
+      expect(adapterSrc).toContain('utcDaysBefore(');
       expect(src).not.toMatch(LOCAL_DATE_ARITHMETIC);
     });
   }
