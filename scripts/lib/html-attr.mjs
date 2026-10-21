@@ -179,8 +179,8 @@ export function scanStartTags(html = '', tagName = '') {
  */
 export function scanMarkupStartTags(html = '', tagName = '') {
   const markup = String(html || '')
-    .replace(/<!--[\s\S]*?(?:-->|$)/g, ' ')
-    .replace(/<(script|style)\b[^>]*>[\s\S]*?(?:<\/\1\s*>|$)/gi, ' ');
+    .replace(/<(script|style)\b[^>]*>[\s\S]*?(?:<\/\1\s*>|$)/gi, ' ')
+    .replace(/<!--[\s\S]*?(?:-->|$)/g, ' ');
   return scanStartTags(markup, tagName);
 }
 

@@ -29,6 +29,7 @@ import {
   extractSitemapLocs,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import { reconcileFinalSitemapsWithDist } from '../build-plugins/sitemapAliasPlugin';
+import { scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -88,6 +89,14 @@ function pageFile(loc: string): string {
   const rel = new URL(loc).pathname.replace(/^\/+|\/+$/g, '');
   return path.join(dist, rel, 'index.html');
 }
+
+describe('scanMarkupStartTags', () => {
+  it('keeps live metadata after a script string containing an unterminated comment marker', () => {
+    const html = `<script>const marker = '<!--';</script><meta name=robots content=noindex>`;
+
+    expect(scanMarkupStartTags(html, 'meta')).toHaveLength(1);
+  });
+});
 
 beforeEach(() => {
   dist = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-jobs-dist-truth-'));
