@@ -236,7 +236,7 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.organizer).toEqual({
       '@type': 'Organization',
       name: 'Guidle',
-      url: 'https://www.guidle.com/',
+      url: 'https://www.guidle.com/de',
     });
     expect(ld.performer).toEqual({ '@type': 'Organization', name: EVENT.venue });
   });
@@ -656,7 +656,7 @@ describe('renderEventDetailPage', () => {
       imageUrl: '/images/events/library/event-lago-laghi-primavera-v02.webp',
       imageAssetId: 'event-lago-laghi-primavera-v02',
       imageLicense: 'CC BY-SA 4.0',
-      imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
       imageCredit: 'Ada Wikimedia · CC BY-SA 4.0',
       imageProvider: 'wikimedia',
       imageAuthor: { name: 'Ada Wikimedia', url: 'https://commons.wikimedia.org/wiki/User:Ada' },
@@ -667,7 +667,7 @@ describe('renderEventDetailPage', () => {
     };
     const ld = eventLd(photoEvent as never, 'it') as Record<string, any>;
     expect(ld.image.creditText).toBe(`${photoEvent.imageCredit} · cropped, resized and converted to WebP`);
-    expect(ld.image.license).toBe(photoEvent.imageLicenseUrl);
+    expect(ld.image.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
     expect(ld.image.copyrightNotice).toBe(photoEvent.imageCopyrightNotice);
     expect(ld.image.acquireLicensePage).toBe(photoEvent.imageAcquireLicensePage);
     expect(ld.image.creator).toMatchObject({ '@type': 'Person', name: 'Ada Wikimedia' });

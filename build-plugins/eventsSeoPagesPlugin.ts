@@ -228,9 +228,31 @@ function hasLicensedSourceEventImage(event: SiteEvent): boolean {
   );
 }
 
+/**
+ * Keep outbound licence links on their canonical URL. Creative Commons
+ * licence pages without the trailing slash redirect, which is avoidable in
+ * both visible image credits and Event JSON-LD.
+ */
+function canonicalEventExternalUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !/^https:\/\//i.test(value.trim())) return undefined;
+  const raw = value.trim();
+  try {
+    const url = new URL(raw);
+    const isCreativeCommons = /^(?:www\.)?creativecommons\.org$/i.test(url.hostname);
+    if (!isCreativeCommons) return raw;
+    if (!url.pathname.endsWith('/')) url.pathname += '/';
+    return url.href;
+  } catch {
+    return raw;
+  }
+}
+
 function eventImageLicenseUrl(event: SiteEvent): string | undefined {
-  if (typeof event.imageLicenseUrl === 'string' && /^https:\/\//i.test(event.imageLicenseUrl)) return event.imageLicenseUrl;
-  return event.sourceKey === 'openagenda' ? EVENT_IMAGE_LICENSES.openagenda.termsUrl : undefined;
+  const sourceLicense = canonicalEventExternalUrl(event.imageLicenseUrl);
+  if (sourceLicense) return sourceLicense;
+  return event.sourceKey === 'openagenda'
+    ? canonicalEventExternalUrl(EVENT_IMAGE_LICENSES.openagenda.termsUrl)
+    : undefined;
 }
 
 function eventImageMimeType(imageUrl: string): string {
@@ -293,7 +315,9 @@ function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): strin
   const authorLink = event.imageSourcePageUrl
     ? `<a href="${esc(event.imageSourcePageUrl)}" rel="noopener" target="_blank">${esc(author)}</a>`
     : esc(author);
-  const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
+  const licenseUrl = eventImageLicenseUrl(event);
+  if (!licenseUrl) return '';
+  const licenseLink = `<a href="${esc(licenseUrl)}" rel="license noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
   const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
     ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
     : '';
