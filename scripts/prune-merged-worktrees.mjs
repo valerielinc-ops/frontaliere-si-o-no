@@ -136,7 +136,7 @@ import {
   isDanglingGitPointer, makeContentProver, makeGitRunner, nodeModulesLinks, removeTreeNoFollow, workingBlob,
 } from './lib/merged-content-proof.mjs';
 
-import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
+import { acquireSingleFlightLockHandle, withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
 
 // Nessuna pulizia globale di home/tmp/workspace: l'età non è una prova di
@@ -305,6 +305,19 @@ const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD
   .replace(/^origin\//, '') || 'main';
 const mainRef = `origin/${mainBranch}`;
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
+const pruneRunLock = join(realpathSync(resolve(gitDir)), 'frontaliere-prune-run.lock');
+let releasePruneRunLock;
+try {
+  releasePruneRunLock = acquireSingleFlightLockHandle(pruneRunLock, { stalePolicy: 'owner-dead-only' });
+} catch (error) {
+  console.log(`ℹ️  sweep saltata: lock interprocesso non verificabile (${error?.message || 'errore sconosciuto'}).`);
+  process.exit(0);
+}
+if (!releasePruneRunLock) {
+  console.log(`ℹ️  sweep saltata: un'altra istanza è attiva o il lock ${pruneRunLock} non è recuperabile con certezza.`);
+  process.exit(0);
+}
+process.once('exit', releasePruneRunLock);
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
 const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 const SNAPSHOT_HOST = (hostname() || 'unknown-host').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/\.{2,}/g, '.');
