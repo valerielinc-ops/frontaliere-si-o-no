@@ -8558,6 +8558,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno',
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono investimenti',
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.pacchetto-imprese-sgravi.title': 'Pacchetto competitività: oltre il 90% attuato o in corso',
+    'blog.article.pacchetto-imprese-sgravi.excerpt': 'Oltre il 90% delle 60 misure è attuato o in attuazione.',
+    'blog.article.pacchetto-imprese-sgravi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

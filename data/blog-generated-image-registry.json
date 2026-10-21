@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 730,
-  "generatedAt": "2026-10-21T09:55:01.695Z",
+  "assetCount": 731,
+  "generatedAt": "2026-10-21T10:20:36.617Z",
   "assets": [
     {
       "schema": 1,
@@ -31152,6 +31152,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic, photorealistic lake-and-ferry scene with no people, text, logos, or event-specific cues."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-pacchetto-imprese-sgravi",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "32274c402798ba6e0500259b365070a6ab3d745b744f7e1661458da2490f15fc",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "9c5c8a3c4a730418665e4d46c8e1dc6b78c35525cc2f997af13eeffdba331b52",
+      "bytes": 153964,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-21T09:59:48.966Z",
+      "verifiedAt": "2026-10-21T10:00:02.560Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-pacchetto-imprese-sgravi.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial illustration with anonymous figures; no readable text, logos, or identifiable people."
       }
     }
   ]

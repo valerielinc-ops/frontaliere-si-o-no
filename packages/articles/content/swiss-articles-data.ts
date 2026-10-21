@@ -28631,6 +28631,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pacchetto-imprese-sgravi',
+    category: 'novita',
+    date: '2026-10-21T10:00:03.042Z',
+    image: '/images/blog/article-pacchetto-imprese-sgravi.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

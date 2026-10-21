@@ -8558,6 +8558,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia: 100+ protestent contre 34 suppressions de postes',
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'Plus de 100 employés protestent à Zurich Tamedia annonce 34 postes à temps plein en moins Les suppressions concernent 41 employés Les travailleurs demandent des investissements',
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.pacchetto-imprese-sgravi.title': 'Paquet compétitivité : plus de 90 % mis en œuvre ou en cours',
+    'blog.article.pacchetto-imprese-sgravi.excerpt': 'Plus de 90 % des 60 mesures sont mises en œuvre ou en cours de mise en œuvre.',
+    'blog.article.pacchetto-imprese-sgravi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
