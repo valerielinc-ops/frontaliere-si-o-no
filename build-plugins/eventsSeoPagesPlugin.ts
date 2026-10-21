@@ -293,12 +293,14 @@ function hasPublishedEventImage(event: SiteEvent): boolean {
 function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): string {
   if (!isLicensedEventLibraryPhoto(event)) return '';
   const licenseUrl = eventImageLicenseUrl(event);
-  if (!licenseUrl) return '';
   const author = event.imageAuthor?.name || event.imageCredit || '';
   const authorLink = event.imageSourcePageUrl
     ? `<a href="${esc(event.imageSourcePageUrl)}" rel="noopener" target="_blank">${esc(author)}</a>`
     : esc(author);
-  const licenseLink = `<a href="${esc(licenseUrl)}" rel="license noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
+  const licenseLabel = esc(event.imageLicense!);
+  const licenseLink = licenseUrl
+    ? `<a href="${esc(licenseUrl)}" rel="license noopener" target="_blank">${licenseLabel}</a>`
+    : licenseLabel;
   const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
     ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
     : '';
