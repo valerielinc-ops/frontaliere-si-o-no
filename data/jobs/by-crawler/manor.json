@@ -244,7 +244,6 @@
         "de": "Mitarbeiter/in Kasse (Spielwaren) 20%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-15a8b8abd32a",
       "salaryMin": 14400,
       "salaryMax": 22200,
@@ -600,7 +599,6 @@
         "de": "Mitarbeiter/in Kasse (Non Food) 60%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-9b9e30e8f755",
       "salaryMin": 43200,
       "salaryMax": 66600,
@@ -659,7 +657,6 @@
         "de": "Mitarbeiter/in Kasse (Non Food) 50%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-84ff20a4759d",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -776,7 +773,6 @@
         "de": "Mitarbeiter/in Kasse (Food) 25%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-4b91faa6fa64",
       "salaryMin": 18000,
       "salaryMax": 27600,
@@ -1043,7 +1039,6 @@
         "fr": "Employé·e de vente en bijouterie"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-bijouterie-basel"
@@ -2247,7 +2242,6 @@
         "de": "Mitarbeiter/in Kasse (Food) 60%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-68df85a9e237",
       "salaryMin": 43200,
       "salaryMax": 66300,
@@ -2306,7 +2300,6 @@
         "de": "Mitarbeiter/in Kasse (Food) Student/in 20%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-ff5f45b30e34",
       "salaryMin": 14400,
       "salaryMax": 22100,
@@ -2547,7 +2540,6 @@
         "de": "Mitarbeiter/in Kasse (Parfümerie) 50%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "id": "manor-98391186ccfb",
       "salaryMin": 36000,
       "salaryMax": 55500,
@@ -3022,7 +3014,6 @@
         "fr": "Collaborateur·rice en logistique 60%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-9da0b2ff18da",
       "salaryMin": 41700,
       "salaryMax": 63600,
@@ -5607,7 +5598,7 @@
         "it": "pasticceria-ore-50-manor-ag-geneve",
         "en": "pastry-ear-50-manor-ag-geneve",
         "de": "geback-ohr-50-manor-ag-geneve",
-        "fr": "manor-patissier-ere-50-geneve"
+        "fr": "manor-patissier-ere-50-geneve-fzzfcx"
       },
       "titleByLocale": {
         "it": "Pasticceria/ore 50%",
@@ -5630,6 +5621,9 @@
           "manor-patissier-ere-50-geneve"
         ],
         "de": [
+          "manor-patissier-ere-50-geneve"
+        ],
+        "fr": [
           "manor-patissier-ere-50-geneve"
         ]
       },
