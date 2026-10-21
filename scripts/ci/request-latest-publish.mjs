@@ -43,6 +43,51 @@ function skip(reason, detail = reason) {
   return { action: 'skip', reason, detail };
 }
 
+const SOURCE_SHA_RE = /^[0-9a-f]{40}$/i;
+const PUBLISH_RUN_NAME_RE = /^Publish Pages build\s+\d+\s+@\s+([0-9a-f]{40})$/i;
+
+function validSha(value) {
+  const sha = text(value);
+  return SOURCE_SHA_RE.test(sha) ? sha : '';
+}
+
+function sourceShaFromPublishRun(run) {
+  const explicitSourceSha = validSha(run?.sourceSha || run?.source_sha);
+  if (explicitSourceSha) return explicitSourceSha;
+  const match = text(run?.runName || run?.run_name).match(PUBLISH_RUN_NAME_RE);
+  return match ? match[1] : '';
+}
+
+function deploymentHeadSha(deployment) {
+  return text(deployment?.headSha || deployment?.head_sha || deployment?.sha);
+}
+
+function deploymentSourceSha(deployment) {
+  const explicitSourceSha = validSha(deployment?.sourceSha || deployment?.source_sha);
+  if (explicitSourceSha) return explicitSourceSha;
+  const payload = deployment?.payload;
+  if (payload && typeof payload === 'object') {
+    return validSha(payload.sourceSha || payload.source_sha);
+  }
+  return '';
+}
+
+function successfulDeploymentSourceSha({ deployment, publishRuns }) {
+  const explicitSourceSha = deploymentSourceSha(deployment);
+  if (explicitSourceSha) return explicitSourceSha;
+
+  const deploymentSha = deploymentHeadSha(deployment).toLowerCase();
+  if (!deploymentSha) return '';
+  const matchingSourceShas = new Set(
+    (Array.isArray(publishRuns) ? publishRuns : [])
+      .filter((run) => text(run?.headSha || run?.head_sha).toLowerCase() === deploymentSha)
+      .map(sourceShaFromPublishRun)
+      .filter(Boolean)
+      .map((sha) => sha.toLowerCase()),
+  );
+  return matchingSourceShas.size === 1 ? [...matchingSourceShas][0] : '';
+}
+
 function successfulBuilds(builds) {
   return (Array.isArray(builds) ? builds : [])
     .filter((run) => (
@@ -68,12 +113,6 @@ function sourceRunIdFromTitle(run) {
   const displayTitleId = buildIdFromTitle(run?.displayTitle ?? run?.display_title);
   if (displayTitleId !== null) return displayTitleId;
   return buildIdFromTitle(run?.runName ?? run?.run_name);
-}
-
-function sourceShaFromRunName(run) {
-  const title = text(run?.runName ?? run?.run_name ?? run?.displayTitle ?? run?.display_title);
-  const match = title.match(/@\s*([0-9a-f]{40})\b/i);
-  return match ? match[1] : '';
 }
 
 function publishRunBelongsTo(run, candidate) {
@@ -107,12 +146,13 @@ export function decideLatestPublish({
   if (!candidate) return skip('no-successful-build', 'no successful main build is available to publish');
 
   const candidateSha = text(candidate.headSha || candidate.head_sha);
-  // Pages records the dispatch ref as the deployment SHA. A workflow_dispatch
-  // can publish an older successful build, so prefer its source SHA when the
-  // deployment provenance is available.
-  const publishedSha = text(lastSuccessfulDeployment?.sourceSha || lastSuccessfulDeployment?.source_sha)
-    || text(lastSuccessfulDeployment?.sha);
-  if (publishedSha === candidateSha) {
+  const publishedDeploymentSha = deploymentHeadSha(lastSuccessfulDeployment);
+  const publishedSourceSha = successfulDeploymentSourceSha({
+    deployment: lastSuccessfulDeployment,
+    publishRuns,
+  });
+  const publishedArtifactSha = publishedSourceSha || publishedDeploymentSha;
+  if (publishedArtifactSha.toLowerCase() === candidateSha.toLowerCase()) {
     return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
   }
 
@@ -130,7 +170,7 @@ export function decideLatestPublish({
   const deployedRevisions = new Set(
     [
       ...(Array.isArray(successfulDeploymentShas) ? successfulDeploymentShas : []),
-      publishedSha,
+      publishedDeploymentSha,
     ]
       .map((sha) => text(sha).toLowerCase())
       .filter(Boolean),
@@ -209,12 +249,12 @@ function mapPublish(run) {
   return {
     id: numericId(run?.id),
     headSha: text(run?.head_sha),
+    sourceSha: sourceShaFromPublishRun(run),
     status: text(run?.status),
     conclusion: text(run?.conclusion),
     event: text(run?.event),
     displayTitle: text(run?.display_title),
     runName: text(run?.run_name),
-    sourceSha: sourceShaFromRunName(run),
   };
 }
 
@@ -226,34 +266,7 @@ async function listWorkflowRuns(repo, workflow) {
   return payload.workflow_runs;
 }
 
-function deploymentPayload(deployment) {
-  if (deployment?.payload && typeof deployment.payload === 'object') return deployment.payload;
-  if (typeof deployment?.payload !== 'string') return {};
-  try {
-    const parsed = JSON.parse(deployment.payload);
-    return parsed && typeof parsed === 'object' ? parsed : {};
-  } catch {
-    return {};
-  }
-}
-
-function deploymentSourceSha(deployment, latestStatus, publishRuns) {
-  const payload = deploymentPayload(deployment);
-  const explicit = text(
-    payload.source_sha
-      || payload.sourceSha
-      || deployment?.source_sha
-      || deployment?.sourceSha,
-  );
-  if (explicit) return explicit;
-
-  const logUrl = text(latestStatus?.log_url || latestStatus?.logUrl);
-  const runId = logUrl.match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
-  if (!runId) return '';
-  return text(publishRuns.find((run) => String(run?.id) === runId)?.sourceSha);
-}
-
-async function inspectDeployments(repo, publishRuns = []) {
+async function inspectDeployments(repo) {
   const deployments = await ghJson(`/repos/${repo}/deployments?environment=github-pages&per_page=100`);
   if (!Array.isArray(deployments)) throw new Error('Pages deployment listing is malformed');
   let lastSuccessfulDeployment = null;
@@ -271,12 +284,11 @@ async function inspectDeployments(repo, publishRuns = []) {
     }
     if (!lastSuccessfulDeployment && state === 'success') {
       const deploymentSha = text(deployment?.sha);
-      const sourceSha = deploymentSourceSha(deployment, latest, publishRuns);
       if (deploymentSha) successfulDeploymentShas.add(deploymentSha);
       lastSuccessfulDeployment = {
         id,
         sha: deploymentSha,
-        sourceSha,
+        sourceSha: deploymentSourceSha(deployment),
         publishedAt: text(latest?.created_at),
       };
     } else if (state === 'success') {
@@ -316,13 +328,13 @@ async function dispatchPublish(repo, candidate) {
 
 async function main() {
   const repo = repository();
-  const [rawBuilds, rawPublishes] = await Promise.all([
+  const [rawBuilds, rawPublishes, deploymentState] = await Promise.all([
     listWorkflowRuns(repo, BUILD_WORKFLOW),
     listWorkflowRuns(repo, PUBLISH_WORKFLOW),
+    inspectDeployments(repo),
   ]);
   const builds = rawBuilds.map(mapBuild);
   const publishRuns = rawPublishes.map(mapPublish);
-  const deploymentState = await inspectDeployments(repo, publishRuns);
   const verdict = decideLatestPublish({
     builds,
     publishRuns,
