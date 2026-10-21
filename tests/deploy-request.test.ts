@@ -250,6 +250,7 @@ function requestDeploy({ runs, compareFiles = [], env = {} }: {
     '  answer(raw.workflow_runs.map((run) => ({ id: run.id, headSha: run.head_sha, status: run.status, conclusion: run.conclusion })));',
     '}',
     "if (args[1].includes('/compare/')) {",
+    "  if (process.env.FAKE_COMPARE_ERROR) { process.stderr.write(process.env.FAKE_COMPARE_ERROR + '\\n'); process.exit(1); }",
     "  const raw = read('compare.json');",
     '  if (projection === null) answer(raw);',
     `  if (projection !== ${JSON.stringify(COMPARE_FILES_PROJECTION)}) unknown();`,
@@ -373,6 +374,22 @@ describe('the deploy request reads a queue larger than a pipe buffer', () => {
     expect(run.output).toContain('300-file cap');
     expect(run.output).toContain('→ dispatch (pipeline-idle)');
     expect(run.status, run.output).toBe(0);
+  });
+
+  it('dispatches conservatively when GitHub cannot generate a large compare', () => {
+    const run = requestDeploy({
+      runs: [{ id: 999, head_sha: OLD, status: 'in_progress', conclusion: null }],
+      env: {
+        DEPLOY_EVENT_NAME: 'schedule',
+        FAKE_COMPARE_ERROR: 'gh: Server Error: Sorry, this diff is taking too long to generate. (HTTP 422)',
+      },
+    });
+    expect(run.output).toContain('deploy-path-compare-unavailable');
+    expect(run.output).toContain('→ dispatch (queue-latest-behind-running-build)');
+    expect(run.output).not.toContain('deploy-path-compare-failed');
+    expect(run.output).not.toContain('durable deploy retry queued');
+    expect(run.status, run.output).toBe(0);
+    expect(run.calls).toContainEqual(['workflow', 'run', 'deploy.yml', '--repo', 'fixture/site', '--ref', 'main']);
   });
 
   it('never reads a REST answer without a projection', () => {
