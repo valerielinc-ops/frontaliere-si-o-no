@@ -2756,10 +2756,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   job: any,
   i: number,
   locale: 'it' | 'en' | 'de' | 'fr',
- ): Record<string, unknown> => {
+ ): Record<string, unknown> | null => {
   const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
-  const abs = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jobCanton)}`;
+  const abs = activeCanonicalJobHref(job, locale);
+  if (!abs) return null;
   const jobPosting = buildJobListEntry(
    {
     title: jobTitle,
@@ -5177,13 +5178,12 @@ ${staticAnalyticsHtml}
  // structured data points at the actually-emitted job-detail page
  // (not the soft-canonical TI redirect). Otherwise Google ingests
  // canonical chains in rich-result candidates.
- const itemListItems = listedCompanyJobs.map((job, idx) => {
- const jSlug = localizedSlug(job, locale);
- const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
- const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, jSlug, jobCantonForList)}`;
+ const itemListItems = listedCompanyJobs.flatMap((job) => {
+ const jHref = activeCanonicalJobHref(job, locale);
+ if (!jHref) return [];
  const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
- return { '@type': 'ListItem', position: idx + 1, url: jHref, name: jTitle };
- });
+ return [{ url: jHref, name: jTitle }];
+ }).map((item, idx) => ({ '@type': 'ListItem', position: idx + 1, ...item }));
  const itemListLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
@@ -8065,7 +8065,8 @@ ${staticAnalyticsHtml}
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale)),
+ mapCantonJobToListItem(job, i, locale))
+  .filter((item): item is Record<string, unknown> => item !== null),
  });
  const listHtml = jobCardListBody(cappedJobs, locale);
  const backLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
@@ -8253,13 +8254,15 @@ ${staticAnalyticsHtml}
  const pgCompanyCount = new Set(pgJobs.map((job: any) => String(job.company || '')).filter(Boolean)).size;
  const pgLocationCount = new Set(pgJobs.map((job: any) => String(job.location || '')).filter(Boolean)).size;
  const pgCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
- const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => {
+ const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).flatMap((job: any) => {
  // Canton-aware item URL: pagination is TI-section by design but the jobs
  // listed may live in any canton. Point ItemList at the actually-emitted
- // canonical URL, not the soft-canonical TI detour.
- const jc = sharedResolveJobCanton(job as { canton?: string; location?: string });
- return { '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jc)}` };
- }) });
+ // self-canonical URL, not a raw-corpus target which the active emitter
+ // suppressed or canonicalized elsewhere.
+ const url = activeCanonicalJobHref(job, locale);
+ if (!url) return [];
+ return [{ name: String(job?.titleByLocale?.[locale] || job.title || ''), url }];
+ }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item })) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
@@ -8388,10 +8391,11 @@ ${staticAnalyticsHtml}
  const pgCompanyCount = new Set(pgJobs.map((job: any) => String(job.company || '')).filter(Boolean)).size;
  const pgLocationCount = new Set(pgJobs.map((job: any) => String(job.location || '')).filter(Boolean)).size;
  const pgCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
- const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => {
- const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
- return { '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jobCantonForList)}` };
- }) });
+ const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).flatMap((job: any) => {
+ const url = activeCanonicalJobHref(job, locale);
+ if (!url) return [];
+ return [{ name: String(job?.titleByLocale?.[locale] || job.title || ''), url }];
+ }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item })) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? `Lavoro in ${cDisplay}` : locale === 'en' ? `Jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Emploi \u00e0 ${cDisplay}`;
@@ -8900,7 +8904,8 @@ ${staticAnalyticsHtml}
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale)),
+ mapCantonJobToListItem(job, i, locale))
+  .filter((item): item is Record<string, unknown> => item !== null),
  });
  // Honest counts over the full (uncapped) match set, not the 30 carded jobs —
  // mirrors the TI sector hub (jobSectorPagesPlugin.ts) so the stat-grid /
@@ -9286,7 +9291,8 @@ ${staticAnalyticsHtml}
  name: pageTitle,
  numberOfItems: companyJobs.length,
  itemListElement: companyJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale)),
+ mapCantonJobToListItem(job, i, locale))
+  .filter((item): item is Record<string, unknown> => item !== null),
  });
  const allJobsLabel = locale === 'it' ? `Vedi tutte le offerte in ${cDisplay}`
  : locale === 'en' ? `View all jobs in ${cDisplay}`
@@ -9414,7 +9420,8 @@ ${staticAnalyticsHtml}
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale)),
+ mapCantonJobToListItem(job, i, locale))
+  .filter((item): item is Record<string, unknown> => item !== null),
  });
  // Organization JSON-LD — derived from job data (no curated overlay).
  // sameAs/logo (issue #4306) are real, derived values only: sameAs from
@@ -9708,7 +9715,8 @@ ${staticAnalyticsHtml}
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale)),
+ mapCantonJobToListItem(job, i, locale))
+  .filter((item): item is Record<string, unknown> => item !== null),
  });
  // sameAs/logo (issue #4306) — real, derived values only. See
  // resolveCompanyHubOrgExtras above (shared with Phase 3.3).

@@ -767,6 +767,44 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
   });
 
+  it('keeps T5/T6 job-board graph links on emitted self-canonical details', () => {
+    const jobsSeoSource = readFileSync(
+      join(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    const relatedClustersSource = readFileSync(
+      join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+    expect(jobsSeoSource).toContain('const activeCanonicalJobHref = (');
+    expect(jobsSeoSource).toContain('return activeJobSitemapLocs.has(href) ? href : null;');
+    expect(jobsSeoSource).toContain('activeCanonicalJobHref(relatedJob, locale) !== null');
+    expect(relatedClustersSource).toContain('await jobsSeoPagesFlushed;');
+    expect(relatedClustersSource).toContain('jobLocalizedUrl(job, locale, activeJobSitemapLocs)');
+    expect(relatedClustersSource).toContain('if (activeJobSitemapLocs !== null && !activeJobSitemapLocs.has(href)) return null;');
+
+    const canonicalJob = `${BASE}/cerca-lavoro-zurigo/offerta-zurigo/`;
+    const noindexAlias = `${BASE}/cerca-lavoro-ticino/offerta-zurigo/`;
+    const links = extractInternalLinks(
+      `<a href="${canonicalJob}">Offerta canonica</a>`,
+      `${BASE}/cerca-lavoro-ticino/cluster/`,
+      BASE,
+    );
+    expect(links).toEqual([canonicalJob]);
+    expect(links).not.toContain(noindexAlias);
+
+    const result = classifyDocument({
+      url: canonicalJob,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `<title>Offerta</title><link rel="canonical" href="${canonicalJob}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
+    });
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX);
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
+    expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_HTTP_ERROR);
+  });
+
   it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {
     const report = await crawlPartition({
       manifest: { baseUrl: BASE, urls: [`${BASE}/source/`] },
