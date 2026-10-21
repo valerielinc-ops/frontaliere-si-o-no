@@ -379,6 +379,7 @@ const CACHE_KEY_INPUTS = [
   'data/indexed-cluster-urls.json',
   'scripts/lib/related-search-cluster-path.mjs',
   'build-plugins/relatedSearchClustersPlugin.ts',
+  'build-plugins/shared/jobDetailPath.ts',
   'build-plugins/relatedSearchClustersData.ts',
   'build-plugins/orphanQueryData.ts',
   'scripts/lib/query-tokenizer.mjs',
@@ -1826,6 +1827,7 @@ interface PageInputs {
   related: ReadonlyArray<{ keyword: string; url: string }>;
   distDir: string;
   dateStamp: string;
+  activeJobSitemapLocs?: ReadonlySet<string> | null;
 }
 
 interface PageOutput {
@@ -2678,9 +2680,17 @@ function reapplyRetiredManifestFiles(
  * canton, slug not in TI shard → "Annuncio non trovato"). Per-job canton
  * resolution mirrors the emit side.
  */
-function jobLocalizedUrl(job: RawJob, locale: Locale): string {
-  const slug = job.slugByLocale?.[locale] || job.slug || '';
-  return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
+function jobLocalizedUrl(
+  job: RawJob,
+  locale: Locale,
+  activeJobSitemapLocs: ReadonlySet<string> | null = null,
+): string | null {
+  const localizedSlug = String(job.slugByLocale?.[locale] ?? '').trim();
+  const slug = localizedSlug || String(job.slug ?? '').trim();
+  if (!slug) return null;
+  const href = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
+  if (activeJobSitemapLocs !== null && !activeJobSitemapLocs.has(href)) return null;
+  return href;
 }
 
 // Locale-specific preposition used to join keyword + city ("Globus a
@@ -3245,7 +3255,7 @@ function memoCommuterCtx(opts: JobBoardCommuterContextOpts): string {
  * logic, always extend through this entry point.
  */
 export function renderClusterPage(inputs: PageInputs): PageOutput {
-  const { ctx, enriched, hreflang, related, distDir } = inputs;
+  const { ctx, enriched, hreflang, related, distDir, activeJobSitemapLocs = null } = inputs;
   const { candidate } = ctx;
   const locale = candidate.locale;
   const copy = COPY[locale];
@@ -3446,15 +3456,19 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // are emitted elsewhere by `buildSeoPageHtml` and remain absolute.
   // Trimming `https://frontaliereticino.ch` (28 B) × ~30 jobs/page × 180k
   // pages ≈ ~150 MB on the dist artifact.
-  const jobLinksHtml = clusterMatchingJobCount(ctx) > 0
-    ? `<ul class="cluster-seo-jobs">${ctx.matchingJobs.map((job) => {
+  const jobLinks = clusterMatchingJobCount(ctx) > 0
+    ? ctx.matchingJobs.flatMap((job) => {
+        const href = jobLocalizedUrl(job, locale, activeJobSitemapLocs);
+        if (!href) return [];
         const jobTitle = sanitizeJobTitleForDisplay(String(job.titleByLocale?.[locale] ?? job.title ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
         const company = String(job.company || '').trim();
         const loc = String(job.location || '').trim();
         const meta = [company, loc].filter(Boolean).join(' · ');
-        const href = jobLocalizedUrl(job, locale).replace(BASE_URL, '');
-        return `<li><a href="${esc(href)}">${esc(jobTitle)}${meta ? ` — ${esc(meta)}` : ''}</a></li>`;
-      }).join('')}</ul>`
+        return [`<li><a href="${esc(href.replace(BASE_URL, ''))}">${esc(jobTitle)}${meta ? ` — ${esc(meta)}` : ''}</a></li>`];
+      })
+    : [];
+  const jobLinksHtml = jobLinks.length > 0
+    ? `<ul class="cluster-seo-jobs">${jobLinks.join('')}</ul>`
     : '';
 
   // The `.related-search-cluster` class in `public/assets/seo-static.css`
@@ -4793,6 +4807,12 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         printRelatedSearchProfile();
         return;
       }
+      // jobsSeo owns the only authoritative active-detail registry. Do not
+      // render cluster anchors from the raw jobs corpus before that registry
+      // is available: stale jobs otherwise become links to noindex bridges,
+      // canonical overrides, or paths that the active emitter did not win.
+      await jobsSeoPagesFlushed;
+      const activeJobSitemapLocs = getActiveJobSitemapLocs() ?? new Set<string>();
       const __tLoadEnriched = profileStart();
       const enriched = loadEnriched(rootDir);
       profileRecord('load-enriched', __tLoadEnriched);
@@ -5302,6 +5322,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           related,
           distDir,
           dateStamp,
+          activeJobSitemapLocs,
         });
 
         // Tiered emission decision per cluster context. The canonical HTML

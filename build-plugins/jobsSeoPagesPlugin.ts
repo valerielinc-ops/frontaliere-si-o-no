@@ -3141,6 +3141,49 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
  const emittedActiveJobPaths = new Set<string>();
+ // This is the source-level set of active, self-canonical detail URLs. Build
+ // it before any hub or detail page renders so every job-board anchor uses the
+ // same ownership and indexability decision as the sitemap. The old set was
+ // assembled near the sitemap writer, after most hubs had already emitted
+ // their cards, which let raw-corpus jobs leak noindex, redirect, or missing
+ // localized targets into the internal graph.
+ const isSitemapEligibleJob = (job: any): boolean => {
+  const needsRetranslation = (job as any).needsRetranslation;
+  if (needsRetranslation === true && ((job as any).sourceLang || 'it') !== 'it') return false;
+  const description = String((job as any).descriptionByLocale?.it || (job as any).description || '');
+  const wordCount = description.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+  return wordCount >= 50;
+ };
+ const sitemapEligibleJobs = validJobs.filter(isSitemapEligibleJob);
+ const activeJobSitemapLocs = new Set<string>();
+ const claimedActiveJobPaths = new Set<string>();
+ for (const job of validJobs) {
+  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+  for (const locale of localeList) {
+   const slug = localizedSlug(job, locale);
+   const key = `${jobCanton}:${locale}:${slug}`;
+   // Match the active emitter's first-winner semantics. Claim every valid
+   // tuple before the sitemap predicate so a later duplicate cannot become a
+   // false-positive link target when the winner is thin or overridden.
+   if (claimedActiveJobPaths.has(key)) continue;
+   claimedActiveJobPaths.add(key);
+   if (!isSitemapEligibleJob(job)) continue;
+   const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
+   if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
+   activeJobSitemapLocs.add(localeUrl);
+  }
+ }
+ setActiveJobSitemapLocs(activeJobSitemapLocs);
+ const activeCanonicalJobHref = (
+  job: any,
+  locale: 'it' | 'en' | 'de' | 'fr',
+ ): string | null => {
+  const slug = localizedSlug(job, locale);
+  if (!slug) return null;
+  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+  const href = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
+  return activeJobSitemapLocs.has(href) ? href : null;
+ };
  // Shared with the expired soft-landing sweep below: an active localized
  // path must reserve its cluster slot before any BUILD_LOCALE filter.
  const claimedJobPaths = new Set<string>();
@@ -3567,7 +3610,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    job,
    locale,
    slug: perLocaleSlug[locale],
-   relatedJobs: perJob_relatedJobs || [],
+   relatedJobs: perJob_related.filter((relatedJob: any) => activeCanonicalJobHref(relatedJob, locale) !== null),
    inputCache: incrementalManifestInputCache,
    canonicalJob: job,
    canton: jobCanton,
@@ -3811,10 +3854,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // enough to keep the orphan pool reachable at ~8.2k edges
  // (6 × 1370 reachable details), low enough to keep detail-page byte
  // weight under the audit:page-weight budget.
- const related = perJob_related;
+ const related = perJob_relatedCanonicalPaths.filter(({ job: relatedJob }) =>
+  activeCanonicalJobHref(relatedJob, locale) !== null,
+ );
  // close related-pool phase (selection done); relatedHtml render goes into
  // the same bucket so the bucket measures the full cross-link block cost.
- const relatedHtml = perJob_relatedCanonicalPaths
+ const relatedHtml = related
  .map(({ job: r, paths: rPaths }, i: number) => {
  // Relative href — internal navigation resolves against canonical (absolute).
  const href = rPaths[locale];
@@ -4819,15 +4864,13 @@ ${staticAnalyticsHtml}
   * internal hub links in the company-and-location subtitle.
   */
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
- const renderJobCardLi = (job: any, locale: 'it' | 'en' | 'de' | 'fr'): string => {
- const jSlug = localizedSlug(job, locale);
- // Section is canton-aware: a non-TI job's detail page is emitted under its
- // own canton section (e.g. /cerca-lavoro-basilea/<slug>/). Hardcoding
- // sectionByLocale[locale] worked only for TI jobs; non-TI jobs reached a
- // soft-canonical /cerca-lavoro-ticino/ detour that <link rel=canonical>
- // redirected back to the canton URL — needless hop and breadcrumb mismatch.
- const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
- const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, jSlug, jobCanton)}`;
+ const renderJobCardLi = (
+ job: any,
+ locale: 'it' | 'en' | 'de' | 'fr',
+ canonicalHref: string | null = activeCanonicalJobHref(job, locale),
+ ): string => {
+ if (!canonicalHref) return '';
+ const jHref = canonicalHref;
  // NO `logoUrl` override: `renderJobCardHtml` resolves the logo itself via
  // `resolveJobCardLogo` (the canonical curated-asset → coloured-initials
  // chain), exactly like the per-canton call site further down. Passing
@@ -4861,20 +4904,23 @@ ${staticAnalyticsHtml}
  // The wrapping `<ul class="s-0WjlyL">` is a plain block list (not a grid) →
  // no `spanFull` needed; the ad `<li>` is full-width.
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
- const jobCardListBody = (jobs: ReadonlyArray<any>, locale: 'it' | 'en' | 'de' | 'fr'): string =>
- jobs.length === 0
- ? ''
- : LOGO_FALLBACK_SCRIPT +
- jobs
- .map((job, i) => {
- const li = renderJobCardLi(job, locale);
+ const jobCardListBody = (jobs: ReadonlyArray<any>, locale: 'it' | 'en' | 'de' | 'fr'): string => {
+ const linkableJobs = jobs
+  .map((job) => ({ job, href: activeCanonicalJobHref(job, locale) }))
+  .filter((entry): entry is { job: any; href: string } => entry.href !== null);
+ if (linkableJobs.length === 0) return '';
+ return LOGO_FALLBACK_SCRIPT +
+ linkableJobs
+ .map(({ job, href }, i) => {
+ const li = renderJobCardLi(job, locale, href);
  const ad =
- i + 1 < jobs.length && shouldPlaceInfeedAd(i + 1)
+ i + 1 < linkableJobs.length && shouldPlaceInfeedAd(i + 1)
  ? infeedAdListItemHtml()
  : '';
  return li + ad;
  })
  .join('');
+ };
 
  /** Render a row of sector/city hub link chips for the company. */
  const renderHubChipsHtml = (
@@ -10808,31 +10854,14 @@ ${staticAnalyticsHtml}
  // pending translation. An IT-sourced job flagged only because its
  // EN/DE/FR alternates are pending has a perfectly good IT canonical page
  // and must not be dropped from the sitemap entirely (#4715).
- const sitemapEligibleJobs = validJobs.filter((job) => {
- const nr = (job as any).needsRetranslation;
- if (nr === true && ((job as any).sourceLang || 'it') !== 'it') return false;
- const desc = String((job as any).descriptionByLocale?.it || (job as any).description || '');
- const wordCount = desc.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
- return wordCount >= 50;
- });
  // Keep a source-level allowlist for the sharded job sitemap. The per-job
  // emitter's tuple registry alone is not enough here: it is populated before
  // the thin-content sitemap filter and a stale shard may contain a URL whose
  // foreign-locale HTML is intentionally absent from this build tree. Only
  // self-canonical, actually winning, sitemap-eligible detail paths enter the
  // registry; the final dist pass consumes it after all shards are assembled.
- const activeJobSitemapLocs = new Set<string>();
- for (const job of sitemapEligibleJobs) {
-  const jobCantonForSitemap = sharedResolveJobCanton(job as { canton?: string; location?: string });
-  for (const locale of localeList) {
-   const slug = localizedSlug(job, locale);
-   const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCantonForSitemap)}`;
-   if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
-   if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${locale}:${slug}`)) continue;
-   activeJobSitemapLocs.add(localeUrl);
-  }
- }
- setActiveJobSitemapLocs(activeJobSitemapLocs);
+ // `activeJobSitemapLocs` was populated before the active emitter so the
+ // same allowlist also gates every internal job-detail target.
  const jobEntries = sitemapEligibleJobs.map((job) => {
  const perLocaleSlugMap = {
  it: localizedSlug(job, 'it'),
@@ -11440,6 +11469,12 @@ ${staticAnalyticsHtml}
      const realDataJobPool = cantonJobsAll;
      const collectionListJobs = cantonJobs;
      const collectionListTotal = cantonCount;
+     const linkableCantonJobs = cantonJobs
+       .map((job) => ({ job, href: activeCanonicalJobHref(job, entry.locale) }))
+       .filter((item): item is { job: any; href: string } => item.href !== null);
+     const linkableCollectionJobs = collectionListJobs
+       .map((job) => ({ job, href: activeCanonicalJobHref(job, entry.locale) }))
+       .filter((item): item is { job: any; href: string } => item.href !== null);
 
      // Aggregate stats for the tile grid.
      const totalJobs = cantonCount;
@@ -11509,12 +11544,12 @@ ${staticAnalyticsHtml}
        : entry.locale === 'en' ? `Latest job openings in ${display}`
        : entry.locale === 'de' ? `Aktuelle Stellenangebote in ${display}`
        : `Dernières offres d'emploi à ${display}`;
-     const listingGrid = cantonJobs.length > 0
+     const listingGrid = linkableCantonJobs.length > 0
        ? `<h2 class="s-iEVPhz">${esc(listingHeading)}</h2>` +
          `<section data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
          JOB_CARD_ICON_SYMBOLS +
-         cantonJobs.map((j, jIdx) => {
-           const jt = j as {
+         linkableCantonJobs.map(({ job, href: jHref }, jIdx) => {
+           const jt = job as {
              slugByLocale?: Record<string, string>;
              slug?: string;
              titleByLocale?: Record<string, string>;
@@ -11533,9 +11568,6 @@ ${staticAnalyticsHtml}
              logo?: string | null;
              url?: string;
            };
-           const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
-           const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
-           const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(entry.locale, jt, jslug, jCanton)}`;
            const card = renderJobCardHtml(jt, {
              href: jHref,
              locale: entry.locale as JobCardLocale,
@@ -11550,7 +11582,7 @@ ${staticAnalyticsHtml}
                ? resolveInfeedAdVariant(entry.key, { active: STATIC_INFEED_AD_EXPERIMENT_ACTIVE })
                : undefined;
              const ad =
-             jIdx + 1 < cantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, {
+             jIdx + 1 < linkableCantonJobs.length && shouldPlaceInfeedAd(jIdx + 1, {
                canton: entry.key,
                adExperimentActive: STATIC_INFEED_AD_EXPERIMENT_ACTIVE,
              })
@@ -12086,7 +12118,7 @@ ${staticAnalyticsHtml}
      // back to a fresh validJobs sample for AGGREGATE_KEY (see the
      // realDataJobPool comment above) so the Svizzera hub gets a real
      // ItemList instead of silently shipping breadcrumb-only schema.
-     const cantonCollectionLd = (collectionListJobs.length > 0)
+     const cantonCollectionLd = (linkableCollectionJobs.length > 0)
        ? inlineScriptJson({
            '@context': 'https://schema.org',
            '@type': 'CollectionPage',
@@ -12101,17 +12133,11 @@ ${staticAnalyticsHtml}
              '@type': 'ItemList',
              numberOfItems: collectionListTotal ?? totalJobs,
              itemListOrder: 'https://schema.org/ItemListOrderDescending',
-             // PR #2229 adversarial-check #2: skip jobs whose slug is empty —
-             // their href would degrade to the bare canton section and collide
-             // with this listing page itself. numberOfItems still reports the
-             // real total (schema.org subset pattern).
-             itemListElement: collectionListJobs
-               .filter((j) => {
-                 const jt = j as { slugByLocale?: Record<string, string>; slug?: string };
-                 return Boolean(jt.slugByLocale?.[entry.locale] || jt.slug);
-               })
-               .map((j, i) => {
-               const jt = j as {
+             // Keep the declared total for the inventory, but expose only
+             // self-canonical active detail URLs as ItemList targets. A raw
+             // corpus slug can otherwise point at a noindex/redirect page.
+             itemListElement: linkableCollectionJobs.map(({ job, href: jHref }, i) => {
+               const jt = job as {
                  slugByLocale?: Record<string, string>;
                  slug?: string;
                  titleByLocale?: Record<string, string>;
@@ -12119,9 +12145,6 @@ ${staticAnalyticsHtml}
                  canton?: string;
                  location?: string;
                };
-               const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
-               const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
-               const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(entry.locale, jt, jslug, jCanton)}`;
                return {
                  '@type': 'ListItem',
                  position: i + 1,
@@ -13817,14 +13840,13 @@ ${staticAnalyticsHtml}
  // --- Same-company active jobs ---
  if (sameCompanyActiveJobs.length > 0) {
  const companyJobsHeading = locale === 'it' ? `Altre offerte di ${esc(jobCompany)}` : locale === 'en' ? `More jobs at ${esc(jobCompany)}` : locale === 'de' ? `Weitere Stellen bei ${esc(jobCompany)}` : `Autres offres chez ${esc(jobCompany)}`;
- const companyJobsList = sameCompanyActiveJobs.map((j: any) => {
- const jSlug = localizedSlug(j, locale);
- const jCanton = sharedResolveJobCanton(j as { canton?: string; location?: string });
- const jHref = buildCanonicalJobDetailPath(locale, j, jSlug, jCanton);
+ const companyJobsList = sameCompanyActiveJobs.flatMap((j: any) => {
+ const jHref = activeCanonicalJobHref(j, locale);
+ if (!jHref) return [];
  const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
- return `<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`;
+ return [`<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`];
  }).join('');
- staticBodyParts.push(`<section><h2>${companyJobsHeading}</h2><ul>${companyJobsList}</ul></section>`);
+ if (companyJobsList) staticBodyParts.push(`<section><h2>${companyJobsHeading}</h2><ul>${companyJobsList}</ul></section>`);
  }
 
  // --- Search suggestions ---
@@ -13884,16 +13906,15 @@ ${staticAnalyticsHtml}
  const recentJobs = selectRecentJobs(slug, slug, jobCanton);
  if (recentJobs.length > 0) {
  const recentHeading = locale === 'it' ? 'Altre posizioni attive' : locale === 'en' ? 'Other active positions' : locale === 'de' ? 'Weitere offene Stellen' : 'Autres postes actifs';
- const recentList = recentJobs.map((j: any) => {
- const jSlug = localizedSlug(j, locale);
- const jCanton = sharedResolveJobCanton(j as { canton?: string; location?: string });
- const jHref = buildCanonicalJobDetailPath(locale, j, jSlug, jCanton);
+ const recentList = recentJobs.flatMap((j: any) => {
+ const jHref = activeCanonicalJobHref(j, locale);
+ if (!jHref) return [];
  const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
  const jCompany = String(j.company || '');
  const jLoc = String(j.location || '');
- return `<li><a href="${jHref}">${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`;
+ return [`<li><a href="${jHref}">${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`];
  }).join('');
- staticBodyParts.push(`<section><h2>${recentHeading} — ${esc(displayCanton)}</h2><ul>${recentList}</ul></section>`);
+ if (recentList) staticBodyParts.push(`<section><h2>${recentHeading} — ${esc(displayCanton)}</h2><ul>${recentList}</ul></section>`);
  }
  }
 
