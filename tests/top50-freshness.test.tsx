@@ -66,7 +66,8 @@ describe('B4.4 emitted source freshness', () => {
       expect(freshness.getAttribute('data-premium-freshness')).toBe('stale');
       expect(freshness.querySelector('time')?.getAttribute('datetime')).toBe(premiumDataset.fetchedAt);
       expect(freshness.textContent).toContain(String(premiumDataset.year));
-      expect(freshness.querySelector('a')?.getAttribute('href')).toBe('https://www.priminfo.admin.ch/');
+      const priminfoPath = locale === 'it' ? '/it/praemien' : locale === 'fr' ? '/fr/praemien' : '/de/praemien';
+      expect(freshness.querySelector('a')?.getAttribute('href')).toBe(`https://www.priminfo.admin.ch${priminfoPath}`);
     }
   });
   it('never substitutes build time when a premium retrieval date is missing', () => {

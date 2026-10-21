@@ -268,11 +268,16 @@ const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/\bafc\b(?!.*ticino)/i, 'https://www.estv.admin.ch/'],
   [/circolare agenzia entrate|agenzia (delle )?entrate|istruzioni redditi pf/i, 'https://www.agenziaentrate.gov.it/'],
   [/agenzia dogane|agenzia delle dogane/i, 'https://www.adm.gov.it/'],
+  [/priminfo/i, 'https://www.priminfo.admin.ch/'],
   [/\bofdf\b|swiss federal customs administration/i, 'https://www.bazg.admin.ch/'],
   [/\bafd\b|bazg|amministrazione federale delle dogane|zollverwaltung/i, 'https://www.bazg.admin.ch/'],
   [/agcom/i, 'https://www.agcom.it/'],
   [/arcobaleno\.ch/i, 'https://www.arcobaleno.ch/'],
   [/\bffs\b|\bsbb\b|\bcff\b/i, 'https://www.sbb.ch/'],
+  [/\bsnb\b|\bbns\b|swiss national bank|banca nazionale svizzera|banque nationale suisse|schweizerische nationalbank/i, 'https://www.snb.ch/'],
+  [/\b(?:zas|ucc|cdc)\b|centrale di compensazione|central compensation office/i, 'https://www.zas.admin.ch/'],
+  [/\bifpdt\b|\bedoeb\b|\bfdpic\b|\bpfpdt\b|federal data protection/i, 'https://www.edoeb.admin.ch/'],
+  [/arbeit\.swiss/i, 'https://www.arbeit.swiss/'],
   [/\b(?:ufas|fsio)\b|\bbsv\b|ofas/i, 'https://www.bsv.admin.ch/'],
   [/\bufsp\b|\bbag\b|\bofsp\b/i, 'https://www.bag.admin.ch/'],
   [/\bufse\b|ufficio federale di statistica|\bbfs\b|\bust\b,|\bofs\b/i, 'https://www.bfs.admin.ch/'],
@@ -286,6 +291,50 @@ const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/\b(art\.|§)?\s*(lac|laci|avig|\bco\b|\bor\b|\bll\b|lpga|lca|atsg|vvg)\b/i, 'https://www.fedlex.admin.ch/'],
 ];
 
+const CITATION_ROOT_PATHS_BY_HOST: Readonly<
+  Record<string, Partial<Record<FaqHubLocale, string>>>
+> = {
+  'agenziaentrate.gov.it': { it: '/portale/', en: '/portale/', de: '/portale/', fr: '/portale/' },
+  'estv.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'bsv.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'bag.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'bazg.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'seco.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'arcobaleno.ch': { it: '/home', en: '/home', de: '/home', fr: '/home' },
+  'arbeit.swiss': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'zas.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'edoeb.admin.ch': { it: '/it', en: '/en', de: '/de', fr: '/fr' },
+  'snb.ch': { it: '/it/', en: '/en/', de: '/de/', fr: '/fr/' },
+  'bfs.admin.ch': {
+    it: '/bfs/it/home.html',
+    en: '/bfs/en/home.html',
+    de: '/bfs/de/home.html',
+    fr: '/bfs/fr/home.html',
+  },
+  'priminfo.admin.ch': {
+    it: '/it/praemien',
+    en: '/de/praemien',
+    de: '/de/praemien',
+    fr: '/fr/praemien',
+  },
+};
+
+function localizeCitationRootHref(href: string, locale: FaqHubLocale): string {
+  try {
+    const url = new URL(href);
+    if (url.pathname !== '/' || url.search || url.hash) return href;
+
+    const host = url.hostname.replace(/^www\./, '');
+    const path = CITATION_ROOT_PATHS_BY_HOST[host]?.[locale];
+    if (!path) return href;
+
+    url.pathname = path;
+    return url.toString();
+  } catch {
+    return href;
+  }
+}
+
 /**
  * Resolve the best real URL for a `[fonte: <label>]`-style citation.
  * Prefers a curated deep link already present in `entry.sources` (an
@@ -295,7 +344,11 @@ const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
  * institution; otherwise falls back to the verified root domain itself.
  * Returns `undefined` only if the label matches no known institution.
  */
-function resolveCitationHref(label: string, sources: ReadonlyArray<string> | undefined): string | undefined {
+function resolveCitationHref(
+  label: string,
+  sources: ReadonlyArray<string> | undefined,
+  locale: FaqHubLocale,
+): string | undefined {
   const rule = CITATION_FALLBACK_RULES.find(([re]) => re.test(label));
   if (!rule) return undefined;
   const [, fallbackUrl] = rule;
@@ -309,13 +362,13 @@ function resolveCitationHref(label: string, sources: ReadonlyArray<string> | und
           return false;
         }
       });
-      if (deepMatch) return deepMatch;
+      if (deepMatch) return localizeCitationRootHref(deepMatch, locale);
     } catch {
       // Malformed fallback URL (shouldn't happen — all entries above are
       // static literals) — fall through to the plain fallback below.
     }
   }
-  return fallbackUrl;
+  return localizeCitationRootHref(fallbackUrl, locale);
 }
 
 /**
@@ -327,9 +380,13 @@ function resolveCitationHref(label: string, sources: ReadonlyArray<string> | und
  * matches no rule (defensive — every label in the dataset matched at
  * authoring time).
  */
-function linkifyCitations(text: string, sources: ReadonlyArray<string> | undefined): string {
+function linkifyCitations(
+  text: string,
+  sources: ReadonlyArray<string> | undefined,
+  locale: FaqHubLocale,
+): string {
   return text.replace(/\[(fonte|source|Quelle)\s*:\s*([^\]]+)\]/g, (full, tag: string, label: string) => {
-    const href = resolveCitationHref(label, sources);
+    const href = resolveCitationHref(label, sources, locale);
     return href ? `[${tag}: ${label}](${href})` : full;
   });
 }
@@ -344,7 +401,7 @@ function renderEntry(
   linkedIds?: ReadonlySet<string>,
 ): string {
   const q = entry.question[locale];
-  const a = linkifyCitations(entry.answer[locale], entry.sources);
+  const a = linkifyCitations(entry.answer[locale], entry.sources, locale);
   const related = entry.relatedLinks ?? [];
   const relatedHtml =
     related.length > 0
@@ -526,7 +583,7 @@ function renderPage(
         // Strip markdown link syntax — Google parsers prefer plain text,
         // and the same citations are already real <a href> links in the
         // HTML body via linkifyCitations()+mdLinks() above.
-        text: linkifyCitations(e.answer[locale], e.sources).replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
+        text: linkifyCitations(e.answer[locale], e.sources, locale).replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'),
       },
     })),
   });
@@ -891,25 +948,25 @@ function renderEntryPage(
     indent: '    ',
   });
 
-  const answerHtml = mdLinks(linkifyCitations(entry.answer[locale], entry.sources));
+  const answerHtml = mdLinks(linkifyCitations(entry.answer[locale], entry.sources, locale));
 
   const sourcesHtml =
     entry.sources && entry.sources.length > 0
       ? `<section id="fh-sources" class="fh-rls fh-entry-panel fh-entry-sources" aria-labelledby="fh-sources-title"><div class="fh-entry-panel-heading"><h2 id="fh-sources-title" class="fh-rlh">${esc(ecopy.sourcesHeading)}</h2><span class="fh-entry-panel-note">${entry.sources.length}</span></div><ul class="fh-rll">${entry.sources
-          .map(
-            (src) =>
-              `<li class="fh-rli"><a href="${esc(src)}" class="fh-lnk fh-source-link" rel="noopener" target="_blank"><span class="fh-source-domain">${esc(
+        .map((src) => {
+          const sourceHref = localizeCitationRootHref(src, locale);
+          return `<li class="fh-rli"><a href="${esc(sourceHref)}" class="fh-lnk fh-source-link" rel="noopener" target="_blank"><span class="fh-source-domain">${esc(
                 (() => {
                   try {
-                    return new URL(src).hostname.replace(/^www\./, '');
+                    return new URL(sourceHref).hostname.replace(/^www\./, '');
                   } catch {
-                    return src.replace(/^https?:\/\//, '').split('/')[0];
+                    return sourceHref.replace(/^https?:\/\//, '').split('/')[0];
                   }
                 })(),
               )}</span><span class="fh-source-path">${esc(
-                src.replace(/^https?:\/\//, '').replace(/\/$/, ''),
-              )}</span><span class="fh-source-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7m-8 0h8v8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></span></a></li>`,
-          )
+                sourceHref.replace(/^https?:\/\//, '').replace(/\/$/, ''),
+              )}</span><span class="fh-source-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M7 17 17 7m-8 0h8v8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></span></a></li>`;
+        })
           .join('')}</ul></section>`
       : '';
 

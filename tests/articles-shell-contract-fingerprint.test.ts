@@ -29,6 +29,11 @@ describe('articles SiteShellContract — cross-repo fingerprint', () => {
       if (typeof v !== 'function') scalars[k] = v;
     }
     expect(Object.keys(scalars).length).toBe(expected.scalarFields);
+    // This one scalar is deploy-specific: constants.ts captures ASSET_CDN when
+    // the Vite config loads, before this test can normalize process.env. The
+    // transported host contract fingerprints its empty source-build value.
+    expect(Object.prototype.hasOwnProperty.call(scalars, 'cdnPreconnectHint')).toBe(true);
+    scalars.cdnPreconnectHint = '';
     // RegExp has no own enumerable properties, so plain JSON.stringify serializes
     // every RegExp (e.g. contextualLinkRules[].keywordPattern) to `{}` — a source/flags
     // edit wouldn't move the digest at all. The replacer forces RegExp through

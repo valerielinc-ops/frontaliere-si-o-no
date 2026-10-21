@@ -199,7 +199,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "Arcobaleno est la communauté tarifaire intégrée du Tessin et du Moesano (Grisons italophones) [source : arcobaleno.ch tarifs 2025]. Un seul billet pour trains, bus, funiculaires et bateaux par zones. En 2025 abonnement annuel CHF 800 pour 1 zone (Lugano ville), CHF 1 370 pour 2 zones, CHF 2 545 pour tout le réseau. Pour les frontaliers arrivant en train à Chiasso/Mendrisio puis zone Arcobaleno, l'abo couvre la partie suisse. Jeunes <26 ans : Binario 7 (CHF 490/an, tout le réseau). Contribution employeur exonérée si justifiée. Compatible AG et demi-tarif CFF.",
     },
     sources: [
-      'https://www.arcobaleno.ch/',
+      'https://arcobaleno.ch/home',
     ],
   },
   {

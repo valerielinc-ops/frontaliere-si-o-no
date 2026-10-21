@@ -144,7 +144,7 @@ const IT: ComparisonsHubCopy = {
   tHealthColMonthly: 'Premio mensile mediano (CHF)',
   tHealthColAnnual: 'Costo annuo (CHF)',
   tHealthFooter:
-    "Fonte: [UFSP/Priminfo](https://www.priminfo.admin.ch/). Calcolo della mediana delle tariffe osservate per assicuratore e regione: adulti da 26 anni, modello standard, franchigia CHF 300, senza infortuni. Importi arrotondati; non è una media ponderata per assicurati né un preventivo personale.",
+    "Fonte: [UFSP/Priminfo](https://www.priminfo.admin.ch/it/praemien). Calcolo della mediana delle tariffe osservate per assicuratore e regione: adulti da 26 anni, modello standard, franchigia CHF 300, senza infortuni. Importi arrotondati; non è una media ponderata per assicurati né un preventivo personale.",
   tHealthContext:
     "Per chi risiede in Italia valgono i premi UE del Paese di domicilio, non questa tabella cantonale. Il diritto di opzione SSN richiede, per gli aventi diritto, domanda formale al Cantone di lavoro entro tre mesi. Il contributo sanitario delle categorie previste dalla legge 213/2023 è distinto dai premi LAMal e dall’iscrizione volontaria SSN: 3–6% del salario netto svizzero, minimo 30 e massimo 200 EUR per mese lavorato, versati alla Regione secondo i provvedimenti applicabili. Verificare requisiti, aliquota e scadenze. [Decreto 14 novembre 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
@@ -153,7 +153,7 @@ const IT: ComparisonsHubCopy = {
   tBenefitsColCh: 'Svizzera',
   tBenefitsColIt: 'Italia',
   tBenefitsFooter:
-    'Fonte: UFAS/BSV — AVS/AI/IPG 2026 ([ufas.admin.ch](https://www.bsv.admin.ch/)); LPP — LPP.ch; AD — Ufficio federale SECO; INPS — inps.it (2026); INAIL — inail.it. Percentuali in busta paga sono indicative: variano per classe d\'età, LPP piano cassa e livello retributivo.',
+    'Fonte: UFAS/BSV — AVS/AI/IPG 2026 ([ufas.admin.ch](https://www.bsv.admin.ch/it)); LPP — LPP.ch; AD — Ufficio federale SECO; INPS — inps.it (2026); INAIL — inail.it. Percentuali in busta paga sono indicative: variano per classe d\'età, LPP piano cassa e livello retributivo.',
   tBenefitsRows: [
     { area: 'Pensione 1° pilastro', ch: 'AVS 8,70% (metà datore, metà dipendente). Copre vecchiaia + superstiti.', it: 'INPS IVS 33% (23,81% datore + 9,19% dipendente). Gestione separata 24-26% per autonomi.' },
     { area: 'Pensione 2° pilastro', ch: 'LPP obbligatorio per salari >CHF 22.680. Aliquote 7-18% ripartite a metà datore/dipendente.', it: 'TFR obbligatorio ~6,91%; fondi pensione (es. Cometa, Fondapi) facoltativi con contributo datoriale variabile.' },
@@ -203,7 +203,7 @@ const IT: ComparisonsHubCopy = {
     {
       question: 'La LAMal è davvero obbligatoria per tutti i frontalieri?',
       answer:
-        'Sì, per i nuovi frontalieri (assunti dopo il 17 luglio 2023) la LAMal è obbligatoria salvo richiesta documentata di esenzione e adesione al SSN italiano (opzione diritto). Per i vecchi frontalieri con opzione SSN attiva prima della data di entrata in vigore la scelta resta valida. L\'UFSP pubblica la lista degli assicuratori LAMal autorizzati per frontalieri su priminfo.admin.ch ([fonte: UFSP](https://www.bag.admin.ch/)).',
+        'Sì, per i nuovi frontalieri (assunti dopo il 17 luglio 2023) la LAMal è obbligatoria salvo richiesta documentata di esenzione e adesione al SSN italiano (opzione diritto). Per i vecchi frontalieri con opzione SSN attiva prima della data di entrata in vigore la scelta resta valida. L\'UFSP pubblica la lista degli assicuratori LAMal autorizzati per frontalieri su priminfo.admin.ch ([fonte: UFSP](https://www.bag.admin.ch/it)).',
     },
     {
       question: 'Il 2° pilastro (LPP) è recuperabile in Italia?',
@@ -268,7 +268,7 @@ const EN: ComparisonsHubCopy = {
   tHealthColMonthly: 'Median monthly premium (CHF)',
   tHealthColAnnual: 'Annual cost (CHF)',
   tHealthFooter:
-    "Source: [FOPH/Priminfo](https://www.priminfo.admin.ch/). Median of observed insurer/region tariffs: adults aged 26+, standard model, CHF 300 deductible, without accident cover. Rounded amounts; neither an insured-population weighted average nor a personal quote.",
+    "Source: [FOPH/Priminfo](https://www.priminfo.admin.ch/de/praemien). Median of observed insurer/region tariffs: adults aged 26+, standard model, CHF 300 deductible, without accident cover. Rounded amounts; neither an insured-population weighted average nor a personal quote.",
   tHealthContext:
     "Italian residents use country-of-residence EU premiums, not this canton table. Eligible workers opting for the SSN must formally request exemption from their canton of employment within three months. The health contribution for the categories covered by Law 213/2023 differs from LAMal premiums and voluntary SSN registration: 3–6% of net Swiss salary, EUR 30–200 per worked month, paid to the Region under applicable measures. Check eligibility, rate and deadlines. [Decree of 14 November 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
@@ -277,7 +277,7 @@ const EN: ComparisonsHubCopy = {
   tBenefitsColCh: 'Switzerland',
   tBenefitsColIt: 'Italy',
   tBenefitsFooter:
-    'Source: UFAS/BSV — AVS/AI/IPG 2026 ([bsv.admin.ch](https://www.bsv.admin.ch/)); LPP — LPP.ch; SECO — AD; INPS — inps.it (2026); INAIL — inail.it. Payroll percentages are indicative and vary by age class, LPP plan and salary level.',
+    'Source: UFAS/BSV — AVS/AI/IPG 2026 ([bsv.admin.ch](https://www.bsv.admin.ch/en)); LPP — LPP.ch; SECO — AD; INPS — inps.it (2026); INAIL — inail.it. Payroll percentages are indicative and vary by age class, LPP plan and salary level.',
   tBenefitsRows: [
     { area: '1st pillar pension', ch: 'AVS 8.70% (50/50 employer/employee). Covers old-age + survivors.', it: 'INPS IVS 33% (23.81% employer + 9.19% employee). Separate scheme 24-26% for self-employed.' },
     { area: '2nd pillar pension', ch: 'LPP mandatory for salaries >CHF 22,680. Rates 7-18% split 50/50.', it: 'TFR mandatory ~6.91%; private pension funds optional with employer match.' },
@@ -327,7 +327,7 @@ const EN: ComparisonsHubCopy = {
     {
       question: 'Is LAMal really mandatory for every cross-border worker?',
       answer:
-        'Yes, for new cross-border workers (hired after July 17, 2023) LAMal is mandatory unless a specific opt-out for the Italian NHS is filed. Old cross-border workers retain their SSN opt-out if active before the reform. UFSP publishes the list of authorised insurers on priminfo.admin.ch ([source: UFSP](https://www.bag.admin.ch/)).',
+        'Yes, for new cross-border workers (hired after July 17, 2023) LAMal is mandatory unless a specific opt-out for the Italian NHS is filed. Old cross-border workers retain their SSN opt-out if active before the reform. UFSP publishes the list of authorised insurers on priminfo.admin.ch ([source: UFSP](https://www.bag.admin.ch/en)).',
     },
     {
       question: 'Can I recover my 2nd-pillar (LPP) in Italy?',
@@ -392,7 +392,7 @@ const DE: ComparisonsHubCopy = {
   tHealthColMonthly: 'Medianprämie/Monat (CHF)',
   tHealthColAnnual: 'Jahreskosten (CHF)',
   tHealthFooter:
-    "Quelle: [BAG/Priminfo](https://www.priminfo.admin.ch/). Median beobachteter Versicherer-/Regionstarife: Erwachsene ab 26, Standardmodell, Franchise CHF 300, ohne Unfall. Gerundete Beträge; kein nach Versicherten gewichteter Durchschnitt und keine persönliche Offerte.",
+    "Quelle: [BAG/Priminfo](https://www.priminfo.admin.ch/de/praemien). Median beobachteter Versicherer-/Regionstarife: Erwachsene ab 26, Standardmodell, Franchise CHF 300, ohne Unfall. Gerundete Beträge; kein nach Versicherten gewichteter Durchschnitt und keine persönliche Offerte.",
   tHealthContext:
     "Bei Wohnsitz in Italien gelten EU-Prämien des Wohnsitzlands, nicht diese Kantonstabelle. Berechtigte müssen die SSN-Option binnen drei Monaten formell beim Arbeitskanton beantragen. Der Gesundheitsbeitrag für Kategorien nach Gesetz 213/2023 ist von KVG-Prämien und freiwilliger SSN-Einschreibung zu unterscheiden: 3–6% des Schweizer Nettolohns, 30–200 EUR je gearbeitetem Monat, gemäss regionalen Bestimmungen an die Region bezahlt. Voraussetzungen, Satz und Fristen prüfen. [Dekret vom 14. November 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
@@ -401,7 +401,7 @@ const DE: ComparisonsHubCopy = {
   tBenefitsColCh: 'Schweiz',
   tBenefitsColIt: 'Italien',
   tBenefitsFooter:
-    'Quelle: BSV — AHV/IV/EO 2026 ([bsv.admin.ch](https://www.bsv.admin.ch/)); BVG.ch; SECO — ALV; INPS — inps.it; INAIL — inail.it. Lohnprozentsätze sind Richtwerte.',
+    'Quelle: BSV — AHV/IV/EO 2026 ([bsv.admin.ch](https://www.bsv.admin.ch/de)); BVG.ch; SECO — ALV; INPS — inps.it; INAIL — inail.it. Lohnprozentsätze sind Richtwerte.',
   tBenefitsRows: [
     { area: '1. Säule Rente', ch: 'AHV 8,70% (hälftig AG/AN). Alter + Hinterlassene.', it: 'INPS IVS 33% (23,81% AG + 9,19% AN).' },
     { area: '2. Säule Rente', ch: 'BVG ab CHF 22.680. Sätze 7-18% hälftig AG/AN.', it: 'TFR ~6,91%; Pensionsfonds freiwillig.' },
@@ -416,7 +416,7 @@ const DE: ComparisonsHubCopy = {
   tCostColCh: 'Lugano (CHF)',
   tCostColIt: 'Varese/Como (EUR)',
   tCostFooter:
-    'Quelle: BFS — Konsumentenpreisindex ([bfs.admin.ch](https://www.bfs.admin.ch/)); ISTAT — Gemeindekonsumpreise 2026 ([istat.it](https://www.istat.it/)); Numbeo 2026-Q1 für nicht erfasste Positionen. CHF→EUR 1,04.',
+    'Quelle: BFS — Konsumentenpreisindex ([bfs.admin.ch](https://www.bfs.admin.ch/bfs/de/home.html)); ISTAT — Gemeindekonsumpreise 2026 ([istat.it](https://www.istat.it/)); Numbeo 2026-Q1 für nicht erfasste Positionen. CHF→EUR 1,04.',
   tCostRows: [
     { item: '2-Zimmer-Miete zentral (75 m²)', ch: 'CHF 1.800-2.200', it: '€750-950' },
     { item: 'Nebenkosten/Monat (Strom + Heizung + Internet)', ch: 'CHF 260-320', it: '€170-210' },
@@ -516,7 +516,7 @@ const FR: ComparisonsHubCopy = {
   tHealthColMonthly: 'Prime mensuelle médiane (CHF)',
   tHealthColAnnual: 'Coût annuel (CHF)',
   tHealthFooter:
-    "Source : [OFSP/Priminfo](https://www.priminfo.admin.ch/). Médiane des tarifs observés par assureur et région : adultes dès 26 ans, modèle standard, franchise CHF 300, sans accidents. Montants arrondis ; ni moyenne pondérée par assurés ni devis personnel.",
+    "Source : [OFSP/Priminfo](https://www.priminfo.admin.ch/fr/praemien). Médiane des tarifs observés par assureur et région : adultes dès 26 ans, modèle standard, franchise CHF 300, sans accidents. Montants arrondis ; ni moyenne pondérée par assurés ni devis personnel.",
   tHealthContext:
     "Les résidents italiens utilisent les primes UE du pays de domicile, et non ce tableau cantonal. Les ayants droit choisissant le SSN doivent demander formellement une exemption au canton de travail dans les trois mois. La contribution des catégories visées par la loi 213/2023 se distingue des primes LAMal et de l’inscription volontaire au SSN : 3–6% du salaire suisse net, 30–200 EUR par mois travaillé, versés à la Région selon les mesures applicables. Vérifier conditions, taux et délais. [Décret du 14 novembre 2025](https://www.gazzettaufficiale.it/eli/id/2025/12/18/25A06706/sg).",
 
@@ -525,7 +525,7 @@ const FR: ComparisonsHubCopy = {
   tBenefitsColCh: 'Suisse',
   tBenefitsColIt: 'Italie',
   tBenefitsFooter:
-    'Source : OFAS — AVS/AI/APG 2026 ([bsv.admin.ch](https://www.bsv.admin.ch/)) ; LPP.ch ; SECO — AC ; INPS — inps.it ; INAIL — inail.it. Taux indicatifs.',
+    'Source : OFAS — AVS/AI/APG 2026 ([bsv.admin.ch](https://www.bsv.admin.ch/fr)) ; LPP.ch ; SECO — AC ; INPS — inps.it ; INAIL — inail.it. Taux indicatifs.',
   tBenefitsRows: [
     { area: 'Retraite 1er pilier', ch: 'AVS 8,70% (moitié/moitié). Vieillesse + survivants.', it: 'INPS IVS 33% (23,81% employeur + 9,19% employé).' },
     { area: 'Retraite 2e pilier', ch: 'LPP obligatoire >CHF 22.680. Taux 7-18% moitié/moitié.', it: 'TFR ~6,91% ; fonds privés facultatifs.' },
@@ -540,7 +540,7 @@ const FR: ComparisonsHubCopy = {
   tCostColCh: 'Lugano (CHF)',
   tCostColIt: 'Varese/Côme (EUR)',
   tCostFooter:
-    'Source : OFS — Indice des prix à la consommation ([bfs.admin.ch](https://www.bfs.admin.ch/)) ; ISTAT — Prix communaux 2026 ([istat.it](https://www.istat.it/)) ; Numbeo 2026-Q1 pour les postes non couverts. CHF→EUR 1,04.',
+    'Source : OFS — Indice des prix à la consommation ([bfs.admin.ch](https://www.bfs.admin.ch/bfs/fr/home.html)) ; ISTAT — Prix communaux 2026 ([istat.it](https://www.istat.it/)) ; Numbeo 2026-Q1 pour les postes non couverts. CHF→EUR 1,04.',
   tCostRows: [
     { item: 'Loyer 2 pièces central (75 m²)', ch: 'CHF 1.800-2.200', it: '€750-950' },
     { item: 'Charges/mois (électricité + chauffage + internet)', ch: 'CHF 260-320', it: '€170-210' },

@@ -253,7 +253,7 @@ describe('static SEO JSON-LD identities', () => {
 });
 
 describe('static SEO X cards', () => {
-  it('emits complete cards on opted-in pages with escaped text and absolute images', () => {
+  it('emits complete cards by default, preserves opt-out and page-specific overrides', () => {
     const options = {
       locale: 'it',
       title: 'Evento <speciale> & novità',
@@ -263,19 +263,18 @@ describe('static SEO X cards', () => {
       bodyHtml: '<main><h1>Evento</h1></main>',
     } as const;
     const defaultHtml = buildSeoPageHtml(options);
-    expect(defaultHtml).not.toContain('name=twitter:card');
 
-    const html = buildSeoPageHtml({ ...options, includeTwitterCard: true });
+    expectOneOfEachTwitterCardMeta(defaultHtml);
+    expect(defaultHtml).toContain('name=twitter:card content=summary_large_image');
+    expect(defaultHtml).toMatch(/name=twitter:title content="Evento &lt;speciale&gt; &amp; novità/);
+    expect(defaultHtml).toContain('name=twitter:description');
+    expect(defaultHtml).toContain('name=twitter:image content=https://frontaliereticino.ch/images/events/esempio.webp');
 
-    expectOneOfEachTwitterCardMeta(html);
-    expect(html).toContain('name=twitter:card content=summary_large_image');
-    expect(html).toMatch(/name=twitter:title content="Evento &lt;speciale&gt; &amp; novità/);
-    expect(html).toContain('name=twitter:description');
-    expect(html).toContain('name=twitter:image content=https://frontaliereticino.ch/images/events/esempio.webp');
+    const optOutHtml = buildSeoPageHtml({ ...options, includeTwitterCard: false });
+    expect(optOutHtml).not.toContain('name=twitter:card');
 
     const overridden = buildSeoPageHtml({
       ...options,
-      includeTwitterCard: true,
       extraHeadHtml: [
         '<meta name="twitter:card" content="summary">',
         "<meta name='twitter:title' content='Titolo personalizzato'>",
@@ -298,7 +297,6 @@ describe('static SEO X cards', () => {
       description: 'Descrizione evento.',
       canonicalUrl: 'https://frontaliereticino.ch/eventi/esempio/',
       bodyHtml: '<main><h1>Evento</h1></main>',
-      includeTwitterCard: true,
     });
     expectOneOfEachTwitterCardMeta(html);
 
