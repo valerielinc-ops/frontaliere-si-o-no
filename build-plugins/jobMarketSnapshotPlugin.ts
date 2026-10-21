@@ -109,6 +109,7 @@ import {
 import { getCantonCities } from './shared/cantonCities';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { readJobsStatsHistory } from '../scripts/lib/job-stats-history-store.mjs';
+import { readAttr, scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
 
 // ── Canton-aware section helpers (P2.S1) ──────────────────────────
 //
@@ -515,7 +516,12 @@ const WEEKLY_INDEXABLE_LIMIT = 12;
  * path lookup against the generator's noindexPaths.
  */
 function htmlHasNoindexMeta(html: string): boolean {
-  return /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
 }
 
 /** Minimum weeks of real history needed to exit "degraded" mode. */
