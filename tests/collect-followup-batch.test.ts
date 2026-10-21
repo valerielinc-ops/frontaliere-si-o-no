@@ -401,6 +401,23 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     )).toEqual({ buckets: [42], requiresBucket: true });
   });
 
+  it('recognizes the updated daily-bucket marker emitted by the triage summary', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      '- Daily bucket aggiornato: #14286 — `follow-up(daily:2026-10-21)`, repository target `valerielinc-ops/frontaliere-si-o-no`.',
+      '- FU-2026-10-21-003 — URL GSC non-200 senza destinazione dimostrata',
+    ].join('\n');
+    const persisted = {
+      number: 14286,
+      title: 'follow-up(daily:2026-10-21): 9 items — owner/repo',
+      body: '### FU-2026-10-21-003 — URL GSC non-200 senza destinazione dimostrata\n- Sources: PR #14112\n',
+    };
+
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [14286], requiresBucket: true });
+    expect(verifyTriageMarkerPersistence(marker, 14112, () => persisted)).toBe(true);
+  });
+
   it('recognizes an existing parent bucket updated without creating a child issue', () => {
     const marker = [
       '## Post-merge follow-up triage',
