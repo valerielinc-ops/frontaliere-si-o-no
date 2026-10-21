@@ -92,7 +92,7 @@ export function candidateRules(candidateLocale) {
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
 - Text: respect maxLength; for motivation, cover-letter or "why us" text areas use the texts provided (shorten at a sentence boundary if needed). Name, e-mail and phone fields come from identity; residence fields use identity.address only when their context identifies the candidate's residence.
 - Always fill the candidate's contact fields from identity: full/first/last name, e-mail, phone (split country code and number when the form asks them separately; a phone-type question is "mobile" for a mobile number such as +41 7x or +39 3xx). Use identity.address for street, postal code, city and country only when the form identifies the candidate's residence; use identity.location for city and country only in candidate contact fields. Never use the candidate's residence address for an employer, school, emergency contact or reference. Date of birth and nationality come from profile. A country is chosen as the option that names it in the form's language (Italia = Italien = Italy = Italie). What the data does not state is missing.
-- A CAP or residence country that the address normaliser has put in identity.address is an address fact: use it exactly when the field extractor identifies a candidate-residence field from its section or autocomplete, or the form context explicitly names residence/address. A standalone postal label without that provenance is ambiguous and must not reuse the residence address. Do not invent a CAP from a city name in the model; if the local directory cannot resolve it unambiguously, leave it missing for the candidate.
+- A CAP or residence country that the address normaliser has put in identity.address is an address fact: use it exactly when the field extractor identifies a candidate-residence field from its section or the form context explicitly names residence/address. Autocomplete identifies a value type, not whose address it is. A standalone postal label without residence provenance is ambiguous and must not reuse the residence address. Do not invent a CAP from a city name in the model; if the local directory cannot resolve it unambiguously, leave it missing for the candidate.
 - "How did you hear about us / Wie haben Sie von uns erfahren / Come hai saputo": the true answer is the job board frontaliereticino.ch — choose the option meaning online job board / internet / other website (or "other"), or write "frontaliereticino.ch" in a text field.
 - "Do you work / have you worked for us?": "No" when that employer is not among profile.employers or in the candidate's answers, otherwise it is missing.
 - "Does this application come from a recruitment / placement agency (Vermittlungsbüro, Personalvermittlung, agenzia per il lavoro, agence de placement)?": "No". The candidate applies personally: Frontaliere Ticino sends the candidate's own application, is no placement agency and never accepts an agency's terms.
@@ -573,7 +573,6 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
   const surrounding = String(context || '').trim();
   const section = String(metadata?.section || '').trim();
-  const autocomplete = String(metadata?.autocomplete || '').trim().toLowerCase();
   const fieldContext = [surrounding, section].filter(Boolean).join(' ');
   const nonResidenceContext = NON_RESIDENCE_ADDRESS_RE.test(fieldContext);
   const explicitResidenceContext = EXPLICIT_RESIDENCE_CONTEXT_RE.test(fieldContext);
@@ -588,12 +587,14 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
     || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
+  // `autocomplete=postal-code` identifies the kind of value, not whose
+  // address it belongs to. The field's own label, section, or explicit nearby
+  // context must still identify candidate residence before reusing the CV.
   const candidateResidenceProvenance = RESIDENCE_CONTEXT_RE.test(section)
-    || PERSONAL_ADDRESS_CONTEXT_RE.test(section)
-    || autocomplete === 'postal-code';
+    || PERSONAL_ADDRESS_CONTEXT_RE.test(section);
   // A standalone postal label needs positive residence provenance from its
-  // section, autocomplete metadata, or nearby residence context. The field
-  // extractor's section also keeps an employer/work-history postal field out.
+  // section or nearby residence context. The field extractor's section also
+  // keeps an employer/work-history postal field out.
   // Bare «CAP» still needs explicit residence context.
   if (STANDALONE_POSTAL_CODE_FIELD_RE.test(value) && (residenceContext || candidateResidenceProvenance)) return 'residence_postal_code';
   if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';

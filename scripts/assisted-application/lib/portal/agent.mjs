@@ -265,7 +265,9 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
     || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
-      && normalizedPortalContext(item.context) === normalizedPortalContext(context))
+      && normalizedPortalContext(item.context) === normalizedPortalContext(context)
+      && normalizedPortalContext(item.section) === normalizedPortalContext(section)
+      && normalizedPortalContext(item.autocomplete) === normalizedPortalContext(autocomplete))
     || answeredTopics.has(questionKey(question, context, section, autocomplete))
     || answeredTopics.has(agentTopicKey(question, context));
   const questions = [];
@@ -273,7 +275,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const question = questionFromLabel(item.question);
     const context = boundedPortalContext(item.context);
     const section = boundedPortalContext(item.section);
-    if (!question || isAnswered(question, context, section, item.autocomplete) || questions.some((other) => other.question === question && other.context === context && other.section === section)) return;
+    if (!question || isAnswered(question, context, section, item.autocomplete) || questions.some((other) => other.question === question
+      && other.context === context && other.section === section && other.autocomplete === item.autocomplete)) return;
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
@@ -284,11 +287,13 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     return (languageAction && hasLanguageActionAnswer(action))
       || SENSITIVE.test(question)
       || KNOCK_OUT.test(question)
-      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context, { section: action.section }));
+      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context, { section: action.section, autocomplete: action.autocomplete }));
   });
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
     const section = boundedPortalContext(action.section);
+    const autocomplete = String(action.autocomplete || '').slice(0, 100);
+    const metadata = { section, autocomplete };
     const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
     if (!String(action.question || '').trim() && languageLabelOnly) {
       action.question = languageLabelFallback(context);
@@ -297,15 +302,15 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     }
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
-    const addressTopic = questionTopic(action.question, context, { section });
+    const addressTopic = questionTopic(action.question, context, metadata);
     const addressNeedsProvenance = isAddressLikeQuestion(action.question) && !isAddressTopic(addressTopic);
     if (languageIntent) {
-      const previous = candidateAnswerForQuestion(candidate, action.question, context, { section });
+      const previous = candidateAnswerForQuestion(candidate, action.question, context, metadata);
       if (previous) {
         if (action.action !== 'press') action.value = previous;
         action.answer = previous;
         action.source = 'answers';
-        grounded.add(questionKey(action.question, context, section));
+        grounded.add(questionKey(action.question, context, section, autocomplete));
         continue;
       }
     }
@@ -313,7 +318,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
       const profileAnswer = candidateAnswerForField(candidate, {
         label: action.question,
         context,
-        section,
+        ...metadata,
         kind: 'text',
         options: [],
       });
@@ -321,24 +326,24 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         if (action.action !== 'press') action.value = profileAnswer.value;
         action.answer = profileAnswer.value;
         action.source = profileAnswer.source;
-        grounded.add(questionKey(action.question, context, section));
+        grounded.add(questionKey(action.question, context, section, autocomplete));
         continue;
       }
     }
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
       && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
-      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, section, options: [] });
+      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, ...metadata, options: [] });
       if (knownAddress) {
         // A custom widget still has to receive the form-language option the
         // model saw. Accept equivalent country labels; correct a wrong model
         // value to the deterministic candidate value before the action runs.
-        if (!answeredByCandidate(candidate, action.question, answer, context, { section })) {
+        if (!answeredByCandidate(candidate, action.question, answer, context, metadata)) {
           action.value = knownAddress.value;
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
-        grounded.add(questionKey(action.question, context, section));
+        grounded.add(questionKey(action.question, context, section, autocomplete));
         continue;
       }
     }
@@ -350,13 +355,13 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const native = action.source !== 'widget' && nativeLanguageAnswerMatches(candidate, action.question, answer, context);
     const fromCandidate = isAddressLikeQuestion(action.question)
-      ? addressNeedsProvenance && answeredByCandidate(candidate, action.question, answer, context, { section })
+      ? addressNeedsProvenance && answeredByCandidate(candidate, action.question, answer, context, metadata)
       : languageIntent || languageAbility || languageLabelOnly
-      ? answeredByCandidate(candidate, action.question, answer, context, { section })
+      ? answeredByCandidate(candidate, action.question, answer, context, metadata)
       : own !== null
-        ? own || answeredByCandidate(candidate, action.question, answer, context, { section })
+        ? own || answeredByCandidate(candidate, action.question, answer, context, metadata)
         : knockOut
-          ? answeredByCandidate(candidate, action.question, answer, context, { section })
+          ? answeredByCandidate(candidate, action.question, answer, context, metadata)
           : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
     const quoted = (knockOut || languageAbility) && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
       && evidenceSupports(`${action.question} ${context}`, answer, action.evidence);
@@ -365,21 +370,22 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
     if (fromCandidate || (languageAbility && (native || quoted))
       || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
-      grounded.add(questionKey(action.question, context, section));
+      grounded.add(questionKey(action.question, context, section, autocomplete));
     }
   }
   const refused = new Set();
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
     const section = boundedPortalContext(action.section);
-    const key = questionKey(action.question, context, section);
+    const autocomplete = String(action.autocomplete || '').slice(0, 100);
+    const key = questionKey(action.question, context, section, autocomplete);
     if (grounded.has(key)) continue;
     refused.add(key);
-    ask({ question: action.question, ...(context ? { context } : {}), ...(section ? { section } : {}) });
+    ask({ question: action.question, ...(context ? { context } : {}), ...(section ? { section } : {}), ...(autocomplete ? { autocomplete } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context, action.section)) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context, action.section, action.autocomplete)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
