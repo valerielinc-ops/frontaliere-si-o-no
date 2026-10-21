@@ -50,9 +50,29 @@ describe('Prospector validation evidence and production feedback', () => {
     )).toMatchObject({ status: 'match', evidence: 'company_domain' });
     expect(checkEmployerIdentity(
       {},
-      'https://acme.umantis.com/jobs',
-      { companyName: 'ACME AG', tenantHost: 'acme.umantis.com' },
+      'https://recruitingapp-2761.umantis.com/Vacancies/123/Description/1',
+      { companyName: 'EOC', tenantHost: 'recruitingapp-2761.umantis.com' },
     )).toMatchObject({ status: 'match', evidence: 'tenant_host' });
+    expect(checkEmployerIdentity(
+      {},
+      'https://jobs.smartrecruiters.com/beta/123/detail',
+      { companyName: 'ACME AG', tenantHost: 'jobs.smartrecruiters.com/acme', careersUrl: 'https://jobs.smartrecruiters.com/acme/456/detail' },
+    ).status).toBe('unknown');
+    expect(checkEmployerIdentity(
+      {},
+      'https://jobs.smartrecruiters.com/acme/123/detail',
+      { companyName: 'ACME AG', tenantHost: 'jobs.smartrecruiters.com/acme', careersUrl: 'https://jobs.smartrecruiters.com/acme/456/detail' },
+    )).toMatchObject({ status: 'match', evidence: 'tenant_host' });
+    expect(checkEmployerIdentity(
+      {},
+      'https://jobs.dualoo.com/portal/other-tenant/job-1',
+      { companyName: 'ACME AG', tenantHost: 'jobs.dualoo.com', careersUrl: 'https://jobs.dualoo.com/portal/acme-tenant/job-2' },
+    ).status).toBe('unknown');
+    expect(checkEmployerIdentity(
+      {},
+      'https://teamtailor.com/jobs/1',
+      { companyName: 'ACME AG', tenantHost: 'teamtailor.com' },
+    ).status).toBe('unknown');
     expect(checkEmployerIdentity(
       { company: 'Different Employer SA' },
       'https://jobs.acme.ch/openings/1',
