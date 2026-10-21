@@ -4311,7 +4311,8 @@
       "datePosted": "2026-09-30T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-v2ihnk",
@@ -5903,16 +5904,6 @@
       "employmentType": "FULL_TIME",
       "datePosted": "2026-09-24",
       "postingDateSource": "reported",
-      "previousSlugs": [
-        "impiegato-a-in-logistica-swiss-armed-forces-vtg-romont-a8886201fe",
-        "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegato-a-in-logistica-swiss-armed-forces-vtg-romont-a8886201fe",
-          "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
-        ]
-      },
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -7448,16 +7439,6 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "impiegato-a-in-logistica-swiss-armed-forces-vtg-grolley-841ed4ea95",
-        "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "impiegato-a-in-logistica-swiss-armed-forces-vtg-grolley-841ed4ea95",
-          "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern"
-        ]
-      },
       "salaryMin": 73000,
       "salaryMax": 124500
     },
@@ -13545,7 +13526,6 @@
         "fr": "panzerelektriker-in-swiss-armed-forces-vtg-hinwil-aepdzp"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "8340",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
@@ -13621,7 +13601,6 @@
         "fr": "logistiker-in-schmalganglager-swiss-armed-forces-vtg-hinwil-5tjcvw"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "8340",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
