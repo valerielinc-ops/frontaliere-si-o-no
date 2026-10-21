@@ -172,7 +172,7 @@ describe('article CTAs after asynchronous body loading', () => {
     await waitFor(() => expect(onArticleReady).toHaveBeenCalledWith('fixture-static-owner-loading'));
   });
 
-  it('retries registry and body lookup when a loaded body has no registry record', async () => {
+  it('keeps a deferred static snapshot when a loaded body has no registry record', async () => {
     fixture.translations[`blog.article.${fixture.absentId}.title`] = 'Articolo recuperato dal registry';
     fixture.translations[`blog.article.${fixture.absentId}.body1`] = 'Testo recuperato dopo il retry.';
     fixture.loadBody
@@ -203,7 +203,7 @@ describe('article CTAs after asynchronous body loading', () => {
 
     expect(getByRole('status').getAttribute('aria-busy')).toBe('true');
     await waitFor(() => expect(fixture.loadBody).toHaveBeenCalled());
-    expect(onArticleReady).toHaveBeenCalledWith('fixture-missing-registry');
+    expect(onArticleReady).not.toHaveBeenCalled();
     await waitFor(() => expect(getByRole('alert').textContent).toContain('Non è stato possibile trovare questo articolo nell’indice aggiornato.'));
     expect(fixture.fetchOverlay).toHaveBeenCalledTimes(1);
     expect(container.textContent).not.toContain('Titolo successivo non verificato');
@@ -246,7 +246,7 @@ describe('article CTAs after asynchronous body loading', () => {
 
     await waitFor(() => expect(getByRole('alert').textContent).toContain('Non è stato possibile trovare questo articolo nell’indice aggiornato.'));
     expect(fixture.resilientImport).toHaveBeenCalledTimes(1);
-    expect(onArticleReady).toHaveBeenCalledWith('fixture-swiss-registry');
+    expect(onArticleReady).not.toHaveBeenCalled();
 
     fireEvent.click(getByRole('button', { name: 'Riprova' }));
     await waitFor(() => expect(container.textContent).toContain('Testo recuperato dopo il bootstrap.'));

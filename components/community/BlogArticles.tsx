@@ -2103,7 +2103,18 @@ function BlogArticlesContent({
  return result;
  };
 
- const selectedArticleObj = selectedArticle ? articleById.get(selectedArticle) ?? null : null;
+ // A direct runtime arrival can resolve the URL after this component's own
+ // index request has already completed. The resolver records the authoritative
+ // metadata before navigation selects the id; consult that record here too so
+ // the article is not mistaken for an unavailable one during that race.
+ const runtimeSelectedArticle = useMemo(() => {
+  if (!selectedArticle) return null;
+  const record = runtimeArticleRecords(section).find((entry) => entry.id === selectedArticle);
+  return record ? articleFromOverlay(record) : null;
+ }, [selectedArticle, section]);
+ const selectedArticleObj = selectedArticle
+  ? articleById.get(selectedArticle) ?? runtimeSelectedArticle
+  : null;
  // Lazy body chunks populate the stable translation store before readiness changes.
  const articleCTAs = useMemo(() => selectedArticle && bodyReady ? getArticleCTAs(selectedArticle) : [], [selectedArticle, bodyReady, navigators, articles, t]);
  const sidePartners = useMemo(() => selectedArticleObj ? getPartnersForCategory(selectedArticleObj.category, 4) : [], [selectedArticleObj?.category]);
@@ -2115,14 +2126,15 @@ function BlogArticlesContent({
  const retryStateReady = bodyLoadIssue?.handoff === true
   && blogReady
   && !!selectedArticleObj;
- // A completed registry attempt with no matching record is an explicit
- // unavailable state, not a loading state: release the static snapshot so the
- // user gets the retry affordance rather than an indefinite handoff.
- const registryResolutionFailed = registryAttemptComplete
-  && !!selectedArticle
-  && !selectedArticleObj;
+ // A missing runtime index record is not enough to replace the shard's
+ // article. The static resolver deliberately fails open when it cannot prove
+ // that the SPA has both metadata and body; releasing here would turn that
+ // correct snapshot into a blank handoff while a concurrent runtime resolver
+ // is still populating its record. The retry state remains available for
+ // client-side arrivals (where there is no static owner), while a deferred
+ // landing keeps its already-rendered HTML until a verified view or an
+ // article-specific error state is ready.
  const articleReadyForStaticTakeover = retryStateReady
-  || registryResolutionFailed
   || isStaticArticleReadyForTakeover({
    deferUntilReady: deferUntilArticleReady,
    blogReady,
