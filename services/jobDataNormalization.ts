@@ -18,6 +18,7 @@ export type CanonicalContractType = 'full-time' | 'part-time' | 'temporary' | 'i
 // plugins import it without the Vite path-alias resolver kicking in.
 import COMPANY_LOGOS_MANIFEST from '../data/company-logos-manifest.json';
 import { registrableDomain } from '../scripts/lib/prospector/registrable.mjs';
+import { isSlashSeparatedMultiLocation } from '../scripts/lib/job-location-display.mjs';
 
 type JobLike = {
  company?: string;
@@ -872,7 +873,8 @@ const MULTI_LOCATION_PATTERNS = /\b(in\s*?-?\s*?und\s+ausland|schweiz\s+und\s+au
  */
 export function isMultiLocation(location: unknown): boolean {
  if (!location) return false;
- return MULTI_LOCATION_PATTERNS.test(String(location));
+ const value = String(location);
+ return MULTI_LOCATION_PATTERNS.test(value) || isSlashSeparatedMultiLocation(value);
 }
 
 export function resolveCompanyWebsiteHost(job: JobLike): string {

@@ -69,11 +69,14 @@ export function inferCantonFromJobEvidence({
   // A bare homonym is not enough to overrule per-job source evidence. Require
   // the crawler canton to be a real canton in which that municipality exists;
   // clear mismatches such as Moutier/BE still flow to generic inference.
+  // The official locality registry contains source labels that are not BFS
+  // municipalities (and bare homonyms such as `Au`). With a per-posting
+  // crawler canton they become independently disambiguated evidence; do not
+  // let the foreign-country heuristic or an arbitrary BFS-first canton win.
   if (
     crawler
-    && inferred
-    && inferred !== crawler
-    && isKnownSwissMunicipalityInCanton(locality, crawler)
+    && (!inferred || inferred !== crawler)
+    && isKnownSwissMunicipalityInCanton(locality, crawler, { allowOfficialLocality: true })
   ) {
     return crawler;
   }

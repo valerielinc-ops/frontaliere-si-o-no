@@ -101,6 +101,7 @@ describe('jobDataNormalization', () => {
     expect(isMultiLocation('im In- und Ausland')).toBe(true);
     expect(isMultiLocation('Suisse et l\'étranger')).toBe(true);
     expect(isMultiLocation('verschiedene Standorte')).toBe(true);
+    expect(isMultiLocation('Biel / Solothurn / Mittelland')).toBe(true);
   });
 
   it('does not flag concrete city/canton locations as multi-location', () => {
@@ -108,6 +109,7 @@ describe('jobDataNormalization', () => {
     expect(isMultiLocation('Bellinzona')).toBe(false);
     expect(isMultiLocation('Chiasso, TI')).toBe(false);
     expect(isMultiLocation('Mendrisio (TI)')).toBe(false);
+    expect(isMultiLocation('Biel/Bienne')).toBe(false);
     expect(isMultiLocation('')).toBe(false);
     expect(isMultiLocation(null)).toBe(false);
     expect(isMultiLocation(undefined)).toBe(false);
