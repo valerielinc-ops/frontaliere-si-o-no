@@ -828,8 +828,13 @@ describe('fact gate of the tailored CV', () => {
 
     expect(cv).toMatchObject({ headline: '', headlineSource: 'profile' });
     expect(checkTailoredCvFacts(cv, { cvText: 'Software Developer', profile, answers: {} })).toMatchObject({
-      ok: true,
-      unsupported: [],
+      ok: false,
+      unsupported: [{
+        field: 'localized.headline',
+        kind: 'source',
+        token: 'localized.headline',
+        context: 'localized copy has no matching source field',
+      }],
     });
   });
 
