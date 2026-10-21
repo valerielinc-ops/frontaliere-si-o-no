@@ -21,15 +21,25 @@ import { resolve } from 'node:path';
 import { tokenizeIt, jaccardSim, containmentSim } from '../scripts/lib/it-text-similarity.mjs';
 import { filterDistinctive } from '../scripts/lib/dup-stoplist.mjs';
 import { readMetaFieldEntries } from '../scripts/lib/meta-field-regex.mjs';
+import { readStaticMetaFieldEntries, readStaticMetaFields } from '../scripts/lib/meta-field-regex.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/create-article.mjs'), 'utf8');
+
+function staticMetaModule(properties: string): string {
+  return [
+    'const blogMeta: Record<string, string> = {',
+    properties,
+    '};',
+    'export default blogMeta;',
+  ].join('\n');
+}
 
 function read(p: string): string {
   return readFileSync(resolve(ROOT, p), 'utf8');
 }
 
-const fnMatch = src.match(/function preFlightHeadlineCheck\(headline\) \{[\s\S]*?\n\}\n/);
+const fnMatch = src.match(/function preFlightHeadlineCheck\(headline, titleMatches = readMetaFieldEntries\(readAllSectionsMetaIt\(\), 'title'\)\) \{[\s\S]*?\n\}\n/);
 if (!fnMatch) throw new Error('preFlightHeadlineCheck not found in scripts/create-article.mjs');
 
 type CheckResult =
@@ -38,8 +48,8 @@ type CheckResult =
 
 // The function references `readAllSectionsMetaIt`, `tokenizeIt`, `jaccardSim`,
 // `containmentSim`, `filterDistinctive`, and the shared token-aware
-// `readMetaFieldEntries` imported from scripts/lib/meta-field-regex.mjs rather
-// than re-declared here. Inject them all: this harness lifts the function body
+// `readStaticMetaFieldEntries` imported from scripts/lib/meta-field-regex.mjs
+// rather than re-declared here. Inject them all: this harness lifts the function body
 // out of
 // create-article.mjs by regex, so every free identifier it gains has to be
 // mirrored here or the whole suite fails with a ReferenceError rather than a
@@ -63,7 +73,10 @@ type CheckResult =
 // La fixture contiene voci reali nella forma reale, incluso il cluster
 // `salario-minimo` su cui poggiano i test di deduplica, ma ferme: il verde
 // dipende dal codice e non da cosa e' stato pubblicato stanotte.
-const readAllSectionsMetaIt = () => read('tests/__fixtures__/blog-meta-it-headline-check.ts');
+const readAllSectionsMetaIt = () => [{
+  source: read('tests/__fixtures__/blog-meta-it-headline-check.ts'),
+  sourcePath: 'tests/__fixtures__/blog-meta-it-headline-check.ts',
+}];
 const runner = new Function(
   'readAllSectionsMetaIt',
   'tokenizeIt',
@@ -79,7 +92,7 @@ const preFlightHeadlineCheck = runner(
   jaccardSim,
   containmentSim,
   filterDistinctive,
-  readMetaFieldEntries,
+  readStaticMetaFieldEntries,
 ) as (headline: string) => CheckResult;
 
 describe('readMetaFieldEntries', () => {
@@ -109,6 +122,73 @@ describe('readMetaFieldEntries', () => {
   it('fails closed on a dynamic matching value', () => {
     const source = "const blogMeta = { 'blog.article.fake.title': getTitle(), };";
     expect(() => readMetaFieldEntries(source, 'title')).toThrow(/static string value/u);
+  });
+});
+
+describe('readStaticMetaFieldEntries', () => {
+  it('parses full modules independently and preserves module and property order', () => {
+    const first = staticMetaModule([
+      "  'blog.article.shared.title': 'Frontaliere title',",
+      "  'blog.article.shared.excerpt': 'Frontaliere excerpt',",
+    ].join('\n'));
+    const second = staticMetaModule([
+      "  'blog.article.shared.title': 'Svizzera title',",
+      "  'blog.article.other.title': 'Other title',",
+    ].join('\n'));
+
+    expect(readStaticMetaFieldEntries([
+      { source: first, sourcePath: 'blog-meta-it.ts' },
+      { source: second, sourcePath: 'blog-meta-ch-it.ts' },
+    ], 'title')).toEqual([
+      { id: 'shared', value: 'Frontaliere title' },
+      { id: 'shared', value: 'Svizzera title' },
+      { id: 'other', value: 'Other title' },
+    ]);
+  });
+
+  it('rejects a malformed later module instead of returning earlier entries', () => {
+    const valid = staticMetaModule("  'blog.article.valid.title': 'Valid title',");
+    const malformed = `${staticMetaModule("  'blog.article.valid.title': 'Valid title',")}\nconst broken = ;`;
+
+    expect(() => readStaticMetaFieldEntries([
+      { source: valid, sourcePath: 'blog-meta-it.ts' },
+      { source: malformed, sourcePath: 'blog-meta-ch-it.ts' },
+    ], 'title')).toThrow(/TypeScript syntax error.*blog-meta-ch-it\.ts/u);
+  });
+
+  it('fails closed on a dynamic value anywhere in a present metadata module', () => {
+    const source = staticMetaModule([
+      "  'blog.article.valid.title': 'Valid title',",
+      "  'blog.article.valid.excerpt': makeExcerpt(),",
+    ].join('\n'));
+
+    expect(() => readStaticMetaFieldEntries({ source, sourcePath: 'blog-meta-it.ts' }, 'title'))
+      .toThrow(/static string literal value/u);
+  });
+
+  it('allows callers to represent an intentionally missing module as no input', () => {
+    expect(readStaticMetaFieldEntries([], 'title')).toEqual([]);
+  });
+
+  it('projects multiple fields from the same ordered module entries', () => {
+    const source = staticMetaModule([
+      "  'blog.article.first.title': 'First title',",
+      "  'blog.article.first.excerpt': 'First excerpt',",
+      "  'blog.article.second.title': 'Second title',",
+      "  'blog.article.second.excerpt': 'Second excerpt',",
+    ].join('\n'));
+
+    expect(readStaticMetaFields({ source, sourcePath: 'blog-meta-it.ts' }, ['title', 'excerpt']))
+      .toEqual({
+        title: [
+          { id: 'first', value: 'First title' },
+          { id: 'second', value: 'Second title' },
+        ],
+        excerpt: [
+          { id: 'first', value: 'First excerpt' },
+          { id: 'second', value: 'Second excerpt' },
+        ],
+      });
   });
 });
 
