@@ -4,9 +4,9 @@
  * per-source slices (data/events/by-source/<key>.json) by `event.id`
  * (last-write-wins), then this SECOND pass collapses the same physical event
  * when two or more different sources (tio-agenda / guidle / myswitzerland)
- * index it independently under a different id — OR (issue #3744) when the
- * SAME source indexes its own event twice under a different raw id/URL, as
- * long as the two records also carry near-identical `geo` coordinates.
+ * index it independently under a different id — or when the SAME source
+ * emits an exact source-hash/payload duplicate without geo, or re-indexes the
+ * event under a different raw id/URL with near-identical geo coordinates.
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -224,14 +224,63 @@ describe('dedupeFuzzy', () => {
     expect(mergedAway).toBe(0);
   });
 
-  it('does NOT collapse a same-source collision without a geo match (only cross-source or geo-matched same-source groups are merged)', () => {
+  it('does NOT collapse a same-source generic collision without geo or exact payload evidence', () => {
     // Real observed shape: two DIFFERENT events from the same crawler share a
     // generic title and both region-resolved to the same fallback comune,
     // with no geo on either side. Merging these would silently drop a
     // genuine event, so a same-source group without a geo match is left
-    // untouched even when the fuzzy key collides.
+    // untouched even when the fuzzy key collides and no exact source payload hash is available.
     const first = ev({ id: 'tio-agenda:1', sourceKey: 'tio-agenda', venue: 'Piazza A' });
     const second = ev({ id: 'tio-agenda:2', sourceKey: 'tio-agenda', venue: 'Piazza B' });
+    const { events, mergedAway } = dedupeFuzzy([first, second]);
+    expect(events).toHaveLength(2);
+    expect(mergedAway).toBe(0);
+  });
+
+  it('collapses same-source records with the same source hash and identical payload without geo', () => {
+    const original = ev({
+      id: 'ge-agenda:escape-game-plein-vieille-ville',
+      sourceKey: 'ge-agenda',
+      title: 'Escape Game en plein air dans la Vieille Ville',
+      startDate: '2026-10-21',
+      endDate: '2026-10-25',
+      comune: 'Genève',
+      category: 'Animation',
+      price: { amount: 20, currency: 'CHF', isFree: false, url: 'https://www.alea-escape.com/' },
+      organizer: { '@type': 'Organization', name: 'Ville de Genève Agenda', url: 'https://www.geneve.ch/agenda' },
+      sourceDescriptionHash: 'same-source-description-hash',
+      url: 'https://www.geneve.ch/agenda/escape-game-plein-vieille-ville',
+    });
+    const duplicate = {
+      ...original,
+      id: 'ge-agenda:escape-game-plein-vieille-ville-0',
+      url: 'https://www.geneve.ch/agenda/escape-game-plein-vieille-ville-0',
+      previousRoutes: [{ canton: 'GE', comune: 'Genève', slug: 'escape-game-en-plein-air-dans-la-vieille-ville-2026-10-21-2' }],
+    };
+
+    const { events, mergedAway } = dedupeFuzzy([original, duplicate]);
+    expect(events).toHaveLength(1);
+    expect(mergedAway).toBe(1);
+    expect(events[0].id).toBe(original.id);
+    expect(events[0].previousRoutes?.map((route: { slug: string }) => route.slug)).toContain(
+      duplicate.previousRoutes[0].slug,
+    );
+  });
+
+  it('keeps a same-source hash collision separate when its structured payload differs', () => {
+    const first = ev({
+      id: 'ge-agenda:escape-game-plein-vieille-ville',
+      sourceKey: 'ge-agenda',
+      sourceDescriptionHash: 'same-source-description-hash',
+      url: 'https://www.geneve.ch/agenda/escape-game-plein-vieille-ville',
+    });
+    const second = ev({
+      ...first,
+      id: 'ge-agenda:escape-game-plein-vieille-ville-0',
+      url: 'https://www.geneve.ch/agenda/escape-game-plein-vieille-ville-0',
+      venue: 'Autre lieu',
+    });
+
     const { events, mergedAway } = dedupeFuzzy([first, second]);
     expect(events).toHaveLength(2);
     expect(mergedAway).toBe(0);

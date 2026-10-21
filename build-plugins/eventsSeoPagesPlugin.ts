@@ -3516,14 +3516,25 @@ interface EventDetailTitleSuffixCandidate {
   brandless?: string;
 }
 
+const EVENT_TITLE_LANGUAGE_QUALIFIER = /(\s+[—–-]\s+(?:en anglais|in english|auf englisch|en allemand|in german|auf deutsch|en français|in french|auf französisch|in italiano|in italian|auf italienisch))$/iu;
+
+function splitEventTitleLanguageQualifier(rawTitle: string): { title: string; qualifier: string } {
+  const title = String(rawTitle || '');
+  const match = EVENT_TITLE_LANGUAGE_QUALIFIER.exec(title);
+  if (!match || match.index === undefined) return { title, qualifier: '' };
+  return { title: title.slice(0, match.index).trimEnd(), qualifier: match[1] };
+}
+
 function eventDetailMetaTitle(
   rawTitle: string,
   suffixes: readonly string[],
   dateToken = '',
   preferBrandSuffix = false,
 ): string {
+  const { title: completeTitle, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const qualifiedSuffixes = suffixes.map((suffix) => `${qualifier}${suffix}`);
   const suffixCandidates: EventDetailTitleSuffixCandidate[] = dateToken
-    ? suffixes.flatMap((suffix) => {
+    ? qualifiedSuffixes.flatMap((suffix) => {
       const candidates: Array<{ suffix: string; brandless?: string }> = [
         { suffix: `${suffix} · ${dateToken}` },
       ];
@@ -3542,11 +3553,11 @@ function eventDetailMetaTitle(
       if (brandless !== suffix) candidates.push({ suffix: brandless });
       return candidates;
     })
-    : suffixes.map((suffix) => ({ suffix }));
+    : qualifiedSuffixes.map((suffix) => ({ suffix }));
   // Keep the most descriptive suffix unless it leaves only the minimum
   // title fragment. In that near-zero case, prefer a later candidate that fits the
   // complete event title; the cascade reaches a place-only fallback first.
-  const rawTitleBudget = esc(rawTitle).length;
+  const rawTitleBudget = esc(completeTitle).length;
   const firstMeaningful = suffixCandidates.find(
     ({ suffix }) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= MIN_DETAIL_TITLE_BUDGET,
   );
@@ -3570,9 +3581,9 @@ function eventDetailMetaTitle(
     }
   }
   const budget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length);
-  let title = rawTitle;
+  let title = completeTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
-    title = truncateHeadline(rawTitle, max);
+    title = truncateHeadline(completeTitle, max);
   }
   const composed = `${title}${suffix}`;
   if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
@@ -3607,9 +3618,10 @@ const EVENT_H1_MAX_CHARS = 100;
  * intact unless the combined heading would become an unusable wall of text. */
 function eventDetailHeading(rawTitle: string, dateToken: string, comune: string): string {
   const suffix = ` — ${comune}${dateToken ? ` · ${dateToken}` : ''}`;
-  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length);
-  const visibleTitle = rawTitle.length > titleBudget ? truncateHeadline(rawTitle, titleBudget) : rawTitle;
-  return `${visibleTitle}${suffix}`;
+  const { title, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length - qualifier.length);
+  const visibleTitle = title.length > titleBudget ? truncateHeadline(title, titleBudget) : title;
+  return `${visibleTitle}${qualifier}${suffix}`;
 }
 
 /** Per-locale event-detail `<title>` suffix templates (comune + region +
