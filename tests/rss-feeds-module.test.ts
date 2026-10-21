@@ -64,22 +64,24 @@ function makeFixture(): string {
   for (const locale of ['it', 'en', 'de', 'fr']) {
     fs.writeFileSync(
       path.join(root, 'locales', section.metaFile(locale)),
-      `const meta = {
+      `const meta: Record<string, string> = {
  'blog.article.alpha.title': 'Alpha ${locale}',
  'blog.article.alpha.excerpt': 'Alpha excerpt ${locale}',
  'blog.article.beta.title': 'Beta ${locale}',
  'blog.article.beta.excerpt': 'Beta excerpt ${locale}',
 };
+export default meta;
 `,
     );
     const bodyDir = path.join(root, 'locales', section.bodyDir, locale);
     fs.mkdirSync(bodyDir, { recursive: true });
     fs.writeFileSync(
       path.join(bodyDir, 'alpha.ts'),
-      'export default { ' +
-        "'blog.article.alpha.body1': `Alpha body text in " +
-        locale +
-        ', long enough to clear the fifty character minimum.` };\n',
+      `const body: Record<string, string> = {
+ 'blog.article.alpha.body1': 'Alpha body text in ${locale}, long enough to clear the fifty character minimum.',
+};
+export default body;
+`,
     );
   }
 
@@ -256,18 +258,20 @@ describe('packages/articles/engine/rssFeeds', () => {
       {
         locale: 'it',
         source: [
-          'export default {',
+          'const body: Record<string, string> = {',
           "  'blog.article.alpha.body1': 'L\\'Italia usa `code` e il percorso C:\\\\docs dentro questo corpo RSS abbastanza lungo da superare il limite.',",
           '};',
+          'export default body;',
         ].join('\n'),
         expected: "L'Italia usa `code` e il percorso C:\\docs dentro questo corpo RSS abbastanza lungo da superare il limite.",
       },
       {
         locale: 'en',
         source: [
-          'export default {',
+          'const body: Record<string, string> = {',
           "  'blog.article.alpha.body1': `dell\\'Italia usa \\`code\\` dentro questo corpo RSS abbastanza lungo da superare il limite.`,",
           '};',
+          'export default body;',
         ].join('\n'),
         expected: "dell'Italia usa `code` dentro questo corpo RSS abbastanza lungo da superare il limite.",
       },
@@ -328,10 +332,13 @@ describe('packages/articles/engine/rssFeeds', () => {
     const source = [
       '// `comment ${notCode}`',
       '/* `comment ${notCode}` */',
-      "const single = '${ordinaryText}';",
-      'const double = "${ordinaryText}";',
-      `const staticTemplate = \`escaped ${escapedMarker}\`;`,
-      `export default { 'blog.article.alpha.body1': \`Alpha ${escapedMarker} remains available as static body text.\` };`,
+      'const translations: Record<string, string> = {',
+      "  'single': '${ordinaryText}',",
+      '  "double": "${ordinaryText}",',
+      `  'staticTemplate': \`escaped ${escapedMarker}\`,`,
+      `  'blog.article.alpha.body1': \`Alpha ${escapedMarker} remains available as static body text.\`,`,
+      '};',
+      'export default translations;',
     ].join('\n');
     fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
 

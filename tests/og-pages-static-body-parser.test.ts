@@ -10,6 +10,7 @@ function sourceWith(value: string): string {
     'const body: Record<string, string> = {',
     `  'blog.article.${ARTICLE_ID}.body1': '${value}',`,
     '};',
+    'export default body;',
   ].join('\n');
 }
 
@@ -31,17 +32,19 @@ describe('og article static body parser', () => {
       'const body: Record<string, string> = {',
       `  'blog.article.${ARTICLE_ID}.body1': 'rendered',`,
       '};',
+      'export default body;',
     ].join('\n');
     const dynamicAfter = [
       'const body: Record<string, string> = {',
       `  'blog.article.${ARTICLE_ID}.body1': 'rendered',`,
       '};',
+      'export default body;',
       'const unrelated = `ignored ${runtimeValue}`;',
     ].join('\n');
 
     for (const source of [dynamicBefore, dynamicAfter]) {
       expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-        .toThrow(/Interpolated template literal is not static article data/);
+        .toThrow(/Interpolated template literal is not supported in static article data/);
     }
   });
 
@@ -49,10 +52,13 @@ describe('og article static body parser', () => {
     const source = [
       '// `comment ${notCode}`',
       '/* `comment ${notCode}` */',
-      'const single = \'${ordinaryText}\';',
-      'const double = "${ordinaryText}";',
-      'const escaped = `literal \\${notInterpolation}`;',
-      `const article = { 'blog.article.${ARTICLE_ID}.body1': 'rendered' };`,
+      'const article: Record<string, string> = {',
+      '  "single": \'${ordinaryText}\',',
+      '  "double": "${ordinaryText}",',
+      '  "escaped": `literal \\${notInterpolation}`,',
+      `  'blog.article.${ARTICLE_ID}.body1': 'rendered',`,
+      '};',
+      'export default article;',
     ].join('\n');
 
     expect(parseStaticBlogBodySource(source, SOURCE_PATH)[ARTICLE_ID].body1).toBe('rendered');
@@ -65,7 +71,7 @@ describe('og article static body parser', () => {
     ].join(' ');
 
     expect(() => parseStaticBlogBodySource(source, 'packages/articles/content/blog-body/fr/article-id.ts'))
-      .toThrow(/Interpolated template literal is not static article data/);
+      .toThrow(/Interpolated template literal is not supported in static article data/);
   });
 
   it('fails before nested regex templates can expose fake article keys', () => {
@@ -75,7 +81,7 @@ describe('og article static body parser', () => {
     ].join(' ');
 
     expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-      .toThrow(/Interpolated template literal is not static article data/);
+      .toThrow(/Interpolated template literal is not supported in static article data/);
   });
 
   it('rejects a dynamic article key instead of extracting a partial body', () => {
@@ -86,7 +92,7 @@ describe('og article static body parser', () => {
     ].join('\n');
 
     expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-      .toThrow(/Interpolated template literal is not static article data/);
+      .toThrow(/Interpolated template literal is not supported in static article data/);
   });
 
   it('still rejects an interpolated template used as article data', () => {
@@ -94,9 +100,10 @@ describe('og article static body parser', () => {
       'const body: Record<string, string> = {',
       `  'blog.article.${ARTICLE_ID}.body1': ` + '`runtime ${runtimeValue}`,',
       '};',
+      'export default body;',
     ].join('\n');
 
     expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
-      .toThrow(/Interpolated template literal is not static article data/);
+      .toThrow(/Interpolated template literal is not supported in static article data/);
   });
 });
