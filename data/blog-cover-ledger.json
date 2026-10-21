@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 727,
+      "5": 728,
       "6": 5054
     },
-    "publishedCovers": 7464,
+    "publishedCovers": 7465,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204698,6 +204698,39 @@
         "provider": "openai-codex",
         "assetId": "article-collegio-longueville-cantiere-colombier",
         "imageUrl": "/images/blog/article-collegio-longueville-cantiere-colombier.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-frontalieri-luino-incontro-fisco-previdenza-sanita": {
+      "cover": "/images/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.webp",
+      "hash": "532f37e2d8eb54d6c4678626f73ce763e016f46aabfa19a379fd4a23968e3270",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "frontalieri-luino-incontro-fisco-previdenza-sanita",
+          "category": "fiscale",
+          "date": "2026-10-21T09:25:13.625Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-frontalieri-luino-incontro-fisco-previdenza-sanita",
+        "imageUrl": "/images/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.webp",
         "evidence": "generated-engine-record"
       }
     }

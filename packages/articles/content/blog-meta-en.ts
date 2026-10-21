@@ -13549,6 +13549,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.negozio-ticino-fisco-frontiere.title': 'Frontier shop manager in Ticino: salary',
     'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Tax at source only in Switzerland, new agreement in force from 1 January 2024 and AVS, AD/AC and LPP contributions: the framework for the border crossing.',
     'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.title': 'Cross-Border Workers Meet: Tax, Social Security & Health',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.excerpt': 'Saturday, October 24, meeting at Palazzo Verbania Three sessions on tax, health and social security Reception from 9.30; proceedings at 10 Free admission',
+    'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;

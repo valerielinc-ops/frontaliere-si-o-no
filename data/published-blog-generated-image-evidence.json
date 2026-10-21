@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "bf6075bcc6fa288684b502ac6d672e0ccd6133f8",
+  "commit": "d644b77f29000decb553080c65a740a293045825",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -32344,6 +32344,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic construction-site illustration with no text, logos, or people."
+      }
+    },
+    "/images/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.webp": {
+      "schema": 1,
+      "assetId": "article-frontalieri-luino-incontro-fisco-previdenza-sanita",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "684d9ad68aeecebef9fbbee145bbb82f1bc77e0cedf2448a293754f9c884ea21",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "532f37e2d8eb54d6c4678626f73ce763e016f46aabfa19a379fd4a23968e3270",
+      "bytes": 110818,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-21T09:24:54.515Z",
+      "verifiedAt": "2026-10-21T09:25:12.877Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-frontalieri-luino-incontro-fisco-previdenza-sanita.webp",
+      "area": "Ticino e pendolarismo transfrontaliero",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic, photorealistic lake-and-ferry scene with no people, text, logos, or event-specific cues."
       }
     },
     "/images/places/lugano-view.webp": {
