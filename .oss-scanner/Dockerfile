@@ -1,7 +1,10 @@
 FROM node:22-bookworm
 
+# The OSS Scanner builder exposes about 16 GiB RAM plus 3 GiB swap. The normal
+# fast-build heap exceeds that host's safe capacity, so use the CI-sized cap.
 ENV DEBIAN_FRONTEND=noninteractive \
-    CI=1
+    CI=1 \
+    FRONTALIERE_BUILD_MAX_OLD_SPACE_SIZE=14336
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ca-certificates git build-essential python3 \
