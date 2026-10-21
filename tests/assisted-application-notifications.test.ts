@@ -303,6 +303,11 @@ describe('pending-payment recovery digest', () => {
       jobTitle: 'Addetto/a vendite',
       companyLogo: 'https://cdn.example.test/logos/clinica.png',
       location: 'Lugano',
+      contract: 'full-time',
+      salaryMin: 75000,
+      salaryMax: 90000,
+      salaryCurrency: 'CHF',
+      baseSalary: { currency: 'CHF', value: { minValue: 75000, maxValue: 90000, unitText: 'YEAR' } },
       createdAt: new Date(NOW - 4 * HOUR),
     });
     const second = paidOrder({
@@ -324,6 +329,9 @@ describe('pending-payment recovery digest', () => {
     expect(email.html).toContain('#0f172a');
     expect(email.html).toContain('https://cdn.example.test/logos/clinica.png');
     expect(email.html).toContain('Lugano');
+    expect(email.html).toContain('CHF 75K–90K/anno');
+    expect(email.html).toContain('Tempo pieno');
+    expect(email.html).toContain('rgba(59,130,246,0.18)');
     expect(email.html).toContain('background:#1e293b');
     expect(email.text).toContain('pending-1');
     expect(email.text).toContain('pending-2');
