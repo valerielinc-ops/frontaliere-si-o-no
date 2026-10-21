@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   isKnownDeadJobDestination,
+  normalizeExternalJobDetailUrl,
   resolveJobApplicationUrl,
 } from '../services/jobApplicationDestination';
 
@@ -47,16 +48,10 @@ describe('job application destination fallback', () => {
     expect(resolveJobApplicationUrl({ applyUrl: url, url: 'https://careers.example.com/jobs/123' })).toBe(url);
   });
 
-  it('normalizes Career Site Builder job-detail routes across employer domains and keeps tracking params', () => {
+  it('normalizes the verified Hermes job-detail route and keeps tracking params', () => {
     expect(resolveJobApplicationUrl({
       applyUrl: 'https://talents.hermes.com/en/sites/CX/jobs/23993/?utm_source=frontaliereticino&utm_campaign=job-board',
     })).toBe('https://talents.hermes.com/en/sites/CX/job/23993?utm_source=frontaliereticino&utm_campaign=job-board');
-    expect(resolveJobApplicationUrl({
-      applyUrl: 'https://careers.example.com/en/sites/CX_12001/jobs/12345/',
-    })).toBe('https://careers.example.com/en/sites/CX_12001/job/12345');
-    expect(resolveJobApplicationUrl({
-      url: 'https://careers.example.com/en/sites/CX_12001/jobs/67890/',
-    })).toBe('https://careers.example.com/en/sites/CX_12001/job/67890');
   });
 
   it('leaves unrelated external URL shapes unchanged', () => {
@@ -69,5 +64,9 @@ describe('job application destination fallback', () => {
     for (const url of urls) {
       expect(resolveJobApplicationUrl({ applyUrl: url })).toBe(url);
     }
+
+    const unrelatedAtsUrl = 'https://other.example/sites/acme/jobs/123?utm_source=x';
+    expect(normalizeExternalJobDetailUrl(unrelatedAtsUrl)).toBe(unrelatedAtsUrl);
+    expect(resolveJobApplicationUrl({ applyUrl: unrelatedAtsUrl })).toBe(unrelatedAtsUrl);
   });
 });
