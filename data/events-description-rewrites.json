@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-21T12:36:56.565Z",
+  "generatedAt": "2026-10-21T13:25:50.715Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -18304,6 +18304,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T07:28:56.830Z"
     },
+    "guidle:A8hVsPg::56930bfd2ca76a089a4ef675334485f811c3480ff2e31f206b74341326be35ca": {
+      "id": "guidle:A8hVsPg",
+      "sourceDescriptionHash": "56930bfd2ca76a089a4ef675334485f811c3480ff2e31f206b74341326be35ca",
+      "description": "Giulia Dabalà è una cantante e produttrice svizzero-italiana. L’appuntamento al Burghof Lörrach rientra nel pop e accosta elementi sperimentali a sonorità elettroniche e influenze art-pop contemporanee.",
+      "descriptionByLocale": {
+        "it": "Giulia Dabalà è una cantante e produttrice svizzero-italiana. L’appuntamento al Burghof Lörrach rientra nel pop e accosta elementi sperimentali a sonorità elettroniche e influenze art-pop contemporanee.",
+        "en": "Giulia Dabalà is a Swiss-Italian singer and producer. The event at Burghof Lörrach is rooted in pop and combines experimental elements with electronic sounds and contemporary art-pop influences.",
+        "de": "Giulia Dabalà ist eine schweizerisch-italienische Sängerin und Produzentin. Die Veranstaltung im Burghof Lörrach ist dem Pop zugeordnet und verbindet experimentelle Ansätze mit elektronischen Klängen und zeitgenössischen Art-Pop-Einflüssen.",
+        "fr": "Giulia Dabalà est une chanteuse et productrice helvético-italienne. Le rendez-vous au Burghof Lörrach s’inscrit dans la pop et associe des éléments expérimentaux à des sonorités électroniques et à des influences d’art-pop contemporain."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:20:52.251Z"
+    },
     "guidle:A8i91gY::c1231bd4400aa7234e6bf2e21302cc8c8710c60ab2567d05345275645a7f9607": {
       "id": "guidle:A8i91gY",
       "sourceDescriptionHash": "c1231bd4400aa7234e6bf2e21302cc8c8710c60ab2567d05345275645a7f9607",
@@ -18556,6 +18570,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-21T12:26:40.827Z"
     },
+    "guidle:A8wScEw::c83512af8ebf0139d32dc7a1b607be5337ca9a4f99a18d77500e4ddeb0e2886b": {
+      "id": "guidle:A8wScEw",
+      "sourceDescriptionHash": "c83512af8ebf0139d32dc7a1b607be5337ca9a4f99a18d77500e4ddeb0e2886b",
+      "description": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Burghof Lörrach.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Burghof Lörrach.",
+        "en": "The event brings together selected moments from more than 20 musicals. The performance is held at Burghof Lörrach.",
+        "de": "Die Veranstaltung bündelt ausgewählte Höhepunkte aus mehr als 20 Musicals. Sie findet im Burghof Lörrach statt.",
+        "fr": "Le rendez-vous propose une sélection de moments issus de plus de 20 comédies musicales. La représentation a lieu au Burghof Lörrach."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:21:37.426Z"
+    },
     "guidle:A8Ya1qR::644ab9cb2eef072f3c1f6f66395d51665b01ada0d4e856e83e30755c182fefef": {
       "id": "guidle:A8Ya1qR",
       "sourceDescriptionHash": "644ab9cb2eef072f3c1f6f66395d51665b01ada0d4e856e83e30755c182fefef",
@@ -18807,6 +18835,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T18:40:43.861Z"
+    },
+    "guidle:A9MmsSV::bfd5321a2267c352fb0a15e76b67c6fd5358d5856bd54bcc460d29bbf1a4ddff": {
+      "id": "guidle:A9MmsSV",
+      "sourceDescriptionHash": "bfd5321a2267c352fb0a15e76b67c6fd5358d5856bd54bcc460d29bbf1a4ddff",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alhambra; cantone: GE; categoria: A cappella; organizzatore: Guidle; partecipante: Laboratorium Piesni; data: 2027-03-07; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Alhambra; cantone: GE; categoria: A cappella; organizzatore: Guidle; partecipante: Laboratorium Piesni; data: 2027-03-07; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Alhambra; canton: GE; category: A cappella; organiser: Guidle; participant: Laboratorium Piesni; date: 2027-03-07; time: 19:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Alhambra; kanton: GE; kategorie: A cappella; veranstalter: Guidle; mitwirkender: Laboratorium Piesni; datum: 2027-03-07; uhrzeit: 19:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Alhambra; canton: GE; catégorie: A cappella; organisateur: Guidle; participant: Laboratorium Piesni; date: 2027-03-07; heure: 19:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:17:38.766Z"
     },
     "guidle:A9MuRYp::3e80681b160d98695f45d4c446549c1eb2573d1de4768b0f5ace5d1ecdc9d03f": {
       "id": "guidle:A9MuRYp",
@@ -20782,6 +20824,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-18T08:16:25.988Z"
     },
+    "guidle:ABtKsVu::716c49d93db39dccbf85e874ae0f92c0fd7a5bce6926f2a09006558d4521f11b": {
+      "id": "guidle:ABtKsVu",
+      "sourceDescriptionHash": "716c49d93db39dccbf85e874ae0f92c0fd7a5bce6926f2a09006558d4521f11b",
+      "description": "Remo Forrer è al centro di un appuntamento musicale di genere pop. L’evento si svolge al Kaufleuten e ha Guidle come organizzatore.",
+      "descriptionByLocale": {
+        "it": "Remo Forrer è al centro di un appuntamento musicale di genere pop. L’evento si svolge al Kaufleuten e ha Guidle come organizzatore.",
+        "en": "Remo Forrer is the focus of this pop music event. It takes place at Kaufleuten and is organized by Guidle.",
+        "de": "Remo Forrer steht im Mittelpunkt dieser Popveranstaltung. Der Anlass findet im Kaufleuten statt und wird von Guidle organisiert.",
+        "fr": "Remo Forrer est au centre de ce rendez-vous musical de catégorie pop. L’événement se déroule au Kaufleuten et est organisé par Guidle."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:20:40.753Z"
+    },
     "guidle:ABtQbSi::0372ef09a9405661b0eba00eefcf77de46960534032b2f4993ef20cc121fede1": {
       "id": "guidle:ABtQbSi",
       "sourceDescriptionHash": "0372ef09a9405661b0eba00eefcf77de46960534032b2f4993ef20cc121fede1",
@@ -21873,6 +21929,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T01:14:00.961Z"
+    },
+    "guidle:ACM1pY2::3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a": {
+      "id": "guidle:ACM1pY2",
+      "sourceDescriptionHash": "3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a",
+      "description": "L’evento di musica pop è associato a Grüezi Italia. Si tiene al KKThun di Thun e il prezzo indicato è di 2 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop è associato a Grüezi Italia. Si tiene al KKThun di Thun e il prezzo indicato è di 2 CHF.",
+        "en": "This pop music event features Grüezi Italia. It takes place at KKThun in Thun, and the listed price is CHF 2.",
+        "de": "Bei der Popmusik-Veranstaltung tritt Grüezi Italia auf. Der Veranstaltungsort ist das KKThun in Thun; der angegebene Preis beträgt 2 CHF.",
+        "fr": "Cet événement de musique pop est associé à Grüezi Italia. Il a lieu au KKThun, à Thun, et le prix indiqué est de 2 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:19:28.913Z"
     },
     "guidle:ACM6e5R::b1fbd7a7b60aa838bb6dbe6be4c63c722ee0e783431a2687ea7f51ee430ec88f": {
       "id": "guidle:ACM6e5R",
@@ -25023,6 +25093,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-13T21:51:42.017Z"
+    },
+    "guidle:AF6FDwU::a78e522a6489322c55bfd5aafcb9c2ee13703a5d5d79d043d6c90f554eedfc5d": {
+      "id": "guidle:AF6FDwU",
+      "sourceDescriptionHash": "a78e522a6489322c55bfd5aafcb9c2ee13703a5d5d79d043d6c90f554eedfc5d",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Salzhaus; comune: Winterthur; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Stiu, Kurds; data: 2027-03-10; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Salzhaus; comune: Winterthur; cantone: ZH; categoria: Pop generalmente; organizzatore: Guidle; partecipante: Stiu, Kurds; data: 2027-03-10; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Salzhaus; municipality: Winterthur; canton: ZH; category: Pop generalmente; organiser: Guidle; participant: Stiu, Kurds; date: 2027-03-10; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Salzhaus; gemeinde: Winterthur; kanton: ZH; kategorie: Pop generalmente; veranstalter: Guidle; mitwirkender: Stiu, Kurds; datum: 2027-03-10; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Salzhaus; commune: Winterthur; canton: ZH; catégorie: Pop generalmente; organisateur: Guidle; participant: Stiu, Kurds; date: 2027-03-10; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:17:38.778Z"
     },
     "guidle:AF71QHf::34c2e5d2d710a71baac7e2818c601fa53ad1d7335ce737622a44270fd405d427": {
       "id": "guidle:AF71QHf",
@@ -28747,6 +28831,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:02:46.466Z"
+    },
+    "guidle:AJ2NfJ8::c142e01a58490799efc4f43e273757959f43429b9eefafea2cff149494e7035b": {
+      "id": "guidle:AJ2NfJ8",
+      "sourceDescriptionHash": "c142e01a58490799efc4f43e273757959f43429b9eefafea2cff149494e7035b",
+      "description": "L’evento jazz al Theater Lindau presenta Rebecca Trescher Tentett. Il Jazzclub Lindau è coinvolto come partner della collaborazione.",
+      "descriptionByLocale": {
+        "it": "L’evento jazz al Theater Lindau presenta Rebecca Trescher Tentett. Il Jazzclub Lindau è coinvolto come partner della collaborazione.",
+        "en": "The jazz event at Theater Lindau features Rebecca Trescher Tentett. Jazzclub Lindau is involved as a cooperation partner.",
+        "de": "Bei der Jazzveranstaltung im Theater Lindau tritt das Rebecca Trescher Tentett auf. Der Jazzclub Lindau ist als Kooperationspartner eingebunden.",
+        "fr": "Le rendez-vous de jazz au Theater Lindau accueille Rebecca Trescher Tentett. Le Jazzclub Lindau est associé à la collaboration."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:18:28.462Z"
     },
     "guidle:Aj2X7hE::1d1dac7678c74ba9aecccb606553dc5f0c4fa6fd110ef4751e83e11093265ada": {
       "id": "guidle:Aj2X7hE",
@@ -34320,6 +34418,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-15T12:42:09.964Z"
     },
+    "guidle:APd17i8::4f434b1e10ba2222c58ca43eb4dace522d551c983af152d6482cf5150e2d5dc5": {
+      "id": "guidle:APd17i8",
+      "sourceDescriptionHash": "4f434b1e10ba2222c58ca43eb4dace522d551c983af152d6482cf5150e2d5dc5",
+      "description": "Un percorso musicale all’Ortsmuseum Küsnacht accompagna le spiegazioni con canti classici e nuovi modi di avvicinarsi alle opere esposte. L’evento è classificato nella categoria della musica di altro genere.",
+      "descriptionByLocale": {
+        "it": "Un percorso musicale all’Ortsmuseum Küsnacht accompagna le spiegazioni con canti classici e nuovi modi di avvicinarsi alle opere esposte. L’evento è classificato nella categoria della musica di altro genere.",
+        "en": "A musical tour at Ortsmuseum Küsnacht combines explanations with classical songs and new ways of approaching the exhibited works. The event is classified as other music.",
+        "de": "Die Führung im Ortsmuseum Küsnacht verknüpft Erläuterungen mit klassischem Liedrepertoire. Sie eröffnet zusätzliche Zugänge zu den ausgestellten Werken.",
+        "fr": "Une visite musicale à l’Ortsmuseum Küsnacht associe des explications, des chants classiques et de nouvelles manières d’aborder les œuvres exposées. L’événement relève de la catégorie des autres musiques."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:18:28.473Z"
+    },
     "guidle:APDXBcD::dafa8ac9b40cd78e9233acff14fe19f21260b0d4d0a2af8d3975d6e87687ca89": {
       "id": "guidle:APDXBcD",
       "sourceDescriptionHash": "dafa8ac9b40cd78e9233acff14fe19f21260b0d4d0a2af8d3975d6e87687ca89",
@@ -34403,6 +34515,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T14:17:15.348Z"
+    },
+    "guidle:ApH2SRb::955b489ab91c7ab21733ada4bf905d3a4caf95c6a273f5bb50a778c46359335c": {
+      "id": "guidle:ApH2SRb",
+      "sourceDescriptionHash": "955b489ab91c7ab21733ada4bf905d3a4caf95c6a273f5bb50a778c46359335c",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater Winterthur; comune: Winterthur; cantone: ZH; categoria: Musical; organizzatore: Guidle; data: 2027-03-17; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Theater Winterthur; comune: Winterthur; cantone: ZH; categoria: Musical; organizzatore: Guidle; data: 2027-03-17; ora: 19:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Theater Winterthur; municipality: Winterthur; canton: ZH; category: Musical; organiser: Guidle; date: 2027-03-17; time: 19:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Theater Winterthur; gemeinde: Winterthur; kanton: ZH; kategorie: Musical; veranstalter: Guidle; datum: 2027-03-17; uhrzeit: 19:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Theater Winterthur; commune: Winterthur; canton: ZH; catégorie: Musical; organisateur: Guidle; date: 2027-03-17; heure: 19:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:16:19.926Z"
     },
     "guidle:ApHEgwB::175cef82a7053baf4ee82f116240b0a34bf977df5f4af9d8fd09e72eeeafc209": {
       "id": "guidle:ApHEgwB",
@@ -34963,6 +35089,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-14T06:37:22.901Z"
+    },
+    "guidle:ApysSQn::33eec160d7e65d93e0e45c3bfb98e120fcc9f42abdecd90d16486a32e6901306": {
+      "id": "guidle:ApysSQn",
+      "sourceDescriptionHash": "33eec160d7e65d93e0e45c3bfb98e120fcc9f42abdecd90d16486a32e6901306",
+      "description": "Il concerto alla Z7 Konzertfabrik Pratteln combina elementi del folk tradizionale con sonorità rock moderne. Il programma comprende anche nuovi canti marinareschi.",
+      "descriptionByLocale": {
+        "it": "Il concerto alla Z7 Konzertfabrik Pratteln combina elementi del folk tradizionale con sonorità rock moderne. Il programma comprende anche nuovi canti marinareschi.",
+        "en": "At Z7 Konzertfabrik Pratteln, the concert combines traditional folk with modern rock sounds. The programme also includes new seafaring songs.",
+        "de": "Das Konzert in der Z7 Konzertfabrik Pratteln verbindet traditionellen Folk mit modernen Rockklängen. Zum Programm gehören außerdem neue Seemannslieder.",
+        "fr": "Le concert à la Z7 Konzertfabrik Pratteln associe le folk traditionnel à des sonorités rock modernes. Il comprend également de nouveaux chants marins."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:20:25.549Z"
     },
     "guidle:AQ1Jpwp::1165bf1a07e7cbaaa636b34a4f87a993ef7bbe04c16a5d1e9647b56f900afd64": {
       "id": "guidle:AQ1Jpwp",
@@ -36000,6 +36140,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T09:33:04.147Z"
     },
+    "guidle:AQYrckg::c9beb69923b5b2a31bae611a06c60cf07285a95c3776bb17da671e039c21239b": {
+      "id": "guidle:AQYrckg",
+      "sourceDescriptionHash": "c9beb69923b5b2a31bae611a06c60cf07285a95c3776bb17da671e039c21239b",
+      "description": "L’appuntamento propone uno spettacolo tributo dedicato a Phil Collins e ai Genesis. La serata si svolge al Volkshaus Zürich, nella città di Zurigo.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone uno spettacolo tributo dedicato a Phil Collins e ai Genesis. La serata si svolge al Volkshaus Zürich, nella città di Zurigo.",
+        "en": "The event presents a tribute show dedicated to Phil Collins and Genesis. It takes place at Volkshaus Zürich in Zürich.",
+        "de": "Bei dieser Tribute-Show steht die Musik von Phil Collins und Genesis im Mittelpunkt. Die Veranstaltung findet im Volkshaus Zürich in Zürich statt.",
+        "fr": "Ce spectacle propose un hommage musical à Phil Collins et à Genesis. Il se déroule au Volkshaus Zürich, à Zurich."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:19:51.813Z"
+    },
     "guidle:Ar1Jgi9::b30c4e0e8a9a5a4d7ca02c3e4c5b2fe89e4b143bf5e3815754174ede10ee565b": {
       "id": "guidle:Ar1Jgi9",
       "sourceDescriptionHash": "b30c4e0e8a9a5a4d7ca02c3e4c5b2fe89e4b143bf5e3815754174ede10ee565b",
@@ -36867,6 +37021,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T17:24:26.268Z"
+    },
+    "guidle:ArtDucm::3624f2c7546215ca756276626656d6619ccd9e6135a82bc11ddff2866432eac3": {
+      "id": "guidle:ArtDucm",
+      "sourceDescriptionHash": "3624f2c7546215ca756276626656d6619ccd9e6135a82bc11ddff2866432eac3",
+      "description": "THÉA è un appuntamento musicale all’Alhambra. Il programma propone un concerto di THÉA.",
+      "descriptionByLocale": {
+        "it": "THÉA è un appuntamento musicale all’Alhambra. Il programma propone un concerto di THÉA.",
+        "en": "THÉA is a music event at Alhambra. The programme features a concert by THÉA.",
+        "de": "THÉA ist eine Musikveranstaltung im Alhambra. Vorgesehen ist ein Konzert mit THÉA.",
+        "fr": "THÉA est un rendez-vous musical à l’Alhambra. La programmation comprend un concert de THÉA."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:16:51.235Z"
     },
     "guidle:ARU4Pxx::744b3a67f9141fd2429b49420bb4c8d0597beece5e73c5d342f8b7eb72fa1906": {
       "id": "guidle:ARU4Pxx",
@@ -39752,6 +39920,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-15T15:14:32.731Z"
     },
+    "guidle:AUc6B7s::0b004b1645b4a5d0bc7ea8c229ce2f0c717e813d10b0e690b55eabc5a91d16b6": {
+      "id": "guidle:AUc6B7s",
+      "sourceDescriptionHash": "0b004b1645b4a5d0bc7ea8c229ce2f0c717e813d10b0e690b55eabc5a91d16b6",
+      "description": "L’evento è un appuntamento blues al Restaurant Landhaus Liebefeld. Il programma presenta Philipp Fankhauser nell’ambito di un tour dedicato ai quarant’anni di attività sul palco.",
+      "descriptionByLocale": {
+        "it": "L’evento è un appuntamento blues al Restaurant Landhaus Liebefeld. Il programma presenta Philipp Fankhauser nell’ambito di un tour dedicato ai quarant’anni di attività sul palco.",
+        "en": "This blues event takes place at Restaurant Landhaus Liebefeld. It features Philipp Fankhauser as part of a tour marking forty years on stage.",
+        "de": "Die Bluesveranstaltung findet im Restaurant Landhaus Liebefeld statt. Sie gehört zu einer Tournee mit Philipp Fankhauser, die vierzig Jahre auf der Bühne thematisiert.",
+        "fr": "Cette manifestation de blues a lieu au Restaurant Landhaus Liebefeld. Elle s’inscrit dans une tournée de Philipp Fankhauser consacrée à quarante années sur scène."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:16:51.245Z"
+    },
     "guidle:AucHQq1::f64411334ce36d4941ca5e58ded234fa961967e79bc5ab1d538bcc91456a3db1": {
       "id": "guidle:AucHQq1",
       "sourceDescriptionHash": "f64411334ce36d4941ca5e58ded234fa961967e79bc5ab1d538bcc91456a3db1",
@@ -39989,6 +40171,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T11:14:03.032Z"
+    },
+    "guidle:AUJHr3Q::c83512af8ebf0139d32dc7a1b607be5337ca9a4f99a18d77500e4ddeb0e2886b": {
+      "id": "guidle:AUJHr3Q",
+      "sourceDescriptionHash": "c83512af8ebf0139d32dc7a1b607be5337ca9a4f99a18d77500e4ddeb0e2886b",
+      "description": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Milchwerk Radolfzell.",
+      "descriptionByLocale": {
+        "it": "L’evento presenta una selezione di momenti tratti da oltre 20 musical. La rappresentazione è ospitata dal Milchwerk Radolfzell.",
+        "en": "The event brings together selected moments from more than 20 musicals. The performance is held at Milchwerk Radolfzell.",
+        "de": "Die Veranstaltung bündelt ausgewählte Höhepunkte aus mehr als 20 Musicals. Sie findet im Milchwerk Radolfzell statt.",
+        "fr": "Le rendez-vous propose une sélection de moments issus de plus de 20 comédies musicales. La représentation a lieu au Milchwerk Radolfzell."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:21:37.414Z"
     },
     "guidle:AUJN9NJ::b247d324ed5c9a2dea68acef73536db089a4cf2dd21459f31a7a3f397dfc1251": {
       "id": "guidle:AUJN9NJ",
@@ -46205,6 +46401,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T16:19:16.741Z"
+    },
+    "lu-stadt-agenda:7626901::cac4979fcee407a7ded4389ac094a1a7a72123afa67ffbc122a44adf847d42e6": {
+      "id": "lu-stadt-agenda:7626901",
+      "sourceDescriptionHash": "cac4979fcee407a7ded4389ac094a1a7a72123afa67ffbc122a44adf847d42e6",
+      "description": "A Lucerna, questa mostra esamina la notte da diverse prospettive e considera l’influenza dell’illuminazione crescente sugli animali e sulle persone. Il programma di accompagnamento comprende un incontro inaugurale, osservazioni del cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione urbana.",
+      "descriptionByLocale": {
+        "it": "A Lucerna, questa mostra esamina la notte da diverse prospettive e considera l’influenza dell’illuminazione crescente sugli animali e sulle persone. Il programma di accompagnamento comprende un incontro inaugurale, osservazioni del cielo stellato, un’escursione dedicata ai pipistrelli e un percorso sull’illuminazione urbana.",
+        "en": "In Luzern, this exhibition explores the night from different perspectives and examines how increasing brightness affects animals and people. Its accompanying programme includes an opening event, guided viewing of the starry sky, a bat excursion and a tour about the city’s lighting.",
+        "de": "Die Ausstellung in Luzern betrachtet die Nacht aus verschiedenen Perspektiven und thematisiert die Auswirkungen zunehmender Helligkeit auf Tiere und Menschen. Zum Begleitprogramm gehören eine Eröffnung, Termine zur Beobachtung des Sternenhimmels, eine Fledermaus-Exkursion und ein Rundgang zur Stadtbeleuchtung.",
+        "fr": "À Lucerne, cette exposition aborde la nuit sous plusieurs angles et examine les effets d’une luminosité croissante sur les animaux et les êtres humains. Le programme associé prévoit une ouverture, des séances d’observation du ciel étoilé, une excursion consacrée aux chauves-souris et une visite consacrée à l’éclairage de la ville."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:19:13.015Z"
     },
     "lu-stadt-agenda:7626904::6a3c14a82bc4f297e39b26c8b4719864ee6372f60b656681bf2ed162f2793003": {
       "id": "lu-stadt-agenda:7626904",
@@ -94141,6 +94351,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T18:15:10.851Z"
+    },
+    "myswitzerland:73f2ae6479a34d27a9083410e311cd07::eccff4a9b79c42ff09fa38a884824351255a3f1a02f37bd0f86e163d279f70a3": {
+      "id": "myswitzerland:73f2ae6479a34d27a9083410e311cd07",
+      "sourceDescriptionHash": "eccff4a9b79c42ff09fa38a884824351255a3f1a02f37bd0f86e163d279f70a3",
+      "description": "L’evento annuncia l’apertura del Thurbad a Weinfelden. La struttura è la piscina all’aperto di Weinfelden e accoglie gli ospiti.",
+      "descriptionByLocale": {
+        "it": "L’evento annuncia l’apertura del Thurbad a Weinfelden. La struttura è la piscina all’aperto di Weinfelden e accoglie gli ospiti.",
+        "en": "The event marks the opening of Thurbad in Weinfelden. It concerns the town’s outdoor swimming pool, which welcomes guests.",
+        "de": "Die Veranstaltung markiert die Öffnung des Thurbads in Weinfelden. Dabei nimmt das Freibad der Gemeinde den Betrieb auf und empfängt seine Gäste.",
+        "fr": "L’événement marque l’ouverture du Thurbad à Weinfelden. Il concerne la piscine extérieure de la commune, qui accueille ses visiteurs."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T13:16:51.252Z"
     },
     "myswitzerland:73f974af69e44e138d443fb6a1aba3b5::40694604c7ab31297b59d07a7e4a847a052dc75e33356d73f3eac6d56e3762a0": {
       "id": "myswitzerland:73f974af69e44e138d443fb6a1aba3b5",
@@ -164732,6 +164956,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:AkeD7pF::49d68dffc99687b132c046efdea107652fbeb05fd2511341daaef01ec38540ff": {
+      "id": "guidle:AkeD7pF",
+      "sourceDescriptionHash": "49d68dffc99687b132c046efdea107652fbeb05fd2511341daaef01ec38540ff",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-21T13:18:58.861Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:AKfdnFm::25d3459960157db92ee7892f78a76c2792eea4907319ef658011b926d58a516a": {
       "id": "guidle:AKfdnFm",
       "sourceDescriptionHash": "25d3459960157db92ee7892f78a76c2792eea4907319ef658011b926d58a516a",
@@ -165317,6 +165550,15 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
+    "guidle:ArmyKSQ::a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a": {
+      "id": "guidle:ArmyKSQ",
+      "sourceDescriptionHash": "a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-21T13:21:27.151Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
     "guidle:ARncZW5::dc63e3095a610ad52d590bbf22a0a7face01f519184387192cf3302365c8657f": {
       "id": "guidle:ARncZW5",
       "sourceDescriptionHash": "dc63e3095a610ad52d590bbf22a0a7face01f519184387192cf3302365c8657f",
@@ -165476,6 +165718,15 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:31:44.190Z",
+      "policyVersion": "event-description-policy-v3",
+      "promptVersion": "event-description-rewrite-v3"
+    },
+    "guidle:AtGXwiB::d32eb129f3327fb9d81af3a8d78ddc7bfe2e959128bc25237cf82f449fe46957": {
+      "id": "guidle:AtGXwiB",
+      "sourceDescriptionHash": "d32eb129f3327fb9d81af3a8d78ddc7bfe2e959128bc25237cf82f449fe46957",
+      "code": "new-name",
+      "rejectedRuns": 1,
+      "lastAttemptAt": "2026-10-21T13:19:40.807Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
