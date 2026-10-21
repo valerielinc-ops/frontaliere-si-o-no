@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "source": "nanakokyobashi-rgb/frontaliere-articles",
-  "sourceCommit": "1091a1a07936127736fddc7d9aba553878a43e60",
+  "sourceCommit": "90cbfa6c62300ab29389b768ed9877e6d94a5522",
   "generatedAt": "2026-10-21",
   "registries": {
     "packages/articles/content/blog-articles-data.ts": {
@@ -19,8 +19,8 @@
     "cantonArticles": {
       "path": "public/canton-articles.json",
       "present": true,
-      "sha256": "78e19aed1a31a10ca009d0d00dc73891309e4ac9c5859a4cd1c9065adf6cc4a2",
-      "articleCount": 253
+      "sha256": "1a60ca6b5a7cbbc93b737acc181274781f7eaf32a64542a464dca7ecfd70866f",
+      "articleCount": 254
     }
   }
 }

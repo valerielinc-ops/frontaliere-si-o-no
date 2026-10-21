@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "1091a1a07936127736fddc7d9aba553878a43e60",
+  "commit": "90cbfa6c62300ab29389b768ed9877e6d94a5522",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -32086,6 +32086,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic editorial illustration with blank placards and no identifiable people, text, logos, or watermarks."
+      }
+    },
+    "/images/blog/article-a13-code-grigioni-vacanze-zurighesi.webp": {
+      "schema": 1,
+      "assetId": "article-a13-code-grigioni-vacanze-zurighesi",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "6be590f6494c294ca642933e2db957bb44fee2905037a777f92d48d0ac92f52f",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "e442c363c3ee4452cacf35678217c0291f62a54301f68d39fcd5185b58a62592",
+      "bytes": 149226,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-21T04:02:43.599Z",
+      "verifiedAt": "2026-10-21T04:02:53.965Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-a13-code-grigioni-vacanze-zurighesi.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic illustration of traffic congestion on a Swiss Alpine highway; no readable text, logos, people, or specific event depicted."
       }
     },
     "/images/places/lugano-view.webp": {

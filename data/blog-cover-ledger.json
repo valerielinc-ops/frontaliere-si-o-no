@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 721,
+      "5": 722,
       "6": 5054
     },
-    "publishedCovers": 7458,
+    "publishedCovers": 7459,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204071,6 +204071,39 @@
         "provider": "openai-codex",
         "assetId": "article-skyguide-ginevra-capacita-ottobre",
         "imageUrl": "/images/blog/article-skyguide-ginevra-capacita-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-a13-code-grigioni-vacanze-zurighesi": {
+      "cover": "/images/blog/article-a13-code-grigioni-vacanze-zurighesi.webp",
+      "hash": "e442c363c3ee4452cacf35678217c0291f62a54301f68d39fcd5185b58a62592",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "a13-code-grigioni-vacanze-zurighesi",
+          "category": "novita",
+          "date": "2026-10-21T04:02:54.005Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-a13-code-grigioni-vacanze-zurighesi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-a13-code-grigioni-vacanze-zurighesi",
+        "imageUrl": "/images/blog/article-a13-code-grigioni-vacanze-zurighesi.webp",
         "evidence": "generated-engine-record"
       }
     },
