@@ -45763,6 +45763,16 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'trasporti-varese-peduncolo-vedano-gallarate-luino',
+ category: 'novita',
+ date: '2026-10-21T20:21:52.607Z',
+ image: '/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

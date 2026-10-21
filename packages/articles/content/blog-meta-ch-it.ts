@@ -8570,6 +8570,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-poverta-prima-conferenza.title': 'Consiglio nazionale sulla povertà: si presenta il 9 novembre',
     'blog.article.consiglio-poverta-prima-conferenza.excerpt': 'Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi ha',
     'blog.article.consiglio-poverta-prima-conferenza.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.furto-dati-publica-100mila-dipendenti.title': 'Hacker Akira rubano dati di 100.000 dipendenti federali da Publica',
+    'blog.article.furto-dati-publica-100mila-dipendenti.excerpt': 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira minaccia',
+    'blog.article.furto-dati-publica-100mila-dipendenti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

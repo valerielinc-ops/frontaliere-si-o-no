@@ -13564,6 +13564,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.hackeraggio-ipct-casse-pensioni-ticino.title': 'Attacco hacker a PK Softech: 27.000 affiliati IPCT a rischio',
     'blog.article.hackeraggio-ipct-casse-pensioni-ticino.excerpt': '27\'000 affiliati IPCT potrebbero essere vittime Attacco a PK Softech a fine settembre Dati di alcune centinaia in una cartella IPCT IPCT prepara una lettera',
     'blog.article.hackeraggio-ipct-casse-pensioni-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.title': 'Trasporti, impegni per Varese: Peduncolo di Vedano e ferrovie Gallarate-Luino al centro del PRMT',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.excerpt': 'Il Pd ottiene impegni sul PRMT in Lombardia Il Peduncolo di Vedano entra negli approfondimenti Gallarate-Luino entra nelle fasi progettuali del Piano Si',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

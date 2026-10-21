@@ -8570,6 +8570,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-poverta-prima-conferenza.title': 'Le Conseil national sur la pauvreté se présente le 9 novembre',
     'blog.article.consiglio-poverta-prima-conferenza.excerpt': 'Structure nationale approuvée par le Conseil fédéral en 2024 Première conférence de presse : 9 novembre 2026, de 10 h 00 à 11 h 00 Le Conseil représente les personnes qui ont',
     'blog.article.consiglio-poverta-prima-conferenza.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.furto-dati-publica-100mila-dipendenti.title': 'Des hackers d’Akira dérobent les données de 100.000 employés fédéraux de Publica',
+    'blog.article.furto-dati-publica-100mila-dipendenti.excerpt': 'Plus de 100’000 employés fédéraux concernés Données également relatives aux partenaires et aux enfants L’attaque contre un prestataire externe remonte à fin septembre Akira menace',
+    'blog.article.furto-dati-publica-100mila-dipendenti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

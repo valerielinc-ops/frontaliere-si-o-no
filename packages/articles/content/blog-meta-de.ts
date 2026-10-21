@@ -13562,6 +13562,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.hackeraggio-ipct-casse-pensioni-ticino.title': 'Hackerangriff auf PK Softech: 27.000 IPCT-Versicherte gefährdet',
     'blog.article.hackeraggio-ipct-casse-pensioni-ticino.excerpt': '27\'000 IPCT-Versicherte könnten Opfer werden Angriff auf PK Softech Ende September Daten von einigen Hundert in einem IPCT-Ordner IPCT bereitet ein Schreiben vor',
     'blog.article.hackeraggio-ipct-casse-pensioni-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.title': 'Verkehr: Zusagen für Varese – Peduncolo & Gallarate-Luino',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.excerpt': 'Die Pd erhält Zusagen zum PRMT in der Lombardei Der Peduncolo di Vedano wird in die vertieften Prüfungen aufgenommen Gallarate-Luino wird in die Projektphasen des Plans aufgenommen Ja',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

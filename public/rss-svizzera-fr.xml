@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 21 Oct 2026 18:30:03 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 20:47:43 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,69 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Des hackers d’Akira dérobent les données de 100.000 employés fédéraux de Publica</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/piratage-akira-publica-donnees-employes-federaux/</link>
+      <description><![CDATA[Plus de 100’000 employés fédéraux concernés Données également relatives aux partenaires et aux enfants L’attaque contre un prestataire externe remonte]]></description>
+      <content:encoded><![CDATA[## En bref
+- Plus de 100’000 employés fédéraux concernés
+- Données également relatives aux partenaires et aux enfants
+- L’attaque contre un prestataire externe remonte à fin septembre
+- Akira menace de publier ou de vendre les données
+
+## Faits clés
+- Quoi → Vol d’informations visant Publica
+- Qui → Groupe de hackers Akira
+- Portée → Plus de 100’000 personnes
+- Quand → Fin septembre
+- Données → Noms, dates de naissance, adresses, salaires et numéros de téléphone
+- Menace → Publication ou vente des données
+- Développement → L’ampleur réelle est apparue mardi
+- Précédent RUAG → Avait décidé de payer après l’attaque contre la filiale américaine
+
+Le bulletin de 11.00 du 21 octobre 2026 rapporte que le vol d’informations visant Publica est plus grave que prévu. Les hackers d’Akira se sont emparés des données personnelles de presque tous les employés fédéraux de la Confédération : plus de 100’000 personnes, parmi celles qui sont encore en activité et celles qui ne sont plus employées par la Confédération.
+
+La liste comprend des fonctionnaires, des juges et même des agents secrets, ainsi que d’anciens conseillers fédéraux. L’attaque informatique a touché un prestataire externe et remonte à fin septembre. Elle était déjà connue depuis deux semaines, mais son ampleur réelle est apparue mardi dans des articles publiés par les médias du groupe Tamedia.
+
+### Les données et la demande des hackers
+Parmi les informations en possession des criminels figurent les coordonnées — adresses et numéros de téléphone —, des données d’état civil comme les noms et les dates de naissance, des données salariales et d’autres informations relatives aux partenaires et aux enfants. La source ne décrit pas une simple liste de contacts : elle rassemble des éléments d’état civil, des coordonnées, la rémunération et des données concernant la famille.
+
+Les hackers exigeraient le paiement d’une rançon. Dans le cas contraire, ils menacent de publier ou de vendre les données. Publica n’aurait pas encore informé les personnes concernées de la demande de paiement ; entre-temps, certaines sont déjà la cible de tentatives d’escroquerie.
+## Le périmètre décrit par le service
+Le cas peut être examiné à travers deux dimensions explicitées par le service : qui fait partie de la population concernée et quels types d’informations ont été dérobés. La première dépasse le périmètre des employés en activité, car le vol concerne également des personnes qui ne travaillent plus pour la Confédération. La seconde va au-delà de l’identification de base : aux côtés des noms figurent des dates de naissance, des adresses, des numéros de téléphone et des données salariales.
+
+Le texte mentionne également les partenaires et les enfants. La référence aux données ne s’arrête donc pas à la seule personne figurant dans la liste. Les catégories indiquées peuvent être réorganisées comme suit :
+
+### Les catégories d’informations indiquées
+| Domaine | Informations rapportées |
+|---|---|
+| Identité | Noms et dates de naissance |
+| Coordonnées | Adresses et numéros de téléphone |
+| Rémunération | Données salariales |
+| Famille | Informations relatives aux partenaires et aux enfants |
+
+La distinction entre les employés actifs et les anciens employés est pertinente pour décrire l’ampleur du vol, mais la source ne fournit pas de répartition numérique entre les deux groupes. Il en va de même pour les catégories professionnelles : nous savons que des fonctionnaires, des juges, des agents secrets et d’anciens conseillers fédéraux sont mentionnés, mais pas combien appartiennent à chacun de ces groupes.
+
+La donnée disponible reste la donnée agrégée : plus de 100’000 personnes, associées à la formule « pratiquement tous les employés fédéraux ». La liste des professions sert à décrire la diversité de la population concernée, et non à établir un classement ou une mesure spécifique pour chaque fonction. La formulation concernant les membres de la famille est également circonscrite : le service parle d’autres informations relatives aux partenaires et aux enfants, sans préciser lesquelles ni combien de personnes elles concernent.
+## La chronologie de l’affaire et les précédents d’Akira
+Le service situe la cyberattaque à la fin du mois de septembre et indique qu’elle était déjà connue depuis quelques semaines. Mardi, les articles publiés par les médias du groupe Tamedia en ont rendu l’ampleur réelle manifeste. Le bulletin ne fournit pas de date précise pour l’attaque et n’identifie pas le prestataire externe touché : ce sont les limites de la reconstitution chronologique et opérationnelle disponible.
+
+Le passage consacré à la communication aux personnes concernées est également documenté. Concernant la demande de paiement, Publica n’aurait pas encore informé les personnes concernées. Le service rapporte toutefois que certaines personnes sont déjà la cible de tentatives d’escroquerie. Il n’indique pas combien elles sont et ne décrit pas la technique utilisée lors de ces tentatives.
+
+### Le précédent en Suisse
+Akira a déjà mené des attaques en Suisse, y compris contre des entreprises privées. Il y a un an, les autorités fédérales exhortaient les entreprises à ne pas accéder aux demandes des hackers. Quelques mois plus tard, RUAG, propriété de la Confédération, avait opté pour le paiement, à la suite de l’attaque d’Akira contre sa filiale américaine.
+
+Ce précédent offre un point de comparaison documenté, mais limité : il concerne RUAG et sa filiale américaine, et non Publica. Dans le cas de la caisse de pension de la Confédération, la source parle d’une demande de rançon et de menaces de publication ou de vente, mais n’indique ni le montant demandé ni une décision concernant le paiement.
+
+Les éléments rapportés par le bulletin permettent donc de préciser la population concernée, les catégories de données énumérées, l’existence d’une demande de rançon et le précédent de RUAG. Ils ne permettent en revanche pas d’ajouter une ventilation numérique des groupes concernés, des détails sur le prestataire externe ou des informations supplémentaires sur les tentatives d’escroquerie.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4180616)*]]></content:encoded>
+      <pubDate>Wed, 21 Oct 2026 20:47:43 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/furto-dati-publica-100mila-dipendenti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-furto-dati-publica-100mila-dipendenti.webp" medium="image"/>
+    </item>
     <item>
       <title>Le Conseil national sur la pauvreté se présente le 9 novembre</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/conseil-national-pauvrete-premiere-conference/</link>
@@ -3559,82 +3622,6 @@ Cette grille permet de suivre le dossier sans mélanger la loi de 2025, la consu
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/svizzera-abbattimenti-lupi-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-svizzera-abbattimenti-lupi-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Essence et diesel en Suisse : +5 centimes par litre</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/prix-carburants-suisse-hausse-semaine/</link>
-      <description><![CDATA[Essence 95 à 2,16 francs le litre Essence 98 à 2,27 francs le litre Diesel à 2,45 francs, à 1 centime du maximum annuel Hausse hebdomadaire → 5]]></description>
-      <content:encoded><![CDATA[## En bref
-- Essence 95 à 2,16 francs le litre
-- Essence 98 à 2,27 francs le litre
-- Diesel à 2,45 francs, à 1 centime du maximum annuel
-
-## Faits clés
-- Hausse hebdomadaire → 5 centimes par litre
-- Essence sans plomb 95 → 2,16 francs le litre
-- Essence sans plomb 98 → 2,27 francs le litre
-- Diesel → 2,45 francs le litre
-- Maximum annuel du diesel → 2,46 francs à la mi-septembre
-
-En une semaine, en Suisse, l'essence et le diesel ont augmenté de 5 centimes par litre. C'est ce qui ressort des relevés du Touring Club Svizzero (TCS), qui indiquent pour l'essence sans plomb 95 un prix moyen de 2,16 francs le litre.
-
-L'essence sans plomb 98 est désormais affichée à 2,27 francs, tandis que le diesel atteint 2,45 francs le litre. Pour ce dernier, l'écart par rapport au maximum annuel est minime : la valeur actuelle n'est qu'à un centime des 2,46 francs atteints à la mi-septembre.
-
-La hausse concerne donc les deux carburants indiqués par le TCS, tandis que les valeurs restent distinctes selon le produit. Le 95 se situe à 2,16 francs, le 98 à 2,27 et le diesel à 2,45 : la valeur la plus proche du maximum de la mi-septembre est précisément celle du diesel. Les prix des carburants sont exprimés en francs par litre, tandis que la référence du brut est exprimée en dollars par baril. Ce sont deux échelles de lecture différentes.
-
-### Après l'accalmie, la nouvelle hausse
-
-La séquence décrite commence avec les pics du neuvième mois de l'année. À la suite de ces maxima, les carburants avaient enregistré un léger recul conforme à l'évolution des marchés mondiaux. La baisse, toutefois, a été brève : le relevé hebdomadaire du TCS enregistre désormais la nouvelle hausse.
-
-Dans le contexte suisse, la difficulté de transport via le Rhin demeure en outre. Le niveau du fleuve reste bas et ne permet pas le chargement complet des bateaux. La source mentionne cet élément parallèlement à l'évolution des marchés mondiaux ; entre-temps, sur les marchés internationaux du pétrole, les cours accusent un léger recul.
-
-Un baril de brut Brent coûte ce matin environ 105 dollars. Le cours reste bien supérieur aux quelque 72 dollars enregistrés fin février, au début de la guerre contre l'Iran. La référence temporelle la plus proche reste la semaine ; celle utilisée pour la comparaison annuelle du diesel est la mi-septembre.
-## La comparaison utile pour le budget
-
-Pour ceux qui achètent du carburant en Suisse, la donnée la plus immédiate est l'augmentation unitaire : cinq centimes de plus pour chaque litre par rapport à la semaine précédente. À quantité achetée égale, la comparaison pratique part donc du prix au litre et non d'une estimation globale de la dépense.
-
-La distinction entre les trois produits évite d'interpréter la hausse comme un prix unique et indistinct :
-
-| Poste | Valeur indiquée |
-| --- | --- |
-| Essence sans plomb 95 | 2,16 francs le litre |
-| Essence sans plomb 98 | 2,27 francs le litre |
-| Diesel | 2,45 francs le litre |
-| Variation hebdomadaire | +5 centimes par litre pour l'essence et le diesel |
-| Maximum annuel du diesel | 2,46 francs à la mi-septembre |
-
-La première comparaison utile oppose le diesel actuel à son maximum annuel : l'écart n'est que d'un centime. Pour un lecteur qui suit le coût de la vie, c'est la référence la plus concrète parmi celles disponibles, car elle met côte à côte le prix actuel et le niveau le plus élevé déjà atteint au cours de l'année.
-
-### Pétrole et transports, deux références à distinguer
-
-Le deuxième volet concerne le pétrole. Le Brent est en léger recul sur les marchés internationaux, mais le baril coûte encore environ 105 dollars, contre environ 72 dollars fin février. Le mouvement du brut et celui relevé sur les carburants sont donc décrits dans la même mise à jour sans être superposés : le premier est un indicateur international, le second est le prix des carburants en Suisse.
-
-Reste ensuite la question logistique du Rhin. Son niveau bas ne permet pas le chargement complet des bateaux. Pour lire la prochaine donnée sans confondre les plans, il convient de séparer le prix au litre, l'évolution du Brent et les conditions du transport fluvial. La nouvelle présente ces trois éléments dans le même cadre.
-
-Le passage de la baisse à la hausse n'efface pas la comparaison précédente : il indique plutôt que le prix hebdomadaire et la référence annuelle correspondent à des périodes différentes. Le premier mesure la variation récente ; le second situe le diesel par rapport au maximum de la mi-septembre. La légère baisse du pétrole doit être distinguée du prix des carburants relevé en Suisse.
-## De l'information à la vérification personnelle
-
-La mise à jour peut être utilisée comme une petite grille de vérification, sans ajouter d'estimations qui ne figurent pas dans les données. Le point de départ consiste à distinguer le carburant acheté et à conserver la même unité de mesure : francs par litre pour les prix suisses.
-
-### Quatre étapes à suivre
-
-1. Identifie la référence. Choisis entre l'essence sans plomb 95, le sans-plomb 98 et le diesel. La comparaison n'a de sens que si le prix observé concerne le même produit.
-2. Note la valeur au litre. Utilise comme références 2,16 francs pour la 95, 2,27 pour la 98 et 2,45 pour le diesel. Ce sont les valeurs indiquées par le TCS pour la situation décrite.
-3. Mesure l'évolution. Compare la donnée avec celle de la semaine précédente en gardant à l'esprit la hausse de 5 centimes par litre indiquée pour l'essence et le diesel. Si tu observes le diesel, ajoute la référence des 2,46 francs atteints à la mi-septembre.
-4. Lis le marché séparément. Le Brent doit être noté en dollars par baril : environ 105 ce matin, contre environ 72 à la fin de février. Le Rhin doit en revanche être suivi comme un élément du transport : le faible niveau ne permet pas le chargement complet des bateaux.
-
-Cette séquence évite de mélanger les prix suisses, les cotations internationales et les conditions du transport fluvial. Elle aide également à comprendre la brève accalmie précédente pour ce qu'elle a été : une légère baisse temporaire, suivie de la hausse hebdomadaire relevée par le TCS. Elle ne permet toutefois pas de transformer les données disponibles en prévision du prochain prix.
-
-Le critère vaut aussi lorsqu'on examine le pétrole brut : le Brent doit rester la référence exprimée en dollars par baril, distincte des prix des carburants exprimés en francs par litre. Pour le Rhin, en revanche, la donnée à noter est la difficulté de chargement des bateaux liée au bas niveau du fleuve.
-
-Pour qui souhaite suivre l'impact des hausses sur les dépenses quotidiennes, il est préférable de conserver ensemble le produit, le prix au litre et le repère temporel de la comparaison. Ainsi, la lecture reste ancrée dans les données communiquées : 5 centimes en une semaine, des valeurs distinctes pour l'essence 95, l'essence 98 et le diesel, et un diesel proche de son maximum annuel. Pour approfondir le costo della vita in Svizzera, consulte le guide dédié.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/benzina-e-diesel%2c-i-prezzi-tornano-a-salire%3a-%2b5-centesimi-al-litro/92227260)*]]></content:encoded>
-      <pubDate>Fri, 16 Oct 2026 10:57:56 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/carburanti-svizzera-rincaro-settimanale</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-carburanti-svizzera-rincaro-settimanale.webp" medium="image"/>
     </item>
   </channel>
 </rss>

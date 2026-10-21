@@ -8570,6 +8570,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-poverta-prima-conferenza.title': 'National Council on Poverty: presented on November 9',
     'blog.article.consiglio-poverta-prima-conferenza.excerpt': 'National structure approved by the Federal Council in 2024 First press conference: November 9, 2026, 10:00-11:00 The Council represents those who have',
     'blog.article.consiglio-poverta-prima-conferenza.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.furto-dati-publica-100mila-dipendenti.title': 'Akira hackers steal data of 100.000 federal employees from Publica',
+    'blog.article.furto-dati-publica-100mila-dipendenti.excerpt': 'Over 100,000 federal employees affected Data also relating to partners and children The attack on an external provider dates back to late September Akira threatens',
+    'blog.article.furto-dati-publica-100mila-dipendenti.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

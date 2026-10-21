@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 748,
+      "5": 752,
       "6": 5054
     },
-    "publishedCovers": 7485,
+    "publishedCovers": 7489,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204932,6 +204932,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-furto-dati-publica-100mila-dipendenti": {
+      "cover": "/images/blog/article-furto-dati-publica-100mila-dipendenti.webp",
+      "hash": "80f97354504aabbf8033623da3795407e872713f241780560110e975956aee5c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "furto-dati-publica-100mila-dipendenti",
+          "category": "novita",
+          "date": "2026-10-21T20:47:43.163Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-furto-dati-publica-100mila-dipendenti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-furto-dati-publica-100mila-dipendenti",
+        "imageUrl": "/images/blog/article-furto-dati-publica-100mila-dipendenti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-giura-formazione-postobbligatoria-2026": {
       "cover": "/images/blog/article-giura-formazione-postobbligatoria-2026.webp",
       "hash": "0ae48fb4c4f0a7587bcb00e5754bfb90d5e572314e7b787bfffb40bc9569f20b",
@@ -205130,6 +205163,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-lausanne-marathon-2026-chiusure-strade": {
+      "cover": "/images/blog/article-lausanne-marathon-2026-chiusure-strade.webp",
+      "hash": "71ae70d9ede8a88cd45e3c1eb13c2bf3d8d7f73516f8a4ec8a1e055d8facc9e9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "lausanne-marathon-2026-chiusure-strade",
+          "category": "pratico",
+          "date": "2026-10-21T20:50:06.586Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lausanne-marathon-2026-chiusure-strade.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lausanne-marathon-2026-chiusure-strade",
+        "imageUrl": "/images/blog/article-lausanne-marathon-2026-chiusure-strade.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-lucerna-stop-riscaldamenti-fossili-2050": {
       "cover": "/images/blog/article-lucerna-stop-riscaldamenti-fossili-2050.webp",
       "hash": "794eb5f8adc0ea8593871d71e03b18b7260ca8ba50954ce5cef1bbefe0858e47",
@@ -205229,6 +205295,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-parcheggi-cascate-reno": {
+      "cover": "/images/blog/article-parcheggi-cascate-reno.webp",
+      "hash": "5851937709493ee9d8358e02363c94258b72921eeee9ca249ae928bd869ec2ef",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "parcheggi-cascate-reno",
+          "category": "novita",
+          "date": "2026-10-21T20:45:07.801Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-parcheggi-cascate-reno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-parcheggi-cascate-reno",
+        "imageUrl": "/images/blog/article-parcheggi-cascate-reno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-piano-berna-civilisti-cantoni": {
       "cover": "/images/blog/article-piano-berna-civilisti-cantoni.webp",
       "hash": "0f6f71e857ee92562ed11ebb090c78dcdd621f479ee3fbb6b93bfa1dfdff57af",
@@ -205292,6 +205391,39 @@
         "provider": "openai-codex",
         "assetId": "article-revolut-servizi-interrotti",
         "imageUrl": "/images/blog/article-revolut-servizi-interrotti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-trasporti-varese-peduncolo-vedano-gallarate-luino": {
+      "cover": "/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp",
+      "hash": "47ed0cd4e06b1db9e8d2a3a69a1f3ad2f4cf816ef1cb6aa666843ccf225ad3d9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "trasporti-varese-peduncolo-vedano-gallarate-luino",
+          "category": "novita",
+          "date": "2026-10-21T20:21:52.607Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-trasporti-varese-peduncolo-vedano-gallarate-luino",
+        "imageUrl": "/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp",
         "evidence": "generated-engine-record"
       }
     },

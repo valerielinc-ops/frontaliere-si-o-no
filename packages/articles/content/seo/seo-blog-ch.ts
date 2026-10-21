@@ -108285,6 +108285,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furto-dati-publica-100mila-dipendenti': {
+    title: 'Hacker Akira rubano dati di 100.000 dipendenti federali da Publica',
+    description: 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira',
+    keywords: 'frontalieri, ticino, svizzera, italia, hacker, akira, rubano, dati',
+    ogTitle: 'Hacker Akira rubano dati 100.000 dipendenti federali Publica',
+    ogDescription: 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira minaccia',
+    canonicalPath: '/articoli-svizzera/furto-dati-publica-100mila-dipendenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hacker Akira rubano dati di 100.000 dipendenti federali da Publica",
+      "description": "Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-furto-dati-publica-100mila-dipendenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T20:47:43+00:00",
+      "dateModified": "2026-10-21T20:47:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/furto-dati-publica-100mila-dipendenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Wed, 21 Oct 2026 18:30:03 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 20:47:43 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,69 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Akira hackers steal data of 100.000 federal employees from Publica</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/akira-hack-publica-federal-employee-data/</link>
+      <description><![CDATA[Over 100,000 federal employees affected Data also relating to partners and children The attack on an external provider dates back to late September]]></description>
+      <content:encoded><![CDATA[## TL;DR
+- More than 100’000 federal employees affected
+- Data also relating to partners and children
+- The attack on an external supplier dates back to late September
+- Akira threatens to publish or sell the data
+
+## Key facts
+- What → Information theft affecting Publica
+- Who → Akira hacker group
+- Scope → Over 100’000 people
+- When → Late September
+- Data → Names, dates of birth, addresses, salaries and phone numbers
+- Threat → Publication or sale of the data
+- Development → The true scope emerged on Tuesday
+- RUAG precedent → It had decided to pay after the attack on the US subsidiary
+
+The 11.00 news bulletin on October 21, 2026 reports that the information theft affecting Publica is more serious than expected. Akira’s hackers obtained the personal data of nearly all federal employees of the Confederation: over 100’000 people, including both those still working and those no longer employed by the Confederation.
+
+The list includes officials, judges and even secret agents, as well as former federal councillors. The cyberattack targeted an external provider and dates back to late September. It had already been known for a couple of weeks, but its true scale emerged on Tuesday through articles published by media outlets in the Tamedia group.
+
+### The data and the hackers’ demand
+The information in the criminals’ possession includes contact details — addresses and phone numbers —, personal details such as names and dates of birth, salary data and additional information concerning partners and children. The source does not describe a simple contact list: it brings together personal details, contact details, remuneration and family-related data.
+
+The hackers are reportedly demanding payment of a ransom. Otherwise, they threaten to publish or sell the data. Publica has reportedly not yet informed those affected about the payment demand; in the meantime, some have already been targeted by attempted scams.
+## The scope described by the report
+The case can be viewed through two dimensions that the report makes explicit: who is included in the group and what types of information were stolen. The first goes beyond the scope of active employees, because the theft also concerns people who are no longer employed by the Confederation. The second goes beyond basic identification: alongside names appear dates of birth, addresses, telephone numbers and salary data.
+
+The text also mentions partners and children. The reference to the data, therefore, does not stop at the individual person included in the list. The categories indicated can be reordered as follows:
+
+### The categories of information indicated
+| Area | Reported information |
+|---|---|
+| Identity | Names and dates of birth |
+| Contact details | Addresses and telephone numbers |
+| Compensation | Salary data |
+| Family | Information relating to partners and children |
+
+The distinction between active employees and former employees is relevant to describing the extent of the theft, but the source does not provide a numerical breakdown between the two groups. The same applies to the occupational categories: we know that officials, judges, secret agents and former federal councillors are mentioned, but not how many belong to each group.
+
+The available figure remains the aggregate one: more than 100’000 people, described as practically all federal employees. The list of professions serves to describe the variety of the group, not to establish a ranking or a specific figure for each role. The wording concerning family members is also limited: the report refers to other information relating to partners and children, without specifying what it is or how many people it concerns.
+## The sequence of events in the case and Akira's precedents
+The service dates the cyberattack to the end of September and reports that it had already been known about for a couple of weeks. On Tuesday, articles published by the Tamedia group's outlets made its actual scope clear. The news report does not provide a precise day for the attack and does not identify the external provider affected: these are the limitations of the available chronological and operational reconstruction.
+
+The passage concerning communication with the people affected is also documented. Regarding the payment demand, Publica has reportedly not yet informed those concerned. The report does state, however, that some people have already been targeted by attempted scams. It does not indicate how many there are or describe the technique used in the attempts.
+
+### The precedent in Switzerland
+Akira has already carried out attacks in Switzerland, including against private companies. A year ago, the federal authorities urged companies not to comply with the hackers' demands. A few months later, RUAG, owned by the Confederation, had opted to pay, following Akira's attack against its US subsidiary.
+
+This precedent offers a documented but limited comparison: it concerns RUAG and its US subsidiary, not Publica. In the case of the Confederation's pension fund, the source speaks of a ransom demand and threats of publication or sale, but does not indicate the amount requested or any decision on payment.
+
+The material reported by the news service thus makes it possible to clarify the groups involved, the categories of data listed, the presence of a ransom demand and the precedent of RUAG. It does not, however, make it possible to add a numerical breakdown of the groups concerned, details about the external provider or further information about the attempted scams.
+
+*Source: [rsi.ch](https://www.rsi.ch/s/4180616)*]]></content:encoded>
+      <pubDate>Wed, 21 Oct 2026 20:47:43 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/furto-dati-publica-100mila-dipendenti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-furto-dati-publica-100mila-dipendenti.webp" medium="image"/>
+    </item>
     <item>
       <title>National Council on Poverty: presented on November 9</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/national-poverty-council-first-conference/</link>
@@ -3559,82 +3622,6 @@ This framework makes it possible to follow the dossier without mixing up the 202
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/svizzera-abbattimenti-lupi-2025</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-svizzera-abbattimenti-lupi-2025.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Gasoline and diesel in Switzerland: +5 cents per liter</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/swiss-fuel-prices-weekly-rise/</link>
-      <description><![CDATA[95 gasoline at 2,16 francs per liter 98 gasoline at 2,27 francs per liter Diesel at 2,45 francs, 1 centime below the annual high Weekly increase → 5]]></description>
-      <content:encoded><![CDATA[## TL;DR
-- 95-octane gasoline at 2,16 francs per liter
-- 98-octane gasoline at 2,27 francs per liter
-- Diesel at 2,45 francs, 1 centime below the annual high
-
-## Key facts
-- Weekly increase → 5 cents per litre
-- Unleaded 95 petrol → 2,16 francs per litre
-- Unleaded 98 petrol → 2,27 francs per litre
-- Diesel → 2,45 francs per litre
-- Annual diesel high → 2,46 francs in mid-September
-
-In one week, petrol and diesel increased by 5 cents per litre in Switzerland. This is shown by the surveys conducted by the Touring Club Suisse (TCS), which indicate an average price of 2,16 francs per litre for unleaded 95 petrol.
-
-Unleaded 98 is now listed at 2,27 francs, while diesel reaches 2,45 francs per litre. For the latter, the margin compared with the annual high is minimal: the current value is just one cent below the 2,46 francs reached in mid-September.
-
-The increase therefore affects the two fuels listed by the TCS, while the figures remain distinct by product. 95 is at 2,16 francs, 98 at 2,27 and diesel at 2,45: the figure closest to the mid-September high is precisely that of diesel. Fuel prices are expressed in francs per litre, while the crude oil benchmark is expressed in dollars per barrel. These are two different scales of measurement.
-
-### After the lull, the new increase
-
-The sequence described begins with the peaks in the ninth month of the year. Following those highs, fuel prices had recorded a slight decline in line with global market trends. The drop, however, was brief: the TCS’s weekly survey now records a new increase.
-
-In Switzerland, there is also the ongoing difficulty of transporting goods along the Rhine. The river level continues to remain low and does not allow boats to be fully loaded. The source mentions this factor together with global market trends; meanwhile, on international oil markets, prices are showing a modest decline.
-
-A barrel of Brent crude costs about 105 dollars this morning. The price remains much higher than the approximately 72 dollars recorded at the end of February, at the beginning of the war against Iran. The closest time reference remains the week; the one used for the annual comparison of diesel is mid-September.
-## The useful comparison for the budget
-
-For those buying fuel in Switzerland, the most immediate figure is the per-unit increase: five centimes more per liter than the previous week. With the quantity purchased held constant, the practical comparison therefore starts with the price per liter, not an overall estimate of the expenditure.
-
-The distinction between the three products prevents the increase from being read as a single undifferentiated price:
-
-| Item | Reported value |
-| --- | --- |
-| Unleaded 95 gasoline | 2,16 francs per liter |
-| Unleaded 98 gasoline | 2,27 francs per liter |
-| Diesel | 2,45 francs per liter |
-| Weekly change | +5 centimes per liter for gasoline and diesel |
-| Diesel's annual high | 2,46 francs in mid-September |
-
-The first useful comparison is between the current diesel price and its annual high: the gap is just one centime. For a reader tracking the cost of living, this is the most concrete reference available, because it places the current price alongside the highest level already reached during the year.
-
-### Oil and transport, two references to keep separate
-
-The second aspect concerns oil. Brent is slightly down on international markets, but a barrel still costs about 105 dollars, compared with about 72 dollars in late February. The movement in crude oil and the movement recorded in fuel prices are therefore described in the same update without being conflated: the former is an international indicator, while the latter is the price of fuel in Switzerland.
-
-The logistical issue of the Rhine also remains. Its low level does not allow barges to be fully loaded. To read the next figure without confusing the different aspects, it is best to keep the price per liter, the trend in Brent, and the condition of river transport separate. The report presents these three elements within the same framework.
-
-The shift from a decline to an increase does not erase the previous comparison; rather, it indicates that the weekly price and the annual benchmark reflect different time frames. The former measures the recent change; the latter places diesel in relation to the mid-September high. The slight decline in oil should be kept distinct from the fuel price recorded in Switzerland.
-## From the news to personal monitoring
-
-The update can be used as a small verification checklist, without adding estimates that do not appear in the data. The starting point is to distinguish the fuel purchased and maintain the same unit of measurement: francs per litre for Swiss prices.
-
-### Four steps to follow
-
-1. Identify the reference. Choose between unleaded 95, unleaded 98 and diesel. The comparison makes sense only if the observed price concerns the same product.
-2. Note the per-litre value. Use as references 2,16 francs for 95, 2,27 for 98 and 2,45 for diesel. These are the values reported by TCS for the situation described.
-3. Measure the change. Compare the figure with the previous week, bearing in mind the 5-cent-per-litre increase indicated for petrol and diesel. If you are looking at diesel, add the reference of the 2,46 francs reached in mid-September.
-4. Read the market separately. Brent should be recorded in dollars per barrel: about 105 this morning, compared with about 72 at the end of February. The Rhine, on the other hand, should be followed as a transport factor: the low water level does not allow vessels to be fully loaded.
-
-This sequence prevents Swiss prices, international quotations and river transport conditions from being mixed together. It also helps read the previous brief respite for what it was: a slight and temporary decline, followed by the weekly increase recorded by TCS. However, it does not allow the available data to be turned into a forecast of the next price.
-
-The criterion also applies when looking at crude oil: Brent should be retained as a reference expressed in dollars per barrel, distinct from fuel prices expressed in francs per litre. For the Rhine, on the other hand, the figure to note is the difficulty of loading vessels due to the river’s low water level.
-
-For those who want to track the impact of price increases on daily expenses, it is advisable to keep the product, the price per litre and the time reference for the comparison together. This keeps the reading anchored to the reported data: 5 cents in one week, distinct values for 95 petrol, 98 petrol and diesel, and diesel close to its annual high. For more information on costo della vita in Svizzera, consult the dedicated guide.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/benzina-e-diesel%2c-i-prezzi-tornano-a-salire%3a-%2b5-centesimi-al-litro/92227260)*]]></content:encoded>
-      <pubDate>Fri, 16 Oct 2026 10:57:56 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/carburanti-svizzera-rincaro-settimanale</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-carburanti-svizzera-rincaro-settimanale.webp" medium="image"/>
     </item>
   </channel>
 </rss>
