@@ -675,7 +675,7 @@ describe('mapGuidleEvent', () => {
     expect(event.organizer).toEqual({
       '@type': 'Organization',
       name: 'Guidle',
-      url: 'https://www.guidle.com/',
+      url: 'https://www.guidle.com/de',
     });
     expect(event.performer).toEqual({ '@type': 'Organization', name: 'Zytturm' });
     expect(imageSourceUrl).toBe('https://www.guidle.com/imagekit/abc.jpg');
