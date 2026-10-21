@@ -1299,7 +1299,11 @@ function fileChooserAfterClick(page) {
 }
 
 /** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
-async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
+async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace = null) {
+  const finish = (status) => {
+    if (trace) trace.status = status;
+    return status;
+  };
   const framesBeforeClick = page.frames();
   const preferredFrame = framesBeforeClick[triggerFrame] || page.mainFrame();
   const beforeCounts = new Map();
@@ -1309,15 +1313,22 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
   }
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
-  if ([...beforeCounts.values()].some((count) => count > 0)) return 'unavailable';
+  const preexistingDialog = [...beforeCounts.values()].some((count) => count > 0);
+  if (trace) trace.preexistingDialog = preexistingDialog;
+  if (preexistingDialog) {
+    if (trace) trace.failure = 'preexisting_dialog';
+    return finish('unavailable');
+  }
   const chooserPromise = fileChooserAfterClick(page);
   try {
     if (trigger.snapshot) await clickButton(page, trigger.snapshot);
     else await trigger.click({ timeout: 6_000 });
+    if (trace) trace.click = 'succeeded';
   } catch {
     // The control may open its picker and then detach while the click is
     // settling. Still inspect both upload paths before treating that click as
     // a failure.
+    if (trace) trace.click = 'failed';
   }
   const chooserTarget = chooserPromise.then((chooser) => chooser ? { chooser } : null);
   const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts)
@@ -1331,16 +1342,20 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
   // out while the dialog watcher is still in its post-click window.
   const target = firstTarget.target || await (firstTarget.source === 'chooser' ? dialogTarget : chooserTarget);
   if (target?.chooser) {
+    if (trace) trace.target = 'chooser';
     try {
       const chooser = target.chooser;
       const receipt = await chooseChooserFiles(page, chooser, file);
-      if (receipt.accepted) return 'uploaded';
+      if (trace) trace.chooserResponse = receipt.accepted ? 'accepted' : 'not_confirmed';
+      if (receipt.accepted) return finish('uploaded');
       const input = await chooser.element().catch(() => null);
-      return input && await uploadReceipt(page, input, [file], { acceptedResponse: receipt.accepted })
-        ? 'uploaded'
-        : 'uploaded_unconfirmed';
-    } catch {
-      return 'unavailable';
+      if (trace) trace.chooserElement = Boolean(input);
+      const received = Boolean(input && await uploadReceipt(page, input, [file], { acceptedResponse: receipt.accepted }));
+      if (trace) trace.portalReceipt = received;
+      return finish(received ? 'uploaded' : 'uploaded_unconfirmed');
+    } catch (error) {
+      if (trace) trace.failure = error?.message === 'upload_http_failed' ? 'upload_http_failed' : 'chooser_selection_failed';
+      return finish('unavailable');
     }
   }
   // Some SuccessFactors tenants keep the attachment control and its modal in
@@ -1350,19 +1365,29 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
   // prevents selecting a stale or unrelated document picker.
   const input = target?.input;
   if (!input) {
+    if (trace) {
+      trace.target = 'none';
+      trace.failure = 'no_upload_target';
+    }
     await page.keyboard.press('Escape').catch(() => {});
-    return 'unavailable';
+    return finish('unavailable');
   }
+  if (trace) trace.target = 'dialog';
   try {
     await input.setInputFiles(file);
   } catch {
+    if (trace) trace.failure = 'dialog_selection_failed';
     await page.keyboard.press('Escape').catch(() => {});
-    return 'unavailable';
+    return finish('unavailable');
   }
   // The dialog closes once the portal holds the file (SuccessFactors reads it first).
   const closed = await input.waitFor({ state: 'detached', timeout: 60_000 }).then(() => true, () => false);
+  if (trace) {
+    trace.dialogSelection = 'completed';
+    trace.dialogClosed = closed;
+  }
   await settle(page);
-  return closed ? 'uploaded' : 'uploaded_unconfirmed';
+  return finish(closed ? 'uploaded' : 'uploaded_unconfirmed');
 }
 
 /**
@@ -1375,6 +1400,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
 export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map(), channelType = '' } = {}) {
   let current = snapshot;
   const where = anonymizePath(page.url());
+  const cvUploadDiagnostics = [];
   const attempt = (key) => {
     const count = (tries.get(key) || 0) + 1;
     tries.set(key, count);
@@ -1435,11 +1461,26 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
       ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
       : null;
+    const attemptNumber = tries.get(cvKey);
+    if (!triggerButton) {
+      cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_found' });
+      break;
+    }
+    if (!trigger) {
+      cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_allowed' });
+      break;
+    }
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
-    if (!trigger || !visible) break;
-    cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0);
+    if (!visible) {
+      cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_visible' });
+      break;
+    }
+    const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
+    cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
     current = await extractFields(page);
     const uploadedCvField = current.fields.find(isCvFileField);
+    trace.portalFileFieldObserved = Boolean(uploadedCvField);
+    cvUploadDiagnostics.push(trace);
     if (cv !== 'unavailable' && uploadedCvField) cvFieldKey = uploadedPortalFieldKey(page.url(), uploadedCvField);
     // A file that went in, confirmed or not, never goes in twice.
     if (cv !== 'unavailable') done.add(cvKey);
@@ -1466,6 +1507,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   return {
     snapshot: current,
     ...(cv ? { cv } : {}),
+    ...(cvUploadDiagnostics.length ? { cvUploadDiagnostics } : {}),
     ...(cvFieldKey ? { cvFieldKey } : {}),
     ...(coverLetter ? { coverLetter } : {}),
   };
@@ -2431,6 +2473,7 @@ export async function submitViaPortal(ctx) {
       const openSections = async () => {
         const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries, channelType });
         snapshot = opened.snapshot;
+        if (opened.cvUploadDiagnostics?.length) evidence.steps.at(-1).cvUploadDiagnostics = opened.cvUploadDiagnostics;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
           if (opened.cv === 'uploaded') {
