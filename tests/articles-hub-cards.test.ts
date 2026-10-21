@@ -159,6 +159,20 @@ describe('renderArticleHubCards', () => {
     });
     expect(seen).toEqual(['/articoli-frontaliere/fondo-liberta-svizzera-multe/']);
   });
+
+  it('emits the final owned route when the caller supplies a route resolver', () => {
+    const html = renderArticleHubCards({
+      articles: [ARTICLE],
+      locale: 'it',
+      sectionSlug: 'articoli-frontaliere',
+      localePrefix: '',
+      resolveSlug: () => 'old-article-alias',
+      resolveMeta: () => META,
+      resolveHref: (href) => href.replace('old-article-alias', 'current-article'),
+    });
+    expect(html).toContain('href="/articoli-frontaliere/current-article/"');
+    expect(html).not.toContain('href="/articoli-frontaliere/old-article-alias/"');
+  });
 });
 
 describe('replaceArticleHubCards', () => {

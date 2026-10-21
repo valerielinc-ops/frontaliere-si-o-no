@@ -44,6 +44,32 @@ describe('JobBoardResultsLoader', () => {
     expect(container.querySelectorAll('.job-loader-shimmer')).toHaveLength(7);
   });
 
+  it('supports an empty loading footprint without cards or ad reservations', () => {
+    const { container } = render(
+      <JobBoardResultsLoader
+        cards={0}
+        infeedAdSlots={[{ afterCard: 3, minHeight: 336 }]}
+      />,
+    );
+    expect(container.querySelectorAll('.job-loader-shimmer')).toHaveLength(0);
+    expect(container.querySelectorAll('.job-loader-ad-reserve')).toHaveLength(0);
+  });
+
+  it('reserves the registry footprint of in-feed ads between loading cards', () => {
+    const { container } = render(
+      <JobBoardResultsLoader
+        cards={7}
+        infeedAdSlots={[
+          { afterCard: 3, minHeight: 336 },
+          { afterCard: 6, minHeight: 336 },
+        ]}
+      />,
+    );
+    const reservations = container.querySelectorAll('.job-loader-ad-reserve');
+    expect(reservations).toHaveLength(2);
+    expect((reservations[0] as HTMLElement).style.minHeight).toBe('336px');
+  });
+
   it('rotates the reassurance message over time', () => {
     vi.useFakeTimers();
     const { container } = render(<JobBoardResultsLoader cards={2} />);

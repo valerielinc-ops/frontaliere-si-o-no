@@ -2334,12 +2334,12 @@
     },
     {
       "id": "accor-e6ab9a71e158",
-      "slug": "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71",
+      "slug": "barista-senior-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71",
       "slugByLocale": {
         "en": "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71",
-        "it": "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71",
+        "it": "barista-senior-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71",
         "de": "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71",
-        "fr": "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71"
+        "fr": "barman-senior-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71"
       },
       "slugDisambiguator": "e6ab9a71",
       "company": "Ibis Budget",
@@ -2398,16 +2398,27 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-21T09:53:10.581Z"
+      "firstSeenAt": "2026-10-21T09:53:10.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71"
+        ],
+        "fr": [
+          "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71"
+        ]
+      },
+      "previousSlugs": [
+        "senior-bartender-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-e6ab9a71"
+      ]
     },
     {
       "id": "accor-f41a4f7149ab",
-      "slug": "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71",
+      "slug": "aiuto-cucina-staff-mensa-e-cucina-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-f41a4f71",
       "slugByLocale": {
         "fr": "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71",
-        "it": "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71",
-        "en": "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71",
-        "de": "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71"
+        "it": "aiuto-cucina-staff-mensa-e-cucina-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-f41a4f71",
+        "en": "kitchen-help-staff-canteen-and-kitchen-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-f41a4f71",
+        "de": "kuchenhilfe-personalkantine-und-kuche-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-f41a4f71"
       },
       "slugDisambiguator": "f41a4f71",
       "company": "Ibis Budget",
@@ -2467,7 +2478,21 @@
         }
       },
       "postalCode": "1820",
-      "firstSeenAt": "2026-10-21T09:53:10.574Z"
+      "firstSeenAt": "2026-10-21T09:53:10.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71"
+        ],
+        "en": [
+          "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71"
+        ],
+        "de": [
+          "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71"
+        ]
+      },
+      "previousSlugs": [
+        "aide-cuisine-cantine-du-personnel-et-cuisine-h-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-f41a4f71"
+      ]
     }
   ],
   "runId": "39576272379"
