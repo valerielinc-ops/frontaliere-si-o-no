@@ -177,6 +177,15 @@ export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
   return directUrl;
 }
 
+function portalChannelType(ctx = {}) {
+  if (ctx.channelType === 'successfactors') return ctx.channelType;
+  // A branded SuccessFactors tenant has an employer hostname, so the draft's
+  // hostname classifier can call it `employer_site`. The exact same-origin,
+  // same-requisition Jobs2Web route proves which ATS rules apply.
+  if (portalEntryUrl(ctx) !== String(ctx.applyUrl || '')) return 'successfactors';
+  return ctx.channelType || '';
+}
+
 /**
  * The browser's own user agent without "Headless", on the machine's real
  * system: some ATS turn away a browser that calls itself HeadlessChrome
@@ -853,10 +862,10 @@ const isSuccessFactorsUrl = (url) => {
  * same mixed form before that dialog is opened. A bare «Submit» or «Konto
  * erstellen» under a password stays a registration.
  */
-export function ownAccountForm(snapshot) {
+export function ownAccountForm(snapshot, channelType = '') {
   const labels = (snapshot.fields || []).map((field) => `${field.label || ''} ${field.context || ''}`).join(' ');
   const hasCvFileField = (snapshot.fields || []).some(isCvFileField);
-  const mixedApplication = isSuccessFactorsUrl(snapshot.url)
+  const mixedApplication = (channelType === 'successfactors' || isSuccessFactorsUrl(snapshot.url))
     && !hasCvFileField
     && sendsApplication(snapshot)
     && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
@@ -1202,19 +1211,21 @@ function successFactorsIconButtonFor(snapshot, kind) {
   return candidates.length === 1 ? candidates[0] : null;
 }
 
-function isSuccessFactorsPage(page) {
-  return isSuccessFactorsUrl(page.url());
+function isSuccessFactorsPage(page, channelType = '') {
+  // Branded SuccessFactors career sites use their own host, so the ATS
+  // classifier from the application draft is stronger than a vendor-host list.
+  return channelType === 'successfactors' || isSuccessFactorsUrl(page.url());
 }
 
-function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null) {
+function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null, channelType = '') {
   if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
   const contextPattern = kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
   const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
   if (contextPattern.test(context)) return true;
   const association = successFactorsButtonAssociation(button);
   const application = snapshot || {};
-  return isSuccessFactorsPage(page)
-    && (ownAccountForm(application) || sendsApplication(application) || hasApplicationForm(application))
+  return isSuccessFactorsPage(page, channelType)
+    && (ownAccountForm(application, channelType) || sendsApplication(application) || hasApplicationForm(application))
     && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
     && successFactorsDocumentAssociationMatches(association, kind);
 }
@@ -1252,7 +1263,7 @@ async function uploadThroughDialog(page, trigger, file) {
  * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
  * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable', cvFieldKey?: string}>}
  */
-export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map() } = {}) {
+export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map(), channelType = '' } = {}) {
   let current = snapshot;
   const where = anonymizePath(page.url());
   const attempt = (key) => {
@@ -1307,12 +1318,12 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     if (!attempt(cvKey)) break;
     const namedTriggerButton = uploadButtonFor(current, 'cv');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
       && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cv')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current)
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
       ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
       : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
@@ -1329,12 +1340,12 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page)
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
       && (sendsApplication(current) || hasApplicationForm(current))
       ? successFactorsIconButtonFor(current, 'cover_letter')
       : null;
     const triggerButton = namedTriggerButton || iconTriggerButton;
-    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current)
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current, channelType)
       ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
       : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
@@ -2034,6 +2045,7 @@ export async function readPortalQuestions(ctx) {
  */
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
+  const channelType = portalChannelType(ctx);
   const extensionPath = !ctx.launch && process.env.NOPECHA_EXTENSION_PATH;
   const log = ctx.log || (() => {});
   // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
@@ -2150,7 +2162,7 @@ export async function submitViaPortal(ctx) {
     // An application form with its own password field is the form: checked now.
     let postingCheckPending = match === 'mismatch'
       && (snapshot.passwordVisible || initialOtpAccount)
-      && !ownAccountForm(snapshot)
+      && !ownAccountForm(snapshot, channelType)
       && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
@@ -2308,7 +2320,7 @@ export async function submitViaPortal(ctx) {
       }
       // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
       const openSections = async () => {
-        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
+        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries, channelType });
         snapshot = opened.snapshot;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
@@ -2328,7 +2340,7 @@ export async function submitViaPortal(ctx) {
       // sections still closed, the CV field inside one (review of #11033): it is the
       // form's page, so the posting is checked and the sections are opened BEFORE it
       // is taken for a login page.
-      if (snapshot.passwordVisible && !ownAccountForm(snapshot) && sendsApplication(snapshot)) {
+      if (snapshot.passwordVisible && !ownAccountForm(snapshot, channelType) && sendsApplication(snapshot)) {
         if (postingCheckPending) {
           postingCheckPending = false;
           evidence.postingMatch = await formMatch();
@@ -2339,7 +2351,7 @@ export async function submitViaPortal(ctx) {
       }
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
-      let ownAccount = ownAccountForm(snapshot);
+      let ownAccount = ownAccountForm(snapshot, channelType);
       if (ownAccount && !ctx.accounts) return await handoff('account');
       if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
@@ -2410,7 +2422,7 @@ export async function submitViaPortal(ctx) {
       if (profile.counts.length) evidence.steps.at(-1).profileSections = profile.counts;
       if (profile.handoff) return await handoff(profile.handoff);
       // A section just opened may hold the form’s own password field.
-      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot);
+      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot, channelType);
       // Inside the form, any page with a field is planned: a step with one
       // question and its Next disabled until it is answered (JOIN's work
       // authorization) is not a dead end. Nothing to fill and nowhere to go is.
