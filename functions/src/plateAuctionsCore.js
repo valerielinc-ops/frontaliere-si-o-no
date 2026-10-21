@@ -751,11 +751,18 @@ export function parseZhAuctionCards(
  * transient outage does not become a false source degradation; persistent
  * endpoint drift still fails closed after the retries are exhausted.
  */
-function isRetryableHttpStatus(status) {
-  return status === 404 || status === 408 || status === 425 || status === 429 || status >= 500;
+function isRetryableHttpStatus(status, { retryOn404 = true } = {}) {
+  return (retryOn404 && status === 404) || status === 408 || status === 425 || status === 429 || status >= 500;
 }
 
-function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemaining = 4 } = {}) {
+function fetchHttpsText(url, {
+  timeoutMs,
+  userAgent,
+  ca,
+  accept,
+  retryOn404 = true,
+  redirectsRemaining = 4,
+} = {}) {
   return new Promise((resolve, reject) => {
     const request = https.request(url, {
       method: 'GET',
@@ -777,13 +784,14 @@ function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemain
             userAgent,
             ca,
             accept,
+            retryOn404,
             redirectsRemaining: redirectsRemaining - 1,
           }));
           return;
         }
         if (status < 200 || status >= 300) {
           const error = new Error(`HTTP ${status} from ${url}`);
-          error.retryable = isRetryableHttpStatus(status);
+          error.retryable = isRetryableHttpStatus(status, { retryOn404 });
           reject(error);
           return;
         }
@@ -800,7 +808,15 @@ function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemain
   });
 }
 
-export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2, retryDelayMs = 750, ca, accept } = {}) {
+export async function fetchHtml(url, {
+  timeoutMs = 20000,
+  userAgent,
+  retries = 2,
+  retryDelayMs = 750,
+  ca,
+  accept,
+  retryOn404 = true,
+} = {}) {
   const maxRetries = Number.isInteger(retries) && retries >= 0 ? retries : 2;
   let lastError;
 
@@ -808,7 +824,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept });
+      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404 });
       const response = await fetch(url, {
         redirect: 'follow',
         headers: {
@@ -819,7 +835,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
       });
       if (!response.ok) {
         const error = new Error(`HTTP ${response.status} from ${url}`);
-        error.retryable = isRetryableHttpStatus(response.status);
+        error.retryable = isRetryableHttpStatus(response.status, { retryOn404 });
         throw error;
       }
       return await response.text();
