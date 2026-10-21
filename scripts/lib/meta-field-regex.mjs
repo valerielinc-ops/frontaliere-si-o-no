@@ -8,11 +8,12 @@
  * ("l'iniziativa", "dell'A9"), so those copies silently under-matched and
  * weakened duplicate detection across the whole corpus.
  *
- * One definition, imported by every consumer — including the tests, which
- * previously re-declared their own copy and so could have gone on passing
- * while the script regressed.
+ * Full-module readers use the AST-backed API below. The token-aware scanner
+ * remains available for the corpus cover writer, which needs its raw-span
+ * extraction contract.
  */
 
+import { parseStaticArticleTranslationEntries } from '../../packages/articles/engine/shared/articleStaticSource.mjs';
 import { unescapeTsString } from './unescape-ts-string.mjs';
 
 const STATIC_QUOTES = new Set(["'", '"', '`']);
@@ -155,6 +156,61 @@ export function readMetaFieldEntries(source, field) {
 
   if (braceDepth !== 0) throw new Error('[meta-fields] unbalanced object braces');
   return entries;
+}
+
+/**
+ * Read a field from one or more complete static metadata modules through the
+ * canonical TypeScript AST reader. Modules are parsed independently before
+ * their entries are concatenated, preserving the caller's module/property
+ * order without treating multiple default-export modules as one source file.
+ *
+ * Each input is `{ source, sourcePath }`; callers that intentionally tolerate
+ * missing files decide which modules to omit before calling this function.
+ * A present malformed module rejects the whole operation.
+ *
+ * @param {{source: string, sourcePath: string}|Array<{source: string, sourcePath: string}>} modules
+ * @param {string} field
+ * @returns {Array<{id: string, value: string}>}
+ */
+export function readStaticMetaFieldEntries(modules, field) {
+  return readStaticMetaFields(modules, [field])[field];
+}
+
+/**
+ * Parse each complete module once and project the requested fields from the
+ * same canonical entry sequence. Callers that need title and excerpt together
+ * should use this operation-scoped map instead of reparsing the source once
+ * per field. No parsed AST or source text is retained by this module.
+ *
+ * @param {{source: string, sourcePath: string}|Array<{source: string, sourcePath: string}>} modules
+ * @param {string[]} fields
+ * @returns {Record<string, Array<{id: string, value: string}>>}
+ */
+export function readStaticMetaFields(modules, fields) {
+  if (!Array.isArray(fields) || fields.length === 0) {
+    throw new TypeError('[meta-fields] fields must be a non-empty array');
+  }
+  for (const field of fields) {
+    if (typeof field !== 'string' || !/^[A-Za-z][A-Za-z0-9]*$/u.test(field)) {
+      throw new TypeError('[meta-fields] each field must be a simple identifier');
+    }
+  }
+  if (new Set(fields).size !== fields.length) {
+    throw new TypeError('[meta-fields] fields must not contain duplicates');
+  }
+
+  const fieldsSet = new Set(fields);
+  const inputs = Array.isArray(modules) ? modules : [modules];
+  const entriesByField = Object.fromEntries(fields.map((field) => [field, []]));
+  for (const module of inputs) {
+    if (!module || typeof module.source !== 'string' || typeof module.sourcePath !== 'string' || module.sourcePath.trim() === '') {
+      throw new TypeError('[meta-fields] each module must include source text and a non-empty sourcePath');
+    }
+    for (const entry of parseStaticArticleTranslationEntries(module.source, module.sourcePath)) {
+      if (fieldsSet.has(entry.field)) entriesByField[entry.field].push({ id: entry.articleId, value: entry.value });
+    }
+  }
+  return entriesByField;
 }
 
 /**

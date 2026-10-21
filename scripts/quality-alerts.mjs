@@ -42,6 +42,7 @@ import {
   updateSnoozeState,
 } from './lib/alerts/snoozer.mjs';
 import { writeJobSummary } from './lib/alerts/summaryWriter.mjs';
+import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -109,16 +110,18 @@ export function loadArticleSidecars(dir) {
  * slugs in `'blog.article.<slug>.title'` keys.
  */
 export function countBlogMetaItArticles(path) {
+  let src;
   try {
-    const src = readFileSync(path, 'utf-8');
-    const re = /['"]blog\.article\.([a-z0-9-]+)\.title['"]/g;
-    const slugs = new Set();
-    let m;
-    while ((m = re.exec(src))) slugs.add(m[1]);
-    return slugs.size;
+    src = readFileSync(path, 'utf-8');
   } catch {
     return null;
   }
+  const translations = parseStaticArticleTranslationSource(src, path);
+  let count = 0;
+  for (const fields of translations.values()) {
+    if (fields.has('title')) count += 1;
+  }
+  return count;
 }
 
 function appendHistory(path, alerts, now) {

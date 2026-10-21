@@ -1,4 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 
 // Pure-function tests for the article-performance pipeline. We exercise the
 // scoring math, fingerprint extraction, newsletter filter contract, and the
@@ -276,11 +279,17 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.foo-bar.excerpt': 'Riassunto del foo',
  'blog.article.baz.title': 'Titolo Baz \\'apostrofo\\'',
  'blog.article.baz.excerpt': 'Esempio',
-};`;
+};
+export default blogMetaIt;`;
     const parsed = parseBlogMetaFile(text);
     expect(parsed.size).toBe(2);
     expect(parsed.get('foo-bar')).toEqual({ title: 'Titolo Foo', excerpt: 'Riassunto del foo' });
     expect(parsed.get('baz')?.title).toContain("'apostrofo'");
+  });
+
+  it('rejects an incomplete present metadata module instead of returning an empty map', () => {
+    expect(() => parseBlogMetaFile('const blogMetaIt = {')).toThrow(/TypeScript syntax error/u);
+    expect(parseBlogMetaFile('const blogMetaIt: Record<string, string> = {}; export default blogMetaIt;')).toEqual(new Map());
   });
 });
 
@@ -596,16 +605,32 @@ describe('fetch-article-performance / wordCount helper', () => {
 const bodyFoo: Record<string, string> = {
  'blog.article.foo.body1': 'Questa è una guida pratica frontaliere con dieci parole esatte.',
  'blog.article.foo.body2': 'Altre cinque parole qui infatti.',
-};`;
+};
+export default bodyFoo;`;
     const count = (wc as any).countWordsInBodySource(text);
     // Total words across both bodies: 10 + 5 = 15
     expect(count).toBe(15);
   });
 
-  it('returns 0 for empty / unparseable input', async () => {
+  it('returns 0 for a valid empty module and rejects malformed source', async () => {
     const wc = await import('../../scripts/lib/perf-sources/wordCount.mjs');
-    expect((wc as any).countWordsInBodySource('')).toBe(0);
-    expect((wc as any).countWordsInBodySource('no entries here')).toBe(0);
+    expect((wc as any).countWordsInBodySource('const body: Record<string, string> = {}; export default body;')).toBe(0);
+    expect(() => (wc as any).countWordsInBodySource('')).toThrow(/translation module must contain exactly a const record and its default export/u);
+    expect(() => (wc as any).countWordsInBodySource('no entries here')).toThrow(/TypeScript syntax error in <body source>:1:1: Unexpected keyword or identifier/u);
+  });
+
+  it('skips an absent body file but propagates parse errors from a present file', async () => {
+    const wc = await import('../../scripts/lib/perf-sources/wordCount.mjs');
+    const rootDir = mkdtempSync(path.join(tmpdir(), 'article-word-count-'));
+    try {
+      expect((wc as any).wordCountForSlug('missing', { rootDir })).toBeNull();
+      const bodyDir = path.join(rootDir, 'services', 'locales', 'blog-body', 'it');
+      mkdirSync(bodyDir, { recursive: true });
+      writeFileSync(path.join(bodyDir, 'broken.ts'), 'const broken: Record<string, string> = {');
+      expect(() => (wc as any).wordCountForSlug('broken', { rootDir })).toThrow(/TypeScript syntax error/u);
+    } finally {
+      rmSync(rootDir, { recursive: true, force: true });
+    }
   });
 });
 

@@ -1,9 +1,138 @@
 import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
+import { parseStaticArticleBodyPreviews } from '../build-plugins/shared/staticArticleBodyPreviews';
+import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
+import {
+  repairLegacyDoubleEscapedBreaks,
+  tsStringEscapesWithNewlineAs,
+  unescapeTsString,
+} from '../scripts/lib/unescape-ts-string.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
+
+function readTrackedSource(relativePath: string): string {
+  const root = path.resolve(__dirname, '..');
+  const absolutePath = path.resolve(root, relativePath);
+  try {
+    return readFileSync(absolutePath, 'utf8');
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error;
+    return execFileSync('git', ['show', `HEAD:${relativePath}`], { cwd: root, encoding: 'utf8' });
+  }
+}
+
+describe('static article body preview source reader', () => {
+  const sourcePath = 'services/locales/blog-body/it/alpha.ts';
+
+  it('uses the complete TypeScript module and preserves the preview flattening contract', () => {
+    const source = [
+      'const translations: Record<string, string> = {',
+      '  "blog.article.alpha.body1": "Prima\\nseconda\\tterza\\rquarta",',
+      "  'blog.article.alpha.body2': 'legacy\\\\nbreak',",
+      '  "blog.article.alpha.body3": `\u00c8 testo su\ndue righe`,',
+      '  "blog.article.alpha.body4": "...\\nignored placeholder field",',
+      '  "note": "blog.article.fake.body1: \'not an entry\'",',
+      '};',
+      'export default translations;',
+    ].join('\n');
+
+    expect(parseStaticArticleBodyPreviews(source, sourcePath)).toEqual({
+      alpha: {
+        body1: 'Prima seconda terzaquarta',
+        body2: 'legacy break',
+        body3: 'È testo su due righe',
+      },
+    });
+  });
+
+  it('rejects a malformed present module instead of returning fields parsed before the error', () => {
+    const malformed = [
+      'const translations: Record<string, string> = {',
+      "  'blog.article.alpha.body1': 'valid placeholder ...',",
+      '  "unrelated": `runtime ${notStatic}`,',
+      '};',
+      'export default translations;',
+    ].join('\n');
+
+    expect(() => parseStaticArticleBodyPreviews(malformed, sourcePath))
+      .toThrow(/Interpolated template literal is not supported/u);
+  });
+
+  it('ignores valid fields outside the preview contract and accepts an empty translation record', () => {
+    const source = [
+      'const translations: Record<string, string> = {',
+      "  'blog.article.alpha.title': 'Title',",
+      "  'blog.article.alpha.body4': 'not checked by this preview',",
+      '};',
+      'export default translations;',
+    ].join('\n');
+    const emptySource = [
+      'const translations: Record<string, string> = {};',
+      'export default translations;',
+    ].join('\n');
+
+    expect(parseStaticArticleBodyPreviews(source, sourcePath)).toEqual({});
+    expect(parseStaticArticleBodyPreviews(emptySource, sourcePath)).toEqual({});
+  });
+
+  it('keeps prototype-shaped article ids as own data keys', () => {
+    const source = [
+      'const translations: Record<string, string> = {',
+      "  'blog.article.__proto__.body1': 'first body',",
+      "  'blog.article.constructor.body1': 'second body',",
+      '};',
+      'export default translations;',
+    ].join('\n');
+    const previews = parseStaticArticleBodyPreviews(source, sourcePath);
+    const constructorId: string = 'constructor';
+
+    expect(Object.hasOwn(previews, '__proto__')).toBe(true);
+    expect(previews['__proto__']?.body1).toBe('first body');
+    expect(Object.hasOwn(previews, constructorId)).toBe(true);
+    expect(previews[constructorId]?.body1).toBe('second body');
+    expect(Object.prototype).not.toHaveProperty('body1');
+  });
+
+  it('matches the legacy preview repair on a tracked source and verifies placeholder/robots wiring', () => {
+    const relativePath = 'packages/articles/content/blog-body/it/139-frontalieri-ticino-special-olympics.ts';
+    const absolutePath = path.resolve(__dirname, '..', relativePath);
+    const source = readTrackedSource(relativePath);
+    const actual = parseStaticArticleBodyPreviews(source, absolutePath);
+    const expected: Record<string, { body1?: string; body2?: string; body3?: string }> = Object.create(null);
+    const legacyPattern = /'blog\.article\.([^']+)\.(body1|body2|body3)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+
+    let match: RegExpExecArray | null;
+    while ((match = legacyPattern.exec(source)) !== null) {
+      const [, articleId, field, rawValue] = match;
+      const preview = repairLegacyDoubleEscapedBreaks(
+        unescapeTsString(rawValue, tsStringEscapesWithNewlineAs(' ')),
+        ' ',
+      );
+      (expected[articleId] ??= Object.create(null))[field as 'body1' | 'body2' | 'body3'] = preview;
+    }
+
+    expect(Object.keys(expected)).toEqual(['139-frontalieri-ticino-special-olympics']);
+    expect(actual).toEqual(expected);
+    expect(hasArticleBodyPromptPlaceholder(actual['139-frontalieri-ticino-special-olympics'])).toBe(false);
+
+    const placeholderSource = [
+      'const body: Record<string, string> = {',
+      "  'blog.article.placeholder-robots.body1': '...',",
+      '};',
+      'export default body;',
+    ].join('\n');
+    const placeholder = parseStaticArticleBodyPreviews(placeholderSource, 'placeholder-robots.ts');
+    expect(hasArticleBodyPromptPlaceholder(placeholder['placeholder-robots'])).toBe(true);
+
+    const pluginSource = readFileSync(path.resolve(__dirname, '..', 'build-plugins', 'staticPagesPlugin.ts'), 'utf-8');
+    expect(pluginSource).toContain('parseStaticArticleBodyPreviews(src, np.join(dir, file))');
+    expect(pluginSource).toContain('const articleBodyHasPromptPlaceholder = isBlogDetailPage && hasArticleBodyPromptPlaceholder(localizedBody)');
+    expect(pluginSource).toContain('<meta name="robots" content="${articleRobots}">');
+  });
+});
 
 describe('static pages blog detail rendering', () => {
   it('renders rich blog detail content instead of the generic editorial stub', () => {

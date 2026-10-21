@@ -173,7 +173,7 @@ import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore
 import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
-import { readMetaFieldEntries } from './lib/meta-field-regex.mjs';
+import { readStaticMetaFieldEntries as readMetaFieldEntries, readStaticMetaFields } from './lib/meta-field-regex.mjs';
 import { assertNoSlugPromptLeak, stripSlugPromptLeak, findSlugPromptLeak } from './lib/slug-prompt-leak-guard.mjs';
 import { fixMicrocopy } from './lib/it-microcopy-guard.mjs';
 import { cleanFaqPairs, sanitizePromptPlaceholders } from './lib/prompt-placeholder-guard.mjs';
@@ -2102,7 +2102,7 @@ function getAllArticleIds() {
 
 /** Read the active section's IT meta source (blog-meta-it | blog-meta-ch-it). */
 function readSectionMetaIt() {
-  return read(SECTION_META_IT_FILE);
+  return { source: read(SECTION_META_IT_FILE), sourcePath: SECTION_META_IT_FILE };
 }
 
 /**
@@ -2114,8 +2114,8 @@ function readSectionMetaIt() {
  * ACTIVE section's file, so cross-section near-duplicates slipped through
  * (2026-07-11: `assicurazione-vita-…-frontaliere` in svizzera vs
  * `…-frontalieri` in frontaliere, one letter apart). Both meta files use the
- * same `'blog.article.<id>.title'` key shape, so the callers' regexes work
- * unchanged over the concatenation.
+ * same `'blog.article.<id>.title'` key shape. The structured reader parses
+ * each complete module independently, then preserves this section order.
  */
 // Cached for the process lifetime: the evergreen pre-flight loop (Fase 2)
 // calls this once per candidate — up to hundreds of times per run since the
@@ -2127,11 +2127,12 @@ function readAllSectionsMetaIt() {
   if (_sectionsMetaItCache !== null) return _sectionsMetaItCache;
   const parts = [];
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
+    const sourcePath = `services/locales/${cfg.metaPrefix}-it.ts`;
     try {
-      parts.push(read(`services/locales/${cfg.metaPrefix}-it.ts`));
+      parts.push({ source: read(sourcePath), sourcePath });
     } catch { /* missing/empty section file — skip */ }
   }
-  _sectionsMetaItCache = parts.join('\n');
+  _sectionsMetaItCache = parts;
   return _sectionsMetaItCache;
 }
 
@@ -2147,8 +2148,9 @@ function readAllSectionsMetaIt() {
 // checkForDuplicates) for every existing article with an apostrophe in its
 // title, not just the ones just added. The 5th copy (loadExistingItTitlesExcluding)
 // already had the correct escape-aware pattern; all 5 now share this one.
-// readMetaFieldEntries now lives in scripts/lib/meta-field-regex.mjs (imported
-// at the top) — one token-aware definition, so a test copy cannot drift from it.
+// Full metadata modules use the canonical AST-backed projection imported from
+// scripts/lib/meta-field-regex.mjs. The old scanner remains there only for
+// callers that still need its legacy source-span contract.
 
 function getIsoWeekKey(date = new Date()) {
   const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
@@ -5123,8 +5125,8 @@ async function selectArticle(headlines) {
 
   // Get existing article titles AND excerpts from the section meta-it for robust duplicate detection
   const blogItSrc = readSectionMetaIt();
-  const titleMatches = readMetaFieldEntries(blogItSrc, 'title');
-  const excerptMatches = readMetaFieldEntries(blogItSrc, 'excerpt');
+  const metaMatches = readStaticMetaFields(blogItSrc, ['title', 'excerpt']);
+  const { title: titleMatches, excerpt: excerptMatches } = metaMatches;
   const existingTitles = titleMatches.map((m) => m.value);
   // Build compact "title — excerpt" list for last 30 articles (most relevant for
   // duplicate avoidance). SENZA l'id (issue #188): il primo campo era `[${m[1]}]`,
@@ -8004,8 +8006,8 @@ function loadExistingArticleSummaries() {
   // topics recur in both sections, so a sibling-section twin must be caught
   // BEFORE spending an LLM generation cycle on a duplicate.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = readMetaFieldEntries(blogItSrc, 'title');
-  const excerptMatches = readMetaFieldEntries(blogItSrc, 'excerpt');
+  const metaMatches = readStaticMetaFields(blogItSrc, ['title', 'excerpt']);
+  const { title: titleMatches, excerpt: excerptMatches } = metaMatches;
   const excerptsById = new Map(excerptMatches.map((m) => [m.id, m.value]));
   _existingArticleSummariesCache = titleMatches.map((m) => ({
     id: m.id,
@@ -8054,12 +8056,9 @@ function preFlightEvergreenCheck(candidate) {
 //   3. ID needs ≥3 distinctive tokens after filtering to use the ID signal;
 //      otherwise fall through to title Jaccard.
 //   4. Thresholds unchanged because we're measuring on a meaningful denominator.
-function preFlightHeadlineCheck(headline) {
+function preFlightHeadlineCheck(headline, titleMatches = readMetaFieldEntries(readAllSectionsMetaIt(), 'title')) {
   // Cross-section (2026-07-11): a news headline already covered in the sibling
   // section is a duplicate too (shared id/title namespace).
-  const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = readMetaFieldEntries(blogItSrc, 'title');
-
   const headlineWords = tokenizeIt(headline);
   if (headlineWords.length < 3) return { duplicate: false }; // too short to compare reliably
   const headlineDistinctive = filterDistinctive(headlineWords);
@@ -8116,8 +8115,8 @@ function checkForDuplicates(data) {
   // one-letter `…-frontaliere`/`…-frontalieri` twins, "vivere nei Grigioni",
   // etc. (2026-07-11). Same shared id/title namespace as getAllArticleIds.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = readMetaFieldEntries(blogItSrc, 'title');
-  const excerptMatches = readMetaFieldEntries(blogItSrc, 'excerpt');
+  const metaMatches = readStaticMetaFields(blogItSrc, ['title', 'excerpt']);
+  const { title: titleMatches, excerpt: excerptMatches } = metaMatches;
   const existingArticles = titleMatches.map((m) => {
     const id = m.id;
     const title = m.value;
@@ -9856,8 +9855,9 @@ async function main() {
       // semantic duplicates BEFORE we burn 6 LLM cycles that would hard-fail
       // at the title-collision gate in optimizeSeoMetadata.
       const beforeTopicFilter = headlines.length;
+      const existingTitleMatches = readMetaFieldEntries(readAllSectionsMetaIt(), 'title');
       headlines = headlines.filter(h => {
-        const check = preFlightHeadlineCheck(h.headline);
+        const check = preFlightHeadlineCheck(h.headline, existingTitleMatches);
         if (check.duplicate) {
           console.error(`  📰 Headline scartata (topic già coperto → ${check.existingId}, ${check.signal}=${check.sim.toFixed(2)}): ${h.headline.slice(0, 60)}…`);
           RUN_REPORT.preFilterDrops.topicAlreadyCovered += 1;
