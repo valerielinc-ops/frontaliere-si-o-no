@@ -191,6 +191,11 @@ describe('job-board emitted output', () => {
     const pageWord = { it: 'pagina', en: 'page', de: 'seite', fr: 'page' };
     for (const locale of locales) {
       const hub = hubPath(locale, 'ZH');
+      const firstPage = htmlDoc(hub);
+      const firstItemList = structured(firstPage).find((entry) => entry['@type'] === 'ItemList');
+      const firstItems = firstItemList.itemListElement as Array<{ position: number }>;
+      expect(firstItemList.numberOfItems).toBe(firstItems.length);
+      expect(firstItems.map((item) => item.position)).toEqual(firstItems.map((_, index) => index + 1));
       const lastPage = htmlDoc(`${hub}${pageWord[locale]}-7/`);
       const itemList = structured(lastPage).find((entry) => entry['@type'] === 'ItemList');
       expect(itemList.numberOfItems).toBe(8);

@@ -2791,6 +2791,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    ? { '@type': 'ListItem', position: i + 1, item: jobPosting }
    : { '@type': 'ListItem', position: i + 1, name: jobTitle, url: abs };
  };
+
+ // Filtering inactive jobs must happen before assigning JSON-LD positions and
+ // the ItemList count; otherwise a dropped job leaves gaps and an overstated
+ // numberOfItems in the emitted structured data.
+ const mapCantonJobsToListItems = (
+  jobs: ReadonlyArray<any>,
+  locale: 'it' | 'en' | 'de' | 'fr',
+ ): Record<string, unknown>[] => jobs
+  .flatMap((job) => {
+   const item = mapCantonJobToListItem(job, 0, locale);
+   return item ? [item] : [];
+  })
+  .map((item, index) => ({ ...item, position: index + 1 }));
  const dateStamp = new Date().toISOString().slice(0, 10);
  const cantonTitleYear = new Date().getFullYear();
  const searchRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
@@ -8059,15 +8072,14 @@ ${staticAnalyticsHtml}
  inLanguage: locale,
  isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  });
+ const itemListItems = mapCantonJobsToListItems(cappedJobs, locale);
  const itemListLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: pageTitle,
- numberOfItems: cappedJobs.length,
+ numberOfItems: itemListItems.length,
  // List items link to the individual job details.
- itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale))
-  .filter((item): item is Record<string, unknown> => item !== null),
+ itemListElement: itemListItems,
  });
  const listHtml = jobCardListBody(cappedJobs, locale);
  const backLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
@@ -8898,15 +8910,14 @@ ${staticAnalyticsHtml}
  inLanguage: locale,
  isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  });
+ const itemListItems = mapCantonJobsToListItems(cappedJobs, locale);
  const itemListLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: pageTitle,
- numberOfItems: cappedJobs.length,
+ numberOfItems: itemListItems.length,
  // List items link to the individual job details.
- itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale))
-  .filter((item): item is Record<string, unknown> => item !== null),
+ itemListElement: itemListItems,
  });
  // Honest counts over the full (uncapped) match set, not the 30 carded jobs —
  // mirrors the TI sector hub (jobSectorPagesPlugin.ts) so the stat-grid /
@@ -9286,14 +9297,13 @@ ${staticAnalyticsHtml}
  : locale === 'de' ? `Stellenangebote bei ${companyName} in ${cDisplay}`
  : `Offres d'emploi chez ${companyName} à ${cDisplay}`;
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
+ const itemListItems = mapCantonJobsToListItems(companyJobs, locale);
  const itemListLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: pageTitle,
- numberOfItems: companyJobs.length,
- itemListElement: companyJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale))
-  .filter((item): item is Record<string, unknown> => item !== null),
+ numberOfItems: itemListItems.length,
+ itemListElement: itemListItems,
  });
  const allJobsLabel = locale === 'it' ? `Vedi tutte le offerte in ${cDisplay}`
  : locale === 'en' ? `View all jobs in ${cDisplay}`
@@ -9414,15 +9424,14 @@ ${staticAnalyticsHtml}
  inLanguage: locale,
  isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  });
+ const itemListItems = mapCantonJobsToListItems(cappedJobs, locale);
  const itemListLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: pageTitle,
- numberOfItems: cappedJobs.length,
+ numberOfItems: itemListItems.length,
  // List items link to the individual job details.
- itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale))
-  .filter((item): item is Record<string, unknown> => item !== null),
+ itemListElement: itemListItems,
  });
  // Organization JSON-LD — derived from job data (no curated overlay).
  // sameAs/logo (issue #4306) are real, derived values only: sameAs from
@@ -9709,15 +9718,14 @@ ${staticAnalyticsHtml}
  inLanguage: locale,
  isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  });
+ const itemListItems = mapCantonJobsToListItems(cappedJobs, locale);
  const itemListLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: pageTitle,
- numberOfItems: cappedJobs.length,
+ numberOfItems: itemListItems.length,
  // List items link to the individual job details.
- itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale))
-  .filter((item): item is Record<string, unknown> => item !== null),
+ itemListElement: itemListItems,
  });
  // sameAs/logo (issue #4306) — real, derived values only. See
  // resolveCompanyHubOrgExtras above (shared with Phase 3.3).
