@@ -3,13 +3,10 @@
  * ported from career-ops modes/pdf.md and modes/_shared.md (MIT).
  *
  * Codex writes only a JSON payload (never layout): headline, summary,
- * competencies, the bullets of each role and skills, in the posting's
- * language; the section titles, the dates and the apprentice's headline are
- * written in code. Everything factual is copied from the profile in
- * code: roles, employers, dates (never reordered, never dropped: "tailor
- * through the summary, competencies, and bullet selection, never by moving
- * roles"), education, certifications, languages and the contact line (the
- * order's alias, as everywhere).
+ * competencies, the bullets of each role, skills and the localized profile
+ * fields, in the posting's language. The section titles and dates are written
+ * in code. Factual source data stays in the profile; the renderer consumes the
+ * localized display copy instead of silently printing source-language strings.
  *
  * Gates, all in code:
  *   - a competency or skill with no trace in the CV text is dropped ("NEVER
@@ -35,6 +32,33 @@ const S = (description) => (description ? { type: 'string', description } : { ty
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
 
+const LOCALIZED_EXPERIENCE = OBJ({
+  index: { type: 'integer' },
+  role: S('The role title in the posting language'),
+  location: S('The place in the posting language; keep proper names'),
+  highlights: LIST(S('The corresponding source highlight translated into the posting language, with every fact and number unchanged')),
+});
+const LOCALIZED_EDUCATION = OBJ({ index: { type: 'integer' }, degree: S(), institution: S(), grade: S() });
+const LOCALIZED_RECOGNITION = OBJ({ index: { type: 'integer' }, title: S(), issuer: S() });
+const LOCALIZED_TEST = OBJ({ index: { type: 'integer' }, name: S(), results: S() });
+const LOCALIZED_PROJECT = OBJ({ index: { type: 'integer' }, name: S(), description: S() });
+const LOCALIZED_LANGUAGE = OBJ({ index: { type: 'integer' }, language: S() });
+const LOCALIZED_REFERENCE = OBJ({ index: { type: 'integer' }, role: S(), organisation: S() });
+const LOCALIZED_PROFILE = OBJ({
+  headline: S('The profile headline translated into the posting language'),
+  location: S('The contact location translated into the posting language'),
+  experience: LIST(LOCALIZED_EXPERIENCE),
+  education: LIST(LOCALIZED_EDUCATION),
+  recognitions: LIST(LOCALIZED_RECOGNITION),
+  certifications: LIST(S()),
+  aptitudeTests: LIST(LOCALIZED_TEST),
+  projects: LIST(LOCALIZED_PROJECT),
+  languages: LIST(LOCALIZED_LANGUAGE),
+  interests: LIST(S()),
+  references: LIST(LOCALIZED_REFERENCE),
+  drivingLicence: S(),
+});
+
 export const TAILORED_CV_SCHEMA = OBJ({
   headline: S('The target role in the posting\'s own wording when the candidate\'s real level supports it, else the candidate\'s current title'),
   summary: S('3-4 lines'),
@@ -50,6 +74,7 @@ export const TAILORED_CV_SCHEMA = OBJ({
     })),
   })),
   skills: LIST(S()),
+  localized: LOCALIZED_PROFILE,
 });
 
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
@@ -68,6 +93,8 @@ Rules (from career-ops):
 - competencies: 6-8 short keyword phrases, each a skill the CV names or clearly demonstrates.
 - experience: one entry per role of the profile, with its index; keep every role. Each bullet: text, source (the index of the role's highlight it rewrites; -1 only when it truly rewrites none) and requirement (the index of the requirement it answers, -1 if none). For each role, 2-5 bullets, the strongest evidence for this posting first, results before tasks, short sentences, action verbs, no passive voice. Put a key term of the posting in the first bullet when the role truly supports it. A role with nothing relevant keeps 1-2 plain bullets.
 - skills: the technical skills and tools the CV names, the ones the posting asks for first.
+- localized: this is required display copy for every profile field that the code prints. It must mirror every non-empty source array item by its index: translate role titles, places, education degrees and grades, recognition titles, test results, project descriptions, spoken-language names, interests, reference roles, the driving-licence description and every original experience highlight into the posting language. Also translate the profile headline and contact location. Do not leave a required translated value empty. Do not copy an English, German, French or Italian sentence unchanged when the posting language differs. Keep candidate names, employer names, institution and organisation proper names, product and tool names, certificate names, URLs, dates and numbers exactly when they are official or factual; translate the surrounding description. The localized experience highlights are used when a role's adapted bullets are rejected, so they must contain the complete translated fallback for that role.
+- The top-level headline, summary, competencies, experience bullets and skills are also written in the posting language. The localized headline must be the same target-language headline as headline.
 - candidateType apprentice (an apprenticeship applicant, 14-16 years old): headline and summary "" (the code writes the trade as a goal); the bullets of the taster placements (Schnupperlehre, stage d'orientation) say what the candidate did and learned there, in plain words.
 - The section headings and the dates are written by the code: never write them.
 - Never write about work permits, residence or cross-border status, nationality or age: the personal details are printed by the code.
@@ -96,13 +123,22 @@ export function tailoredCvUserText({ profile, requirements, roleTitle, postingEx
     candidateType,
     posting: { roleTitle: withoutWorkload(roleTitle), requirements: (requirements || []).map(({ requirement, importance }, index) => ({ index, requirement, importance })), excerpt: postingExcerpt },
     profile: {
+      location: profile.location,
       headline: profile.headline,
       summary: profile.summary,
       skills: profile.skills,
       experience: (profile.experience || []).map((item, index) => ({ index, ...item })),
       education: profile.education,
+      currentEducation: profile.currentEducation,
       certifications: profile.certifications,
+      aptitudeTests: profile.aptitudeTests,
+      recognitions: profile.recognitions,
+      projects: profile.projects,
+      interests: profile.interests,
+      references: profile.references,
+      drivingLicence: profile.drivingLicence,
       languages: profile.languages,
+      cvLanguage: profile.cvLanguage,
     },
     answers,
     ...(factCheckFindings.length ? { factCheckFindings } : {}),
@@ -171,6 +207,153 @@ export function headlineGrounded(headline, profile = {}) {
   return words.every((word) => source.includes(word.slice(0, 5)));
 }
 
+const localizedAt = (items, index) => (Array.isArray(items)
+  ? items.find((item) => Number(item?.index) === index)
+  : null);
+
+const localizedString = (value, max) => clean(value, max);
+
+function sanitizeLocalizedProfile(raw) {
+  if (!raw || typeof raw !== 'object') return null;
+  return {
+    headline: localizedString(raw.headline, 120),
+    location: localizedString(raw.location, 200),
+    experience: (Array.isArray(raw.experience) ? raw.experience : []).map((item) => ({
+      index: Number(item?.index),
+      role: localizedString(item?.role, 200),
+      location: localizedString(item?.location, 200),
+      highlights: (Array.isArray(item?.highlights) ? item.highlights : []).map((line) => localizedString(line, 400)).filter(Boolean).slice(0, 6),
+    })),
+    education: (Array.isArray(raw.education) ? raw.education : []).map((item) => ({
+      index: Number(item?.index),
+      degree: localizedString(item?.degree, 200),
+      institution: localizedString(item?.institution, 200),
+      grade: localizedString(item?.grade, 80),
+    })),
+    recognitions: (Array.isArray(raw.recognitions) ? raw.recognitions : []).map((item) => ({
+      index: Number(item?.index),
+      title: localizedString(item?.title, 200),
+      issuer: localizedString(item?.issuer, 120),
+    })),
+    certifications: (Array.isArray(raw.certifications) ? raw.certifications : []).map((item) => localizedString(item, 200)).filter(Boolean).slice(0, 20),
+    aptitudeTests: (Array.isArray(raw.aptitudeTests) ? raw.aptitudeTests : []).map((item) => ({
+      index: Number(item?.index),
+      name: localizedString(item?.name, 120),
+      results: localizedString(item?.results, 300),
+    })),
+    projects: (Array.isArray(raw.projects) ? raw.projects : []).map((item) => ({
+      index: Number(item?.index),
+      name: localizedString(item?.name, 120),
+      description: localizedString(item?.description, 400),
+    })),
+    languages: (Array.isArray(raw.languages) ? raw.languages : []).map((item) => ({
+      index: Number(item?.index),
+      language: localizedString(item?.language, 60),
+    })),
+    interests: (Array.isArray(raw.interests) ? raw.interests : []).map((item) => localizedString(item, 160)).filter(Boolean).slice(0, 10),
+    references: (Array.isArray(raw.references) ? raw.references : []).map((item) => ({
+      index: Number(item?.index),
+      role: localizedString(item?.role, 120),
+      organisation: localizedString(item?.organisation, 160),
+    })),
+    drivingLicence: localizedString(raw.drivingLicence, 80),
+  };
+}
+
+const nonEmpty = (value) => String(value || '').trim().length > 0;
+const sameDisplayText = (first, second) => nonEmpty(first) && nonEmpty(second) && normalizeText(first) === normalizeText(second);
+
+// A small set of unambiguous prose signals catches a model that rewrites an
+// English fallback in different words, while leaving product and tool names
+// such as "Project Management", "Azure" and "DevOps" alone.
+const LANGUAGE_SIGNALS = {
+  it: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
+  de: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'gestito', 'laurea', 'formazione', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
+  fr: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'gestito', 'laurea', 'formazione', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium'],
+  en: ['sviluppato', 'sviluppata', 'gestito', 'gestita', 'esperienza', 'esperienze', 'formazione', 'laurea', 'diploma', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
+};
+
+function languageSignals(text, language) {
+  const tokens = new Set(normalizeText(text).split(' ').filter(Boolean));
+  return (LANGUAGE_SIGNALS[language] || []).filter((word) => tokens.has(word));
+}
+
+function requireLocalized(issues, value, source, field, { rejectUnchanged = false } = {}) {
+  if (!nonEmpty(source)) return;
+  if (!nonEmpty(value)) {
+    issues.push({ field: 'localized', kind: 'missing', token: field, context: 'source field is printed in the tailored CV' });
+  } else if (rejectUnchanged && sameDisplayText(value, source)) {
+    issues.push({ field: 'localized', kind: 'unchanged', token: field, context: 'source-language text would be printed in the target language' });
+  }
+}
+
+/**
+ * The document renderer has a safe source fallback for old drafts and for a
+ * rejected rewrite. Production drafts use this gate before a PDF is stored:
+ * every source-language field that can reach the document must have target
+ * language display text, and a rejected rewrite must have a translated role
+ * fallback.
+ */
+export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it' } = {}) {
+  const sourceLanguage = String(profile.cvLanguage || '').toLowerCase().slice(0, 2);
+  if (sourceLanguage === language) return { ok: true, issues: [] };
+
+  const issues = [];
+  const localized = cv?.localized;
+  if (!localized) return { ok: false, issues: [{ field: 'localized', kind: 'missing', token: 'profile', context: 'the tailored CV has no localized profile payload' }] };
+
+  requireLocalized(issues, localized.headline, profile.headline, 'headline', { rejectUnchanged: true });
+  if (cv.type !== 'apprentice' && nonEmpty(profile.headline) && nonEmpty(localized.headline)
+    && normalizeText(cv.headline) !== normalizeText(localized.headline)) {
+    issues.push({ field: 'localized', kind: 'mismatch', token: 'headline', context: 'the renderer would print a different, possibly source-language headline' });
+  }
+  requireLocalized(issues, localized.location, profile.location, 'location', { rejectUnchanged: true });
+
+  (profile.experience || []).forEach((role, index) => {
+    const translation = localizedAt(localized.experience, index);
+    requireLocalized(issues, translation?.role, role.role, `experience[${index}].role`, { rejectUnchanged: true });
+    requireLocalized(issues, translation?.location, role.location, `experience[${index}].location`, { rejectUnchanged: true });
+    (role.highlights || []).forEach((highlight, highlightIndex) => {
+      requireLocalized(issues, translation?.highlights?.[highlightIndex], highlight, `experience[${index}].highlights[${highlightIndex}]`, { rejectUnchanged: true });
+    });
+  });
+  (profile.education || []).forEach((item, index) => {
+    const translation = localizedAt(localized.education, index);
+    requireLocalized(issues, translation?.degree, item.degree, `education[${index}].degree`, { rejectUnchanged: true });
+    requireLocalized(issues, translation?.institution, item.institution, `education[${index}].institution`);
+    requireLocalized(issues, translation?.grade, item.grade, `education[${index}].grade`, { rejectUnchanged: true });
+  });
+  (profile.recognitions || []).forEach((item, index) => {
+    const translation = localizedAt(localized.recognitions, index);
+    requireLocalized(issues, translation?.title, item.title, `recognitions[${index}].title`, { rejectUnchanged: true });
+    requireLocalized(issues, translation?.issuer, item.issuer, `recognitions[${index}].issuer`);
+  });
+  (profile.certifications || []).forEach((item, index) => requireLocalized(issues, localized.certifications?.[index], item, `certifications[${index}]`));
+  (profile.aptitudeTests || []).forEach((item, index) => {
+    const translation = localizedAt(localized.aptitudeTests, index);
+    requireLocalized(issues, translation?.name, item.name, `aptitudeTests[${index}].name`);
+    requireLocalized(issues, translation?.results, item.results, `aptitudeTests[${index}].results`, { rejectUnchanged: true });
+  });
+  (profile.projects || []).forEach((item, index) => {
+    const translation = localizedAt(localized.projects, index);
+    requireLocalized(issues, translation?.name, item.name);
+    requireLocalized(issues, translation?.description, item.description, `projects[${index}].description`, { rejectUnchanged: true });
+  });
+  (profile.languages || []).forEach((item, index) => requireLocalized(issues, localizedAt(localized.languages, index)?.language, item.language, `languages[${index}].language`));
+  (profile.interests || []).forEach((item, index) => requireLocalized(issues, localized.interests?.[index], item, `interests[${index}]`, { rejectUnchanged: true }));
+  (profile.references || []).forEach((item, index) => {
+    const translation = localizedAt(localized.references, index);
+    requireLocalized(issues, translation?.role, item.role, `references[${index}].role`, { rejectUnchanged: true });
+    requireLocalized(issues, translation?.organisation, item.organisation, `references[${index}].organisation`);
+  });
+  requireLocalized(issues, localized.drivingLicence, profile.drivingLicence, 'drivingLicence', { rejectUnchanged: true });
+
+  const text = tailoredCvPlainText(cv, { identity: { name: '', phone: '', email: '' }, profile });
+  const signals = languageSignals(text, language);
+  if (signals.length >= 2) issues.push({ field: 'localized', kind: 'language', token: signals.slice(0, 4).join(', '), context: `strong ${sourceLanguage || 'source'}-language prose remains in a ${language} CV` });
+  return { ok: issues.length === 0, issues };
+}
+
 /**
  * @param {{profile:object, cvText:string, language:string, type?:string, sector?:string, title?:string}} context
  *   type/sector: assistedApplicationCandidateType.js; title: the posting's title, for the apprentice's goal.
@@ -179,6 +362,7 @@ export function sanitizeTailoredCv(raw, { profile, cvText, language, type = 'qua
   const cv = ` ${normalizeText(cvText)} ${normalizeText(JSON.stringify(profile || {}))} `;
   const cvRaw = `${cvText || ''}\n${JSON.stringify(profile || {})}`;
   const claimSide = { folded: cv, raw: cvRaw };
+  const localized = sanitizeLocalizedProfile(raw?.localized);
   const dropped = [];
   const keep = (items, max) => {
     const out = [];
@@ -206,7 +390,8 @@ export function sanitizeTailoredCv(raw, { profile, cvText, language, type = 'qua
   if (type === 'apprentice') {
     headline = apprenticeHeadline(withoutWorkload(title), language) || headline;
     headlineSource = 'goal';
-  } else if (modelHeadline && headlineGrounded(modelHeadline, profile)) {
+  } else if (modelHeadline && (headlineGrounded(modelHeadline, profile)
+    || (localized?.headline && normalizeText(localized.headline) === normalizeText(modelHeadline)))) {
     headline = modelHeadline;
     headlineSource = 'model';
   }
@@ -245,6 +430,7 @@ export function sanitizeTailoredCv(raw, { profile, cvText, language, type = 'qua
       };
     }),
     skills: keep(raw?.skills, 16),
+    localized,
     dropped,
   };
 }
@@ -295,9 +481,27 @@ export function ownChoiceTexts(choices = {}) {
   return Object.values(choices || {}).filter((choice) => choice?.use === 'own').map((choice) => clean(choice.text, MAX_OWN_LINE)).filter(Boolean);
 }
 
+/** Every localized field Codex wrote, without indexes or dates added by code. */
+function localizedCvText(localized) {
+  if (!localized) return '';
+  return [
+    localized.headline, localized.location,
+    ...(localized.experience || []).flatMap((item) => [item.role, item.location, ...(item.highlights || [])]),
+    ...(localized.education || []).flatMap((item) => [item.degree, item.institution, item.grade]),
+    ...(localized.recognitions || []).flatMap((item) => [item.title, item.issuer]),
+    ...(localized.certifications || []),
+    ...(localized.aptitudeTests || []).flatMap((item) => [item.name, item.results]),
+    ...(localized.projects || []).flatMap((item) => [item.name, item.description]),
+    ...(localized.languages || []).map((item) => item.language),
+    ...(localized.interests || []),
+    ...(localized.references || []).flatMap((item) => [item.role, item.organisation]),
+    localized.drivingLicence,
+  ].filter(Boolean).join('\n');
+}
+
 /** Everything Codex wrote, as the fact gate reads it (a headline written in code is not). */
 export function tailoredCvGeneratedText(cv) {
-  return [cv.headlineSource === 'model' || !cv.headlineSource ? cv.headline : '', cv.summary, cv.competencies.join(' · '), ...cv.experience.filter((role) => role.rewritten).flatMap((role) => role.bullets), cv.skills.join(', ')].join('\n');
+  return [cv.headlineSource === 'model' || !cv.headlineSource ? cv.headline : '', cv.summary, cv.competencies.join(' · '), ...cv.experience.filter((role) => role.rewritten).flatMap((role) => role.bullets), cv.skills.join(', '), localizedCvText(cv.localized)].join('\n');
 }
 
 /**

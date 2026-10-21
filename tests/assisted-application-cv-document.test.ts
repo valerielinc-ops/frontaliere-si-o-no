@@ -5,7 +5,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const { formatCvDate, formatPeriod, isoDateOf, parseEndpoint } = await import('../functions/src/lib/cvPeriod.js');
 const { apprenticeHeadline, apprenticeTrade, candidateType, draftCandidateType } = await import('../functions/src/assistedApplicationCandidateType.js');
 const { buildCvDocument } = await import('../functions/src/assistedApplicationCvDocument.js');
-const { checkTailoredCvFacts, headlineGrounded, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { checkTailoredCvFacts, checkTailoredCvLanguage, headlineGrounded, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { sanitizeProfile } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { PROFILE_SCHEMA } = await import('../functions/src/assistedApplicationAiPrompts.js');
 
@@ -252,6 +252,52 @@ describe('tailored CV by type', () => {
     expect(kinds.indexOf('recognitions')).toBe(kinds.indexOf('education') + 1);
     expect(document.personal).toContainEqual(['Permis de travail', 'Permis G (frontalière)']);
     expect(document.sections.find((section: any) => section.kind === 'experience').items[0].date).toBe("09.2019 – aujourd'hui");
+  });
+
+  it('translates every source field used by the document and blocks a missing translation', () => {
+    const profile = sanitizeProfile({
+      cvLanguage: 'en',
+      location: 'Varese, Italy',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      experience: [{
+        role: 'Senior IT Manager Group Application', employer: 'Swatch Group', location: 'Biel, Switzerland',
+        start: '2020', end: '2024', kind: 'job', highlights: ['Architected and led development of DottNet, serving 10 users.'],
+      }],
+      education: [{ degree: "Master’s Degree in Computer Science", institution: 'University of Milan', start: '2010', end: '2012', grade: '' }],
+      certifications: ['Professional Agile Leadership'],
+      languages: [{ language: 'English', level: 'C1' }],
+      interests: ['Technology and cycling'],
+    });
+    const raw = {
+      headline: 'Responsabile IT senior delle applicazioni di gruppo',
+      summary: 'Responsabile IT senior con esperienza nelle applicazioni aziendali.',
+      competencies: ['Azure'],
+      // No adapted bullet: the renderer must use the localized fallback below.
+      experience: [],
+      skills: ['Azure'],
+      localized: {
+        headline: 'Responsabile IT senior delle applicazioni di gruppo', location: 'Varese, Italia',
+        experience: [{ index: 0, role: 'Responsabile IT senior delle applicazioni di gruppo', location: 'Bienne, Svizzera', highlights: ['Ha progettato e guidato lo sviluppo di DottNet, utilizzato da 10 utenti.'] }],
+        education: [{ index: 0, degree: 'Laurea magistrale in informatica', institution: 'Università di Milano', grade: '' }],
+        recognitions: [], certifications: ['Leadership Agile professionale'], aptitudeTests: [], projects: [],
+        languages: [{ index: 0, language: 'Inglese' }], interests: ['Tecnologia e ciclismo'], references: [], drivingLicence: '',
+      },
+    };
+    const cv = sanitizeTailoredCv(raw, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+    expect(checkTailoredCvFacts(cv, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', answers: {} }).ok).toBe(true);
+    const document = buildCvDocument(cv, { identity, profile, language: 'it', type: 'qualified', sector: 'it' });
+    const text = tailoredCvPlainText(cv, { identity, profile });
+    expect(text).toContain('Responsabile IT senior delle applicazioni di gruppo');
+    expect(text).toContain('Laurea magistrale in informatica');
+    expect(text).toContain('Ha progettato e guidato lo sviluppo di DottNet, utilizzato da 10 utenti.');
+    expect(text).toContain('Leadership Agile professionale');
+    expect(text).toContain('Tecnologia e ciclismo');
+    expect(text).not.toContain('Architected and led development');
+    expect(document.contact[0]).toBe('Varese, Italia');
+
+    const missing = sanitizeTailoredCv({ ...raw, localized: undefined }, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
+    expect(checkTailoredCvLanguage(missing, { profile, language: 'it' }).ok).toBe(false);
   });
 });
 

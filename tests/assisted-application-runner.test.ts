@@ -112,7 +112,13 @@ function fakeCodex() {
       return {
         headline: 'Infermiera', summary: 'Infermiera con esperienza in reparto.', competencies: ['triage', 'astrofisica'],
         experience: [{ index: 0, bullets: ['Reparto da 24 letti.'] }], skills: ['triage'],
-        sectionTitles: { summary: 'Profilo', competencies: 'Competenze', experience: 'Esperienza', education: 'Formazione', certifications: 'Certificazioni', skills: 'Competenze tecniche', languages: 'Lingue' },
+        localized: {
+          headline: 'Infermiera', location: 'Como',
+          experience: [{ index: 0, role: 'Infermiera', location: 'Lugano', highlights: ['Reparto da 24 letti.'] }],
+          education: [], recognitions: [], certifications: [], aptitudeTests: [], projects: [],
+          languages: [{ index: 0, language: 'italiano' }, { index: 1, language: 'tedesco' }],
+          interests: [], references: [], drivingLicence: '',
+        },
       };
     }
     throw new Error('unexpected schema');
