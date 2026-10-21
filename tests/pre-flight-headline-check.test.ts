@@ -20,7 +20,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { tokenizeIt, jaccardSim, containmentSim } from '../scripts/lib/it-text-similarity.mjs';
 import { filterDistinctive } from '../scripts/lib/dup-stoplist.mjs';
-import { metaFieldRegex, unescapeTsValue } from '../scripts/lib/meta-field-regex.mjs';
+import { readMetaFieldEntries } from '../scripts/lib/meta-field-regex.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/create-article.mjs'), 'utf8');
@@ -37,11 +37,10 @@ type CheckResult =
   | { duplicate: true; signal: string; sim: number; existingId: string; existingTitle: string };
 
 // The function references `readAllSectionsMetaIt`, `tokenizeIt`, `jaccardSim`,
-// `containmentSim`, `filterDistinctive`, and — since the quote-safe extractor
-// consolidation (#4881) — the shared `metaFieldRegex` / `unescapeTsValue`
-// pair, imported from scripts/lib/meta-field-regex.mjs rather than re-declared
-// here (a local copy would let the script regress while this suite stays
-// green — the very drift the consolidation closed). Inject them all: this harness lifts the function body out of
+// `containmentSim`, `filterDistinctive`, and the shared token-aware
+// `readMetaFieldEntries` imported from scripts/lib/meta-field-regex.mjs rather
+// than re-declared here. Inject them all: this harness lifts the function body
+// out of
 // create-article.mjs by regex, so every free identifier it gains has to be
 // mirrored here or the whole suite fails with a ReferenceError rather than a
 // meaningful assertion. Since 2026-07-11 the
@@ -71,8 +70,7 @@ const runner = new Function(
   'jaccardSim',
   'containmentSim',
   'filterDistinctive',
-  'metaFieldRegex',
-  'unescapeTsValue',
+  'readMetaFieldEntries',
   `${fnMatch[0]}\nreturn preFlightHeadlineCheck;`,
 );
 const preFlightHeadlineCheck = runner(
@@ -81,9 +79,38 @@ const preFlightHeadlineCheck = runner(
   jaccardSim,
   containmentSim,
   filterDistinctive,
-  metaFieldRegex,
-  unescapeTsValue,
+  readMetaFieldEntries,
 ) as (headline: string) => CheckResult;
+
+describe('readMetaFieldEntries', () => {
+  it('ignores keys inside comments and prose strings', () => {
+    const source = [
+      "const note = `docs: 'blog.article.fake.title': 'not an entry'`;",
+      '// \'blog.article.comment.title\': \'not an entry\'',
+      'const blogMeta = {',
+      "  'blog.article.real.title': 'Real title',",
+      "  'blog.article.real.excerpt': 'Real excerpt',",
+      '};',
+    ].join('\n');
+
+    expect(readMetaFieldEntries(source, 'title')).toEqual([{ id: 'real', value: 'Real title' }]);
+  });
+
+  it('rejects a matching value without a real member delimiter', () => {
+    const source = [
+      'const blogMeta = {',
+      "  'blog.article.fake.title': 'not an entry' followed by prose",
+      '};',
+    ].join('\n');
+
+    expect(() => readMetaFieldEntries(source, 'title')).toThrow(/member delimiter/u);
+  });
+
+  it('fails closed on a dynamic matching value', () => {
+    const source = "const blogMeta = { 'blog.article.fake.title': getTitle(), };";
+    expect(() => readMetaFieldEntries(source, 'title')).toThrow(/static string value/u);
+  });
+});
 
 describe('preFlightHeadlineCheck', () => {
   describe('catches semantic duplicates of existing articles', () => {
