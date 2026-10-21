@@ -296,15 +296,44 @@ describe('packages/articles/engine/rssFeeds', () => {
     }
   });
 
-  it('keeps division context after member keywords before nested regex templates', () => {
+  it('fails the whole source for interpolation before or after body fields', () => {
+    const dynamicBefore = [
+      "const other = `prefix ${obj.return / /}/.test(`inner 'blog.article.alpha.body2': 'fake'`)} suffix`;",
+      "export default { 'blog.article.alpha.body1': 'Alpha body before failure.' };",
+    ].join('\n');
+    const dynamicAfter = [
+      "export default { 'blog.article.alpha.body1': 'Alpha body before failure.' };",
+      'const other = `prefix ${compute()} suffix`;',
+    ].join('\n');
+    const dynamicBodyKey = "export default { [`blog.article.${id}.body1`]: 'body' };";
+
+    for (const source of [dynamicBefore, dynamicAfter, dynamicBodyKey]) {
+      const root = makeFixture();
+      fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+      expect(() => buildAllRssFeeds({
+        repairSerpSnippet,
+        fs,
+        path,
+        rootDir: root,
+        registries: { frontaliere: REGISTRY },
+        layout: LAYOUT,
+      })).toThrow(/Interpolated template literal is not supported/u);
+    }
+  });
+
+  it('accepts escaped interpolation and ignores template markers in comments and quotes', () => {
     const root = makeFixture();
-    fs.writeFileSync(
-      path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'),
-      [
-        "const other = `prefix ${obj.return / /}/.test(`inner 'blog.article.alpha.body1': 'wrong'`)} suffix`;",
-        "export default { 'blog.article.alpha.body1': 'Alpha body remains available after the nested template scanner regression.' };",
-      ].join('\n'),
-    );
+    const slash = String.fromCharCode(92);
+    const escapedMarker = `${slash}${'${'}literal}`;
+    const source = [
+      '// `comment ${notCode}`',
+      '/* `comment ${notCode}` */',
+      "const single = '${ordinaryText}';",
+      'const double = "${ordinaryText}";',
+      `const staticTemplate = \`escaped ${escapedMarker}\`;`,
+      `export default { 'blog.article.alpha.body1': \`Alpha ${escapedMarker} remains available as static body text.\` };`,
+    ].join('\n');
+    fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
 
     const [section] = buildAllRssFeeds({
       repairSerpSnippet,
@@ -315,8 +344,7 @@ describe('packages/articles/engine/rssFeeds', () => {
       layout: LAYOUT,
     });
     const it = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
-
-    expect(it).toContain('Alpha body remains available after the nested template scanner regression.');
+    expect(it).toContain('Alpha ${literal} remains available as static body text.');
   });
 
   it('makes the main feed a byte copy of the Italian one, self-linking to the main filename', () => {
