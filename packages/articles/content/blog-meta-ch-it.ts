@@ -8543,6 +8543,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.circolare-221-deduzione-figli-2027.title': 'Imposta alla fonte 2027: deduzione per figlio a 264 CHF',
     'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Pubblicazione: Berna, 20 ottobre 2026 Stato della circolare: 1° gennaio 2027 Deduzione per ogni figlio: 264 CHF Valore mediano dei redditi: 5\'925 CHF al mese',
     'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.title': 'Orologi svizzeri: export a 2,2 miliardi a settembre, +11,7%',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.excerpt': 'A settembre 2026 le esportazioni salgono dell\'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 711,
+      "5": 713,
       "6": 5054
     },
-    "publishedCovers": 7448,
+    "publishedCovers": 7450,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204074,6 +204074,39 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7": {
+      "cover": "/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp",
+      "hash": "36e3299ba1a366748e08771809ddedbf48bdf65ff0fd0edee8871d7a385acc45",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7",
+          "category": "novita",
+          "date": "2026-10-20T23:39:39.771Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7",
+        "imageUrl": "/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-voto-comunale-stranieri-berna": {
       "cover": "/images/blog/article-voto-comunale-stranieri-berna.webp",
       "hash": "7a77d09088244e9302885468d9d05cbd06594edfd70d4fc7c8af632566abbd97",
@@ -204137,6 +204170,39 @@
         "provider": "openai-codex",
         "assetId": "article-weissenbach-incidente-quattro-auto",
         "imageUrl": "/images/blog/article-weissenbach-incidente-quattro-auto.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zugo-assegnazione-mandato-2030": {
+      "cover": "/images/blog/article-zugo-assegnazione-mandato-2030.webp",
+      "hash": "4a08d310a4d47603fac4e7759bd6cc4e7c1fc2edbd2aea31f73fe66fb497f63d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "zugo-assegnazione-mandato-2030",
+          "category": "novita",
+          "date": "2026-10-20T23:44:17.371Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zugo-assegnazione-mandato-2030.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-20",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zugo-assegnazione-mandato-2030",
+        "imageUrl": "/images/blog/article-zugo-assegnazione-mandato-2030.webp",
         "evidence": "generated-engine-record"
       }
     },

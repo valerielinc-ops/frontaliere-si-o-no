@@ -2870,6 +2870,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'accordo-commercio-elettronico-omc': { it: 'accordo-commercio-elettronico-omc', en: 'e-commerce-agreement-wto', de: 'e-commerce-abkommen-wto', fr: 'accord-commerce-electronique-omc' },
  'rickli-ritiro-consiglio-federale': { it: 'rickli-ritiro-consiglio-federale', en: 'rickli-withdraws-federal-council', de: 'rickli-zieht-sich-rat-federal', fr: 'rickli-retire-council-federal' },
  'circolare-221-deduzione-figli-2027': { it: 'circolare-221-deduzione-figli-2027', en: 'circular-221-child-deduction-2027', de: 'rundschreiben-221-kinderabzug-2027', fr: 'circulaire-221-deduction-enfant-2027' },
+ 'orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7': { it: 'orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7', en: 'swiss-watches-exports-at-2-2-billion-in-september-11-7', de: 'schweizer-uhren-exporte-im-september-bei-2-2-milliarden-11-7', fr: 'montres-suisses-exportations-a-2-2-milliards-en-septembre-11-7' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

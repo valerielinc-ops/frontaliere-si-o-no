@@ -8543,6 +8543,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.circolare-221-deduzione-figli-2027.title': 'Impôt à la source 2027 : déduction par enfant de 264 CHF',
     'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Publication : Berne, 20 octobre 2026 État de la circulaire : 1er janvier 2027 Déduction pour chaque enfant : 264 CHF Valeur médiane des revenus : 5\'925 CHF par mois',
     'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.title': 'Montres suisses : exportations à 2,2 milliards en septembre, +11,7 %',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.excerpt': 'En septembre 2026, les exportations augmentent de 11,7 % à 2,2 milliards de francs ; 1,4 million de pièces (+19,9 %).',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

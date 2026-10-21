@@ -8543,6 +8543,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.circolare-221-deduzione-figli-2027.title': 'Quellensteuer 2027: Abzug pro Kind auf 264 CHF',
     'blog.article.circolare-221-deduzione-figli-2027.excerpt': 'Veröffentlichung: Bern, 20.',
     'blog.article.circolare-221-deduzione-figli-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.title': 'Schweizer Uhren: Exporte im September bei 2,2 Milliarden, +11,7%',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.excerpt': 'Im September 2026 steigen die Exporte um 11,7% auf 2,2 Milliarden Franken; 1,4 Millionen Stück (+19,9%).',
+    'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

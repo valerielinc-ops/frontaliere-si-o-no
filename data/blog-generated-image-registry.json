@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 713,
-  "generatedAt": "2026-10-20T23:44:16.154Z",
+  "assetCount": 715,
+  "generatedAt": "2026-10-21T00:20:55.727Z",
   "assets": [
     {
       "schema": 1,
@@ -30296,6 +30296,49 @@
     },
     {
       "schema": 1,
+      "assetId": "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "826b85c601af472e3487c3f52fd6f32e716ff4289ddff45e9bd58aaf578dbc45",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "36e3299ba1a366748e08771809ddedbf48bdf65ff0fd0edee8871d7a385acc45",
+      "bytes": 80136,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-20T23:39:32.869Z",
+      "verifiedAt": "2026-10-20T23:39:39.317Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp",
+      "area": "Svizzera",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Original generic synthetic editorial illustration of Swiss watchmaking with watches, tools, and a Swiss lakeside setting; no text, logos, people, or specific event."
+      }
+    },
+    {
+      "schema": 1,
       "assetId": "article-voto-comunale-stranieri-berna",
       "kind": "generated",
       "provider": "openai-codex",
@@ -30378,6 +30421,49 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Original generic synthetic illustration of a four-car collision scene; no readable text, logos, recognizable faces, or foreground people."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-zugo-assegnazione-mandato-2030",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "01527eb68abd1df952dcba4ec762b247ea3b9aaacc3f99f78f6b9c1328be7d78",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "4a08d310a4d47603fac4e7759bd6cc4e7c1fc2edbd2aea31f73fe66fb497f63d",
+      "bytes": 154072,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-20T23:44:09.389Z",
+      "verifiedAt": "2026-10-20T23:44:17.335Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-zugo-assegnazione-mandato-2030.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic civic-building scene relevant to Zug; no readable text, logos, recognizable faces, or foreground people."
       }
     },
     {
