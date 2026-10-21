@@ -67,17 +67,13 @@ import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { SECTION_LEGACY_TI_PATH, SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
-import {
-  MARKET_REPORT_SLUG,
-  REPORT_LOCALES,
-  type ReportLocale,
-} from './shared/reportRoutes';
+import { MARKET_REPORT_SLUG } from './shared/reportRoutes';
 
 // ── Types ─────────────────────────────────────────────────────────
 
-type Locale = ReportLocale;
+type Locale = 'it' | 'en' | 'de' | 'fr';
 
-const LOCALES = REPORT_LOCALES;
+const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
 
 const LOCALE_PREFIX: Record<Locale, string> = {
   it: '',

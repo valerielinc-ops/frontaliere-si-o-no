@@ -72,17 +72,13 @@ import { buildTitleWithBrand } from './shared/titleSuffix';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { jobSalaryMidpoint } from './shared/realSalaryMedian';
 import { isReportSalaryJob, loadReportJobPanel, type ReportJob } from './shared/reportJobPanel';
-import {
-  ANNUAL_REPORT_SLUG,
-  REPORT_LOCALES,
-  type ReportLocale,
-} from './shared/reportRoutes';
+import { ANNUAL_REPORT_SLUG } from './shared/reportRoutes';
 
 // ── Types ─────────────────────────────────────────────────────────
 
-type Locale = ReportLocale;
+type Locale = 'it' | 'en' | 'de' | 'fr';
 
-const LOCALES = REPORT_LOCALES;
+const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
 
 const LOCALE_PREFIX: Record<Locale, string> = {
   it: '',

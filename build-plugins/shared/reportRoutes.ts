@@ -8,8 +8,6 @@
 
 export type ReportLocale = 'it' | 'en' | 'de' | 'fr';
 
-export const REPORT_LOCALES: readonly ReportLocale[] = ['it', 'en', 'de', 'fr'];
-
 export const ANNUAL_REPORT_SLUG: Record<ReportLocale, string> = {
   it: 'report/frontalieri-2026',
   en: 'en/report/cross-border-workers-2026',
