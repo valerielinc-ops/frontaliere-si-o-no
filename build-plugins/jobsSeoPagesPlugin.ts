@@ -2759,8 +2759,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ): Record<string, unknown> | null => {
   const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
   const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+  const canonicalHref = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jobCanton)}`;
   const abs = activeCanonicalJobHref(job, locale);
-  if (!abs) return null;
+  if (!abs || abs !== canonicalHref) return null;
   const jobPosting = buildJobListEntry(
    {
     title: jobTitle,
