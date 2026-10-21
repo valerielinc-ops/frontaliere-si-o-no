@@ -372,7 +372,7 @@ const LANGUAGE_SIGNALS = {
   en: ['sviluppato', 'sviluppata', 'gestito', 'gestita', 'creato', 'creata', 'ridotto', 'ridotta', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'esperienza', 'esperienze', 'sviluppo', 'formazione', 'laurea', 'diploma', 'competenze', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
 };
 
-const LANGUAGE_TERM_EXCEPTIONS = new Set(['project management', 'azure', 'devops', 'built in functions']);
+const LANGUAGE_TERM_EXCEPTIONS = new Set(['project management', 'azure', 'devops', 'built in functions', 'team']);
 
 // Compact trigram profiles detect the language of short rendered fields more
 // reliably than requiring one word from a target-language whitelist. Keep the
@@ -386,10 +386,10 @@ const CV_LANGUAGE_TRIGRAMS = {
 };
 
 const CV_LANGUAGE_MARKERS = {
-  it: new Set(['requisiti', 'candidato', 'candidatura', 'offerta', 'competenze', 'esperienza', 'conoscenze', 'azienda', 'lavoro', 'profilo', 'responsabilita', 'responsabile', 'ricerca', 'sviluppo', 'gestione', 'cliente', 'settore', 'formazione', 'contratto', 'mansioni', 'commerciale', 'di', 'progetto', 'progetti']),
+  it: new Set(['requisiti', 'candidato', 'candidatura', 'offerta', 'competenze', 'esperienza', 'conoscenze', 'azienda', 'lavoro', 'profilo', 'responsabilita', 'responsabile', 'specialista', 'supporto', 'ricerca', 'sviluppo', 'gestione', 'cliente', 'settore', 'formazione', 'contratto', 'mansioni', 'commerciale', 'di', 'progetto', 'progetti']),
   de: new Set(['und', 'oder', 'bei', 'wir', 'fur', 'ist', 'auf', 'aus', 'mit', 'das', 'eine', 'sich', 'werden', 'uber', 'ihre', 'unser', 'nach', 'kann', 'sind', 'dieser', 'arbeit', 'umgebung', 'arbeitsort', 'erfahrung', 'verantwortlich', 'anforderungen', 'aufgaben', 'kenntnisse', 'qualifikationen', 'berufserfahrung']),
   fr: new Set(['nous', 'vous', 'avec', 'pour', 'dans', 'votre', 'notre', 'sont', 'cette', 'etre', 'avoir', 'vos', 'une', 'des', 'sur', 'les', 'par', 'qui', 'entreprise', 'experience', 'competences', 'poste', 'profil', 'missions', 'responsabilites', 'candidature', 'formation', 'environnement', 'au', 'du', 'gestion', 'equipe', 'service', 'clients']),
-  en: new Set(['the', 'and', 'with', 'this', 'you', 'your', 'will', 'are', 'for', 'our', 'have', 'that', 'from', 'experience', 'requirements', 'responsibilities', 'qualifications', 'position', 'role', 'about', 'skills', 'ability', 'team', 'working', 'apply', 'required', 'career', 'opportunity', 'knowledge', 'proficiency', 'environment', 'benefits', 'built', 'swiss', 'clients', 'financial', 'reporting', 'systems', 'accounting', 'budget', 'forecast', 'revenue', 'customer', 'service', 'delivery', 'software', 'engineering', 'operations', 'management', 'project', 'sales', 'improved', 'conversion', 'architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'led', 'created', 'implemented', 'supported', 'coordinated']),
+  en: new Set(['the', 'and', 'with', 'this', 'you', 'your', 'will', 'are', 'for', 'our', 'have', 'that', 'from', 'experience', 'requirements', 'responsibilities', 'qualifications', 'position', 'role', 'about', 'skills', 'ability', 'team', 'working', 'apply', 'required', 'career', 'opportunity', 'knowledge', 'proficiency', 'environment', 'benefits', 'built', 'swiss', 'clients', 'financial', 'reporting', 'systems', 'system', 'design', 'accounting', 'budget', 'forecast', 'revenue', 'customer', 'service', 'delivery', 'software', 'engineering', 'operations', 'management', 'project', 'sales', 'improved', 'conversion', 'architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'led', 'created', 'implemented', 'supported', 'coordinated']),
 };
 
 function cvLanguageTextWithoutNeutralTerms(text) {
@@ -531,7 +531,9 @@ function addRenderedLanguageIssues(issues, cv, profile, language) {
     const signals = languageSignals(rendered, language);
     const requiresTargetEvidence = Boolean(sourceLanguage)
       && (language !== 'en' || sourceLanguage !== language);
+    const localizedRole = /^localized\.experience\[\d+\]\.role$/.test(field);
     const lacksTargetEvidence = requiresTargetEvidence
+      && (!field.startsWith('localized.') || localizedRole)
       && words.length >= 3
       && (!detected || detected.language !== language)
       && !hasLanguageEvidence(rendered, language);

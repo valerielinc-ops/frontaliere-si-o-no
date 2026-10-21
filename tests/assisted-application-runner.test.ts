@@ -116,7 +116,7 @@ function fakeCodex() {
           headline: 'Infermiera', location: 'Como',
           experience: [{ index: 0, role: 'Infermiera', location: 'Lugano', highlights: ['Reparto da 24 letti.'] }],
           education: [], recognitions: [], certifications: [], aptitudeTests: [], projects: [],
-          languages: [{ index: 0, language: 'italiano' }, { index: 1, language: 'tedesco' }],
+          languages: [{ index: 0, language: 'italiano', level: 'madrelingua' }, { index: 1, language: 'tedesco', level: 'B1' }],
           interests: [], references: [], drivingLicence: '',
         },
       };
