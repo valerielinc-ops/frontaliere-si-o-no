@@ -62,14 +62,33 @@ function deploymentHeadSha(deployment) {
   return text(deployment?.headSha || deployment?.head_sha || deployment?.sha);
 }
 
-function deploymentSourceSha(deployment) {
-  const explicitSourceSha = validSha(deployment?.sourceSha || deployment?.source_sha);
-  if (explicitSourceSha) return explicitSourceSha;
-  const payload = deployment?.payload;
-  if (payload && typeof payload === 'object') {
-    return validSha(payload.sourceSha || payload.source_sha);
+function deploymentPayload(deployment) {
+  if (deployment?.payload && typeof deployment.payload === 'object') return deployment.payload;
+  if (typeof deployment?.payload !== 'string') return {};
+  try {
+    const parsed = JSON.parse(deployment.payload);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
   }
-  return '';
+}
+
+function deploymentSourceSha(deployment, latestStatus, publishRuns = []) {
+  const payload = deploymentPayload(deployment);
+  const explicitSourceSha = validSha(
+    payload.sourceSha
+      || payload.source_sha
+      || deployment?.sourceSha
+      || deployment?.source_sha,
+  );
+  if (explicitSourceSha) return explicitSourceSha;
+
+  const logUrl = text(latestStatus?.logUrl || latestStatus?.log_url);
+  const runId = logUrl.match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
+  if (!runId) return '';
+  return sourceShaFromPublishRun(
+    (Array.isArray(publishRuns) ? publishRuns : []).find((run) => String(run?.id) === runId),
+  );
 }
 
 function successfulDeploymentSourceSha({ deployment, publishRuns }) {
@@ -266,7 +285,7 @@ async function listWorkflowRuns(repo, workflow) {
   return payload.workflow_runs;
 }
 
-async function inspectDeployments(repo) {
+async function inspectDeployments(repo, publishRuns = []) {
   const deployments = await ghJson(`/repos/${repo}/deployments?environment=github-pages&per_page=100`);
   if (!Array.isArray(deployments)) throw new Error('Pages deployment listing is malformed');
   let lastSuccessfulDeployment = null;
@@ -288,7 +307,7 @@ async function inspectDeployments(repo) {
       lastSuccessfulDeployment = {
         id,
         sha: deploymentSha,
-        sourceSha: deploymentSourceSha(deployment),
+        sourceSha: deploymentSourceSha(deployment, latest, publishRuns),
         publishedAt: text(latest?.created_at),
       };
     } else if (state === 'success') {
@@ -328,13 +347,13 @@ async function dispatchPublish(repo, candidate) {
 
 async function main() {
   const repo = repository();
-  const [rawBuilds, rawPublishes, deploymentState] = await Promise.all([
+  const [rawBuilds, rawPublishes] = await Promise.all([
     listWorkflowRuns(repo, BUILD_WORKFLOW),
     listWorkflowRuns(repo, PUBLISH_WORKFLOW),
-    inspectDeployments(repo),
   ]);
   const builds = rawBuilds.map(mapBuild);
   const publishRuns = rawPublishes.map(mapPublish);
+  const deploymentState = await inspectDeployments(repo, publishRuns);
   const verdict = decideLatestPublish({
     builds,
     publishRuns,
