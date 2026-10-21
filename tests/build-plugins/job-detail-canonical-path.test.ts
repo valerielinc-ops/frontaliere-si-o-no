@@ -73,6 +73,14 @@ describe('canonical job detail paths', () => {
     }
   });
 
+  it('normalizes surrounding whitespace and slashes in the linked slug', () => {
+    expect(buildCanonicalJobDetailPath(
+      'de',
+      relatedJob,
+      ' /verwandte-stelle-turgovia/ ',
+    )).toBe('/de/jobs-im-thurgau/verwandte-stelle-turgovia/');
+  });
+
   it('keeps the active emitter on the same canonical-path function', () => {
     const source = readFileSync(
       join(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),

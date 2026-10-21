@@ -305,9 +305,8 @@ describe('packages/articles/engine/rssFeeds', () => {
       "export default { 'blog.article.alpha.body1': 'Alpha body before failure.' };",
       'const other = `prefix ${compute()} suffix`;',
     ].join('\n');
-    const dynamicBodyKey = "export default { [`blog.article.${id}.body1`]: 'body' };";
 
-    for (const source of [dynamicBefore, dynamicAfter, dynamicBodyKey]) {
+    for (const source of [dynamicBefore, dynamicAfter]) {
       const root = makeFixture();
       fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
       expect(() => buildAllRssFeeds({
@@ -319,6 +318,76 @@ describe('packages/articles/engine/rssFeeds', () => {
         layout: LAYOUT,
       })).toThrow(/Interpolated template literal is not supported/u);
     }
+  });
+
+  it('rejects computed body keys, including getter methods', () => {
+    const sources = [
+      "export default { [`blog.article.${id}.body2`]: 'body' };",
+      [
+        "const bodyKey = 'blog.article.alpha.body2';",
+        'export default {',
+        "  'blog.article.alpha.body1': 'Alpha body text long enough to pass the RSS minimum length.',",
+        "  get [bodyKey]() { return 'Optional body'; },",
+        '};',
+      ].join('\n'),
+    ];
+
+    for (const source of sources) {
+      const root = makeFixture();
+      fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+      expect(() => buildAllRssFeeds({
+        repairSerpSnippet,
+        fs,
+        path,
+        rootDir: root,
+        registries: { frontaliere: REGISTRY },
+        layout: LAYOUT,
+      })).toThrow(/Computed article body property is not supported/u);
+    }
+  });
+
+  it('does not confuse an unrelated array value with a computed body key', () => {
+    const root = makeFixture();
+    const source = [
+      'export default {',
+      "  labels: ['x'],",
+      "  'blog.article.alpha.body1': 'Alpha body text long enough to pass the RSS minimum length.',",
+      '};',
+    ].join('\n');
+    fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+
+    expect(() => buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    })).not.toThrow();
+  });
+
+  it('ignores brackets in unrelated expressions before static body fields', () => {
+    const root = makeFixture();
+    const source = [
+      'const condition = true;',
+      'const labels = [];',
+      'const items = [];',
+      'export default {',
+      "  label: condition ? labels[index] : 'fallback',",
+      '  call: items[index](arg),',
+      "  'blog.article.alpha.body1': 'Alpha body text long enough to pass the RSS minimum length.',",
+      '};',
+    ].join('\n');
+    fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+
+    expect(() => buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    })).not.toThrow();
   });
 
   it('accepts escaped interpolation and ignores template markers in comments and quotes', () => {

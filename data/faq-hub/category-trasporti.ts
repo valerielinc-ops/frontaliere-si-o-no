@@ -98,7 +98,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "L'AG (abonnement général) coûte CHF 3 995 en 2e classe adulte en 2025 (CFF, trains régionaux, bateaux, CarPostal) [source : CFF tarifs 2025]. Pour un pendulaire Chiasso-Lugano, billet simple CHF 13,80, l'AG est rentable au-delà de 289 trajets/an (~145 jours). Alternatives : abonnement de parcours (Punto-a-Punto, CHF 1 850/an Chiasso-Lugano) ou Step multi-parcours. L'AG demi-tarif (CHF 190/an) divise par deux les billets simples. Le Ticino Ticket gratuit est réservé aux touristes hôtels. L'employeur peut rembourser en partie (hors taxe si justifié).",
     },
     sources: [
-      'https://www.sbb.ch/it/abbonamenti-e-biglietti/abbonamenti-pendolari/ag.html',
+      'https://company.sbb.ch/it',
     ],
   },
   {

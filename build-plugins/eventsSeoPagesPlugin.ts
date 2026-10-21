@@ -229,6 +229,7 @@ function hasLicensedSourceEventImage(event: SiteEvent): boolean {
   );
 }
 
+/** Use canonical HTTPS licence URLs in visible credits and Event JSON-LD. */
 function eventImageLicenseUrl(event: SiteEvent): string | undefined {
   const licenceUrl = normaliseLicenceUrl(event.imageLicenseUrl);
   if (licenceUrl) return licenceUrl;
