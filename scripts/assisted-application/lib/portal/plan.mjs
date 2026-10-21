@@ -554,6 +554,10 @@ const SALARY_CURRENCY_RE = /\b(CHF|EUR|USD|GBP|CAD|AUD)\b|\bFr\.?(?=\s|$|[\d.,])
 // label is safe only when field extraction supplies the surrounding residence
 // section; the label alone is also used by work-history forms.
 const STANDALONE_RESIDENCE_POSTAL_RE = /^\s*cap\s*$/i;
+// Candidate forms also expose these explicit postal-code labels without any
+// section metadata. They name a candidate address on their own; a surrounding
+// work, employer, company, school or education context is still excluded below.
+const STANDALONE_POSTAL_CODE_FIELD_RE = /^\s*(?:zip\s*(?:\/\s*postal)?\s*code|postal\s*(?:\/\s*zip)?\s*code|zip\s*code\s*\/\s*postal\s*code|postal\s*code\s*\/\s*zip\s*code|post\s*code|postcode|postleitzahl|plz|npa|code\s+postal|codice\s+(?:di\s+)?(?:avviamento\s+)?postale)\s*[:*]?\s*$/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
@@ -576,6 +580,9 @@ export function addressQuestionTopic(text, context = '') {
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(surrounding)
     || (PERSONAL_ADDRESS_CONTEXT_RE.test(surrounding) && !nonResidenceContext);
+  // Explicit postal labels in a candidate application form remain answerable
+  // when the ATS omitted the section context. Bare «CAP» still needs context.
+  if (STANDALONE_POSTAL_CODE_FIELD_RE.test(value) && (!surrounding || residenceContext)) return 'residence_postal_code';
   if (STANDALONE_RESIDENCE_POSTAL_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (POSTAL_CODE_RE.test(value)) return residenceContext ? 'residence_postal_code' : '';
   if (COUNTRY_RE.test(value) && !isNationalityField(value)) return residenceContext ? 'residence_country' : '';
