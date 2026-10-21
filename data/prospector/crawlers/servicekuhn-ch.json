@@ -1,0 +1,20 @@
+{
+  "companyKey": "servicekuhn-ch",
+  "companyName": "servicekuhn",
+  "companyHost": "servicekuhn.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://servicekuhn.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Automobil-Mechatroniker/in EFZ, Schwerpunkt Porsche (100 %)",
+    "Automobil-Diagnostiker/in, Schwerpunkt Porsche (100 %)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:10:21.028Z"
+}

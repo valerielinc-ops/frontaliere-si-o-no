@@ -1,0 +1,23 @@
+{
+  "companyKey": "lestilleuls-ch",
+  "companyName": "lestilleuls",
+  "companyHost": "fegems.ch",
+  "platform": "fegems.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.fegems.ch/travail/offres-d-emploi/"
+  ],
+  "detailTemplate": "/emplois/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 17,
+  "sampleTitles": [
+    "Infirmier-ère en CDI à 80%",
+    "UN.E INFIRMIER.E DIPLÔME.E à 80%",
+    "Aide-Soignant.e non qualifié.e",
+    "Aide-soignant non qualifié (équipe de nuit)",
+    "Aide-soignant non qualifié"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-21T00:10:02.009Z"
+}

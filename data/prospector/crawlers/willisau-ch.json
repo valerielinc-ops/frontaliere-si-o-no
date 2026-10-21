@@ -1,0 +1,24 @@
+{
+  "companyKey": "willisau-ch",
+  "companyName": "Rathaus Willisau",
+  "companyHost": "zentraljob.ch",
+  "platform": "zentraljob.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.zentraljob.ch/job/alle-jobs-im-bezirk-Willisau"
+  ],
+  "detailTemplate": "/job/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "21.10.2026 Proderma AG Teamleiter Schichtmechaniker/in 80–100% Proderma AG 6247 Schötz 21.10.2026 Festanstellung 80-100% Führungsposition Festanstellung 80-100%",
+    "21.10.2026 Stadt Willisau Dipl. Pflegefachfrau/-mann HF 40 - 100% Stadt Willisau 6130 Willisau 21.10.2026 Festanstellung 40-100% Festanstellung 40-100% 6130 Wil",
+    "19.10.2026 Coop Metzger:in (Fleischfachfrau / Fleischfachmann) Coop 6130 Willisau 19.10.2026 Festanstellung 50-100% Festanstellung 50-100% 6130 Willisau",
+    "19.10.2026 Stadt Willisau Beiständin / Beistand | 70–100 % Stadt Willisau 6130 Willisau 19.10.2026 Festanstellung 70-100% Festanstellung 70-100% 6130 Willisau",
+    "18.10.2026 Stadt Willisau FACHPERSON BERATUNG FRÜHE KINDHEIT | 60 % (MÜTTER- UND VÄTERBERATUNG) Stadt Willisau 6130 Willisau 18.10.2026 Festanstellung 60% Festa"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:10:03.739Z"
+}

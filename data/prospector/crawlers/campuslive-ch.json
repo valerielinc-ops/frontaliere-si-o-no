@@ -1,0 +1,23 @@
+{
+  "companyKey": "campuslive-ch",
+  "companyName": "campuslive",
+  "companyHost": "cfc.ch",
+  "platform": "cfc.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.cfc.ch/job/leiter-in-campus-live-70-100/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Praktikum Kommunikation & Amen Magazin (80-100%) Campus für Christus",
+    "HR-Assistent/in (60-100%) Campus für Christus",
+    "Projektleiter/in Lifelong Love (60-100%) FAMILYLIFE",
+    "Jugendleiter/in (60-100%) SHINE",
+    "Eventmanager/in (60-100%) SHINE"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:10:08.982Z"
+}

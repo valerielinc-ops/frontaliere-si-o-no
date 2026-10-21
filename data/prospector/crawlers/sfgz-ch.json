@@ -1,0 +1,23 @@
+{
+  "companyKey": "sfgz-ch",
+  "companyName": "sfgz",
+  "companyHost": "publicjobs.ch",
+  "platform": "publicjobs.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://publicjobs.ch/jobs/zuerich"
+  ],
+  "detailTemplate": "/jobs/zuerich/medizin-aerzte-pflege/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 50,
+  "sampleTitles": [
+    "Medizinische/r Masseur/in",
+    "Fachfrau / Fachmann Gesundheit EFZ 60-80%",
+    "Dipl. Pflegefachfrau HF/FH im Pool (m/w/d)",
+    "Dipl. Pflegefachfrau HF (Palliative Care & Akutmedizin) 80-100% (m/w/d)",
+    "Fachperson Gesundheit EFZ Spitex (40 - 80%)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:09:58.944Z"
+}
