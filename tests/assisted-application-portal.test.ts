@@ -279,7 +279,7 @@ describe('legacy portal sections', () => {
       errors: ['Country is required', 'Do you hold a valid work [dato del candidato] for Switzerland? is required', 'How did you hear about [dato del candidato] position? is required'],
       text: '',
     };
-    const trigger = { click: vi.fn(async () => {}) };
+    const trigger = { click: vi.fn(async () => {}), isVisible: vi.fn(async () => true) };
     const input = { evaluate: vi.fn(async () => ['candidate-cv.pdf']) };
     const chooser = {
       isMultiple: vi.fn(() => false),
