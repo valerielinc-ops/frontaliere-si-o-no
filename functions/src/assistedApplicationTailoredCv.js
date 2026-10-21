@@ -900,6 +900,7 @@ function localizedCvFactPairs(cv, profile = {}) {
     ));
   };
 
+  add('headline', localized.headline, profile.headline);
   add('location', localized.location, profile.location);
   (Array.isArray(localized.experience) ? localized.experience : []).forEach((translation, position) => {
     const index = Number.isInteger(translation?.index) ? translation.index : position;
