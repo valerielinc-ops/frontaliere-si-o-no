@@ -685,6 +685,7 @@ jobs:
             --path data/published-blog-generated-image-evidence.json \
             --path data/blog-cover-corpus-baseline.json \
             --reconcile-main \
+            --reconcile-refresh-paths \
             --branch chore/sync-articles-sitemaps \
             --commit-message "🗺️ Sync article sitemaps, feeds and ticker from the articles API" \
             --title "chore(data): sync article corpus and public feeds" \
