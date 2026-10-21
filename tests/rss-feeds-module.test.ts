@@ -266,10 +266,10 @@ describe('packages/articles/engine/rssFeeds', () => {
         locale: 'en',
         source: [
           'export default {',
-          "  'blog.article.alpha.body1': `L'Italia usa \\`code\\` dentro questo corpo RSS abbastanza lungo da superare il limite.`,",
+          "  'blog.article.alpha.body1': `dell\\'Italia usa \\`code\\` dentro questo corpo RSS abbastanza lungo da superare il limite.`,",
           '};',
         ].join('\n'),
-        expected: "L'Italia usa `code` dentro questo corpo RSS abbastanza lungo da superare il limite.",
+        expected: "dell'Italia usa `code` dentro questo corpo RSS abbastanza lungo da superare il limite.",
       },
     ];
 
@@ -292,6 +292,7 @@ describe('packages/articles/engine/rssFeeds', () => {
       const encoded = xml.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/)?.[1];
 
       expect(encoded).toContain(expected);
+      expect(encoded).not.toContain("\\'");
     }
   });
 

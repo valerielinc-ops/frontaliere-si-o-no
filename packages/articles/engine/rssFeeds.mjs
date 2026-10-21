@@ -231,6 +231,10 @@ function unescapeQuoted(value, quote) {
   if (value === undefined) return undefined;
   return value.split('\\\\').join('\u0000')
     .split(`\\${quote}`).join(quote)
+    // The article writer escapes apostrophes even when the enclosing literal
+    // uses backticks, so decode that writer escape independently of the
+    // literal delimiter.
+    .split("\\'").join("'")
     .split('\\n').join('\n')
     .split('\u0000').join('\\');
 }
