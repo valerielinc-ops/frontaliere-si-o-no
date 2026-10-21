@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 718,
+      "5": 721,
       "6": 5054
     },
-    "publishedCovers": 7455,
+    "publishedCovers": 7458,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204107,6 +204107,72 @@
         "evidence": "generated-engine-record"
       }
     },
+    "article-chuv-ostetriche-salari-classi": {
+      "cover": "/images/blog/article-chuv-ostetriche-salari-classi.webp",
+      "hash": "aa7e232b9c10a1c49993b5b928cffbe4f35e3afcb0d8aa451dec55b6c2de63bf",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "chuv-ostetriche-salari-classi",
+          "category": "novita",
+          "date": "2026-10-21T03:32:51.220Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-chuv-ostetriche-salari-classi.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-chuv-ostetriche-salari-classi",
+        "imageUrl": "/images/blog/article-chuv-ostetriche-salari-classi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-finma-etf-bitcoin-primo-fondo": {
+      "cover": "/images/blog/article-finma-etf-bitcoin-primo-fondo.webp",
+      "hash": "dd02b957453945214a8ab0ee5325414f1c9ad243bee1f52ffae429ec73fa91f8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "finma-etf-bitcoin-primo-fondo",
+          "category": "novita",
+          "date": "2026-10-21T03:02:48.833Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-finma-etf-bitcoin-primo-fondo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-finma-etf-bitcoin-primo-fondo",
+        "imageUrl": "/images/blog/article-finma-etf-bitcoin-primo-fondo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
     "article-glarona-mercato-immobiliare-2026": {
       "cover": "/images/blog/article-glarona-mercato-immobiliare-2026.webp",
       "hash": "ec13bfad148583ed7998edc4aba38b62e9dbdc32b0ef49313ea51fde2b17596b",
@@ -204269,6 +204335,39 @@
         "provider": "openai-codex",
         "assetId": "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7",
         "imageUrl": "/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-sconti-vereina-locali-ospiti": {
+      "cover": "/images/blog/article-sconti-vereina-locali-ospiti.webp",
+      "hash": "fa4668c51e4ff30799f370005667a3fcde9c5097daa5d4b9d87519cbc8469bf2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gr",
+          "id": "sconti-vereina-locali-ospiti",
+          "category": "pratico",
+          "date": "2026-10-21T03:29:46.324Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-sconti-vereina-locali-ospiti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-sconti-vereina-locali-ospiti",
+        "imageUrl": "/images/blog/article-sconti-vereina-locali-ospiti.webp",
         "evidence": "generated-engine-record"
       }
     },

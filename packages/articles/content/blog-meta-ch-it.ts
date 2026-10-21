@@ -8549,6 +8549,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.molestie-lavoro-pmi-svizzere.title': 'Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+',
     'blog.article.molestie-lavoro-pmi-svizzere.excerpt': 'Dal Covid aumentano le segnalazioni nelle PMI svizzere.',
     'blog.article.molestie-lavoro-pmi-svizzere.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma approva il primo ETF svizzero in Bitcoin',
+    'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute',
+    'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

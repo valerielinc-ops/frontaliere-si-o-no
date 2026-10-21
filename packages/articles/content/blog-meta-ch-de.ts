@@ -8549,6 +8549,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.molestie-lavoro-pmi-svizzere.title': 'Belästigung am Arbeitsplatz in KMU: die Daten und das Projekt KMU konkret+',
     'blog.article.molestie-lavoro-pmi-svizzere.excerpt': 'Seit Covid nehmen die Meldungen in Schweizer KMU zu.',
     'blog.article.molestie-lavoro-pmi-svizzere.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma genehmigt den ersten Schweizer Bitcoin-ETF',
+    'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma genehmigt den ersten Publikumsfonds mit direkter Anlage in Bitcoin Der Fonds wird an der Börse gehandelt Die Entscheidung folgt dem wachsenden Interesse an Kryptowährungen',
+    'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

@@ -8549,6 +8549,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.molestie-lavoro-pmi-svizzere.title': 'Workplace harassment in SMEs: the data and the KMU konkret+ project',
     'blog.article.molestie-lavoro-pmi-svizzere.excerpt': 'Since COVID, reports in Swiss SMEs have increased.',
     'blog.article.molestie-lavoro-pmi-svizzere.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.finma-etf-bitcoin-primo-fondo.title': 'Finma approves the first Swiss Bitcoin ETF',
+    'blog.article.finma-etf-bitcoin-primo-fondo.excerpt': 'Finma authorizes the first direct public Bitcoin fund The fund is traded on the stock exchange The decision follows growing interest in cryptocurrencies',
+    'blog.article.finma-etf-bitcoin-primo-fondo.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
