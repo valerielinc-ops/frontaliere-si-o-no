@@ -193,7 +193,7 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     // until then and has been red on main since, unseen by related-only runs.
     const NOT_LOADED_BY_THE_RENDERER = ['sharp'];
     expect(Object.keys(packageJson.dependencies ?? {}).sort()).toEqual(
-      ['html-entities', ...NOT_LOADED_BY_THE_RENDERER].sort(),
+      ['html-entities', 'typescript', ...NOT_LOADED_BY_THE_RENDERER].sort(),
     );
     expect(rootPackage.dependencies?.['@noble/hashes']).toBeTruthy();
     const IMAGE_ENGINE = 'packages/articles/engine/shared/generatedImageEngine.mjs';
