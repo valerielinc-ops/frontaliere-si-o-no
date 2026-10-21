@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3996.title': 'Avvisi più discreti sulle offerte',
+ 'whatsNew.v3996.jobViewers.title': 'Un breve segnale mentre leggi un annuncio',
+ 'whatsNew.v3996.jobViewers.desc': 'Nel dettaglio di un’offerta può comparire un avviso di attività. È discreto, si chiude da solo e non si ripete nella stessa sessione.',
  'whatsNew.v3995.title': 'Confronto carburante con i costi del viaggio',
  'whatsNew.v3995.fuelTrip.title': 'Prezzi e deviazione nello stesso calcolo',
  'whatsNew.v3995.fuelTrip.desc': 'Inserisci prezzi confrontabili, litri e chilometri aggiuntivi totali andata e ritorno per stimare differenza lorda e netta, costi extra e pareggio. I prezzi noti mostrano fonte e data; la conversione usa solo un cambio BCE datato.',
@@ -853,6 +856,7 @@ const translations: Record<string, string> = {
  'jobBoard.saved.emptyHint': "Tocca l'icona segnalibro su un annuncio per ritrovarlo qui. Una volta a settimana te lo ricordiamo via email: puoi disattivare il promemoria dal profilo o dal link nell'email.",
  'jobBoard.saveAuthPrompt.title': 'Accedi per salvare gli annunci',
  'jobBoard.saveAuthPrompt.body': 'Salvare un annuncio richiede un account gratuito: così i tuoi annunci restano al sicuro su tutti i dispositivi. Una volta a settimana ti ricordiamo via email quelli salvati; puoi disattivare il promemoria dal profilo o dal link nell’email.',
+ 'jobBoard.viewers.message': 'Altri {count} utenti stanno visualizzando questa offerta di lavoro.',
  'jobBoard.saveAuthPrompt.dismiss': 'Non ora',
  'jobBoard.saveAuthPrompt.or': 'oppure',
  'jobBoard.saveAuthPrompt.emailCta': 'Continua con email',

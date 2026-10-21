@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3996.title': 'Dezente Hinweise zu Stellenangeboten',
+ 'whatsNew.v3996.jobViewers.title': 'Ein kurzer Hinweis beim Lesen eines Stellenangebots',
+ 'whatsNew.v3996.jobViewers.desc': 'Auf der Detailseite eines Stellenangebots kann ein dezenter Aktivitätshinweis erscheinen. Er lässt sich schließen, wird automatisch ausgeblendet und erscheint nur einmal pro Sitzung.',
  'whatsNew.v3995.title': 'Kraftstoffvergleich mit Fahrtkosten',
  'whatsNew.v3995.fuelTrip.title': 'Zapfsäulenpreise und Umwegkosten vergleichen',
  'whatsNew.v3995.fuelTrip.desc': 'Geben Sie vergleichbare Preise, Liter und die gesamten zusätzlichen Kilometer für Hin- und Rückfahrt ein, um Brutto- und Nettodifferenz, Zusatzkosten und Ausgleichspunkte zu berechnen. Bekannte Preise zeigen Quelle und Datum; umgerechnet wird nur mit einem datierten EZB-Kurs.',
@@ -817,6 +820,7 @@ const deCore: Record<string, string> = {
  'jobBoard.saved.emptyHint': 'Tippen Sie auf das Lesezeichen-Symbol einer Stelle, um sie hier wiederzufinden. Einmal pro Woche erinnern wir Sie per E-Mail daran: Die Erinnerung können Sie im Profil oder über den Link in der E-Mail abschalten.',
  'jobBoard.saveAuthPrompt.title': 'Anmelden, um Stellen zu speichern',
  'jobBoard.saveAuthPrompt.body': 'Zum Speichern einer Stelle ist ein kostenloses Konto nötig — so bleiben deine gespeicherten Stellen auf allen Geräten sicher. Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen; die Erinnerung kannst du im Profil oder über den Link in der E-Mail abschalten.',
+ 'jobBoard.viewers.message': 'Weitere {count} Personen sehen sich dieses Stellenangebot gerade an.',
  'jobBoard.saveAuthPrompt.dismiss': 'Nicht jetzt',
  'jobBoard.saveAuthPrompt.or': 'oder',
  'jobBoard.saveAuthPrompt.emailCta': 'Mit E-Mail fortfahren',
