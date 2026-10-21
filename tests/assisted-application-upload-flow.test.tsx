@@ -17,6 +17,7 @@ const mocks = vi.hoisted(() => ({
   uploadBytes: vi.fn(),
   trackEvent: vi.fn(),
   fetch: vi.fn(),
+  openWindow: vi.fn(),
 }));
 
 vi.mock('@/services/firebase', () => ({ getApp: mocks.getApp }));
@@ -75,6 +76,8 @@ let orderData = paidOrder();
 describe('assisted application consent and CV upload flow', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.spyOn(window, 'open').mockImplementation(mocks.openWindow as unknown as typeof window.open);
+    mocks.openWindow.mockReturnValue(null);
     vi.stubGlobal('fetch', mocks.fetch);
     orderData = paidOrder();
     mocks.getApp.mockResolvedValue({});
@@ -93,7 +96,10 @@ describe('assisted application consent and CV upload flow', () => {
     mocks.fetch.mockResolvedValue({ ok: true, status: 200, json: async () => ({}) });
   });
 
-  afterEach(cleanup);
+  afterEach(() => {
+    vi.restoreAllMocks();
+    cleanup();
+  });
 
   it('records the mandate once, then reveals an enabled CV picker and uploads the selected file', async () => {
     const user = userEvent.setup();
@@ -185,5 +191,30 @@ describe('assisted application consent and CV upload flow', () => {
       expect.objectContaining({ method: 'POST', body: JSON.stringify({ orderId: ORDER_ID }) }),
     ));
     expect(screen.getByText(itCore['jobBoard.assisted.pending'])).toBeTruthy();
+  });
+
+  it('opens Stripe Checkout in a user-initiated popup and keeps the page as fallback', async () => {
+    orderData = paidOrder({
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+      paymentProvider: 'stripe',
+      stripeCheckoutSessionId: 'cs_pending',
+    });
+    const replace = vi.fn();
+    const popup = { closed: false, opener: null, location: { replace }, close: vi.fn() };
+    mocks.openWindow.mockReturnValue(popup);
+    mocks.fetch.mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ ok: true, status: 'open', paymentProvider: 'stripe', url: 'https://checkout.stripe.com/cs_pending', orderId: ORDER_ID }),
+    });
+    const user = userEvent.setup();
+    render(<AssistedApplicationUpload orderId={ORDER_ID} />);
+
+    await user.click(await screen.findByRole('button', { name: itCore['jobBoard.assisted.pendingCta'] }));
+    await waitFor(() => expect(replace).toHaveBeenCalledWith('https://checkout.stripe.com/cs_pending'));
+    expect(mocks.openWindow).toHaveBeenCalledOnce();
+    expect(mocks.openWindow.mock.calls[0][0]).toBe('about:blank');
+    expect(mocks.openWindow.mock.calls[0][2]).toContain('popup');
   });
 });

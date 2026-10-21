@@ -111,6 +111,9 @@ function request(overrides: Record<string, unknown> = {}) {
       jobUrl: 'https://jobs.example.test/jobs/job-42',
       companyName: 'ACME SA',
       jobTitle: 'Software Developer',
+      companyLogo: 'https://cdn.example.test/logos/acme.png',
+      location: 'Lugano',
+      canton: 'TI',
       experimentVariant: 'assisted_application',
       copyVariant: 'time_saved',
       successUrl: 'https://frontaliereticino.ch/lavoro/job-42',
@@ -230,6 +233,9 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       consentedAt: null,
       cvFileName: null,
       copyVariant: 'time_saved',
+      companyLogo: 'https://cdn.example.test/logos/acme.png',
+      location: 'Lugano',
+      canton: 'TI',
     }));
   });
 

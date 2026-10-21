@@ -805,6 +805,7 @@ export const newsletterManageSubscription = onRequest(
  const email = String(params.email || '').trim().toLowerCase();
  const token = String(params.token || '').trim();
  const mode = String(params.mode || '').trim().toLowerCase();
+ const assistedApplicationOrderId = String(params.assisted_application_order_id || '').trim();
  const format = String(params.format || '').trim().toLowerCase();
  const enabled = params.enabled;
  const subscribed = params.subscribed;
@@ -913,6 +914,7 @@ export const newsletterManageSubscription = onRequest(
  specificJobId,
  dailyBriefFrequency,
  advertisingEnabled,
+ assistedApplicationOrderId,
  // Attribution for the unsubscribe write only — read nothing, gate nothing.
  // The RFC 8058 one-click POST and the plain footer GET behave identically
  // to before; the stored verb is what tells them apart afterwards.

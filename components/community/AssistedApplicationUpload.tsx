@@ -84,6 +84,33 @@ function randomFileToken(): string {
   return Math.random().toString(36).slice(2, 14);
 }
 
+/** Open synchronously from the click so hosted Stripe Checkout is not blocked. */
+function openPaymentWindow(): Window | null {
+  if (typeof window === 'undefined' || typeof window.open !== 'function') return null;
+  try {
+    const checkoutWindow = window.open(
+      'about:blank',
+      '_blank',
+      'popup,width=480,height=760,resizable=yes,scrollbars=yes',
+    );
+    if (checkoutWindow) {
+      try { checkoutWindow.opener = null; } catch { /* browser may expose a read-only opener */ }
+    }
+    return checkoutWindow;
+  } catch {
+    return null;
+  }
+}
+
+function closePaymentWindow(checkoutWindow: Window | null): void {
+  try {
+    if (!checkoutWindow || checkoutWindow.closed) return;
+    checkoutWindow.close();
+  } catch {
+    // A browser can revoke the WindowProxy while a cross-origin checkout is opening.
+  }
+}
+
 function isValidEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
 }
@@ -247,6 +274,7 @@ export default function AssistedApplicationUpload({
 
   const handleResumePayment = async () => {
     if (paymentResumeBusy) return;
+    const checkoutWindow = openPaymentWindow();
     setPaymentResumeBusy(true);
     setError(null);
     trackAssistedApplicationEvent('checkout_resumed', orderEventContext(order));
@@ -259,26 +287,39 @@ export default function AssistedApplicationUpload({
       if (typeof auth.authStateReady === 'function') await auth.authStateReady();
       const currentUser = auth.currentUser || authUser;
       if (!currentUser?.getIdToken) {
+        closePaymentWindow(checkoutWindow);
         setStatus('auth_required');
         onRequireAuth?.();
         return;
       }
       const result = await resumeAssistedApplicationPayment(orderId, currentUser);
       if (result.status === 'paid') {
+        closePaymentWindow(checkoutWindow);
         await refreshOrder();
         return;
       }
       if (result.paymentProvider === 'sumup' && result.checkoutId) {
+        closePaymentWindow(checkoutWindow);
         setSumUpPayment({ checkoutId: result.checkoutId, orderId });
         setSumUpPaymentError(null);
         return;
       }
       if (result.url) {
-        window.location.assign(result.url);
+        let popupOpened = false;
+        try {
+          if (checkoutWindow && !checkoutWindow.closed) {
+            checkoutWindow.location.replace(result.url);
+            popupOpened = true;
+          }
+        } catch {
+          // Fall through to the same-tab redirect if the WindowProxy was revoked.
+        }
+        if (!popupOpened) window.location.assign(result.url);
         return;
       }
       throw new Error('payment_session_unavailable');
     } catch (resumeError) {
+      closePaymentWindow(checkoutWindow);
       const code = getAssistedApplicationPaymentRecoveryErrorCode(resumeError);
       const messageKey = code === 'job_unavailable'
         ? 'jobBoard.assisted.paymentJobUnavailable'
