@@ -2301,9 +2301,9 @@ function BlogArticlesContent({
   </div>
  );
 
- // During the static article handoff, keep the complete snapshot visible until
- // the verified React article or an explicit retry state is ready.
- if (deferUntilArticleReady && !articleReadyForStaticTakeover) return null;
+ // App.tsx keeps this React shell collapsed while the static article snapshot
+ // owns the body. Render the loading state here so the handoff can remain
+ // pending without suppressing the accessible loading contract.
 
  // ── Loading blog translations ──────────────────────
  if (!blogReady) {
