@@ -388,7 +388,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
       const literal = readStaticStringLiteral(src, rx.lastIndex);
       if (!literal) continue;
       rx.lastIndex = literal.end;
-      const [, id, part] = m;
+      const [, , id, part] = m;
       if (!articleParts.has(id)) articleParts.set(id, new Map());
       // Unescape here, not at render: this text goes straight into
       // <content:encoded>, and it is the one parsed field that actually
