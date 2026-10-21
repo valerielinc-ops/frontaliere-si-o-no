@@ -97,7 +97,7 @@ export function readArticleMetadata(
 /**
  * `id → date` out of a section's registry, for chronological ordering.
  *
- * Read with a regex and not an import for the reason the article engine
+ * Read from the source AST and not by importing for the reason the article engine
  * already gives elsewhere: the registry is a TS module with extensionless
  * relative specifiers, and this code runs under plain Node ESM on the
  * fast-publish path.
@@ -118,16 +118,19 @@ export function readArticleDates(
   registryFile: string,
 ): Map<string, string> {
   const out = new Map<string, string>();
+  let src: string;
   try {
-    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
-    // Field-order-independent (./articleRegistryEntries.ts): the regex here
-    // required `category` right after `id`, so an entry with `updatedAt` first
-    // had no date and fell out of the chronological order. `date: ''`
-    // (unknown) stays out of the map, as before.
-    for (const entry of parseArticleRegistryEntries(src)) {
-      if (entry.date) out.set(entry.id, entry.date);
-    }
-  } catch { /* registry absent — keep insertion order */ }
+    src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
+  } catch { /* registry absent — keep insertion order */ return out; }
+  // Field-order-independent (./articleRegistryEntries.ts): the old regex here
+  // required `category` right after `id`, so an entry with `updatedAt` first
+  // had no date and fell out of the chronological order. `date: ''`
+  // (unknown) stays out of the map, as before. Parser errors remain fatal so a
+  // malformed registry cannot silently degrade to a plausible but incomplete
+  // archive order.
+  for (const entry of parseArticleRegistryEntries(src)) {
+    if (entry.date) out.set(entry.id, entry.date);
+  }
   return out;
 }
 

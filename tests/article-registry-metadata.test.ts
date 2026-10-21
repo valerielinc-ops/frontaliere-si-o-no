@@ -22,4 +22,10 @@ describe('article registry metadata boundaries', () => {
     expect(() => readArticleRegistryMetadata("const A=[{id:'a'},{id:'a'}];")).toThrow(/Duplicate/);
     expect(() => readArticleRegistryMetadata("const A=[{id:'a'}")).toThrow(/Unbalanced/);
   });
+
+  it('rejects dynamic values for recognized metadata instead of returning a partial record', () => {
+    expect(() => readArticleRegistryMetadata(
+      "const A=[{id: runtimeId, category:'pratico', date:'2026-10-01'}];",
+    )).toThrow(/static string/i);
+  });
 });

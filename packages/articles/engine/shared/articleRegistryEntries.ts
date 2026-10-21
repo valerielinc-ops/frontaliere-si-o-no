@@ -1,4 +1,12 @@
-import { articleRegistryObjectBodies, articleRegistryObjectFields } from './articleRegistryObjectBodies.mjs';
+import {
+  findTopLevelArrays,
+  findObjectLiterals,
+  isObjectLiteral,
+  parseStaticSource,
+  readStaticObjectProperties,
+  readStaticString,
+  staticPropertyName,
+} from './staticSourceAst.mjs';
 
 /**
  * Reads the entries of an article registry SOURCE
@@ -19,18 +27,19 @@ import { articleRegistryObjectBodies, articleRegistryObjectFields } from './arti
  * them — and they are the most recently updated articles, exactly the ones a
  * newest-first grid should show.
  *
- * Here each entry is one flat object literal; the object scanner tracks braces
- * only outside quoted strings, so an id can never be paired with the next
- * entry's image even when a title contains `{` or `}`. Each field is read
- * from the object's top-level members only, in any order, so a field name
- * quoted inside another value is never mistaken for the field. An entry without a string `id`,
+ * Here each entry is one flat object literal from the compiler AST, so an id
+ * can never be paired with the next entry's image even when a title contains
+ * `{` or `}`. Each field is read from the object's top-level members only, in
+ * any order, so a field name quoted inside another value is never mistaken for
+ * the field. An entry without a string `id`,
  * `category`, `image` and `date` is not an article entry (for instance the
  * `Article` interface body) and is skipped. `date: ''` is kept: it is the
  * corpus saying the date is UNKNOWN, and the renderers handle it
  * (`./sourceDates`).
  *
- * The shared scanner is pure and import-free, so this reader stays inside the
- * `packages/articles` confinement boundary and the corpus can run it unchanged.
+ * The AST helper is a plain-Node `.mjs` module with an explicit TypeScript
+ * runtime dependency, so this reader stays inside the `packages/articles`
+ * confinement boundary and the corpus can mirror it unchanged.
  */
 
 export interface ArticleRegistryEntry {
@@ -48,12 +57,40 @@ export interface ArticleRegistryEntry {
  * keeps its first occurrence.
  */
 export function parseArticleRegistryEntries(source: string): ArticleRegistryEntry[] {
+  let sourceFile;
+  try {
+    sourceFile = parseStaticSource(source, 'article-registry.ts', {
+      errorPrefix: '[article-registry]',
+    });
+  } catch (error) {
+    // Unit callers and a few legacy publish helpers pass a comma-separated
+    // object fragment rather than a complete module. Parse that fragment as a
+    // synthetic array, still through the compiler, instead of reviving a
+    // delimiter scanner just for the compatibility shape.
+    try {
+      sourceFile = parseStaticSource(`const __article_registry_fragment = [${source}];`, 'article-registry-fragment.ts', {
+        errorPrefix: '[article-registry]',
+      });
+    } catch {
+      throw error;
+    }
+  }
+  const arrays = findTopLevelArrays(sourceFile);
+  const objects = arrays.length > 0
+    ? arrays.flatMap((array) => array.elements.filter((element) => isObjectLiteral(element)))
+    : findObjectLiterals(sourceFile);
   const out: ArticleRegistryEntry[] = [];
   const seen = new Set<string>();
-  for (const body of articleRegistryObjectBodies(source)) {
-    // Top-level members only: a field name inside another quoted value
-    // (`title: "Promo image: 'x.jpg'"`) is data, not the field.
-    const fields = articleRegistryObjectFields(body);
+  for (const object of objects) {
+    const fields = new Map<string, string>();
+    for (const property of readStaticObjectProperties(object, 'article registry entry')) {
+      const key = staticPropertyName(property.name);
+      if (!key || !['id', 'category', 'date', 'image', 'updatedAt'].includes(key)) continue;
+      fields.set(key, readStaticString(property.initializer, sourceFile, {
+        label: `${key} in article registry entry`,
+        errorPrefix: '[article-registry]',
+      }));
+    }
     const id = fields.get('id');
     if (!id || seen.has(id)) continue;
     const category = fields.get('category');
