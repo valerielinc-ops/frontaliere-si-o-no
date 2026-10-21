@@ -1351,7 +1351,11 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       ? CANONICAL_OVERRIDE_FILES.svizzera
       : [];
   const articleRouteMaps = {
-    redirects: loadArticleRouteRedirects(fs, np.resolve(rootDir, 'data/article-redirects.json')),
+    redirects: loadArticleRouteRedirects(
+      fs,
+      np.resolve(rootDir, 'data/article-redirects.json'),
+      np.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
+    ),
     canonicalOverrides: loadSwissArticleCanonicalOverrides(
       fs,
       canonicalOverrideCandidates.map((candidate) => np.resolve(rootDir, candidate)),

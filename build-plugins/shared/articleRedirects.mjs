@@ -54,6 +54,7 @@ import path from 'node:path';
 
 import { SITE_RENDERED_ARTICLE_SECTIONS } from './articleSectionCore.mjs';
 import { parseSlugRegistry } from '../../scripts/lib/article-slug-registry.mjs';
+import { parseLiteralRedirectMap } from '../../packages/articles/engine/shared/articleRouteOwnership.mjs';
 
 /** Repo-relative path of the redirect map. */
 export const ARTICLE_REDIRECTS_FILE = 'data/article-redirects.json';
@@ -224,7 +225,7 @@ export function findCanonicalOverrideRedirectTargets(redirects, canonicalOverrid
       continue;
     }
     const winner = parseArticlePath(winnerPath);
-    if (!winner || winner.path === to.path) continue;
+    if (!winner || winner.locale !== to.locale || winner.section !== to.section || winner.path === to.path) continue;
     out.push({ from: withTrailingSlash(fromRaw), to: to.path, winner: winner.path });
   }
   return out;
@@ -276,32 +277,9 @@ const HARDCODED_SCAN_FLOOR = 50;
 export function readHardcodedRedirects(rootDir, io = {}) {
   const readFile = io.readFileSync ?? readFileSync;
   const src = String(readFile(path.join(rootDir, LEGACY_REDIRECTS_SOURCE), 'utf-8'));
-  /** @type {Record<string, string>} */
-  const out = {};
-  let n = 0;
-  let dynamic = 0;
-  /** @type {string[]} */
-  const unsupported = [];
-
-  // One pass that classifies EVERY line shaped like a map key, instead of a
-  // regex that quietly matches a subset. A canary on the total ("more than 50")
-  // only catches a scan that broke completely; it says nothing about a scan
-  // that silently skips the twenty entries someone reformatted. Here a key line
-  // this parser cannot read is an error, not an absence:
-  //   group 2 = key, group 3 = single-quoted path value (a pair),
-  //   group 4 = backtick (a computed value — one exists today, `/job-board/`,
-  //   whose target is resolveCantonSection(); it is a job path and can never
-  //   collide with an article redirect), group 5 = anything else.
-  for (const m of src.matchAll(/^[ \t]*(['"])(\/[^'"\n]*)\1\s*:\s*(?:'(\/[^'\n]*)'|(`)|(\S))/gm)) {
-    if (m[3] !== undefined) {
-      out[withTrailingSlash(m[2])] = withTrailingSlash(m[3]);
-      n++;
-    } else if (m[4] !== undefined) {
-      dynamic++;
-    } else {
-      unsupported.push(m[2]);
-    }
-  }
+  // One pass classifies EVERY line shaped like a map key instead of using a
+  // second regex that could drift from the renderer's ownership reader.
+  const { entries: out, literalCount: n, unsupported } = parseLiteralRedirectMap(src);
 
   if (unsupported.length > 0) {
     throw new Error(
@@ -513,7 +491,7 @@ export function loadArticleRedirects(rootDir, io = {}) {
     throw new Error(`${ARTICLE_REDIRECTS_FILE}: JSON non valido — ${err instanceof Error ? err.message : String(err)}`);
   }
   const redirects = parseArticleRedirects(parsed);
-  const canonicalOverrides = loadCanonicalOverrideMap(rootDir, readFile);
+  const canonicalOverrides = loadArticleCanonicalOverrides(rootDir, readFile);
   assertNoCanonicalOverrideRedirectTargets(redirects, canonicalOverrides);
   return redirects;
 }
@@ -528,7 +506,7 @@ export function loadArticleRedirects(rootDir, io = {}) {
  * @param {(path: string, encoding: string) => string} readFile
  * @returns {Record<string, string>}
  */
-function loadCanonicalOverrideMap(rootDir, readFile) {
+export function loadArticleCanonicalOverrides(rootDir, readFile = readFileSync) {
   const paths = [
     'packages/articles/engine/shared/frontaliere-article-canonical-overrides.json',
     'data/swiss-article-canonical-overrides.json',

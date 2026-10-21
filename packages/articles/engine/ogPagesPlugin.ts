@@ -836,6 +836,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleRedirects = loadArticleRouteRedirects(
   fs,
   np.resolve(rootDir, 'data/article-redirects.json'),
+  np.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
  );
  const articleRouteMaps = {
   redirects: articleRedirects,

@@ -130,20 +130,63 @@ export function resolveArticleRouteHref(href, maps = {}) {
 }
 
 /**
- * Read the optional site-owned article redirect map without making the
+ * Parse literal redirect entries from the host's legacy redirect source.
+ * The build-side validator uses this same parser, so route ownership cannot
+ * drift because the link renderer and redirect checker scan different syntax.
+ * Computed entries are reported but deliberately not guessed here.
+ *
+ * @param {string} source
+ * @returns {{entries: Record<string, string>, literalCount: number, dynamicCount: number, unsupported: string[]}}
+ */
+export function parseLiteralRedirectMap(source) {
+  const entries = {};
+  let literalCount = 0;
+  let dynamicCount = 0;
+  const unsupported = [];
+  for (const match of String(source ?? '').matchAll(/^[ \t]*(['"])(\/[^'"\n]*)\1\s*:\s*(?:'(\/[^'\n]*)'|(`)|(\S))/gm)) {
+    if (match[3] !== undefined) {
+      const from = match[2].endsWith('/') ? match[2] : `${match[2]}/`;
+      const to = match[3].endsWith('/') ? match[3] : `${match[3]}/`;
+      entries[from] = to;
+      literalCount += 1;
+    } else if (match[4] !== undefined) {
+      dynamicCount += 1;
+    } else {
+      unsupported.push(match[2]);
+    }
+  }
+  return { entries, literalCount, dynamicCount, unsupported };
+}
+
+/**
+ * Read the optional site-owned article redirect maps without making the
  * standalone corpus renderer depend on the site's build-plugin tree.
  * Validation and fail-closed build checks remain in shared/articleRedirects;
- * this reader only supplies already-published route ownership to link output.
+ * this reader supplies the same final route ownership to generated links.
+ * Missing or malformed optional maps mean "leave the href alone".
  *
  * @param {{ readFileSync: (path: string, encoding: string) => string }} fs
  * @param {string} filePath
+ * @param {string} [legacyFilePath]
  * @returns {Record<string, string>}
  */
-export function loadArticleRouteRedirects(fs, filePath) {
+export function loadArticleRouteRedirects(fs, filePath, legacyFilePath) {
+  let data = {};
+  let legacy = {};
   try {
-    const parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    return normalizedRouteMap(parsed);
+    data = normalizedRouteMap(JSON.parse(fs.readFileSync(filePath, 'utf-8')));
   } catch {
-    return {};
+    // The corpus renderer normally has no site-owned data file.
   }
+  if (legacyFilePath) {
+    try {
+      legacy = normalizedRouteMap(
+        parseLiteralRedirectMap(fs.readFileSync(legacyFilePath, 'utf-8')).entries,
+      );
+    } catch {
+      // The site build validates the source separately; keep the data map.
+    }
+  }
+  // The legacy table wins on duplicate keys, matching legacyRedirectsPlugin.
+  return normalizedRouteMap({ ...data, ...legacy });
 }

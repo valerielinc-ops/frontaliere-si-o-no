@@ -60,7 +60,7 @@ import {
   withTrailingSlash,
 } from '../build-plugins/shared/articleRedirects.mjs';
 import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
-import { resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
+import { loadArticleRouteRedirects, resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const REDIRECTS_ABS = resolve(ROOT, ARTICLE_REDIRECTS_FILE);
@@ -284,7 +284,11 @@ describe(`${ARTICLE_REDIRECTS_FILE} — the real file`, () => {
   });
 
   it('resolves generated links to the final route, not the transition bridge', () => {
-    const redirects = loadArticleRedirects(ROOT);
+    const redirects = loadArticleRouteRedirects(
+      { readFileSync },
+      REDIRECTS_ABS,
+      resolve(ROOT, 'build-plugins/legacyRedirectsPlugin.ts'),
+    );
     for (const [from, to] of Object.entries(redirects)) {
       expect(resolveArticleRouteHref(from, { redirects })).toBe(to);
     }
