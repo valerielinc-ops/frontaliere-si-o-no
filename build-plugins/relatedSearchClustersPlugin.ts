@@ -1889,6 +1889,18 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
 }
 
 /**
+ * True when the cluster URL is its own canonical, rather than a below-floor
+ * bridge canonicalized to the locale hub. Hreflang groups can only contain
+ * pages that assert their own URL as canonical.
+ */
+export function hasSelfCanonicalClusterUrl(
+  ctx: ClusterContext,
+  enriched: EnrichedEntry | undefined,
+): boolean {
+  return !isClusterBelowFloor(ctx, enriched);
+}
+
+/**
  * Select the "Ricerche correlate" anchors without linking to a below-floor
  * cluster that this same build will emit as a noindex bridge. The floor check
  * deliberately goes through isClusterBelowFloor: the link selector and the
@@ -3255,7 +3267,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // indexability bypass. Only 6,538 of 349,579 unique cluster slugs have an
   // enriched entry (data/related-search-enriched.json), so this remains narrow
   // and does not blunt consolidation for generic clusters.
-  if (isClusterBelowFloor(ctx, enriched)) {
+  if (!hasSelfCanonicalClusterUrl(ctx, enriched)) {
     return renderClusterBelowFloorBridge(locale, urlPath, canonicalUrl, ctx.keyword, hreflang);
   }
 
@@ -5075,7 +5087,9 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       for (const ctx of contexts) {
         const key = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
         altKeyByCtx.set(ctx, key);
-        if (isClusterBelowFloor(ctx, enriched[`${ctx.candidate.locale}::${ctx.candidate.slug}`])) {
+        if (
+          !hasSelfCanonicalClusterUrl(ctx, enriched[`${ctx.candidate.locale}::${ctx.candidate.slug}`])
+        ) {
           continue;
         }
         let inner = byKeywordCity.get(key);
