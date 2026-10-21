@@ -11,15 +11,14 @@
  * red → main red → drain frozen (observed 2026-06-02: bot commit froze the
  * autonomous loop ~83min, no PR accountable).
  *
- * Run this BEFORE committing the store in those workflows: it drops the
- * non-resolving paths so the commit is always test-clean (main stays green) and
- * the resolving paths still ship. Idempotent; exits 0 even with nothing to do.
+ * Run this BEFORE committing the store in those workflows: it drops
+ * non-resolving paths while preserving resolving paths. On a large accumulator
+ * it fails closed if a prune would remove over 50k paths or 10% of the store;
+ * after reviewing an intentional bulk cleanup, opt in with
+ * PRUNE_404_ALLOW_LARGE_PRUNE=1. Idempotent; exits 0 when nothing changes.
  */
 import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
-import {
-  assertCompatFloor,
-  COMPAT_PATHS_SANITY_FLOOR,
-} from './lib/compat-paths-floor-guard.mjs';
+import { assertCompatPruneSafety } from './lib/compat-paths-floor-guard.mjs';
 
 // Sharded accumulator (issue #2988): the logical {paths} set lives across
 // data/seo-404-compat/part-*.json. Read/write only via the store helpers.
@@ -32,6 +31,7 @@ const ROOT = process.cwd();
 // can re-introduce upstream paths after an earlier prune. Reuses the single
 // resolvability source rather than duplicating resolver wiring.
 const STRICT = process.env.PRUNE_404_STRICT !== '0';
+const ALLOW_LARGE_PRUNE = process.env.PRUNE_404_ALLOW_LARGE_PRUNE === '1';
 
 async function main(): Promise<void> {
   // Dynamic import, kept defensive: the resolver now only statically imports the
@@ -82,13 +82,15 @@ async function main(): Promise<void> {
     return;
   }
 
-  // A resolver regression can make valid historical routes look non-resolving.
-  // Keep the established accumulator floor as a last line of defense before
-  // rewriting shards; the strict read above protects against incomplete input,
-  // while this protects against an unexpectedly destructive prune result.
-  assertCompatFloor(before.length, kept.length, {
-    floor: COMPAT_PATHS_SANITY_FLOOR,
+  // A resolver regression can make a large cohort look non-resolving while
+  // leaving the accumulator above its historical floor. The strict read plus
+  // prune guard prevent partial-input writes and unexpectedly large deletions.
+  if (ALLOW_LARGE_PRUNE) {
+    console.warn('[prune-404-compat] PRUNE_404_ALLOW_LARGE_PRUNE=1 — size guards are explicitly bypassed.');
+  }
+  assertCompatPruneSafety(before.length, kept.length, {
     label: 'seo-404-compat prune',
+    allowLargePrune: ALLOW_LARGE_PRUNE,
   });
 
   writeCompatPaths({ ...data, paths: kept }, ROOT);
