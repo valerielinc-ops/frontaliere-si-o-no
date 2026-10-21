@@ -539,7 +539,7 @@ const RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|address|adresse|indiriz
 // when a sibling-label context contains both kinds of information.
 const PERSONAL_ADDRESS_CONTEXT_RE = /\b(?:my\s+information|personal\s+(?:information|details|data)|contact\s+(?:details|information)|candidate\s+(?:personal\s+)?(?:information|details|data|profile)|dati\s+personali|données\s+personnelles|persönliche\s+(?:daten|angaben))\b/i;
 const EXPLICIT_RESIDENCE_CONTEXT_RE = /\b(?:residen\w*|domicil\w*|abitaz\w*|home\s+(?:address|country|city)|wohn(?:sitz|ort|adresse)\w*)\b/i;
-const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro|emergency\s+contact|reference|referee|next\s+of\s+kin|contact\s+person|supervisor|recruiter|interviewer)\b/i;
+const NON_RESIDENCE_ADDRESS_RE = /\b(?:birth|born|nascit\w*|geburt\w*|naissance|origin\w*|origine|provenance|school|education|educazion\w*|study|studies|university|universit\w*|eligib\w*|employer|employeur|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro|emergency\s+contact|contatto\s+di\s+emergenza|reference|referee|next\s+of\s+kin|contact\s+person|supervisor|recruiter|interviewer)\b/i;
 const EMPLOYMENT_CONTEXT_RE = /\b(?:employer|company|azienda|arbeitgeber|entreprise|soci[ée]t[ée]|(?:work|employment|professional|career|job)\s+(?:history|experience)|work(?:place|\s+(?:location|country|city|town|address|postal(?:\s+code)?))|job\s+(?:location|city|town|address|postal(?:\s+code)?)|office|headquarters|sede|datore\s+di\s+lavoro)\b/i;
 const WORK_HISTORY_SECTION_RE = /(?:^\s*(?:(?:my|your|candidate(?:'s)?|profile'?s?)\s+)?(?:(?:work|employment|professional|career|job)\s+)?(?:history|experience|berufserfahrung|exp[ée]rience professionnelle|esperienza\s+(?:lavorativa|professionale))\s*$|^\s*(?:employment|work|career)\s*$|\b(?:(?:work|employment|professional|career|job)\s+(?:history|experience)|(?:previous|past|former)\s+(?:work|employment|professional|career|job)\s+(?:history|experience)|history\s+of\s+(?:work|employment|jobs?))\b)/i;
 const PREFERRED_WORKLOAD_RE = /\b(?:workload|work(?:ing)? percentage|employment percentage|employment level|pensum|carico di lavoro|percentuale di lavoro|grado di occupazione|tasso di occupazione|taux d['’]activit[ée]|pourcentage de travail)\b/i;
@@ -898,8 +898,10 @@ function recordedAnswerForQuestion(candidate, question, context = '', metadata =
   const topic = questionTopic(question, context, metadata);
   if (topic === 'start_date_contextual' && !requestedContext) return '';
   const requestedSection = comparableContext(metadata?.section);
+  const requestedAutocomplete = comparableContext(metadata?.autocomplete);
   const sameContext = (item) => comparableContext(item.context) === requestedContext
-    && comparableContext(item.section) === requestedSection;
+    && comparableContext(item.section) === requestedSection
+    && comparableContext(item.autocomplete) === requestedAutocomplete;
   const matches = items.filter((item) => {
     const itemQuestion = comparableAnswer(questionFromLabel(item.question));
     const itemTopic = questionTopic(item.question, item.context, item);

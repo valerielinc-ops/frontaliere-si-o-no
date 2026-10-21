@@ -409,7 +409,10 @@
     const labels = entry.labels || [entry.label];
     const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
     const autoFamily = AUTOCOMPLETE[auto];
-    const addressContext = normalize(`${labels.join(' ')} ${entry.element.getAttribute('autocomplete') || ''}`);
+    // Autocomplete identifies the value type, not whose address it is. Only
+    // visible labels and the surrounding section may establish residence
+    // provenance; a section-personal token alone must stay ownerless.
+    const addressContext = normalize(`${labels.join(' ')} ${entry.section || ''}`);
     const candidateAddress = CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
       && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext);
     if (autoFamily) {
