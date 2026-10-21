@@ -1426,6 +1426,7 @@ describe('portal runner helpers', () => {
     expect(questionTopic('Work city')).toBe('');
     expect(addressQuestionTopic('Country of birth')).toBe('');
     expect(addressQuestionTopic('City of birth')).toBe('');
+    expect(addressQuestionTopic('Adresse du contact d’urgence')).toBe('');
     expect(addressQuestionTopic('Country of residence')).toBe('residence_country');
     expect(questionTopic('Street address')).toBe('address_street');
     expect(questionTopic('E-Mail-Adresse')).toBe('');
