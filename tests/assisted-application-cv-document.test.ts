@@ -298,6 +298,14 @@ describe('tailored CV by type', () => {
 
     const missing = sanitizeTailoredCv({ ...raw, localized: undefined }, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
     expect(checkTailoredCvLanguage(missing, { profile, language: 'it' }).ok).toBe(false);
+
+    const untranslatedLanguage = sanitizeTailoredCv({
+      ...raw,
+      localized: { ...raw.localized, languages: [{ index: 0, language: 'English' }] },
+    }, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
+    expect(checkTailoredCvLanguage(untranslatedLanguage, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].language', kind: 'unchanged' }),
+    ]));
   });
 });
 

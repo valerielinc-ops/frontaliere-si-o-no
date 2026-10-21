@@ -339,7 +339,7 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it' } = 
     requireLocalized(issues, translation?.name, item.name);
     requireLocalized(issues, translation?.description, item.description, `projects[${index}].description`, { rejectUnchanged: true });
   });
-  (profile.languages || []).forEach((item, index) => requireLocalized(issues, localizedAt(localized.languages, index)?.language, item.language, `languages[${index}].language`));
+  (profile.languages || []).forEach((item, index) => requireLocalized(issues, localizedAt(localized.languages, index)?.language, item.language, `languages[${index}].language`, { rejectUnchanged: true }));
   (profile.interests || []).forEach((item, index) => requireLocalized(issues, localized.interests?.[index], item, `interests[${index}]`, { rejectUnchanged: true }));
   (profile.references || []).forEach((item, index) => {
     const translation = localizedAt(localized.references, index);
