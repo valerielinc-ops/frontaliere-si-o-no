@@ -4,7 +4,7 @@
  * Verifies:
  *  - Webcams render when `data/borderCrossings.ts` has a `webcams` entry for
  *    the crossing, and DO NOT render otherwise (no empty <figure>).
- *  - Attribution link carries `rel="nofollow noopener"` + `target="_blank"`.
+ *  - Attribution links stay followed and carry `rel="noopener"` + `target="_blank"`.
  *  - Every <img> has explicit width/height (prevents CLS) + loading="lazy".
  *  - The inline refresh <script> is only injected when the page has at least
  *    one webcam.
@@ -91,9 +91,10 @@ describe('webcam rendering — conditional display', () => {
 });
 
 describe('webcam rendering — attribution + accessibility', () => {
-  it('webcam figcaption carries rel="nofollow noopener" + target="_blank"', () => {
+  it('webcam source links stay followed while keeping noopener + target="_blank"', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
-    expect(html).toMatch(/\brel=["']?nofollow noopener["']?/);
+    expect(html).toMatch(/\brel=["']?noopener["']?/);
+    expect(html).not.toContain('rel="nofollow noopener"');
     expect(html).toMatch(/\btarget=["']?_blank["']?/);
   });
 

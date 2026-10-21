@@ -93,7 +93,8 @@ interface ComputedResult {
 }
 
 const HealthInsurance: React.FC = () => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
+ const priminfoPremiumUrl = `https://www.priminfo.admin.ch/${locale === 'it' ? 'it' : locale === 'fr' ? 'fr' : 'de'}/praemien`;
  const [data, setData] = useState<DomesticHealthPremiumsData | null>(null);
  const [euData, setEuData] = useState<EuHealthPremiums | null>(null);
  const [residence, setResidence] = useState<HealthResidence>(() => {
@@ -261,7 +262,7 @@ const HealthInsurance: React.FC = () => {
  <p className="text-on-accent text-base sm:text-lg">
  {t(isItaly ? 'health.residence.italyIntro' : 'health.residence.swissIntro')} ({isItaly ? premiumYear : data?.year ?? premiumYear})
  </p>
- <div className="mt-3"><DataFreshness lastUpdated={isItaly ? euData?.fetchedAt : data?.fetchedAt} dateKind="fetched" referenceYear={isItaly ? euData?.year : data?.year} source="UFSP / Priminfo" sourceUrl={isItaly ? "https://www.priminfo.admin.ch/it/versicherungen/eu_efta" : "https://www.priminfo.admin.ch/"} variant="badge" /></div>
+ <div className="mt-3"><DataFreshness lastUpdated={isItaly ? euData?.fetchedAt : data?.fetchedAt} dateKind="fetched" referenceYear={isItaly ? euData?.year : data?.year} source="UFSP / Priminfo" sourceUrl={isItaly ? "https://www.priminfo.admin.ch/it/versicherungen/eu_efta" : priminfoPremiumUrl} variant="badge" /></div>
  </div>
 
  <Callout status="warning">
@@ -269,7 +270,7 @@ const HealthInsurance: React.FC = () => {
  <p className="font-bold mb-1">Nota per frontalieri</p>
  <p>
  <span dangerouslySetInnerHTML={{ __html: t('health.warningText') }} />{' Premi indicativi — verifica su '}
- <a href="https://www.priminfo.admin.ch/it/praemien" target="_blank" rel="noopener noreferrer" className="underline font-bold">priminfo.admin.ch</a>.
+ <a href={priminfoPremiumUrl} target="_blank" rel="noopener noreferrer" className="underline font-bold">priminfo.admin.ch</a>.
  </p>
  </div>
  </Callout>
@@ -284,7 +285,7 @@ const HealthInsurance: React.FC = () => {
  <option value="IT">{t('health.residence.italy')}</option><option value="CH">{t('health.residence.switzerland')}</option>
  </select>
  <p className="text-sm text-muted mt-2">{t(isItaly ? 'health.residence.italyRules' : 'health.residence.swissRules')}</p>
- {(isItaly ? !euData : !domesticProfiles || !availableFranchises.length) && <p role="status" className="text-sm text-muted mt-2">{t(isItaly ? 'health.residence.unavailable' : 'health.residence.swissUnavailable')} <a href={isItaly ? 'https://www.priminfo.admin.ch/it/versicherungen/eu_efta' : 'https://www.priminfo.admin.ch/it/praemien'} target="_blank" rel="noopener noreferrer" className="underline">Priminfo</a></p>}
+ {(isItaly ? !euData : !domesticProfiles || !availableFranchises.length) && <p role="status" className="text-sm text-muted mt-2">{t(isItaly ? 'health.residence.unavailable' : 'health.residence.swissUnavailable')} <a href={isItaly ? 'https://www.priminfo.admin.ch/it/versicherungen/eu_efta' : priminfoPremiumUrl} target="_blank" rel="noopener noreferrer" className="underline">Priminfo</a></p>}
  </div>
  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
  <div>
@@ -307,7 +308,7 @@ const HealthInsurance: React.FC = () => {
  <div><label htmlFor="hi-region" className="block text-xs font-bold text-body mb-1.5">{t('health.residence.region')}</label>
  <select id="hi-region" value={effectiveRegion} onChange={event => setRegion(event.target.value)} className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm">
  {availableRegions.map(value => <option key={value} value={value}>{value}</option>)}
- </select><a href="https://www.priminfo.admin.ch/it/praemien" target="_blank" rel="noopener noreferrer" className="text-sm underline">Priminfo</a></div>
+ </select><a href={priminfoPremiumUrl} target="_blank" rel="noopener noreferrer" className="text-sm underline">Priminfo</a></div>
  )}
  {!isItaly && COMMUNE_DETAIL_CANTONS.includes(canton) && communes.length > 0 && (
  <div>

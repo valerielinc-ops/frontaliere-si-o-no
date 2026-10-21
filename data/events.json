@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T13:27:10.885Z",
+  "generatedAt": "2026-10-21T15:21:37.112Z",
   "totalEvents": 14750,
   "events": [
     {
@@ -404079,7 +404079,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Teatro Foce di Lugano è in programma uno spettacolo musicale-teatrale dedicato alla vita e ai ricordi di un musicista. La rappresentazione unisce narrazione e chitarra, dura 80 minuti ed è indicata a partire dai 12 anni.",
+      "descriptionByLocale": {
+        "it": "Al Teatro Foce di Lugano è in programma uno spettacolo musicale-teatrale dedicato alla vita e ai ricordi di un musicista. La rappresentazione unisce narrazione e chitarra, dura 80 minuti ed è indicata a partire dai 12 anni.",
+        "en": "Teatro Foce in Lugano hosts a musical-theatrical performance centred on a musician’s life and memories. It combines spoken storytelling with guitar, runs for 80 minutes, and is intended for audiences aged 12 and over.",
+        "de": "Im Teatro Foce in Lugano steht eine musikalisch-theatralische Aufführung über das Leben und die Erinnerungen eines Musikers auf dem Programm. Sie verbindet erzählte Passagen mit Gitarrenmusik, dauert 80 Minuten und richtet sich an Personen ab zwölf Jahren.",
+        "fr": "Le Teatro Foce de Lugano accueille un spectacle musical et théâtral consacré à la vie et aux souvenirs d’un musicien. La représentation associe récit parlé et guitare, dure 80 minutes et s’adresse au public dès 12 ans."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:ulisse-systeme-stockage-lacustre-saisonnier-chaleur-solaire-rejets-thermiques",
@@ -593072,7 +593080,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone jazz con esecuzioni di composizioni originali. Si svolge al Zeughaus Kultur, nel Canton Vallese, ed è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone jazz con esecuzioni di composizioni originali. Si svolge al Zeughaus Kultur, nel Canton Vallese, ed è organizzato da Guidle.",
+        "en": "The event presents jazz featuring original compositions. It takes place at Zeughaus Kultur in the canton of Valais and is organized by Guidle.",
+        "de": "Die Veranstaltung bietet Jazz mit Eigenkompositionen. Sie findet im Zeughaus Kultur im Kanton Wallis statt und wird von Guidle organisiert.",
+        "fr": "Le rendez-vous propose du jazz avec des compositions originales. Il se tient au Zeughaus Kultur, dans le canton du Valais, et est organisé par Guidle."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d054d0875c244c7fac371e4e09f9fa7c",
@@ -596868,7 +596884,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "L’appuntamento di hard rock riunisce Rhapsody of Fire e Serious Black alla Z7 Konzertfabrik Pratteln. La manifestazione si tiene nel comune di Pratteln, nel cantone BL.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di hard rock riunisce Rhapsody of Fire e Serious Black alla Z7 Konzertfabrik Pratteln. La manifestazione si tiene nel comune di Pratteln, nel cantone BL.",
+        "en": "This hard-rock event features Rhapsody of Fire and Serious Black at Z7 Konzertfabrik Pratteln. It takes place in Pratteln, in canton BL.",
+        "de": "Die Hardrock-Veranstaltung führt Rhapsody of Fire und Serious Black in der Z7 Konzertfabrik Pratteln zusammen. Sie findet in Pratteln im Kanton BL statt.",
+        "fr": "Ce rendez-vous de hard rock réunit Rhapsody of Fire et Serious Black à la Z7 Konzertfabrik Pratteln. Il se déroule à Pratteln, dans le canton BL."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:95c3d9e2b143470d9d8d1dae2dd1e708",
@@ -597650,7 +597674,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento a Lausanne è dedicato alla lettura di poesie di Ted Joans. Jake Lamar è indicato come la persona che legge i testi.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a Lausanne è dedicato alla lettura di poesie di Ted Joans. Jake Lamar è indicato come la persona che legge i testi.",
+        "en": "The event in Lausanne consists of a reading of poems by Ted Joans. Jake Lamar is identified as the reader.",
+        "de": "Die Veranstaltung in Lausanne umfasst eine Lesung von Gedichten von Ted Joans. Jake Lamar ist als Vorleser angegeben.",
+        "fr": "À Lausanne, l’événement comprend une lecture de poèmes de Ted Joans. Jake Lamar est indiqué comme la personne qui assure la lecture."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:0f13801519924179b59454abade4f145",
@@ -609468,7 +609500,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento di musica pop con Grüezi Italia si svolge presso lo Stadtsaal Wil, nel cantone SG. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop con Grüezi Italia si svolge presso lo Stadtsaal Wil, nel cantone SG. Guidle è indicato come organizzatore.",
+        "en": "This pop event features Grüezi Italia at Stadtsaal Wil in canton SG. Guidle is listed as the organizer.",
+        "de": "Die Popveranstaltung mit Grüezi Italia findet im Stadtsaal Wil im Kanton SG statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Cet événement de musique pop avec Grüezi Italia se déroule au Stadtsaal Wil, dans le canton de SG. Guidle en est l’organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:94774",
@@ -612541,7 +612581,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento, presentato come Landhaus Live, è un evento rock al Restaurant Landhaus Liebefeld, nel cantone BE. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento, presentato come Landhaus Live, è un evento rock al Restaurant Landhaus Liebefeld, nel cantone BE. Guidle è indicato come organizzatore.",
+        "en": "Billed as Landhaus Live, the rock event takes place at Restaurant Landhaus Liebefeld in canton BE. Guidle is the listed organizer.",
+        "de": "Der als Landhaus Live bezeichnete Rockanlass findet im Restaurant Landhaus Liebefeld im Kanton BE statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Présenté sous le nom de Landhaus Live, l’événement rock a lieu au Restaurant Landhaus Liebefeld, dans le canton de BE. Guidle en est l’organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AkEhfbU",
@@ -614647,7 +614695,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento pop con Sleeping with Sirens si svolge presso X-TRA, nel cantone ZH. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento pop con Sleeping with Sirens si svolge presso X-TRA, nel cantone ZH. Guidle è indicato come organizzatore.",
+        "en": "This pop event features Sleeping with Sirens at X-TRA in canton ZH. Guidle is listed as the organizer.",
+        "de": "Der Popanlass mit Sleeping with Sirens findet im X-TRA im Kanton ZH statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Cet événement pop avec Sleeping with Sirens a lieu au X-TRA, dans le canton de ZH. Guidle en est l’organisateur."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AAmjasS",
@@ -627704,7 +627760,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "È un concerto per famiglie dedicato a una fiaba musicale con Tino Flautino. L’argovia philharmonic presenta l’appuntamento insieme a Maurice Steger e Jolanda Steiner al Kultur- und Kongresshaus di Aarau.",
+      "descriptionByLocale": {
+        "it": "È un concerto per famiglie dedicato a una fiaba musicale con Tino Flautino. L’argovia philharmonic presenta l’appuntamento insieme a Maurice Steger e Jolanda Steiner al Kultur- und Kongresshaus di Aarau.",
+        "en": "This family concert presents a musical fairy tale centred on Tino Flautino. The argovia philharmonic appears with Maurice Steger and Jolanda Steiner at the Kultur- und Kongresshaus in Aarau.",
+        "de": "Das Familienkonzert verbindet eine musikalische Erzählung mit der Geschichte von Tino Flautino. Das argovia philharmonic gestaltet den Anlass gemeinsam mit Maurice Steger und Jolanda Steiner im Kultur- und Kongresshaus in Aarau.",
+        "fr": "Ce concert familial propose un conte musical consacré à Tino Flautino. L’argovia philharmonic se produit avec Maurice Steger et Jolanda Steiner au Kultur- und Kongresshaus d’Aarau."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A4ycD19",
@@ -633087,7 +633151,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al KiM – Kultur in Mogelsberg è previsto uno spettacolo di musica comica con Chrissi Sokoll e band. L’evento appartiene alla categoria della musica comica.",
+      "descriptionByLocale": {
+        "it": "Al KiM – Kultur in Mogelsberg è previsto uno spettacolo di musica comica con Chrissi Sokoll e band. L’evento appartiene alla categoria della musica comica.",
+        "en": "KiM – Kultur in Mogelsberg hosts a comedy-music event with Chrissi Sokoll and the band. It is categorized as comedy music.",
+        "de": "Im KiM – Kultur in Mogelsberg findet ein Anlass mit Chrissi Sokoll und Band statt. Die Veranstaltung gehört zur Kategorie musikalische Comedy.",
+        "fr": "Le KiM – Kultur in Mogelsberg accueille un spectacle de musique comique avec Chrissi Sokoll et le groupe. L’événement relève de la catégorie de la musique comique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AvUGqa8",

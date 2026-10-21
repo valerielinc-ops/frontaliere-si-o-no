@@ -28,6 +28,7 @@ import {
   readAttr,
   readMetaContent,
   readTagByAttr,
+  scanMarkupStartTags,
 } from '../scripts/lib/html-attr.mjs';
 import { extractJsonLd, scoreVacancyPage } from '../scripts/lib/prospector/extract.mjs';
 import {
@@ -49,6 +50,26 @@ import { parseTzmListing } from '../scripts/lib/therapiezentrum-meggen-job-parse
 import { parsePostFinanceMetaPage } from '../scripts/update-postfinance-jobs.mjs';
 import { parseJobBlocks as parseUsiJobBlocks } from '../scripts/update-usi-jobs.mjs';
 import { parseJobLinks as parseZegnaJobLinks } from '../scripts/update-zegna-jobs.mjs';
+
+describe('scanMarkupStartTags — comment and raw-text boundaries', () => {
+  it('keeps live metadata after a raw-text block containing a comment marker', () => {
+    const tags = scanMarkupStartTags(
+      `<script>const marker = '<!--';</script><meta name="robots" content="noindex">`,
+      'meta',
+    );
+    expect(tags).toHaveLength(1);
+    expect(tags[0].raw).toContain('noindex');
+  });
+
+  it('keeps live metadata after a comment containing a script-shaped fragment', () => {
+    const tags = scanMarkupStartTags(
+      `<!-- <script> --><meta name="robots" content="noindex">`,
+      'meta',
+    );
+    expect(tags).toHaveLength(1);
+    expect(tags[0].raw).toContain('noindex');
+  });
+});
 
 describe('readAttr — quote balanced', () => {
   it('keeps an apostrophe inside a double-quoted value (the #6480 root cause)', () => {

@@ -713,7 +713,7 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
   return `
     <tr><td class="footer-pad" style="background:${BRAND_DARK};padding:28px;text-align:center;">
       <div style="margin-bottom:12px;">
-        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/frontaliereticino/" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
         <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
         <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
       </div>

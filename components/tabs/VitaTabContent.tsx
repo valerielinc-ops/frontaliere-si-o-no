@@ -15,7 +15,7 @@ const NurseryComparator = lazyRetry(() => import('@/components/comparators/Nurse
 const TransportCalculator = lazyRetry(() => import('@/components/vita/TransportCalculator'));
 
 export default function VitaTabContent() {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const { vitaSubTab } = useNavigation();
  const { userProfile, authUser } = useTabContent();
 
@@ -24,7 +24,7 @@ export default function VitaTabContent() {
  <div data-speakable>
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t(vitaSubTab === 'municipalities' ? 'guide.tabs.municipalities' : 'seoContent.vita.title')}</h1>
  </div>
- <DataFreshness dateKind="reviewed" source={t('freshness.source.bfs')} sourceUrl="https://www.bfs.admin.ch/" variant="badge" />
+ <DataFreshness dateKind="reviewed" source={t('freshness.source.bfs')} sourceUrl={`https://www.bfs.admin.ch/bfs/${locale}/home.html`} variant="badge" />
  <Suspense fallback={<div className="min-h-[44px]" />}>
  <SeoContentBlock context="vita" />
  </Suspense>

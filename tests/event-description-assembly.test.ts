@@ -33,6 +33,7 @@ describe('event description assembly boundary', () => {
         ...sourceEvent,
         id: 'guidle:pending',
         url: 'https://example.test/pending',
+        description: 'La mostra presenta una selezione di fotografie locali raccolte durante il progetto autunnale.',
       };
       const rewrittenHash = sourceDescriptionHash(sourceEvent)!;
       const pendingHash = sourceDescriptionHash(pendingEvent)!;

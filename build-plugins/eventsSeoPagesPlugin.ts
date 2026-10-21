@@ -949,6 +949,7 @@ interface NationalCopy {
   faqA2: string;
   methodologyTitle: string;
   methodology: string;
+  otherLanguages: string;
   // Pill label on every per-canton hub linking back up to this index page.
   allCantonsLabel: string;
 }
@@ -976,6 +977,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Come raccogliamo gli eventi',
     methodology:
       "Gli eventi sono raccolti automaticamente dalle agende pubbliche di ogni cantone e aggiornati ogni giorno. Ogni evento è attribuito a un cantone e, quando possibile, a un comune preciso. Verifica sempre data, orario e luogo sulla pagina originale dell'organizzatore prima di spostarti: orari e disponibilità possono cambiare.",
+    otherLanguages: 'Altre lingue:',
     allCantonsLabel: 'Tutta la Svizzera',
   },
   en: {
@@ -1000,6 +1002,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'How we collect events',
     methodology:
       "Events are collected automatically from each canton's public agendas and refreshed every day. Every event is attributed to a canton and, where possible, to a specific municipality. Always check date, time and venue on the organiser's original page before travelling: times and availability can change.",
+    otherLanguages: 'Other languages:',
     allCantonsLabel: 'All of Switzerland',
   },
   de: {
@@ -1024,6 +1027,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Wie wir Veranstaltungen sammeln',
     methodology:
       'Die Veranstaltungen werden automatisch aus den öffentlichen Agenden jedes Kantons gesammelt und täglich aktualisiert. Jeder Anlass wird einem Kanton und, wenn möglich, einer genauen Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters, bevor du losfährst: Zeiten und Verfügbarkeit können sich ändern.',
+    otherLanguages: 'Weitere Sprachen:',
     allCantonsLabel: 'Ganze Schweiz',
   },
   fr: {
@@ -1048,9 +1052,28 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Comment nous recueillons les événements',
     methodology:
       "Les événements sont recueillis automatiquement dans les agendas publics de chaque canton et actualisés chaque jour. Chaque événement est attribué à un canton et, si possible, à une commune précise. Vérifiez toujours la date, l'horaire et le lieu sur la page d'origine de l'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.",
+    otherLanguages: 'Autres langues :',
     allCantonsLabel: 'Toute la Suisse',
   },
 };
+
+const EVENT_LOCALE_LABEL: Record<Locale, string> = {
+  it: 'Italiano',
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+};
+
+function renderEventsIndexLocaleLinks(locale: Locale, copy: NationalCopy): string {
+  const links = LOCALES.filter((target) => target !== locale)
+    .map(
+      (target) =>
+        `<a class="rounded-full border border-edge bg-surface px-3 py-1 text-xs font-semibold text-link hover:border-accent-border" href="${nationalIndexPath(target)}" hreflang="${target}" lang="${target}">${EVENT_LOCALE_LABEL[target]}</a>`,
+    )
+    .join('');
+
+  return `<nav class="mb-4 flex flex-wrap items-center gap-2" aria-label="${esc(copy.otherLanguages)}"><span class="mr-1 text-xs font-semibold text-muted">${esc(copy.otherLanguages)}</span>${links}</nav>`;
+}
 
 /** Canonical path for the Swiss-wide index hub (`EVENTS_INDEX_PATH` + trailing slash). */
 function nationalIndexPath(locale: Locale): string {
@@ -2661,6 +2684,8 @@ export function renderEventsIndexPage(params: {
       <span>${esc(copy.breadcrumbLabel)}</span>
     </nav>
 
+    ${renderEventsIndexLocaleLinks(locale, copy)}
+
     <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
       <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">🇨🇭</div>
       <h1 class="relative max-w-4xl font-display text-3xl font-bold leading-tight text-heading sm:text-4xl">${esc(copy.h1)}</h1>
@@ -3491,14 +3516,25 @@ interface EventDetailTitleSuffixCandidate {
   brandless?: string;
 }
 
+const EVENT_TITLE_LANGUAGE_QUALIFIER = /(\s+[—–-]\s+(?:en anglais|in english|auf englisch|en allemand|in german|auf deutsch|en français|in french|auf französisch|in italiano|in italian|auf italienisch))$/iu;
+
+function splitEventTitleLanguageQualifier(rawTitle: string): { title: string; qualifier: string } {
+  const title = String(rawTitle || '');
+  const match = EVENT_TITLE_LANGUAGE_QUALIFIER.exec(title);
+  if (!match || match.index === undefined) return { title, qualifier: '' };
+  return { title: title.slice(0, match.index).trimEnd(), qualifier: match[1] };
+}
+
 function eventDetailMetaTitle(
   rawTitle: string,
   suffixes: readonly string[],
   dateToken = '',
   preferBrandSuffix = false,
 ): string {
+  const { title: completeTitle, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const qualifiedSuffixes = suffixes.map((suffix) => `${qualifier}${suffix}`);
   const suffixCandidates: EventDetailTitleSuffixCandidate[] = dateToken
-    ? suffixes.flatMap((suffix) => {
+    ? qualifiedSuffixes.flatMap((suffix) => {
       const candidates: Array<{ suffix: string; brandless?: string }> = [
         { suffix: `${suffix} · ${dateToken}` },
       ];
@@ -3517,11 +3553,11 @@ function eventDetailMetaTitle(
       if (brandless !== suffix) candidates.push({ suffix: brandless });
       return candidates;
     })
-    : suffixes.map((suffix) => ({ suffix }));
+    : qualifiedSuffixes.map((suffix) => ({ suffix }));
   // Keep the most descriptive suffix unless it leaves only the minimum
   // title fragment. In that near-zero case, prefer a later candidate that fits the
   // complete event title; the cascade reaches a place-only fallback first.
-  const rawTitleBudget = esc(rawTitle).length;
+  const rawTitleBudget = esc(completeTitle).length;
   const firstMeaningful = suffixCandidates.find(
     ({ suffix }) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= MIN_DETAIL_TITLE_BUDGET,
   );
@@ -3545,9 +3581,9 @@ function eventDetailMetaTitle(
     }
   }
   const budget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length);
-  let title = rawTitle;
+  let title = completeTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
-    title = truncateHeadline(rawTitle, max);
+    title = truncateHeadline(completeTitle, max);
   }
   const composed = `${title}${suffix}`;
   if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
@@ -3575,16 +3611,17 @@ function eventDateToken(startDate: string, endDate: string | undefined, locale: 
   }) || normalizedStart;
 }
 
-const EVENT_H1_MAX_CHARS = 100;
+const EVENT_H1_MAX_CHARS = 70;
 
 /** The visible heading carries the two facts that distinguish same-titled
- * events in the crawl: scheduled date and municipality. Keep the source title
- * intact unless the combined heading would become an unusable wall of text. */
+ * events in the crawl: scheduled date and municipality. Keep both within the
+ * audit's 70-character H1 budget, shortening the source title when needed. */
 function eventDetailHeading(rawTitle: string, dateToken: string, comune: string): string {
   const suffix = ` — ${comune}${dateToken ? ` · ${dateToken}` : ''}`;
-  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length);
-  const visibleTitle = rawTitle.length > titleBudget ? truncateHeadline(rawTitle, titleBudget) : rawTitle;
-  return `${visibleTitle}${suffix}`;
+  const { title, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length - qualifier.length);
+  const visibleTitle = title.length > titleBudget ? truncateHeadline(title, titleBudget) : title;
+  return `${visibleTitle}${qualifier}${suffix}`;
 }
 
 /** Per-locale event-detail `<title>` suffix templates (comune + region +
