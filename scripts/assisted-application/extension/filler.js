@@ -62,6 +62,9 @@
   // A place, not a date: «Luogo di nascita», «Geburtsort».
   const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
+  const ADDRESS_FAMILIES = new Set(['postalCode', 'city', 'street', 'country']);
+  const CANDIDATE_ADDRESS_CONTEXT_RE = /\b(candidate|applicant|personal|home|residen(?:ce|tial)|current address|your address|your details|private address|contact details|contact information|dati personali|dati anagrafici|indirizzo personale|indirizzo di residenza|recapiti personali|personliche angaben|personliche daten|private adresse|wohnadresse|adresse personnelle|coordonnees personnelles|adresse du candidat)\b/;
+  const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
   const REQUIRED_RE = /(\*|\brequired\b|\bobbligator[ioa]\b|\bobligatoire\b|\bpflicht(?:ig)?\b|\bobligatorisch\b)/i;
@@ -403,16 +406,26 @@
   function familyOf(entry) {
     if (entry.type === 'email') return 'email';
     if (entry.type === 'tel') return 'phone';
+    const labels = entry.labels || [entry.label];
     const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
-    if (AUTOCOMPLETE[auto]) return AUTOCOMPLETE[auto];
+    const autoFamily = AUTOCOMPLETE[auto];
+    const addressContext = normalize(`${labels.join(' ')} ${entry.element.getAttribute('autocomplete') || ''}`);
+    const candidateAddress = CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext)
+      && !NON_CANDIDATE_ADDRESS_CONTEXT_RE.test(addressContext);
+    if (autoFamily) {
+      // `postal-code`, `address-level2`, etc. identify a value type, not
+      // whose address it is. Require explicit candidate-residence context.
+      if (ADDRESS_FAMILIES.has(autoFamily)) return candidateAddress ? autoFamily : null;
+      return autoFamily;
+    }
     // The strongest name decides; a sign that it is no personal field («Name
     // des Unternehmens», «Luogo di nascita») is never overruled by a weaker one.
-    for (const name of entry.labels || [entry.label]) {
+    for (const name of labels) {
       const label = normalize(name);
       if (!label) continue;
       if (NOT_PERSON_RE.test(label) || PLACE_RE.test(label)) return null;
       const family = FAMILIES.find(([, pattern]) => pattern.test(label))?.[0] || null;
-      if (family) return family;
+      if (family) return ADDRESS_FAMILIES.has(family) ? (candidateAddress ? family : null) : family;
     }
     return null;
   }

@@ -703,8 +703,8 @@ describe('fill extension: other portals', () => {
     const identity = { ...kit.identity, address: { ...kit.identity.address, postalCode: '22100' } };
     await F.fillPage(document, { ...kit, identity, answers: [], profile: { dateOfBirth: '1986-09-12' } }, { getFile: async () => null, attempts: new WeakMap() });
     const value = (id: string) => (document.getElementById(id) as HTMLInputElement).value;
-    // German compounds count; a place of birth is no date.
-    expect(['fn', 'ln', 'last', 'company', 'tel', 'dob', 'plz', 'birthplace'].map(value)).toEqual(['Luigi', 'Prova', 'Prova', '', '3331234567', '12.09.1986', '22100', '']);
+    // German compounds count; a bare postal field has no residence provenance, and a place of birth is no date.
+    expect(['fn', 'ln', 'last', 'company', 'tel', 'dob', 'plz', 'birthplace'].map(value)).toEqual(['Luigi', 'Prova', 'Prova', '', '3331234567', '12.09.1986', '', '']);
     expect(F.parseDate('12/09/1986')).toEqual({ year: 1986, month: 9, day: 12 });
   });
 });
