@@ -218,10 +218,11 @@ export function staticPropertyName(name) {
  *
  * @param {string} raw
  * @param {string} quote
- * @param {{ newlineAs?: string }} [options]
+ * @param {{ newlineAs?: string, tabAs?: string }} [options]
  */
 export function decodeStaticString(raw, quote, options = {}) {
   const newlineAs = options.newlineAs ?? '\n';
+  const tabAs = options.tabAs ?? ' ';
   let value = '';
   for (let cursor = 0; cursor < raw.length;) {
     if (raw[cursor] !== '\\') {
@@ -252,7 +253,7 @@ export function decodeStaticString(raw, quote, options = {}) {
     switch (escaped) {
       case 'n': value += newlineAs; break;
       case 'r': break;
-      case 't': value += ' '; break;
+      case 't': value += tabAs; break;
       case '\\': value += '\\'; break;
       case "'": value += "'"; break;
       case '"': value += '"'; break;
@@ -385,6 +386,76 @@ export function findTopLevelArrays(sourceFile) {
     }
   }
   return arrays;
+}
+
+/**
+ * Expand the static object literals in the root registry arrays. Generated
+ * registries keep object rows in `*_CHUNK_N` arrays and define one aggregate
+ * array with static spreads of those chunks. Known spreads are expanded; every
+ * other array element fails closed instead of being silently dropped.
+ *
+ * @param {import('typescript').SourceFile} sourceFile
+ * @param {string} [errorLabel]
+ * @returns {import('typescript').ObjectLiteralExpression[]}
+ */
+export function findTopLevelStaticObjectLiterals(sourceFile, errorLabel = '[article-registry] registry array') {
+  const declarations = [];
+  for (const statement of sourceFile.statements) {
+    if (!ts.isVariableStatement(statement)) continue;
+    for (const declaration of statement.declarationList.declarations) {
+      if (!ts.isIdentifier(declaration.name)) continue;
+      const initializer = declaration.initializer && unwrapStaticExpression(declaration.initializer);
+      if (initializer && ts.isArrayLiteralExpression(initializer)) {
+        declarations.push({ name: declaration.name.text, array: initializer });
+      }
+    }
+  }
+  if (declarations.length === 0) return [];
+
+  const byName = new Map(declarations.map((declaration) => [declaration.name, declaration.array]));
+  const referenced = new Set();
+  for (const { array } of declarations) {
+    for (const element of array.elements) {
+      if (!ts.isSpreadElement(element)) continue;
+      const target = unwrapStaticExpression(element.expression);
+      if (target && ts.isIdentifier(target) && byName.has(target.text)) referenced.add(target.text);
+    }
+  }
+  const roots = declarations.filter(({ name }) => !referenced.has(name));
+  const rootArrays = roots.length > 0 ? roots : declarations;
+
+  const expand = (array, visiting) => {
+    const objects = [];
+    for (const element of array.elements) {
+      const value = unwrapStaticExpression(element);
+      if (value && ts.isObjectLiteralExpression(value)) {
+        objects.push(value);
+        continue;
+      }
+      if (!ts.isSpreadElement(element)) {
+        throw new SyntaxError(`${errorLabel} contains an unsupported dynamic element`);
+      }
+      const target = unwrapStaticExpression(element.expression);
+      let targetArray;
+      if (target && ts.isArrayLiteralExpression(target)) {
+        targetArray = target;
+      } else if (target && ts.isIdentifier(target)) {
+        targetArray = byName.get(target.text);
+      }
+      if (!targetArray) {
+        throw new SyntaxError(`${errorLabel} contains an unsupported dynamic spread`);
+      }
+      if (visiting.has(targetArray)) {
+        throw new SyntaxError(`${errorLabel} contains a cyclic spread`);
+      }
+      const nextVisiting = new Set(visiting);
+      nextVisiting.add(targetArray);
+      objects.push(...expand(targetArray, nextVisiting));
+    }
+    return objects;
+  };
+
+  return rootArrays.flatMap(({ array }) => expand(array, new Set([array])));
 }
 
 /**

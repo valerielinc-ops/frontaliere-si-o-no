@@ -1,4 +1,5 @@
 import { basename } from 'node:path';
+import { decodeStaticString } from './staticSourceAst.mjs';
 import { repairLegacyDoubleEscapedBreaks } from './tsStringEscapes.ts';
 import { loadArticleSourceTypeScript } from './typescriptRuntime.mjs';
 
@@ -102,7 +103,15 @@ function findTranslationObject(sourceFile, sourcePath) {
 }
 
 function readStringLiteralValue(node, sourceFile, sourcePath, key) {
-  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text;
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) {
+    const start = node.getStart(sourceFile, false);
+    const quote = sourceFile.text[start];
+    const raw = sourceFile.text.slice(start + 1, node.end - 1);
+    // Translation modules historically preserve literal tabs in visible
+    // titles. Keep that call-site contract while sharing all other literal
+    // decoding rules with the AST readers.
+    return decodeStaticString(raw, quote, { tabAs: '\t' });
+  }
   fail(sourcePath, `article translation ${key} must have a static string literal value`, sourceFile, node);
 }
 
