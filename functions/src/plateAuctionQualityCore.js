@@ -235,9 +235,13 @@ export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
  * Card platforms publish rolling timed-auction boards. A card can disappear
  * during a board refresh even while the next board is complete; the shared
  * deadline is not enough to call that a truncated fetch. The 2026-10-07 TG
- * run measured 9 missing cards out of 44 while the fetch returned 50. Keep a
- * 25% / 75% band for this platform family: it accepts that observed turnover,
- * but still rejects a feed that comes back materially short.
+ * run measured 9 missing cards out of 44 while the fetch returned 50. Later
+ * TG runs on 2026-10-14 and 2026-10-21 measured 14 new missing cards out of
+ * 49/50 while still returning 50 cards: the common 25% cap admitted only 13
+ * at that catalogue size and reported a healthy board as degraded. Keep a
+ * 25% / 75% band for the other card sources, and calibrate TG to 30% / 75%
+ * for this repeated measured turnover; both still reject a feed that comes
+ * back materially short.
  *
  * This is deliberately separate from sale recognition. A timed card has no
  * evidence of a sale, so the collectors preserve it with `missingSince` rather
@@ -247,7 +251,7 @@ export const PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE = Object.freeze({
   ag: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   be: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   sh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
-  tg: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  tg: Object.freeze({ maxVanishedRatio: 0.3, minFetchedRatio: 0.75 }),
   vd: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   zh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
 });
