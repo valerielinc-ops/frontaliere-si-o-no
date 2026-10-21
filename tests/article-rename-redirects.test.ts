@@ -60,6 +60,7 @@ import {
   withTrailingSlash,
 } from '../build-plugins/shared/articleRedirects.mjs';
 import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
+import { resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const REDIRECTS_ABS = resolve(ROOT, ARTICLE_REDIRECTS_FILE);
@@ -280,6 +281,13 @@ describe(`${ARTICLE_REDIRECTS_FILE} — the real file`, () => {
 
   it('forms no redirect chain across the two sources', () => {
     expect(() => assertNoCrossSourceChains(HARDCODED, loadArticleRedirects(ROOT))).not.toThrow();
+  });
+
+  it('resolves generated links to the final route, not the transition bridge', () => {
+    const redirects = loadArticleRedirects(ROOT);
+    for (const [from, to] of Object.entries(redirects)) {
+      expect(resolveArticleRouteHref(from, { redirects })).toBe(to);
+    }
   });
 });
 
