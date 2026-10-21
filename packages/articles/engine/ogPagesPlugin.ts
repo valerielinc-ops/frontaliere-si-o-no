@@ -312,6 +312,13 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
    canStartRegex = false;
    continue;
   }
+  if ((char === '+' && source[cursor + 1] === '+') || (char === '-' && source[cursor + 1] === '-')) {
+   // Consume update operators as one token. Keeping the current context makes
+   // postfix updates leave the following slash as division, while prefix
+   // updates still allow a regex literal before the operand.
+   cursor += 2;
+   continue;
+  }
   if (char === '/' && canStartRegex) {
    cursor = skipRegularExpressionLiteral(source, cursor, sourcePath);
    canStartRegex = false;
