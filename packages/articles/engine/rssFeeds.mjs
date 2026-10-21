@@ -428,6 +428,45 @@ function skipStaticTrivia(source, startIndex, sourcePath) {
   return cursor;
 }
 
+function isComputedPropertyStart(source, startIndex) {
+  let depth = 0;
+  let quote = '';
+
+  for (let cursor = startIndex; cursor < source.length; cursor += 1) {
+    const char = source[cursor];
+    if (quote) {
+      if (char === '\\') cursor += 1;
+      else if (char === quote) quote = '';
+      continue;
+    }
+    if (char === '"' || char === "'" || char === '`') {
+      quote = char;
+      continue;
+    }
+    if (source.startsWith('//', cursor)) {
+      cursor = skipLineComment(source, cursor) - 1;
+      continue;
+    }
+    if (source.startsWith('/*', cursor)) {
+      const close = source.indexOf('*/', cursor + 2);
+      if (close === -1) return false;
+      cursor = close + 1;
+      continue;
+    }
+    if (char === '[') {
+      depth += 1;
+      continue;
+    }
+    if (char !== ']') continue;
+    depth -= 1;
+    if (depth !== 0) continue;
+    const next = skipStaticTrivia(source, cursor + 1, 'computed property');
+    return source[next] === ':' || source[next] === '(';
+  }
+
+  return false;
+}
+
 const BLOG_BODY_KEY = /^blog\.article\.(.+)\.(body\d+)$/;
 
 function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field) {
@@ -465,7 +504,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
     while (cursor < src.length) {
       cursor = skipStaticTrivia(src, cursor, filePath);
       if (cursor >= src.length) break;
-      if (src[cursor] === '[') {
+      if (src[cursor] === '[' && isComputedPropertyStart(src, cursor)) {
         throw new Error(`[rss] Computed article body property is not supported in static source: ${filePath}`);
       }
       if (!STATIC_LITERAL_QUOTES.has(src[cursor])) {

@@ -346,6 +346,26 @@ describe('packages/articles/engine/rssFeeds', () => {
     }
   });
 
+  it('does not confuse an unrelated array value with a computed body key', () => {
+    const root = makeFixture();
+    const source = [
+      'export default {',
+      "  labels: ['x'],",
+      "  'blog.article.alpha.body1': 'Alpha body text long enough to pass the RSS minimum length.',",
+      '};',
+    ].join('\n');
+    fs.writeFileSync(path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'), source);
+
+    expect(() => buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    })).not.toThrow();
+  });
+
   it('accepts escaped interpolation and ignores template markers in comments and quotes', () => {
     const root = makeFixture();
     const slash = String.fromCharCode(92);
