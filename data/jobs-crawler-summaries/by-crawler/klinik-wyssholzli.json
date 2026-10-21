@@ -1,18 +1,18 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-20T21:42:04.900Z",
-  "total": 5,
+  "generatedAt": "2026-10-21T09:53:36.849Z",
+  "total": 4,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 3016,
-  "avgDurationMs": 3016,
+  "durationMs": 3406,
+  "avgDurationMs": 3406,
   "durationHistory": [
-    3016
+    3406
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -144,7 +144,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Psychologin Psychotherapeutin 01.2027–60% 09/2026",
       "slug": "psicologo-psicoterapeuta-01-2027-60-09-2026-klinik-wyssholzli-herzogenbuchsee",
@@ -180,7 +182,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -190,7 +191,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
@@ -235,5 +235,5 @@
       }
     }
   ],
-  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

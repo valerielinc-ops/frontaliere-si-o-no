@@ -1,6 +1,7 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-10-20T21:43:29.644Z",
+  "assembledAt": "2026-10-21T09:52:06.590Z",
+  "runId": "39576272379",
   "jobs": [
     {
       "id": "visionapartments-a6f2cb44f0b0",
@@ -33,7 +34,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:22.721Z",
+      "crawledAt": "2026-10-21T09:52:01.019Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +114,7 @@
       "url": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:43:21.886Z",
+      "crawledAt": "2026-10-21T09:52:00.060Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,22 +134,22 @@
       "applyUrl": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
-          "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
-        ],
-        "it": [
-          "projektleiter-in-real-estate-development-60-visionapartments-zurich",
-          "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich"
-        ]
-      },
       "previousSlugs": [
         "projektleiter-in-real-estate-development-60-visionapartments-zurich",
         "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
         "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich",
         "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-real-estate-development-60-visionapartments-zurich",
+          "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich"
+        ],
+        "fr": [
+          "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
+          "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
+        ]
+      },
       "firstSeenAt": "2026-10-19T09:59:03.293Z",
       "salaryMin": 60900,
       "salaryMax": 92400,
