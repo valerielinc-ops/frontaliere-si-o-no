@@ -95,7 +95,7 @@ describe('assertCompatPruneFamilySafety', () => {
 
   it('sets a localized-loss threshold independent of the global accumulator size', () => {
     expect(COMPAT_PATHS_MAX_AUTO_PRUNE_FAMILY_RATIO).toBe(0.25);
-    expect(COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE).toBe(20);
+    expect(COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE).toBe(2);
   });
 
   it('catches a resolver regression isolated to one route family', () => {
@@ -121,6 +121,17 @@ describe('assertCompatPruneFamilySafety', () => {
     )).toThrow(/localized route-family loss/);
   });
 
+  it('protects a two-path family from both partial and total loss', () => {
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['it/articoli-frontaliere', 2]]),
+      new Map([['it/articoli-frontaliere', 1]]),
+    )).toThrow(/localized route-family loss/);
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['it/articoli-frontaliere', 2]]),
+      new Map([['it/articoli-frontaliere', 2]]),
+    )).toThrow(/localized route-family loss/);
+  });
+
   it('does not block pruning an unresolved one-off path in a novel family', () => {
     expect(() => assertCompatPruneFamilySafety(
       new Map([['totally-unknown-path', 1]]),
@@ -130,6 +141,25 @@ describe('assertCompatPruneFamilySafety', () => {
 
   it('fails closed when route-family evidence is omitted', () => {
     expect(() => assertCompatPruneFamilySafety(undefined, new Map())).toThrow(/evidence is missing/);
+  });
+
+  it('fails closed when route-family counts are invalid or inconsistent', () => {
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['fr/articles-frontalier', Number.NaN]]),
+      new Map(),
+    )).toThrow(/evidence is invalid/);
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['fr/articles-frontalier', 2]]),
+      new Map([['fr/articles-frontalier', Number.NaN]]),
+    )).toThrow(/evidence is inconsistent/);
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['fr/articles-frontalier', 2]]),
+      new Map([['fr/articles-frontalier', 3]]),
+    )).toThrow(/evidence is inconsistent/);
+    expect(() => assertCompatPruneFamilySafety(
+      new Map([['fr/articles-frontalier', 2]]),
+      new Map([['de/stellen', 1]]),
+    )).toThrow(/evidence is inconsistent/);
   });
 
   it('allows a reviewed override after the dropped cohort has been inspected', () => {
