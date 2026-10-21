@@ -62509,6 +62509,154 @@
         }
       }
     },
+    "generated:article-berna-stato-pagina-non-disponibile": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-21T02:11:32.350Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-21",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-berna-stato-pagina-non-disponibile",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "671c08782e94578ad2b1efc4161b9ecf98f6dd26bfcd2b4bf3b279313d3bc3e5",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "987a23e4063779684473de2670091cfb7ccfb918558d6b540355671fddebdff9",
+        "bytes": 153846,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-21T02:11:32.350Z",
+        "verifiedAt": "2026-10-21T02:11:38.903Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-berna-stato-pagina-non-disponibile.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Original generic synthetic illustration of a professional administrative building; no people, text, signage, logos, or watermark."
+        }
+      }
+    },
+    "generated:article-glarona-mercato-immobiliare-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-21T01:34:44.004Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-21",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-glarona-mercato-immobiliare-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "ec657dfa1873a505cd5e70bb9a2f87f772b12cd04615c91372d1e3d7e3eb69df",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "ec13bfad148583ed7998edc4aba38b62e9dbdc32b0ef49313ea51fde2b17596b",
+        "bytes": 199266,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-21T01:34:44.004Z",
+        "verifiedAt": "2026-10-21T01:34:50.375Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-glarona-mercato-immobiliare-2026.webp",
+        "area": "Swiss border region",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic editorial illustration of residential buildings in a Swiss mountain setting; no people, text, logos, or event-specific cues."
+        }
+      }
+    },
     "generated:article-guida-saldatore-ticino-frontiera": {
       "source": "generated-provider",
       "commons": {
@@ -102807,6 +102955,14 @@
     },
     "article-skyguide-ginevra-capacita-ottobre": {
       "file": "generated:article-skyguide-ginevra-capacita-ottobre",
+      "modified": "resized"
+    },
+    "article-berna-stato-pagina-non-disponibile": {
+      "file": "generated:article-berna-stato-pagina-non-disponibile",
+      "modified": "resized"
+    },
+    "article-glarona-mercato-immobiliare-2026": {
+      "file": "generated:article-glarona-mercato-immobiliare-2026",
       "modified": "resized"
     },
     "article-guida-saldatore-ticino-frontiera": {

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 716,
+      "5": 718,
       "6": 5054
     },
-    "publishedCovers": 7453,
+    "publishedCovers": 7455,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204071,6 +204071,72 @@
         "provider": "openai-codex",
         "assetId": "article-skyguide-ginevra-capacita-ottobre",
         "imageUrl": "/images/blog/article-skyguide-ginevra-capacita-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-berna-stato-pagina-non-disponibile": {
+      "cover": "/images/blog/article-berna-stato-pagina-non-disponibile.webp",
+      "hash": "987a23e4063779684473de2670091cfb7ccfb918558d6b540355671fddebdff9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "berna-stato-pagina-non-disponibile",
+          "category": "novita",
+          "date": "2026-10-21T02:11:38.957Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-berna-stato-pagina-non-disponibile.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-berna-stato-pagina-non-disponibile",
+        "imageUrl": "/images/blog/article-berna-stato-pagina-non-disponibile.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-glarona-mercato-immobiliare-2026": {
+      "cover": "/images/blog/article-glarona-mercato-immobiliare-2026.webp",
+      "hash": "ec13bfad148583ed7998edc4aba38b62e9dbdc32b0ef49313ea51fde2b17596b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-gl",
+          "id": "glarona-mercato-immobiliare-2026",
+          "category": "novita",
+          "date": "2026-10-21T01:34:50.414Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-glarona-mercato-immobiliare-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-glarona-mercato-immobiliare-2026",
+        "imageUrl": "/images/blog/article-glarona-mercato-immobiliare-2026.webp",
         "evidence": "generated-engine-record"
       }
     },
