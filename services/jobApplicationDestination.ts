@@ -12,6 +12,10 @@ const KNOWN_DEAD_DESTINATION_HOSTS = new Set([
   'ejwl.fa.us2.oraclecloud.com',
 ]);
 
+const KNOWN_CAREER_SITE_BUILDER_HOSTS = new Set([
+  'talents.hermes.com',
+]);
+
 const EMPLOYER_CAREERS_FALLBACKS: Record<string, string> = {
   'efg-international': 'https://www.efginternational.com/us/about/careers',
   ubp: 'https://www.ubp.com/en/about-us/careers/experienced-professionals',
@@ -22,6 +26,28 @@ function hostOf(rawUrl: string): string {
     return new URL(rawUrl).hostname.toLowerCase();
   } catch {
     return '';
+  }
+}
+
+/**
+ * Career Site Builder job details use `/sites/{site}/job/{id}`. Some feeds
+ * expose the plural `/jobs/{id}` form, which loads the site shell but resolves
+ * to a not-found page. Restrict the rewrite to the verified Hermes host and
+ * exact numeric detail route so unrelated ATS URLs are left intact.
+ */
+export function normalizeExternalJobDetailUrl(rawUrl: string): string {
+  try {
+    const url = new URL(rawUrl);
+    if (url.protocol !== 'https:' && url.protocol !== 'http:') return rawUrl;
+    if (!KNOWN_CAREER_SITE_BUILDER_HOSTS.has(url.hostname.toLowerCase())) return rawUrl;
+
+    const match = url.pathname.match(/^(.*\/sites\/[^/]+)\/jobs\/(\d+)\/?$/);
+    if (!match) return rawUrl;
+
+    url.pathname = `${match[1]}/job/${match[2]}`;
+    return url.toString();
+  } catch {
+    return rawUrl;
   }
 }
 
@@ -80,8 +106,10 @@ export function resolveJobApplicationUrl(
   const isDeadDestination = (url: string): boolean =>
     isKnownDeadJobDestination(url) || isRetiredKnownEmployerOracleUrl(url, job);
 
-  if (!isDeadDestination(candidate)) return candidate;
+  if (!isDeadDestination(candidate)) return normalizeExternalJobDetailUrl(candidate);
 
-  if (sourceUrl && !isDeadDestination(sourceUrl)) return sourceUrl;
-  return employerFallback(job) || String(fallbackUrl || '').trim();
+  if (sourceUrl && !isDeadDestination(sourceUrl)) {
+    return normalizeExternalJobDetailUrl(sourceUrl);
+  }
+  return normalizeExternalJobDetailUrl(employerFallback(job) || String(fallbackUrl || '').trim());
 }

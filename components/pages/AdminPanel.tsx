@@ -5,6 +5,7 @@
 
 import { Fragment, useState, useEffect, useRef, useMemo } from 'react';
 import { getSerpExperimentDiagnostics } from '@/services/seoService';
+import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { useAuth } from '@/services/authService';
 import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
@@ -2013,7 +2014,7 @@ export default function AdminPanel() {
  {job.company || 'Azienda n/d'}{job.location ? ` \u00B7 ${job.location}` : ''}
  </div>
  <div className="flex gap-3 mt-0.5">
- {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-link hover:underline">🔗 Sorgente</a>}
+ {job.url && <a href={normalizeExternalJobDetailUrl(job.url)} target="_blank" rel="noreferrer" className="text-[10px] text-link hover:underline">🔗 Sorgente</a>}
  {siteUrl && (type === 'removed' ? (
  <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-muted hover:underline">🏚 Sito (archiviato)</a>
  ) : (
