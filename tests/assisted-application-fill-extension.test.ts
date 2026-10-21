@@ -232,7 +232,7 @@ describe('fill extension: JOIN steps', () => {
   });
 
   it('picks a searched city among the options the portal lists', async () => {
-    const { F, document } = page(`<form><div role="group"><label for="_r_h_">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
+    const { F, document } = page(`<form><h2>Dati personali</h2><div role="group"><label for="_r_h_">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
       <div><input id="city" role="combobox" type="text" value=""></div></div></div></div><div id="menu"></div>${continueButtons}</form>`);
     const input = document.getElementById('city') as HTMLInputElement;
     const box = document.querySelector('[data-testid="CityName"] > div')!;
