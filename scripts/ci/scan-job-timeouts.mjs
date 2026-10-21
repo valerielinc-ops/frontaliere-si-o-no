@@ -630,7 +630,7 @@ function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
       observe(batch);
       previousPageWasShort = batch.length < perPage;
       if (expectedPages !== null && page > expectedPages
-        && page >= RUN_SEARCH_RESULT_CAP / perPage) {
+        && page >= RUN_SEARCH_RESULT_CAP / perPage && !previousPageWasShort) {
         throw new Error(
           `[scan-job-timeouts] search ${status} oltre il cap di ${RUN_SEARCH_RESULT_CAP} `
             + 'dopo un total_count live non stabile; risultati incompleti',
