@@ -45733,6 +45733,36 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'bollettino-frontaliere-2026-10-21',
+ category: 'novita',
+ date: '2026-10-21T10:06:04.418Z',
+ image: '/images/blog/bollettino-frontaliere-2026-10-18.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
+ {
+ id: 'revolut-servizi-interrotti',
+ category: 'novita',
+ date: '2026-10-21T14:40:19.762Z',
+ image: '/images/blog/article-revolut-servizi-interrotti.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'hackeraggio-ipct-casse-pensioni-ticino',
+ category: 'pensione',
+ date: '2026-10-21T17:53:56.319Z',
+ image: '/images/blog/article-hackeraggio-ipct-casse-pensioni-ticino.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

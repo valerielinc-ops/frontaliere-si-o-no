@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 21 Oct 2026 09:25:14 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 17:53:56 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
@@ -17,6 +17,206 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Attaque de hackers contre PK Softech : 27.000 affiliés de l’IPCT à risque</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/piratage-ipct-caisses-pension-tessin/</link>
+      <description><![CDATA[27'000 affiliés de l’IPCT pourraient être victimes Attaque contre PK Softech fin septembre Données de quelques centaines dans un dossier IPCT L’IPCT]]></description>
+      <content:encoded><![CDATA[## En bref
+
+- 27'000 affiliés de l’IPCT pourraient être victimes
+- Attaque contre PK Softech fin septembre
+- Données de quelques centaines dans un dossier IPCT
+- L’IPCT prépare une lettre aux assurés
+
+## Faits clés
+
+- Quoi → attaque informatique contre le fournisseur PK Softech
+- Quand → fin septembre
+- Public de l'IPCT → 27'000 personnes affiliées
+- Données sur le serveur → informations concernant quelques centaines d'assurés
+- Lettre → 17'000 actifs et 10'000 retraités
+- Enquête → Ministère public de la Confédération
+- Groupe cité → Akira
+
+### L'attaque et le public tessinois
+
+Fin septembre, une attaque informatique a touché PK Softech, le fournisseur de logiciels de nombreuses caisses de pension suisses. Selon les informations rapportées dans le reportage, une société avait sur son serveur un dossier intitulé IPCT qui contenait les données de quelques centaines d'assurés. L'IPCT est l'Institut de prévoyance du canton du Tessin.
+
+Le périmètre tessinois possible est plus vaste que le dossier identifié : 27'000 personnes affiliées à l'IPCT pourraient être victimes de l'attaque. Ce nombre décrit donc le public potentiellement concerné indiqué par la source, et non une liste de personnes pour lesquelles un vol de données aurait déjà été confirmé. La source précise en effet qu'au Tessin, l'ampleur des dommages n'est pas encore connue.
+
+Daniele Rotanzi, directeur de l'IPCT, a rappelé la diversité des affiliés : parmi eux figurent des enseignants, des employés administratifs, des conseillers d'État, des policiers et des juges, ainsi que des employés de maisons de retraite et des travailleurs sociaux d'associations. Il s'agit de la description professionnelle fournie par le directeur ; le reportage ne propose pas de répartition selon le lieu de résidence ou le statut de frontalier.
+
+> « Pour l'instant, nous ne savons pas avec certitude si des données relatives à nos assurés sont présentes. »
+
+La phrase de Rotanzi clarifie la principale limite de l'information. Le chiffre de 27'000 concerne les affiliés qui pourraient être impliqués ; celui de quelques centaines concerne les données présentes dans le dossier IPCT signalé sur le serveur. La source n'établit pas si les deux nombres coïncident, ni si toutes les informations du dossier ont été dérobées. L'IPCT annonce entre-temps une lettre aux affiliés, vraisemblablement la semaine suivante, afin de les informer de ce qui s'est passé et des risques possibles, notamment de l'utilisation d'informations personnelles par des tiers.
+### Le décompte des assurés
+
+La décision d’écrire à tous les assurés permet une comparaison numérique au sein de la même communication. IPCT indique 17'000 personnes actives et 10'000 retraités ; la somme est de 27'000. La base est donc la répartition du public communiquée après la réunion de vendredi dernier. La source ne présente pas ces valeurs comme une série chronologique.
+
+| Groupe cité par IPCT | Nombre | Ce que cela comprend |
+|---|---:|---|
+| Actifs et actives | 17'000 | assurés destinataires de la lettre |
+| Retraités et retraitées | 10'000 | assurés destinataires de la lettre |
+| Somme | 27'000 | total des deux groupes |
+
+Le calcul ne prouve pas que tous les membres des deux groupes aient été touchés. Il montre seulement comment le total des affiliés est réparti dans la communication annoncée par l’institut. Cette distinction est également utile, car le sujet parle simultanément d’un public potentiel de 27'000 personnes et d’un dossier contenant les données de quelques centaines : le premier chiffre concerne l’affiliation à l’IPCT, le second la documentation retrouvée sur le serveur.
+
+Pour un travailleur frontalier travaillant dans le canton du Tessin, la source ne permet toutefois pas une lecture fondée sur le statut personnel. Elle ne quantifie pas les travailleurs frontaliers et n’indique pas combien d’affiliés disposent d’un permis G ; elle ne traite ni de l’impôt à la source, ni des rétrocessions, ni de la LAMal, ni de l’INPS, ni de Brogeda, ni de la double imposition. Ces termes désignent des thèmes qui ne sont pas mesurés dans le sujet. On ne peut donc pas déduire de cet épisode une proportion de travailleurs transfrontaliers concernés, ni relier le risque potentiel à un régime fiscal ou à un poste-frontière spécifique.
+
+Le contenu de la lettre, tel qu’il est anticipé, est plus précis sur le plan de la communication : IPCT veut informer de la possibilité d’une fuite de données personnelles et de leur éventuelle utilisation par des tiers. Le ton sera calme. Il sera dit aux assurés que les pensions et les cotisations sont en sécurité, avec l’avertissement de prêter attention aux e-mails ou aux appels téléphoniques inhabituels. La source sépare ainsi la sécurité des pensions et des cotisations de la possibilité d’un usage abusif des informations personnelles.
+### La comparaison avec Publica et la suite judiciaire
+
+La référence à la caisse de pension de la Confédération Publica aide à maintenir séparés les différents niveaux de l'affaire. Pour Publica, le service affirme que des informations ont été dérobées et indique une population à risque de 100'000 personnes, comprenant des conseillers fédéraux, des agents et des militaires. Pour l'IPCT, en revanche, le texte parle d'une possibilité : il n'y a encore aucune information sur l'étendue des dommages au Tessin et aucune certitude que les données des assurés soient concernées. Les 100'000 de Publica et les 27'000 de l'IPCT ne peuvent donc pas être additionnés : ils concernent deux caisses de pension différentes, même si l'attaque a touché le même fournisseur de logiciels.
+
+Selon le Tages-Anzeiger, les hackers auraient déjà exigé le paiement d'une rançon. Le conditionnel reste nécessaire également en ce qui concerne le groupe Akira : les pirates informatiques pourraient avoir accès à différents types de données personnelles, du prénom et du nom au numéro AVS, en passant par l'adresse, le numéro de téléphone, l'adresse e-mail, les données de prévoyance et l'IBAN. La liste décrit des catégories d'informations potentiellement exposées, mais ne confirme pas que chaque champ soit présent dans le dossier IPCT ni qu'il ait été dérobé aux assurés tessinois.
+
+Sur le plan judiciaire, le Ministère public de la Confédération a ouvert une enquête. IPCT a ensuite déposé une plainte pénale en demandant à être reconnu comme accusateur privé, avec l'objectif déclaré de maximiser les informations qu'il pourrait recevoir. Il s'agit de la suite documentée dans la source ; aucun résultat de l'enquête n'est rapporté et aucune constatation définitive concernant les données d'IPCT n'est indiquée.
+
+Même pour les travailleurs frontaliers, la donnée vérifiable n'est donc pas une perte individuelle déjà établie. Le service n'identifie pas les assurés, ne quantifie pas la part des affiliés éventuellement concernés et ne dit pas que les données du dossier ont été dérobées. L'article documente en revanche l'attaque contre PK Softech, la présence du dossier IPCT, la communication prévue aux assurés et les démarches judiciaires engagées. La limite de l'information concerne précisément l'étendue des dommages au Tessin, qui reste à clarifier.
+
+*Source: [ticinonews.ch](https://www.ticinonews.ch/ticino/hackeraggio-casse-pensioni-centinaia-di-ticinesi-a-rischio-445085)*]]></content:encoded>
+      <pubDate>Wed, 21 Oct 2026 17:53:56 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/hackeraggio-ipct-casse-pensioni-ticino</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-hackeraggio-ipct-casse-pensioni-ticino.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Banque numérique : paiements et changes perturbés en Suisse</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/revolut-panne-services-suisse/</link>
+      <description><![CDATA[Problèmes concernant les paiements, les versements et le change de devises Perturbations commencées peu après 8:00 en Suisse Google indique un retour]]></description>
+      <content:encoded><![CDATA[## En bref
+- Problèmes concernant les paiements, les versements et le change de devises
+- Perturbations commencées peu après 8:00 en Suisse
+- Google indique un retour progressif des services
+- Revolut : l’argent et les données des clients sont en sécurité
+
+## Faits clés
+- Qui → utilisateurs de la banque numérique Revolut en Suisse
+- Services → paiements, versements et change de devises
+- Début → mardi, peu après 8:00
+- Cause → panne de Google Cloud à Londres
+- Rétablissement → progressif, avec un achèvement indicatif d’ici l’après-midi
+
+Jusqu’à 1,3 million d’utilisateurs en Suisse pourraient avoir été touchés par le dysfonctionnement de Revolut. Depuis le matin du mardi 20 octobre 2026, la banque numérique britannique a signalé des difficultés d’accès à certains services. Parmi les opérations concernées figurent les paiements, les versements et les conversions de devises.
+
+Les perturbations ont commencé peu après 8:00 en Suisse. La source fait également état de répercussions sur les services de banques, d’entreprises et de plateformes en ligne en Europe. C’est pourquoi l’épisode est décrit comme une interruption qui dépasse la seule relation entre les utilisateurs suisses et Revolut, sans toutefois fournir la liste des entités concernées.
+
+### La cause indiquée et le retour des services
+
+La cause indiquée est une panne de Google Cloud, dont le centre de données européen de Londres a été touché par de graves interruptions du réseau. Google a déclaré que le problème avait été résolu et que les services redevenaient progressivement opérationnels.
+
+Le rétablissement n’est pas encore complet : les clients pourraient continuer à ne pas parvenir à créer de nouvelles charges de travail, tandis que, pour les charges déjà existantes, l’achèvement du rétablissement est estimé, à titre indicatif, d’ici l’après-midi. La source n’indique pas d’horaire plus précis.
+
+Dans le message diffusé le 20 octobre, Revolut a rassuré ses clients : l’argent et les données de tous les utilisateurs sont en sécurité. La société a ajouté qu’elle travaillait à résoudre le problème depuis le moment où celui-ci avait été détecté ce matin-là et s’est excusée auprès des personnes concernées pour les désagréments.
+Le moyen le plus clair d'appréhender ce cas consiste à distinguer le volet opérationnel du volet technique. Pour les utilisateurs en Suisse, la source décrit des difficultés d'accès à des fonctionnalités concrètes ; sur le plan de l'infrastructure, elle fait état d'interruptions de réseau dans le centre de données européen de Google Cloud à Londres. Elle ne décrit pas une série de pannes indépendantes pour chaque fonctionnalité de Revolut.
+
+### La comparaison entre les deux volets
+
+| Volet | Ce que documente la source |
+|---|---|
+| Services | Les paiements, les versements et le change de devises figurent parmi les fonctionnalités touchées |
+| Infrastructure | Google Cloud signale de graves interruptions de réseau à Londres |
+| Reprise | Les services redeviennent progressivement opérationnels ; l'achèvement des charges de travail existantes est prévu pour l'après-midi |
+| Sécurité | Revolut affirme que l'argent et les données des clients sont en sécurité |
+
+Cette distinction évite de confondre la solution technique communiquée par Google avec la disponibilité immédiate de chaque fonctionnalité pour l'utilisateur. Dans le texte, le problème est en effet déclaré résolu, mais le rétablissement des services est progressif. Il reste en outre possible de ne pas encore parvenir à créer de nouvelles charges de travail, tandis que, pour les charges existantes, l'échéance indiquée est seulement approximative.
+
+Pour les travailleurs frontaliers, le lien que l'on peut documenter reste limité : les paiements et le change de devises figurent parmi les services cités, mais la source ne précise pas quelles devises sont concernées. Elle n'indique pas combien d'utilisateurs sont des travailleurs frontaliers, ne distingue pas le canton du Tessin du reste de la Suisse et ne fait pas état d'effets sur les salaires, les transferts ou d'autres opérations liées au travail. L'article peut donc décrire une perturbation du service pour les utilisateurs suisses, sans en faire une mesure de l'impact sur les travailleurs frontaliers.
+La communication de Revolut complète le tableau, sans toutefois quantifier l'impact. Dans le post du 20 octobre 2026, la société a assuré que l'argent et les données de tous ses clients étaient en sécurité. Elle a également déclaré travailler à la résolution du problème depuis le moment où celui-ci a été identifié et s'est excusée. Il s'agit d'une assurance concernant la sécurité de l'argent et des données, qui ne s'accompagne pas de détails sur l'accessibilité des différentes fonctionnalités.
+
+### Les limites des données disponibles
+
+Le chiffre de 1,3 million est présenté comme le nombre maximal potentiel d'utilisateurs en Suisse susceptibles d'être touchés, et non comme le décompte des utilisateurs ayant effectivement rencontré un problème. La source n'indique pas non plus quelles banques, entreprises ou plateformes européennes ont connu des perturbations, ni ne précise quelles devises sont incluses dans le service de change.
+
+Le calendrier reste lui aussi indicatif. Google évoque des services qui redeviennent progressivement opérationnels et prévoit le rétablissement complet des charges de travail existantes dans l'après-midi ; aucune heure définitive n'est fournie pour chaque fonctionnalité de Revolut. La source ne mentionne en outre aucune durée totale de l'interruption.
+
+Dans le cadre de Frontaliere Ticino, le texte ne cite pas le permis G, l'AVS, la LPP, la LAMal, les rétrocessions ou l'impôt à la source. Il ne limite pas l'information au canton du Tessin et ne relie pas la perturbation à une fiche de paie, à une relation de travail ou à une procédure de l'INPS. Le terme « frontalier » peut donc désigner uniquement un lecteur potentiel intéressé par les paiements ou le change de devises, et non un groupe quantifié par la source.
+
+*Source: [rsi.ch](https://www.rsi.ch/info/mondo/Problemi-di-funzionamento-di-Revolut-toccata-anche-la-Svizzera--4178758.html)*]]></content:encoded>
+      <pubDate>Wed, 21 Oct 2026 14:40:20 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/revolut-servizi-interrotti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-revolut-servizi-interrotti.webp" medium="image"/>
+    </item>
+    <item>
+      <title>Frontaliers : les relevés disponibles aujourd’hui — 21 octobre 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-frontalier/bulletin-frontalier-2026-10-21/</link>
+      <description><![CDATA[Les chiffres du jour, 21 octobre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher]]></description>
+      <content:encoded><![CDATA[Aucune comparaison homogène ne franchit aujourd’hui le seuil pour constituer le fait principal. Le bulletin présente les relevés disponibles et la période couverte par chaque source.
+
+Bonjour — nous sommes mercredi 21 octobre 2026. Voici le bulletin quotidien pour celles et ceux qui vivent d'un côté de la frontière et travaillent de l'autre : quatre thèmes suivis par notre monitoring — files aux douanes, essence, taux de change et emploi — chacun avec le lien vers sa page en direct.
+
+## Attentes selon les relevés disponibles
+
+Les relevés disponibles indiquent un trafic fluide : sur 141 passages surveillés, 139 ne signalent aucune file et l'attente maximale relevée n'est que de **8 minutes** (Campione d'Italia-Bissone).
+
+| Douane | Attente | État |
+|---|---|---|
+| Campione d'Italia-Bissone | 8 min | ralenti |
+| Bardonnex | 1 min | fluide |
+
+Le trafic change d'heure en heure — l'état en direct de chaque douane est sur la [page du temps d'attente](/fr/temps-attente-douane/).
+## Carburants : prix communiqués à la frontière
+
+⚠️ Le suivi des carburants n’a pas de données vérifiables pour cette édition ; la section revient dès que des données vérifiables sont de nouveau disponibles. En attendant : [prix de l’essence à la frontière](/fr/prix-essence-suisse/aujourd-hui/).
+## Taux de change franc–euro
+
+Un franc vaut **1,0793 €** (relevé du 2026-10-20). Par rapport au relevé précédent il gagne +0,0002 € ; par rapport au relevé hebdomadaire disponible, la variation est de +0,0057 €.
+
+### Simulation du seul change pour 4.000 CHF
+Contre-valeur brute en euros: **4'317,20 EUR** (2026-10-20).
+
+Différence avec le relevé de change hebdomadaire disponible: **+22,80 EUR**.
+
+💡 Quand on gagne en francs et qu'on dépense en euros, le taux fait partie du salaire : sur 4 000 CHF, un centime de variation vaut 40 € par mois. Le [calculateur de salaire net](/fr/calculer-salaire/) et le [comparatif des services de change](/fr/comparaison-services/taux-change-chf-eur/) font le calcul pour votre cas.
+## Offres d’emploi actives
+
+Notre job board compte actuellement **32'525 offres d'emploi actives en Suisse**, de 860 entreprises.
+
+Filtrez par canton, secteur et ville : [trouver un emploi au Tessin et en Suisse](/fr/trouver-emploi-tessin/).
+
+### Entreprises avec le plus d’annonces actives en Suisse
+| Entreprise / localité | Annonces actives |
+|---|---|
+| fachkraft.ch GmbH | 3'461 |
+| STA Personal AG | 1'771 |
+| Coop Genossenschaft | 1'111 |
+| yellowshark AG | 950 |
+| Stellenpartner AG | 809 |
+
+### Localités avec le plus d’annonces actives
+| Entreprise / localité | Annonces actives |
+|---|---|
+| Zurich | 3'953 |
+| Berne | 1'275 |
+| Lucerne | 1'256 |
+| Bâle | 884 |
+| Winterthur | 832 |
+
+## Les thèmes recherchés par les lecteurs
+2026-10-12 → 2026-10-18
+
+| Thème | Impressions dans la Recherche Google | Événements de recherche sur le site |
+|---|---|---|
+| Emploi | 3'625 | 6'206 |
+| Carburants | 493 | 0 |
+| Frontière et mobilité | 47 | 0 |
+
+Thèmes agrégés uniquement : aucune recherche individuelle n’est publiée. Les impressions mesurent la visibilité sur Google. Les événements peuvent inclure des mises à jour de recherche ; ce ne sont pas des personnes ou des recherches uniques.
+
+Source: Google Search Console, Firebase Analytics / GA4 (échantillon partiel).
+
+## Comment naît ce bulletin
+
+Aucun des chiffres ci-dessus ne vient d’un flux d’agence — c’est notre propre suivi : files échantillonnées plusieurs fois par heure à chaque passage frontalier suisse, prix des carburants dans les communes frontalières italiennes et aux stations suisses proches, série officielle quotidienne CHF/EUR et crawlers de notre job board. Le bulletin est publié chaque jour et peut être actualisé dans la journée ; les périodes d’observation dépendent de la source, les pages liées restent en direct toute la journée.]]></content:encoded>
+      <pubDate>Wed, 21 Oct 2026 10:06:04 GMT</pubDate>
+      <dc:creator><![CDATA[Samuele Valente]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/bollettino-frontaliere-2026-10-21</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-10-18.webp" medium="image"/>
+    </item>
     <item>
       <title>Réunion pour frontaliers : fiscalité, prévoyance, santé</title>
       <link>https://frontaliereticino.ch/fr/articles-frontalier/frontaliers-luino-rencontre-fiscalite-retraite-sante/</link>
@@ -3143,202 +3343,6 @@ La suite documentée reste liée à ces éléments : au Sociale, les deux journ�
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/camerino-teatro-sociale-soccorsi</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-camerino-teatro-sociale-soccorsi.webp" medium="image"/>
-    </item>
-    <item>
-      <title>HCAP : objectif de 3,5 millions de francs et échéance le 22 octobre</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/hcap-collecte-fonds-3-millions/</link>
-      <description><![CDATA[L'HCAP vise à récolter 3-3,5 millions de francs Le deuxième tour se clôt le 22 octobre La collecte s'adresse à la base des supporters Davide Mottis]]></description>
-      <content:encoded><![CDATA[## En bref
-- L'HCAP vise à récolter 3-3,5 millions de francs
-- Le deuxième tour se clôt le 22 octobre
-- La collecte s'adresse à la base des supporters
-- Davide Mottis indique la stabilité financière comme objectif
-
-## Faits clés
-- Société → Hockey Club Ambrì-Piotta
-- Augmentation autorisée → 5 millions de francs
-- Objectif → 3-3,5 millions, y compris le tour de mars
-- Échéance → 22 octobre
-- Organisateurs → supporters organisés et groupes de soutien biancoblù
-- Personne interviewée → Davide Mottis, président de l'Ambrì
-
-Samedi après-midi, les supporters organisés et les groupes de soutien biancoblù ont lancé une collecte de fonds destinée à la souscription des actions de l'HCAP restées disponibles à la suite de l'augmentation de capital décidée en mars par la société léventine.
-
-### Le deuxième tour destiné à la base
-
-Dans l'interview de SEIDISERA du 17 octobre, le président de l'Ambrì Davide Mottis a exclu que la mobilisation indique que l'objectif est encore loin. Sa réponse distingue la signification des deux étapes. L'augmentation de capital de mars répondait à un objectif précis et s'adressait surtout aux actionnaires de référence ; celle en cours, qui prend fin le 22 octobre, s'adresse en revanche à la base.
-
-Mottis a expliqué que ce nouveau tour est né de la nécessité et des sollicitations de nombreux supporters, qui voulaient pouvoir apporter une contribution concrète. La collecte de samedi est donc liée à la demande d'impliquer tous les supporters dans le soutien à l'HCAP. Le président a précisément désigné ce besoin comme la raison du deuxième tour.
-
-Sur le plan économique, l'augmentation de capital autorisée s'élève à 5 millions de francs. Le montant visé par le président est proche de 3-3,5 millions, celui de mars compris. Le chiffre a été présenté comme un objectif global, incluant l'étape précédente.
-
-Au cours des dernières semaines, le club a beaucoup insisté, également sur les réseaux sociaux, avec divers appels à acheter des actions. Mottis a précisé que cette insistance visait à obtenir le plus grand succès possible lors du deuxième tour, malgré une bonne réponse. La mobilisation, a-t-il indiqué, a recueilli un grand écho auprès des fans et des supporters.
-### La stabilité financière comme priorité
-
-La collecte a été intégrée par Mottis dans un projet plus vaste pour le Hockey Club Ambrì-Piotta. Le président a rappelé que, depuis leur élection en février, ils avaient fixé deux objectifs : regagner un peu de crédibilité et de confiance et réorganiser professionnellement le HCAP.
-
-Le volet financier est lié à la nécessité d'assurer la stabilité de l'entreprise à moyen et long terme. La réponse de Mottis a mis en relation la collecte avec un ensemble de mesures concernant la situation financière du club.
-
-> L'objectif prioritaire est de garantir la stabilité financière de l'entreprise à moyen et long terme.
-
-Le HCAP, a expliqué le président, a encore certaines positions débitrices. Celles-ci découlent notamment de la construction de ce que Mottis a qualifié de magnifique maison. Il reste en outre les obligations envers les différents bailleurs de fonds hypothécaires. À cela s'ajoute la position résultant des crédits dont le club a bénéficié pendant le Covid et qui doivent être remboursés.
-
-C'est pourquoi l'augmentation de capital est accompagnée de diverses mesures d'assainissement financier ainsi que d'autres mesures qui seront mises en œuvre au cours des prochains mois. La stabilisation financière est le résultat que la direction veut atteindre par cet ensemble d'étapes.
-
-Dans le cadre présenté dans l'interview, le rétablissement de la crédibilité et de la confiance, la réorganisation professionnelle et la stabilité financière ont été présentés comme les éléments d'un même parcours. Les positions débitrices et le remboursement des crédits Covid sont les éléments concrets cités pour expliquer la priorité financière. La collecte de capitaux s'inscrit ainsi dans le parcours à moyen et long terme décrit par le président.
-### Les attentes au-delà du Gothard
-
-Le prochain passage indiqué dans l'interview concerne la clôture de l'augmentation de capital, prévue pour le 22 octobre. Mottis a déclaré que le club ferait le bilan la semaine prochaine. Les appels des dernières semaines, notamment sur les réseaux sociaux, ont accompagné la collecte avec l'objectif déclaré d'obtenir le plus grand succès possible lors du deuxième tour.
-
-La collecte a également eu une dimension au-delà du Gothard. À la question de savoir s'il y avait un représentant de la Suisse alémanique au sein du conseil d'administration et au sujet des investissements possibles en provenance de cette partie de la Suisse, Mottis a répondu par l'affirmative. Il a parlé de signes concrets et importants de soutien financier venus du nord du Gothard.
-
-Parmi les éléments cités figure la journée organisée notamment par le Donatoren-Club HCAP du canton d'Uri. La participation a été décrite comme incroyable, presque émouvante. Pour le président, c'est le signe que quelque chose évolue dans la bonne direction.
-
-Le club se tourne vers la continuité de cette relation. Les attentes indiquées par Mottis sont au nombre de deux : continuer à bénéficier du soutien dans les tribunes en tant que supporters et, surtout, ouvrir la porte à de possibles collaborations commerciales. La journée a également été considérée comme une occasion de renouer un lien qui semble bel et bien avoir été rétabli.
-
-La perspective indiquée par le président ne concerne donc pas seulement le soutien dans les tribunes. Le soutien de la Suisse alémanique est également considéré pour les collaborations commerciales qu'il peut favoriser. Mottis a réaffirmé que l'HCAP n'est pas seulement une représentante régionale, mais aussi économique. Le bilan de la semaine prochaine sera le moment indiqué pour tirer les conclusions du deuxième tour.
-
-*Source: [rsi.ch](https://www.rsi.ch/info/ticino-grigioni-e-insubria/L%E2%80%99HCAP-cerca-fondi-obiettivo-35-milioni-di-franchi--4171423.html)*]]></content:encoded>
-      <pubDate>Sun, 18 Oct 2026 00:52:03 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/hcap-raccolta-fondi-3-milioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-hcap-raccolta-fondi-3-milioni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Varese, le concert d’Halloween des saxophones le 31 octobre</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/varese-concert-halloween-saxophones/</link>
-      <description><![CDATA[Samedi 31 octobre, l’Auditorium Paolo Conti accueille le concert.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Samedi 31 octobre, l’Auditorium Paolo Conti accueille le concert
-- Le rendez-vous est à 20.30
-- Giuseppina Levato dirige
-- Au programme : Orff, de Falla et Musorgskij
-
-## Faits clés
-- Événement → «Deux notes… à vous faire peur»
-- Lieu → Auditorium «Paolo Conti», Varese
-- Établissement → Civico Liceo Musicale «Riccardo Malipiero»
-- Formation → Ensemble de Saxophones di Varese
-- Direction → Giuseppina Levato
-- Horaire → 20.30
-- Auteurs → Carl Orff, Manuel de Falla, Modest Musorgskij
-
-### Le concert au Malipiero
-
-Ce sera l’Auditorium «Paolo Conti» du Civico Liceo Musicale «Riccardo Malipiero» de Varese qui accueillera, samedi 31 octobre, «Deux notes… à vous faire peur», concert de l’Ensemble de Saxophones di Varese sous la direction de Giuseppina Levato. Début à 20.30, pour un rendez-vous plongé dans la musique et les atmosphères d’Halloween.
-
-Le titre de l’initiative fait référence à une proposition conçue pour mettre en relation l’écoute musicale avec des sonorités évocatrices. Le programme accompagnera le public dans un parcours entre des morceaux célèbres, en plaçant au centre les différentes possibilités expressives de la famille des saxophones.
-
-La formation de Varese sera donc au cœur d’une soirée où le timbre des saxophones et la variété de leurs registres assument un rôle précis. La description de l’événement souligne en effet la capacité de l’ensemble à présenter des pages connues sous un jour différent, à travers une proposition pensée pour mettre en valeur la famille instrumentale.
-
-Le lieu est le Civico Liceo Musicale «Riccardo Malipiero» de Varese, avec l’Auditorium «Paolo Conti» indiqué comme espace du concert. Le lieu et l’horaire sont déjà définis : samedi 31 octobre à 20.30. À la tête de l’Ensemble de Saxophones sera Giuseppina Levato, indiquée comme directrice du concert.
-
-La soirée est ainsi décrite comme un rendez-vous musical lié aux atmosphères d’Halloween, mais confié à un programme articulé et aux possibilités expressives des saxophones. Le public sera accompagné entre morceaux célèbres et sonorités évocatrices, tandis que le nom «Deux notes… à vous faire peur» identifie l’initiative accueillie par l’institut musical de Varese.
-## Le programme entre Orff, de Falla et Musorgskij
-
-### Une nouvelle parure pour des pages connues
-
-Le répertoire réunit des pages de Carl Orff, Manuel de Falla et Modest Musorgskij, ainsi que d’autres compositions. L’ensemble est conçu pour passer de moments solennels à des passages plus délicats, sans renoncer aux atmosphères évocatrices.
-
-Le répertoire est décrit comme une succession de caractères différents. À côté des moments solennels, des passages plus délicats et des atmosphères évocatrices trouvent leur place, selon une structure pensée pour accompagner le public au cours de la soirée. Cette alternance représente l’un des éléments indiqués dans la présentation du concert.
-
-Un rôle central est confié aux transcriptions et aux arrangements de l’ensemble. Les pages connues du répertoire musical seront écoutées sous une forme différente, liée aux possibilités de l’Ensemble de Saxophones. Le travail pour cette formation met en valeur le timbre des saxophones et permet de faire ressortir la variété des registres qui composent la famille instrumentale.
-
-La description du concert insiste précisément sur ce passage : non seulement des morceaux célèbres, mais des morceaux relus à travers le son des saxophones. Les transcriptions et les arrangements permettent d’apporter au programme le caractère reconnaissable des pages choisies et, en même temps, la spécificité timbrale de la formation. Le parcours musical reste ainsi lié aux trois auteurs indiqués et aux autres compositions sélectionnées pour la soirée.
-
-La présence d’Orff, de Falla et de Musorgskij n’épuise pas le répertoire annoncé. Les autres compositions complètent un programme construit pour alterner des caractères différents, tandis que les arrangements mettent en valeur la famille des saxophones et ses possibilités expressives. La variété indiquée concerne aussi bien les pages musicales que les registres de la formation.
-
-La combinaison d’un répertoire connu, de registres différents et de sonorités suggestives définit le cadre musical de l’événement. Les transcriptions et les arrangements de l’Ensemble de Saxophones permettront d’écouter des pages connues sous une forme différente, tout en maintenant le lien avec les atmosphères évocatrices associées à la soirée d’Halloween.
-## L’Ensemble et le sens de la soirée
-
-### Un rendez-vous pensé aussi pour ceux qui en font l’expérience pour la première fois
-
-Depuis des années, l’Ensemble de Saxophones di Varese œuvre à promouvoir la culture musicale et à mettre en valeur le répertoire pour saxophones. Il s’agit d’un engagement qui définit la formation au-delà du concert pris isolément et relie le rendez-vous au Malipiero au parcours de l’ensemble.
-
-L’activité de la formation est en effet présentée comme un parcours tourné vers la culture musicale et le répertoire pour saxophones. Le concert à l’Auditorium «Paolo Conti» propose, sur la scène du Civico Liceo Musicale «Riccardo Malipiero», une formule qui réunit la direction, les transcriptions et les arrangements autour de la famille instrumentale.
-
-Giuseppina Levato dirigera l’interprétation de «Due note… da paura». Sous sa direction, la formation de Varese présentera le programme préparé pour l’occasion, dans le prolongement de son engagement à promouvoir la culture musicale et à mettre en valeur le répertoire pour saxophones.
-
-L’objectif du projet est d’associer à la qualité du concert une formule capable d’impliquer également ceux qui découvrent pour la première fois ce type de formation. La formule de ce rendez-vous associe ainsi la qualité de l’exécution à une ouverture envers ceux qui n’ont pas encore eu l’occasion de découvrir l’Ensemble de Saxophones.
-
-Cette proposition réunit donc le travail musical de l’ensemble et la volonté de toucher de nouveaux auditeurs. La soirée conserve le répertoire pour saxophones comme élément central, mais elle est également présentée comme un rendez-vous capable d’accompagner ceux qui découvrent cette formation pour la première fois. C’est le sens donné à la formule de «Due note… da paura».
-
-Le rendez-vous est donc fixé au samedi 31 octobre à 20 h 30, à l’Auditorium «Paolo Conti» du Civico Liceo Musicale «Riccardo Malipiero» di Varese. C’est là que l’Ensemble de Saxophones di Varese présentera «Due note… da paura», sous la direction de Giuseppina Levato.
-
-*Source: [varesenews.it](https://www.varesenews.it/2026/10/due-note-da-paura-a-varese-il-concerto-di-halloween-dellensemble-de-saxophones/2711260/)*]]></content:encoded>
-      <pubDate>Sun, 18 Oct 2026 00:35:29 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/halloween-sassofoni-varese</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-halloween-sassofoni-varese.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Arcisate : bombe de la Seconde Guerre mondiale retrouvée</title>
-      <link>https://frontaliereticino.ch/fr/articles-frontalier/arcisate-bombe-de-la-seconde-guerre-mondiale-retrouvee/</link>
-      <description><![CDATA[Engin de guerre trouvé à Arcisate Découverte dans la matinée du samedi 17 octobre Il s'agirait d'une bombe de mortier Zone délimitée et mise]]></description>
-      <content:encoded><![CDATA[## En bref
-- Engin de guerre trouvé à Arcisate
-- Découverte dans la matinée du samedi 17 octobre
-- Il s'agirait d'une bombe de mortier
-- Zone délimitée et sécurisée
-
-## Faits clés
-- Quoi → dispositif de guerre datant de la Seconde Guerre mondiale
-- Quand → matin du samedi 17 octobre
-- Où → Zone industrielle d'Arcisate
-- Typologie hypothétique → bombe de mortier
-- Intervention → Police Locale et Carabinieri du commissariat d'Arcisate
-- Mesures immédiates → zone délimitée et sécurisée
-- Site historique → ancienne poudrière détruite pendant la Seconde Guerre mondiale
-- Suivi → enlèvement, relocalisation et dynamitage éventuel
-
-### La découverte sur le chantier
-Dans la matinée du samedi 17 octobre, un chantier de construction actif dans la zone industrielle d'Arcisate a mis au jour un engin de guerre datant de la Seconde Guerre mondiale. L'artefact a été retrouvé dans la zone touchée par les activités, alors que les interventions étaient en cours.
-
-Les premières indications décrivent l'objet comme une possible bombe de mortier. La source utilise en effet une formulation prudente : il s’agirait d’un obus de mortier. Le classement est présenté comme une hypothèse dans le premier rapport d'incident.
-
-Après la découverte, les policiers locaux et les militaires en poste au commissariat d'Arcisate sont intervenus sur place. La police a bouclé la zone et l'a sécurisée. L'intervention a affecté le point d'émergence de l'objet et l'espace environnant impliqué dans les œuvres.
-
-Le reportage de l'épisode se concentre ainsi sur trois éléments : les travaux de construction en cours, la présence d'un vestige de guerre et la réponse immédiate de la police. Le premier élément situe la découverte dans la zone industrielle ; la seconde fait remonter l'appareil à la Seconde Guerre mondiale ; le troisième explique la délimitation et la sécurité de la zone.
-
-La découverte a eu lieu dans une zone spécifique d'Arcisate et non dans un lieu génériquement indiqué. La Police Locale et les Carabiniers de la Poste d'Arcisate sont les opérateurs qui sont intervenus sur place, tandis que la nature possible d'un obus de mortier reste la description donnée pour l'objet. L'image initiale est donc celle d'une zone isolée après la découverte de la bombe lors des travaux.
-## L'histoire de la zone
-### Le lien avec l'ancienne poudrière
-L'endroit où l'engin a été découvert comporte un élément qui va au-delà de la vocation industrielle de la zone. Une poudrière se trouvait autrefois dans le secteur, détruite pendant la Seconde Guerre mondiale. La source relie cette découverte à l'histoire du lieu et décrit l'ancienne structure comme l'élément présentant un intérêt historique particulier associé à la zone.
-
-C'est précisément la destruction de la poudrière qui peut être liée à l'apparition de la bombe de mortier. L'hypothèse selon laquelle l'engin aurait été dispersé à la suite de l'explosion qui a touché la structure pendant le conflit n'est pas exclue. Le lien possible est donc construit autour de deux étapes indiquées dans la reconstitution : l'explosion de la structure et la dispersion ultérieure de la bombe.
-
-La formulation reste celle d'une hypothèse. La source ne présente pas la dispersion comme une certitude déjà établie, mais la relie au fait que la poudrière a été détruite pendant la guerre. La référence à la bombe de mortier est également maintenue sous une forme prudente, avec la formule « il s'agirait de ».
-
-La valeur historique du site naît donc de la superposition entre la zone des travaux de construction et le lieu où se trouvait l'ancienne poudrière. L'objet a été découvert dans une zone signalée pour son intérêt historique particulier, et cette coïncidence explique pourquoi la découverte est également relatée sous l'angle de l'histoire locale.
-
-La reconstitution fournie n'attribue pas encore une origine certaine à la bombe, mais signale une relation possible avec les événements qui ont affecté la poudrière. L'explosion de la structure, sa destruction pendant la Seconde Guerre mondiale et la dispersion possible de l'engin sont les éléments qui composent le contexte de l'épisode.
-
-Le lien entre le passé de la zone et la découverte survenue pendant les travaux reste donc le point central du contexte : l'ancienne poudrière a été détruite pendant le conflit, tandis que la bombe de mortier pourrait avoir été dispersée à ce moment-là. La source maintient toutefois le conditionnel quant à la relation entre les deux faits.
-## Les opérations prévues
-### Retrait, transfert et mise à feu
-La préfecture de Varese et les unités compétentes de l'Esercito Italiano ont été informées de l'incident. La suite technique de la découverte est donc confiée aux opérations qui seront menées par les militaires sur l'engin explosif.
-
-La source indique que les militaires s'occuperont des phases suivantes, du retrait jusqu'au transfert dans un lieu approprié. Dans ce lieu, la mise à feu pourra être effectuée dans des conditions de sécurité. La séquence décrite ne s'arrête pas au déplacement de l'engin, mais comprend également l'étape suivante prévue pour la mise à feu.
-
-| Phase | Opération indiquée |
-| Retrait | Intervention des militaires sur l'engin explosif |
-| Transfert | Déplacement vers un lieu approprié |
-| Mise à feu | Exécution possible selon des modalités sûres |
-
-Entre-temps, la zone de la découverte reste sous le contrôle des forces de l'ordre. Le contrôle se poursuit dans l'attente de l'intervention des spécialistes, auxquels sont liées les opérations indiquées pour la gestion de l'engin. La situation sur place reste donc régie par la présence des forces de l'ordre, tandis que l'on attend le passage à la phase technique.
-
-La suite de l'épisode est rythmée par le passage des mesures de contrôle déjà actives aux opérations confiées aux militaires. La préfecture de Varese et les unités compétentes de l'Esercito Italiano ont été informées, tandis que le retrait et le transfert font partie des activités qui seront menées sur l'engin explosif. Le lieu approprié prévu pour le transfert est également celui où la mise à feu pourra avoir lieu en toute sécurité.
-
-Jusqu'à l'intervention des spécialistes, la source indique que la situation en cours est le contrôle de la zone par les forces de l'ordre. Les opérations suivantes sont définies selon leurs étapes : retrait, transfert dans un lieu approprié et mise à feu possible dans des conditions de sécurité. Leur déroulement reste lié à l'intervention des militaires chargés de l'opération.
-
-*Source: [varesenews.it](https://www.varesenews.it/2026/10/una-bomba-della-seconda-guerra-mondiale-spunta-dai-lavori-in-un-cantiere-di-arcisate-li-cera-la-polveriera/2711077/)*]]></content:encoded>
-      <pubDate>Sat, 17 Oct 2026 13:59:08 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-frontalier/arcisate-bomba-seconda-guerra-mondiale</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/article-arcisate-bomba-seconda-guerra-mondiale.webp" medium="image"/>
     </item>
   </channel>
 </rss>

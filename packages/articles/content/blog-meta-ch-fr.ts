@@ -8561,6 +8561,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pacchetto-imprese-sgravi.title': 'Paquet compétitivité : plus de 90 % mis en œuvre ou en cours',
     'blog.article.pacchetto-imprese-sgravi.excerpt': 'Plus de 90 % des 60 mesures sont mises en œuvre ou en cours de mise en œuvre.',
     'blog.article.pacchetto-imprese-sgravi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.piano-berna-civilisti-cantoni.title': 'Protection civile : Berne prévoit l\'emploi des civilistes',
+    'blog.article.piano-berna-civilisti-cantoni.excerpt': 'Dès janvier, les civilistes pourront intervenir dans la protection civile Le Conseil fédéral modifie les ordonnances d\'application Au 1er janvier 2025, la PC comptait 57\'000',
+    'blog.article.piano-berna-civilisti-cantoni.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.cofinanziamento-tox-info-suisse.title': 'Tox Info Suisse : cofinancement obligatoire pour l’industrie',
+    'blog.article.cofinanziamento-tox-info-suisse.excerpt': 'Le Conseil fédéral veut imposer le cofinancement de Tox Info Suisse L’industrie chimique et l’industrie pharmaceutique concernées Consultation prévue jusqu’à la moitié',
+    'blog.article.cofinanziamento-tox-info-suisse.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.consiglio-poverta-prima-conferenza.title': 'Le Conseil national sur la pauvreté se présente le 9 novembre',
+    'blog.article.consiglio-poverta-prima-conferenza.excerpt': 'Structure nationale approuvée par le Conseil fédéral en 2024 Première conférence de presse : 9 novembre 2026, de 10 h 00 à 11 h 00 Le Conseil représente les personnes qui ont',
+    'blog.article.consiglio-poverta-prima-conferenza.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

@@ -8561,6 +8561,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pacchetto-imprese-sgravi.title': 'Wettbewerbsfähigkeitspaket: über 90% umgesetzt oder in Umsetzung',
     'blog.article.pacchetto-imprese-sgravi.excerpt': 'Über 90% der 60 Maßnahmen sind umgesetzt oder in Umsetzung.',
     'blog.article.pacchetto-imprese-sgravi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.piano-berna-civilisti-cantoni.title': 'Zivilschutz: Bern plant den Einsatz von Zivildienstleistenden',
+    'blog.article.piano-berna-civilisti-cantoni.excerpt': 'Ab Januar können Zivildienstleistende im Zivilschutz eingesetzt werden Der Bundesrat ändert die Ausführungsverordnungen Am 1.',
+    'blog.article.piano-berna-civilisti-cantoni.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.cofinanziamento-tox-info-suisse.title': 'Tox Info Suisse: obligatorische Mitfinanzierung für die Industrie',
+    'blog.article.cofinanziamento-tox-info-suisse.excerpt': 'Der Bundesrat will die Mitfinanzierung von Tox Info Suisse vorschreiben Betroffen sind die chemische und die pharmazeutische Industrie Vernehmlassung bis Mitte vorgesehen',
+    'blog.article.cofinanziamento-tox-info-suisse.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.consiglio-poverta-prima-conferenza.title': 'Nationaler Rat für Armutsfragen: Vorstellung am 9. November',
+    'blog.article.consiglio-poverta-prima-conferenza.excerpt': 'Nationale Struktur, die 2024 vom Bundesrat genehmigt wurde Erste Pressekonferenz: 9.',
+    'blog.article.consiglio-poverta-prima-conferenza.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
