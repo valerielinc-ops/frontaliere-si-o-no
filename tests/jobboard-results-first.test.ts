@@ -25,6 +25,13 @@ describe('JobBoard category pages — results-first ordering', () => {
     );
   });
 
+  it('reserves the first-page ad footprint before the real cards mount', () => {
+    expect(source).toContain('const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing');
+    expect(source).toContain('cards={isUnfilteredListing ? pageSize : 6}');
+    expect(source).toContain('infeedAdSlots={loadingInfeedAdSlots}');
+    expect(source).toContain('(filteredJobs.length > 0 || (resultsResolving && isUnfilteredListing))');
+  });
+
   it('mounts secondary discovery utilities once, after the first three available jobs', () => {
     expect(source).toContain('const postFirstResultsUtilities =');
     expect(source).toContain('const utilitiesAfterPosition = Math.min(3, displayJobs.length);');
