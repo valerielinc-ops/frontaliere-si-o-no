@@ -251,6 +251,14 @@ const REGEX_AFTER_KEYWORDS = new Set([
  'typeof', 'void', 'yield', 'await',
 ]);
 
+/**
+ * A keyword used as a member property is a value, not a regex prefix:
+ * `value.return / /.../` starts with division followed by a regex literal.
+ */
+function canStartRegexAfterMember(word: string, afterMemberAccess: boolean): boolean {
+ return !afterMemberAccess && REGEX_AFTER_KEYWORDS.has(word);
+}
+
 function skipRegularExpressionLiteral(source: string, start: number, sourcePath: string): number {
  let inCharacterClass = false;
  let cursor = start + 1;
@@ -288,6 +296,7 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
  let depth = 1;
  let cursor = start;
  let canStartRegex = true;
+ let afterMemberAccess = false;
  while (cursor < source.length) {
   if (source.startsWith('//', cursor)) {
    cursor += 2;
@@ -305,11 +314,13 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
   if (char === "'" || char === '"') {
    cursor = readStaticTsStringLiteral(source, cursor, sourcePath).end;
    canStartRegex = false;
+   afterMemberAccess = false;
    continue;
   }
   if (char === '`') {
    cursor = scanTemplateLiteral(source, cursor, sourcePath).end;
    canStartRegex = false;
+   afterMemberAccess = false;
    continue;
   }
   if ((char === '+' && source[cursor + 1] === '+') || (char === '-' && source[cursor + 1] === '-')) {
@@ -317,22 +328,26 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
    // postfix updates leave the following slash as division, while prefix
    // updates still allow a regex literal before the operand.
    cursor += 2;
+   afterMemberAccess = false;
    continue;
   }
   if (char === '/' && canStartRegex) {
    cursor = skipRegularExpressionLiteral(source, cursor, sourcePath);
    canStartRegex = false;
+   afterMemberAccess = false;
    continue;
   }
   if (char === '/') {
    cursor += 1;
    canStartRegex = true;
+   afterMemberAccess = false;
    continue;
   }
   if (char === '{') {
    depth += 1;
    cursor += 1;
    canStartRegex = true;
+   afterMemberAccess = false;
    continue;
   }
   if (char === '}') {
@@ -340,6 +355,7 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
    cursor += 1;
    if (depth === 0) return cursor;
    canStartRegex = false;
+   afterMemberAccess = false;
    continue;
   }
 
@@ -350,21 +366,31 @@ function skipTemplateExpression(source: string, start: number, sourcePath: strin
   if (/[A-Za-z_$]/.test(char)) {
    let end = cursor + 1;
    while (end < source.length && /[A-Za-z0-9_$]/.test(source[end])) end += 1;
-   canStartRegex = REGEX_AFTER_KEYWORDS.has(source.slice(cursor, end));
+   canStartRegex = canStartRegexAfterMember(source.slice(cursor, end), afterMemberAccess);
    cursor = end;
+   afterMemberAccess = false;
    continue;
   }
   if ('([{,;:=!?&|+\-*%^~<>'.includes(char)) {
    canStartRegex = true;
+   afterMemberAccess = false;
    cursor += 1;
    continue;
   }
-  if (')]}'.includes(char) || char === '.') {
+  if (char === '.') {
    canStartRegex = false;
+   afterMemberAccess = true;
+   cursor += 1;
+   continue;
+  }
+  if (')]}'.includes(char)) {
+   canStartRegex = false;
+   afterMemberAccess = false;
    cursor += 1;
    continue;
   }
   canStartRegex = false;
+  afterMemberAccess = false;
   cursor += 1;
  }
 

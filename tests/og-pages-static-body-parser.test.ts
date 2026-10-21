@@ -46,6 +46,15 @@ describe('og article static body parser', () => {
       .toEqual({ 'article-id': { body1: 'body' } });
   });
 
+  it('keeps division context after member keywords before nested regex templates', () => {
+    const source = [
+      "const other = `prefix ${obj.return / /}/.test(`inner 'blog.article." + ARTICLE_ID + ".body1': 'wrong'`)} suffix`;",
+      `const article = { 'blog.article.${ARTICLE_ID}.body1': 'body' };`,
+    ].join(' ');
+
+    expect(parseStaticBlogBodySource(source, SOURCE_PATH)[ARTICLE_ID].body1).toBe('body');
+  });
+
   it('still rejects an interpolated template used as article data', () => {
     const source = [
       'const body: Record<string, string> = {',
