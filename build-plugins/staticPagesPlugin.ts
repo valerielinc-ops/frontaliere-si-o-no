@@ -1154,7 +1154,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    : 'Lavoro e archivi';
  const xsHubs: Array<{ href: string; label: string }> = locale === 'it' ? [
    { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono' },
-   { href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },
+   { href: '/cerca-lavoro-ticino/', label: 'Aziende Ticino' },
    { href: '/cerca-lavoro-ticino/settori/', label: 'Settori Ticino' },
    { href: '/articoli-frontaliere/tutti/', label: 'Articoli frontaliere' },
    { href: '/articoli-svizzera/tutti/', label: 'Articoli Svizzera' },
