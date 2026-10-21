@@ -208,11 +208,12 @@ function isMissingPathError(error: unknown): boolean {
 export function parseStaticBlogBodySource(source: string, sourcePath: string): Record<string, Record<string, string>> {
  const out: Record<string, Record<string, string>> = {};
  const expectedArticleId = path.basename(sourcePath, '.ts');
- let bodyFieldCount = 0;
- const sourceFile = parseStaticSource(source, sourcePath, {
-  errorPrefix: '[og-pages]',
-  rejectInterpolatedTemplates: true,
- });
+  let bodyFieldCount = 0;
+  const sourceFile = parseStaticSource(source, sourcePath, {
+    errorPrefix: '[og-pages]',
+    rejectInterpolatedTemplates: true,
+    normalizeTemplatePropertyNames: true,
+  });
  const object = findFirstTopLevelObject(sourceFile);
  if (!object) throw new Error(`[og-pages] Existing article body file has no static object: ${sourcePath}`);
 
@@ -226,6 +227,8 @@ export function parseStaticBlogBodySource(source: string, sourcePath: string): R
   }
   const decoded = readStaticString(property.initializer, sourceFile, {
    label: `Article body property ${key}`,
+   nonLiteralMessage: `Article body property ${key} is not a static string in ${sourcePath}`,
+   literalExpressionMessage: `Article body property ${key} must have a static string literal value in ${sourcePath}`,
    errorPrefix: '[og-pages]',
   });
   const field = match[2];
@@ -948,7 +951,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (isMissingPathError(err)) return out;
  throw err;
  }
- const sourceFile = parseStaticSource(src, p, { errorPrefix: '[og-pages]' });
+ const sourceFile = parseStaticSource(src, p, {
+  errorPrefix: '[og-pages]',
+  allowPropertyFragments: true,
+  normalizeTemplatePropertyNames: true,
+ });
  const objects = findTopLevelObjects(sourceFile);
  if (objects.length === 0) throw new SyntaxError(`[og-pages] ${p} has no static article metadata object`);
  for (const object of objects) {

@@ -70,7 +70,11 @@ export function readArticleSlugs(
     console.warn(`[seo-hubs] failed to read ${metaPrefix}-${locale}.ts`, err);
     return out;
   }
-  const sourceFile = parseStaticSource(src, file, { errorPrefix: '[seo-hubs]' });
+  const sourceFile = parseStaticSource(src, file, {
+    errorPrefix: '[seo-hubs]',
+    allowPropertyFragments: true,
+    normalizeTemplatePropertyNames: true,
+  });
   const objects = findTopLevelObjects(sourceFile);
   if (objects.length === 0) throw new SyntaxError(`[seo-hubs] ${file} has no static article metadata object`);
   const seen = new Set<string>();
@@ -161,7 +165,11 @@ export function readArticleExcerpts(
     console.warn(`[seo-hubs] failed to read excerpts from ${metaPrefix}-${locale}.ts`, err);
     return out;
   }
-  const sourceFile = parseStaticSource(src, file, { errorPrefix: '[seo-hubs]' });
+  const sourceFile = parseStaticSource(src, file, {
+    errorPrefix: '[seo-hubs]',
+    allowPropertyFragments: true,
+    normalizeTemplatePropertyNames: true,
+  });
   const objects = findTopLevelObjects(sourceFile);
   if (objects.length === 0) throw new SyntaxError(`[seo-hubs] ${file} has no static article metadata object`);
   for (const object of objects) {

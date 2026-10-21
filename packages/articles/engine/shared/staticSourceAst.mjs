@@ -42,24 +42,107 @@ function parseErrorPrefix(errorPrefix) {
   return errorPrefix ? `${errorPrefix} ` : '';
 }
 
-/**
- * Parse a source module and fail closed on syntax errors.
- *
- * @param {string} source
- * @param {string} fileName
- * @param {{ errorPrefix?: string, rejectInterpolatedTemplates?: boolean, interpolationMessage?: string }} [options]
- * @returns {import('typescript').SourceFile}
- */
-export function parseStaticSource(source, fileName = 'static-source.ts', options = {}) {
-  if (typeof source !== 'string') throw new TypeError('static source must be a string');
-  const sourceFile = ts.createSourceFile(
+function createSourceFile(source, fileName) {
+  return ts.createSourceFile(
     fileName,
     source,
     ts.ScriptTarget.Latest,
     true,
     scriptKindFor(fileName),
   );
-  const diagnostics = sourceFile.parseDiagnostics ?? [];
+}
+
+/**
+ * A few corpus chunks are emitted as object-property fragments, and the
+ * historical body reader also accepted a bare template-delimited property
+ * name (`\`key\``). The latter is a static data convention but not valid
+ * TypeScript unless it is computed (`[\`key\`]`), which this reader must reject.
+ * Normalize only the uncomputed, no-substitution form to a same-length quoted
+ * property name before asking TypeScript for the AST. Computed and interpolated
+ * names remain unsupported and therefore fail closed.
+ */
+function normalizeTemplatePropertyNames(source) {
+  const scanner = ts.createScanner(ts.ScriptTarget.Latest, true, ts.LanguageVariant.Standard, source);
+  const tokens = [];
+  let kind;
+  do {
+    kind = scanner.scan();
+    tokens.push({
+      kind,
+      pos: scanner.getTokenPos(),
+      end: scanner.getTextPos(),
+    });
+  } while (kind !== ts.SyntaxKind.EndOfFileToken);
+
+  const replacements = [];
+  for (let index = 0; index < tokens.length - 1; index += 1) {
+    const token = tokens[index];
+    const previous = tokens[index - 1];
+    const next = tokens[index + 1];
+    if (
+      token.kind !== ts.SyntaxKind.NoSubstitutionTemplateLiteral
+      || next.kind !== ts.SyntaxKind.ColonToken
+      || (previous
+        && previous.kind !== ts.SyntaxKind.OpenBraceToken
+        && previous.kind !== ts.SyntaxKind.CommaToken)
+    ) continue;
+
+    const raw = source.slice(token.pos, token.end);
+    const body = raw.slice(1, -1);
+    const quote = body.includes('"') && !body.includes("'") ? "'" : body.includes('"') ? null : '"';
+    if (!quote) continue;
+    replacements.push({ start: token.pos, end: token.end, value: `${quote}${body}${quote}` });
+  }
+
+  if (replacements.length === 0) return source;
+  let normalized = source;
+  for (let index = replacements.length - 1; index >= 0; index -= 1) {
+    const replacement = replacements[index];
+    normalized = normalized.slice(0, replacement.start)
+      + replacement.value
+      + normalized.slice(replacement.end);
+  }
+  return normalized;
+}
+
+function expressionStartsWithStaticString(node) {
+  if (!node) return false;
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return true;
+  if (ts.isParenthesizedExpression(node)) return expressionStartsWithStaticString(node.expression);
+  if (ts.isBinaryExpression(node)) return expressionStartsWithStaticString(node.left);
+  if (ts.isCallExpression(node)) return expressionStartsWithStaticString(node.expression);
+  if (ts.isPropertyAccessExpression(node) || ts.isElementAccessExpression(node)) {
+    return expressionStartsWithStaticString(node.expression);
+  }
+  return false;
+}
+
+/**
+ * Parse a source module and fail closed on syntax errors.
+ *
+ * @param {string} source
+ * @param {string} fileName
+ * @param {{ errorPrefix?: string, rejectInterpolatedTemplates?: boolean, interpolationMessage?: string, allowPropertyFragments?: boolean, normalizeTemplatePropertyNames?: boolean }} [options]
+ * @returns {import('typescript').SourceFile}
+ */
+export function parseStaticSource(source, fileName = 'static-source.ts', options = {}) {
+  if (typeof source !== 'string') throw new TypeError('static source must be a string');
+  let parsedSource = options.normalizeTemplatePropertyNames
+    ? normalizeTemplatePropertyNames(source)
+    : source;
+  let sourceFile = createSourceFile(parsedSource, fileName);
+  let diagnostics = sourceFile.parseDiagnostics ?? [];
+
+  if (diagnostics.length > 0 && options.allowPropertyFragments) {
+    const fragmentSource = `const __static_source_fragment = {${parsedSource}\n};`;
+    const fragmentFile = createSourceFile(fragmentSource, fileName);
+    if ((fragmentFile.parseDiagnostics ?? []).length === 0) {
+      parsedSource = fragmentSource;
+      sourceFile = fragmentFile;
+      diagnostics = [];
+    }
+  }
+
   if (diagnostics.length > 0) {
     const detail = diagnosticText(diagnostics[0].messageText);
     const prefix = parseErrorPrefix(options.errorPrefix);
@@ -193,12 +276,16 @@ export function readStaticString(expression, sourceFile, options = {}) {
   const node = expression ? unwrapStaticExpression(expression) : undefined;
   const label = options.label ?? 'static property';
   const prefix = parseErrorPrefix(options.errorPrefix);
-  if (!node) throw new Error(`${prefix}${label} must have a static string literal`);
+  const defaultMessage = `${label} must have a static string literal`;
+  if (!node) throw new Error(`${prefix}${options.nonLiteralMessage ?? defaultMessage}`);
   if (ts.isTemplateExpression(node)) {
     throw new Error(`${prefix}Interpolated template literal is not static article data: ${sourceFile.fileName}`);
   }
   if (!ts.isStringLiteral(node) && !ts.isNoSubstitutionTemplateLiteral(node)) {
-    throw new Error(`${prefix}${label} must have a static string literal`);
+    const message = expressionStartsWithStaticString(node)
+      ? options.literalExpressionMessage
+      : options.nonLiteralMessage;
+    throw new Error(`${prefix}${message ?? defaultMessage}`);
   }
   const start = node.getStart(sourceFile);
   const quote = sourceFile.text[start];

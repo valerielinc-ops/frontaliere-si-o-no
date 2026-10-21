@@ -335,7 +335,11 @@ function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field)
   const filePath = path.join(rootDir, localesDir, metaFileName);
   if (!fs.existsSync(filePath)) return new Map();
   const src = fs.readFileSync(filePath, 'utf-8');
-  const sourceFile = parseStaticSource(src, filePath, { errorPrefix: '[rss]' });
+  const sourceFile = parseStaticSource(src, filePath, {
+    errorPrefix: '[rss]',
+    allowPropertyFragments: true,
+    normalizeTemplatePropertyNames: true,
+  });
   const objects = findTopLevelObjects(sourceFile);
   if (objects.length === 0) throw new Error(`[rss] ${filePath} has no static article metadata object`);
   const out = new Map(); // articleId → value
@@ -372,6 +376,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
       errorPrefix: '[rss]',
       rejectInterpolatedTemplates: true,
       interpolationMessage: `[rss] Interpolated template literal is not supported in static article body source: ${filePath}`,
+      normalizeTemplatePropertyNames: true,
     });
     const objects = findTopLevelObjects(sourceFile);
     if (objects.length === 0) throw new Error(`[rss] ${filePath} has no static article body object`);
@@ -393,6 +398,8 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
         // from the static corpus that the OG reader consumes.
         const decoded = readStaticString(property.initializer, sourceFile, {
           label: `Body property ${key}`,
+          nonLiteralMessage: `Body property ${key} must have a static string literal value in ${filePath}`,
+          literalExpressionMessage: `Body property ${key} must have a static string literal value in ${filePath}`,
           errorPrefix: '[rss]',
         });
         articleParts.get(id).set(part, repairLegacyDoubleEscapedBreaks(decoded));
