@@ -1,7 +1,7 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-10-20T21:26:42.766Z",
+  "generatedAt": "2026-10-21T09:28:36.137Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,61 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 6208,
-  "avgDurationMs": 6208,
+  "durationMs": 6262,
+  "avgDurationMs": 6262,
   "durationHistory": [
-    6208
+    6262
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "siemens-healthineers-25e11f5aa4ad",
-      "slug": "ricercatore-ux-siemens-healthineers-baden",
-      "company": "Siemens Healthineers",
-      "companyKey": "siemens-healthineers",
-      "companyDomain": "siemens-healthineers.com",
-      "title": "UX Researcher",
-      "needsRetranslation": false,
-      "location": "Baden",
-      "canton": "AG",
-      "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Usability-Engineer_R-31377-1",
-      "source": "Siemens Healthineers Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-19T09:35:27.145Z",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Medicale",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-12",
-      "postedDate": "2026-10-12",
-      "postingDateSource": "reported",
-      "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Usability-Engineer_R-31377-1",
-      "jobReqId": "R-31377",
-      "firstSeenAt": "2026-10-14T06:13:10.772Z",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "postalCode": "5400",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "siemens-healthineers-f64c15516f90",
@@ -83,7 +38,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Information-Systems-Engineer_R-29335-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:26:28.187Z",
+      "crawledAt": "2026-10-21T09:28:19.884Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -126,7 +81,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-31190-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:26:27.520Z",
+      "crawledAt": "2026-10-21T09:28:19.159Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -168,7 +123,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/Sr-Staff-Systems-Engineer_R-29913-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:26:26.849Z",
+      "crawledAt": "2026-10-21T09:28:18.441Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -199,5 +154,5 @@
       }
     }
   ],
-  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }
