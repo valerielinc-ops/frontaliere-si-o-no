@@ -107973,6 +107973,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-molestie-lavoro-pmi-svizzere': {
+    title: 'Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+',
+    description: 'Dal Covid aumentano le segnalazioni nelle PMI svizzere. Il 44% delle donne riferisce molestie sul lavoro. Spesso chi molesta occupa una posizione',
+    keywords: 'frontalieri, ticino, svizzera, italia, molestie, lavoro, nelle, dati',
+    ogTitle: 'Molestie sul lavoro: dati e prevenzione nelle PMI svizzere',
+    ogDescription: 'Dal Covid aumentano le segnalazioni nelle PMI svizzere.',
+    canonicalPath: '/articoli-svizzera/molestie-lavoro-pmi-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+",
+      "description": "Dal Covid aumentano le segnalazioni nelle PMI svizzere. Il 44% delle donne riferisce molestie sul lavoro. Spesso chi molesta occupa una posizione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-molestie-lavoro-pmi-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T01:06:01+00:00",
+      "dateModified": "2026-10-21T01:06:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/molestie-lavoro-pmi-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

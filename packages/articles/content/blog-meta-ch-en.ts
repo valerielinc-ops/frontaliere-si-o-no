@@ -8546,6 +8546,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.title': 'Swiss watches: exports at 2,2 billion in September, +11,7%',
     'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.excerpt': 'In September 2026, exports rise by 11,7% to 2,2 billion francs; 1,4 million pieces (+19,9%).',
     'blog.article.orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.molestie-lavoro-pmi-svizzere.title': 'Workplace harassment in SMEs: the data and the KMU konkret+ project',
+    'blog.article.molestie-lavoro-pmi-svizzere.excerpt': 'Since COVID, reports in Swiss SMEs have increased.',
+    'blog.article.molestie-lavoro-pmi-svizzere.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

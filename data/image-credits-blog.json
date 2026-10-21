@@ -62583,6 +62583,80 @@
         }
       }
     },
+    "generated:article-molestie-lavoro-pmi-svizzere": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-21T01:05:53.748Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "family": "other-attribution",
+        "attributionRequired": true,
+        "url": "https://openai.com/policies/terms-of-use/"
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-21",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-molestie-lavoro-pmi-svizzere",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "gpt-image-2.5",
+        "executorModel": "gpt-5.6-luna",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "0cc3ecda62bfb02a37a5a83a3137376bd98aa6d4f03cde446e5353b1c2811285",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "af60c0e40951d02c531e69a6ff48f07069c6a642da46ebba74ca6ba33b0e3b9c",
+        "bytes": 57904,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-21T01:05:53.748Z",
+        "verifiedAt": "2026-10-21T01:06:01.103Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-molestie-lavoro-pmi-svizzere.webp",
+        "area": "Svizzera",
+        "season": "all seasons",
+        "variant": "article hero",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "contains_recognizable_foreground_person": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "is_topic_relevant": true,
+          "notes": "Generic synthetic office scene with no text, logos, or identifiable people."
+        }
+      }
+    },
     "generated:article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7": {
       "source": "generated-provider",
       "commons": {
@@ -102663,6 +102737,10 @@
     },
     "article-guida-saldatore-ticino-frontiera": {
       "file": "generated:article-guida-saldatore-ticino-frontiera",
+      "modified": "resized"
+    },
+    "article-molestie-lavoro-pmi-svizzere": {
+      "file": "generated:article-molestie-lavoro-pmi-svizzere",
       "modified": "resized"
     },
     "article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7": {

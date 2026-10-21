@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 714,
+      "5": 715,
       "6": 5054
     },
-    "publishedCovers": 7451,
+    "publishedCovers": 7452,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204104,6 +204104,39 @@
         "provider": "openai-codex",
         "assetId": "article-guida-saldatore-ticino-frontiera",
         "imageUrl": "/images/blog/article-guida-saldatore-ticino-frontiera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-molestie-lavoro-pmi-svizzere": {
+      "cover": "/images/blog/article-molestie-lavoro-pmi-svizzere.webp",
+      "hash": "af60c0e40951d02c531e69a6ff48f07069c6a642da46ebba74ca6ba33b0e3b9c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "molestie-lavoro-pmi-svizzere",
+          "category": "novita",
+          "date": "2026-10-21T01:06:01.381Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-molestie-lavoro-pmi-svizzere.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-molestie-lavoro-pmi-svizzere",
+        "imageUrl": "/images/blog/article-molestie-lavoro-pmi-svizzere.webp",
         "evidence": "generated-engine-record"
       }
     },
