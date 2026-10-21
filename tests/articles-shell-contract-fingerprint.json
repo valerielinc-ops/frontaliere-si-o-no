@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-20 after the shared SERP description budget was capped at 150 characters; transport build-plugins/shared/titleSuffix.ts to host/shared/titleSuffix.ts and update both fixtures plus the manifest fingerprint together.",
+  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-21 after canonicalizing the Organization.sameAs Facebook URL; keep the site and host organizationLd twins and both fixtures aligned through transport-identical-twins.",
   "scalarFields": 22,
-  "sha256": "2cc55d337bbce2e78b89f6d8104f9417b06c2efb3fb8f63d07077d12b93912fd"
+  "sha256": "39427a7e57c98c531d72141429a5786e2bef4deeb9c6455aeea84191460d846f"
 }
