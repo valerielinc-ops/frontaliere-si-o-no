@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-21T13:25:50.715Z",
+  "generatedAt": "2026-10-21T15:19:54.909Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -24268,6 +24268,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T13:29:06.297Z"
     },
+    "guidle:AEJbwPF::32c1d5f0a398fe6562a3edd862e602efce4999ce5b0d25594657074b5038e19a": {
+      "id": "guidle:AEJbwPF",
+      "sourceDescriptionHash": "32c1d5f0a398fe6562a3edd862e602efce4999ce5b0d25594657074b5038e19a",
+      "description": "L’appuntamento propone jazz con esecuzioni di composizioni originali. Si svolge al Zeughaus Kultur, nel Canton Vallese, ed è organizzato da Guidle.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone jazz con esecuzioni di composizioni originali. Si svolge al Zeughaus Kultur, nel Canton Vallese, ed è organizzato da Guidle.",
+        "en": "The event presents jazz featuring original compositions. It takes place at Zeughaus Kultur in the canton of Valais and is organized by Guidle.",
+        "de": "Die Veranstaltung bietet Jazz mit Eigenkompositionen. Sie findet im Zeughaus Kultur im Kanton Wallis statt und wird von Guidle organisiert.",
+        "fr": "Le rendez-vous propose du jazz avec des compositions originales. Il se tient au Zeughaus Kultur, dans le canton du Valais, et est organisé par Guidle."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:10:20.873Z"
+    },
     "guidle:AEJen5A::1ee845b5a89ad6585228593bba5f315ebe4f07f48eeb482cf04318a79813104f": {
       "id": "guidle:AEJen5A",
       "sourceDescriptionHash": "1ee845b5a89ad6585228593bba5f315ebe4f07f48eeb482cf04318a79813104f",
@@ -30875,6 +30889,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T06:24:19.131Z"
+    },
+    "guidle:AkpLvFE::26d41a1bd6378a5a84815d3bc002d567bd934211bf338d20d9c671bb462e8103": {
+      "id": "guidle:AkpLvFE",
+      "sourceDescriptionHash": "26d41a1bd6378a5a84815d3bc002d567bd934211bf338d20d9c671bb462e8103",
+      "description": "L’appuntamento, presentato come Landhaus Live, è un evento rock al Restaurant Landhaus Liebefeld, nel cantone BE. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento, presentato come Landhaus Live, è un evento rock al Restaurant Landhaus Liebefeld, nel cantone BE. Guidle è indicato come organizzatore.",
+        "en": "Billed as Landhaus Live, the rock event takes place at Restaurant Landhaus Liebefeld in canton BE. Guidle is the listed organizer.",
+        "de": "Der als Landhaus Live bezeichnete Rockanlass findet im Restaurant Landhaus Liebefeld im Kanton BE statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Présenté sous le nom de Landhaus Live, l’événement rock a lieu au Restaurant Landhaus Liebefeld, dans le canton de BE. Guidle en est l’organisateur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:10:10.354Z"
     },
     "guidle:AkPMENJ::18106b3a401dbb20502572a87e353fa8e254d5a10a59726fced16d9eb2980fda": {
       "id": "guidle:AkPMENJ",
@@ -37638,6 +37666,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T23:22:16.044Z"
     },
+    "guidle:AsE9yb8::3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a": {
+      "id": "guidle:AsE9yb8",
+      "sourceDescriptionHash": "3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a",
+      "description": "L’evento di musica pop con Grüezi Italia si svolge presso lo Stadtsaal Wil, nel cantone SG. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento di musica pop con Grüezi Italia si svolge presso lo Stadtsaal Wil, nel cantone SG. Guidle è indicato come organizzatore.",
+        "en": "This pop event features Grüezi Italia at Stadtsaal Wil in canton SG. Guidle is listed as the organizer.",
+        "de": "Die Popveranstaltung mit Grüezi Italia findet im Stadtsaal Wil im Kanton SG statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Cet événement de musique pop avec Grüezi Italia se déroule au Stadtsaal Wil, dans le canton de SG. Guidle en est l’organisateur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:10:10.342Z"
+    },
     "guidle:ASEmJ3x::056fa46018c934720fd415c0f2385818ff4c2bf166e9e9024d1ab458fb1bf53b": {
       "id": "guidle:ASEmJ3x",
       "sourceDescriptionHash": "056fa46018c934720fd415c0f2385818ff4c2bf166e9e9024d1ab458fb1bf53b",
@@ -40144,6 +40186,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T22:16:07.941Z"
     },
+    "guidle:AuH6uAM::4be28d89db212766c13f482bdc1461294451a7261c099ba903123b13ff46e657": {
+      "id": "guidle:AuH6uAM",
+      "sourceDescriptionHash": "4be28d89db212766c13f482bdc1461294451a7261c099ba903123b13ff46e657",
+      "description": "È un concerto per famiglie dedicato a una fiaba musicale con Tino Flautino. L’argovia philharmonic presenta l’appuntamento insieme a Maurice Steger e Jolanda Steiner al Kultur- und Kongresshaus di Aarau.",
+      "descriptionByLocale": {
+        "it": "È un concerto per famiglie dedicato a una fiaba musicale con Tino Flautino. L’argovia philharmonic presenta l’appuntamento insieme a Maurice Steger e Jolanda Steiner al Kultur- und Kongresshaus di Aarau.",
+        "en": "This family concert presents a musical fairy tale centred on Tino Flautino. The argovia philharmonic appears with Maurice Steger and Jolanda Steiner at the Kultur- und Kongresshaus in Aarau.",
+        "de": "Das Familienkonzert verbindet eine musikalische Erzählung mit der Geschichte von Tino Flautino. Das argovia philharmonic gestaltet den Anlass gemeinsam mit Maurice Steger und Jolanda Steiner im Kultur- und Kongresshaus in Aarau.",
+        "fr": "Ce concert familial propose un conte musical consacré à Tino Flautino. L’argovia philharmonic se produit avec Maurice Steger et Jolanda Steiner au Kultur- und Kongresshaus d’Aarau."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:13:26.601Z"
+    },
     "guidle:AUhk6xA::2f60844dd1953bf8cbf7fe19291fc3ea0a3c4b4e651a3ca538d70c1fd0b50a2d": {
       "id": "guidle:AUhk6xA",
       "sourceDescriptionHash": "2f60844dd1953bf8cbf7fe19291fc3ea0a3c4b4e651a3ca538d70c1fd0b50a2d",
@@ -41264,6 +41320,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T14:16:47.516Z"
     },
+    "guidle:AVj6N9q::b512365683a2630a78a30e51eeca4e6006d70296f977129d69ebebaf0774332d": {
+      "id": "guidle:AVj6N9q",
+      "sourceDescriptionHash": "b512365683a2630a78a30e51eeca4e6006d70296f977129d69ebebaf0774332d",
+      "description": "L’evento pop con Sleeping with Sirens si svolge presso X-TRA, nel cantone ZH. Guidle è indicato come organizzatore.",
+      "descriptionByLocale": {
+        "it": "L’evento pop con Sleeping with Sirens si svolge presso X-TRA, nel cantone ZH. Guidle è indicato come organizzatore.",
+        "en": "This pop event features Sleeping with Sirens at X-TRA in canton ZH. Guidle is listed as the organizer.",
+        "de": "Der Popanlass mit Sleeping with Sirens findet im X-TRA im Kanton ZH statt. Guidle ist als Veranstalter aufgeführt.",
+        "fr": "Cet événement pop avec Sleeping with Sirens a lieu au X-TRA, dans le canton de ZH. Guidle en est l’organisateur."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:10:10.368Z"
+    },
     "guidle:AvJDGbj::ea885e590ab39342410c92f5a190571c0d448a8e152993ff5a5f2f94459121a5": {
       "id": "guidle:AvJDGbj",
       "sourceDescriptionHash": "ea885e590ab39342410c92f5a190571c0d448a8e152993ff5a5f2f94459121a5",
@@ -41277,6 +41347,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T23:14:33.205Z"
+    },
+    "guidle:AVjDpLP::7cc30e06adb3939711c292724dacabc327a3ed749c71169689ee7e9e30b358b1": {
+      "id": "guidle:AVjDpLP",
+      "sourceDescriptionHash": "7cc30e06adb3939711c292724dacabc327a3ed749c71169689ee7e9e30b358b1",
+      "description": "L’appuntamento di hard rock riunisce Rhapsody of Fire e Serious Black alla Z7 Konzertfabrik Pratteln. La manifestazione si tiene nel comune di Pratteln, nel cantone BL.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento di hard rock riunisce Rhapsody of Fire e Serious Black alla Z7 Konzertfabrik Pratteln. La manifestazione si tiene nel comune di Pratteln, nel cantone BL.",
+        "en": "This hard-rock event features Rhapsody of Fire and Serious Black at Z7 Konzertfabrik Pratteln. It takes place in Pratteln, in canton BL.",
+        "de": "Die Hardrock-Veranstaltung führt Rhapsody of Fire und Serious Black in der Z7 Konzertfabrik Pratteln zusammen. Sie findet in Pratteln im Kanton BL statt.",
+        "fr": "Ce rendez-vous de hard rock réunit Rhapsody of Fire et Serious Black à la Z7 Konzertfabrik Pratteln. Il se déroule à Pratteln, dans le canton BL."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:07:11.339Z"
     },
     "guidle:AvjeLM8::99980f986fda0d1d8e2f4254a9c2fdb5d4eb850d93c51d442a9d48206dc9389b": {
       "id": "guidle:AvjeLM8",
@@ -46009,6 +46093,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T06:28:08.399Z"
+    },
+    "guidle:AZmBPk4::6736ef21180d8787474c65946a77d240bf1d9c90f79f716881df0a0a23a5c4e1": {
+      "id": "guidle:AZmBPk4",
+      "sourceDescriptionHash": "6736ef21180d8787474c65946a77d240bf1d9c90f79f716881df0a0a23a5c4e1",
+      "description": "Al KiM – Kultur in Mogelsberg è previsto uno spettacolo di musica comica con Chrissi Sokoll e band. L’evento appartiene alla categoria della musica comica.",
+      "descriptionByLocale": {
+        "it": "Al KiM – Kultur in Mogelsberg è previsto uno spettacolo di musica comica con Chrissi Sokoll e band. L’evento appartiene alla categoria della musica comica.",
+        "en": "KiM – Kultur in Mogelsberg hosts a comedy-music event with Chrissi Sokoll and the band. It is categorized as comedy music.",
+        "de": "Im KiM – Kultur in Mogelsberg findet ein Anlass mit Chrissi Sokoll und Band statt. Die Veranstaltung gehört zur Kategorie musikalische Comedy.",
+        "fr": "Le KiM – Kultur in Mogelsberg accueille un spectacle de musique comique avec Chrissi Sokoll et le groupe. L’événement relève de la catégorie de la musique comique."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:05:51.362Z"
     },
     "guidle:AZn8Raq::f8fe863325163a55165fa02c3e5167142f6d1b2ebe871ae80bc0a2308a5851dd": {
       "id": "guidle:AZn8Raq",
@@ -95597,6 +95695,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T15:38:57.059Z"
+    },
+    "myswitzerland:76a54bc4c3254a8caf1f190a5c5037c1::f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a": {
+      "id": "myswitzerland:76a54bc4c3254a8caf1f190a5c5037c1",
+      "sourceDescriptionHash": "f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a",
+      "description": "L’appuntamento a Lausanne è dedicato alla lettura di poesie di Ted Joans. Jake Lamar è indicato come la persona che legge i testi.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a Lausanne è dedicato alla lettura di poesie di Ted Joans. Jake Lamar è indicato come la persona che legge i testi.",
+        "en": "The event in Lausanne consists of a reading of poems by Ted Joans. Jake Lamar is identified as the reader.",
+        "de": "Die Veranstaltung in Lausanne umfasst eine Lesung von Gedichten von Ted Joans. Jake Lamar ist als Vorleser angegeben.",
+        "fr": "À Lausanne, l’événement comprend une lecture de poèmes de Ted Joans. Jake Lamar est indiqué comme la personne qui assure la lecture."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:11:05.003Z"
     },
     "myswitzerland:76c65bd5d8164e0d8471fa5674761047::852dd2088490ba59ff7e8e08e77f7f361b750c58c5a57d6a596386cd71934f44": {
       "id": "myswitzerland:76c65bd5d8164e0d8471fa5674761047",
@@ -158934,6 +159046,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T19:16:33.388Z"
     },
+    "tio-agenda:63986::50ba8d1992e92e8cd72a8037020460dc4aac467b729bdf1e965d3c23becc2fcd": {
+      "id": "tio-agenda:63986",
+      "sourceDescriptionHash": "50ba8d1992e92e8cd72a8037020460dc4aac467b729bdf1e965d3c23becc2fcd",
+      "description": "Al Teatro Foce di Lugano è in programma uno spettacolo musicale-teatrale dedicato alla vita e ai ricordi di un musicista. La rappresentazione unisce narrazione e chitarra, dura 80 minuti ed è indicata a partire dai 12 anni.",
+      "descriptionByLocale": {
+        "it": "Al Teatro Foce di Lugano è in programma uno spettacolo musicale-teatrale dedicato alla vita e ai ricordi di un musicista. La rappresentazione unisce narrazione e chitarra, dura 80 minuti ed è indicata a partire dai 12 anni.",
+        "en": "Teatro Foce in Lugano hosts a musical-theatrical performance centred on a musician’s life and memories. It combines spoken storytelling with guitar, runs for 80 minutes, and is intended for audiences aged 12 and over.",
+        "de": "Im Teatro Foce in Lugano steht eine musikalisch-theatralische Aufführung über das Leben und die Erinnerungen eines Musikers auf dem Programm. Sie verbindet erzählte Passagen mit Gitarrenmusik, dauert 80 Minuten und richtet sich an Personen ab zwölf Jahren.",
+        "fr": "Le Teatro Foce de Lugano accueille un spectacle musical et théâtral consacré à la vie et aux souvenirs d’un musicien. La représentation associe récit parlé et guitare, dure 80 minutes et s’adresse au public dès 12 ans."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T15:08:01.762Z"
+    },
     "tio-agenda:63993::5aced1fb410ed6b945d4f4c63a3a87097c15af4c512e3cd9f630665fa3d7921e": {
       "id": "tio-agenda:63993",
       "sourceDescriptionHash": "5aced1fb410ed6b945d4f4c63a3a87097c15af4c512e3cd9f630665fa3d7921e",
@@ -163457,8 +163583,8 @@
       "id": "ge-agenda:cite-seniors-fete-20-ville-amie-aines-politique-longue-vie",
       "sourceDescriptionHash": "f2cfef82ba4e6d75c1fe1dc62154ee7def4cd48913ef6b038e99e6a6eb3c5b20",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:22:55.831Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:07:58.517Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -163610,8 +163736,8 @@
       "id": "ge-agenda:installation-oeuvre-bodil-manz",
       "sourceDescriptionHash": "36646b52d9803a03c4c396a7914b8d1035e1fb94b92bcba83053bb6e23d2119b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:20:45.286Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:07:07.482Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -163664,8 +163790,8 @@
       "id": "ge-agenda:journee-ralentir-monde-accelere",
       "sourceDescriptionHash": "d126d21bd67bba65c3051e046d975282238321bb7adec5ef6933492009ae8776",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:18:00.906Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:08:35.202Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -163744,9 +163870,9 @@
     "ge-agenda:mondes-parles-lecture-noah-truong::67a8138bdb1ca94f965144fc7f493c2268586618ad2227fe4ee55a5216f2fa69": {
       "id": "ge-agenda:mondes-parles-lecture-noah-truong",
       "sourceDescriptionHash": "67a8138bdb1ca94f965144fc7f493c2268586618ad2227fe4ee55a5216f2fa69",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:21:38.019Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:07:26.114Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -163925,8 +164051,8 @@
       "id": "ge-agenda:telemann-quatuors-parisiens-art-conversation",
       "sourceDescriptionHash": "4b7bcdbeb2a076b7e78af662d8d860cf1e081f9b0da3c887836ad0614c651cc4",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:24:38.218Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:11:28.894Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164033,8 +164159,8 @@
       "id": "guidle:A1FujGB",
       "sourceDescriptionHash": "cff79eac6bc29237fd17f88912f8e226d857e21f904c29f9b83f5540b8008859",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:28:15.235Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:14:24.936Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164087,8 +164213,8 @@
       "id": "guidle:A2tWupy",
       "sourceDescriptionHash": "22991e2fe7a73005478c3c33a84066b3d065c2888604bc6f57edb6ce68430ede",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:26:21.897Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:09:48.281Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164266,9 +164392,9 @@
     "guidle:A7JNQeu::70f1731a34f97cc65e18ef8a0e640d266f3a4cfde354110d65848ef8d585e3ce": {
       "id": "guidle:A7JNQeu",
       "sourceDescriptionHash": "70f1731a34f97cc65e18ef8a0e640d266f3a4cfde354110d65848ef8d585e3ce",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:23:25.752Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:06:26.978Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164600,8 +164726,8 @@
       "id": "guidle:AEHMQMy",
       "sourceDescriptionHash": "76ce69fbf637c563d041c5bb46060d526cc499d87ae598801a0b032d62d3fe8f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:32:11.193Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:13:13.230Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164620,15 +164746,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T11:36:14.616Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AEJbwPF::32c1d5f0a398fe6562a3edd862e602efce4999ce5b0d25594657074b5038e19a": {
-      "id": "guidle:AEJbwPF",
-      "sourceDescriptionHash": "32c1d5f0a398fe6562a3edd862e602efce4999ce5b0d25594657074b5038e19a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:23:41.474Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164959,9 +165076,9 @@
     "guidle:AkeD7pF::49d68dffc99687b132c046efdea107652fbeb05fd2511341daaef01ec38540ff": {
       "id": "guidle:AkeD7pF",
       "sourceDescriptionHash": "49d68dffc99687b132c046efdea107652fbeb05fd2511341daaef01ec38540ff",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T13:18:58.861Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:12:35.534Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -164980,15 +165097,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:30:09.538Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AkpLvFE::26d41a1bd6378a5a84815d3bc002d567bd934211bf338d20d9c671bb462e8103": {
-      "id": "guidle:AkpLvFE",
-      "sourceDescriptionHash": "26d41a1bd6378a5a84815d3bc002d567bd934211bf338d20d9c671bb462e8103",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:29:37.660Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -165149,8 +165257,8 @@
       "id": "guidle:AMcLXkK",
       "sourceDescriptionHash": "456158ae1feeaeabc068460bb8be3fe304e660427ab70440e8aae6b3325d0269",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:23:54.244Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:06:59.679Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -165554,8 +165662,8 @@
       "id": "guidle:ArmyKSQ",
       "sourceDescriptionHash": "a2b2bb3622d4098e9347c0687fad322723befa7d3bf6049ff41295318df4dd6a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T13:21:27.151Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:12:07.842Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -165599,8 +165707,8 @@
       "id": "guidle:ArwfAvs",
       "sourceDescriptionHash": "1e9869fe9d4ce5671fbb049b48d0e26c1e0418e6d8899608a3377da34a7a0a34",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:24:08.608Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:10:51.038Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -165622,15 +165730,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AsE9yb8::3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a": {
-      "id": "guidle:AsE9yb8",
-      "sourceDescriptionHash": "3a7e6fb73959264d20dcd424ea77d528e5b6e0763fedddf24ed9c31f9bd56f5a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:27:15.422Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ASEPnSN::978a5f1741079c215bcd237cbf020b16fa42f9e8389c22363142382a08d4f553": {
       "id": "guidle:ASEPnSN",
       "sourceDescriptionHash": "978a5f1741079c215bcd237cbf020b16fa42f9e8389c22363142382a08d4f553",
@@ -165644,8 +165743,8 @@
       "id": "guidle:ASNisvF",
       "sourceDescriptionHash": "bd283a9ed667edaa27667cc8f80003878e5f75a9ebd000092e0e4799cf1a5d12",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:30:51.272Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:13:39.348Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -165725,8 +165824,8 @@
       "id": "guidle:AtGXwiB",
       "sourceDescriptionHash": "d32eb129f3327fb9d81af3a8d78ddc7bfe2e959128bc25237cf82f449fe46957",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T13:19:40.807Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:15:51.651Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -165788,17 +165887,8 @@
       "id": "guidle:Aueg29a",
       "sourceDescriptionHash": "790cb393a527a577dad6d4600556533196d7953822697cb7cd727116ecdbcd80",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:25:53.347Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AuH6uAM::4be28d89db212766c13f482bdc1461294451a7261c099ba903123b13ff46e657": {
-      "id": "guidle:AuH6uAM",
-      "sourceDescriptionHash": "4be28d89db212766c13f482bdc1461294451a7261c099ba903123b13ff46e657",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:29:44.270Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:15:07.240Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -165907,24 +165997,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:27:05.704Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AVj6N9q::b512365683a2630a78a30e51eeca4e6006d70296f977129d69ebebaf0774332d": {
-      "id": "guidle:AVj6N9q",
-      "sourceDescriptionHash": "b512365683a2630a78a30e51eeca4e6006d70296f977129d69ebebaf0774332d",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:28:55.810Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AVjDpLP::7cc30e06adb3939711c292724dacabc327a3ed749c71169689ee7e9e30b358b1": {
-      "id": "guidle:AVjDpLP",
-      "sourceDescriptionHash": "7cc30e06adb3939711c292724dacabc327a3ed749c71169689ee7e9e30b358b1",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:21:37.926Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -166292,8 +166364,8 @@
       "id": "guidle:AYXQb9k",
       "sourceDescriptionHash": "6674fb832420b561776e5d0065c4576119b370dc03cfa03ee70d456b321f6aca",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:30:27.642Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:13:56.851Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -166312,15 +166384,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T02:24:26.180Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AZmBPk4::6736ef21180d8787474c65946a77d240bf1d9c90f79f716881df0a0a23a5c4e1": {
-      "id": "guidle:AZmBPk4",
-      "sourceDescriptionHash": "6736ef21180d8787474c65946a77d240bf1d9c90f79f716881df0a0a23a5c4e1",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:30:44.084Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168904,15 +168967,6 @@
       "code": "promotional-language",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T11:47:09.092Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:76a54bc4c3254a8caf1f190a5c5037c1::f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a": {
-      "id": "myswitzerland:76a54bc4c3254a8caf1f190a5c5037c1",
-      "sourceDescriptionHash": "f71c3395377ec2aac99b48d0b2ca52e3bb1d45d5e8a4f266481c91244684c51a",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:25:56.873Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -172525,15 +172579,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:63986::50ba8d1992e92e8cd72a8037020460dc4aac467b729bdf1e965d3c23becc2fcd": {
-      "id": "tio-agenda:63986",
-      "sourceDescriptionHash": "50ba8d1992e92e8cd72a8037020460dc4aac467b729bdf1e965d3c23becc2fcd",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:21:58.541Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:63992::3f429af1b79b27c95a8893542d79710f866e34b2014b0276c6bb8da82d17e767": {
       "id": "tio-agenda:63992",
       "sourceDescriptionHash": "3f429af1b79b27c95a8893542d79710f866e34b2014b0276c6bb8da82d17e767",
@@ -172979,8 +173024,8 @@
       "id": "tio-agenda:64490",
       "sourceDescriptionHash": "3d8e3a7a34a82651fb4f9aa2f2561cfc4ce191a6830d8b1edec5e75382492be7",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:19:59.425Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:09:25.554Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173033,8 +173078,8 @@
       "id": "tio-agenda:64574",
       "sourceDescriptionHash": "59bcad90a04a7c6e5a3127d129f2ed3500f119741e5ba5d9be8a6ac50d96055a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:21:18.364Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:07:51.491Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -173042,8 +173087,8 @@
       "id": "tio-agenda:64652",
       "sourceDescriptionHash": "b25665d3df9ba0d28f3913dcbbb212686d626eac60f696345167c9f4718127ff",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-21T12:19:23.032Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-21T15:08:36.001Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
