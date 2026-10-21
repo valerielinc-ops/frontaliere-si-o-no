@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "zh-43653",
+      "sourceKey": "ZH",
+      "sourceRecordId": "43653",
+      "canton": "Zurigo",
+      "platePrefix": "ZH",
+      "plateNumber": "173007",
+      "normalizedPlate": "ZH173007",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 710,
+      "bidCount": 12,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.stva.zh.ch/de/?plate_sub_type=&plate_type=car",
+      "officialDetailUrl": "https://www.auktion.stva.zh.ch/de/auction/43653",
+      "sourceFetchedAt": "2026-10-21T11:49:09.869Z",
+      "lastVerifiedAt": "2026-10-21T11:49:09.869Z",
+      "firstSeenAt": "2026-10-15T11:35:31.199Z",
+      "lastSeenAt": "2026-10-21T11:49:09.869Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "1689f95783bb"
+    }
+  ]
+}

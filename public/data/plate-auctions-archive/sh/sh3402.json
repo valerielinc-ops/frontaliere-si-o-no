@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "sh-69629",
+      "sourceKey": "SH",
+      "sourceRecordId": "69629",
+      "canton": "Sciaffusa",
+      "platePrefix": "SH",
+      "plateNumber": "3402",
+      "normalizedPlate": "SH3402",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 1050,
+      "bidCount": 2,
+      "endsAt": "2026-10-21T20:00:00.000Z",
+      "closedAt": "2026-10-21T20:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion-stva.sh.ch/",
+      "officialDetailUrl": "https://www.auktion-stva.sh.ch/de/auction/69629",
+      "sourceFetchedAt": "2026-10-21T11:48:27.823Z",
+      "lastVerifiedAt": "2026-10-21T11:48:27.823Z",
+      "firstSeenAt": "2026-10-15T04:44:13.382Z",
+      "lastSeenAt": "2026-10-21T11:48:27.823Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "95da697af4a7"
+    }
+  ]
+}
