@@ -170,7 +170,7 @@ export function buildCvDocument(cv, { identity, profile = {}, language = 'it', t
   return {
     language,
     name: identity.name,
-    headline: cv.headline || '',
+    headline: localized.headline || cv.headline || '',
     contact: [addressLine(profile, localized), identity.phone, identity.email, profile.linkedin, sector === 'it' ? profile.website : ''].filter(Boolean),
     personalTitle: titles.personal,
     personal,

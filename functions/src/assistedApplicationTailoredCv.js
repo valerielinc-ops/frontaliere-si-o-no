@@ -366,9 +366,9 @@ function requireLocalizedLanguageLevel(issues, value, source, field, { required 
 // English fallback in different words, while leaving product and tool names
 // such as "Project Management", "Azure" and "DevOps" alone.
 const LANGUAGE_SIGNALS = {
-  it: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre', 'personnes', 'equipe', 'projet', 'projets'],
-  de: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
-  fr: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium'],
+  it: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'management', 'requirements', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre', 'personnes', 'equipe', 'projet', 'projets'],
+  de: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'management', 'requirements', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
+  fr: ['architected', 'designed', 'scaled', 'reduced', 'developed', 'managed', 'delivered', 'built', 'led', 'created', 'implemented', 'improved', 'supported', 'coordinated', 'clients', 'people', 'team', 'project', 'projects', 'management', 'requirements', 'bachelor', 'master', 'degree', 'university', 'education', 'experience', 'professional', 'responsibilities', 'esperienza', 'esperienze', 'sviluppato', 'sviluppata', 'gestito', 'gestita', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium'],
   en: ['sviluppato', 'sviluppata', 'gestito', 'gestita', 'creato', 'creata', 'ridotto', 'ridotta', 'clienti', 'persone', 'squadra', 'progetto', 'progetti', 'esperienza', 'esperienze', 'sviluppo', 'formazione', 'laurea', 'diploma', 'competenze', 'entwickelt', 'entwicklung', 'erfahrung', 'kenntnisse', 'verantwortlich', 'ausbildung', 'studium', 'kunden', 'personen', 'projekt', 'projekte', 'developpe', 'formation', 'diplome', 'responsable', 'concu', 'gere', 'livre'],
 };
 
@@ -426,7 +426,7 @@ function isCanonicalTargetLanguageLabel(value, language) {
 
 function renderedLanguageFields(cv, profile = {}) {
   const fields = [
-    { field: 'headline', text: cv?.headline, minWords: 3 },
+    { field: 'headline', text: cv?.localized?.headline || cv?.headline, minWords: 3 },
     ...(cv?.type !== 'apprentice' ? [{ field: 'summary', text: cv?.summary, minWords: 3 }] : []),
     ...(cv?.type !== 'apprentice' ? (cv?.competencies || []).map((text, index) => ({ field: `competencies[${index}]`, text, minWords: 3 })) : []),
     ...(cv?.experience || []).filter((role) => role.rewritten).flatMap((role, roleIndex) => (role.bullets || [])
@@ -487,7 +487,8 @@ function addRenderedLanguageIssues(issues, cv, profile, language) {
   for (const { field, text: rendered, minWords } of renderedLanguageFields(cv, profile)) {
     const words = normalizeText(rendered).split(' ').filter(Boolean);
     const detected = words.length >= minWords ? detectCvTextLanguage(rendered) : null;
-    if (detected && detected.language !== language) {
+    const signals = languageSignals(rendered, language);
+    if ((detected && detected.language !== language) || (!detected && signals.length >= 2)) {
       issues.push({ field: 'rendered', kind: 'language', token: field, context: `no ${language} language signal in rendered CV field` });
     }
   }
@@ -536,10 +537,6 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it', typ
   }
 
   requireLocalized(issues, localized.headline, profile.headline, 'headline', { rejectUnchanged: true });
-  if (type !== 'apprentice' && nonEmpty(profile.headline) && nonEmpty(localized.headline)
-    && normalizeText(cv.headline) !== normalizeText(localized.headline)) {
-    issues.push({ field: 'localized', kind: 'mismatch', token: 'headline', context: 'the renderer would print a different, possibly source-language headline' });
-  }
   requireLocalized(issues, localized.location, profile.location, 'location', { rejectUnchanged: true });
 
   (profile.experience || []).forEach((role, index) => {
@@ -609,9 +606,6 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it', typ
     }
   }
 
-  const text = tailoredCvPlainText(cv, { identity: { name: '', phone: '', email: '' }, profile });
-  const signals = languageSignals(text, language);
-  if (signals.length >= 2) issues.push({ field: 'localized', kind: 'language', token: signals.slice(0, 4).join(', '), context: `strong ${sourceLanguage || 'source'}-language prose remains in a ${language} CV` });
   addRenderedLanguageIssues(issues, cv, profile, language);
   return { ok: issues.length === 0, issues };
 }

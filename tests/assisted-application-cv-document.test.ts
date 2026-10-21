@@ -293,6 +293,7 @@ describe('tailored CV by type', () => {
     expect(text).toContain('Ha progettato e guidato lo sviluppo di DottNet, utilizzato da 10 utenti.');
     expect(text).toContain('Leadership Agile professionale');
     expect(text).toContain('Tecnologia e ciclismo');
+    expect(document.headline).toBe('Responsabile IT senior delle applicazioni di gruppo');
     expect(document.sections.find((section: any) => section.kind === 'languages').pairs).toEqual([['Inglese', 'C1']]);
     expect(text).not.toContain('Architected and led development');
     expect(document.contact[0]).toBe('Varese, Italia');
