@@ -137,11 +137,11 @@ if (sources.includes('own')) {
   const census = censusFromOwnCrawls();
   console.log(`OWN : ${census.jobCount} annunci già crawlati → ${census.platforms.length} piattaforme con ≥2 datori (${census.weakHosts} host deboli scartati)`);
   for (const p of census.platforms) {
-    for (const [employer, host, jobPath] of p.employerHosts) {
+    for (const [, host, jobPath, employerDomain] of p.employerHosts) {
       observePlatform(registry, {
         tenantHost: host,
         path: jobPath,
-        employerDomain: employer.replace(/\s+/g, '-'),
+        employerDomain,
         note: `own-crawl census: ${p.employers.length} datori`,
       });
     }

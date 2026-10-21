@@ -84,6 +84,7 @@ console.log(`semi per la sonda slug: ${seeds.length} nomi di datori non ancora c
 
 let filed = 0;
 let covered = 0;
+let unidentified = 0;
 
 for (const platform of targets) {
   // Una piattaforma che esplode non deve costare le altre, ne' il lavoro gia'
@@ -132,7 +133,16 @@ for (const platform of targets) {
     // time as "EOC candiDati Posizioni", the tenant's own page title, alongside
     // the EOC crawler that had been reading that exact host for months.
     if (isCovered(coverage, { name: cand.name, key: label, sourceHost: cand.tenantHost }).covered) { covered++; continue; }
-    const { key, created } = upsertCandidate(store, { ...cand, key: `${label}@${platform.domain}` }, `tenant:${platform.domain}`);
+    const upsert = upsertCandidate(store, { ...cand, key: `${label}@${platform.domain}` }, `tenant:${platform.domain}`);
+    if (upsert.rejected || !upsert.key) {
+      unidentified++;
+      console.log(`    - identità non verificata: ${String(t.company || label).slice(0, 40).padEnd(42)} ${t.host}`);
+      continue;
+    }
+    const { key, created } = upsert;
+    // A tombstone may intentionally prevent recreating a candidate. Do not
+    // issue a status update unless the upsert left a live record to update.
+    if (!store.candidates[key]) continue;
     // Tenants arrive already traced — the platform handed us the careers URL.
     // upsertCandidate stores the identity-filtered data. Refresh only the safe
     // probe fields here: the raw name can be a generic path-host label such as
@@ -154,7 +164,7 @@ for (const platform of targets) {
   if (live.length && platform.status === 'candidate') platform.status = 'confirmed';
 }
 
-console.log(`\nnuovi datori dai tenant: ${filed}   già coperti: ${covered}`);
+console.log(`\nnuovi datori dai tenant: ${filed}   già coperti: ${covered}   identità non verificate: ${unidentified}`);
 console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 if (dryRun) console.log('\n--dry-run: niente scritto.');
 else { saveCandidates(store); saveRegistry(registry); console.log('\nstato salvato.'); }

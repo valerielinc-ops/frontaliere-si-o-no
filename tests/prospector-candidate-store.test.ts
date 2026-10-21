@@ -163,6 +163,108 @@ describe('prospector candidate store — rejected tombstones (#6903)', () => {
     expect(store.candidates[key]).toBeUndefined();
   });
 
+  it('keeps generic composed-key tombstones scoped to the rejected tenant host', () => {
+    const key = 'career@softgarden.de';
+    const rejected = {
+      key,
+      status: 'rejected',
+      name: 'Läderach',
+      domain: 'laderach.com',
+      platform: 'softgarden.de',
+      tenantHost: 'laderach.career.softgarden.de',
+      careersUrl: 'https://laderach.career.softgarden.de/',
+      firstSeenAt: OLD,
+      updatedAt: OLD,
+      rejectedAt: OLD,
+    };
+    const store = storeWith({ [key]: rejected });
+
+    expect(pruneTerminal(store, 90)).toBe(1);
+    expect(store.rejectedTombstones[key]).toEqual({
+      rejectedAt: OLD,
+      tenantCoordinates: [{ tenantHost: 'laderach.career.softgarden.de' }],
+    });
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-tenant-tombstone-'));
+    try {
+      const file = path.join(dir, 'candidates.json');
+      saveCandidates(store, file);
+      const persisted = loadCandidates(file);
+      expect(persisted.rejectedTombstones[key]).toEqual(store.rejectedTombstones[key]);
+      expect(upsertCandidate(persisted, {
+        key,
+        name: 'Läderach',
+        domain: 'laderach.com',
+        platform: 'softgarden.de',
+        tenantHost: 'laderach.career.softgarden.de',
+        careersUrl: 'https://laderach.career.softgarden.de/',
+      }, 'tenant:softgarden.de')).toEqual({ key, created: false });
+
+      const otherTenant = upsertCandidate(persisted, {
+        key,
+        name: 'Eldora SA',
+        domain: 'eldora.ch',
+        city: 'Lugano',
+        platform: 'softgarden.de',
+        tenantHost: 'eldora-groupeeldora.career.softgarden.de',
+        careersUrl: 'https://eldora-groupeeldora.career.softgarden.de/',
+      }, 'tenant:softgarden.de');
+      expect(otherTenant).toEqual({ key: 'eldora.ch', created: true });
+      expect(persisted.candidates['eldora.ch']).toMatchObject({
+        name: 'Eldora SA',
+        tenantHost: 'eldora-groupeeldora.career.softgarden.de',
+      });
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('does not assign a legacy generic-key tombstone to a different tenant host', () => {
+    const key = 'career@softgarden.de';
+    const store = storeWith({}, { [key]: { rejectedAt: OLD } });
+
+    expect(upsertCandidate(store, {
+      key,
+      name: 'Eldora SA',
+      domain: 'eldora.ch',
+      platform: 'softgarden.de',
+      tenantHost: 'eldora-groupeeldora.career.softgarden.de',
+      careersUrl: 'https://eldora-groupeeldora.career.softgarden.de/',
+    }, 'tenant:softgarden.de')).toEqual({ key: 'eldora.ch', created: true });
+  });
+
+  it('matches encoded and slug-equivalent shared ATS paths in tenant tombstones', () => {
+    const key = 'jobs@smartrecruiters.com';
+    const encodedPath = 'https://jobs.smartrecruiters.com/acme%20sa';
+    const store = storeWith({
+      [key]: {
+        key,
+        status: 'rejected',
+        name: 'Acme SA',
+        domain: 'acme.ch',
+        platform: 'smartrecruiters.com',
+        tenantHost: 'jobs.smartrecruiters.com/acme%20sa',
+        careersUrl: encodedPath,
+        firstSeenAt: OLD,
+        updatedAt: OLD,
+        rejectedAt: OLD,
+      },
+    });
+
+    expect(pruneTerminal(store, 90)).toBe(1);
+    expect(store.rejectedTombstones[key]).toEqual({
+      rejectedAt: OLD,
+      tenantCoordinates: [{ tenantHost: 'jobs.smartrecruiters.com', tenantPath: 'acme-sa' }],
+    });
+    expect(upsertCandidate(store, {
+      key,
+      name: 'Acme SA',
+      domain: 'acme.ch',
+      platform: 'smartrecruiters.com',
+      tenantHost: 'jobs.smartrecruiters.com/acme-sa',
+      careersUrl: 'https://jobs.smartrecruiters.com/acme-sa',
+    }, 'tenant:smartrecruiters.com')).toEqual({ key, created: false });
+  });
+
   it('keeps dead retention separate: an old dead candidate may be rediscovered', () => {
     const key = 'temporary.example';
     const store = storeWith({
@@ -424,6 +526,279 @@ describe('prospector candidate store — cross-source identity and ledger recove
     expect(Object.values(store.candidates).every((candidate) => !candidate.domain)).toBe(true);
   });
 
+  it('does not promote a known shared ATS host without its tenant path to an employer key', () => {
+    const acme = { name: 'Acme SA', city: 'Lugano', domain: 'jobs.smartrecruiters.com' };
+    const beta = { name: 'Beta AG', city: 'Lugano', domain: 'jobs.smartrecruiters.com' };
+
+    expect(candidateKey(acme)).toBe('acme@lugano');
+    expect(candidateKey(beta)).toBe('beta@lugano');
+
+    const store = storeWith({});
+    const acmeResult = upsertCandidate(store, acme, 'web');
+    const betaResult = upsertCandidate(store, beta, 'seco');
+
+    expect(acmeResult.key).not.toBe(betaResult.key);
+    expect(acmeResult.key).not.toContain('smartrecruiters.com');
+    expect(betaResult.key).not.toContain('smartrecruiters.com');
+    expect(Object.keys(store.candidates)).toHaveLength(2);
+    expect(Object.values(store.candidates).every((candidate) => !candidate.domain)).toBe(true);
+  });
+
+  it('rejects composed tenant keys for a shared ATS host when its path is missing', () => {
+    const acme = {
+      key: 'jobs@smartrecruiters.com',
+      name: 'Acme SA',
+      city: 'Lugano',
+      tenantHost: 'jobs.smartrecruiters.com',
+      platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com',
+    };
+    const beta = {
+      ...acme,
+      name: 'Beta AG',
+      city: 'Bellinzona',
+    };
+    const store = storeWith({});
+
+    const acmeResult = upsertCandidate(store, acme, 'tenant:smartrecruiters.com');
+    const betaResult = upsertCandidate(store, beta, 'tenant:smartrecruiters.com');
+
+    expect(acmeResult).toEqual({ key: 'acme@lugano', created: true });
+    expect(betaResult).toEqual({ key: 'beta@bellinzona', created: true });
+    expect(Object.keys(store.candidates)).toEqual(['acme@lugano', 'beta@bellinzona']);
+    expect(Object.keys(store.candidates)).not.toContain('jobs@smartrecruiters.com');
+  });
+
+  it('rejects generic composed keys on a mixed ATS host when its path is missing', () => {
+    const acme = {
+      key: 'jobs@coopjobs.ch',
+      name: 'Acme SA',
+      city: 'Lugano',
+      tenantHost: 'jobs.coopjobs.ch',
+      platform: 'coopjobs.ch',
+      careersUrl: 'https://jobs.coopjobs.ch',
+    };
+    const beta = {
+      ...acme,
+      name: 'Beta AG',
+      city: 'Bellinzona',
+    };
+    const store = storeWith({});
+
+    const acmeResult = upsertCandidate(store, acme, 'tenant:coopjobs.ch');
+    const betaResult = upsertCandidate(store, beta, 'tenant:coopjobs.ch');
+
+    expect(acmeResult).toEqual({ key: 'acme@lugano', created: true });
+    expect(betaResult).toEqual({ key: 'beta@bellinzona', created: true });
+    expect(Object.keys(store.candidates)).toEqual(['acme@lugano', 'beta@bellinzona']);
+    expect(Object.keys(store.candidates)).not.toContain('jobs@coopjobs.ch');
+  });
+
+  it('rejects a non-generic label on a shared host within a mixed ATS platform', () => {
+    const acme = {
+      key: 'boards@greenhouse.io',
+      name: 'Acme SA',
+      city: 'Lugano',
+      tenantHost: 'boards.greenhouse.io',
+      platform: 'greenhouse.io',
+      careersUrl: 'https://boards.greenhouse.io',
+    };
+    const beta = {
+      ...acme,
+      name: 'Beta AG',
+      city: 'Bellinzona',
+    };
+    const store = storeWith({});
+
+    const acmeResult = upsertCandidate(store, acme, 'tenant:greenhouse.io');
+    const betaResult = upsertCandidate(store, beta, 'tenant:greenhouse.io');
+
+    expect(acmeResult).toEqual({ key: 'acme@lugano', created: true });
+    expect(betaResult).toEqual({ key: 'beta@bellinzona', created: true });
+    expect(Object.keys(store.candidates)).toEqual(['acme@lugano', 'beta@bellinzona']);
+    expect(Object.keys(store.candidates)).not.toContain('boards@greenhouse.io');
+  });
+
+  it.each([
+    ['employer name and city are missing', {}, 'boards@greenhouse.io', 'boards.greenhouse.io', 'greenhouse.io'],
+    ['only the generic host label and city are present', { name: 'Boards', city: 'Lugano' }, 'boards@greenhouse.io', 'boards.greenhouse.io', 'greenhouse.io'],
+    ['only the generic jobs label and city are present', { name: 'Jobs', city: 'Lugano' }, 'jobs@smartrecruiters.com', 'jobs.smartrecruiters.com', 'smartrecruiters.com'],
+    ['only a city is present', { city: 'Lugano' }, 'jobs@smartrecruiters.com', 'jobs.smartrecruiters.com', 'smartrecruiters.com'],
+  ])('refuses a rejected composed key when %s', (_label, identity, key, tenantHost, platform) => {
+    const candidate = {
+      ...identity,
+      key,
+      tenantHost,
+      platform,
+      careersUrl: `https://${tenantHost}`,
+    };
+    const store = storeWith({});
+
+    const source = `tenant:${platform}`;
+    const first = upsertCandidate(store, { ...candidate }, source);
+    const second = upsertCandidate(store, { ...candidate }, source);
+
+    expect(first).toEqual({ key: null, created: false, rejected: true, reason: 'unverified_tenant_identity' });
+    expect(second).toEqual(first);
+    expect(Object.keys(store.candidates)).toHaveLength(0);
+    expect(Object.keys(store.candidates)).not.toContain(key);
+  });
+
+  it('scopes a name-only rejected composed key to an uncensused tenant host on a mixed ATS', () => {
+    const store = storeWith({});
+    const firstProbe = {
+      key: 'recruitingapp-876543@umantis.com',
+      name: 'Acme Holdings',
+      tenantHost: 'recruitingapp-876543.umantis.com',
+      platform: 'umantis.com',
+      careersUrl: 'https://recruitingapp-876543.umantis.com/Jobs/All',
+    };
+    const secondProbe = {
+      ...firstProbe,
+      key: 'recruitingapp-876544@umantis.com',
+      tenantHost: 'recruitingapp-876544.umantis.com',
+      careersUrl: 'https://recruitingapp-876544.umantis.com/Jobs/All',
+    };
+    const source = 'tenant:umantis.com';
+
+    const first = upsertCandidate(store, firstProbe, source);
+    const firstRepeat = upsertCandidate(store, firstProbe, source);
+    const second = upsertCandidate(store, secondProbe, source);
+
+    expect(first).toEqual({ key: 'tenant-host-recruitingapp-876543-umantis-com', created: true });
+    expect(firstRepeat).toEqual({ key: first.key, created: false });
+    expect(second).toEqual({ key: 'tenant-host-recruitingapp-876544-umantis-com', created: true });
+    expect(Object.keys(store.candidates)).toEqual([first.key, second.key]);
+    expect(store.candidates[first.key].name).toBe('Acme Holdings');
+    expect(store.candidates[second.key].name).toBe('Acme Holdings');
+  });
+
+  it('keeps the localized Umantis recruitingapp tenant scoped to its full host', () => {
+    const store = storeWith({});
+    const candidate = {
+      key: 'de@umantis.com',
+      name: 'de',
+      tenantHost: 'recruitingapp-5597.de.umantis.com',
+      platform: 'umantis.com',
+      careersUrl: 'https://recruitingapp-5597.de.umantis.com/Jobs/All',
+    };
+    const source = 'tenant:umantis.com';
+
+    const first = upsertCandidate(store, candidate, source);
+    const repeated = upsertCandidate(store, candidate, source);
+    const unsupportedLocale = upsertCandidate(store, {
+      ...candidate,
+      key: 'fr@umantis.com',
+      name: 'fr',
+      tenantHost: 'recruitingapp-5597.fr.umantis.com',
+      careersUrl: 'https://recruitingapp-5597.fr.umantis.com/Jobs/All',
+    }, source);
+
+    expect(first).toEqual({ key: 'tenant-host-recruitingapp-5597-de-umantis-com', created: true });
+    expect(repeated).toEqual({ key: first.key, created: false });
+    expect(unsupportedLocale).toMatchObject({ key: null, created: false, rejected: true });
+    expect(Object.keys(store.candidates)).toEqual([first.key]);
+  });
+
+  it('does not merge a name-only uncensused shared-host tenant with another employer', () => {
+    const store = storeWith({});
+    const firstProbe = {
+      key: 'jobs@smartrecruiters.com',
+      name: 'Acme SA',
+      tenantHost: 'jobs.smartrecruiters.com',
+      platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com',
+    };
+    const secondProbe = {
+      ...firstProbe,
+      tenantHost: 'boards.greenhouse.io',
+      platform: 'greenhouse.io',
+      key: 'boards@greenhouse.io',
+      careersUrl: 'https://boards.greenhouse.io',
+    };
+
+    expect(upsertCandidate(store, firstProbe, 'tenant:smartrecruiters.com')).toMatchObject({ rejected: true, key: null });
+    expect(upsertCandidate(store, secondProbe, 'tenant:greenhouse.io')).toMatchObject({ rejected: true, key: null });
+    expect(Object.keys(store.candidates)).toHaveLength(0);
+  });
+
+  it('does not let a rejected legacy composed key reappear under a new host-scoped key', () => {
+    const legacyKey = 'recruitingapp-876543@umantis.com';
+    const store = storeWith({}, { [legacyKey]: { rejectedAt: OLD } });
+    const candidate = {
+      key: legacyKey,
+      name: 'Acme Holdings',
+      tenantHost: 'recruitingapp-876543.umantis.com',
+      platform: 'umantis.com',
+      careersUrl: 'https://recruitingapp-876543.umantis.com/Jobs/All',
+    };
+
+    expect(upsertCandidate(store, candidate, 'tenant:umantis.com'))
+      .toEqual({ key: legacyKey, created: false });
+    expect(store.candidates).toEqual({});
+    expect(store.rejectedTombstones[legacyKey]).toEqual({ rejectedAt: OLD });
+  });
+
+  it.each(['api', 'ats'])('rejects multiple employer identities on an uncensused shared `%s` host', (label) => {
+    const store = storeWith({});
+    const tenantHost = `${label}.easytemp.ch`;
+    const platform = 'easytemp.ch';
+    const makeProbe = (name: string) => ({
+      key: `${label}@${platform}`,
+      name,
+      tenantHost,
+      platform,
+      careersUrl: `https://${tenantHost}`,
+    });
+    const source = `tenant:${platform}`;
+
+    const acme = upsertCandidate(store, makeProbe('Acme SA'), source);
+    const beta = upsertCandidate(store, makeProbe('Beta AG'), source);
+
+    expect(acme).toMatchObject({ key: null, created: false, rejected: true });
+    expect(beta).toMatchObject({ key: null, created: false, rejected: true });
+    expect(Object.keys(store.candidates)).toHaveLength(0);
+  });
+
+  it.each([
+    ['Personio', 'jobs@personio.com', 'kellerhals-carrard.jobs.personio.com', 'personio.com'],
+    ['Workday', 'wd3@myworkdayjobs.com', 'roche.wd3.myworkdayjobs.com', 'myworkdayjobs.com'],
+  ])('uses a stable full-host identity for nested %s tenant hosts', (_label, key, tenantHost, platform) => {
+    const store = storeWith({});
+    const candidate = {
+      key,
+      name: key.slice(0, key.indexOf('@')),
+      tenantHost,
+      platform,
+      careersUrl: `https://${tenantHost}/job`,
+    };
+    const source = `tenant:${platform}`;
+
+    const first = upsertCandidate(store, candidate, source);
+    const repeated = upsertCandidate(store, candidate, source);
+
+    const expectedKey = `tenant-host-${tenantHost.replace(/[^a-z0-9]+/g, '-')}`;
+    expect(first).toEqual({ key: expectedKey, created: true });
+    expect(repeated).toEqual({ key: expectedKey, created: false });
+    expect(Object.keys(store.candidates)).toEqual([expectedKey]);
+  });
+
+  it('uses an independent employer domain when it disagrees with the verified tenant-host owner', () => {
+    const store = storeWith({});
+    const candidate = {
+      key: 'recruitingapp-2761@umantis.com',
+      name: 'Acme SA',
+      domain: 'other-employer.ch',
+      tenantHost: 'recruitingapp-2761.umantis.com',
+      platform: 'umantis.com',
+      careersUrl: 'https://recruitingapp-2761.umantis.com/Jobs/All',
+    };
+
+    expect(upsertCandidate(store, candidate, 'tenant:umantis.com'))
+      .toEqual({ key: 'other-employer.ch', created: true });
+    expect(Object.keys(store.candidates)).toEqual(['other-employer.ch']);
+  });
+
   it('keys shared path-ATS tenants by path while retaining employer identities', () => {
     const acme = {
       key: 'jobs@smartrecruiters.com',
@@ -627,6 +1002,7 @@ describe('prospector candidate store — cross-source identity and ledger recove
       city: 'Lugano',
       tenantHost: 'jobs.smartrecruiters.com/acme',
       platform: 'smartrecruiters.com',
+      careersUrl: 'https://jobs.smartrecruiters.com/acme',
     }, 'tenant:smartrecruiters.com');
 
     expect(result).toEqual({ key: 'tenant-acme@jobs-smartrecruiters-com', created: true });

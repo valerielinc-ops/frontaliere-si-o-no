@@ -321,6 +321,33 @@ function mergePlatform(upstream, local, base = {}) {
       merged[field] = Object.fromEntries(Object.keys(values).sort().map((key) => [key, values[key]]));
     }
   }
+  if (isObject(upstream.hostEmployers) || isObject(local.hostEmployers)) {
+    const values = {};
+    for (const host of new Set([
+      ...Object.keys(objectOrEmpty(upstream.hostEmployers)),
+      ...Object.keys(objectOrEmpty(local.hostEmployers)),
+    ])) {
+      values[host] = [...new Set([
+        ...(Array.isArray(upstream.hostEmployers?.[host]) ? upstream.hostEmployers[host] : []),
+        ...(Array.isArray(local.hostEmployers?.[host]) ? local.hostEmployers[host] : []),
+      ].map(String))].sort();
+    }
+    merged.hostEmployers = Object.fromEntries(Object.keys(values).sort().map((host) => [host, values[host]]));
+  }
+  if (isObject(upstream.hostEmployerUnknown) || isObject(local.hostEmployerUnknown)
+    || isObject(base.hostEmployerUnknown)) {
+    const hosts = new Set([
+      ...Object.keys(objectOrEmpty(base.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(upstream.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(local.hostEmployerUnknown)),
+    ]);
+    const values = Object.fromEntries([...hosts].sort()
+      .filter((host) => base.hostEmployerUnknown?.[host] === true
+        || upstream.hostEmployerUnknown?.[host] === true
+        || local.hostEmployerUnknown?.[host] === true)
+      .map((host) => [host, true]));
+    merged.hostEmployerUnknown = values;
+  }
   if (upstream.tenantCount !== undefined || local.tenantCount !== undefined) {
     merged.tenantCount = Math.max(Number(upstream.tenantCount) || 0, Number(local.tenantCount) || 0);
   }

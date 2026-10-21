@@ -523,6 +523,8 @@ describe('Prospector rebase conflict resolver', () => {
           markers: ['one'],
           hostSamples: ['one.vendor.example'],
           hostHits: { 'one.vendor.example': 1 },
+          hostEmployers: { 'one.vendor.example': ['one.example'] },
+          hostEmployerUnknown: { 'base.vendor.example': true },
           pathHits: {},
           listingPaths: [],
           tenantCount: 1,
@@ -536,6 +538,9 @@ describe('Prospector rebase conflict resolver', () => {
     upstream.platforms.vendor.seenOn.push('two.example');
     upstream.platforms.vendor.hostHits['one.vendor.example'] = 2;
     upstream.platforms.vendor.hostHits['two.vendor.example'] = 2;
+    upstream.platforms.vendor.hostEmployers['one.vendor.example'].push('two.example');
+    upstream.platforms.vendor.hostEmployers['two.vendor.example'] = ['two.example'];
+    upstream.platforms.vendor.hostEmployerUnknown['upstream.vendor.example'] = true;
     upstream.platforms.vendor.tenantCount = 2;
     upstream.platforms.vendor.lastExpandedAt = iso(1000);
     upstream.platforms.vendor.expansionRetryHosts = [{ host: 'upstream.vendor.example', attempts: 1 }];
@@ -543,6 +548,8 @@ describe('Prospector rebase conflict resolver', () => {
     local.platforms.vendor.status = 'supported';
     local.platforms.vendor.seenOn.push('three.example');
     local.platforms.vendor.hostHits['one.vendor.example'] = 3;
+    local.platforms.vendor.hostEmployers['one.vendor.example'].push('three.example');
+    local.platforms.vendor.hostEmployerUnknown['local.vendor.example'] = true;
     local.platforms.vendor.tenantCount = 3;
     local.platforms.vendor.lastExpandedAt = iso(2000);
     local.platforms.vendor.expansionRetryHosts = [{ host: 'local.vendor.example', attempts: 2 }];
@@ -551,6 +558,15 @@ describe('Prospector rebase conflict resolver', () => {
     expect(merged.platforms.vendor.status).toBe('supported');
     expect(merged.platforms.vendor.seenOn).toEqual(['one.example', 'two.example', 'three.example']);
     expect(merged.platforms.vendor.hostHits).toEqual({ 'one.vendor.example': 4, 'two.vendor.example': 2 });
+    expect(merged.platforms.vendor.hostEmployers).toEqual({
+      'one.vendor.example': ['one.example', 'three.example', 'two.example'],
+      'two.vendor.example': ['two.example'],
+    });
+    expect(merged.platforms.vendor.hostEmployerUnknown).toEqual({
+      'base.vendor.example': true,
+      'local.vendor.example': true,
+      'upstream.vendor.example': true,
+    });
     expect(merged.platforms.vendor.tenantCount).toBe(3);
     expect(merged.platforms.vendor.expansionRetryHosts).toEqual([
       { host: 'local.vendor.example', attempts: 2 },

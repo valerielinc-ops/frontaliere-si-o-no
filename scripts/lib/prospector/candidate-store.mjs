@@ -43,24 +43,30 @@ import { loadRegistry } from './platform-registry.mjs';
  * @returns {string}
  */
 export function candidateKey(c) {
-  const domain = candidateEmployerDomain(c?.domain);
-  if (domain) return domain;
+  // Do not reduce a candidate URL to its registrable host here: that discards
+  // a shared ATS tenant path and can make different employers share one key.
+  const employerDomain = candidateEmployerDomain(c?.domain);
+  if (employerDomain) return employerDomain;
   const n = normalizeCompanyName(c.name || '').replace(/\s+/g, '-');
   const city = String(c.city || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return [n, city].filter(Boolean).join('@') || `unknown-${Math.abs(hash(JSON.stringify(c)))}`;
 }
 
-let sharedPlatformDomains;
+let platformEntriesByDomain;
+
+function platformEntryForDomain(domain) {
+  if (!platformEntriesByDomain) {
+    const registry = loadRegistry();
+    platformEntriesByDomain = new Map(Object.entries(registry.platforms || {})
+      .map(([key, platform]) => [registrableCandidateDomain(platform?.domain || key), platform])
+      .filter(([registrable]) => Boolean(registrable)));
+  }
+  return platformEntriesByDomain.get(domain);
+}
 
 function isKnownSharedPlatformDomain(domain) {
-  if (!sharedPlatformDomains) {
-    const registry = loadRegistry();
-    sharedPlatformDomains = new Set(Object.entries(registry.platforms || {})
-      .filter(([, platform]) => platform?.status === 'confirmed' || platform?.status === 'supported')
-      .map(([key, platform]) => registrableCandidateDomain(platform?.domain || key))
-      .filter(Boolean));
-  }
-  return sharedPlatformDomains.has(domain);
+  const platform = platformEntryForDomain(domain);
+  return Boolean(platform && (platform.status === 'confirmed' || platform.status === 'supported'));
 }
 
 function candidateEmployerDomain(value) {
@@ -76,6 +82,14 @@ function candidateEmployerDomain(value) {
   const domain = registrableCandidateDomain(url.hostname);
   return domain && !isKnownSharedPlatformDomain(domain) ? domain : '';
 }
+
+const GENERIC_TENANT_NAMES = new Set([
+  'job', 'jobs', 'career', 'careers', 'career page', 'careers page', 'hiring', 'recruiting',
+  'vacancy', 'vacancies', 'apply', 'application', 'applications', 'board', 'boards',
+  'job board', 'job boards', 'jobboard', 'jobboards', 'company', 'home', 'www', 'api', 'ats',
+  'wd1', 'wd2', 'wd3', 'wd4', 'wd5', 'wd6', 'wd10', 'fa', 'ocs',
+  'eu', 'us', 'uk', 'ca', 'de', 'apac', 'emea', 'global', 'ch',
+]);
 
 /**
  * `prospect-expand` supplies `<tenant label>@<platform domain>` as a candidate
@@ -97,11 +111,15 @@ function hasVerifiedSubdomainTenantKey(suppliedKey, candidate, source) {
 
   const keyLabel = suppliedKey.slice(0, separator);
   const keyPlatform = suppliedKey.slice(separator + 1);
+  if (GENERIC_TENANT_NAMES.has(normalizeCompanyName(keyLabel))) return false;
   const sourcePlatform = String(source).slice('tenant:'.length);
   const platform = registrableCandidateDomain(candidate?.platform || sourcePlatform);
   const keyPlatformDomain = registrableCandidateDomain(keyPlatform);
   if (!platform || keyPlatform !== platform || keyPlatformDomain !== platform
     || registrableCandidateDomain(sourcePlatform) !== platform) return false;
+
+  const platformEntry = platformEntryForDomain(platform);
+  if (!platformEntry || !['subdomain', 'mixed'].includes(platformEntry.tenantShape)) return false;
 
   const rawTenantHost = String(candidate?.tenantHost || '').trim();
   if (!rawTenantHost) return false;
@@ -118,16 +136,69 @@ function hasVerifiedSubdomainTenantKey(suppliedKey, candidate, source) {
   const host = normalizeHost(tenantUrl.hostname);
   const hostPlatform = registrableCandidateDomain(host);
   const hostPrefix = host && host.endsWith(`.${platform}`) ? host.slice(0, -(platform.length + 1)) : '';
+  if (platformEntry.hostEmployerUnknown?.[host] === true) return false;
+  const hostEmployers = platformEntry.hostEmployers?.[host];
+  if (!Array.isArray(hostEmployers) || !hostEmployers.length) return false;
+  const verifiedOwners = hostEmployers.map(registrableCandidateDomain);
+  if (verifiedOwners.some((owner) => !owner || !owner.includes('.'))
+    || new Set(verifiedOwners).size !== 1) return false;
+  const candidateDomain = candidateIdentityDomain(candidate);
+  if (candidateDomain && candidateDomain !== verifiedOwners[0]) return false;
   return hostPlatform === platform && host !== platform
     && hostPrefix && !hostPrefix.includes('.') && tenantLabel(host) === keyLabel;
 }
-
-const GENERIC_TENANT_NAMES = new Set(['job', 'jobs', 'career', 'careers', 'hiring', 'recruiting', 'vacancies']);
 
 function hasEmployerSpecificTenantName(candidate) {
   const employerName = normalizeCompanyName(candidate?.name || '');
   const tenantHostLabel = normalizeCompanyName(tenantLabel(candidate?.tenantHost || ''));
   return Boolean(employerName && employerName !== tenantHostLabel && !GENERIC_TENANT_NAMES.has(employerName));
+}
+
+function subdomainTenantFallbackKey(candidate, source) {
+  if (!String(source || '').startsWith('tenant:')) return '';
+  const sourcePlatform = String(source).slice('tenant:'.length);
+  const platform = registrableCandidateDomain(candidate?.platform || sourcePlatform);
+  if (!platform || registrableCandidateDomain(sourcePlatform) !== platform) return '';
+  const platformEntry = platformEntryForDomain(platform);
+  if (!['subdomain', 'mixed'].includes(platformEntry?.tenantShape)) return '';
+
+  const rawTenantHost = typeof candidate?.tenantHost === 'string' ? candidate.tenantHost.trim() : '';
+  if (!rawTenantHost) return '';
+  let tenantUrl;
+  try {
+    tenantUrl = new URL(rawTenantHost.startsWith('//') ? `https:${rawTenantHost}`
+      : rawTenantHost.includes('://') ? rawTenantHost : `https://${rawTenantHost}`);
+  } catch {
+    return '';
+  }
+  if (!/^https?:$/.test(tenantUrl.protocol) || tenantUrl.pathname !== '/'
+    || tenantUrl.search || tenantUrl.hash) return '';
+
+  const host = normalizeHost(tenantUrl.hostname);
+  const hostPrefix = host && host.endsWith(`.${platform}`) ? host.slice(0, -(platform.length + 1)) : '';
+  if (registrableCandidateDomain(host) !== platform || !hostPrefix) return '';
+  const hostLabels = hostPrefix.split('.').map(normalizeCompanyName);
+  if (!hostLabels.some((label) => label && !GENERIC_TENANT_NAMES.has(label))) return '';
+  if (platformEntry.hostEmployerUnknown?.[host] === true) return '';
+  const owners = platformEntry.hostEmployers?.[host];
+  if (Array.isArray(owners) && owners.length) {
+    const verifiedOwners = owners.map(registrableCandidateDomain);
+    if (verifiedOwners.some((owner) => !owner || !owner.includes('.'))
+      || new Set(verifiedOwners).size !== 1) return '';
+  } else if (!(platform === 'umantis.com' && /^recruitingapp-\d+(?:\.de)?$/.test(hostPrefix))) {
+    // Unknown hosts on a mixed platform can still be shared front doors
+    // (`api.vendor.com`, `ats.vendor.com`). Their hostname alone cannot name
+    // an employer. Umantis tenant IDs have a stable, provider-specific shape.
+    return '';
+  }
+  return `tenant-host-${host.replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+}
+
+function normalizeTenantPathSegment(value) {
+  let decoded = String(value || '');
+  try { decoded = decodeURIComponent(decoded); } catch { /* preserve malformed escapes */ }
+  return decoded.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
 function pathTenantFallbackKey(candidate, source) {
@@ -136,12 +207,23 @@ function pathTenantFallbackKey(candidate, source) {
   const platform = registrableCandidateDomain(candidate?.platform || sourcePlatform);
   if (!platform || registrableCandidateDomain(sourcePlatform) !== platform) return '';
 
+  const platformEntry = platformEntryForDomain(platform);
   const rawTenantHost = typeof candidate?.tenantHost === 'string' ? candidate.tenantHost.trim() : '';
-  // `tenantHost` is the enumerator's tenant coordinate. When it is present,
-  // do not mistake a subdomain ATS's common listing route (`/Jobs/All`) for a
-  // tenant path. A careers URL can stand in only when that coordinate is absent
-  // and the URL is on the platform's root host.
-  const pathSources = rawTenantHost ? [rawTenantHost] : [candidate?.careersUrl];
+  let expectedHost = '';
+  if (rawTenantHost) {
+    try {
+      const tenantUrl = new URL(rawTenantHost.startsWith('//') ? `https:${rawTenantHost}`
+        : rawTenantHost.includes('://') ? rawTenantHost : `https://${rawTenantHost}`);
+      if (!/^https?:$/.test(tenantUrl.protocol)) return '';
+      expectedHost = normalizeHost(tenantUrl.hostname);
+    } catch {
+      return '';
+    }
+  }
+  // The enumerator supplies the tenant host separately from the candidate URL.
+  // On shared ATS hosts, the URL path carries the employer tenant id; on
+  // subdomain hosts, routes such as `/Jobs/All` are merely listing paths.
+  const pathSources = rawTenantHost ? [rawTenantHost, candidate?.careersUrl] : [candidate?.careersUrl];
   for (const raw of pathSources) {
     if (typeof raw !== 'string' || !raw.trim()) continue;
     let url;
@@ -150,16 +232,25 @@ function pathTenantFallbackKey(candidate, source) {
     } catch {
       continue;
     }
-    if (!/^https?:$/.test(url.protocol) || registrableCandidateDomain(url.hostname) !== platform
-      || (!rawTenantHost && normalizeHost(url.hostname) !== platform)) continue;
+    const host = normalizeHost(url.hostname);
+    if (!/^https?:$/.test(url.protocol) || registrableCandidateDomain(host) !== platform
+      || (expectedHost && host !== expectedHost)) continue;
+    const owners = platformEntry?.hostEmployers?.[host];
+    const distinctOwners = Array.isArray(owners)
+      ? new Set(owners.map(registrableCandidateDomain).filter((owner) => owner && owner.includes('.')))
+      : new Set();
+    const hostObserved = platformEntry?.hostSamples?.includes(host)
+      || Object.prototype.hasOwnProperty.call(platformEntry?.hostHits || {}, host)
+      || Object.prototype.hasOwnProperty.call(platformEntry?.hostEmployerUnknown || {}, host)
+      || Object.prototype.hasOwnProperty.call(platformEntry?.hostEmployers || {}, host);
+    const hostCarriesTenantPaths = platformEntry?.tenantShape === 'shared'
+      || (platformEntry?.tenantShape === 'mixed' && distinctOwners.size > 1);
+    if (!hostObserved || !hostCarriesTenantPaths) continue;
     const pathSegment = url.pathname.split('/').filter(Boolean)[0];
     if (!pathSegment) continue;
 
-    let decodedSegment = pathSegment;
-    try { decodedSegment = decodeURIComponent(pathSegment); } catch { /* keep the stable escaped form */ }
-    const slug = decodedSegment.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    const hostScope = normalizeHost(url.hostname).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const slug = normalizeTenantPathSegment(pathSegment);
+    const hostScope = host.replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     if (slug && hostScope) return `tenant-${slug}@${hostScope}`;
   }
   return '';
@@ -521,6 +612,108 @@ function rejectionDate(candidate) {
   return String(candidate.rejectedAt || candidate.updatedAt || candidate.firstSeenAt || new Date().toISOString());
 }
 
+function normalizeTenantCoordinate(value) {
+  const tenantHost = normalizeHost(value?.tenantHost || '');
+  if (!tenantHost || !tenantHost.includes('.')) return null;
+  const rawPath = String(value?.tenantPath || '').trim();
+  let tenantPath = '';
+  if (rawPath) {
+    tenantPath = normalizeTenantPathSegment(rawPath.replace(/^\/+|\/+$/g, '').split('/')[0]);
+  }
+  return { tenantHost, ...(tenantPath ? { tenantPath } : {}) };
+}
+
+function tenantCoordinate(candidate) {
+  const rawTenantHost = String(candidate?.tenantHost || '').trim();
+  const rawCareersUrl = String(candidate?.careersUrl || '').trim();
+  const raw = rawTenantHost || rawCareersUrl;
+  if (!raw) return null;
+  let url;
+  try {
+    url = new URL(raw.startsWith('//') ? `https:${raw}` : raw.includes('://') ? raw : `https://${raw}`);
+  } catch {
+    return null;
+  }
+  if (!/^https?:$/.test(url.protocol)) return null;
+  const host = normalizeHost(url.hostname);
+  if (!host || !host.includes('.')) return null;
+
+  const platform = platformEntryForDomain(registrableCandidateDomain(host));
+  const owners = platform?.hostEmployers?.[host];
+  const distinctOwners = Array.isArray(owners)
+    ? new Set(owners.map(registrableCandidateDomain).filter((owner) => owner && owner.includes('.')))
+    : new Set();
+  const pathCarriesTenant = platform?.tenantShape === 'shared'
+    || (platform?.tenantShape === 'mixed' && distinctOwners.size > 1);
+  let tenantPath = '';
+  if (pathCarriesTenant) {
+    const pathSources = [rawTenantHost, rawCareersUrl];
+    for (const pathSource of pathSources) {
+      if (!pathSource) continue;
+      let pathUrl;
+      try {
+        pathUrl = new URL(pathSource.startsWith('//') ? `https:${pathSource}`
+          : pathSource.includes('://') ? pathSource : `https://${pathSource}`);
+      } catch {
+        continue;
+      }
+      if (normalizeHost(pathUrl.hostname) !== host) continue;
+      const segment = pathUrl.pathname.split('/').filter(Boolean)[0];
+      if (!segment) continue;
+      tenantPath = normalizeTenantPathSegment(segment);
+      break;
+    }
+  }
+  return normalizeTenantCoordinate({ tenantHost: host, tenantPath });
+}
+
+function sameTenantCoordinate(left, right) {
+  const a = normalizeTenantCoordinate(left);
+  const b = normalizeTenantCoordinate(right);
+  return Boolean(a && b && a.tenantHost === b.tenantHost && a.tenantPath === b.tenantPath);
+}
+
+function legacyComposedTenantKeyMatchesHost(key, candidate) {
+  const separator = String(key || '').lastIndexOf('@');
+  if (separator <= 0 || separator === String(key).length - 1) return false;
+  const keyLabel = String(key).slice(0, separator);
+  const normalizedKeyLabel = normalizeCompanyName(keyLabel);
+  if (!normalizedKeyLabel || GENERIC_TENANT_NAMES.has(normalizedKeyLabel)) return false;
+
+  const keyPlatform = registrableCandidateDomain(String(key).slice(separator + 1));
+  const candidatePlatform = registrableCandidateDomain(candidate?.platform || candidate?.tenantHost || '');
+  if (!keyPlatform || candidatePlatform !== keyPlatform) return false;
+  const host = normalizeTenantCoordinate(tenantCoordinate(candidate))?.tenantHost;
+  if (!host || registrableCandidateDomain(host) !== keyPlatform) return false;
+  const hostPrefix = host.slice(0, -(keyPlatform.length + 1));
+  return normalizeCompanyName(hostPrefix.replace(/\./g, ' ')) === normalizedKeyLabel;
+}
+
+function rejectedTenantIdentityMatches(store, key, incoming) {
+  const incomingCoordinate = tenantCoordinate(incoming);
+  if (!incomingCoordinate) return false;
+
+  const candidateAtKey = store.candidates?.[key];
+  const rejectedCandidate = candidateAtKey?.status === 'rejected' ? candidateAtKey : null;
+  const tombstone = tombstonesFor(store)[key];
+  if (!rejectedCandidate && !tombstone) return false;
+
+  const storedCoordinates = [];
+  if (rejectedCandidate) {
+    const coordinate = tenantCoordinate(rejectedCandidate);
+    if (coordinate) storedCoordinates.push(coordinate);
+    if (sameTenantCoordinate(coordinate, incomingCoordinate)) return true;
+  }
+
+  const coordinates = Array.isArray(tombstone?.tenantCoordinates) ? tombstone.tenantCoordinates : [];
+  storedCoordinates.push(...coordinates);
+  if (coordinates.some((coordinate) => sameTenantCoordinate(coordinate, incomingCoordinate))) return true;
+  // Legacy tombstones predate coordinates. Preserve only an unambiguous
+  // non-generic composed label that appears in the tenant's own host prefix.
+  // Labels such as `career` and `jobs` are intentionally never enough.
+  return storedCoordinates.length === 0 && legacyComposedTenantKeyMatchesHost(key, incoming);
+}
+
 /** @param {ReturnType<typeof loadCandidates>} store */
 function boundTombstones(store) {
   const tombstones = tombstonesFor(store);
@@ -535,8 +728,9 @@ function boundTombstones(store) {
 }
 
 /**
- * Keep only the key and its first useful timestamp. Reasons, histories and
- * source payloads belong to the candidate record/ledger, not this guard.
+ * Keep a rejection timestamp and a small set of tenant coordinates. Reasons,
+ * histories and source payloads belong to the candidate record/ledger, not
+ * this guard.
  *
  * @param {ReturnType<typeof loadCandidates>} store
  * @param {Record<string, any>} candidate
@@ -549,9 +743,22 @@ function rememberRejected(store, candidate) {
   const hasKey = Object.prototype.hasOwnProperty.call(tombstones, key);
   const countBefore = tombstoneCount(tombstones);
   const current = tombstones[key];
-  if (!current || String(current.rejectedAt).localeCompare(rejectedAt) < 0) {
-    tombstones[key] = { rejectedAt };
+  const currentDate = typeof current === 'string' ? current : current?.rejectedAt;
+  const next = {
+    rejectedAt: !currentDate || String(currentDate).localeCompare(rejectedAt) < 0
+      ? rejectedAt : String(currentDate),
+  };
+  const coordinates = Array.isArray(current?.tenantCoordinates) ? current.tenantCoordinates : [];
+  const coordinate = tenantCoordinate(candidate);
+  const uniqueCoordinates = [];
+  for (const item of [...coordinates, ...(coordinate ? [coordinate] : [])]) {
+    const normalized = normalizeTenantCoordinate(item);
+    if (!normalized || uniqueCoordinates.some((existing) => sameTenantCoordinate(existing, normalized))) continue;
+    uniqueCoordinates.push(normalized);
+    if (uniqueCoordinates.length >= 8) break;
   }
+  if (uniqueCoordinates.length) next.tenantCoordinates = uniqueCoordinates;
+  tombstones[key] = next;
   if (!hasKey) TOMBSTONE_COUNTS.set(tombstones, countBefore + 1);
   boundTombstones(store);
 }
@@ -577,7 +784,18 @@ function normalizeStore(raw) {
   if (isObjectMap(raw.rejectedTombstones)) {
     for (const [key, value] of Object.entries(raw.rejectedTombstones)) {
       const rejectedAt = typeof value === 'string' ? value : value?.rejectedAt;
-      if (key && rejectedAt) store.rejectedTombstones[key] = { rejectedAt: String(rejectedAt) };
+      if (!key || !rejectedAt) continue;
+      const tombstone = { rejectedAt: String(rejectedAt) };
+      const coordinates = Array.isArray(value?.tenantCoordinates) ? value.tenantCoordinates : [];
+      const normalizedCoordinates = [];
+      for (const coordinate of coordinates) {
+        const normalized = normalizeTenantCoordinate(coordinate);
+        if (!normalized || normalizedCoordinates.some((existing) => sameTenantCoordinate(existing, normalized))) continue;
+        normalizedCoordinates.push(normalized);
+        if (normalizedCoordinates.length >= 8) break;
+      }
+      if (normalizedCoordinates.length) tombstone.tenantCoordinates = normalizedCoordinates;
+      store.rejectedTombstones[key] = tombstone;
     }
   }
   if (isObjectMap(raw.candidateAliases)) {
@@ -1000,7 +1218,7 @@ export function requeueLegacyNoVacancyCandidates(store, limit, ledgerFile) {
  * @param {ReturnType<typeof loadCandidates>} store
  * @param {Object} incoming
  * @param {string} source
- * @returns {{ key: string, created: boolean }}
+ * @returns {{ key: string|null, created: boolean, rejected?: boolean, reason?: string }}
  */
 export function upsertCandidate(store, incoming, source) {
   const originalDomain = typeof incoming?.domain === 'string' ? incoming.domain.trim() : '';
@@ -1020,6 +1238,14 @@ export function upsertCandidate(store, incoming, source) {
   const keyLooksLikeHost = suppliedKey.includes('.') && !suppliedKey.includes('@');
   const suppliedKeyIsTombstoned = Boolean(suppliedKey && tombstonesFor(store)[suppliedKey]);
   const safeTenantKey = hasVerifiedSubdomainTenantKey(suppliedKey, incoming, source);
+  const rejectedComposedTenantKey = String(source || '').startsWith('tenant:')
+    && suppliedKey.includes('@') && !safeTenantKey;
+  // A rejected legacy composed key may have been persisted under the old
+  // tenant identity policy. Do not let the new host-scoped fallback create a
+  // fresh record that bypasses that key's durable rejection.
+  if (rejectedComposedTenantKey && rejectedTenantIdentityMatches(store, suppliedKey, incoming)) {
+    return { key: suppliedKey, created: false };
+  }
   const safeSuppliedKey = !safeTenantKey ? ''
     : keyLooksLikeHost && !candidateEmployerDomain(suppliedKey)
       && !suppliedKeyIsTombstoned ? '' : suppliedKey;
@@ -1028,13 +1254,27 @@ export function upsertCandidate(store, incoming, source) {
   const invalidIdentityHint = [
     invalidDomain ? originalDomain : '',
     invalidHostKey ? suppliedKey : '',
+    rejectedComposedTenantKey ? `tenant-key:${suppliedKey}|host:${normalizeHost(incoming.tenantHost || '')}` : '',
   ].filter(Boolean).join('|');
   // An invalid suffix is not an identity and must not fall through to a
   // same-name key already in the store. If a company homepage independently
   // proves the identity, use it; otherwise isolate this unverified record.
+  const employerSpecificName = hasEmployerSpecificTenantName(incoming);
+  const hasNameAndCity = employerSpecificName && Boolean(normalizeIdentityCity(incoming.city));
+  const invalidDomainIsKnownSharedPlatform = invalidDomain
+    && isKnownSharedPlatformDomain(registrableCandidateDomain(originalDomain));
+  const rejectedTenantKeyIdentity = rejectedComposedTenantKey && !tenantPathKey
+    && (!invalidDomain || invalidDomainIsKnownSharedPlatform) && !invalidHostKey
+    ? verifiedIdentityDomain
+      || (hasNameAndCity ? candidateKey(incoming) : '')
+      || subdomainTenantFallbackKey(incoming, source)
+    : '';
+  if (rejectedComposedTenantKey && !tenantPathKey && !rejectedTenantKeyIdentity) {
+    return { key: null, created: false, rejected: true, reason: 'unverified_tenant_identity' };
+  }
   const unverifiedKey = `${candidateKey(incoming)}#unverified-${createHash('sha256')
     .update(invalidIdentityHint).digest('hex').slice(0, 12)}`;
-  const requestedKey = tenantPathKey || (invalidIdentityHint
+  const requestedKey = tenantPathKey || rejectedTenantKeyIdentity || (invalidIdentityHint
     ? verifiedIdentityDomain || unverifiedKey
     : safeSuppliedKey || candidateKey(incoming));
   if (incoming.key !== requestedKey) incoming = { ...incoming, key: requestedKey };
