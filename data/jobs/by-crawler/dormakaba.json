@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dormakaba",
-  "assembledAt": "2026-10-20T21:37:26.623Z",
+  "assembledAt": "2026-10-21T09:56:29.036Z",
   "jobs": [
     {
       "id": "dormakaba-11900",
@@ -33,7 +33,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11900/?locale=en_US",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:37:18.532Z",
+      "crawledAt": "2026-10-21T09:56:21.507Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -116,7 +116,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.532Z",
+      "crawledAt": "2026-10-21T09:56:21.507Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -196,7 +196,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.532Z",
+      "crawledAt": "2026-10-21T09:56:21.507Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -289,7 +289,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11917/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:37:18.531Z",
+      "crawledAt": "2026-10-21T09:56:21.502Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -390,7 +390,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:37:18.531Z",
+      "crawledAt": "2026-10-21T09:56:21.503Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -484,7 +484,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11909/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.531Z",
+      "crawledAt": "2026-10-21T09:56:21.506Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -603,7 +603,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T13:49:05.369Z"
+      "firstSeenAt": "2026-09-03T13:49:05.369Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "dormakaba-12323",
@@ -636,7 +637,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:37:18.528Z",
+      "crawledAt": "2026-10-21T09:56:21.499Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -713,7 +714,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12274/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.528Z",
+      "crawledAt": "2026-10-21T09:56:21.499Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -793,7 +794,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11908/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.528Z",
+      "crawledAt": "2026-10-21T09:56:21.499Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -873,7 +874,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.522Z",
+      "crawledAt": "2026-10-21T09:56:21.494Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -956,7 +957,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.521Z",
+      "crawledAt": "2026-10-21T09:56:21.493Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1037,7 +1038,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.521Z",
+      "crawledAt": "2026-10-21T09:56:21.494Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1112,7 +1113,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12019/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:37:18.520Z",
+      "crawledAt": "2026-10-21T09:56:21.492Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -1166,5 +1167,6 @@
       },
       "firstSeenAt": "2026-08-18T10:07:59.609Z"
     }
-  ]
+  ],
+  "runId": "39576413169"
 }

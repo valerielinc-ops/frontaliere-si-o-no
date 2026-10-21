@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-10-20T21:50:22.811Z",
+  "assembledAt": "2026-10-21T10:08:09.828Z",
   "jobs": [
     {
       "id": "omega-33168",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33168",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:50:17.468Z",
+      "crawledAt": "2026-10-21T10:08:03.773Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -131,7 +131,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33234",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:49:55.422Z",
+      "crawledAt": "2026-10-21T10:07:42.031Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -235,7 +235,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33245",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:49:32.173Z",
+      "crawledAt": "2026-10-21T10:07:20.400Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -406,7 +406,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "omega-33298",
@@ -439,7 +440,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33298",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:48:46.678Z",
+      "crawledAt": "2026-10-21T10:06:58.087Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -544,7 +545,7 @@
       "url": "https://www.swatchgroup.com/en/job/33305",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:48:24.646Z",
+      "crawledAt": "2026-10-21T10:06:36.273Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -632,7 +633,7 @@
       "url": "https://www.swatchgroup.com/de/job/33345",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:48:03.193Z",
+      "crawledAt": "2026-10-21T10:06:13.537Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -714,7 +715,7 @@
       "url": "https://www.swatchgroup.com/de/job/33509",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:47:41.421Z",
+      "crawledAt": "2026-10-21T10:05:29.713Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -805,7 +806,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33527",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:47:19.832Z",
+      "crawledAt": "2026-10-21T10:05:07.855Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -889,7 +890,7 @@
       "url": "https://www.swatchgroup.com/en/job/33526",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:46:57.509Z",
+      "crawledAt": "2026-10-21T10:04:46.176Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -946,6 +947,94 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "omega-33427",
+      "slug": "product-manager-h-f-omega-biel-bienne",
+      "slugByLocale": {
+        "fr": "product-manager-h-f-omega-biel-bienne",
+        "it": "product-manager-h-f-omega-biel-bienne",
+        "en": "product-manager-h-f-omega-biel-bienne",
+        "de": "product-manager-h-f-omega-biel-bienne"
+      },
+      "company": "OMEGA SA",
+      "companyKey": "omega",
+      "companyDomain": "omegawatches.com",
+      "title": "PRODUCT MANAGER (H/F)",
+      "titleByLocale": {
+        "fr": "PRODUCT MANAGER (H/F)",
+        "en": "PRODUCT MANAGER (H/F)",
+        "it": "PRODUCT MANAGER (H/F)",
+        "de": "PRODUCT MANAGER (H/F)"
+      },
+      "description": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Assurer le développement des nouveaux produits en respectant les coûts, délais, marges ainsi que leurs industrialisations\n\n• Participation aux briefs des nouveaux produits issus de la stratégie produit de la marque\n\n• Gérer la planification des nouveaux produits en se basant sur le processus de développement défini\n\n• Etablir les documents en lien avec processus de développement produit\n\n• Collaborer avec l’ensemble des départements internes et des partenaires externes\n\n• Assurer les présentations des nouveaux produits aux différents marchés\n\n• Proposer spontanément des solutions d’amélioration et/ou d’innovation\n\n## Profil\n• Plusieurs années d’expérience dans une fonction similaire\n\n• Au bénéfice d’un diplôme d’une haute école de gestion ou d’ingénieur\n\n## Compétences requises\n• Maîtrise des outils informatiques (Microsoft Office, Adobe, SAP)\n\n• Sens du leadership\n\n• Autonome, organisé et à l’aise en équipe\n\n• Ouvert, dynamique, créatif\n\n## Langues\n• Parfaitement bilingue en français et anglais\n\n• La connaissance de l'allemand constitue un atout",
+      "descriptionByLocale": {
+        "fr": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Assurer le développement des nouveaux produits en respectant les coûts, délais, marges ainsi que leurs industrialisations\n\n• Participation aux briefs des nouveaux produits issus de la stratégie produit de la marque\n\n• Gérer la planification des nouveaux produits en se basant sur le processus de développement défini\n\n• Etablir les documents en lien avec processus de développement produit\n\n• Collaborer avec l’ensemble des départements internes et des partenaires externes\n\n• Assurer les présentations des nouveaux produits aux différents marchés\n\n• Proposer spontanément des solutions d’amélioration et/ou d’innovation\n\n## Profil\n• Plusieurs années d’expérience dans une fonction similaire\n\n• Au bénéfice d’un diplôme d’une haute école de gestion ou d’ingénieur\n\n## Compétences requises\n• Maîtrise des outils informatiques (Microsoft Office, Adobe, SAP)\n\n• Sens du leadership\n\n• Autonome, organisé et à l’aise en équipe\n\n• Ouvert, dynamique, créatif\n\n## Langues\n• Parfaitement bilingue en français et anglais\n\n• La connaissance de l'allemand constitue un atout",
+        "it": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Assurer le développement des nouveaux produits en respectant les coûts, délais, marges ainsi que leurs industrialisations\n\n• Participation aux briefs des nouveaux produits issus de la stratégie produit de la marque\n\n• Gérer la planification des nouveaux produits en se basant sur le processus de développement défini\n\n• Etablir les documents en lien avec processus de développement produit\n\n• Collaborer avec l’ensemble des départements internes et des partenaires externes\n\n• Assurer les présentations des nouveaux produits aux différents marchés\n\n• Proposer spontanément des solutions d’amélioration et/ou d’innovation\n\n## Profil\n• Plusieurs années d’expérience dans une fonction similaire\n\n• Au bénéfice d’un diplôme d’une haute école de gestion ou d’ingénieur\n\n## Compétences requises\n• Maîtrise des outils informatiques (Microsoft Office, Adobe, SAP)\n\n• Sens du leadership\n\n• Autonome, organisé et à l’aise en équipe\n\n• Ouvert, dynamique, créatif\n\n## Langues\n• Parfaitement bilingue en français et anglais\n\n• La connaissance de l'allemand constitue un atout",
+        "en": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Assurer le développement des nouveaux produits en respectant les coûts, délais, marges ainsi que leurs industrialisations\n\n• Participation aux briefs des nouveaux produits issus de la stratégie produit de la marque\n\n• Gérer la planification des nouveaux produits en se basant sur le processus de développement défini\n\n• Etablir les documents en lien avec processus de développement produit\n\n• Collaborer avec l’ensemble des départements internes et des partenaires externes\n\n• Assurer les présentations des nouveaux produits aux différents marchés\n\n• Proposer spontanément des solutions d’amélioration et/ou d’innovation\n\n## Profil\n• Plusieurs années d’expérience dans une fonction similaire\n\n• Au bénéfice d’un diplôme d’une haute école de gestion ou d’ingénieur\n\n## Compétences requises\n• Maîtrise des outils informatiques (Microsoft Office, Adobe, SAP)\n\n• Sens du leadership\n\n• Autonome, organisé et à l’aise en équipe\n\n• Ouvert, dynamique, créatif\n\n## Langues\n• Parfaitement bilingue en français et anglais\n\n• La connaissance de l'allemand constitue un atout",
+        "de": "## Introduction de la société\nOMEGA est une prestigieuse marque horlogère mondialement connue pour ses exigences de qualité, précision et innovation depuis plus de 170 ans. Nos montres comptent parmi les plus belles au monde et se caractérisent par leur technologie de pointe et leur style intemporel.\n\nAu cours de notre longue histoire, nous avons battu des records de précision, redéfini le chronométrage sportif et maintenu notre position à la pointe de la Haute Horlogerie.\n\nEn tant que marque internationale, nous sommes toujours intéressés à rencontrer de futurs collègues souhaitant contribuer au travail de nos équipes sur presque chaque continent à l'aide de leurs talents, ambitions et inspirations.\n\n## Description du poste\n• Assurer le développement des nouveaux produits en respectant les coûts, délais, marges ainsi que leurs industrialisations\n\n• Participation aux briefs des nouveaux produits issus de la stratégie produit de la marque\n\n• Gérer la planification des nouveaux produits en se basant sur le processus de développement défini\n\n• Etablir les documents en lien avec processus de développement produit\n\n• Collaborer avec l’ensemble des départements internes et des partenaires externes\n\n• Assurer les présentations des nouveaux produits aux différents marchés\n\n• Proposer spontanément des solutions d’amélioration et/ou d’innovation\n\n## Profil\n• Plusieurs années d’expérience dans une fonction similaire\n\n• Au bénéfice d’un diplôme d’une haute école de gestion ou d’ingénieur\n\n## Compétences requises\n• Maîtrise des outils informatiques (Microsoft Office, Adobe, SAP)\n\n• Sens du leadership\n\n• Autonome, organisé et à l’aise en équipe\n\n• Ouvert, dynamique, créatif\n\n## Langues\n• Parfaitement bilingue en français et anglais\n\n• La connaissance de l'allemand constitue un atout"
+      },
+      "location": "Biel/Bienne",
+      "canton": "BE",
+      "url": "https://www.swatchgroup.com/fr/job/33427",
+      "source": "OMEGA SA Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-21T10:05:51.708Z",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2502",
+      "streetAddress": "Rue Jakob-Stämpfli - Jakob-Stämpfli-Strasse 96",
+      "category": "Management",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Orologeria di lusso",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21T09:22:19+02:00",
+      "postedDate": "2026-10-21T09:22:19+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://apply5.lumessetalentlink.com/apply-app/pages/application-form?jobId=PQVFK026203F3VBQB8NLO79O6-279189&langCode=fr_FR&source=swatchgroup.com",
+      "requirements": [
+        "Plusieurs années d’expérience dans une fonction similaire",
+        "Au bénéfice d’un diplôme d’une haute école de gestion ou d’ingénieur",
+        "Maîtrise des outils informatiques (Microsoft Office, Adobe, SAP)",
+        "Sens du leadership",
+        "Autonome, organisé et à l’aise en équipe",
+        "Ouvert, dynamique, créatif",
+        "Parfaitement bilingue en français et anglais",
+        "La connaissance de l'allemand constitue un atout"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Plusieurs années d’expérience dans une fonction similaire",
+          "Au bénéfice d’un diplôme d’une haute école de gestion ou d’ingénieur",
+          "Maîtrise des outils informatiques (Microsoft Office, Adobe, SAP)",
+          "Sens du leadership",
+          "Autonome, organisé et à l’aise en équipe",
+          "Ouvert, dynamique, créatif",
+          "Parfaitement bilingue en français et anglais",
+          "La connaissance de l'allemand constitue un atout"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-21T10:05:51.708Z"
     }
-  ]
+  ],
+  "runId": "39576413169"
 }

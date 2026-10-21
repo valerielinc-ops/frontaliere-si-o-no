@@ -1,7 +1,7 @@
 {
   "key": "seniorenzentrum-engelhof",
   "label": "Seniorenzentrum Engelhof",
-  "generatedAt": "2026-10-20T21:43:00.037Z",
+  "generatedAt": "2026-10-21T10:04:43.411Z",
   "total": 2,
   "discovered": 4,
   "parsed": 2,
@@ -15,16 +15,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8854,
-  "avgDurationMs": 8854,
+  "durationMs": 9291,
+  "avgDurationMs": 9291,
   "durationHistory": [
-    8854
+    9291
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "seniorenzentrum-engelhof-c355fb1536e4",
       "slug": "lernende-r-fachfrau-fachmann-gesundheit-efz-altendorf-seniorenzentrum-engelhof",
@@ -37,7 +38,7 @@
       "url": "https://www.sozjobs.ch/job/lernende-r-fachfrau-fachmann-gesundheit-efz/J993250/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925",
       "source": "Seniorenzentrum Engelhof Dedicated Parser (official career board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:42:48.666Z",
+      "crawledAt": "2026-10-21T10:04:32.004Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -80,7 +81,7 @@
       "url": "https://www.sozjobs.ch/job/lernende-r-assistent-in-gesundheit-soziales-eba/J993249/partnerDetail/easypublish/widgetid/C340F41D-F9B5-4321-9E415FE28675D925",
       "source": "Seniorenzentrum Engelhof Dedicated Parser (official career board)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:42:48.664Z",
+      "crawledAt": "2026-10-21T10:04:32.002Z",
       "addressLocality": "Altendorf",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -112,8 +113,7 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

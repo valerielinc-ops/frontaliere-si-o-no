@@ -1,6 +1,6 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-10-20T21:40:20.996Z",
+  "assembledAt": "2026-10-21T09:59:42.464Z",
   "jobs": [
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -33,7 +33,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:05.952Z",
+      "crawledAt": "2026-10-21T09:59:36.603Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:05.606Z",
+      "crawledAt": "2026-10-21T09:59:36.230Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -213,7 +213,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:05.255Z",
+      "crawledAt": "2026-10-21T09:59:35.841Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:04.912Z",
+      "crawledAt": "2026-10-21T09:59:35.492Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -429,7 +429,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2080-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:04.560Z",
+      "crawledAt": "2026-10-21T09:59:35.111Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -512,7 +512,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:04.194Z",
+      "crawledAt": "2026-10-21T09:59:34.749Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -639,7 +639,8 @@
       "firstSeenAt": "2026-10-20T21:40:03.820Z",
       "previousSlugsByLocale": {
         "it": [
-          "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+          "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+          "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch-2"
         ],
         "en": [
           "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
@@ -649,8 +650,10 @@
         ]
       },
       "previousSlugs": [
-        "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
-      ]
+        "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+        "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch-2"
+      ],
+      "crawlerMissStreak": 1
     },
     {
       "id": "flury-stiftung-d2d90052d654",
@@ -683,7 +686,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:00.414Z",
+      "crawledAt": "2026-10-21T09:59:33.590Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -766,7 +769,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:40:00.023Z",
+      "crawledAt": "2026-10-21T09:59:33.231Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -850,7 +853,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:59.670Z",
+      "crawledAt": "2026-10-21T09:59:32.879Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -939,7 +942,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:59.309Z",
+      "crawledAt": "2026-10-21T09:59:32.526Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1029,7 +1032,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:58.942Z",
+      "crawledAt": "2026-10-21T09:59:32.132Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1127,7 +1130,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FaGe%20f%C3%BCr%20Tagesklinik%20Aufwachraum%20Notfall%20IMC%2080-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:58.575Z",
+      "crawledAt": "2026-10-21T09:59:31.773Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1210,7 +1213,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Dipl.%20Pflegefachperson%20IMC%20Notfall%2080-%20100%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:58.217Z",
+      "crawledAt": "2026-10-21T09:59:31.415Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1297,7 +1300,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:57.833Z",
+      "crawledAt": "2026-10-21T09:59:30.411Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1380,7 +1383,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Wundfachperson.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:57.471Z",
+      "crawledAt": "2026-10-21T09:59:30.022Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1463,7 +1466,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:57.088Z",
+      "crawledAt": "2026-10-21T09:59:27.261Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1550,7 +1553,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:56.690Z",
+      "crawledAt": "2026-10-21T09:59:26.888Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1633,7 +1636,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:56.323Z",
+      "crawledAt": "2026-10-21T09:59:26.522Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1716,7 +1719,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Mitarbeiter_in%20Hauswirtschaft%2060%25%20Jenaz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:55.932Z",
+      "crawledAt": "2026-10-21T09:59:26.155Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1772,9 +1775,9 @@
       "id": "flury-stiftung-e13efdf0d605",
       "slug": "addetto-a-all-amministrazione-clienti-80-flury-stiftung-schiers-58b49490c8",
       "slugByLocale": {
-        "de": "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
         "it": "addetto-a-all-amministrazione-clienti-80-flury-stiftung-schiers-58b49490c8",
         "en": "customer-administration-specialist-80-flury-stiftung-schiers",
+        "de": "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
         "fr": "collaborateur-rice-administration-clientele-80-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
@@ -1799,7 +1802,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Mitarbeiterin%20Kundenadministration%2080%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:55.535Z",
+      "crawledAt": "2026-10-21T09:59:25.778Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1821,16 +1824,17 @@
       "pensum": "80%",
       "pensumMin": 80,
       "pensumMax": 80,
+      "previousSlugs": [
+        "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
+        "addetto-a-all-amministrazione-clienti-80-flury-stiftung-schiers"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
           "addetto-a-all-amministrazione-clienti-80-flury-stiftung-schiers"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-kundenadministration-80-flury-stiftung-ch",
-        "addetto-a-all-amministrazione-clienti-80-flury-stiftung-schiers"
-      ],
+      "firstSeenAt": "2026-10-20T09:30:53.098Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
       "salarySource": "estimated",
@@ -1844,8 +1848,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-10-20T09:30:53.098Z"
+      "addressRegion": "GR"
     },
     {
       "id": "flury-stiftung-13aa5d8ec5fe",
@@ -1878,7 +1881,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-09/Mitarbeiter_in%20Patientenanmeldung%2080%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:39:55.113Z",
+      "crawledAt": "2026-10-21T09:59:25.021Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -2020,7 +2023,80 @@
       },
       "addressRegion": "GR",
       "firstSeenAt": "2026-10-20T09:30:53.098Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
+    },
+    {
+      "id": "flury-stiftung-f18e892d8c2c",
+      "slug": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+      "slugByLocale": {
+        "de": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+        "it": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+        "en": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch",
+        "fr": "stationsleitung-demenz-80-100-altersheim-jenaz-flury-stiftung-ch"
+      },
+      "company": "Flury Stiftung",
+      "companyKey": "flury-stiftung",
+      "companyDomain": "flurystiftung.ch",
+      "title": "Stationsleitung Demenz 80 - 100%, Altersheim Jenaz",
+      "titleByLocale": {
+        "de": "Stationsleitung Demenz 80 - 100%, Altersheim Jenaz",
+        "fr": "Stationsleitung Demenz 80 - 100%, Altersheim Jenaz",
+        "it": "Stationsleitung Demenz 80 - 100%, Altersheim Jenaz",
+        "en": "Stationsleitung Demenz 80 - 100%, Altersheim Jenaz"
+      },
+      "description": "Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizinischen Zent- rum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das moderne Altersheim Jenaz im wunderschönen Vorderprättigau bietet rund 70 Bewohnerinnen und Bewoh- nern ein liebevolles Zuhause. Wir suchen per 01.04.2027 oder nach Vereinbarung für unsere Station «Menschen mit Demenz» eine Stationsleitung Demenz 80 - 100 %\n\nDas erwartet dich:\n\n- Du führst unsere Demenzstation mit 20 Betten fachlich und personell.\n\n- Du gestaltest zusammen mit der Leitung Pflege die Weiterentwicklung der Station aktiv mit und sorgst für eine\n\nhohe Pflege- und Betreuungsqualität.\n\n- Auf deine Stellvertretung kannst du zählen und wirst in deiner Führungsaufgabe unterstützt.\n\n- Bei der Auswahl neuer Mitarbeitender bringst du deine Meinung und dein Fachwissen aktiv ein.\n\n- Du pflegst einen wertschätzenden Austausch mit Angehörigen, Ärzten und weiteren Fachpersonen.\n\n- Eine gute Zusammenarbeit im Pflegekader ist für dich selbstverständlich.\n\n- Du bleibst nahe bei den Bewohnerinnen und Bewohnern und arbeitest auch in der direkten Pflege mit. Deine\n\nBürozeiten planst du dabei flexibel und eigenverantwortlich.\n\nDas bringst Du mit:\n\n- Ausbildung als Pflegefachperson HF/FH oder Fachperson Gesundheit mit Führungserfahrung bzw. eine gleich-\n\nwertige, vom SRK anerkannte Ausbildung.\n\n- Idealerweise Berufserfahrung in der Langzeitpflege.\n\n- Freude an Führung, Teamarbeit und der Begleitung von Menschen mit Demenz.\n\n- Hohe Sozialkompetenz, Belastbarkeit und Verantwortungsbewusstsein.\n\n- Organisationstalent sowie stilsichere Kommunikationsfähigkeiten.\n\n- Gute Anwenderkenntnisse in den gängigen IT-Systemen.\n\nDarauf kannst du dich freuen:\n\n- Eine moderne, helle und wertschätzende Arbeitsumgebung\n\n- Viel Gestaltungsspielraum und die Möglichkeit, etwas zu bewegen\n\n- Ein motiviertes und engagiertes Team, das zusammenhält\n\n- Regelmässige Arbeitszeiten und eine gute Work-Life-Balance\n\n- Attraktive Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Kinderkrippe sowie weitere attraktive Mitarbeitenden-Benefits\n\n- Ein innovatives Unternehmen mit Entwicklungsmöglichkeiten und Perspektiven\n\nErstfragen beantwortet dir gerne Anna Katharina Castelberg, Bereichsleitung Pflege, Telefon +41 81 308 01 07. Weitere Informationen zur Flury Stiftung findest du im Internet: www.flurystiftung.ch Wir freuen uns auf deine Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch",
+      "descriptionByLocale": {
+        "de": "Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizinischen Zent- rum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das moderne Altersheim Jenaz im wunderschönen Vorderprättigau bietet rund 70 Bewohnerinnen und Bewoh- nern ein liebevolles Zuhause. Wir suchen per 01.04.2027 oder nach Vereinbarung für unsere Station «Menschen mit Demenz» eine Stationsleitung Demenz 80 - 100 %\n\nDas erwartet dich:\n\n- Du führst unsere Demenzstation mit 20 Betten fachlich und personell.\n\n- Du gestaltest zusammen mit der Leitung Pflege die Weiterentwicklung der Station aktiv mit und sorgst für eine\n\nhohe Pflege- und Betreuungsqualität.\n\n- Auf deine Stellvertretung kannst du zählen und wirst in deiner Führungsaufgabe unterstützt.\n\n- Bei der Auswahl neuer Mitarbeitender bringst du deine Meinung und dein Fachwissen aktiv ein.\n\n- Du pflegst einen wertschätzenden Austausch mit Angehörigen, Ärzten und weiteren Fachpersonen.\n\n- Eine gute Zusammenarbeit im Pflegekader ist für dich selbstverständlich.\n\n- Du bleibst nahe bei den Bewohnerinnen und Bewohnern und arbeitest auch in der direkten Pflege mit. Deine\n\nBürozeiten planst du dabei flexibel und eigenverantwortlich.\n\nDas bringst Du mit:\n\n- Ausbildung als Pflegefachperson HF/FH oder Fachperson Gesundheit mit Führungserfahrung bzw. eine gleich-\n\nwertige, vom SRK anerkannte Ausbildung.\n\n- Idealerweise Berufserfahrung in der Langzeitpflege.\n\n- Freude an Führung, Teamarbeit und der Begleitung von Menschen mit Demenz.\n\n- Hohe Sozialkompetenz, Belastbarkeit und Verantwortungsbewusstsein.\n\n- Organisationstalent sowie stilsichere Kommunikationsfähigkeiten.\n\n- Gute Anwenderkenntnisse in den gängigen IT-Systemen.\n\nDarauf kannst du dich freuen:\n\n- Eine moderne, helle und wertschätzende Arbeitsumgebung\n\n- Viel Gestaltungsspielraum und die Möglichkeit, etwas zu bewegen\n\n- Ein motiviertes und engagiertes Team, das zusammenhält\n\n- Regelmässige Arbeitszeiten und eine gute Work-Life-Balance\n\n- Attraktive Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Kinderkrippe sowie weitere attraktive Mitarbeitenden-Benefits\n\n- Ein innovatives Unternehmen mit Entwicklungsmöglichkeiten und Perspektiven\n\nErstfragen beantwortet dir gerne Anna Katharina Castelberg, Bereichsleitung Pflege, Telefon +41 81 308 01 07. Weitere Informationen zur Flury Stiftung findest du im Internet: www.flurystiftung.ch Wir freuen uns auf deine Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch",
+        "it": "Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizinischen Zent- rum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das moderne Altersheim Jenaz im wunderschönen Vorderprättigau bietet rund 70 Bewohnerinnen und Bewoh- nern ein liebevolles Zuhause. Wir suchen per 01.04.2027 oder nach Vereinbarung für unsere Station «Menschen mit Demenz» eine Stationsleitung Demenz 80 - 100 %\n\nDas erwartet dich:\n\n- Du führst unsere Demenzstation mit 20 Betten fachlich und personell.\n\n- Du gestaltest zusammen mit der Leitung Pflege die Weiterentwicklung der Station aktiv mit und sorgst für eine\n\nhohe Pflege- und Betreuungsqualität.\n\n- Auf deine Stellvertretung kannst du zählen und wirst in deiner Führungsaufgabe unterstützt.\n\n- Bei der Auswahl neuer Mitarbeitender bringst du deine Meinung und dein Fachwissen aktiv ein.\n\n- Du pflegst einen wertschätzenden Austausch mit Angehörigen, Ärzten und weiteren Fachpersonen.\n\n- Eine gute Zusammenarbeit im Pflegekader ist für dich selbstverständlich.\n\n- Du bleibst nahe bei den Bewohnerinnen und Bewohnern und arbeitest auch in der direkten Pflege mit. Deine\n\nBürozeiten planst du dabei flexibel und eigenverantwortlich.\n\nDas bringst Du mit:\n\n- Ausbildung als Pflegefachperson HF/FH oder Fachperson Gesundheit mit Führungserfahrung bzw. eine gleich-\n\nwertige, vom SRK anerkannte Ausbildung.\n\n- Idealerweise Berufserfahrung in der Langzeitpflege.\n\n- Freude an Führung, Teamarbeit und der Begleitung von Menschen mit Demenz.\n\n- Hohe Sozialkompetenz, Belastbarkeit und Verantwortungsbewusstsein.\n\n- Organisationstalent sowie stilsichere Kommunikationsfähigkeiten.\n\n- Gute Anwenderkenntnisse in den gängigen IT-Systemen.\n\nDarauf kannst du dich freuen:\n\n- Eine moderne, helle und wertschätzende Arbeitsumgebung\n\n- Viel Gestaltungsspielraum und die Möglichkeit, etwas zu bewegen\n\n- Ein motiviertes und engagiertes Team, das zusammenhält\n\n- Regelmässige Arbeitszeiten und eine gute Work-Life-Balance\n\n- Attraktive Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Kinderkrippe sowie weitere attraktive Mitarbeitenden-Benefits\n\n- Ein innovatives Unternehmen mit Entwicklungsmöglichkeiten und Perspektiven\n\nErstfragen beantwortet dir gerne Anna Katharina Castelberg, Bereichsleitung Pflege, Telefon +41 81 308 01 07. Weitere Informationen zur Flury Stiftung findest du im Internet: www.flurystiftung.ch Wir freuen uns auf deine Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch",
+        "en": "Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizinischen Zent- rum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das moderne Altersheim Jenaz im wunderschönen Vorderprättigau bietet rund 70 Bewohnerinnen und Bewoh- nern ein liebevolles Zuhause. Wir suchen per 01.04.2027 oder nach Vereinbarung für unsere Station «Menschen mit Demenz» eine Stationsleitung Demenz 80 - 100 %\n\nDas erwartet dich:\n\n- Du führst unsere Demenzstation mit 20 Betten fachlich und personell.\n\n- Du gestaltest zusammen mit der Leitung Pflege die Weiterentwicklung der Station aktiv mit und sorgst für eine\n\nhohe Pflege- und Betreuungsqualität.\n\n- Auf deine Stellvertretung kannst du zählen und wirst in deiner Führungsaufgabe unterstützt.\n\n- Bei der Auswahl neuer Mitarbeitender bringst du deine Meinung und dein Fachwissen aktiv ein.\n\n- Du pflegst einen wertschätzenden Austausch mit Angehörigen, Ärzten und weiteren Fachpersonen.\n\n- Eine gute Zusammenarbeit im Pflegekader ist für dich selbstverständlich.\n\n- Du bleibst nahe bei den Bewohnerinnen und Bewohnern und arbeitest auch in der direkten Pflege mit. Deine\n\nBürozeiten planst du dabei flexibel und eigenverantwortlich.\n\nDas bringst Du mit:\n\n- Ausbildung als Pflegefachperson HF/FH oder Fachperson Gesundheit mit Führungserfahrung bzw. eine gleich-\n\nwertige, vom SRK anerkannte Ausbildung.\n\n- Idealerweise Berufserfahrung in der Langzeitpflege.\n\n- Freude an Führung, Teamarbeit und der Begleitung von Menschen mit Demenz.\n\n- Hohe Sozialkompetenz, Belastbarkeit und Verantwortungsbewusstsein.\n\n- Organisationstalent sowie stilsichere Kommunikationsfähigkeiten.\n\n- Gute Anwenderkenntnisse in den gängigen IT-Systemen.\n\nDarauf kannst du dich freuen:\n\n- Eine moderne, helle und wertschätzende Arbeitsumgebung\n\n- Viel Gestaltungsspielraum und die Möglichkeit, etwas zu bewegen\n\n- Ein motiviertes und engagiertes Team, das zusammenhält\n\n- Regelmässige Arbeitszeiten und eine gute Work-Life-Balance\n\n- Attraktive Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Kinderkrippe sowie weitere attraktive Mitarbeitenden-Benefits\n\n- Ein innovatives Unternehmen mit Entwicklungsmöglichkeiten und Perspektiven\n\nErstfragen beantwortet dir gerne Anna Katharina Castelberg, Bereichsleitung Pflege, Telefon +41 81 308 01 07. Weitere Informationen zur Flury Stiftung findest du im Internet: www.flurystiftung.ch Wir freuen uns auf deine Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch",
+        "fr": "Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizinischen Zent- rum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das moderne Altersheim Jenaz im wunderschönen Vorderprättigau bietet rund 70 Bewohnerinnen und Bewoh- nern ein liebevolles Zuhause. Wir suchen per 01.04.2027 oder nach Vereinbarung für unsere Station «Menschen mit Demenz» eine Stationsleitung Demenz 80 - 100 %\n\nDas erwartet dich:\n\n- Du führst unsere Demenzstation mit 20 Betten fachlich und personell.\n\n- Du gestaltest zusammen mit der Leitung Pflege die Weiterentwicklung der Station aktiv mit und sorgst für eine\n\nhohe Pflege- und Betreuungsqualität.\n\n- Auf deine Stellvertretung kannst du zählen und wirst in deiner Führungsaufgabe unterstützt.\n\n- Bei der Auswahl neuer Mitarbeitender bringst du deine Meinung und dein Fachwissen aktiv ein.\n\n- Du pflegst einen wertschätzenden Austausch mit Angehörigen, Ärzten und weiteren Fachpersonen.\n\n- Eine gute Zusammenarbeit im Pflegekader ist für dich selbstverständlich.\n\n- Du bleibst nahe bei den Bewohnerinnen und Bewohnern und arbeitest auch in der direkten Pflege mit. Deine\n\nBürozeiten planst du dabei flexibel und eigenverantwortlich.\n\nDas bringst Du mit:\n\n- Ausbildung als Pflegefachperson HF/FH oder Fachperson Gesundheit mit Führungserfahrung bzw. eine gleich-\n\nwertige, vom SRK anerkannte Ausbildung.\n\n- Idealerweise Berufserfahrung in der Langzeitpflege.\n\n- Freude an Führung, Teamarbeit und der Begleitung von Menschen mit Demenz.\n\n- Hohe Sozialkompetenz, Belastbarkeit und Verantwortungsbewusstsein.\n\n- Organisationstalent sowie stilsichere Kommunikationsfähigkeiten.\n\n- Gute Anwenderkenntnisse in den gängigen IT-Systemen.\n\nDarauf kannst du dich freuen:\n\n- Eine moderne, helle und wertschätzende Arbeitsumgebung\n\n- Viel Gestaltungsspielraum und die Möglichkeit, etwas zu bewegen\n\n- Ein motiviertes und engagiertes Team, das zusammenhält\n\n- Regelmässige Arbeitszeiten und eine gute Work-Life-Balance\n\n- Attraktive Anstellungsbedingungen und grosszügige Sozialleistungen\n\n- Kinderkrippe sowie weitere attraktive Mitarbeitenden-Benefits\n\n- Ein innovatives Unternehmen mit Entwicklungsmöglichkeiten und Perspektiven\n\nErstfragen beantwortet dir gerne Anna Katharina Castelberg, Bereichsleitung Pflege, Telefon +41 81 308 01 07. Weitere Informationen zur Flury Stiftung findest du im Internet: www.flurystiftung.ch Wir freuen uns auf deine Bewerbungsunterlagen per E-Mail an hr@flurystiftung.ch"
+      },
+      "location": "Jenaz",
+      "canton": "GR",
+      "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Inserat_Stationsleitung_AHJ_Demenz_80-100_0_1.pdf",
+      "source": "Flury Stiftung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-21T09:59:34.387Z",
+      "addressLocality": "Jenaz",
+      "postalCode": "7233",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-10/Inserat_Stationsleitung_AHJ_Demenz_80-100_0_1.pdf",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Altersheime",
+      "pensum": "80 - 100%",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-20T21:40:03.820Z"
     }
-  ]
+  ],
+  "runId": "39576413169"
 }
