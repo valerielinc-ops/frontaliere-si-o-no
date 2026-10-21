@@ -72,6 +72,7 @@ import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_HUB_SEO, GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
+import { REPORT_SITEMAP_LINKS } from './shared/reportRoutes';
 // Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
 // sospendeva il plugin prima di arrivare al render delle pagine, e
 // `seoHeroCardsPlugin` drena il registry delle hero card nello stesso tick
@@ -4348,16 +4349,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/lavoro-oss-svizzera/', label: 'Lavoro OSS Svizzera' },
  { href: '/lavoro-sanitario-ticino/', label: 'Lavoro sanitario Ticino' },
  ];
- const REPORT_LINKS: ReadonlyArray<{ href: string; label: string }> = [
- { href: '/report/frontaliere-ticino-2026/', label: 'Annual Report 2026 (italiano)' },
- { href: '/en/report/cross-border-workers-2026/', label: 'Annual Report 2026 (English)' },
- { href: '/de/report/grenzgaenger-2026/', label: 'Annual Report 2026 (Deutsch)' },
- { href: '/fr/report/frontaliers-2026/', label: 'Annual Report 2026 (Français)' },
- { href: '/reports/mercato-lavoro-frontalieri-ticino-2026/', label: 'Market Report 2026 (italiano)' },
- { href: '/en/reports/cross-border-job-market-ticino-2026/', label: 'Market Report 2026 (English)' },
- { href: '/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/', label: 'Market Report 2026 (Deutsch)' },
- { href: '/fr/reports/marche-emploi-frontaliers-tessin-2026/', label: 'Market Report 2026 (Français)' },
- ];
  const FUEL_IT_CITY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
  { href: '/prezzi-diesel/italia/como/oggi/', label: 'Prezzi diesel Como' },
  { href: '/prezzi-benzina/italia/como/oggi/', label: 'Prezzi benzina Como' },
@@ -4457,7 +4448,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  renderHubLinks('Carriere Lugano — landing pages', CAREER_LANDING_LINKS),
  renderHubLinks('Costo della vita per città', COST_OF_LIVING_LINKS),
  renderHubLinks('Lavoro sanitario Ticino', NURSING_LINKS),
- renderHubLinks('Report annuali', REPORT_LINKS),
+ renderHubLinks('Report annuali', REPORT_SITEMAP_LINKS),
  renderHubLinks('Prezzi carburante città italiane', FUEL_IT_CITY_LINKS),
  renderHubLinks('Guide PDF scaricabili', GUIDE_PDF_LINKS),
  renderHubLinks('Risorse in altre lingue', FR_SALAIRE_LINKS),
