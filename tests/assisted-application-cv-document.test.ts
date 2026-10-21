@@ -349,7 +349,7 @@ describe('tailored CV by type', () => {
       profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it',
     });
     expect(checkTailoredCvLanguage(untranslatedSummary, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
-      expect.objectContaining({ field: 'summary', kind: 'language' }),
+      expect.objectContaining({ field: 'rendered', token: 'summary', kind: 'language' }),
     ]));
 
     const shortUntranslatedSummary = sanitizeTailoredCv({ ...raw, summary: 'Experience' }, {
