@@ -337,10 +337,9 @@ function skipLineComment(source, startIndex) {
  *
  * @param {string} source
  * @param {number} startIndex
- * @param {string} sourcePath
- * @returns {{ quote: '"' | "'" | '`', value: string, end: number } | null}
+ * @returns {{ quote: '"' | "'" | '`', value: string, end: number, dynamic?: boolean } | null}
  */
-function readStaticStringLiteral(source, startIndex, sourcePath) {
+function readStaticStringLiteral(source, startIndex) {
   const quote = source[startIndex];
   if (!STATIC_LITERAL_QUOTES.has(quote)) return null;
 
@@ -356,7 +355,14 @@ function readStaticStringLiteral(source, startIndex, sourcePath) {
       continue;
     }
     if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
-      throw new Error(`[rss] Interpolated template literal is not supported in static article body source: ${sourcePath}`);
+      const end = readTemplateLiteralEnd(source, startIndex);
+      if (end === -1) return null;
+      return {
+        quote,
+        value: source.slice(startIndex + 1, end - 1),
+        end,
+        dynamic: true,
+      };
     }
     if (quote !== '`' && (char === '\n' || char === '\r')) return null;
     if (char === quote) {
@@ -429,6 +435,637 @@ function skipStaticTrivia(source, startIndex, sourcePath) {
   return cursor;
 }
 
+const REGEX_PREFIX_TOKENS = new Set([
+  '(', ')control', ')switch', '[', '{', '}block', '=', ',', ':', ':case', ':label', ';', '!', '?', '??', '??=', '...', '&', '|', '+', '-', '*', '/', '%', '^', '~', '<', '>', '=>',
+  'return', 'throw', 'case', 'delete', 'void', 'typeof', 'instanceof', 'in', 'of', 'yield', 'await', 'else', 'do',
+]);
+const CONTROL_CONDITION_KEYWORDS = new Set(['if', 'while', 'for', 'with', 'switch', 'catch']);
+const MULTI_CHAR_PUNCTUATORS = ['...', '??=', '=>', '++', '--', '?.', '??'];
+const EXPRESSION_PREFIX_TOKENS = new Set([
+  '(', '[', ',', ':', '=', '!', '?', '??', '??=', '...', '&', '|', '+', '-', '*', '/', '%', '^', '~', '<', '>', '=>', 'new',
+  'return', 'throw', 'yield', 'await', 'delete', 'void', 'typeof', 'instanceof', 'in', 'of',
+]);
+
+function skipRegexLiteral(source, startIndex) {
+  let inCharacterClass = false;
+  for (let cursor = startIndex + 1; cursor < source.length; cursor += 1) {
+    const char = source[cursor];
+    if (char === '\\') {
+      cursor += 1;
+      continue;
+    }
+    if (char === '\n' || char === '\r') return -1;
+    if (char === '[') {
+      inCharacterClass = true;
+      continue;
+    }
+    if (char === ']' && inCharacterClass) {
+      inCharacterClass = false;
+      continue;
+    }
+    if (char === '/' && !inCharacterClass) {
+      while (/[A-Za-z]/u.test(source[cursor + 1] || '')) cursor += 1;
+      return cursor + 1;
+    }
+  }
+  return -1;
+}
+
+function skipExpressionString(source, startIndex, quote) {
+  let cursor = startIndex + 1;
+  while (cursor < source.length) {
+    if (source[cursor] === '\\') {
+      cursor += source[cursor + 1] === '\r' && source[cursor + 2] === '\n' ? 3 : 2;
+    } else if (source[cursor] === quote) {
+      return cursor + 1;
+    } else if (source[cursor] === '\n' || source[cursor] === '\r') {
+      return -1;
+    } else {
+      cursor += 1;
+    }
+  }
+  return -1;
+}
+
+// Skip a template interpolation as a small JS expression, preserving nested
+// braces while ignoring braces inside strings, comments, regexes and templates.
+function skipTemplateExpression(source, startIndex) {
+  let cursor = startIndex + 2;
+  let braceDepth = 1;
+  let previousToken = null;
+  const parens = [];
+
+  while (cursor < source.length) {
+    if (/\s/u.test(source[cursor])) {
+      cursor += 1;
+      continue;
+    }
+    if (source.startsWith('//', cursor)) {
+      cursor = skipLineComment(source, cursor);
+      continue;
+    }
+    if (source.startsWith('/*', cursor)) {
+      const close = source.indexOf('*/', cursor + 2);
+      if (close === -1) return -1;
+      cursor = close + 2;
+      continue;
+    }
+
+    const char = source[cursor];
+    if (char === '"' || char === "'") {
+      cursor = skipExpressionString(source, cursor, char);
+      if (cursor === -1) return -1;
+      previousToken = 'literal';
+      continue;
+    }
+    if (char === '`') {
+      cursor = readTemplateLiteralEnd(source, cursor);
+      if (cursor === -1) return -1;
+      previousToken = 'literal';
+      continue;
+    }
+    if (char === '/' && (previousToken === null || REGEX_PREFIX_TOKENS.has(previousToken))) {
+      const regexEnd = skipRegexLiteral(source, cursor);
+      if (regexEnd !== -1) {
+        cursor = regexEnd;
+        previousToken = 'literal';
+        continue;
+      }
+    }
+    if (/[A-Za-z_$]/u.test(char)) {
+      const start = cursor++;
+      while (cursor < source.length && /[A-Za-z0-9_$]/u.test(source[cursor])) cursor += 1;
+      previousToken = source.slice(start, cursor);
+      continue;
+    }
+    if (/[0-9]/u.test(char)) {
+      cursor += 1;
+      while (cursor < source.length && /[A-Za-z0-9_.]/u.test(source[cursor])) cursor += 1;
+      previousToken = 'literal';
+      continue;
+    }
+
+    const punctuator = MULTI_CHAR_PUNCTUATORS.find((candidate) => source.startsWith(candidate, cursor));
+    const value = punctuator || char;
+    if (value === '{') braceDepth += 1;
+    else if (value === '}') {
+      braceDepth -= 1;
+      if (braceDepth === 0) return cursor + 1;
+    } else if (value === '(') {
+      parens.push(CONTROL_CONDITION_KEYWORDS.has(previousToken));
+    } else if (value === ')') {
+      previousToken = parens.pop() ? ')control' : ')';
+      cursor += value.length;
+      continue;
+    }
+    previousToken = value;
+    cursor += value.length;
+  }
+
+  return -1;
+}
+
+function readTemplateLiteralEnd(source, startIndex) {
+  let cursor = startIndex + 1;
+  while (cursor < source.length) {
+    if (source[cursor] === '\\') {
+      cursor += source[cursor + 1] === '\r' && source[cursor + 2] === '\n' ? 3 : 2;
+      continue;
+    }
+    if (source[cursor] === '`') return cursor + 1;
+    if (source.startsWith('${', cursor)) {
+      cursor = skipTemplateExpression(source, cursor);
+      if (cursor === -1) return -1;
+      continue;
+    }
+    cursor += 1;
+  }
+  return -1;
+}
+
+function isStatementLabelColon(tokens, braceContexts) {
+  const parentBraceContext = braceContexts.at(-1);
+  if (parentBraceContext !== undefined && !['function', 'statement', 'switch'].includes(parentBraceContext)) return false;
+
+  const label = tokens.at(-1);
+  if (label?.kind !== 'identifier') return false;
+  const preceding = tokens.at(-2)?.value;
+  return preceding === undefined
+    || ['{', ';', '}block', ')control', ')switch', 'else', 'do', ':case', ':label'].includes(preceding);
+}
+
+function isMethodParameterList(tokens, openTokenIndex, parentBraceContext) {
+  if (!['object', 'class-statement', 'class-expression'].includes(parentBraceContext)) return false;
+
+  let nameEndIndex = openTokenIndex - 1;
+  if (tokens[nameEndIndex]?.value === '>') {
+    let angleDepth = 0;
+    for (; nameEndIndex >= 0; nameEndIndex -= 1) {
+      if (tokens[nameEndIndex].value === '>') angleDepth += 1;
+      else if (tokens[nameEndIndex].value === '<') {
+        angleDepth -= 1;
+        if (angleDepth === 0) {
+          nameEndIndex -= 1;
+          break;
+        }
+      }
+    }
+    if (angleDepth !== 0) return false;
+  }
+
+  let nameStartIndex = nameEndIndex;
+  if (tokens[nameEndIndex]?.value === ']') {
+    let bracketDepth = 0;
+    for (; nameStartIndex >= 0; nameStartIndex -= 1) {
+      if (tokens[nameStartIndex].value === ']') bracketDepth += 1;
+      else if (tokens[nameStartIndex].value === '[') {
+        bracketDepth -= 1;
+        if (bracketDepth === 0) break;
+      }
+    }
+    if (bracketDepth !== 0) return false;
+  } else if (!['identifier', 'literal'].includes(tokens[nameEndIndex]?.kind)) {
+    return false;
+  }
+
+  let braceDepth = 0;
+  let bracketDepth = 0;
+  let parenDepth = 0;
+  for (let index = nameStartIndex - 1; index >= 0; index -= 1) {
+    const value = tokens[index].value;
+    if (value === '}') {
+      if (braceDepth === 0 && bracketDepth === 0 && parenDepth === 0) return true;
+      braceDepth += 1;
+      continue;
+    }
+    if (value === '{') {
+      if (braceDepth > 0) braceDepth -= 1;
+      else if (bracketDepth === 0 && parenDepth === 0) return true;
+      continue;
+    }
+    if (value === ']') bracketDepth += 1;
+    else if (value === '[' && bracketDepth > 0) bracketDepth -= 1;
+    else if ([')', ')control', ')function', ')switch'].includes(value)) parenDepth += 1;
+    else if (value === '(' && parenDepth > 0) parenDepth -= 1;
+
+    if (braceDepth !== 0 || bracketDepth !== 0 || parenDepth !== 0) continue;
+    if ([',', ';'].includes(value)) return true;
+    if ([':', '=', '?', '=>'].includes(value)) return false;
+  }
+  return true;
+}
+
+function hasClassHeritageTypeArguments(source, startIndex) {
+  let angleDepth = 0;
+  for (let cursor = startIndex; cursor < source.length; cursor += 1) {
+    const char = source[cursor];
+    if (char === '"' || char === "'" || char === '`') {
+      const quote = char;
+      cursor += 1;
+      while (cursor < source.length) {
+        if (source[cursor] === '\\') cursor += 2;
+        else if (source[cursor] === quote) break;
+        else cursor += 1;
+      }
+      continue;
+    }
+    if (source.startsWith('//', cursor)) {
+      cursor = skipLineComment(source, cursor) - 1;
+      continue;
+    }
+    if (source.startsWith('/*', cursor)) {
+      const close = source.indexOf('*/', cursor + 2);
+      if (close === -1) return false;
+      cursor = close + 1;
+      continue;
+    }
+    if (char === '<') {
+      angleDepth += 1;
+      continue;
+    }
+    if (char !== '>' || source[cursor - 1] === '=' || source[cursor + 1] === '=') continue;
+    angleDepth -= 1;
+    if (angleDepth !== 0) continue;
+    const after = skipStaticTrivia(source, cursor + 1, 'class heritage');
+    const nextWord = source.slice(after).match(/^[A-Za-z_$][A-Za-z0-9_$]*/u)?.[0];
+    return source[after] === '(' || source[after] === '{' || nextWord === 'extends' || nextWord === 'implements';
+  }
+  return false;
+}
+
+function scanStaticSourceTokens(source, sourcePath) {
+  const tokens = [];
+  const controlParens = [];
+  let previousToken = null;
+  let tokenBeforePrevious = null;
+  const classHeaders = [];
+  const interfaceHeaders = [];
+  let functionHeaderPending = false;
+  let functionHeaderIsExpression = false;
+  let functionBodyContextPending = null;
+  let functionBodyContextOwnerDepth = null;
+  let functionReturnTypePending = false;
+  let methodReturnTypeCandidate = false;
+  const switchCaseStates = [];
+  let squareBracketDepth = 0;
+  const braceContexts = [];
+  for (let cursor = 0; cursor < source.length;) {
+    if (/\s/u.test(source[cursor])) {
+      cursor += 1;
+      continue;
+    }
+    if (source.startsWith('//', cursor)) {
+      cursor = skipLineComment(source, cursor);
+      continue;
+    }
+    if (source.startsWith('/*', cursor)) {
+      const close = source.indexOf('*/', cursor + 2);
+      if (close === -1) throw new Error(`[rss] Unterminated comment in ${sourcePath}`);
+      cursor = close + 2;
+      continue;
+    }
+    if (source[cursor] === '"' || source[cursor] === "'" || source[cursor] === '`') {
+      const literal = readStaticStringLiteral(source, cursor);
+      if (!literal) throw new Error(`[rss] Unterminated string literal in ${sourcePath}`);
+      tokens.push({
+        kind: literal.dynamic ? 'dynamic-template' : 'literal',
+        value: source.slice(cursor, literal.end),
+        start: cursor,
+        end: literal.end,
+      });
+      cursor = literal.end;
+      previousToken = 'literal';
+      continue;
+    }
+    if (source[cursor] === '/' && (previousToken === null || REGEX_PREFIX_TOKENS.has(previousToken))) {
+      const regexEnd = skipRegexLiteral(source, cursor);
+      if (regexEnd === -1) throw new Error(`[rss] Unterminated regex literal in ${sourcePath}`);
+      tokens.push({ kind: 'regex', value: source.slice(cursor, regexEnd), start: cursor, end: regexEnd });
+      cursor = regexEnd;
+      previousToken = 'literal';
+      continue;
+    }
+
+    const char = source[cursor];
+    if (methodReturnTypeCandidate && char !== ':') methodReturnTypeCandidate = false;
+    if (/[A-Za-z_$]/u.test(char)) {
+      const start = cursor;
+      cursor += 1;
+      while (cursor < source.length && /[A-Za-z0-9_$]/u.test(source[cursor])) cursor += 1;
+      const value = source.slice(start, cursor);
+      const previousSourceToken = tokens.at(-1);
+      const lineBreakBeforeDeclaration = previousSourceToken
+        && /[\r\n]/u.test(source.slice(previousSourceToken.end, start));
+      if (functionBodyContextPending === 'statement'
+        && functionBodyContextOwnerDepth === braceContexts.length
+        && lineBreakBeforeDeclaration
+        && previousToken !== '.' && previousToken !== '?.'
+        && ['class', 'const', 'enum', 'export', 'function', 'var'].includes(value)) {
+        functionBodyContextPending = null;
+        functionBodyContextOwnerDepth = null;
+        functionReturnTypePending = false;
+      }
+      tokens.push({ kind: 'identifier', value, start, end: cursor });
+      if (value === 'class' && previousToken !== '.' && previousToken !== '?.') {
+        classHeaders.push({
+          isExpression: EXPRESSION_PREFIX_TOKENS.has(previousToken),
+          ownerBraceDepth: braceContexts.length,
+          parenDepth: 0,
+          angleDepth: 0,
+          typeArgumentsActive: false,
+        });
+      }
+      if (value === 'interface' && [undefined, 'function', 'statement', 'switch'].includes(braceContexts.at(-1))) {
+        interfaceHeaders.push({ ownerBraceDepth: braceContexts.length, angleDepth: 0, awaitingName: true });
+      } else if (interfaceHeaders.at(-1)?.ownerBraceDepth === braceContexts.length) {
+        interfaceHeaders.at(-1).awaitingName = false;
+      }
+      if (value === 'function' && previousToken !== '.' && previousToken !== '?.') {
+        const prefix = previousToken === 'async' ? tokenBeforePrevious : previousToken;
+        functionHeaderPending = true;
+        functionHeaderIsExpression = EXPRESSION_PREFIX_TOKENS.has(prefix);
+      }
+      const switchCaseState = switchCaseStates.at(-1);
+      if ((value === 'case' || value === 'default') && braceContexts.at(-1) === 'switch' && switchCaseState) {
+        switchCaseState.pending = true;
+        switchCaseState.depths = {
+          brace: braceContexts.length,
+          paren: controlParens.length,
+          bracket: squareBracketDepth,
+        };
+        switchCaseState.ternaries.length = 0;
+      }
+      tokenBeforePrevious = previousToken;
+      previousToken = value;
+      continue;
+    }
+
+    const punctuator = MULTI_CHAR_PUNCTUATORS.find((candidate) => source.startsWith(candidate, cursor));
+    let value = punctuator || char;
+    let regexContext = null;
+    const classHeader = classHeaders.at(-1);
+    const interfaceHeader = interfaceHeaders.at(-1);
+    if (char === '<' && classHeader?.ownerBraceDepth === braceContexts.length) {
+      if (classHeader.typeArgumentsActive || hasClassHeritageTypeArguments(source, cursor)) {
+        classHeader.angleDepth += 1;
+        classHeader.typeArgumentsActive = true;
+      }
+    } else if (char === '>' && classHeader?.ownerBraceDepth === braceContexts.length
+      && classHeader.typeArgumentsActive && classHeader.angleDepth > 0
+      && source[cursor - 1] !== '=' && source[cursor + 1] !== '=') {
+      classHeader.angleDepth -= 1;
+      if (classHeader.angleDepth === 0) classHeader.typeArgumentsActive = false;
+    }
+    if (interfaceHeader?.ownerBraceDepth === braceContexts.length && !interfaceHeader.awaitingName) {
+      if (char === '<') interfaceHeader.angleDepth += 1;
+      else if (char === '>' && interfaceHeader.angleDepth > 0) interfaceHeader.angleDepth -= 1;
+      else if (interfaceHeader.angleDepth === 0 && [';', '=', ':'].includes(char)) interfaceHeaders.pop();
+    } else if (interfaceHeader?.ownerBraceDepth === braceContexts.length
+      && interfaceHeader.awaitingName && !/[A-Za-z_$]/u.test(char)) {
+      interfaceHeaders.pop();
+    }
+    if (char === '[') squareBracketDepth += 1;
+    else if (char === ']' && squareBracketDepth > 0) squareBracketDepth -= 1;
+    if (char === '(') {
+      const classHeader = classHeaders.at(-1);
+      if (classHeader?.ownerBraceDepth === braceContexts.length) classHeader.parenDepth += 1;
+      const isControlCondition = (CONTROL_CONDITION_KEYWORDS.has(previousToken)
+        || (previousToken === 'await' && tokenBeforePrevious === 'for'))
+        && tokenBeforePrevious !== '.' && tokenBeforePrevious !== '?.';
+      controlParens.push({
+        isControlCondition,
+        controlKeyword: previousToken,
+        openTokenIndex: tokens.length,
+        functionBodyContext: functionHeaderPending
+          ? (functionHeaderIsExpression ? 'function' : 'statement')
+          : null,
+      });
+      if (functionHeaderPending) functionHeaderPending = false;
+    } else if (char === ')') {
+      const classHeader = classHeaders.at(-1);
+      if (classHeader?.ownerBraceDepth === braceContexts.length && classHeader.parenDepth > 0) {
+        classHeader.parenDepth -= 1;
+      }
+      const parenContext = controlParens.pop();
+      if (parenContext?.isControlCondition && parenContext.controlKeyword === 'switch') value = ')switch';
+      else if (parenContext?.isControlCondition) value = ')control';
+      else if (parenContext?.functionBodyContext) {
+        value = ')function';
+        functionBodyContextPending = parenContext.functionBodyContext;
+        functionBodyContextOwnerDepth = braceContexts.length;
+      } else if (isMethodParameterList(tokens, parenContext?.openTokenIndex, braceContexts.at(-1))) {
+        methodReturnTypeCandidate = true;
+      }
+    } else if (char === '{') {
+      const parentBraceContext = braceContexts.at(-1);
+      const previousSourceToken = tokens.at(-1);
+      const inStatementList = parentBraceContext === undefined
+        || ['function', 'statement', 'switch'].includes(parentBraceContext);
+      const inMethodContainer = ['object', 'class-statement', 'class-expression'].includes(parentBraceContext);
+      const lineBreakBefore = previousSourceToken
+        && /[\r\n]/u.test(source.slice(previousSourceToken.end, cursor));
+      const previousCanEndExpression = ['identifier', 'literal', 'regex'].includes(previousSourceToken?.kind)
+        || [')', ')control', ')function', ']', '}', '++', '--'].includes(previousSourceToken?.value);
+      const classHeader = classHeaders.at(-1);
+      const opensClassBody = classHeader?.ownerBraceDepth === braceContexts.length
+        && classHeader.parenDepth === 0 && classHeader.angleDepth === 0;
+      const opensInterfaceBody = interfaceHeader?.ownerBraceDepth === braceContexts.length
+        && !interfaceHeader.awaitingName && interfaceHeader.angleDepth === 0;
+      const opensFunctionReturnType = functionBodyContextPending && functionReturnTypePending
+        && [':', '(', '[', ',', '<', '|', '&', '=>', '?', 'extends', 'infer', 'is', 'keyof'].includes(previousToken);
+      let braceContext = 'object';
+      if (opensInterfaceBody) {
+        braceContext = 'interface';
+      } else if (opensClassBody) {
+        braceContext = classHeader.isExpression ? 'class-expression' : 'class-statement';
+      } else if (opensFunctionReturnType) {
+        braceContext = 'type';
+      } else if (functionBodyContextPending) {
+        braceContext = functionBodyContextPending;
+      } else if (['class-statement', 'class-expression'].includes(parentBraceContext) && previousToken === 'static') {
+        braceContext = 'statement';
+      } else if (previousToken === ')switch') {
+        braceContext = 'switch';
+      } else if (previousToken === ')control' || [':case', 'else', 'try', 'catch', 'finally', 'do', ':label'].includes(previousToken)
+        || (inStatementList && (previousToken === null || ['{', ';', '}block'].includes(previousToken)
+          || lineBreakBefore && previousCanEndExpression))) {
+        braceContext = 'statement';
+      } else if (previousToken === '=>' || previousToken === ')function'
+        || (previousToken === ')' && inMethodContainer)) {
+        braceContext = 'function';
+      }
+      braceContexts.push(braceContext);
+      if (braceContext === 'switch') switchCaseStates.push({ pending: false, depths: null, ternaries: [] });
+      if (opensInterfaceBody) interfaceHeaders.pop();
+      if (opensClassBody) classHeaders.pop();
+      if (!opensFunctionReturnType) {
+        functionBodyContextPending = null;
+        functionBodyContextOwnerDepth = null;
+        functionReturnTypePending = false;
+      }
+    } else if (char === '}') {
+      const braceContext = braceContexts.pop();
+      regexContext = ['statement', 'class-statement', 'interface', 'switch'].includes(braceContext) ? '}block' : '}function';
+      if (braceContext === 'switch') switchCaseStates.pop();
+      if (functionBodyContextPending && functionBodyContextOwnerDepth !== null
+        && braceContexts.length < functionBodyContextOwnerDepth) {
+        functionBodyContextPending = null;
+        functionBodyContextOwnerDepth = null;
+        functionReturnTypePending = false;
+      }
+      functionHeaderPending = false;
+    } else if (value === '?' && switchCaseStates.at(-1)?.pending) {
+      switchCaseStates.at(-1).ternaries.push({
+        brace: braceContexts.length,
+        paren: controlParens.length,
+        bracket: squareBracketDepth,
+      });
+    } else if (char === ':' && switchCaseStates.at(-1)?.pending) {
+      const switchCaseState = switchCaseStates.at(-1);
+      const currentDepths = {
+        brace: braceContexts.length,
+        paren: controlParens.length,
+        bracket: squareBracketDepth,
+      };
+      const matches = (depths) => depths
+        && depths.brace === currentDepths.brace
+        && depths.paren === currentDepths.paren
+        && depths.bracket === currentDepths.bracket;
+      if (matches(switchCaseState.ternaries.at(-1))) {
+        switchCaseState.ternaries.pop();
+      } else if (matches(switchCaseState.depths)) {
+        value = ':case';
+        switchCaseState.pending = false;
+        switchCaseState.depths = null;
+        switchCaseState.ternaries.length = 0;
+      }
+    } else if (char === ':' && isStatementLabelColon(tokens, braceContexts)) {
+      value = ':label';
+    } else if (char === ':' && classHeaders.at(-1)?.ownerBraceDepth === braceContexts.length
+      && classHeaders.at(-1)?.parenDepth === 0 && classHeaders.at(-1)?.angleDepth === 0) {
+      classHeaders.pop();
+    } else if (char === ':' && functionHeaderPending) {
+      functionHeaderPending = false;
+    } else if (char === ':' && methodReturnTypeCandidate) {
+      functionBodyContextPending = 'function';
+      functionBodyContextOwnerDepth = braceContexts.length;
+      functionReturnTypePending = true;
+      methodReturnTypeCandidate = false;
+    } else if (char === ':' && functionBodyContextPending) {
+      functionHeaderPending = false;
+      functionReturnTypePending = true;
+    } else if ([';', '='].includes(char) && classHeaders.at(-1)?.ownerBraceDepth === braceContexts.length
+      && classHeaders.at(-1)?.parenDepth === 0 && classHeaders.at(-1)?.angleDepth === 0) {
+      classHeaders.pop();
+    } else if (char === ';' && functionBodyContextPending
+      && functionBodyContextOwnerDepth === braceContexts.length) {
+      functionBodyContextPending = null;
+      functionBodyContextOwnerDepth = null;
+      functionReturnTypePending = false;
+    } else if (char === ',' && classHeaders.at(-1)?.ownerBraceDepth === braceContexts.length
+      && classHeaders.at(-1)?.parenDepth === 0 && classHeaders.at(-1)?.angleDepth === 0) {
+      classHeaders.pop();
+    } else if (char === ',' && functionHeaderPending && previousToken === 'function') {
+      functionHeaderPending = false;
+    }
+    tokens.push({ kind: 'punctuation', value, regexContext, start: cursor, end: cursor + value.length });
+    tokenBeforePrevious = previousToken;
+    if (regexContext) previousToken = regexContext;
+    else previousToken = value;
+    cursor += value.length;
+  }
+  return tokens;
+}
+
+function matchingBodyObjectToken(tokens, startIndex, sourcePath) {
+  if (tokens[startIndex]?.value !== '{') {
+    throw new Error(`[rss] Static article body initializer must be an object in ${sourcePath}`);
+  }
+  let depth = 0;
+  for (let index = startIndex; index < tokens.length; index += 1) {
+    if (tokens[index].value === '{') depth += 1;
+    else if (tokens[index].value === '}' && --depth === 0) return index;
+  }
+  throw new Error(`[rss] Unterminated article body object in ${sourcePath}`);
+}
+
+function findBodyObjectRange(tokens, sourcePath) {
+  const declarations = new Map();
+  let braceDepth = 0;
+  let bracketDepth = 0;
+  let parenDepth = 0;
+
+  for (let index = 0; index < tokens.length; index += 1) {
+    const token = tokens[index];
+    const isTopLevel = braceDepth === 0 && bracketDepth === 0 && parenDepth === 0;
+    if (isTopLevel && token.kind === 'identifier' && token.value === 'const') {
+      const name = tokens[index + 1];
+      if (name?.kind === 'identifier') {
+        let initializer = index + 2;
+        while (initializer < tokens.length && tokens[initializer].value !== '=' && tokens[initializer].value !== ';') initializer += 1;
+        if (tokens[initializer]?.value === '=' && tokens[initializer + 1]?.value === '{') {
+          const start = initializer + 1;
+          declarations.set(name.value, { start, end: matchingBodyObjectToken(tokens, start, sourcePath) });
+        }
+      }
+    }
+    if (isTopLevel && token.kind === 'identifier' && token.value === 'export'
+      && tokens[index + 1]?.value === 'default') {
+      const value = tokens[index + 2];
+      if (value?.value === '{') {
+        return { start: index + 2, end: matchingBodyObjectToken(tokens, index + 2, sourcePath) };
+      }
+      if (value?.kind === 'identifier' && declarations.has(value.value)) return declarations.get(value.value);
+      throw new Error(`[rss] Static article body export must reference its object in ${sourcePath}`);
+    }
+
+    if (token.value === '{') braceDepth += 1;
+    else if (token.value === '}') braceDepth -= 1;
+    else if (token.value === '[') bracketDepth += 1;
+    else if (token.value === ']') bracketDepth -= 1;
+    else if (token.value === '(') parenDepth += 1;
+    else if (token.value === ')' || token.value === ')control' || token.value === ')function' || token.value === ')switch') parenDepth -= 1;
+  }
+
+  throw new Error(`[rss] Static article body object is not supported in ${sourcePath}`);
+}
+
+function findComputedBodyKey(tokens, range) {
+  let braceDepth = 0;
+  let bracketDepth = 0;
+  let parenDepth = 0;
+  let memberStart = true;
+
+  for (let index = range.start + 1; index < range.end; index += 1) {
+    const token = tokens[index];
+    if (braceDepth === 0 && bracketDepth === 0 && parenDepth === 0 && token.value === ',') {
+      memberStart = true;
+      continue;
+    }
+    if (memberStart) {
+      let keyIndex = index;
+      if (tokens[keyIndex]?.value === '...') return tokens[keyIndex].start;
+      while (['get', 'set', 'async'].includes(tokens[keyIndex]?.value)) {
+        if (['get', 'set'].includes(tokens[keyIndex].value) && tokens[keyIndex + 1]?.value === '[') {
+          return tokens[keyIndex + 1].start;
+        }
+        keyIndex += 1;
+      }
+      if (tokens[keyIndex]?.value === '*') keyIndex += 1;
+      if (tokens[keyIndex]?.value === '[') return tokens[keyIndex].start;
+      memberStart = false;
+    }
+
+    if (token.value === '{') braceDepth += 1;
+    else if (token.value === '}') braceDepth -= 1;
+    else if (token.value === '[') bracketDepth += 1;
+    else if (token.value === ']') bracketDepth -= 1;
+    else if (token.value === '(') parenDepth += 1;
+    else if (token.value === ')' || token.value === ')control' || token.value === ')function' || token.value === ')switch') parenDepth -= 1;
+  }
+  return -1;
+}
+
 const BLOG_BODY_KEY = /^blog\.article\.(.+)\.(body\d+)$/;
 
 function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field) {
@@ -460,6 +1097,14 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
   for (const file of files) {
     const filePath = path.join(dir, file);
     const src = fs.readFileSync(filePath, 'utf-8');
+    const sourceTokens = scanStaticSourceTokens(src, filePath);
+    const bodyObjectRange = findBodyObjectRange(sourceTokens, filePath);
+    if (findComputedBodyKey(sourceTokens, bodyObjectRange) !== -1) {
+      throw new Error(`[rss] Computed article body property is not supported in static source: ${filePath}`);
+    }
+    if (sourceTokens.some((token) => token.kind === 'dynamic-template')) {
+      throw new Error(`[rss] Interpolated template literal is not supported in static article body source: ${filePath}`);
+    }
     const articleParts = new Map(); // articleId → { body1: '...', body2: '...' }
     let cursor = 0;
     while (cursor < src.length) {
@@ -470,7 +1115,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
         continue;
       }
 
-      const keyLiteral = readStaticStringLiteral(src, cursor, filePath);
+      const keyLiteral = readStaticStringLiteral(src, cursor);
       if (!keyLiteral) throw new Error(`[rss] Unterminated string literal in ${filePath}`);
       const afterKey = skipStaticTrivia(src, keyLiteral.end, filePath);
 
@@ -485,7 +1130,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
       if (!STATIC_LITERAL_QUOTES.has(src[valueStart])) {
         throw new Error(`[rss] Body property ${key} must have a static string literal value in ${filePath}`);
       }
-      const valueLiteral = readStaticStringLiteral(src, valueStart, filePath);
+      const valueLiteral = readStaticStringLiteral(src, valueStart);
       if (!valueLiteral) throw new Error(`[rss] Unterminated body value for ${key} in ${filePath}`);
       const afterValue = skipStaticTrivia(src, valueLiteral.end, filePath);
       if (src[afterValue] !== ',' && src[afterValue] !== '}') {
