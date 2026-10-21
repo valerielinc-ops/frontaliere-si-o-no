@@ -67,7 +67,7 @@ function isCalculatorLegacyAliasPath(pathname) {
   return CALCULATOR_LEGACY_ALIAS_PATHS.has(pathname);
 }
 
-const FAMILY_DEFINITIONS = Object.freeze([
+const CORE_FAMILY_DEFINITIONS = Object.freeze([
   {
     id: 'article-pages',
     label: 'Articoli editoriali',
@@ -124,6 +124,9 @@ const FAMILY_DEFINITIONS = Object.freeze([
     ]),
     matches: isJobBoardSectionPathname,
   },
+]);
+
+const ADDITIONAL_FAMILY_DEFINITIONS = Object.freeze([
   {
     id: 'event-pages',
     label: 'Pagine eventi',
@@ -154,6 +157,11 @@ const FAMILY_DEFINITIONS = Object.freeze([
   },
 ]);
 
+const FAMILY_DEFINITIONS = Object.freeze([
+  ...CORE_FAMILY_DEFINITIONS,
+  ...ADDITIONAL_FAMILY_DEFINITIONS,
+]);
+
 const UNKNOWN_FAMILY = Object.freeze({
   id: 'unknown',
   label: 'Template non classificato',
@@ -175,9 +183,10 @@ const AMBIGUOUS_FAMILY = Object.freeze({
  * the code version that produced it.
  */
 export const BING_TEMPLATE_TABLE = Object.freeze([
-  ...FAMILY_DEFINITIONS,
+  ...CORE_FAMILY_DEFINITIONS,
   UNKNOWN_FAMILY,
   AMBIGUOUS_FAMILY,
+  ...ADDITIONAL_FAMILY_DEFINITIONS,
 ].map(({ matches: _matcher, ...family }) => Object.freeze({
   id: family.id,
   label: family.label,
