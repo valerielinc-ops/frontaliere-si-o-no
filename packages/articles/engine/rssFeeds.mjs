@@ -224,13 +224,17 @@ function resolveSlugFile(path, slugFile, slugDir) {
  * article actually says, so `dell\'Italia` reads `dell'Italia`.
  *
  * @param {string | undefined} value
- * @param {'"' | "'"} quote
+ * @param {'"' | "'" | '`'} quote
  * @returns {string | undefined}
  */
 function unescapeQuoted(value, quote) {
   if (value === undefined) return undefined;
   return value.split('\\\\').join('\u0000')
     .split(`\\${quote}`).join(quote)
+    // The article writer escapes apostrophes even when the enclosing literal
+    // uses backticks, so decode that writer escape independently of the
+    // literal delimiter.
+    .split("\\'").join("'")
     .split('\\n').join('\n')
     .split('\u0000').join('\\');
 }
@@ -316,6 +320,38 @@ function parseBlogSlugs(fs, path, rootDir, slugFile, slugConst) {
   return new Map(Object.entries(parseArticleUrlSlugs(src, slugConst)));
 }
 
+const STATIC_LITERAL_QUOTES = new Set(['"', "'", '`']);
+
+/**
+ * Read one static JS/TS string literal without treating another quote style
+ * inside it as a terminator. The source is kept escaped so unescapeQuoted can
+ * apply the writer's backslash semantics after the matching delimiter is
+ * known.
+ *
+ * @param {string} source
+ * @param {number} startIndex
+ * @returns {{ quote: '"' | "'" | '`', value: string, end: number } | null}
+ */
+function readStaticStringLiteral(source, startIndex) {
+  const quote = source[startIndex];
+  if (!STATIC_LITERAL_QUOTES.has(quote)) return null;
+
+  let value = '';
+  for (let i = startIndex + 1; i < source.length; i += 1) {
+    const char = source[i];
+    if (char === '\\') {
+      if (i + 1 >= source.length) return null;
+      value += char + source[i + 1];
+      i += 1;
+      continue;
+    }
+    if (char === quote) return { quote, value, end: i + 1 };
+    value += char;
+  }
+
+  return null;
+}
+
 function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field) {
   const filePath = path.join(rootDir, localesDir, metaFileName);
   if (!fs.existsSync(filePath)) return new Map();
@@ -342,8 +378,10 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
   if (!fs.existsSync(dir)) return bodies;
 
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.ts'));
-  // Match: 'blog.article.{id}.bodyN': `...` or '...'
-  const rx = /['"]blog\.article\.([^'"]+)\.(body\d+)['"]\s*:\s*[`']((?:[^`'\\]|\\.)*)(?:[`'])/g;
+  // Match the property key, then let readStaticStringLiteral consume its
+  // value. A value may contain either of the other quote styles, but only its
+  // own opening delimiter closes it.
+  const rx = /(['"])blog\.article\.([^'"]+)\.(body\d+)\1\s*:\s*/g;
 
   for (const file of files) {
     const src = fs.readFileSync(path.join(dir, file), 'utf-8');
@@ -351,7 +389,10 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
     let m;
     rx.lastIndex = 0;
     while ((m = rx.exec(src)) !== null) {
-      const [, id, part, text] = m;
+      const literal = readStaticStringLiteral(src, rx.lastIndex);
+      if (!literal) continue;
+      rx.lastIndex = literal.end;
+      const [, , id, part] = m;
       if (!articleParts.has(id)) articleParts.set(id, new Map());
       // Unescape here, not at render: this text goes straight into
       // <content:encoded>, and it is the one parsed field that actually
@@ -359,7 +400,7 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
       // the locale-meta lookup winning in renderFeed, this one is not.
       // Both quote styles appear in the corpus (backtick and single), and
       // escapeForSingleQuoteTS escapes the same way for either.
-      articleParts.get(id).set(part, unescapeQuoted(text, "'"));
+      articleParts.get(id).set(part, unescapeQuoted(literal.value, literal.quote));
     }
 
     for (const [id, parts] of articleParts) {

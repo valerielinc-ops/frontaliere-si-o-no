@@ -251,6 +251,51 @@ describe('packages/articles/engine/rssFeeds', () => {
     expect(de.indexOf('Alpha de')).toBeLessThan(de.indexOf('Beta de'));
   });
 
+  it('preserves mixed quote styles and escaped delimiters in content:encoded', () => {
+    const cases = [
+      {
+        locale: 'it',
+        source: [
+          'export default {',
+          "  'blog.article.alpha.body1': 'L\\'Italia usa `code` e il percorso C:\\\\docs dentro questo corpo RSS abbastanza lungo da superare il limite.',",
+          '};',
+        ].join('\n'),
+        expected: "L'Italia usa `code` e il percorso C:\\docs dentro questo corpo RSS abbastanza lungo da superare il limite.",
+      },
+      {
+        locale: 'en',
+        source: [
+          'export default {',
+          "  'blog.article.alpha.body1': `dell\\'Italia usa \\`code\\` dentro questo corpo RSS abbastanza lungo da superare il limite.`,",
+          '};',
+        ].join('\n'),
+        expected: "dell'Italia usa `code` dentro questo corpo RSS abbastanza lungo da superare il limite.",
+      },
+    ];
+
+    for (const { locale, source, expected } of cases) {
+      const root = makeFixture();
+      fs.writeFileSync(
+        path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, locale, 'alpha.ts'),
+        source,
+      );
+      const [section] = buildAllRssFeeds({
+        repairSerpSnippet,
+        fs,
+        path,
+        rootDir: root,
+        registries: { frontaliere: REGISTRY },
+        layout: LAYOUT,
+      });
+      const feedName = locale === 'it' ? 'rss-it.xml' : 'rss-en.xml';
+      const xml = section.feeds.find(([name]) => name === feedName)![1];
+      const encoded = xml.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/)?.[1];
+
+      expect(encoded).toContain(expected);
+      expect(encoded).not.toContain("\\'");
+    }
+  });
+
   it('makes the main feed a byte copy of the Italian one, self-linking to the main filename', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
