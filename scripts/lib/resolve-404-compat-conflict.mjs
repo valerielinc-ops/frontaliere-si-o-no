@@ -124,13 +124,38 @@ function previousStoreTotal() {
   const stageTotals = [1, 2, 3]
     .map((stage) => manifestTotal(`manifest stage ${stage}`, readStage(stage, MANIFEST_FILE)))
     .filter((value) => value !== null);
-  if (stageTotals.length > 0) return Math.max(...stageTotals);
+
+  // A legacy-only conflict predates the sharded manifest. Its staged
+  // accumulator is still the authoritative pre-merge baseline; treating a
+  // missing manifest as zero would let a 200k→1 set merge bypass both the
+  // global floor and the large-prune guard. Count every available legacy
+  // stage and use the largest side so a partial stage cannot lower the
+  // baseline. Duplicates are collapsed to match the logical set semantics of
+  // the resolver and the manifest's totalPaths field.
+  const legacyStageTotals = [1, 2, 3]
+    .map((stage) => {
+      const raw = readStage(stage, COMPAT_LEGACY_FILE);
+      if (raw == null) return null;
+      return new Set(parseCompat(`legacy stage ${stage}`, raw).paths).size;
+    })
+    .filter((value) => value !== null);
+  const stagedTotals = [...stageTotals, ...legacyStageTotals];
+  if (stagedTotals.length > 0) return Math.max(...stagedTotals);
 
   try {
     return manifestTotal('working-tree manifest', fs.readFileSync(compatManifestFile(), 'utf-8')) ?? 0;
   } catch (err) {
-    if (err?.code === 'ENOENT') return 0;
-    throw err;
+    if (err?.code !== 'ENOENT') throw err;
+    try {
+      const legacy = parseCompat(
+        'working-tree legacy accumulator',
+        fs.readFileSync(path.resolve(process.cwd(), COMPAT_LEGACY_FILE), 'utf-8'),
+      );
+      return new Set(legacy.paths).size;
+    } catch (legacyErr) {
+      if (legacyErr?.code === 'ENOENT') return 0;
+      throw legacyErr;
+    }
   }
 }
 

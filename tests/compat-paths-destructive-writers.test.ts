@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import os from 'node:os';
 import path from 'node:path';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -60,4 +62,60 @@ describe('destructive compatibility writers', () => {
     expect(guardOffset).toBeGreaterThanOrEqual(0);
     expect(writeOffset).toBeGreaterThan(guardOffset);
   });
+
+  it('counts a legacy staged accumulator before allowing a destructive conflict merge', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'compat-conflict-legacy-'));
+    const legacyRelative = 'data/seo-404-compat-paths.json';
+    const legacyFile = path.join(dir, legacyRelative);
+    const shardDir = path.join(dir, 'data/seo-404-compat');
+    const basePaths = Array.from({ length: 200_000 }, (_, i) => `/family-${i}/path/`);
+    const upstreamPaths = [...basePaths, '/upstream/path/'];
+    const writeLegacy = (paths: string[]) => {
+      fs.mkdirSync(path.dirname(legacyFile), { recursive: true });
+      fs.writeFileSync(legacyFile, JSON.stringify({
+        source: 'test',
+        lastUpdated: '2026-10-21T00:00:00.000Z',
+        paths,
+      }) + '\n');
+    };
+    const git = (...args: string[]) => execFileSync('git', ['-C', dir, ...args], { encoding: 'utf8' });
+
+    try {
+      execFileSync('git', ['init', '-q', dir]);
+      git('config', 'user.email', 'compat-test@example.test');
+      git('config', 'user.name', 'compat test');
+      writeLegacy(basePaths);
+      git('add', legacyRelative);
+      git('commit', '-qm', 'base legacy accumulator');
+      const baseCommit = git('rev-parse', 'HEAD').trim();
+
+      git('checkout', '-qb', 'upstream');
+      writeLegacy(upstreamPaths);
+      git('add', legacyRelative);
+      git('commit', '-qm', 'upstream update');
+
+      git('checkout', '-qb', 'local', baseCommit);
+      writeLegacy(['/family-0/path/']);
+      git('add', legacyRelative);
+      git('commit', '-qm', 'local prune');
+
+      const merge = spawnSync('git', [
+        '-C', dir,
+        '-c', 'merge.conflictStyle=merge',
+        'merge', '--no-edit', '--no-commit', '--no-ff', 'upstream',
+      ], { encoding: 'utf8' });
+      expect(merge.status).not.toBe(0);
+      const before = fs.readFileSync(legacyFile, 'utf8');
+
+      const resolved = spawnSync('node', [
+        path.join(ROOT, 'scripts/lib/resolve-404-compat-conflict.mjs'),
+      ], { cwd: dir, encoding: 'utf8' });
+      expect(resolved.status).not.toBe(0);
+      expect(`${resolved.stdout}\n${resolved.stderr}`).toMatch(/automatic pruning|floor 150000|200000/i);
+      expect(fs.existsSync(shardDir)).toBe(false);
+      expect(fs.readFileSync(legacyFile, 'utf8')).toBe(before);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 30_000);
 });
