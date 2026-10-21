@@ -28,6 +28,7 @@ import {
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
+import { fetchEcariCantonAuctions } from '../scripts/plate-auctions/connectors/ecari.mjs';
 import { fetchExpandedCard, parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
 
@@ -170,6 +171,29 @@ describe('expanded plate-auction connectors', () => {
     try {
       await expect(fetchGrPlateAuctions()).resolves.toHaveLength(1);
       expect(fetchMock.mock.calls[0]?.[0]).toBe(GR_ECARI_CATALOGUE_URL);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('propagates an optional configured request identity through eCari fetches', async () => {
+    const userAgent = 'eCari test browser';
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response(EXPANDED_ECARI_SAMPLE, { status: 200 }));
+
+    try {
+      await expect(fetchEcariCantonAuctions({
+        canton: 'Test',
+        plateCode: 'EC',
+        officialAuctionUrl: 'https://ecari.example.test/',
+        userAgent,
+      })).resolves.toHaveLength(1);
+      expect(fetchMock).toHaveBeenCalledWith(
+        'https://ecari.example.test/',
+        expect.objectContaining({
+          headers: expect.objectContaining({ 'User-Agent': userAgent }),
+        }),
+      );
     } finally {
       fetchMock.mockRestore();
     }
