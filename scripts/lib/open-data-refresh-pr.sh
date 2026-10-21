@@ -105,7 +105,6 @@ done
   echo "::error::--reconcile-refresh-paths requires --reconcile-main"
   exit 2
 }
-RECONCILE_PATHS=("${PATHS[@]}")
 [ -n "$BRANCH" ] || { echo "::error::--branch is required"; exit 2; }
 [ -n "$COMMIT_MESSAGE" ] || { echo "::error::--commit-message is required"; exit 2; }
 [ -n "$TITLE" ] || { echo "::error::--title is required"; exit 2; }
@@ -169,6 +168,11 @@ if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
     fi
   done
 fi
+
+# Preserve the producer-owned paths before the sparse publisher checkout
+# replaces PATHS with the files from this run's commit. Optional paths join the
+# reconciliation scope only when they are stageable in this refresh.
+RECONCILE_PATHS=("${PATHS[@]}")
 
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 [ -n "$REPOSITORY" ] || {
