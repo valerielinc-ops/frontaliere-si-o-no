@@ -101,7 +101,6 @@ import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shar
 import { fillEventPeopleDefaults, normalizeEventPeople } from '../scripts/lib/event-metadata.mjs';
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
-import { normaliseLicenceUrl } from '../packages/articles/engine/shared/imageCredits.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -229,12 +228,31 @@ function hasLicensedSourceEventImage(event: SiteEvent): boolean {
   );
 }
 
-/** Use canonical HTTPS licence URLs in visible credits and Event JSON-LD. */
+/**
+ * Keep outbound licence links on their canonical URL. Creative Commons
+ * licence pages without the trailing slash redirect, which is avoidable in
+ * both visible image credits and Event JSON-LD.
+ */
+function canonicalEventExternalUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !/^https:\/\//i.test(value.trim())) return undefined;
+  const raw = value.trim();
+  try {
+    const url = new URL(raw);
+    const isCreativeCommons = /^(?:www\.)?creativecommons\.org$/i.test(url.hostname);
+    if (!isCreativeCommons) return raw;
+    if (!url.pathname.endsWith('/')) url.pathname += '/';
+    return url.href;
+  } catch {
+    return raw;
+  }
+}
+
 function eventImageLicenseUrl(event: SiteEvent): string | undefined {
-  const licenceUrl = normaliseLicenceUrl(event.imageLicenseUrl);
-  if (licenceUrl) return licenceUrl;
-  if (event.sourceKey !== 'openagenda') return undefined;
-  return normaliseLicenceUrl(EVENT_IMAGE_LICENSES.openagenda.termsUrl) ?? undefined;
+  const sourceLicense = canonicalEventExternalUrl(event.imageLicenseUrl);
+  if (sourceLicense) return sourceLicense;
+  return event.sourceKey === 'openagenda'
+    ? canonicalEventExternalUrl(EVENT_IMAGE_LICENSES.openagenda.termsUrl)
+    : undefined;
 }
 
 function eventImageMimeType(imageUrl: string): string {
