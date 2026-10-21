@@ -13548,6 +13548,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-saldatore-ticino-frontiera.title': 'Soudeur frontalier au Tessin : salaire et conditions requises',
     'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'Permis G, impôt à la source et cotisations : le cadre vérifié pour les personnes qui envisagent de travailler comme soudeur frontalier au Tessin, avec un accord en vigueur depuis 2024.',
     'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.negozio-ticino-fisco-frontiere.title': 'Frontalier responsable de magasin au Tessin : salaire',
+    'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Imposée à la source uniquement en Suisse, nouvel accord en vigueur depuis le 1er janvier 2024 et cotisations AVS, AD/AC et LPP : le cadre pour le frontalier.',
+    'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

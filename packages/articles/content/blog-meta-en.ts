@@ -13546,6 +13546,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-saldatore-ticino-frontiera.title': 'Cross-border welder in Ticino: salary and requirements',
     'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'G permit, withholding tax and contributions: the verified overview for those considering cross-border work as a welder in Ticino, with an agreement in force since 2024.',
     'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.negozio-ticino-fisco-frontiere.title': 'Frontier shop manager in Ticino: salary',
+    'blog.article.negozio-ticino-fisco-frontiere.excerpt': 'Tax at source only in Switzerland, new agreement in force from 1 January 2024 and AVS, AD/AC and LPP contributions: the framework for the border crossing.',
+    'blog.article.negozio-ticino-fisco-frontiere.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
