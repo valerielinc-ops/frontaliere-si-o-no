@@ -341,7 +341,16 @@ describe('expanded plate-auction connectors', () => {
         sourceKey: sourceKey.toUpperCase(),
         normalizedPlate: `${sourceKey.toUpperCase()}691`,
         currentBidChf: 950,
-        officialDetailUrl: 'https://www.' + (sourceKey === 'vd' ? 'encheres-vd.ch' : sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
+        officialAuctionUrl: sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch/de/'
+          : sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch/de/',
+        officialDetailUrl: (sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch'
+          : sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch') + '/de/auction/1768',
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }

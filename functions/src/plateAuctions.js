@@ -147,8 +147,8 @@ const CONNECTORS = {
   be: makeCardConnector({
     canton: 'Berna',
     plateCode: 'BE',
-    url: 'https://www.auktion-be.ch/de/',
-    detailBaseUrl: 'https://www.auktion-be.ch',
+    url: 'https://auktion-be.ch/de/',
+    detailBaseUrl: 'https://auktion-be.ch',
   }),
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
