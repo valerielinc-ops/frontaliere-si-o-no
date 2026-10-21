@@ -132,6 +132,19 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
+  it('retries a transient 404 from an official catalogue before degrading it', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response('temporary not found', { status: 404 }))
+      .mockResolvedValueOnce(new Response('<html>ok</html>', { status: 200 }));
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('parses the GR eCari full-width row and never exposes bidder text', () => {
     const [row] = parseGrAuctionRows(GR_SAMPLE, { fetchedAt: '2026-09-13T08:00:00.000Z' });
     expect(row).toMatchObject({

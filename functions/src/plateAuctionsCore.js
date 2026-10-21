@@ -745,6 +745,16 @@ export function parseZhAuctionCards(
   return withCardEmptyState(auctions, html);
 }
 
+/**
+ * Official auction portals can briefly answer 404 during an upstream edge
+ * interruption. Retry that one status within the bounded fetch budget so a
+ * transient outage does not become a false source degradation; persistent
+ * endpoint drift still fails closed after the retries are exhausted.
+ */
+function isRetryableHttpStatus(status) {
+  return status === 404 || status === 408 || status === 425 || status === 429 || status >= 500;
+}
+
 function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemaining = 4 } = {}) {
   return new Promise((resolve, reject) => {
     const request = https.request(url, {
@@ -773,7 +783,7 @@ function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemain
         }
         if (status < 200 || status >= 300) {
           const error = new Error(`HTTP ${status} from ${url}`);
-          error.retryable = status === 408 || status === 425 || status === 429 || status >= 500;
+          error.retryable = isRetryableHttpStatus(status);
           reject(error);
           return;
         }
@@ -809,7 +819,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
       });
       if (!response.ok) {
         const error = new Error(`HTTP ${response.status} from ${url}`);
-        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        error.retryable = isRetryableHttpStatus(response.status);
         throw error;
       }
       return await response.text();
@@ -947,7 +957,7 @@ export async function fetchPdfText(url, {
       });
       if (!response.ok) {
         const error = new Error(`HTTP ${response.status} from ${url}`);
-        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        error.retryable = isRetryableHttpStatus(response.status);
         throw error;
       }
       return await extractPdfText(await response.arrayBuffer());
