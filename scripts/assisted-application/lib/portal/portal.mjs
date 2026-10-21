@@ -1301,6 +1301,22 @@ async function fileInputHandles(frame) {
   }
 }
 
+async function waitForInputDetached(input, timeoutMs = 60_000) {
+  try {
+    if (typeof input?.waitFor === 'function') {
+      await input.waitFor({ state: 'detached', timeout: timeoutMs });
+      return true;
+    }
+    if (typeof input?.waitForElementState === 'function') {
+      await input.waitForElementState('detached', { timeout: timeoutMs });
+      return true;
+    }
+  } catch {
+    return false;
+  }
+  return false;
+}
+
 async function sameElement(left, right) {
   try {
     return await left.evaluate((element, other) => element === other, right);
@@ -1479,7 +1495,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     return finish('unavailable');
   }
   // The dialog closes once the portal holds the file (SuccessFactors reads it first).
-  const closed = await input.waitFor({ state: 'detached', timeout: 60_000 }).then(() => true, () => false);
+  const closed = await waitForInputDetached(input);
   if (trace) {
     trace.dialogSelection = 'completed';
     trace.dialogClosed = closed;
