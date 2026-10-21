@@ -1271,6 +1271,7 @@ const DIALOG_FILE_INPUT_SELECTOR = [
   '[aria-modal="true"]:visible input[type="file"]',
   'dialog[open]:visible input[type="file"]',
 ].join(', ');
+const FILE_INPUT_SELECTOR = 'input[type="file"]';
 
 function orderedUploadFrames(page, preferredFrame) {
   const frames = page.frames();
@@ -1288,6 +1289,40 @@ async function dialogFileInputCount(frame) {
   } catch {
     return null;
   }
+}
+
+async function fileInputCount(frame) {
+  try {
+    const input = frame.locator(FILE_INPUT_SELECTOR);
+    if (typeof input.count !== 'function') return null;
+    return await input.count();
+  } catch {
+    return null;
+  }
+}
+
+/** Finds one newly mounted file input when the portal does not expose a dialog role. */
+async function newlyMountedFileInput(page, preferredFrame, beforeCounts, timeoutMs = 8_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const candidates = [];
+    let ambiguous = false;
+    let supportedFrames = 0;
+    for (const frame of orderedUploadFrames(page, preferredFrame)) {
+      const count = await fileInputCount(frame);
+      if (count === null) continue;
+      supportedFrames += 1;
+      const previousCount = beforeCounts.get(frame) || 0;
+      const added = count - previousCount;
+      if (added > 1) ambiguous = true;
+      else if (added === 1) candidates.push(frame.locator(FILE_INPUT_SELECTOR).nth(previousCount));
+    }
+    if (!ambiguous && candidates.length === 1) return candidates[0];
+    // Keep the helper useful with the light mocks used by the unit tests.
+    if (supportedFrames === 0) return null;
+    await page.waitForTimeout(150);
+  }
+  return null;
 }
 
 /** Finds one newly opened, visible upload dialog across the page's current frames. */
@@ -1337,9 +1372,12 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   const framesBeforeClick = page.frames();
   const preferredFrame = framesBeforeClick[triggerFrame] || page.mainFrame();
   const beforeCounts = new Map();
+  const beforeFileInputCounts = new Map();
   for (const frame of framesBeforeClick) {
     const count = await dialogFileInputCount(frame);
     if (count !== null) beforeCounts.set(frame, count);
+    const fileCount = await fileInputCount(frame);
+    if (fileCount !== null) beforeFileInputCounts.set(frame, fileCount);
   }
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
@@ -1363,14 +1401,22 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   const chooserTarget = chooserPromise.then((chooser) => chooser ? { chooser } : null);
   const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts)
     .then((input) => input ? { input } : null, () => null);
+  const mountedInputTarget = newlyMountedFileInput(page, preferredFrame, beforeFileInputCounts)
+    .then((input) => input ? { input } : null, () => null);
   const firstTarget = await Promise.race([
     chooserTarget.then((target) => ({ source: 'chooser', target })),
     dialogTarget.then((target) => ({ source: 'dialog', target })),
+    mountedInputTarget.then((target) => ({ source: 'mounted', target })),
   ]);
   // A timeout from one strategy is not evidence that the other failed. In
   // particular, the chooser watcher starts before the click, so it can time
   // out while the dialog watcher is still in its post-click window.
-  const target = firstTarget.target || await (firstTarget.source === 'chooser' ? dialogTarget : chooserTarget);
+  const remainingTargets = firstTarget.source === 'chooser'
+    ? [dialogTarget, mountedInputTarget]
+    : firstTarget.source === 'dialog'
+      ? [chooserTarget, mountedInputTarget]
+      : [chooserTarget, dialogTarget];
+  const target = firstTarget.target || (await Promise.race(remainingTargets));
   if (target?.chooser) {
     if (trace) trace.target = 'chooser';
     try {
@@ -1415,7 +1461,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     await page.keyboard.press('Escape').catch(() => {});
     return finish('unavailable');
   }
-  if (trace) trace.target = 'dialog';
+  if (trace) trace.target = firstTarget.source === 'mounted' ? 'mounted' : 'dialog';
   try {
     await input.setInputFiles(file);
   } catch {

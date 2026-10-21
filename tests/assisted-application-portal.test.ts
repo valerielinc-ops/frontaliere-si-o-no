@@ -318,6 +318,52 @@ describe('legacy portal sections', () => {
     expect(trigger.click).toHaveBeenCalledOnce();
   });
 
+  it('uses a newly mounted hidden file input when the upload control opens no dialog role', async () => {
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Choose Password: *', required: true },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Retype Password: *', required: true },
+        { id: 'permit', kind: 'combobox', label: 'Do you hold a valid work permit for Switzerland?', required: true },
+      ],
+      buttons: [{ id: 'resume-trigger', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    let mounted = false;
+    const trigger = { click: vi.fn(async () => { mounted = true; }), isVisible: vi.fn(async () => true) };
+    const fileInput = { setInputFiles: vi.fn(async () => {}), waitFor: vi.fn(async () => {}) };
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async () => snapshot),
+      locator: vi.fn((selector: string) => {
+        if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
+        if (selector === 'input[type="file"]') return { count: vi.fn(async () => mounted ? 1 : 0), nth: () => fileInput };
+        return { count: vi.fn(async () => 0) };
+      }),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { allInnerTexts: vi.fn(async () => []) }),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(trigger.click).toHaveBeenCalledOnce();
+    expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+  });
+
   it('matches separate generic SuccessFactors upload icons to their document association', async () => {
     const clicked: string[] = [];
     const base = {
