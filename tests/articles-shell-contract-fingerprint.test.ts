@@ -10,42 +10,37 @@
 // Both repos assert the same fingerprint, so either side drifting fails on its
 // own side. When changing any value below intentionally, re-record the digest
 // in BOTH repos in the same change.
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+
+import { contract } from '../build-plugins/articlesSiteShellBootstrap';
 
 const expected = JSON.parse(
   fs.readFileSync(path.join(process.cwd(), 'tests/articles-shell-contract-fingerprint.json'), 'utf-8'),
 );
 
 describe('articles SiteShellContract — cross-repo fingerprint', () => {
-  it('matches the digest the articles repo also asserts', async () => {
-    // Keep the deploy-only CDN preconnect out of this source fingerprint, as
-    // the transported host test does before it imports its contract.
-    const inheritedAssetCdn = process.env.ASSET_CDN;
-    delete process.env.ASSET_CDN;
-    vi.resetModules();
-
-    try {
-      const { contract } = await import('../build-plugins/articlesSiteShellBootstrap');
-      const scalars: Record<string, unknown> = {};
-      for (const k of Object.keys(contract).sort()) {
-        const v = (contract as unknown as Record<string, unknown>)[k];
-        if (typeof v !== 'function') scalars[k] = v;
-      }
-      expect(Object.keys(scalars).length).toBe(expected.scalarFields);
-      // RegExp has no own enumerable properties, so plain JSON.stringify serializes
-      // every RegExp (e.g. contextualLinkRules[].keywordPattern) to `{}` — a source/flags
-      // edit wouldn't move the digest at all. The replacer forces RegExp through
-      // String(v) so regex-only drift is actually covered (issue #6396).
-      const sha = createHash('sha256')
-        .update(JSON.stringify(scalars, (_key, value) => (value instanceof RegExp ? String(value) : value), 2))
-        .digest('hex');
-      expect(sha, 'host chrome drifted — re-record in BOTH repos').toBe(expected.sha256);
-    } finally {
-      if (inheritedAssetCdn === undefined) delete process.env.ASSET_CDN;
-      else process.env.ASSET_CDN = inheritedAssetCdn;
+  it('matches the digest the articles repo also asserts', () => {
+    const scalars: Record<string, unknown> = {};
+    for (const k of Object.keys(contract).sort()) {
+      const v = (contract as unknown as Record<string, unknown>)[k];
+      if (typeof v !== 'function') scalars[k] = v;
     }
+    expect(Object.keys(scalars).length).toBe(expected.scalarFields);
+    // This one scalar is deploy-specific: constants.ts captures ASSET_CDN when
+    // the Vite config loads, before this test can normalize process.env. The
+    // transported host contract fingerprints its empty source-build value.
+    expect(Object.prototype.hasOwnProperty.call(scalars, 'cdnPreconnectHint')).toBe(true);
+    scalars.cdnPreconnectHint = '';
+    // RegExp has no own enumerable properties, so plain JSON.stringify serializes
+    // every RegExp (e.g. contextualLinkRules[].keywordPattern) to `{}` — a source/flags
+    // edit wouldn't move the digest at all. The replacer forces RegExp through
+    // String(v) so regex-only drift is actually covered (issue #6396).
+    const sha = createHash('sha256')
+      .update(JSON.stringify(scalars, (_key, value) => (value instanceof RegExp ? String(value) : value), 2))
+      .digest('hex');
+    expect(sha, 'host chrome drifted — re-record in BOTH repos').toBe(expected.sha256);
   });
 });
