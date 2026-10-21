@@ -1450,7 +1450,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
  const hasCollectorWrittenHtmlForPath = (relativePath: string): boolean =>
-  hasCollectorWrittenHtml(distDir, relativePath, (filePath) => collector.hasWritten(filePath));
+  hasCollectorWrittenHtml(distDir, relativePath, pathWasClaimed);
 
  type JobsSeoLocaleSized = Record<(typeof JOB_SEO_LOCALES)[number], { size: number }>;
  type JobsSeoMemContext = {
