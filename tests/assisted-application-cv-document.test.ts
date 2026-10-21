@@ -314,6 +314,162 @@ describe('tailored CV by type', () => {
       expect.objectContaining({ field: 'summary', kind: 'language' }),
     ]));
   });
+
+  it('rejects source-language prose while allowing ordinary target-language CV phrases', () => {
+    const profile = { cvLanguage: 'en' };
+    const cv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Built CRM for Swiss clients',
+      competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ field: 'rendered', token: 'summary' })],
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Work with team leads' }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ field: 'rendered', token: 'summary' })],
+    });
+
+    const localized = {
+      ...cv,
+      summary: 'Ha gestito progetti internazionali con 12 clienti',
+      competencies: ['Gestione dei progetti internazionali'],
+      experience: [{ rewritten: true, bullets: ['Ha coordinato 12 persone con un team internazionale'] }],
+      skills: ['Gestione delle relazioni con i clienti'],
+    };
+    expect(checkTailoredCvLanguage(localized, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+  });
+
+  it('checks rendered prose when the profile language already matches the target', () => {
+    const cv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Work with team leads', competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(cv, { profile: { cvLanguage: 'it' }, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ field: 'rendered', token: 'summary' })],
+    });
+  });
+
+  it('does not language-check an education grade from a row the renderer omits', () => {
+    const cv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], experience: [], skills: [], localized: {},
+    };
+    const profile = { cvLanguage: 'it', education: [{ degree: '', institution: '', grade: 'Work with team leads in Zürich' }] };
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+  });
+
+  it('checks localized highlights when the document uses them as a fallback', () => {
+    const profile = {
+      cvLanguage: 'en',
+      experience: [{ role: 'Support Specialist', employer: 'Example Ltd', location: 'London', highlights: ['Managed customer support and service delivery'] }],
+    };
+    const cv = {
+      language: 'it', type: 'qualified', sector: 'health', headline: '', headlineSource: 'profile',
+      summary: 'Ha gestito il servizio clienti e coordinato il lavoro del team.',
+      competencies: [], skills: [],
+      experience: [{ role: 'Support Specialist', employer: 'Example Ltd', location: 'London', bullets: [], rewritten: false }],
+      localized: {
+        headline: '',
+        experience: [{ index: 0, role: 'Specialista del supporto', location: 'Londra', highlights: ['Coordinated customer support and service delivery'] }],
+      },
+    };
+
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({
+        field: 'rendered', kind: 'language', token: 'localized.experience[0].highlights[0]',
+      })],
+    });
+  });
+
+  it('keeps a language name already in its canonical target-language form', () => {
+    const profile = { cvLanguage: 'it', languages: [{ language: 'English', level: 'C1' }] };
+    const cv = {
+      language: 'en', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Experienced software professional with strong project management skills.',
+      competencies: [], experience: [], skills: [],
+      localized: { languages: [{ index: 0, language: 'English' }] },
+    };
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'en' })).toMatchObject({ ok: true, issues: [] });
+  });
+
+  it('accepts both standard Italian spellings of the Romanian language label', () => {
+    const profile = { cvLanguage: 'en', languages: [{ language: 'Romanian', level: 'B2' }] };
+    for (const language of ['rumeno', 'rumena', 'romeno', 'romena']) {
+      const cv = {
+        language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+        summary: '', competencies: [], experience: [], skills: [],
+        localized: { languages: [{ index: 0, language }] },
+      };
+      expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+    }
+
+    const canonicalProfile = { cvLanguage: 'en', languages: [{ language: 'romeno', level: 'B2' }] };
+    const canonicalCv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], experience: [], skills: [],
+      localized: { languages: [{ index: 0, language: 'romeno' }] },
+    };
+    expect(checkTailoredCvLanguage(canonicalCv, { profile: canonicalProfile, language: 'it' })).toMatchObject({
+      ok: true,
+      issues: [],
+    });
+  });
+
+  it('rejects English prose in a German CV and accepts English CV phrases', () => {
+    const cv = {
+      language: 'de', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Project management requirements', competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(cv, { profile: { cvLanguage: 'it' }, language: 'de' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ field: 'rendered', token: 'summary' })],
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Customer service delivery' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({ ok: true, issues: [] });
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Project management skills' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({ ok: true, issues: [] });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Financial reporting systems' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({ ok: true, issues: [] });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Arbeit in Zürich und Umgebung' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ field: 'rendered', token: 'summary' })],
+    });
+  });
+
+  it('does not reject a short target-language phrase or render a highlight with no source', () => {
+    const shortEnglish = {
+      language: 'en', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Improved sales conversion', competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(shortEnglish, { profile: { cvLanguage: 'it' }, language: 'en' }).ok).toBe(true);
+
+    const profile = { cvLanguage: 'en', experience: [{ role: 'Support specialist', highlights: [] }] };
+    const unmatched = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], skills: [],
+      experience: [{ role: 'Support specialist', employer: '', location: '', start: '', end: '', bullets: [], rewritten: false }],
+      localized: {
+        experience: [{ index: 0, role: 'Specialista di supporto', location: '', highlights: ['Ha coordinato il servizio clienti e guidato il team'] }],
+      },
+    };
+    expect(checkTailoredCvLanguage(unmatched, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ kind: 'missing-source' })],
+    });
+  });
 });
 
 // Owner decisions of 2026-10-03 (P4): the personal data are the candidate's own statements, printed from the catalogue.

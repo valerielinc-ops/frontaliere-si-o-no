@@ -726,6 +726,113 @@ describe('fact gate of the tailored CV', () => {
     expect(facts.unsupported.map((item: any) => item.token)).toEqual(['Kubernetes', 'AWS']);
   });
 
+  it('checks localized facts against the field they translate, including translated prose', () => {
+    const source = 'Managed 12 people in Zürich';
+    const translated = 'Ha gestito 12 persone a Zurigo';
+    const profile = {
+      cvLanguage: 'en',
+      experience: [{ role: 'Team lead', location: 'Zürich', highlights: [source] }],
+    };
+    const cv = {
+      headlineSource: 'profile', headline: '', summary: '', competencies: [], experience: [], skills: [],
+      localized: {
+        experience: [{ index: 0, role: '', location: '', highlights: [translated] }],
+      },
+    };
+    expect(checkTailoredCvFacts(cv, { cvText: source, profile, answers: {} })).toMatchObject({ ok: true, unsupported: [] });
+  });
+
+  it('rejects localized experience highlights without a matching source highlight', () => {
+    const profile = { cvLanguage: 'en', experience: [{ role: 'Support specialist', highlights: [] }] };
+    const cv = {
+      headlineSource: 'profile', headline: '', summary: '', competencies: [],
+      experience: [], skills: [],
+      localized: {
+        experience: [{ index: 0, role: 'Specialista di supporto', location: '', highlights: ['Ha coordinato il servizio clienti e guidato il team'] }],
+      },
+    };
+    expect(checkTailoredCvFacts(cv, { cvText: 'Support specialist', profile, answers: {} })).toMatchObject({
+      ok: false,
+      unsupported: [expect.objectContaining({ kind: 'source' })],
+    });
+  });
+
+  it('checks a supported model headline against the profile when the profile headline is empty', () => {
+    const profile = { experience: [{ role: 'Project Manager' }] };
+    const cv = sanitizeTailoredCv({
+      headline: 'Project Manager', summary: '', competencies: [], experience: [], skills: [], localized: {},
+    }, { profile, cvText: '', language: 'en' });
+
+    expect(cv).toMatchObject({ headline: 'Project Manager', headlineSource: 'model' });
+    expect(checkTailoredCvFacts(cv, { cvText: '', profile, answers: {} })).toMatchObject({ ok: true, unsupported: [] });
+  });
+
+  it('accepts a translated model headline grounded in the profile title', () => {
+    const profile = { cvLanguage: 'en', headline: 'Software Developer' };
+    const cv = sanitizeTailoredCv({
+      headline: 'Sviluppatore software', summary: '', competencies: [], experience: [], skills: [],
+      localized: { headline: 'Sviluppatore software' },
+    }, { profile, cvText: 'Software Developer', language: 'it' });
+
+    expect(cv).toMatchObject({ headline: 'Sviluppatore software', headlineSource: 'model' });
+    expect(checkTailoredCvFacts(cv, { cvText: 'Software Developer', profile, answers: {} }))
+      .toMatchObject({ ok: true, unsupported: [] });
+  });
+
+  it('does not use a contextual summary mention to ground a manager headline', () => {
+    const profile = {
+      cvLanguage: 'en', headline: 'Software Developer',
+      summary: 'Worked with project managers on software releases', experience: [],
+    };
+    const cv = sanitizeTailoredCv({
+      headline: 'Project Manager', summary: '', competencies: [], experience: [], skills: [],
+      localized: { headline: 'Project Manager' },
+    }, { profile, cvText: 'Software Developer. Worked with project managers on software releases.', language: 'en' });
+
+    expect(cv).toMatchObject({ headline: 'Software Developer', headlineSource: 'profile' });
+  });
+
+  it('does not translate a contextual manager mention into the candidate headline', () => {
+    const profile = {
+      cvLanguage: 'en', headline: 'Software Developer',
+      summary: 'Worked with project managers on software releases', experience: [],
+    };
+    const cv = sanitizeTailoredCv({
+      headline: 'Responsabile software', summary: '', competencies: [], experience: [], skills: [],
+      localized: { headline: 'Responsabile software' },
+    }, { profile, cvText: 'Software Developer. Worked with project managers on software releases.', language: 'it' });
+
+    expect(cv).toMatchObject({ headline: 'Software Developer', headlineSource: 'profile' });
+  });
+
+  it('does not combine separate profile titles to ground a translated headline', () => {
+    const profile = {
+      cvLanguage: 'en', headline: 'Software Developer',
+      experience: [{ role: 'Project Manager' }],
+    };
+    const cv = sanitizeTailoredCv({
+      headline: 'Responsabile software', summary: '', competencies: [], experience: [], skills: [],
+      localized: { headline: 'Responsabile software' },
+    }, { profile, cvText: 'Software Developer. Project Manager.', language: 'it' });
+
+    expect(cv).toMatchObject({ headline: 'Software Developer', headlineSource: 'profile' });
+  });
+
+  it('does not ground an unsupported model headline by repeating it in localized copy', () => {
+    const profile = { headline: '', experience: [{ role: 'Software Developer' }] };
+    const cv = sanitizeTailoredCv({
+      headline: 'Direttore finanziario senior',
+      summary: '', competencies: [], experience: [], skills: [],
+      localized: { headline: 'Direttore finanziario senior' },
+    }, { profile, cvText: 'Software Developer', language: 'it' });
+
+    expect(cv).toMatchObject({ headline: '', headlineSource: 'profile' });
+    expect(checkTailoredCvFacts(cv, { cvText: 'Software Developer', profile, answers: {} })).toMatchObject({
+      ok: true,
+      unsupported: [],
+    });
+  });
+
   it('reads the posting’s company named in the summary as an employer never had: the prompt forbids naming it', () => {
     // A real draft of 2026-10-07: the summary said «… targeting the … role at <the posting's company> …». The
     // gate, whose sources are the candidate's alone, flagged the company and the whole tailored CV was dropped
