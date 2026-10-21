@@ -8267,7 +8267,7 @@ ${staticAnalyticsHtml}
  const pgCompanyCount = new Set(pgJobs.map((job: any) => String(job.company || '')).filter(Boolean)).size;
  const pgLocationCount = new Set(pgJobs.map((job: any) => String(job.location || '')).filter(Boolean)).size;
  const pgCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
- const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).flatMap((job: any) => {
+ const pgItemListItems = pgJobs.slice(0, 10).flatMap((job: any) => {
  // Canton-aware item URL: pagination is TI-section by design but the jobs
  // listed may live in any canton. Point ItemList at the actually-emitted
  // self-canonical URL, not a raw-corpus target which the active emitter
@@ -8275,7 +8275,8 @@ ${staticAnalyticsHtml}
  const url = activeCanonicalJobHref(job, locale);
  if (!url) return [];
  return [{ name: String(job?.titleByLocale?.[locale] || job.title || ''), url }];
- }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item })) });
+ }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item }));
+ const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgItemListItems.length, itemListElement: pgItemListItems });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';
@@ -8404,11 +8405,12 @@ ${staticAnalyticsHtml}
  const pgCompanyCount = new Set(pgJobs.map((job: any) => String(job.company || '')).filter(Boolean)).size;
  const pgLocationCount = new Set(pgJobs.map((job: any) => String(job.location || '')).filter(Boolean)).size;
  const pgCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
- const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).flatMap((job: any) => {
+ const pgItemListItems = pgJobs.slice(0, 10).flatMap((job: any) => {
  const url = activeCanonicalJobHref(job, locale);
  if (!url) return [];
  return [{ name: String(job?.titleByLocale?.[locale] || job.title || ''), url }];
- }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item })) });
+ }).map((item, i) => ({ '@type': 'ListItem', position: i + 1, ...item }));
+ const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgItemListItems.length, itemListElement: pgItemListItems });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? `Lavoro in ${cDisplay}` : locale === 'en' ? `Jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Emploi \u00e0 ${cDisplay}`;

@@ -201,7 +201,8 @@ describe('job-board emitted output', () => {
       expect(firstItemList).toBeUndefined();
       const lastPage = htmlDoc(`${hub}${pageWord[locale]}-7/`);
       const itemList = structured(lastPage).find((entry) => entry['@type'] === 'ItemList');
-      expect(itemList.numberOfItems).toBe(8);
+      expect(itemList.numberOfItems).toBe(itemList.itemListElement.length);
+      expect(itemList.itemListElement).toHaveLength(0);
       expect(lastPage.querySelector('link[rel="next"]')).toBeNull();
       expect(fs.existsSync(path.join(root, 'dist', hub, `${pageWord[locale]}-8/index.html`))).toBe(false);
       expect(htmlDoc(hub).querySelector(`[data-explore-pagination] a[href$="/${pageWord[locale]}-7/"]`)).toBeTruthy();
