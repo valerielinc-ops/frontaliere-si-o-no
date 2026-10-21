@@ -35,7 +35,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
@@ -173,7 +173,7 @@ function collectCandidatePaths() {
   // 3. Existing compat paths — they're already flagged, but re-inspecting
   // confirms Google still sees them as 404 (vs. recovered / redirected) and
   // captures any state changes.
-  const compat = readCompatPaths(ROOT); // sharded accumulator (issue #2988)
+  const compat = readCompatPathsStrict(ROOT); // sharded accumulator (issue #2988)
   if (Array.isArray(compat.paths)) {
     for (const p of compat.paths) {
       if (typeof p === 'string' && p.startsWith('/')) paths.add(p.replace(/\/+$/, ''));
@@ -234,7 +234,7 @@ async function main() {
   }
 
   const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPaths(ROOT);
+  const compat = readCompatPathsStrict(ROOT);
   if (!compat.source) compat.source = 'gsc-export';
   if (!Array.isArray(compat.paths)) compat.paths = [];
   const compatSet = new Set(compat.paths);
@@ -343,7 +343,7 @@ async function main() {
     // floor 150000 violato). Guard condiviso in scripts/lib/compat-paths-floor-guard.mjs
     // (stessa semantica per tutti i writer del compat): fire solo se il write
     // scende sotto floor MENTRE l'esistente è già grande. ABORTISCE rumorosamente.
-    const prevCount = readCompatPaths(ROOT).paths?.length ?? 0;
+    const prevCount = readCompatPathsStrict(ROOT).paths?.length ?? 0;
     try {
       assertCompatFloor(prevCount, updatedCompat.paths.length, {
         floor: COMPAT_PATHS_SANITY_FLOOR,

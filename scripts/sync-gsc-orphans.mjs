@@ -37,7 +37,7 @@ import {
 import { JOB_BOARD_SEGMENT_RX, JOB_BOARD_SECTION_GSC_STEMS } from './lib/jobBoardSections.mjs';
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import {
   readOrphanEnriched,
@@ -1236,9 +1236,9 @@ async function main() {
   // pages at build time — feeding them into the orphan pipeline gives them proper
   // soft-landing pages with enriched content instead.
   // Sharded accumulator (issue #2988): logical {paths} spread across shards;
-  // always go through readCompatPaths/writeCompatPaths, never a single file.
+  // always go through readCompatPathsStrict/writeCompatPaths, never a single file.
   const compatPathsFile = dataPath('seo-404-compat');
-  const compatData = readCompatPaths(ROOT);
+  const compatData = readCompatPathsStrict(ROOT);
   if (compatData?.paths && Array.isArray(compatData.paths)) {
     // Canton-aware: the previous regex matched ONLY the four Ticino sections,
     // so every non-TI compat job path (grigioni, vallese, zurigo, soletta, …)
@@ -1428,7 +1428,7 @@ async function main() {
       // write TRONCA i centinaia di migliaia di path buoni a poche migliaia. prevCount
       // da una lettura on-disk fresca; il guard condiviso aborta se il write scende
       // sotto floor mentre l'esistente è già grande (stessa semantica di discover-404s).
-      const prevCount = readCompatPaths(ROOT)?.paths?.length ?? 0;
+      const prevCount = readCompatPathsStrict(ROOT)?.paths?.length ?? 0;
       assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatPathsFile });
       writeCompatPaths(updatedCompat, ROOT);
       console.log(`  ✅ Fed back ${feedbackAdded} orphan paths to the seo-404-compat store`);

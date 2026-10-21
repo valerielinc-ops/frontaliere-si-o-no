@@ -85,7 +85,9 @@ export function listCompatShardFiles(rootDir = process.cwd()) {
  * shards exist yet, falls back to the legacy monolith so callers keep working
  * across the migration. Never throws — a corrupt shard is skipped, mirroring
  * the prior `readJsonSafe(file, { paths: [] })` contract every caller relied
- * on (a hard-fail here would be the truncation hazard, not a fix).
+ * on. This is intentionally the forgiving reader for non-destructive runtime
+ * consumers; every caller that will write the accumulator must use
+ * `readCompatPathsStrict()` below so a partial read cannot be persisted.
  */
 export function readCompatPaths(rootDir = process.cwd()) {
   const shardFiles = listCompatShardFiles(rootDir);
@@ -139,8 +141,39 @@ export function readCompatPaths(rootDir = process.cwd()) {
  * Read the accumulator for a destructive rewrite. Unlike readCompatPaths(),
  * this fails closed if a shard or its manifest is missing, corrupt, or
  * inconsistent: a partial read must never be written back as the new set.
+ * The merge-conflict resolver uses the separate
+ * `readCompatPathsStrictAfterMerge()` entry point for its post-write invariant
+ * check with an independently computed expected path count; shard
+ * completeness, assignment, uniqueness, and that count remain mandatory.
  */
 export function readCompatPathsStrict(rootDir = process.cwd()) {
+  return readCompatPathsStrictInternal(rootDir);
+}
+
+/**
+ * Validate all shards against the resolver's expected post-merge total. This
+ * deliberately allows a stale manifest total for callers that validate before
+ * refreshing metadata; it still
+ * rejects missing/corrupt shards, duplicates, wrong assignments, invalid
+ * manifest shape, and any mismatch with the resolver's independently
+ * computed expected total. Callers outside
+ * `resolve-404-compat-conflict.mjs` must use `readCompatPathsStrict()` instead.
+ *
+ * @param {string} rootDir
+ * @param {number} expectedTotalPaths path count from the merged index stages
+ * and all clean shards; never omit this safety check
+ */
+export function readCompatPathsStrictAfterMerge(rootDir = process.cwd(), expectedTotalPaths) {
+  if (!Number.isSafeInteger(expectedTotalPaths) || expectedTotalPaths < 0) {
+    throw new Error(
+      '[compat-paths-store] resolver must provide a non-negative expected path count '
+      + 'while recomputing the manifest',
+    );
+  }
+  return readCompatPathsStrictInternal(rootDir, { expectedTotalPaths });
+}
+
+function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = {}) {
   const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
   let shardNames;
   try {
@@ -155,7 +188,12 @@ export function readCompatPathsStrict(rootDir = process.cwd()) {
     try {
       legacy = JSON.parse(fs.readFileSync(legacyFile, 'utf-8'));
     } catch (legacyErr) {
-      if (legacyErr?.code === 'ENOENT') return { paths: [] };
+      if (legacyErr?.code === 'ENOENT') {
+        throw new Error(
+          '[compat-paths-store] compatibility accumulator is missing; '
+          + 'refusing to bootstrap a destructive rewrite from an empty checkout',
+        );
+      }
       throw new Error(`[compat-paths-store] cannot read legacy accumulator: ${legacyErr?.message ?? legacyErr}`);
     }
     if (!legacy || typeof legacy !== 'object' || Array.isArray(legacy) || !Array.isArray(legacy.paths)
@@ -165,7 +203,14 @@ export function readCompatPathsStrict(rootDir = process.cwd()) {
     const { paths: legacyPaths, ...meta } = legacy;
     delete meta.shardCount;
     delete meta.totalPaths;
-    return { ...meta, paths: [...new Set(legacyPaths)] };
+    const paths = [...new Set(legacyPaths)];
+    if (expectedTotalPaths !== null && paths.length !== expectedTotalPaths) {
+      throw new Error(
+        `[compat-paths-store] legacy accumulator contains ${paths.length} paths, `
+        + `but the resolver expected ${expectedTotalPaths}; refusing destructive rewrite`,
+      );
+    }
+    return { ...meta, paths };
   }
 
   const expectedShardNames = Array.from({ length: COMPAT_SHARD_COUNT }, (_, i) => shardFileName(i));
@@ -194,6 +239,10 @@ export function readCompatPathsStrict(rootDir = process.cwd()) {
   const paths = [];
   for (const name of shardNames) {
     const file = path.join(dir, name);
+    const shardIndex = Number(name.slice('part-'.length, -'.json'.length));
+    if (!Number.isSafeInteger(shardIndex) || shardIndex < 0 || shardIndex >= COMPAT_SHARD_COUNT) {
+      throw new Error(`[compat-paths-store] invalid shard name ${name}; refusing destructive rewrite`);
+    }
     let shard;
     try {
       shard = JSON.parse(fs.readFileSync(file, 'utf-8'));
@@ -205,14 +254,28 @@ export function readCompatPathsStrict(rootDir = process.cwd()) {
       throw new Error(`[compat-paths-store] invalid ${name}; refusing destructive rewrite`);
     }
     for (const p of shard.paths) {
-      if (!seen.has(p)) {
-        seen.add(p);
-        paths.push(p);
+      if (seen.has(p)) {
+        throw new Error(`[compat-paths-store] duplicate path ${p} across shards; refusing destructive rewrite`);
       }
+      if (compatShardIndex(p) !== shardIndex) {
+        throw new Error(
+          `[compat-paths-store] ${name} contains path assigned to shard ${compatShardIndex(p)}: ${p}; `
+          + 'refusing destructive rewrite',
+        );
+      }
+      seen.add(p);
+      paths.push(p);
     }
   }
 
-  if (paths.length !== meta.totalPaths) {
+  if (expectedTotalPaths !== null && paths.length !== expectedTotalPaths) {
+    throw new Error(
+      `[compat-paths-store] merged shards contain ${paths.length} paths, `
+      + `but the resolver expected ${expectedTotalPaths}; refusing destructive rewrite`,
+    );
+  }
+
+  if (expectedTotalPaths === null && paths.length !== meta.totalPaths) {
     throw new Error(
       `[compat-paths-store] manifest declares ${meta.totalPaths} paths, `
       + `but complete shards contain ${paths.length}; refusing destructive rewrite`,

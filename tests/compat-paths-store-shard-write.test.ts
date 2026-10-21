@@ -6,8 +6,10 @@ import path from 'node:path';
 import {
   readCompatPaths,
   readCompatPathsStrict,
+  readCompatPathsStrictAfterMerge,
   writeCompatPaths,
   compatShardFile,
+  compatShardIndex,
   compatManifestFile,
   COMPAT_SHARD_COUNT,
 } from '../scripts/lib/compat-paths-store.mjs';
@@ -88,6 +90,10 @@ describe('writeCompatPaths — shard write minimization', () => {
     expect(() => readCompatPathsStrict(rootDir)).toThrow(/incomplete shard set/);
   });
 
+  it('refuses to bootstrap a destructive read from an empty checkout', () => {
+    expect(() => readCompatPathsStrict(rootDir)).toThrow(/accumulator is missing/);
+  });
+
   it('refuses a destructive read when any shard is corrupt', () => {
     writeCompatPaths({ paths: ['/a/', '/b/'] }, rootDir);
     fs.writeFileSync(compatShardFile(0, rootDir), '{');
@@ -103,5 +109,49 @@ describe('writeCompatPaths — shard write minimization', () => {
     fs.writeFileSync(manifestFile, JSON.stringify(manifest));
 
     expect(() => readCompatPathsStrict(rootDir)).toThrow(/manifest declares 3 paths/);
+  });
+
+  it('can validate shards while a merge resolver recomputes a stale manifest', () => {
+    writeCompatPaths({ paths: ['/stale-manifest/'] }, rootDir);
+    const manifestFile = compatManifestFile(rootDir);
+    const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf-8'));
+    manifest.totalPaths += 1;
+    fs.writeFileSync(manifestFile, JSON.stringify(manifest));
+
+    expect(() => readCompatPathsStrictAfterMerge(rootDir, Number.NaN)).toThrow(/expected path count/);
+    expect(readCompatPathsStrictAfterMerge(rootDir, 1).paths).toEqual(['/stale-manifest/']);
+  });
+
+  it('rejects a post-merge count that does not match the resolver preflight', () => {
+    writeCompatPaths({ paths: ['/post-merge-count/'] }, rootDir);
+    expect(() => readCompatPathsStrictAfterMerge(rootDir, 2)).toThrow(/expected 2/);
+  });
+
+  it('refuses duplicate paths spread across shards', () => {
+    writeCompatPaths({ paths: ['/duplicate/'] }, rootDir);
+    const sourceIndex = compatShardIndex('/duplicate/');
+    const targetIndex = (sourceIndex + 1) % COMPAT_SHARD_COUNT;
+    const targetFile = compatShardFile(targetIndex, rootDir);
+    const target = JSON.parse(fs.readFileSync(targetFile, 'utf-8'));
+    target.paths.push('/duplicate/');
+    fs.writeFileSync(targetFile, JSON.stringify(target));
+
+    expect(() => readCompatPathsStrict(rootDir)).toThrow(/duplicate path/);
+  });
+
+  it('refuses a path stored in the wrong shard', () => {
+    writeCompatPaths({ paths: ['/wrong-shard/'] }, rootDir);
+    const sourceIndex = compatShardIndex('/wrong-shard/');
+    const targetIndex = (sourceIndex + 1) % COMPAT_SHARD_COUNT;
+    const sourceFile = compatShardFile(sourceIndex, rootDir);
+    const targetFile = compatShardFile(targetIndex, rootDir);
+    const source = JSON.parse(fs.readFileSync(sourceFile, 'utf-8'));
+    const target = JSON.parse(fs.readFileSync(targetFile, 'utf-8'));
+    source.paths = source.paths.filter((p: string) => p !== '/wrong-shard/');
+    target.paths.push('/wrong-shard/');
+    fs.writeFileSync(sourceFile, JSON.stringify(source));
+    fs.writeFileSync(targetFile, JSON.stringify(target));
+
+    expect(() => readCompatPathsStrict(rootDir)).toThrow(/assigned to shard/);
   });
 });
