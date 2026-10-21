@@ -165,7 +165,7 @@ export function parseLiteralRedirectMap(source) {
  * this reader supplies the same final route ownership to generated links.
  * Missing or malformed optional maps mean "leave the href alone".
  *
- * @param {{ readFileSync: (path: string, encoding: string) => string }} fs
+ * @param {{ readFileSync: typeof import('node:fs').readFileSync }} fs
  * @param {string} filePath
  * @param {string} [legacyFilePath]
  * @returns {Record<string, string>}
