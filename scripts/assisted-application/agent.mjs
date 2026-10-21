@@ -289,10 +289,10 @@ async function main() {
       const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
       const rawDocuments = Array.isArray(event.documents) ? event.documents : [];
       const incoming = dedupePortalQuestions(rawQuestions.filter((question) => question && typeof question === 'object' && question.question));
-      const known = new Set(existing.map((question) => portalQuestionKey(question.question, question.context) || question.id));
+      const known = new Set(existing.map((question) => portalQuestionKey(question) || question.id));
       const added = [];
       for (const question of incoming) {
-        const key = portalQuestionKey(question.question, question.context) || question.id;
+        const key = portalQuestionKey(question) || question.id;
         if (known.has(key)) continue;
         known.add(key);
         added.push(question);

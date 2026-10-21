@@ -360,10 +360,10 @@ export async function buildDraft(ctx) {
     // question. Re-run this filter after the portal has contributed its own
     // document labels.
     questions = questions.filter(notAnsweredByUpload);
-    const known = new Set(questions.map((question) => portalQuestionKey(question.question, question.context) || question.id));
+    const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id));
     for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
       if (!notAnsweredByUpload(question)) continue;
-      const key = portalQuestionKey(question.question, question.context) || question.id;
+      const key = portalQuestionKey(question) || question.id;
       if (known.has(key)) continue;
       known.add(key);
       questions.push(question);

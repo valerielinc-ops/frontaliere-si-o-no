@@ -379,22 +379,24 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
   const items = questions.map((question) => ({
     question: question.question,
     context: question.context || '',
+    section: question.section || '',
+    autocomplete: question.autocomplete || '',
     answer: String(answers[question.id] ?? '').trim(),
     source: 'answers',
     current: true,
   })).filter((item) => item.answer);
-  const keyFor = (item) => portalQuestionKey(item.question, item.context) || portalQuestionId(item.question, item.context);
+  const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
   const currentKeys = new Set(questions
     // An empty value under a regenerated field id is not an answer; keep the
     // previous semantic answer eligible for that same question.
     .filter((question) => question?.id && String(answers[question.id] ?? '').trim())
-    .map((question) => keyFor({ question: question.question, context: question.context || '' })));
+    .map((question) => keyFor({ question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '' })));
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
     const question = String(item?.question || '').trim();
     const answer = String(item?.answer || '').trim();
     if (!question || !answer) continue;
-    const prior = { question, context: String(item?.context || ''), answer, source: String(item?.source || 'answers') };
+    const prior = { question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
     const key = keyFor(prior);
     if (currentKeys.has(key)) continue;
     const group = priorGroups.get(key) || [];
@@ -411,8 +413,8 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
     const previous = seen.get(key);
     if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ question, answer, context, source }) => ({
-    question, answer, source, ...(context ? { context: context.slice(0, 240) } : {}),
+  return [...seen.values()].map(({ question, answer, context, section, autocomplete, source }) => ({
+    question, answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
   }));
 }
 
@@ -429,6 +431,8 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       kind: options.length || ['choice', 'yes_no'].includes(question.type) ? 'select' : 'text',
       label: question.question,
       context: question.context || '',
+      section: question.section || '',
+      autocomplete: question.autocomplete || '',
       required: true,
       options,
     };
@@ -910,11 +914,11 @@ function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
   for (const item of missingRequired) {
-    const id = portalQuestionId(item.question, item.context);
-    const key = portalQuestionKey(item.question, item.context);
+    const id = portalQuestionId(item);
+    const key = portalQuestionKey(item);
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    questions.push({ id, question: item.question, ...(item.context ? { context: String(item.context).slice(0, 240) } : {}), why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
+    questions.push({ id, question: item.question, ...(item.context ? { context: String(item.context).slice(0, 240) } : {}), ...(item.section ? { section: String(item.section).slice(0, 240) } : {}), ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}), why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
   }
   return questions;
 }
@@ -929,7 +933,7 @@ export function dedupePortalQuestions(questions = []) {
   const seen = new Set();
   return (Array.isArray(questions) ? questions : []).filter((question) => {
     if (question?.source !== 'portal') return true;
-    const key = portalQuestionKey(question.question, question.context) || question.id;
+    const key = portalQuestionKey(question) || question.id;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -1941,6 +1945,8 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
         fieldId: field.id,
         question: String(field.label).trim(),
         ...(field.context ? { context: field.context } : {}),
+        ...(field.section ? { section: field.section } : {}),
+        ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
         why,
         type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
         options: (field.options || []).map((option) => option.label).filter(Boolean),
@@ -2157,7 +2163,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       // run's agent reads it from the live page instead.
       // The CV and cover-letter fields are already supplied by the runner, so
       // they are neither candidate questions nor extra document requirements.
-      if (!field || (field.kind !== 'file' && field.inputType !== 'file')) readable.push(item);
+      if (!field || (field.kind !== 'file' && field.inputType !== 'file')) readable.push({ ...item, ...(item.section || !field?.section ? {} : { section: field.section }), ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }) });
       continue;
     }
     if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
@@ -2389,22 +2395,26 @@ export async function submitViaPortal(ctx) {
       const name = String(document);
       evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source, context = '') => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '') => {
       if (!question || !String(answer ?? '').trim()) return;
       const label = String(question).slice(0, 200);
       const surrounding = String(context || '').slice(0, 240);
-      const key = portalQuestionKey(label, surrounding) || portalQuestionId(label, surrounding) || label;
+      const heading = String(section || '').slice(0, 240);
+      const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
+      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
+      const key = portalQuestionKey(item) || portalQuestionId(item) || label;
       given.set(key, {
         question: label,
         answer: String(answer).slice(0, 2000),
         source: source || '',
         ...(surrounding ? { context: surrounding } : {}),
+        ...(heading ? { section: heading } : {}),
+        ...(fieldAutocomplete ? { autocomplete: fieldAutocomplete } : {}),
       });
       evidence.answers = [...given.values()].slice(0, 80);
     };
     const candidateWithRecordedAnswers = (candidate, current) => {
-      const answerKey = (item) => portalQuestionKey(item.question, item.context)
-        || portalQuestionId(item.question, item.context);
+      const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
       const recorded = [...given.values()];
       const recordedKeys = new Set(recorded.map(answerKey));
       const visibleAnswers = (current?.fields || [])
@@ -2413,6 +2423,8 @@ export async function submitViaPortal(ctx) {
           question: String(field.label || field.name || field.id || '').slice(0, 200),
           answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
           context: String(field.context || '').slice(0, 240),
+          section: String(field.section || '').slice(0, 240),
+          autocomplete: String(field.autocomplete || '').slice(0, 100),
           source: 'answers',
         }))
         .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
@@ -2759,7 +2771,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source, field.context);
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
