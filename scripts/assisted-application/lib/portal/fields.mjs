@@ -498,6 +498,9 @@ export function extractFieldsInPage() {
     element.value,
     element.getAttribute('aria-label'),
     element.getAttribute('title'),
+    // SuccessFactors attachment controls can have no visible glyph text; their
+    // accessible name points to visually hidden text through `aria-labelledby`.
+    (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' '),
   ].map(clean).find(Boolean) || '';
   const buttonAccessibleLabel = (element) => {
     const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/)
