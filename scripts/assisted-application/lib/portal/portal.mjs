@@ -1234,17 +1234,87 @@ function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null, ch
 // at once, a page that never opens does not hold the run (review of #11022).
 const MAX_SECTION_TRIES = 3;
 
+const DIALOG_FILE_INPUT_SELECTOR = [
+  '[role="dialog"]:visible input[type="file"]',
+  '[aria-modal="true"]:visible input[type="file"]',
+  'dialog[open]:visible input[type="file"]',
+].join(', ');
+
+function orderedUploadFrames(page, preferredFrame) {
+  const frames = page.frames();
+  const preferred = preferredFrame && frames.includes(preferredFrame)
+    ? preferredFrame
+    : page.mainFrame();
+  return [preferred, ...frames.filter((frame) => frame !== preferred)];
+}
+
+async function dialogFileInputCount(frame) {
+  try {
+    const input = frame.locator(DIALOG_FILE_INPUT_SELECTOR);
+    if (typeof input.count !== 'function') return null;
+    return await input.count();
+  } catch {
+    return null;
+  }
+}
+
+/** Finds one newly opened, visible upload dialog across the page's current frames. */
+async function dialogFileInput(page, preferredFrame, beforeCounts, timeoutMs = 8_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const candidates = [];
+    let ambiguous = false;
+    let supportedFrames = 0;
+    for (const frame of orderedUploadFrames(page, preferredFrame)) {
+      const count = await dialogFileInputCount(frame);
+      if (count === null) continue;
+      supportedFrames += 1;
+      const previousCount = beforeCounts.get(frame) || 0;
+      const added = count - previousCount;
+      if (added > 1) ambiguous = true;
+      else if (added === 1) candidates.push(frame.locator(DIALOG_FILE_INPUT_SELECTOR).nth(previousCount));
+    }
+    // Playwright frames expose locator.count(). The fallback exists only for
+    // lightweight legacy mocks that expose the prior page.locator() surface.
+    if (supportedFrames === 0) {
+      const legacyInput = page.locator(DIALOG_FILE_INPUT_SELECTOR).first();
+      return legacyInput || null;
+    }
+    if (!ambiguous && candidates.length === 1) return candidates[0];
+    await page.waitForTimeout(150);
+  }
+  return null;
+}
+
 /** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
-async function uploadThroughDialog(page, trigger, file) {
+async function uploadThroughDialog(page, trigger, file, triggerFrame = 0) {
+  const framesBeforeClick = page.frames();
+  const preferredFrame = framesBeforeClick[triggerFrame] || page.mainFrame();
+  const beforeCounts = new Map();
+  for (const frame of framesBeforeClick) {
+    const count = await dialogFileInputCount(frame);
+    if (count !== null) beforeCounts.set(frame, count);
+  }
+  // An already-open picker is unrelated to this trigger; fail closed instead
+  // of risking an upload into a stale dialog or a different document field.
+  if ([...beforeCounts.values()].some((count) => count > 0)) return 'unavailable';
   try {
     if (trigger.snapshot) await clickButton(page, trigger.snapshot);
     else await trigger.click({ timeout: 6_000 });
   } catch {
     return 'unavailable';
   }
-  const input = page.locator('[role="dialog"] input[type="file"], [aria-modal="true"] input[type="file"]').first();
+  // Some SuccessFactors tenants keep the attachment control and its modal in
+  // an application iframe. `page.locator()` only queries the main frame, so
+  // searching there can report a failed upload even after the dialog opened.
+  // The dialog must be visible and contain a newly attached file input; this
+  // prevents selecting a stale or unrelated document picker.
+  const input = await dialogFileInput(page, preferredFrame, beforeCounts);
+  if (!input) {
+    await page.keyboard.press('Escape').catch(() => {});
+    return 'unavailable';
+  }
   try {
-    await input.waitFor({ state: 'attached', timeout: 8_000 });
     await input.setInputFiles(file);
   } catch {
     await page.keyboard.press('Escape').catch(() => {});
@@ -1328,7 +1398,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
       : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
-    cv = await uploadThroughDialog(page, trigger, cvFile);
+    cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0);
     current = await extractFields(page);
     const uploadedCvField = current.fields.find(isCvFileField);
     if (cv !== 'unavailable' && uploadedCvField) cvFieldKey = uploadedPortalFieldKey(page.url(), uploadedCvField);
@@ -1350,7 +1420,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
       : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
-    coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
+    coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile, triggerButton.frame || 0);
     current = await extractFields(page);
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);
   }
