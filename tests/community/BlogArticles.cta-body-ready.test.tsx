@@ -140,6 +140,38 @@ describe('article CTAs after asynchronous body loading', () => {
     expect(container.textContent).not.toContain('Titolo compilato obsoleto');
   });
 
+  it('does not release a deferred static snapshot while the article body is loading', async () => {
+    let resolveBody!: (result: { status: 'loaded' }) => void;
+    fixture.loadBody.mockReturnValue(new Promise((resolve) => {
+      resolveBody = resolve;
+    }));
+    fixture.translations[`blog.article.${fixture.id}.body1`] = 'Corpo verificato.';
+
+    const nav = { navigateTo: vi.fn() } as unknown as NavigationContextType;
+    const onArticleReady = vi.fn();
+    const wrapper = ({ children }: { children: ReactNode }) => (
+      <NavigationContext.Provider value={nav}>{children}</NavigationContext.Provider>
+    );
+    render(
+      <BlogArticles
+        selectedArticle={fixture.id as never}
+        section="frontaliere"
+        articleReadyKey="fixture-static-owner-loading"
+        onArticleReady={onArticleReady}
+        deferUntilArticleReady
+      />,
+      { wrapper },
+    );
+
+    await waitFor(() => expect(fixture.loadBody).toHaveBeenCalled());
+    expect(onArticleReady).not.toHaveBeenCalled();
+
+    await act(async () => {
+      resolveBody({ status: 'loaded' });
+    });
+    await waitFor(() => expect(onArticleReady).toHaveBeenCalledWith('fixture-static-owner-loading'));
+  });
+
   it('retries registry and body lookup when a loaded body has no registry record', async () => {
     fixture.translations[`blog.article.${fixture.absentId}.title`] = 'Articolo recuperato dal registry';
     fixture.translations[`blog.article.${fixture.absentId}.body1`] = 'Testo recuperato dopo il retry.';
