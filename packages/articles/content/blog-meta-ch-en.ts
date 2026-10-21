@@ -8558,6 +8558,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia, over 100 take to the streets in Zurich against 34 full-time job cuts',
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'More than 100 employees protest in Zurich Tamedia announces 34 fewer full-time positions The cuts affect 41 employees Workers call for investment',
     'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.pacchetto-imprese-sgravi.title': 'Competitiveness package: over 90% implemented or underway',
+    'blog.article.pacchetto-imprese-sgravi.excerpt': 'More than 90% of the 60 measures have been implemented or are being implemented.',
+    'blog.article.pacchetto-imprese-sgravi.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
