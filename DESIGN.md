@@ -181,6 +181,10 @@ The CSS defines a 6px Stripe radius token, while implemented controls commonly u
 ### Navigation
 - The sticky top navigation uses a shared purple active label and underline, with muted inactive labels. The active state is not distinguished by color alone: labels and icons remain present. On mobile, navigation becomes a compact touch-oriented control.
 
+### Motion and Interaction
+- Control-state transitions commonly use 150ms; broader navigation and surface transitions use 300ms with `cubic-bezier(0.4, 0, 0.2, 1)`.
+- `prefers-reduced-motion` reduces animation and transition durations to `0.01ms` and disables smooth scrolling.
+
 ## Do's and Don'ts
 
 ### Do:
