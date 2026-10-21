@@ -21,13 +21,13 @@ export function parseShAuctionRows(
   });
 }
 
-export async function fetchShPlateAuctions() {
+export async function fetchShPlateAuctions(options = {}) {
   return fetchCardCantonAuctions({
     canton: SH_CANTON,
     plateCode: SH_PLATE_CODE,
     officialAuctionUrl: SH_AUCTION_URL,
     detailBaseUrl: "https://www.auktion-stva.sh.ch",
-  });
+  }, options);
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
