@@ -55,6 +55,13 @@ describe('static article TypeScript source reader', () => {
     expect(parsed.get('beta')?.get('imageAlt')).toBe('A ${literal} image');
   });
 
+  it('accepts a structurally valid empty metadata module but still rejects an empty body module', () => {
+    const empty = moduleWith('');
+
+    expect(parseStaticArticleTranslationSource(empty, 'blog-meta-empty.ts')).toEqual(new Map());
+    expect(() => parseStaticBlogBodySource(empty, BODY_PATH)).toThrow(/no static body fields/u);
+  });
+
   it('ignores strings/comments while rejecting real interpolation anywhere in the module', () => {
     const staticSource = [
       '// `comment ${notCode}`',

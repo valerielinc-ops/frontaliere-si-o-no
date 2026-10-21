@@ -186,7 +186,6 @@ export function parseStaticArticleTranslationSource(source, sourcePath) {
     fields.set(field, value);
   }
 
-  if (result.size === 0) fail(sourcePath, 'no static article translation properties found', sourceFile, objectLiteral);
   return result;
 }
 
