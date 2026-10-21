@@ -1,14 +1,14 @@
 {
   "crawlerKey": "suchthilfe-region-basel",
-  "assembledAt": "2026-10-20T21:16:31.359Z",
+  "assembledAt": "2026-10-21T09:24:35.218Z",
   "jobs": [
     {
       "id": "suchthilfe-region-basel-9ee6eb185429",
       "slug": "servizio-infermieristico-60-80-suchthilfe-region-basel-reinach",
       "slugByLocale": {
-        "de": "pflegefachperson-tagdienst-60-80-suchthilfe-region-basel-reinach",
         "it": "servizio-infermieristico-60-80-suchthilfe-region-basel-reinach",
         "en": "nurse-day-service-60-80-suchthilfe-region-basel-reinach",
+        "de": "pflegefachperson-tagdienst-60-80-suchthilfe-region-basel-reinach",
         "fr": "infirmiere-service-de-jour-60-80-suchthilfe-region-basel-reinach"
       },
       "company": "Suchthilfe Region Basel",
@@ -33,7 +33,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/10/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:24.846Z",
+      "crawledAt": "2026-10-21T09:24:24.800Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -51,9 +51,7 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.suchthilfe.ch/jobs/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
@@ -115,7 +113,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:24.300Z",
+      "crawledAt": "2026-10-21T09:24:24.247Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -197,7 +195,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:16:23.751Z",
+      "crawledAt": "2026-10-21T09:24:23.688Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -336,7 +334,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
-  ]
+  ],
+  "runId": "39575175343"
 }
