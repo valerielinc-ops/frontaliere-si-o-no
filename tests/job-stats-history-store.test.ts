@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -9,6 +9,9 @@ import { fileURLToPath } from 'node:url';
 import {
   JOB_STATS_HISTORY_LEGACY_FILE,
   JOB_STATS_HISTORY_SHARD_MAX_BYTES,
+  isSafeJobStatsHistoryAgeCompaction,
+  isSafeJobStatsHistoryShardRewrite,
+  mergeJobStatsHistoryEntries,
   readJobsStatsHistory,
   writeJobsStatsHistory,
 } from '../scripts/lib/job-stats-history-store.mjs';
@@ -52,6 +55,58 @@ function entry(date: string, overrides: Record<string, unknown> = {}) {
     locationStats: [],
     titleStats: [],
     ...overrides,
+  };
+}
+
+function dateOffsetFromToday(offsetDays: number) {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() + offsetDays);
+  return date.toISOString().slice(0, 10);
+}
+
+function dateOffset(dateValue: string, offsetDays: number) {
+  const date = new Date(`${dateValue}T00:00:00.000Z`);
+  date.setUTCDate(date.getUTCDate() + offsetDays);
+  return date.toISOString().slice(0, 10);
+}
+
+function verboseAgeEntry(date: string) {
+  const updatedKeys = Array.from({ length: 15_000 }, (_, i) => `url:https://example.ch/updated/${i}`);
+  const removedKeys = Array.from({ length: 15_000 }, (_, i) => `url:https://example.ch/removed/${i}`);
+  const addedKeys = ['url:https://example.ch/added/1', 'url:https://example.ch/added/2'];
+  return {
+    date,
+    totalJobs: 10,
+    added: 2,
+    updated: updatedKeys.length,
+    removed: removedKeys.length,
+    addedKeys,
+    updatedKeys,
+    removedKeys,
+    companyStats: [{
+      key: 'company-a',
+      name: 'Company A',
+      addedKeys: [addedKeys[0]],
+      updatedKeys,
+      removedKeys,
+      updatedCount: updatedKeys.length,
+      removedCount: removedKeys.length,
+    }],
+    locationStats: [{ key: 'location-a', name: 'Location A', addedKeys: [addedKeys[0]] }],
+    titleStats: [{ key: 'title-a', name: 'Title A', addedKeys: [addedKeys[1]] }],
+    sourceVersion: 'preserve-this-field',
+  };
+}
+
+function fullyCompacted(entryValue: ReturnType<typeof verboseAgeEntry>) {
+  return {
+    ...entryValue,
+    addedKeys: [],
+    updatedKeys: [],
+    removedKeys: [],
+    companyStats: [],
+    locationStats: [],
+    titleStats: [],
   };
 }
 
@@ -305,6 +360,156 @@ describe('job stats history store', () => {
 
       expect(readShard(root, '2026-09-19.json').entries).toEqual([compacted]);
     });
+  });
+
+  it('proves age compaction only after the 30-day window and only for the exact planned fields', () => {
+    const currentDate = dateOffsetFromToday(0);
+    const oldDate = dateOffset(currentDate, -31);
+    const previous = verboseAgeEntry(oldDate);
+    const compacted = fullyCompacted(previous);
+
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, compacted, { currentDate })).toBe(true);
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, compacted, {
+      currentDate: dateOffset(oldDate, 29),
+    })).toBe(false);
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, compacted, {
+      currentDate: dateOffset(oldDate, 30),
+    })).toBe(false);
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, { ...compacted, date: currentDate }, { currentDate })).toBe(false);
+    for (const counter of ['totalJobs', 'added', 'updated', 'removed'] as const) {
+      expect(isSafeJobStatsHistoryAgeCompaction(previous, {
+        ...compacted,
+        [counter]: previous[counter] + 1,
+      }, { currentDate })).toBe(false);
+    }
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, { ...compacted, extraPayload: 'dropped data' }, { currentDate })).toBe(false);
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, { ...compacted, sourceVersion: 'changed' }, { currentDate })).toBe(false);
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, { ...compacted, titleStats: undefined }, { currentDate })).toBe(false);
+    expect(isSafeJobStatsHistoryAgeCompaction(previous, compacted, { currentDate: 'not-a-date' })).toBe(false);
+    expect(isSafeJobStatsHistoryShardRewrite(
+      JSON.stringify({ entries: [previous], extraPayload: 'must not disappear' }),
+      JSON.stringify({ entries: [compacted] }),
+      { currentDate },
+    )).toBe(false);
+  });
+
+  it('allows the exact full compaction of a shard past the age cutoff', () => {
+    withTempRoot((root) => {
+      const currentDate = dateOffsetFromToday(0);
+      const oldDate = dateOffset(currentDate, -31);
+      const previous = verboseAgeEntry(oldDate);
+      const compacted = fullyCompacted(previous);
+      const before = JSON.stringify({ entries: [previous] }, null, 2) + '\n';
+      const shardPath = path.join(root, SHARD_DIR, `${oldDate}.json`);
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      fs.writeFileSync(shardPath, before);
+      expect(Buffer.byteLength(before)).toBeGreaterThan(1_000_000);
+
+      writeJobsStatsHistory({ entries: [compacted, entry(currentDate)] }, root, { currentDate });
+
+      expect(readShard(root, `${oldDate}.json`).entries).toEqual([compacted]);
+      expect(fs.statSync(shardPath).size).toBeLessThan(Buffer.byteLength(before) * 0.3);
+    });
+  });
+
+  it('keeps the byte-floor guard for young compactions and stale canonical counters', () => {
+    withTempRoot((root) => {
+      const oldDate = dateOffsetFromToday(-31);
+      const currentDate = dateOffset(oldDate, 29);
+      const previous = verboseAgeEntry(oldDate);
+      const compacted = fullyCompacted(previous);
+      const before = JSON.stringify({ entries: [previous] }, null, 2) + '\n';
+      const shardPath = path.join(root, SHARD_DIR, `${oldDate}.json`);
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [compacted, entry(currentDate)] }, root, { currentDate }))
+        .toThrow(/ABORT write.*\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+    });
+
+    withTempRoot((root) => {
+      const currentDate = dateOffsetFromToday(0);
+      const oldDate = dateOffset(currentDate, -31);
+      const previous = verboseAgeEntry(oldDate);
+      const compacted = fullyCompacted(previous);
+      const staleCounters = { ...compacted, added: compacted.added + 1 };
+      const before = JSON.stringify({ entries: [previous] }, null, 2) + '\n';
+      const shardPath = path.join(root, SHARD_DIR, `${oldDate}.json`);
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [staleCounters, entry(currentDate)] }, root, { currentDate }))
+        .toThrow(/ABORT write.*\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+    });
+
+    withTempRoot((root) => {
+      const currentDate = dateOffsetFromToday(0);
+      const oldDate = dateOffset(currentDate, -31);
+      const previous = verboseAgeEntry(oldDate);
+      const compacted = fullyCompacted(previous);
+      const before = JSON.stringify({
+        entries: [previous],
+        extraPayload: 'wrapper data must be preserved',
+      }, null, 2) + '\n';
+      const shardPath = path.join(root, SHARD_DIR, `${oldDate}.json`);
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      fs.writeFileSync(shardPath, before);
+
+      expect(() => writeJobsStatsHistory({ entries: [compacted, entry(currentDate)] }, root, { currentDate }))
+        .toThrow(/ABORT write.*\.json/);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(before);
+    });
+  });
+
+  it('refuses to overwrite a shard changed after the age-compaction plan was read', () => {
+    withTempRoot((root) => {
+      const currentDate = dateOffsetFromToday(0);
+      const oldDate = dateOffset(currentDate, -31);
+      const previous = verboseAgeEntry(oldDate);
+      const compacted = fullyCompacted(previous);
+      const concurrentEntry = {
+        ...previous,
+        added: previous.added + 1,
+        addedKeys: [...previous.addedKeys, 'url:https://example.ch/concurrent'],
+      };
+      const before = JSON.stringify({ entries: [previous] }, null, 2) + '\n';
+      const concurrent = JSON.stringify({ entries: [concurrentEntry] }, null, 2) + '\n';
+      const shardPath = path.join(root, SHARD_DIR, `${oldDate}.json`);
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      fs.writeFileSync(shardPath, before);
+
+      const originalRead = fs.readFileSync.bind(fs);
+      let shardReads = 0;
+      const readSpy = vi.spyOn(fs, 'readFileSync').mockImplementation((...args) => {
+        if (String(args[0]) === shardPath) {
+          shardReads += 1;
+          if (shardReads === 2) fs.writeFileSync(shardPath, concurrent);
+        }
+        return originalRead(...args);
+      });
+      try {
+        expect(() => writeJobsStatsHistory({ entries: [compacted, entry(currentDate)] }, root, { currentDate }))
+          .toThrow(/changed after planning/);
+      } finally {
+        readSpy.mockRestore();
+      }
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(concurrent);
+    });
+  });
+
+  it('unions a verbose sibling shard with a compacted one without losing action keys', () => {
+    const currentDate = dateOffsetFromToday(0);
+    const previous = verboseAgeEntry(dateOffset(currentDate, -31));
+    const compacted = fullyCompacted(previous);
+    const merged = mergeJobStatsHistoryEntries([compacted], [previous]);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].addedKeys).toEqual([...previous.addedKeys].sort());
+    expect(merged[0].updatedKeys).toEqual([...previous.updatedKeys].sort());
+    expect(merged[0].removedKeys).toEqual([...previous.removedKeys].sort());
+    expect(merged[0].added).toBe(previous.added);
   });
 
   it('allows a historical title-locale rewrite when counters are preserved', () => {

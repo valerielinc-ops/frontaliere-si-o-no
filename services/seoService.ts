@@ -1848,9 +1848,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
  let articleBodyHasPromptPlaceholder = false;
  let articleBodyLoadFailed = false;
- const existingArticleRobots = isBlogArticle
- ? document.querySelector('meta[name="robots"]')?.getAttribute('content') || ''
- : '';
+ let articleBodyUsesLegacySource = false;
  if (isBlogArticle && blogArticleId) {
  const articleSection = route.blogSection === 'svizzera' ? 'svizzera' : 'frontaliere';
  try {
@@ -1858,14 +1856,19 @@ export async function updateMetaTags(section: string): Promise<void> {
  // single-flight read when hydration and SEO update race. Without waiting
  // here, the runtime pass can overwrite the static noindex head before the
  // body chunk arrives.
- await loadArticleBody(blogArticleId, articleSection);
+ const bodyLoadResult = await loadArticleBody(blogArticleId, articleSection);
+ articleBodyUsesLegacySource = bodyLoadResult.status === 'legacy';
+ articleBodyLoadFailed = bodyLoadResult.status === 'error' || bodyLoadResult.status === 'missing';
  } catch {
- // Keep the static decision if the body chunk is unavailable. A failed
- // source read must not turn a quarantined article back into indexable copy.
+ // A failed source read must not restore unverified HTML or make the article
+ // indexable. Keep the body unavailable until a later retry succeeds.
  articleBodyLoadFailed = true;
  }
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
- if (needsArticleBodyRecovery(collectArticleBodySegments(blogArticleId, t))) {
+ // Static HTML recovery is only valid when the server explicitly reports the
+ // legacy mode. Once the body API is available, `missing` and `error` are
+ // authoritative states and must never repopulate stale body text from HTML.
+ if (articleBodyUsesLegacySource && !articleBodyLoadFailed && needsArticleBodyRecovery(collectArticleBodySegments(blogArticleId, t))) {
  try {
  const { recoverArticleBodyParts, publishRuntimeArticleBody } = await import('./runtimeArticleResolution');
  const parts = await recoverArticleBodyParts(canonicalLocalePath);
@@ -2048,12 +2051,12 @@ export async function updateMetaTags(section: string): Promise<void> {
  return false;
  }
  })();
- const preserveStaticArticleNoindex = isBlogArticle && articleBodyLoadFailed && /\bnoindex\b/i.test(existingArticleRobots);
+ const articleBodyUnavailable = isBlogArticle && articleBodyLoadFailed;
  const robotsDirective = isApplicationConciergeService
  ? 'noindex, nofollow'
  : hasFilterQuery || route.activeTab === 'newsletter-preferences'
  ? 'noindex, follow'
- : articleBodyHasPromptPlaceholder || preserveStaticArticleNoindex
+ : articleBodyHasPromptPlaceholder || articleBodyUnavailable
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
