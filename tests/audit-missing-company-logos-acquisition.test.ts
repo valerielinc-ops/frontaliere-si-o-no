@@ -108,6 +108,17 @@ describe('missing company-logo acquisition', () => {
     expect(selectAuditCandidates(entries)).toEqual([entries[0], entries[2]]);
   });
 
+  it('selects external references for stable CDN mirroring', () => {
+    const entry = {
+      companyKey: 'imerys',
+      status: 'external',
+      externalJobCount: 4,
+      companyName: 'Imerys',
+    };
+
+    expect(selectAuditCandidates([entry])).toEqual([entry]);
+  });
+
   it('extracts structured employer logo declarations from official pages', () => {
     const links = extractOfficialLogoImages(`
       <meta property="og:logo" content="https://media.example.test/answer.svg">
@@ -147,6 +158,33 @@ describe('missing company-logo acquisition', () => {
         width: 513,
         height: 117,
       }));
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it('uses a declared external logo source before domain probing', async () => {
+    const sourceUrl = 'https://assets.example.test/imerys.png';
+    const originalFetch = globalThis.fetch;
+    let probes = 0;
+    globalThis.fetch = async (url) => {
+      if (url === sourceUrl) return new Response(pngBytes(512, 256), {
+        headers: { 'content-type': 'image/png' },
+      });
+      probes += 1;
+      throw new Error(`unexpected probe ${url}`);
+    };
+
+    try {
+      const result = await downloadForKey('imerys', {
+        declaredLogoUrls: new Set([sourceUrl]),
+      }, { fromAudit: true });
+      expect(result).toEqual(expect.objectContaining({
+        accepted: true,
+        source: 'declared-logo-source',
+        sourceDomain: 'assets.example.test',
+      }));
+      expect(probes).toBe(0);
     } finally {
       globalThis.fetch = originalFetch;
     }
@@ -265,6 +303,26 @@ describe('missing company-logo acquisition', () => {
     expect(residual.pendingDeploy).toBeGreaterThan(0);
     expect(residual.pendingDeployJobCount).toBeGreaterThan(0);
     expect(residual.affectedCompanies[0]?.reason).toBe('asset presente nel checkout, in attesa del deploy CDN');
+  });
+
+  it('keeps external sources visible until the stable asset is verified', () => {
+    const residual = buildResidualReport(
+      {
+        affectedCompanies: [
+          {
+            companyKey: 'imerys',
+            status: 'external',
+            externalJobCount: 3,
+            affectedJobCount: 3,
+          },
+        ],
+      },
+      { targets: [], acquired: 0, failed: 0, qualityRejected: 0 },
+    );
+
+    expect(residual.external).toBe(1);
+    expect(residual.externalJobCount).toBe(3);
+    expect(residual.affectedCompanies[0]?.reason).toBe('sorgente esterna da rendere stabile sul CDN');
   });
 
   it('keeps every acquired PR asset covered by an explicit override', () => {

@@ -570,9 +570,10 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'css-versicherung': cLogo('css.ch'),
 };
 
-// These direct sources are curated fallbacks for the current missing-logo
-// audit. The generated manifest can contain an older low-resolution asset
-// (MediaMarkt is the known example), so it must not shadow these entries.
+// These direct sources are curated acquisition inputs for the logo audit. A
+// stable manifest asset always wins at runtime; this set documents entries
+// that previously needed an explicit source and prevents regressions when the
+// acquisition workflow is reviewed.
 export const CURATED_EXTERNAL_LOGO_KEYS = new Set([
  'edmond-de-rothschild',
  'imerys',
@@ -604,15 +605,15 @@ export function resolveCompanyLogoUrlForRenderedOutput(job: JobLike): string | n
  return logoUrlForRenderedOutput(resolveCompanyLogoUrl(job)) ?? null;
 }
 
-// Overlay the locally-mirrored logo paths on top of the registry. Any
-// non-curated slug present in the manifest serves /images/brands/{slug}.{ext}
-// instead of the upstream URL — eliminating broken-image issues for the SPA
-// and the static SEO pages alike. Refresh with
+// Overlay every locally-mirrored logo path on top of the registry. This is
+// deliberately not skipped for curated entries: the external URL is an
+// acquisition source only, while the manifest is the stable runtime contract
+// shared by the SPA, SEO output and email renderers. Refresh with
 // `node scripts/download-company-logos.mjs` or the canonical audit downloader.
 for (const [slug, localPath] of Object.entries(
  COMPANY_LOGOS_MANIFEST as Record<string, string>,
 )) {
- if (CURATED_EXTERNAL_LOGO_KEYS.has(slug)) continue;
+ if (!String(localPath).startsWith('/images/')) continue;
  CRAWLED_COMPANY_LOGOS[slug] = localPath;
 }
 
@@ -911,19 +912,25 @@ export function resolveCompanyWebsiteHost(job: JobLike): string {
 }
 
 export function resolveCompanyLogoUrl(job: JobLike): string | null {
- // 0. Publisher-provided logo (projected from the publish form; validated
- // https-only at projection time). Only publisher-submitted records carry
- // this field, so behavior for crawled jobs is unchanged.
+ // 0. A mirrored manifest entry is the stable runtime contract. This check
+ // comes before publisher-provided URLs so a declared external logo can be
+ // acquired once and then reused by every renderer, including email.
+ const key = job.companyKey || '';
+ const mirroredLogo = key ? COMPANY_LOGOS_MANIFEST[key] : null;
+ if (mirroredLogo && String(mirroredLogo).startsWith('/images/')) return mirroredLogo;
+
+ // 1. Publisher-provided logo (projected from the publish form; validated
+ // https-only at projection time). It remains a source fallback until the
+ // weekly audit mirrors it into the manifest.
  const ownLogo = String(job.companyLogo || '').trim();
  if (/^https:\/\/\S+$/i.test(ownLogo)) return ownLogo;
 
- // 1. Explicit crawled-company logo map (most reliable)
- const key = job.companyKey || '';
+ // 2. Explicit crawled-company logo map (most reliable)
  if (key && CRAWLED_COMPANY_LOGOS[key]) {
  return CRAWLED_COMPANY_LOGOS[key];
  }
 
- // 2. Identity-based fallbacks for variant company names / keys
+ // 3. Identity-based fallbacks for variant company names / keys
  if (isMedacta(job)) return CRAWLED_COMPANY_LOGOS['medacta-international'];
  if (isVf(job)) return CRAWLED_COMPANY_LOGOS['vf-international-the-north-face-timberland'];
  if (isEfg(job)) return CRAWLED_COMPANY_LOGOS['efg-international'];
@@ -945,7 +952,7 @@ export function resolveCompanyLogoUrl(job: JobLike): string | null {
  return CRAWLED_COMPANY_LOGOS['posta-svizzera-centro-regionale'];
  }
 
- // 3. No curated logo and no identity match. We deliberately do NOT fall back
+ // 4. No curated logo and no identity match. We deliberately do NOT fall back
  // to gFavicon(host) here: Google's favicon API serves a generic grey-globe
  // PNG (HTTP 200/404-with-body, ~726 B) for domains it can't resolve, which
  // browsers render even on a 404 — so the <img onError> chain never fires and

@@ -202,6 +202,7 @@ export function domainCandidates(key, metadata = {}, options = {}) {
 const AUDIT_STATUS_REASONS = {
   missing: 'nessun dominio ufficiale dichiarato',
   broken: 'sorgente ufficiale irraggiungibile o riferimento rotto',
+  external: 'sorgente esterna da rendere stabile sul CDN',
   partial: 'copertura parziale',
   'pending-deploy': 'asset presente nel checkout, in attesa del deploy CDN',
   'low-quality': 'qualità insufficiente',
@@ -216,6 +217,8 @@ const ACQUISITION_REASON_LABELS = {
 export function selectAuditCandidates(entries = []) {
   return entries.filter((entry) => (
     (entry?.status === 'missing'
+      || entry?.status === 'external'
+      || Number(entry?.externalJobCount || 0) > 0
       || entry?.status === 'low-quality'
       || Number(entry?.lowQualityJobCount || 0) > 0)
     && String(entry?.companyKey || '').trim()
@@ -257,6 +260,8 @@ export function buildResidualReport(report, acquisition = {}) {
     brokenJobCount: countJobs('brokenJobCount', 'broken'),
     pendingDeploy: residual.filter((company) => Number(company.pendingDeployJobCount || 0) > 0).length,
     pendingDeployJobCount: countJobs('pendingDeployJobCount'),
+    external: residual.filter((company) => Number(company.externalJobCount || 0) > 0).length,
+    externalJobCount: countJobs('externalJobCount'),
     partial: countCompanies('partial'),
     partialJobCount: countJobs('affectedJobCount', 'partial'),
     lowQuality: residual.filter((company) => Number(company.lowQualityJobCount || 0) > 0).length,
