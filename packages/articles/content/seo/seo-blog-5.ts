@@ -112723,6 +112723,162 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bollettino-frontaliere-2026-10-21': {
+    title: 'Frontalieri: i dati verificati di oggi — 21 ottobre 2026',
+    description: 'Bollettino frontalieri 21 ottobre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Frontalieri: i dati verificati di oggi — 21 ottobre 2026',
+    ogDescription: 'I numeri del 21 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-10-21/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: i dati verificati di oggi — 21 ottobre 2026",
+      "description": "Bollettino frontalieri 21 ottobre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-10-18.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T10:06:04+00:00",
+      "dateModified": "2026-10-21T10:06:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-10-21/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-revolut-servizi-interrotti': {
+    title: 'Banca digitale, disservizi in Svizzera per pagamenti e cambi',
+    description: 'Problemi su pagamenti, versamenti e cambio di valute Disagi iniziati poco dopo le 8:00 in Svizzera Google indica un ritorno graduale dei servizi',
+    keywords: 'frontalieri, ticino, svizzera, italia, banca, digitale, disservizi, pagamenti',
+    ogTitle: 'Revolut, guasto ai servizi: colpita anche la Svizzera',
+    ogDescription: 'Problemi su pagamenti, versamenti e cambio di valute Disagi iniziati poco dopo le 8:00 in Svizzera Google indica un ritorno graduale dei servizi Revolut: denaro',
+    canonicalPath: '/articoli-frontaliere/revolut-servizi-interrotti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banca digitale, disservizi in Svizzera per pagamenti e cambi",
+      "description": "Problemi su pagamenti, versamenti e cambio di valute Disagi iniziati poco dopo le 8:00 in Svizzera Google indica un ritorno graduale dei servizi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-revolut-servizi-interrotti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T14:40:20+00:00",
+      "dateModified": "2026-10-21T14:40:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/revolut-servizi-interrotti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hackeraggio-ipct-casse-pensioni-ticino': {
+    title: 'Attacco hacker a PK Softech: 27.000 affiliati IPCT a rischio',
+    description: '27\'000 affiliati IPCT potrebbero essere vittime Attacco a PK Softech a fine settembre Dati di alcune centinaia in una cartella IPCT IPCT prepara',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, hacker, softech, affiliati',
+    ogTitle: 'Attacco hacker a PK Softech: 27.000 affiliati IPCT a rischio',
+    ogDescription: '27\'000 affiliati IPCT potrebbero essere vittime Attacco a PK Softech a fine settembre Dati di alcune centinaia in una cartella IPCT IPCT prepara una lettera',
+    canonicalPath: '/articoli-frontaliere/hackeraggio-ipct-casse-pensioni-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco hacker a PK Softech: 27.000 affiliati IPCT a rischio",
+      "description": "27'000 affiliati IPCT potrebbero essere vittime Attacco a PK Softech a fine settembre Dati di alcune centinaia in una cartella IPCT IPCT prepara",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-hackeraggio-ipct-casse-pensioni-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T17:53:56+00:00",
+      "dateModified": "2026-10-21T17:53:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hackeraggio-ipct-casse-pensioni-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasporti-varese-peduncolo-vedano-gallarate-luino': {
+    title: 'Trasporti, impegni per Varese: Peduncolo di Vedano e ferrovie Gallarate-Luino al centro del PRMT',
+    description: 'Il Pd ottiene impegni sul PRMT in Lombardia Il Peduncolo di Vedano entra negli approfondimenti Gallarate-Luino entra nelle fasi progettuali del Piano',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti, impegni, varese, peduncolo',
+    ogTitle: 'Trasporti Varese: impegni PRMT su Peduncolo Vedano e ferrovie Gallarate-Luino',
+    ogDescription: 'Il Pd ottiene impegni sul PRMT in Lombardia Il Peduncolo di Vedano entra negli approfondimenti Gallarate-Luino entra nelle fasi progettuali del Piano Si',
+    canonicalPath: '/articoli-frontaliere/trasporti-varese-peduncolo-vedano-gallarate-luino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti, impegni per Varese: Peduncolo di Vedano e ferrovie Gallarate-Luino al centro del PRMT",
+      "description": "Il Pd ottiene impegni sul PRMT in Lombardia Il Peduncolo di Vedano entra negli approfondimenti Gallarate-Luino entra nelle fasi progettuali del Piano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T20:21:53+00:00",
+      "dateModified": "2026-10-21T20:21:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasporti-varese-peduncolo-vedano-gallarate-luino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

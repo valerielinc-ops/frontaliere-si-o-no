@@ -8561,6 +8561,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pacchetto-imprese-sgravi.title': 'Pacchetto competitività: oltre il 90% attuato o in corso',
     'blog.article.pacchetto-imprese-sgravi.excerpt': 'Oltre il 90% delle 60 misure è attuato o in attuazione.',
     'blog.article.pacchetto-imprese-sgravi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.piano-berna-civilisti-cantoni.title': 'Protezione civile: Berna prevede l\'impiego dei civilisti',
+    'blog.article.piano-berna-civilisti-cantoni.excerpt': 'Da gennaio i civilisti potranno operare nella protezione civile Il Consiglio federale modifica le ordinanze applicative Al 1° gennaio 2025 la PC contava 57\'000',
+    'blog.article.piano-berna-civilisti-cantoni.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.cofinanziamento-tox-info-suisse.title': 'Tox Info Suisse: cofinanziamento obbligatorio per industria',
+    'blog.article.cofinanziamento-tox-info-suisse.excerpt': 'Il Consiglio federale vuole imporre il cofinanziamento di Tox Info Suisse Coinvolte l\'industria chimica e quella farmaceutica Consultazione prevista fino a metà',
+    'blog.article.cofinanziamento-tox-info-suisse.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.consiglio-poverta-prima-conferenza.title': 'Consiglio nazionale sulla povertà: si presenta il 9 novembre',
+    'blog.article.consiglio-poverta-prima-conferenza.excerpt': 'Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi ha',
+    'blog.article.consiglio-poverta-prima-conferenza.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.furto-dati-publica-100mila-dipendenti.title': 'Hacker Akira rubano dati di 100.000 dipendenti federali da Publica',
+    'blog.article.furto-dati-publica-100mila-dipendenti.excerpt': 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira minaccia',
+    'blog.article.furto-dati-publica-100mila-dipendenti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 729,
+      "5": 752,
       "6": 5054
     },
-    "publishedCovers": 7466,
+    "publishedCovers": 7489,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204764,6 +204764,765 @@
         "provider": "openai-codex",
         "assetId": "article-pacchetto-imprese-sgravi",
         "imageUrl": "/images/blog/article-pacchetto-imprese-sgravi.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-appenzell-remunerazioni-energia-2027": {
+      "cover": "/images/blog/article-appenzell-remunerazioni-energia-2027.webp",
+      "hash": "b123aa9967b18a0ff9a890cd473054356ec3196a079290d651b565d9102f2fb7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "appenzell-remunerazioni-energia-2027",
+          "category": "novita",
+          "date": "2026-10-21T18:16:59.022Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-appenzell-remunerazioni-energia-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-appenzell-remunerazioni-energia-2027",
+        "imageUrl": "/images/blog/article-appenzell-remunerazioni-energia-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-cofinanziamento-tox-info-suisse": {
+      "cover": "/images/blog/article-cofinanziamento-tox-info-suisse.webp",
+      "hash": "37b962a0238733ab7039dd0cb596991e2f1469b457ddc3dc636f21d6bb74642d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "cofinanziamento-tox-info-suisse",
+          "category": "fiscale",
+          "date": "2026-10-21T15:09:03.670Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-cofinanziamento-tox-info-suisse.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-cofinanziamento-tox-info-suisse",
+        "imageUrl": "/images/blog/article-cofinanziamento-tox-info-suisse.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-consiglio-poverta-prima-conferenza": {
+      "cover": "/images/blog/article-consiglio-poverta-prima-conferenza.webp",
+      "hash": "3c531b7f283b3ef46916c3b8a36d7c54c48a7133eb10c9b08409b525fc719275",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "consiglio-poverta-prima-conferenza",
+          "category": "novita",
+          "date": "2026-10-21T18:30:03.448Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-consiglio-poverta-prima-conferenza.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-consiglio-poverta-prima-conferenza",
+        "imageUrl": "/images/blog/article-consiglio-poverta-prima-conferenza.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-dashboard-mobilita-aarau": {
+      "cover": "/images/blog/article-dashboard-mobilita-aarau.webp",
+      "hash": "eb1f910e5a3486e63e4561cae4eb5d3a7c954058f9b7552533f108c623025ff8",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ag",
+          "id": "dashboard-mobilita-aarau",
+          "category": "novita",
+          "date": "2026-10-21T12:23:52.110Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-dashboard-mobilita-aarau.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-dashboard-mobilita-aarau",
+        "imageUrl": "/images/blog/article-dashboard-mobilita-aarau.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-driessen-oncologia-herisau-2026": {
+      "cover": "/images/blog/article-driessen-oncologia-herisau-2026.webp",
+      "hash": "2339e82526bc6b93ba6a441827dd587ff8d66bffd92afbe64279d78e78aae4b7",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "driessen-oncologia-herisau-2026",
+          "category": "novita",
+          "date": "2026-10-21T12:25:13.122Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-driessen-oncologia-herisau-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-driessen-oncologia-herisau-2026",
+        "imageUrl": "/images/blog/article-driessen-oncologia-herisau-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-furto-dati-publica-100mila-dipendenti": {
+      "cover": "/images/blog/article-furto-dati-publica-100mila-dipendenti.webp",
+      "hash": "80f97354504aabbf8033623da3795407e872713f241780560110e975956aee5c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "furto-dati-publica-100mila-dipendenti",
+          "category": "novita",
+          "date": "2026-10-21T20:47:43.163Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-furto-dati-publica-100mila-dipendenti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-furto-dati-publica-100mila-dipendenti",
+        "imageUrl": "/images/blog/article-furto-dati-publica-100mila-dipendenti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-giura-formazione-postobbligatoria-2026": {
+      "cover": "/images/blog/article-giura-formazione-postobbligatoria-2026.webp",
+      "hash": "0ae48fb4c4f0a7587bcb00e5754bfb90d5e572314e7b787bfffb40bc9569f20b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ju",
+          "id": "giura-formazione-postobbligatoria-2026",
+          "category": "novita",
+          "date": "2026-10-21T12:36:10.998Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-giura-formazione-postobbligatoria-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-giura-formazione-postobbligatoria-2026",
+        "imageUrl": "/images/blog/article-giura-formazione-postobbligatoria-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-hackeraggio-ipct-casse-pensioni-ticino": {
+      "cover": "/images/blog/article-hackeraggio-ipct-casse-pensioni-ticino.webp",
+      "hash": "89a7f3f8d2f65ee46bccde1d25b6e2ea1b539ba519464eac5757ef19af485720",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "hackeraggio-ipct-casse-pensioni-ticino",
+          "category": "pensione",
+          "date": "2026-10-21T17:53:56.319Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-hackeraggio-ipct-casse-pensioni-ticino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-hackeraggio-ipct-casse-pensioni-ticino",
+        "imageUrl": "/images/blog/article-hackeraggio-ipct-casse-pensioni-ticino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-heiden-risparmi-preventivo-2027": {
+      "cover": "/images/blog/article-heiden-risparmi-preventivo-2027.webp",
+      "hash": "4397974a475c2eefdb1e1bf7f76c39d29a60a121eea6d4111753ffec48f4d91b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "heiden-risparmi-preventivo-2027",
+          "category": "fiscale",
+          "date": "2026-10-21T19:28:07.751Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-heiden-risparmi-preventivo-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-heiden-risparmi-preventivo-2027",
+        "imageUrl": "/images/blog/article-heiden-risparmi-preventivo-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-hundwil-imposte-preventivo": {
+      "cover": "/images/blog/article-hundwil-imposte-preventivo.webp",
+      "hash": "1e53d02a070541a857fa237ee06fea80197cd28025e259468671cc70834d9990",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-appenzello",
+          "id": "hundwil-imposte-preventivo",
+          "category": "fiscale",
+          "date": "2026-10-21T19:06:08.539Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-hundwil-imposte-preventivo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-hundwil-imposte-preventivo",
+        "imageUrl": "/images/blog/article-hundwil-imposte-preventivo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-kantonsrat-biberbrugg-chaltenboden": {
+      "cover": "/images/blog/article-kantonsrat-biberbrugg-chaltenboden.webp",
+      "hash": "bcbddd754be09896d3845b0a881782203ee238542c914966dd0ec292fa04c039",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sz",
+          "id": "kantonsrat-biberbrugg-chaltenboden",
+          "category": "novita",
+          "date": "2026-10-21T13:31:24.335Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-kantonsrat-biberbrugg-chaltenboden.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-kantonsrat-biberbrugg-chaltenboden",
+        "imageUrl": "/images/blog/article-kantonsrat-biberbrugg-chaltenboden.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-kurzarbeit-regole-ordinarie": {
+      "cover": "/images/blog/article-kurzarbeit-regole-ordinarie.webp",
+      "hash": "fd536168572c412417b7c39e279b8206e2609d5fbcd6f5baed443d89e2d9b55f",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "kurzarbeit-regole-ordinarie",
+          "category": "novita",
+          "date": "2026-10-21T15:33:53.249Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-kurzarbeit-regole-ordinarie.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-kurzarbeit-regole-ordinarie",
+        "imageUrl": "/images/blog/article-kurzarbeit-regole-ordinarie.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lausanne-marathon-2026-chiusure-strade": {
+      "cover": "/images/blog/article-lausanne-marathon-2026-chiusure-strade.webp",
+      "hash": "71ae70d9ede8a88cd45e3c1eb13c2bf3d8d7f73516f8a4ec8a1e055d8facc9e9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "lausanne-marathon-2026-chiusure-strade",
+          "category": "pratico",
+          "date": "2026-10-21T20:50:06.586Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lausanne-marathon-2026-chiusure-strade.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lausanne-marathon-2026-chiusure-strade",
+        "imageUrl": "/images/blog/article-lausanne-marathon-2026-chiusure-strade.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lucerna-stop-riscaldamenti-fossili-2050": {
+      "cover": "/images/blog/article-lucerna-stop-riscaldamenti-fossili-2050.webp",
+      "hash": "794eb5f8adc0ea8593871d71e03b18b7260ca8ba50954ce5cef1bbefe0858e47",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "lucerna-stop-riscaldamenti-fossili-2050",
+          "category": "novita",
+          "date": "2026-10-21T12:47:58.727Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-stop-riscaldamenti-fossili-2050.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lucerna-stop-riscaldamenti-fossili-2050",
+        "imageUrl": "/images/blog/article-lucerna-stop-riscaldamenti-fossili-2050.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-lucerna-tassi-fiscali-zero-2027": {
+      "cover": "/images/blog/article-lucerna-tassi-fiscali-zero-2027.webp",
+      "hash": "4a038a1732e4bef5d8c4cbeb36547b8e08f1828e6b5eb68b3b3cfa040cb339b1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "lucerna-tassi-fiscali-zero-2027",
+          "category": "fiscale",
+          "date": "2026-10-21T13:53:04.510Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-lucerna-tassi-fiscali-zero-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-lucerna-tassi-fiscali-zero-2027",
+        "imageUrl": "/images/blog/article-lucerna-tassi-fiscali-zero-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-organico-comunale-zurigo": {
+      "cover": "/images/blog/article-organico-comunale-zurigo.webp",
+      "hash": "a357b0413f3050c13147e9c05b6c293e647c9c8fbb0b65db2f74f16b1d91fbba",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "organico-comunale-zurigo",
+          "category": "novita",
+          "date": "2026-10-21T11:30:34.419Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-organico-comunale-zurigo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-organico-comunale-zurigo",
+        "imageUrl": "/images/blog/article-organico-comunale-zurigo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-parcheggi-cascate-reno": {
+      "cover": "/images/blog/article-parcheggi-cascate-reno.webp",
+      "hash": "5851937709493ee9d8358e02363c94258b72921eeee9ca249ae928bd869ec2ef",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-sh",
+          "id": "parcheggi-cascate-reno",
+          "category": "novita",
+          "date": "2026-10-21T20:45:07.801Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-parcheggi-cascate-reno.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-parcheggi-cascate-reno",
+        "imageUrl": "/images/blog/article-parcheggi-cascate-reno.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-piano-berna-civilisti-cantoni": {
+      "cover": "/images/blog/article-piano-berna-civilisti-cantoni.webp",
+      "hash": "0f6f71e857ee92562ed11ebb090c78dcdd621f479ee3fbb6b93bfa1dfdff57af",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "piano-berna-civilisti-cantoni",
+          "category": "novita",
+          "date": "2026-10-21T11:26:40.028Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-piano-berna-civilisti-cantoni.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-piano-berna-civilisti-cantoni",
+        "imageUrl": "/images/blog/article-piano-berna-civilisti-cantoni.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-revolut-servizi-interrotti": {
+      "cover": "/images/blog/article-revolut-servizi-interrotti.webp",
+      "hash": "364a0d2aacc53effb6a50ac24c8033d2167b0557e59df300763041fa547c7986",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "revolut-servizi-interrotti",
+          "category": "novita",
+          "date": "2026-10-21T14:40:19.762Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-revolut-servizi-interrotti.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-revolut-servizi-interrotti",
+        "imageUrl": "/images/blog/article-revolut-servizi-interrotti.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-trasporti-varese-peduncolo-vedano-gallarate-luino": {
+      "cover": "/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp",
+      "hash": "47ed0cd4e06b1db9e8d2a3a69a1f3ad2f4cf816ef1cb6aa666843ccf225ad3d9",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "trasporti-varese-peduncolo-vedano-gallarate-luino",
+          "category": "novita",
+          "date": "2026-10-21T20:21:52.607Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-trasporti-varese-peduncolo-vedano-gallarate-luino",
+        "imageUrl": "/images/blog/article-trasporti-varese-peduncolo-vedano-gallarate-luino.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-vbz-tram-50-51-cambio": {
+      "cover": "/images/blog/article-vbz-tram-50-51-cambio.webp",
+      "hash": "a47b470f94a5aaeb04bcbe3031089366951769635b513f1c821a98edacdbdd1d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "vbz-tram-50-51-cambio",
+          "category": "pratico",
+          "date": "2026-10-21T10:20:51.886Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-vbz-tram-50-51-cambio.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-vbz-tram-50-51-cambio",
+        "imageUrl": "/images/blog/article-vbz-tram-50-51-cambio.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zurigo-incentivi-e-cargo-velo": {
+      "cover": "/images/blog/article-zurigo-incentivi-e-cargo-velo.webp",
+      "hash": "977f782767cfbcac877f82428637bf69a5f80bea4aca981b12fd0999915b63f4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "zurigo-incentivi-e-cargo-velo",
+          "category": "novita",
+          "date": "2026-10-21T11:52:46.899Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zurigo-incentivi-e-cargo-velo.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zurigo-incentivi-e-cargo-velo",
+        "imageUrl": "/images/blog/article-zurigo-incentivi-e-cargo-velo.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zurigo-niente-iniziativa-congedo-parentale": {
+      "cover": "/images/blog/article-zurigo-niente-iniziativa-congedo-parentale.webp",
+      "hash": "b139ab96b3e1e6866c4a3095530794513529975b7c2500dde4dea959cd1e752d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zh",
+          "id": "zurigo-niente-iniziativa-congedo-parentale",
+          "category": "novita",
+          "date": "2026-10-21T11:09:26.023Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zurigo-niente-iniziativa-congedo-parentale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zurigo-niente-iniziativa-congedo-parentale",
+        "imageUrl": "/images/blog/article-zurigo-niente-iniziativa-congedo-parentale.webp",
         "evidence": "generated-engine-record"
       }
     }

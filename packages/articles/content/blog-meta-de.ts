@@ -13551,6 +13551,20 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.title': 'Grenzgänger: Treffen zu Steuern, Vorsorge und Gesundheit',
     'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.excerpt': 'Samstag, 24. (Verbania)',
     'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-10-21.title': 'Grenzgänger: die verfügbaren Messwerte von heute — 21. Oktober 2026',
+    'blog.article.bollettino-frontaliere-2026-10-21.excerpt': 'Die Zahlen von heute, 21. Oktober 2026, für Grenzgänger: die zuletzt gemeldeten Wartezeiten an den Übergängen, die günstigsten Benzinpreise, der Franken-Euro-Kurs und aktive Stellenanzeigen in der Schweiz auf unserem Job-Board. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-21.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bollettino-frontaliere-2026-10-21.seoDescription': 'Grenzgänger-Bulletin am 21. Oktober 2026: aktuelle Wartezeiten, Benzinpreise, CHF/EUR-Kurs und offene Stellen in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-21.ogDescription': 'Die Zahlen vom 21. Oktober 2026 für Grenzgänger: wie lange man an jedem Übergang wartet, wo das Benzin am günstigsten ist, der aktuelle Franken-Euro-Kurs und die Zahl aktiver Stellenanzeigen auf unserem Job-Board in der Schweiz.',
+    'blog.article.revolut-servizi-interrotti.title': 'Digitalbank, Störungen in der Schweiz bei Zahlungen und Währungsumtausch',
+    'blog.article.revolut-servizi-interrotti.excerpt': 'Probleme bei Zahlungen, Einzahlungen und beim Währungsumtausch Beeinträchtigungen begannen in der Schweiz kurz nach 8:00 Google weist auf eine schrittweise Wiederaufnahme der Dienste hin Revolut: Geld',
+    'blog.article.revolut-servizi-interrotti.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.hackeraggio-ipct-casse-pensioni-ticino.title': 'Hackerangriff auf PK Softech: 27.000 IPCT-Versicherte gefährdet',
+    'blog.article.hackeraggio-ipct-casse-pensioni-ticino.excerpt': '27\'000 IPCT-Versicherte könnten Opfer werden Angriff auf PK Softech Ende September Daten von einigen Hundert in einem IPCT-Ordner IPCT bereitet ein Schreiben vor',
+    'blog.article.hackeraggio-ipct-casse-pensioni-ticino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.title': 'Verkehr: Zusagen für Varese – Peduncolo & Gallarate-Luino',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.excerpt': 'Die Pd erhält Zusagen zum PRMT in der Lombardei Der Peduncolo di Vedano wird in die vertieften Prüfungen aufgenommen Gallarate-Luino wird in die Projektphasen des Plans aufgenommen Ja',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

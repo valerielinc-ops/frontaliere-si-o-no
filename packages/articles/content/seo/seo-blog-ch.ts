@@ -108168,6 +108168,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piano-berna-civilisti-cantoni': {
+    title: 'Protezione civile: Berna prevede l\'impiego dei civilisti',
+    description: 'Da gennaio i civilisti potranno operare nella protezione civile Il Consiglio federale modifica le ordinanze applicative Al 1° gennaio 2025 la PC',
+    keywords: 'frontalieri, ticino, svizzera, italia, protezione, civile, berna, prevede',
+    ogTitle: 'Protezione civile: Berna prevede l\'impiego dei civilisti',
+    ogDescription: 'Da gennaio i civilisti potranno operare nella protezione civile Il Consiglio federale modifica le ordinanze applicative Al 1° gennaio 2025 la PC contava 57\'000',
+    canonicalPath: '/articoli-svizzera/piano-berna-civilisti-cantoni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protezione civile: Berna prevede l'impiego dei civilisti",
+      "description": "Da gennaio i civilisti potranno operare nella protezione civile Il Consiglio federale modifica le ordinanze applicative Al 1° gennaio 2025 la PC",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-piano-berna-civilisti-cantoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T11:26:40+00:00",
+      "dateModified": "2026-10-21T11:26:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/piano-berna-civilisti-cantoni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cofinanziamento-tox-info-suisse': {
+    title: 'Tox Info Suisse: cofinanziamento obbligatorio per industria',
+    description: 'Il Consiglio federale vuole imporre il cofinanziamento di Tox Info Suisse Coinvolte l\'industria chimica e quella farmaceutica Consultazione prevista',
+    keywords: 'frontalieri, ticino, svizzera, italia, info, suisse, cofinanziamento, obbligatorio',
+    ogTitle: 'Tox Info Suisse: cofinanziamento obbligatorio per l\'industria',
+    ogDescription: 'Il Consiglio federale vuole imporre il cofinanziamento di Tox Info Suisse Coinvolte l\'industria chimica e quella farmaceutica Consultazione prevista fino a metà',
+    canonicalPath: '/articoli-svizzera/cofinanziamento-tox-info-suisse/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tox Info Suisse: cofinanziamento obbligatorio per industria",
+      "description": "Il Consiglio federale vuole imporre il cofinanziamento di Tox Info Suisse Coinvolte l'industria chimica e quella farmaceutica Consultazione prevista",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cofinanziamento-tox-info-suisse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T15:09:03+00:00",
+      "dateModified": "2026-10-21T15:09:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cofinanziamento-tox-info-suisse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-poverta-prima-conferenza': {
+    title: 'Consiglio nazionale sulla povertà: si presenta il 9 novembre',
+    description: 'Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, nazionale, sulla, povertà',
+    ogTitle: 'Povertà, il Consiglio nazionale si presenta a Berna',
+    ogDescription: 'Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi ha',
+    canonicalPath: '/articoli-svizzera/consiglio-poverta-prima-conferenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio nazionale sulla povertà: si presenta il 9 novembre",
+      "description": "Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-consiglio-poverta-prima-conferenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T18:30:03+00:00",
+      "dateModified": "2026-10-21T18:30:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-poverta-prima-conferenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-furto-dati-publica-100mila-dipendenti': {
+    title: 'Hacker Akira rubano dati di 100.000 dipendenti federali da Publica',
+    description: 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira',
+    keywords: 'frontalieri, ticino, svizzera, italia, hacker, akira, rubano, dati',
+    ogTitle: 'Hacker Akira rubano dati 100.000 dipendenti federali Publica',
+    ogDescription: 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira minaccia',
+    canonicalPath: '/articoli-svizzera/furto-dati-publica-100mila-dipendenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hacker Akira rubano dati di 100.000 dipendenti federali da Publica",
+      "description": "Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-furto-dati-publica-100mila-dipendenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T20:47:43+00:00",
+      "dateModified": "2026-10-21T20:47:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/furto-dati-publica-100mila-dipendenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

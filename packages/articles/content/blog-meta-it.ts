@@ -13553,6 +13553,20 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.title': 'Frontalieri a Luino: incontro su fisco, previdenza e sanità il 24 ottobre',
     'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.excerpt': 'Sabato 24 ottobre, incontro a Palazzo Verbania Tre sessioni su fisco, salute e previdenza Accoglienza dalle 9.30; lavori alle 10 Ingresso libero, posti limitati',
     'blog.article.frontalieri-luino-incontro-fisco-previdenza-sanita.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-10-21.title': 'Frontalieri: i dati verificati di oggi — 21 ottobre 2026',
+    'blog.article.bollettino-frontaliere-2026-10-21.excerpt': 'I numeri di oggi, 21 ottobre 2026, per chi attraversa il confine: le ultime attese ai valichi, i comuni con la benzina meno cara, il cambio franco-euro e gli annunci di lavoro attivi sul nostro job board in Svizzera. Dati del nostro monitoraggio quotidiano.',
+    'blog.article.bollettino-frontaliere-2026-10-21.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-10-21.seoDescription': 'Bollettino frontalieri 21 ottobre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-21.ogDescription': 'I numeri del 21 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
+    'blog.article.revolut-servizi-interrotti.title': 'Banca digitale, disservizi in Svizzera per pagamenti e cambi',
+    'blog.article.revolut-servizi-interrotti.excerpt': 'Problemi su pagamenti, versamenti e cambio di valute Disagi iniziati poco dopo le 8:00 in Svizzera Google indica un ritorno graduale dei servizi Revolut: denaro',
+    'blog.article.revolut-servizi-interrotti.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.hackeraggio-ipct-casse-pensioni-ticino.title': 'Attacco hacker a PK Softech: 27.000 affiliati IPCT a rischio',
+    'blog.article.hackeraggio-ipct-casse-pensioni-ticino.excerpt': '27\'000 affiliati IPCT potrebbero essere vittime Attacco a PK Softech a fine settembre Dati di alcune centinaia in una cartella IPCT IPCT prepara una lettera',
+    'blog.article.hackeraggio-ipct-casse-pensioni-ticino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.title': 'Trasporti, impegni per Varese: Peduncolo di Vedano e ferrovie Gallarate-Luino al centro del PRMT',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.excerpt': 'Il Pd ottiene impegni sul PRMT in Lombardia Il Peduncolo di Vedano entra negli approfondimenti Gallarate-Luino entra nelle fasi progettuali del Piano Si',
+    'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

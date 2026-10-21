@@ -8561,6 +8561,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pacchetto-imprese-sgravi.title': 'Competitiveness package: over 90% implemented or underway',
     'blog.article.pacchetto-imprese-sgravi.excerpt': 'More than 90% of the 60 measures have been implemented or are being implemented.',
     'blog.article.pacchetto-imprese-sgravi.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.piano-berna-civilisti-cantoni.title': 'Civil protection: Bern plans to deploy civilian service personnel',
+    'blog.article.piano-berna-civilisti-cantoni.excerpt': 'From January, civil service personnel will be able to work in civil protection The Federal Council amends the implementing ordinances As of January 1, 2025, civil protection had 57\'000',
+    'blog.article.piano-berna-civilisti-cantoni.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.cofinanziamento-tox-info-suisse.title': 'Tox Info Suisse: mandatory co-financing for industry',
+    'blog.article.cofinanziamento-tox-info-suisse.excerpt': 'The Federal Council wants to impose co-financing for Tox Info Suisse Chemical and pharmaceutical industries involved Consultation planned until mid-',
+    'blog.article.cofinanziamento-tox-info-suisse.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.consiglio-poverta-prima-conferenza.title': 'National Council on Poverty: presented on November 9',
+    'blog.article.consiglio-poverta-prima-conferenza.excerpt': 'National structure approved by the Federal Council in 2024 First press conference: November 9, 2026, 10:00-11:00 The Council represents those who have',
+    'blog.article.consiglio-poverta-prima-conferenza.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.furto-dati-publica-100mila-dipendenti.title': 'Akira hackers steal data of 100.000 federal employees from Publica',
+    'blog.article.furto-dati-publica-100mila-dipendenti.excerpt': 'Over 100,000 federal employees affected Data also relating to partners and children The attack on an external provider dates back to late September Akira threatens',
+    'blog.article.furto-dati-publica-100mila-dipendenti.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
