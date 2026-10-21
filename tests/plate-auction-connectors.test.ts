@@ -375,7 +375,10 @@ describe('expanded plate-auction connectors', () => {
 
   it('uses the browser-facing request identity only for the VD portal', async () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch')
-      .mockResolvedValue(new Response(EXPANDED_CARD_SAMPLE.replace('/de/auction/', '/fr/auction/'), { status: 200 }));
+      .mockResolvedValue(new Response(
+        EXPANDED_CARD_SAMPLE.replaceAll('AG', 'VD').replace('/de/auction/', '/fr/auction/'),
+        { status: 200 },
+      ));
     try {
       await expect(fetchExpandedCard('vd', { now: new Date('2026-10-21T22:00:00.000Z') })).resolves.toHaveLength(1);
       expect(fetchMock).toHaveBeenCalledWith(
