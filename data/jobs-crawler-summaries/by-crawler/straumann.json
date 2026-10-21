@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-20T21:14:22.651Z",
+  "generatedAt": "2026-10-21T09:17:53.405Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6747,
-  "avgDurationMs": 6747,
+  "durationMs": 6993,
+  "avgDurationMs": 6993,
   "durationHistory": [
-    6747
+    6993
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-b7145d0ef804",
-      "slug": "global-medical-education-workflow-application-manager-straumann-ch",
+      "slug": "gestione-globale-del-flusso-di-lavoro-dell-istruzione-medica-straumann-basel",
       "company": "Straumann",
       "companyKey": "straumann",
       "companyDomain": "straumann.com",
@@ -34,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:14:11.558Z",
+      "crawledAt": "2026-10-21T09:17:40.370Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -51,21 +52,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://careers.straumann.com/global/en/job/22285/global-medical-education-workflow-application-manager",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-20T21:14:11.558Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-20T21:14:11.558Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "straumann-ede36e57fc6e",
       "slug": "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel",
@@ -78,7 +76,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:14:08.824Z",
+      "crawledAt": "2026-10-21T09:17:37.896Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -123,7 +121,7 @@
       "url": "https://careers.straumann.com/global/en/job/22202/team-leader-quality-systems-compliance-m-f-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:14:11.167Z",
+      "crawledAt": "2026-10-21T09:17:39.960Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -164,7 +162,7 @@
       "url": "https://careers.straumann.com/global/en/job/22204/global-head-of-dso-education-services",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:14:10.853Z",
+      "crawledAt": "2026-10-21T09:17:39.368Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -205,7 +203,7 @@
       "url": "https://careers.straumann.com/global/en/job/22282/intern-rdi-academy-product-development",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:14:10.222Z",
+      "crawledAt": "2026-10-21T09:17:39.115Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -246,7 +244,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-20T21:14:09.935Z",
+      "crawledAt": "2026-10-21T09:17:38.874Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -287,7 +285,7 @@
       "url": "https://careers.straumann.com/global/en/job/21681/global-medical-education-life-cycle-and-demo-materials-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:14:09.488Z",
+      "crawledAt": "2026-10-21T09:17:38.597Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -317,5 +315,5 @@
       }
     }
   ],
-  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

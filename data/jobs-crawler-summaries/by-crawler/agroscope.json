@@ -1,18 +1,59 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-20T21:12:57.290Z",
+  "generatedAt": "2026-10-21T09:19:27.959Z",
   "total": 13,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 7516,
-  "avgDurationMs": 7516,
+  "removedCount": 1,
+  "unchangedCount": 11,
+  "durationMs": 6754,
+  "avgDurationMs": 6754,
   "durationHistory": [
-    7516
+    6754
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Leitung Forschungsgruppe Smart Farming & Digitale Technologien",
+      "slug": "leitung-forschungsgruppe-smart-farming-digitale-technologien-agroscope-ettenhausen",
+      "url": "https://jobs.admin.ch/posti-vacanti/leitung-forschungsgruppe-smart-farming-digitale-technologien/6ff35511-9f5f-4f03-a8ef-510f013fbaf6",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20687",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Ettenhausen",
+      "addressLocality": "Ettenhausen",
+      "postalCode": "8356",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-20T22:00:00Z",
+      "postedDate": "2026-10-20T22:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-5f9b5336ecfe",
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 127500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-21T09:19:16.281Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "HR Business Partner/-in",
@@ -54,7 +95,48 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Wissenschaftlicher Mitarbeiter/-in im Bereich Graslandsysteme",
+      "slug": "collaboratore-trice-scientifico-a-nel-settore-dei-sistemi-erbosi-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20283",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-20T22:00:00Z",
+      "validThrough": "2026-10-20",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-cc7eeb643a79",
+      "salaryMin": 89000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:34:58.444Z",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
+      "datePosted": "2026-09-20T22:00:00Z",
+      "postingDateSource": "reported",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Lernende/r Pferdefachmann/-frau EFZ, Orientierung Klassiches Reiten",
@@ -213,45 +295,6 @@
       }
     },
     {
-      "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
-      "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20574",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-15T22:00:00Z",
-      "postedDate": "2026-10-15T22:00:00Z",
-      "postingDateSource": "reported",
-      "validThrough": "2026-11-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-9efb0299a49d",
-      "salaryMin": 95500,
-      "salaryMax": 159000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-16T09:17:10.716Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Postdoktorand/-in Ackerbauforschung",
       "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
       "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-ackerbauforschung/039aa536-beb5-4eb2-8508-9744b1dfb72a",
@@ -286,6 +329,45 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Wissenschaftliche/r Mitarbeiter/in - Kartoffelzüchtung und Genomik",
+      "slug": "collaboratore-trice-scientifico-a-miglioramento-genetico-delle-patate-e-genomica-agroscope-zurich",
+      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftliche-r-mitarbeiter-in-kartoffelzuechtung-und-genomik/c13e4aa6-25a0-47dc-81b1-0b68a64e3a73",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20574",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-15T22:00:00Z",
+      "postedDate": "2026-10-15T22:00:00Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-9efb0299a49d",
+      "salaryMin": 95500,
+      "salaryMax": 159000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-16T09:17:10.716Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 22
       }
@@ -448,46 +530,6 @@
       }
     },
     {
-      "title": "Wissenschaftlicher Mitarbeiter/-in im Bereich Graslandsysteme",
-      "slug": "collaboratore-trice-scientifico-a-nel-settore-dei-sistemi-erbosi-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20283",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "1725",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-20T22:00:00Z",
-      "validThrough": "2026-10-20",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-cc7eeb643a79",
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:34:58.444Z",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
-      "datePosted": "2026-09-20T22:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
       "slug": "personale-agricolo-specialista-della-frutta-agroscope-wadenswil-schweiz",
       "url": "https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/1b44425b-ad7c-4a43-9795-972b21b47f66",
@@ -528,5 +570,5 @@
       }
     }
   ],
-  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

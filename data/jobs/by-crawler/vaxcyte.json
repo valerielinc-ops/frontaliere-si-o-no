@@ -1,6 +1,7 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-10-20T21:12:26.676Z",
+  "assembledAt": "2026-10-21T09:15:31.037Z",
+  "runId": "39574208310",
   "jobs": [
     {
       "id": "vaxcyte-6b03024d1766",
@@ -33,7 +34,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5418817008?gh_jid=5418817008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:12:18.583Z",
+      "crawledAt": "2026-10-21T09:15:19.329Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -122,7 +123,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5440646008?gh_jid=5440646008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:12:18.570Z",
+      "crawledAt": "2026-10-21T09:15:19.313Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -206,7 +207,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5263512008?gh_jid=5263512008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:12:18.567Z",
+      "crawledAt": "2026-10-21T09:15:19.309Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -244,7 +245,7 @@
           "senior-manager-quality-assurance-vaxcyte-ch"
         ]
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-22T23:49:52.547Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -258,8 +259,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "vaxcyte-fb837ce9abee",
@@ -292,7 +292,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5284887008?gh_jid=5284887008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:12:18.564Z",
+      "crawledAt": "2026-10-21T09:15:19.305Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5352094008?gh_jid=5352094008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:12:18.451Z",
+      "crawledAt": "2026-10-21T09:15:19.217Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
