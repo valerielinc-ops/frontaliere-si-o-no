@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 726,
+      "5": 727,
       "6": 5054
     },
-    "publishedCovers": 7463,
+    "publishedCovers": 7464,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -204665,6 +204665,39 @@
         "provider": "openai-codex",
         "assetId": "article-tamedia-zurigo-protesta-licenziamenti-ia",
         "imageUrl": "/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-collegio-longueville-cantiere-colombier": {
+      "cover": "/images/blog/article-collegio-longueville-cantiere-colombier.webp",
+      "hash": "06037b53ef2e139441a06cbfaa4771a0af5b82c0453c96bb349d71d9daf03b14",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "collegio-longueville-cantiere-colombier",
+          "category": "novita",
+          "date": "2026-10-21T08:31:34.879Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-collegio-longueville-cantiere-colombier.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-21",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-collegio-longueville-cantiere-colombier",
+        "imageUrl": "/images/blog/article-collegio-longueville-cantiere-colombier.webp",
         "evidence": "generated-engine-record"
       }
     }
