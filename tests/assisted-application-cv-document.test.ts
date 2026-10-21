@@ -306,7 +306,42 @@ describe('tailored CV by type', () => {
     }, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
     expect(checkTailoredCvLanguage(untranslatedLanguage, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
       expect.objectContaining({ token: 'languages[0].language', kind: 'unchanged' }),
-      expect.objectContaining({ token: 'languages[0].level', kind: 'unchanged' }),
+      expect.objectContaining({ token: 'languages[0].level', kind: 'mismatch' }),
+    ]));
+
+    const languageLevelProfile = { cvLanguage: 'en', languages: [{ language: 'English', level: 'Beginner' }] };
+    const localizedLevelCv = (level: string, targetLanguage = 'de') => sanitizeTailoredCv({
+      localized: { languages: [{ index: 0, language: 'Englisch', level }] },
+    }, { profile: languageLevelProfile, cvText: '', language: targetLanguage });
+    const equivalentLevelIssues = checkTailoredCvLanguage(localizedLevelCv('Anfänger'), {
+      profile: languageLevelProfile, language: 'de',
+    }).issues.filter((issue) => issue.token === 'languages[0].level');
+    expect(equivalentLevelIssues).toEqual([]);
+
+    expect(checkTailoredCvLanguage(localizedLevelCv('Fließend'), {
+      profile: languageLevelProfile, language: 'de',
+    }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].level', kind: 'mismatch' }),
+    ]));
+
+    const sameLanguageProfile = { cvLanguage: 'de', languages: [{ language: 'Englisch', level: 'Anfänger' }] };
+    const changedSameLanguageLevel = sanitizeTailoredCv({
+      localized: { languages: [{ index: 0, language: 'Englisch', level: 'Fließend' }] },
+    }, { profile: sameLanguageProfile, cvText: '', language: 'de' });
+    expect(checkTailoredCvLanguage(changedSameLanguageLevel, {
+      profile: sameLanguageProfile, language: 'de',
+    }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].level', kind: 'mismatch' }),
+    ]));
+
+    const noSourceLevelProfile = { cvLanguage: 'de', languages: [{ language: 'Englisch', level: '' }] };
+    const inventedSameLanguageLevel = sanitizeTailoredCv({
+      localized: { languages: [{ index: 0, language: 'Englisch', level: 'Fließend' }] },
+    }, { profile: noSourceLevelProfile, cvText: '', language: 'de' });
+    expect(checkTailoredCvLanguage(inventedSameLanguageLevel, {
+      profile: noSourceLevelProfile, language: 'de',
+    }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].level', kind: 'missing-source' }),
     ]));
 
     const untranslatedSummary = sanitizeTailoredCv({ ...raw, summary: 'Built CRM for Swiss clients' }, {

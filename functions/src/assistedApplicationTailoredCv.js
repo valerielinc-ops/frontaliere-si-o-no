@@ -45,7 +45,7 @@ const LOCALIZED_PROJECT = OBJ({ index: { type: 'integer' }, name: S(), descripti
 const LOCALIZED_LANGUAGE = OBJ({
   index: { type: 'integer' },
   language: S('The spoken-language name in the posting language'),
-  level: S('The proficiency level in the posting language; preserve standardized CEFR codes'),
+  level: S('The semantically equivalent proficiency level in the posting language; preserve standardized CEFR codes'),
 });
 const LOCALIZED_REFERENCE = OBJ({ index: { type: 'integer' }, role: S(), organisation: S() });
 const LOCALIZED_PROFILE = OBJ({
@@ -116,7 +116,7 @@ Rules (from career-ops):
 - competencies: 6-8 short keyword phrases, each a skill the CV names or clearly demonstrates.
 - experience: one entry per role of the profile, with its index; keep every role. Each bullet: text, source (the index of the role's highlight it rewrites; -1 only when it truly rewrites none) and requirement (the index of the requirement it answers, -1 if none). For each role, 2-5 bullets, the strongest evidence for this posting first, results before tasks, short sentences, action verbs, no passive voice. Put a key term of the posting in the first bullet when the role truly supports it. A role with nothing relevant keeps 1-2 plain bullets.
 - skills: the technical skills and tools the CV names, the ones the posting asks for first.
-- localized: this is required display copy for every profile field that the code prints. It must mirror every non-empty source array item by its index: translate role titles, places, education degrees and grades, recognition titles, test results, project descriptions, spoken-language names and proficiency levels, interests, reference roles, the driving-licence description and every original experience highlight into the posting language. Also translate the profile headline and contact location. Do not leave a required translated value empty. Do not copy an English, German, French or Italian sentence unchanged when the posting language differs. Keep candidate names, employer names, institution and organisation proper names, product and tool names, certificate names, URLs, dates and numbers exactly when they are official or factual; translate the surrounding description. The localized experience highlights are used when a role's adapted bullets are rejected, so they must contain the complete translated fallback for that role.
+- localized: this is required display copy for every profile field that the code prints. It must mirror every non-empty source array item by its index: translate role titles, places, education degrees and grades, recognition titles, test results, project descriptions, spoken-language names and proficiency levels without changing their meaning, interests, reference roles, the driving-licence description and every original experience highlight into the posting language. Also translate the profile headline and contact location. Do not leave a required translated value empty. Do not copy an English, German, French or Italian sentence unchanged when the posting language differs. Keep candidate names, employer names, institution and organisation proper names, product and tool names, certificate names, URLs, dates and numbers exactly when they are official or factual; translate the surrounding description. The localized experience highlights are used when a role's adapted bullets are rejected, so they must contain the complete translated fallback for that role.
 - The top-level headline, summary, competencies, experience bullets and skills are also written in the posting language. The localized headline must be the same target-language headline as headline.
 - candidateType apprentice (an apprenticeship applicant, 14-16 years old): headline and summary "" (the code writes the trade as a goal); the bullets of the taster placements (Schnupperlehre, stage d'orientation) say what the candidate did and learned there, in plain words.
 - The section headings and the dates are written by the code: never write them.
@@ -323,11 +323,43 @@ function sanitizeLocalizedProfile(raw) {
 const nonEmpty = (value) => String(value || '').trim().length > 0;
 const sameDisplayText = (first, second) => nonEmpty(first) && nonEmpty(second) && normalizeText(first) === normalizeText(second);
 const STANDARD_LANGUAGE_LEVEL_RE = /^(?:[abc][0-2](?:\+)?|[0-9](?:[.,][0-9])?)$/i;
+// Only recognized equivalents may change a textual proficiency label.
+const LANGUAGE_LEVEL_EQUIVALENTS = new Map([
+  ['beginner', 'beginner'], ['principiante', 'beginner'], ['anfanger', 'beginner'], ['debutant', 'beginner'],
+  ['basic', 'basic'], ['elementary', 'basic'], ['grundkenntnisse', 'basic'], ['conoscenze di base', 'basic'], ['notions de base', 'basic'],
+  ['intermediate', 'intermediate'], ['intermedio', 'intermediate'], ['mittelstufe', 'intermediate'], ['intermediaire', 'intermediate'],
+  ['upper intermediate', 'upper-intermediate'], ['obere mittelstufe', 'upper-intermediate'], ['intermedio superiore', 'upper-intermediate'], ['intermediaire superieur', 'upper-intermediate'],
+  ['advanced', 'advanced'], ['fortgeschritten', 'advanced'], ['avanzato', 'advanced'], ['avance', 'advanced'],
+  ['fluent', 'fluent'], ['fliessend', 'fluent'], ['fluente', 'fluent'], ['courant', 'fluent'],
+  ['native', 'native'], ['native speaker', 'native'], ['mother tongue', 'native'], ['muttersprache', 'native'], ['madrelingua', 'native'], ['langue maternelle', 'native'],
+]);
 
-function requireLocalizedLanguageLevel(issues, value, source, field) {
-  requireLocalized(issues, value, source, field, {
-    rejectUnchanged: nonEmpty(source) && !STANDARD_LANGUAGE_LEVEL_RE.test(normalizeText(source)),
-  });
+function normalizedLanguageLevel(value) {
+  return normalizeText(String(value || '').replace(/ß/g, 'ss'));
+}
+
+function languageLevelMeaning(value) {
+  const normalized = normalizedLanguageLevel(value);
+  if (STANDARD_LANGUAGE_LEVEL_RE.test(normalized)) return `standard:${normalized.toUpperCase()}`;
+  return LANGUAGE_LEVEL_EQUIVALENTS.get(normalized) || null;
+}
+
+function requireLocalizedLanguageLevel(issues, value, source, field, { required = true, rejectUnchanged = false } = {}) {
+  if (!nonEmpty(source)) return;
+  if (!nonEmpty(value)) {
+    if (required) issues.push({ field: 'localized', kind: 'missing', token: field, context: 'source proficiency level is printed in the tailored CV' });
+    return;
+  }
+  if (sameDisplayText(value, source)) {
+    if (rejectUnchanged && !STANDARD_LANGUAGE_LEVEL_RE.test(normalizedLanguageLevel(source))) {
+      issues.push({ field: 'localized', kind: 'unchanged', token: field, context: 'source-language proficiency label would be printed in the target language' });
+    }
+    return;
+  }
+  const sourceMeaning = languageLevelMeaning(source);
+  const localizedMeaning = languageLevelMeaning(value);
+  if (sourceMeaning && sourceMeaning === localizedMeaning) return;
+  issues.push({ field: 'localized', kind: 'mismatch', token: field, context: 'localized proficiency level changes or has no verified equivalent to the source' });
 }
 
 // A small set of unambiguous prose signals catches a model that rewrites an
@@ -481,6 +513,16 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it', typ
   const sourceLanguage = String(profile.cvLanguage || '').toLowerCase().slice(0, 2);
   if (sourceLanguage === language) {
     const issues = [];
+    (profile.languages || []).forEach((item, index) => {
+      const value = localizedAt(cv?.localized?.languages || [], index)?.level;
+      if (!nonEmpty(item.level) && nonEmpty(value)) {
+        issues.push({ field: 'localized', kind: 'missing-source', token: `languages[${index}].level`, context: 'localized proficiency level has no matching source fact' });
+        return;
+      }
+      if (nonEmpty(value)) {
+        requireLocalizedLanguageLevel(issues, value, item.level, `languages[${index}].level`);
+      }
+    });
     addRenderedLanguageIssues(issues, cv, profile, language);
     return { ok: issues.length === 0, issues };
   }
@@ -536,7 +578,7 @@ export function checkTailoredCvLanguage(cv, { profile = {}, language = 'it', typ
     if (!(sameDisplayText(value, item.language) && isCanonicalTargetLanguageLabel(value, language))) {
       requireLocalized(issues, value, item.language, `languages[${index}].language`, { rejectUnchanged: true });
     }
-    requireLocalizedLanguageLevel(issues, translation?.level, item.level, `languages[${index}].level`);
+    requireLocalizedLanguageLevel(issues, translation?.level, item.level, `languages[${index}].level`, { rejectUnchanged: true });
   });
   (profile.interests || []).forEach((item, index) => requireLocalized(issues, localized.interests?.[index], item, `interests[${index}]`, { rejectUnchanged: true }));
   (profile.references || []).forEach((item, index) => {
