@@ -453,8 +453,14 @@ jobs:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: |
-          npm run probe:5xx
-          npm run test:e2e:live
+          # Preserve the foreground output before the in-job reporter runs:
+          # GitHub does not expose a running job's log through the jobs API.
+          # Keeping both gates in the same file also captures the e2e failure
+          # when the probe itself is green.
+          set -o pipefail
+          : > live-smoke-output.log
+          npm run probe:5xx 2>&1 | tee -a live-smoke-output.log
+          npm run test:e2e:live 2>&1 | tee -a live-smoke-output.log
 
       # Visual regression on the LIVE site. Skipped until linux baselines
       # are committed (run regenerate-visual-baselines.yml workflow_dispatch
@@ -547,6 +553,7 @@ jobs:
           priority: '1'
           labels: Bug
           reopen-within-hours: '6'
+          diag-file: live-smoke-output.log
           workflow-name: Post-deploy Validate Live
           workflow-file: .github/workflows/post-deploy-validate-live.yml
           context: |
