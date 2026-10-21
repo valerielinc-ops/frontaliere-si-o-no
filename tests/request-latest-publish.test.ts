@@ -10,6 +10,7 @@ import {
 const SHA_OLD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const SHA_LATEST = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
 const SHA_OLDER_TAIL = 'cccccccccccccccccccccccccccccccccccccccc';
+const SHA_DISPATCH = 'dddddddddddddddddddddddddddddddddddddddd';
 
 const build = (id: number, headSha: string, completedAt: string, conclusion = 'success') => ({
   id,
@@ -21,7 +22,7 @@ const build = (id: number, headSha: string, completedAt: string, conclusion = 's
   event: 'workflow_dispatch',
   completedAt,
 });
-const deployment = (sha: string, publishedAt: string) => ({ sha, publishedAt });
+const deployment = (sha: string, publishedAt: string, sourceSha = '') => ({ sha, sourceSha, publishedAt });
 
 describe('decideLatestPublish', () => {
   it('dispatches the newest successful main build when the handoff is idle', () => {
@@ -103,6 +104,21 @@ describe('decideLatestPublish', () => {
       builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
       publishRuns: [],
       lastSuccessfulDeployment: deployment(SHA_LATEST, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+  });
+
+  it('treats the source build as already live when the dispatch ref is newer', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 96,
+        status: 'in_progress',
+        conclusion: null,
+        event: 'workflow_dispatch',
+        headSha: SHA_DISPATCH,
+        runName: `Publish Pages build 2 @ ${SHA_LATEST}`,
+      }],
+      lastSuccessfulDeployment: deployment(SHA_DISPATCH, '2026-10-20T12:05:00Z', SHA_LATEST),
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 

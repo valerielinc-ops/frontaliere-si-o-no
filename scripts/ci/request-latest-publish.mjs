@@ -70,6 +70,12 @@ function sourceRunIdFromTitle(run) {
   return buildIdFromTitle(run?.runName ?? run?.run_name);
 }
 
+function sourceShaFromRunName(run) {
+  const title = text(run?.runName ?? run?.run_name ?? run?.displayTitle ?? run?.display_title);
+  const match = title.match(/@\s*([0-9a-f]{40})\b/i);
+  return match ? match[1] : '';
+}
+
 function publishRunBelongsTo(run, candidate) {
   const candidateId = numericId(candidate?.id);
   if (!candidateId) return false;
@@ -101,7 +107,11 @@ export function decideLatestPublish({
   if (!candidate) return skip('no-successful-build', 'no successful main build is available to publish');
 
   const candidateSha = text(candidate.headSha || candidate.head_sha);
-  const publishedSha = text(lastSuccessfulDeployment?.sha);
+  // Pages records the dispatch ref as the deployment SHA. A workflow_dispatch
+  // can publish an older successful build, so prefer its source SHA when the
+  // deployment provenance is available.
+  const publishedSha = text(lastSuccessfulDeployment?.sourceSha || lastSuccessfulDeployment?.source_sha)
+    || text(lastSuccessfulDeployment?.sha);
   if (publishedSha === candidateSha) {
     return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
   }
@@ -204,6 +214,7 @@ function mapPublish(run) {
     event: text(run?.event),
     displayTitle: text(run?.display_title),
     runName: text(run?.run_name),
+    sourceSha: sourceShaFromRunName(run),
   };
 }
 
@@ -215,7 +226,34 @@ async function listWorkflowRuns(repo, workflow) {
   return payload.workflow_runs;
 }
 
-async function inspectDeployments(repo) {
+function deploymentPayload(deployment) {
+  if (deployment?.payload && typeof deployment.payload === 'object') return deployment.payload;
+  if (typeof deployment?.payload !== 'string') return {};
+  try {
+    const parsed = JSON.parse(deployment.payload);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function deploymentSourceSha(deployment, latestStatus, publishRuns) {
+  const payload = deploymentPayload(deployment);
+  const explicit = text(
+    payload.source_sha
+      || payload.sourceSha
+      || deployment?.source_sha
+      || deployment?.sourceSha,
+  );
+  if (explicit) return explicit;
+
+  const logUrl = text(latestStatus?.log_url || latestStatus?.logUrl);
+  const runId = logUrl.match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
+  if (!runId) return '';
+  return text(publishRuns.find((run) => String(run?.id) === runId)?.sourceSha);
+}
+
+async function inspectDeployments(repo, publishRuns = []) {
   const deployments = await ghJson(`/repos/${repo}/deployments?environment=github-pages&per_page=100`);
   if (!Array.isArray(deployments)) throw new Error('Pages deployment listing is malformed');
   let lastSuccessfulDeployment = null;
@@ -233,10 +271,12 @@ async function inspectDeployments(repo) {
     }
     if (!lastSuccessfulDeployment && state === 'success') {
       const deploymentSha = text(deployment?.sha);
+      const sourceSha = deploymentSourceSha(deployment, latest, publishRuns);
       if (deploymentSha) successfulDeploymentShas.add(deploymentSha);
       lastSuccessfulDeployment = {
         id,
         sha: deploymentSha,
+        sourceSha,
         publishedAt: text(latest?.created_at),
       };
     } else if (state === 'success') {
@@ -276,13 +316,13 @@ async function dispatchPublish(repo, candidate) {
 
 async function main() {
   const repo = repository();
-  const [rawBuilds, rawPublishes, deploymentState] = await Promise.all([
+  const [rawBuilds, rawPublishes] = await Promise.all([
     listWorkflowRuns(repo, BUILD_WORKFLOW),
     listWorkflowRuns(repo, PUBLISH_WORKFLOW),
-    inspectDeployments(repo),
   ]);
   const builds = rawBuilds.map(mapBuild);
   const publishRuns = rawPublishes.map(mapPublish);
+  const deploymentState = await inspectDeployments(repo, publishRuns);
   const verdict = decideLatestPublish({
     builds,
     publishRuns,
