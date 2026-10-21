@@ -1,10 +1,10 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-10-20T21:44:11.841Z",
+  "generatedAt": "2026-10-21T09:58:39.541Z",
   "total": 10,
   "discovered": null,
-  "parsed": 9,
+  "parsed": 8,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 10572,
-  "avgDurationMs": 10572,
+  "durationMs": 12787,
+  "avgDurationMs": 12787,
   "durationHistory": [
-    10572
+    12787
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:56.168Z",
+      "crawledAt": "2026-10-21T09:58:26.941Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -100,6 +100,7 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,7 +124,7 @@
       "url": "https://careers.medartis.com/job/Junior-Finance-Manager/1428557533/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:55.646Z",
+      "crawledAt": "2026-10-21T09:58:26.338Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -164,7 +165,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-AngularJava/1440346933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:55.135Z",
+      "crawledAt": "2026-10-21T09:58:25.764Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -206,7 +207,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1433594733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:53.240Z",
+      "crawledAt": "2026-10-21T09:58:23.099Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -248,7 +249,7 @@
       "url": "https://careers.medartis.com/job/Supply-&-Production-Planner-100/1406388933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:52.742Z",
+      "crawledAt": "2026-10-21T09:58:22.460Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -292,7 +293,7 @@
       "url": "https://careers.medartis.com/job/Mechanist-Screws-100/1403452933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:51.698Z",
+      "crawledAt": "2026-10-21T09:58:21.787Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -334,7 +335,7 @@
       "url": "https://careers.medartis.com/job/Senior-Global-Product-Manager-CMF/1443182933/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:43:50.619Z",
+      "crawledAt": "2026-10-21T09:58:20.255Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -378,7 +379,7 @@
       "url": "https://careers.medartis.com/job/Full-Stack-Developer-%28Angular-Java%29/1440347033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-20T21:43:50.117Z",
+      "crawledAt": "2026-10-21T09:58:19.669Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -441,7 +442,7 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -451,5 +452,5 @@
       }
     }
   ],
-  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }
