@@ -73,7 +73,7 @@ function deploymentPayload(deployment) {
   }
 }
 
-function deploymentSourceSha(deployment, latestStatus, publishRuns = []) {
+export function deploymentSourceSha(deployment, latestStatus, publishRuns = []) {
   const payload = deploymentPayload(deployment);
   const explicitSourceSha = validSha(
     payload.sourceSha
@@ -83,8 +83,14 @@ function deploymentSourceSha(deployment, latestStatus, publishRuns = []) {
   );
   if (explicitSourceSha) return explicitSourceSha;
 
-  const logUrl = text(latestStatus?.logUrl || latestStatus?.log_url);
-  const runId = logUrl.match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
+  const runId = [
+    latestStatus?.targetUrl,
+    latestStatus?.target_url,
+    latestStatus?.logUrl,
+    latestStatus?.log_url,
+  ]
+    .map((url) => text(url).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1] || '')
+    .find(Boolean);
   if (!runId) return '';
   return sourceShaFromPublishRun(
     (Array.isArray(publishRuns) ? publishRuns : []).find((run) => String(run?.id) === runId),
