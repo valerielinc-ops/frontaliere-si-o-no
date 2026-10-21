@@ -300,7 +300,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -369,7 +371,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -448,7 +452,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -528,7 +534,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -604,7 +612,9 @@ jobs:
             /data/profession-landing-routes.json
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
