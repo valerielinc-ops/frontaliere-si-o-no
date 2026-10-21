@@ -296,6 +296,29 @@ describe('packages/articles/engine/rssFeeds', () => {
     }
   });
 
+  it('keeps division context after member keywords before nested regex templates', () => {
+    const root = makeFixture();
+    fs.writeFileSync(
+      path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'),
+      [
+        "const other = `prefix ${obj.return / /}/.test(`inner 'blog.article.alpha.body1': 'wrong'`)} suffix`;",
+        "export default { 'blog.article.alpha.body1': 'Alpha body remains available after the nested template scanner regression.' };",
+      ].join('\n'),
+    );
+
+    const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const it = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
+
+    expect(it).toContain('Alpha body remains available after the nested template scanner regression.');
+  });
+
   it('makes the main feed a byte copy of the Italian one, self-linking to the main filename', () => {
     const root = makeFixture();
     const [section] = buildAllRssFeeds({
