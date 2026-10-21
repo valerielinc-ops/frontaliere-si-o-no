@@ -128,7 +128,7 @@ import { routeAwarePreloadChunksFor } from './staticPagePreloadMap';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_HUB_SEO, GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
-import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
+import { parseStaticArticleBodyPreviews } from './shared/staticArticleBodyPreviews';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
 import { REPORT_SITEMAP_LINKS } from './shared/reportRoutes';
 // Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
@@ -2583,7 +2583,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
 
  const parseBlogBodyLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
- const out: Record<string, { body1?: string; body2?: string; body3?: string }> = {};
+ const out = Object.create(null) as Record<string, { body1?: string; body2?: string; body3?: string }>;
  const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
  let files: string[] = [];
  try {
@@ -2592,30 +2592,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if ((err as NodeJS.ErrnoException)?.code === 'ENOENT') return out;
  throw err;
  }
- const rx = /'blog\.article\.([^']+)\.(body1|body2|body3)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
- // Single-pass decode via the shared helper (#5632 item 1: the old chain
- // resolved `\\` last, so a literal `\\n` in the source came out as a
- // stray backslash + a real newline). `\n` flattens to a space: these
- // values feed single-line meta/preview surfaces, not markdown structure.
- // repairLegacyDoubleEscapedBreaks then cleans up the OTHER shape of the
- // same corpus-side damage: a source escaped one level too many (`\\n`
- // meaning literal backslash+n, not a `\n` escape) decodes faithfully to a
- // visible stray backslash. Measured: 9 of 39,276 body1/2/3 fields
- // affected. Adapted to the space variant — the newline-variant original is
- // repairLegacyDoubleEscapedBreaks in
- // packages/articles/engine/shared/tsStringEscapes.ts (#5602).
- const unescapeTsString = (value: string): string =>
- repairLegacyDoubleEscapedBreaks(sharedUnescapeTsString(value, tsStringEscapesWithNewlineAs(' ')), ' ');
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
  let src = '';
  try { src = fs.readFileSync(np.join(dir, file), 'utf-8'); } catch { continue; }
- let match: RegExpExecArray | null;
- while ((match = rx.exec(src)) !== null) {
- const articleId = match[1];
- const field = match[2] as 'body1' | 'body2' | 'body3';
- if (!out[articleId]) out[articleId] = {};
- out[articleId][field] = unescapeTsString(match[3]);
+ const previews = parseStaticArticleBodyPreviews(src, np.join(dir, file));
+ for (const [articleId, fields] of Object.entries(previews)) {
+ if (!out[articleId]) out[articleId] = Object.create(null);
+ Object.assign(out[articleId], fields);
  }
  }
  return out;

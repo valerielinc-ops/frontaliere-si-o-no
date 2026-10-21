@@ -13,6 +13,7 @@
 import { GA4_MIN_SESSIONS } from './constants.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
 import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from '../ga4-service-account.mjs';
+import { parseStaticArticleTranslationSource } from '../../../packages/articles/engine/shared/articleStaticSource.mjs';
 
 function normalizePropertyId(raw) {
   if (!raw) return null;
@@ -38,29 +39,26 @@ function attachClusterFromPath(pagePath, blogMetaIt) {
 }
 
 /**
- * Best-effort: load the Italian blog-meta map so we can attach cluster + headline.
- * Returns `{}` on any error (cluster attribution then falls back to 'generic').
+ * Load the Italian blog-meta map so we can attach cluster + headline.
+ * A missing file returns `{}`; a malformed present module is surfaced through
+ * fetchGa4Pages' existing `{ pages: {}, error }` result shape.
  */
-async function loadBlogMetaIt() {
-  try {
-    const url = new URL('../../../services/locales/blog-meta-it.ts', import.meta.url);
-    const fs = await import('node:fs');
-    if (!fs.existsSync(url)) return {};
-    const text = fs.readFileSync(url, 'utf8');
-    // Extract `'<key>': '<value>'` pairs with simple regex; values may contain
-    // escaped apostrophes. We don't need values for cluster lookup — just keys
-    // mapped to title strings. The TS source uses single-quoted string
-    // literals exclusively.
-    const entries = {};
-    const re = /'(blog\.article\.[a-z0-9-]+\.title)': '((?:\\'|[^'])*)'/g;
-    let match;
-    while ((match = re.exec(text)) !== null) {
-      entries[match[1]] = match[2].replace(/\\'/g, "'");
-    }
-    return entries;
-  } catch {
-    return {};
+export function parseGa4BlogMetaItSource(text, sourcePath = 'blog-meta-it.ts') {
+  const translations = parseStaticArticleTranslationSource(text, sourcePath);
+  const entries = Object.create(null);
+  for (const [slug, fields] of translations) {
+    const title = fields.get('title');
+    if (title !== undefined) entries[`blog.article.${slug}.title`] = title;
   }
+  return entries;
+}
+
+async function loadBlogMetaIt() {
+  const url = new URL('../../../services/locales/blog-meta-it.ts', import.meta.url);
+  const fs = await import('node:fs');
+  if (!fs.existsSync(url)) return {};
+  const text = fs.readFileSync(url, 'utf8');
+  return parseGa4BlogMetaItSource(text, url.pathname);
 }
 
 /**

@@ -32,6 +32,8 @@
 import { describe, expect, it } from 'vitest';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 
 import { faqDecodesReadable, scanCorpusFaqReadability } from '../scripts/lib/faq-readability-gate.mjs';
 
@@ -72,11 +74,53 @@ describe('faqDecodesReadable — the invariant the ratchet below protects', () =
   });
 });
 
+describe('corpus FAQ source reader', () => {
+  it('reads decoded FAQ values from full double-quoted and template-literal modules', () => {
+    const root = mkdtempSync(path.join(tmpdir(), 'faq-source-reader-'));
+    const dir = path.join(root, 'services', 'locales', 'blog-body', 'it');
+    mkdirSync(dir, { recursive: true });
+    const faq = JSON.stringify([
+      { q: 'Domanda completa numero uno?', a: 'Risposta abbastanza lunga per superare la soglia richiesta.' },
+      { q: 'Domanda completa numero due?', a: 'Seconda risposta abbastanza lunga per essere accettata.' },
+    ]);
+    const modules = [
+      `const first: Record<string, string> = { "blog.article.first.faq": ${JSON.stringify(faq)} }; export default first;`,
+      `const second: Record<string, string> = { 'blog.article.second.faq': \`${faq}\` }; export default second;`,
+    ];
+    try {
+      writeFileSync(path.join(dir, 'first.ts'), modules[0]);
+      writeFileSync(path.join(dir, 'second.ts'), modules[1]);
+      expect(scanCorpusFaqReadability({ root })).toMatchObject({ total: 2, unreadable: 0, offenders: [] });
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed on a malformed present module while absent body directories remain empty', () => {
+    const missingRoot = mkdtempSync(path.join(tmpdir(), 'faq-source-missing-'));
+    const malformedRoot = mkdtempSync(path.join(tmpdir(), 'faq-source-malformed-'));
+    const dir = path.join(malformedRoot, 'services', 'locales', 'blog-body', 'it');
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(path.join(dir, 'broken.ts'), 'const broken: Record<string, string> = {');
+    try {
+      expect(scanCorpusFaqReadability({ root: missingRoot }).total).toBe(0);
+      expect(() => scanCorpusFaqReadability({ root: malformedRoot })).toThrow(/TypeScript syntax error/u);
+    } finally {
+      rmSync(missingRoot, { recursive: true, force: true });
+      rmSync(malformedRoot, { recursive: true, force: true });
+    }
+  });
+});
+
 // Measured against this PR's corpus snapshot (see doc comment above). Lower
 // this constant — never raise it — when a repair pass reduces the real
 // count; a PR that raises it without a repair is the regression this gate
 // exists to catch.
 const RATCHET_BASELINE = 26;
+// This scan parses all 17,896 tracked body modules. A cold full-tree run took
+// 15.68s on the shared host; keep extra time on this test only, without
+// changing either corpus-coverage or unreadable-field assertions.
+const FULL_CORPUS_FAQ_SCAN_TIMEOUT_MS = 60_000;
 
 describe('corpus FAQ readability ratchet (#5632 item 3)', () => {
   it(`stays at or below the ${RATCHET_BASELINE} unreadable .faq fields planted as the baseline`, () => {
@@ -103,5 +147,5 @@ describe('corpus FAQ readability ratchet (#5632 item 3)', () => {
     }
 
     expect(unreadable).toBeLessThanOrEqual(RATCHET_BASELINE);
-  });
+  }, FULL_CORPUS_FAQ_SCAN_TIMEOUT_MS);
 });
