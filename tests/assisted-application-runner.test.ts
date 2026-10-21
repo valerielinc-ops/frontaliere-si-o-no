@@ -611,7 +611,7 @@ describe('submit mode', () => {
     });
     expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     const [[ctx]] = runner.mock.calls as any;
-    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì' }]);
+    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì', source: 'answers' }]);
   });
 
   it('defers a stale portal question to the live runner so it can recover field context', async () => {
