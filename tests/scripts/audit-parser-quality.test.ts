@@ -990,6 +990,62 @@ describe('source-detail fidelity checks', () => {
     });
   });
 
+  it('treats multiple strong workplace locations on one Holcim vacancy as an internal source conflict', async () => {
+    const description = 'Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const url = 'https://careers.holcimgroup.com/holcim_switzerland/job/koordinator/1358872357/';
+    const html = `<main><h1>Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%</h1>
+      <div itemscope itemtype="http://schema.org/JobPosting">
+        <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
+          <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <meta itemprop="addressLocality" content="Mülligen">
+            <meta itemprop="addressRegion" content="AG">
+            <meta itemprop="postalCode" content="5243">
+            <meta itemprop="addressCountry" content="CH">
+          </span>
+        </span>
+      </div>
+      <p class="job-location">Mülligen, AG, CH, 5243</p>
+      <p class="job-location">Oberdorf, NW, CH, 6370</p>
+      <div class="job-description">${description}</div></main>`;
+
+    const detail = extractDetailFields(html, url, {
+      recordUrl: url,
+      recordTitle: 'Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%',
+    });
+    expect(detail.renderedJobLocationFields).toEqual([
+      'Mülligen, AG, CH, 5243',
+      'Oberdorf, NW, CH, 6370',
+    ]);
+
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'holcim',
+      url,
+      job: {
+        url,
+        title: 'Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%',
+        addressLocality: 'Oberdorf',
+        sourceLang: 'de',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'careers.holcimgroup.com',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      sourceLocation: 'Mülligen',
+      locationMismatch: false,
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'source-internal-conflict',
+    });
+  });
+
   it('keeps the mismatch when the source page never names the published place', () => {
     const result = compareSourceDetail(
       {

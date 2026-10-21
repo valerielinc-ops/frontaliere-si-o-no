@@ -1028,10 +1028,17 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
   if (!['jsonld', 'strong-markup', 'job-summary'].includes(locationEvidence)
     || !isUsableSourceLocation(sourceLocation)
     || !publishedLocation) return false;
+  const renderedJobLocationFields = Array.isArray(detail?.renderedJobLocationFields)
+    ? detail.renderedJobLocationFields
+    : [];
   const visibleFields = [
     ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
-    ...(locationEvidence === 'jsonld' && Array.isArray(detail?.renderedJobLocationFields)
-      ? detail.renderedJobLocationFields
+    // A rendered job-location field is independent corroboration only when
+    // JSON-LD supplied the source observation. With strong markup, multiple
+    // fields are themselves the source's competing workplace declarations and
+    // are handled explicitly below.
+    ...(locationEvidence === 'jsonld'
+      ? renderedJobLocationFields
       : []),
     ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
     ...(Array.isArray(detail?.headingIntroFields) ? detail.headingIntroFields : []),
@@ -1047,6 +1054,12 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
   if (nationwideHeadings.length > 0) {
     return !nationwideHeadings.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
   }
+  const strongMarkupDeclaresBothLocations = locationEvidence === 'strong-markup'
+    && !sourceLocationMatches(publishedLocation, sourceLocation)
+    && renderedJobLocationFields.length > 1
+    && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, publishedLocation))
+    && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
+  if (strongMarkupDeclaresBothLocations) return true;
   const visibleMatchesPublished = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, publishedLocation)
   ));
