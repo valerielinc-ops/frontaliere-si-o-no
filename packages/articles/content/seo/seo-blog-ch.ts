@@ -108090,6 +108090,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tamedia-zurigo-protesta-licenziamenti-ia': {
+    title: 'Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno',
+    description: 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamedia, oltre, piazza, zurigo',
+    ogTitle: 'Tamedia: 100+ dipendenti in piazza a Zurigo contro i tagli',
+    ogDescription: 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono investimenti',
+    canonicalPath: '/articoli-svizzera/tamedia-zurigo-protesta-licenziamenti-ia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno",
+      "description": "Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T07:32:04+00:00",
+      "dateModified": "2026-10-21T07:32:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tamedia-zurigo-protesta-licenziamenti-ia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

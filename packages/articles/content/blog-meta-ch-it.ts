@@ -8555,6 +8555,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guasto-sistemi-skyguide-scali.title': 'Guasto ai sistemi: capacità aerea svizzera al 50%',
     'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi brevemente a Zurigo',
     'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono investimenti',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

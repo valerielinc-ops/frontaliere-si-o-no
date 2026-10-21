@@ -8555,6 +8555,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guasto-sistemi-skyguide-scali.title': 'System failure: Swiss air capacity at 50%',
     'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Technical failure in Skyguide systems Tuesday afternoon Skyguide operates at 50% capacity as a precaution Takeoffs and landings briefly suspended in Zurich',
     'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia, over 100 take to the streets in Zurich against 34 full-time job cuts',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'More than 100 employees protest in Zurich Tamedia announces 34 fewer full-time positions The cuts affect 41 employees Workers call for investment',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

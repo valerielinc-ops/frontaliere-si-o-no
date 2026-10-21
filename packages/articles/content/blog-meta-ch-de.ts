@@ -8555,6 +8555,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guasto-sistemi-skyguide-scali.title': 'Störung der Systeme: Schweizer Luftverkehrskapazität bei 50%',
     'blog.article.guasto-sistemi-skyguide-scali.excerpt': 'Technische Störung der Skyguide-Systeme am Dienstagnachmittag Skyguide arbeitet vorsorglich mit 50% der Kapazität Starts und Landungen in Zürich kurzzeitig ausgesetzt',
     'blog.article.guasto-sistemi-skyguide-scali.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.title': 'Tamedia: Über 100 in Zürich gegen Abbau von 34 Vollzeitjobs',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.excerpt': 'Über 100 Beschäftigte protestieren in Zürich Tamedia kündigt den Abbau von 34 Vollzeitstellen an Die Kürzungen betreffen 41 Beschäftigte Die Beschäftigten fordern Investitionen',
+    'blog.article.tamedia-zurigo-protesta-licenziamenti-ia.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;

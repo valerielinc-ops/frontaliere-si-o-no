@@ -2874,6 +2874,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'molestie-lavoro-pmi-svizzere': { it: 'molestie-lavoro-pmi-svizzere', en: 'workplace-harassment-swiss-smes', de: 'arbeitsplatz-belastigung-schweizer-kmu', fr: 'harcelement-travail-pme-suisses' },
  'finma-etf-bitcoin-primo-fondo': { it: 'finma-etf-bitcoin-primo-fondo', en: 'finma-approves-first-swiss-bitcoin-etf', de: 'finma-gibt-ersten-schweizer-bitcoin-etf-frei', fr: 'finma-autorise-premier-etf-bitcoin-suisse' },
  'guasto-sistemi-skyguide-scali': { it: 'guasto-sistemi-skyguide-scali', en: 'skyguide-system-fault-airports', de: 'skyguide-systemstoerung-flughaefen', fr: 'panne-systeme-skyguide-aeroports' },
+ 'tamedia-zurigo-protesta-licenziamenti-ia': { it: 'tamedia-zurigo-protesta-licenziamenti-ia', en: 'tamedia-zurich-protest-layoffs-ai', de: 'tamedia-zuerich-protest-stellenabbau-ki', fr: 'tamedia-zurich-proteste-licenciements-ia' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
