@@ -19,6 +19,7 @@ import { flatString } from './lib/flat-string.mjs';
 import { discoverSoft404Sitemaps, soft404PopulationError } from './lib/soft404-sitemap-discovery.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { REDIRECT_STUB_MARKER } from '../build-plugins/shared/redirectStubMarker.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -80,11 +81,14 @@ function extractVisibleText(html) {
     .trim();
 }
 
-/** Check if a page has noindex in its robots meta tag.
- *  Quote-flexible — PR #478 baked removeAttributeQuotes upstream. */
+/** Check if a page has noindex in its robots meta tag. */
 function hasNoindex(html) {
-  const match = html.match(/<meta\s+name=["']?robots["']?\s+content=["']?([^"'>]+?)["']?\s*\/?>/i);
-  return match ? match[1].toLowerCase().includes('noindex') : false;
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
 }
 
 /** Check if a page is an expired job archive page (has archive indicators). */

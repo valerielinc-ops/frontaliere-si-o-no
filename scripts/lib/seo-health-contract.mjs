@@ -16,6 +16,7 @@
  */
 
 import { JOB_BOARD_SECTION_RX } from './jobBoardSections.mjs';
+import { readAttr, scanMarkupStartTags } from './html-attr.mjs';
 
 export const SEO_HEALTH_SCHEMA_VERSION = 1;
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
@@ -150,31 +151,22 @@ export function deterministicSample(values, limit, salt = 'seo-health-v1') {
     .sort();
 }
 
-function tagAttribute(tag, name) {
-  const quoted = tag.match(new RegExp(`${name}\\s*=\\s*["']([^"']+)["']`, 'i'));
-  if (quoted) return quoted[1].trim();
-  const unquoted = tag.match(new RegExp(`${name}\\s*=\\s*([^\\s>]+)`, 'i'));
-  return unquoted ? unquoted[1].trim() : null;
-}
-
 function extractCanonical(html, pageUrl) {
-  const tags = String(html ?? '').match(/<link\b[^>]*>/gi) || [];
-  for (const tag of tags) {
-    const rel = tagAttribute(tag, 'rel');
+  for (const { raw } of scanMarkupStartTags(String(html ?? ''), 'link')) {
+    const rel = readAttr(raw, 'rel');
     if (!rel || !rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
-    const href = tagAttribute(tag, 'href');
+    const href = readAttr(raw, 'href');
     return href ? absoluteHttpUrl(href, pageUrl) : null;
   }
   return null;
 }
 
 function extractRobots(html) {
-  const tags = String(html ?? '').match(/<meta\b[^>]*>/gi) || [];
   const directives = [];
-  for (const tag of tags) {
-    const name = tagAttribute(tag, 'name');
+  for (const { raw } of scanMarkupStartTags(String(html ?? ''), 'meta')) {
+    const name = readAttr(raw, 'name');
     if (!name || !['robots', 'googlebot', 'googlebot-news'].includes(name.toLowerCase())) continue;
-    const content = tagAttribute(tag, 'content');
+    const content = readAttr(raw, 'content');
     if (content) directives.push(content);
   }
   const value = directives.join(', ');
