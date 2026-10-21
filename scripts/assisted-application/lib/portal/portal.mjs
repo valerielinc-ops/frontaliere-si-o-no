@@ -359,7 +359,9 @@ function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
   })).filter((item) => item.answer);
   const keyFor = (item) => portalQuestionKey(item.question, item.context) || portalQuestionId(item.question, item.context);
   const currentKeys = new Set(questions
-    .filter((question) => Object.hasOwn(answers, question.id))
+    // An empty value under a regenerated field id is not an answer; keep the
+    // previous semantic answer eligible for that same question.
+    .filter((question) => question?.id && String(answers[question.id] ?? '').trim())
     .map((question) => keyFor({ question: question.question, context: question.context || '' })));
   const priorGroups = new Map();
   for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
