@@ -530,7 +530,7 @@ function clusterBySameSourcePayload(group) {
  * untouched — a real, observed false-positive collision that must not eat a
  * genuine second event.
  */
-export function dedupeFuzzy(events) {
+export function dedupeFuzzy(events, { descriptionRewriteCache } = {}) {
   const groups = new Map();
   for (const ev of events) {
     const key = fuzzyDedupKey(ev);
@@ -551,7 +551,10 @@ export function dedupeFuzzy(events) {
       const exactPayloadWinners = [];
       for (const cluster of exactPayloadClusters) {
         mergedAway += cluster.length - 1;
-        exactPayloadWinners.push(pickRichestEvent(cluster));
+        const rewriteHits = descriptionRewriteCache
+          ? cluster.filter((event) => applyDescriptionRewrite(event, descriptionRewriteCache).descriptionRewriteValidated === true)
+          : [];
+        exactPayloadWinners.push(pickRichestEvent(rewriteHits.length ? rewriteHits : cluster));
       }
       const geoCandidates = [
         ...exactPayloadWinners,
@@ -867,7 +870,9 @@ export function assemble({
   }
 
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
-  const fuzzy = dedupeFuzzy(retainPublishedPastEvents(merged, priorEvents));
+  const fuzzy = dedupeFuzzy(retainPublishedPastEvents(merged, priorEvents), {
+    descriptionRewriteCache: rewriteCache,
+  });
   const twins = dedupeSupersededTwins(fuzzy.events);
   const organizer = dedupeOrganizerAgainstTio(twins.events);
   const deduped = organizer.events;
