@@ -8,7 +8,10 @@ import { fileURLToPath } from 'node:url';
 
 import { buildJobsStatsArtifacts, buildJobKeysSnapshot } from './lib/job-board-stats.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { readJobsStatsHistory, writeJobsStatsHistory } from './lib/job-stats-history-store.mjs';
+import {
+  readJobsStatsHistory,
+  writeJobsStatsHistory,
+} from './lib/job-stats-history-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');

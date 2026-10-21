@@ -199,7 +199,7 @@ describe('plate-auction Firestore batching', () => {
     expect(calls).not.toContain('https://eauktion.gr.ch/');
     expect(firestore.writes.find((write) => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'gr-2230')?.value).toMatchObject({
       officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
-      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_ch',
+      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_CH',
     });
     expect(firestore.deletes).not.toContain('gr-old');
     expect(firestore.sourceSets.find((entry) => entry.id === 'gr')).toMatchObject({

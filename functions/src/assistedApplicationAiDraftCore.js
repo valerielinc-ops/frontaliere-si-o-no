@@ -9,7 +9,7 @@ import { buildFactIndex, checkGeneratedFacts, withPermitClaims } from './assiste
 import { sanitizeValidation } from './lib/answerRules.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, isPermitField, permitLabel, permitOptions } from './lib/permitStatus.js';
 import { letterPlaceDate, letterSubject } from './assistedApplicationAiPrompts.js';
-import { languageExplicitlyAbsent } from './lib/languageFacts.js';
+import { hasCompleteLanguageList, hasExplicitLanguageSection, languageExplicitlyAbsent } from './lib/languageFacts.js';
 import { SALUTATIONS } from './lib/personalFacts.js';
 
 export const LETTER_FILE_LABEL = {
@@ -32,11 +32,15 @@ const MAX_PROFILE_LANGUAGES = 40;
 const LEGACY_LANGUAGE_LIST_LIMIT = 12;
 
 /** Lengths the schemas no longer enforce are capped here. */
-export function sanitizeProfile(raw, { legacy = false } = {}) {
+export function sanitizeProfile(raw, { legacy = false, cvText = '' } = {}) {
   const rawLanguages = Array.isArray(raw?.languages) ? raw.languages : [];
   const languagesListTruncated = raw?.languagesListTruncated === true
     || rawLanguages.length > MAX_PROFILE_LANGUAGES
     || (legacy && raw?.languagesListTruncated === undefined && rawLanguages.length >= LEGACY_LANGUAGE_LIST_LIMIT);
+  const languages = list(rawLanguages, MAX_PROFILE_LANGUAGES)
+    .map((item) => ({ language: clean(item?.language, 60), level: clean(item?.level, 60) }))
+    .filter((item) => item.language);
+  const completeLanguageList = languages.length === rawLanguages.length && hasCompleteLanguageList({ languages });
   return {
     fullName: clean(raw?.fullName, 200),
     email: clean(raw?.email, 320),
@@ -56,11 +60,11 @@ export function sanitizeProfile(raw, { legacy = false } = {}) {
     summary: cleanBlock(raw?.summary, 1500),
     workPermit: clean(raw?.workPermit, 200),
     availability: clean(raw?.availability, 200),
-    languages: list(rawLanguages, MAX_PROFILE_LANGUAGES).map((item) => ({ language: clean(item?.language, 60), level: clean(item?.level, 60) })).filter((item) => item.language),
+    languages,
     languagesListTruncated,
-    languagesExplicitList: raw?.languagesExplicitList === true
-      && !languagesListTruncated
-      && rawLanguages.length <= MAX_PROFILE_LANGUAGES,
+    languagesExplicitList: !languagesListTruncated
+      && completeLanguageList
+      && (raw?.languagesExplicitList === true || hasExplicitLanguageSection(cvText)),
     skills: list(raw?.skills, 40).map((item) => clean(item, 120)).filter(Boolean),
     experience: list(raw?.experience, 15).map((item) => ({
       role: clean(item?.role, 200),
