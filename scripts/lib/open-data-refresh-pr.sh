@@ -14,7 +14,7 @@
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
 #     [--optional-path data/example-dir] \
-#     [--force] [--resolve-symlinks] [--reconcile-main] \
+#     [--force] [--resolve-symlinks] [--reconcile-main] [--reconcile-refresh-paths] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -30,6 +30,7 @@ FORCE_ADD=false
 RECONCILE_COMPAT=false
 RESOLVE_SYMLINKS=false
 RECONCILE_MAIN=false
+RECONCILE_REFRESH_PATHS=false
 REQUIRE_NEW_BRANCH="${EVENTS_REFRESH_REQUIRE_NEW_BRANCH:-false}"
 PATHS=()
 OPTIONAL_PATHS=()
@@ -88,6 +89,10 @@ while [ "$#" -gt 0 ]; do
       RECONCILE_MAIN=true
       shift
       ;;
+    --reconcile-refresh-paths)
+      RECONCILE_REFRESH_PATHS=true
+      shift
+      ;;
     *)
       echo "::error::Unknown argument: $1"
       exit 2
@@ -96,6 +101,10 @@ while [ "$#" -gt 0 ]; do
 done
 
 [ "${#PATHS[@]}" -gt 0 ] || { echo "::error::At least one --path is required"; exit 2; }
+[ "$RECONCILE_REFRESH_PATHS" = false ] || [ "$RECONCILE_MAIN" = true ] || {
+  echo "::error::--reconcile-refresh-paths requires --reconcile-main"
+  exit 2
+}
 [ -n "$BRANCH" ] || { echo "::error::--branch is required"; exit 2; }
 [ -n "$COMMIT_MESSAGE" ] || { echo "::error::--commit-message is required"; exit 2; }
 [ -n "$TITLE" ] || { echo "::error::--title is required"; exit 2; }
@@ -159,6 +168,11 @@ if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
     fi
   done
 fi
+
+# Preserve the producer-owned paths before the sparse publisher checkout
+# replaces PATHS with the files from this run's commit. Optional paths join the
+# reconciliation scope only when they are stageable in this refresh.
+RECONCILE_PATHS=("${PATHS[@]}")
 
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 [ -n "$REPOSITORY" ] || {
@@ -573,8 +587,14 @@ if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] \
       run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch refresh merge base" \
         git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
     fi
+    RECONCILE_ARGS=(--base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE")
+    if [ "$RECONCILE_REFRESH_PATHS" = true ]; then
+      for refresh_path in "${RECONCILE_PATHS[@]}"; do
+        RECONCILE_ARGS+=(--path "$refresh_path")
+      done
+    fi
     node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
-      --base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE"
+      "${RECONCILE_ARGS[@]}"
   fi
 fi
 

@@ -40,15 +40,26 @@ const COMPAT_SHARD_RE = /^data\/seo-404-compat\/part-\d+\.json$/u;
 const CF_HOT_404_PATH = 'data/cf-hot-404s.json';
 const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
 
-const options = { compat: false };
+const options = { compat: false, paths: [] };
 for (let i = 2; i < process.argv.length; i += 1) {
   const flag = process.argv[i];
   if (flag === '--compat') {
     options.compat = true;
     continue;
   }
+  if (flag === '--path') {
+    const refreshPath = process.argv[i + 1];
+    if (!refreshPath) throw new Error('--path requires a repository-relative path');
+    const normalizedPath = path.posix.normalize(refreshPath);
+    if (refreshPath !== normalizedPath || refreshPath.startsWith('/')) {
+      throw new Error(`Invalid refresh reconciliation path: ${refreshPath}`);
+    }
+    options.paths.push(refreshPath);
+    i += 1;
+    continue;
+  }
   if (!['--base', '--main', '--message'].includes(flag) || !process.argv[i + 1]) {
-    throw new Error('Usage: reconcile-data-refresh-main.mjs [--compat] --base SHA --main SHA --message TEXT');
+    throw new Error('Usage: reconcile-data-refresh-main.mjs [--compat] [--path PATH] --base SHA --main SHA --message TEXT');
   }
   options[flag.slice(2)] = process.argv[i + 1];
   i += 1;
@@ -186,6 +197,12 @@ function isEventSourceState(file) {
     && [EVENT_SOURCE_SLICE_ROOT, EVENT_SOURCE_CHECKPOINT_ROOT].includes(path.posix.dirname(file));
 }
 
+function isRefreshPath(file) {
+  return options.paths.some((refreshPath) => (
+    file === refreshPath || file.startsWith(`${refreshPath.replace(/\/$/u, '')}/`)
+  ));
+}
+
 // The crawl restores the slices and checkpoints of the pending refresh before
 // it runs, and writes its own on top of them. When that pending refresh is
 // merged while the crawl is still running, main and this branch have both
@@ -314,10 +331,19 @@ const carried = carriedRefreshRef();
 const continuedSourceState = new Set(
   conflicts.filter((file) => continuesCarriedState(file, { carried, head, main: options.main })),
 );
+const refreshPathConflicts = conflicts.filter((file) => (
+  isRefreshPath(file)
+    && !EVENT_CACHE_PATHS.has(file)
+    && !derivedDatasetPaths.has(file)
+    && !compatPaths.has(file)
+    && !isEventSourceState(file)
+    && !continuedSourceState.has(file)
+));
 const blockers = conflicts.filter((file) =>
   !EVENT_CACHE_PATHS.has(file)
     && !derivedDatasetPaths.has(file)
     && !compatPaths.has(file)
+    && !refreshPathConflicts.includes(file)
     && !continuedSourceState.has(file));
 if (blockers.length > 0) {
   // Only what stops the reconciliation is named. A caller that did not opt in
@@ -346,6 +372,17 @@ for (const file of conflicts) {
   if (content === null) throw new Error(`Cannot resolve missing cache ${file}`);
   cacheOverrides.set(file, content);
   writeIndexBlob(file, content);
+}
+
+for (const file of refreshPathConflicts) {
+  const content = mergeRefreshContent(
+    file,
+    readBlob(options.base, file, { encoding: null }),
+    readBlob(options.main, file, { encoding: null }),
+    readBlob(head, file, { encoding: null }),
+  );
+  if (content === null) git(['update-index', '--force-remove', '--', file]);
+  else writeIndexBlob(file, content);
 }
 
 const compatOverrides = new Map();
@@ -423,6 +460,9 @@ const commit = git(['commit-tree', mergedTree, '-p', head, '-p', options.main, '
 git(['update-ref', 'HEAD', commit, head]);
 process.stdout.write(
   `[reconcile-data-refresh-main] merged main; resolved ${conflicts.filter((file) => EVENT_CACHE_PATHS.has(file)).length} cache conflict(s)`
+    + (refreshPathConflicts.length > 0
+      ? `; resolved ${refreshPathConflicts.length} refresh-path conflict(s)`
+      : '')
     + (continuedSourceState.size > 0
       ? `; continued ${continuedSourceState.size} source state file(s) from the carried refresh`
       : '')
