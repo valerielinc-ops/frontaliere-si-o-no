@@ -1,6 +1,7 @@
 {
   "crawlerKey": "planzer",
-  "assembledAt": "2026-10-20T21:16:01.943Z",
+  "assembledAt": "2026-10-21T09:18:14.951Z",
+  "runId": "39574346119",
   "jobs": [
     {
       "id": "planzer-6d72d3f7e639",
@@ -33,7 +34,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4084102",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:55.955Z",
+      "crawledAt": "2026-10-21T09:18:08.100Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -114,7 +115,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4083821",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:55.259Z",
+      "crawledAt": "2026-10-21T09:18:07.198Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -197,7 +198,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4083586",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:54.518Z",
+      "crawledAt": "2026-10-21T09:18:06.059Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -278,7 +279,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4083818",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:53.813Z",
+      "crawledAt": "2026-10-21T09:18:05.400Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "streetAddress": "Weinfelderstrasse 6",
@@ -360,7 +361,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4087938",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:53.014Z",
+      "crawledAt": "2026-10-21T09:18:04.096Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -442,7 +443,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4086099",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:52.301Z",
+      "crawledAt": "2026-10-21T09:18:03.372Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Allmeindstrasse 23",
@@ -524,7 +525,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4086530",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:51.594Z",
+      "crawledAt": "2026-10-21T09:18:02.702Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Murtenstrasse 85",
@@ -606,7 +607,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4087598",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:50.895Z",
+      "crawledAt": "2026-10-21T09:18:01.988Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Murtenstrasse 85",
@@ -688,7 +689,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4087355",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:50.177Z",
+      "crawledAt": "2026-10-21T09:18:01.215Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -770,7 +771,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4087352",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:15:49.280Z",
+      "crawledAt": "2026-10-21T09:17:59.587Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -819,169 +820,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "planzer-14cd27ec634c",
-      "slug": "chauffeur-cat-ce-m-f-d-z-planzer-dietikon",
-      "slugByLocale": {
-        "it": "chauffeur-cat-ce-m-f-d-z-planzer-dietikon",
-        "en": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
-        "de": "chauffeur-kat-ce-m-w-d-planzer-dietikon",
-        "fr": "chauffeur-cat-ce-h-f-d-z-planzer-dietikon"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Chauffeur Kat. CE (m/w/d)",
-      "titleByLocale": {
-        "it": "Chauffeur Cat. CE (m/f/d)Z",
-        "en": "Chauffeur Cat. CE (m/f/d)Z",
-        "de": "Chauffeur Kat. CE (m/w/d)",
-        "fr": "Chauffeur Cat. CE (h/f/d)Z"
-      },
-      "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzug fahren wie ein Profi\n• Von Vorteil bringst du bereits Erfahrungen im Stückguttransport mit und besitzt den Staplerausweis sowie den ADR-Ausweis\n• Deine Fahrerbewilligungen sind alle auf dem neusten Stand\n• In der Region kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Eigenes Personalrestaurant: Geniesse leckere Menüs zu fairen Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Sulla base della pianificazione del programma, si effettuano gli ordini di trasporto nel traffico nazionale e consegnare la merce in tempo e professionalmente ai nostri clienti\n• Caricamento e scarico? Nessun problema per voi - si ottiene coinvolto e assicurarsi che tutto è sicuro memorizzato\n• Assicurarsi che il carico sia perfettamente protetto – Nulla è lasciato al caso\n• Insieme a voi, il vostro veicolo è il più importante e sempre visibile biglietto da visita della nostra azienda – in modo da prendersi cura della sua cura e manutenzione\n\nPerché hai successo?\n• Hai la patente di guida Kat. CE nella borsa e può guidare rimorchio treno come un professionista\n• Vantaggiosamente, avete già esperienza nel trasporto di carico generale e hanno l'ID del camion e l'ID ADR.\n• I permessi del conducente sono tutti aggiornati\n• Nella regione si conosce bene e sentirsi a casa per le strade\n• Orale e scritto si può certamente esprimere in tedesco\n• Sei affidabile, flessibile e, grazie alla tua resilienza, pronto ad andare a piena velocità anche in momenti stressanti\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Bonus di qualità: La qualità è scritta nella nostra capitale e premiata\n• Formazione introduttiva centrale: Passerete i vostri primi giorni di lavoro nell'introduzione centrale, dove sarete insegnati le basi più importanti\n• Ristorante personale: Godetevi menu deliziosi a prezzi eque\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• Based on the scheduling of the schedule, you carry out the transport orders in national traffic and deliver the goods on time and professionally to our customers\n• Loading and unloading? No problem for you - you get involved and make sure that everything is safely stored\n• You make sure the cargo is perfectly secured – Nothing is left to chance\n• Together with you, your vehicle is the most important and always visible business card of our company – so you take care of its care and maintenance\n\nWhy do you succeed?\n• You have the driver's license Kat. CE in the bag and can drive trailer train like a professional\n• Advantageously, you already have experience in general cargo transport and have the truck ID and the ADR ID.\n• Your driver permits are all up to date\n• In the region you know yourself well and feel at home on the streets\n• Oral and written you can certainly express yourself in German\n• You are reliable, flexible and, thanks to your resilience, ready to go full speed even in stressful moments\n\nYour Benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Quality bonus: Quality is written in our capital and rewarded\n• Central introductory training: You will spend your first working days in the central introduction, where you will be taught the most important basics\n• Own staff restaurant: Enjoy delicious menus at fair prices\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Anhand der Einsatzplanung der Disposition führst du die Transportaufträge im nationalen Verkehr aus und lieferst die Ware termingerecht und professionell an unsere Kunden\n• Be- und Entladung? Kein Problem für dich - du packst mit an und sorgst dafür, dass alles sicher verstaut ist\n• Du stellst sicher, dass das Ladegut perfekt gesichert ist – nichts bleibt dem Zufall überlassen\n• Dein Fahrzeug ist zusammen mit dir die wichtigste und stets sichtbare Visitenkarte unseres Unternehmens – deshalb kümmerst du dich sorgfältig um dessen Pflege und Unterhalt\n\nWeshalb es dir gelingt\n• Du hast den Führerausweis Kat. CE in der Tasche und kannst Anhängerzug fahren wie ein Profi\n• Von Vorteil bringst du bereits Erfahrungen im Stückguttransport mit und besitzt den Staplerausweis sowie den ADR-Ausweis\n• Deine Fahrerbewilligungen sind alle auf dem neusten Stand\n• In der Region kennst du dich gut aus und fühlst dich auf der Strasse zuhause\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Du bist zuverlässig, flexibel und durch deine Belastbarkeit bereit, auch in stressigen Momenten Vollgas zu geben\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Qualitätsbonus: Qualität wird bei uns grossgeschrieben und belohnt\n• Zentrale Einführungsschulung: Deine ersten Arbeitstage verbringst du in der zentralen Einführung, wo dir die wichtigsten Grundlagen vermittelt werden\n• Eigenes Personalrestaurant: Geniesse leckere Menüs zu fairen Preisen\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous apprécions les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Sur la base du calendrier, vous effectuez les commandes de transport dans le trafic national et livrez les marchandises à temps et professionnellement à nos clients\n• Chargement et déchargement ? Aucun problème pour vous - vous vous engagez et assurez-vous que tout est stocké en toute sécurité\n• Vous assurez-vous que la cargaison est parfaitement sécurisée – Rien n'est laissé au hasard\n• Avec vous, votre véhicule est la carte de visite la plus importante et la plus visible de notre entreprise.\n\nPourquoi tu réussis ?\n• Vous avez le permis de conduire Kat. CE dans le sac et peut conduire train remorque comme un professionnel\n• Avantageusement, vous avez déjà de l'expérience dans le transport général de marchandises et avez l'ID du camion et l'ID ADR.\n• Vos permis de conduire sont à jour\n• Dans la région, vous vous connaissez bien et vous sentez chez vous dans les rues\n• Oral et écrit, vous pouvez certainement vous exprimer en allemand\n• Vous êtes fiable, flexible et, grâce à votre résilience, prêt à aller à pleine vitesse même dans des moments stressants\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Bonus de qualité: La qualité est écrite dans notre capital et récompensée\n• Formation d'introduction centrale: Vous passerez vos premiers jours de travail dans l'introduction centrale, où vous serez enseigné les bases les plus importantes\n• Restaurant personnel : dégustez de délicieux menus à des prix équitables\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "needsRetranslation": false,
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/planzer/job/details/4085122",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:16:04.584Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Lerzenstrasse 14",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Trasporti / Autisti",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4085122",
-      "externalId": "4085122",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chauffeur-kat-ce-m-w-d-planzer-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chauffeur-kat-ce-m-w-d-planzer-dietikon"
-        ],
-        "fr": [
-          "chauffeur-kat-ce-m-w-d-planzer-dietikon"
-        ]
-      },
-      "firstSeenAt": "2026-10-14T07:52:22.210Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "planzer-3c148dcf0e36",
-      "slug": "autista-di-piazzale-ce-addetto-a-alla-movimentazione-m-f-d-planzer-dietikon",
-      "slugByLocale": {
-        "it": "autista-di-piazzale-ce-addetto-a-alla-movimentazione-m-f-d-planzer-dietikon",
-        "en": "ram-driver-ce-staff-envelope-m-f-d-planzer-dietikon",
-        "de": "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
-        "fr": "ram-pilote-ce-enveloppe-du-personnel-h-f-d-planzer-dietikon"
-      },
-      "company": "Planzer",
-      "companyKey": "planzer",
-      "companyDomain": "planzer.ch",
-      "title": "Rampenfahrer CE / Mitarbeiter Umschlag (m/w/d)",
-      "titleByLocale": {
-        "it": "Autista di piazzale CE / Addetto/a alla movimentazione (m/f/d)",
-        "en": "Ram driver CE / staff envelope (m/f/d)",
-        "de": "Rampenfahrer CE / Mitarbeiter Umschlag (m/w/d)",
-        "fr": "Ram pilote CE / enveloppe du personnel (h/f/d)"
-      },
-      "description": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Beim Be- und Entladen von LKWs im Umschlaglager und an der Rampe bist du der absolute Profi und kontrollierst dabei die Waren und Paletten\n• Du sorgst dafür, dass die Ware sicher und schnell auf den richtigen Lagerplatz kommt. Chaos? Nicht mit dir!\n• Die Ware bewegst du vorwiegend mit Flurfördergeräten von A nach B\n• Du bist verantwortlich für einen reibungslosen Ablauf und einen sauberen und ordentlichen Warenumschlag\n• Unterstützung bei der Koordination der ankommenden und abfahrenden Fahrzeuge an der Rampe\n\nWeshalb es dir gelingt\n• Nachts arbeiten ist genau dein Ding? Perfekt, denn unsere Arbeitszeiten sind ab 15:00 Uhr\n• Schichtwechsel machen dir nichts aus\n• Du konntest bereits Erfahrung im Lager- oder Logistikbereich sammeln\n• Du bist bereits stolzer Besitzer der Fahrkategorie C und hast einen gültigen CZV Ausweis\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Deine effiziente, selbständige und zuverlässige Arbeitsweise zeichnen dich aus und du übernimmst gerne Verantwortung\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Moderner Fuhrpark: Mit unserem modernen Fahrzeugpark ist Fahrspass garantiert!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-      "descriptionByLocale": {
-        "it": "Il movimento è nel nostro DNA – dal 1936. Come azienda di famiglia, apprezziamo le persone che vogliono pensare, farsi coinvolgere e crescere con noi. Diventa parte della nostra famiglia e modella il futuro della logistica dei trasporti e dei magazzini con noi.\n\nChe cosa si muove\n• Quando si caricano e scarico camion nel magazzino di trasbordo e sulla rampa, si è il professionista assoluto e controllare le merci e pallet\n• Assicurarsi che le merci vengano in modo sicuro e veloce al posto giusto di stoccaggio. Caos? Non con te!\n• Le merci che si spostano principalmente con trasportatori da A a B\n• Sei responsabile di un processo liscio e di una movimentazione di merci pulita e ordinata\n• Assistenza nel coordinamento dei veicoli in entrata e in partenza sulla rampa\n\nPerché hai successo?\n• Lavorare di notte è la tua cosa? Perfetto, perché le nostre ore di lavoro sono dalle 15:00\n• I cambiamenti di spostamento non ti disturbano\n• Hai già acquisito esperienza nel settore magazzino o logistica\n• Sei già un orgoglioso proprietario della categoria di guida C e hai un valido ID CZV.\n• Orale e scritto si può tranquillamente esprimere se stessi in tedesco\n• Il tuo modo di lavorare efficiente, indipendente e affidabile ti distingue e sei felice di assumerti la responsabilità\n\nI tuoi vantaggi\n• Attraente regolamento vacanza: Con noi si inizia con 5 settimane vacanze e anche beneficiare di 6 settimane dal 5 ° anno di servizio!\n• Cultura familiare: Tu diventi parte della nostra cultura familiare - rispetto, fiducia e decenza sono importanti per noi\n• Attrezzature di lavoro moderne: Continuiamo con i tempi - avete attrezzature di lavoro moderne e sicure a vostra disposizione\n• Moderna flotta di veicoli: Con la nostra moderna flotta di veicoli, il piacere di guida è garantito!\n\nChi siamo\nPer noi come azienda, l'attenzione è su una cooperazione di supporto e un'atmosfera di lavoro positiva. Ecco perché apprezziamo particolarmente qualità come lo spirito di squadra, la disponibilità e la motivazione. Accogliamo anche grande importanza per la puntualità, la lealtà e l'accuratezza, in quanto questi valori costituiscono la base per un modo di lavoro affidabile e orientato al cliente.",
-        "en": "Movement is in our DNA – since 1936. As a family business, we value people who want to think, get involved and grow with us. Become part of our family and shape the future of transport and warehouse logistics with us.\n\nWhat you move\n• When loading and unloading trucks in the transhipment warehouse and on the ramp, you are the absolute professional and control the goods and pallets\n• You make sure that the goods come safely and quickly to the right storage place. Chaos? Not with you!\n• The goods you move mainly with floor conveyors from A to B\n• You are responsible for a smooth process and a clean and orderly goods handling\n• Assistance in the coordination of incoming and departing vehicles on the ramp\n\nWhy do you succeed?\n• Working at night is your thing? Perfect, because our working hours are from 15:00\n• Shift changes don't bother you\n• You have already gained experience in the warehouse or logistics sector\n• You are already a proud owner of driving category C and have a valid CZV ID.\n• Oral and written you can safely express yourself in German\n• Your efficient, independent and reliable way of working distinguishes you and you are happy to take on responsibility\n\nYour benefits\n• Attractive holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Modern work equipment: We keep up with the times - you have modern and safe work equipment at your disposal\n• Modern vehicle fleet: With our modern vehicle fleet, driving pleasure is guaranteed!\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
-        "de": "Bewegung liegt in unserer DNA – seit 1936. Als Familienunternehmen legen wir Wert auf Menschen, die mitdenken, mitanpacken und mit uns wachsen wollen. Werde Teil unserer Familie und gestalte die Zukunft der Transport- und Lagerlogistik mit uns.\n\nWas du bewegst\n• Beim Be- und Entladen von LKWs im Umschlaglager und an der Rampe bist du der absolute Profi und kontrollierst dabei die Waren und Paletten\n• Du sorgst dafür, dass die Ware sicher und schnell auf den richtigen Lagerplatz kommt. Chaos? Nicht mit dir!\n• Die Ware bewegst du vorwiegend mit Flurfördergeräten von A nach B\n• Du bist verantwortlich für einen reibungslosen Ablauf und einen sauberen und ordentlichen Warenumschlag\n• Unterstützung bei der Koordination der ankommenden und abfahrenden Fahrzeuge an der Rampe\n\nWeshalb es dir gelingt\n• Nachts arbeiten ist genau dein Ding? Perfekt, denn unsere Arbeitszeiten sind ab 15:00 Uhr\n• Schichtwechsel machen dir nichts aus\n• Du konntest bereits Erfahrung im Lager- oder Logistikbereich sammeln\n• Du bist bereits stolzer Besitzer der Fahrkategorie C und hast einen gültigen CZV Ausweis\n• Mündlich und schriftlich kannst du dich sicher in deutscher Sprache ausdrücken\n• Deine effiziente, selbständige und zuverlässige Arbeitsweise zeichnen dich aus und du übernimmst gerne Verantwortung\n\nDeine Benefits\n• Attraktives Ferienreglement: Bei uns startest du mit 5 Wochen Ferien und profitierst ab dem 5. Dienstjahr sogar von 6 Wochen!\n• Familiäre Unternehmenskultur: Du wirst Teil unserer familiären Unternehmenskultur - Respekt, Vertrauen und Anstand sind uns wichtig\n• Moderne Arbeitsgeräte: Wir gehen mit der Zeit - dir stehen moderne und sichere Arbeitsgeräte zur Verfügung\n• Moderner Fuhrpark: Mit unserem modernen Fahrzeugpark ist Fahrspass garantiert!\n\nWer wir sind\nFür uns als Unternehmen stehen ein unterstützendes Miteinander und eine positive Arbeitsatmosphäre im Mittelpunkt. Deshalb schätzen wir Eigenschaften wie Teamgeist, Hilfsbereitschaft und Motivation besonders. Zudem legen wir grossen Wert auf Pünktlichkeit, Loyalität und Genauigkeit, da diese Werte die Grundlage für eine zuverlässige und kundenorientierte Arbeitsweise bilden.",
-        "fr": "Le mouvement est dans notre ADN – depuis 1936. En tant qu'entreprise familiale, nous valorisons les gens qui veulent penser, s'impliquer et grandir avec nous. Devenez membre de notre famille et façonnez l'avenir de la logistique de transport et d'entrepôt avec nous.\n\nCe que tu bouges\n• Lors du chargement et du déchargement des camions dans l'entrepôt de transbordement et sur la rampe, vous êtes le professionnel absolu et contrôlez les marchandises et les palettes\n• Vous assurez-vous que les marchandises viennent en toute sécurité et rapidement au bon endroit de stockage. Chaos ? Pas avec toi !\n• Les marchandises que vous déplacez principalement avec des convoyeurs au sol de A à B\n• Vous êtes responsable d'un processus en douceur et d'une manutention des marchandises propre et ordonnée\n• Assistance à la coordination des véhicules entrant et sortants sur la rampe\n\nPourquoi tu réussis ?\n• Travailler la nuit, c'est ton truc ? Parfait, parce que nos heures de travail sont à partir de 15:00\n• Les changements de poste ne vous dérangent pas\n• Vous avez déjà acquis une expérience dans le secteur de l'entrepôt ou de la logistique\n• Vous êtes déjà un fier propriétaire de la catégorie de conduite C et avez un ID CZV valide.\n• Oral et écrit vous pouvez vous exprimer en toute sécurité en allemand\n• Votre façon de travailler efficace, indépendante et fiable vous distingue et vous êtes heureux d'assumer vos responsabilités\n\nVos avantages\n• Des règles de vacances attrayantes: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : Vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Équipement de travail moderne: Nous suivons les temps - vous avez des équipements de travail modernes et sûrs à votre disposition\n• flotte de véhicules modernes: Avec notre flotte de véhicules modernes, le plaisir de conduire est garanti!\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
-      },
-      "location": "Dietikon",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/planzer/job/details/4084099",
-      "source": "Planzer Dedicated Parser (Solique)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-19T21:16:03.589Z",
-      "addressLocality": "Dietikon",
-      "addressRegion": "ZH",
-      "streetAddress": "Lerzenstrasse 14",
-      "postalCode": "8953",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Logistica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/planzer/job/details/4084099",
-      "externalId": "4084099",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
-        "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon",
-          "rampenfahrer-ce-collaboratore-trice-umschlag-m-w-d-planzer-dietikon"
-        ],
-        "en": [
-          "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
-        ],
-        "fr": [
-          "rampenfahrer-ce-mitarbeiter-umschlag-m-w-d-planzer-dietikon"
-        ]
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
