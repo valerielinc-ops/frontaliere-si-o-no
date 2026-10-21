@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-21T19:21:48.605Z",
+  "generatedAt": "2026-10-21T20:20:51.637Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -39024,6 +39024,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T15:21:52.047Z"
     },
+    "guidle:AtGXwiB::d32eb129f3327fb9d81af3a8d78ddc7bfe2e959128bc25237cf82f449fe46957": {
+      "id": "guidle:AtGXwiB",
+      "sourceDescriptionHash": "d32eb129f3327fb9d81af3a8d78ddc7bfe2e959128bc25237cf82f449fe46957",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Plaza Klub; cantone: ZH; categoria: Rock generalmente; organizzatore: Live NationSouth ArcadeTüröffnung: 19:00 UhrBeginn: 19:30; data: 2027-03-14; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Plaza Klub; cantone: ZH; categoria: Rock generalmente; organizzatore: Live NationSouth ArcadeTüröffnung: 19:00 UhrBeginn: 19:30; data: 2027-03-14; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Plaza Klub; canton: ZH; category: Rock generalmente; organiser: Live NationSouth ArcadeTüröffnung: 19:00 UhrBeginn: 19:30; date: 2027-03-14; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Plaza Klub; kanton: ZH; kategorie: Rock generalmente; veranstalter: Live NationSouth ArcadeTüröffnung: 19:00 UhrBeginn: 19:30; datum: 2027-03-14; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Plaza Klub; canton: ZH; catégorie: Rock generalmente; organisateur: Live NationSouth ArcadeTüröffnung: 19:00 UhrBeginn: 19:30; date: 2027-03-14; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T20:15:26.954Z"
+    },
     "guidle:AtH4VY2::beec4e6240fdc7dffc1dd83436724aed28a8ef8501e9d05e70dfe3eaf6f39206": {
       "id": "guidle:AtH4VY2",
       "sourceDescriptionHash": "beec4e6240fdc7dffc1dd83436724aed28a8ef8501e9d05e70dfe3eaf6f39206",
@@ -45771,6 +45785,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T06:15:59.528Z"
+    },
+    "guidle:AYXQb9k::6674fb832420b561776e5d0065c4576119b370dc03cfa03ee70d456b321f6aca": {
+      "id": "guidle:AYXQb9k",
+      "sourceDescriptionHash": "6674fb832420b561776e5d0065c4576119b370dc03cfa03ee70d456b321f6aca",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Montforthaus Feldkirch; categoria: Canzonetta; organizzatore: Guidle; data: 2027-02-25; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Montforthaus Feldkirch; categoria: Canzonetta; organizzatore: Guidle; data: 2027-02-25; ora: 19:30; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Montforthaus Feldkirch; category: Canzonetta; organiser: Guidle; date: 2027-02-25; time: 19:30; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Montforthaus Feldkirch; kategorie: Canzonetta; veranstalter: Guidle; datum: 2027-02-25; uhrzeit: 19:30; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Montforthaus Feldkirch; catégorie: Canzonetta; organisateur: Guidle; date: 2027-02-25; heure: 19:30; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-21T20:15:26.946Z"
     },
     "guidle:AYxQBhx::be0bac94ae0b2190ed72c44518157c06d283824c1884e1d59dee23a959b5f51b": {
       "id": "guidle:AYxQBhx",
@@ -165926,15 +165954,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AtGXwiB::d32eb129f3327fb9d81af3a8d78ddc7bfe2e959128bc25237cf82f449fe46957": {
-      "id": "guidle:AtGXwiB",
-      "sourceDescriptionHash": "d32eb129f3327fb9d81af3a8d78ddc7bfe2e959128bc25237cf82f449fe46957",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-21T18:18:12.381Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ATM4WSa::f94f434b8d4683670d82de213f119c51605c46dcb4525355105538f13e3a019e": {
       "id": "guidle:ATM4WSa",
       "sourceDescriptionHash": "f94f434b8d4683670d82de213f119c51605c46dcb4525355105538f13e3a019e",
@@ -166454,15 +166473,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T03:23:37.089Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AYXQb9k::6674fb832420b561776e5d0065c4576119b370dc03cfa03ee70d456b321f6aca": {
-      "id": "guidle:AYXQb9k",
-      "sourceDescriptionHash": "6674fb832420b561776e5d0065c4576119b370dc03cfa03ee70d456b321f6aca",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-21T17:23:52.833Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
