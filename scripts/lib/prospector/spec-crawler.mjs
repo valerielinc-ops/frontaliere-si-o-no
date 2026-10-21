@@ -983,10 +983,11 @@ export function stripListingPageState(url, pageUrl, stateParams = []) {
 function listingIdentityUrl(rawUrl) {
   try {
     const url = new URL(String(rawUrl));
-    // Fragments are not sent in HTTP requests. extractLinks removes fragment
-    // duplicates within one page; this key extends the same identity rule
-    // across paginated pages without changing the first URL retained for output.
-    url.hash = '';
+    // Fragments are not sent in HTTP requests, except that extractJsonLd uses
+    // `#job-<sha1>` as the stable identity of URL-less inline postings. Keep
+    // those synthetic identity fragments while ignoring browser-only anchors
+    // when deduplicating the same linked vacancy across pages.
+    if (!/^#job-[\da-f]{12}$/i.test(url.hash)) url.hash = '';
     return url.href;
   } catch {
     return String(rawUrl || '');
