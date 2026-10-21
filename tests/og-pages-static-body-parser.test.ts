@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import { parseStaticBlogBodySource } from '../packages/articles/engine/ogPagesPlugin';
+import {
+  parseStaticArticleTranslationEntries,
+  parseStaticArticleTranslationSource,
+} from '../packages/articles/engine/shared/articleStaticSource.mjs';
 
 const ARTICLE_ID = 'unicode-separator-article';
 const SOURCE_PATH = `packages/articles/content/blog-body/fr/${ARTICLE_ID}.ts`;
@@ -104,6 +108,52 @@ describe('og article static body parser', () => {
     ].join('\n');
 
     expect(() => parseStaticBlogBodySource(source, SOURCE_PATH))
+      .toThrow(/Interpolated template literal is not supported in static article data/);
+  });
+});
+
+describe('article source entry projection', () => {
+  it('exposes validated primitive offsets while preserving the existing Map result', () => {
+    const source = [
+      '// astral 🧭 prefix before source offsets',
+      'const translations: Record<string, string> = {',
+      `  'blog.article.${ARTICLE_ID}.title': 'Titolo',`,
+      `  'blog.article.${ARTICLE_ID}.body1': 'Prima riga\\nseconda riga',`,
+      '};',
+      'export default translations;',
+    ].join('\n');
+    const entries = parseStaticArticleTranslationEntries(source, SOURCE_PATH);
+    const map = parseStaticArticleTranslationSource(source, SOURCE_PATH);
+
+    expect(entries).toEqual([
+      {
+        articleId: ARTICLE_ID,
+        field: 'title',
+        value: 'Titolo',
+        index: source.indexOf(`'blog.article.${ARTICLE_ID}.title'`),
+      },
+      {
+        articleId: ARTICLE_ID,
+        field: 'body1',
+        value: 'Prima riga\nseconda riga',
+        index: source.indexOf(`'blog.article.${ARTICLE_ID}.body1'`),
+      },
+    ]);
+    expect([...map].map(([id, fields]) => [id, [...fields]])).toEqual([
+      [ARTICLE_ID, [['title', 'Titolo'], ['body1', 'Prima riga\nseconda riga']]],
+    ]);
+  });
+
+  it('does not return partial entries when a later translation value is dynamic', () => {
+    const source = [
+      'const translations: Record<string, string> = {',
+      `  'blog.article.${ARTICLE_ID}.title': 'Titolo',`,
+      "  'blog.article." + ARTICLE_ID + ".body1': `runtime ${value}`,",
+      '};',
+      'export default translations;',
+    ].join('\n');
+
+    expect(() => parseStaticArticleTranslationEntries(source, SOURCE_PATH))
       .toThrow(/Interpolated template literal is not supported in static article data/);
   });
 });

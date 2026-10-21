@@ -147,18 +147,19 @@ function readStringLiteralValue(node, sourceFile, sourcePath, key) {
 }
 
 /**
- * Parse one complete static translation module into its article/field string
- * values. Each call creates one transient TypeScript SourceFile and returns
- * only the extracted strings; neither source text nor AST nodes are cached.
+ * Parse one complete static translation module into primitive article-field
+ * entries. The source offset supports diagnostics that must retain the
+ * original line number without exposing or retaining TypeScript AST nodes.
+ * This function returns only after the entire module has passed validation.
  *
  * @param {string} source complete TypeScript module text
  * @param {string} sourcePath diagnostic filename
- * @returns {Map<string, Map<string, string>>}
+ * @returns {Array<{articleId:string,field:string,value:string,index:number}>}
  */
-export function parseStaticArticleTranslationSource(source, sourcePath) {
+export function parseStaticArticleTranslationEntries(source, sourcePath) {
   const sourceFile = parseSourceFile(source, sourcePath);
   const objectLiteral = findTranslationObject(sourceFile, sourcePath);
-  const result = new Map();
+  const result = [];
   const seenKeys = new Set();
 
   for (const property of objectLiteral.properties) {
@@ -180,12 +181,32 @@ export function parseStaticArticleTranslationSource(source, sourcePath) {
 
     const [, articleId, field] = match;
     if (!articleId.trim()) fail(sourcePath, 'article translation id must be non-empty', sourceFile, property.name);
-    if (!result.has(articleId)) result.set(articleId, new Map());
-    const fields = result.get(articleId);
-    if (fields.has(field)) fail(sourcePath, `duplicate article translation ${key}`, sourceFile, property.name);
-    fields.set(field, value);
+    result.push({
+      articleId,
+      field,
+      value,
+      index: property.name.getStart(sourceFile, false),
+    });
   }
 
+  return result;
+}
+
+/**
+ * Parse one complete static translation module into its article/field string
+ * values. This legacy Map API is a projection of the same validated entries
+ * used by line-aware readers.
+ *
+ * @param {string} source complete TypeScript module text
+ * @param {string} sourcePath diagnostic filename
+ * @returns {Map<string, Map<string, string>>}
+ */
+export function parseStaticArticleTranslationSource(source, sourcePath) {
+  const result = new Map();
+  for (const { articleId, field, value } of parseStaticArticleTranslationEntries(source, sourcePath)) {
+    if (!result.has(articleId)) result.set(articleId, new Map());
+    result.get(articleId).set(field, value);
+  }
   return result;
 }
 
