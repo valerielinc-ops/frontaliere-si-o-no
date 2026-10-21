@@ -14,7 +14,7 @@ import {
   parseLuFixedPricePdfText,
   parseUrFixedPricePdfText,
 } from '../functions/src/plateAuctionsCore.js';
-import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { parseShAuctionRows, SH_AUCTION_URL } from '../scripts/plate-auctions/connectors/sh.mjs';
@@ -27,7 +27,7 @@ import {
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
-import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { fetchExpandedCard, parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -370,6 +370,26 @@ describe('expanded plate-auction connectors', () => {
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }
+  });
+
+  it('tries the alternate official BE host before using the public relay', async () => {
+    const calls: string[] = [];
+    const fetchPage = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (url === BE_AUCTION_URLS[0]) throw new Error('HTTP 404');
+      return CARD_SAMPLE.replaceAll('TG', 'BE');
+    });
+
+    const [row] = await fetchExpandedCard('be', {
+      now: new Date('2026-09-20T12:00:00.000Z'),
+      fetchPage,
+    });
+
+    expect(calls).toEqual(BE_AUCTION_URLS);
+    expect(row).toMatchObject({
+      officialAuctionUrl: BE_AUCTION_URLS[0],
+      officialDetailUrl: `${new URL(BE_AUCTION_URLS[1]).origin}/de/auction/109715`,
+    });
   });
 
   it('recognizes the complete card-platform shell after a round closes', () => {
