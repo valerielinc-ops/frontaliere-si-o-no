@@ -814,7 +814,7 @@ export function isStructuredDataFinding(text) {
 const STRUCTURED_DATA_REQUIRED_FIELD_RE =
   /\b(?:baseSalary|postalCode|streetAddress|datePosted|hiringOrganization|jobLocation|employmentType)\b|`(?:title|description)`/i;
 const STRUCTURED_DATA_CONTRACT_DEFECT_RE =
-  /\b(?:absent|blank|empty|incomplete|invalid|lack\w*|missing|no|omit\w*|drop\w*|lose\w*|without|schema[- ]?less|manc\w*|vuot\w*|assent\w*|omett\w*|perd\w*|senz\w*)\b/i;
+  /\b(?:absent|blank|empty|incomplete|invalid|lack\w*|missing|no|omit\w*|drop\w*|lose\w*|without|schema[- ]?less|manc\w*|vuot\w*|assent\w*|omett\w*|perd\w*|senz\w*)\b|\bdoes\s+not\s+(?:include|contain|provide)\b|\b(?:is|are)\s+not\s+present\b/i;
 
 export function isStructuredDataRequiredFieldFinding(text) {
   const statement = reviewerFindingStatement(stripNegatedImpactClauses(stripFindingLocationLabel(text)));

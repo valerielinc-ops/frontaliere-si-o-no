@@ -227,6 +227,16 @@ describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il so
   });
 });
 
+describe('isStructuredDataRequiredFieldFinding — riconosce l\'assenza esplicita dei campi JobPosting', () => {
+  it.each([
+    'services/seoService.ts:L1: 🔴 Important: structured data does not include `description`',
+    'services/seoService.ts:L1: 🔴 Important: `description` is not present in structured data',
+  ])('promuove la forma di assenza: %s', (line) => {
+    expect(isStructuredDataRequiredFieldFinding(line)).toBe(true);
+    expect(bucketFinding(line)).toBe('structured-data-required-fields');
+  });
+});
+
 // --- Le tre imprecisioni della regex misurate dalla review di corpus#909 ---
 // Tutte e tre riproducibili importando il modulo: il primo confine di frase era un
 // punto NUDO, quindi bastava che la ricognizione nominasse un file perche' la
