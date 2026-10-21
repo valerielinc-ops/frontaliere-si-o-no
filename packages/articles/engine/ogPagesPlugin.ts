@@ -16,7 +16,7 @@ import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './site
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
-import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
+import { normalizeArticleExcerptPlain, stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
@@ -1627,6 +1627,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // text fields, so carrying that syntax into the lede makes it visible rather
  // than rendered; strip it before every surface receives the value.
  const localizedDesc = repairSerpSnippet(stripLiteralMarkdown(localizedMeta?.excerpt || en.ogD));
+ // The visible lede follows the editorial excerpt for the page locale. SEO metadata
+ // remains on localizedDesc above; Italian ogDescription can intentionally differ.
+ // Match the SPA's plain editorial excerpt normalization. Keep this separate from
+ // localizedDesc: an editorial excerpt may be empty or end in a word (including
+ // a preposition) that the SEO snippet repair correctly changes for search.
+ const localizedVisibleExcerpt = normalizeArticleExcerptPlain(
+  blogMetaByLocale[articleLocale][en.articleId]?.excerpt ?? localizedDesc,
+ );
  // Hero alt text. The corpus already carries a per-locale `imageAlt` (parsed
  // out of the blog-meta chunks alongside title/excerpt) and nothing consumed
  // it — og:image:alt fell back to the headline. Prefer the real alt, keep the
@@ -2218,7 +2226,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -2242,7 +2250,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };
