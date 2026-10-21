@@ -11,6 +11,7 @@ import { EXPANDED_ECARI_SOURCES, fetchExpandedEcari } from '../scripts/plate-auc
 import { fetchSgPlateAuctions, SG_AUCTION_URL, SG_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { fetchTiPlateAuctions, TI_AUCTION_URL } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { SZ_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sz.mjs';
+import { fetchTgPlateAuctions, TG_AUCTION_URL } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { fetchUrFixedPrice } from '../scripts/plate-auctions/connectors/fixed-price.mjs';
 import { FIXED_PRICE_SOURCE_CONFIGS } from '../functions/src/plateAuctionsCore.js';
 
@@ -209,7 +210,7 @@ describe('fetchWithPublicApiRelay', () => {
   });
 });
 
-describe('FR, SG and TI connectors read the relay when the direct fetch is unavailable', () => {
+describe('connectors read the relay when the direct fetch is unavailable', () => {
   it('FR: a TCP timeout on appls.ocn.ch falls back to the relay rows', async () => {
     serveRelay(relayPayload({ fr: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('FR', 'fr-1768')]));
     const fetchPage = vi.fn(async () => { throw new Error(`Timeout fetching ${FR_URL}`); });
@@ -239,6 +240,31 @@ describe('FR, SG and TI connectors read the relay when the direct fetch is unava
       plateCode: 'SG',
       officialAuctionUrl: SG_AUCTION_URL,
     });
+  });
+
+  it('TG: a card-platform 404 uses a fresh relay snapshot', async () => {
+    const relay = relayPayload(
+      { tg: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } },
+      [row('TG', 'tg-109715')],
+    );
+    relayCalls = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string | URL) => {
+      relayCalls.push(String(url));
+      if (String(url) === TG_AUCTION_URL) {
+        const error = new Error(`HTTP 404 from ${TG_AUCTION_URL}`) as Error & { retryable?: boolean };
+        error.retryable = false;
+        throw error;
+      }
+      return new Response(JSON.stringify(relay), { status: 200 });
+    }));
+
+    const rows = await fetchTgPlateAuctions({ now: NOW });
+    expect(rows).toEqual([expect.objectContaining({
+      id: 'tg-109715',
+      sourceKey: 'TG',
+      officialAuctionUrl: TG_AUCTION_URL,
+    })]);
+    expect(relayCalls).toEqual([TG_AUCTION_URL, PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
   });
 
   it('TI: a served eCari catalogue is parsed directly and the relay is never read', async () => {

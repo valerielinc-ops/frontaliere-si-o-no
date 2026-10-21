@@ -74,8 +74,8 @@ export function parseExpandedCard(sourceKey, html, { fetchedAt = new Date().toIS
   return parseCardCantonAuctions(html, { ...config, fetchedAt });
 }
 
-export async function fetchExpandedCard(sourceKey) {
+export async function fetchExpandedCard(sourceKey, options = {}) {
   const config = EXPANDED_CARD_SOURCES[sourceKey];
   if (!config) throw new Error(`Unknown expanded card source: ${sourceKey}`);
-  return fetchCardCantonAuctions(config);
+  return fetchCardCantonAuctions(config, options);
 }
