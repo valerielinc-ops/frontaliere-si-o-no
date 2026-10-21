@@ -29,6 +29,17 @@ describe('404 compatibility prune workflow callers', () => {
     expect(source).toContain("const STRICT = process.env.PRUNE_404_STRICT !== '0';");
   });
 
+  it('runs global and route-family safety guards before writing a pruned snapshot', () => {
+    const source = fs.readFileSync(path.join(ROOT, PRUNE_SCRIPT), 'utf-8');
+    const globalGuardIndex = source.indexOf('assertCompatPruneSafety(before.length, kept.length');
+    const familyGuardIndex = source.indexOf('assertCompatPruneFamilySafety(familyTotals, familyDropped');
+    const writeIndex = source.indexOf('writeCompatPaths({ ...data, paths: kept }, ROOT)');
+
+    expect(globalGuardIndex).toBeGreaterThan(-1);
+    expect(familyGuardIndex).toBeGreaterThan(globalGuardIndex);
+    expect(writeIndex).toBeGreaterThan(familyGuardIndex);
+  });
+
   it('fails closed in every workflow before committing or proposing a compatibility snapshot', () => {
     const callerFiles = new Set<string>();
     const unprotectedCallers: string[] = [];

@@ -39,6 +39,9 @@ import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
+import { CANONICAL_OVERRIDE_FILES } from '../packages/articles/engine/shared/canonicalOverrideFiles.mjs';
+import { loadArticleRouteRedirects, resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
+import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
@@ -72,6 +75,7 @@ import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
 import { GLOSSARY_HUB_SEO, GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
 import { EVENTS_INDEX_PATH } from '../scripts/lib/events-utils.mjs';
+import { REPORT_SITEMAP_LINKS } from './shared/reportRoutes';
 // Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
 // sospendeva il plugin prima di arrivare al render delle pagine, e
 // `seoHeroCardsPlugin` drena il registry delle hero card nello stesso tick
@@ -1154,7 +1158,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    : 'Lavoro e archivi';
  const xsHubs: Array<{ href: string; label: string }> = locale === 'it' ? [
    { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono' },
-   { href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },
+   { href: '/cerca-lavoro-ticino/', label: 'Aziende Ticino' },
    { href: '/cerca-lavoro-ticino/settori/', label: 'Settori Ticino' },
    { href: '/articoli-frontaliere/tutti/', label: 'Articoli frontaliere' },
    { href: '/articoli-svizzera/tutti/', label: 'Articoli Svizzera' },
@@ -1694,6 +1698,25 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  async closeBundle() {
 
  const distDir = np.resolve(rootDir, 'dist');
+
+ const articleRouteMaps = {
+   redirects: loadArticleRouteRedirects(
+     fs,
+     np.resolve(rootDir, 'data/article-redirects.json'),
+     np.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
+   ),
+   canonicalOverrides: {
+     ...loadSwissArticleCanonicalOverrides(
+       fs,
+       CANONICAL_OVERRIDE_FILES.frontaliere.map((candidate) => np.resolve(rootDir, candidate)),
+     ),
+     ...loadSwissArticleCanonicalOverrides(
+       fs,
+       CANONICAL_OVERRIDE_FILES.svizzera.map((candidate) => np.resolve(rootDir, candidate)),
+     ),
+   },
+ };
+ const resolveArticleHref = (href: string): string => resolveArticleRouteHref(href, articleRouteMaps);
 
  /* ── Buffered write system via shared WriteCollector ── */
  const collector = new WriteCollector({ distDir, pluginName: 'staticPagesPlugin' });
@@ -3726,10 +3749,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  );
  }
  // Deduplicate (don't repeat links already in main nav or pointing to self)
- const allHrefs = new Set(navLinks.map(l => l.href));
+ const resolvedNavLinks = navLinks.map((link) => ({ ...link, href: resolveArticleHref(link.href) }));
+ const resolvedContextualLinks = contextualLinks.map((link) => ({ ...link, href: resolveArticleHref(link.href) }));
+ const allHrefs = new Set(resolvedNavLinks.map(l => l.href));
  allHrefs.add(canonicalPath);
- const filteredContextual = contextualLinks.filter(l => !allHrefs.has(l.href));
- const allLinks = [...navLinks, ...filteredContextual];
+ const filteredContextual = resolvedContextualLinks.filter(l => !allHrefs.has(l.href));
+ const allLinks = [...resolvedNavLinks, ...filteredContextual];
  const navHtml = allLinks.map(l => `<a href="${l.href}">${l.label}</a>`).join(' | ');
  const relatedHtml = filteredContextual.length
  ? `<h2 class="s-fd95FC">${RELATED_HEADING[locale] ?? RELATED_HEADING['it']}</h2><ul class="s-2u1Hmp">${filteredContextual.map((l) => `<li class="s-wP4Jn1"><a href="${l.href}">${l.label}</a></li>`).join('')}</ul>`
@@ -4348,16 +4373,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/lavoro-oss-svizzera/', label: 'Lavoro OSS Svizzera' },
  { href: '/lavoro-sanitario-ticino/', label: 'Lavoro sanitario Ticino' },
  ];
- const REPORT_LINKS: ReadonlyArray<{ href: string; label: string }> = [
- { href: '/report/frontaliere-ticino-2026/', label: 'Annual Report 2026 (italiano)' },
- { href: '/en/report/cross-border-workers-2026/', label: 'Annual Report 2026 (English)' },
- { href: '/de/report/grenzgaenger-2026/', label: 'Annual Report 2026 (Deutsch)' },
- { href: '/fr/report/frontaliers-2026/', label: 'Annual Report 2026 (Français)' },
- { href: '/reports/mercato-lavoro-frontalieri-ticino-2026/', label: 'Market Report 2026 (italiano)' },
- { href: '/en/reports/cross-border-job-market-ticino-2026/', label: 'Market Report 2026 (English)' },
- { href: '/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/', label: 'Market Report 2026 (Deutsch)' },
- { href: '/fr/reports/marche-emploi-frontaliers-tessin-2026/', label: 'Market Report 2026 (Français)' },
- ];
  const FUEL_IT_CITY_LINKS: ReadonlyArray<{ href: string; label: string }> = [
  { href: '/prezzi-diesel/italia/como/oggi/', label: 'Prezzi diesel Como' },
  { href: '/prezzi-benzina/italia/como/oggi/', label: 'Prezzi benzina Como' },
@@ -4457,7 +4472,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  renderHubLinks('Carriere Lugano — landing pages', CAREER_LANDING_LINKS),
  renderHubLinks('Costo della vita per città', COST_OF_LIVING_LINKS),
  renderHubLinks('Lavoro sanitario Ticino', NURSING_LINKS),
- renderHubLinks('Report annuali', REPORT_LINKS),
+ renderHubLinks('Report annuali', REPORT_SITEMAP_LINKS),
  renderHubLinks('Prezzi carburante città italiane', FUEL_IT_CITY_LINKS),
  renderHubLinks('Guide PDF scaricabili', GUIDE_PDF_LINKS),
  renderHubLinks('Risorse in altre lingue', FR_SALAIRE_LINKS),
@@ -5352,7 +5367,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .filter((e: Record<string, unknown>) => e['@type'] === 'Question' && e.name && (e as Record<string, Record<string, unknown>>).acceptedAnswer?.text)
  .slice(0, 5);
  if (qas.length > 0 && !salaryLandingPath) {
- faqHtml = `<section class="s-UBICn_"><h2 class="s-p8nQEt">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl class="s-q3nqK4">${qas.map((q: Record<string, Record<string, string>>) => `<dt class="s-IJKL8M">${esc(String(q.name))}</dt><dd class="s-xVCIev">${renderPlainTextLinks(String(q.acceptedAnswer?.text ?? ''))}</dd>`).join('')}</dl></section>`;
+ faqHtml = `<section class="s-UBICn_"><h2 class="s-p8nQEt">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl class="s-q3nqK4">${qas.map((q: Record<string, Record<string, string>>) => `<dt class="s-IJKL8M">${esc(String(q.name))}</dt><dd class="s-xVCIev">${renderPlainTextLinks(String(q.acceptedAnswer?.text ?? ''), { resolveHref: resolveArticleHref })}</dd>`).join('')}</dl></section>`;
  }
  break;
  }
@@ -5461,7 +5476,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { key: 'body1', text: localizedBody?.body1 },
  { key: 'body2', text: localizedBody?.body2 },
  { key: 'body3', text: localizedBody?.body3 },
- ]);
+ ], { resolveHref: resolveArticleHref });
  const blogFallbackSections = buildArticleSeoSections(
  localeKey as 'it' | 'en' | 'de' | 'fr',
  seoData.ogT,
@@ -5662,6 +5677,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  sectionSlug: swissListSlug,
  localePrefix: swissLocalePrefix,
  resolveSlug: (id) => swissIdToSlug[swissCardLocale]?.[id],
+ resolveHref: resolveArticleHref,
  resolveMeta: (_id, artPath) => {
  const artSeo = seoMap.get(seoKey(artPath));
  return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;
@@ -5720,6 +5736,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  sectionSlug: blogListSlug,
  localePrefix,
  resolveSlug: (id) => articleIdToSlug[cardLocale]?.[id],
+ resolveHref: resolveArticleHref,
  resolveMeta: (_id, artPath) => {
  const artSeo = seoMap.get(seoKey(artPath));
  return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;

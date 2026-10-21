@@ -938283,7 +938283,10 @@
   "url|https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-50-zug-762123": {
     "canonicalSlug": "verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-zug-6lmv26",
     "slugByLocale": {
-      "de": "verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-zug-6lmv26"
+      "de": "verkaufer-verkauferin-m-w-d-20-50-lidl-svizzera-zug-6lmv26",
+      "it": "venditore-venditore-m-f-d-20-50-lidl-svizzera-zug",
+      "en": "seller-seller-m-f-d-20-50-lidl-svizzera-zug",
+      "fr": "vendeur-vendeur-h-f-d-20-50-lidl-svizzera-zug"
     },
     "createdAt": "2026-10-21",
     "canton": "ZG"
@@ -942120,5 +942123,60 @@
     },
     "createdAt": "2026-10-21",
     "canton": "TG"
+  },
+  "id|fenaco.com|cdcff4d0-17da-488b-ace1-944bfe0f04a4": {
+    "canonicalSlug": "detailhandelsfachperson-w-m-d-landi-koniz",
+    "slugByLocale": {
+      "de": "detailhandelsfachperson-w-m-d-landi-koniz",
+      "it": "specialista-al-dettaglio-m-f-d-landi-koniz",
+      "en": "retail-specialist-m-f-d-landi-koniz",
+      "fr": "specialiste-du-commerce-de-detail-h-f-d-landi-koniz"
+    },
+    "createdAt": "2026-10-21",
+    "canton": "BE"
+  },
+  "id|fenaco.com|594f7e2c-2636-4b1a-9cd2-40a5e6002f52": {
+    "canonicalSlug": "servizio-interno-verkaufer-berater-m-w-d-kunz-landtechnik-reiden",
+    "slugByLocale": {
+      "it": "servizio-interno-verkaufer-berater-m-w-d-kunz-landtechnik-reiden",
+      "de": "innendienst-verkaufer-berater-w-m-d-kunz-landtechnik-reiden",
+      "en": "interior-service-vendor-consultant-m-f-d-kunz-landtechnik-reiden",
+      "fr": "fournisseur-de-services-interieurs-consultant-h-f-d-kunz-landtechnik-reiden"
+    },
+    "createdAt": "2026-10-21",
+    "canton": "LU"
+  },
+  "id|fenaco.com|c15130bc-b1ec-4406-a83c-c61a50112496": {
+    "canonicalSlug": "stv-rayonleitung-w-m-d-landi-koniz",
+    "slugByLocale": {
+      "de": "stv-rayonleitung-w-m-d-landi-koniz",
+      "it": "linea-di-trasmissione-m-f-d-landi-koniz",
+      "en": "deputy-department-manager-m-f-d-landi-koniz",
+      "fr": "responsable-adjoint-e-de-rayon-h-f-d-landi-koniz"
+    },
+    "createdAt": "2026-10-21",
+    "canton": "BE"
+  },
+  "id|fenaco.com|9315ca8e-b3fa-4496-a80f-d798872c27b2": {
+    "canonicalSlug": "werkstattleitung-w-m-d-kunz-landtechnik-reiden",
+    "slugByLocale": {
+      "de": "werkstattleitung-w-m-d-kunz-landtechnik-reiden",
+      "it": "gestione-del-workshop-m-f-d-kunz-landtechnik-reiden",
+      "en": "workshop-management-m-f-d-kunz-landtechnik-reiden",
+      "fr": "gestion-des-ateliers-h-f-d-kunz-landtechnik-reiden"
+    },
+    "createdAt": "2026-10-21",
+    "canton": "LU"
+  },
+  "id|fenaco.com|13b61498-30ad-425f-910e-14a601cb43d6": {
+    "canonicalSlug": "verkauferin-verkaufer-volg-wilderswil",
+    "slugByLocale": {
+      "de": "verkauferin-verkaufer-volg-wilderswil",
+      "it": "venditore-venditore-volg-wilderswil",
+      "en": "seller-seller-volg-wilderswil",
+      "fr": "vendeur-volg-wilderswil"
+    },
+    "createdAt": "2026-10-21",
+    "canton": "BE"
   }
 }

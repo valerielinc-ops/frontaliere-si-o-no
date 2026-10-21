@@ -1,0 +1,21 @@
+{
+  "companyKey": "podologie-biel-bienne-ch",
+  "companyName": "podologie-biel-bienne",
+  "companyHost": "fuss-spitex.ch",
+  "platform": "fuss-spitex.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://fuss-spitex.ch/karriere"
+  ],
+  "detailTemplate": "/karriere",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Dipl. Podologin HF / Dipl. Podologe HF",
+    "Podologin EFZ / Podologe EFZ",
+    "Pflege und Wundversorgung"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:22:50.771Z"
+}

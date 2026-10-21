@@ -71,14 +71,33 @@ describe('main tree shrink guard', () => {
 
   it('guards both git-commit-data main push paths', () => {
     const script = readFileSync(new URL('../scripts/lib/git-commit-data.sh', import.meta.url), 'utf8');
-    const isolatedGuard = script.indexOf('--before "$remote_sha" --after "$new_commit"');
-    const isolatedPush = script.indexOf('"${new_commit}:refs/heads/main"');
-    const legacyGuard = script.indexOf('--before "$main_push_base" --after "$main_push_head"');
-    const legacyPush = script.indexOf('git -c pack.window=0 -c pack.threads=1 push --no-thin origin main');
+    const assertGuardPrecedesItsPush = (guardCall: string, lease: string, refspec: string) => {
+      const guard = script.indexOf(guardCall);
+      expect(guard).toBeGreaterThanOrEqual(0);
+      if (guard < 0) return;
 
-    expect(isolatedGuard).toBeGreaterThanOrEqual(0);
-    expect(isolatedPush).toBeGreaterThan(isolatedGuard);
-    expect(legacyGuard).toBeGreaterThanOrEqual(0);
-    expect(legacyPush).toBeGreaterThan(legacyGuard);
+      const push = script.indexOf('git -c pack.window=0 -c pack.threads=1 push --no-thin', guard);
+      expect(push).toBeGreaterThan(guard);
+      if (push < 0) return;
+
+      const pushEnd = script.indexOf(' 2>&1)', push);
+      expect(pushEnd).toBeGreaterThan(push);
+      if (pushEnd < 0) return;
+
+      const pushCommand = script.slice(push, pushEnd);
+      expect(pushCommand).toContain(lease);
+      expect(pushCommand).toContain(refspec);
+    };
+
+    assertGuardPrecedesItsPush(
+      'main_push_guard_check "$remote_sha" "$new_commit" "$guard_timeout"',
+      '"--force-with-lease=refs/heads/main:${remote_sha}"',
+      '"${new_commit}:refs/heads/main"',
+    );
+    assertGuardPrecedesItsPush(
+      'main_push_guard_check "$PUSH_BASE_SHA" "$PUSH_CANDIDATE_SHA" "$GUARD_TIMEOUT"',
+      '"--force-with-lease=refs/heads/main:${PUSH_BASE_SHA}"',
+      '"${PUSH_CANDIDATE_SHA}:refs/heads/main"',
+    );
   });
 });

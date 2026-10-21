@@ -72,6 +72,7 @@ import { buildTitleWithBrand } from './shared/titleSuffix';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { jobSalaryMidpoint } from './shared/realSalaryMedian';
 import { isReportSalaryJob, loadReportJobPanel, type ReportJob } from './shared/reportJobPanel';
+import { ANNUAL_REPORT_SLUG } from './shared/reportRoutes';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -88,12 +89,7 @@ const LOCALE_PREFIX: Record<Locale, string> = {
 
 const REPORT_YEAR = 2026;
 
-const REPORT_SLUG: Record<Locale, string> = {
-  it: `report/frontalieri-${REPORT_YEAR}`,
-  en: `en/report/cross-border-workers-${REPORT_YEAR}`,
-  de: `de/report/grenzgaenger-${REPORT_YEAR}`,
-  fr: `fr/report/frontaliers-${REPORT_YEAR}`,
-};
+export const REPORT_SLUG = ANNUAL_REPORT_SLUG;
 
 const OG_LOCALE: Record<Locale, string> = {
   it: 'it_CH',

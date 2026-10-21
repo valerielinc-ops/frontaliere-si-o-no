@@ -24,4 +24,13 @@ describe('plain-text FAQ sources', () => {
   it('keeps unsafe markdown destinations inert', () => {
     expect(renderPlainTextLinks('[Evil](javascript:alert)')).toBe('Evil');
   });
+
+  it('resolves internal article destinations without rewriting external sources', () => {
+    const html = renderPlainTextLinks(
+      'Leggi [la guida](/articoli-frontaliere/old-article/) e https://example.org/source.',
+      { resolveHref: (href) => href.replace('/old-article/', '/current-article/') },
+    );
+    expect(html).toContain('href="/articoli-frontaliere/current-article/"');
+    expect(html).toContain('href="https://example.org/source"');
+  });
 });

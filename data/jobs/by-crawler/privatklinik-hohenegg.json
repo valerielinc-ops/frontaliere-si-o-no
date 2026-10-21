@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "privatklinik-hohenegg-ab3fc3a8544f",
-      "slug": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+      "slug": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
       "slugByLocale": {
         "de": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "it": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "en": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
-        "fr": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        "it": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
+        "en": "hotel-staff-on-demand-privatklinik-hohenegg-meilen",
+        "fr": "personnel-de-l-hotel-sur-demande-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -70,7 +70,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch"
+      ]
     },
     {
       "id": "privatklinik-hohenegg-dcfb55bdfc33",

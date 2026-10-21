@@ -24,6 +24,7 @@ const ORANGE_BORDER = '#fed7aa';
 const BRAND_DARK = '#0f172a';
 const LIGHT_BG = '#f1f5f9';
 const CARD_BG = '#f8fafc';
+const DARK_CARD = '#1e293b';
 const WHITE = '#ffffff';
 const TEXT = '#1e293b';
 const MUTED = '#64748b';
@@ -58,14 +59,39 @@ export function brandLink(href, label) {
   return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer" style="color:${ORANGE_TEXT};font-weight:600;text-decoration:underline;">${esc(label)}</a>`;
 }
 
-/** The job the order is about: title, company and the ad link. */
-export function brandJobCard({ title, company, url = '', linkLabel = '' }) {
-  return `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:4px 0 18px;">`
-    + `<tr><td style="background:${CARD_BG};border:1px solid #e2e8f0;border-left:4px solid ${BRAND_ORANGE};border-radius:10px;padding:14px 16px;">`
-    + `<div style="font-size:16px;font-weight:800;color:${BRAND_DARK};line-height:1.35;">${esc(title)}</div>`
-    + `<div style="font-size:14px;color:${MUTED};margin-top:3px;">${esc(company)}</div>`
-    + (url ? `<div style="margin-top:10px;font-size:13px;">${brandLink(url, `${linkLabel} →`)}</div>` : '')
+function safeHttpsImageUrl(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' ? url.toString() : '';
+  } catch {
+    return '';
+  }
+}
+
+/** The job the order is about: the same logo/meta treatment used by job alerts. */
+export function brandJobCard({ title, company, location = '', logoUrl = '', url = '', linkLabel = '' }) {
+  const safeLogoUrl = safeHttpsImageUrl(logoUrl);
+  const companyName = String(company || '').trim();
+  const initial = companyName.charAt(0).toUpperCase() || '?';
+  const avatar = safeLogoUrl
+    ? `<img src="${esc(safeLogoUrl)}" alt="${esc(companyName)}" width="44" height="44" style="display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;">`
+    : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${esc(initial)}</div>`;
+  const locationLabel = String(location || '').trim();
+  const meta = `${companyName}${locationLabel ? ` · ${locationLabel}` : ''}`;
+  const locationBadge = locationLabel
+    ? `<span style="display:inline-block;margin-top:6px;background:rgba(249,115,22,0.2);color:#fdba74;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;">${esc(locationLabel)}</span>`
+    : '';
+  const card = `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:${DARK_CARD};border-radius:12px;">`
+    + '<tr>'
+    + `<td width="58" style="padding:16px 0 16px 18px;vertical-align:top;">${avatar}</td>`
+    + `<td style="padding:16px 18px 16px 14px;vertical-align:top;">`
+    + `<div style="font-size:15px;font-weight:700;color:#f1f5f9;line-height:1.35;">${esc(title)}</div>`
+    + `<div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:2px;">${esc(meta)}</div>`
+    + locationBadge
+    + (url ? `<div style="margin-top:8px;font-size:13px;color:${BRAND_ORANGE};font-weight:600;">${brandLink(url, `${linkLabel} →`)}</div>` : '')
     + '</td></tr></table>';
+  return `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:4px 0 18px;">`
+    + `<tr><td style="padding:0 0 10px;">${card}</td></tr></table>`;
 }
 
 /** Numbered checklist with orange-tinted counters (email-safe table layout). */

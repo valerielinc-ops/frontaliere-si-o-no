@@ -45,6 +45,7 @@ import {
   resolveSwissArticleCanonicalUrl,
   resolveShadowedArticleWinnerSlug,
 } from '@/build-plugins/shared/swissArticleCanonicalOverrides';
+import { resolveArticleRouteHref } from '@/packages/articles/engine/shared/articleRouteOwnership.mjs';
 import { ARTICLE_SECTION_DESCRIPTORS } from '@/build-plugins/shared/articleSectionDescriptors';
 import { CANONICAL_OVERRIDE_FILES } from '@/packages/articles/engine/shared/canonicalOverrideFiles.mjs';
 import {
@@ -190,6 +191,28 @@ describe.each(GROUPS)('$name: a shadowed page canonicalises onto the winner, in 
     // and the second hop is invisible in any single-family assertion.
     for (const locale of LOCALES) {
       expect(overrides[slugOf(winnerId, locale)], `${winnerId} [${locale}] is a winner AND a shadowed key`).toBeUndefined();
+    }
+  });
+
+  it('generated article links skip the shadowed route and use the winner', () => {
+    for (const shadowedId of shadowedIds) {
+      for (const locale of LOCALES) {
+        const shadowedPath = new URL(urlOf(shadowedId, locale)).pathname;
+        const winnerPath = new URL(urlOf(winnerId, locale)).pathname;
+        expect(resolveArticleRouteHref(shadowedPath, { canonicalOverrides: overrides })).toBe(winnerPath);
+      }
+    }
+  });
+});
+
+describe('generated article links skip transition bridges', () => {
+  const redirects = JSON.parse(readFileSync(resolve(root, 'data/article-redirects.json'), 'utf-8')) as Record<string, string>;
+
+  it('resolves every data alias to its final target, keeping query and hash suffixes', () => {
+    for (const [from, to] of Object.entries(redirects)) {
+      expect(resolveArticleRouteHref(from, { redirects })).toBe(to);
+      expect(resolveArticleRouteHref(`${from}?source=article#related`, { redirects }))
+        .toBe(`${to}?source=article#related`);
     }
   });
 });

@@ -66,12 +66,22 @@ const ORDER = {
 
 const joined = (...parts) => parts.map((part) => String(part || '').trim()).filter(Boolean).join(', ');
 
-function addressLine(profile = {}) {
+function addressLine(profile = {}, localized = {}) {
   const address = profile.address || {};
   const street = String(address.street || '').trim();
   const city = [address.postalCode, address.city].filter(Boolean).join(' ').trim();
-  return street && city ? `${street}, ${city}` : String(profile.location || '').trim();
+  return street && city ? `${street}, ${city}` : String(localized.location || profile.location || '').trim();
 }
+
+const atIndex = (items, index) => (Array.isArray(items)
+  ? items.find((item) => Number(item?.index) === index)
+  : null);
+
+const translatedList = (source, translated) => (
+  Array.isArray(translated) && translated.length === source.length && translated.every((item) => String(item || '').trim())
+    ? translated
+    : source
+);
 
 /**
  * @param {object} cv sanitizeTailoredCv's result
@@ -82,32 +92,68 @@ export function buildCvDocument(cv, { identity, profile = {}, language = 'it', t
   const titles = SECTION_TITLES[language] || SECTION_TITLES.it;
   const labels = PERSONAL_LABELS[language] || PERSONAL_LABELS.it;
   const kindOf = EXPERIENCE_SECTION[type] || EXPERIENCE_SECTION.qualified;
+  const localized = cv.localized || {};
   const period = (start, end) => formatPeriod(start, end, language);
   const sections = {};
   const push = (kind, entry) => { (sections[kind] ||= []).push(entry); };
 
   (cv.experience || []).forEach((role, index) => {
     const kind = kindOf[profile.experience?.[index]?.kind || 'job'] || 'experience';
-    push(kind, { date: period(role.start, role.end), title: role.role, org: role.employer, place: role.location, bullets: role.bullets });
+    const translation = atIndex(localized.experience, index);
+    const fallbackBullets = translation?.highlights?.length ? translation.highlights : role.bullets;
+    push(kind, {
+      date: period(role.start, role.end),
+      title: translation?.role || role.role,
+      org: role.employer,
+      place: translation?.location || role.location,
+      bullets: role.rewritten ? role.bullets : fallbackBullets,
+    });
   });
-  const education = (profile.education || []).filter((item) => item.degree || item.institution)
-    .map((item) => ({ date: period(item.start, item.end), title: item.degree, org: item.institution, text: item.grade || '' }));
+  const education = (profile.education || []).map((item, index) => ({ item, index }))
+    .filter(({ item }) => item.degree || item.institution)
+    .map(({ item, index }) => {
+      const translation = atIndex(localized.education, index);
+      return {
+        date: period(item.start, item.end),
+        title: translation?.degree || item.degree,
+        org: translation?.institution || item.institution,
+        text: translation?.grade || item.grade || '',
+      };
+    });
+  const certifications = translatedList(profile.certifications || [], localized.certifications);
+  const interests = translatedList(profile.interests || [], localized.interests);
+  const languages = (profile.languages || []).map((item, index) => ({ item, index })).filter(({ item }) => item.language).map(({ item, index }) => {
+    const translation = atIndex(localized.languages, index);
+    return [translation?.language || item.language, translation?.level || item.level || ''];
+  });
 
   const content = {
     summary: type !== 'apprentice' && cv.summary ? { text: cv.summary } : null,
     competencies: type !== 'apprentice' && cv.competencies?.length ? { text: cv.competencies.join(' · ') } : null,
     school: type === 'apprentice' && education.length ? { items: education } : null,
     education: type !== 'apprentice' && education.length ? { items: education } : null,
-    recognitions: (profile.recognitions || []).length ? { list: profile.recognitions.map((item) => joined(item.title, item.issuer, item.date)) } : null,
-    certifications: (profile.certifications || []).length ? { list: profile.certifications } : null,
-    tests: (profile.aptitudeTests || []).length ? { pairs: profile.aptitudeTests.map((test) => [test.name, joined(test.date, test.results)]) } : null,
+    recognitions: (profile.recognitions || []).length ? { list: profile.recognitions.map((item, index) => {
+      const translation = atIndex(localized.recognitions, index);
+      return joined(translation?.title || item.title, translation?.issuer || item.issuer, item.date);
+    }) } : null,
+    certifications: (profile.certifications || []).length ? { list: certifications } : null,
+    tests: (profile.aptitudeTests || []).length ? { pairs: profile.aptitudeTests.map((test, index) => {
+      const translation = atIndex(localized.aptitudeTests, index);
+      return [translation?.name || test.name, joined(test.date, translation?.results || test.results)];
+    }) } : null,
     projects: (profile.projects || []).length && (sector === 'it' || type !== 'apprentice')
-      ? { items: profile.projects.map((project) => ({ title: project.name, org: project.url, text: project.description })) } : null,
+      ? { items: profile.projects.map((project, index) => {
+        const translation = atIndex(localized.projects, index);
+        return { title: translation?.name || project.name, org: project.url, text: translation?.description || project.description };
+      }) } : null,
     skills: cv.skills?.length ? { text: cv.skills.join(', ') } : null,
     languages: (profile.languages || []).some((item) => item.language)
-      ? { pairs: profile.languages.filter((item) => item.language).map((item) => [item.language, item.level || '']) } : null,
-    interests: (profile.interests || []).length ? { list: profile.interests } : null,
-    references: (profile.references || []).length ? { list: profile.references.map((item) => joined(item.name, item.role, item.organisation, item.contact)) } : null,
+      ? { pairs: languages } : null,
+    interests: interests.length ? { list: interests } : null,
+    references: (profile.references || []).length ? { list: profile.references.map((item, index) => {
+      const translation = atIndex(localized.references, index);
+      return joined(item.name, translation?.role || item.role, translation?.organisation || item.organisation, item.contact);
+    }) } : null,
   };
   for (const kind of ['experience', 'internships', 'trial', 'jobs', 'volunteer']) if (sections[kind]) content[kind] = { items: sections[kind] };
 
@@ -118,14 +164,14 @@ export function buildCvDocument(cv, { identity, profile = {}, language = 'it', t
     // The status the candidate chose, by its official name; nothing chosen: the CV's own words (decisions 2, 3).
     ['permit', status ? permitCvValue(status, { nationality: profile.nationality, language }) : printedPermitText(profile.workPermit)],
     ['availability', formatCvDate(profile.availability, language)],
-    ['licence', profile.drivingLicence],
+    ['licence', localized.drivingLicence || profile.drivingLicence],
   ].filter(([, value]) => String(value || '').trim()).map(([key, value]) => [labels[key], String(value).trim()]);
 
   return {
     language,
     name: identity.name,
-    headline: cv.headline || '',
-    contact: [addressLine(profile), identity.phone, identity.email, profile.linkedin, sector === 'it' ? profile.website : ''].filter(Boolean),
+    headline: type === 'apprentice' ? (cv.headline || '') : (localized.headline || cv.headline || ''),
+    contact: [addressLine(profile, localized), identity.phone, identity.email, profile.linkedin, sector === 'it' ? profile.website : ''].filter(Boolean),
     personalTitle: titles.personal,
     personal,
     sections: (ORDER[type] || ORDER.qualified).filter((kind) => content[kind]).map((kind) => ({ kind, title: titles[kind], ...content[kind] })),

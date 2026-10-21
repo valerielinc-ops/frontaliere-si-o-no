@@ -259,6 +259,15 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
   };
 }
 
+/** Presentation fields may be refreshed on an idempotent retry without changing checkout identity. */
+function presentationFieldsFor(order) {
+  return {
+    ...(order?.companyLogo ? { companyLogo: order.companyLogo } : {}),
+    ...(order?.location ? { location: order.location } : {}),
+    ...(order?.canton ? { canton: order.canton } : {}),
+  };
+}
+
 /** Create a pending order and a fixed-price, one-time payment checkout. */
 export async function handleCreateAssistedApplicationCheckout(req) {
   if (req.method !== 'POST') {
@@ -283,6 +292,9 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     jobUrl: boundedString(body.jobUrl, 500),
     companyName: boundedString(body.companyName, 200),
     jobTitle: boundedString(body.jobTitle, 300),
+    companyLogo: validHttpsUrl(body.companyLogo) ? boundedString(body.companyLogo, 1000) : '',
+    location: boundedString(body.location, 200),
+    canton: boundedString(body.canton, 80),
     experimentVariant: VALID_VARIANTS.has(body.experimentVariant) ? body.experimentVariant : 'control',
     copyVariant: VALID_COPY_VARIANTS.has(body.copyVariant) ? body.copyVariant : 'control',
   };
@@ -379,9 +391,13 @@ export async function handleCreateAssistedApplicationCheckout(req) {
               updatedAt: FieldValue.serverTimestamp(),
             }, { merge: true });
           }
+          const presentation = presentationFieldsFor(order);
           if (customerEmail && !existingOrder.customerEmail) {
+            presentation.customerEmail = customerEmail;
+          }
+          if (Object.keys(presentation).length > 0) {
             transaction.set(existingOrderRef, {
-              customerEmail,
+              ...presentation,
               updatedAt: FieldValue.serverTimestamp(),
             }, { merge: true });
           }

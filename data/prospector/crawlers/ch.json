@@ -1,0 +1,20 @@
+{
+  "companyKey": "ch",
+  "companyName": "Global Sana",
+  "companyHost": "ch.talent.com",
+  "platform": "talent.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ch.talent.com/view?id=554547064889945322"
+  ],
+  "detailTemplate": "/view",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Kundenberater (m/w/d) mit VBV/IAF -Abschluss"
+  ],
+  "canton": "SO",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:22:56.823Z"
+}

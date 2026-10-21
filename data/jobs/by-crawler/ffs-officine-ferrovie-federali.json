@@ -12066,11 +12066,11 @@
     },
     {
       "id": "sbb-37d33313c978",
-      "slug": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "linea-di-contatto-tecnico-direttore-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne",
-        "de": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "linea-di-contatto-tecnico-direttore-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "contact-line-technician-chief-editor-ffs-officine-ferrovie-federali-biel-bienne",
+        "de": "contact-line-techniker-chefredakteur-ffs-officine-ferrovie-federali-biel-bienne",
         "fr": "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -12169,16 +12169,30 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2502",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/technicienne-lignes-de-contact-cheffe-monteureuse/4f1b75e5-4ad5-49c1-aa5a-69f528d8c257",
-      "firstSeenAt": "2026-10-21T09:27:59.404Z"
+      "firstSeenAt": "2026-10-21T09:27:59.404Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "de": [
+          "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne"
+      ]
     },
     {
       "id": "sbb-cc27527c6435",
-      "slug": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne",
+      "slug": "tecnico-a-della-linea-di-contatto-capo-montatore-trice-ffs-officine-ferrovie-federali-biel-bienne",
       "slugByLocale": {
-        "it": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne",
-        "en": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne",
+        "it": "tecnico-a-della-linea-di-contatto-capo-montatore-trice-ffs-officine-ferrovie-federali-biel-bienne",
+        "en": "overhead-line-technician-chief-fitter-ffs-officine-ferrovie-federali-biel-bienne",
         "de": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne",
-        "fr": "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+        "fr": "technicien-ne-de-lignes-de-contact-chef-fe-monteur-euse-ffs-officine-ferrovie-federali-biel-bienne"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12259,7 +12273,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fahrleitung-chefmonteur-in/0f1bffdc-7a2f-4ce6-b7bb-5eea054cedee",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-21T09:28:00.908Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -12277,7 +12290,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2502",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fahrleitung-chefmonteur-in/0f1bffdc-7a2f-4ce6-b7bb-5eea054cedee",
-      "firstSeenAt": "2026-10-21T09:28:00.908Z"
+      "firstSeenAt": "2026-10-21T09:28:00.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "fr": [
+          "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-fahrleitung-chefmonteur-in-ffs-officine-ferrovie-federali-biel-bienne"
+      ]
     }
   ],
   "runId": "39575590561"

@@ -15,6 +15,7 @@ import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
+import { loadArticleRouteRedirects, resolveArticleRouteHref } from './shared/articleRouteOwnership.mjs';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { normalizeArticleExcerptPlain, stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
@@ -241,206 +242,6 @@ function readStaticTsStringLiteral(source: string, start: number, sourcePath: st
  throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
 }
 
-interface ScannedTemplateLiteral {
- end: number;
- hasInterpolation: boolean;
-}
-
-const REGEX_AFTER_KEYWORDS = new Set([
- 'case', 'delete', 'do', 'else', 'in', 'instanceof', 'new', 'of', 'return', 'throw',
- 'typeof', 'void', 'yield', 'await',
-]);
-
-/**
- * A keyword used as a member property is a value, not a regex prefix:
- * `value.return / /.../` starts with division followed by a regex literal.
- */
-function canStartRegexAfterMember(word: string, afterMemberAccess: boolean): boolean {
- return !afterMemberAccess && REGEX_AFTER_KEYWORDS.has(word);
-}
-
-function skipRegularExpressionLiteral(source: string, start: number, sourcePath: string): number {
- let inCharacterClass = false;
- let cursor = start + 1;
- while (cursor < source.length) {
-  const char = source[cursor];
-  if (char === '\\') {
-   cursor += 2;
-   continue;
-  }
-  if (char === '\n' || char === '\r' || char === '\u2028' || char === '\u2029') {
-   throw new Error(`[og-pages] Unterminated regular expression literal in ${sourcePath}`);
-  }
-  if (char === '[') {
-   inCharacterClass = true;
-   cursor += 1;
-   continue;
-  }
-  if (char === ']' && inCharacterClass) {
-   inCharacterClass = false;
-   cursor += 1;
-   continue;
-  }
-  if (char === '/' && !inCharacterClass) {
-   cursor += 1;
-   while (/[A-Za-z]/.test(source[cursor] || '')) cursor += 1;
-   return cursor;
-  }
-  cursor += 1;
- }
-
- throw new Error(`[og-pages] Unterminated regular expression literal in ${sourcePath}`);
-}
-
-function skipTemplateExpression(source: string, start: number, sourcePath: string): number {
- let depth = 1;
- let cursor = start;
- let canStartRegex = true;
- let afterMemberAccess = false;
- while (cursor < source.length) {
-  if (source.startsWith('//', cursor)) {
-   cursor += 2;
-   while (cursor < source.length && source[cursor] !== '\n' && source[cursor] !== '\r') cursor += 1;
-   continue;
-  }
-  if (source.startsWith('/*', cursor)) {
-   const close = source.indexOf('*/', cursor + 2);
-   if (close === -1) throw new Error(`[og-pages] Unterminated comment in ${sourcePath}`);
-   cursor = close + 2;
-   continue;
-  }
-
-  const char = source[cursor];
-  if (char === "'" || char === '"') {
-   cursor = readStaticTsStringLiteral(source, cursor, sourcePath).end;
-   canStartRegex = false;
-   afterMemberAccess = false;
-   continue;
-  }
-  if (char === '`') {
-   cursor = scanTemplateLiteral(source, cursor, sourcePath).end;
-   canStartRegex = false;
-   afterMemberAccess = false;
-   continue;
-  }
-  if ((char === '+' && source[cursor + 1] === '+') || (char === '-' && source[cursor + 1] === '-')) {
-   // Consume update operators as one token. Keeping the current context makes
-   // postfix updates leave the following slash as division, while prefix
-   // updates still allow a regex literal before the operand.
-   cursor += 2;
-   afterMemberAccess = false;
-   continue;
-  }
-  if (char === '/' && canStartRegex) {
-   cursor = skipRegularExpressionLiteral(source, cursor, sourcePath);
-   canStartRegex = false;
-   afterMemberAccess = false;
-   continue;
-  }
-  if (char === '/') {
-   cursor += 1;
-   canStartRegex = true;
-   afterMemberAccess = false;
-   continue;
-  }
-  if (char === '{') {
-   depth += 1;
-   cursor += 1;
-   canStartRegex = true;
-   afterMemberAccess = false;
-   continue;
-  }
-  if (char === '}') {
-   depth -= 1;
-   cursor += 1;
-   if (depth === 0) return cursor;
-   canStartRegex = false;
-   afterMemberAccess = false;
-   continue;
-  }
-
-  if (/\s/.test(char)) {
-   cursor += 1;
-   continue;
-  }
-  if (/[A-Za-z_$]/.test(char)) {
-   let end = cursor + 1;
-   while (end < source.length && /[A-Za-z0-9_$]/.test(source[end])) end += 1;
-   canStartRegex = canStartRegexAfterMember(source.slice(cursor, end), afterMemberAccess);
-   cursor = end;
-   afterMemberAccess = false;
-   continue;
-  }
-  if ('([{,;:=!?&|+\-*%^~<>'.includes(char)) {
-   canStartRegex = true;
-   afterMemberAccess = false;
-   cursor += 1;
-   continue;
-  }
-  if (source.startsWith('...', cursor)) {
-   // Spread introduces an operand; unlike member access, the following
-   // keyword may still permit a regex literal: [...typeof /x/].
-   canStartRegex = true;
-   afterMemberAccess = false;
-   cursor += 3;
-   continue;
-  }
-  if (char === '.') {
-   canStartRegex = false;
-   afterMemberAccess = true;
-   cursor += 1;
-   continue;
-  }
-  if (')]}'.includes(char)) {
-   canStartRegex = false;
-   afterMemberAccess = false;
-   cursor += 1;
-   continue;
-  }
-  canStartRegex = false;
-  afterMemberAccess = false;
-  cursor += 1;
- }
-
- throw new Error(`[og-pages] Unterminated template expression in ${sourcePath}`);
-}
-
-function scanTemplateLiteral(source: string, start: number, sourcePath: string): ScannedTemplateLiteral {
- let cursor = start + 1;
- let hasInterpolation = false;
- while (cursor < source.length) {
-  const char = source[cursor];
-  if (char === '\\') {
-   if (source[cursor + 1] === '\r' && source[cursor + 2] === '\n') {
-    cursor += 3;
-   } else {
-    cursor += 2;
-   }
-   continue;
-  }
-  if (char === '`') return { end: cursor + 1, hasInterpolation };
-  if (char === '$' && source[cursor + 1] === '{') {
-   hasInterpolation = true;
-   cursor = skipTemplateExpression(source, cursor + 2, sourcePath);
-   continue;
-  }
-  cursor += 1;
- }
-
- throw new Error(`[og-pages] Unterminated string literal in ${sourcePath}`);
-}
-
-/**
- * Skip a dynamic template while scanning for article keys. Its expression can
- * contain arbitrary strings and nested templates, so none of those tokens may
- * be interpreted as article data. Article values still use the strict reader
- * below and therefore keep rejecting dynamic content.
- */
-function skipNonArticleTemplateLiteral(source: string, start: number, sourcePath: string): number | null {
- const scanned = scanTemplateLiteral(source, start, sourcePath);
- return scanned.hasInterpolation ? scanned.end : null;
-}
-
 function skipStaticTsTrivia(source: string, start: number, sourcePath: string): number {
  let cursor = start;
  while (cursor < source.length) {
@@ -528,14 +329,6 @@ export function parseStaticBlogBodySource(source: string, sourcePath: string): R
   if (char !== "'" && char !== '"' && char !== '`') {
    cursor += 1;
    continue;
-  }
-
-  if (char === '`') {
-   const skippedTemplateEnd = skipNonArticleTemplateLiteral(source, cursor, sourcePath);
-   if (skippedTemplateEnd !== null) {
-    cursor = skippedTemplateEnd;
-    continue;
-   }
   }
 
   const keyToken = readStaticTsStringLiteral(source, cursor, sourcePath);
@@ -832,6 +625,26 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fs,
  SECTION.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
  );
+ const articleLinkCanonicalOverrides: Record<string, string> = {};
+ for (const descriptor of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
+  Object.assign(
+   articleLinkCanonicalOverrides,
+   loadSwissArticleCanonicalOverrides(
+    fs,
+    descriptor.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
+   ),
+  );
+ }
+ const articleRedirects = loadArticleRouteRedirects(
+  fs,
+  np.resolve(rootDir, 'data/article-redirects.json'),
+  np.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
+ );
+ const articleRouteMaps = {
+  redirects: articleRedirects,
+  canonicalOverrides: articleLinkCanonicalOverrides,
+ };
+ const resolveArticleHref = (href: string): string => resolveArticleRouteHref(href, articleRouteMaps);
 
  // Issue #6337: articleId -> reviewerAuthorSlug map for the `reviewedBy`
  // JSON-LD signal (E-E-A-T on fiscal/legal YMYL content). Section-agnostic,
@@ -1558,7 +1371,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const items = hubItem + picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
- const href = `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`;
+ const href = resolveArticleRouteHref(
+  `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`,
+  articleRouteMaps,
+ );
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
@@ -1735,7 +1551,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const nb = parseInt(b.replace('body', ''), 10);
  return na - nb;
  }) : [];
- const bodySections = cleanupArticleBodySections(allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })));
+ const bodySections = cleanupArticleBodySections(
+  allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })),
+  { resolveHref: resolveArticleHref },
+ );
  const canonicalPath = withTrailingSlash(urlPath);
  const full = `${BASE_URL}${canonicalPath}`;
  // Issue #3010 item 1: shadowed near-duplicate variants (see
@@ -2107,7 +1926,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  : 'Domande frequenti';
  visibleFaqHtml = `<details class="s-lfB4Bo"><summary class="s-qAjSfB">${faqLabel}</summary><dl class="s-4vhLHi">` +
  useFaqPairs.slice(0, 10).map(pair =>
- `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer)}</dd>`
+ `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer, { resolveHref: resolveArticleHref })}</dd>`
  ).join('') +
  `</dl></details>`;
  }

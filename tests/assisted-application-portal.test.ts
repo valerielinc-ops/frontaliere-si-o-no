@@ -280,11 +280,13 @@ describe('legacy portal sections', () => {
       text: '',
     };
     const trigger = { click: vi.fn(async () => {}), isVisible: vi.fn(async () => true) };
-    const input = { evaluate: vi.fn(async () => ['candidate-cv.pdf']) };
+    let selected = false;
+    const input = { evaluate: vi.fn(async () => (selected ? ['candidate-cv.pdf'] : [])) };
     const chooser = {
       isMultiple: vi.fn(() => false),
-      setFiles: vi.fn(async () => {}),
-      element: vi.fn(async () => input),
+      setFiles: vi.fn(async () => { selected = true; }),
+      // The tenant redraws the native input after handling the chooser event.
+      element: vi.fn(async () => (selected ? null : input)),
     };
     const frame = {
       url: () => snapshot.url,
@@ -301,7 +303,7 @@ describe('legacy portal sections', () => {
       locator: vi.fn((selector: string) => selector === '.group_head'
         ? { count: vi.fn(async () => 0) }
         : { allInnerTexts: vi.fn(async () => []) }),
-      getByText: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => true) }) })),
+      getByText: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
       on: vi.fn(),
       off: vi.fn(),
       waitForLoadState: vi.fn(async () => {}),

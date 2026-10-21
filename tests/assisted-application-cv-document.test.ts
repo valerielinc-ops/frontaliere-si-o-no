@@ -5,7 +5,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const { formatCvDate, formatPeriod, isoDateOf, parseEndpoint } = await import('../functions/src/lib/cvPeriod.js');
 const { apprenticeHeadline, apprenticeTrade, candidateType, draftCandidateType } = await import('../functions/src/assistedApplicationCandidateType.js');
 const { buildCvDocument } = await import('../functions/src/assistedApplicationCvDocument.js');
-const { checkTailoredCvFacts, headlineGrounded, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { checkTailoredCvFacts, checkTailoredCvLanguage, headlineGrounded, sanitizeTailoredCv, tailoredCvPlainText } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { sanitizeProfile } = await import('../functions/src/assistedApplicationAiDraftCore.js');
 const { PROFILE_SCHEMA } = await import('../functions/src/assistedApplicationAiPrompts.js');
 
@@ -252,6 +252,401 @@ describe('tailored CV by type', () => {
     expect(kinds.indexOf('recognitions')).toBe(kinds.indexOf('education') + 1);
     expect(document.personal).toContainEqual(['Permis de travail', 'Permis G (frontalière)']);
     expect(document.sections.find((section: any) => section.kind === 'experience').items[0].date).toBe("09.2019 – aujourd'hui");
+  });
+
+  it('translates every source field used by the document and blocks a missing translation', () => {
+    const profile = sanitizeProfile({
+      cvLanguage: 'en',
+      location: 'Varese, Italy',
+      headline: 'Senior IT Manager Group Application at Swatch Group',
+      experience: [{
+        role: 'Senior IT Manager Group Application', employer: 'Swatch Group', location: 'Biel, Switzerland',
+        start: '2020', end: '2024', kind: 'job', highlights: ['Architected and led development of DottNet, serving 10 users.'],
+      }],
+      education: [{ degree: "Master’s Degree in Computer Science", institution: 'University of Milan', start: '2010', end: '2012', grade: '' }],
+      certifications: ['Professional Agile Leadership'],
+      languages: [{ language: 'English', level: 'C1' }],
+      interests: ['Technology and cycling'],
+    });
+    const raw = {
+      headline: 'Responsabile IT senior delle applicazioni di gruppo',
+      summary: 'Responsabile IT senior con esperienza nelle applicazioni aziendali.',
+      competencies: ['Azure'],
+      // No adapted bullet: the renderer must use the localized fallback below.
+      experience: [],
+      skills: ['Azure'],
+      localized: {
+        headline: 'Responsabile IT senior delle applicazioni di gruppo', location: 'Varese, Italia',
+        experience: [{ index: 0, role: 'Responsabile IT senior delle applicazioni di gruppo', location: 'Bienne, Svizzera', highlights: ['Ha progettato e guidato lo sviluppo di DottNet, utilizzato da 10 utenti.'] }],
+        education: [{ index: 0, degree: 'Laurea magistrale in informatica', institution: 'Università di Milano', grade: '' }],
+        recognitions: [], certifications: ['Leadership Agile professionale'], aptitudeTests: [], projects: [],
+        languages: [{ index: 0, language: 'Inglese', level: 'C1' }], interests: ['Tecnologia e ciclismo'], references: [], drivingLicence: '',
+      },
+    };
+    const cv = sanitizeTailoredCv(raw, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+    expect(checkTailoredCvFacts(cv, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', answers: {} }).ok).toBe(true);
+    const document = buildCvDocument(cv, { identity, profile, language: 'it', type: 'qualified', sector: 'it' });
+    const text = tailoredCvPlainText(cv, { identity, profile });
+    expect(text).toContain('Responsabile IT senior delle applicazioni di gruppo');
+    expect(text).toContain('Laurea magistrale in informatica');
+    expect(text).toContain('Ha progettato e guidato lo sviluppo di DottNet, utilizzato da 10 utenti.');
+    expect(text).toContain('Leadership Agile professionale');
+    expect(text).toContain('Tecnologia e ciclismo');
+    expect(document.headline).toBe('Responsabile IT senior delle applicazioni di gruppo');
+    expect(document.sections.find((section: any) => section.kind === 'languages').pairs).toEqual([['Inglese', 'C1']]);
+    expect(text).not.toContain('Architected and led development');
+    expect(document.contact[0]).toBe('Varese, Italia');
+
+    const missing = sanitizeTailoredCv({ ...raw, localized: undefined }, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
+    expect(checkTailoredCvLanguage(missing, { profile, language: 'it' }).ok).toBe(false);
+
+    const untranslatedLanguage = sanitizeTailoredCv({
+      ...raw,
+      localized: { ...raw.localized, languages: [{ index: 0, language: 'English', level: 'Native' }] },
+    }, { profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it' });
+    expect(checkTailoredCvLanguage(untranslatedLanguage, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].language', kind: 'unchanged' }),
+      expect.objectContaining({ token: 'languages[0].level', kind: 'mismatch' }),
+    ]));
+
+    const languageLevelProfile = { cvLanguage: 'en', languages: [{ language: 'English', level: 'Beginner' }] };
+    const localizedLevelCv = (level: string, targetLanguage = 'de') => sanitizeTailoredCv({
+      localized: { languages: [{ index: 0, language: 'Englisch', level }] },
+    }, { profile: languageLevelProfile, cvText: '', language: targetLanguage });
+    const equivalentLevelIssues = checkTailoredCvLanguage(localizedLevelCv('Anfänger'), {
+      profile: languageLevelProfile, language: 'de',
+    }).issues.filter((issue) => issue.token === 'languages[0].level');
+    expect(equivalentLevelIssues).toEqual([]);
+
+    expect(checkTailoredCvLanguage(localizedLevelCv('Fließend'), {
+      profile: languageLevelProfile, language: 'de',
+    }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].level', kind: 'mismatch' }),
+    ]));
+
+    const sameLanguageProfile = { cvLanguage: 'de', languages: [{ language: 'Englisch', level: 'Anfänger' }] };
+    const changedSameLanguageLevel = sanitizeTailoredCv({
+      localized: { languages: [{ index: 0, language: 'Englisch', level: 'Fließend' }] },
+    }, { profile: sameLanguageProfile, cvText: '', language: 'de' });
+    expect(checkTailoredCvLanguage(changedSameLanguageLevel, {
+      profile: sameLanguageProfile, language: 'de',
+    }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].level', kind: 'mismatch' }),
+    ]));
+
+    const noSourceLevelProfile = { cvLanguage: 'de', languages: [{ language: 'Englisch', level: '' }] };
+    const inventedSameLanguageLevel = sanitizeTailoredCv({
+      localized: { languages: [{ index: 0, language: 'Englisch', level: 'Fließend' }] },
+    }, { profile: noSourceLevelProfile, cvText: '', language: 'de' });
+    expect(checkTailoredCvLanguage(inventedSameLanguageLevel, {
+      profile: noSourceLevelProfile, language: 'de',
+    }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ token: 'languages[0].level', kind: 'missing-source' }),
+    ]));
+
+    const untranslatedSummary = sanitizeTailoredCv({ ...raw, summary: 'Built CRM for Swiss clients' }, {
+      profile, cvText: 'Architected and led development of DottNet, serving 10 users.', language: 'it',
+    });
+    expect(checkTailoredCvLanguage(untranslatedSummary, { profile, language: 'it' }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ field: 'rendered', token: 'summary', kind: 'language' }),
+    ]));
+
+    const shortUntranslatedSummary = sanitizeTailoredCv({ ...raw, summary: 'Experience' }, {
+      profile: { cvLanguage: 'en', summary: 'Professional' }, cvText: '', language: 'it',
+    });
+    expect(checkTailoredCvLanguage(shortUntranslatedSummary, { profile: { cvLanguage: 'en', summary: 'Professional' }, language: 'it' }).issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ field: 'summary', kind: 'language' }),
+    ]));
+
+    const apprenticeCv = sanitizeTailoredCv({
+      headline: 'Kochlehrling', localized: { headline: 'Assistent', experience: [], education: [], recognitions: [], certifications: [], aptitudeTests: [], projects: [], languages: [], interests: [], references: [], drivingLicence: '' },
+    }, { profile: { cvLanguage: 'en', headline: 'Assistant' }, cvText: '', language: 'de', type: 'apprentice' });
+    expect(checkTailoredCvLanguage(apprenticeCv, { profile: { cvLanguage: 'en', headline: 'Assistant' }, language: 'de', type: 'apprentice' }).ok).toBe(true);
+  });
+
+  it('rejects source-language prose while allowing ordinary target-language CV phrases', () => {
+    const profile = { cvLanguage: 'en' };
+    const cv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Built CRM for Swiss clients',
+      competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'rendered', token: 'summary' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Work with team leads' }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'rendered', token: 'summary' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Led cross-functional teams' }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Clients need support' }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Our client portal' }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Provide data analytics' }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'HA API architecture' }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: "Managed Di Luca's account" }, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: "Managed Di Luca's account" }, {
+      profile: { cvLanguage: 'de' }, language: 'it',
+    })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'rendered', token: 'summary' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'fr', summary: "Managed Du Pont's account" }, {
+      profile, language: 'fr',
+    })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Project Management' }, { profile, language: 'it' })).toMatchObject({
+      ok: true,
+      issues: [],
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Built-in functions' }, { profile, language: 'it' })).toMatchObject({
+      ok: true,
+      issues: [],
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: 'Ha gestito progetti di Project Management' }, { profile, language: 'it' })).toMatchObject({
+      ok: true,
+      issues: [],
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'fr', summary: 'Expérience au service du client' }, {
+      profile, language: 'fr',
+    })).toMatchObject({ ok: true, issues: [] });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'fr', summary: 'HA system design' }, {
+      profile, language: 'fr',
+    })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'summary', kind: 'language' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'fr', summary: "Gestion d'équipe" }, {
+      profile, language: 'fr',
+    })).toMatchObject({ ok: true, issues: [] });
+
+    const localized = {
+      ...cv,
+      summary: 'Ha gestito progetti internazionali con 12 clienti',
+      competencies: ['Gestione dei progetti internazionali'],
+      experience: [{ rewritten: true, bullets: ['Ha coordinato 12 persone con un team internazionale'] }],
+      skills: ['Gestione delle relazioni con i clienti'],
+    };
+    expect(checkTailoredCvLanguage(localized, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+  });
+
+  it('checks rendered prose when the profile language already matches the target', () => {
+    const cv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Work with team leads', competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(cv, { profile: { cvLanguage: 'it' }, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({ field: 'rendered', token: 'summary' })],
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, summary: "Managed Di Luca's account" }, {
+      profile: { cvLanguage: 'it' }, language: 'it',
+    })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'rendered', token: 'summary' })]),
+    });
+  });
+
+  it('requires target-language evidence for short localized role titles', () => {
+    const profile = { cvLanguage: 'en', experience: [{ role: 'Project Manager' }] };
+    const cv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], skills: [],
+      experience: [{ rewritten: false, bullets: [] }],
+      localized: { headline: '', experience: [{ index: 0, role: 'Chef de projet' }] },
+    };
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([
+        expect.objectContaining({ field: 'rendered', token: 'localized.experience[0].role' }),
+      ]),
+    });
+
+    const translated = {
+      ...cv,
+      localized: { headline: '', experience: [{ index: 0, role: 'Responsabile di progetto' }] },
+    };
+    expect(checkTailoredCvLanguage(translated, { profile, language: 'it' })).toMatchObject({
+      ok: true,
+      issues: [],
+    });
+  });
+
+  it('rejects a source-language term in a short rendered skill', () => {
+    const cv = {
+      language: 'fr', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], experience: [], skills: ['Gestione'], localized: {},
+    };
+    expect(checkTailoredCvLanguage(cv, { profile: { cvLanguage: 'it' }, language: 'fr' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([
+        expect.objectContaining({ field: 'skills', kind: 'language' }),
+        expect.objectContaining({ field: 'rendered', token: 'skills[0]' }),
+      ]),
+    });
+  });
+
+  it('does not language-check an education grade from a row the renderer omits', () => {
+    const cv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], experience: [], skills: [], localized: {},
+    };
+    const profile = { cvLanguage: 'it', education: [{ degree: '', institution: '', grade: 'Work with team leads in Zürich' }] };
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+  });
+
+  it('checks localized highlights when the document uses them as a fallback', () => {
+    const profile = {
+      cvLanguage: 'en',
+      experience: [{ role: 'Support Specialist', employer: 'Example Ltd', location: 'London', highlights: ['Managed customer support and service delivery'] }],
+    };
+    const cv = {
+      language: 'it', type: 'qualified', sector: 'health', headline: '', headlineSource: 'profile',
+      summary: 'Ha gestito il servizio clienti e coordinato il lavoro del team.',
+      competencies: [], skills: [],
+      experience: [{ role: 'Support Specialist', employer: 'Example Ltd', location: 'London', bullets: [], rewritten: false }],
+      localized: {
+        headline: '',
+        experience: [{ index: 0, role: 'Specialista del supporto', location: 'Londra', highlights: ['Coordinated customer support and service delivery'] }],
+      },
+    };
+
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: [expect.objectContaining({
+        field: 'rendered', kind: 'language', token: 'localized.experience[0].highlights[0]',
+      })],
+    });
+  });
+
+  it('keeps a language name already in its canonical target-language form', () => {
+    const profile = { cvLanguage: 'it', languages: [{ language: 'English', level: 'C1' }] };
+    const cv = {
+      language: 'en', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Experienced software professional with strong project management skills.',
+      competencies: [], experience: [], skills: [],
+      localized: { languages: [{ index: 0, language: 'English', level: 'C1' }] },
+    };
+    expect(checkTailoredCvLanguage(cv, { profile, language: 'en' })).toMatchObject({ ok: true, issues: [] });
+  });
+
+  it('accepts both standard Italian spellings of the Romanian language label', () => {
+    const profile = { cvLanguage: 'en', languages: [{ language: 'Romanian', level: 'B2' }] };
+    for (const language of ['rumeno', 'rumena', 'romeno', 'romena']) {
+      const cv = {
+        language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+        summary: '', competencies: [], experience: [], skills: [],
+        localized: { languages: [{ index: 0, language, level: 'B2' }] },
+      };
+      expect(checkTailoredCvLanguage(cv, { profile, language: 'it' })).toMatchObject({ ok: true, issues: [] });
+    }
+
+    const canonicalProfile = { cvLanguage: 'en', languages: [{ language: 'romeno', level: 'B2' }] };
+    const canonicalCv = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], experience: [], skills: [],
+      localized: { languages: [{ index: 0, language: 'romeno', level: 'B2' }] },
+    };
+    expect(checkTailoredCvLanguage(canonicalCv, { profile: canonicalProfile, language: 'it' })).toMatchObject({
+      ok: true,
+      issues: [],
+    });
+  });
+
+  it('rejects English prose in a German CV and accepts English CV phrases', () => {
+    const cv = {
+      language: 'de', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Project management requirements', competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(cv, { profile: { cvLanguage: 'it' }, language: 'de' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'rendered', token: 'summary' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Customer service delivery' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({ ok: true, issues: [] });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Esperienza clienti' }, {
+      profile: { cvLanguage: 'en' }, language: 'en',
+    })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'rendered', token: 'summary' })]),
+    });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Project management skills' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({ ok: true, issues: [] });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Financial reporting systems' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({ ok: true, issues: [] });
+
+    expect(checkTailoredCvLanguage({ ...cv, language: 'en', summary: 'Arbeit in Zürich und Umgebung' }, {
+      profile: { cvLanguage: 'it' }, language: 'en',
+    })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ field: 'rendered', token: 'summary' })]),
+    });
+  });
+
+  it('does not reject a short target-language phrase or render a highlight with no source', () => {
+    const shortEnglish = {
+      language: 'en', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: 'Improved sales conversion', competencies: [], experience: [], skills: [], localized: {},
+    };
+    expect(checkTailoredCvLanguage(shortEnglish, { profile: { cvLanguage: 'it' }, language: 'en' }).ok).toBe(true);
+
+    const profile = { cvLanguage: 'en', experience: [{ role: 'Support specialist', highlights: [] }] };
+    const unmatched = {
+      language: 'it', type: 'qualified', headline: '', headlineSource: 'profile',
+      summary: '', competencies: [], skills: [],
+      experience: [{ role: 'Support specialist', employer: '', location: '', start: '', end: '', bullets: [], rewritten: false }],
+      localized: {
+        experience: [{ index: 0, role: 'Specialista di supporto', location: '', highlights: ['Ha coordinato il servizio clienti e guidato il team'] }],
+      },
+    };
+    expect(checkTailoredCvLanguage(unmatched, { profile, language: 'it' })).toMatchObject({
+      ok: false,
+      issues: expect.arrayContaining([expect.objectContaining({ kind: 'missing-source' })]),
+    });
   });
 });
 

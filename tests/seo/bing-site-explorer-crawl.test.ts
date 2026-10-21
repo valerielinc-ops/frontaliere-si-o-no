@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 
 import {
+  CRAWLER_SCHEMA_VERSION,
   classifyDocument,
   collectDiscoveredInventory,
   collectSitemapInventory,
@@ -40,6 +41,25 @@ import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/sha
 const BASE = 'https://frontaliereticino.ch';
 
 describe('Bing-compatible full-tree crawler', () => {
+  it('publishes the versioned template table used by frontier referrer indexes', () => {
+    const frontier = collectDiscoveredInventory({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/eventi/`] },
+      reports: [{
+        discoveredOutOfSitemap: [`${BASE}/en/events/aargau/`],
+        discoveredReferrers: [[[0, templateIndexFor(`${BASE}/eventi/`)]]],
+      }],
+    });
+
+    expect(CRAWLER_SCHEMA_VERSION).toBe(3);
+    expect(frontier.schemaVersion).toBe(CRAWLER_SCHEMA_VERSION);
+    expect(frontier.templateTable.map((family) => family.id)).toEqual(expect.arrayContaining([
+      'event-pages',
+      'pharmacy-pages',
+      'calculator-legacy-alias-pages',
+    ]));
+    expect(frontier.referrerRefs).toEqual([[[0, templateIndexFor(`${BASE}/eventi/`)]]]);
+  });
+
   it('parses sitemap indexes and normalizes only page URLs to slash form', () => {
     const index = parseSitemapDocument('<sitemapindex><sitemap><loc>https://frontaliereticino.ch/sitemap-pages.xml</loc></sitemap></sitemapindex>', BASE);
     expect(index.kind).toBe('sitemapindex');

@@ -1885,6 +1885,28 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     }
   });
 
+  it('canonicalizes the recovered Geneva cycling tour to its verified 11 July 2026 date', () => {
+    const eventId = 'ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet';
+    const readEvents = (file: string) =>
+      JSON.parse(readFileSync(new URL(`../data/${file}`, import.meta.url), 'utf8')).events;
+    const current = readEvents('events.json').find((event: { id: string }) => event.id === eventId);
+    const archived = readEvents('events-recovery-archive.json').find((event: { id: string }) => event.id === eventId);
+    expect(current).toBeDefined();
+    expect(archived).toBeDefined();
+    for (const event of [current, archived]) {
+      expect(event).toMatchObject({ startDate: '2026-07-11', endDate: '2026-07-11' });
+    }
+
+    const assigned = assignEventSlugs([current] as never);
+    const migration = historicalEventSlugMigrations([current] as never, 'GE', 'Lancy', assigned)
+      .find((route) => route.fromSlug === 'tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04');
+    expect(migration).toMatchObject({ fromCanton: 'GE', fromComune: 'Genève' });
+    expect(migration?.toSlug).toMatch(/-2026-07-11$/);
+    const target = pathForEventDetail('fr', 'Lancy', migration!.toSlug, 'GE');
+    const bridge = renderEventSlugRedirectPage('fr', target, current);
+    expect(bridge).toContain('Date : 2026-07-11');
+  });
+
   it('keeps every localized old-event bridge above the indexable content floor', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const html = renderEventSlugRedirectPage(locale, '/eventi/ticino/lugano/nuovo-slug/');

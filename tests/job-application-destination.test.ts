@@ -54,6 +54,12 @@ describe('job application destination fallback', () => {
     })).toBe('https://talents.hermes.com/en/sites/CX/job/23993?utm_source=frontaliereticino&utm_campaign=job-board');
   });
 
+  it('normalizes the Hermes source URL when no separate apply URL exists', () => {
+    expect(resolveJobApplicationUrl({
+      url: 'https://talents.hermes.com/en/sites/CX/jobs/23993/?utm_source=frontaliereticino&utm_campaign=job-board',
+    })).toBe('https://talents.hermes.com/en/sites/CX/job/23993?utm_source=frontaliereticino&utm_campaign=job-board');
+  });
+
   it('leaves unrelated external URL shapes unchanged', () => {
     const urls = [
       'https://talents.hermes.com/en/sites/CX/job/23993',
