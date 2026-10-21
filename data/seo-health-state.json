@@ -1,7 +1,32 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-10-20T09:30:50.922Z",
-  "findings": {},
-  "cleanRuns": 1,
+  "lastRunAt": "2026-10-21T09:26:56.088Z",
+  "findings": {
+    "jobposting-withheld-unverified-date|https://frontaliereticino.ch/fr/trouver-emploi-thurgovie/responsable-de-filiale-denner-weinfelden/": {
+      "code": "jobposting-withheld-unverified-date",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-thurgovie/responsable-de-filiale-denner-weinfelden/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-21T09:26:56.088Z",
+      "lastSeenAt": "2026-10-21T09:26:56.088Z",
+      "detail": null
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch:8443/login_up.php": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch:8443/login_up.php",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-21T09:26:56.088Z",
+      "lastSeenAt": "2026-10-21T09:26:56.088Z",
+      "detail": "edge=503 count=1 live=503 surface=other"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch:2083/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch:2083/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-10-21T09:26:56.088Z",
+      "lastSeenAt": "2026-10-21T09:26:56.088Z",
+      "detail": "edge=503 count=1 live=503 surface=other"
+    }
+  },
+  "cleanRuns": 0,
   "lastActionable": false
 }
