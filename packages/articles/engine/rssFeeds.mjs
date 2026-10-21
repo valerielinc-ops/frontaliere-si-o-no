@@ -465,6 +465,9 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
     while (cursor < src.length) {
       cursor = skipStaticTrivia(src, cursor, filePath);
       if (cursor >= src.length) break;
+      if (src[cursor] === '[') {
+        throw new Error(`[rss] Computed article body property is not supported in static source: ${filePath}`);
+      }
       if (!STATIC_LITERAL_QUOTES.has(src[cursor])) {
         cursor += 1;
         continue;
