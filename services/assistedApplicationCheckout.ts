@@ -7,6 +7,10 @@ export interface AssistedApplicationCheckoutInput {
   jobUrl: string;
   companyName: string;
   jobTitle: string;
+  /** Presentation metadata persisted on the order for the concierge email. */
+  companyLogo?: string | null;
+  location?: string | null;
+  canton?: string | null;
   /** `offerwall_fallback`: paid offer opened because the rewarded Offerwall could not load. */
   experimentVariant: 'control' | 'assisted_application' | 'offerwall_fallback';
   /** Copy arm shown in the paid offer; persisted for post-payment attribution. */

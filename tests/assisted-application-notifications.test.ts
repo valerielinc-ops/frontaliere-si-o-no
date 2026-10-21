@@ -62,6 +62,12 @@ vi.mock('firebase-admin', () => ({
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
   getRemoteConfigValue: vi.fn(async () => ''),
+  getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: '' })),
+  getAutologinPolicyConfig: vi.fn(async () => ({
+    NEWSLETTER_AC_SCHEME: '',
+    NEWSLETTER_AC_TTL_DAYS: '',
+    NEWSLETTER_AC_LEGACY_SUNSET: '',
+  })),
 }));
 
 const sendEmailCascade = vi.fn();
@@ -74,6 +80,7 @@ vi.mock('../functions/src/emailCascade.js', () => ({
 const {
   buildCustomerEmail,
   buildPendingPaymentDigestEmail,
+  buildAuthenticatedOrderPageUrl,
   buildOwnerEmail,
   buildOrderPageUrl,
   localeFromSiteUrl,
@@ -194,6 +201,21 @@ describe('assisted application concierge copy', () => {
     expect(localeFromSiteUrl('https://frontaliereticino.ch/cerca-lavoro-ticino/')).toBe('it');
     expect(localeFromSiteUrl('https://evil.example/fr/')).toBeNull();
   });
+
+  it('adds the existing autologin pair only to the internal order page', () => {
+    const url = buildAuthenticatedOrderPageUrl(
+      { locale: 'it' },
+      'order-1',
+      'it',
+      { email: 'Candidate@Example.com', autologinCode: 'ac-test-code' },
+    );
+    const parsed = new URL(url);
+    expect(parsed.searchParams.get('ne')).toBe('candidate@example.com');
+    expect(parsed.searchParams.get('ac')).toBe('ac-test-code');
+    expect(parsed.searchParams.get('utm_source')).toBe('assisted_application');
+    expect(parsed.searchParams.get('utm_medium')).toBe('email');
+    expect(parsed.searchParams.get('utm_campaign')).toBe('customer_payment_recovery');
+  });
 });
 
 describe('brand shell', () => {
@@ -279,6 +301,8 @@ describe('pending-payment recovery digest', () => {
       paymentStatus: 'pending',
       submissionStatus: 'awaiting_payment',
       jobTitle: 'Addetto/a vendite',
+      companyLogo: 'https://cdn.example.test/logos/clinica.png',
+      location: 'Lugano',
       createdAt: new Date(NOW - 4 * HOUR),
     });
     const second = paidOrder({
@@ -298,6 +322,9 @@ describe('pending-payment recovery digest', () => {
     expect(email.html).toContain('La sessione precedente era scaduta');
     expect(email.html.match(/Completa il pagamento/g)?.length).toBe(2);
     expect(email.html).toContain('#0f172a');
+    expect(email.html).toContain('https://cdn.example.test/logos/clinica.png');
+    expect(email.html).toContain('Lugano');
+    expect(email.html).toContain('background:#1e293b');
     expect(email.text).toContain('pending-1');
     expect(email.text).toContain('pending-2');
   });
