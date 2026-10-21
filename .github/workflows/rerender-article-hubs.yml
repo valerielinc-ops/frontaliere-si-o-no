@@ -127,6 +127,13 @@ permissions:
   pull-requests: write
   issues: write
 
+# Keep the production probe behind the complete hub render. The matrix jobs
+# still serialize each section independently below, while this workflow-level
+# group also serializes the watchdog's read against the writer's publication.
+concurrency:
+  group: article-hub-surfaces
+  cancel-in-progress: false
+
 jobs:
   plan:
     # Which sections run as separate matrix jobs. A push, publisher dispatch or

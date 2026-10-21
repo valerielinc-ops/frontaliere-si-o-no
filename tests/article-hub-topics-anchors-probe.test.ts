@@ -50,6 +50,14 @@ const PROBE_SRC = fs.readFileSync(
   np.join(ROOT, 'scripts', 'check-article-hub-landings.mjs'),
   'utf-8',
 );
+const WATCHDOG_WORKFLOW = fs.readFileSync(
+  np.join(ROOT, '.github', 'workflows', 'article-hub-landing-watchdog.yml'),
+  'utf-8',
+);
+const RERENDER_WORKFLOW = fs.readFileSync(
+  np.join(ROOT, '.github', 'workflows', 'rerender-article-hubs.yml'),
+  'utf-8',
+);
 
 /**
  * Verbatim from the live `sitemap-topics-svizzera.xml`: two topic hubs with
@@ -199,5 +207,15 @@ describe('the probe is wired to this comparison', () => {
   it('exits before probing when a route has no expectation', () => {
     expect(PROBE_SRC).toMatch(/expected\.length === 0/);
     expect(PROBE_SRC).toContain('would check nothing for that archive');
+  });
+});
+
+describe('the watchdog does not race the hub writer', () => {
+  it('shares a non-cancelling workflow concurrency group with rerender-article-hubs', () => {
+    expect(WATCHDOG_WORKFLOW).toContain('group: article-hub-surfaces');
+    expect(RERENDER_WORKFLOW).toContain('group: article-hub-surfaces');
+    expect(WATCHDOG_WORKFLOW).toContain('cancel-in-progress: false');
+    expect(RERENDER_WORKFLOW).toContain('cancel-in-progress: false');
+    expect(WATCHDOG_WORKFLOW).not.toContain('group: article-hub-landing-watchdog');
   });
 });
