@@ -8,6 +8,7 @@ import {
   isCardCatalogueExplicitlyEmpty,
   parseZhAuctionCards,
 } from '../../../functions/src/plateAuctionsCore.js';
+import { fetchWithPublicApiRelay } from './api-relay.mjs';
 
 export const ZH_CANTON = 'Zurigo';
 export const ZH_PLATE_CODE = 'ZH';
@@ -32,9 +33,18 @@ export function parseZhAuctions(html, { fetchedAt = new Date().toISOString() } =
     : rows;
 }
 
-export async function fetchZhPlateAuctions() {
-  const html = await fetchHtml(ZH_AUCTION_URL);
-  return parseZhAuctions(html, { fetchedAt: new Date().toISOString() });
+export async function fetchZhPlateAuctions({ now = new Date() } = {}) {
+  return fetchWithPublicApiRelay({
+    sourceKey: 'zh',
+    plateCode: ZH_PLATE_CODE,
+    officialAuctionUrl: ZH_AUCTION_URL,
+    now,
+    logLabel: 'fetchZhPlateAuctions',
+    direct: async () => {
+      const html = await fetchHtml(ZH_AUCTION_URL);
+      return parseZhAuctions(html, { fetchedAt: now.toISOString() });
+    },
+  });
 }
 
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {

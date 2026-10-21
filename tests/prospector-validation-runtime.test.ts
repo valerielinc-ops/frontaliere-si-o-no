@@ -7,7 +7,7 @@ import { observeSpecInProduction, runSpecInProduction } from '../scripts/lib/pro
 import { gradeExtraction, gradeVacancy } from '../scripts/lib/prospector/validate.mjs';
 import { isGenericVacancyTitle, rawDetailTitleEvidence, selectPublishableTitle } from '../scripts/lib/prospector/production-title.mjs';
 import { selectValidationSample } from '../scripts/lib/prospector/validation-sample.mjs';
-import { prioritizeValidationSpecs } from '../scripts/lib/prospector/validation-schedule.mjs';
+import { isValidationRetryDue, prioritizeValidationSpecs, applyValidationRuntimeState } from '../scripts/lib/prospector/validation-schedule.mjs';
 import { reconcileOpenPromotions } from '../scripts/lib/prospector/promotion-reconciliation.mjs';
 import { candidateStatusAfterValidation, evaluatePromotion } from '../scripts/lib/prospector/promotion-gate.mjs';
 import { requeuePromotedCandidate } from '../scripts/lib/prospector/candidate-store.mjs';
@@ -16,6 +16,10 @@ import {
   sourceAdapterRuntimeObservationFor,
 } from '../scripts/lib/prospector/source-adapters.mjs';
 import { matchExistingCrawlerForCompleteSnapshot } from '../scripts/lib/prospector/runtime-duplicate.mjs';
+import {
+  validationSnapshotAfterGradeFailure,
+  validationSnapshotMetadataFor,
+} from '../scripts/lib/prospector/snapshot-comparison.mjs';
 
 const PUBLIC_IP = [{ address: '93.184.216.34', family: 4 }];
 const DESCRIPTION = 'The successful candidate will plan and deliver reliable customer services, work with the engineering team, document procedures, solve operational issues, and support continuous improvement across the organisation. '.repeat(3);
@@ -84,6 +88,63 @@ function fixtureSpec({
 }
 
 describe('Prospector production validation', () => {
+  it('keeps a grade exception incomplete and schedules the next validation retry', () => {
+    const startedAt = '2026-10-20T10:00:00.000Z';
+    const completeObservation = {
+      exactListingCount: true,
+      listingPopulationComplete: true,
+      promotionObservationComplete: true,
+      complete: true,
+      listingCount: 1,
+      publishableCount: 1,
+    };
+    const failed = validationSnapshotAfterGradeFailure(
+      [{ url: 'https://employer.example/jobs/1' }],
+      startedAt,
+      'run-grade-failure',
+      completeObservation,
+      new Error('grade extraction failed'),
+    );
+    expect(failed.runtimeObservation).toMatchObject({
+      complete: false,
+      promotionObservationComplete: false,
+      failure: 'grade extraction failed',
+    });
+    expect(failed.metadata.runtimeSnapshotComplete).toBe(false);
+    expect(failed.snapshot).toMatchObject({
+      complete: false,
+      runtimeSnapshotComplete: false,
+      exactListingCount: true,
+      listingPopulationComplete: true,
+    });
+
+    const report: any = {
+      verdict: 'good',
+      problems: [],
+      samples: [],
+      runErrors: [],
+      runtimeObservation: failed.runtimeObservation,
+      vacancyCount: 1,
+    };
+    applyValidationRuntimeState(report, failed.metadata.runtimeSnapshotComplete, startedAt);
+    expect(report).toMatchObject({
+      verdict: 'weak',
+      runtimeSnapshotComplete: false,
+      runtimeFailureCategory: 'runtime',
+      retryAfterAt: '2026-10-21T10:00:00.000Z',
+    });
+    expect(report.problems).toContain('runtime snapshot incompleto: grade extraction failed');
+    expect(candidateStatusAfterValidation(report)).toBe('validated');
+
+    const scheduleEntry = {
+      at: startedAt,
+      runtimeSnapshotComplete: report.runtimeSnapshotComplete,
+      retryAfterAt: report.retryAfterAt,
+    };
+    expect(isValidationRetryDue({ validationHistory: [scheduleEntry] }, startedAt)).toBe(false);
+    expect(isValidationRetryDue({ validationHistory: [scheduleEntry] }, report.retryAfterAt)).toBe(true);
+  });
+
   it('reads Open Graph title regardless of meta attribute order', () => {
     expect(rawDetailTitleEvidence('<meta property="og:title" content="Senior Engineer">').rawOpenGraphTitle)
       .toBe('Senior Engineer');
@@ -635,6 +696,12 @@ describe('Prospector production validation', () => {
         fetchOutcome,
         exactListingCount: false,
         snapshotAccepted: false,
+        complete: false,
+      });
+      expect(validationSnapshotMetadataFor(observed.observation)).toMatchObject({
+        exactListingCount: false,
+        listingPopulationComplete: false,
+        runtimeSnapshotComplete: false,
         complete: false,
       });
     } finally {

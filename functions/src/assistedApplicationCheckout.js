@@ -34,6 +34,7 @@ const ASSISTED_APPLICATION_CHECKOUT_REQUESTS_COLLECTION = 'assisted_application_
 const VALID_VARIANTS = new Set(['control', 'assisted_application', 'offerwall_fallback']);
 const VALID_COPY_VARIANTS = new Set(['control', 'time_saved', 'portal_relief', 'handled_for_you']);
 const VALID_LOCALES = new Set(['it', 'en', 'de', 'fr']);
+const VALID_SALARY_SOURCES = new Set(['reported', 'existing', 'estimated']);
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
 
 class AssistedApplicationRequestConflictError extends Error {
@@ -46,6 +47,27 @@ class AssistedApplicationRequestConflictError extends Error {
 function boundedString(value, max) {
   const result = String(value ?? '').trim();
   return result && result.length <= max ? result : '';
+}
+
+function positivePresentationNumber(value) {
+  const number = Number(value);
+  return Number.isFinite(number) && number > 0 && number <= 1_000_000_000 ? number : null;
+}
+
+function presentationBaseSalary(value) {
+  if (!value || typeof value !== 'object') return null;
+  const rawValue = value.value && typeof value.value === 'object' ? value.value : value;
+  const minValue = positivePresentationNumber(rawValue.minValue);
+  const maxValue = positivePresentationNumber(rawValue.maxValue);
+  if (!minValue && !maxValue) return null;
+  const result = { value: {} };
+  if (minValue) result.value.minValue = minValue;
+  if (maxValue) result.value.maxValue = maxValue;
+  const unitText = boundedString(rawValue.unitText, 20);
+  const currency = boundedString(value.currency || rawValue.currency, 5).toUpperCase();
+  if (unitText) result.value.unitText = unitText;
+  if (/^[A-Z]{3}$/.test(currency)) result.currency = currency;
+  return result;
 }
 
 function appendOrderId(url, orderId) {
@@ -261,11 +283,24 @@ function pendingOrderData(order, orderId, userId, requestKeyHash, checkoutAttemp
 
 /** Presentation fields may be refreshed on an idempotent retry without changing checkout identity. */
 function presentationFieldsFor(order) {
-  return {
+  const fields = {
     ...(order?.companyLogo ? { companyLogo: order.companyLogo } : {}),
+    ...(order?.companyKey ? { companyKey: boundedString(order.companyKey, 200) } : {}),
     ...(order?.location ? { location: order.location } : {}),
     ...(order?.canton ? { canton: order.canton } : {}),
+    ...(order?.contract ? { contract: boundedString(order.contract, 80) } : {}),
+    ...(positivePresentationNumber(order?.salaryMin) ? { salaryMin: positivePresentationNumber(order.salaryMin) } : {}),
+    ...(positivePresentationNumber(order?.salaryMax) ? { salaryMax: positivePresentationNumber(order.salaryMax) } : {}),
+    ...(VALID_SALARY_SOURCES.has(order?.salarySource) ? { salarySource: order.salarySource } : {}),
+    ...(order?.salaryCurrency && /^[A-Z]{3}$/.test(String(order.salaryCurrency).toUpperCase())
+      ? { salaryCurrency: String(order.salaryCurrency).toUpperCase() } : {}),
+    ...(presentationBaseSalary(order?.baseSalary) ? { baseSalary: presentationBaseSalary(order.baseSalary) } : {}),
+    ...(order?.postedDate ? { postedDate: boundedString(order.postedDate, 40) } : {}),
+    ...(order?.firstSeenAt ? { firstSeenAt: boundedString(order.firstSeenAt, 40) } : {}),
+    ...(order?.sector ? { sector: boundedString(order.sector, 100) } : {}),
+    ...(order?.category ? { category: boundedString(order.category, 100) } : {}),
   };
+  return fields;
 }
 
 /** Create a pending order and a fixed-price, one-time payment checkout. */
@@ -292,9 +327,22 @@ export async function handleCreateAssistedApplicationCheckout(req) {
     jobUrl: boundedString(body.jobUrl, 500),
     companyName: boundedString(body.companyName, 200),
     jobTitle: boundedString(body.jobTitle, 300),
-    companyLogo: validHttpsUrl(body.companyLogo) ? boundedString(body.companyLogo, 1000) : '',
-    location: boundedString(body.location, 200),
-    canton: boundedString(body.canton, 80),
+    ...presentationFieldsFor({
+      companyLogo: validHttpsUrl(body.companyLogo) ? boundedString(body.companyLogo, 1000) : '',
+      companyKey: boundedString(body.companyKey, 200),
+      location: boundedString(body.location, 200),
+      canton: boundedString(body.canton, 80),
+      contract: boundedString(body.contract, 80),
+      salaryMin: positivePresentationNumber(body.salaryMin),
+      salaryMax: positivePresentationNumber(body.salaryMax),
+      salarySource: body.salarySource,
+      salaryCurrency: boundedString(body.salaryCurrency, 5),
+      baseSalary: body.baseSalary,
+      postedDate: boundedString(body.postedDate, 40),
+      firstSeenAt: boundedString(body.firstSeenAt, 40),
+      sector: boundedString(body.sector, 100),
+      category: boundedString(body.category, 100),
+    }),
     experimentVariant: VALID_VARIANTS.has(body.experimentVariant) ? body.experimentVariant : 'control',
     copyVariant: VALID_COPY_VARIANTS.has(body.copyVariant) ? body.copyVariant : 'control',
   };

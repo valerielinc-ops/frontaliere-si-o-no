@@ -157,14 +157,18 @@ export function isCardCatalogueExplicitlyEmpty(html) {
   if (!source) return false;
   if (CARD_AUCTION_LINK_RE.test(source)) return false;
   const text = htmlText(source);
-  const hasSearchControls = /Kontrollschild(?:typ)?/i.test(text) && /Suchen/i.test(text);
+  const hasSearchControls = (
+    (/Kontrollschild(?:typ)?/i.test(text) && /Suchen/i.test(text))
+    || (/Type\s+de\s+plaques/i.test(text) && /Rechercher/i.test(text))
+  );
   if (!hasSearchControls) return false;
 
   // Between two rounds the card platform can render its no-results state
   // without the `auction-grid`/`auctions` containers. The exact German
   // marker, together with the platform's search controls and no auction
   // link, is an explicit empty catalogue — not a generic empty parse.
-  const hasNoResultsMarker = /Keine\s+Ergebnisse\s+f(?:ü|&uuml;)r\s+Ihre\s+Suche\.?/i.test(text);
+  const hasNoResultsMarker = /Keine\s+Ergebnisse\s+f(?:ü|&uuml;)r\s+Ihre\s+Suche\.?/i.test(text)
+    || /Votre\s+recherche\s+n(?:['’]|&#39;|&apos;)a\s+donn(?:é|&eacute;|&#233;)\s+aucun\s+r(?:é|&eacute;|&#233;)sultat\.?/i.test(text);
   if (hasNoResultsMarker) return true;
 
   return hasHtmlClass(source, 'auction-grid')
@@ -745,7 +749,24 @@ export function parseZhAuctionCards(
   return withCardEmptyState(auctions, html);
 }
 
-function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemaining = 4 } = {}) {
+/**
+ * Official auction portals can briefly answer 404 during an upstream edge
+ * interruption. Retry that one status within the bounded fetch budget so a
+ * transient outage does not become a false source degradation; persistent
+ * endpoint drift still fails closed after the retries are exhausted.
+ */
+function isRetryableHttpStatus(status, { retryOn404 = true } = {}) {
+  return (retryOn404 && status === 404) || status === 408 || status === 425 || status === 429 || status >= 500;
+}
+
+function fetchHttpsText(url, {
+  timeoutMs,
+  userAgent,
+  ca,
+  accept,
+  retryOn404 = true,
+  redirectsRemaining = 4,
+} = {}) {
   return new Promise((resolve, reject) => {
     const request = https.request(url, {
       method: 'GET',
@@ -767,13 +788,14 @@ function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemain
             userAgent,
             ca,
             accept,
+            retryOn404,
             redirectsRemaining: redirectsRemaining - 1,
           }));
           return;
         }
         if (status < 200 || status >= 300) {
           const error = new Error(`HTTP ${status} from ${url}`);
-          error.retryable = status === 408 || status === 425 || status === 429 || status >= 500;
+          error.retryable = isRetryableHttpStatus(status, { retryOn404 });
           reject(error);
           return;
         }
@@ -790,7 +812,15 @@ function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemain
   });
 }
 
-export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2, retryDelayMs = 750, ca, accept } = {}) {
+export async function fetchHtml(url, {
+  timeoutMs = 20000,
+  userAgent,
+  retries = 2,
+  retryDelayMs = 750,
+  ca,
+  accept,
+  retryOn404 = true,
+} = {}) {
   const maxRetries = Number.isInteger(retries) && retries >= 0 ? retries : 2;
   let lastError;
 
@@ -798,7 +828,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept });
+      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404 });
       const response = await fetch(url, {
         redirect: 'follow',
         headers: {
@@ -809,7 +839,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
       });
       if (!response.ok) {
         const error = new Error(`HTTP ${response.status} from ${url}`);
-        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        error.retryable = isRetryableHttpStatus(response.status, { retryOn404 });
         throw error;
       }
       return await response.text();
@@ -947,7 +977,7 @@ export async function fetchPdfText(url, {
       });
       if (!response.ok) {
         const error = new Error(`HTTP ${response.status} from ${url}`);
-        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        error.retryable = isRetryableHttpStatus(response.status);
         throw error;
       }
       return await extractPdfText(await response.arrayBuffer());

@@ -228,9 +228,31 @@ function hasLicensedSourceEventImage(event: SiteEvent): boolean {
   );
 }
 
+/**
+ * Keep outbound licence links on their canonical URL. Creative Commons
+ * licence pages without the trailing slash redirect, which is avoidable in
+ * both visible image credits and Event JSON-LD.
+ */
+function canonicalEventExternalUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !/^https:\/\//i.test(value.trim())) return undefined;
+  const raw = value.trim();
+  try {
+    const url = new URL(raw);
+    const isCreativeCommons = /^(?:www\.)?creativecommons\.org$/i.test(url.hostname);
+    if (!isCreativeCommons) return raw;
+    if (!url.pathname.endsWith('/')) url.pathname += '/';
+    return url.href;
+  } catch {
+    return raw;
+  }
+}
+
 function eventImageLicenseUrl(event: SiteEvent): string | undefined {
-  if (typeof event.imageLicenseUrl === 'string' && /^https:\/\//i.test(event.imageLicenseUrl)) return event.imageLicenseUrl;
-  return event.sourceKey === 'openagenda' ? EVENT_IMAGE_LICENSES.openagenda.termsUrl : undefined;
+  const sourceLicense = canonicalEventExternalUrl(event.imageLicenseUrl);
+  if (sourceLicense) return sourceLicense;
+  return event.sourceKey === 'openagenda'
+    ? canonicalEventExternalUrl(EVENT_IMAGE_LICENSES.openagenda.termsUrl)
+    : undefined;
 }
 
 function eventImageMimeType(imageUrl: string): string {
@@ -289,11 +311,15 @@ function hasPublishedEventImage(event: SiteEvent): boolean {
 
 function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): string {
   if (!isLicensedEventLibraryPhoto(event)) return '';
+  const licenseUrl = eventImageLicenseUrl(event);
   const author = event.imageAuthor?.name || event.imageCredit || '';
   const authorLink = event.imageSourcePageUrl
     ? `<a href="${esc(event.imageSourcePageUrl)}" rel="noopener" target="_blank">${esc(author)}</a>`
     : esc(author);
-  const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
+  const licenseLabel = esc(event.imageLicense!);
+  const licenseLink = licenseUrl
+    ? `<a href="${esc(licenseUrl)}" rel="license noopener" target="_blank">${licenseLabel}</a>`
+    : licenseLabel;
   const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
     ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
     : '';
@@ -310,6 +336,24 @@ export function materializeEventImageLibrary(events: SiteEvent[], registry = loa
 /** Attribution record of an event's source (public registry, then private). */
 function eventSourceRecord(sourceKey: string): { key: string; label: string; homepage: string } {
   return EVENT_SOURCES[sourceKey] || (PRIVATE_EVENT_SOURCES as Record<string, { key: string; label: string; homepage: string }>)[sourceKey] || SOURCE;
+}
+
+/** Resolve the current official landing pages for the source links rendered
+ * in event attribution. The old Guidle root and Stadt Luzern Termine URL both
+ * redirect or return an invalid-address page; link directly to their live
+ * canonical destinations. */
+function canonicalEventSourceHomepage(homepage: string): string {
+  try {
+    const url = new URL(homepage);
+    const host = url.hostname.toLowerCase();
+    if (host === 'www.guidle.com' && url.pathname === '/') return 'https://www.guidle.com/de';
+    if (host === 'www.stadtluzern.ch' && url.pathname === '/aktuelles/termine') {
+      return 'https://www.stadtluzern.ch/aktuelles/terminliste';
+    }
+  } catch {
+    // Keep the declared source URL when it is not a parseable absolute URL.
+  }
+  return homepage;
 }
 
 /**
@@ -1441,9 +1485,13 @@ function distinctEventSources(events: SiteEvent[]): Array<{ key: string; label: 
   const seen = new Map<string, { key: string; label: string; homepage: string }>();
   for (const e of events) {
     const src = eventSourceRecord(e.sourceKey);
-    if (!seen.has(src.key)) seen.set(src.key, { key: src.key, label: src.label, homepage: src.homepage });
+    if (!seen.has(src.key)) {
+      seen.set(src.key, { key: src.key, label: src.label, homepage: canonicalEventSourceHomepage(src.homepage) });
+    }
   }
-  if (seen.size === 0) seen.set(SOURCE.key, { key: SOURCE.key, label: SOURCE.label, homepage: SOURCE.homepage });
+  if (seen.size === 0) {
+    seen.set(SOURCE.key, { key: SOURCE.key, label: SOURCE.label, homepage: canonicalEventSourceHomepage(SOURCE.homepage) });
+  }
   return [...seen.values()];
 }
 

@@ -154,7 +154,11 @@ const GLOSSARY_HERO_EYEBROW: Record<'it' | 'en' | 'de' | 'fr', string> = {
  de: 'Grenzgänger-Glossar',
  fr: 'Glossaire frontaliers',
 };
-import { parseSlugRegistry } from '../scripts/lib/article-slug-registry.mjs';
+import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/articleReaderSource.mjs';
+
+function isMissingPathError(error: unknown): boolean {
+ return (error as NodeJS.ErrnoException)?.code === 'ENOENT';
+}
 // FAQ-hub path builder — the ONE source of the four hub slugs (router-safe
 // module, no 340 KB category corpus pulled in). ORPHAN_PILLAR_LINKS below
 // hard-coded them and had drifted on DE: `/de/haeufig-gestellte-fragen/` is a
@@ -2451,8 +2455,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // FRO-330: Extract blog article data from blog-articles-data.ts for hero image + SSG article cards
  let blogHeroImageStatic = '';
  interface StaticArticle { id: string; category: string; date: string; image: string }
- // Field-order-independent read (articleRegistryEntries.ts): the regex that
- // was here required `image:` right after `date:`, so every entry with
+ // Field-order-independent read (articleRegistryEntries.ts): the old regex
+ // required `image:` right after `date:`, so every entry with
  // `updatedAt` in between — 306 blog + 60 svizzera on 2026-10-05 — never
  // reached the hub cards, the hub hero or the per-article hero index below.
  const readStaticArticles = (src: string): StaticArticle[] =>
@@ -2465,7 +2469,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (blogArticlesStatic.length) {
  blogHeroImageStatic = blogArticlesStatic[0].image;
  }
- } catch { /* non-fatal */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ }
 
  const blogSlugs = new Set(['articoli-frontaliere', 'cross-border-articles', 'frontier-articles', 'grenzgaenger-artikel', 'articles-frontalier']);
  const blogArticleIdByLocale: Record<'it' | 'en' | 'de' | 'fr', Record<string, string>> = {
@@ -2477,14 +2483,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  try {
  const routerBlogDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
- const registry = parseSlugRegistry(routerBlogDataSrc, 'BLOG_SLUGS') as Record<string, Record<'it' | 'en' | 'de' | 'fr', string>>;
+ const registry = parseArticleUrlSlugs(routerBlogDataSrc, 'BLOG_SLUGS') as Record<string, Record<'it' | 'en' | 'de' | 'fr', string>>;
  for (const [id, slugs] of Object.entries(registry)) {
  blogArticleIdByLocale.it[slugs.it] = id;
  blogArticleIdByLocale.en[slugs.en] = id;
  blogArticleIdByLocale.de[slugs.de] = id;
  blogArticleIdByLocale.fr[slugs.fr] = id;
  }
- } catch { /* non-fatal */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ }
 
  // FRO-330: Build reverse map article_id → locale_slug for SSG article cards
  const articleIdToSlug: Record<string, Record<string, string>> = { it: {}, en: {}, de: {}, fr: {} };
@@ -2509,7 +2517,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (swissArticlesStatic.length) {
  swissHeroImageStatic = swissArticlesStatic[0].image;
  }
- } catch { /* non-fatal */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ }
 
  // #5001 — hero PER ARTICOLO per le pagine di dettaglio che questo plugin
  // rende ancora.
@@ -2566,14 +2576,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  try {
  const routerSwissDataSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerSwissData.ts'), 'utf-8');
- const registry = parseSlugRegistry(routerSwissDataSrc, 'SWISS_SLUGS') as Record<string, Record<'it' | 'en' | 'de' | 'fr', string>>;
+ const registry = parseArticleUrlSlugs(routerSwissDataSrc, 'SWISS_SLUGS') as Record<string, Record<'it' | 'en' | 'de' | 'fr', string>>;
  for (const [id, slugs] of Object.entries(registry)) {
  swissArticleIdByLocale.it[slugs.it] = id;
  swissArticleIdByLocale.en[slugs.en] = id;
  swissArticleIdByLocale.de[slugs.de] = id;
  swissArticleIdByLocale.fr[slugs.fr] = id;
  }
- } catch { /* non-fatal */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ }
 
  const swissIdToSlug: Record<string, Record<string, string>> = { it: {}, en: {}, de: {}, fr: {} };
  for (const locale of ['it', 'en', 'de', 'fr'] as const) {

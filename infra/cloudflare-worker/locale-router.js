@@ -1596,6 +1596,23 @@ export const EDGE_RETIRED_PATHS = {
   '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': null,
   '/fr/articles-suisse/information-non-pertinente/': null,
 
+  // ── GSC 404 decisions checked 2026-10-21 (6 gone, 1 moved). ────────────
+  // These six old article URLs have no current corpus owner or equivalent
+  // document. The build declares each section-root target so this edge
+  // layer can answer 410 instead of allowing the append-only shard to drift
+  // into a soft-404 if an old byte is ever present there again. The seventh
+  // URL, with a documented equivalent, remains a direct 301 below.
+  '/articoli-frontaliere/lombardia-sport-ticino/': null,
+  '/fr/articles-frontalier/tesin-lombardie-manufacture/': null,
+  '/de/grenzgaenger-artikel/rekorde-schneefall-bosco-gurin-2026/': null,
+  '/de/grenzgaenger-artikel/transport-agency-como-renewed/': null,
+  '/fr/articles-frontalier/suisse-service-public-frais-tv/': null,
+  '/en/cross-border-articles/varese-drunk-accident/': null,
+
+  // ── 301 — GSC 404 equivalent checked 2026-10-21. ───────────────────────
+  '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/':
+    '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
+
   // ── 410 — alias orphans (20 URLs).
   '/de/grenzgaenger-artikel/banken-gewerkschaften-plattform-vereinbarung/': null,
   '/articoli-frontaliere/addiofrontalierelongo/': null,
@@ -1723,12 +1740,25 @@ export function normaliseRetiredPath(pathname) {
 
 export function lookupRetired(pathname) {
   const own = (key) => Object.prototype.hasOwnProperty.call(EDGE_RETIRED_PATHS, key);
+  const valueFor = (key) => {
+    if (own(key)) return EDGE_RETIRED_PATHS[key];
+    // Keep source-of-truth keys URL-shaped for non-ASCII slugs. URL.pathname
+    // is percent-encoded at the request boundary, while normaliseRetiredPath()
+    // decodes segments so case and encoding variants share one lookup.
+    const encoded = encodeURI(key);
+    return encoded !== key && own(encoded) ? EDGE_RETIRED_PATHS[encoded] : undefined;
+  };
   const path = normaliseRetiredPath(pathname);
-  if (own(path)) return EDGE_RETIRED_PATHS[path];
-  if (!path.endsWith('/') && own(`${path}/`)) return EDGE_RETIRED_PATHS[`${path}/`];
+  const direct = valueFor(path);
+  if (direct !== undefined) return direct;
+  if (!path.endsWith('/')) {
+    const directory = valueFor(`${path}/`);
+    if (directory !== undefined) return directory;
+  }
   if (path.endsWith('/index.html')) {
     const dir = path.slice(0, -'index.html'.length);
-    if (own(dir)) return EDGE_RETIRED_PATHS[dir];
+    const directory = valueFor(dir);
+    if (directory !== undefined) return directory;
   }
   return undefined;
 }

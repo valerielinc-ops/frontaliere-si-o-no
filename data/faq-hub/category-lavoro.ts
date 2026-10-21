@@ -201,7 +201,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
         "L'italien est la langue principale (Constitution tessinoise art. 1) [source : ti.ch constitution]. Dans le commerce, la finance et l'accueil : allemand B2-C1 (banques, private banking), français apprécié. Anglais B2+ quasi partout dans les multinationales, pharma (Roche Mendrisio) et tech. Secteur public cantonal : italien langue maternelle, souvent allemand B1 pour interface fédérale. BTP et industrie : italien + bases d'allemand. Certificats CELI (Pérouse), TELC ou Goethe-Zertifikat souvent exigés. L'Office de la formation professionnelle propose des cours gratuits d'allemand A1-B2 aux frontaliers inscrits à l'ORP.",
     },
     sources: [
-      'https://www4.ti.ch/can/rl/',
+      'https://www4.ti.ch/can/sgcds/legislazione/legislazione',
     ],
   },
   {

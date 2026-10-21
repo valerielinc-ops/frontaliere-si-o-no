@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { DATA_ROOT, ROOT } from './../config.mjs';
 import { registrableDomain, normalizeHost, sameOrg } from './../registrable.mjs';
-import { isPlatformEligible } from './../platform-registry.mjs';
+import { isPlatformEligible, verifiedEmployerDomain } from './../platform-registry.mjs';
 import { listSliceFileNames } from './../../crawler-slice-files.mjs';
 
 /**
@@ -111,14 +111,14 @@ export function listingPathsFromAdapters(opts = {}) {
 
 /**
  * @param {{ dataRoot?: string, minEmployers?: number }} [opts]
- * @returns {{ platforms: { domain: string, employers: string[], employerHosts: [string, string, string][], sampleHosts: string[] }[], jobCount: number, weakHosts: number }}
+ * @returns {{ platforms: { domain: string, employers: string[], employerHosts: [company: string, host: string, path: string, employerDomain?: string][], sampleHosts: string[] }[], jobCount: number, weakHosts: number }}
  */
 export function censusFromOwnCrawls(opts = {}) {
   const dataRoot = opts.dataRoot || DATA_ROOT;
   const minEmployers = opts.minEmployers ?? 2;
   const jobs = readJobs(dataRoot);
 
-  /** @type {Map<string, { employers: Set<string>, hosts: Set<string> }>} */
+  /** @type {Map<string, { employers: Map<string, { company: string, host: string, path: string, employerDomain: string|undefined }>, hosts: Set<string> }>} */
   const byPlatform = new Map();
   for (const j of jobs) {
     const url = j?.url || j?.applyUrl;
@@ -128,7 +128,7 @@ export function censusFromOwnCrawls(opts = {}) {
     try { host = normalizeHost(new URL(url).hostname); } catch { continue; }
     if (!host || !isPlatformEligible(host)) continue;
     const platform = registrableDomain(host);
-    const employerDomain = registrableDomain(j?.companyDomain || '');
+    const employerDomain = verifiedEmployerDomain(j?.companyDomain);
     // Published on their own infrastructure — not a vendor sighting.
     if (employerDomain && sameOrg(platform, employerDomain)) continue;
     if (!byPlatform.has(platform)) byPlatform.set(platform, { employers: new Map(), hosts: new Set() });
@@ -138,7 +138,16 @@ export function censusFromOwnCrawls(opts = {}) {
     // employers sit on different subdomains, which a flat set cannot answer.
     let pathname = '/';
     try { pathname = new URL(url).pathname; } catch { /* keep default */ }
-    if (!entry.employers.has(company.toLowerCase())) entry.employers.set(company.toLowerCase(), { host, path: pathname });
+    // Keep an unverified owner signal for every exact host. Dedupe by name
+    // alone can discard a second host's uncertainty when the company is seen
+    // on one host without a domain and another host with a verified owner.
+    const employerKey = employerDomain ? `domain:${employerDomain}` : `unknown:${company.toLowerCase()}@${host}`;
+    if (!entry.employers.has(employerKey)) entry.employers.set(employerKey, {
+      company,
+      host,
+      path: pathname,
+      employerDomain: employerDomain || undefined,
+    });
     if (entry.hosts.size < 20) entry.hosts.add(host);
   }
 
@@ -148,8 +157,17 @@ export function censusFromOwnCrawls(opts = {}) {
     if (entry.employers.size < minEmployers) { weakHosts++; continue; }
     platforms.push({
       domain,
-      employers: [...entry.employers.keys()],
-      employerHosts: [...entry.employers].map(([name, v]) => [name, v.host, v.path]),
+      employers: [...entry.employers.values()].map((employer) => employer.company),
+      // Preserve the first three tuple positions for consumers, but keep the
+      // display company separate from the independently verified domain. An
+      // absent domain remains `undefined`; it must reach the registry as an
+      // unknown owner, even when the company text happens to look like a host.
+      employerHosts: [...entry.employers.values()].map((employer) => [
+        employer.company,
+        employer.host,
+        employer.path,
+        employer.employerDomain,
+      ]),
       sampleHosts: [...entry.hosts],
     });
   }

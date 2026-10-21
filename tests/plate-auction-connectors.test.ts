@@ -17,7 +17,7 @@ import {
 import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
-import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
+import { parseShAuctionRows, SH_AUCTION_URL } from '../scripts/plate-auctions/connectors/sh.mjs';
 import {
   fetchSzPlateAuctions,
   parseSzAuctionRows,
@@ -92,6 +92,10 @@ const ECARI_NO_RUNNING_AUCTION_FR = readFileSync(join(__dirname, 'fixtures/ecari
 const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
+  it('uses the live localized SH auction catalogue endpoint', () => {
+    expect(SH_AUCTION_URL).toBe('https://www.auktion-stva.sh.ch/de/');
+  });
+
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
     const html = '<a href="/cars.pdf">Cars</a><a href="/motorcycles.pdf">Motorcycles</a>';
     expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source', pattern: /trailer\.pdf/i })).toBeUndefined();
@@ -123,6 +127,19 @@ describe('expanded plate-auction connectors', () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch')
       .mockResolvedValueOnce(firstResponse)
       .mockResolvedValueOnce(secondResponse);
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('retries a transient 404 from an official catalogue before degrading it', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response('temporary not found', { status: 404 }))
+      .mockResolvedValueOnce(new Response('<html>ok</html>', { status: 200 }));
 
     try {
       await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
@@ -331,13 +348,25 @@ describe('expanded plate-auction connectors', () => {
 
   it('reuses the card contract for AG, BE and VD after the portal migrations', () => {
     for (const sourceKey of ['ag', 'be', 'vd']) {
-      const [row] = parseExpandedCard(sourceKey, EXPANDED_CARD_SAMPLE.replaceAll('AG', sourceKey.toUpperCase()), { fetchedAt: '2026-09-15T08:00:00.000Z' });
+      const sample = EXPANDED_CARD_SAMPLE
+        .replaceAll('AG', sourceKey.toUpperCase())
+        .replace(sourceKey === 'vd' ? '/de/auction/' : '__no_match__', sourceKey === 'vd' ? '/fr/auction/' : '__no_match__');
+      const [row] = parseExpandedCard(sourceKey, sample, { fetchedAt: '2026-09-15T08:00:00.000Z' });
       expect(row, sourceKey).toMatchObject({
         id: `${sourceKey}-1768`,
         sourceKey: sourceKey.toUpperCase(),
         normalizedPlate: `${sourceKey.toUpperCase()}691`,
         currentBidChf: 950,
-        officialDetailUrl: 'https://www.' + (sourceKey === 'vd' ? 'encheres-vd.ch' : sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
+        officialAuctionUrl: sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch/fr/'
+          : sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch/de/',
+        officialDetailUrl: sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch/fr/auction/1768'
+          : (sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch') + '/de/auction/1768',
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }
@@ -362,6 +391,22 @@ describe('expanded plate-auction connectors', () => {
     const parserDrift = `${beNoResultsSample}
       <a href="/de/auction/231118" class="auction-element-link">changed card markup</a>`;
     const driftRows = parseExpandedCard('be', parserDrift);
+    expect(driftRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
+  });
+
+  it('recognizes the current French no-results shell for VD after the locale migration', () => {
+    const vdNoResultsSample = `<div class="auction-page">
+      <div class="auction-filters"><span>Type de plaques</span><button>Rechercher</button></div>
+      <p>Votre recherche n'a donné aucun résultat</p>
+    </div>`;
+    const rows = parseExpandedCard('vd', vdNoResultsSample, { fetchedAt: '2026-10-21T17:12:57.888Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+
+    const parserDrift = `${vdNoResultsSample}
+      <a href="/fr/auction/120554" class="auction-element-link">changed card markup</a>`;
+    const driftRows = parseExpandedCard('vd', parserDrift);
     expect(driftRows).toEqual([]);
     expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
   });

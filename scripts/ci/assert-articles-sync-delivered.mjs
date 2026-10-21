@@ -125,7 +125,6 @@ export function measureResidue({ root = ROOT, git = gitShow } = {}) {
     const { file, constName } = ARTICLE_REGISTRY_FILES[section];
     const rel = `${REGISTRY_DIR}/${path.basename(file)}`;
     const worktree = Object.keys(readSlugRegistryWithRows(path.join(root, rel), constName).registry);
-    const committed = Object.keys(readCommittedRegistry(rel, constName, git));
 
     // An empty registry on EITHER side is a measurement failure, never a fact,
     // and it is the one that fails OPEN if waved through: an absent
@@ -136,7 +135,15 @@ export function measureResidue({ root = ROOT, git = gitShow } = {}) {
     // materialised and it cheerfully reported success while measuring nothing.
     // Neither section has ever had an empty registry (thousands of rows each),
     // so a zero means the file is missing, unparseable, or the const renamed.
-    if (worktree.length < 1 || committed.length < 1) {
+    if (worktree.length < 1) {
+      throw new Error(
+        `${rel} (${constName}) parses to ${worktree.length} id(s) in the working tree — a registry is never legitimately empty, so this is a `
+        + 'measurement failure, not a delivered sync',
+      );
+    }
+
+    const committed = Object.keys(readCommittedRegistry(rel, constName, git));
+    if (committed.length < 1) {
       throw new Error(
         `${rel} (${constName}) parses to ${worktree.length} id(s) in the working tree and `
         + `${committed.length} in HEAD — a registry is never legitimately empty, so this is a `

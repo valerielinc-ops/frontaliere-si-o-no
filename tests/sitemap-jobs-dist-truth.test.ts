@@ -154,6 +154,29 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(fs.existsSync(pageFile(META_REFRESH))).toBe(true);
   });
 
+  it('keeps the final cross-canton detail and drops T5/T6 noindex or redirect aliases', async () => {
+    const canonical = `${BASE}/cerca-lavoro-zurigo/offerta-canonica/`;
+    const noindexAlias = `${BASE}/cerca-lavoro-ticino/offerta-canonica/`;
+    const redirectAlias = `${BASE}/cerca-lavoro-ticino/offerta-redirect/`;
+    fs.writeFileSync(
+      path.join(dist, 'sitemap-jobs.xml'),
+      wrap([canonical, noindexAlias, redirectAlias]),
+      'utf-8',
+    );
+    writePage(canonical, selfCanonical(canonical));
+    writePage(noindexAlias, noindexBridge(canonical));
+    writePage(redirectAlias, metaRefreshBridge(canonical));
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    const out = readSitemap();
+    expect(out).toContain(canonical);
+    expect(out).not.toContain(noindexAlias);
+    expect(out).not.toContain(redirectAlias);
+    expect(fs.existsSync(pageFile(noindexAlias))).toBe(true);
+    expect(fs.existsSync(pageFile(redirectAlias))).toBe(true);
+  });
+
   it('drops a sitemap URL whose final HTML has no canonical tag', async () => {
     fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([MISSING_CANONICAL]), 'utf-8');
     writePage(MISSING_CANONICAL, missingCanonical());

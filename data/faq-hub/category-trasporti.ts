@@ -98,7 +98,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "L'AG (abonnement général) coûte CHF 3 995 en 2e classe adulte en 2025 (CFF, trains régionaux, bateaux, CarPostal) [source : CFF tarifs 2025]. Pour un pendulaire Chiasso-Lugano, billet simple CHF 13,80, l'AG est rentable au-delà de 289 trajets/an (~145 jours). Alternatives : abonnement de parcours (Punto-a-Punto, CHF 1 850/an Chiasso-Lugano) ou Step multi-parcours. L'AG demi-tarif (CHF 190/an) divise par deux les billets simples. Le Ticino Ticket gratuit est réservé aux touristes hôtels. L'employeur peut rembourser en partie (hors taxe si justifié).",
     },
     sources: [
-      'https://www.sbb.ch/it/abbonamenti-e-biglietti/abbonamenti-pendolari/ag.html',
+      'https://company.sbb.ch/it',
     ],
   },
   {
@@ -124,7 +124,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
         "Oui. Le réseau tessinois de parcs-relais offre 12 sites principaux à Mendrisio, Chiasso, Balerna, Bellinzone et Lugano [source : TI.ch mobilité]. Abonnement annuel CHF 480 à Mendrisio CFF, CHF 720 à Lugano Cornaredo. Plateforme officielle de covoiturage : Hitchhiker.ch (gratuit) et BlaBlaCar sur Como-Lugano et Varese-Lugano. L'employeur peut organiser des navettes (CSCS Manno, AlpTransit Bodio) et bénéficier d'incitations fiscales cantonales. Dès 2026 la « Carte mobilité frontalière » offre 30 % de rabais sur les abonnements Arcobaleno (plan Mobilité 2030).",
     },
     sources: [
-      'https://www4.ti.ch/dt/dstm/divisione/',
+      'https://www4.ti.ch/dt/dstm/divisione',
     ],
   },
   {
@@ -270,7 +270,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www4.ti.ch/dt/dstm/',
+      'https://www4.ti.ch/dt/dstm/divisione',
     ],
   },
   {

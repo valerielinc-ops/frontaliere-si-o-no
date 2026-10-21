@@ -43,6 +43,76 @@ function skip(reason, detail = reason) {
   return { action: 'skip', reason, detail };
 }
 
+const SOURCE_SHA_RE = /^[0-9a-f]{40}$/i;
+const PUBLISH_RUN_NAME_RE = /^Publish Pages build\s+\d+\s+@\s+([0-9a-f]{40})$/i;
+
+function validSha(value) {
+  const sha = text(value);
+  return SOURCE_SHA_RE.test(sha) ? sha : '';
+}
+
+function sourceShaFromPublishRun(run) {
+  const explicitSourceSha = validSha(run?.sourceSha || run?.source_sha);
+  if (explicitSourceSha) return explicitSourceSha;
+  const match = text(run?.runName || run?.run_name).match(PUBLISH_RUN_NAME_RE);
+  return match ? match[1] : '';
+}
+
+function deploymentHeadSha(deployment) {
+  return text(deployment?.headSha || deployment?.head_sha || deployment?.sha);
+}
+
+function deploymentPayload(deployment) {
+  if (deployment?.payload && typeof deployment.payload === 'object') return deployment.payload;
+  if (typeof deployment?.payload !== 'string') return {};
+  try {
+    const parsed = JSON.parse(deployment.payload);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+export function deploymentSourceSha(deployment, latestStatus, publishRuns = []) {
+  const payload = deploymentPayload(deployment);
+  const explicitSourceSha = validSha(
+    payload.sourceSha
+      || payload.source_sha
+      || deployment?.sourceSha
+      || deployment?.source_sha,
+  );
+  if (explicitSourceSha) return explicitSourceSha;
+
+  const runId = [
+    latestStatus?.targetUrl,
+    latestStatus?.target_url,
+    latestStatus?.logUrl,
+    latestStatus?.log_url,
+  ]
+    .map((url) => text(url).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1] || '')
+    .find(Boolean);
+  if (!runId) return '';
+  return sourceShaFromPublishRun(
+    (Array.isArray(publishRuns) ? publishRuns : []).find((run) => String(run?.id) === runId),
+  );
+}
+
+function successfulDeploymentSourceSha({ deployment, publishRuns }) {
+  const explicitSourceSha = deploymentSourceSha(deployment);
+  if (explicitSourceSha) return explicitSourceSha;
+
+  const deploymentSha = deploymentHeadSha(deployment).toLowerCase();
+  if (!deploymentSha) return '';
+  const matchingSourceShas = new Set(
+    (Array.isArray(publishRuns) ? publishRuns : [])
+      .filter((run) => text(run?.headSha || run?.head_sha).toLowerCase() === deploymentSha)
+      .map(sourceShaFromPublishRun)
+      .filter(Boolean)
+      .map((sha) => sha.toLowerCase()),
+  );
+  return matchingSourceShas.size === 1 ? [...matchingSourceShas][0] : '';
+}
+
 function successfulBuilds(builds) {
   return (Array.isArray(builds) ? builds : [])
     .filter((run) => (
@@ -94,24 +164,49 @@ export function decideLatestPublish({
   publishRuns,
   lastSuccessfulDeployment,
   activeDeployment = null,
+  successfulDeploymentShas = [],
   maxAttempts = DEFAULT_MAX_PUBLISH_ATTEMPTS,
 } = {}) {
   const candidate = successfulBuilds(builds)[0];
   if (!candidate) return skip('no-successful-build', 'no successful main build is available to publish');
 
-  const activeRun = (Array.isArray(publishRuns) ? publishRuns : []).find((run) => LIVE_STATUSES.has(text(run?.status)));
-  if (activeRun) {
-    return skip('publish-moving', `publish run ${text(activeRun.id) || '<unknown>'} is ${text(activeRun.status)}`);
+  const candidateSha = text(candidate.headSha || candidate.head_sha);
+  const publishedDeploymentSha = deploymentHeadSha(lastSuccessfulDeployment);
+  const publishedSourceSha = successfulDeploymentSourceSha({
+    deployment: lastSuccessfulDeployment,
+    publishRuns,
+  });
+  const publishedArtifactSha = publishedSourceSha || publishedDeploymentSha;
+  if (publishedArtifactSha.toLowerCase() === candidateSha.toLowerCase()) {
+    return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
   }
 
   if (activeDeployment) {
     return skip('pages-moving', `Pages deployment ${text(activeDeployment.id) || '<unknown>'} is ${text(activeDeployment.state)}`);
   }
 
-  const candidateSha = text(candidate.headSha || candidate.head_sha);
-  const publishedSha = text(lastSuccessfulDeployment?.sha);
-  if (publishedSha === candidateSha) {
-    return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
+  // deploy-publish.yml deliberately keeps its long validate-dist and
+  // post-deploy tails independent from the `pages-deploy` concurrency lock.
+  // A workflow run can therefore remain in_progress after its Pages upload
+  // has succeeded. The deployment API records the dispatch ref (`head_sha`),
+  // while `source_sha` identifies the older build artifact and may differ.
+  // Treat only an active run whose own ref has not been published as a blocker;
+  // an unreadable ref remains fail-closed.
+  const deployedRevisions = new Set(
+    [
+      ...(Array.isArray(successfulDeploymentShas) ? successfulDeploymentShas : []),
+      publishedDeploymentSha,
+    ]
+      .map((sha) => text(sha).toLowerCase())
+      .filter(Boolean),
+  );
+  const activeRun = (Array.isArray(publishRuns) ? publishRuns : []).find((run) => {
+    if (!LIVE_STATUSES.has(text(run?.status))) return false;
+    const runRevision = text(run?.headSha || run?.head_sha).toLowerCase();
+    return !runRevision || !deployedRevisions.has(runRevision);
+  });
+  if (activeRun) {
+    return skip('publish-moving', `publish run ${text(activeRun.id) || '<unknown>'} is ${text(activeRun.status)}`);
   }
 
   const attempts = (Array.isArray(publishRuns) ? publishRuns : [])
@@ -179,6 +274,7 @@ function mapPublish(run) {
   return {
     id: numericId(run?.id),
     headSha: text(run?.head_sha),
+    sourceSha: sourceShaFromPublishRun(run),
     status: text(run?.status),
     conclusion: text(run?.conclusion),
     event: text(run?.event),
@@ -195,11 +291,12 @@ async function listWorkflowRuns(repo, workflow) {
   return payload.workflow_runs;
 }
 
-async function inspectDeployments(repo) {
+async function inspectDeployments(repo, publishRuns = []) {
   const deployments = await ghJson(`/repos/${repo}/deployments?environment=github-pages&per_page=100`);
   if (!Array.isArray(deployments)) throw new Error('Pages deployment listing is malformed');
   let lastSuccessfulDeployment = null;
   let activeDeployment = null;
+  const successfulDeploymentShas = new Set();
   for (const deployment of deployments) {
     const id = numericId(deployment?.id);
     if (!id) continue;
@@ -211,14 +308,24 @@ async function inspectDeployments(repo) {
       activeDeployment = { id, state };
     }
     if (!lastSuccessfulDeployment && state === 'success') {
+      const deploymentSha = text(deployment?.sha);
+      if (deploymentSha) successfulDeploymentShas.add(deploymentSha);
       lastSuccessfulDeployment = {
         id,
-        sha: text(deployment?.sha),
+        sha: deploymentSha,
+        sourceSha: deploymentSourceSha(deployment, latest, publishRuns),
         publishedAt: text(latest?.created_at),
       };
+    } else if (state === 'success') {
+      const deploymentSha = text(deployment?.sha);
+      if (deploymentSha) successfulDeploymentShas.add(deploymentSha);
     }
   }
-  return { lastSuccessfulDeployment, activeDeployment };
+  return {
+    lastSuccessfulDeployment,
+    activeDeployment,
+    successfulDeploymentShas: [...successfulDeploymentShas],
+  };
 }
 
 function appendSummary(message) {
@@ -246,13 +353,13 @@ async function dispatchPublish(repo, candidate) {
 
 async function main() {
   const repo = repository();
-  const [rawBuilds, rawPublishes, deploymentState] = await Promise.all([
+  const [rawBuilds, rawPublishes] = await Promise.all([
     listWorkflowRuns(repo, BUILD_WORKFLOW),
     listWorkflowRuns(repo, PUBLISH_WORKFLOW),
-    inspectDeployments(repo),
   ]);
   const builds = rawBuilds.map(mapBuild);
   const publishRuns = rawPublishes.map(mapPublish);
+  const deploymentState = await inspectDeployments(repo, publishRuns);
   const verdict = decideLatestPublish({
     builds,
     publishRuns,

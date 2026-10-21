@@ -2,6 +2,14 @@
  * Keep vacancy volume as the main synthesis signal while reserving capacity
  * for older, smaller employers so a high-volume tail cannot starve them.
  */
+export function parseSynthesisLimit(value) {
+  const limit = Number(value);
+  if (!Number.isSafeInteger(limit) || limit < 0) {
+    throw new Error('--limit must be a non-negative safe integer');
+  }
+  return limit;
+}
+
 export function prioritizeSynthesisCandidates(candidates, limit) {
   const max = Math.max(0, Math.floor(Number(limit) || 0));
   if (!max) return [];

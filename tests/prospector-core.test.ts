@@ -68,6 +68,7 @@ import {
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
 import { fetchFollowingValidatedRedirects, fetchHtml } from '../scripts/lib/crawler-template.mjs';
 import { attributableTraceHosts, traceCandidate } from '../scripts/lib/prospector/trace-candidate.mjs';
+import { censusFromOwnCrawls } from '../scripts/lib/prospector/sources/known-crawlers.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -211,6 +212,58 @@ describe('platform registry', () => {
     expect(enumerablePlatforms(r).map((p) => p.domain)).toContain('ats.example');
     expect(enumerablePlatforms(r).map((p) => p.domain)).not.toContain('board.example');
     expect(sharedHostPlatforms(r).map((p) => p.domain)).toContain('board.example');
+  });
+
+  it('records verified owners and keeps unknown ownership sticky for the exact tenant host', () => {
+    const r = emptyRegistry();
+    observePlatform(r, { tenantHost: 'recruitingapp-1.vendor.example', employerDomain: 'https://www.alpha.ch/jobs' });
+    observePlatform(r, { tenantHost: 'recruitingapp-1.vendor.example', employerDomain: 'unresolved employer name' });
+    observePlatform(r, { tenantHost: 'recruitingapp-2.vendor.example', employerDomain: 'beta.ch' });
+    observePlatform(r, { tenantHost: 'recruitingapp-3.vendor.example' });
+
+    expect(r.platforms['vendor.example'].hostEmployers).toEqual({
+      'recruitingapp-1.vendor.example': ['alpha.ch'],
+      'recruitingapp-2.vendor.example': ['beta.ch'],
+    });
+    expect(r.platforms['vendor.example'].hostEmployerUnknown).toEqual({
+      'recruitingapp-1.vendor.example': true,
+      'recruitingapp-3.vendor.example': true,
+    });
+  });
+
+  it('preserves homonymous own-crawl employers by verified domain and carries unknown owners through', () => {
+    const dataRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-own-census-'));
+    fs.writeFileSync(path.join(dataRoot, 'jobs.json'), JSON.stringify([
+      { url: 'https://recruitingapp.vendor.example/jobs/1', company: 'Acme SA', companyDomain: 'alpha.ch' },
+      { url: 'https://recruitingapp.vendor.example/jobs/2', company: 'Acme SA', companyDomain: 'beta.ch' },
+      { url: 'https://recruitingapp.vendor.example/jobs/3', company: 'No Domain SA' },
+      { url: 'https://another.vendor.example/jobs/1', company: 'owner-shaped.example' },
+      { url: 'https://another.vendor.example/jobs/2', company: 'Beta AG', companyDomain: 'gamma.ch' },
+    ]));
+
+    try {
+      const census = censusFromOwnCrawls({ dataRoot });
+      const platform = census.platforms.find((item) => item.domain === 'vendor.example');
+      expect(platform?.employers).toEqual(['Acme SA', 'Acme SA', 'No Domain SA', 'owner-shaped.example', 'Beta AG']);
+      expect(platform?.employerHosts).toEqual([
+        ['Acme SA', 'recruitingapp.vendor.example', '/jobs/1', 'alpha.ch'],
+        ['Acme SA', 'recruitingapp.vendor.example', '/jobs/2', 'beta.ch'],
+        ['No Domain SA', 'recruitingapp.vendor.example', '/jobs/3', undefined],
+        ['owner-shaped.example', 'another.vendor.example', '/jobs/1', undefined],
+        ['Beta AG', 'another.vendor.example', '/jobs/2', 'gamma.ch'],
+      ]);
+
+      const r = emptyRegistry();
+      for (const [, host, jobPath, employerDomain] of platform!.employerHosts) {
+        observePlatform(r, { tenantHost: host, path: jobPath, employerDomain });
+      }
+      expect(r.platforms['vendor.example'].hostEmployers['recruitingapp.vendor.example']).toEqual(['alpha.ch', 'beta.ch']);
+      expect(r.platforms['vendor.example'].hostEmployers['another.vendor.example']).toEqual(['gamma.ch']);
+      expect(r.platforms['vendor.example'].hostEmployerUnknown['recruitingapp.vendor.example']).toBe(true);
+      expect(r.platforms['vendor.example'].hostEmployerUnknown['another.vendor.example']).toBe(true);
+    } finally {
+      fs.rmSync(dataRoot, { recursive: true, force: true });
+    }
   });
 
   it('schedules only shared-host vendors with tenant ids in the path for slug probing', () => {

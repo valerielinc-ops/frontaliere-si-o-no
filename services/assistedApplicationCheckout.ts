@@ -9,8 +9,27 @@ export interface AssistedApplicationCheckoutInput {
   jobTitle: string;
   /** Presentation metadata persisted on the order for the concierge email. */
   companyLogo?: string | null;
+  companyKey?: string | null;
   location?: string | null;
   canton?: string | null;
+  contract?: string | null;
+  salaryMin?: number | null;
+  salaryMax?: number | null;
+  salarySource?: 'reported' | 'existing' | 'estimated' | null;
+  salaryCurrency?: string | null;
+  baseSalary?: {
+    value?: {
+      minValue?: number;
+      maxValue?: number;
+      unitText?: string;
+      currency?: string;
+    };
+    currency?: string;
+  } | null;
+  postedDate?: string | null;
+  firstSeenAt?: string | null;
+  sector?: string | null;
+  category?: string | null;
   /** `offerwall_fallback`: paid offer opened because the rewarded Offerwall could not load. */
   experimentVariant: 'control' | 'assisted_application' | 'offerwall_fallback';
   /** Copy arm shown in the paid offer; persisted for post-payment attribution. */
