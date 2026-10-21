@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-9f4d5dbc7f1f",
-      "slug": "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos",
+      "slug": "meccatronico-a-per-impianti-a-fune-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos",
-        "it": "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos",
-        "en": "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos",
-        "fr": "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos"
+        "it": "meccatronico-a-per-impianti-a-fune-davos-klosters-bergbahnen-ag-davos",
+        "en": "cable-car-mechatronics-technician-davos-klosters-bergbahnen-ag-davos",
+        "fr": "mecatronicien-ne-de-remontees-mecaniques-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -65,7 +65,21 @@
       "postalCode": "7270",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahn-Mechatroniker-in_j_3953336",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-21T09:26:35.239Z"
+      "firstSeenAt": "2026-10-21T09:26:35.239Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "seilbahn-mechatroniker-in-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-cbe65104ec80",
@@ -236,12 +250,12 @@
     },
     {
       "id": "davos-klosters-bergbahnen-be56530d55c4",
-      "slug": "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos",
+      "slug": "meccanico-a-di-stabilimento-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
         "de": "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos",
-        "it": "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos",
-        "en": "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos",
-        "fr": "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos"
+        "it": "meccanico-a-di-stabilimento-davos-klosters-bergbahnen-ag-davos",
+        "en": "operations-mechanic-davos-klosters-bergbahnen-ag-davos",
+        "fr": "mecanicien-ne-d-exploitation-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen-ag",
@@ -296,7 +310,21 @@
       "postalCode": "7270",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in_j_3953349",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-21T09:26:34.626Z"
+      "firstSeenAt": "2026-10-21T09:26:34.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos"
+        ],
+        "en": [
+          "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos"
+        ],
+        "fr": [
+          "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "previousSlugs": [
+        "betriebs-mechaniker-in-davos-klosters-bergbahnen-davos"
+      ]
     }
   ]
 }

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "belimo-2ccec97ba5cf",
-      "slug": "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil",
+      "slug": "addetto-a-alla-produzione-e-al-montaggio-turno-serale-14-00-23-00-temporaneo-a-belimo-hinwil",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil",
-        "it": "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil",
-        "en": "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil",
-        "fr": "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil"
+        "it": "addetto-a-alla-produzione-e-al-montaggio-turno-serale-14-00-23-00-temporaneo-a-belimo-hinwil",
+        "en": "production-worker-assembly-evening-shift-14-00-23-00-temporary-belimo-hinwil",
+        "fr": "collaborateur-rice-de-production-en-montage-equipe-du-soir-14-00-23-00-temporaire-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -70,16 +70,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:22:31.869Z"
+      "firstSeenAt": "2026-10-21T09:22:31.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-montage-abendschicht-14-00-23-00-uhr-temporar-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-94020a05abe3",
-      "slug": "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil",
+      "slug": "addetto-a-alla-produzione-e-al-montaggio-turno-diurno-06-00-15-00-temporaneo-a-belimo-hinwil",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil",
-        "it": "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil",
-        "en": "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil",
-        "fr": "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil"
+        "it": "addetto-a-alla-produzione-e-al-montaggio-turno-diurno-06-00-15-00-temporaneo-a-belimo-hinwil",
+        "en": "production-worker-assembly-day-shift-06-00-15-00-temporary-belimo-hinwil",
+        "fr": "collaborateur-rice-de-production-en-montage-equipe-de-jour-06-00-15-00-temporaire-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -139,16 +153,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:22:31.258Z"
+      "firstSeenAt": "2026-10-21T09:22:31.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-montage-tagesschicht-06-00-15-00-uhr-temporar-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-baac94d0c912",
-      "slug": "montagemitarbeiter-in-per-verlangerte-wochenendschichten-tag-o-nachtschicht-12-stunden-prasenz-belimo-hinwil",
+      "slug": "addetto-a-al-montaggio-per-turni-prolungati-nei-fine-settimana-turno-diurno-o-notturno-presenza-di-12-ore-belimo-hinwil",
       "slugByLocale": {
         "de": "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden",
-        "it": "montagemitarbeiter-in-per-verlangerte-wochenendschichten-tag-o-nachtschicht-12-stunden-prasenz-belimo-hinwil",
-        "en": "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden",
-        "fr": "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden"
+        "it": "addetto-a-al-montaggio-per-turni-prolungati-nei-fine-settimana-turno-diurno-o-notturno-presenza-di-12-ore-belimo-hinwil",
+        "en": "assembly-worker-for-extended-weekend-shifts-day-or-night-shift-12-hours-on-site-belimo-hinwil",
+        "fr": "collaborateur-rice-de-montage-pour-des-equipes-de-week-end-prolongees-de-jour-ou-de-nuit-presence-de-12-heures-belimo"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -197,11 +225,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden",
+          "montagemitarbeiter-in-per-verlangerte-wochenendschichten-tag-o-nachtschicht-12-stunden-prasenz-belimo-hinwil"
+        ],
+        "en": [
+          "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden"
+        ],
+        "fr": [
           "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden"
         ]
       },
       "previousSlugs": [
-        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden"
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tag-oder-nachtschicht-12-stunden",
+        "montagemitarbeiter-in-per-verlangerte-wochenendschichten-tag-o-nachtschicht-12-stunden-prasenz-belimo-hinwil"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -220,12 +256,12 @@
     },
     {
       "id": "belimo-53f227ebfaa7",
-      "slug": "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil",
+      "slug": "addetto-a-alla-produzione-e-al-montaggio-turno-notturno-23-00-06-00-temporaneo-a-belimo-hinwil",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil",
-        "it": "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil",
-        "en": "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil",
-        "fr": "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil"
+        "it": "addetto-a-alla-produzione-e-al-montaggio-turno-notturno-23-00-06-00-temporaneo-a-belimo-hinwil",
+        "en": "production-worker-assembly-night-shift-23-00-06-00-temporary-belimo-hinwil",
+        "fr": "collaborateur-rice-de-production-en-montage-equipe-de-nuit-23-00-06-00-temporaire-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -285,7 +321,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:22:30.045Z"
+      "firstSeenAt": "2026-10-21T09:22:30.045Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsmitarbeiter-in-montage-nachtschicht-23-00-06-00-uhr-temporar-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-fd1d69c28e04",

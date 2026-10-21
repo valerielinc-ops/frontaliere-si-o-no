@@ -5670,12 +5670,12 @@
     },
     {
       "id": "kanton-basel-landschaft-da434448554a",
-      "slug": "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden",
+      "slug": "insegnante-specializzato-supporto-speciale-kantonale-verwaltung-basel-landschaft-gelterkinden",
       "slugByLocale": {
         "de": "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden",
-        "it": "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden",
-        "en": "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden",
-        "fr": "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden"
+        "it": "insegnante-specializzato-supporto-speciale-kantonale-verwaltung-basel-landschaft-gelterkinden",
+        "en": "specialised-teacher-special-support-kantonale-verwaltung-basel-landschaft-gelterkinden",
+        "fr": "enseignant-specialise-soutien-special-kantonale-verwaltung-basel-landschaft-gelterkinden"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5734,7 +5734,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-21T09:14:21.622Z"
+      "firstSeenAt": "2026-10-21T09:14:21.622Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden"
+        ],
+        "en": [
+          "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden"
+        ],
+        "fr": [
+          "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden"
+        ]
+      },
+      "previousSlugs": [
+        "fachlehrperson-spezielle-forderung-kanton-basel-landschaft-gelterkinden"
+      ]
     }
   ]
 }

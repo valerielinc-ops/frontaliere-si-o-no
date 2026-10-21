@@ -320,12 +320,12 @@
     },
     {
       "id": "wagerenhof-f76a55e10f93",
-      "slug": "pflegefachfrau-mann-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
+      "slug": "infermiera-e-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster",
-        "it": "pflegefachfrau-mann-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
-        "en": "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster",
-        "fr": "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster"
+        "it": "infermiera-e-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
+        "en": "registered-nurse-hf-dn-ii-akp-50-stiftung-wagerenhof-uster",
+        "fr": "infirmier-iere-diplome-e-es-dn-ii-akp-50-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -372,11 +372,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster",
+          "pflegefachfrau-mann-hf-dn-ii-akp-50-stiftung-wagerenhof-uster"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster"
+        ],
+        "fr": [
           "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster"
+        "pflegefachfrau-mann-hf-dn-ii-akp-50-wagerenhof-uster",
+        "pflegefachfrau-mann-hf-dn-ii-akp-50-stiftung-wagerenhof-uster"
       ],
       "salaryMin": 45800,
       "salaryMax": 64000,
