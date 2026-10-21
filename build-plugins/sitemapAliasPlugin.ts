@@ -468,7 +468,7 @@ export function sanitizeSitemapHreflangReciprocity(
 }
 
 /**
- * Apply the final dist-truth gate to every dynamic sitemap family.
+ * Apply the final dist-truth gate to every emitted sitemap family.
  *
  * Individual producers can run before a later page emitter overwrites a
  * route. Keeping this pass here makes the published sitemap reflect the
@@ -502,7 +502,7 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         const distDir = path.resolve(rootDir, 'dist');
         if (!fs.existsSync(distDir)) return;
 
-        // 0. Final dist-truth reconciliation for dynamic sitemaps. This hook
+        // 0. Final dist-truth reconciliation for every sitemap family. This hook
         //    is deliberately the last sitemap hook in the post phase: the
         //    producers' first passes run before later page emitters, so only
         //    this position can catch a late noindex, non-self-canonical, or

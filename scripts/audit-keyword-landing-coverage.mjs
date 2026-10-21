@@ -67,6 +67,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { keywordLandingPath } from './lib/keyword-page-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -84,21 +85,23 @@ function decodeEntities(s) {
     .replace(/&apos;/gi, "'");
 }
 
-/** Same shape as validate-sitemap-pages.mjs's hasNoindex — attribute-order
- *  independent, quote-flexible (PR #478 removeAttributeQuotes). */
+/** Same quote-balanced robots parser used by the sitemap validators. */
 export function hasNoindex(html) {
-  return /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i.test(html);
+  return scanMarkupStartTags(html, 'meta').some(({ raw }) => {
+    if (readAttr(raw, 'name').trim().toLowerCase() !== 'robots') return false;
+    return readAttr(raw, 'content')
+      .split(/[\s,]+/)
+      .some((token) => token.toLowerCase() === 'noindex');
+  });
 }
 
 /** First <link rel=canonical> href in the document, or null. Quote-flexible. */
 export function extractCanonical(html) {
-  const linkRe = /<link\b[^>]*>/gi;
-  let m;
-  while ((m = linkRe.exec(html)) !== null) {
-    const tag = m[0];
-    if (!/rel\s*=\s*["']?canonical["']?/i.test(tag)) continue;
-    const href = tag.match(/href\s*=\s*"([^"]+)"/i) || tag.match(/href\s*=\s*'([^']+)'/i);
-    if (href && href[1]) return decodeEntities(href[1].trim());
+  for (const { raw } of scanMarkupStartTags(html, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readAttr(raw, 'href').trim();
+    if (href) return decodeEntities(href);
   }
   return null;
 }

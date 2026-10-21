@@ -3,7 +3,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { reconcileArticleSitemapsWithDist } from '../build-plugins/sitemapAliasPlugin';
+import {
+  reconcileArticleSitemapsWithDist,
+  reconcileFinalSitemapsWithDist,
+} from '../build-plugins/sitemapAliasPlugin';
 import { extractSitemapLocs } from '../build-plugins/relatedSearchClustersPlugin';
 
 const BASE = 'https://frontaliereticino.ch';
@@ -12,6 +15,9 @@ const HEALTHY = `${BASE}/en/cross-border-articles/real-article/`;
 const DRIFT = `${BASE}/fr/articles-frontalier/canonical-drift-article/`;
 const BRIDGE = `${BASE}/it/articoli-frontalieri/previous-article-slug/`;
 const MISSING = `${BASE}/fr/articles-frontalier/foreign-shard-article/`;
+const STATIC_NOINDEX = `${BASE}/about/legacy-noindex/`;
+const STATIC_DRIFT = `${BASE}/contact/legacy-canonical-drift/`;
+const STATIC_BRIDGE = `${BASE}/privacy-policy/legacy-alias/`;
 
 const urlset = (locs: string[]) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
@@ -72,6 +78,24 @@ describe('reconcileArticleSitemapsWithDist', () => {
     await reconcileArticleSitemapsWithDist(dist);
 
     expect(fs.readFileSync(file, 'utf8')).toBe(before);
+  });
+
+  it('applies the same final-dist predicate to an unowned static sitemap family', async () => {
+    const file = path.join(dist, 'sitemap-pages.xml');
+    fs.writeFileSync(file, urlset([STATIC_NOINDEX, STATIC_DRIFT, STATIC_BRIDGE]), 'utf8');
+    writePage(
+      STATIC_NOINDEX,
+      `<meta name="robots" content="noindex,follow"><link rel="canonical" href="${STATIC_NOINDEX}">`,
+    );
+    writePage(STATIC_DRIFT, `<link rel="canonical" href="${HEALTHY}">`);
+    writePage(
+      STATIC_BRIDGE,
+      `<link rel="canonical" href="${HEALTHY}"><!-- __BRIDGE_TARGET_SLUG__ -->`,
+    );
+
+    await reconcileFinalSitemapsWithDist(dist, []);
+
+    expect(extractSitemapLocs(fs.readFileSync(file, 'utf8'))).toEqual([STATIC_BRIDGE]);
   });
 
   it('propagates a non-ENOENT candidate read error', async () => {

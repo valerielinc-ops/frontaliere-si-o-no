@@ -173,6 +173,21 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     expect(readSitemap()).not.toContain('unquoted-canonical');
   });
 
+  it('does not treat comment or script text as live noindex metadata', async () => {
+    fs.writeFileSync(path.join(dist, 'sitemap-jobs.xml'), wrap([HEALTHY]), 'utf-8');
+    writePage(
+      HEALTHY,
+      '<!doctype html><html><head>' +
+        '<!-- <meta name=robots content=noindex> -->' +
+        '<script>const fake = "<meta name=robots content=noindex>";</script>' +
+        `<link href="${HEALTHY}" rel="canonical"></head><body>ok</body></html>`,
+    );
+
+    await reconcileSitemapJobsWithDist(dist, []);
+
+    expect(readSitemap()).toContain(HEALTHY);
+  });
+
   it('still drops a known cross-section mirror passed in explicitly (#911)', async () => {
     await reconcileSitemapJobsWithDist(dist, [KNOWN_MIRROR]);
     expect(readSitemap()).not.toContain('ricerca-projektleiter-m-w-d');

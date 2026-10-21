@@ -42,6 +42,7 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runner.mjs';
 import { readHeadOrAll } from './lib/readHead.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
 // Bounded in-flight reads — same cap audit-hreflang and dropOverwrittenLocs
 // use for this workload (pure I/O over dist/ on a 4-vCPU runner).
@@ -108,16 +109,11 @@ function decodeEntities(s) {
  * @returns {string|null}
  */
 function extractCanonical(html) {
-  const linkRe = /<link\b[^>]*>/gi;
-  let m;
-  while ((m = linkRe.exec(html)) !== null) {
-    const tag = m[0];
-    if (!/rel\s*=\s*["']?canonical["']?/i.test(tag)) continue;
-    const href =
-      tag.match(/href\s*=\s*"([^"]+)"/i) ||
-      tag.match(/href\s*=\s*'([^']+)'/i) ||
-      tag.match(/href\s*=\s*([^"'\s>]+)/i);
-    if (href && href[1]) return decodeEntities(href[1].trim());
+  for (const { raw } of scanMarkupStartTags(html, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readAttr(raw, 'href').trim();
+    if (href) return decodeEntities(href);
   }
   return null;
 }
