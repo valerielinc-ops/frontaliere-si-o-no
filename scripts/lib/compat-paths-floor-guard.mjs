@@ -31,7 +31,8 @@ export const COMPAT_PATHS_SANITY_FLOOR = 150_000;
 export const COMPAT_PATHS_MAX_AUTO_PRUNE_COUNT = 50_000;
 export const COMPAT_PATHS_MAX_AUTO_PRUNE_RATIO = 0.10;
 export const COMPAT_PATHS_MAX_AUTO_PRUNE_FAMILY_RATIO = 0.25;
-export const COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE = 20;
+export const COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE = 2;
+export const COMPAT_PATHS_MIN_AUTO_PRUNE_RATIO_FAMILY_SIZE = 20;
 
 const LOCALES = new Set(['de', 'en', 'fr', 'it']);
 
@@ -138,8 +139,8 @@ export function assertCompatPruneSafety(prevCount, nextCount, opts = {}) {
  * @param {object} [opts]
  * @param {string} [opts.label='seo-404-compat-paths.json']
  * @param {boolean} [opts.allowLargePrune=false]
- * @throws {Error} when a route family with at least 20 paths disappears or
- *                  loses an unexpected cohort
+ * @throws {Error} when a route family with at least 2 paths disappears, or a
+ *                  family with at least 20 paths loses an unexpected cohort
  */
 export function assertCompatPruneFamilySafety(familyTotals, familyRemoved, opts = {}) {
   if (opts.allowLargePrune === true) return;
@@ -175,9 +176,10 @@ export function assertCompatPruneFamilySafety(familyTotals, familyRemoved, opts 
     const removed = familyRemoved.get(family) ?? 0;
     if (total <= 0) continue;
     const ratio = removed / total;
-    const establishedFamily = total >= COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE;
-    const entireFamilyRemoved = establishedFamily && removed === total;
-    const establishedFamilyLoss = establishedFamily && ratio > COMPAT_PATHS_MAX_AUTO_PRUNE_FAMILY_RATIO;
+    const multiPathFamily = total >= COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE;
+    const ratioEstablishedFamily = total >= COMPAT_PATHS_MIN_AUTO_PRUNE_RATIO_FAMILY_SIZE;
+    const entireFamilyRemoved = multiPathFamily && removed === total;
+    const establishedFamilyLoss = ratioEstablishedFamily && ratio > COMPAT_PATHS_MAX_AUTO_PRUNE_FAMILY_RATIO;
     if (entireFamilyRemoved || establishedFamilyLoss) {
       suspicious.push({ family, removed, total, ratio });
     }
@@ -191,7 +193,8 @@ export function assertCompatPruneFamilySafety(familyTotals, familyRemoved, opts 
   throw new Error(
     `❌ ABORT prune of ${label}: localized route-family loss exceeds ` +
       `${COMPAT_PATHS_MAX_AUTO_PRUNE_FAMILY_RATIO * 100}% for ${suspicious.length} family/families ` +
-      `(complete or >25% loss is reviewed when a family has at least ${COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE} paths). ` +
+      `(complete loss is reviewed from ${COMPAT_PATHS_MIN_AUTO_PRUNE_FAMILY_SIZE} paths; ` +
+      `>25% loss from ${COMPAT_PATHS_MIN_AUTO_PRUNE_RATIO_FAMILY_SIZE} paths). ` +
       `Review the dropped paths and resolver; only then rerun with ` +
       `PRUNE_404_ALLOW_LARGE_PRUNE=1 to authorize this cleanup. Sample: ${sample}`,
   );
