@@ -1598,7 +1598,7 @@ export const EDGE_RETIRED_PATHS = {
 
   // ── GSC 404 decisions checked 2026-10-21 (6 gone, 1 moved). ────────────
   // These six old article URLs have no current corpus owner or equivalent
-  // document. The build declares them with section-root targets so this edge
+  // document. The build declares each section-root target so this edge
   // layer can answer 410 instead of allowing the append-only shard to drift
   // into a soft-404 if an old byte is ever present there again. The seventh
   // URL, with a documented equivalent, remains a direct 301 below.
