@@ -13544,6 +13544,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ville-ponti-frontalieri-confronto.title': 'Frontalieri, alle Ville Ponti il confronto sul lavoro',
     'blog.article.ville-ponti-frontalieri-confronto.excerpt': '24 ottobre: convegno alle Ville Ponti di Varese Alle 10 la ricerca sui lavoratori frontalieri Due tavole rotonde su economia e istituzioni Conclusioni',
     'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.guida-saldatore-ticino-frontiera.title': 'Saldatore frontaliere in Ticino: stipendio e requisiti',
+    'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'Permesso G, imposta alla fonte e contributi: il quadro verificato per chi valuta il lavoro da saldatore frontaliere in Ticino, con accordo in vigore dal 2024.',
+    'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

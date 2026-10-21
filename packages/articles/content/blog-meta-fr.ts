@@ -13545,6 +13545,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ville-ponti-frontalieri-confronto.title': 'Travailleurs frontaliers, aux Ville Ponti le débat sur le travail',
     'blog.article.ville-ponti-frontalieri-confronto.excerpt': '24 octobre : colloque aux Ville Ponti de Varese À 10 heures, la recherche sur les travailleurs frontaliers Deux tables rondes sur l’économie et les institutions Conclusions',
     'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.guida-saldatore-ticino-frontiera.title': 'Soudeur frontalier au Tessin : salaire et conditions requises',
+    'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'Permis G, impôt à la source et cotisations : le cadre vérifié pour les personnes qui envisagent de travailler comme soudeur frontalier au Tessin, avec un accord en vigueur depuis 2024.',
+    'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

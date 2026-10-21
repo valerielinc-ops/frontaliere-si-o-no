@@ -45701,6 +45701,17 @@ const RAW_ARTICLES_CHUNK_18: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'guida-saldatore-ticino-frontiera',
+ category: 'fiscale',
+ date: '2026-10-21T00:45:31.039Z',
+ image: '/images/blog/article-guida-saldatore-ticino-frontiera.webp',
+ hasCalculator: true,
+ articleType: 'evergreen',
+ canton: ['TI'],
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

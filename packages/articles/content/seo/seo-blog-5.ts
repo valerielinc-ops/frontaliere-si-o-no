@@ -112606,6 +112606,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-saldatore-ticino-frontiera': {
+    title: 'Saldatore frontaliere in Ticino: stipendio e requisiti',
+    description: 'Saldatore frontaliere in Ticino: dati su permesso G, imposta alla fonte, accordo 2024, franchigie, AVS, LPP e LAMal per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, saldatore, stipendio, requisiti, permesso',
+    ogTitle: 'Saldatore frontaliere in Ticino: fisco e contributi',
+    ogDescription: 'Il lavoro oltre confine segue date e regole precise: il Nuovo Accordo Frontalieri è in vigore dal 1° gennaio 2024, la trattenuta sul reddito avviene solo in Svizzera e il quadro comprende contributi AVS, LPP e assicurazione LAMal.',
+    canonicalPath: '/articoli-frontaliere/guida-saldatore-ticino-frontiera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Saldatore frontaliere in Ticino: stipendio e requisiti",
+      "description": "Saldatore frontaliere in Ticino: dati su permesso G, imposta alla fonte, accordo 2024, franchigie, AVS, LPP e LAMal per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-guida-saldatore-ticino-frontiera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T00:45:31+00:00",
+      "dateModified": "2026-10-21T00:45:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-saldatore-ticino-frontiera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

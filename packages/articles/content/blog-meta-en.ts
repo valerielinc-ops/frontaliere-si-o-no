@@ -13543,6 +13543,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ville-ponti-frontalieri-confronto.title': 'Cross-border workers: discussion on employment at Ville Ponti',
     'blog.article.ville-ponti-frontalieri-confronto.excerpt': 'October 24: conference at the Ville Ponti in Varese At 10, the research on cross-border workers Two round tables on the economy and institutions Conclusions',
     'blog.article.ville-ponti-frontalieri-confronto.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.guida-saldatore-ticino-frontiera.title': 'Cross-border welder in Ticino: salary and requirements',
+    'blog.article.guida-saldatore-ticino-frontiera.excerpt': 'G permit, withholding tax and contributions: the verified overview for those considering cross-border work as a welder in Ticino, with an agreement in force since 2024.',
+    'blog.article.guida-saldatore-ticino-frontiera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaEn;
