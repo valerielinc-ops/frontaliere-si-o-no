@@ -799,6 +799,13 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(jobsSeoSource).toContain('const activeCanonicalJobHref = (');
     expect(jobsSeoSource).toContain('return activeJobSitemapLocs.has(href) ? href : null;');
     expect(jobsSeoSource).toContain('activeCanonicalJobHref(relatedJob, locale) !== null');
+    const registryPrepassStart = jobsSeoSource.indexOf('const activeJobSitemapLocs = new Set<string>();');
+    const registryPrepassEnd = jobsSeoSource.indexOf('setActiveJobSitemapLocs(activeJobSitemapLocs);', registryPrepassStart);
+    expect(registryPrepassStart).toBeGreaterThanOrEqual(0);
+    expect(registryPrepassEnd).toBeGreaterThan(registryPrepassStart);
+    expect(jobsSeoSource.slice(registryPrepassStart, registryPrepassEnd)).toMatch(
+      /if \(!isSitemapEligibleJob\(job\)\) continue;\s+if \(!shouldEmitLocale\(locale\)\) continue;\s+const localeUrl =/,
+    );
     expect(relatedClustersSource).toContain('await jobsSeoPagesFlushed;');
     expect(relatedClustersSource).toContain('jobLocalizedUrl(job, locale, activeJobSitemapLocs)');
     expect(relatedClustersSource).toContain('if (activeJobSitemapLocs !== null && !activeJobSitemapLocs.has(href)) return null;');

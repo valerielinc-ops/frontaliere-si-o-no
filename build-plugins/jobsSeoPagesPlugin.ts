@@ -3183,6 +3183,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    if (claimedActiveJobPaths.has(key)) continue;
    claimedActiveJobPaths.add(key);
    if (!isSitemapEligibleJob(job)) continue;
+   if (!shouldEmitLocale(locale)) continue;
    const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCanton)}`;
    if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
    activeJobSitemapLocs.add(localeUrl);
