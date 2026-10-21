@@ -213,7 +213,7 @@ export interface SeoPageShellOpts {
   canonicalUrl: string;
   /** Pre-rendered hreflang `<link>` tags joined by newlines. */
   hreflangHtml?: string;
-  /** Emit a complete X Card when the page family needs explicit card tags. */
+  /** Emit a complete X Card; defaults to true, with explicit opt-out for page families. */
   includeTwitterCard?: boolean;
   /** Inner content HTML — placed inside `<div id="root"><main class="static-job-page">...</main></div>`. */
   bodyHtml: string;
@@ -365,7 +365,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     : { subnavHtml: '', bodyHtml };
 
   const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
-  const twitterCardHead = opts.includeTwitterCard
+  const twitterCardHead = opts.includeTwitterCard !== false
     ? buildTwitterCardMetaTags({
         title: normalizeShellTitle(opts.title),
         description: opts.description,

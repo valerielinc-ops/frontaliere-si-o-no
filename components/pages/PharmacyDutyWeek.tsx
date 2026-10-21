@@ -137,7 +137,7 @@ export default function PharmacyDutyWeek({ page }: { page: PharmacyPath }) {
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">{copy.swiss}</p>
       <h1 className="font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl">{copy.title(model.weekStart)}</h1>
       <p className="max-w-3xl text-base leading-7 text-muted">{copy.lede}</p>
-      <p className="text-sm leading-6 text-body"><strong>{copy.interval}:</strong> {dutyWeekRange(model.weekStart, model.weekEnd, locale)}<br /><strong>{copy.fetched}:</strong> {formatDate(model.fetchedAt, locale)}<br /><strong>{copy.source}:</strong> <a className="text-link underline" href={model.sourceUrl || DUTY_SOURCE} rel="nofollow noopener">{model.sourceUrl || DUTY_SOURCE}</a></p>
+      <p className="text-sm leading-6 text-body"><strong>{copy.interval}:</strong> {dutyWeekRange(model.weekStart, model.weekEnd, locale)}<br /><strong>{copy.fetched}:</strong> {formatDate(model.fetchedAt, locale)}<br /><strong>{copy.source}:</strong> <a className="text-link underline" href={model.sourceUrl || DUTY_SOURCE} rel="noopener">{model.sourceUrl || DUTY_SOURCE}</a></p>
       {model.indexable ? <p className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm leading-6 text-success" role="status">{copy.coverage}</p> : <aside className="rounded-xl border border-warning-border bg-warning-subtle p-4 text-sm leading-6 text-warning" role="status"><strong>{copy.unavailable}</strong><p className="mt-1">{model.reason}</p></aside>}
     </header>
 
@@ -148,7 +148,7 @@ export default function PharmacyDutyWeek({ page }: { page: PharmacyPath }) {
           const pharmacy = pharmacyById(duty.pharmacyId);
           const startsAt = formatDutyDateTime(duty.startsAt);
           const endsAt = formatDutyDateTime(duty.endsAt);
-          return <tr key={duty.id} className="border-b border-edge align-top"><td className="py-3 pr-3 whitespace-nowrap">{startsAt.slice(0, 10)}</td><td className="py-3 pr-3 whitespace-nowrap">{startsAt.slice(11)} – {endsAt}</td><td className="py-3 pr-3 font-semibold text-heading">{pharmacy ? <a className="text-link underline" href={buildPharmacyPath(detailPath(pharmacy, locale), locale)}>{pharmacy.name}</a> : duty.pharmacyId}</td><td className="py-3"><a className="inline-flex items-center gap-1 text-link underline" href={duty.sourceUrl || DUTY_SOURCE} rel="nofollow noopener">{copy.source}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a></td></tr>;
+          return <tr key={duty.id} className="border-b border-edge align-top"><td className="py-3 pr-3 whitespace-nowrap">{startsAt.slice(0, 10)}</td><td className="py-3 pr-3 whitespace-nowrap">{startsAt.slice(11)} – {endsAt}</td><td className="py-3 pr-3 font-semibold text-heading">{pharmacy ? <a className="text-link underline" href={buildPharmacyPath(detailPath(pharmacy, locale), locale)}>{pharmacy.name}</a> : duty.pharmacyId}</td><td className="py-3"><a className="inline-flex items-center gap-1 text-link underline" href={duty.sourceUrl || DUTY_SOURCE} rel="noopener">{copy.source}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a></td></tr>;
         })}</tbody></table></div> : <p className="mt-4 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-muted">{copy.unavailable}</p>}
       </section>)}
     </div>

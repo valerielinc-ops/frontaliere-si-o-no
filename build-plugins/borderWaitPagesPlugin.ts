@@ -1725,12 +1725,12 @@ function renderWebcamSection(
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
     >`
-        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
+        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
       return `<figure class="s-WFzTLc">
     ${mediaHtml}
     <figcaption class="s-7GN3SP">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
-      <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
+      <a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
       ${!embeddable ? `<div class="s-DEr6hT">${esc(copy.webcamExternalNote)}</div>` : ''}
       <div class="s-DEr6hT">${esc(copy.webcamDisclaimer(w.sourceName))}</div>
