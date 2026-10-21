@@ -130,7 +130,7 @@ describe('tallyFindings — il segnale legittimo resta intatto', () => {
       { number: 3, reviews: [claudeReview('🔴 hiringOrganization.name assente nel json-ld')] },
     ];
     const { counts } = tallyFindings(prs);
-    expect(counts['structured-data']).toBe(3); // raggiunge THRESHOLD reale
+    expect(counts['structured-data-required-fields']).toBe(3); // raggiunge THRESHOLD reale
   });
 
   it('ignora review non di claude', () => {

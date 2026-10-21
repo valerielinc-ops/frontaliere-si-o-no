@@ -822,7 +822,7 @@ export function isStructuredDataRequiredFieldFinding(text) {
   if (STRUCTURED_DATA_REQUIRED_FIELD_RE.test(statement)) {
     return STRUCTURED_DATA_CONTRACT_DEFECT_RE.test(statement);
   }
-  return /\bjobposting\b[\s\S]{0,180}\b(?:absent|blank|empty|incomplete|missing|no|schema[- ]?less|without)\b|\b(?:absent|blank|empty|incomplete|missing|no|schema[- ]?less|without)\b[\s\S]{0,180}\bjobposting\b/i.test(statement);
+  return /\bjobposting\b[\s\S]{0,180}\b(?:block|schema[- ]?less)\b|\b(?:block|schema[- ]?less)\b[\s\S]{0,180}\bjobposting\b/i.test(statement);
 }
 
 /**
