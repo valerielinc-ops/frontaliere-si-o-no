@@ -59,8 +59,10 @@ function createSourceFile(source, fileName) {
  * historical body reader also accepted a bare template-delimited property
  * name (`\`key\``). The latter is a static data convention but not valid
  * TypeScript unless it is computed (`[\`key\`]`), which this reader must reject.
- * Normalize only the uncomputed, no-substitution form to a same-length quoted
- * property name before asking TypeScript for the AST. Computed and interpolated
+ * Normalize only the uncomputed, no-substitution form to a quoted property name
+ * before asking TypeScript for the AST. Re-encode the scanner's cooked value
+ * instead of copying the template's raw spelling: real line breaks and escaped
+ * backticks must become valid string-literal escapes. Computed and interpolated
  * names remain unsupported and therefore fail closed.
  */
 function normalizeTemplatePropertyNames(source) {
@@ -73,6 +75,7 @@ function normalizeTemplatePropertyNames(source) {
       kind,
       pos: scanner.getTokenPos(),
       end: scanner.getTextPos(),
+      value: scanner.getTokenValue(),
     });
   } while (kind !== ts.SyntaxKind.EndOfFileToken);
 
@@ -89,11 +92,11 @@ function normalizeTemplatePropertyNames(source) {
         && previous.kind !== ts.SyntaxKind.CommaToken)
     ) continue;
 
-    const raw = source.slice(token.pos, token.end);
-    const body = raw.slice(1, -1);
-    const quote = body.includes('"') && !body.includes("'") ? "'" : body.includes('"') ? null : '"';
-    if (!quote) continue;
-    replacements.push({ start: token.pos, end: token.end, value: `${quote}${body}${quote}` });
+    const value = token.value;
+    if (typeof value !== 'string') continue;
+    const replacement = JSON.stringify(value)
+      .replace(/\u2028|\u2029/gu, (character) => `\\u${character.codePointAt(0).toString(16)}`);
+    replacements.push({ start: token.pos, end: token.end, value: replacement });
   }
 
   if (replacements.length === 0) return source;
