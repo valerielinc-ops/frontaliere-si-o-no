@@ -1,26 +1,27 @@
 {
   "key": "artificialy",
   "label": "Artificialy",
-  "generatedAt": "2026-10-22T09:40:19.913Z",
+  "generatedAt": "2026-10-22T21:34:06.001Z",
   "total": 3,
   "discovered": 4,
   "parsed": 3,
   "written": 3,
   "lastFetchOutcome": "ok",
   "abortKind": null,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4648,
-  "avgDurationMs": 4648,
+  "unchangedCount": 2,
+  "durationMs": 10356,
+  "avgDurationMs": 10356,
   "durationHistory": [
-    4648
+    10356
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "AI Engineer",
-      "slug": "ai-engineer-artificialy-lugano",
+      "slug": "ai-ingegnere-artificialy-switzerland",
       "url": "https://www.linkedin.com/jobs/view/4477679281/",
       "applyUrl": "https://www.linkedin.com/jobs/view/4477679281/",
       "company": "Artificialy",
@@ -43,23 +44,25 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-07048d5da84d",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T21:27:04.553Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "AI Scientist - LLM Systems",
-      "slug": "ai-scientist-llm-systems-artificialy-lugano",
+      "slug": "ai-scientist-sistemi-llm-artificialy-switzerland",
       "url": "https://www.linkedin.com/jobs/view/4468574508/",
       "applyUrl": "https://www.linkedin.com/jobs/view/4468574508/",
       "company": "Artificialy",
@@ -82,17 +85,16 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-820001288783",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-07-15T12:20:02.222Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -121,24 +123,20 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "artificialy-041c49d37db4",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6900",
       "firstSeenAt": "2026-10-13T21:35:23.510Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
