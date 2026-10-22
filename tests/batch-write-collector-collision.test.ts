@@ -195,4 +195,25 @@ describe('WriteCollector collision visibility', () => {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
     }
   });
+
+  it('rejects a file/directory collision across consecutive auto-flushes', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-stream-path-collision-'));
+    const filePath = path.join(tmpRoot, 'dist', 'foo');
+    const nestedIndexPath = path.join(filePath, 'index.html');
+    const collector = new WriteCollector({
+      distDir: path.join(tmpRoot, 'dist'),
+      autoFlushThreshold: 1,
+      pluginName: 'collision-fixture',
+    });
+    try {
+      collector.add(filePath, 'file');
+      expect(() => collector.add(nestedIndexPath, '<html>nested</html>'))
+        .toThrow(DistPathCollisionError);
+      await collector.flush();
+      expect(fs.existsSync(filePath)).toBe(true);
+      expect(fs.existsSync(nestedIndexPath)).toBe(false);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
 });

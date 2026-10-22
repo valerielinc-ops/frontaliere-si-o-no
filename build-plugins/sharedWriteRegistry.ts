@@ -204,8 +204,57 @@ export interface SharedPathDeclaration {
  * the collisions.
  */
 const pathHistory = new Map<string, ClaimVersion[]>();
+/**
+ * Path-shape index for the collector's streaming writes. `pathHistory` keeps
+ * content versions, while this index answers the cheaper structural question:
+ * has a claimed file already made this path a directory, or vice versa?
+ */
+const claimedOutputPaths = new Set<string>();
+const claimedOutputDescendants = new Map<string, string>();
 const sharedPathDeclarations: SharedPathDeclaration[] = [];
 let buildGeneration = 0;
+
+function assertOutputPathShapeAvailable(filePath: string): void {
+  const resolved = path.resolve(filePath);
+  let ancestor = path.dirname(resolved);
+  while (ancestor !== resolved) {
+    if (claimedOutputPaths.has(ancestor)) {
+      throw new DistPathCollisionError(
+        ancestor,
+        resolved,
+        'un file già emesso dovrebbe diventare una directory',
+      );
+    }
+    const parent = path.dirname(ancestor);
+    if (parent === ancestor) break;
+    ancestor = parent;
+  }
+
+  const descendant = claimedOutputDescendants.get(resolved);
+  if (descendant !== undefined) {
+    throw new DistPathCollisionError(
+      descendant,
+      resolved,
+      'un percorso già emesso dovrebbe diventare un file',
+    );
+  }
+}
+
+function rememberOutputPathShape(filePath: string): void {
+  const resolved = path.resolve(filePath);
+  if (claimedOutputPaths.has(resolved)) return;
+
+  claimedOutputPaths.add(resolved);
+  let ancestor = path.dirname(resolved);
+  while (ancestor !== resolved) {
+    if (!claimedOutputDescendants.has(ancestor)) {
+      claimedOutputDescendants.set(ancestor, resolved);
+    }
+    const parent = path.dirname(ancestor);
+    if (parent === ancestor) break;
+    ancestor = parent;
+  }
+}
 
 /**
  * Set of content hashes already dumped to disk. Each unique hash is written
@@ -339,6 +388,12 @@ export type ClaimOutcome = 'allow-write' | 'skip-write';
  *         claim would conflict with an existing non-shared claim.
  */
 export function claim(claimPath: string, plugin: string, content: string): ClaimOutcome {
+  // WriteCollector calls claim() before queuing or auto-flushing the path.
+  // Keep this structural guard beside the single registration point so a
+  // second auto-flush cannot turn an earlier file into a directory silently.
+  assertOutputPathShapeAvailable(claimPath);
+  rememberOutputPathShape(claimPath);
+
   const contentHash = hashContent(content);
   const versions = pathHistory.get(claimPath);
   // detectCallSite() (Error stack walk) is the dominant cost in this hot
@@ -445,6 +500,8 @@ export function declareSharedPath(decl: SharedPathDeclaration): void {
  */
 export function reset(): void {
   pathHistory.clear();
+  claimedOutputPaths.clear();
+  claimedOutputDescendants.clear();
   dumpedHashes.clear();
   dumpDirMkdirDone = false;
   buildStartMs = Date.now();
