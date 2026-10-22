@@ -4,7 +4,7 @@ import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
-import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
+import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -562,6 +562,8 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(residenceCountryOptionLabel('Svizzera', ['Germany (DE)', 'Switzerland (CH)'])).toBe('Switzerland (CH)');
     expect(residenceCountryOptionLabel('Svizzera', ['Switzerland CH'])).toBe('Switzerland CH');
     expect(residenceCountryOptionLabel('Italia', ['IT manager'])).toBe('');
+    expect(residenceCountryCode('IT / CH')).toBe('');
+    expect(residenceCountryCode('CH - Switzerland')).toBe('CH');
   });
 
   it('binds a SuccessFactors icon-only CV trigger only to explicit document context', () => {
