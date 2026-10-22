@@ -1571,13 +1571,6 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
   const preexistingDialog = [...beforeCounts.values()].some((count) => count > 0);
-  let legacyDialogSurface = false;
-  try {
-    const legacyLocator = page.locator(DIALOG_FILE_INPUT_SELECTOR);
-    legacyDialogSurface = typeof legacyLocator.count !== 'function' && typeof legacyLocator.first === 'function';
-  } catch {
-    legacyDialogSurface = false;
-  }
   if (trace) trace.preexistingDialog = preexistingDialog;
   if (preexistingDialog) {
     if (trace) trace.failure = 'preexisting_dialog';
