@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-21 after canonicalizing the Organization.sameAs Facebook URL; keep the site and host organizationLd twins and both fixtures aligned through transport-identical-twins.",
+  "note": "SHA-256 of the SCALAR half of SiteShellContract. Both repositories assert this fingerprint. Re-recorded 2026-10-22 after adding the canonical Facebook profile to Organization.sameAs; keep the site and host organizationLd twins and both fixtures aligned through transport-identical-twins.",
   "scalarFields": 22,
-  "sha256": "39427a7e57c98c531d72141429a5786e2bef4deeb9c6455aeea84191460d846f"
+  "sha256": "765c406629f910107014b2109a323208fec72cfb2e73ab61e6a34259cfb60e73"
 }
