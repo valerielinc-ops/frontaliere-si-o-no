@@ -3653,9 +3653,10 @@ function eventDetailMetaTitle(
     const richSuffix = firstMeaningful?.suffix;
     if (richSuffix && richSuffix !== suffix) {
       const richBudget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(richSuffix).length);
-      const richTitle = esc(completeTitle).length <= richBudget
-        ? completeTitle
-        : truncateHeadline(completeTitle, richBudget);
+      let richTitle = completeTitle;
+      for (let max = richBudget; esc(richTitle).length > richBudget && max > 0; max -= 1) {
+        richTitle = truncateHeadline(completeTitle, max);
+      }
       const richComposed = `${richTitle}${richSuffix}`;
       const richShellTitle = normalizeShellTitle(richComposed, (value) => esc(value).length);
       if (
