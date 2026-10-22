@@ -175,6 +175,15 @@ describe('run-plate-auctions-function', () => {
     expect(world.relayReads()).toBe(1);
   });
 
+  it('keeps the skipped fresh check marked as dry-run when requested', async () => {
+    const world = fakeWorld({
+      relayResponses: [{ fr: source(RECENT), sz: source(RECENT), ti: source(RECENT) }],
+    });
+    const result = await world.run({ dryRun: true, onlyIfStale: true });
+    expect(result).toMatchObject({ dryRun: true, skipped: true, job: JOB });
+    expect(world.calls.filter((call) => call.method === 'POST')).toHaveLength(0);
+  });
+
   it('fails when a source was reached by the run but has no successful snapshot from it', async () => {
     // Criterio della review (5315920943): lastFetchedAt del giro, status
     // degraded e lastSuccessAt vecchio → il comando esce con errore.
