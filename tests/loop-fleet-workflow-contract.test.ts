@@ -662,6 +662,34 @@ describe('loop fleet workflow contract', () => {
     expect(source).not.toContain('pull-requests: read');
   });
 
+  it('treats a successful source run without evidence as a no-op, not a failed bridge', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('id: source_artifact');
+    expect(source).toContain('gh api --paginate --slurp');
+    expect(source).toContain("SOURCE_CONCLUSION: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion || '' }}");
+    expect(source).toContain("[ \"$EVENT_NAME\" != 'workflow_run' ] || [ \"$SOURCE_CONCLUSION\" != 'success' ]");
+    expect(source).toContain("echo 'available=false' >> \"$GITHUB_OUTPUT\"");
+    expect(source).toContain("echo 'available=true' >> \"$GITHUB_OUTPUT\"");
+
+    const gatedSteps = [
+      'Validate source run provenance',
+      'Initialize trusted ledger benchmark',
+      'Prepare Firebase credentials',
+      'Load reviewed write credentials from Remote Config',
+      'Mint App token for the durable ledger branch',
+      'Append ledger to durable branch',
+      'Aggregate trusted before-after ledger benchmark',
+      'Upload trusted ledger benchmark',
+    ];
+    const steps = workflowSteps('loop-fleet-ledger.yml');
+    for (const name of gatedSteps) {
+      const step = steps.find((candidate) => candidate.name === name);
+      expect(step?.if, `${name} must wait for an available source artifact`).toContain(
+        'steps.source_artifact.outputs.available == \'true\'',
+      );
+    }
+  });
+
   it('publishes trusted before-after ledger benchmark metrics without changing the writer contract', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
     expect(source).toContain('/scripts/ci/benchmark-loop-fleet-ledger.mjs');
