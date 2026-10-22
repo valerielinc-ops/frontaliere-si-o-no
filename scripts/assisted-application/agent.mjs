@@ -73,6 +73,40 @@ export function safeErrorCode(error) {
 }
 
 /**
+ * Question metadata is safe to keep with the runner event (it contains no
+ * candidate answer) and lets the backend match a regenerated portal id to
+ * the answer ledger. Keep only the fields used by the semantic key.
+ */
+function questionDetailsForEvent(rawQuestions) {
+  return (Array.isArray(rawQuestions) ? rawQuestions : []).map((question) => {
+    if (!question || typeof question !== 'object') return null;
+    const id = typeof question.id === 'string' || typeof question.id === 'number' ? String(question.id).trim() : '';
+    const label = String(question.question || '').trim();
+    if (!id || !label) return null;
+    const result = { id, question: label.slice(0, 240) };
+    for (const key of ['context', 'section']) {
+      const value = String(question[key] || '').trim();
+      if (value) result[key] = value.slice(0, 240);
+    }
+    const autocomplete = String(question.autocomplete || '').trim();
+    if (autocomplete) result.autocomplete = autocomplete.slice(0, 100);
+    const type = String(question.type || '').trim();
+    if (type) result.type = type.slice(0, 40);
+    if (Array.isArray(question.options) && question.options.length) {
+      result.options = question.options.slice(0, 40).map((option) => {
+        if (typeof option === 'string') return option.slice(0, 160);
+        if (!option || typeof option !== 'object') return String(option ?? '').slice(0, 160);
+        return {
+          ...(option.label ? { label: String(option.label).slice(0, 160) } : {}),
+          ...(option.value ? { value: String(option.value).slice(0, 160) } : {}),
+        };
+      });
+    }
+    return result;
+  }).filter(Boolean);
+}
+
+/**
  * What left with the application (lib/submit.mjs `sent`: how it was packaged and why, the files with
  * their names and keys), on the draft for the owner's panel and the candidate's page, before the event
  * moves the flow to `submitted`; the record of the attempt (`sentAttempt`) gives way to it. Never in the
@@ -287,8 +321,11 @@ async function main() {
       && (Array.isArray(event.questions) || Array.isArray(event.documents))) {
       const existing = dedupePortalQuestions(submitDraft.questions || []);
       const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
+      const rawQuestionDetails = Array.isArray(event.questionDetails)
+        ? event.questionDetails
+        : rawQuestions.filter((question) => question && typeof question === 'object' && question.question);
       const rawDocuments = Array.isArray(event.documents) ? event.documents : [];
-      const incoming = dedupePortalQuestions(rawQuestions.filter((question) => question && typeof question === 'object' && question.question));
+      const incoming = dedupePortalQuestions(rawQuestionDetails.filter((question) => question && typeof question === 'object' && question.question));
       const known = new Set(existing.map((question) => portalQuestionKey(question) || question.id));
       const added = [];
       for (const question of incoming) {
@@ -317,6 +354,9 @@ async function main() {
       if (incomingDocuments.length) patch.requiredDocuments = requiredDocuments;
       if (Object.keys(patch).length) await orderRef.collection('ai_drafts').doc('current').set(patch, { merge: true });
       event.questions = rawQuestions.map((question) => typeof question === 'string' ? question : question?.id).filter(Boolean);
+      const questionDetails = questionDetailsForEvent(rawQuestionDetails);
+      if (questionDetails.length) event.questionDetails = questionDetails;
+      else delete event.questionDetails;
       event.documents = documentIds;
     }
     await report(event);

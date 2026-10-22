@@ -232,7 +232,20 @@ export async function submitApplication(ctx) {
   const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers });
   const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {});
   if (open.length || missingDocuments.length) {
-    return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };
+    // Keep the legacy id list for the flow and add the bounded descriptor so
+    // the backend can match an answer after an ATS regenerates that id.
+    const questionDetails = open.filter((question) => question.source === 'portal').map((question) => ({
+      id: question.id,
+      question: question.question,
+      ...(question.context ? { context: question.context } : {}),
+      ...(question.section ? { section: question.section } : {}),
+      ...(question.autocomplete ? { autocomplete: question.autocomplete } : {}),
+      ...(question.type ? { type: question.type } : {}),
+      ...(Array.isArray(question.options) && question.options.length ? { options: question.options } : {}),
+    }));
+    const result = { type: 'submit_needs_candidate', questions: open.map(({ id }) => ({ id })), documents: missingDocuments };
+    if (questionDetails.length) result.questionDetails = questionDetails;
+    return result;
   }
 
   // With the candidate's permit status of now: a letter naming a permit they no longer state stops here (decision 8).
