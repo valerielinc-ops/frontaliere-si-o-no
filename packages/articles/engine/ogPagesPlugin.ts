@@ -1769,7 +1769,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:title" content="${esc(socialTitle)}">
- <meta property="og:description" content="${esc(metaDescription)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleLocale))}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">
