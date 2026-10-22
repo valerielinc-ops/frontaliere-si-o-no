@@ -87,6 +87,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
    "https://www.linkedin.com/company/frontaliere-ticino",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
@@ -6835,6 +6836,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
    "https://www.linkedin.com/company/frontaliere-ticino",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
@@ -6990,6 +6992,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   "name": "Frontaliere Ticino",
   "url": "https://frontaliereticino.ch/",
   "sameAs": [
+   "https://www.facebook.com/profile.php?id=61588174947294",
    "https://www.facebook.com/frontaliereticino/",
    "https://www.linkedin.com/company/frontaliere-ticino",
    "https://github.com/valerielinc-ops/frontaliere-si-o-no"
