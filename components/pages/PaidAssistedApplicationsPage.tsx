@@ -119,7 +119,9 @@ function ApplicationDossier({
   const updatedDate = formatDate(application.updatedAt, locale);
   const helpKey = STATUS_HELP_KEYS[application.status];
   const uploadPath = `${jobBoardPath}?assisted_application_order_id=${encodeURIComponent(application.orderId)}`;
-  const applicationPath = application.applicationUrl || uploadPath;
+  const applicationPath = application.requiresCvUpload || application.status === 'awaiting_materials'
+    ? uploadPath
+    : application.applicationUrl || uploadPath;
   const applicationActionKey = ACTION_REQUIRED_STATUSES.has(application.status)
     ? 'profile.paidApplications.openNextStep'
     : 'profile.paidApplications.openApplication';
