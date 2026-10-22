@@ -226,6 +226,51 @@
   }
   const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
 
+  function hasRequiredMarker(element) {
+    if (element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required')) return true;
+    const doc = element.ownerDocument;
+    const labels = new Set(element.labels || []);
+    if (element.id) {
+      const direct = doc.querySelector(`label[for="${element.id.replace(/["\\]/g, "\\$&")}"]`);
+      if (direct) labels.add(direct);
+    }
+    const wrapping = element.closest('label');
+    if (wrapping) labels.add(wrapping);
+    for (const id of (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+      const node = doc.getElementById(id);
+      if (node) labels.add(node);
+    }
+    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
+    if (groupLabel && !groupLabel.contains(element)) labels.add(groupLabel);
+    const marker = (node, adjacent = false) => {
+      if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
+      const text = String(node.textContent || '').replace(/\s+/g, ' ').trim();
+      const className = String(node.className?.baseVal || node.className || '');
+      const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
+      let pseudo = '';
+      try {
+        pseudo = `${doc.defaultView.getComputedStyle(node, '::before').content} ${doc.defaultView.getComputedStyle(node, '::after').content}`;
+      } catch {
+        // Some portal-owned nodes do not expose computed styles.
+      }
+      return (adjacent ? inline && /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i.test(text) : REQUIRED_RE.test(text))
+        || (inline || !adjacent) && /required|mandatory|pflichtfeld/i.test(className)
+        || (inline || !adjacent) && /\*/.test(pseudo.replace(/["']/g, ''));
+    };
+    for (const label of labels) {
+      if (marker(label)) return true;
+      for (const direction of ['previousSibling', 'nextSibling']) {
+        let sibling = label[direction];
+        while (sibling?.nodeType === 3 && !String(sibling.textContent || '').trim()) sibling = sibling[direction];
+        if (sibling && marker(sibling, true)) return true;
+      }
+    }
+    return false;
+  }
+
+  const isRequiredControl = (element) => hasRequiredMarker(element);
+
   /** The heading a control sits under (JOIN asks one question per step, in an h2). */
   function questionOf(element) {
     for (let node = element.parentElement; node && node.tagName !== 'BODY'; node = node.parentElement) {
@@ -266,7 +311,7 @@
       if (type === 'search' && !searchSelect) continue;
       if (inPicker(element) || element.disabled || element.readOnly) continue;
       if (type !== 'file' && !isShown(element)) continue;
-      const requiredByAttribute = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
+      const requiredByAttribute = isRequiredControl(element);
       if (type === 'radio') {
         const key = element.name || element.closest('[role="radiogroup"], fieldset') || element;
         if (!radiosByName.has(key)) radiosByName.set(key, []);
@@ -293,7 +338,7 @@
         element: button,
         label,
         labels: labelsOf(button, label, runnerLabelOf(runner, button)),
-        required: button.getAttribute('aria-required') === 'true' || REQUIRED_RE.test(label),
+        required: isRequiredControl(button) || REQUIRED_RE.test(label),
         type: 'listbox',
       });
     }
@@ -308,7 +353,7 @@
         options: radios.map((radio) => ({ element: radio, label: labelOf(radio) })),
         label: legend || question,
         labels,
-        required: radios.some((radio) => radio.required) || labels.some((value) => REQUIRED_RE.test(value)),
+        required: radios.some((radio) => isRequiredControl(radio)) || labels.some((value) => REQUIRED_RE.test(value)),
       });
     }
     // ARIA radios (div role="radio"), grouped under the question they answer.
@@ -529,10 +574,21 @@
     return scored[0].option;
   }
 
+  function ownedListFor(input) {
+    const doc = input.ownerDocument;
+    const refs = [...new Set([
+      ...(input.getAttribute('aria-owns') || '').trim().split(/\s+/).filter(Boolean),
+      ...(input.getAttribute('aria-controls') || '').trim().split(/\s+/).filter(Boolean),
+    ])];
+    const nodes = refs.map((id) => doc.getElementById(id)).filter(Boolean);
+    const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
+    const element = listbox || nodes[0] || null;
+    return { id: element?.id || refs[0] || '', element };
+  }
+
   function optionsNear(input) {
     const doc = input.ownerDocument;
-    const listId = input.getAttribute('aria-controls') || input.getAttribute('aria-owns');
-    const scope = (listId && doc.getElementById(listId)) || doc;
+    const scope = ownedListFor(input).element || doc;
     return [...scope.querySelectorAll('[role="option"], [id*="-option-"]')].filter(isShown)
       .map((element) => ({ element, label: textOf(element) }));
   }
@@ -543,13 +599,29 @@
   // French form uses «Aucune sélection», which must remain an empty select
   // rather than being treated as text already filled by the candidate.
   const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
-  const isSuccessFactorsPage = (input) => String(input.ownerDocument?.defaultView?.location?.hostname || '')
-    .split('.').some((part) => part.toLowerCase() === 'successfactors');
+  const SUCCESS_FACTORS_URL_RE = /success[\s._-]?factors/i;
+  const SUCCESS_FACTORS_DOM_SELECTOR = [
+    '[class*="successfactors" i]',
+    '[class*="paginatedselect" i]',
+    '[data-automation-id*="successfactors" i]',
+    '[data-automation-id*="paginatedselect" i]',
+    'ui5-date-picker',
+    '[ui5-date-picker]',
+    'script[src*="successfactors" i]',
+    'link[href*="successfactors" i]',
+    'meta[content*="successfactors" i]',
+  ].join(', ');
+  const isSuccessFactorsPage = (input) => {
+    const doc = input.ownerDocument;
+    const location = [doc.defaultView?.location?.hostname, doc.defaultView?.location?.pathname,
+      doc.defaultView?.location?.search, doc.defaultView?.location?.hash].filter(Boolean).join(' ');
+    return SUCCESS_FACTORS_URL_RE.test(location) || Boolean(doc.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
+  };
   function selectLike(input) {
-    const listId = input.getAttribute('aria-owns') || input.getAttribute('aria-controls');
-    const ownedList = listId ? input.ownerDocument.getElementById(listId) : null;
-    const required = input.required || input.getAttribute('aria-required') === 'true';
-    return Boolean(listId)
+    const owned = ownedListFor(input);
+    const ownedList = owned.element;
+    const required = isRequiredControl(input);
+    return Boolean(owned.id)
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
         || SELECT_PROMPT_RE.test(input.value || '')
         || /paginatedselect/i.test(String(input.className || ''))

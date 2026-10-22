@@ -323,6 +323,22 @@ describe('portal field extraction', () => {
     ]));
   });
 
+  it('recognizes a branded SuccessFactors tenant from its ATS URL marker', () => {
+    const page = extract(`
+      <form>
+        <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
+        <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
+        <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
+      </form>`, 'https://careers.example.ch/careers?ats=successfactors');
+
+    expect(page.fields.find((field: any) => field.label === 'Do you hold a valid work permit for Switzerland?')).toMatchObject({
+      kind: 'combobox',
+      required: true,
+      selectLike: true,
+      ownedList: 'permit-list',
+    });
+  });
+
   it('keeps a required non-SuccessFactors ARIA autocomplete as a text combobox', () => {
     const page = extract(`
       <form>

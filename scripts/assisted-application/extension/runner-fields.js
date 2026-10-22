@@ -5,7 +5,34 @@
   root.CompilaRunnerFields = function extractFieldsInPage() {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
-  const isSuccessFactorsPage = () => String(window.location?.hostname || '').split('.').some((part) => part.toLowerCase() === 'successfactors');
+  const SUCCESS_FACTORS_URL_RE = /success[\s._-]?factors/i;
+  const SUCCESS_FACTORS_DOM_SELECTOR = [
+    '[class*="successfactors" i]',
+    '[class*="paginatedselect" i]',
+    '[data-automation-id*="successfactors" i]',
+    '[data-automation-id*="paginatedselect" i]',
+    'ui5-date-picker',
+    '[ui5-date-picker]',
+    'script[src*="successfactors" i]',
+    'link[href*="successfactors" i]',
+    'meta[content*="successfactors" i]',
+  ].join(', ');
+  const isSuccessFactorsPage = () => {
+    const location = [window.location?.hostname, window.location?.pathname, window.location?.search, window.location?.hash]
+      .filter(Boolean).join(' ');
+    return SUCCESS_FACTORS_URL_RE.test(location) || Boolean(document.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
+  };
+  const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
+  const ownedListFor = (element) => {
+    const refs = [...new Set([
+      ...idRefs(element.getAttribute('aria-owns')),
+      ...idRefs(element.getAttribute('aria-controls')),
+    ])];
+    const nodes = refs.map((id) => document.getElementById(id)).filter(Boolean);
+    const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
+    const target = listbox || nodes[0] || null;
+    return { id: target?.id || refs[0] || '', element: target };
+  };
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
   // Ids a framework generates, which say nothing to the planner: React's
@@ -90,6 +117,7 @@
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
   const hasRequiredMarker = (element, labelText) => {
+    if (element.hasAttribute('data-required')) return true;
     const labels = new Set();
     for (const label of element.labels || []) labels.add(label);
     const direct = element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
@@ -106,6 +134,7 @@
       && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
     const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i;
     const marker = (node, adjacent = false) => {
+      if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
       const text = clean(node.innerText || node.textContent);
       const className = String(node.className?.baseVal || node.className || '');
       const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
@@ -336,7 +365,7 @@
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
     // is a trap whatever its size: never a field of the form.
     if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;
-    const required = element.required || element.getAttribute('aria-required') === 'true';
+    const required = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
@@ -381,8 +410,9 @@
       // SuccessFactors' picklists (Coop, 2026-10-03): an input that shows
       // «Bitte auswählen» and loads its options into the list it owns once
       // opened. A select by another name: its options are read (extractFields).
-      field.ownedList = clean(element.getAttribute('aria-owns') || element.getAttribute('aria-controls') || '');
-      const ownedList = field.ownedList ? document.getElementById(field.ownedList) : null;
+      const owned = ownedListFor(element);
+      field.ownedList = owned.id;
+      const ownedList = owned.element;
       field.selectLike = Boolean(field.ownedList)
         // SuccessFactors localises its empty value too: Rolex's French form
         // says «Aucune sélection», not «Sélectionnez». It is still the same
