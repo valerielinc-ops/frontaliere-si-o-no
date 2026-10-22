@@ -443,7 +443,7 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
       'cancel-in-progress': false,
     });
     const rearm = readFileSync(resolve('scripts/ci/rearm-deploy-build.mjs'), 'utf8');
-    expect(rearm).toContain("'-f', 'rearm_dispatch=true'");
+    expect(rearm).toContain("'-F', 'inputs[rearm_dispatch]=true'");
   });
 
   it('moves recovery admission into deploy.yml and keeps the request workflow publish-only', () => {

@@ -623,7 +623,7 @@ async function main() {
     gh([
       'api', '-X', 'POST', `repos/${repo}/actions/workflows/${workflow}/dispatches`,
       '-f', `ref=${branch}`,
-      '-f', 'rearm_dispatch=true',
+      '-F', 'inputs[rearm_dispatch]=true',
     ]);
     console.log(`[rearm] ✅ dispatched ${workflow} on ${branch} — the pipeline is moving again`);
   } catch (err) {
