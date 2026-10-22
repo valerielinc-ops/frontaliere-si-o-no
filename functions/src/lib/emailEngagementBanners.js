@@ -201,7 +201,7 @@ function textIconTile(mark) {
 }
 
 function imageIconTile(src, alt, width = 36, height = 24) {
-  return `<div style="width:44px;height:44px;border-radius:10px;background:${ICON_TILE_BG};border:1px solid ${BORDER};text-align:center;line-height:44px;"><img data-email-logo="google" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" width="${width}" height="${height}" style="display:inline-block;width:${width}px;height:${height}px;max-width:36px;object-fit:contain;vertical-align:middle;border:0;"></div>`;
+  return `<div style="width:44px;height:44px;border-radius:10px;background:${ICON_TILE_BG};border:1px solid ${BORDER};color:${BRAND_ORANGE};text-align:center;line-height:44px;"><img data-email-logo="google" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" width="${width}" height="${height}" style="display:inline-block;width:${width}px;height:${height}px;max-width:36px;object-fit:contain;vertical-align:middle;border:0;"></div>`;
 }
 
 function featureCard({ iconHtml, title, body, ctaHref, ctaLabel }) {

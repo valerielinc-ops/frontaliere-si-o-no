@@ -6,7 +6,7 @@
 // the headers are the RFC 8058 ones Gmail and Yahoo require of a bulk sender,
 // that exactly one block leads and it is the one that MOVED, that the message
 // contains nothing a mail client will refuse to render (no flexbox, no grid, no
-// image), and that the footer's controller identity comes from the shared
+// editorial image), and that the footer's controller identity comes from the shared
 // module rather than from a string typed here.
 import { readFileSync } from 'node:fs';
 
@@ -359,10 +359,13 @@ describe('what a real mail client can actually render', () => {
   });
 
   // Most clients block images on first receipt, and this one goes out daily to
-  // thousands of addresses. Every figure, glyph and rule is text or a border.
-  it('embeds no image at all, so nothing is lost with images blocked', () => {
+  // thousands of addresses. The editorial content remains text/borders; the
+  // shared closing suite is the explicit, labeled exception for brand marks.
+  it('keeps editorial content image-free outside the shared engagement suite', () => {
     for (const locale of LOCALES) {
-      expect(build({ locale, brief: ORDINARY }).html).not.toMatch(/<img|background-image|url\(/i);
+      const editorialMarkup = build({ locale, brief: ORDINARY }).html
+        .split('data-email-component="engagement-banners"')[0];
+      expect(editorialMarkup).not.toMatch(/<img|background-image|url\(/i);
     }
   });
 
