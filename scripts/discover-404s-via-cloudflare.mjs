@@ -13,11 +13,12 @@
  * lets the build emit a reconciled soft-landing / bridge page at each, exactly
  * like the GSC producers.
  *
- * Pipeline parity: this script only APPENDS candidate paths. The workflow then
- * runs `prune-404-compat-paths.ts`, which drops every path the resolver
- * (`resolveSearchConsoleCompatTarget`) can't map — so the committed-snapshot
- * test (`tests/search-console-compat.test.ts`) stays green. Same gate as the
- * GSC producers; do NOT commit this file without running the prune step.
+ * Pipeline parity: this script appends only candidate paths that the shared
+ * resolver (`resolveSearchConsoleCompatTarget`) can map. The workflow still
+ * runs `prune-404-compat-paths.ts` as a final defense for paths reintroduced by
+ * another writer or a merge, so the committed-snapshot test
+ * (`tests/search-console-compat.test.ts`) stays green. Do NOT commit this file
+ * without running the prune step.
  *
  * Windowed sweep (not a single query): a single httpRequestsAdaptiveGroups
  * query caps at 10k rows ordered by count_DESC, so a plain 23h-in-one-call
@@ -31,10 +32,10 @@
  * of one capped query.
  *
  * Usage:
- *   node scripts/load-rc-env.mjs && node scripts/discover-404s-via-cloudflare.mjs
- *   node scripts/discover-404s-via-cloudflare.mjs --dry-run
- *   node scripts/discover-404s-via-cloudflare.mjs --windows=48 --window-hours=1
- *   node scripts/discover-404s-via-cloudflare.mjs --hours=23   # legacy alias,
+ *   node scripts/load-rc-env.mjs && npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs
+ *   npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs --dry-run
+ *   npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs --windows=48 --window-hours=1
+ *   npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs --hours=23   # legacy alias,
  *     reinterpreted as total lookback (windowCount = ceil(hours/windowHours))
  *
  * Environment (required): CF_API_TOKEN (Zone→Analytics→Read). Optional:
@@ -44,7 +45,7 @@
  */
 
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPathsStrict, writeCompatPaths, COMPAT_SHARD_DIR } from './lib/compat-paths-store.mjs';
 import { sweepErrorPathsWindowed, resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
@@ -101,13 +102,58 @@ function parseArgs(argv) {
   return opts;
 }
 
-/** Keep only content paths the reconciler could plausibly map. */
-function isCandidate(p) {
+/** Keep only content-shaped paths before consulting the shared resolver. */
+export function isCandidate(p) {
   if (typeof p !== 'string' || !p.startsWith('/')) return false;
   if (p === '/') return false;
   if (ASSET_RX.test(p)) return false;
   if (INFRA_PREFIX_RX.test(p)) return false;
   return true;
+}
+
+/**
+ * Select only paths with a proven compatibility target.
+ *
+ * Cloudflare sees bot probes as well as historical content URLs. The former
+ * must not enter the accumulator and then be removed by the destructive prune:
+ * a newly observed family made entirely of probes looks indistinguishable from
+ * a resolver regression to the family-loss guard. `resolvePath` is injected so
+ * this boundary remains unit-testable without duplicating resolver rules.
+ */
+export function filterResolvableCandidates(rows, { minCount = 2, resolvePath } = {}) {
+  if (typeof resolvePath !== 'function') {
+    throw new TypeError('filterResolvableCandidates requires a resolver function');
+  }
+
+  const candidates = new Set();
+  let skipped = 0;
+  let lowCount = 0;
+  let unresolved = 0;
+
+  for (const row of rows) {
+    const count = Number(row?.count);
+    if (!Number.isFinite(count) || count < minCount) {
+      lowCount++;
+      continue;
+    }
+
+    if (typeof row?.path !== 'string') {
+      skipped++;
+      continue;
+    }
+    const norm = row.path.replace(/\/+$/, '');
+    if (!isCandidate(norm)) {
+      skipped++;
+      continue;
+    }
+    if (resolvePath(norm) === null) {
+      unresolved++;
+      continue;
+    }
+    candidates.add(norm);
+  }
+
+  return { candidates, skipped, lowCount, unresolved };
 }
 
 async function main() {
@@ -144,22 +190,28 @@ async function main() {
     `🛰️  Swept ${windowsOk}/${opts.windowCount} × ${opts.windowHours}h windows → ${rows.length} distinct 404 paths.`,
   );
 
-  // Normalize → candidate set (dedup, trailing-slash-stripped to match the
-  // accumulator's convention used by the GSC producers).
-  const candidates = new Set();
-  let skipped = 0;
-  let lowCount = 0;
-  for (const r of rows) {
-    if (r.count < opts.minCount) { lowCount++; continue; }
-    const norm = r.path.replace(/\/+$/, '');
-    if (isCandidate(norm)) candidates.add(norm);
-    else skipped++;
-  }
+  // Use the same resolver as the build and prune gate before mutating the
+  // accumulator. Running this script through tsx is intentional: the resolver
+  // is TypeScript and remains the single source of truth for route eligibility.
+  const { resolveSearchConsoleCompatTarget } = await import('../build-plugins/searchConsoleCompat');
+
+  // Normalize → resolver-proven candidate set (dedup, trailing-slash-stripped
+  // to match the accumulator's convention used by the GSC producers).
+  const {
+    candidates,
+    skipped,
+    lowCount,
+    unresolved,
+  } = filterResolvableCandidates(rows, {
+    minCount: opts.minCount,
+    resolvePath: resolveSearchConsoleCompatTarget,
+  });
 
   console.log(
     `📊 Cloudflare 404 sweep: ${rows.length} distinct 404 paths → ` +
       `${candidates.size} content candidates ` +
-      `(${skipped} asset/infra, ${lowCount} below min-count=${opts.minCount} skipped).`,
+      `(${skipped} asset/infra/invalid, ${unresolved} unresolved, ` +
+      `${lowCount} below min-count=${opts.minCount} skipped).`,
   );
 
   const compat = readCompatPathsStrict(ROOT);
@@ -202,7 +254,10 @@ async function main() {
   console.log('   Run prune-404-compat-paths.ts next to drop non-resolving paths before commit.');
 }
 
-main().catch((err) => {
-  console.error(`❌ ${err?.message || err}`);
-  process.exit(1);
-});
+const entrypoint = process.argv[1] ? pathToFileURL(process.argv[1]).href : '';
+if (import.meta.url === entrypoint) {
+  main().catch((err) => {
+    console.error(`❌ ${err?.message || err}`);
+    process.exit(1);
+  });
+}

@@ -95,7 +95,7 @@ jobs:
           # Remote Config by the previous step.
           MIN_COUNT: ${{ inputs.min_count || '2' }}
         run: |
-          node scripts/discover-404s-via-cloudflare.mjs \
+          npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs \
             --min-count="$MIN_COUNT" \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
