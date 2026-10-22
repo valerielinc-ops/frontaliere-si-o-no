@@ -405,7 +405,22 @@ export async function readPreviousTicinoSnapshots({ completePath = TICINO_OUTPUT
     const slug = typeof pharmacy.slug === 'string' && pharmacy.slug
       ? uniqueSlug(pharmacy.slug, usedSlugs)
       : pharmacy.slug;
-    legacyOnly.push(slug === pharmacy.slug ? pharmacy : { ...pharmacy, slug });
+    if (slug === pharmacy.slug) {
+      legacyOnly.push(pharmacy);
+    } else {
+      const { urlAliases: previousAliases, ...withoutAliases } = pharmacy;
+      const urlAliases = Array.isArray(previousAliases)
+        ? previousAliases.filter((alias) => alias?.country !== 'CH' || !usedSlugs.has(alias?.slug))
+        : [];
+      // The legacy record no longer owns its old canonical slug. Remove any
+      // alias for a slug already claimed by the merged catalogue, while
+      // retaining unrelated historical routes.
+      legacyOnly.push({
+        ...withoutAliases,
+        slug,
+        ...(urlAliases.length ? { urlAliases } : {}),
+      });
+    }
     knownIds.add(pharmacy.id);
   }
   return {
