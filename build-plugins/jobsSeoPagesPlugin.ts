@@ -13672,7 +13672,7 @@ ${staticAnalyticsHtml}
  // so a re-posted twin (active page + expired soft-landing, same role +
  // company + city) can never emit a duplicate <title> within the locale.
  pageTitleRaw = claimUniqueTitle(locale, pageTitleRaw, `${slug}::${locale}`, __expiredCompose);
- const pageTitle = esc(pageTitleRaw);
+ const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));
 
  // Meta description: lead with role + company + place (city when known,
  // canton otherwise) so the SERP snippet fallback carries the local-intent
@@ -15447,7 +15447,7 @@ ${staticAnalyticsHtml}
   const pageTitleRaw = composeSerpJobTitle(titleRaw, company, location, locale, {
    measureLength: (s) => esc(s).length,
   });
-  const pageTitle = esc(pageTitleRaw);
+  const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));
   const description = stripLeadingSectionLabel(String(archive?.description || ''));
   const descriptionHtml = description.length > 30 ? renderJobDescriptionGate(description, locale) : '';
   const detailItems = [
