@@ -585,7 +585,7 @@ jobs:
       - name: Post-deploy indexing (parallel)
         if: success() && steps.live_identity.outputs.status == 'match'
         continue-on-error: true
-        timeout-minutes: 5
+        timeout-minutes: 20
         env:
           ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
           # gh CLI (scripts/lib/github-issue-creator.mjs, used by
@@ -596,7 +596,11 @@ jobs:
         run: |
           timeout 90 node scripts/submit-google-indexing-jobs.js &
           PID_GOOGLE=$!
-          timeout 90 node scripts/submit-indexnow.js &
+          # The deploy snapshot can contain a large first reconciliation after
+          # a v2 baseline. Give the recursive diff/submission enough time to
+          # drain its bounded 500-URL batches; the scheduled full-graph job is
+          # still the durable retry if an endpoint remains unavailable.
+          timeout 900 node scripts/submit-indexnow.js &
           PID_INDEXNOW=$!
           timeout 180 node scripts/submit-google-indexing.js &
           PID_GSC=$!

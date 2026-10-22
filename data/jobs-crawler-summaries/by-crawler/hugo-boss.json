@@ -1,25 +1,25 @@
 {
   "key": "hugo-boss",
   "label": "Hugo Boss",
-  "generatedAt": "2026-10-21T09:57:25.392Z",
+  "generatedAt": "2026-10-22T09:45:32.807Z",
   "total": 1,
-  "discovered": 731,
+  "discovered": 728,
   "parsed": 1,
   "written": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 8571,
-  "avgDurationMs": 8571,
+  "durationMs": 10969,
+  "avgDurationMs": 10969,
   "durationHistory": [
-    8571
+    10969
   ],
-  "coverage": "complete",
-  "terminationReason": null,
-  "sourceRecordsSeen": 731,
-  "sourceTotalHits": 731,
-  "authoritativeSnapshotVerified": true,
+  "coverage": "max-observed",
+  "terminationReason": "duplicate-page",
+  "sourceRecordsSeen": 728,
+  "sourceTotalHits": 734,
+  "authoritativeSnapshotVerified": false,
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
@@ -62,5 +62,5 @@
       }
     }
   ],
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }

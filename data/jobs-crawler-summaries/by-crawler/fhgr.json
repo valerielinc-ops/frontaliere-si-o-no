@@ -1,28 +1,29 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-10-21T09:25:37.261Z",
-  "total": 2,
+  "generatedAt": "2026-10-22T09:28:26.124Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 2,
+  "written": 1,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 4919,
-  "avgDurationMs": 4919,
+  "durationMs": 5462,
+  "avgDurationMs": 5462,
   "durationHistory": [
-    4919
+    5462
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "fhgr-086c063dedcd",
       "slug": "assistenza-organizzativa-assistenza-diretta-fachhochschule-graubunden-chur",
@@ -59,7 +60,6 @@
       "salarySource": "estimated",
       "addressRegion": "GR",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -69,7 +69,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -83,7 +82,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:25:22.872Z",
+      "crawledAt": "2026-10-22T09:28:17.002Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -115,5 +114,5 @@
       }
     }
   ],
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }

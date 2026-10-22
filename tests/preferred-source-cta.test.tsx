@@ -23,6 +23,7 @@ import { render, screen, cleanup } from '@testing-library/react';
 import PreferredSourceCTA, {
   PREFERRED_SOURCE_URL,
 } from '@/components/shared/PreferredSourceCTA';
+import { PREFERRED_SOURCE_URL as SHARED_PREFERRED_SOURCE_URL } from '@/functions/src/lib/emailEngagementBanners.js';
 import { buildNewsletter } from '@/services/newsletter-template.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
@@ -57,6 +58,7 @@ describe('PreferredSourceCTA — deep link', () => {
     expect(new URL(PREFERRED_SOURCE_URL).searchParams.get('q')).toBe(
       'frontaliereticino.ch',
     );
+    expect(SHARED_PREFERRED_SOURCE_URL).toBe(PREFERRED_SOURCE_URL);
   });
 
   for (const variant of ['inline', 'card'] as const) {
@@ -150,13 +152,10 @@ describe('PreferredSourceCTA — e montato dove la issue 5004 lo chiede', () => 
     }
   });
 
-  it('le due copie dell URL (React ed email) non possono divergere in silenzio', () => {
-    // I due file non possono importarsi a vicenda (componente React vs
-    // template .mjs usato dagli script di invio), quindi la costante e'
-    // duplicata per necessita': questo assert e' il guard che tiene le due
-    // copie identiche.
+  it('la newsletter usa il renderer condiviso per il deep link', () => {
     const emailSrc = read('services/newsletter-template.mjs');
-    expect(emailSrc).toContain(`'${PREFERRED_SOURCE_URL}'`);
+    expect(emailSrc).toContain('emailEngagementBanners.js');
+    expect(SHARED_PREFERRED_SOURCE_URL).toBe(PREFERRED_SOURCE_URL);
   });
 });
 

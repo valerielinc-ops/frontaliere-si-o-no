@@ -2071,6 +2071,44 @@ jobs:
       issues: write     # github-issue-creator on validation failure (must be declared at the caller too or the reusable startup_failures)
 
   # ───────────────────────────────────────────────────────────────────────
+  # audit-dist-report: quality/BFS audits only. It reuses the build and shard
+  # artifacts, but owns a separate runner and has no edge into `publish`, so
+  # its long report walk never holds the dist-validation concurrency lock.
+  # ───────────────────────────────────────────────────────────────────────
+  audit-dist-report:
+    needs: [resolve-publish-plan, resolve-nonit-publish, publish-nonit-shards]
+    if: >-
+      ${{ always() &&
+          needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-nonit-publish.result == 'success' &&
+          needs.resolve-nonit-publish.outputs.allowed == 'true' &&
+          needs.publish-nonit-shards.result == 'success' }}
+    uses: ./.github/workflows/audit-dist-from-run.yml
+    with:
+      deploy_run_id: ${{ inputs.source_run_id }}
+      shard_artifact_run_id: ${{ github.run_id }}
+      deploy_ref: ${{ inputs.source_sha }}
+      audit_sample_rate: '0.25'
+      audit_sample_salt: ${{ github.run_number }}
+      audits: >-
+        audit:all,audit:hreflang,audit:max-bfs-depth,
+        audit:orphan-sitemap-pages,validate:jobs-quality,
+        audit:discover-eligibility,report:job-title-locale,
+        report:meta-description,validate:page-seo,validate:og-images,
+        gate:seo-source,gate:dist-quality
+      audit_all_audits: >-
+        text-html-ratio,title-length,title-no-disambig-hash,
+        h1-title-duplicates,content-duplicates,faqpage-validity,
+        no-literal-markdown,breadcrumb-coverage,single-h1-per-page,
+        duplicate-structured-data,link-anchor-text,duplicate-meta-description,
+        information-gain,page-weight,salary-landing-template
+    secrets: inherit
+    permissions:
+      contents: read
+      actions: read
+
+  # ───────────────────────────────────────────────────────────────────────
   # validate-live: live-site gates (build-id propagation, live meta). Needs the
   # Pages publish to have happened → gated on deploy.
   # ───────────────────────────────────────────────────────────────────────
@@ -2096,15 +2134,35 @@ jobs:
       actions: read     # cross-run download-artifact
       issues: write     # github-issue-creator on validation failure
 
+  # Live UX/performance audit. It is deliberately independent from both the
+  # blocking live smoke and publish; the smoke keeps only serving/integrity
+  # checks in the publish chain.
+  audit-live-report:
+    needs: [resolve-publish-plan, resolve-nonit-publish, deploy]
+    if: >-
+      ${{ !cancelled() &&
+          needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-nonit-publish.result == 'success' &&
+          needs.resolve-nonit-publish.outputs.allowed == 'true' &&
+          needs.deploy.result == 'success' }}
+    uses: ./.github/workflows/post-deploy-audit-live.yml
+    with:
+      deploy_ref: ${{ inputs.source_sha }}
+    secrets: inherit
+    permissions:
+      contents: read
+
   # ───────────────────────────────────────────────────────────────────────
   # publish: post-deploy side effects (IndexNow, Google Indexing API, GSC,
   # previous-slug-winners sync, LinkedIn/Reddit article posting).
   #
-  # Gated on the deploy being LIVE and VALID — not on every quality audit
-  # being green (issues #4828, #5114, #5128).
+  # Gated on the deploy being LIVE and VALID — not on the independent quality
+  # report jobs being green (issues #4828, #5114, #5128).
   #
   # What changed and why. This used to require
-  # `needs.validate-dist.result == 'success'`. `validate-dist` bundles
+  # `needs.validate-dist.result == 'success'`. Before this split,
+  # `validate-dist` bundled
   # dist-integrity gates (sitemap validity, dotfile-html, SPA bundle
   # injection) together with SEO quality audits (hreflang, title length,
   # text/html ratio, BFS depth). One red quality audit therefore sequestered
@@ -2122,22 +2180,22 @@ jobs:
   # live AND unannounced, which is strictly worse for that page than
   # announcing it.
   #
-  # `integrity_ok` is the reusable workflow's classification of its own red
-  # state, computed by scripts/ci/classify-validate-dist-failures.mjs on a
-  # DEFAULT-DENY list: anything not explicitly a quality gate blocks, and an
-  # unknown/unavailable verdict fails closed (empty ⇒ `== 'true'` is false ⇒
-  # skipped, exactly as before). This is NOT `continue-on-error`: no gate is
-  # widened or downgraded (AGENTS.md non-negotiables #1, #2), `validate-dist`
-  # still reports FAILURE, this workflow still goes red, and
-  # `validate-dist-report` still opens the tracking issue.
+  # `validate-dist` still reports every validator failure, but its
+  # `integrity_ok` output is the publication precondition. The classifier
+  # remains default-deny: named quality rows do not sequester publish, while a
+  # real dist/source integrity failure or an unknown verdict keeps it closed.
+  # This is NOT `continue-on-error`: no threshold is widened and no error is
+  # downgraded (AGENTS.md non-negotiables #1, #2).
   #
   # `validate-live` stays a HARD requirement: if the new dist is not actually
   # serving, submitting its URLs is wrong.
+  # `audit-dist-report` and `audit-live-report` intentionally do not appear in
+  # `needs`: they publish evidence, not a publication precondition.
   # ───────────────────────────────────────────────────────────────────────
   publish:
     needs: [resolve-publish-plan, resolve-nonit-publish, deploy, validate-dist, validate-live]
     if: >-
-      ${{ !cancelled() &&
+      ${{ always() && !cancelled() &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-nonit-publish.result == 'success' &&
           needs.resolve-nonit-publish.outputs.allowed == 'true' &&

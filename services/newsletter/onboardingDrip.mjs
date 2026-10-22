@@ -23,6 +23,7 @@
 
 import { localizedUrl } from '../newsletter-template.mjs';
 import { renderRecommendedBlock } from './recommendedBlock.mjs';
+import { renderEmailEngagementBanners } from '../../functions/src/lib/emailEngagementBanners.js';
 import { dataControllerFooterLine } from '../../functions/src/lib/dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -304,6 +305,7 @@ export function buildDripEmail({ step, locale, interest, acquisitionSource, unsu
         </td></tr>
         <tr><td class="section-pad" style="padding:12px 28px;"><div style="border-top:1px solid ${BORDER_COLOR};"></div></td></tr>
         ${recommended}
+        ${renderEmailEngagementBanners({ locale: loc })}
         <tr><td class="section-pad" style="background:${BRAND_DARK};padding:24px 28px;text-align:center;">
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">Frontaliere Ticino · <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(footerHomeUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
           <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;"><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(unsub)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${loc === 'it' ? 'Disiscriviti' : loc === 'de' ? 'Abmelden' : loc === 'fr' ? 'Se désinscrire' : 'Unsubscribe'}</a></div>

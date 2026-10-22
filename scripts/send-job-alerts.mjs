@@ -28,6 +28,7 @@ import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { normalizeContract, formatSalary, emailTagChip } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
+import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import {
   buildAlertProfile,
   createAlertScorer,
@@ -1348,15 +1349,12 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
           </div>
         </td></tr>
 
+        ${renderEmailEngagementBanners({ locale })}
+
         <!-- Footer (dark, aligned with newsletter) -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
           <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
             ${s.intendedFor(escHtml(alert.email), filterSummary)}
-          </div>
-          <div style="margin-bottom:12px;">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/frontaliereticino/" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
-            <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
           </div>
           <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
             <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${s.manageAlerts}</a>
@@ -1418,6 +1416,8 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
     `${s.textManageLine} ${manageUrl}`,
     `${s.textUnsubThisLine} ${unsubscribeUrl}`,
     `${s.textUnsubAllLine} ${unsubAllUrl}`,
+    '',
+    emailEngagementBannersText({ locale }),
     '',
     `\u00a9 ${new Date().getFullYear()} Frontaliere Ticino`,
     dataControllerFooterLine(locale),

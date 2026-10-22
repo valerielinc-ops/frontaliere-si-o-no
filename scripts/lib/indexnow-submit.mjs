@@ -18,6 +18,8 @@
  * key or the payload shape (AGENTS.md Non-Negotiable #6).
  */
 
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
+
 export const INDEXNOW_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
 export const HOST = 'frontaliereticino.ch';
 export const KEY_LOCATION = `https://${HOST}/${INDEXNOW_KEY}.txt`;
@@ -36,6 +38,38 @@ const MAX_RETRIES = 2;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
+ * Verify ownership before sending a batch. CDN propagation can briefly serve
+ * 403/old content immediately after a Pages or edge publish, so one request is
+ * not enough to decide that IndexNow is unavailable. The caller still receives
+ * false after bounded retries and can fail the workflow visibly.
+ */
+export async function verifyIndexNowKey({ attempts = 4, delayMs = 2000 } = {}) {
+  let lastReason = 'unknown error';
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(KEY_LOCATION, {
+        headers: {
+          Accept: 'text/plain',
+          'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT,
+        },
+        signal: AbortSignal.timeout(15_000),
+      });
+      const body = (await response.text()).trim();
+      if (response.ok && body === INDEXNOW_KEY) {
+        return { ok: true, attempts: attempt, status: response.status };
+      }
+      lastReason = response.ok
+        ? `content mismatch (${body.slice(0, 60)})`
+        : `HTTP ${response.status} ${response.statusText}`;
+    } catch (error) {
+      lastReason = error?.message || String(error);
+    }
+    if (attempt < attempts && delayMs > 0) await sleep(delayMs * attempt);
+  }
+  return { ok: false, attempts, reason: lastReason };
+}
+
+/**
  * POST one batch of URLs to one endpoint, with bounded retry.
  * Never throws — returns a result object so a caller can keep going.
  */
@@ -46,8 +80,12 @@ export async function submitIndexNowBatch(endpoint, urlBatch, attempt = 1) {
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT,
+      },
       body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(30_000),
     });
 
     if (response.ok || response.status === 202) {

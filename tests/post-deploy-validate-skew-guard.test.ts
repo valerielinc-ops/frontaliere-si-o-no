@@ -14,6 +14,7 @@ import YAML from 'yaml';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOW_PATH = resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml');
+const REPORT_WORKFLOW_PATH = resolve(ROOT, '.github/workflows/audit-dist-from-run.yml');
 const DEPLOY_REF_EXPR = '${{ inputs.deploy_ref }}';
 
 type Step = {
@@ -42,6 +43,7 @@ type DirectCall = {
 
 const workflowText = readFileSync(WORKFLOW_PATH, 'utf8');
 const workflow = YAML.parse(workflowText) as Workflow;
+const reportWorkflow = YAML.parse(readFileSync(REPORT_WORKFLOW_PATH, 'utf8')) as Workflow;
 
 /**
  * These are bookkeeping fallbacks, not dist validators. Each call sits below
@@ -216,21 +218,14 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
     expect(sourceStep?.run).toContain('build_skew_guard_skip_row "$name" > "$RESDIR/$name"');
   });
 
-  it('pins published corpus image evidence before requiring it in the OG validator', () => {
-    const steps = workflow.jobs?.['validate-dist-postbuild']?.steps ?? [];
-    const evidenceIndex = steps.findIndex((step) => step.id === 'sync_blog_image_evidence');
-    const sourceIndex = steps.findIndex((step) => step.name === 'Run source validators (parallel — 4 vCPU)');
-    const evidenceStep = steps[evidenceIndex];
-    const sourceStep = steps[sourceIndex];
+  it('pins published corpus image evidence in the independent OG report', () => {
+    const steps = reportWorkflow.jobs?.audit?.steps ?? [];
+    const evidenceStep = steps.find((step) => step.name === 'Prepare report-only SEO inputs');
+    const auditStep = steps.find((step) => step.name === 'Run requested audits');
 
-    expect(evidenceIndex).toBeGreaterThanOrEqual(0);
-    expect(evidenceIndex).toBeLessThan(sourceIndex);
-    expect(evidenceStep?.run).toContain(
-      'build_skew_guard_run node scripts/sync-published-blog-image-evidence.mjs',
-    );
-    expect(sourceStep?.run).toContain(
-      'npm run validate:og-images -- --require-published-blog-image-evidence',
-    );
+    expect(evidenceStep?.run).toContain('node scripts/sync-published-blog-image-evidence.mjs');
+    expect(auditStep?.run).toContain('validate:og-images');
+    expect(auditStep?.run).toContain('--require-published-blog-image-evidence');
   });
 
   it('does not lose the source-validator calls from the census', () => {
@@ -242,8 +237,6 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
         'node:scripts/validate-translation-completeness.mjs',
         'npm:validate:crawler-summaries',
         'npm:validate:third-party-secrets',
-        'npm:validate:og-images',
-        'npm:gate:seo-source',
       ]),
     );
   });

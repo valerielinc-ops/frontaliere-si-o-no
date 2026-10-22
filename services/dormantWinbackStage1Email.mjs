@@ -17,6 +17,7 @@
  */
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from './newsletterUrls.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 
 // Canonical prod domain (no www) — matches BASE_URL in send-newsletter.mjs /
 // newsletterUrls.mjs. `article.url` (from scripts/lib/articleContent.mjs's
@@ -153,6 +154,7 @@ export function buildDormantWinbackStage1Email({ email, locale = 'it', articles 
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cardsHtml}</table>
         <p style="margin:16px 0 0;font-size:12px;line-height:1.5;color:${MUTED};text-align:center;">${s.footNote}</p>
       </td></tr>
+      ${renderEmailEngagementBanners({ locale: l })}
       <!-- footer -->
       <tr><td style="border-top:1px solid #eef2f7;padding:18px 32px 24px;text-align:center;">
         <a href="${footerUnsubUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${MUTED};text-decoration:underline;">${s.unsub}</a>
@@ -166,7 +168,7 @@ export function buildDormantWinbackStage1Email({ email, locale = 'it', articles 
 </body>
 </html>`;
 
-  const text = `${s.heading}\n\n${s.body}\n\n${cardsText}\n\n${s.footNote}\n\n${s.unsub}: ${footerUnsubUrl}\n${s.prefs}: ${preferencesUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
+  const text = `${s.heading}\n\n${s.body}\n\n${cardsText}\n\n${s.footNote}\n\n${emailEngagementBannersText({ locale: l })}\n\n${s.unsub}: ${footerUnsubUrl}\n${s.prefs}: ${preferencesUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }

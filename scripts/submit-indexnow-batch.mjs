@@ -44,6 +44,12 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
 import { INDEXNOW_SITEMAPS } from './submit-indexnow.js';
+import {
+  crawlSitemaps,
+  filterSnapshot,
+  snapshotFromCrawl,
+  snapshotUrls,
+} from './lib/sitemap-crawl.mjs';
 
 // ── Configuration ─────────────────────────────────────────────
 const DEFAULT_KEY = '39093e02a74b4a2dbf867c74bc53a7d8';
@@ -75,7 +81,9 @@ const args = process.argv.slice(2);
 const DRY_RUN = args.includes('--dry-run');
 const USE_LOCAL = args.includes('--local');
 const endpointArg = args.find((_, i, a) => a[i - 1] === '--endpoint');
-const sitemapArg = args.find((_, i, a) => a[i - 1] === '--sitemap');
+const sitemapFilters = args
+  .flatMap((arg, index) => (arg === '--sitemap' ? [args[index + 1]] : []))
+  .filter(Boolean);
 
 // Live sitemap origin (default = deployed site). The sub-sitemaps are public
 // XML, always reflecting the latest deploy, so the weekly catch-up can read
@@ -143,104 +151,84 @@ export function extractAlternateUrls(xml, urls) {
   return count;
 }
 
-// ── Fetch one sub-sitemap live over HTTP (with retry) ─────────
-async function fetchSitemapXml(file) {
-  const url = `${SITEMAP_BASE}/${file}`;
-  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-    try {
-      const res = await fetch(url, {
-        headers: { Accept: 'application/xml,text/xml', 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
-        signal: AbortSignal.timeout(30_000),
-      });
-      if (res.ok) return await res.text();
-      if (res.status >= 500 && attempt < MAX_RETRIES) {
-        await sleep(2000 * attempt);
-        continue;
-      }
-      console.log(`  ${file}: HTTP ${res.status} — skipping`);
-      return null;
-    } catch (err) {
-      if (attempt < MAX_RETRIES) {
-        await sleep(2000 * attempt);
-        continue;
-      }
-      console.log(`  ${file}: fetch error (${err.message}) — skipping`);
-      return null;
-    }
-  }
-  return null;
-}
-
-// ── Collect URLs from sitemaps (live by default, --local for FS) ─
+// ── Collect URLs from the complete sitemap graph ───────────────────────────
 export async function getUrlsFromSitemaps() {
-  const urls = new Set();
+  const rootDir = getProjectRoot();
+  const sitemapDir = existsSync(resolve(rootDir, 'dist', 'sitemap.xml'))
+    ? resolve(rootDir, 'dist')
+    : resolve(rootDir, 'public');
+  let crawl;
+  try {
+    // The live root index and robots.txt are authoritative. Do not make a
+    // historical filename list a required part of the live crawl: a producer
+    // may retire/rename a sitemap while the root index is already correct.
+    // Compatibility seeds are used only when an old local/root fixture is a
+    // URL set rather than the generated master index.
+    const graphSeeds = ['sitemap.xml', 'sitemap-news.xml', 'sitemap-cantons.xml'];
+    crawl = await crawlSitemaps({
+      host: HOST,
+      baseUrl: SITEMAP_BASE,
+      source: USE_LOCAL ? 'local' : 'live',
+      rootDir: USE_LOCAL ? sitemapDir : undefined,
+      seeds: graphSeeds,
+      strict: !USE_LOCAL,
+    });
 
-  const filteredSitemaps = sitemapArg
-    ? SUB_SITEMAPS.filter((f) => f.includes(sitemapArg))
-    : SUB_SITEMAPS;
-
-  if (filteredSitemaps.length === 0) {
-    console.error(`No sitemaps match filter "${sitemapArg}". Available: ${SUB_SITEMAPS.join(', ')}`);
+    const rootRecord = crawl.records.get('sitemap.xml');
+    if (!rootRecord || rootRecord.kind !== 'index') {
+      crawl = await crawlSitemaps({
+        host: HOST,
+        baseUrl: SITEMAP_BASE,
+        source: USE_LOCAL ? 'local' : 'live',
+        rootDir: USE_LOCAL ? sitemapDir : undefined,
+        seeds: [...new Set([...graphSeeds, ...SUB_SITEMAPS])],
+        strict: !USE_LOCAL,
+      });
+    }
+  } catch (error) {
+    console.error(`Failed to crawl the sitemap graph from ${SITEMAP_BASE}: ${error.message}`);
     process.exit(1);
+    throw error;
   }
 
-  if (USE_LOCAL) {
-    // Prefer dist/ (post-build) over public/ (pre-build source)
-    const rootDir = getProjectRoot();
-    const sitemapDir = existsSync(resolve(rootDir, 'dist', 'sitemap-pages.xml'))
-      ? resolve(rootDir, 'dist')
-      : resolve(rootDir, 'public');
-    for (const file of filteredSitemaps) {
-      try {
-        const count = extractUrls(readFileSync(resolve(sitemapDir, file), 'utf-8'), urls);
-        console.log(`  ${file}: ${count} raw entries (${urls.size} unique so far)`);
-      } catch {
-        console.log(`  ${file}: not found — skipping`);
-      }
-    }
-    console.log(`  Source: local ${sitemapDir}`);
-  } else {
-    const failed = [];
-    const empty = [];
-    for (const file of filteredSitemaps) {
-      const xml = await fetchSitemapXml(file);
-      // null = unreachable (5xx after retries / 404 / network); an empty but
-      // 200-OK urlset returns '' and is treated as a legitimate empty sitemap.
-      if (xml == null) {
-        failed.push(file);
-        continue;
-      }
-      const count = extractUrls(xml, urls);
-      if (count === 0) empty.push(file);
-      console.log(`  ${file}: ${count} raw entries (${urls.size} unique so far)`);
-    }
-    console.log(`  Source: live ${SITEMAP_BASE}`);
-    // Abort on ANY expected sub-sitemap failure, not only when all seven fail.
-    // A partial fetch would silently drop a whole content type — e.g. if
-    // sitemap-jobs.xml (the job funnel) 5xx/404s after a deploy while the
-    // other five succeed — and still exit 0, masking the gap as a clean run.
-    if (failed.length > 0) {
-      console.error(
-        `Failed to fetch ${failed.length}/${filteredSitemaps.length} sitemap(s) from ${SITEMAP_BASE}: ${failed.join(', ')}.\n` +
-        `Aborting to avoid a partial submission that would drop those URLs silently.`,
-      );
+  let snapshot = snapshotFromCrawl(crawl);
+  if (sitemapFilters.length > 0) {
+    const expandedFilters = sitemapFilters.flatMap((filter) =>
+      String(filter).toLowerCase() === 'article' ? ['article', 'blog', 'news'] : [filter]);
+    snapshot = filterSnapshot(snapshot, expandedFilters);
+    if (snapshot.sitemapFiles.length === 0) {
+      console.error(`No sitemap matches filter(s) "${sitemapFilters.join(', ')}".`);
       process.exit(1);
-    }
-    // A 200-OK sitemap with zero URLs is treated as legitimately empty (some
-    // categories can be small), but a normally-populated one returning 0 —
-    // e.g. sitemap-jobs.xml truncated by a partial deploy — would otherwise
-    // hide behind its count line. Surface it loudly so it's visible in logs.
-    if (empty.length > 0) {
-      console.warn(`  ⚠️  ${empty.length} sitemap(s) returned 200 but 0 URLs: ${empty.join(', ')} — verify this is expected.`);
+      throw new Error('No sitemap filter match');
     }
   }
+
+  const empty = [...crawl.records.values()]
+    .filter((record) => record.kind === 'urlset' && record.urls.length === 0)
+    .map((record) => record.key)
+    .sort();
+  if (empty.length > 0) {
+    console.warn(`  ⚠️  ${empty.length} sitemap(s) returned 200 but 0 URLs: ${empty.join(', ')} — verify this is expected.`);
+  }
+  for (const [file, urls] of Object.entries(snapshot.perSitemap)) {
+    console.log(`  ${file}: ${urls.length} URLs (${snapshotUrls(snapshot).size} unique total)`);
+  }
+  console.log(`  Source: ${USE_LOCAL ? `local ${sitemapDir}` : `live ${SITEMAP_BASE}`}`);
+
+  const urls = snapshotUrls(snapshot);
 
   // Locale-alternate compensation from the public/ registry (see
   // extractAlternateUrls docs). No-op when the checkout is unavailable or
   // when the sitemap still carries its annotations (pure union).
   const publicDir = resolve(getProjectRoot(), 'public');
   let alternatesAdded = 0;
-  for (const file of filteredSitemaps) {
+  const registryFiles = SUB_SITEMAPS.filter((file) =>
+    sitemapFilters.length === 0 || sitemapFilters.some((filter) => {
+      const normalized = String(filter).toLowerCase();
+      return file.toLowerCase().includes(normalized)
+        || (normalized === 'article' && /article|blog|news/.test(file));
+    }));
+  for (const file of registryFiles) {
     const publicPath = resolve(publicDir, file);
     if (!existsSync(publicPath)) continue;
     try {
@@ -252,7 +240,7 @@ export async function getUrlsFromSitemaps() {
   }
 
   // Add extra key URLs not typically in sitemaps
-  if (!sitemapArg) {
+  if (sitemapFilters.length === 0) {
     for (const url of EXTRA_URLS) urls.add(url);
   }
 
@@ -261,29 +249,31 @@ export async function getUrlsFromSitemaps() {
 
 // ── Verify key file accessibility ─────────────────────────────
 async function verifyKeyFile() {
-  try {
-    const res = await fetch(KEY_LOCATION, {
-      headers: { Accept: 'text/plain', 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
-      signal: AbortSignal.timeout(10_000),
-    });
-    if (!res.ok) {
-      console.error(`Key file not reachable: ${res.status} ${res.statusText}`);
-      console.error(`  URL: ${KEY_LOCATION}`);
-      return false;
+  let reason = 'unknown error';
+  for (let attempt = 1; attempt <= 4; attempt += 1) {
+    try {
+      const res = await fetch(KEY_LOCATION, {
+        headers: { Accept: 'text/plain', 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+        signal: AbortSignal.timeout(15_000),
+      });
+      const body = (await res.text()).trim();
+      if (res.ok && body === INDEXNOW_KEY) {
+        console.log(`Key file verified: ${KEY_LOCATION} (attempt ${attempt})`);
+        return true;
+      }
+      reason = res.ok ? `content mismatch (${body.slice(0, 60)})` : `HTTP ${res.status} ${res.statusText}`;
+    } catch (err) {
+      reason = err.message;
     }
-    const body = (await res.text()).trim();
-    if (body !== INDEXNOW_KEY) {
-      console.error(`Key file content mismatch!`);
-      console.error(`  Expected: ${INDEXNOW_KEY}`);
-      console.error(`  Found: ${body.slice(0, 60)}`);
-      return false;
+    if (attempt < 4) {
+      const delay = attempt * 2000;
+      console.warn(`Key file check failed (${reason}); retrying in ${delay / 1000}s (${attempt}/3)`);
+      await sleep(delay);
     }
-    console.log(`Key file verified: ${KEY_LOCATION}`);
-    return true;
-  } catch (err) {
-    console.error(`Key file fetch error: ${err.message}`);
-    return false;
   }
+  console.error(`Key file verification failed after 4 attempts: ${reason}`);
+  console.error(`  URL: ${KEY_LOCATION}`);
+  return false;
 }
 
 // ── Submit a batch of URLs to a single endpoint ───────────────
@@ -300,7 +290,10 @@ async function submitBatch(endpoint, urlBatch, batchIndex, totalBatches, attempt
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT,
+      },
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(30_000),
     });

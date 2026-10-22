@@ -1,7 +1,8 @@
 # Cloudflare zone rules — `frontaliereticino.ch` (zone `435c32ec15993fe826d2bb5eb62d3d43`)
 
-Tracking doc for zone-level Cloudflare **Cache Rules** / **Response Header
-Transform Rules** that are applied directly via the Cloudflare API. The CDN
+Tracking doc for zone-level Cloudflare **Cache Rules** / **Cache Response Rules**
+/ **Response Header Transform Rules** that are applied directly via the
+Cloudflare API. The CDN
 cache/header rules below remain foreign rules documented here; the apex security
 rule is managed idempotently by `scripts/cf-locale-failover-setup.mjs`.
 Added for issue #3216 item 3: two `cdn.frontaliereticino.ch/assets/early-boot.js`
@@ -140,6 +141,26 @@ purpose/rollback. Rule 3 is the subject of this doc:
   if that purge is missed. Guarded by `tests/cdn-asset-cache-headers.test.ts`.
 - **Rollback:** managed by `scripts/cf-locale-failover-setup.mjs` — re-run that
   script to restore, do not hand-edit.
+
+## Ruleset `http_response_cache_settings` — managed rules
+
+### `it-apex-html-stale-failover` (managed by `scripts/cf-locale-failover-setup.mjs`)
+
+- **Expression:** successful, queryless `GET` responses whose request matches
+  the IT/apex cache selector and whose `content-type` contains `text/html`.
+- **Action:** `set_cache_control`, removing `s-maxage` only from Cloudflare's
+  internal view and setting `stale-if-error=86400` plus
+  `stale-while-revalidate=86400` there. `cloudflare_only: true` leaves the
+  browser-facing Cache-Control unchanged.
+- **Purpose:** the apex Cache Rule stores 200 HTML for 300s, but the origin's
+  `s-maxage` otherwise forces a synchronous successful revalidation when that
+  copy expires. During the intermittent GitHub Pages 5xx window, Google could
+  receive the error instead of the last known-good page. This rule lets
+  Cloudflare serve that cached 200 while the origin recovers; 3xx–5xx origin
+  responses are still not stored by the request-side Cache Rule.
+- **Rollback:** managed by `scripts/cf-locale-failover-setup.mjs` — remove the
+  managed rule from the source and redeploy the setup, rather than editing the
+  phase by hand.
 
 ## Ruleset `http_request_firewall_custom` — managed rules
 
