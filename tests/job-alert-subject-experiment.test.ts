@@ -76,6 +76,11 @@ describe('job-alert subject experiment', () => {
       periodId: 'week-test',
       config: configured,
     }).inExperiment).toBe(true);
+
+    const jsonConfigured = readJobAlertSubjectConfig({
+      JOB_ALERT_SUBJECT_AB_VARIANTS: '["control","match","novita","scoperta"]',
+    } as NodeJS.ProcessEnv);
+    expect(jsonConfigured.variantIds).toEqual(['control', 'match', 'novita', 'scoperta']);
   });
 
   it('keeps the same arm across retries and normalizes the email', () => {

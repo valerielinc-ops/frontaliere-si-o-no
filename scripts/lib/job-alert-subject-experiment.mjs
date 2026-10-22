@@ -92,16 +92,25 @@ function parseVariantAssignment(value) {
   if (value === undefined || value === null || value === '') {
     return DEFAULT_JOB_ALERT_SUBJECT_ASSIGNMENT;
   }
-  const ids = [...new Set(String(value)
-    .split(',')
-    .map((id) => id.trim().toLowerCase())
+  const raw = String(value).trim();
+  let candidates;
+  try {
+    const parsed = JSON.parse(raw);
+    candidates = Array.isArray(parsed) ? parsed : raw.split(',');
+  } catch {
+    candidates = raw.split(',');
+  }
+  const ids = [...new Set(candidates
+    .map((id) => String(id).trim().toLowerCase())
     .filter((id) => VARIANT_IDS.has(id)))];
   return ids.length > 0 ? ids : DEFAULT_JOB_ALERT_SUBJECT_ASSIGNMENT;
 }
 
 function configuredVariantIds(config) {
   if (!Array.isArray(config?.variantIds)) return ALL_JOB_ALERT_SUBJECT_VARIANT_IDS;
-  const ids = [...new Set(config.variantIds.filter((id) => VARIANT_IDS.has(id)))];
+  const ids = [...new Set(config.variantIds
+    .map((id) => String(id).trim().toLowerCase())
+    .filter((id) => VARIANT_IDS.has(id)))];
   return ids.length > 0 ? ids : DEFAULT_JOB_ALERT_SUBJECT_ASSIGNMENT;
 }
 

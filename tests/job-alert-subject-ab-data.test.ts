@@ -106,4 +106,37 @@ describe('job-alert subject A/B aggregation', () => {
     expect(report.byVariant.scoperta.opens).toBe(1);
     expect(report.byVariant.scoperta.trackedOpenRate).toBe(100);
   });
+
+  it('assigns a legacy event to only the closest preceding delivery', () => {
+    const report = aggregateJobAlertSubjectReport([
+      {
+        email: 'legacy@example.com',
+        alertId: 'same-alert',
+        provider: 'maileroo',
+        messageId: null,
+        sentAt: 1000,
+        variant: 'control',
+        inExperiment: true,
+      },
+      {
+        email: 'legacy@example.com',
+        alertId: 'same-alert',
+        provider: 'maileroo',
+        messageId: null,
+        sentAt: 2000,
+        variant: 'match',
+        inExperiment: true,
+      },
+    ], [
+      {
+        event_type: 'open',
+        email: 'legacy@example.com',
+        alert_id: 'same-alert',
+        occurred_at: new Date(2000).toISOString(),
+      },
+    ]);
+
+    expect(report.byVariant.control.opens).toBe(0);
+    expect(report.byVariant.match.opens).toBe(1);
+  });
 });

@@ -76,6 +76,45 @@ function emptyCell() {
   };
 }
 
+function buildLegacySignalsByDelivery(deliveries, eventByEmailAlert) {
+  const candidatesByKey = new Map();
+  for (const [index, delivery] of (deliveries || []).entries()) {
+    if (delivery?.inExperiment === false) continue;
+    if (EXPERIMENT_EXCLUDED_PROVIDERS.has(normalizedProvider(delivery?.provider))) continue;
+    // A message-id delivery is resolved by its authoritative direct signal.
+    // Legacy attribution is reserved for rows that genuinely lack one.
+    if (delivery?.messageId) continue;
+    const sentAt = Number(delivery?.sentAt || 0);
+    if (!Number.isFinite(sentAt) || sentAt <= 0) continue;
+    const key = eventKey(delivery?.email, delivery?.alertId);
+    if (key === '|') continue;
+    const list = candidatesByKey.get(key) || [];
+    list.push({ index, sentAt });
+    candidatesByKey.set(key, list);
+  }
+
+  const signals = new Map();
+  for (const [key, events] of eventByEmailAlert) {
+    const candidates = candidatesByKey.get(key) || [];
+    for (const event of events) {
+      // An event carrying a message id belongs to the direct-signal path. Do
+      // not let a mismatched/late delivery row steal it through the fallback.
+      if (event.messageId || !event.at) continue;
+      let closest = null;
+      for (const candidate of candidates) {
+        if (event.at < candidate.sentAt || event.at > candidate.sentAt + EVENT_ATTRIBUTION_WINDOW_MS) continue;
+        if (!closest || candidate.sentAt > closest.sentAt) closest = candidate;
+      }
+      if (!closest) continue;
+      const signal = signals.get(closest.index) || { open: false, click: false, matchedEvents: 0 };
+      signal[event.type] = true;
+      signal.matchedEvents++;
+      signals.set(closest.index, signal);
+    }
+  }
+  return signals;
+}
+
 /**
  * Aggregate already-normalized canonical deliveries and webhook events.
  *
@@ -99,10 +138,12 @@ export function aggregateJobAlertSubjectReport(deliveries = [], events = []) {
     const key = eventKey(event?.email, event?.alert_id);
     if (key !== '|') {
       const list = eventByEmailAlert.get(key) || [];
-      list.push({ type, at: eventTimeMs(event) });
+      list.push({ type, at: eventTimeMs(event), messageId: event?.message_id ? String(event.message_id) : null });
       eventByEmailAlert.set(key, list);
     }
   }
+
+  const legacySignalsByDelivery = buildLegacySignalsByDelivery(deliveries, eventByEmailAlert);
 
   const cells = {};
   const byVariant = {};
@@ -123,7 +164,7 @@ export function aggregateJobAlertSubjectReport(deliveries = [], events = []) {
   let trackedOpens = 0;
   let trackedClicks = 0;
 
-  for (const rawDelivery of deliveries || []) {
+  for (const [deliveryIndex, rawDelivery] of (deliveries || []).entries()) {
     if (rawDelivery?.inExperiment === false) continue;
     const provider = normalizedProvider(rawDelivery?.provider);
     if (EXPERIMENT_EXCLUDED_PROVIDERS.has(provider)) continue;
@@ -131,24 +172,21 @@ export function aggregateJobAlertSubjectReport(deliveries = [], events = []) {
     const [cell, pooled] = ensure(provider, variant);
     const messageId = rawDelivery?.messageId ? String(rawDelivery.messageId) : '';
     const directSignal = messageId ? eventByMessage.get(messageId) : null;
+    const legacySignal = legacySignalsByDelivery.get(deliveryIndex);
     let opened = Boolean(rawDelivery?.openedAt);
     let clicked = Boolean(rawDelivery?.clickedAt);
     if (directSignal) {
       opened ||= directSignal.open;
       clicked ||= directSignal.click;
       matchedEvents += Number(directSignal.open) + Number(directSignal.click);
-    } else {
-      // Legacy/provider events without a message id can still be attributed to
-      // the closest preceding send of the same alert and recipient. This is a
-      // fallback only; message-id matching above is authoritative.
-      const candidates = eventByEmailAlert.get(eventKey(rawDelivery?.email, rawDelivery?.alertId)) || [];
-      const sentAt = Number(rawDelivery?.sentAt || 0);
-      for (const event of candidates) {
-        if (sentAt && event.at && (event.at < sentAt || event.at > sentAt + EVENT_ATTRIBUTION_WINDOW_MS)) continue;
-        if (event.type === 'open') opened = true;
-        if (event.type === 'click') clicked = true;
-        matchedEvents++;
-      }
+    }
+    if (legacySignal) {
+      // Legacy/provider events without a message id are assigned once, to the
+      // closest preceding send of the same alert and recipient. This also
+      // preserves a legacy click when the same delivery has a direct open.
+      opened ||= legacySignal.open;
+      clicked ||= legacySignal.click;
+      matchedEvents += legacySignal.matchedEvents;
     }
 
     const trackable = !UNTRACKED_PROVIDERS.has(provider);
