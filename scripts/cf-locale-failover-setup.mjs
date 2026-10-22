@@ -53,7 +53,14 @@
  *       silently overrode the `early-boot-js-bypass-cache` rule and the file
  *       served HIT instead of BYPASS (#5176).
  *
- * 3. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
+ * 3. RESPONSE CACHE — the managed entry in MANAGED_RESPONSE_CACHE_RULES:
+ *    it-apex-html-stale-failover removes the origin's `s-maxage` only from
+ *    Cloudflare's view and enables `stale-if-error` plus
+ *    `stale-while-revalidate` for successful apex HTML. This keeps the browser
+ *    cache policy unchanged while allowing an already cached 200 to cover a
+ *    transient GitHub Pages 5xx (the failure recorded by GSC).
+ *
+ * 4. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
  *    `description`; foreign rules on the entrypoint preserved). Three today:
  *    a) locale-bot-throttle-noindex-scrapers — blocks non-search/non-AI
  *       scraper bots (BLOCKED_CRAWLER_UAS) ZONE-WIDE (2026-07-20: widened from
@@ -89,7 +96,7 @@
  *    source-map request is blocked/challenged before the skip can
  *    short-circuit it (same reasoning as the original comment below).
  *
- * 4. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
+ * 5. REDIRECT RULES — the managed entries in MANAGED_REDIRECT_RULES (keyed by
  *    `description`; foreign rules on the entrypoint — e.g. the image→CDN
  *    apex-404 recovery — preserved). Two today. First, trailing-slash-301 —
  *    301s every extensionless no-trailing-slash apex path to its slash form
@@ -113,7 +120,7 @@
  *    — 99.4% HTTP/1.1, unrecognised UA, bursty, one country — so the fix is to
  *    stop paying for the answer, not to chase a referrer (#5176).
  *
- * 5. RESPONSE HEADERS — the apex-security-headers entry in
+ * 6. RESPONSE HEADERS — the apex-security-headers entry in
  *    MANAGED_RESPONSE_HEADER_RULES. It upgrades the existing zone rule from
  *    180-day HSTS to one year and adds a compatibility CSP, clickjacking
  *    protection, and the already-deployed baseline headers. The legacy rule is
@@ -129,7 +136,7 @@
  *     node scripts/load-rc-env.mjs)" && node scripts/cf-locale-failover-setup.mjs
  *
  * Flags: --dry-run (report drift, change nothing) · --routes-only · --rule-only
- *        (cache+firewall+redirect) · --cache-only · --firewall-only ·
+ *        (cache+response-cache+firewall+redirect) · --cache-only · --firewall-only ·
  *        --redirect-only · --headers-only
  * Exit: 0 = converged (or already in shape), 1 = API/auth error.
  *
@@ -146,6 +153,7 @@ const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
 const WORKER_SCRIPT = 'frontaliere-locale-router';
 const CACHE_PHASE = 'http_request_cache_settings';
+const RESPONSE_CACHE_PHASE = 'http_response_cache_settings';
 const FIREWALL_PHASE = 'http_request_firewall_custom';
 const REDIRECT_PHASE = 'http_request_dynamic_redirect';
 const RESPONSE_HEADERS_PHASE = 'http_response_headers_transform';
@@ -337,6 +345,10 @@ const CACHE_ACTION_PARAMETERS = {
     status_code_ttl: [{ status_code_range: { from: 300, to: 599 }, value: 0 }], // 0 = no-cache for 3xx-5xx apex origin miss
   },
   browser_ttl: { mode: 'respect_origin' },
+  // The response-cache rule below supplies the directive and stale window for
+  // apex HTML. Keep the request-side setting explicit so an edge revalidation
+  // cannot block on origin while a stale copy is available.
+  serve_stale: { disable_stale_while_updating: false },
 };
 
 // cdn.frontaliereticino.ch (R2) cache settings: RESPECT origin instead of
@@ -403,6 +415,18 @@ const CDN_CACHE_ACTION_PARAMETERS = {
 // effect of collecting the suite. The guard test reads this file as TEXT.
 const EARLY_BOOT_PATH = '/assets/early-boot.js';
 
+// Keep the request selector shared by the request-side cache rule and the
+// response-side stale rule. The latter adds response predicates because
+// `http_response_cache_settings` runs after the origin response is available.
+const IT_APEX_CACHE_REQUEST_EXPRESSION =
+  'http.host eq "frontaliereticino.ch" and http.request.method eq "GET" ' +
+  'and http.request.uri.query eq "" ' +
+  'and not starts_with(http.request.uri.path, "/en/") ' +
+  'and not starts_with(http.request.uri.path, "/de/") ' +
+  'and not starts_with(http.request.uri.path, "/fr/") ' +
+  'and not starts_with(http.request.uri.path, "/api/") ' +
+  'and not http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"}';
+
 // Every cache rule this script owns, keyed by description (the idempotency
 // marker — foreign rules sharing the entrypoint are preserved untouched).
 const MANAGED_CACHE_RULES = [
@@ -429,14 +453,7 @@ const MANAGED_CACHE_RULES = [
     // exclusion is needed here (see cdn-r2-passthrough-cache below, which
     // owns cdn.frontaliereticino.ch).
     description: 'it-apex-html-cache (managed by scripts/cf-locale-failover-setup.mjs)',
-    expression:
-      '(http.host eq "frontaliereticino.ch" and http.request.method eq "GET" ' +
-      'and http.request.uri.query eq "" ' +
-      'and not starts_with(http.request.uri.path, "/en/") ' +
-      'and not starts_with(http.request.uri.path, "/de/") ' +
-      'and not starts_with(http.request.uri.path, "/fr/") ' +
-      'and not starts_with(http.request.uri.path, "/api/") ' +
-      'and not http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"})',
+    expression: `(${IT_APEX_CACHE_REQUEST_EXPRESSION})`,
     action_parameters: CACHE_ACTION_PARAMETERS,
   },
   {
@@ -475,6 +492,29 @@ const MANAGED_CACHE_RULES = [
       'http.request.uri.path ne "/cdn-build-id.txt" and ' +
       `http.request.uri.path ne "${EARLY_BOOT_PATH}")`,
     action_parameters: CDN_CACHE_ACTION_PARAMETERS,
+  },
+];
+
+const APEX_STALE_WINDOW_SECONDS = 86400;
+
+// GitHub Pages sends `s-maxage`, which makes Cloudflare wait for a successful
+// origin revalidation before serving an expired copy. This response-cache
+// rule changes only Cloudflare's internal view (`cloudflare_only: true`):
+// browsers continue to receive the origin's existing Cache-Control header,
+// while Cloudflare can keep a known-good HTML response through a transient
+// 5xx or a background revalidation.
+const MANAGED_RESPONSE_CACHE_RULES = [
+  {
+    description: 'it-apex-html-stale-failover (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression:
+      `(${IT_APEX_CACHE_REQUEST_EXPRESSION} and ` +
+      'http.response.code eq 200 and ' +
+      'http.response.headers["content-type"][0] contains "text/html")',
+    action_parameters: {
+      's-maxage': { operation: 'remove', cloudflare_only: true },
+      'stale-if-error': { operation: 'set', value: APEX_STALE_WINDOW_SECONDS, cloudflare_only: true },
+      'stale-while-revalidate': { operation: 'set', value: APEX_STALE_WINDOW_SECONDS, cloudflare_only: true },
+    },
   },
 ];
 
@@ -628,9 +668,9 @@ const MANAGED_RESPONSE_HEADER_RULES = [
 const args = new Set(process.argv.slice(2));
 const DRY_RUN = args.has('--dry-run');
 // Section gating. --routes-only / --rule-only kept for back-compat (--rule-only
-// = every zone ruleset — cache + firewall + redirect — skip routes).
-// --cache-only / --firewall-only / --redirect-only isolate a single ruleset so
-// a targeted live apply never touches a sibling's drift.
+// = every zone ruleset — cache + response-cache + firewall + redirect — skip
+// routes). --cache-only / --firewall-only / --redirect-only isolate a single
+// ruleset family so a targeted live apply never touches a sibling's drift.
 const ONLY =
   (args.has('--routes-only') && 'routes') ||
   (args.has('--cache-only') && 'cache') ||
@@ -641,6 +681,7 @@ const ONLY =
   null;
 const DO_ROUTES = ONLY === null || ONLY === 'routes';
 const DO_CACHE = ONLY === null || ONLY === 'rule' || ONLY === 'cache';
+const DO_RESPONSE_CACHE = ONLY === null || ONLY === 'rule' || ONLY === 'cache';
 const DO_FIREWALL = ONLY === null || ONLY === 'rule' || ONLY === 'firewall';
 const DO_REDIRECT = ONLY === null || ONLY === 'rule' || ONLY === 'redirect';
 const DO_HEADERS = ONLY === null || ONLY === 'headers';
@@ -721,14 +762,14 @@ function ruleInShape(current, desired) {
     if (!gotStatus || gotStatus.value !== wantStatus.value) return false;
   }
   if ((p.browser_ttl || {}).mode !== want.browser_ttl.mode) return false;
-  // serve_stale is declared ONLY on cdn-r2-passthrough-cache, so compare it
-  // only where it is wanted — otherwise the two apex rules, which legitimately
-  // never carry it, would report perpetual drift and rewrite on every run.
+  // Compare serve_stale wherever the desired rule declares it. The apex and
+  // locale rules need the same explicit setting as the CDN rule now that the
+  // response-cache failover can serve a cached 200 during revalidation.
   //
   // Without this branch the field is invisible to the comparison, which is a
   // one-way trap rather than a harmless omission: an in-shape rule keeps its
   // live action_parameters (so serve_stale survives an ordinary run), but the
-  // first run that DOES see drift on this rule replaces it wholesale with the
+  // first run that DOES see drift on a rule replaces it wholesale with the
   // constant below (`rules[idx] = desired`) and silently drops serve_stale —
   // reopening the 5xx family at the least observable moment. Comparing it here
   // also means the script RESTORES the field if it is ever stripped by hand.
@@ -785,6 +826,67 @@ async function assertCacheRules(zoneId) {
   });
   if (!put?.success) bail(`PUT ${CACHE_PHASE} entrypoint failed: ${JSON.stringify(put?.errors)}`);
   console.log('cache rules: applied');
+}
+
+function responseCacheRuleInShape(current, desired) {
+  if (!current || current.enabled === false) return false;
+  if (current.action !== 'set_cache_control') return false;
+  if (current.expression !== desired.expression) return false;
+  const currentParameters = current.action_parameters || {};
+  return Object.entries(desired.action_parameters).every(([name, want]) => {
+    const got = currentParameters[name];
+    return (
+      got?.operation === want.operation &&
+      got?.cloudflare_only === want.cloudflare_only &&
+      (want.value === undefined || got?.value === want.value)
+    );
+  });
+}
+
+async function assertResponseCacheRules(zoneId) {
+  // The response-cache entrypoint may not exist on zones that have never used
+  // Cache Response Rules — GET then answers 404; PUT below creates it.
+  const { status, json } = await cf('GET', `/zones/${zoneId}/rulesets/phases/${RESPONSE_CACHE_PHASE}/entrypoint`);
+  if (status !== 404 && !json?.success) {
+    bail(`Cannot read ${RESPONSE_CACHE_PHASE} entrypoint: ${JSON.stringify(json?.errors)}`);
+  }
+  const existing = status === 404 ? [] : (json.result.rules || []);
+  const rules = existing.map(({ id, ref, version, last_updated, ...rest }) => rest);
+  let drift = 0;
+
+  for (const spec of MANAGED_RESPONSE_CACHE_RULES) {
+    const desired = {
+      description: spec.description,
+      expression: spec.expression,
+      action: 'set_cache_control',
+      action_parameters: spec.action_parameters,
+      enabled: true,
+    };
+    const idx = rules.findIndex((r) => r.description === spec.description);
+    const current = idx >= 0 ? existing[idx] : null;
+    if (responseCacheRuleInShape(current, desired)) {
+      console.log(`response-cache rule "${spec.description.split(' ')[0]}": already in shape`);
+      continue;
+    }
+    drift++;
+    console.log(
+      `response-cache rule "${spec.description.split(' ')[0]}": ${current ? 'drift — updating' : 'missing — creating'}${DRY_RUN ? ' (dry-run)' : ''}`,
+    );
+    if (idx >= 0) rules[idx] = desired;
+    else rules.push(desired);
+  }
+
+  if (drift === 0) {
+    console.log('response-cache rules: all in shape');
+    return;
+  }
+  if (DRY_RUN) return;
+
+  const { json: put } = await cf('PUT', `/zones/${zoneId}/rulesets/phases/${RESPONSE_CACHE_PHASE}/entrypoint`, {
+    rules,
+  });
+  if (!put?.success) bail(`PUT ${RESPONSE_CACHE_PHASE} entrypoint failed: ${JSON.stringify(put?.errors)}`);
+  console.log('response-cache rules: applied');
 }
 
 function fwShape(r) {
@@ -1013,6 +1115,7 @@ async function assertResponseHeaderRules(zoneId) {
 const zoneId = await resolveZoneId();
 if (DO_ROUTES) await assertFailOpenRoutes(zoneId);
 if (DO_CACHE) await assertCacheRules(zoneId);
+if (DO_RESPONSE_CACHE) await assertResponseCacheRules(zoneId);
 if (DO_FIREWALL) await assertFirewallRules(zoneId);
 if (DO_REDIRECT) await assertRedirectRules(zoneId);
 if (DO_HEADERS) await assertResponseHeaderRules(zoneId);
