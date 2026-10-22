@@ -251,6 +251,17 @@ export class WriteCollector {
 
  private scheduleAutoFlush(): void {
  const batch = Array.from(this.writes.values());
+
+ // Validate each complete batch once before moving it into the deferred
+ // transaction window. Per-path cross-batch checks are already performed by
+ // claim(), which keeps the hot add() path O(directory depth) instead of
+ // rebuilding this whole batch on every add().
+ try {
+  assertNoFileDirectoryPathCollisions(batch.map((write) => write.filePath));
+ } catch (error) {
+  this.abortPendingWrites();
+  throw error;
+ }
  this.writes = new Map();
 
  // A second threshold crossing commits the previous batch only after this
@@ -297,14 +308,9 @@ export class WriteCollector {
  // idempotent re-claims (identical content) or declared-shared losers.
  let outcome: ClaimOutcome;
  try {
-  // The registry protects paths already claimed by other collectors. This
-  // local preflight also covers the deferred and current batches before an
-  // auto-flush can start writing either one.
-  assertNoFileDirectoryPathCollisions([
-   ...Array.from(this.writes.keys()),
-   ...(this._deferredFlush ?? []).map((write) => write.filePath),
-   filePath,
-  ]);
+  // claim() registers the path shape before this collector can queue or
+  // release it. The deferred transaction window keeps the previous batch
+  // unwritten until the next synchronous claim has passed this guard.
   outcome = claim(filePath, this._pluginName, content);
  } catch (error) {
   // A structural collision aborts the not-yet-started batches as one unit;
