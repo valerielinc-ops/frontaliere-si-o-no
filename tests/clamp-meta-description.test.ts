@@ -38,6 +38,12 @@ describe('clampMetaDescription', () => {
     expect(out).toContain('Explore practical guides');
   });
 
+  it.each(['it', 'en', 'de', 'fr'] as const)('keeps the final %s locale description inside the Bing contract', (locale) => {
+    const out = clampMetaDescription('Breve descrizione di prova per una pagina articolo.', undefined, locale);
+    expect(out.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+    expect(out.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+  });
+
   it('clamps over-budget descriptions to ≤150 char (word-aware, with …)', () => {
     // Real offender from the audit: career landing, 253 char.
     const long =

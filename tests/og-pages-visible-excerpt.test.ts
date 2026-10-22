@@ -4,7 +4,12 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
-import { clampMetaDescription } from '../build-plugins/shared/titleSuffix';
+import {
+  clampMetaDescription,
+  META_DESCRIPTION_MAX_CHARS,
+  META_DESCRIPTION_MIN_CHARS,
+  TITLE_MAX_CHARS,
+} from '../build-plugins/shared/titleSuffix';
 
 const temporaryRoots: string[] = [];
 afterEach(() => temporaryRoots.splice(0).forEach(root => fs.rmSync(root, { recursive: true, force: true })));
@@ -48,6 +53,80 @@ it('renders the Italian editorial excerpt while keeping SEO description and cano
   expect(articleSchema?.description).toBe(EXPECTED_SEO_DESCRIPTION);
   expect(document.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(EXPECTED_CANONICAL);
   expect(document.querySelector('meta[property="og:url"]')?.getAttribute('content')).toBe(EXPECTED_CANONICAL);
+
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    const localePath = result.entries[0].paths[locale];
+    expect(localePath, `missing ${locale} article path`).toBeTruthy();
+    const localeDocument = new JSDOM(fs.readFileSync(path.join(distDir, localePath), 'utf8')).window.document;
+    const description = localeDocument.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
+    expect(description.length, `${locale} meta description`).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+    expect(description.length, `${locale} meta description`).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+
+    const schema = jsonLdRecords(localeDocument.documentElement.outerHTML)
+      .find(candidate => candidate['@type'] === 'NewsArticle' || candidate['@type'] === 'WebPage');
+    const title = localeDocument.querySelector('title')?.textContent ?? '';
+    if (title.length > TITLE_MAX_CHARS) {
+      expect(schema?.['@type'], `${locale} over-budget title schema`).toBe('NewsArticle');
+      expect(title, `${locale} NewsArticle title/headline invariant`).toBe(schema?.headline);
+    }
+  }
+}, 120_000);
+
+it('caps evergreen article titles per locale without truncating the WebPage headline', async () => {
+  const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'og-pages-head-contract-'));
+  temporaryRoots.push(rootDir);
+  const write = (relativePath: string, value: string) => {
+    const filePath = path.join(rootDir, relativePath);
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, value);
+  };
+  const translationModule = (entries: Record<string, string>) =>
+    `const translations: Record<string, string> = ${JSON.stringify(entries)};\nexport default translations;\n`;
+  const id = 'evergreen-title-contract';
+  const longTitles = {
+    it: 'Guida completa per lavorare in Svizzera da frontaliere: tasse, permesso G e strumenti pratici aggiornati',
+    en: 'Complete guide to working in Switzerland as a cross-border worker: taxes, permits and practical tools',
+    de: 'Kompletter Leitfaden für Grenzgänger in der Schweiz: Steuern, Bewilligungen und praktische Werkzeuge',
+    fr: 'Guide complet pour travailler en Suisse comme frontalier: impôts, permis et outils pratiques',
+  } as const;
+  const excerpt = 'Una breve descrizione editoriale per verificare il contratto della meta description.';
+
+  write('data/blog-articles-data.ts', `const RAW_ARTICLES = [{ id: '${id}', category: 'pratico', date: '' }];`);
+  write('services/seo/seo-blog.ts', `export const entries = {
+  'blog-${id}': {
+    title: 'Fallback title', description: '${excerpt}', keywords: 'test',
+    ogTitle: 'Social title', ogDescription: '${excerpt}',
+    canonicalPath: '/articoli-frontaliere/${id}/',
+    structuredData: {"@context":"https://schema.org","@type":"Article","headline":"Fallback title","description":"${excerpt}"},
+  },
+};`);
+  write('services/routerBlogData.ts', `export const BLOG_SLUGS = ${JSON.stringify({ [id]: {
+    it: id, en: `en-${id}`, de: `de-${id}`, fr: `fr-${id}`,
+  } })};`);
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    write(`services/locales/blog-meta-${locale}.ts`, translationModule({
+      [`blog.article.${id}.title`]: longTitles[locale],
+      [`blog.article.${id}.excerpt`]: excerpt,
+    }));
+  }
+
+  const distDir = path.join(rootDir, 'dist');
+  const result = await renderArticlePages({ rootDir, distDir, section: 'frontaliere' });
+  expect(result.entries).toHaveLength(1);
+
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+    const html = fs.readFileSync(path.join(distDir, result.entries[0].paths[locale]), 'utf8');
+    const document = new JSDOM(html).window.document;
+    const title = document.querySelector('title')?.textContent ?? '';
+    const schema = jsonLdRecords(html).find(candidate => candidate['@type'] === 'WebPage');
+    const description = document.querySelector('meta[name="description"]')?.getAttribute('content') ?? '';
+
+    expect(schema?.headline, `${locale} WebPage headline`).toBe(longTitles[locale]);
+    expect(title, `${locale} emitted title`).not.toBe(longTitles[locale]);
+    expect(title.length, `${locale} emitted title`).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+    expect(description.length, `${locale} meta description`).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+    expect(description.length, `${locale} meta description`).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+  }
 }, 120_000);
 
 it('preserves an explicitly empty excerpt, falls back only when it is absent, and normalizes a non-IT excerpt like the SPA', async () => {
