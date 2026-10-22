@@ -37,6 +37,7 @@ import { JOB_BOARD_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/jobB
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
+import { buildCanonicalJobDetailPath } from '../../build-plugins/shared/jobDetailPath';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -785,6 +786,44 @@ describe('Bing-compatible full-tree crawler', () => {
       html: `<title>Offerta</title><link rel="canonical" href="${canonicalJob}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
     });
     expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
+  });
+
+  it('keeps cathedral legacy job redirects on shared canonical detail paths for every locale', () => {
+    const legacyPluginSource = readFileSync(
+      join(process.cwd(), 'build-plugins/legacyRedirectsPlugin.ts'),
+      'utf8',
+    );
+    expect(legacyPluginSource).toContain("import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';");
+    expect(legacyPluginSource).toContain('const to = buildCanonicalJobDetailPath(locale, job, slug, canton);');
+
+    const job = { canton: 'ZH', location: 'Zürich' };
+    const slugs = {
+      it: 'offerta-zurigo',
+      en: 'job-zurich',
+      de: 'stelle-zuerich',
+      fr: 'emploi-zurich',
+    } as const;
+    const expectedSections = {
+      it: 'cerca-lavoro-zurigo',
+      en: 'find-jobs-zurich',
+      de: 'jobs-in-zurich',
+      fr: 'trouver-emploi-zurich',
+    } as const;
+
+    for (const locale of Object.keys(slugs) as (keyof typeof slugs)[]) {
+      const canonicalPath = buildCanonicalJobDetailPath(locale, job, ` /${slugs[locale]}/ `, job.canton);
+      expect(canonicalPath).toBe(`/${locale === 'it' ? '' : `${locale}/`}${expectedSections[locale]}/${slugs[locale]}/`);
+
+      const canonicalUrl = `${BASE}${canonicalPath}`;
+      const result = classifyDocument({
+        url: canonicalUrl,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: `<title>Offerta</title><link rel="canonical" href="${canonicalUrl}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare l'offerta nel controllo SEO completo del sito e mantenere il contratto di crawling.">`,
+      });
+      expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_REDIRECT);
+      expect(result.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+    }
   });
 
   it('keeps T5/T6 job-board graph links on emitted self-canonical details', () => {

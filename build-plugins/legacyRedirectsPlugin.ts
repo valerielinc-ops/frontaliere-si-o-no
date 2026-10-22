@@ -22,6 +22,7 @@ import {
  AGGREGATE_KEY,
  type CantonLocale,
 } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { loadArticleRedirects, loadArticleCanonicalOverrides, assertNoCanonicalOverrideRedirectTargets, assertNoCrossSourceChains, assertNoInternalChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
 import { loadJobsJson } from './shared/loadJobsJson';
@@ -626,9 +627,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  for (const locale of locales) {
  const slug = job.slugByLocale?.[locale] || job.slug;
  if (!slug) continue;
- const newSection = resolveCantonSection(locale, canton);
  const from = `${localePrefix[locale]}/${legacyTI[locale]}/${slug}/`.replace(/\/+/g, '/');
- const to = `${localePrefix[locale]}/${newSection}/${slug}/`.replace(/\/+/g, '/');
+ const to = buildCanonicalJobDetailPath(locale, job, slug, canton);
  if (from === to) continue;
  if (!redirects[from]) {
  redirects[from] = to;
