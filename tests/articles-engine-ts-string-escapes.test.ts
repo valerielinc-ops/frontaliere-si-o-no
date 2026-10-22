@@ -111,9 +111,25 @@ describe('decodeTsStringEscapes', () => {
       expect(decodeTsStringEscapes(String.raw`a\"b`, { newlineAs: ' ' })).toBe('a"b');
     });
   });
+
+  describe('TypeScript code-point escapes', () => {
+    it('decodes fixed-width hexadecimal and braced code points', () => {
+      expect(decodeTsStringEscapes(String.raw`A=\x41 emoji=\u{1F600}`)).toBe('A=A emoji=😀');
+    });
+
+    it('preserves JSON escapes and invalid code-point forms', () => {
+      const jsonSource = String.raw`{"line":"one\\ntwo","quote":"\\"quoted\\"","slash":"\\/"}`;
+      const decoded = decodeTsStringEscapes(jsonSource);
+
+      expect(JSON.parse(decoded)).toEqual({ line: 'one\ntwo', quote: '"quoted"', slash: '/' });
+      expect(decodeTsStringEscapes(String.raw`\x4 \u{110000} \q`)).toBe(
+        String.raw`\x4 \u{110000} \q`,
+      );
+    });
+  });
 });
 
-/**
+  /**
  * End-to-end on two REAL `.faq` values, copied byte for byte out of the corpus
  * at commit a08f37e8. Both must survive the engine's full read after this
  * change; the first one does not survive it today.

@@ -15,6 +15,7 @@
  */
 
 import { loadArticleSourceTypeScript } from './typescriptRuntime.mjs';
+import { decodeTypeScriptCodePointEscape } from './tsStringEscapes.ts';
 
 const ts = loadArticleSourceTypeScript();
 
@@ -247,6 +248,13 @@ export function decodeStaticString(raw, quote, options = {}) {
     if (quote === '`' && (escaped === '`' || escaped === '$')) {
       value += escaped;
       cursor += 2;
+      continue;
+    }
+
+    const codePoint = decodeTypeScriptCodePointEscape(raw.slice(cursor + 1));
+    if (codePoint) {
+      value += codePoint.value;
+      cursor += codePoint.length + 1;
       continue;
     }
 

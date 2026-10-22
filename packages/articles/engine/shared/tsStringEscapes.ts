@@ -65,8 +65,33 @@
  * by `.github/workflows/mirror-articles-engine.yml`.
  */
 
-/** `\uXXXX`, or any single character following a backslash. */
-const TS_ESCAPE_RX = /\\(u[0-9a-fA-F]{4}|[\s\S])/g;
+/** `\uXXXX`, `\xNN`, `\u{...}`, or any single character following a backslash. */
+const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|[\s\S])/g;
+
+const TS_CODE_POINT_ESCAPE_RX = /^(x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]+\})/u;
+
+/**
+ * Decode the TypeScript code-point escape immediately following a backslash.
+ *
+ * The returned length is measured in the supplied `escape` text, which lets
+ * scanners consume the whole token without re-scanning the decoded output.
+ * Invalid or out-of-range code points return `undefined`, so the caller can
+ * preserve the source spelling instead of throwing or emitting a replacement
+ * character.
+ */
+export function decodeTypeScriptCodePointEscape(
+  escape: string,
+): { value: string; length: number } | undefined {
+  const match = TS_CODE_POINT_ESCAPE_RX.exec(escape);
+  if (!match) return undefined;
+
+  const token = match[1];
+  const digits = token[0] === 'x' ? token.slice(1) : token.slice(2, -1);
+  const codePoint = Number.parseInt(digits, 16);
+  if (!Number.isSafeInteger(codePoint) || codePoint > 0x10ffff) return undefined;
+
+  return { value: String.fromCodePoint(codePoint), length: token.length };
+}
 
 export interface DecodeTsStringOptions {
   /**
@@ -88,6 +113,9 @@ export function decodeTsStringEscapes(
 ): string {
   const newlineAs = options.newlineAs ?? '\n';
   return value.replace(TS_ESCAPE_RX, (whole, escape: string) => {
+    const codePoint = decodeTypeScriptCodePointEscape(escape);
+    if (codePoint) return codePoint.value;
+
     switch (escape[0]) {
       case 'n':
         return newlineAs;
@@ -112,10 +140,10 @@ export function decodeTsStringEscapes(
         const codeUnit = Number.parseInt(escape.slice(1), 16);
         return Number.isNaN(codeUnit) ? whole : String.fromCharCode(codeUnit);
       }
-      // `\b`, `\f`, `\/`, `\0`, `\xNN`, … — not modelled, so handed on with
-      // the backslash intact. For the `faq` field that means a genuine JSON
-      // escape survives to `JSON.parse`, which is the component that actually
-      // knows how to read it.
+      // `\b`, `\f`, `\/`, `\0`, … — not modelled, so handed on with the
+      // backslash intact. For the `faq` field that means a genuine JSON escape
+      // survives to `JSON.parse`, which is the component that actually knows
+      // how to read it.
       default:
         return whole;
     }

@@ -29,12 +29,12 @@
  * #5602) — but that fix could not reach these three sites: they live outside
  * `packages/articles`, which `tests/packages-articles-confinement.test.ts`
  * proves via the TypeScript AST never imports anything beyond its own folder
- * (Node builtins and its own declared dependencies). Nothing stops the
- * REVERSE direction, but `tsStringEscapes.ts`'s own doc comment explains why
- * it stays dependency-free anyway (it is also mirrored verbatim into the
- * corpus repo). This file is the equivalent decoder for everything on the
- * outside, so all three copies decode through ONE implementation instead of
- * three independent (and, twice already, independently broken) ones.
+ * (Node builtins and its own declared dependencies). This file is also an
+ * `identical` transport twin, so importing the engine helper would require its
+ * whole package path to exist in the corpus generator. The small code-point
+ * scanner below therefore mirrors the engine helper locally while keeping this
+ * transported module self-contained; both implementations share the same
+ * validation and single-pass contract.
  *
  * Both implementations share the same invariant: decode every escape in a
  * SINGLE left-to-right pass over the ORIGINAL text, so no already-decoded
@@ -48,8 +48,27 @@
  * which every buggy chain has, and which no single-pass decoder needs).
  */
 
-const ESCAPE_RX = /\\([\s\S])/g;
-const UNICODE_ESCAPE_RX = /\\u([\da-fA-F]{4})|\\([\s\S])/g;
+const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|[\s\S])/g;
+const TS_CODE_POINT_ESCAPE_RX = /^(x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]+\})/u;
+
+/**
+ * Decode the TypeScript code-point escape immediately following a backslash.
+ * Keep this local: this file must remain dependency-free when transported.
+ *
+ * @param {string} escape
+ * @returns {{value: string, length: number}|undefined}
+ */
+function decodeTypeScriptCodePointEscape(escape) {
+  const match = TS_CODE_POINT_ESCAPE_RX.exec(escape);
+  if (!match) return undefined;
+
+  const token = match[1];
+  const digits = token[0] === 'x' ? token.slice(1) : token.slice(2, -1);
+  const codePoint = Number.parseInt(digits, 16);
+  if (!Number.isSafeInteger(codePoint) || codePoint > 0x10ffff) return undefined;
+
+  return { value: String.fromCodePoint(codePoint), length: token.length };
+}
 
 /**
  * Decode escape sequences out of raw TS string-literal source text.
@@ -62,13 +81,19 @@ const UNICODE_ESCAPE_RX = /\\u([\da-fA-F]{4})|\\([\s\S])/g;
  *   dropped — matching what every one of the three original chains already
  *   did for any escape it didn't list, and letting a caller further down
  *   the pipeline (e.g. `JSON.parse` on a `faq` field) see it.
+ *   TypeScript's `\xNN` and `\u{...}` code-point forms are decoded even when
+ *   `decodeUnicode` is false; the option additionally enables fixed-width
+ *   `\uXXXX` decoding for metadata callers.
  * @returns {string} the decoded value.
  */
 export function unescapeTsString(value, escapes, { decodeUnicode = false } = {}) {
-  const pattern = decodeUnicode ? UNICODE_ESCAPE_RX : ESCAPE_RX;
-  return value.replace(pattern, (whole, first, second) => {
-    if (decodeUnicode && first !== undefined) return String.fromCharCode(Number.parseInt(first, 16));
-    const ch = decodeUnicode ? second : first;
+  return value.replace(TS_ESCAPE_RX, (whole, escape) => {
+    const codePoint = decodeTypeScriptCodePointEscape(escape);
+    if (codePoint) return codePoint.value;
+    if (decodeUnicode && /^u[0-9a-fA-F]{4}$/u.test(escape)) {
+      return String.fromCharCode(Number.parseInt(escape.slice(1), 16));
+    }
+    const ch = escape[0];
     return Object.prototype.hasOwnProperty.call(escapes, ch) ? escapes[ch] : whole;
   });
 }

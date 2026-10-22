@@ -255,6 +255,41 @@ describe('packages/articles/engine/rssFeeds', () => {
     expect(de.indexOf('Alpha de')).toBeLessThan(de.indexOf('Beta de'));
   });
 
+  it('decodes TypeScript code-point escapes in localized RSS fields', () => {
+    const root = makeFixture();
+    const section = RSS_SECTIONS[0];
+    fs.writeFileSync(
+      path.join(root, 'locales', section.metaFile('it')),
+      String.raw`const meta: Record<string, string> = {
+  'blog.article.alpha.title': 'Code \x41 \u{1F600}',
+  'blog.article.alpha.excerpt': 'Code \x41 \u{1F600}',
+};
+export default meta;
+`,
+    );
+    fs.writeFileSync(
+      path.join(root, 'locales', section.bodyDir, 'it', 'alpha.ts'),
+      String.raw`const body: Record<string, string> = {
+  'blog.article.alpha.body1': 'Body \x41 \u{1F600} with enough text to remain in the RSS feed after parsing.',
+};
+export default body;
+`,
+    );
+
+    const [result] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const it = result.feeds.find(([name]) => name === 'rss-it.xml')![1];
+
+    expect(it).toContain('<title>Code A 😀</title>');
+    expect(it).toContain('<content:encoded><![CDATA[Body A 😀 with enough text');
+  });
+
   it('preserves mixed quote styles and escaped delimiters in content:encoded', () => {
     const cases = [
       {

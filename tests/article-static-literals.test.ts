@@ -52,6 +52,15 @@ describe('shared static literal reader compatibility', () => {
     expect(replacementTokens.value).toBe('prima$&$$seconda');
   });
 
+  it('decodes TypeScript code-point escapes without consuming JSON escapes', () => {
+    const source = String.raw`const META = {
+  'blog.article.demo.title': 'Code \x41 \u{1F600} \\n \\/',
+};`;
+    const entry = readStaticObjectEntries(source, 'blog-meta.ts')[0];
+
+    expect(entry.value).toBe(String.raw`Code A 😀 \n \/`);
+  });
+
   it('keeps regex literals opaque after an object spread', () => {
     const entries = readStaticObjectEntries(
       'const META = {"real":"ok", .../"article":"fake"/}',
