@@ -1241,6 +1241,19 @@ const buttonMatchesDocumentContext = (button, contextPattern) => {
   return !context || contextPattern.test(context);
 };
 
+function stableUploadTriggerDiscriminator(button) {
+  if (!button || typeof button !== 'object') return '';
+  const provided = String(button.uploadTriggerDiscriminator || '').trim();
+  if (provided) return provided;
+  // `id` is the extractor's data-aa-id. It is copied back to the same DOM
+  // node on every snapshot, so it is the only safe fallback when a portal
+  // does not expose its own DOM identity.
+  const stableIdentity = ['dataAaId', 'id', 'domId']
+    .map((field) => String(button?.[field] || '').trim())
+    .find(Boolean) || '';
+  return stableIdentity ? `stable:${stableIdentity}` : '';
+}
+
 /**
  * Find a document upload control without guessing from an unlabelled icon.
  * SuccessFactors uses a private-use glyph ("") for the CV button on some
@@ -1259,7 +1272,9 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     if (!button || button.disabled || button.chrome) return;
     // Preserve two distinct text-only controls as ambiguous candidates. IDs
     // deduplicate the same control when it is found by both scans.
-    const identity = button.id || button.domId || button.dataAaId || button.dataAutomationId || button.name || '';
+    // Automation ids and names are often shared by separate controls. Only
+    // extractor-assigned DOM ids can deduplicate the same control here.
+    const identity = button.id || button.domId || button.dataAaId || '';
     const key = identity ? `${button.frame || 0}:${identity}` : '';
     if (candidates.includes(button) || (key && candidateKeys.has(key))) return;
     if (key) candidateKeys.add(key);
@@ -1293,12 +1308,73 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
       ? iconCandidates.length === 1 ? iconCandidates[0] : null
       : successFactorsIconButtonFor(snapshot, kind);
   add(icon);
-  return candidates;
+  // A portal can expose two controls with the same semantic label (for
+  // example a card and its duplicate icon). Keep the semantic key for a
+  // unique control, but preserve the per-control DOM id when a collision
+  // would otherwise suppress the second candidate. `data-aa-id` is attached
+  // to the element by fields.mjs and survives a reorder/redraw of the same
+  // DOM node; a replaced node is a new control and may safely be retried.
+  const semanticGroups = new Map();
+  for (const button of candidates) {
+    const key = uploadTriggerSemanticKey(button);
+    const group = semanticGroups.get(key) || [];
+    group.push(button);
+    semanticGroups.set(key, group);
+  }
+  const ambiguousGroups = new Set();
+  const discriminatorsByGroup = new Map();
+  for (const [semanticKey, group] of semanticGroups) {
+    if (group.length < 2) continue;
+    // A replaced identity-less object cannot be matched to its physical
+    // control after a redraw. Guessing by array position can retry the wrong
+    // upload action, so keep the whole group fail-closed unless one stable
+    // identity field uniquely identifies every member.
+    const field = ['dataAaId', 'id', 'domId', 'dataAutomationId', 'name', 'href'].find((candidateField) => {
+      const values = group.map((candidate) => String(candidate?.[candidateField] || '').trim());
+      return values.every(Boolean) && new Set(values).size === group.length;
+    });
+    if (!field) {
+      ambiguousGroups.add(semanticKey);
+      continue;
+    }
+    discriminatorsByGroup.set(semanticKey, new Map(group.map((candidate) => [candidate, `${field}:${String(candidate[field]).trim()}`])));
+  }
+  return candidates.filter((button) => {
+    const semanticKey = uploadTriggerSemanticKey(button);
+    const group = semanticGroups.get(semanticKey) || [];
+    if (ambiguousGroups.has(semanticKey)) return false;
+    const discriminator = group.length > 1
+      ? discriminatorsByGroup.get(semanticKey)?.get(button) || ''
+      : stableUploadTriggerDiscriminator(button);
+    if (discriminator) button.uploadTriggerDiscriminator = discriminator;
+    return true;
+  });
 }
 
-function uploadTriggerKey(button, index = 0) {
-  const identity = button?.id || button?.domId || button?.dataAaId || button?.dataAutomationId || button?.name || `candidate-${index}`;
-  return `${button?.frame || 0}:${identity}`;
+function uploadTriggerSemanticKey(button) {
+  const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  // `id`/`domId` can be generated again by a portal redraw. Use only the
+  // control's semantic attributes and label for the normal case; these remain
+  // stable when the candidate array changes order. Shared automation ids are
+  // harmless because the visible label and document section are part of the
+  // same signature.
+  const signature = [
+    button?.text,
+    button?.label,
+    button?.title,
+    button?.ariaLabel,
+    button?.dataAutomationId,
+    button?.name,
+    button?.section,
+    button?.href,
+  ].map(normalize).filter(Boolean).join('|');
+  return `${button?.frame || 0}:signature:${signature || 'anonymous'}`;
+}
+
+export function uploadTriggerKey(button) {
+  const semanticKey = uploadTriggerSemanticKey(button);
+  const discriminator = String(button?.uploadTriggerDiscriminator || '').trim();
+  return discriminator ? `${semanticKey}:candidate:${discriminator}` : semanticKey;
 }
 
 export function uploadButtonFor(snapshot, kind) {
@@ -1534,7 +1610,7 @@ async function newlyMountedFileInput(page, preferredFrame, beforeHandles, trigge
 }
 
 /** Finds one newly opened, visible upload dialog across the page's current frames. */
-async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
+export async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     // A portal can create the dialog in a child iframe after the click. Read
@@ -1558,11 +1634,33 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
         // Some ATS tenants add an auxiliary third-party frame when the upload
         // dialog opens (SIX adds a Google Drive proxy). A frame that exposes
         // no eligible file input cannot be the upload target and must not make
-        // the real dialog ambiguous. Keep the fail-closed behavior for a new
-        // frame that is unreadable or already contains a candidate input: its
-        // pre-click baseline is unknown, so it still cannot be selected safely.
+        // the real dialog ambiguous. Record a readable zero-input frame as
+        // its own baseline: if it mounts exactly one input on a later poll,
+        // that input can be compared safely while auxiliary frames remain at
+        // zero. A frame that is already showing exactly one visible dialog
+        // input on its first observation is also a usable target: the frame
+        // itself was mounted by this click, so there cannot be a preexisting
+        // eligible input in that frame. Keep the fail-closed behavior for a
+        // frame that exposes more than one such input, whose target is
+        // ambiguous.
         const count = await dialogFileInputCount(frame);
-        if (count === null || count > 0) ambiguous = true;
+        if (count === null) {
+          ambiguous = true;
+          continue;
+        }
+        const handles = await dialogFileInputHandles(frame);
+        if (!Array.isArray(handles)) {
+          ambiguous = true;
+          continue;
+        }
+        if (count === 0) {
+          beforeCounts.set(frame, 0);
+          beforeHandlesByFrame.set(frame, handles);
+        } else if (count === 1 && handles.length === 1) {
+          candidates.push(handles[0]);
+        } else {
+          ambiguous = true;
+        }
         continue;
       }
       previousCount = beforeCounts.get(frame);
@@ -1765,6 +1863,53 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   return finish(closed ? 'uploaded' : 'uploaded_unconfirmed');
 }
 
+/** Dequeue an upload trigger that is still allowed after a portal redraw. */
+function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tried) {
+  // `pending` contains keys, not button objects. Re-resolve every queued key
+  // against the current snapshot so a redraw cannot make us click a detached
+  // or reidentified control from the previous snapshot.
+  const discovered = uploadButtonCandidatesFor(snapshot, kind)
+    .filter((button) => iconUploadAllowedForPage(page, button, kind, snapshot, channelType));
+  for (;;) {
+    let candidate = null;
+    let boundedRetry = false;
+    while (pending.length && !candidate) {
+      const key = pending.shift();
+      candidate = discovered.find((button) => uploadTriggerKey(button) === key) || null;
+    }
+    if (!candidate) {
+      const nextIndex = discovered.findIndex((button) => !tried.has(uploadTriggerKey(button)));
+      if (nextIndex < 0) {
+        // A portal may drop the first click without redrawing the control
+        // (the flaky SuccessFactors tenant does exactly this). Once every
+        // distinct candidate has had one bounded attempt, return the first
+        // still-allowed candidate so the caller can spend its remaining
+        // per-action retry budget on the same control. Distinct candidates
+        // are still exhausted in order before this fallback is reached.
+        candidate = discovered[0] || null;
+        if (!candidate) return null;
+        boundedRetry = true;
+      } else {
+        candidate = discovered[nextIndex];
+        pending.push(...discovered.slice(nextIndex + 1).map(uploadTriggerKey));
+      }
+    }
+    const key = uploadTriggerKey(candidate);
+    // The fallback above is the bounded retry budget for a portal that drops
+    // a click without redrawing. Queued/discovered candidates must still be
+    // skipped when already tried, but the fallback must be returned once so
+    // the caller can account for that retry and then stop at its attempt cap.
+    if (!boundedRetry && tried.has(key)) continue;
+    if (!iconUploadAllowedForPage(page, candidate, kind, snapshot, channelType)) {
+      // It may have become invalid while a previous trigger redrew the form.
+      // Mark it before continuing so a fresh snapshot cannot select it again.
+      tried.add(key);
+      continue;
+    }
+    return candidate;
+  }
+}
+
 /**
  * Before a page is planned: its closed sections opened, and the CV attached
  * through an upload control when the portal exposes no file field. A page is
@@ -1823,33 +1968,30 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let cv;
   let cvFieldKey;
   const triedCvTriggers = new Set();
+  let pendingCvTriggers = [];
   // A discovered file field stays in the normal planning path. That path
   // removes an earlier upload before replacing it and records the receipt and
   // failure in the same evidence as other planned uploads.
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
-    if (!attempt(cvKey)) break;
-    const triggerButtons = uploadButtonCandidatesFor(current, 'cv')
-      .filter((button) => iconUploadAllowedForPage(page, button, 'cv', current, channelType));
-    const triggerButton = triggerButtons.find((button, index) => !triedCvTriggers.has(uploadTriggerKey(button, index)))
-      || triggerButtons[0];
-    const triggerKey = triggerButton && uploadTriggerKey(triggerButton, triggerButtons.indexOf(triggerButton));
+    const triggerButton = nextAllowedUploadTrigger(page, current, 'cv', channelType, pendingCvTriggers, triedCvTriggers);
+    const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCvTriggers.add(triggerKey);
-    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
-      ? ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim()) ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
-      : null;
-    const attemptNumber = tries.get(cvKey);
     if (!triggerButton) {
-      cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_found' });
+      cvUploadDiagnostics.push({ attempt: tries.get(cvKey) || 0, failure: 'trigger_not_found' });
       break;
     }
+    if (!attempt(cvKey)) break;
+    const trigger = ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim())
+      ? { snapshot: triggerButton } : locatorFor(page, triggerButton);
+    const attemptNumber = tries.get(cvKey);
     if (!trigger) {
       cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_allowed' });
-      break;
+      continue;
     }
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!visible) {
       cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_visible' });
-      break;
+      continue;
     }
     const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
     cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
@@ -1865,18 +2007,16 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const coverLetterKey = `cover-letter|${where}`;
   let coverLetter;
   const triedCoverLetterTriggers = new Set();
+  let pendingCoverLetterTriggers = [];
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
-    const triggerButtons = uploadButtonCandidatesFor(current, 'cover_letter')
-      .filter((button) => iconUploadAllowedForPage(page, button, 'cover_letter', current, channelType));
-    const triggerButton = triggerButtons.find((button, index) => !triedCoverLetterTriggers.has(uploadTriggerKey(button, index)))
-      || triggerButtons[0];
-    const triggerKey = triggerButton && uploadTriggerKey(triggerButton, triggerButtons.indexOf(triggerButton));
+    const triggerButton = nextAllowedUploadTrigger(page, current, 'cover_letter', channelType, pendingCoverLetterTriggers, triedCoverLetterTriggers);
+    const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCoverLetterTriggers.add(triggerKey);
-    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current, channelType)
-      ? ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim()) ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
-      : null;
+    if (!triggerButton) break;
+    const trigger = ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim())
+      ? { snapshot: triggerButton } : locatorFor(page, triggerButton);
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
-    if (!trigger || !visible) break;
+    if (!trigger || !visible) continue;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile, triggerButton.frame || 0);
     current = await extractFields(page);
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);

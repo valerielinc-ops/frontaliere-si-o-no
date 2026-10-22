@@ -125,7 +125,7 @@ jobs:
         # "Load RC secrets" step above (Firebase Remote Config → GITHUB_ENV).
         continue-on-error: true
         run: |
-          node scripts/discover-404s-via-cloudflare.mjs \
+          npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
       - name: Prune non-resolving 404-compat paths (keep test invariant green)

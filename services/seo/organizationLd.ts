@@ -221,6 +221,7 @@ export function organizationLdIds(): typeof ORGANIZATION_LD_IDS {
  * homepage's hand-written block, which is where it used to live alone.
  */
 export const ORGANIZATION_SAME_AS = [
+  'https://www.facebook.com/profile.php?id=61588174947294',
   'https://www.facebook.com/frontaliereticino/',
   'https://www.linkedin.com/company/frontaliere-ticino',
   'https://github.com/valerielinc-ops/frontaliere-si-o-no',

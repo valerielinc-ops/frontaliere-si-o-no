@@ -61,6 +61,26 @@ describe('recommendedBlock selection', () => {
     }
   });
 
+  it('can keep the revenue slot while excluding the automation service already shown below', () => {
+    const rec = pickNewsletterRecommendation({
+      locale: 'it',
+      interest: 'jobs',
+      campaign: 'jobalert',
+      excludeIds: ['application-concierge'],
+    });
+    expect(rec?.kind).toBe('affiliate');
+    expect(rec?.id).not.toBe('application-concierge');
+
+    const html = renderRecommendedBlock({
+      locale: 'it',
+      interest: 'jobs',
+      campaign: 'jobalert',
+      excludeIds: ['application-concierge'],
+    });
+    expect(html).not.toContain('Automatizza la ricerca di lavoro in Svizzera');
+    expect(html).toContain('/go/');
+  });
+
   it('falls back to the only enabled affiliate when its interests do not cover the segment', () => {
     const savedEntries = NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
     try {
