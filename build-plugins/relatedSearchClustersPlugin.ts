@@ -4153,11 +4153,15 @@ export async function dropOverwrittenLocs(
       try {
         html = await fs.promises.readFile(indexPath, 'utf-8');
       } catch (error: any) {
-        if (error?.code !== 'ENOENT') throw error;
+        // A sitemap loc can name a file (for example a PDF), so probing
+        // `<loc>/index.html` may hit ENOTDIR instead of ENOENT. In either case
+        // there is no page HTML at that probe; apply the existing flat/missing
+        // policy below.
+        if (error?.code !== 'ENOENT' && error?.code !== 'ENOTDIR') throw error;
         try {
           html = await fs.promises.readFile(flatPath, 'utf-8');
         } catch (flatError: any) {
-          if (flatError?.code !== 'ENOENT') throw flatError;
+          if (flatError?.code !== 'ENOENT' && flatError?.code !== 'ENOTDIR') throw flatError;
           // A foreign-locale URL is normally absent from this shard by
           // design. Job sitemaps opt into checking a foreign file when it is
           // present (typically a bridge written by a direct-fs emitter), but
