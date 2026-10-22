@@ -1,21 +1,22 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-22T09:15:55.474Z",
+  "generatedAt": "2026-10-22T21:16:45.837Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 4,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 18514,
-  "avgDurationMs": 18514,
+  "durationMs": 19840,
+  "avgDurationMs": 19840,
   "durationHistory": [
-    18514
+    19840
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Fertigungssteurer 100% (w/m/div.) - REF299070D",
-      "slug": "fertigungssteurer-100-w-m-div-ref299070d-bosch-st-niklaus",
+      "slug": "regolatore-di-produzione-100-f-m-div-ref299070d-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF299070D-fertigungssteurer-100-w-m-div-ref299070d",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000156712069-fertigungssteurer-100-w-m-div-ref299070d?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -38,23 +39,20 @@
       "postingDateSource": "reported",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-3407fd069ae2",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3924",
       "firstSeenAt": "2026-10-22T09:15:49.081Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Praktikum im Sales und Marketing (w/m/d) REF298875D",
       "slug": "stage-nelle-vendite-e-nel-marketing-m-f-d-ref298875d-bosch-thermotechnik-ag-frauenfeld",
@@ -216,47 +214,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Internship - Global Product Management REF297536H",
-      "slug": "internship-global-product-management-ref297536h-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF297536H-internship-global-product-management-ref297536h",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152931867-internship-global-product-management-ref297536h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "en",
-      "datePosted": "2026-10-01",
-      "postedDate": "2026-10-01",
-      "postingDateSource": "reported",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-db542d6b4bd1",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-10-21T09:16:32.736Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Collaborateur Service après-vente (f/m/div.) REF298012H",
@@ -376,5 +334,5 @@
       }
     }
   ],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
