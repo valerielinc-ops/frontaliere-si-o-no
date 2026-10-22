@@ -290,6 +290,82 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it('reuses every jobs SEO kind byte-for-byte on an unchanged second build', async () => {
+    const rootDir = fixtureRoot();
+    const entries = [
+      ['active-job', 'active', '/cerca-lavoro-ticino/active/'],
+      ['expired-soft-landing', 'expired-soft-landing', '/cerca-lavoro-ticino/expired/'],
+      ['legacy-slug-bridge', 'previous-slug-legacy', '/cerca-lavoro-ticino/legacy/'],
+      ['previous-slugs-full-content', 'previous-slug-legacy', '/cerca-lavoro-ticino/previous/'],
+      ['cross-locale-reconciliation', 'cross-locale-reconciliation', '/cerca-lavoro-ticino/reconciled/'],
+    ] as const;
+    const manifest = new IncrementalManifest('it');
+    const htmlByPath = new Map<string, string>();
+    try {
+      for (const [kind, , pagePath] of entries) {
+        const input = { jobId: kind, locale: 'it', slug: pagePath };
+        const html = `<html><body>${kind}</body></html>`;
+        manifest.register(pagePath, kind, input);
+        writeCachedHtml(rootDir, pagePath, kind, input, html);
+        htmlByPath.set(pagePath, html);
+      }
+      manifest.setJobsSeoEmitterFingerprint(TEST_EMITTER_FINGERPRINTS);
+      manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
+
+      const reuse = await createReuse(rootDir);
+      for (const [kind, block, pagePath] of entries) {
+        const input = { jobId: kind, locale: 'it', slug: pagePath };
+        const candidate = reuse.lookup('it', pagePath, kind, input, block);
+        expect(candidate).toMatchObject({ hit: true, html: htmlByPath.get(pagePath) });
+        expect(candidate.html).toBe(htmlByPath.get(pagePath));
+        reuse.finish(candidate, candidate.html);
+      }
+
+      expect(reuse.summary()).toMatchObject({
+        active: { rendered: 0, reused: 1 },
+        'expired-soft-landing': { rendered: 0, reused: 1 },
+        'previous-slug-legacy': { rendered: 0, reused: 2 },
+        'cross-locale-reconciliation': { rendered: 0, reused: 1 },
+      });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('invalidates only the page whose job input changed', async () => {
+    const rootDir = fixtureRoot();
+    const firstPath = '/cerca-lavoro-ticino/job-one/';
+    const secondPath = '/cerca-lavoro-ticino/job-two/';
+    const firstInput = { jobId: 'job-one', locale: 'it', slug: 'job-one' };
+    const secondInput = { jobId: 'job-two', locale: 'it', slug: 'job-two' };
+    try {
+      const manifest = new IncrementalManifest('it');
+      manifest.register(firstPath, 'active-job', firstInput);
+      manifest.register(secondPath, 'active-job', secondInput);
+      manifest.setJobsSeoEmitterFingerprint(TEST_EMITTER_FINGERPRINTS);
+      manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
+      writeCachedHtml(rootDir, firstPath, 'active-job', firstInput, '<html>job-one-old</html>');
+      writeCachedHtml(rootDir, secondPath, 'active-job', secondInput, '<html>job-two-same</html>');
+
+      const reuse = await createReuse(rootDir);
+      const changed = { ...firstInput, jobVersion: 'v2' };
+      const changedCandidate = reuse.lookup('it', firstPath, 'active-job', changed, 'active');
+      expect(changedCandidate).toMatchObject({ hit: false, html: null });
+      reuse.finish(changedCandidate, '<html>job-one-new</html>');
+
+      const unchangedCandidate = reuse.lookup('it', secondPath, 'active-job', secondInput, 'active');
+      expect(unchangedCandidate).toMatchObject({ hit: true, html: '<html>job-two-same</html>' });
+      reuse.finish(unchangedCandidate, unchangedCandidate.html);
+      expect(reuse.summary().active).toMatchObject({
+        rendered: 1,
+        reused: 1,
+        missReasons: { 'input-hash-changed': 1 },
+      });
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('reuses the stable key and rewrites volatile HTML before the caller saves it', async () => {
     const rootDir = fixtureRoot();
     const pagePath = '/cerca-lavoro-ticino/volatile-fragments/';
@@ -737,6 +813,60 @@ describe('jobs SEO disk HTML reuse', () => {
     }
   });
 
+  it('prunes cache-storage transitive imports, but fails closed for a render consumer', () => {
+    const rootDir = fingerprintFixtureRoot();
+    try {
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        'import "./shared/incrementalHtmlReuse.mjs";\nexport const renderVersion = "v1";\n',
+      );
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/shared/incrementalHtmlReuse.mjs',
+        'import { cacheOnly } from "./cache-only.mjs";\nexport const storageVersion = cacheOnly;\n',
+      );
+      writeFixtureFile(rootDir, 'build-plugins/shared/cache-only.mjs', 'export const cacheOnly = "v1";\n');
+      clearFingerprintEnv();
+
+      const before = computeJobsSeoEmitterFingerprints(rootDir);
+      expect(collectSourceModuleFiles(
+        rootDir,
+        ['build-plugins/jobsSeoPagesPlugin.ts'],
+        JOBS_SEO_FINGERPRINT_INERT_MODULES,
+      )).not.toEqual(expect.arrayContaining([
+        'build-plugins/shared/incrementalHtmlReuse.mjs',
+        'build-plugins/shared/cache-only.mjs',
+      ]));
+      writeFixtureFile(rootDir, 'build-plugins/shared/cache-only.mjs', 'export const cacheOnly = "v2";\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)).toEqual(before);
+
+      // A direct render import removes the storage-only proof. The changed
+      // helper must then invalidate the fingerprint instead of being hidden
+      // behind the cache module's allowlist.
+      writeFixtureFile(
+        rootDir,
+        'build-plugins/jobsSeoPagesPlugin.ts',
+        [
+          'import "./shared/incrementalHtmlReuse.mjs";',
+          'import { cacheOnly } from "./shared/cache-only.mjs";',
+          'export const renderVersion = cacheOnly;',
+          '',
+        ].join('\n'),
+      );
+      expect(collectSourceModuleFiles(
+        rootDir,
+        ['build-plugins/jobsSeoPagesPlugin.ts'],
+        JOBS_SEO_FINGERPRINT_INERT_MODULES,
+      )).toContain('build-plugins/shared/cache-only.mjs');
+      const withRenderConsumer = computeJobsSeoEmitterFingerprints(rootDir);
+      writeFixtureFile(rootDir, 'build-plugins/shared/cache-only.mjs', 'export const cacheOnly = "v3";\n');
+      expect(computeJobsSeoEmitterFingerprints(rootDir)).not.toEqual(withRenderConsumer);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
   it('changes the emitter fingerprint when a render flag changes', () => {
     const rootDir = fingerprintFixtureRoot();
     try {
@@ -1013,6 +1143,7 @@ describe('jobs SEO disk HTML reuse', () => {
       'build-plugins/batchWrite.ts',
       'build-plugins/shared/buildMemLog.ts',
       'build-plugins/shared/forceGc.ts',
+      'build-plugins/shared/incrementalHtmlReuse.mjs',
       'build-plugins/shared/incrementalManifest.mjs',
       'build-plugins/shared/jobsSeoProfiler.ts',
       'build-plugins/sharedWriteRegistry.ts',
@@ -1073,10 +1204,12 @@ describe('jobs SEO disk HTML reuse', () => {
       'build-plugins/contentHash.ts',
       'build-plugins/shared/buildMemLog.ts',
       'build-plugins/shared/forceGc.ts',
+      'build-plugins/shared/incrementalHtmlReuse.mjs',
       'build-plugins/shared/incrementalManifest.mjs',
       'build-plugins/shared/jobsSeoProfiler.ts',
       'build-plugins/shared/postWalkDerivedDigest.ts',
       'build-plugins/sharedWriteRegistry.ts',
+      'scripts/lib/html-attr.mjs',
     ]) {
       expect(graph).not.toContain(inert);
     }
