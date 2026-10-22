@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-21T10:58:35.908Z",
+  "assembledAt": "2026-10-22T11:00:57.562Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -89960,7 +89960,8 @@
       "startTime": "18:00",
       "category": "Event",
       "venue": "Küssnacht am Rigi",
-      "canton": "",
+      "comune": "Küssnacht (SZ)",
+      "canton": "SZ",
       "url": "https://www.myswitzerland.com/it-ch/experiences/events/gigi-moto-superkraft-1/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
@@ -89969,7 +89970,22 @@
         "lng": 8.4378849
       },
       "recurring": false,
-      "sourceDescriptionHash": "7baebbe83b9d6363dafdffd530487bf15d5ac542c94488781f7a300eab437fb6"
+      "performer": {
+        "name": "SUPERKRAFT"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "7baebbe83b9d6363dafdffd530487bf15d5ac542c94488781f7a300eab437fb6",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "gigi-moto-superkraft-2026-12-13"
+        }
+      ]
     },
     {
       "id": "myswitzerland:4456d81dcb144fa0a933f18f0f06e329",
@@ -89995,6 +90011,15 @@
         "lng": 8.8197293
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Rapperswil-Jona"
+      },
       "sourceDescriptionHash": "a1c3dfbdb996733d6cd2ad5c3f71b4d08ac90731ebf7ebf1527875bbd76cc3dd"
     },
     {
@@ -90061,10 +90086,10 @@
       "endDate": "2026-11-22",
       "startTime": "15:00",
       "category": "Event",
-      "venue": "Lake Side",
+      "venue": "Zurich",
       "comune": "Zürich",
       "canton": "ZH",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/sinterklaas-2026/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sinterklaas-2026/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -90072,6 +90097,15 @@
         "lng": 8.5538205
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
       "sourceDescriptionHash": "941b42f7a902360818cf18db5b31ca81e1c07b352d653d3bdca97047941405b2"
     },
     {
@@ -269244,6 +269278,604 @@
         "name": "Vevey"
       },
       "sourceDescriptionHash": "a7113f3397264e5a9eb6868d40d877757d4fc2e82676cd90d5b65c8f73ef6468"
+    },
+    {
+      "id": "myswitzerland:44dbbfc058784dd6978d7a000dafcddf",
+      "title": "Art at Lunchtime: About Raphael Egil – In Dialogue with the Collection",
+      "titleByLocale": {
+        "it": "Art at Lunchtime: About Raphael Egil – In Dialogue with the Collection",
+        "en": "Art at Lunchtime: About Raphael Egil – In Dialogue with the Collection",
+        "de": "Kunst über Mittag: Zu Raphael Egil – Im Dialog mit der Sammlung",
+        "fr": "Art at Lunchtime: About Raphael Egil – In Dialogue with the Collection"
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "startTime": "12:15",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/art-at-lunchtime-about-raphael-egil-in-dialogue-with-the-collection/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1649160416511,
+        "lng": 8.51735332023775
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zug"
+      },
+      "sourceDescriptionHash": "0955d8b305fb7d59e70be5469d310d46e2398b5d3509d5b2462ce0a020c64e4d"
+    },
+    {
+      "id": "myswitzerland:449313bd2d6948718909e035f7cda83a",
+      "title": "Theatergruppe Staubbach 2026",
+      "titleByLocale": {
+        "it": "Theatergruppe Staubbach 2026",
+        "en": "Theatergruppe Staubbach 2026",
+        "de": "Theatergruppe Staubbach 2026",
+        "fr": "Theatergruppe Staubbach 2026"
+      },
+      "startDate": "2026-10-28",
+      "endDate": "2026-10-31",
+      "startTime": "20:00",
+      "category": "Event",
+      "venue": "Ringgenberg",
+      "comune": "Ringgenberg (BE)",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/theatergruppe-staubbach-2026/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6979686,
+        "lng": 7.8794061
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Ringgenberg"
+      },
+      "sourceDescriptionHash": "9857390a641f817e1c2e15637ad5ac04ed131bf9a1a2c4575b17f5a6866c3deb"
+    },
+    {
+      "id": "myswitzerland:44181c0ceec54ddfaf7a063dfddebb63",
+      "title": "Winterweg Fünkli staunt",
+      "titleByLocale": {
+        "it": "Winterweg Fünkli staunt",
+        "en": "Winterweg Fünkli staunt",
+        "de": "Winterweg Fünkli staunt",
+        "fr": "Winterweg Fünkli staunt"
+      },
+      "startDate": "2026-11-29",
+      "endDate": "2027-01-11",
+      "startTime": "01:00",
+      "category": "Event",
+      "venue": "Liestal",
+      "comune": "Liestal",
+      "canton": "BL",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/winterweg-fuenkli-staunt/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5344837,
+        "lng": 7.7134375
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Audioguide"
+        },
+        {
+          "name": "Miniaturfiguren"
+        }
+      ],
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "c1d6abda77da398d0b59446b884fa033dfa678d3f75a94e5b276334bc0b19098"
+    },
+    {
+      "id": "myswitzerland:440df401d54e40ef9efe8291b48002b1",
+      "title": "Musikalischer Winterzauber",
+      "titleByLocale": {
+        "it": "Musikalischer Winterzauber",
+        "en": "Musikalischer Winterzauber",
+        "de": "Musikalischer Winterzauber",
+        "fr": "Musikalischer Winterzauber"
+      },
+      "startDate": "2026-12-11",
+      "endDate": "2026-12-11",
+      "startTime": "19:15",
+      "category": "Event",
+      "venue": "Wald ZH",
+      "comune": "Wald (ZH)",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/musikalischer-winterzauber/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2769127,
+        "lng": 8.9156391
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Wald ZH"
+      },
+      "sourceDescriptionHash": "6307ca28df77cd1493601068ee6e35d3113f4ea75570040c967f8ca55b49ec07"
+    },
+    {
+      "id": "myswitzerland:43eee9ce986f42008c2c6fd40f53e6df",
+      "title": "Nolosé Salsa au Cactus Jack, Nyon : salsa cubaine live",
+      "titleByLocale": {
+        "it": "Nolosé Salsa au Cactus Jack, Nyon : salsa cubaine live",
+        "en": "Nolosé Salsa au Cactus Jack, Nyon : salsa cubaine live",
+        "de": "Nolosé Salsa au Cactus Jack, Nyon : salsa cubaine live",
+        "fr": "Nolosé Salsa au Cactus Jack, Nyon : salsa cubaine live"
+      },
+      "startDate": "2027-06-19",
+      "endDate": "2027-06-19",
+      "startTime": "21:00",
+      "category": "Event",
+      "venue": "Nyon",
+      "comune": "Nyon",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/nolose-salsa-au-cactus-jack-nyon-salsa-cubaine-live/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.384526,
+        "lng": 6.236845
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Nyon"
+      },
+      "sourceDescriptionHash": "93b876a0f90d2d99f2d6b350548b9995e702698ee9aa86a42739b60c3aeee598"
+    },
+    {
+      "id": "myswitzerland:43d74a4a394b4cb2b87828de8fda96d0",
+      "title": "Grrrls",
+      "titleByLocale": {
+        "it": "Grrrls",
+        "en": "Grrrls",
+        "de": "Grrrls",
+        "fr": "Grrrls"
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-11-17",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Winterthur",
+      "comune": "Winterthur",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/grrrls/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4958482,
+        "lng": 8.7507975
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Winterthur"
+      },
+      "sourceDescriptionHash": "e032c3121c4ad05476ff1c0b296726ae861ee83ec8f7dfd1aca1e37384ec6132"
+    },
+    {
+      "id": "myswitzerland:4399f0fe6ca64117a92c5ec1776c647c",
+      "title": "Bläserserenaden Zürich - MOZART & DIE MODERNE",
+      "titleByLocale": {
+        "it": "Bläserserenaden Zürich - MOZART & DIE MODERNE",
+        "en": "Bläserserenaden Zürich - MOZART & DIE MODERNE",
+        "de": "Bläserserenaden Zürich - MOZART & DIE MODERNE",
+        "fr": "Bläserserenaden Zürich - MOZART & DIE MODERNE"
+      },
+      "startDate": "2027-06-07",
+      "endDate": "2027-06-07",
+      "startTime": "19:00",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/blaeserserenaden-zuerich-mozart-die-moderne/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3736227,
+        "lng": 8.5471234
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zurich"
+      },
+      "sourceDescriptionHash": "6f896030950478767bc8f5ea468fab532703797f069bacae03578a2b67a5115b"
+    },
+    {
+      "id": "myswitzerland:430e85d35a1e4013873ce9ba947d956b",
+      "title": "Biblische Vorträge",
+      "titleByLocale": {
+        "it": "Biblische Vorträge",
+        "en": "Biblische Vorträge",
+        "de": "Biblische Vorträge",
+        "fr": "Biblische Vorträge"
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "Langendorf",
+      "comune": "Langendorf",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/biblische-vortraege/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2213518,
+        "lng": 7.5144878
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Langendorf"
+      },
+      "sourceDescriptionHash": "9bfa524b62725b5e431b811b8482ad135db64f17bb2dfdaae55713e46a70d24e"
+    },
+    {
+      "id": "myswitzerland:42dc65bb072f4e0e8f58258bb1e233b4",
+      "title": "Bündner Jugend-Volksmusiktage",
+      "titleByLocale": {
+        "it": "Bündner Jugend-Volksmusiktage",
+        "en": "Bündner Jugend-Volksmusiktage",
+        "de": "Bündner Jugend-Volksmusiktage",
+        "fr": "Bündner Jugend-Volksmusiktage"
+      },
+      "startDate": "2027-07-07",
+      "endDate": "2027-07-11",
+      "startTime": "02:00",
+      "category": "Event",
+      "venue": "St. Antönien",
+      "comune": "Luzein",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/buendner-jugend-volksmusiktage/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.970001,
+        "lng": 9.816237
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "St. Antönien"
+      },
+      "sourceDescriptionHash": "909ef6b943e96c3ccf0ec4d3eca2ed247e23d99c7608618c03785545a9512662"
+    },
+    {
+      "id": "myswitzerland:42922c7f18c54c0ba58474e91717e961",
+      "title": "Tag des freien Bades!",
+      "titleByLocale": {
+        "it": "Tag des freien Bades!",
+        "en": "Tag des freien Bades!",
+        "de": "Tag des freien Bades!",
+        "fr": "Tag des freien Bades!"
+      },
+      "startDate": "2027-06-05",
+      "endDate": "2027-06-05",
+      "startTime": "10:30",
+      "category": "Event",
+      "venue": "Weinfelden",
+      "comune": "Weinfelden",
+      "canton": "TG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/tag-des-freien-bades/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5598518,
+        "lng": 9.109504
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Weinfelden"
+      },
+      "sourceDescriptionHash": "55dbd527ab0c35bea5a15f7af65f68e05ef3f9c5704e594f6bdfff925bb8cff8"
+    },
+    {
+      "id": "myswitzerland:425115ae18de4b1aba52b7fc26dd7fd8",
+      "title": "MAXIMILIAN HORNUNG Violoncello mit Orchester - Elgar",
+      "titleByLocale": {
+        "it": "MAXIMILIAN HORNUNG Violoncello mit Orchester - Elgar",
+        "en": "MAXIMILIAN HORNUNG Violoncello mit Orchester - Elgar",
+        "de": "MAXIMILIAN HORNUNG Violoncello mit Orchester - Elgar",
+        "fr": "MAXIMILIAN HORNUNG Violoncello mit Orchester - Elgar"
+      },
+      "startDate": "2026-11-08",
+      "endDate": "2026-11-08",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "La Chaux-de-Fonds",
+      "comune": "La Chaux-de-Fonds",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/maximilian-hornung-violoncello-mit-orchester-elgar/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1017706,
+        "lng": 6.8289148
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "La Chaux-de-Fonds"
+      },
+      "sourceDescriptionHash": "fdde891e72e73c99b2e5ec64dedd29f8914a364e457eff0298133d5ea2be665f"
+    },
+    {
+      "id": "myswitzerland:41c13f35b7a542fba4555a29a608b2c5",
+      "title": "Racletteabend",
+      "titleByLocale": {
+        "it": "Racletteabend",
+        "en": "Racletteabend",
+        "de": "Racletteabend",
+        "fr": "Racletteabend"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Böbikon",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/racletteabend-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5544115,
+        "lng": 8.3303357
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Böbikon"
+      },
+      "sourceDescriptionHash": "29f081941155c6a3ab68369e183e1f175c539cb626c7fe8354d7adab84d61687"
+    },
+    {
+      "id": "myswitzerland:41b81357d4b84b4eaf4f5ba9ab717e62",
+      "title": "NGG: Jenseits des primitiven Höhlenmenschen",
+      "titleByLocale": {
+        "it": "NGG: Jenseits des primitiven Höhlenmenschen",
+        "en": "NGG: Jenseits des primitiven Höhlenmenschen",
+        "de": "NGG: Jenseits des primitiven Höhlenmenschen",
+        "fr": "NGG: Jenseits des primitiven Höhlenmenschen"
+      },
+      "startDate": "2027-03-10",
+      "endDate": "2027-03-10",
+      "startTime": "20:15",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/ngg-jenseits-des-primitiven-hoehlenmenschen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8540815,
+        "lng": 9.5338369
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Chur"
+      },
+      "sourceDescriptionHash": "0bfe88811f74ed7d98fcc7a28198b7eeb6c471beb243f0969d5c45c4c7dacd48"
+    },
+    {
+      "id": "myswitzerland:414247ba48eb4c86bcdeea6707a1ed86",
+      "title": "Kochkurs Brot & Butter - Vom Sauerteig bis zur selbstgemachten Butter",
+      "titleByLocale": {
+        "it": "Kochkurs Brot & Butter - Vom Sauerteig bis zur selbstgemachten Butter",
+        "en": "Kochkurs Brot & Butter - Vom Sauerteig bis zur selbstgemachten Butter",
+        "de": "Kochkurs Brot & Butter - Vom Sauerteig bis zur selbstgemachten Butter",
+        "fr": "Kochkurs Brot & Butter - Vom Sauerteig bis zur selbstgemachten Butter"
+      },
+      "startDate": "2026-11-12",
+      "endDate": "2026-11-12",
+      "startTime": "18:00",
+      "category": "Event",
+      "venue": "Chur",
+      "comune": "Chur",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kochkurs-brot-butter-vom-sauerteig-bis-zur-selbstgemachten-butter/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.844898,
+        "lng": 9.506455
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Sauerteig, kneten, formen und backen verschiedene Brote"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "sourceDescriptionHash": "658c2455c672468b011da8436b80b95ec71f85af529f7cf7ed5573ec80ce0faa"
+    },
+    {
+      "id": "myswitzerland:40c7210e82634bfcb15a75fc3e6ee923",
+      "title": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp",
+      "titleByLocale": {
+        "it": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp",
+        "en": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp",
+        "de": "POP-UP KINO: HERBSTFEUER - Brandfall Grandhotel Waldhaus Vulpera-Tarasp",
+        "fr": "POP-UP CINEMA: HERBSTFEUER - Fire at the Grandhotel Waldhaus Vulpera-Tarasp"
+      },
+      "startDate": "2026-11-01",
+      "endDate": "2026-11-01",
+      "startTime": "17:00",
+      "category": "Event",
+      "venue": "Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/pop-up-cinema-herbstfeuer-fire-at-the-grandhotel-waldhaus-vulpera-tarasp-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5688974,
+        "lng": 7.5901951
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Basel"
+      },
+      "sourceDescriptionHash": "f010be5f7f8aa66851d0029412bd72cb24dcc40d4b4c83bfa75a29363979a506"
+    },
+    {
+      "id": "myswitzerland:3f864b0d114e4a7c89140389f6cc7a80",
+      "title": "BYO-MOVIE-RAFFLE. Die Film-Lotterie mit der KMG",
+      "titleByLocale": {
+        "it": "BYO-MOVIE-RAFFLE. Die Film-Lotterie mit der KMG",
+        "en": "BYO-MOVIE-RAFFLE. Die Film-Lotterie mit der KMG",
+        "de": "BYO-MOVIE-RAFFLE. Die Film-Lotterie mit der KMG",
+        "fr": "BYO-MOVIE-RAFFLE. Die Film-Lotterie mit der KMG"
+      },
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "startTime": "14:00",
+      "category": "Event",
+      "venue": "Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/byomovieraffle-die-filmlotterie-mit-der-kmg-sa-141126-kellerkino-bern/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.9481686,
+        "lng": 7.4508234
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Bern"
+      },
+      "sourceDescriptionHash": "f310e03cc9af498c2931e3c358940aedcfb868599a67615efdc3e6448c80b9d7"
+    },
+    {
+      "id": "myswitzerland:3f44e79a7b0346ee95ab1871ae6d399d",
+      "title": "10th Zuger Filmtage: Academy | Sabotage Collective: Producing Films Yourself?",
+      "titleByLocale": {
+        "it": "10th Zuger Filmtage: Academy | Sabotage Collective: Producing Films Yourself?",
+        "en": "10th Zuger Filmtage: Academy | Sabotage Collective: Producing Films Yourself?",
+        "de": "10. Zuger Filmtage: Academy | Sabotage Kollektiv: Filme selbst produzieren?",
+        "fr": "10th Zuger Filmtage: Academy | Sabotage Collective: Producing Films Yourself?"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "14:30",
+      "category": "Event",
+      "venue": "Zug",
+      "comune": "Zug",
+      "canton": "ZG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/10th-zuger-filmtage-academy-sabotage-collective-producing-films-yourself/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.1658069,
+        "lng": 8.5142806
+      },
+      "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Zug"
+      },
+      "sourceDescriptionHash": "63a54a4585597270e169a5a42734c5f7f0ca084bfc88b8d7a414eb525ce0f45d"
     }
   ]
 }
