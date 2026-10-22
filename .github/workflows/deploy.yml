@@ -88,8 +88,7 @@ concurrency:
   # Keep the resolver out of the build group's one-pending slot. The resolver
   # is read-only unless the build queue is idle, and decideRearm() observes
   # queued/in-progress build runs before dispatching one.
-  group: >-
-    ${{ github.event_name == 'schedule' && 'deploy-schedule-reconcile' || 'pages-build-run' }}
+  group: ${{ github.event_name == 'schedule' && 'deploy-schedule-reconcile' || 'pages-build-run' }}
   cancel-in-progress: false
 
 jobs:
