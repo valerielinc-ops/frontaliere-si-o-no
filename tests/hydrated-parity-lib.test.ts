@@ -106,7 +106,7 @@ describe('missingFromClient — compares ids, never slugs', () => {
       {},
       new Set(['slug-duplicato']),
       new Set(['slug-duplicato']),
-    )).toEqual(['slug-duplicato (ambiguous id)']);
+    )).toEqual(['slug-duplicato']);
   });
 });
 

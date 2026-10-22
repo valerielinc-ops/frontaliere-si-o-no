@@ -120,7 +120,10 @@ export function missingFromClient(slugs, reverseSlugToId, clientIds, unresolvedS
   const unresolved = unresolvedSlugs instanceof Set ? unresolvedSlugs : new Set(unresolvedSlugs || []);
   for (const slug of slugs) {
     if (unresolved.has(slug)) {
-      missing.push(`${slug} (ambiguous id)`);
+      // Keep the raw slug in the report. It is intentionally unresolved: an
+      // annotation that looks like an id would make callers treat this as a
+      // resolvable fallback and would break the parity gate's public shape.
+      missing.push(slug);
       continue;
     }
     const id = reverseSlugToId?.[slug] ?? slug;
