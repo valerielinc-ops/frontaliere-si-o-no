@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { filterResolvableCandidates } from '../scripts/discover-404s-via-cloudflare.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const read = (relativePath: string) => readFileSync(resolve(ROOT, relativePath), 'utf8');
@@ -31,6 +32,13 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     for (const dataPath of paths) {
       expect(workflow).toContain(`--path ${dataPath}`);
     }
+  });
+
+  it.each(WORKFLOWS)('$path runs the Cloudflare producer with the shared TS resolver', ({ path }) => {
+    const workflow = read(path);
+
+    expect(workflow).toContain('npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs');
+    expect(workflow).not.toContain('node scripts/discover-404s-via-cloudflare.mjs');
   });
 
   it('uses the repository bot identity for generated data commits', () => {
@@ -115,5 +123,26 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(attributes).toMatch(/^data\/seo-404-compat\/part-\*\.json merge=compat-shard$/m);
     expect(publisher).toContain('git check-attr merge -- data/seo-404-compat/part-00.json');
     expect(publisher).toContain(compatShardAttribute);
+  });
+});
+
+describe('Cloudflare 404 candidate boundary', () => {
+  it('drops resolver-unknown paths before they can trigger family-loss pruning', () => {
+    const resolverCalls: string[] = [];
+    const result = filterResolvableCandidates([
+      { path: '/known-content', count: 3 },
+      { path: '/unknown-bot-family', count: 4 },
+      { path: '/assets/logo.svg', count: 10 },
+      { path: '/low-count', count: 1 },
+    ], {
+      resolvePath: (path: string) => {
+        resolverCalls.push(path);
+        return path === '/known-content' ? { canonicalPath: '/known-content/' } : null;
+      },
+    });
+
+    expect([...result.candidates]).toEqual(['/known-content']);
+    expect(result).toMatchObject({ skipped: 1, lowCount: 1, unresolved: 1 });
+    expect(resolverCalls).toEqual(['/known-content', '/unknown-bot-family']);
   });
 });

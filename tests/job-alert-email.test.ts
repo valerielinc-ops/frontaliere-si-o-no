@@ -320,6 +320,17 @@ describe('job alert email — plaintext alternative', () => {
   });
 });
 
+describe('job alert email — engagement suite does not duplicate the recommendation slot', () => {
+  it('renders the automation destination once and keeps the recommendation slot for an affiliate', () => {
+    const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+    const automationPathMatches = result.html.match(/automatizza-ricerca-lavoro-svizzera/g) || [];
+
+    expect(automationPathMatches).toHaveLength(1);
+    expect(result.html).toContain('/go/');
+    expect((result.html.match(/Automatizza/g) || [])).toHaveLength(1);
+  });
+});
+
 describe('job alert email — identity footer', () => {
   it('html contains the recipient email and alert filters', () => {
     const result = buildAlertEmail(fixtureAlert('en'), [fixtureJob()], true);
@@ -592,7 +603,7 @@ describe('preferences page integration (source check)', () => {
 });
 
 describe('job alert email — brand logo + salary chip', () => {
-  it('renders an <img> avatar when a matching brand logo bundle exists', () => {
+  it('renders an image avatar when a matching brand logo bundle exists', () => {
     const job = fixtureJob({ company: 'EOC \u2013 Ente Ospedaliero Cantonale' });
     const result = buildAlertEmail(fixtureAlert('it'), [job], true);
     // Slug = eoc-ente-ospedaliero-cantonale; bundle is public/images/brands/eoc-ente-ospedaliero-cantonale.png

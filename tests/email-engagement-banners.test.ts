@@ -17,7 +17,7 @@ const read = (relativePath: string) => readFileSync(path.join(ROOT, relativePath
 const locales = ['it', 'en', 'de', 'fr'] as const;
 
 describe('email engagement banners', () => {
-  it('renders the three cards in the selected order with email-safe social marks', () => {
+  it('renders the three cards in the selected order with email-safe brand images', () => {
     const html = renderEmailEngagementBanners({ locale: 'it', telegramUrl: 'https://t.me/frontaliereticino' });
     const copy = emailEngagementCopy('it');
 
@@ -26,13 +26,25 @@ describe('email engagement banners', () => {
     expect(html).toContain('https://frontaliereticino.ch/automatizza-ricerca-lavoro-svizzera');
     expect(html).toContain(PREFERRED_SOURCE_URL);
     expect(html).toContain('https://t.me/frontaliereticino');
-    expect(html.match(/<svg /g)).toHaveLength(5);
+    expect(html).not.toContain('<svg');
+    expect(html).toContain('data-email-logo="google"');
+    expect(html).toContain('https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png');
+    expect(html).toContain('data-email-logo="linkedin"');
+    expect(html).toContain('https://www.linkedin.com/favicon.ico');
+    expect(html).toContain('data-email-logo="instagram"');
+    expect(html).toContain('https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png');
+    expect(html).toContain('data-email-logo="tiktok"');
+    expect(html).toContain('https://www.tiktok.com/favicon.ico');
+    expect(html).toContain('data-email-logo="telegram"');
+    expect(html).toContain('https://telegram.org/img/t_logo.png');
+    expect(html).toContain('data-email-logo="facebook"');
+    expect(html).toContain('https://www.facebook.com/favicon.ico');
+    expect(html).toContain('background:#9a3412;color:#ffffff');
     expect(html).toContain('LinkedIn');
     expect(html).toContain('Instagram');
     expect(html).toContain('TikTok');
     expect(html).toContain('Telegram');
     expect(html).toContain('Facebook');
-    expect(html).not.toContain('<img');
     expect(html).not.toMatch(/display\s*:\s*(?:flex|grid)/i);
     expect(html).not.toContain('undefined');
   });

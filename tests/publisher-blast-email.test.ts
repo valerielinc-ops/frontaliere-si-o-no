@@ -105,13 +105,15 @@ describe('buildBlastEmail', () => {
 
   it('falls back to an initials badge when no valid logo', () => {
     const { html } = buildBlastEmail({ ...ARGS, ad: { ...AD, company: { name: 'Acme SA' } } });
-    expect(html).not.toContain('<img');
+    const adMarkup = html.split('data-email-component="engagement-banners"')[0];
+    expect(adMarkup).not.toContain('<img');
     expect(html).toContain('>A</div>'); // initial of "Acme SA"
   });
 
   it('drops non-https logos (no mixed content / junk)', () => {
     const { html } = buildBlastEmail({ ...ARGS, ad: { ...AD, company: { name: 'Acme SA', logoUrl: 'http://x/y.png' } } });
-    expect(html).not.toContain('<img');
+    const adMarkup = html.split('data-email-component="engagement-banners"')[0];
+    expect(adMarkup).not.toContain('<img');
   });
 
   it('escapes HTML in ad fields (injection-safe)', () => {

@@ -9,8 +9,9 @@
  *
  * This module stays inside functions/src/lib/ so Cloud Functions, scripts and
  * the browser-side newsletter preview can render the same bytes. It uses only
- * tables, inline styles and small inline vector marks: there is no image
- * request to block, and every social mark has a visible text label fallback.
+ * tables and inline styles. Brand marks use hosted raster/favicon images with
+ * visible text labels beside them, so a client that blocks images still shows
+ * a complete, usable link.
  */
 
 import { APPLICATION_CONCIERGE_PATH, localizedUrl } from './newsletterUrlPaths.js';
@@ -18,19 +19,35 @@ import { APPLICATION_CONCIERGE_PATH, localizedUrl } from './newsletterUrlPaths.j
 const LOCALES = ['it', 'en', 'de', 'fr'];
 export const PREFERRED_SOURCE_URL = 'https://www.google.com/preferences/source?q=frontaliereticino.ch';
 
-const BRAND_ORANGE_DARK = '#9a3412';
+// Keep white CTA text above the normal-text contrast threshold in email clients.
+const BRAND_ORANGE = '#9a3412';
+const BRAND_DARK = '#0f172a';
 const TEXT = '#334155';
-const MUTED = '#475569';
 const BORDER = '#e2e8f0';
-const AUTOMATION_BG = '#fff7ed';
-const AUTOMATION_BORDER = '#fed7aa';
-const GOOGLE_BG = '#ffffff';
-const SOCIAL_BG = '#0f172a';
-const SOCIAL_BUTTON_BG = '#1e293b';
-const SOCIAL_BUTTON_BORDER = '#475569';
-const SOCIAL_TEXT = '#f8fafc';
-const SOCIAL_MUTED = '#cbd5e1';
-const CTA_TEXT = '#ffffff';
+const CARD_BG = '#f8fafc';
+const ICON_TILE_BG = '#fff7ed';
+const GOOGLE_LOGO_URL = 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
+const SOCIAL_ICON_URLS = Object.freeze({
+  linkedin: 'https://www.linkedin.com/favicon.ico',
+  instagram: 'https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png',
+  tiktok: 'https://www.tiktok.com/favicon.ico',
+  telegram: 'https://telegram.org/img/t_logo.png',
+  facebook: 'https://www.facebook.com/favicon.ico',
+});
+const SOCIAL_MARKS = Object.freeze({
+  linkedin: 'in',
+  instagram: 'IG',
+  tiktok: 'TK',
+  telegram: 'TG',
+  facebook: 'f',
+});
+const SOCIAL_ICON_BACKGROUNDS = Object.freeze({
+  linkedin: '#0a66c2',
+  instagram: '#e1306c',
+  tiktok: '#111827',
+  telegram: '#229ed9',
+  facebook: '#1877f2',
+});
 
 const COPY = {
   it: {
@@ -95,6 +112,7 @@ function normLocale(raw) {
   const lang = String(raw || 'it').toLowerCase().split(/[-_]/)[0];
   return LOCALES.includes(lang) ? lang : 'it';
 }
+
 function escapeHtml(value) {
   return String(value == null ? '' : value)
     .replace(/&/g, '&amp;')
@@ -124,7 +142,15 @@ function safeSocialUrl(value, key) {
       telegram: ['t.me'],
       facebook: ['www.facebook.com', 'facebook.com'],
     }[key] || [];
-    return allowedHost.includes(url.hostname.toLowerCase()) ? url.toString() : '';
+    if (!allowedHost.includes(url.hostname.toLowerCase())) return '';
+    if (key === 'telegram') {
+      // Keep the email CTA aligned with services/telegramChannel.ts: only a
+      // public channel handle is valid, without redirects, query data, or
+      // credentials that could turn the optional promotion into a wrong link.
+      if (!/^\/[A-Za-z0-9_+-]+\/?$/.test(url.pathname)) return '';
+      if (url.search || url.hash || url.username || url.password || url.port) return '';
+    }
+    return url.toString();
   } catch {
     return '';
   }
@@ -153,17 +179,11 @@ export function emailEngagementCopy(locale = 'it') {
   return COPY[normLocale(locale)];
 }
 
-const SOCIAL_ICONS = {
-  linkedin: '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;width:16px;height:16px"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.99h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.56 20.45h3.56V8.99H3.56v11.46ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.23 0Z"/></svg>',
-  instagram: '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;width:16px;height:16px"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"/></svg>',
-  tiktok: '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;width:16px;height:16px"><path fill="currentColor" d="M14.2 3h3.1c.3 2.05 1.45 3.45 3.5 4.2v3.15c-1.25-.08-2.42-.45-3.5-1.1v5.5A6.25 6.25 0 1 1 11 8.5v3.35a2.9 2.9 0 1 0 2.9 2.9V3h.3Z"/></svg>',
-  telegram: '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;width:16px;height:16px"><path fill="currentColor" d="m21.6 4.4-3.3 15.5c-.25 1.1-.9 1.35-1.82.84l-5.02-3.7-2.42 2.33c-.27.27-.5.5-1.03.5l.37-5.12 9.32-8.42c.4-.36-.09-.56-.63-.2L5.55 13.3.63 11.76c-1.07-.34-1.1-1.08.22-1.6L20.1 2.7c.9-.33 1.69.2 1.5 1.7Z"/></svg>',
-  facebook: '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display:block;width:16px;height:16px"><path fill="currentColor" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.07 24 18.09 24 12.07Z"/></svg>',
-};
-
 function socialLinkHtml(profile) {
-  const icon = SOCIAL_ICONS[profile.key] || '';
-  return `<a target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(profile.label)}" href="${escapeHtml(profile.url)}" style="display:inline-block;margin:0 4px 6px 0;padding:7px 9px;border:1px solid ${SOCIAL_BUTTON_BORDER};border-radius:7px;color:${SOCIAL_TEXT};background:${SOCIAL_BUTTON_BG};font-size:13px;line-height:16px;font-weight:700;text-decoration:none;white-space:nowrap;"><span style="display:inline-block;width:16px;height:16px;margin-right:5px;vertical-align:-3px;color:${SOCIAL_TEXT};">${icon}</span><span>${escapeHtml(profile.label)}</span></a>`;
+  const iconUrl = SOCIAL_ICON_URLS[profile.key] || '';
+  const mark = SOCIAL_MARKS[profile.key] || profile.label.slice(0, 1);
+  const iconBackground = SOCIAL_ICON_BACKGROUNDS[profile.key] || BRAND_DARK;
+  return `<a target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(profile.label)}" href="${escapeHtml(profile.url)}" style="display:inline-block;margin:0 4px 6px 0;padding:7px 9px;border:1px solid ${BORDER};border-radius:8px;color:${BRAND_DARK};background:#ffffff;font-size:13px;line-height:18px;font-weight:700;text-decoration:none;white-space:nowrap;"><span style="display:inline-block;width:20px;height:20px;margin-right:5px;vertical-align:-5px;border-radius:6px;background:${iconBackground};text-align:center;line-height:20px;color:#ffffff;font-size:12px;font-weight:800;"><img data-email-logo="${escapeHtml(profile.key)}" src="${escapeHtml(iconUrl)}" alt="${escapeHtml(mark)}" width="18" height="18" style="display:block;width:18px;height:18px;border:0;border-radius:4px;"></span><span>${escapeHtml(profile.label)}</span></a>`;
 }
 
 function maybeTrailingSlash(url, enabled) {
@@ -178,21 +198,39 @@ function maybeTrailingSlash(url, enabled) {
 }
 
 function cardShell({ background, border, color, content, padding = '17px 19px' }) {
-  return `<tr><td style="padding:0 0 10px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${background}" style="width:100%;background:${background};color:${color};border:1px solid ${border};border-radius:12px;"><tr><td style="padding:${padding};color:${color};">${content}</td></tr></table></td></tr>`;
+  return `<tr><td style="padding:0 0 10px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${background}" style="width:100%;background:${background};color:${color};border:1px solid ${border};border-radius:14px;"><tr><td style="padding:${padding};color:${color};">${content}</td></tr></table></td></tr>`;
 }
 
 function ctaHtml(href, label) {
-  return `<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="display:inline-block;background:${BRAND_ORANGE_DARK};color:${CTA_TEXT};font-size:13px;line-height:18px;font-weight:800;text-decoration:none;padding:9px 14px;border-radius:8px;">${escapeHtml(label)}</a>`;
+  return `<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="display:inline-block;background:${BRAND_ORANGE};color:#ffffff;font-size:13px;line-height:18px;font-weight:800;text-decoration:none;padding:9px 14px;border-radius:8px;">${escapeHtml(label)}</a>`;
+}
+
+function textIconTile(mark) {
+  return `<div style="width:44px;height:44px;border-radius:10px;background:${ICON_TILE_BG};border:1px solid ${BORDER};text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${escapeHtml(mark)}</div>`;
+}
+
+function imageIconTile(src, alt, width = 36, height = 24) {
+  return `<div style="width:44px;height:44px;border-radius:10px;background:${ICON_TILE_BG};border:1px solid ${BORDER};color:${BRAND_ORANGE};text-align:center;line-height:44px;"><img data-email-logo="google" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" width="${width}" height="${height}" style="display:inline-block;width:${width}px;height:${height}px;max-width:36px;object-fit:contain;vertical-align:middle;border:0;"></div>`;
+}
+
+function featureCard({ iconHtml, title, body, ctaHref, ctaLabel }) {
+  return cardShell({
+    background: CARD_BG,
+    border: BORDER,
+    color: TEXT,
+    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${iconHtml}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;line-height:20px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(title)}</div><div style="margin:6px 0 12px;font-size:13px;line-height:20px;color:${TEXT};">${escapeHtml(body)}</div>${ctaHtml(ctaHref, ctaLabel)}</td></tr></table>`,
+  });
 }
 
 /**
  * Render the selected option 1 — three editorial cards in a fixed order.
  * `telegramUrl` is a convenience override for Cloud Functions callers that
  * resolve the public URL from Remote Config asynchronously before rendering.
- * `trailingSlash` preserves the URL convention of consumers such as the
- * welcome template, whose internal links are contractually slash-terminated.
+ * `trailingSlash` defaults to the site's canonical slash-terminated URL
+ * convention; callers can disable it only when they explicitly need the
+ * legacy bare-path form.
  */
-export function renderEmailEngagementBanners({ locale = 'it', socialLinks, telegramUrl, trailingSlash = false } = {}) {
+export function renderEmailEngagementBanners({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true } = {}) {
   const lang = normLocale(locale);
   const copy = COPY[lang];
   const links = resolveSocialLinks({
@@ -202,33 +240,35 @@ export function renderEmailEngagementBanners({ locale = 'it', socialLinks, teleg
   const automationUrl = maybeTrailingSlash(localizedUrl(APPLICATION_CONCIERGE_PATH, lang), trailingSlash);
   const socialLinksHtml = links.map(socialLinkHtml).join(' ');
 
-  const automation = cardShell({
-    background: AUTOMATION_BG,
-    border: AUTOMATION_BORDER,
-    color: TEXT,
-    content: `<div style="font-size:15px;line-height:20px;font-weight:800;color:${BRAND_ORANGE_DARK};">${escapeHtml(copy.automationTitle)}</div><div style="margin:6px 0 12px;font-size:13px;line-height:20px;color:${MUTED};">${escapeHtml(copy.automationBody)}</div>${ctaHtml(automationUrl, copy.automationCta)}`,
+  const automation = featureCard({
+    iconHtml: textIconTile('A'),
+    title: copy.automationTitle,
+    body: copy.automationBody,
+    ctaHref: automationUrl,
+    ctaLabel: copy.automationCta,
   });
 
-  const preferredSource = cardShell({
-    background: GOOGLE_BG,
-    border: BORDER,
-    color: TEXT,
-    content: `<div style="font-size:15px;line-height:20px;font-weight:800;color:${TEXT};text-align:center;">${escapeHtml(copy.preferredSourceTitle)}</div><div style="margin:6px 0 12px;font-size:13px;line-height:20px;color:${MUTED};text-align:center;">${escapeHtml(copy.preferredSourceBody)}</div><div style="text-align:center;">${ctaHtml(PREFERRED_SOURCE_URL, copy.preferredSourceCta)}</div>`,
+  const preferredSource = featureCard({
+    iconHtml: imageIconTile(GOOGLE_LOGO_URL, 'Google', 36, 14),
+    title: copy.preferredSourceTitle,
+    body: copy.preferredSourceBody,
+    ctaHref: PREFERRED_SOURCE_URL,
+    ctaLabel: copy.preferredSourceCta,
   });
 
   const social = cardShell({
-    background: SOCIAL_BG,
-    border: SOCIAL_BG,
-    color: SOCIAL_TEXT,
+    background: CARD_BG,
+    border: BORDER,
+    color: TEXT,
     padding: '17px 19px 11px',
-    content: `<div style="font-size:15px;line-height:20px;font-weight:800;color:${SOCIAL_TEXT};">${escapeHtml(copy.socialTitle)}</div><div style="margin:6px 0 12px;font-size:13px;line-height:20px;color:${SOCIAL_MUTED};">${escapeHtml(copy.socialBody)}</div><div style="font-size:0;line-height:0;">${socialLinksHtml}</div>`,
+    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${textIconTile('S')}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;line-height:20px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(copy.socialTitle)}</div><div style="margin:6px 0 0;font-size:13px;line-height:20px;color:${TEXT};">${escapeHtml(copy.socialBody)}</div></td></tr></table><div style="margin:14px 0 0;font-size:0;line-height:0;">${socialLinksHtml}</div>`,
   });
 
   return `<tr><td data-email-component="engagement-banners" style="background:#ffffff;color:${TEXT};padding:4px 28px 14px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#ffffff;color:${TEXT};">${automation}${preferredSource}${social}</table></td></tr>`;
 }
 
 /** Plain-text companion for templates that build their own multipart body. */
-export function emailEngagementBannersText({ locale = 'it', socialLinks, telegramUrl, trailingSlash = false } = {}) {
+export function emailEngagementBannersText({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true } = {}) {
   const lang = normLocale(locale);
   const copy = COPY[lang];
   const links = resolveSocialLinks({

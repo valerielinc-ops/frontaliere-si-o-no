@@ -1,6 +1,7 @@
 {
   "crawlerKey": "klinik-lengg",
-  "assembledAt": "2026-10-21T09:49:05.180Z",
+  "assembledAt": "2026-10-22T09:40:59.673Z",
+  "runId": "39754817555",
   "jobs": [
     {
       "id": "klinik-lengg-f404b98255c2",
@@ -34,7 +35,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a/441f7e8a-f768-4396-b9fe-c886ef55e55c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.152Z",
+      "crawledAt": "2026-10-22T09:40:51.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -131,7 +132,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/studierende-studierender-hf-fh-pflege-akut-somatik-a/70b0b145-c264-46c2-9724-755b6cabc071",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.149Z",
+      "crawledAt": "2026-10-22T09:40:51.769Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -234,7 +235,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/31f1983f-5f09-4c1c-a1a0-a19e99be9210",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.144Z",
+      "crawledAt": "2026-10-22T09:40:51.766Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -282,7 +283,7 @@
       "slug": "capo-infermieristica-a-klinik-lengg-zurich",
       "slugByLocale": {
         "it": "capo-infermieristica-a-klinik-lengg-zurich",
-        "en": "care-service-a-klinik-lengg-zurich",
+        "en": "chief-nursing-officer-a-klinik-lengg-zurich",
         "de": "chief-nursing-officer-a-klinik-lengg-zurich",
         "fr": "chef-des-soins-infirmiers-a-klinik-lengg-zurich"
       },
@@ -308,7 +309,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/chief-nursing-officer-a/a3c77724-f8f0-4f33-8ebb-1b1b2cf3fab2",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.139Z",
+      "crawledAt": "2026-10-22T09:40:51.764Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,14 +330,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chief-nursing-officer-a-klinik-lengg-zurich"
+        "chief-nursing-officer-a-klinik-lengg-zurich",
+        "care-service-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chief-nursing-officer-a-klinik-lengg-zurich"
         ],
         "en": [
-          "chief-nursing-officer-a-klinik-lengg-zurich"
+          "care-service-a-klinik-lengg-zurich"
         ],
         "fr": [
           "chief-nursing-officer-a-klinik-lengg-zurich"
@@ -388,7 +390,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/a27ec7d8-c538-4651-baee-80aea18b6e20",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.135Z",
+      "crawledAt": "2026-10-22T09:40:51.761Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -470,7 +472,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/praktikantin-praktikant-pflege-epileptologie-a/5a341392-a169-4c82-9c12-ec904f71e3c2",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.131Z",
+      "crawledAt": "2026-10-22T09:40:51.759Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -552,7 +554,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/d0c4c59f-98b3-42d6-96ec-2c212b3cf589",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.126Z",
+      "crawledAt": "2026-10-22T09:40:51.756Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -644,7 +646,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/psychotherapeutin-psychotherapeut-fuer-vielseitige-taetigkeit-mit-schwerpunkt-neuropsychosomatik-a/f060ef8e-77d7-4c57-a89b-bb2dc33fd6e9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.121Z",
+      "crawledAt": "2026-10-22T09:40:51.753Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -725,7 +727,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/ccab9860-04f6-4a79-9a85-03efb56f4fb1",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.117Z",
+      "crawledAt": "2026-10-22T09:40:51.751Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -814,7 +816,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-als-dauernachtwache/98e3e2cc-d421-4d64-818b-11c03e9466b1",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.113Z",
+      "crawledAt": "2026-10-22T09:40:51.749Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -903,7 +905,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/e0f1ae71-fa1f-4967-b44c-bbed2a30c85c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.109Z",
+      "crawledAt": "2026-10-22T09:40:51.747Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1005,7 +1007,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/1635881d-9a65-4a14-a51c-6e9ffec256de",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.104Z",
+      "crawledAt": "2026-10-22T09:40:51.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1079,7 +1081,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/medizinische-sekretaerin-medizinischer-sekretaer/e4f96ef8-2700-4d94-9bc9-59b9c697fe30",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.098Z",
+      "crawledAt": "2026-10-22T09:40:51.742Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1156,7 +1158,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/stationsleitung-pflege-neurorehabilitation-a/8443830a-8b4d-40ab-8245-6ae7f109ecf9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.087Z",
+      "crawledAt": "2026-10-22T09:40:51.736Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1236,7 +1238,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/chefaerztin-chefarzt-neurorehabilitation-mitglied-der-geschaeftsleitung-a/d8361cd8-eed7-423f-8d43-1cdfa2c25108",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:48:58.059Z",
+      "crawledAt": "2026-10-22T09:40:51.711Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1281,6 +1283,5 @@
         }
       }
     }
-  ],
-  "runId": "39576272379"
+  ]
 }
