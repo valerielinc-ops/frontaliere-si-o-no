@@ -341,7 +341,7 @@ describe('legacy portal sections', () => {
       const uploadContext = {
         trigger: {
           identity: 'resume-trigger',
-          target: 'new-cv-input',
+          target: associated ? 'new-cv-input' : undefined,
           isConnected: true,
           contains: () => false,
         },
@@ -365,7 +365,7 @@ describe('legacy portal sections', () => {
           other?.identity === identity
           || Boolean(other?.contains?.({ identity }))
           || (other?.trigger?.target === identity
-            && triggerReference === other.trigger.identity)
+            || triggerReference === other.trigger?.identity)
         )),
       });
       const existingCv = handle('existing-cv');
