@@ -1,29 +1,30 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-10-22T09:43:30.534Z",
+  "generatedAt": "2026-10-22T21:33:17.061Z",
   "total": 0,
-  "discovered": 4,
+  "discovered": 0,
   "parsed": 0,
   "written": 0,
-  "lastFetchOutcome": "filtered_empty",
+  "lastFetchOutcome": "ok",
   "abortKind": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "authoritativeEmptySnapshot": false,
-  "authoritativeSnapshotVerified": false,
+  "authoritativeEmptySnapshot": true,
+  "authoritativeSnapshotVerified": true,
+  "authoritativeEmptyEvidence": "Zambon careers API returned a successful status=200 envelope with data=[]",
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4166,
-  "avgDurationMs": 4166,
+  "durationMs": 1900,
+  "avgDurationMs": 1900,
   "durationHistory": [
-    4166
+    1900
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
