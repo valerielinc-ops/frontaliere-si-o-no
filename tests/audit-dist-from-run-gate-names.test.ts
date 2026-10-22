@@ -151,6 +151,7 @@ describe('audit-dist-from-run replays namespaced gates, not just audit:* (#5918)
     expect(sh(block, 'resolve_script lint:workflows')).toBe('lint:workflows');
     expect(sh(block, 'resolve_script check:anything')).toBe('check:anything');
     expect(sh(block, 'resolve_script audit:max-bfs-depth')).toBe('audit:max-bfs-depth');
+    expect(sh(block, 'resolve_script report:meta-description')).toBe('report:meta-description');
     // A bare name must still be prefixed — the fix must not break the old form.
     expect(sh(block, 'resolve_script page-weight')).toBe('audit:page-weight');
     expect(sh(block, 'resolve_script all')).toBe('audit:all');
