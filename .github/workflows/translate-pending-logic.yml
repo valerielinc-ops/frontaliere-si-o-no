@@ -214,7 +214,7 @@ jobs:
           key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: local-mt-units-v1-
 
-      - name: Prepare Firebase credentials for timeout recovery
+      - name: Prepare Firebase credentials (optional)
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -1054,7 +1054,7 @@ jobs:
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
-      - name: Prepare Firebase credentials (optional)
+      - name: Prepare Firebase credentials for timeout recovery
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |

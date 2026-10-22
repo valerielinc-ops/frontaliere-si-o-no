@@ -3546,7 +3546,7 @@ export function buildStandaloneCrossRepoWorkflow({
     job.concurrency = concurrency;
     if (timeoutRecoveryJob) {
       timeoutRecoveryJob.needs = ['translate_queue_guard', 'translate'];
-      timeoutRecoveryJob.concurrency = concurrency;
+      timeoutRecoveryJob.concurrency = structuredClone(concurrency);
     }
   }
 
