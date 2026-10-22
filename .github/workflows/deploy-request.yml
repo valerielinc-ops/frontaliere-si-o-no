@@ -59,6 +59,7 @@ permissions:
   contents: read
   actions: write
   deployments: read
+  statuses: read
 
 jobs:
   request:
@@ -100,8 +101,8 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || "${APP_TOKEN_DEPLOYMENTS_READ:-false}" != 'true' || -z "${APP_TOKEN:-}" ]]; then
-            echo '::warning::Pages publish reconciliation skipped: App token with actions:write and deployments:read is unavailable'
+          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || "${APP_TOKEN_DEPLOYMENTS_READ:-false}" != 'true' || "${APP_TOKEN_STATUSES_READ:-false}" != 'true' || -z "${APP_TOKEN:-}" ]]; then
+            echo '::warning::Pages publish reconciliation skipped: App token with actions:write, deployments:read, and statuses:read is unavailable'
             exit 0
           fi
           GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-publish.mjs
