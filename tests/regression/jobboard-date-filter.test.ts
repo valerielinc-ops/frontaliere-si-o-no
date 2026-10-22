@@ -45,6 +45,21 @@ describe('JobBoard date filters', () => {
     expect(normalized.firstSeenAt).toBe('2026-08-28T05:27:13.245Z');
   });
 
+  it('preserves the original reported datePosted when firstSeenAt is also present', () => {
+    const normalized = normalizeIncomingJob({
+      id: 'reported-with-first-seen',
+      title: 'Reported listing',
+      postingDateSource: 'reported',
+      datePosted: '2026-09-01',
+      postedDate: '',
+      firstSeenAt: '2026-09-10T05:27:13.245Z',
+    });
+
+    expect(normalized.datePosted).toBe('2026-09-01');
+    expect(normalized.postedDate).toBe('2026-09-01');
+    expect(normalized.firstSeenAt).toBe('2026-09-10T05:27:13.245Z');
+  });
+
   it.each(['unknown', 'reported', undefined] as const)('normalizes mixed provenance %s without promoting collection clocks', (postingDateSource) => {
     const datePosted = new Date(Date.now() - 3 * 86400000).toISOString().slice(0, 10);
     const firstSeenAt = new Date(Date.now() - 86400000).toISOString();
