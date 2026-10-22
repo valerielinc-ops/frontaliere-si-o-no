@@ -13565,6 +13565,15 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.title': 'Verkehr: Zusagen für Varese – Peduncolo & Gallarate-Luino',
     'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.excerpt': 'Die Pd erhält Zusagen zum PRMT in der Lombardei Der Peduncolo di Vedano wird in die vertieften Prüfungen aufgenommen Gallarate-Luino wird in die Projektphasen des Plans aufgenommen Ja',
     'blog.article.trasporti-varese-peduncolo-vedano-gallarate-luino.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.arresto-ticino-banca-occulta.title': 'Festnahme im Tessin im Rahmen einer internationalen Anti-Mafia-Operation',
+    'blog.article.arresto-ticino-banca-occulta.excerpt': 'Am Mittwoch wurde im Tessin eine Person festgenommen.',
+    'blog.article.arresto-ticino-banca-occulta.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.industria-ticino-strategie-personale.title': 'Industrie im Tessin: 15 Massenentlassungen in 18 Monaten, -900 Grenzgänger',
+    'blog.article.industria-ticino-strategie-personale.excerpt': 'In den letzten 18 Monaten zahlreiche Massenentlassungen im Tessin 15 Massenentlassungen in eineinhalb Jahren verfolgt Rund 900 Grenzgänger weniger in zwei',
+    'blog.article.industria-ticino-strategie-personale.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.bellinzona-nuova-strada-ciclabile.title': 'Bellinzona eröffnet seine erste Fahrradstraße',
+    'blog.article.bellinzona-nuova-strada-ciclabile.excerpt': 'Bellinzona eröffnet seine erste Fahrradstraße Die Strecke ist drei Kilometer lang Die Route führt von Giubiasco nach Bellinzona Fahrräder und motorisierter Verkehr',
+    'blog.article.bellinzona-nuova-strada-ciclabile.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;
