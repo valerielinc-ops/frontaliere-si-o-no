@@ -656,7 +656,7 @@
     return Boolean(owned.id)
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
         || SELECT_PROMPT_RE.test(input.value || '')
-        || /paginatedselect/i.test(String(input.className || ''))
+        || (isSuccessFactorsPage(input, channelType) && /paginatedselect/i.test(String(input.className || '')))
         || (isSuccessFactorsPage(input, channelType) && required && owned.listbox));
   }
 

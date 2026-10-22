@@ -450,7 +450,7 @@ export function extractFieldsInPage({ channelType = '' } = {}) {
         // owned picklist, not a free-text combobox.
         && (EMPTY_PICKLIST_RE.test(element.getAttribute('placeholder') || '')
           || EMPTY_PICKLIST_RE.test(element.value || '')
-          || /paginatedselect/i.test(String(element.className || ''))
+          || (isSuccessFactorsPage() && /paginatedselect/i.test(String(element.className || '')))
           // Some SuccessFactors tenants omit the prompt/class decoration on
           // required lazy picklists. The ARIA-owned listbox is the stable
           // control contract; without this branch the initial form snapshot
