@@ -45,6 +45,7 @@
  */
 
 import path from 'node:path';
+import { realpathSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPathsStrict, writeCompatPaths, COMPAT_SHARD_DIR } from './lib/compat-paths-store.mjs';
@@ -254,7 +255,9 @@ async function main() {
   console.log('   Run prune-404-compat-paths.ts next to drop non-resolving paths before commit.');
 }
 
-const entrypoint = process.argv[1] ? pathToFileURL(process.argv[1]).href : '';
+const entrypoint = process.argv[1]
+  ? pathToFileURL(realpathSync(process.argv[1])).href
+  : '';
 if (import.meta.url === entrypoint) {
   main().catch((err) => {
     console.error(`❌ ${err?.message || err}`);
