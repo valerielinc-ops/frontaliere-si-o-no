@@ -474,7 +474,7 @@ async function main() {
     // responses is counted once.
     const rawForHead = gh([
       'api',
-      `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&head_sha=${encodeURIComponent(headSha)}&per_page=100`,
+      `repos/${repo}/actions/workflows/${workflow}/runs?head_sha=${encodeURIComponent(headSha)}&per_page=100`,
       '--jq',
       RUNS_PROJECTION,
     ]);

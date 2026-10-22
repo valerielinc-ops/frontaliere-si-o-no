@@ -80,10 +80,9 @@ describe('hasWorkflowsWrite — the two conditions that decide the capability ga
 });
 
 /**
- * deploy.yml's re-arm DISPATCHES a workflow run: an App token that can mint but
- * lacks `actions: write` would 403 inside a continue-on-error step and leave the
- * recovered build unpublished (review #9715). The step prefers APP_TOKEN only
- * when this verified capability says so.
+ * deploy.yml's re-arm dispatches a workflow run with the workflow's
+ * GITHUB_TOKEN. `actions: write` is declared on that job and the self-driven
+ * path must not silently depend on an optional App token.
  */
 describe('hasActionsWrite — dispatch capability read from the token, not assumed', () => {
   it('granted only by a literal write', () => {
@@ -94,11 +93,11 @@ describe('hasActionsWrite — dispatch capability read from the token, not assum
     expect(hasActionsWrite(null)).toBe(false);
   });
 
-  it('deploy.yml re-arm uses APP_TOKEN only when APP_TOKEN_ACTIONS is true', () => {
+  it('deploy.yml re-arm uses the workflow GITHUB_TOKEN', () => {
     const deploy = readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8');
     const rearm = deploy.slice(deploy.indexOf('- name: Re-arm the build pipeline if it has stopped with work outstanding'));
     const tokenLine = rearm.split('\n').find((line) => line.trim().startsWith('GH_TOKEN:'));
-    expect(tokenLine?.trim()).toBe("GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}");
+    expect(tokenLine?.trim()).toBe('GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
   });
 });
 
