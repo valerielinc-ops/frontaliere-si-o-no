@@ -369,6 +369,20 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       canStartRegex = false;
       pendingControlFlowParen = false;
       index += 1;
+    } else if (char === '!') {
+      if (next === '=') {
+        index += markup[index + 2] === '=' ? 2 : 1;
+        canStartRegex = true;
+      }
+      // Preserve expression-ending context for TypeScript's postfix `!`.
+      memberAccessPending = false;
+      pendingControlFlowParen = false;
+      breakContinueState = null;
+    } else if (char === '#') {
+      canStartRegex = false;
+      memberAccessPending = true;
+      pendingControlFlowParen = false;
+      breakContinueState = null;
     } else if (',;:?=!.~*%&|^<>'.includes(char)) {
       canStartRegex = true;
       pendingControlFlowParen = false;
