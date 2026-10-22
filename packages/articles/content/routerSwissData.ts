@@ -2884,6 +2884,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'revisione-serv-consultazione-2026': { it: 'revisione-serv-consultazione-2026', en: 'serv-partial-revision-consultation-2026', de: 'serv-teilrevision-anhorung-2026', fr: 'revision-partielle-serv-consultation-2026' },
  'stop-emergenza-centrale-nucleare-gosgen': { it: 'stop-emergenza-centrale-nucleare-gosgen', en: 'emergency-shutdown-gosgen-nuclear-plant', de: 'notstopp-atomkraftwerk-gosgen', fr: 'arret-urgence-centrale-nucleaire-gosgen' },
  'regole-usato-mercatini-svizzera': { it: 'regole-usato-mercatini-svizzera', en: 'second-hand-market-rules-switzerland', de: 'second-hand-markt-regeln-schweiz', fr: 'regles-marche-aux-puces-suisse' },
+ 'adeguamento-rendite-superstiti-invalidita-2027': { it: 'adeguamento-rendite-superstiti-invalidita-2027', en: 'adjustment-survivor-disability-pensions-2027', de: 'anpassung-hinterbliebenen-invalidenrenten-2027', fr: 'ajustement-rentes-survivants-invalides-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

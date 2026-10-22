@@ -108480,6 +108480,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-adeguamento-rendite-superstiti-invalidita-2027': {
+    title: 'Adeguamento rendite superstiti e invalidità LPP dal 1° gennaio 2027',
+    description: 'Dal 1 gennaio 2027 le rendite saranno adeguate ai prezzi. 2,1% per i diritti nati nel 2023. 1% dopo un anno per le rendite adeguate nel 2026. 1,2%',
+    keywords: 'frontalieri, ticino, svizzera, italia, adeguamento, rendite, superstiti, invalidità',
+    ogTitle: 'Adeguamento rendite LPP superstiti e invalidità dal 1° gennaio 2027',
+    ogDescription: 'Dal 1 gennaio 2027 le rendite saranno adeguate ai prezzi.',
+    canonicalPath: '/articoli-svizzera/adeguamento-rendite-superstiti-invalidita-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Adeguamento rendite superstiti e invalidità LPP dal 1° gennaio 2027",
+      "description": "Dal 1 gennaio 2027 le rendite saranno adeguate ai prezzi. 2,1% per i diritti nati nel 2023. 1% dopo un anno per le rendite adeguate nel 2026. 1,2%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-adeguamento-rendite-superstiti-invalidita-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-22T11:46:54+00:00",
+      "dateModified": "2026-10-22T11:46:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/adeguamento-rendite-superstiti-invalidita-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

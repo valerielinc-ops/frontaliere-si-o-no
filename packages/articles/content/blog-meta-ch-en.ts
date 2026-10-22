@@ -8585,6 +8585,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.regole-usato-mercatini-svizzera.title': 'Buying used goods in Switzerland: warranty and rules',
     'blog.article.regole-usato-mercatini-svizzera.excerpt': 'One-year warranty, unless explicitly excluded Public land: free items are often prohibited Counterfeits across borders: possible seizure and a fee of approximately',
     'blog.article.regole-usato-mercatini-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Adjustment of LPP survivors’ and disability pensions from 1 January 2027',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'From January 1, 2027, annuities will be adjusted to prices.',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 769,
+      "5": 777,
       "6": 5054
     },
-    "publishedCovers": 7506,
+    "publishedCovers": 7514,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -206084,6 +206084,270 @@
         "provider": "openai-codex",
         "assetId": "article-zugo-agenda-consiglio-29-ottobre",
         "imageUrl": "/images/blog/article-zugo-agenda-consiglio-29-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-adeguamento-rendite-superstiti-invalidita-2027": {
+      "cover": "/images/blog/article-adeguamento-rendite-superstiti-invalidita-2027.webp",
+      "hash": "0c5c063cb275165271f0584737f395e4dc4ec892d78abe01d5da2d2b4d34bf85",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "adeguamento-rendite-superstiti-invalidita-2027",
+          "category": "pensione",
+          "date": "2026-10-22T11:46:54.259Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-adeguamento-rendite-superstiti-invalidita-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-adeguamento-rendite-superstiti-invalidita-2027",
+        "imageUrl": "/images/blog/article-adeguamento-rendite-superstiti-invalidita-2027.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bulle-friburgo-linea-diretta": {
+      "cover": "/images/blog/article-bulle-friburgo-linea-diretta.webp",
+      "hash": "a5dcafc8b60d2f966561fa99f652137552a4d0d952ff81bfa8c0480d0e3d2a0b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-fr",
+          "id": "bulle-friburgo-linea-diretta",
+          "category": "novita",
+          "date": "2026-10-22T14:10:19.534Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bulle-friburgo-linea-diretta.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bulle-friburgo-linea-diretta",
+        "imageUrl": "/images/blog/article-bulle-friburgo-linea-diretta.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-energy-tagli-radio-svizzera": {
+      "cover": "/images/blog/article-energy-tagli-radio-svizzera.webp",
+      "hash": "8d7d8511f88fa0486cf86ca81340befc2915ec28a72e0ba5dd06ff2ac4580c6b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "energy-tagli-radio-svizzera",
+          "category": "novita",
+          "date": "2026-10-22T12:35:58.385Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-energy-tagli-radio-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-energy-tagli-radio-svizzera",
+        "imageUrl": "/images/blog/article-energy-tagli-radio-svizzera.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-fdp-lucerna-due-liste": {
+      "cover": "/images/blog/article-fdp-lucerna-due-liste.webp",
+      "hash": "9fbe9da93834f184b2a1ac58c9d4c9325d75ced6f02e112f84c0ea4a87d34b1c",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-lu",
+          "id": "fdp-lucerna-due-liste",
+          "category": "novita",
+          "date": "2026-10-22T14:25:24.967Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-fdp-lucerna-due-liste.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-fdp-lucerna-due-liste",
+        "imageUrl": "/images/blog/article-fdp-lucerna-due-liste.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-morges-label-energia-gold-2026": {
+      "cover": "/images/blog/article-morges-label-energia-gold-2026.webp",
+      "hash": "e0ff14a129f4f01d33f0b79be00367a64b947c73ef46458ea947d681c5de0554",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "morges-label-energia-gold-2026",
+          "category": "novita",
+          "date": "2026-10-22T10:54:11.908Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-morges-label-energia-gold-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-morges-label-energia-gold-2026",
+        "imageUrl": "/images/blog/article-morges-label-energia-gold-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2": {
+      "cover": "/images/blog/article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2.webp",
+      "hash": "01f25a4a653f70776d094cc2f419a4997803a0be24e180f484bc21f343402736",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-be",
+          "id": "primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2",
+          "category": "novita",
+          "date": "2026-10-22T12:06:19.622Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2",
+        "imageUrl": "/images/blog/article-primo-adeguamento-lpp-superstiti-e-invalidita-2-1-1-1-2.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-stazione-le-locle-accessibilita": {
+      "cover": "/images/blog/article-stazione-le-locle-accessibilita.webp",
+      "hash": "7d806a6d561c5dc85bf63c3686065c6debe7d3e4616e10a816d97f5b96991d1d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ne",
+          "id": "stazione-le-locle-accessibilita",
+          "category": "novita",
+          "date": "2026-10-22T14:27:21.584Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-stazione-le-locle-accessibilita.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-stazione-le-locle-accessibilita",
+        "imageUrl": "/images/blog/article-stazione-le-locle-accessibilita.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-zugo-multa-mancata-dichiarazione-fiscale": {
+      "cover": "/images/blog/article-zugo-multa-mancata-dichiarazione-fiscale.webp",
+      "hash": "7bdcd0b54d0605e0bbe965906fe04b75da7c3e80934ab7894354d00c5a4e4f08",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-zg",
+          "id": "zugo-multa-mancata-dichiarazione-fiscale",
+          "category": "fiscale",
+          "date": "2026-10-22T11:31:01.636Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-zugo-multa-mancata-dichiarazione-fiscale.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-22",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-zugo-multa-mancata-dichiarazione-fiscale",
+        "imageUrl": "/images/blog/article-zugo-multa-mancata-dichiarazione-fiscale.webp",
         "evidence": "generated-engine-record"
       }
     }

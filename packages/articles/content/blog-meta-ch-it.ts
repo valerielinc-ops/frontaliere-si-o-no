@@ -8585,6 +8585,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.regole-usato-mercatini-svizzera.title': 'Acquisti di usato in Svizzera: garanzia e regole',
     'blog.article.regole-usato-mercatini-svizzera.excerpt': 'Garanzia di un anno, salvo esclusione esplicita Suolo pubblico: gli oggetti gratis sono spesso vietati Falsi oltreconfine: possibile sequestro e tassa di circa',
     'blog.article.regole-usato-mercatini-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Adeguamento rendite superstiti e invalidità LPP dal 1° gennaio 2027',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'Dal 1 gennaio 2027 le rendite saranno adeguate ai prezzi.',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

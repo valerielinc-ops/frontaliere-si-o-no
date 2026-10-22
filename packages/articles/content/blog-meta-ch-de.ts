@@ -8585,6 +8585,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.regole-usato-mercatini-svizzera.title': 'Gebrauchtkäufe in der Schweiz: Garantie und Regeln',
     'blog.article.regole-usato-mercatini-svizzera.excerpt': 'Garantie von einem Jahr, sofern nicht ausdrücklich ausgeschlossen Öffentlicher Grund: Kostenlose Gegenstände sind oft verboten Fälschungen über die Grenze: mögliche Beschlagnahmung und Gebühr von etwa',
     'blog.article.regole-usato-mercatini-svizzera.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Anpassung der Hinterlassenen- und Invalidenrenten nach BVG ab 1. Januar 2027',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'Ab 1. Januar 2027 werden die Renten an die Preisentwicklung angepasst.',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
