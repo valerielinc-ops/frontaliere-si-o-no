@@ -1342,9 +1342,7 @@ async function inputBelongsToTrigger(input, association) {
   try {
     return await input.evaluate((element, owner) => {
       const trigger = owner?.trigger || owner;
-      const context = owner?.context || owner;
       if (!element?.isConnected || !trigger?.isConnected) return false;
-      if (context?.isConnected && typeof context.contains === 'function' && context.contains(element)) return true;
       if (typeof trigger.contains === 'function' && trigger.contains(element)) return true;
 
       // Some ATS controls append the hidden input to document.body (or to a
