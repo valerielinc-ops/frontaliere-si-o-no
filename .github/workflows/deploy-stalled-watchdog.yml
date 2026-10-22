@@ -15,6 +15,31 @@ on:
   push:
     branches:
       - main
+    # Keep the watchdog aligned with the established deploy-boundary filter:
+    # telemetry, documentation, tests, and workflow-only changes do not need
+    # a new build admission check. A mixed push remains eligible under GitHub's
+    # normal paths-ignore semantics.
+    paths-ignore:
+      - 'data/border-wait-current.json'
+      - 'public/data/border-wait-current.json'
+      - 'data/border-wait-history/**'
+      - 'data/build-history/**'
+      - 'data/seo-health-state.json'
+      - 'data/seo-health/**'
+      - 'data/border-wait-averages.json'
+      - 'public/data/border-wait-averages.json'
+      - 'data/road-events.json'
+      - 'public/data/road-events.json'
+      - 'data/weather-snapshot.json'
+      - 'data/loop-fleet/**'
+      - 'data/translation-observability-history.json'
+      - 'data/translation-observability-state.json'
+      - 'data/translation-stats-history.json'
+      - '*.md'
+      - 'docs/**'
+      - '.github/**'
+      - 'tests/**'
+      - '.claude/**'
   workflow_run:
     workflows: ['Deploy to GitHub Pages']
     types: [completed]
