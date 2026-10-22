@@ -1,6 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { isMissingOrNotDirectoryError } from '../sharedWriteRegistry';
+
+/** Filesystem errors that mean an optional HTML probe has no readable page. */
+function isMissingOrNotDirectoryError(error: unknown): boolean {
+  const code = (error as NodeJS.ErrnoException | null | undefined)?.code;
+  return code === 'ENOENT' || code === 'ENOTDIR';
+}
 
 function indexPath(distDir: string, relativePath: string): string {
   const normalized = relativePath.replace(/^\/+/, '').replace(/\/+$/, '');
