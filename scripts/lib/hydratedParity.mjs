@@ -111,11 +111,18 @@ export function reverseSlugRegistry(registry, locale) {
  *
  * A slug the reverse map does not know resolves to itself: an id-shaped URL is
  * exactly what the client falls back to, so treating it as its own id keeps
- * this from inventing a failure.
+ * this from inventing a failure. Ambiguous slugs are an explicit exception:
+ * they must remain unresolved even when the slug text happens to be a client
+ * id, because choosing that id would hide a collision.
  */
-export function missingFromClient(slugs, reverseSlugToId, clientIds) {
+export function missingFromClient(slugs, reverseSlugToId, clientIds, unresolvedSlugs = new Set()) {
   const missing = [];
+  const unresolved = unresolvedSlugs instanceof Set ? unresolvedSlugs : new Set(unresolvedSlugs || []);
   for (const slug of slugs) {
+    if (unresolved.has(slug)) {
+      missing.push(`${slug} (ambiguous id)`);
+      continue;
+    }
     const id = reverseSlugToId?.[slug] ?? slug;
     if (!clientIds.has(id)) missing.push(id === slug ? slug : `${slug} (id: ${id})`);
   }

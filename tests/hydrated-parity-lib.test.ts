@@ -99,6 +99,15 @@ describe('missingFromClient — compares ids, never slugs', () => {
     expect(missingFromClient(['caso-delmastro-protesta-avs'], {}, new Set(['caso-delmastro-protesta-avs']))).toEqual([]);
     expect(missingFromClient(['caso-delmastro-protesta-avs'], {}, new Set())).toEqual(['caso-delmastro-protesta-avs']);
   });
+
+  it('keeps an ambiguous slug unresolved even when its text is a client id', () => {
+    expect(missingFromClient(
+      ['slug-duplicato'],
+      {},
+      new Set(['slug-duplicato']),
+      new Set(['slug-duplicato']),
+    )).toEqual(['slug-duplicato (ambiguous id)']);
+  });
 });
 
 describe('divergentSurfaces — the edge answering two ways', () => {

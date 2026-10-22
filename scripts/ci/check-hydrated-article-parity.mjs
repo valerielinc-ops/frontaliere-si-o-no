@@ -381,7 +381,7 @@ report.overlayBareGap = [...overlayIds.bare].filter((id) => !overlayIds.rotated.
  * a run that fails without naming the lost articles has reported the weather,
  * not the defect.
  */
-const missing = missingFromClient(slugs, effectiveReverse, clientIds);
+const missing = missingFromClient(slugs, effectiveReverse, clientIds, clientReverse.ambiguous);
 report.missing = missing;
 
 /**
@@ -389,7 +389,7 @@ report.missing = missing;
  * compiled chunks are current; a number climbing toward the overlay's own
  * window is the early warning that the next stale chunk WILL drop articles.
  */
-const absorbedByOverlay = missingFromClient(slugs, effectiveReverse, chunkIds);
+const absorbedByOverlay = missingFromClient(slugs, effectiveReverse, chunkIds, clientReverse.ambiguous);
 report.absorbedByOverlay = absorbedByOverlay;
 
 /**
