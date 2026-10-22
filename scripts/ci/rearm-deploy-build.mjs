@@ -616,7 +616,15 @@ async function main() {
 
   try {
     await writeSummary(finalVerdict);
-    gh(['api', '-X', 'POST', `repos/${repo}/actions/workflows/${workflow}/dispatches`, '-f', `ref=${branch}`]);
+    // Mark this run as a recovery admission. Its workflow-level lane is
+    // intentionally separate from an independent manual dispatch, so a
+    // manual pending build cannot be evicted between the final queue read and
+    // this POST. The per-locale build jobs retain the shared production lock.
+    gh([
+      'api', '-X', 'POST', `repos/${repo}/actions/workflows/${workflow}/dispatches`,
+      '-f', `ref=${branch}`,
+      '-f', 'rearm_dispatch=true',
+    ]);
     console.log(`[rearm] ✅ dispatched ${workflow} on ${branch} — the pipeline is moving again`);
   } catch (err) {
     // Never fail the deploy over this: the publish-lag watchdog is still the

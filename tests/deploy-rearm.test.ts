@@ -434,6 +434,18 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     });
   });
 
+  it('separa la run di recovery dalla pending manuale e mantiene il lock per locale', () => {
+    expect(String(doc.concurrency?.group)).toContain('inputs.rearm_dispatch');
+    expect(String(doc.concurrency?.group)).toContain('pages-build-rearm');
+    expect(String(doc.concurrency?.group)).toContain('pages-build-run');
+    expect(doc.jobs['build-locale'].concurrency).toEqual({
+      group: 'pages-build-locale-${{ matrix.locale }}',
+      'cancel-in-progress': false,
+    });
+    const rearm = readFileSync(resolve('scripts/ci/rearm-deploy-build.mjs'), 'utf8');
+    expect(rearm).toContain("'-f', 'rearm_dispatch=true'");
+  });
+
   it('moves recovery admission into deploy.yml and keeps the request workflow publish-only', () => {
     const on = (YAML.parse(DEPLOY_YML) as { on?: Record<string, unknown> }).on ?? {};
     expect(Object.keys(on)).toContain('schedule');
