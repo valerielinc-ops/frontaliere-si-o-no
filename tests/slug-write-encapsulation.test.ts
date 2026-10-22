@@ -82,10 +82,6 @@ const DIRECT_WRITE_BASELINE: Record<string, number> = {
   'lib/clinica-hildebrand-job-parser.mjs': 1,
   'lib/clinica-varini-job-parser.mjs': 1,
   'lib/oscam-castelrotto-job-parser.mjs': 1,
-  // Pharmacy directory (#8509), not a job slice: the slug is a pharmacy page
-  // id, outside the previousSlugsByLocale contract (same case as
-  // build-fiscal-municipalities.mjs).
-  'lib/pharmacy-border-parser.mjs': 1,
   'lib/reha-andeer-job-parser.mjs': 1,
   'lib/shared-jobs-crawler.mjs': 5,
   'lib/therapiezentrum-meggen-job-parser.mjs': 1,

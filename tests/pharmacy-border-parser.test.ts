@@ -54,4 +54,34 @@ describe('buildTicinoCompleteRecords', () => {
       }],
     });
   });
+
+  it('drops an alias owned by a canonical slug when preserving a colliding duty record', () => {
+    const records = buildTicinoCompleteRecords(
+      [{
+        name: 'Farmacia Foo',
+        address: 'Via Roma 1',
+        postalCode: '6900',
+        city: 'Lugano',
+      }],
+      {
+        previous: [{
+          id: 'ti-duty-only',
+          name: 'Farmacia Bar',
+          slug: 'farmacia-foo-lugano',
+          address: 'Via Centro 2',
+          postalCode: '6500',
+          city: 'Bellinzona',
+          canton: 'Ticino',
+          country: 'CH',
+          urlAliases: [{ country: 'CH', city: 'Lugano', slug: 'farmacia-foo-lugano' }],
+        }],
+        fetchedAt: '2026-10-10T10:47:38.013Z',
+        requiredIds: ['ti-duty-only'],
+      },
+    );
+
+    const preserved = records.find((record) => record.id === 'ti-duty-only');
+    expect(preserved).toMatchObject({ id: 'ti-duty-only', slug: 'farmacia-foo-lugano-2' });
+    expect(preserved).not.toHaveProperty('urlAliases');
+  });
 });

@@ -434,13 +434,28 @@ function availability(pharmacy, officialFieldsNotPublished = false) {
   };
 }
 
-function uniqueSlug(base, used) {
+export function uniqueSlug(base, used) {
   const safe = base || 'farmacia';
   let slug = safe;
   let suffix = 2;
   while (used.has(slug)) slug = `${safe}-${suffix++}`;
   used.add(slug);
   return slug;
+}
+
+/**
+ * Drop historical aliases that now point at a canonical slug owned by the
+ * merged catalogue. A record renamed after slug allocation cannot retain an
+ * alias for that old route: it would make the alias compete with the record
+ * that owns the canonical path.
+ */
+export function rebuildUrlAliasesAfterSlugChange(record, canonicalSlugs) {
+  if (!Array.isArray(record?.urlAliases)) return record;
+  const urlAliases = record.urlAliases.filter((alias) => alias?.country !== 'CH' || !canonicalSlugs.has(alias?.slug));
+  if (urlAliases.length === record.urlAliases.length) return record;
+  if (urlAliases.length) return { ...record, urlAliases };
+  const { urlAliases: _removedAliases, ...withoutAliases } = record;
+  return withoutAliases;
 }
 
 function isStableSlug(value) {
@@ -703,9 +718,13 @@ export function buildTicinoCompleteRecords(pdfRows, { previous = [], fetchedAt, 
     };
     applyOsmEnrichment(preserved, osmElements, fetchedAt, usedOsmElementKeys);
     preserved.dataAvailability = availability(preserved, true);
-    preserved.slug = uniqueSlug(preserved.slug || slugifyPharmacy(`${preserved.name} ${preserved.city}`), usedSlugs);
+    const slug = uniqueSlug(preserved.slug || slugifyPharmacy(`${preserved.name} ${preserved.city}`), usedSlugs);
+    const preservedWithSlug = { ...preserved, slug };
+    const publishedPreserved = slug === preserved.slug
+      ? preservedWithSlug
+      : rebuildUrlAliasesAfterSlugChange(preservedWithSlug, usedSlugs);
     usedIds.add(preserved.id);
-    records.push(preserved);
+    records.push(publishedPreserved);
   }
   return records.sort((a, b) => `${a.city} ${a.name}`.localeCompare(`${b.city} ${b.name}`, 'it'));
 }
