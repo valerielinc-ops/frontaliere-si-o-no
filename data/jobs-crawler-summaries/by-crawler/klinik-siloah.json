@@ -1,7 +1,7 @@
 {
   "key": "klinik-siloah",
   "label": "Privatklinik Siloah",
-  "generatedAt": "2026-10-21T09:30:15.313Z",
+  "generatedAt": "2026-10-22T09:27:12.024Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3017,
-  "avgDurationMs": 3017,
+  "durationMs": 3776,
+  "avgDurationMs": 3776,
   "durationHistory": [
-    3017
+    3776
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000155171119-dipl-pflegefachperson-hf-fh-mit-berufsbildnerfunktion-80-100-",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:30:00.488Z",
+      "crawledAt": "2026-10-22T09:26:59.500Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }
