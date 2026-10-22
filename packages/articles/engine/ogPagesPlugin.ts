@@ -10,6 +10,7 @@
 import path from 'path';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
+import { decodeTsStringEscapes } from './shared/tsStringEscapes';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
@@ -723,7 +724,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, flags);
  const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, flags);
  const m = b.match(rxSingle) || b.match(rxDouble);
- return m?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
+ return m ? decodeTsStringEscapes(m[1], { newlineAs: ' ' }) : '';
  };
  const title = matchStr('title', 'm') || '';
  const desc = matchStr('description', 'm') || '';

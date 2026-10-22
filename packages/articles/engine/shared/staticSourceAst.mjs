@@ -15,7 +15,7 @@
  */
 
 import { loadArticleSourceTypeScript } from './typescriptRuntime.mjs';
-import { decodeTypeScriptCodePointEscape } from './tsStringEscapes.ts';
+import { decodeTypeScriptCodePointEscape } from './ts-literals.mjs';
 
 const ts = loadArticleSourceTypeScript();
 

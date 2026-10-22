@@ -1,6 +1,6 @@
 import { basename } from 'node:path';
 import { decodeStaticString } from './staticSourceAst.mjs';
-import { repairLegacyDoubleEscapedBreaks } from './tsStringEscapes.ts';
+import { repairLegacyDoubleEscapedBreaks } from './ts-literals.mjs';
 import { loadArticleSourceTypeScript } from './typescriptRuntime.mjs';
 
 const ARTICLE_KEY_PREFIX = 'blog.article.';
