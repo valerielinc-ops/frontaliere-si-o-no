@@ -164,6 +164,8 @@ describe('production promotion admission', () => {
     const trigger = workflow.jobs['validate-promotion-trigger'];
 
     expect(findStep(trigger, 'trigger')).toBeDefined();
+    const sourcePromotionStep = (trigger.steps || []).find((step: any) => step.id === 'source_promotion');
+    expect(sourcePromotionStep?.if).toContain('always()');
     expect(needs(workflow.jobs['matrix-setup'])).toContain('validate-promotion-trigger');
     // `rearm` runs under always() so a failed build can reach the resolver.
     // The resolver receives each admission outcome and allows only the

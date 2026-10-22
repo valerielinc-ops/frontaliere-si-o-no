@@ -206,6 +206,9 @@ jobs:
         run: node scripts/ci/translation-deploy-handoff.mjs
       - name: Reject non-main or unverified source
         id: source_promotion
+        # Run independently of the translation handoff so the rearm resolver
+        # can admit only a translation hold with a verified source promotion.
+        if: always()
         env:
           PROMOTION_EVENT: ${{ github.event_name }}
           PROMOTION_REF: ${{ github.ref }}

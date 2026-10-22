@@ -385,7 +385,7 @@ describe('decideRearmAdmission — validation failures stay narrowly scoped', ()
     expect(decideRearmAdmission({
       promotionResult: 'failure',
       translationResult: 'failure',
-      sourceResult: 'skipped',
+      sourceResult: 'success',
     })).toMatchObject({ allowed: true, reason: 'translation-handoff-failed' });
   });
 
@@ -397,8 +397,8 @@ describe('decideRearmAdmission — validation failures stay narrowly scoped', ()
     })).toMatchObject({ allowed: false, reason: 'promotion-gate-failed' });
   });
 
-  it('keeps an absent or successful source result fail-closed', () => {
-    for (const sourceResult of ['', 'success']) {
+  it('keeps an absent, skipped, or failed source result fail-closed', () => {
+    for (const sourceResult of ['', 'skipped', 'failure']) {
       expect(decideRearmAdmission({
         promotionResult: 'failure',
         translationResult: 'failure',

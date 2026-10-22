@@ -299,7 +299,7 @@ export function decideRearmAdmission({
   if (!promotion || promotion === 'success') {
     return { allowed: true, reason: 'admission-passed' };
   }
-  if (promotion === 'failure' && translation === 'failure' && source === 'skipped') {
+  if (promotion === 'failure' && translation === 'failure' && source === 'success') {
     return {
       allowed: true,
       reason: 'translation-handoff-failed',
