@@ -887,7 +887,11 @@ describe('loop clock observer', () => {
       repository === LOOP_CLOCK_CORPUS_REPOSITORY ? [otherRun(1)] : [clockRun(site, 500), clockRun(site, 10)]
     ));
     const { report, createIssueImpl } = await observe([site, corpus], [], { listRunsImpl });
-    expect(listRunsImpl.mock.calls.map((call) => call[0])).toEqual(['owner/site', LOOP_CLOCK_CORPUS_REPOSITORY]);
+    expect(listRunsImpl.mock.calls.map((call) => call[0])).toEqual([
+      'owner/site',
+      LOOP_CLOCK_CORPUS_REPOSITORY,
+      LOOP_CLOCK_CORPUS_REPOSITORY,
+    ]);
     expect(report.results.find((result) => result.id === site.id)).toMatchObject({ state: 'healthy' });
     expect(report.results.find((result) => result.id === corpus.id)).toMatchObject({ state: 'stale' });
     expect(createIssueImpl).toHaveBeenCalledTimes(1);
