@@ -62,4 +62,16 @@ describe('shared static literal reader compatibility', () => {
       { key: 'real', value: 'ok' },
     ]);
   });
+
+  it('ends line comments at both Unicode ECMAScript line separators', () => {
+    for (const separator of ['\u2028', '\u2029']) {
+      const entries = readStaticObjectEntries(
+        `const META = { // ignored${separator}'real': 'ok' };`,
+        'blog-meta.ts',
+      );
+      expect(entries.map(({ key, value }) => ({ key, value }))).toEqual([
+        { key: 'real', value: 'ok' },
+      ]);
+    }
+  });
 });
