@@ -116,6 +116,81 @@ describe('upload dialog frame safety', () => {
 
     expect(await dialogFileInput(page as any, candidateFrame as any, new Map(), new Map(), 20)).toBeNull();
   });
+
+  it('ignores an unreadable known vendor frame while keeping the application dialog unique', async () => {
+    const candidate = {};
+    const candidateFrame = {
+      url: () => 'https://career5.successfactors.eu/careers?company=sixgroupse',
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => 1),
+        elementHandles: vi.fn(async () => [candidate]),
+      })),
+    };
+    const googleProxyFrame = {
+      url: () => 'https://content.googleapis.com/static/proxy.html?usegapi=1',
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => { throw new Error('frame is still loading'); }),
+        elementHandles: vi.fn(async () => { throw new Error('frame is still loading'); }),
+      })),
+    };
+    const page = {
+      frames: () => [candidateFrame, googleProxyFrame],
+      mainFrame: () => candidateFrame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    expect(await dialogFileInput(page as any, candidateFrame as any, new Map(), new Map(), 20)).toBe(candidate);
+  });
+
+  it('does not treat a matching word in an application URL as a vendor frame', async () => {
+    const candidate = {};
+    const candidateFrame = {
+      url: () => 'https://career5.successfactors.eu/careers?company=sixgroupse',
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => 1),
+        elementHandles: vi.fn(async () => [candidate]),
+      })),
+    };
+    const applicationFrame = {
+      url: () => 'https://jobs.example/forms/youtube-upload',
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => { throw new Error('frame is still loading'); }),
+        elementHandles: vi.fn(async () => { throw new Error('frame is still loading'); }),
+      })),
+    };
+    const page = {
+      frames: () => [candidateFrame, applicationFrame],
+      mainFrame: () => candidateFrame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    expect(await dialogFileInput(page as any, candidateFrame as any, new Map(), new Map(), 20)).toBeNull();
+  });
+
+  it('does not trust a known vendor frame when it is passed as the preferred frame', async () => {
+    const candidate = {};
+    const candidateFrame = {
+      url: () => 'https://career5.successfactors.eu/careers?company=sixgroupse',
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => 1),
+        elementHandles: vi.fn(async () => [candidate]),
+      })),
+    };
+    const googleProxyFrame = {
+      url: () => 'https://content.googleapis.com/static/proxy.html?usegapi=1',
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => 1),
+        elementHandles: vi.fn(async () => [{}]),
+      })),
+    };
+    const page = {
+      frames: () => [candidateFrame, googleProxyFrame],
+      mainFrame: () => candidateFrame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    expect(await dialogFileInput(page as any, googleProxyFrame as any, new Map(), new Map(), 20)).toBe(candidate);
+  });
 });
 
 describe('portal link clicks', () => {
