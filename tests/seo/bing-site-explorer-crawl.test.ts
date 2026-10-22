@@ -51,7 +51,7 @@ describe('Bing-compatible full-tree crawler', () => {
       }],
     });
 
-    expect(CRAWLER_SCHEMA_VERSION).toBe(3);
+    expect(CRAWLER_SCHEMA_VERSION).toBe(4);
     expect(frontier.schemaVersion).toBe(CRAWLER_SCHEMA_VERSION);
     expect(frontier.templateTable.map((family) => family.id)).toEqual(expect.arrayContaining([
       'event-pages',

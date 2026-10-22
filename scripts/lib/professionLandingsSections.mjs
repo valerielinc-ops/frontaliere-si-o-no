@@ -1,9 +1,11 @@
 /**
  * Shared profession-canton / profession-city landing classifier.
  * ─────────────────────────────────────────────────────────────────────────
- * `build-plugins/professionCantonData.ts` (`/lavoro-{canton}-{role}/`) and
- * `build-plugins/professionCityData.ts` (`/lavoro-{city}-{role}/`) shipped
- * in the same #4323 bundle (2026-07-17) but neither ever got a matcher in
+ * `build-plugins/professionLandingsData.ts` (the legacy TI routes
+ * `/lavoro-ticino-{role}/`), `build-plugins/professionCantonData.ts`
+ * (`/lavoro-{canton}-{role}/`) and `build-plugins/professionCityData.ts`
+ * (`/lavoro-{city}-{role}/`) shipped in the same #4323 bundle (2026-07-17)
+ * but none ever got a matcher in
  * `audit-title-length`/`audit-text-html-ratio`'s classifier chain — both
  * fell through into the generic spa-locale/spa-other catch-all, whose
  * baselines were captured before this family existed (audit regression
@@ -26,12 +28,14 @@
  * cheap. Source: `data/profession-landing-routes.json`, regenerated via
  * `npx tsx scripts/generate-profession-landing-routes.mjs` (see that
  * script for why a live `.ts` import doesn't work under the plain `node`
- * these audits run under in CI).
+ * these audits run under in CI). The legacy TI list is included in the same
+ * generated snapshot because it is owned by the separate legacy emitter.
  */
 import routes from '../../data/profession-landing-routes.json' with { type: 'json' };
 
 const CANTON_ROUTE_SET = new Set(routes.professionCantonRoutes);
 const CITY_ROUTE_SET = new Set(routes.professionCityRoutes);
+const LEGACY_ROUTE_SET = new Set(routes.professionLegacyRoutes);
 
 /**
  * @param {string} normalizedPath Leading-slash, trailing-slash path with
@@ -40,6 +44,7 @@ const CITY_ROUTE_SET = new Set(routes.professionCityRoutes);
  * @returns {'profession-canton'|'profession-city'|null}
  */
 export function classifyProfessionLandingFeature(normalizedPath) {
+  if (LEGACY_ROUTE_SET.has(normalizedPath)) return 'profession-legacy';
   if (CANTON_ROUTE_SET.has(normalizedPath)) return 'profession-canton';
   if (CITY_ROUTE_SET.has(normalizedPath)) return 'profession-city';
   return null;
