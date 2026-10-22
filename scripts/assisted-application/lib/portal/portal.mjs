@@ -1209,6 +1209,25 @@ const successFactorsDocumentAssociationMatches = (association, kind) => {
   return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
 };
 
+// Some SuccessFactors pages place the icon next to an unrelated required
+// question, so the extractor's nearest-text context can belong to that field
+// rather than to the upload card. A document-specific DOM identity is safe to
+// use as a fallback only when the identity itself says both which document and
+// which upload action it controls; generic ids such as `action` remain
+// ambiguous and stay fail-closed.
+const successFactorsStrongDocumentUploadIdentity = (button, kind) => {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  const identity = [button?.domId, button?.name, button?.dataAutomationId]
+    .filter(Boolean).join(' ');
+  const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
+  return Boolean(documentPattern
+    && identity
+    && documentPattern.test(identity)
+    && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(identity)
+    && !(otherPattern && otherPattern.test(identity)));
+};
+
 const buttonHasExplicitDocumentContext = (button) => [
   button?.section,
   button?.context,
@@ -1297,7 +1316,8 @@ function successFactorsIconButtonFor(snapshot, kind) {
     // evidence than an id such as "resume-upload". Do not let a stale or
     // generic id bind an icon from another document section.
     const explicitContext = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
-    if (explicitContext && !documentPattern.test(explicitContext)) return false;
+    if (explicitContext && !documentPattern.test(explicitContext)
+      && !successFactorsStrongDocumentUploadIdentity(button, kind)) return false;
     const association = successFactorsButtonAssociation(button);
     return !UPLOAD_REMOVE_MARKER_RE.test(association)
       && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)

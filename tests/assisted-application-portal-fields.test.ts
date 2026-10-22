@@ -79,6 +79,24 @@ describe('portal field extraction', () => {
     expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
   });
 
+  it('keeps a document-specific SuccessFactors upload id when nearby field text polluted the context', () => {
+    const page = extract(`
+      <form>
+        <label>Email address<input type="email" required></label>
+        <label>Choose password<input type="password" required></label>
+        <label>Repeat password<input type="password" required></label>
+        <label>Do you hold a valid work permit for Switzerland?<input required></label>
+        <button type="button" id="cv-upload-control" data-automation-id="action"></button>
+        <button type="submit">Submit application</button>
+      </form>`, 'https://career5.successfactors.eu/careers');
+
+    expect(uploadButtonFor(page, 'cv')).toMatchObject({ domId: 'cv-upload-control', text: '' });
+    expect(uploadButtonFor({
+      ...page,
+      buttons: [{ ...page.buttons.find((button: any) => button.domId === 'cv-upload-control'), domId: 'cv-preview-control' }],
+    }, 'cv')).toBeNull();
+  });
+
   it.each([
     ['https://www.google.com/recaptcha/api2/anchor?size=normal', 'g-recaptcha-response'],
     ['https://newassets.hcaptcha.com/captcha/v1/test?frame=checkbox', 'h-captcha-response'],
