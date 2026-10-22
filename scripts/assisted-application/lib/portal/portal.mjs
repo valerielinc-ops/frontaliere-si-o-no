@@ -1851,9 +1851,13 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
       // bounded wait ends. Re-read it before the DOM retry so a global hidden
       // input can still be proven to belong to this control.
       triggerContext = await readTriggerContext();
+      // Register the native chooser watcher before dispatching the DOM click.
+      // Some tenants call input.click() synchronously from that handler; a
+      // watcher created afterwards misses the one-shot filechooser event.
+      const domChooserPromise = fileChooserAfterClick(page);
       await triggerLocator.evaluate((element) => element?.click?.());
       if (trace) trace.domClick = 'succeeded';
-      firstTarget = await waitForTarget(fileChooserAfterClick(page));
+      firstTarget = await waitForTarget(domChooserPromise);
     } catch {
       if (trace) trace.domClick = 'failed';
     }
