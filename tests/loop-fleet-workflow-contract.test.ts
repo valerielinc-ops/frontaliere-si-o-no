@@ -690,6 +690,16 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('treats a source artifact that disappears before download as a successful no-op', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('download_output="$(gh run download');
+    expect(source).toContain('download_status=$?');
+    expect(source).toContain("source artifact $SOURCE_ARTIFACT was listed but was not downloadable after the successful source run");
+    expect(source).toContain("[ \"$EVENT_NAME\" = 'workflow_run' ] && [ \"$SOURCE_CONCLUSION\" = 'success' ]");
+    expect(source).toContain("echo 'available=false' >> \"$GITHUB_OUTPUT\"");
+    expect(source).toContain('exit "$download_status"');
+  });
+
   it('rejects every non-success source conclusion before downloading its artifact', () => {
     const steps = workflowSteps('loop-fleet-ledger.yml');
     const provenanceIndex = steps.findIndex((step) => step.name === 'Validate source run provenance');
