@@ -20,8 +20,10 @@ import {
   loopClockRunMarker,
 } from '../functions/src/loopClockTable.js';
 import {
+  EMPTY_RUN_LIST_RETRY_DELAYS_MS,
   LOOP_CLOCK_DOWN_ISSUE_TITLE,
   assessLoopClockFreshness,
+  listDispatchRuns,
   loopClockRunLimit,
   runLoopClockHealth,
   selectLoopClockRun,
@@ -484,6 +486,45 @@ describe('loop clock observer', () => {
     expect(selectLoopClockRun(runs, entry)).toBe(wanted);
     expect(selectLoopClockRun([otherRun(1)], entry)).toBeNull();
     expect(selectLoopClockRun(undefined as unknown as unknown[], entry)).toBeNull();
+  });
+
+  it('re-reads an empty Actions listing before treating a marked dispatch as absent', () => {
+    const entry = { ...customEntry('visibility-race'), everyMinutes: 30 };
+    const delays: number[] = [];
+    const warnings: string[] = [];
+    let calls = 0;
+    const rows = listDispatchRuns('owner/site', entry.workflow, 10, 720, {
+      now: () => Date.parse(NOW),
+      ghImpl: () => {
+        calls += 1;
+        return calls === 1 ? '[]' : JSON.stringify([clockRun(entry, 5)]);
+      },
+      sleep: (delayMs: number) => delays.push(delayMs),
+      warn: (message: string) => warnings.push(message),
+    });
+
+    expect(rows).toHaveLength(1);
+    expect(calls).toBe(2);
+    expect(delays).toEqual([EMPTY_RUN_LIST_RETRY_DELAYS_MS[0]]);
+    expect(warnings).toHaveLength(1);
+  });
+
+  it('keeps a genuinely empty listing empty after the bounded retries', () => {
+    const calls: string[][] = [];
+    const delays: number[] = [];
+    const rows = listDispatchRuns('owner/site', 'never-ran.yml', 10, 720, {
+      now: () => Date.parse(NOW),
+      ghImpl: (args: string[]) => {
+        calls.push(args);
+        return '[]';
+      },
+      sleep: (delayMs: number) => delays.push(delayMs),
+      warn: () => {},
+    });
+
+    expect(rows).toEqual([]);
+    expect(calls).toHaveLength(EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1);
+    expect(delays).toEqual([...EMPTY_RUN_LIST_RETRY_DELAYS_MS]);
   });
 
   it('declares an entry stale when only non-clock runs are recent', async () => {

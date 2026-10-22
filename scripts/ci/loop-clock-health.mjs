@@ -126,6 +126,10 @@ function oldestClockDispatchAt(runs, markers) {
 
 const RUN_LIST_MARGIN = 50;
 const RUN_LIST_MAX = 1000;
+// GitHub Actions can briefly return an empty filtered list while a run is
+// being indexed. An empty page is meaningful only after this bounded re-read;
+// errors and malformed JSON still fail closed through the caller.
+export const EMPTY_RUN_LIST_RETRY_DELAYS_MS = Object.freeze([1_000, 3_000]);
 const LOOP_CLOCK_RUN_WINDOW_MINUTES = Math.max(
   ...LOOP_CLOCK_ENTRIES.map((entry) => staleThresholdMinutes(entry.everyMinutes)),
 );
@@ -150,17 +154,49 @@ function windowTruncated({ rows, limit, now, thresholdMinutes }) {
   return oldest > windowStart;
 }
 
-function listDispatchRuns(repository, workflow, limit, windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES) {
-  const output = gh([
+function sleepSync(delayMs) {
+  if (delayMs <= 0) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, delayMs);
+}
+
+/**
+ * Read a filtered run list. The Actions index can transiently answer `[]`
+ * while a just-created dispatch is becoming visible; treating that response
+ * as proof of absence opens a false stale issue. Retry only that valid-but
+ * suspicious shape, and preserve the existing fail-closed behavior for every
+ * other read failure.
+ */
+export function listDispatchRuns(
+  repository,
+  workflow,
+  limit,
+  windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES,
+  {
+    ghImpl = gh,
+    now = () => Date.now(),
+    sleep = sleepSync,
+    warn = console.warn,
+  } = {},
+) {
+  const args = [
     'run', 'list', '--repo', repository, '--workflow', workflow,
     '--event', 'workflow_dispatch', '--branch', 'main',
-    '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
+    '--created', createdFromFilter(now() - windowMinutes * 60_000),
     '--limit', String(limit),
     '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
-  ]);
-  const rows = JSON.parse(output || '[]');
-  if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
-  return rows;
+  ];
+  const attempts = EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const output = ghImpl(args);
+    const rows = JSON.parse(output || '[]');
+    if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
+    if (rows.length > 0 || attempt === attempts) return rows;
+
+    const delayMs = EMPTY_RUN_LIST_RETRY_DELAYS_MS[attempt - 1];
+    warn(`::notice::loop-clock run listing returned no rows; retry ${attempt}/${EMPTY_RUN_LIST_RETRY_DELAYS_MS.length} after ${delayMs}ms.`);
+    sleep(delayMs);
+  }
+  throw new Error('workflow run listing retry loop exhausted unexpectedly');
 }
 
 const LOOP_CLOCK_TABLE_PATH = 'functions/src/loopClockTable.js';
