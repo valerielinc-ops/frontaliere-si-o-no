@@ -1,7 +1,7 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-22T09:15:03.384Z",
+  "generatedAt": "2026-10-22T21:15:02.319Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
@@ -40,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:14:47.205Z",
+      "crawledAt": "2026-10-22T21:14:46.783Z",
       "firstSeenAt": "2026-10-09T09:13:37.313Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
@@ -78,7 +78,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:14:46.867Z",
+      "crawledAt": "2026-10-22T21:14:46.442Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -116,7 +116,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:14:46.298Z",
+      "crawledAt": "2026-10-22T21:14:46.078Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -131,5 +131,5 @@
       }
     }
   ],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
