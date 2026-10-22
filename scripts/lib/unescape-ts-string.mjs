@@ -49,6 +49,7 @@
  */
 
 const ESCAPE_RX = /\\([\s\S])/g;
+const UNICODE_ESCAPE_RX = /\\u([\da-fA-F]{4})|\\([\s\S])/g;
 
 /**
  * Decode escape sequences out of raw TS string-literal source text.
@@ -63,10 +64,13 @@ const ESCAPE_RX = /\\([\s\S])/g;
  *   the pipeline (e.g. `JSON.parse` on a `faq` field) see it.
  * @returns {string} the decoded value.
  */
-export function unescapeTsString(value, escapes) {
-  return value.replace(ESCAPE_RX, (whole, ch) => (
-    Object.prototype.hasOwnProperty.call(escapes, ch) ? escapes[ch] : whole
-  ));
+export function unescapeTsString(value, escapes, { decodeUnicode = false } = {}) {
+  const pattern = decodeUnicode ? UNICODE_ESCAPE_RX : ESCAPE_RX;
+  return value.replace(pattern, (whole, first, second) => {
+    if (decodeUnicode && first !== undefined) return String.fromCharCode(Number.parseInt(first, 16));
+    const ch = decodeUnicode ? second : first;
+    return Object.prototype.hasOwnProperty.call(escapes, ch) ? escapes[ch] : whole;
+  });
 }
 
 /**

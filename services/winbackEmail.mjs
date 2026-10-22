@@ -31,6 +31,7 @@
  */
 import { makeAuthenticatedActionUrl, makeOneClickUnsubscribeUrl, makePreferencesUrl } from './newsletterUrls.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 
 // Brand tokens — kept in sync with services/newsletter-template.mjs.
 const BRAND_ORANGE = '#f97316'; // accent / wordmark
@@ -161,6 +162,7 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
         </td></tr></table>
         <p style="margin:24px 0 0;font-size:13px;line-height:1.55;color:${MUTED};">${s.keepNote}</p>
       </td></tr>
+      ${renderEmailEngagementBanners({ locale: l })}
       <!-- footer -->
       <tr><td style="border-top:1px solid #eef2f7;padding:18px 32px 24px;text-align:center;">
         <a href="${footerUnsubUrl}" target="_blank" rel="noopener noreferrer" style="font-size:12px;color:${MUTED};text-decoration:underline;">${s.unsub}</a>
@@ -175,7 +177,7 @@ export function buildWinbackEmail({ email, locale = 'it' }) {
 </html>`;
 
   // Plain-text part mirrors the message (emoji stripped from the CTA label).
-  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${s.unsub}: ${footerUnsubUrl}\n${s.prefs}: ${preferencesUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
+  const text = `${s.heading}\n\n${s.body.replace(/<[^>]+>/g, '')}\n\n${s.cta.replace(/^[^\w]+/, '').trim()}: ${stayUrl}\n\n${s.keepNote}\n\n${emailEngagementBannersText({ locale: l })}\n\n${s.unsub}: ${footerUnsubUrl}\n${s.prefs}: ${preferencesUrl}\n\nFrontaliere Ticino · frontaliereticino.ch\n${dataControllerFooterLine(l)}\n`;
 
   return { subject: s.subject, html, text, unsubscribeUrl };
 }

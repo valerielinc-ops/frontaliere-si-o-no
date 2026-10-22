@@ -1,6 +1,7 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-10-21T09:47:51.417Z",
+  "assembledAt": "2026-10-22T09:37:43.926Z",
+  "runId": "39754536788",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-4992cc0352fc",
@@ -48,7 +49,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:47:46.230Z",
+      "crawledAt": "2026-10-22T09:37:40.483Z",
       "previousSlugs": [
         "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
       ],
@@ -119,7 +120,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:47:45.580Z",
+      "crawledAt": "2026-10-22T09:37:39.933Z",
       "previousSlugs": [
         "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
       ],
@@ -189,7 +190,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:47:44.936Z",
+      "crawledAt": "2026-10-22T09:37:39.419Z",
       "requirementsByLocale": {
         "en": [
           "Good analytical skills and networked thinking",
@@ -265,7 +266,7 @@
         "it": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
         "en": "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
         "de": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "fr": "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
+        "fr": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -304,10 +305,11 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:47:44.231Z",
+      "crawledAt": "2026-10-22T09:37:38.893Z",
       "previousSlugs": [
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
-        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen"
+        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
+        "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -317,7 +319,7 @@
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ],
         "fr": [
-          "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+          "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
         ]
       },
       "salaryMin": 49000,
@@ -381,7 +383,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/verkaufsberater-in_job_3001262",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:47:43.538Z",
+      "crawledAt": "2026-10-22T09:37:38.380Z",
       "previousSlugs": [
         "verkaufsberater-in-zermatt-zermatt-bergbahnen",
         "verkaufsberater-in-zermatt-bergbahnen-zermatt"
@@ -453,7 +455,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:47:42.781Z",
+      "crawledAt": "2026-10-22T09:37:37.803Z",
       "requirementsByLocale": {
         "it": [
           "Costituisce titolo preferenziale l'esperienza nella costruzione di funivie o impianti",
@@ -488,6 +490,5 @@
         }
       }
     }
-  ],
-  "runId": "39575995434"
+  ]
 }

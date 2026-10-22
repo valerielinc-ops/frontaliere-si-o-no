@@ -215,12 +215,11 @@ export function readStaticMetaFields(modules, fields) {
 
 /**
  * Unescapes a TS single-quoted string body captured by the metadata reader.
- * Only quotes and a literal backslash are decoded here — title/excerpt
- * fields are single-line, so `\n`/`\r`/`\t` were never part of this
- * function's scope and stay untouched (see unescape-ts-string.mjs for why
- * that matters and for the shared decoder this now runs through, fixed for
- * #5632).
+ * Quotes, a literal backslash, and explicit Unicode escapes are decoded here.
+ * Title/excerpt fields are single-line, so `\n`/`\r`/`\t` remain untouched
+ * (see unescape-ts-string.mjs for why that matters and for the shared decoder
+ * this now runs through, fixed for #5632).
  */
 export function unescapeTsValue(s) {
-  return unescapeTsString(s, { "'": "'", '"': '"', '\\': '\\' });
+  return unescapeTsString(s, { "'": "'", '"': '"', '\\': '\\' }, { decodeUnicode: true });
 }

@@ -1,5 +1,39 @@
 [
   {
+    "slug": "operateur-en-polissage-h-f-d-chopard-fleurier",
+    "title": "Opérateur en polissage (H/F/D)",
+    "titleByLocale": {
+      "it": "Opérateur en polissage (f/m/d)",
+      "en": "Polishing operator (M/F/D)",
+      "de": "Polieroperator (M/W/D)",
+      "fr": "Opérateur en polissage (H/F/D)"
+    },
+    "company": "Chopard",
+    "companyKey": "chopard",
+    "location": "Fleurier",
+    "addressLocality": "Fleurier",
+    "descriptionByLocale": {
+      "it": "La vostra missione di lucidatura dei componenti in acciaio (attacco, raccordo, lunetta singola, singola piastrelle) in conformità con le scadenze e le istruzioni di sicurezza.\n• Padroneggiare l'esecuzione delle varie operazioni di lucidatura ( lucidatura, feltro, vibrante). Visivamente e dimensionalmente (comparatore, micrometro, panca di controllo, piede di scorrimento) controllano le parti prima e/o dopo l'operazione. Partecipare agli AIC.",
+      "en": "Your mission Polishing of watch-related steel components (attachment, fitting, single bezel, single tile) in accordance with deadlines and safety instructions.\n• Your major responsibilities Master the execution of the various polishing operations (polishing, felting, vibrating). Visually and dimensionally (comparator, micrometer, control bench, slide foot) control the parts before and/or after operation. Participate in AICs.",
+      "de": "Ihre Mission Polieren von uhrbezogenen Stahlkomponenten (Anbau, Montage, einzelne Lünette, einzelne Fliese) in Übereinstimmung mit Fristen und Sicherheitsanweisungen.\n• Ihre Hauptaufgaben Meistern Sie die Ausführung der verschiedenen Polieroperationen (Polieren, Filzen, Vibrieren). Visuell und dimensioniert (Vergleicher, Mikrometer, Bedienstand, Schieberfuß) steuern die Teile vor und/oder nach dem Betrieb. Nehmen Sie an AICs teil.",
+      "fr": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité.\n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC."
+    },
+    "slugByLocale": {
+      "it": "operateur-en-polissage-h-f-d-chopard-fleurier",
+      "en": "polishing-operator-m-f-d-chopard-fleurier",
+      "de": "polieroperator-m-w-d-chopard-fleurier",
+      "fr": "operateur-en-polissage-h-f-d-chopard-fleurier"
+    },
+    "sector": "Orologeria / Gioielleria",
+    "expiredAt": "2026-10-22T09:18:48.332Z",
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2685?c=chopard&lang=en-us",
+    "firstSeenAt": "2026-10-16T21:17:28.484Z"
+  },
+  {
     "slug": "programmeur-cnc-h-f-d-chopard-fleurier",
     "title": "Programmeur CNC (H/F/D)",
     "titleByLocale": {

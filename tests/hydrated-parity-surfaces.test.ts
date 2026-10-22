@@ -113,6 +113,8 @@ describe('the surfaces the gate reads', () => {
   it('reads the chunks that carry the overlay mechanism, so a stale client is visible', () => {
     expect(SRC).toContain('assets/runtimeArticleResolution.js');
     expect(SRC).toContain('assets/BlogArticles.js');
+    expect(SRC).toContain('slugRegistryInChunk');
+    expect(SRC).toContain('effectiveReverse');
     // They are code: read for the divergence check, never parsed for ids.
     expect(SRC).toMatch(/for \(const url of CODE_SURFACES\)/);
     expect(SRC).not.toMatch(/idsInRegistryChunk\([^)]*\)[\s\S]{0,80}CODE_SURFACES/);
@@ -224,4 +226,5 @@ describe('why both cache identities decide the current runtime verdict', () => {
     const runtimeIds = new Set([...bareFresh, ...rotatedStale]);
     expect(missingFromClient(RENDERED, reverse, runtimeIds)).toEqual([]);
   });
+
 });

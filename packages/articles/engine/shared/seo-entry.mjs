@@ -9,6 +9,18 @@
 
 const CLOSING = { '{': '}', '[': ']', '(': ')' };
 const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const REGEX_PREFIX_KEYWORDS = new Set([
+  'await', 'break', 'case', 'continue', 'debugger', 'default', 'delete', 'do', 'else', 'in',
+  'instanceof', 'new', 'of', 'return', 'throw', 'typeof', 'void', 'yield',
+]);
+const REGEX_PREFIX_PUNCTUATION = new Set([
+  '(', '[', '{', ',', ':', ';', '=', '!', '?', '+', '-', '*', '%', '&', '|', '^', '~', '<', '>',
+]);
+const CONTROL_PAREN_KEYWORDS = new Set(['catch', 'for', 'if', 'switch', 'while', 'with']);
+const BLOCK_BRACE_KEYWORDS = new Set([
+  'catch', 'class', 'do', 'else', 'enum', 'finally', 'function', 'interface', 'module', 'namespace',
+  'static', 'try',
+]);
 
 /**
  * Find the closing delimiter for the one at `openIdx`, ignoring strings,
@@ -20,18 +32,14 @@ function matchingDelimiter(src, openIdx) {
   if (!close) throw new Error(`matchingDelimiter: '${open}' non è un delimitatore di apertura`);
   let depth = 0;
   let quote = null;
-
-  const canStartRegex = (idx) => {
-    let j = idx - 1;
-    while (j >= openIdx && /\s/.test(src[j])) j -= 1;
-    if (j < openIdx) return true;
-    const previous = src[j];
-    if ('([{=,:;!?&|+\-*%^~<>'.includes(previous)) return true;
-    let end = j;
-    while (j >= openIdx && /[A-Za-z_$]/.test(src[j])) j -= 1;
-    if (end === j) return false;
-    return /^(?:return|throw|case|delete|void|typeof|instanceof|in|of|yield|await|else|do)$/.test(src.slice(j + 1, end + 1));
-  };
+  let canStartRegex = true;
+  let lastSignificant = null;
+  let lastIdentifier = null;
+  let statementStart = true;
+  let caseLabelPending = false;
+  const parenContexts = [];
+  const bracketContexts = [];
+  const braceContexts = [];
 
   const skipRegex = (start) => {
     let inClass = false;
@@ -71,18 +79,198 @@ function matchingDelimiter(src, openIdx) {
       i = end + 1;
       continue;
     }
-    if (ch === '/' && canStartRegex(i)) {
+    if (/\s/.test(ch)) {
+      if (ch === '\n' || ch === '\r') statementStart = true;
+      continue;
+    }
+    if (ch === '`') {
+      const end = templateEnd(src, i);
+      if (end === -1) return -1;
+      i = end;
+      canStartRegex = false;
+      lastSignificant = 'literal';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === "'" || ch === '"') {
+      const end = quotedEnd(src, i, ch);
+      if (end === -1) return -1;
+      i = end;
+      canStartRegex = false;
+      lastSignificant = 'literal';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === '/' && canStartRegex) {
       const end = skipRegex(i);
       if (end === -1) return -1;
       i = end;
+      canStartRegex = false;
+      lastSignificant = 'literal';
+      lastIdentifier = null;
+      statementStart = false;
       continue;
     }
-    if (ch === "'" || ch === '"' || ch === '`') { quote = ch; continue; }
-    if (ch === open) depth += 1;
-    else if (ch === close) {
-      depth -= 1;
-      if (depth === 0) return i;
+    if (src.startsWith('...', i)) {
+      i += 2;
+      canStartRegex = true;
+      lastSignificant = 'spread';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
     }
+    if (ch === '/') {
+      canStartRegex = true;
+      lastSignificant = 'division';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (/[A-Za-z_$]/.test(ch)) {
+      let end = i + 1;
+      while (/[A-Za-z0-9_$]/.test(src[end] || '')) end += 1;
+      const word = src.slice(i, end);
+      const member = lastSignificant === 'dot' || lastSignificant === 'private-prefix';
+      canStartRegex = !member && REGEX_PREFIX_KEYWORDS.has(word);
+      lastIdentifier = { value: word, member };
+      lastSignificant = 'identifier';
+      if (!member && (word === 'case' || word === 'default')) caseLabelPending = true;
+      statementStart = false;
+      i = end - 1;
+      continue;
+    }
+    if (ch === '?' && src[i + 1] === '.') {
+      i += 1;
+      canStartRegex = false;
+      lastSignificant = 'dot';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === '.' || ch === '#') {
+      canStartRegex = false;
+      lastSignificant = ch === '.' ? 'dot' : 'private-prefix';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if ((ch === '+' && src[i + 1] === '+') || (ch === '-' && src[i + 1] === '-')) {
+      i += 1;
+      canStartRegex = false;
+      lastSignificant = 'postfix';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === '!' && !canStartRegex) {
+      canStartRegex = false;
+      lastSignificant = 'postfix';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === '(') {
+      const isTarget = open === '(' && i === openIdx;
+      parenContexts.push({
+        isTarget,
+        control: Boolean(lastIdentifier && !lastIdentifier.member
+          && CONTROL_PAREN_KEYWORDS.has(lastIdentifier.value)),
+      });
+      if (isTarget) depth += 1;
+      canStartRegex = true;
+      lastSignificant = 'open-paren';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === ')') {
+      const context = parenContexts.pop();
+      if (context?.isTarget) {
+        depth -= 1;
+        if (depth === 0) return i;
+      }
+      canStartRegex = context?.control === true;
+      lastSignificant = 'close-paren';
+      lastIdentifier = null;
+      statementStart = Boolean(context?.control);
+      continue;
+    }
+    if (ch === '[') {
+      const isTarget = open === '[' && i === openIdx;
+      bracketContexts.push(isTarget);
+      if (isTarget) depth += 1;
+      canStartRegex = true;
+      lastSignificant = 'open-bracket';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === ']') {
+      const isTarget = bracketContexts.pop();
+      if (isTarget) {
+        depth -= 1;
+        if (depth === 0) return i;
+      }
+      canStartRegex = false;
+      lastSignificant = 'close-bracket';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
+    if (ch === '{') {
+      const isTarget = open === '{' && i === openIdx;
+      const isBlock = !isTarget && (
+        lastSignificant === 'close-paren'
+        || lastSignificant === 'arrow'
+        || lastSignificant === 'semicolon'
+        || lastSignificant === 'close-block'
+        || statementStart
+        || (lastSignificant === 'identifier' && lastIdentifier
+          && !lastIdentifier.member && BLOCK_BRACE_KEYWORDS.has(lastIdentifier.value))
+        || caseLabelPending
+      );
+      braceContexts.push({ isTarget, isBlock: Boolean(isBlock) });
+      if (isTarget) depth += 1;
+      canStartRegex = true;
+      lastSignificant = isBlock ? 'open-block' : 'open-object';
+      lastIdentifier = null;
+      statementStart = Boolean(isBlock);
+      caseLabelPending = false;
+      continue;
+    }
+    if (ch === '}') {
+      const context = braceContexts.pop();
+      if (context?.isTarget) {
+        depth -= 1;
+        if (depth === 0) return i;
+      }
+      canStartRegex = context?.isBlock === true;
+      lastSignificant = context?.isBlock ? 'close-block' : 'close-object';
+      lastIdentifier = null;
+      statementStart = context?.isBlock === true;
+      caseLabelPending = false;
+      continue;
+    }
+    if (ch === ':') {
+      canStartRegex = true;
+      lastSignificant = 'colon';
+      lastIdentifier = null;
+      if (caseLabelPending) statementStart = true;
+      continue;
+    }
+    if (ch === ';') {
+      canStartRegex = true;
+      lastSignificant = 'semicolon';
+      lastIdentifier = null;
+      statementStart = true;
+      continue;
+    }
+    canStartRegex = REGEX_PREFIX_PUNCTUATION.has(ch);
+    lastSignificant = 'punctuation';
+    lastIdentifier = null;
+    statementStart = false;
   }
   return -1;
 }

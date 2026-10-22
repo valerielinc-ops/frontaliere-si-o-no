@@ -30,6 +30,67 @@ on:
         required: false
         default: 'all,page-weight,max-bfs-depth'
         type: string
+      audit_sample_rate:
+        description: 'Optional AUDIT_SAMPLE_RATE override for the unified runner and sampled audits.'
+        required: false
+        default: '1'
+        type: string
+      audit_sample_salt:
+        description: 'Optional AUDIT_SAMPLE_SALT override for rotating sampled audits.'
+        required: false
+        default: '0'
+        type: string
+      audit_all_audits:
+        description: 'Optional CSV filter passed to audit:all (used by the publish-side report job to exclude integrity auditors already run by validate-dist).'
+        required: false
+        default: ''
+        type: string
+      deploy_ref:
+        description: 'Commit SHA containing the audit scripts. Empty = workflow default.'
+        required: false
+        default: ''
+        type: string
+      shard_artifact_run_id:
+        description: 'Run ID containing the locale/section shard artifacts to rehydrate.'
+        required: false
+        default: ''
+        type: string
+
+  workflow_call:
+    inputs:
+      deploy_run_id:
+        description: 'Deploy/build run ID whose github-pages and jobs-master artifacts are audited.'
+        required: true
+        type: string
+      audits:
+        description: 'Comma-separated report audit names.'
+        required: true
+        type: string
+      audit_sample_rate:
+        description: 'AUDIT_SAMPLE_RATE for sampled audits.'
+        required: false
+        default: '1'
+        type: string
+      audit_sample_salt:
+        description: 'AUDIT_SAMPLE_SALT for sampled audits.'
+        required: false
+        default: '0'
+        type: string
+      audit_all_audits:
+        description: 'Optional CSV filter passed to audit:all.'
+        required: false
+        default: ''
+        type: string
+      deploy_ref:
+        description: 'Commit SHA containing the audit scripts. Empty = caller default.'
+        required: false
+        default: ''
+        type: string
+      shard_artifact_run_id:
+        description: 'Run ID containing the locale/section shard artifacts to rehydrate.'
+        required: false
+        default: ''
+        type: string
 
 permissions:
   contents: read
@@ -38,16 +99,20 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
+    env:
+      # Replayed source gates must execute against the rehydrated report
+      # rather than self-skipping behind their default safety switch.
+      RUN_DIST_GATES: '1'
     # The audits now walk the COMPLETE rehydrated site instead of the trunk
-    # artifact alone, so they take as long as they do in
-    # post-deploy-validate-dist.yml (that file measures audit:all at ~75 min and
-    # audit:max-bfs-depth at ~28 min, and gives them separate runners). The old
-    # 30 min only ever fit because the dist under audit was a fraction of the
-    # site — see the rehydrate step below.
-    timeout-minutes: 240
+    # artifact alone. Keep the report runner below the hosted six-hour ceiling;
+    # it is independent of the 350-minute dist-validation lock and cannot delay
+    # publish even when a quality walk is slow.
+    timeout-minutes: 350
     steps:
       - name: Checkout repo (for audit scripts only)
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.deploy_ref }}
 
       # Rehydrating both shard families onto the extracted tarball needs room
       # the 14 GB default partition doesn't have. Mirrors the identical step in
@@ -113,6 +178,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
           # Every `*_SHARD_LIVE` / `LOCALE_SHARDS_LIVE` repo variable at once,
           # exported below, instead of the hand-listed 27-line `env:` block
           # post-deploy-validate-dist.yml carries. Sections keep being added
@@ -144,6 +210,34 @@ jobs:
       - name: Assert dist/ is the complete logical site
         run: node scripts/ci/assert-dist-complete.mjs
 
+      - name: Download master jobs data for data-backed reports
+        uses: actions/download-artifact@v8
+        with:
+          name: jobs-master-${{ inputs.deploy_run_id }}
+          path: /tmp/jobs-master
+          run-id: ${{ inputs.deploy_run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Restore master jobs data for data-backed reports
+        run: |
+          set -euo pipefail
+          mkdir -p data public/data
+          cp -f /tmp/jobs-master/jobs.json data/jobs.json
+          cp -f data/jobs.json public/data/jobs.json
+          cp -f /tmp/jobs-master/jobs-crawler-summaries.json data/jobs-crawler-summaries.json
+
+      # The source SEO and OG checks used to prepare these snapshots inside
+      # validate-dist. They are report-only now; keep their inputs pinned to
+      # this same rehydrated run before invoking the report surface.
+      - name: Prepare report-only SEO inputs
+        if: >-
+          ${{ contains(inputs.audits, 'gate:seo-source') ||
+              contains(inputs.audits, 'validate:og-images') }}
+        run: |
+          set -euo pipefail
+          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+          node scripts/sync-published-blog-image-evidence.mjs
+
       - name: Run requested audits
         id: audits
         env:
@@ -155,6 +249,9 @@ jobs:
           #
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_AUDITS: ${{ inputs.audits }}
+          INPUT_AUDIT_ALL: ${{ inputs.audit_all_audits }}
+          AUDIT_SAMPLE_RATE: ${{ inputs.audit_sample_rate }}
+          AUDIT_SAMPLE_SALT: ${{ inputs.audit_sample_salt }}
           # Keep audit:all replays equivalent to the post-deploy validator:
           # only its single-H1 auditor reads this flag, and only for the
           # reassembled published corpus.
@@ -202,6 +299,9 @@ jobs:
           # cade nel preflight qui sotto con un errore che dice quale.
           resolve_script() {
             case "$1" in
+              report:job-title-locale|report:meta-description)
+                printf '%s\n' "$1"
+                ;;
               *:*)
                 if grep -qE "^($KNOWN_PREFIXES):" <<<"$1"; then
                   printf '%s\n' "$1"
@@ -219,6 +319,9 @@ jobs:
           # veniva contato come audit fallito: di nuovo un FAIL fabbricato,
           # cioè esattamente la classe #5918 spostata di un metro.
           script_exists() {
+            case "$1" in
+              report:job-title-locale|report:meta-description) return 0 ;;
+            esac
             jq -e --arg s "$1" '.scripts | has($s)' package.json >/dev/null 2>&1
           }
 
@@ -271,7 +374,27 @@ jobs:
             # stesso file e il secondo sovrascriveva il primo.
             log=/tmp/audit-logs/$(printf '%03d' "$IDX")-$(printf '%s' "$script" | tr ':/' '__').log
             echo "──── npm run $script (heap ${heap} MB) ────" | tee -a /tmp/summary.txt
-            (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
+            case "$script" in
+              audit:all)
+                if [ -n "$INPUT_AUDIT_ALL" ]; then
+                  (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" -- --audits="$INPUT_AUDIT_ALL" 2>&1) > "$log"
+                else
+                  (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
+                fi
+                ;;
+              report:job-title-locale)
+                (NODE_OPTIONS="--max-old-space-size=$heap" npm run audit:job-title-locale -- --report /tmp/job-title-locale-audit.json 2>&1) > "$log"
+                ;;
+              report:meta-description)
+                (NODE_OPTIONS="--max-old-space-size=$heap" node scripts/seo/meta-description-audit.mjs --dist=dist --out=/tmp/meta-description-reports 2>&1) > "$log"
+                ;;
+              validate:og-images)
+                (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" -- --require-published-blog-image-evidence 2>&1) > "$log"
+                ;;
+              *)
+                (NODE_OPTIONS="--max-old-space-size=$heap" npm run "$script" 2>&1) > "$log"
+                ;;
+            esac
             rc=$?
             tail -25 "$log" | tee -a /tmp/summary.txt
             if [ $rc -ne 0 ]; then
@@ -320,6 +443,8 @@ jobs:
           path: |
             /tmp/audit-logs/
             /tmp/summary.txt
+            /tmp/job-title-locale-audit.json
+            /tmp/meta-description-reports/
             dist/audit-reports/
           retention-days: 7
           if-no-files-found: warn

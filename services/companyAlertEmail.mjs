@@ -51,6 +51,7 @@ import { nlNormLocale } from './newsletter-template.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { formatSalary, emailTagChip, normalizeContract, resolveLogoUrl } from './newsletter-content.mjs';
 import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 
 /** ESP tag / campaign namespace. The `company_alert.*` identity of this template. */
 export const COMPANY_ALERT_TEMPLATE_ID = 'company_alert';
@@ -578,6 +579,8 @@ ${body}${monoCta}
 
         ${recommendedBlockHtml}
 
+        ${renderEmailEngagementBanners({ locale: loc })}
+
         <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
           <div style="background:${CARD_BG};border-radius:12px;padding:18px 20px;text-align:center;">
             <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${escHtml(closer)}</div>
@@ -588,11 +591,6 @@ ${body}${monoCta}
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
           <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
             ${escHtml(s.intendedFor(email))}
-          </div>
-          <div style="margin-bottom:12px;">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/frontaliereticino/" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
-            <a target="_blank" rel="noopener noreferrer" href="${escHtml(baseUrl)}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
           </div>
           <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
             <a target="_blank" rel="noopener noreferrer" href="${escHtml(manageUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${escHtml(s.manage)}</a>
@@ -634,6 +632,8 @@ ${body}${monoCta}
     `${s.manage}: ${manageUrl}`,
     ...(multi ? [] : [`${s.unsubThis(headline.company)}: ${headline.unsubscribeUrl || ''}`]),
     `${s.unsubAll}: ${unsubscribeAllUrl}`,
+    '',
+    emailEngagementBannersText({ locale: loc }),
     s.intendedFor(email),
     '',
     `\u00a9 ${year} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere`,

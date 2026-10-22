@@ -1,10 +1,14 @@
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { TokenIndex, buildClusterContext } from '../build-plugins/relatedSearchClustersPlugin';
+import { renderClusterPage, TokenIndex, buildClusterContext } from '../build-plugins/relatedSearchClustersPlugin';
 import type { CandidateEntry, RawJob } from '../build-plugins/relatedSearchClustersData';
 import type { Locale } from '../services/i18n';
 import * as relevance from '../services/jobSearchRelevance';
 import { professionSynonymText } from '../services/professionSynonyms';
 import { stemSearchToken } from '../services/searchStem.mjs';
+import { SPA_ENTRY_CSS_FILENAME, SPA_ENTRY_JS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
 
 // Frozen pre-cache predicate: keep the oracle independent of the new preparation helper.
 function legacyAccept(job: RawJob, locale: Locale, roles: readonly string[]): boolean {
@@ -31,7 +35,22 @@ const jobs: RawJob[] = [
   { id: 'empty' },
 ];
 
-afterEach(() => vi.restoreAllMocks());
+afterEach(() => {
+  vi.restoreAllMocks();
+  for (const dir of tmpDirs.splice(0)) rmSync(dir, { recursive: true, force: true });
+});
+
+const tmpDirs: string[] = [];
+
+function makeDist(): string {
+  const dir = mkdtempSync(join(tmpdir(), 'rsc-occupation-'));
+  tmpDirs.push(dir);
+  const assetsDir = join(dir, 'assets');
+  mkdirSync(assetsDir, { recursive: true });
+  writeFileSync(join(assetsDir, SPA_ENTRY_JS_FILENAME), 'console.log(1)', 'utf8');
+  writeFileSync(join(assetsDir, SPA_ENTRY_CSS_FILENAME), 'body{}', 'utf8');
+  return dir;
+}
 
 describe('build-scoped occupational terms', () => {
   it('does not classify ordinary role queries through the qualifier taxonomy', () => {
@@ -79,6 +98,43 @@ describe('build-scoped occupational terms', () => {
     expect(cached.matchingOccupationJobs('it', ['a', 'b', 'c'], 4, 1, ['infermier']).map(job => job.id)).toEqual(['4', '8', '5', '6']);
   });
 
+  it('keeps matching and rendered HTML byte-identical when most postings are rejected', () => {
+    const corpus: RawJob[] = Array.from({ length: 1000 }, (_, i) => ({
+      id: String(i),
+      title: i < 997 ? 'Support' : 'Infermiere',
+      company: 'Fixture',
+      location: 'Lugano',
+      canton: 'TI',
+    }));
+    const candidate: CandidateEntry = {
+      slug: 'ricerca-infermiere-lugano',
+      locale: 'it',
+      jobCount: corpus.length,
+      sampleTerms: ['infermiere Lugano'],
+      editorialCollision: null,
+    };
+    const optimized = new TokenIndex(corpus);
+    const legacy = new LegacyIndex(corpus);
+    const allJobs = corpus.map((_, i) => i);
+    for (const index of [optimized, legacy]) index.seedPostings('it', [{ token: 'infermiere', list: allJobs }]);
+
+    const optimizedContext = buildClusterContext(candidate, optimized, corpus);
+    const legacyContext = buildClusterContext(candidate, legacy, corpus);
+    expect(optimizedContext?.matchingJobs.map(job => job.id)).toEqual(['997', '998', '999']);
+    expect(optimizedContext?.matchingJobs.map(job => job.id)).toEqual(legacyContext?.matchingJobs.map(job => job.id));
+
+    const dateStamp = new Date().toISOString().slice(0, 10);
+    const render = (ctx: NonNullable<typeof optimizedContext>): string => renderClusterPage({
+      distDir: makeDist(),
+      dateStamp,
+      ctx,
+      enriched: undefined,
+      hreflang: [],
+      related: [],
+    }).html;
+    expect(render(optimizedContext!)).toBe(render(legacyContext!));
+  });
+
   it('keeps sparse OR merges in score/corpus order without scanning untouched jobs', () => {
     const corpus = Array.from({ length: 100 }, (_, i) => ({ id: String(i), title: 'Role' }));
     const index = new TokenIndex(corpus);
@@ -108,7 +164,7 @@ describe('build-scoped occupational terms', () => {
     expect(Array.from(Reflect.get(index, 'scratchScores') as Uint8Array)).toEqual([0, 0, 0, 0]);
   });
 
-  it('prepares once per visited job/locale, skips empty roles, and clears with the index', () => {
+  it('prepares once per job/locale, skips empty roles, and clears with the index', () => {
     const prepare = vi.spyOn(relevance, 'prepareJobOccupationTerms');
     const index = new TokenIndex(jobs);
     const seed = () => { for (const locale of ['it', 'en'] as const) index.seedPostings(locale, [{ token: 'all', list: jobs.map((_, i) => i) }]); };

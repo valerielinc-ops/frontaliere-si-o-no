@@ -35,6 +35,7 @@
 
 import { LOCALE_PATH_MAP } from './newsletterUrlPaths.js';
 import { renderRecommendedBlock } from './recommendedBlock.js';
+import { renderEmailEngagementBanners } from './emailEngagementBanners.js';
 import { dataControllerFooterLine } from './dataControllerIdentity.js';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -638,6 +639,7 @@ const PREHEADER_PAD = '&#847;&zwnj;&nbsp;'.repeat(40);
  *   unsubscribeUrl: string,
  *   preferencesUrl?: string|null,
  *   acquisitionSource?: string|null,
+ *   telegramChannelUrl?: string|null,
  * }} args
  * @returns {{ subject: string, preheader: string, html: string, text: string }}
  */
@@ -654,6 +656,7 @@ export function buildWelcomeEmail({
   unsubscribeUrl,
   preferencesUrl = null,
   acquisitionSource = null,
+  telegramChannelUrl = undefined,
 }) {
   const lang = normLocale(locale);
   const seg = SEGMENT_BUILDERS[segment] ? segment : 'general';
@@ -708,6 +711,7 @@ export function buildWelcomeEmail({
     ${consultingHtml}
     ${renderDeliverability(deliverabilityText)}
     ${recommendedHtml}
+    ${renderEmailEngagementBanners({ locale: lang, telegramUrl: telegramChannelUrl, trailingSlash: true })}
     ${renderFooter(lang, unsub, preferencesUrl)}
   `;
 

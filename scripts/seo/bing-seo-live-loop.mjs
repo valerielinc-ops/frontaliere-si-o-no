@@ -426,11 +426,12 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
   }
 
   const batchWorkflow = read('.github/workflows/submit-indexnow-batch.yml');
-  if (/^\s{2}schedule:/m.test(batchWorkflow)) {
+  if (!/^\s{2}schedule:/m.test(batchWorkflow)
+    || !batchWorkflow.includes("cron: '20 3 * * *'")) {
     findings.push(sourceFinding(
-      'indexnow-weekly-batch',
+      'indexnow-daily-reconciliation',
       '.github/workflows/submit-indexnow-batch.yml',
-      'Il full-sitemap batch deve restare solo manuale; la cadenza settimanale è stata rimossa.',
+      'Il full-sitemap batch deve riconciliare ogni giorno il grafo completo; il dispatch manuale da solo non copre failure transienti.',
     ));
   }
   if (new Set(BING_TITLE_AUDIT_URLS).size !== BING_TITLE_AUDIT_URLS.length) {
