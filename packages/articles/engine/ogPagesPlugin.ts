@@ -10,6 +10,7 @@
 import path from 'path';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
+import { decodeTsStringEscapes } from './shared/tsStringEscapes';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
@@ -723,7 +724,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const rxSingle = new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, flags);
  const rxDouble = new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, flags);
  const m = b.match(rxSingle) || b.match(rxDouble);
- return m?.[1]?.replace(/\\(.)/g, (_: string, c: string) => c === 'n' ? ' ' : c === 'r' ? '' : c === 't' ? ' ' : c) ?? '';
+ return m ? decodeTsStringEscapes(m[1], { newlineAs: ' ' }) : '';
  };
  const title = matchStr('title', 'm') || '';
  const desc = matchStr('description', 'm') || '';
@@ -973,6 +974,24 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fr: parseBlogMetaLocale('fr'),
  } as const;
 
+ // Collision keys must match the final title emitted for a non-disambiguated
+ // WebPage/Event. Counting only the full source headline misses distinct long
+ // headlines that collapse to the same measured prefix after the title cap.
+ const escapedTitleLength = (value: string): number => value
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;').replace(/"/g, '&quot;').length;
+ const measuredTitleWithoutDisambiguator = (title: string): string => {
+  const brandedTitle = buildTitleWithBrand(
+   title,
+   TITLE_BRAND_SUFFIX,
+   TITLE_MAX_CHARS,
+   escapedTitleLength,
+  );
+  return escapedTitleLength(brandedTitle) <= TITLE_MAX_CHARS
+   ? brandedTitle
+   : truncateHeadlineToMeasuredBudget(title, TITLE_MAX_CHARS, escapedTitleLength);
+ };
+
  // Headline shown per locale. Italian reads its real headline from
  // blog-meta-it like the other three locales read theirs (owner decision,
  // 2026-10-07, corpus issue 2281), but only where that headline is unique.
@@ -990,7 +1009,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
   articleTitleCollisions[locale] = countArticlesByTitleKey(
    entries,
-   (article) => buildTitleWithBrand(articleTitleFor[locale](article)),
+   (article) => measuredTitleWithoutDisambiguator(articleTitleFor[locale](article)),
   );
  }
 
@@ -1325,11 +1344,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // must converge inside the shared cap, including after HTML escaping.
  const isEvent = en.sdType === 'Event';
  const isNewsArticle = !isEvent && Boolean(en.datePub);
- const baseTitleProbe = buildTitleWithBrand(localizedTitle);
+ const baseTitleProbe = measuredTitleWithoutDisambiguator(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
- const escapedTitleLength = (value: string): number => esc(value).length;
  let htmlPageTitle: string;
  if (isNewsArticle) {
   // NewsArticle has a stricter invariant than the generic SERP title cap:

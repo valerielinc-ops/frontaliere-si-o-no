@@ -39,6 +39,7 @@ import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
+import { decodeStaticStringLiteral } from './shared/ts-literals.mjs';
 import { articleSectionEntry } from './shared/articleSectionCore.mjs';
 import { cantonRssChannel } from './shared/cantonSectionCopy.mjs';
 
@@ -230,14 +231,7 @@ function resolveSlugFile(path, slugFile, slugDir) {
  */
 function unescapeQuoted(value, quote) {
   if (value === undefined) return undefined;
-  return value.split('\\\\').join('\u0000')
-    .split(`\\${quote}`).join(quote)
-    // The article writer escapes apostrophes even when the enclosing literal
-    // uses backticks, so decode that writer escape independently of the
-    // literal delimiter.
-    .split("\\'").join("'")
-    .split('\\n').join('\n')
-    .split('\u0000').join('\\');
+  return decodeStaticStringLiteral(value, quote);
 }
 
 function parseSeoBlogs(fs, path, rootDir, seoDir, seoFiles) {

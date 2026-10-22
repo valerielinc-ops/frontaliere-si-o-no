@@ -7,10 +7,26 @@
  * reach outside the mirrored subtree at runtime.
  */
 
-import { decodeTypeScriptCodePointEscape } from './tsStringEscapes.ts';
-
 const STATIC_LITERAL_QUOTES = new Set(['"', "'", '`']);
 const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|\r\n|[\s\S])/g;
+const TS_CODE_POINT_ESCAPE_RX = /^(x[0-9a-fA-F]{2}|u\{[0-9a-fA-F]+\})/u;
+
+/** Decode one TypeScript code-point escape without re-scanning its output. */
+export function decodeTypeScriptCodePointEscape(escape) {
+  const match = TS_CODE_POINT_ESCAPE_RX.exec(escape);
+  if (!match) return undefined;
+  const token = match[1];
+  const digits = token[0] === 'x' ? token.slice(1) : token.slice(2, -1);
+  const codePoint = Number.parseInt(digits, 16);
+  if (!Number.isSafeInteger(codePoint) || codePoint > 0x10ffff) return undefined;
+  return { value: String.fromCodePoint(codePoint), length: token.length };
+}
+
+/** Repair legacy double-escaped body line breaks without touching FAQ JSON. */
+export function repairLegacyDoubleEscapedBreaks(value) {
+  return String(value).replace(/\\+n/g, '\n');
+}
+
 const REGEX_PREFIX_KEYWORDS = new Set([
   'await', 'break', 'case', 'continue', 'debugger', 'default', 'delete', 'do', 'else', 'in', 'instanceof', 'new', 'of', 'return',
   'throw', 'typeof', 'void', 'yield',
@@ -103,7 +119,7 @@ function looksLikeGenericStart(source, offset, statementStart = false) {
     }
     if (character === '/' && source[cursor + 1] === '/') {
       cursor += 2;
-      while (cursor < source.length && source[cursor] !== '\n' && source[cursor] !== '\r') cursor += 1;
+      while (cursor < source.length && !isRegexLineTerminator(source[cursor])) cursor += 1;
       continue;
     }
     if (character === '/' && source[cursor + 1] === '*') {
@@ -174,7 +190,7 @@ export function readStaticStringLiteral(source, startIdx, sourcePath = 'source',
     if (quote === '`' && char === '$' && source[cursor + 1] === '{') {
       throw new Error(`[${errorLabel}] Interpolated template literal is not supported in static source: ${sourcePath}`);
     }
-    if (quote !== '`' && (char === '\n' || char === '\r')) return null;
+    if (quote !== '`' && isRegexLineTerminator(char)) return null;
     if (char === quote) {
       return { quote, value: source.slice(startIdx + 1, cursor), end: cursor + 1 };
     }
@@ -196,10 +212,10 @@ export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
     if (codePoint) return codePoint.value;
 
     switch (escape[0]) {
-      case 'n': return '\n';
+      case 'n': return newlineAs ?? '\n';
       // A backslash followed by CRLF (or the escaped `\r` form) is a source
       // continuation, not content. `newlineAs` applies only to decoded `\n`.
-      case 'r': return newlineAs === undefined ? '' : '\r';
+      case 'r': return '';
       case '\n': return '';
       case '\r': return '';
       case '\u2028': return '';

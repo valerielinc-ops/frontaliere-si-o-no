@@ -14,6 +14,19 @@
  */
 
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
+const LINE_TERMINATORS = '\n\r\u2028\u2029';
+const REGEX_PREFIX_KEYWORDS = new Set([
+  'await', 'break', 'case', 'continue', 'debugger', 'default', 'delete', 'do', 'else', 'in',
+  'instanceof', 'new', 'of', 'return', 'throw', 'typeof', 'void', 'yield',
+]);
+const REGEX_PREFIX_PUNCTUATION = new Set('([{,:;=!?+-*%&|^~<>'.split(''));
+
+function lineTerminatorIndex(text, offset) {
+  for (let index = offset; index < text.length; index += 1) {
+    if (LINE_TERMINATORS.includes(text[index])) return index;
+  }
+  return -1;
+}
 
 /** @param {unknown} value */
 function normalizedPath(value) {
@@ -129,7 +142,7 @@ export function resolveArticleRouteHref(href, maps = {}) {
   return isAbsolute ? `${SITE_ORIGIN}${path}${suffix}` : `${path}${suffix}`;
 }
 
-/** @typedef {{ index: number, closed: boolean }} TriviaResult */
+/** @typedef {{ index: number, closed: boolean, error?: string }} TriviaResult */
 
 /**
  * Skip whitespace and comments without ever interpreting their contents as
@@ -148,13 +161,19 @@ function skipTrivia(text, offset) {
       continue;
     }
     if (text.startsWith('//', index)) {
-      const lineEnd = text.indexOf('\n', index + 2);
+      const lineEnd = lineTerminatorIndex(text, index + 2);
       index = lineEnd < 0 ? text.length : lineEnd + 1;
       continue;
     }
     if (text.startsWith('/*', index)) {
       const commentEnd = text.indexOf('*/', index + 2);
-      if (commentEnd < 0) return { index: text.length, closed: false };
+      if (commentEnd < 0) {
+        return {
+          index: text.length,
+          closed: false,
+          error: 'Unterminated block comment in legacy redirect source',
+        };
+      }
       index = commentEnd + 2;
       continue;
     }
@@ -185,7 +204,7 @@ function readQuotedLiteral(text, offset) {
     if (char === quote) {
       return { value: text.slice(offset + 1, index), end: index + 1 };
     }
-    if (char === '\n' || char === '\r') return null;
+    if (LINE_TERMINATORS.includes(char)) return null;
     index += 1;
   }
   return null;
@@ -218,7 +237,7 @@ function skipTemplateExpression(text, offset) {
       continue;
     }
     if (text.startsWith('//', index)) {
-      const lineEnd = text.indexOf('\n', index + 2);
+      const lineEnd = lineTerminatorIndex(text, index + 2);
       index = lineEnd < 0 ? text.length : lineEnd + 1;
       continue;
     }
@@ -267,6 +286,161 @@ function skipTemplateLiteral(text, offset) {
 }
 
 /**
+ * Skip an unsupported redirect expression up to its containing object's next
+ * comma or closing brace. Strings, templates, comments, regexes and nested
+ * delimiters are consumed as lexical units so quoted route-shaped members in
+ * a dynamic expression cannot be mistaken for redirects of their own.
+ *
+ * @param {string} text
+ * @param {number} offset
+ * @returns {number | null}
+ */
+function skipUnsupportedExpression(text, offset) {
+  let index = offset;
+  let parenDepth = 0;
+  let bracketDepth = 0;
+  let braceDepth = 0;
+  let canStartRegex = true;
+
+  const skipRegexLiteral = start => {
+    let inClass = false;
+    for (let cursor = start + 1; cursor < text.length; cursor += 1) {
+      if (text[cursor] === '\\') {
+        cursor += 1;
+        continue;
+      }
+      if (LINE_TERMINATORS.includes(text[cursor])) return null;
+      if (text[cursor] === '[') {
+        inClass = true;
+        continue;
+      }
+      if (text[cursor] === ']' && inClass) {
+        inClass = false;
+        continue;
+      }
+      if (text[cursor] === '/' && !inClass) {
+        cursor += 1;
+        while (/[A-Za-z]/.test(text[cursor] || '')) cursor += 1;
+        return cursor;
+      }
+    }
+    return null;
+  };
+
+  while (index < text.length) {
+    if (/\s/u.test(text[index])) {
+      index += 1;
+      continue;
+    }
+    if (text.startsWith('//', index)) {
+      const lineEnd = lineTerminatorIndex(text, index + 2);
+      if (lineEnd < 0) return null;
+      index = lineEnd + 1;
+      continue;
+    }
+    if (text.startsWith('/*', index)) {
+      const commentEnd = text.indexOf('*/', index + 2);
+      if (commentEnd < 0) return null;
+      index = commentEnd + 2;
+      continue;
+    }
+
+    const char = text[index];
+    if (char === "'" || char === '"') {
+      const literal = readQuotedLiteral(text, index);
+      if (!literal) return null;
+      index = literal.end;
+      canStartRegex = false;
+      continue;
+    }
+    if (char === '`') {
+      const end = skipTemplateLiteral(text, index);
+      if (end === null) return null;
+      index = end;
+      canStartRegex = false;
+      continue;
+    }
+    if (char === '/' && canStartRegex) {
+      const end = skipRegexLiteral(index);
+      if (end === null) return null;
+      index = end;
+      canStartRegex = false;
+      continue;
+    }
+    if (char === '/') {
+      index += 1;
+      canStartRegex = true;
+      continue;
+    }
+    if ((char === '+' && text[index + 1] === '+') || (char === '-' && text[index + 1] === '-')) {
+      const postfix = !canStartRegex;
+      index += 2;
+      canStartRegex = !postfix;
+      continue;
+    }
+    if (char === '(') {
+      parenDepth += 1;
+      index += 1;
+      canStartRegex = true;
+      continue;
+    }
+    if (char === ')') {
+      if (parenDepth === 0) return null;
+      parenDepth -= 1;
+      index += 1;
+      canStartRegex = false;
+      continue;
+    }
+    if (char === '[') {
+      bracketDepth += 1;
+      index += 1;
+      canStartRegex = true;
+      continue;
+    }
+    if (char === ']') {
+      if (bracketDepth === 0) return null;
+      bracketDepth -= 1;
+      index += 1;
+      canStartRegex = false;
+      continue;
+    }
+    if (char === '{') {
+      braceDepth += 1;
+      index += 1;
+      canStartRegex = true;
+      continue;
+    }
+    if (char === '}') {
+      if (braceDepth === 0) {
+        return parenDepth === 0 && bracketDepth === 0 ? index : null;
+      }
+      braceDepth -= 1;
+      index += 1;
+      canStartRegex = false;
+      continue;
+    }
+    if (char === ',' && parenDepth === 0 && bracketDepth === 0 && braceDepth === 0) {
+      return index;
+    }
+    if (/[A-Za-z_$]/.test(char)) {
+      let end = index + 1;
+      while (/[A-Za-z0-9_$]/.test(text[end] || '')) end += 1;
+      canStartRegex = REGEX_PREFIX_KEYWORDS.has(text.slice(index, end));
+      index = end;
+      continue;
+    }
+    if (/[0-9]/.test(char)) {
+      index += 1;
+      canStartRegex = false;
+      continue;
+    }
+    canStartRegex = REGEX_PREFIX_PUNCTUATION.has(char);
+    index += 1;
+  }
+  return null;
+}
+
+/**
  * Scan literal redirect entries from the host's legacy redirect source.
  * Unlike a line-oriented regex, this scanner advances over comments, quoted
  * strings, and template literals as lexical units. It therefore cannot treat
@@ -287,12 +461,16 @@ export function scanRedirectSource(source) {
 
   while (index < text.length) {
     const trivia = skipTrivia(text, index);
-    if (!trivia.closed) break;
+    if (!trivia.closed) throw new Error(trivia.error);
     index = trivia.index;
     if (index >= text.length) break;
 
     if (text[index] === '`') {
-      index = skipTemplateLiteral(text, index) ?? text.length;
+      const templateEnd = skipTemplateLiteral(text, index);
+      if (templateEnd === null) {
+        throw new Error('Unterminated template literal in legacy redirect source');
+      }
+      index = templateEnd;
       continue;
     }
     if (text[index] !== "'" && text[index] !== '"') {
@@ -302,14 +480,13 @@ export function scanRedirectSource(source) {
 
     const keyLiteral = readQuotedLiteral(text, index);
     if (!keyLiteral) {
-      index += 1;
-      continue;
+      throw new Error('Unterminated string literal in legacy redirect source');
     }
     index = keyLiteral.end;
     if (!keyLiteral.value.startsWith('/')) continue;
 
     const colon = skipTrivia(text, index);
-    if (!colon.closed) break;
+    if (!colon.closed) throw new Error(colon.error);
     if (text[colon.index] !== ':') {
       index = colon.index;
       continue;
@@ -318,7 +495,7 @@ export function scanRedirectSource(source) {
     const valueStart = skipTrivia(text, colon.index + 1);
     if (!valueStart.closed) {
       unsupported.push(keyLiteral.value);
-      break;
+      throw new Error(valueStart.error);
     }
     index = valueStart.index;
 
@@ -326,7 +503,7 @@ export function scanRedirectSource(source) {
       const templateEnd = skipTemplateLiteral(text, index);
       if (templateEnd === null) {
         unsupported.push(keyLiteral.value);
-        break;
+        throw new Error('Unterminated template literal in legacy redirect source');
       }
       dynamicCount += 1;
       index = templateEnd;
@@ -334,14 +511,28 @@ export function scanRedirectSource(source) {
     }
 
     const valueLiteral = readQuotedLiteral(text, index);
-    if (!valueLiteral || !valueLiteral.value.startsWith('/')) {
+    if (!valueLiteral) {
+      if (text[index] === "'" || text[index] === '"') {
+        unsupported.push(keyLiteral.value);
+        throw new Error('Unterminated string literal in legacy redirect source');
+      }
       unsupported.push(keyLiteral.value);
-      index = valueLiteral?.end ?? index + 1;
+      const unsupportedEnd = skipUnsupportedExpression(text, index);
+      if (unsupportedEnd === null) {
+        throw new Error('Unterminated unsupported redirect expression in legacy redirect source');
+      }
+      index = unsupportedEnd > index ? unsupportedEnd : index + 1;
+      continue;
+    }
+    if (!valueLiteral.value.startsWith('/')) {
+      unsupported.push(keyLiteral.value);
+      index = valueLiteral.end;
       continue;
     }
 
     const tail = skipTrivia(text, valueLiteral.end);
-    if (!tail.closed || (text[tail.index] !== ',' && text[tail.index] !== '}' && tail.index < text.length)) {
+    if (!tail.closed) throw new Error(tail.error);
+    if (text[tail.index] !== ',' && text[tail.index] !== '}' && tail.index < text.length) {
       unsupported.push(keyLiteral.value);
       index = valueLiteral.end;
       continue;
