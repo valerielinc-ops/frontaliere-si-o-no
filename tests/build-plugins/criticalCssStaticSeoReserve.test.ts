@@ -32,6 +32,7 @@ import {
   SEO_STATIC_SHEET_RESERVE_CSS,
 } from '@/build-plugins/shared/criticalCss';
 import { deriveSeoStaticFirstPaintReserve } from '@/build-plugins/shared/seoStaticFirstPaintReserve';
+import { renderProfessionJourney } from '@/build-plugins/shared/professionJourney';
 
 const ROOT = resolve(__dirname, '..', '..');
 const SEO_STATIC_CSS = readFileSync(resolve(ROOT, 'public', 'assets', 'seo-static.css'), 'utf-8');
@@ -272,5 +273,37 @@ describe('static SEO first-paint reserve (issue 5001 point 3)', () => {
     // half; a single-backslash literal in the TS source would silently turn
     // `.sm\:p-7` into the pseudo-class selector `.sm:p-7` and match nothing.
     expect(TAILWIND_UTILITY_RESERVE_CSS).not.toMatch(/\.[a-z]+:(?:grid-cols|px|py|p)-/);
+  });
+
+  it('reserves geometry introduced by the shared profession journey', () => {
+    const journeyHtml = renderProfessionJourney({
+      locale: 'it',
+      professionKey: 'infermiere',
+      hrefs: {
+        offers: '#offers',
+        requirements: '#requirements',
+        net: '/calcola-stipendio/',
+        companies: '#companies',
+        alert: '#alerts',
+      },
+      netSalaryPrefilled: false,
+    });
+
+    for (const className of ['min-h-11', 'h-5', 'w-5', 'sm:grid-cols-5']) {
+      expect(journeyHtml, "journey renderer lost " + className).toContain(className);
+    }
+
+    expect(TAILWIND_UTILITY_RESERVE_CSS).toContain(
+      '.min-h-11{min-height:calc(var(--spacing)*11)}',
+    );
+    expect(TAILWIND_UTILITY_RESERVE_CSS).toContain(
+      '.h-5{height:calc(var(--spacing)*5)}',
+    );
+    expect(TAILWIND_UTILITY_RESERVE_CSS).toContain(
+      '.w-5{width:calc(var(--spacing)*5)}',
+    );
+    expect(TAILWIND_UTILITY_RESERVE_CSS).toContain(
+      '.sm\\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}',
+    );
   });
 });
