@@ -1604,20 +1604,25 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     .then((input) => input ? { input } : null, () => null);
   const mountedInputTarget = newlyMountedFileInput(page, preferredFrame, beforeFileInputHandles, triggerContext)
     .then((input) => input ? { input } : null, () => null);
-  const firstTarget = await Promise.race([
-    chooserTarget.then((target) => ({ source: 'chooser', target })),
-    dialogTarget.then((target) => ({ source: 'dialog', target })),
-    mountedInputTarget.then((target) => ({ source: 'mounted', target })),
-  ]);
   // A timeout from one strategy is not evidence that the other failed. In
   // particular, the chooser watcher starts before the click, so it can time
-  // out while the dialog watcher is still in its post-click window.
-  const remainingTargets = firstTarget.source === 'chooser'
-    ? [dialogTarget, mountedInputTarget]
-    : firstTarget.source === 'dialog'
-      ? [chooserTarget, mountedInputTarget]
-      : [chooserTarget, dialogTarget];
-  const target = firstTarget.target || (await Promise.race(remainingTargets));
+  // out while the dialog watcher is still in its post-click window. Keep
+  // waiting for every still-running strategy after a null result and select
+  // the first actual target instead of treating a timeout as a final answer.
+  const pendingTargets = [
+    { source: 'chooser', promise: chooserTarget },
+    { source: 'dialog', promise: dialogTarget },
+    { source: 'mounted', promise: mountedInputTarget },
+  ];
+  let firstTarget = { source: null, target: null };
+  while (pendingTargets.length && !firstTarget.target) {
+    const outcome = await Promise.race(pendingTargets.map((entry) => entry.promise
+      .then((target) => ({ entry, target }), () => ({ entry, target: null }))));
+    const index = pendingTargets.indexOf(outcome.entry);
+    if (index >= 0) pendingTargets.splice(index, 1);
+    if (outcome.target) firstTarget = { source: outcome.entry.source, target: outcome.target };
+  }
+  const target = firstTarget.target;
   if (target?.chooser) {
     if (trace) trace.target = 'chooser';
     try {
