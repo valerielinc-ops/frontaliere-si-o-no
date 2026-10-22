@@ -7864,10 +7864,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Praktikum-fr-Pharmazeuten-und-Naturwissenschaftler-in-der-MU-Packaging---Assembly---Asset-Small-Volume--ab-1-Mai-2026-fr-6-12-Monate-in-Kaiseraugst-_202610-126967",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset",
-        "praktikum-per-pharmazeuten-e-naturwissenschaftler-in-der-mu-packaging-assembly-asset-small-volume-ab-1-mai-2026-per-6-12-monate-in-kaiseraugst-roche-kaiseraugst"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset",
@@ -7880,8 +7876,10 @@
           "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-22T09:12:46.189Z",
+      "previousSlugs": [
+        "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset",
+        "praktikum-per-pharmazeuten-e-naturwissenschaftler-in-der-mu-packaging-assembly-asset-small-volume-ab-1-mai-2026-per-6-12-monate-in-kaiseraugst-roche-kaiseraugst"
+      ],
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -7896,7 +7894,8 @@
         }
       },
       "postalCode": "4303",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "firstSeenAt": "2026-10-22T09:12:46.189Z"
     },
     {
       "id": "roche-7a8b3fdcdce8",
