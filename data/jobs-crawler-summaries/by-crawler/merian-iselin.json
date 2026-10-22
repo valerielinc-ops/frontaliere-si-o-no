@@ -1,10 +1,10 @@
 {
   "key": "merian-iselin",
   "label": "Merian Iselin Klinik",
-  "generatedAt": "2026-10-22T09:14:55.967Z",
+  "generatedAt": "2026-10-22T21:15:23.731Z",
   "total": 15,
   "discovered": null,
-  "parsed": 15,
+  "parsed": 4,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -13,16 +13,58 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 11414,
-  "avgDurationMs": 11414,
+  "unchangedCount": 13,
+  "durationMs": 7792,
+  "avgDurationMs": 7792,
   "durationHistory": [
-    11414
+    7792
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "merian-iselin-b808dd48d40e",
+      "slug": "stage-infermieristico-fh-modulo-aggiuntivo-b-merian-iselin-klinik-basel",
+      "company": "Merian Iselin Klinik",
+      "companyKey": "merian-iselin",
+      "companyDomain": "merianiselin.ch",
+      "title": "Praktikum Pflege FH - Zusatzmodul B",
+      "needsRetranslation": false,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/d687eceb-02eb-4a73-8ef5-7991e5ef399f",
+      "source": "Merian Iselin Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T21:15:06.292Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2023-04-14",
+      "postedDate": "2023-04-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/d687eceb-02eb-4a73-8ef5-7991e5ef399f",
+      "firstSeenAt": "2026-05-19T10:44:16.575Z",
+      "salaryMin": 79000,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "id": "merian-iselin-cc2cda6d4b29",
       "slug": "specialista-in-anestesia-con-funzione-di-formazione-professionale-merian-iselin-klinik-basel",
@@ -30,7 +72,6 @@
       "companyKey": "merian-iselin",
       "companyDomain": "merianiselin.ch",
       "title": "Dipl. Expertin / Experte Anästhesiepflege NDS HF mit Berufsbildungsfunktion",
-      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/2f98e8dc-9151-42f8-b79a-bca81dbc41dd",
@@ -57,6 +98,8 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -81,7 +124,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/401228e0-5ee3-4c16-876c-f18973bd50d9",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:14:37.241Z",
+      "crawledAt": "2026-10-22T21:15:07.412Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -122,7 +165,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/1fb69e6f-9fd3-4c61-aff7-2631130fa56e",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:14:36.883Z",
+      "crawledAt": "2026-10-22T21:15:07.039Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -164,7 +207,7 @@
       "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/bb76da43-bb2a-49ad-98d3-d1892c5010eb",
       "source": "Merian Iselin Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:14:36.429Z",
+      "crawledAt": "2026-10-22T21:15:06.653Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -189,48 +232,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "merian-iselin-b808dd48d40e",
-      "slug": "stage-infermieristico-fh-modulo-aggiuntivo-b-merian-iselin-klinik-basel",
-      "company": "Merian Iselin Klinik",
-      "companyKey": "merian-iselin",
-      "companyDomain": "merianiselin.ch",
-      "title": "Praktikum Pflege FH - Zusatzmodul B",
-      "needsRetranslation": false,
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/d687eceb-02eb-4a73-8ef5-7991e5ef399f",
-      "source": "Merian Iselin Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:14:36.076Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4001",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2023-04-14",
-      "postedDate": "2023-04-14",
-      "postingDateSource": "reported",
-      "applyUrl": "https://merianiselin.ch/klinik/jobs/offene-stellen/jobs/d687eceb-02eb-4a73-8ef5-7991e5ef399f",
-      "firstSeenAt": "2026-05-19T10:44:16.575Z",
-      "salaryMin": 79000,
-      "salaryMax": 110500,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 22
       }
@@ -269,6 +270,7 @@
       "salaryMin": 79000,
       "salaryMax": 110500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -311,6 +313,7 @@
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -352,6 +355,7 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -393,6 +397,7 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -435,6 +440,7 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -476,6 +482,7 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -517,6 +524,7 @@
       "salaryMin": 67500,
       "salaryMax": 84500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -558,6 +566,7 @@
       "salaryMin": 44500,
       "salaryMax": 82500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -600,6 +609,7 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -641,6 +651,7 @@
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -650,5 +661,5 @@
       }
     }
   ],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }

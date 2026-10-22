@@ -1,21 +1,60 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-10-22T09:23:58.163Z",
-  "total": 0,
-  "authoritativeEmptySnapshot": true,
-  "newCount": 0,
+  "generatedAt": "2026-10-22T21:25:24.235Z",
+  "total": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 437355,
-  "avgDurationMs": 437355,
+  "durationMs": 345681,
+  "avgDurationMs": 345681,
   "durationHistory": [
-    437355
+    345681
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-7uc31s",
+      "slug": "sea-specialista-google-ads-rado-watch-co-ltd-lengnau-be-7uc31s",
+      "company": "Rado Watch Co. Ltd.",
+      "title": "SEA Specialist (Google Ads)",
+      "location": "Lengnau BE",
+      "canton": "BE",
+      "category": "health",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/en/job/33557",
+      "applyUrl": "https://www.swatchgroup.com/en/job/33557",
+      "source": "Company Careers Crawler",
+      "companyKey": "rado",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-10-22T21:24:47.922Z",
+      "firstSeenAt": "2026-10-22T21:24:47.922Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "3001",
+      "addressLocality": "Lengnau BE",
+      "addressRegion": "BE",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }

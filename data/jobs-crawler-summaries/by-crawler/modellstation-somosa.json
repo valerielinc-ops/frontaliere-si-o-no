@@ -1,7 +1,7 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-10-22T09:18:45.584Z",
+  "generatedAt": "2026-10-22T21:17:08.568Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,30 +12,30 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4922,
-  "avgDurationMs": 4922,
+  "durationMs": 5131,
+  "avgDurationMs": 5131,
   "durationHistory": [
-    4922
+    5131
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "modellstation-somosa-d93e007bb54a",
-      "slug": "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur",
+      "slug": "specialist-media-workshop-80-modellstation-somosa-winterthur",
       "company": "Modellstation SOMOSA",
       "companyKey": "modellstation-somosa",
       "companyDomain": "somosa.ch",
       "title": "Fachperson Medienwerkstatt 80%",
-      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:18:30.991Z",
+      "crawledAt": "2026-10-22T21:16:51.102Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,20 +52,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.somosa.ch/offene-stellen-detail/fachperson-medienwerkstatt-80",
+      "firstSeenAt": "2026-10-22T09:18:30.991Z",
       "salaryMin": 73200,
       "salaryMax": 102400,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-22T09:18:30.991Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +80,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:18:31.932Z",
+      "crawledAt": "2026-10-22T21:16:52.045Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +122,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:18:31.463Z",
+      "crawledAt": "2026-10-22T21:16:51.576Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
