@@ -1267,10 +1267,10 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   // labelled card was the first candidate returned by the snapshot. A single
   // context-bound icon is safe; multiple icons remain ambiguous even when one
   // carries an upload marker, so never guess between them.
-  const icon = contextIconCandidates.length !== 1 ? null
-    : iconCandidates.length === 1
-    ? iconCandidates[0]
-    : iconCandidates.length === 0 ? successFactorsIconButtonFor(snapshot, kind) : null;
+  const icon = contextIconCandidates.length > 1 ? null
+    : contextIconCandidates.length === 1
+      ? iconCandidates.length === 1 ? iconCandidates[0] : null
+      : successFactorsIconButtonFor(snapshot, kind);
   add(icon);
   return candidates;
 }
