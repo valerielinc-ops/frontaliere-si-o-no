@@ -8573,6 +8573,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.furto-dati-publica-100mila-dipendenti.title': 'Des hackers d’Akira dérobent les données de 100.000 employés fédéraux de Publica',
     'blog.article.furto-dati-publica-100mila-dipendenti.excerpt': 'Plus de 100’000 employés fédéraux concernés Données également relatives aux partenaires et aux enfants L’attaque contre un prestataire externe remonte à fin septembre Akira menace',
     'blog.article.furto-dati-publica-100mila-dipendenti.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.ora-solare-ritorno-ottobre-svizzera.title': 'Retour à l\'heure d\'hiver : les aiguilles reculent le 25 octobre',
+    'blog.article.ora-solare-ritorno-ottobre-svizzera.excerpt': 'Entre le 24 et le 25 octobre revient l\'heure d\'hiver À 3 heures les aiguilles reculent d\'une heure 71% des personnes interrogées par Forsa veulent abolir le changement Sommeil',
+    'blog.article.ora-solare-ritorno-ottobre-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.revisione-serv-consultazione-2026.title': 'Révision partielle de la SERV : consultation ouverte',
+    'blog.article.revisione-serv-consultazione-2026.excerpt': 'Révision partielle de la SERV annoncée le 21 octobre 2026 Objectif : faciliter l’accès aux prestations de la SERV Réduction des charges et simplification',
+    'blog.article.revisione-serv-consultazione-2026.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.stop-emergenza-centrale-nucleare-gosgen.title': 'Arrêt d’urgence à la centrale nucléaire de Gösgen, aucun danger',
+    'blog.article.stop-emergenza-centrale-nucleare-gosgen.excerpt': 'Mardi, vers 6 h 40, Gösgen s’est arrêtée.',
+    'blog.article.stop-emergenza-centrale-nucleare-gosgen.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.regole-usato-mercatini-svizzera.title': 'Achats d’occasion en Suisse : garantie et règles',
+    'blog.article.regole-usato-mercatini-svizzera.excerpt': 'Garantie d’un an, sauf exclusion explicite Domaine public : les objets gratuits sont souvent interdits Contrefaçons à la frontière : saisie possible et taxe d’environ',
+    'blog.article.regole-usato-mercatini-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;

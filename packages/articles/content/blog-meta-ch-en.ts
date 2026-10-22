@@ -8573,6 +8573,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.furto-dati-publica-100mila-dipendenti.title': 'Akira hackers steal data of 100.000 federal employees from Publica',
     'blog.article.furto-dati-publica-100mila-dipendenti.excerpt': 'Over 100,000 federal employees affected Data also relating to partners and children The attack on an external provider dates back to late September Akira threatens',
     'blog.article.furto-dati-publica-100mila-dipendenti.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.ora-solare-ritorno-ottobre-svizzera.title': 'Return to standard time: clocks go back on October 25',
+    'blog.article.ora-solare-ritorno-ottobre-svizzera.excerpt': 'Between October 24 and 25 standard time returns At 3 the hands turn back one hour 71% of Forsa respondents want to abolish the change Sleep',
+    'blog.article.ora-solare-ritorno-ottobre-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.revisione-serv-consultazione-2026.title': 'Opening of consultation on partial revision of SERV: the objectives',
+    'blog.article.revisione-serv-consultazione-2026.excerpt': 'Partial review of the SERV indicated on October 21, 2026 Objective: facilitate access to SERV benefits Reduction of burdens and simplification',
+    'blog.article.revisione-serv-consultazione-2026.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.stop-emergenza-centrale-nucleare-gosgen.title': 'Emergency shutdown at the Gösgen nuclear power plant, no danger',
+    'blog.article.stop-emergenza-centrale-nucleare-gosgen.excerpt': 'Tuesday, around 6:40, Gösgen shut down.',
+    'blog.article.stop-emergenza-centrale-nucleare-gosgen.imageAlt': 'Illustrative image relevant to the article topic',
+    'blog.article.regole-usato-mercatini-svizzera.title': 'Buying used goods in Switzerland: warranty and rules',
+    'blog.article.regole-usato-mercatini-svizzera.excerpt': 'One-year warranty, unless explicitly excluded Public land: free items are often prohibited Counterfeits across borders: possible seizure and a fee of approximately',
+    'blog.article.regole-usato-mercatini-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
 };
 
 export default blogMetaChEn;
