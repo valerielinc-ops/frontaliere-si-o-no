@@ -1182,6 +1182,7 @@ const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?fil
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
 const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
+const UPLOAD_REMOVE_MARKER_RE = /(?:remove|delete|clear|detach|trash|cancel|rimuov|elimin|cancell|l[oö]schen|entfern|supprim|annul|smazz)/i;
 
 const successFactorsButtonAssociation = (button) => [
   button.domId,
@@ -1208,26 +1209,82 @@ const successFactorsDocumentAssociationMatches = (association, kind) => {
   return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
 };
 
+const buttonHasExplicitDocumentContext = (button) => [
+  button?.section,
+  button?.context,
+  button?.fileContext,
+].filter(Boolean).join(' ');
+
+const buttonMatchesDocumentContext = (button, contextPattern) => {
+  const context = buttonHasExplicitDocumentContext(button);
+  return !context || contextPattern.test(context);
+};
+
 /**
  * Find a document upload control without guessing from an unlabelled icon.
  * SuccessFactors uses a private-use glyph ("") for the CV button on some
  * account/application pages, so the document name must still be present in
  * the control's DOM context and the candidate must be unique.
  */
-export function uploadButtonFor(snapshot, kind) {
+export function uploadButtonCandidatesFor(snapshot, kind) {
   const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
   const contextPattern = kind === 'cv' ? CV_DOCUMENT_CONTEXT_RE : kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : null;
-  if (!pattern || !contextPattern) return null;
-  const buttons = snapshot?.buttons || [];
-  const named = findButton(buttons, pattern);
-  if (named) return named;
-  const candidates = buttons.filter((button) => {
-    if (button.disabled || button.chrome) return false;
+  if (!pattern || !contextPattern) return [];
+  const candidates = [];
+  const candidateKeys = new Set();
+  const contextIconCandidates = [];
+  const iconCandidates = [];
+  const add = (button) => {
+    if (!button || button.disabled || button.chrome) return;
+    // Preserve two distinct text-only controls as ambiguous candidates. IDs
+    // deduplicate the same control when it is found by both scans.
+    const identity = button.id || button.domId || button.dataAaId || button.dataAutomationId || button.name || '';
+    const key = identity ? `${button.frame || 0}:${identity}` : '';
+    if (candidates.includes(button) || (key && candidateKeys.has(key))) return;
+    if (key) candidateKeys.add(key);
+    candidates.push(button);
+  };
+  const named = findButton(snapshot?.buttons || [], pattern);
+  if (named && buttonMatchesDocumentContext(named, contextPattern)) add(named);
+  for (const button of snapshot?.buttons || []) {
+    if (button.disabled || button.chrome) continue;
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
-    const hasDocumentContext = contextPattern.test(context);
-    return hasDocumentContext && (ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())
-      || FILE_PICKER_ACTION_RE.test(String(button.text || '').trim()));
-  });
+    if (!contextPattern.test(context)) continue;
+    const text = String(button.text || '').trim();
+    if (pattern.test(text) || FILE_PICKER_ACTION_RE.test(text)) {
+      add(button);
+      continue;
+    }
+    if (ICON_ONLY_BUTTON_RE.test(text)) {
+      const association = successFactorsButtonAssociation(button);
+      if (UPLOAD_REMOVE_MARKER_RE.test(association)) continue;
+      contextIconCandidates.push(button);
+      if (SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+        && successFactorsDocumentAssociationMatches(association, kind)) iconCandidates.push(button);
+    }
+  }
+  // The private-use glyph is often the actual file trigger even when the
+  // labelled card was the first candidate returned by the snapshot. A single
+  // context-bound icon is safe; multiple icons remain ambiguous even when one
+  // carries an upload marker, so never guess between them.
+  const icon = contextIconCandidates.length > 1 ? null
+    : contextIconCandidates.length === 1
+      ? iconCandidates.length === 1 ? iconCandidates[0] : null
+      : successFactorsIconButtonFor(snapshot, kind);
+  add(icon);
+  return candidates;
+}
+
+function uploadTriggerKey(button, index = 0) {
+  const identity = button?.id || button?.domId || button?.dataAaId || button?.dataAutomationId || button?.name || `candidate-${index}`;
+  return `${button?.frame || 0}:${identity}`;
+}
+
+export function uploadButtonFor(snapshot, kind) {
+  const candidates = uploadButtonCandidatesFor(snapshot, kind);
+  // Keep the original fail-closed helper for callers that need one proven
+  // trigger. The section opener uses the full list to try each explicit
+  // candidate within its bounded retry budget.
   return candidates.length === 1 ? candidates[0] : null;
 }
 
@@ -1236,8 +1293,14 @@ function successFactorsIconButtonFor(snapshot, kind) {
   if (!documentPattern) return null;
   const candidates = (snapshot?.buttons || []).filter((button) => {
     if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    // If the extractor supplied an explicit section/context, it is stronger
+    // evidence than an id such as "resume-upload". Do not let a stale or
+    // generic id bind an icon from another document section.
+    const explicitContext = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
+    if (explicitContext && !documentPattern.test(explicitContext)) return false;
     const association = successFactorsButtonAssociation(button);
-    return SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+    return !UPLOAD_REMOVE_MARKER_RE.test(association)
+      && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
       && successFactorsDocumentAssociationMatches(association, kind);
   });
   return candidates.length === 1 ? candidates[0] : null;
@@ -1730,19 +1793,20 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvKey = `cv|${where}`;
   let cv;
   let cvFieldKey;
+  const triedCvTriggers = new Set();
   // A discovered file field stays in the normal planning path. That path
   // removes an earlier upload before replacing it and records the receipt and
   // failure in the same evidence as other planned uploads.
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     if (!attempt(cvKey)) break;
-    const namedTriggerButton = uploadButtonFor(current, 'cv');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
-      && (sendsApplication(current) || hasApplicationForm(current))
-      ? successFactorsIconButtonFor(current, 'cv')
-      : null;
-    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const triggerButtons = uploadButtonCandidatesFor(current, 'cv')
+      .filter((button) => iconUploadAllowedForPage(page, button, 'cv', current, channelType));
+    const triggerButton = triggerButtons.find((button, index) => !triedCvTriggers.has(uploadTriggerKey(button, index)))
+      || triggerButtons[0];
+    const triggerKey = triggerButton && uploadTriggerKey(triggerButton, triggerButtons.indexOf(triggerButton));
+    if (triggerKey) triedCvTriggers.add(triggerKey);
     const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
-      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      ? ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim()) ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
       : null;
     const attemptNumber = tries.get(cvKey);
     if (!triggerButton) {
@@ -1771,15 +1835,16 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const coverLetterFile = Array.isArray(files.cover_letter) ? files.cover_letter[0] : files.cover_letter;
   const coverLetterKey = `cover-letter|${where}`;
   let coverLetter;
+  const triedCoverLetterTriggers = new Set();
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
-    const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
-    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
-      && (sendsApplication(current) || hasApplicationForm(current))
-      ? successFactorsIconButtonFor(current, 'cover_letter')
-      : null;
-    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const triggerButtons = uploadButtonCandidatesFor(current, 'cover_letter')
+      .filter((button) => iconUploadAllowedForPage(page, button, 'cover_letter', current, channelType));
+    const triggerButton = triggerButtons.find((button, index) => !triedCoverLetterTriggers.has(uploadTriggerKey(button, index)))
+      || triggerButtons[0];
+    const triggerKey = triggerButton && uploadTriggerKey(triggerButton, triggerButtons.indexOf(triggerButton));
+    if (triggerKey) triedCoverLetterTriggers.add(triggerKey);
     const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current, channelType)
-      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      ? ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim()) ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
       : null;
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!trigger || !visible) break;
