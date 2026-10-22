@@ -45,6 +45,7 @@ import { isAustrianBorderMunicipalityPath } from './austrianBorderMunicipalityDa
 import { isBorderMunicipalityPath, isBorderMunicipalityHubPath } from './borderMunicipalityData';
 import { isBorderWaitPath } from './borderWaitData';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { getEnabledPartner } from '../functions/src/lib/affiliatePartnersRegistry.js';
 import { parseAutoSectorHubPath } from './shared/autoSectorHubPaths';
 import autoSectorHubPublicationRegistry from '../data/sector-hub-publications.json';
 
@@ -566,6 +567,14 @@ export const SEARCH_COMBO_SEGMENT_PATTERN = /\/(ricerca|search|suche|recherche)-
 // that canton's event hub.
 const EVENTS_SECTION_PATTERN = /^\/(?:(en|de|fr)\/)?(eventi|events|veranstaltungen|evenements)\/([^/]+)\//;
 
+// affiliateRedirectPlugin.ts emits one noindex redirect page at
+// `/go/{id}/` for every enabled partner. `normalizePath()` strips the trailing
+// slash, so both the canonical spelling and Cloudflare's no-slash variant
+// arrive here as `/go/{id}`. Keep this family tied to the same registry as the
+// emitter; otherwise a live affiliate page from GSC is treated as unresolved
+// and prune-404-compat-paths.ts removes it from the accumulator.
+const GO_REDIRECT_PATH_PATTERN = /^\/go\/([^/]+)$/;
+
 export function resolveSearchConsoleCompatTarget(
  inputPath: string,
  slugIndex?: JobSlugCanonicalIndex,
@@ -595,6 +604,21 @@ export function resolveSearchConsoleCompatTarget(
  }
 
  const locale = inferLocale(path);
+
+ // Affiliate redirect pages are locale-agnostic and always canonicalize to
+ // the trailing-slash form. Unknown or disabled partner IDs intentionally fall
+ // through to the normal unresolved-path handling.
+ const goMatch = GO_REDIRECT_PATH_PATTERN.exec(path);
+ if (goMatch) {
+  const partnerId = goMatch[1];
+  if (getEnabledPartner(partnerId)) {
+   return {
+    canonicalPath: `/go/${partnerId}/`,
+    kind: 'legacy',
+    locale: 'it',
+   };
+  }
+ }
 
  const localeParts = path.split('/').filter(Boolean);
  if (locale !== 'it' && localeParts[0] === locale) localeParts.shift();

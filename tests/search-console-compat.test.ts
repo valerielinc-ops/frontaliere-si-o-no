@@ -132,6 +132,25 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  it('keeps enabled affiliate redirect pages in the compatibility accumulator', () => {
+    // The emitter writes `/go/{id}/`; normalizePath() strips the slash, so
+    // both GSC spellings must resolve to the same generated page.
+    expect(resolveSearchConsoleCompatTarget('/go/fineco')).toEqual({
+      canonicalPath: '/go/fineco/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/go/creditagricole/')).toEqual({
+      canonicalPath: '/go/creditagricole/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    // A stale/disabled ID must never be claimed live merely because it has the
+    // same URL shape as an enabled partner.
+    expect(resolveSearchConsoleCompatTarget('/go/not-a-partner')).toBeNull();
+    expect(resolveSearchConsoleCompatTarget('/go/Fineco')).toBeNull();
+  });
+
   it('routes expired job-detail style URLs back to the localized listing', () => {
     // NB: the fixture must NOT be a sector-hub slug (e.g. the old `cuochi`
     // fixture) — those now self-map to their own live page (full hub or
