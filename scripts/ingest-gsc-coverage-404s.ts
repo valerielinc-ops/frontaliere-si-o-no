@@ -204,7 +204,7 @@ export function classifyUnresolvedCoveragePath(
   slugIndex?: JobSlugCanonicalIndex,
 ): GscCoveragePathClassification {
   const parsed = parseCoveragePath(input);
-  if (!parsed.path) return { kind: 'unknown', path: null, reason: parsed.reason };
+  if ('reason' in parsed) return { kind: 'unknown', path: null, reason: parsed.reason };
 
   const pathKey = parsed.path;
   const resolution = resolveSearchConsoleCompatTarget(pathKey, slugIndex, { sourceBackedOnly: true });
