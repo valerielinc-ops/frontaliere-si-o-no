@@ -385,7 +385,7 @@ describe('legacy portal sections', () => {
             elementHandles: vi.fn(async () => mounted ? [fileInput, existingCv, existingLetter] : [existingCv, existingLetter]),
             nth: () => fileInput,
           };
-          return { count: vi.fn(async () => 0) };
+          return { count: vi.fn(async () => 0), elementHandles: vi.fn(async () => []) };
         }),
       };
       const page = {
@@ -397,7 +397,9 @@ describe('legacy portal sections', () => {
           : { allInnerTexts: vi.fn(async () => []) }),
         keyboard: { press: vi.fn(async () => {}) },
         waitForLoadState: vi.fn(async () => {}),
-        waitForTimeout: vi.fn(async () => {}),
+        waitForTimeout: vi.fn(async (ms: number) => {
+          await new Promise((resolve) => setTimeout(resolve, Math.min(ms, 1)));
+        }),
       };
       return { page, trigger, fileInput };
     };
