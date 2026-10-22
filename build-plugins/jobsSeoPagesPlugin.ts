@@ -13314,6 +13314,8 @@ ${staticAnalyticsHtml}
  // already on in deploy.yml.
  const __tShellTpl = phaseTimer();
  const shell = localeShells[locale];
+ const metaDescription = clampMetaDescription(pageDesc, undefined, locale)
+  || clampMetaDescription(expiredBannerCopy[locale]?.banner || expiredBannerCopy.it.banner, undefined, locale);
  // Single early-boot tag covers BOTH dark-mode and spa-action-redirect
  // (merged into stable /assets/early-boot.js via EARLY_BOOT_SCRIPT). The
  // previous template emitted two separate <script src> tags here; combining
@@ -13335,7 +13337,13 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width, initial-scale=1">
  ${FAVICON_LINKS}
  <title>${pageTitle}</title>
- <meta name="description" content="${clampMetaDescription(pageDesc, undefined, locale)}">${robotsTag}
+ <meta name="description" content="${metaDescription}">${robotsTag}
+ <meta property="og:type" content="article">
+ <meta property="og:site_name" content="Frontaliere Ticino">
+ <meta property="og:locale" content="${localeOg[locale]}">
+ <meta property="og:title" content="${pageTitle}">
+ <meta property="og:description" content="${metaDescription}">
+ <meta property="og:url" content="${selfUrl}">
  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
  <link rel="canonical" href="${selfUrl}">
