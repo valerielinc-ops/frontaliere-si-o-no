@@ -155,6 +155,63 @@ function parseHolcimLocation(raw = '') {
   return { city, canton: explicitCanton, country };
 }
 
+/**
+ * Read the vacancy location from the detail page's own location token.
+ *
+ * The search board can expose a different location for a multi-site vacancy
+ * between refreshes. The detail template has a narrower, vacancy-scoped
+ * `#job-location .jobGeoLocation` field, so it is the authoritative value
+ * when it is present. Generic `.location`/footer text is deliberately ignored.
+ * Distinct values are retained so callers can fail closed on an ambiguous
+ * detail page instead of choosing the first match.
+ *
+ * @param {string} html
+ * @returns {string[]}
+ */
+export function extractJobLocationTexts(html = '') {
+  const values = [];
+  const seen = new Set();
+  const locationScopeRx = /<p\b(?=[^>]*\bid\s*=\s*["']job-location["'])[^>]*>([\s\S]*?)<\/p\s*>/gi;
+  let scopeMatch;
+  while ((scopeMatch = locationScopeRx.exec(String(html || ''))) !== null) {
+    const scope = scopeMatch[1] || '';
+    const geoRx = /<span\b([^>]*)>([\s\S]*?)<\/span\s*>/gi;
+    let geoMatch;
+    while ((geoMatch = geoRx.exec(scope)) !== null) {
+      const classValue = /\bclass\s*=\s*["']([^"']*)["']/i.exec(geoMatch[1] || '')?.[1] || '';
+      if (!classValue.split(/\s+/).some((token) => token.toLowerCase() === 'jobgeolocation')) continue;
+      const value = normalizeSpace(stripHtml(geoMatch[2] || ''));
+      if (!value || seen.has(value)) continue;
+      seen.add(value);
+      values.push(value);
+    }
+  }
+  return values;
+}
+
+/**
+ * Resolve Holcim's publication location without a generic-city fallback.
+ * A single detail-page value wins over the volatile search-card value. More
+ * than one distinct detail value is ambiguous and must remain unresolved.
+ */
+export function resolveHolcimLocation(listingLocationText = '', detailLocationTexts = []) {
+  const detailValues = [...new Set(
+    (Array.isArray(detailLocationTexts) ? detailLocationTexts : [])
+      .map((value) => normalizeSpace(value))
+      .filter(Boolean),
+  )];
+  if (detailValues.length > 1) {
+    return { city: '', canton: '', country: '', source: 'ambiguous-detail' };
+  }
+  if (detailValues.length === 1) {
+    const detail = parseHolcimLocation(detailValues[0]);
+    if (detail.city) return { ...detail, source: 'detail' };
+  }
+  const listing = parseHolcimLocation(listingLocationText);
+  if (listing.city) return { ...listing, source: 'listing' };
+  return { city: '', canton: '', country: '', source: 'unknown' };
+}
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -355,7 +412,11 @@ async function fetchJobDetail(detailUrl) {
   }
 
   const dateM = html.match(/itemprop="datePosted"\s+content="([^"]+)"/);
-  return { descriptionHtml, ...successFactorsPostingDateFields(dateM?.[1] || '') };
+  return {
+    descriptionHtml,
+    locationTexts: extractJobLocationTexts(html),
+    ...successFactorsPostingDateFields(dateM?.[1] || ''),
+  };
 }
 
 /**
@@ -391,14 +452,26 @@ export async function fetchAllHolcimJobs() {
     const detail = await fetchJobDetail(publicUrl);
 
     // Server-side `locationsearch=Switzerland` already filters the board, so
-    // we trust every listing here is Swiss (same as Constellium/Oerlikon);
-    // parseHolcimLocation() only ever resolves an explicit "CH" or "" for
-    // `country` (never a foreign code), so it's not used as an admission
-    // gate here — only city/canton extraction.
-    const { city, canton: explicitCanton } = parseHolcimLocation(listing.locationText || '');
-
-    const location = city || 'Zug';
-    const canton = explicitCanton || inferAnyCanton(location) || 'ZG';
+    // the listing is a valid fallback when the detail page has no scoped
+    // location. When the detail exposes one, resolveHolcimLocation() uses it
+    // instead: the same URL has been served with different search-card
+    // locations across refreshes, while the detail field is vacancy-scoped.
+    const resolvedLocation = resolveHolcimLocation(
+      listing.locationText || '',
+      detail?.locationTexts || [],
+    );
+    if (!resolvedLocation.city) {
+      throw new Error(
+        `Holcim vacancy has no unambiguous source location: ${publicUrl}`,
+      );
+    }
+    const location = resolvedLocation.city;
+    const canton = resolvedLocation.canton || inferAnyCanton(location);
+    if (!canton) {
+      throw new Error(
+        `Holcim vacancy location has no resolvable Swiss canton: ${location} (${publicUrl})`,
+      );
+    }
     // Detail page can carry the same j2w widget chrome as a description block
     // (e.g. the consent manager's body text) — strip it to '' so the
     // brand-blurb fallback below kicks in instead of shipping widget copy.
