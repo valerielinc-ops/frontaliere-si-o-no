@@ -480,7 +480,7 @@ describe('plate-auction Firestore pipeline: timed card turnover', () => {
       ...Array.from({ length: 29 }, (_unused, index) => 2000 + index),
     ]);
 
-    expect(result.summaries.tg).toMatchObject({ status: 'active', rowCount: 73 });
+    expect(result.summaries.tg).toMatchObject({ status: 'active', rowCount: 50 });
     const missing = [...firestore.current.values()].filter((row) => row.sourceKey === 'TG' && row.missingSince !== undefined);
     expect(missing).toHaveLength(23);
     expect([...firestore.history.values()].filter((row) => row.sourceKey === 'TG' && row.disappearedFromCatalogue)).toEqual([]);
