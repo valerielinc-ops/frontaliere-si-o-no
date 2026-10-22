@@ -1260,14 +1260,13 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     }
   }
   // The private-use glyph is often the actual file trigger even when the
-  // labelled card was the first candidate returned by the snapshot. Accept
-  // one explicit upload association; otherwise keep one context-only icon
-  // when it is the sole non-removal control. Multiple icons remain ambiguous.
-  const explicitIcons = iconCandidates.filter((button) => SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(successFactorsButtonAssociation(button)));
-  const icon = explicitIcons.length === 1
-    ? explicitIcons[0]
-    : explicitIcons.length === 0 && iconCandidates.length === 1 ? iconCandidates[0] : null;
-  add(icon || successFactorsIconButtonFor(snapshot, kind));
+  // labelled card was the first candidate returned by the snapshot. A single
+  // context-bound icon is safe; multiple icons remain ambiguous even when one
+  // carries an upload marker, so never guess between them.
+  const icon = iconCandidates.length === 1
+    ? iconCandidates[0]
+    : iconCandidates.length === 0 ? successFactorsIconButtonFor(snapshot, kind) : null;
+  add(icon);
   return candidates;
 }
 
