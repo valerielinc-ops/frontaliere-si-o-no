@@ -21,20 +21,27 @@
     "slugByLocale": {
       "de": "apprentice-manufacturing-stryker-ch-jkisc3",
       "it": "apprendista-manifatturiera-stryker-selzach",
-      "en": "apprentice-manufacturing-stryker-selzach",
+      "en": "apprentice-manufacturing-stryker-selzach-8adf91b3",
       "fr": "apprenti-dans-la-fabrication-stryker-selzach"
     },
     "sector": "Medtech / Dispositivi medici",
     "expiredAt": "2026-10-22T09:44:55.558Z",
     "previousSlugs": [
-      "apprentice-manufacturing-stryker-ch"
+      "apprentice-manufacturing-stryker-ch-c4ac16a8",
+      "apprentice-manufacturing-stryker-ch",
+      "apprentice-manufacturing-stryker-selzach"
     ],
     "previousSlugsByLocale": {
       "it": [
+        "apprentice-manufacturing-stryker-ch-c4ac16a8",
         "apprentice-manufacturing-stryker-ch"
       ],
       "de": [
+        "apprentice-manufacturing-stryker-ch-c4ac16a8",
         "apprentice-manufacturing-stryker-ch"
+      ],
+      "en": [
+        "apprentice-manufacturing-stryker-selzach"
       ]
     },
     "postalCode": "2545",

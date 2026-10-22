@@ -5,7 +5,7 @@
     "titleByLocale": {
       "it": "Equipaggio",
       "en": "Crew member",
-      "de": "Besatzung",
+      "de": "Crew",
       "fr": "Crew"
     },
     "company": "McDonald's Switzerland",
@@ -49,7 +49,7 @@
     "titleByLocale": {
       "it": "Equipaggio",
       "en": "Crew member",
-      "de": "Besatzung",
+      "de": "Crew",
       "fr": "Crew"
     },
     "company": "McDonald's Switzerland",
@@ -465,16 +465,20 @@
     },
     "slugByLocale": {
       "de": "besatzung-mcdonald-s-switzerland-buchs",
-      "fr": "crew-mcdonald-s-switzerland-buchs"
+      "fr": "crew-mcdonald-s-switzerland-buchs-68702bb7"
     },
     "sector": "Ristorazione / Fast Food",
     "expiredAt": "2026-10-03T16:16:18.671Z",
     "previousSlugs": [
-      "crew-mcdonalds-switzerland-buchs-p8-318097-6"
+      "crew-mcdonalds-switzerland-buchs-p8-318097-6",
+      "crew-mcdonald-s-switzerland-buchs"
     ],
     "previousSlugsByLocale": {
       "it": [
         "crew-mcdonalds-switzerland-buchs-p8-318097-6"
+      ],
+      "fr": [
+        "crew-mcdonald-s-switzerland-buchs"
       ]
     },
     "postalCode": "9470",
