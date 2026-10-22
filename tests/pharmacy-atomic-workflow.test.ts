@@ -48,6 +48,8 @@ describe('pharmacy atomic refresh workflow', () => {
     const archive = source.indexOf('run: npx --no-install tsx scripts/archive-pharmacy-duty-weeks.mts');
     expect(archive).toBeGreaterThan(checker);
     expect(publisher).toBeGreaterThan(archive);
+    const archiveStep = source.slice(source.lastIndexOf('- name:', archive), source.indexOf('\n      - name:', archive + 1));
+    expect(archiveStep).toContain('continue-on-error: true');
     expect(source).toContain('--path data/pharmacy-duty-week-history');
     expect(source).toContain('git status --porcelain -- public/data/pharmacy-duty-cantons.json data/pharmacy-duty-week-history');
   });

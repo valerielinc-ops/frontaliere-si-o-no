@@ -158,6 +158,11 @@ jobs:
       - name: Validate border catalogue
         run: npm run pharmacies:check
       - name: Preserve observed Ticino duty weeks before the next feed replacement
+        # A partial release is intentionally fail-closed for live publication,
+        # but it must not prevent the already-validated atomic snapshots from
+        # reaching their refresh PR. The archive CLI keeps rejecting partial
+        # pairs; this historical side effect is best effort at workflow level.
+        continue-on-error: true
         run: npx --no-install tsx scripts/archive-pharmacy-duty-weeks.mts
       # Riassunto per gruppo cantonale dei turni appena validati, pubblico sul
       # CDN per il corpus (refresh-canton-services-data.mjs, P9f). Non e' un
