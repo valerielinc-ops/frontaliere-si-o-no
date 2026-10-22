@@ -612,6 +612,24 @@ describe('loop clock observer', () => {
     )).toThrow('workflow run response incomplete');
   });
 
+  it('fails closed when an Actions page contains malformed workflow runs', () => {
+    const malformedRuns = [
+      [null],
+      [{ id: 1, event: 'workflow_dispatch', head_branch: 'main', display_title: 'Clock' }],
+      [{ id: 1, created_at: minutesAgo(1), head_branch: 'main', display_title: 'Clock' }],
+    ];
+
+    for (const workflow_runs of malformedRuns) {
+      expect(() => listDispatchRuns(
+        'owner/site',
+        'malformed.yml',
+        10,
+        720,
+        () => JSON.stringify({ total_count: 1, workflow_runs }),
+      )).toThrow('workflow run response invalid');
+    }
+  });
+
   it('declares an entry stale when only non-clock runs are recent', async () => {
     const entry = { ...customEntry('clock-dead'), everyMinutes: 30 };
     const { report, createIssueImpl, resolveIssueImpl } = await observe([entry], [

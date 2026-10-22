@@ -182,13 +182,23 @@ function mergeRunRows(...lists) {
 }
 
 function normalizeWorkflowRun(run) {
+  if (!run || typeof run !== 'object' || Array.isArray(run)
+    || !Number.isSafeInteger(run.id) || run.id <= 0
+    || typeof run.created_at !== 'string' || !Number.isFinite(Date.parse(run.created_at))
+    || typeof run.event !== 'string' || typeof run.head_branch !== 'string'
+    || typeof run.html_url !== 'string' || !run.html_url.trim()
+    || typeof (run.display_title ?? run.name) !== 'string'
+    || !(run.display_title ?? run.name).trim()) {
+    throw new Error('workflow run response invalid');
+  }
+
   return {
-    createdAt: run?.created_at ?? null,
-    databaseId: run?.id ?? null,
-    url: run?.html_url ?? null,
-    event: run?.event ?? null,
-    headBranch: run?.head_branch ?? null,
-    displayTitle: run?.display_title ?? run?.name ?? '',
+    createdAt: run.created_at,
+    databaseId: run.id,
+    url: run.html_url,
+    event: run.event,
+    headBranch: run.head_branch,
+    displayTitle: run.display_title ?? run.name,
   };
 }
 
