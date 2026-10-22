@@ -538,6 +538,50 @@ describe('loop clock observer', () => {
     expect(resolveIssueImpl).not.toHaveBeenCalled();
   });
 
+  it('confirms a missing marker with an alternate listing before judging it stale', async () => {
+    const established = { ...customEntry('clock-established'), everyMinutes: 30 };
+    const entry = { ...customEntry('clock-fallback'), everyMinutes: 30 };
+    const listRunsImpl = vi.fn(async (
+      _repository: string,
+      workflow: string,
+      _limit: number,
+      _windowMinutes: number,
+      event?: string | null,
+    ) => {
+      if (workflow === established.workflow) return [clockRun(established, 5)];
+      return event === null ? [clockRun(entry, 5)] : [otherRun(1)];
+    });
+    const { report, createIssueImpl } = await observe([established, entry], [], { listRunsImpl });
+
+    expect(report.results.find((result) => result.id === entry.id)).toMatchObject({ state: 'healthy' });
+    expect(createIssueImpl).not.toHaveBeenCalled();
+    expect(listRunsImpl.mock.calls.some((call) => call[1] === entry.workflow && call[4] === null)).toBe(true);
+  });
+
+  it('keeps an unconfirmed absence inconclusive instead of opening a stale issue', async () => {
+    const established = { ...customEntry('clock-established-for-failure'), everyMinutes: 30 };
+    const entry = { ...customEntry('clock-fallback-failure'), everyMinutes: 30 };
+    const listRunsImpl = vi.fn(async (
+      _repository: string,
+      workflow: string,
+      _limit: number,
+      _windowMinutes: number,
+      event?: string | null,
+    ) => {
+      if (workflow === established.workflow) return [clockRun(established, 5)];
+      if (event === null) throw new Error('alternate Actions listing unavailable');
+      return [otherRun(1)];
+    });
+    const { report, createIssueImpl } = await observe([established, entry], [], { listRunsImpl });
+
+    expect(report.results.find((result) => result.id === entry.id)).toMatchObject({
+      state: 'inconclusive',
+      reason: 'run_listing_unconfirmed',
+    });
+    expect(report.errors).toBe(1);
+    expect(createIssueImpl).not.toHaveBeenCalled();
+  });
+
   // One fault, one issue: with every entry silent the clock itself is down.
   it('raises a single issue when no entry at all has a dispatch inside its threshold', async () => {
     const entries = [
@@ -843,7 +887,11 @@ describe('loop clock observer', () => {
       repository === LOOP_CLOCK_CORPUS_REPOSITORY ? [otherRun(1)] : [clockRun(site, 500), clockRun(site, 10)]
     ));
     const { report, createIssueImpl } = await observe([site, corpus], [], { listRunsImpl });
-    expect(listRunsImpl.mock.calls.map((call) => call[0])).toEqual(['owner/site', LOOP_CLOCK_CORPUS_REPOSITORY]);
+    expect(listRunsImpl.mock.calls.map((call) => call[0])).toEqual([
+      'owner/site',
+      LOOP_CLOCK_CORPUS_REPOSITORY,
+      LOOP_CLOCK_CORPUS_REPOSITORY,
+    ]);
     expect(report.results.find((result) => result.id === site.id)).toMatchObject({ state: 'healthy' });
     expect(report.results.find((result) => result.id === corpus.id)).toMatchObject({ state: 'stale' });
     expect(createIssueImpl).toHaveBeenCalledTimes(1);

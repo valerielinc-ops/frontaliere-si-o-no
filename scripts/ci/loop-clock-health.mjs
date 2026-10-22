@@ -159,6 +159,28 @@ function sleepSync(delayMs) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, delayMs);
 }
 
+/** Stable identity for de-duplicating the filtered and alternate run pages. */
+function runRowKey(run) {
+  if (run?.databaseId !== undefined && run?.databaseId !== null) return `id:${run.databaseId}`;
+  return `row:${JSON.stringify([
+    run?.createdAt ?? '',
+    run?.url ?? '',
+    run?.event ?? '',
+    run?.headBranch ?? '',
+    run?.displayTitle ?? '',
+  ])}`;
+}
+
+function mergeRunRows(...lists) {
+  const seen = new Set();
+  return lists.flatMap((list) => (Array.isArray(list) ? list : [])).filter((run) => {
+    const key = runRowKey(run);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 /**
  * Read a filtered run list. The Actions index can transiently answer `[]`
  * while a just-created dispatch is becoming visible; treating that response
@@ -171,19 +193,35 @@ export function listDispatchRuns(
   workflow,
   limit,
   windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES,
-  {
+  optionsOrEvent = {},
+) {
+  // Keep the test seam introduced by the empty-list retry fix while allowing
+  // the observer to request an unfiltered confirmation with a fifth `null`
+  // argument. Existing callers pass the options object; the alternate read
+  // passes null so the normal gh implementation and retry policy still apply.
+  const options = optionsOrEvent && typeof optionsOrEvent === 'object'
+    ? optionsOrEvent
+    : {};
+  const event = optionsOrEvent && typeof optionsOrEvent === 'object'
+    ? optionsOrEvent.event ?? 'workflow_dispatch'
+    : optionsOrEvent === null
+      ? null
+      : optionsOrEvent ?? 'workflow_dispatch';
+  const {
     ghImpl = gh,
     sleep = sleepSync,
     warn = console.warn,
-  } = {},
-) {
+  } = options;
   const args = [
     'run', 'list', '--repo', repository, '--workflow', workflow,
-    '--event', 'workflow_dispatch', '--branch', 'main',
+  ];
+  if (event) args.push('--event', event);
+  args.push(
+    '--branch', 'main',
     '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
     '--limit', String(limit),
     '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
-  ];
+  );
   const attempts = EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const output = ghImpl(args);
@@ -360,9 +398,47 @@ export async function runLoopClockHealth({
     try {
       const rows = await listRunsImpl(repositoryOf(entry), entry.workflow, limit, widestThreshold);
       if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
-      runLists.set(listKey, { limit, rows });
+      runLists.set(listKey, { limit, rows, absenceConfirmed: true });
     } catch {
       runLists.set(listKey, null);
+    }
+  }
+
+  // The Actions listing can be eventually consistent even with the `created`
+  // window: a filtered read has intermittently omitted a recent clock run
+  // while returning a valid, shorter page (#12284 recurrence). An absence is
+  // therefore confirmed with one bounded alternate read that leaves event
+  // filtering to `selectLoopClockRun`; a failed confirmation is inconclusive,
+  // never evidence of a stale entry.
+  for (const [listKey, list] of runLists) {
+    const listEntries = owed
+      .filter(({ entry }) => listKeyOf(entry) === listKey)
+      .map(({ entry }) => entry);
+    const needsConfirmation = !list
+      || listEntries.some((entry) => !selectLoopClockRun(list.rows, entry));
+    if (!needsConfirmation || listEntries.length === 0) continue;
+    const entry = listEntries[0];
+    const limit = list?.limit ?? loopClockRunLimit(
+      entries.filter((other) => listKeyOf(other) === listKey),
+      widestThreshold,
+    );
+    try {
+      const alternateRows = await listRunsImpl(
+        repositoryOf(entry),
+        entry.workflow,
+        limit,
+        widestThreshold,
+        null,
+      );
+      if (!Array.isArray(alternateRows)) throw new Error('workflow run response invalid');
+      runLists.set(listKey, {
+        limit,
+        rows: mergeRunRows(list?.rows, alternateRows),
+        absenceConfirmed: true,
+      });
+    } catch {
+      if (list) runLists.set(listKey, { ...list, absenceConfirmed: false });
+      else runLists.set(listKey, null);
     }
   }
 
@@ -407,6 +483,11 @@ export async function runLoopClockHealth({
       everyMinutes: entry.everyMinutes,
     });
     if (!run) {
+      if (list.absenceConfirmed === false) {
+        errors += 1;
+        results.push({ id: entry.id, state: 'inconclusive', reason: 'run_listing_unconfirmed' });
+        continue;
+      }
       if (windowTruncated({ rows: list.rows, limit: list.limit, now: checkedAt, thresholdMinutes: freshness.thresholdMinutes })) {
         // No verdict on a window we did not read to its start.
         errors += 1;
