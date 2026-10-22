@@ -169,12 +169,12 @@
     },
     {
       "id": "kone-94ebc1a97868",
-      "slug": "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch",
+      "slug": "manutenzione-ascensore-tecnico-regione-yverdon-kone-lausanne",
       "slugByLocale": {
         "fr": "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch",
-        "it": "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch",
-        "en": "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch",
-        "de": "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch"
+        "it": "manutenzione-ascensore-tecnico-regione-yverdon-kone-lausanne",
+        "en": "maintenance-technician-elevators-yverdon-region-kone-lausanne",
+        "de": "wartungstechniker-aufzuge-region-yverdon-kone-lausanne"
       },
       "company": "KONE",
       "companyKey": "kone",
@@ -233,7 +233,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-10-22T09:49:25.997Z"
+      "firstSeenAt": "2026-10-22T09:49:25.997Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch"
+        ],
+        "en": [
+          "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch"
+        ],
+        "de": [
+          "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-de-maintenance-ascenseurs-region-yverdon-kone-ch"
+      ]
     }
   ]
 }

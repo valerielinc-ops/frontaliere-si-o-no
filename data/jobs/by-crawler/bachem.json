@@ -84,7 +84,7 @@
       "id": "bachem-b104f0bfb9c9",
       "slug": "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
-        "it": "lead-facility-management-sisslerfeld-sviluppo-del-sito-a-100-bachem-ag-stein-ag",
+        "it": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "en": "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "de": "head-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
         "fr": "gestion-des-installations-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
@@ -132,13 +132,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
-        "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
+        "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag",
-          "responsabile-facility-management-sisslerfeld-site-development-a-100-bachem-ag-stein-ag"
+          "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
         ],
         "de": [
           "lead-facility-management-sisslerfeld-site-development-a-100-bachem-stein-ag"
@@ -4852,10 +4850,10 @@
     },
     {
       "id": "bachem-df253590be97",
-      "slug": "scientist-quality-control-a-100-bachem-bubendorf",
+      "slug": "controllo-della-qualita-degli-scienziati-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "en": "scientist-quality-control-a-100-bachem-bubendorf",
-        "it": "scientist-quality-control-a-100-bachem-bubendorf",
+        "it": "controllo-della-qualita-degli-scienziati-a-100-bachem-ag-bubendorf",
         "de": "scientist-quality-control-a-100-bachem-bubendorf",
         "fr": "scientist-quality-control-a-100-bachem-bubendorf"
       },
@@ -4917,11 +4915,13 @@
       },
       "firstSeenAt": "2026-10-08T22:36:40.010Z",
       "previousSlugs": [
-        "controllo-della-qualita-degli-scienziati-a-100-bachem-ag-bubendorf"
+        "controllo-della-qualita-degli-scienziati-a-100-bachem-ag-bubendorf",
+        "scientist-quality-control-a-100-bachem-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controllo-della-qualita-degli-scienziati-a-100-bachem-ag-bubendorf"
+          "controllo-della-qualita-degli-scienziati-a-100-bachem-ag-bubendorf",
+          "scientist-quality-control-a-100-bachem-bubendorf"
         ]
       }
     },

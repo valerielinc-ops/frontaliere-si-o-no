@@ -9336,9 +9336,9 @@
     },
     {
       "id": "unispital-basel-07d0562abde3",
-      "slug": "study-coordinator-kardiologie-universitatsspital-basel",
+      "slug": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "study-coordinator-kardiologie-universitatsspital-basel",
+        "it": "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel",
         "en": "study-coorindator-cardiology-universitatsspital-basel-basel",
         "de": "study-coordinator-kardiologie-unispital-basel-ch",
         "fr": "coordonateur-de-l-etude-cardiologie-universitatsspital-basel-basel"
@@ -9388,14 +9388,14 @@
         "studio-coorindator-cardiologia-universitatsspital-basel-basel",
         "study-coordinator-kardiologie-unispital-basel-ch",
         "study-coorindator-kardiologie-unispital-basel-ch",
-        "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
+        "study-coordinator-kardiologie-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studio-coorindator-cardiologia-universitatsspital-basel-basel",
           "study-coordinator-kardiologie-unispital-basel-ch",
           "study-coorindator-kardiologie-unispital-basel-ch",
-          "coordinatore-di-studio-cardiologia-universitatsspital-basel-basel"
+          "study-coordinator-kardiologie-universitatsspital-basel"
         ]
       },
       "firstSeenAt": "2026-10-14T21:24:36.351Z",
@@ -10666,9 +10666,9 @@
     },
     {
       "id": "unispital-basel-52e20d37aee0",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel",
+      "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel",
+        "it": "specialista-di-radiologia-specialista-di-radiologia-hf-universitatsspital-basel-basel",
         "en": "radiology-specialist-radiology-specialist-hf-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch",
         "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-universitatsspital-basel-basel"
@@ -10717,13 +10717,13 @@
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch",
         "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel",
-        "specialista-di-radiologia-specialista-di-radiologia-hf-universitatsspital-basel-basel"
+        "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-hf-unispital-basel-ch",
           "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel",
-          "specialista-di-radiologia-specialista-di-radiologia-hf-universitatsspital-basel-basel"
+          "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel"
         ],
         "en": [
           "radiologiefachfrau-radiologiefachmann-hf-universitatsspital-basel-basel"
@@ -10903,12 +10903,12 @@
     },
     {
       "id": "unispital-basel-1e8342374518",
-      "slug": "clinical-research-coordinator-onkologie-unispital-basel-ch",
+      "slug": "clinical-ricerca-coordinatore-onkologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "clinical-research-coordinator-onkologie-unispital-basel-ch",
-        "it": "clinical-research-coordinator-onkologie-unispital-basel-ch",
+        "it": "clinical-ricerca-coordinatore-onkologie-universitatsspital-basel-basel",
         "en": "clinical-research-coordinator-onkologie-universitatsspital-basel-basel",
-        "fr": "clinical-research-coordinator-onkologie-unispital-basel-ch"
+        "fr": "clinical-recherche-coordinateur-onkologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10966,16 +10966,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:39:24.985Z"
+      "firstSeenAt": "2026-10-22T09:39:24.985Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-research-coordinator-onkologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "clinical-research-coordinator-onkologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-research-coordinator-onkologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-cfa22c4a316a",
-      "slug": "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch",
+      "slug": "esperto-infermieristico-apn-epatologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch",
-        "it": "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch",
-        "en": "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch",
-        "fr": "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch"
+        "it": "esperto-infermieristico-apn-epatologia-universitatsspital-basel-basel",
+        "en": "nursing-expert-apn-hepatology-universitatsspital-basel-basel",
+        "fr": "expert-en-soins-infirmiers-hepatologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -11033,7 +11044,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:39:24.981Z"
+      "firstSeenAt": "2026-10-22T09:39:24.981Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-hepatologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-0a5050f16b0d",

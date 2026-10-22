@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "givaudan-20b94b1da471",
-      "slug": "customer-care-representative-fr-en-m-w-d-givaudan-ch",
+      "slug": "rappresentante-del-cliente-fr-en-m-f-d-givaudan-vernier",
       "slugByLocale": {
         "en": "customer-care-representative-fr-en-m-w-d-givaudan-ch",
-        "it": "customer-care-representative-fr-en-m-w-d-givaudan-ch",
-        "de": "customer-care-representative-fr-en-m-w-d-givaudan-ch",
-        "fr": "customer-care-representative-fr-en-m-w-d-givaudan-ch"
+        "it": "rappresentante-del-cliente-fr-en-m-f-d-givaudan-vernier",
+        "de": "kundendienstvertreter-fr-en-m-w-d-givaudan-vernier",
+        "fr": "representant-client-fr-en-h-f-d-givaudan-vernier"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -73,19 +73,23 @@
       "previousSlugs": [
         "rappresentante-del-cliente-fr-en-m-f-d-givaudan-vernier-switzerland",
         "kundendienstvertreter-fr-en-m-w-d-givaudan-vernier-switzerland",
-        "representant-du-service-clientele-fr-en-h-f-d-givaudan-vernier-switzerland"
+        "representant-du-service-clientele-fr-en-h-f-d-givaudan-vernier-switzerland",
+        "customer-care-representative-fr-en-m-w-d-givaudan-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rappresentante-del-cliente-fr-en-m-f-d-givaudan-vernier-switzerland",
           "kundendienstvertreter-fr-en-m-w-d-givaudan-vernier-switzerland",
-          "representant-du-service-clientele-fr-en-h-f-d-givaudan-vernier-switzerland"
+          "representant-du-service-clientele-fr-en-h-f-d-givaudan-vernier-switzerland",
+          "customer-care-representative-fr-en-m-w-d-givaudan-ch"
         ],
         "de": [
-          "kundendienstvertreter-fr-en-m-w-d-givaudan-vernier-switzerland"
+          "kundendienstvertreter-fr-en-m-w-d-givaudan-vernier-switzerland",
+          "customer-care-representative-fr-en-m-w-d-givaudan-ch"
         ],
         "fr": [
-          "representant-du-service-clientele-fr-en-h-f-d-givaudan-vernier-switzerland"
+          "representant-du-service-clientele-fr-en-h-f-d-givaudan-vernier-switzerland",
+          "customer-care-representative-fr-en-m-w-d-givaudan-ch"
         ]
       }
     },

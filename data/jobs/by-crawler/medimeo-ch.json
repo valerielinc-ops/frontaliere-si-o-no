@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "medimeo-ch-ca3ac562d27e",
-      "slug": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
+      "slug": "medico-senior-radiologia-medico-senior-80-100-radiologia-versatile-incontra-la-qualita-di-vita-di-zurigo-medimeo-ag",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
-        "it": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
-        "en": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher",
-        "fr": "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        "it": "medico-senior-radiologia-medico-senior-80-100-radiologia-versatile-incontra-la-qualita-di-vita-di-zurigo-medimeo-ag",
+        "en": "senior-physician-senior-physician-radiology-80-100-versatile-radiology-meets-zurich-quality-of-life-medimeo-ag-region",
+        "fr": "medecin-senior-medecin-senior-radiologie-80-100-la-radiologie-polyvalente-rencontre-zurich-qualite-de-vie-medimeo-ag"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -68,16 +68,30 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-22T09:54:03.111Z"
+      "firstSeenAt": "2026-10-22T09:54:03.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        ],
+        "en": [
+          "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-radiologie-80-100-vielseitige-radiologie-trifft-auf-zurcher"
+      ]
     },
     {
       "id": "medimeo-ch-df97ed6cdd55",
-      "slug": "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch",
+      "slug": "dermatologia-specialistica-60-100-posizione-centrale-a-zurigo-medimeo-ag-region-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch",
-        "it": "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch",
-        "en": "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch",
-        "fr": "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch"
+        "it": "dermatologia-specialistica-60-100-posizione-centrale-a-zurigo-medimeo-ag-region-zurich",
+        "en": "specialist-dermatology-60-100-central-location-in-zurich-medimeo-ag-region-zurich",
+        "fr": "dermatologie-specialisee-60-100-emplacement-central-a-zurich-medimeo-ag-region-zurich"
       },
       "company": "Medimeo AG",
       "companyKey": "medimeo-ch",
@@ -135,7 +149,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-22T09:54:03.109Z"
+      "firstSeenAt": "2026-10-22T09:54:03.109Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-dermatologie-60-100-zentrale-lage-in-zurich-region-zurich-medimeo-ch"
+      ]
     }
   ]
 }

@@ -1738,7 +1738,7 @@
       "slugByLocale": {
         "it": "servizio-personale-25hours-hotel-zurich-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "en": "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "de": "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland",
+        "de": "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
         "fr": "personnel-de-service-25heures-hotel-zurich-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-1766008b"
       },
       "slugDisambiguator": "1766008b",
@@ -1784,7 +1784,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-        "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+        "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1792,7 +1792,7 @@
         ],
         "de": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b",
-          "servicepersonal-25hours-hotel-zurich-langstra-e-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
+          "service-staff-25hours-hotel-zurich-langstrasse-m-w-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland"
         ],
         "fr": [
           "service-staff-25hours-hotel-zurich-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-1766008b"
@@ -2426,12 +2426,12 @@
     },
     {
       "id": "accor-68eb33e5ac8b",
-      "slug": "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5",
+      "slug": "agente-di-ufficio-anteriore-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5",
       "slugByLocale": {
         "en": "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5",
-        "it": "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5",
+        "it": "agente-di-ufficio-anteriore-langstrasse-m-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5",
         "de": "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5",
-        "fr": "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5"
+        "fr": "agent-du-bureau-principal-langstrasse-h-f-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5"
       },
       "slugDisambiguator": "68eb33e5",
       "company": "Ibis Budget",
@@ -2490,14 +2490,25 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-22T09:42:31.537Z"
+      "firstSeenAt": "2026-10-22T09:42:31.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5"
+        ],
+        "fr": [
+          "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-agent-langstrasse-f-m-d-ibis-budget-25hours-hotel-zurich-langstrasse-zurich-switzerland-68eb33e5"
+      ]
     },
     {
       "id": "accor-711ae44782b7",
       "slug": "front-office-agent-zurich-west-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
       "slugByLocale": {
         "en": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "it": "front-office-agent-zurich-west-m-w-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland",
+        "it": "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
         "fr": "agent-du-bureau-principal-zurich-ouest-h-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
         "de": "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
       },
@@ -2546,13 +2557,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-          "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
+          "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
         ]
       },
       "previousSlugs": [
-        "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447",
-        "agente-di-ufficio-anteriore-zurich-west-m-f-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
+        "front-office-agent-zurich-west-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland-711ae447"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

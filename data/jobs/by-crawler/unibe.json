@@ -889,9 +889,9 @@
     },
     {
       "id": "unibe-8d3e9e6a7b54",
-      "slug": "it-systemadministrator-in-universitat-bern",
+      "slug": "amministratore-trice-di-sistema-it-universitat-bern-bern",
       "slugByLocale": {
-        "it": "it-systemadministrator-in-universitat-bern",
+        "it": "amministratore-trice-di-sistema-it-universitat-bern-bern",
         "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
         "fr": "administrateur-systeme-informatique-universitat-bern-bern"
@@ -941,13 +941,13 @@
       "previousSlugs": [
         "it-systemadministrator-in-unibe-bern",
         "it-systemadministrator-in-universitat-bern-bern",
-        "amministratore-trice-di-sistema-it-universitat-bern-bern"
+        "it-systemadministrator-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern",
           "it-systemadministrator-in-universitat-bern-bern",
-          "amministratore-trice-di-sistema-it-universitat-bern-bern"
+          "it-systemadministrator-in-universitat-bern"
         ],
         "en": [
           "it-systemadministrator-in-universitat-bern-bern"
@@ -3155,7 +3155,7 @@
         "it": "cattedra-di-medicina-d-urgenza-livello-aperto-direttore-e-primario-del-dipartimento-di-medicina-d-urgenza-universitat",
         "en": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
         "de": "professur-fur-notfallmedizin-alle-besoldungsgruppen-direktor-und-chefarzt-der-abteilung-fur-notfallmedizin-universitat",
-        "fr": "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
+        "fr": "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3201,7 +3201,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-        "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+        "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3212,7 +3212,7 @@
         ],
         "fr": [
           "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the",
-          "professeur-en-medecine-d-urgence-de-grade-ouvert-directeur-et-medecin-en-chef-du-departement-de-medecine-d-urgence"
+          "professorship-in-emergency-medicine-open-rank-director-and-chief-physician-of-the-department-of-emergency-medicine-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-20T09:31:08.059Z",
@@ -3482,8 +3482,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-instituts-und-studienadministration-unibe-bern",
         "it": "collaboratore-trice-instituts-e-studienadministration-universitat-bern",
-        "en": "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern",
-        "fr": "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern"
+        "en": "institute-and-study-administration-assistant-universitat-bern-bern",
+        "fr": "collaborateur-dans-l-administration-de-l-institut-et-des-etudes-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3532,10 +3532,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-instituts-und-studienadministration-unibe-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-instituts-und-studienadministration-unibe-bern"
+        "mitarbeiter-in-instituts-und-studienadministration-unibe-bern",
+        "mitarbeiter-in-instituts-und-studienadministration-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3559,7 +3566,7 @@
         "it": "assistente-di-direzione-universitat-bern-bern",
         "en": "executive-assistant-universitat-bern-bern",
         "de": "direktionsassistent-in-unibe-bern",
-        "fr": "direktionsassistent-in-universitat-bern"
+        "fr": "assistant-e-de-direction-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3606,7 +3613,7 @@
       "previousSlugs": [
         "direktionsassistent-in-unibe-bern",
         "direktionsassistent-in-universitat-bern-bern",
-        "assistant-e-de-direction-universitat-bern-bern"
+        "direktionsassistent-in-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3618,7 +3625,7 @@
         ],
         "fr": [
           "direktionsassistent-in-universitat-bern-bern",
-          "assistant-e-de-direction-universitat-bern-bern"
+          "direktionsassistent-in-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-10-21T09:52:54.503Z",
@@ -3810,12 +3817,12 @@
     },
     {
       "id": "unibe-4b3654bc0a5f",
-      "slug": "phd-student-position-in-cell-biology-unibe-bern",
+      "slug": "phd-posizione-degli-studenti-in-biologia-cellulare-universitat-bern-bern",
       "slugByLocale": {
         "en": "phd-student-position-in-cell-biology-unibe-bern",
-        "it": "phd-student-position-in-cell-biology-unibe-bern",
-        "de": "phd-student-position-in-cell-biology-unibe-bern",
-        "fr": "phd-student-position-in-cell-biology-unibe-bern"
+        "it": "phd-posizione-degli-studenti-in-biologia-cellulare-universitat-bern-bern",
+        "de": "phd-student-position-in-der-zellbiologie-universitat-bern-bern",
+        "fr": "poste-d-etudiant-au-doctorat-en-biologie-cellulaire-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3875,16 +3882,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:45:31.343Z"
+      "firstSeenAt": "2026-10-22T09:45:31.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-position-in-cell-biology-unibe-bern"
+        ],
+        "de": [
+          "phd-student-position-in-cell-biology-unibe-bern"
+        ],
+        "fr": [
+          "phd-student-position-in-cell-biology-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-position-in-cell-biology-unibe-bern"
+      ]
     },
     {
       "id": "unibe-c5ef607a08ed",
-      "slug": "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern",
+      "slug": "posizione-di-dottorato-in-bioenergetica-di-fondo-e-metabolismo-cellulare-universitat-bern-bern",
       "slugByLocale": {
         "en": "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern",
-        "it": "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern",
-        "de": "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern",
-        "fr": "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+        "it": "posizione-di-dottorato-in-bioenergetica-di-fondo-e-metabolismo-cellulare-universitat-bern-bern",
+        "de": "phd-position-in-bottom-up-bioenergetik-und-zellmetabolismus-universitat-bern-bern",
+        "fr": "doctorat-en-bioenergetique-et-metabolisme-cellulaire-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3943,16 +3964,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:45:31.342Z"
+      "firstSeenAt": "2026-10-22T09:45:31.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+        ],
+        "de": [
+          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+        ],
+        "fr": [
+          "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-bottom-up-bioenergetics-and-cell-metabolism-unibe-bern"
+      ]
     },
     {
       "id": "unibe-4ea456e10e40",
-      "slug": "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe",
+      "slug": "posizione-del-phd-nccr-genesis-telerilevamento-dei-microrganismi-in-ambienti-estremi-universitat-bern-bern",
       "slugByLocale": {
         "en": "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe",
-        "it": "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe",
-        "de": "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe",
-        "fr": "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        "it": "posizione-del-phd-nccr-genesis-telerilevamento-dei-microrganismi-in-ambienti-estremi-universitat-bern-bern",
+        "de": "phd-position-nfs-genesis-fernerkundung-von-mikroorganismen-in-extremen-umgebungen-universitat-bern-bern",
+        "fr": "doctorat-nccr-genesis-teledetection-des-micro-organismes-dans-des-environnements-extremes-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4011,16 +4046,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:24:46.703Z"
+      "firstSeenAt": "2026-09-07T15:24:46.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        ],
+        "de": [
+          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        ],
+        "fr": [
+          "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-nccr-genesis-remote-sensing-of-microorganisms-in-extreme-environments-unibe"
+      ]
     },
     {
       "id": "unibe-48d94d14f351",
-      "slug": "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe",
+      "slug": "posizione-phd-nccr-genesis-combinando-tecniche-di-rilevamento-della-vita-remote-e-in-situ-universitat-bern-bern",
       "slugByLocale": {
         "en": "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe",
-        "it": "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe",
-        "de": "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe",
-        "fr": "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        "it": "posizione-phd-nccr-genesis-combinando-tecniche-di-rilevamento-della-vita-remote-e-in-situ-universitat-bern-bern",
+        "de": "phd-position-nfs-genesis-kombination-von-remote-und-in-situ-lebenserkennungstechniken-universitat-bern-bern",
+        "fr": "poste-de-doctorat-nccr-genesis-combiner-des-techniques-de-detection-de-la-vie-a-distance-et-in-situ-universitat-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4079,7 +4128,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-07T15:24:46.705Z"
+      "firstSeenAt": "2026-09-07T15:24:46.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        ],
+        "de": [
+          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        ],
+        "fr": [
+          "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-nccr-genesis-combining-remote-and-in-situ-life-detection-techniques-unibe"
+      ]
     }
   ]
 }

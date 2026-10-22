@@ -805,7 +805,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -854,7 +854,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -864,7 +864,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+          "physiotherapeute-spitaler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -4817,12 +4817,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-eca5ccbd959d",
-      "slug": "pflegefachfrau-mann-hf-fh-endoskopie-spitaler-schaffhausen",
+      "slug": "infermiera-mann-hf-fh-endoscopia-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen",
-        "it": "pflegefachfrau-mann-hf-fh-endoskopie-spitaler-schaffhausen",
-        "en": "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen"
+        "it": "infermiera-mann-hf-fh-endoscopia-spitaler-schaffhausen-schaffhausen",
+        "en": "nurse-mann-hf-fh-endoscopy-spitaler-schaffhausen-schaffhausen",
+        "fr": "infirmiere-mann-hf-fh-endoscopie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4870,11 +4870,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen",
+          "pflegefachfrau-mann-hf-fh-endoskopie-spitaler-schaffhausen"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen"
+        "pflegefachfrau-mann-hf-fh-endoskopie-spitaeler-schaffhausen-schaffhausen",
+        "pflegefachfrau-mann-hf-fh-endoskopie-spitaler-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

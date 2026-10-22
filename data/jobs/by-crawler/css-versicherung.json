@@ -2995,12 +2995,12 @@
     },
     {
       "id": "css-versicherung-05495c01f576",
-      "slug": "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid",
+      "slug": "specialista-a-farmaceutica-farmaceutica-60-90-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "de": "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid",
-        "it": "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid",
-        "en": "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid",
-        "fr": "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+        "it": "specialista-a-farmaceutica-farmaceutica-60-90-css-versicherung-luzern-hybrid",
+        "en": "specialist-in-pharmaceuticals-medicines-60-90-css-versicherung-luzern-hybrid",
+        "fr": "specialiste-en-pharmacie-medicaments-60-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3059,16 +3059,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:36:34.094Z"
+      "firstSeenAt": "2026-10-22T09:36:34.094Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+        ],
+        "en": [
+          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-pharma-medikamente-60-90-css-versicherung-luzern-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-de2d8fdc49db",
-      "slug": "st-gallen-kauffrau-mann-cfc-august-2027-css-st-gallen",
+      "slug": "san-gallo-impiegato-a-di-commercio-afc-agosto-2027-css-st-gallen",
       "slugByLocale": {
         "de": "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen",
-        "it": "st-gallen-kauffrau-mann-cfc-august-2027-css-st-gallen",
-        "en": "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen",
-        "fr": "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen"
+        "it": "san-gallo-impiegato-a-di-commercio-afc-agosto-2027-css-st-gallen",
+        "en": "st-gallen-business-manager-efz-august-2027-css-st-gallen",
+        "fr": "employe-e-de-commerce-cfc-a-saint-gall-aout-2027-css-st-gallen"
       },
       "company": "CSS",
       "companyKey": "css-versicherung",
@@ -3116,11 +3130,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen",
+          "st-gallen-kauffrau-mann-cfc-august-2027-css-st-gallen"
+        ],
+        "en": [
+          "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen"
+        ],
+        "fr": [
           "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen"
         ]
       },
       "previousSlugs": [
-        "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen"
+        "st-gallen-kauffrau-mann-efz-august-2027-css-versicherung-st-gallen",
+        "st-gallen-kauffrau-mann-cfc-august-2027-css-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -3139,12 +3161,12 @@
     },
     {
       "id": "css-versicherung-36d2a547ef1b",
-      "slug": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
+      "slug": "dati-del-controller-finanziario-bi-m-f-80-90-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "de": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "it": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
+        "it": "dati-del-controller-finanziario-bi-m-f-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid",
-        "fr": "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid"
+        "fr": "donnees-de-controleur-financier-bi-h-f-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3203,7 +3225,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:36:32.945Z"
+      "firstSeenAt": "2026-10-22T09:36:32.945Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "financial-controller-data-amp-bi-w-m-80-90-css-versicherung-luzern-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-2620c4714900",

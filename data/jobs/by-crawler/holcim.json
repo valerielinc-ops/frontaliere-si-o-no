@@ -2593,12 +2593,12 @@
     },
     {
       "id": "holcim-6d51622225dc",
-      "slug": "group-investigation-manager-holcim-ch",
+      "slug": "gestione-delle-indagini-di-gruppo-holcim-group-zug",
       "slugByLocale": {
         "en": "group-investigation-manager-holcim-ch",
-        "it": "group-investigation-manager-holcim-ch",
-        "de": "group-investigation-manager-holcim-ch",
-        "fr": "group-investigation-manager-holcim-ch"
+        "it": "gestione-delle-indagini-di-gruppo-holcim-group-zug",
+        "de": "gruppenuntersuchungsleiter-holcim-group-zug",
+        "fr": "directeur-des-enquetes-de-groupe-holcim-group-zug"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -2656,7 +2656,21 @@
         }
       },
       "postalCode": "6300",
-      "firstSeenAt": "2026-10-22T09:36:42.496Z"
+      "firstSeenAt": "2026-10-22T09:36:42.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-investigation-manager-holcim-ch"
+        ],
+        "de": [
+          "group-investigation-manager-holcim-ch"
+        ],
+        "fr": [
+          "group-investigation-manager-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "group-investigation-manager-holcim-ch"
+      ]
     }
   ]
 }

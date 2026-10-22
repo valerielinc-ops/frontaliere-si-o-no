@@ -973,12 +973,12 @@
     },
     {
       "id": "strabag-3b9ba910b724",
-      "slug": "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten",
+      "slug": "responsabile-dei-lavori-per-la-costruzione-stradale-e-l-ingegneria-civile-strabag-ag-olten",
       "slugByLocale": {
         "de": "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
-        "it": "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten",
-        "en": "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
-        "fr": "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten"
+        "it": "responsabile-dei-lavori-per-la-costruzione-stradale-e-l-ingegneria-civile-strabag-ag-olten",
+        "en": "site-manager-road-construction-and-civil-engineering-strabag-ag-olten",
+        "fr": "conducteur-de-travaux-dans-la-construction-de-routes-et-le-genie-civil-strabag-ag-olten"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1027,11 +1027,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
+          "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten"
+        ],
+        "en": [
+          "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten"
+        ],
+        "fr": [
           "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten"
         ]
       },
       "previousSlugs": [
-        "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten"
+        "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
+        "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten"
       ],
       "salaryMin": 76500,
       "salaryMax": 97000,

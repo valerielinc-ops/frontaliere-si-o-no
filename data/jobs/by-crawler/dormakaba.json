@@ -89,7 +89,7 @@
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-dormakaba-ch",
         "it": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "en": "service-technician-m-f-d-dormakaba-st-gallen",
+        "en": "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "fr": "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
@@ -143,7 +143,7 @@
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "servicetechniker-in-w-m-d-dormakaba-ch",
-        "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+        "service-technician-m-f-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -153,7 +153,7 @@
         ],
         "en": [
           "service-technician-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+          "service-technician-m-f-d-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-des-services-in-f-m-d-dormakaba-st-gallen",
@@ -1009,12 +1009,12 @@
     },
     {
       "id": "dormakaba-12525",
-      "slug": "projektleiter-zutrittskontrollsysteme-m-w-d-80-100-dormakaba-rumlang",
+      "slug": "sistemi-di-controllo-dell-accesso-del-project-manager-m-f-d-80-100-dormakaba-rumlang",
       "slugByLocale": {
         "de": "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch",
-        "it": "projektleiter-zutrittskontrollsysteme-m-w-d-80-100-dormakaba-rumlang",
-        "en": "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch",
-        "fr": "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch"
+        "it": "sistemi-di-controllo-dell-accesso-del-project-manager-m-f-d-80-100-dormakaba-rumlang",
+        "en": "project-manager-access-control-systems-m-f-d-80-100-dormakaba-rumlang",
+        "fr": "systemes-de-controle-d-acces-du-gestionnaire-de-projet-h-f-d-80-100-dormakaba-rumlang"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1062,11 +1062,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch",
+          "projektleiter-zutrittskontrollsysteme-m-w-d-80-100-dormakaba-rumlang"
+        ],
+        "en": [
+          "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch"
+        ],
+        "fr": [
           "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch"
+        "projektleiter-zutrittskontrollsysteme-w-m-d-80-100-dormakaba-ch",
+        "projektleiter-zutrittskontrollsysteme-m-w-d-80-100-dormakaba-rumlang"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

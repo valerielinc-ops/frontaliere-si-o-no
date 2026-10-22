@@ -4831,9 +4831,9 @@
     },
     {
       "id": "upd-0154c61f0ee5",
-      "slug": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern",
+        "it": "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd",
         "en": "assistant-psychologist-assistant-psychologist-ii-outpatient-crisis-intervention-universitare-psychiatrische-dienste-bern",
         "de": "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
         "fr": "psychologue-adjoint-psychologue-adjoint-ii-intervention-de-crise-ambulatoire-universitare-psychiatrische-dienste-bern"
@@ -4882,12 +4882,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-        "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+        "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern",
-          "assistente-psicologo-assistente-psicologo-ii-intervento-di-crisi-estetica-universitare-psychiatrische-dienste-bern-upd"
+          "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "en": [
           "assistenzpsychologin-assistenzpsychologe-ii-ambulante-krisenintervention-upd-bern"
@@ -5658,12 +5658,12 @@
     },
     {
       "id": "upd-cea54cd2e7d9",
-      "slug": "mitarbeiterin-collaboratore-trice-abwaschkuche-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "slug": "stanza-per-i-piatti-dei-dipendenti-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen",
-        "it": "mitarbeiterin-collaboratore-trice-abwaschkuche-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen",
-        "fr": "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen"
+        "it": "stanza-per-i-piatti-dei-dipendenti-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "employee-employee-washing-room-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "salle-de-lavage-des-employes-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -5712,11 +5712,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen",
+          "mitarbeiterin-collaboratore-trice-abwaschkuche-universitare-psychiatrische-dienste-bern-upd-munsingen"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen"
+        "mitarbeiterin-mitarbeiter-abwaschkuche-upd-munsingen",
+        "mitarbeiterin-collaboratore-trice-abwaschkuche-universitare-psychiatrische-dienste-bern-upd-munsingen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -6378,12 +6386,12 @@
     },
     {
       "id": "upd-eab55dfb97c5",
-      "slug": "mitarbeiterin-collaboratore-trice-empfang-universitare-psychiatrische-dienste-bern-upd-munsingen",
+      "slug": "personale-di-accoglienza-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-empfang-upd-munsingen",
-        "it": "mitarbeiterin-collaboratore-trice-empfang-universitare-psychiatrische-dienste-bern-upd-munsingen",
-        "en": "mitarbeiterin-mitarbeiter-empfang-upd-munsingen",
-        "fr": "mitarbeiterin-mitarbeiter-empfang-upd-munsingen"
+        "it": "personale-di-accoglienza-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "employee-employee-reception-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "reception-des-employes-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -6432,11 +6440,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-empfang-upd-munsingen",
+          "mitarbeiterin-collaboratore-trice-empfang-universitare-psychiatrische-dienste-bern-upd-munsingen"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-empfang-upd-munsingen"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-empfang-upd-munsingen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-empfang-upd-munsingen"
+        "mitarbeiterin-mitarbeiter-empfang-upd-munsingen",
+        "mitarbeiterin-collaboratore-trice-empfang-universitare-psychiatrische-dienste-bern-upd-munsingen"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -6455,12 +6471,12 @@
     },
     {
       "id": "upd-9da0f089f895",
-      "slug": "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen",
+      "slug": "operatore-sanitario-afc-operatore-sanitario-afc-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen",
-        "it": "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen",
-        "en": "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen",
-        "fr": "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen"
+        "it": "operatore-sanitario-afc-operatore-sanitario-afc-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "health-professional-efz-health-professional-efz-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "professionnels-de-la-sante-efz-professionnels-de-la-sante-efz-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -6519,16 +6535,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:29:03.530Z"
+      "firstSeenAt": "2026-10-22T09:29:03.530Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen"
+        ],
+        "en": [
+          "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen"
+        ],
+        "fr": [
+          "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-gesundheit-efz-fachmann-gesundheit-efz-upd-munsingen"
+      ]
     },
     {
       "id": "upd-08c4865963b8",
-      "slug": "fachverantwortung-pflege-icm-a-upd-munsingen",
+      "slug": "responsabilita-professionale-carriera-icm-a-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "fachverantwortung-pflege-icm-a-upd-munsingen",
-        "it": "fachverantwortung-pflege-icm-a-upd-munsingen",
-        "en": "fachverantwortung-pflege-icm-a-upd-munsingen",
-        "fr": "fachverantwortung-pflege-icm-a-upd-munsingen"
+        "it": "responsabilita-professionale-carriera-icm-a-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "professional-responsibility-career-icm-a-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "responsabilite-professionnelle-carriere-icm-a-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -6587,7 +6617,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:29:03.528Z"
+      "firstSeenAt": "2026-10-22T09:29:03.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortung-pflege-icm-a-upd-munsingen"
+        ],
+        "en": [
+          "fachverantwortung-pflege-icm-a-upd-munsingen"
+        ],
+        "fr": [
+          "fachverantwortung-pflege-icm-a-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortung-pflege-icm-a-upd-munsingen"
+      ]
     },
     {
       "id": "upd-ecf8bcc3e314",
@@ -6754,12 +6798,12 @@
     },
     {
       "id": "upd-0c3314286bad",
-      "slug": "fachperson-gesundheit-icm-upd-munsingen",
+      "slug": "icm-sanitario-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "fachperson-gesundheit-icm-upd-munsingen",
-        "it": "fachperson-gesundheit-icm-upd-munsingen",
-        "en": "fachperson-gesundheit-icm-upd-munsingen",
-        "fr": "fachperson-gesundheit-icm-upd-munsingen"
+        "it": "icm-sanitario-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "health-professional-icm-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "professionnels-de-la-sante-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -6818,7 +6862,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:29:03.524Z"
+      "firstSeenAt": "2026-10-22T09:29:03.524Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-icm-upd-munsingen"
+        ],
+        "en": [
+          "fachperson-gesundheit-icm-upd-munsingen"
+        ],
+        "fr": [
+          "fachperson-gesundheit-icm-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-icm-upd-munsingen"
+      ]
     },
     {
       "id": "upd-7f8a8174977b",
@@ -6903,12 +6961,12 @@
     },
     {
       "id": "upd-e3c10d719dc2",
-      "slug": "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen",
+      "slug": "infermiere-certificata-infermiere-certificato-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen",
-        "it": "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen",
-        "en": "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen",
-        "fr": "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen"
+        "it": "infermiere-certificata-infermiere-certificato-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "certified-nurse-certified-nurse-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "infirmiere-agreee-infirmiere-agreee-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -6967,16 +7025,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:29:03.520Z"
+      "firstSeenAt": "2026-10-22T09:29:03.520Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen"
+        ],
+        "en": [
+          "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen"
+        ],
+        "fr": [
+          "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachfrau-diplomierter-pflegefachmann-upd-munsingen"
+      ]
     },
     {
       "id": "upd-9c0616da1638",
-      "slug": "teamleitung-hotellerie-service-upd-munsingen",
+      "slug": "team-management-servizio-alberghiero-universitare-psychiatrische-dienste-bern-upd-munsingen",
       "slugByLocale": {
         "de": "teamleitung-hotellerie-service-upd-munsingen",
-        "it": "teamleitung-hotellerie-service-upd-munsingen",
-        "en": "teamleitung-hotellerie-service-upd-munsingen",
-        "fr": "teamleitung-hotellerie-service-upd-munsingen"
+        "it": "team-management-servizio-alberghiero-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "en": "team-management-hotel-service-universitare-psychiatrische-dienste-bern-upd-munsingen",
+        "fr": "service-hotelier-de-gestion-d-equipe-universitare-psychiatrische-dienste-bern-upd-munsingen"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -7035,7 +7107,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:29:03.519Z"
+      "firstSeenAt": "2026-10-22T09:29:03.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-hotellerie-service-upd-munsingen"
+        ],
+        "en": [
+          "teamleitung-hotellerie-service-upd-munsingen"
+        ],
+        "fr": [
+          "teamleitung-hotellerie-service-upd-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-hotellerie-service-upd-munsingen"
+      ]
     },
     {
       "id": "upd-1925e375f43a",
@@ -8563,12 +8649,12 @@
     },
     {
       "id": "upd-51d6e65c98ed",
-      "slug": "study-nurse-bern-mental-health-biobank-upd-bern",
+      "slug": "studio-infermiera-bern-mental-health-biobank-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "study-nurse-bern-mental-health-biobank-upd-bern",
-        "it": "study-nurse-bern-mental-health-biobank-upd-bern",
+        "it": "studio-infermiera-bern-mental-health-biobank-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "study-nurse-bern-mental-health-biobank-upd-bern",
-        "fr": "study-nurse-bern-mental-health-biobank-upd-bern"
+        "fr": "infirmiere-d-etudes-bern-mental-health-biobank-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8628,7 +8714,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:29:03.476Z"
+      "firstSeenAt": "2026-10-22T09:29:03.476Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-bern-mental-health-biobank-upd-bern"
+        ],
+        "fr": [
+          "study-nurse-bern-mental-health-biobank-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-bern-mental-health-biobank-upd-bern"
+      ]
     },
     {
       "id": "upd-bb27e65b3d77",

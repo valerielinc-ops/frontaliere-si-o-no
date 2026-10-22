@@ -1697,12 +1697,12 @@
     },
     {
       "id": "gzo-wetzikon-f9a66d4daeef",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch",
+      "slug": "assistente-di-studio-medico-afc-60-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch"
+        "it": "assistente-di-studio-medico-afc-60-gzo-spital-wetzikon-wetzikon",
+        "en": "medical-practice-assistant-medical-practice-assistant-efz-60-gzo-spital-wetzikon-wetzikon",
+        "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-efz-60-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1763,7 +1763,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-22T09:38:07.522Z"
+      "firstSeenAt": "2026-10-22T09:38:07.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-efz-60-gzo-wetzikon-ch"
+      ]
     },
     {
       "id": "gzo-wetzikon-196e83dc38a8",

@@ -3029,12 +3029,12 @@
     },
     {
       "id": "etat-de-vaud-6059",
-      "slug": "teleconseiller-ere-etat-de-vaud-lausanne",
+      "slug": "teleconsulente-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "teleconseiller-ere-etat-de-vaud-lausanne",
-        "it": "teleconseiller-ere-etat-de-vaud-lausanne",
-        "en": "teleconseiller-ere-etat-de-vaud-lausanne",
-        "de": "teleconseiller-ere-etat-de-vaud-lausanne"
+        "it": "teleconsulente-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "teleadviser-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "teleadvisor-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3093,16 +3093,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.035Z"
+      "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teleconseiller-ere-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "teleconseiller-ere-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "teleconseiller-ere-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "teleconseiller-ere-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6055",
-      "slug": "responsable-du-domaine-exploitation-etat-de-vaud-morges",
+      "slug": "capo-delle-operazioni-etat-de-vaud-administration-cantonale-vaudoise-morges",
       "slugByLocale": {
         "fr": "responsable-du-domaine-exploitation-etat-de-vaud-morges",
-        "it": "responsable-du-domaine-exploitation-etat-de-vaud-morges",
-        "en": "responsable-du-domaine-exploitation-etat-de-vaud-morges",
-        "de": "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+        "it": "capo-delle-operazioni-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "en": "head-of-operations-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "de": "operationsleiter-etat-de-vaud-administration-cantonale-vaudoise-morges"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3161,16 +3175,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:32:52.468Z"
+      "firstSeenAt": "2026-10-22T09:32:52.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+        ],
+        "en": [
+          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+        ],
+        "de": [
+          "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-domaine-exploitation-etat-de-vaud-morges"
+      ]
     },
     {
       "id": "etat-de-vaud-6054",
-      "slug": "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains",
+      "slug": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
       "slugByLocale": {
         "fr": "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains",
-        "it": "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains",
-        "en": "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains",
-        "de": "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+        "it": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "en": "staff-counsellor-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "de": "personalberater-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3229,16 +3257,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:32:52.032Z"
+      "firstSeenAt": "2026-10-22T09:32:52.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+        ],
+        "en": [
+          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+        ],
+        "de": [
+          "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-personnel-etat-de-vaud-yverdon-les-bains"
+      ]
     },
     {
       "id": "etat-de-vaud-6051",
-      "slug": "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne",
+      "slug": "responsabile-del-progetto-responsabile-della-sezione-lavori-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne",
-        "it": "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne",
-        "en": "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne",
-        "de": "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+        "it": "responsabile-del-progetto-responsabile-della-sezione-lavori-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "project-manager-responsible-for-the-works-section-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "projektleiter-verantwortlich-fur-die-sektion-arbeiten-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3297,16 +3339,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:32:51.588Z"
+      "firstSeenAt": "2026-10-22T09:32:51.588Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-chef-fe-de-projet-responsable-de-la-section-travaux-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-6047",
-      "slug": "secretaire-de-direction-etat-de-vaud-lausanne",
+      "slug": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "it": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "en": "secretaire-de-direction-etat-de-vaud-lausanne",
-        "de": "secretaire-de-direction-etat-de-vaud-lausanne"
+        "it": "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "executive-secretary-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "exekutivsekretar-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3365,7 +3421,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:24.618Z"
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "secretaire-de-direction-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-direction-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5891",

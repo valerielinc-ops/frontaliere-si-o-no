@@ -1883,10 +1883,10 @@
     },
     {
       "id": "livit-625d667c793e",
-      "slug": "teamleiter-in-project-quality-management-livit-zurich",
+      "slug": "capo-squadra-gestione-del-progetto-e-della-qualita-livit-ag-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-project-quality-management-livit-zurich",
-        "it": "teamleiter-in-project-quality-management-livit-zurich",
+        "it": "capo-squadra-gestione-del-progetto-e-della-qualita-livit-ag-zurich",
         "en": "teamleiter-in-project-quality-management-livit-zurich",
         "fr": "teamleiter-in-project-quality-management-livit-zurich"
       },
@@ -1948,16 +1948,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:49:46.434Z"
+      "firstSeenAt": "2026-10-22T09:49:46.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-project-quality-management-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-project-quality-management-livit-zurich"
+      ]
     },
     {
       "id": "livit-ebe00e48d39d",
-      "slug": "information-security-risk-officer-livit-zurich",
+      "slug": "informazioni-sicurezza-risk-officer-livit-ag-zurich",
       "slugByLocale": {
         "de": "information-security-risk-officer-livit-zurich",
-        "it": "information-security-risk-officer-livit-zurich",
+        "it": "informazioni-sicurezza-risk-officer-livit-ag-zurich",
         "en": "information-security-risk-officer-livit-zurich",
-        "fr": "information-security-risk-officer-livit-zurich"
+        "fr": "agent-charge-de-la-securite-de-l-information-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2016,7 +2024,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:49:46.421Z"
+      "firstSeenAt": "2026-10-22T09:49:46.421Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "information-security-risk-officer-livit-zurich"
+        ],
+        "fr": [
+          "information-security-risk-officer-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "information-security-risk-officer-livit-zurich"
+      ]
     },
     {
       "id": "livit-b1952afc5a3e",
@@ -2339,7 +2358,7 @@
       "id": "livit-b723627ea4d6",
       "slug": "apprendistato-commerciale-mpc-3-1-inizio-agosto-2027-livit-ag-geneve-9ca1fa4964",
       "slugByLocale": {
-        "it": "apprendistato-commerciale-mpc-3-1-inizio-agosto-2027-livit-ag-geneve-9ca1fa4964",
+        "it": "apprendistato-commerciale-mpc-3-1-inizio-agosto-2027-livit-ag-geneve",
         "en": "commercially-mature-trainee-mpc-3-1-early-august-2027-livit-ag-geneve",
         "de": "kommerziell-reifer-trainee-mpc-3-1-anfang-august-2027-livit-ag-geneve",
         "fr": "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve"
@@ -2388,13 +2407,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve",
-        "apprendistato-commerciale-mpc-3-1-inizio-agosto-2027-livit-ag-geneve"
+        "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve",
-          "apprendistato-commerciale-mpc-3-1-inizio-agosto-2027-livit-ag-geneve"
+          "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve"
         ],
         "en": [
           "stagiaire-en-maturite-commerciale-mpc-3-1-debut-aout-2027-livit-geneve"
