@@ -258,10 +258,12 @@ export function listDispatchRuns(
     : optionsOrEvent && typeof optionsOrEvent === 'object'
       ? optionsOrEvent
       : {};
-  const event = optionsOrEvent && typeof optionsOrEvent === 'object'
-    ? optionsOrEvent.event ?? 'workflow_dispatch'
-    : optionsOrEvent === null
-      ? null
+  const event = optionsOrEvent === null
+    ? null
+    : optionsOrEvent && typeof optionsOrEvent === 'object'
+      ? Object.prototype.hasOwnProperty.call(optionsOrEvent, 'event')
+        ? optionsOrEvent.event
+        : 'workflow_dispatch'
       : typeof optionsOrEvent === 'function'
         ? 'workflow_dispatch'
         : optionsOrEvent ?? 'workflow_dispatch';
