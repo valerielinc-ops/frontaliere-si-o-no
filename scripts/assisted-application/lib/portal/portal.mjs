@@ -1276,10 +1276,6 @@ function uploadTriggerKey(button, index = 0) {
 }
 
 export function uploadButtonFor(snapshot, kind) {
-  const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
-  const contextPattern = successFactorsDocumentPattern(kind);
-  const named = pattern ? findButton(snapshot?.buttons || [], pattern) : null;
-  if (named && contextPattern && buttonMatchesDocumentContext(named, contextPattern)) return named;
   const candidates = uploadButtonCandidatesFor(snapshot, kind);
   // Keep the original fail-closed helper for callers that need one proven
   // trigger. The section opener uses the full list to try each explicit
