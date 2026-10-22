@@ -1301,6 +1301,16 @@ async function fileInputHandles(frame) {
   }
 }
 
+async function dialogFileInputHandles(frame) {
+  try {
+    const input = frame.locator(DIALOG_FILE_INPUT_SELECTOR);
+    if (typeof input.elementHandles !== 'function') return null;
+    return await input.elementHandles();
+  } catch {
+    return null;
+  }
+}
+
 async function waitForInputDetached(input, timeoutMs = 60_000) {
   try {
     if (typeof input?.waitFor === 'function') {
@@ -1327,13 +1337,34 @@ async function sameElement(left, right) {
   }
 }
 
+async function inputBelongsToTrigger(input, context) {
+  if (!context || typeof input?.evaluate !== 'function') return false;
+  try {
+    return await input.evaluate((element, owner) => Boolean(
+      element?.isConnected
+      && owner?.isConnected
+      && owner.contains(element),
+    ), context);
+  } catch {
+    return false;
+  } finally {
+    if (typeof context.dispose === 'function') await context.dispose().catch(() => {});
+  }
+}
+
 /** Finds one newly mounted file input in the frame of the clicked upload control. */
-async function newlyMountedFileInput(page, preferredFrame, beforeHandles, timeoutMs = 8_000) {
-  if (!Array.isArray(beforeHandles)) return null;
+async function newlyMountedFileInput(page, preferredFrame, beforeHandles, triggerContext, timeoutMs = 8_000) {
+  if (!Array.isArray(beforeHandles)) {
+    if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
+    return null;
+  }
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     const afterHandles = await fileInputHandles(preferredFrame);
-    if (!Array.isArray(afterHandles)) return null;
+    if (!Array.isArray(afterHandles)) {
+      if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
+      return null;
+    }
     const added = [];
     for (const after of afterHandles) {
       let known = false;
@@ -1347,37 +1378,106 @@ async function newlyMountedFileInput(page, preferredFrame, beforeHandles, timeou
       }
       if (!known) added.push(after);
     }
-    if (added.length === 1) return added[0];
-    if (added.length > 1) return null;
+    if (added.length === 1) {
+      return await inputBelongsToTrigger(added[0], triggerContext) ? added[0] : null;
+    }
+    if (added.length > 1) {
+      if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
+      return null;
+    }
     await page.waitForTimeout(150);
   }
+  if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
   return null;
 }
 
 /** Finds one newly opened, visible upload dialog across the page's current frames. */
-async function dialogFileInput(page, preferredFrame, beforeCounts, timeoutMs = 8_000) {
+async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
+  const frames = orderedUploadFrames(page, preferredFrame);
+  const hasCountSurface = frames.some((frame) => {
+    try {
+      return typeof frame.locator(DIALOG_FILE_INPUT_SELECTOR).count === 'function';
+    } catch {
+      return false;
+    }
+  });
+  if (!hasCountSurface) {
+    try {
+      const legacyLocator = page.locator(DIALOG_FILE_INPUT_SELECTOR);
+      if (typeof legacyLocator.count !== 'function' && typeof legacyLocator.first === 'function') {
+        return legacyLocator.first() || null;
+      }
+    } catch {
+      // No legacy locator is available.
+    }
+    return null;
+  }
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     const candidates = [];
     let ambiguous = false;
-    let supportedFrames = 0;
-    for (const frame of orderedUploadFrames(page, preferredFrame)) {
+    for (const frame of frames) {
       const count = await dialogFileInputCount(frame);
-      if (count === null) continue;
-      supportedFrames += 1;
-      const previousCount = beforeCounts.get(frame) || 0;
+      if (count === null || !beforeCounts.has(frame)) {
+        ambiguous = true;
+        continue;
+      }
+      const beforeHandles = beforeHandlesByFrame.get(frame);
+      if (!Array.isArray(beforeHandles)) {
+        ambiguous = true;
+        continue;
+      }
+      const previousCount = beforeCounts.get(frame);
+      if (!Number.isInteger(previousCount)) {
+        ambiguous = true;
+        continue;
+      }
       const added = count - previousCount;
       if (added > 1) ambiguous = true;
-      else if (added === 1) candidates.push(frame.locator(DIALOG_FILE_INPUT_SELECTOR).nth(previousCount));
-    }
-    // Playwright frames expose locator.count(). The fallback exists only for
-    // lightweight legacy mocks that expose the prior page.locator() surface.
-    if (supportedFrames === 0) {
-      const legacyInput = page.locator(DIALOG_FILE_INPUT_SELECTOR).first();
-      return legacyInput || null;
+      else if (added === 1) {
+        const afterHandles = await dialogFileInputHandles(frame);
+        if (!Array.isArray(afterHandles)) {
+          ambiguous = true;
+          continue;
+        }
+        const addedHandles = [];
+        for (const after of afterHandles) {
+          let known = false;
+          for (const before of beforeHandles) {
+            const equal = await sameElement(after, before);
+            if (equal === null) {
+              ambiguous = true;
+              break;
+            }
+            if (equal) {
+              known = true;
+              break;
+            }
+          }
+          if (ambiguous) break;
+          if (!known) addedHandles.push(after);
+        }
+        if (ambiguous) continue;
+        if (addedHandles.length !== 1) {
+          ambiguous = true;
+          continue;
+        }
+        candidates.push(addedHandles[0]);
+      }
     }
     if (!ambiguous && candidates.length === 1) return candidates[0];
     await page.waitForTimeout(150);
+  }
+  // Playwright frames expose locator.count(). This fallback exists only for
+  // lightweight legacy mocks that expose the prior page.locator() surface;
+  // a real unbaselined or unreadable frame remains fail-closed above.
+  try {
+    const legacyLocator = page.locator(DIALOG_FILE_INPUT_SELECTOR);
+    if (typeof legacyLocator.count !== 'function' && typeof legacyLocator.first === 'function') {
+      return legacyLocator.first() || null;
+    }
+  } catch {
+    // No legacy locator is available.
   }
   return null;
 }
@@ -1401,17 +1501,39 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   const framesBeforeClick = page.frames();
   const preferredFrame = framesBeforeClick[triggerFrame] || page.mainFrame();
   const beforeCounts = new Map();
+  const beforeDialogHandlesByFrame = new Map();
   for (const frame of framesBeforeClick) {
     const count = await dialogFileInputCount(frame);
-    if (count !== null) beforeCounts.set(frame, count);
+    beforeCounts.set(frame, count);
+    beforeDialogHandlesByFrame.set(frame, await dialogFileInputHandles(frame));
   }
   const beforeFileInputHandles = await fileInputHandles(preferredFrame);
+  const triggerLocator = trigger.snapshot
+    ? preferredFrame.locator(`[data-aa-id="${trigger.snapshot.id}"]`).first()
+    : trigger;
+  const triggerContext = typeof triggerLocator?.evaluateHandle === 'function'
+    ? await triggerLocator.evaluateHandle((element) => element?.closest(
+      'form, [role="dialog"], [aria-modal="true"], dialog, fieldset, [data-upload-container]',
+    )).catch(() => null)
+    : null;
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
   const preexistingDialog = [...beforeCounts.values()].some((count) => count > 0);
+  let legacyDialogSurface = false;
+  try {
+    const legacyLocator = page.locator(DIALOG_FILE_INPUT_SELECTOR);
+    legacyDialogSurface = typeof legacyLocator.count !== 'function' && typeof legacyLocator.first === 'function';
+  } catch {
+    legacyDialogSurface = false;
+  }
+  const unknownDialogBaseline = [...beforeCounts.values()].some((count) => count === null);
   if (trace) trace.preexistingDialog = preexistingDialog;
   if (preexistingDialog) {
     if (trace) trace.failure = 'preexisting_dialog';
+    return finish('unavailable');
+  }
+  if (unknownDialogBaseline && !legacyDialogSurface) {
+    if (trace) trace.failure = 'ambiguous_dialog_baseline';
     return finish('unavailable');
   }
   const chooserPromise = fileChooserAfterClick(page);
@@ -1426,9 +1548,9 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     if (trace) trace.click = 'failed';
   }
   const chooserTarget = chooserPromise.then((chooser) => chooser ? { chooser } : null);
-  const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts)
+  const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts, beforeDialogHandlesByFrame)
     .then((input) => input ? { input } : null, () => null);
-  const mountedInputTarget = newlyMountedFileInput(page, preferredFrame, beforeFileInputHandles)
+  const mountedInputTarget = newlyMountedFileInput(page, preferredFrame, beforeFileInputHandles, triggerContext)
     .then((input) => input ? { input } : null, () => null);
   const firstTarget = await Promise.race([
     chooserTarget.then((target) => ({ source: 'chooser', target })),

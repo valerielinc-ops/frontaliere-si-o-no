@@ -335,10 +335,18 @@ describe('legacy portal sections', () => {
       text: '',
     };
     let mounted = false;
-    const trigger = { click: vi.fn(async () => { mounted = true; }), isVisible: vi.fn(async () => true) };
+    const uploadContext = { isConnected: true, contains: (element: { identity?: string }) => element?.identity === 'new-cv-input' };
+    const trigger = {
+      click: vi.fn(async () => { mounted = true; }),
+      isVisible: vi.fn(async () => true),
+      evaluateHandle: vi.fn(async () => uploadContext),
+    };
     const handle = (identity: string) => ({
       identity,
-      evaluate: vi.fn(async (_read: unknown, other: { identity?: string }) => other?.identity === identity),
+      isConnected: true,
+      evaluate: vi.fn(async (_read: unknown, other: { identity?: string; contains?: (element: { identity?: string }) => boolean }) => (
+        other?.identity === identity || Boolean(other?.contains?.({ identity }))
+      )),
     });
     const existingCv = handle('existing-cv');
     const existingLetter = handle('existing-letter');
