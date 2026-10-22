@@ -143,17 +143,41 @@ export function parseLiteralRedirectMap(source) {
   let literalCount = 0;
   let dynamicCount = 0;
   const unsupported = [];
-  for (const match of String(source ?? '').matchAll(/^[ \t]*(?:'(\/[^'\n]*)'|"(\/[^"\n]*)")\s*:\s*(.*)$/gm)) {
+  const text = String(source ?? '');
+  const keyPattern = /^[ \t]*(?:'(\/[^'\n]*)'|"(\/[^"\n]*)")\s*:\s*/gm;
+  const literalTailIsTerminated = (offset) => {
+    let i = offset;
+    while (i < text.length && /[ \t\r\n]/u.test(text[i])) i += 1;
+    if (text[i] === ',' || text[i] === '}' || i >= text.length) return true;
+    if (text.startsWith('//', i)) return true;
+    if (text.startsWith('/*', i)) {
+      const commentEnd = text.indexOf('*/', i + 2);
+      if (commentEnd < 0) return false;
+      i = commentEnd + 2;
+      while (i < text.length && /[ \t\r\n]/u.test(text[i])) i += 1;
+      return text[i] === ',' || text[i] === '}' || i >= text.length;
+    }
+    return false;
+  };
+  for (const match of text.matchAll(keyPattern)) {
     const fromRaw = match[1] ?? match[2];
-    const rawValue = match[3].trim();
-    const literal = /^(?:'(\/[^'\n]*)'|"(\/[^"\n]*)")\s*(?:,\s*)?(?:\/\/.*|\/\*.*\*\/\s*)?$/.exec(rawValue);
-    const toRaw = literal?.[1] ?? literal?.[2];
+    const valueOffset = match.index + match[0].length;
+    const valueSource = text.slice(valueOffset);
+    const singleLiteral = /^'(\/[^'\n]*)'/.exec(valueSource);
+    const doubleLiteral = /^"(\/[^"\n]*)"/.exec(valueSource);
+    const literal = singleLiteral || doubleLiteral;
+    const toRaw = literal?.[1];
     if (toRaw !== undefined) {
-      const from = fromRaw.endsWith('/') ? fromRaw : `${fromRaw}/`;
-      const to = toRaw.endsWith('/') ? toRaw : `${toRaw}/`;
-      entries[from] = to;
-      literalCount += 1;
-    } else if (rawValue.startsWith('`')) {
+      const literalEnd = valueOffset + literal[0].length;
+      if (literalTailIsTerminated(literalEnd)) {
+        const from = fromRaw.endsWith('/') ? fromRaw : `${fromRaw}/`;
+        const to = toRaw.endsWith('/') ? toRaw : `${toRaw}/`;
+        entries[from] = to;
+        literalCount += 1;
+        continue;
+      }
+      unsupported.push(fromRaw);
+    } else if (valueSource.trimStart().startsWith('`')) {
       dynamicCount += 1;
     } else {
       unsupported.push(fromRaw);
