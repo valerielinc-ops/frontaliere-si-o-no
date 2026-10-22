@@ -2729,17 +2729,27 @@ export async function submitViaPortal(ctx) {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
       const recorded = [...given.values()];
       const recordedKeys = new Set(recorded.map(answerKey));
+      const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
       const visibleAnswers = (current?.fields || [])
         .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
-        .map((field) => ({
-          question: String(field.label || field.name || field.id || '').slice(0, 200),
-          answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
-          context: String(field.context || '').slice(0, 240),
-          section: String(field.section || '').slice(0, 240),
-          autocomplete: String(field.autocomplete || '').slice(0, 100),
-          source: 'answers',
-        }))
-        .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
+        .map((field) => {
+          const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
+          // A portal may prefill a default country or phone code before the
+          // planner sees the form. Keep an explicit candidate fact above that
+          // default; phone-code defaults are never candidate answers.
+          const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
+          if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          return {
+            question: String(field.label || field.name || field.id || '').slice(0, 200),
+            answer,
+            context: String(field.context || '').slice(0, 240),
+            section: String(field.section || '').slice(0, 240),
+            autocomplete: String(field.autocomplete || '').slice(0, 100),
+            source: 'answers',
+          };
+        })
+        .filter((item) => item && item.question && item.answer && !recordedKeys.has(answerKey(item)));
       const currentAnswers = [...visibleAnswers, ...recorded];
       const currentKeys = new Set(currentAnswers.map(answerKey));
       const previous = (candidate?.portalQuestionsAnswered || [])
