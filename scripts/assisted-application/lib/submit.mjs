@@ -32,7 +32,7 @@ import { factCheckAcknowledged } from '../../../functions/src/assistedApplicatio
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { autoAnswersForPortalQuestions, candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, portalQuestionKey, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
@@ -60,6 +60,30 @@ export function openRequiredQuestions(draft, answers = {}, { deferPortal = false
   return questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers).filter((question) => question.required
     && !(deferPortal && question.source === 'portal')
     && !String(candidateAnswers?.[question.id] ?? '').trim());
+}
+
+/** Project answers already recorded by the portal onto the current draft ids. */
+function portalAnswersForFlow(questions, answers, recordedAnswers) {
+  const result = { ...(answers && typeof answers === 'object' ? answers : {}) };
+  const records = Array.isArray(recordedAnswers) ? recordedAnswers : [];
+  for (const question of Array.isArray(questions) ? questions : []) {
+    if (!question?.id || String(result[question.id] ?? '').trim()) continue;
+    const key = portalQuestionKey(question);
+    if (!key) continue;
+    const values = new Map();
+    for (const item of records) {
+      if (!item || typeof item !== 'object' || !String(item.answer || '').trim()) continue;
+      const itemKey = String(item.semanticKey || '').trim() || portalQuestionKey(item);
+      if (itemKey !== key) continue;
+      const answer = String(item.answer).trim();
+      const normalized = answer.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      values.set(normalized, answer);
+    }
+    // A conflicting historical answer is not safe to infer: the candidate
+    // review must remain the source of truth in that case.
+    if (values.size === 1) result[question.id] = values.values().next().value;
+  }
+  return result;
 }
 
 /**
@@ -194,8 +218,10 @@ export async function submitApplication(ctx) {
     personal: initialEdited.personal,
   });
   const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
-  const submitFlow = Object.keys(autoAnswers).length
-    ? { ...(flow || {}), answers: { ...(flow?.answers || {}), ...autoAnswers } }
+  const rememberedAnswers = portalAnswersForFlow(portalQuestions, initialEdited.answers, initialCandidate.portalQuestionsAnswered);
+  const mergedAnswers = { ...(flow?.answers || {}), ...rememberedAnswers, ...autoAnswers };
+  const submitFlow = Object.keys(mergedAnswers).length
+    ? { ...(flow || {}), answers: mergedAnswers }
     : (flow || {});
   const answers = submitFlow.answers || {};
   const edited = candidateWithEdits({ order, draft, flow: submitFlow });
@@ -241,6 +267,7 @@ export async function submitApplication(ctx) {
       ...(question.section ? { section: question.section } : {}),
       ...(question.autocomplete ? { autocomplete: question.autocomplete } : {}),
       ...(question.type ? { type: question.type } : {}),
+      ...(portalQuestionKey(question) ? { semanticKey: portalQuestionKey(question) } : {}),
       ...(Array.isArray(question.options) && question.options.length ? { options: question.options } : {}),
     }));
     const result = { type: 'submit_needs_candidate', questions: open.map(({ id }) => ({ id })), documents: missingDocuments };

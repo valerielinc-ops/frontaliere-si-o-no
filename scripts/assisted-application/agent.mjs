@@ -92,6 +92,11 @@ function questionDetailsForEvent(rawQuestions) {
     if (autocomplete) result.autocomplete = autocomplete.slice(0, 100);
     const type = String(question.type || '').trim();
     if (type) result.type = type.slice(0, 40);
+    // Keep the portal's topic key beside the bounded descriptor.  The label
+    // and options are intentionally shortened below, while this key is what
+    // lets the backend match a regenerated field to the answer ledger.
+    const semanticKey = portalQuestionKey(question);
+    if (semanticKey) result.semanticKey = semanticKey.slice(0, 500);
     if (Array.isArray(question.options) && question.options.length) {
       result.options = question.options.slice(0, 40).map((option) => {
         if (typeof option === 'string') return option.slice(0, 160);
@@ -104,6 +109,19 @@ function questionDetailsForEvent(rawQuestions) {
     }
     return result;
   }).filter(Boolean);
+}
+
+/** Add the same stable key to answers kept on the draft for later retries. */
+function portalAnswersForDraft(portalAnswers) {
+  if (!portalAnswers || !Array.isArray(portalAnswers.answers)) return portalAnswers;
+  return {
+    ...portalAnswers,
+    answers: portalAnswers.answers.map((item) => {
+      if (!item || typeof item !== 'object') return item;
+      const semanticKey = String(item.semanticKey || '').trim() || (String(item.question || '').trim() ? portalQuestionKey(item) : '');
+      return semanticKey ? { ...item, semanticKey: semanticKey.slice(0, 500) } : item;
+    }),
+  };
 }
 
 /**
@@ -283,7 +301,10 @@ async function main() {
     // What the portal received (career-ops application-answers), next to the
     // draft for the interview prep and Valerie's panel; never in the event or the log.
     if (event.portalAnswers) {
-      if (!dryRun && event.portalAnswers.answers.length) await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers: event.portalAnswers }, { merge: true });
+      const portalAnswers = portalAnswersForDraft(event.portalAnswers);
+      if (!dryRun && Array.isArray(portalAnswers?.answers) && portalAnswers.answers.length) {
+        await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers }, { merge: true });
+      }
       delete event.portalAnswers;
     }
     // Where the runner stopped (self-correction, level 3): stripped of every

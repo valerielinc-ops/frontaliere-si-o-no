@@ -325,8 +325,10 @@ describe('approval flow', () => {
     expect(negativeAnswer.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
 
     const repeated = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: 2 } }, event, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
-    expect(repeated.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit'], heldSince: T0 });
-    expect(repeated.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+    expect(repeated.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:portal_needs_candidate'], portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    expect(repeated.effects).toEqual([{
+      type: 'email', kind: 'owner_takeover', reason: 'portal:portal_needs_candidate', stage: 'submit', attempts: 2,
+    }]);
   });
 
   it('still asks the candidate when an existing answer is missing or a document is requested', () => {

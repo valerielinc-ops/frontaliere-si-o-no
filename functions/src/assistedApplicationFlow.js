@@ -336,10 +336,40 @@ function questionDescriptor(question) {
   return { ...question, id };
 }
 
+function normalizedQuestionPart(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+/** Read an answer the portal already recorded, including answers derived from the CV. */
+function portalAnswerForQuestion(question, draft) {
+  const records = Array.isArray(draft?.portalAnswers?.answers) ? draft.portalAnswers.answers : [];
+  if (!records.length) return undefined;
+  const semanticKey = String(question?.semanticKey || question?.portalKey || '').trim();
+  const label = normalizedQuestionPart(question?.question);
+  if (!semanticKey && !label) return undefined;
+  const context = normalizedQuestionPart(question?.context);
+  const section = normalizedQuestionPart(question?.section);
+  const autocomplete = normalizedQuestionPart(question?.autocomplete);
+  let fallback;
+  for (const record of records) {
+    if (!record || typeof record !== 'object' || !hasAnswer(record.answer)) continue;
+    const recordKey = String(record.semanticKey || record.portalKey || '').trim();
+    if (semanticKey && recordKey === semanticKey) return record.answer;
+    if (!label || normalizedQuestionPart(record.question) !== label) continue;
+    if (context && normalizedQuestionPart(record.context) !== context) continue;
+    if (section && normalizedQuestionPart(record.section) !== section) continue;
+    if (autocomplete && normalizedQuestionPart(record.autocomplete) !== autocomplete) continue;
+    fallback = record.answer;
+  }
+  return fallback;
+}
+
 function knownAnswerForQuestion(question, { draft, answers, questionAnswers }) {
   if (hasAnswer(answers?.[question.id])) return answers[question.id];
   const projected = candidateAnswersForQuestions(draft?.questions || [], answers, questionAnswers);
   if (hasAnswer(projected?.[question.id])) return projected[question.id];
+  const portalAnswer = portalAnswerForQuestion(question, draft);
+  if (hasAnswer(portalAnswer)) return portalAnswer;
   const key = candidateQuestionAnswerKey(question);
   if (!key) return undefined;
   const remembered = candidateAnswersForQuestions([question], {}, questionAnswers);
@@ -726,8 +756,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // candidate wait: schedule the same delayed recovery used for an
       // unsupported page and never send a request for information we already
       // have from the CV or the answer ledger.
-      if (rawDetails.length > 0
-        && answersAlreadyExist
+      if (answersAlreadyExist
         && eventDocuments.length === 0
         && candidateHolds(flags).length === 0
         && roundWasSent(flow, current.round)) {
