@@ -194,7 +194,7 @@ export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
       case 'n': return '\n';
       // A backslash followed by CRLF (or the escaped `\r` form) is a source
       // continuation, not content. `newlineAs` applies only to decoded `\n`.
-      case 'r': return '';
+      case 'r': return newlineAs === undefined ? '' : '\r';
       case '\n': return '';
       case '\r': return '';
       case '\u2028': return '';
@@ -520,6 +520,18 @@ export function readStaticObjectEntries(
       cursor += 1;
       canStartRegex = true;
       lastSignificant = 'division';
+      lastIdentifier = null;
+      blockBracePending = null;
+      statementStart = false;
+      labelCandidate = false;
+      declarationPrefix = false;
+      continue;
+    }
+
+    if (source.startsWith('...', cursor)) {
+      cursor += 3;
+      canStartRegex = true;
+      lastSignificant = 'spread';
       lastIdentifier = null;
       blockBracePending = null;
       statementStart = false;
