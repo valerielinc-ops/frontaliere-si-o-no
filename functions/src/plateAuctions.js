@@ -625,7 +625,7 @@ export async function getPublicPlateAuctionSourceSnapshot({ db = getAdminDb(), s
   const source = publicSource(sourceDocument) || { ...registrySource, rowCount: 0 };
   const now = new Date();
   const auctions = sourceDocument && source.status === 'active'
-    ? auctionRows.map(publicAuction).filter(Boolean).map((auction) => {
+    ? auctionRows.map((doc) => ({ id: doc.id, ...doc.data() })).map(publicAuction).filter(Boolean).map((auction) => {
       const closed = closeExpiredObservation(auction, now);
       return closed ? publicAuction(closed) : auction;
     }).filter(Boolean)
