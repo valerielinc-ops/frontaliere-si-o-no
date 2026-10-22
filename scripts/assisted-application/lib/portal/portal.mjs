@@ -1946,7 +1946,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
     if (!visible) {
       cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_visible' });
-      break;
+      continue;
     }
     const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
     cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
