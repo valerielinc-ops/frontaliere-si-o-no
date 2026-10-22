@@ -121,7 +121,7 @@ async function choiceRegistered(locator, kind, label) {
 async function choiceShownAfterRedraw(page, field, label) {
   // The redraw follows the choice by a moment (a request on Workday): three seconds for it.
   for (let waited = 0; waited <= 3000; waited += 500) {
-    if (tidy(await valueShownNow(page, field)) === tidy(label)) return true;
+    if (normalizedChoice(await valueShownNow(page, field)) === normalizedChoice(label)) return true;
     await page.waitForTimeout(500);
   }
   return false;

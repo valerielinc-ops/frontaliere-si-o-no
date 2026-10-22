@@ -1256,7 +1256,9 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     }
     if (ICON_ONLY_BUTTON_RE.test(text)) {
       const association = successFactorsButtonAssociation(button);
-      if (!UPLOAD_REMOVE_MARKER_RE.test(association)) iconCandidates.push(button);
+      if (!UPLOAD_REMOVE_MARKER_RE.test(association)
+        && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+        && successFactorsDocumentAssociationMatches(association, kind)) iconCandidates.push(button);
     }
   }
   // The private-use glyph is often the actual file trigger even when the
