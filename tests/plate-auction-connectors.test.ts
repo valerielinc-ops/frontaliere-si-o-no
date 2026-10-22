@@ -481,7 +481,7 @@ describe('expanded plate-auction connectors', () => {
     expect(calls).toEqual(BE_AUCTION_URLS);
     expect(row).toMatchObject({
       officialAuctionUrl: BE_AUCTION_URLS[0],
-      officialDetailUrl: `${new URL(BE_AUCTION_URLS[1]).origin}/de/auction/109715`,
+      officialDetailUrl: 'https://auktion-be.ch/de/auction/109715',
     });
   });
 

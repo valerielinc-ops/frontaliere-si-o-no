@@ -95,10 +95,10 @@ function makeCardConnector({ canton, plateCode, url, detailBaseUrl, fallbackUrls
           return parseCardSource(html, {
             canton,
             plateCode,
-            // Keep the source identity stable when the transport alias wins;
-            // detail links still follow the host that served the page.
+            // Keep both the source identity and public detail links on the
+            // canonical registry host when a transport alias wins.
             officialAuctionUrl: url,
-            detailBaseUrl: fetchUrl === url ? detailBaseUrl : new URL(fetchUrl).origin,
+            detailBaseUrl,
             fetchedAt,
           });
         } catch (error) {

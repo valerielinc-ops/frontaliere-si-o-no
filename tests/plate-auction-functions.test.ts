@@ -113,7 +113,7 @@ describe('Berne Cloud Function collector', () => {
     expect(result.summaries.be).toMatchObject({ status: 'active', rowCount: 1 });
     expect(firestore.writes.find((write) => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'be-109715')?.value).toMatchObject({
       officialAuctionUrl: BE_AUCTION_URLS[0],
-      officialDetailUrl: `${new URL(BE_AUCTION_URLS[1]).origin}/de/auction/109715`,
+      officialDetailUrl: 'https://auktion-be.ch/de/auction/109715',
     });
   });
 });

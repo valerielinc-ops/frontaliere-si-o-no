@@ -46,11 +46,9 @@ export async function fetchCardCantonAuctions(config, { now = new Date(), fetchP
           });
           return parseCardCantonAuctions(html, {
             ...config,
-            // Keep the public source identity on the registry URL while
-            // detail links follow the alias that actually answered.
-            detailBaseUrl: fetchUrl === config.officialAuctionUrl
-              ? config.detailBaseUrl
-              : new URL(fetchUrl).origin,
+            // Keep both the public source identity and detail links on the
+            // canonical registry host when a transport alias wins.
+            detailBaseUrl: config.detailBaseUrl,
             fetchedAt: now.toISOString(),
           });
         } catch (error) {
