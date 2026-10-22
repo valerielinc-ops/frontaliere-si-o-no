@@ -343,6 +343,15 @@ jobs:
         run: node scripts/generate-image-thumbnails.mjs
       - name: Cleanup stale news sitemap entries
         run: node scripts/cleanup-news-sitemap.mjs
+      - name: Generate shared related-search matching summary
+        env:
+          BUILD_PROFILE: '1'
+          SEQUENTIAL_PROFILE: '1'
+          RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+          RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
+          RELATED_SEARCH_CLUSTERS_SUMMARY_OUT: data/related-search-clusters-summary.json
+          NODE_OPTIONS: '--max-old-space-size=14336 --expose-gc'
+        run: ./node_modules/.bin/tsx scripts/generate-related-search-clusters-summary.ts
       - name: Pack prepared snapshot (generated data + thumbnails)
         run: |
           set -eo pipefail

@@ -867,7 +867,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleTitleCollisions: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
   it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
- // Headline NEVER truncated — see build-plugins/shared/titleSuffix.ts.
+ // NewsArticle headlines stay verbatim; WebPage/Event head titles are bounded
+ // at the emission point below without mutating their schema headline.
 
  /* ── 2. Parse blog slug map from slug-data ── */
  // {slugConst}: Record<ArticleId, { it, en, de, fr }> — flat lookup
@@ -1254,7 +1255,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
- // Headline VERBATIM — no truncation. Brand applied conditionally below.
+ // NewsArticle headline VERBATIM — no truncation. WebPage/Event titles are
+ // bounded below while their structured-data headline stays source-complete.
  // Same resolver the title-collision map is keyed by.
  const localizedTitle = articleTitleFor[articleLocale](en);
  // Repair descriptions the corpus generator already amputated mid-clause
@@ -1264,8 +1266,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // literal "… Dati aggiornati 2026 per". Those arrive UNDER the clamp budget,
  // so no downstream truncation ever inspects them: without this call they ship
  // to the SERP broken. No-ops on text that already reads as complete.
- // Applied at the single definition point so <meta name="description">,
- // og:description, the visible <p> lede and JSON-LD all stay identical. The
+ // Applied at the single source definition point before the head-specific
+ // budget pass, so every surface starts from the same repaired plain text. The
  // corpus still contains a small but live family of excerpts exported from
  // Markdown (`## In breve`, `*emphasis*`, and links). Descriptions are plain
  // text fields, so carrying that syntax into the lede makes it visible rather
@@ -1306,37 +1308,48 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  (localeForMeta ?? 'it') as 'it' | 'en' | 'de' | 'fr',
  { maxLength: shell.metaDescriptionMaxChars },
  );
- // Truncate to the active shell budget for Bing/Google snippet display.
- // truncateHeadline, NOT truncateCodeUnits: the raw code-unit slice cut mid
- // WORD and shipped snippets like "…impatto su perme…" (live offender
- // /articoli-frontaliere/calendario-festivi-ticino-2026/). truncateHeadline
- // cuts on a word boundary and peels the dangling clause tail, so the snippet
- // always ends on a content word — same helper every other template family
- // already reaches through clampMetaDescription.
- const metaDesc = truncateHeadline(metaDescRaw, shell.metaDescriptionMaxChars);
- // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
- // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
- // tanks CTR (see /calcola-stipendio/ regression doc). We only force a
- // truncation when there's a real disambiguator collision that MUST be
- // preserved to satisfy audit:title-uniqueness -- and even then, we drop the
- // brand first (it's "nice-to-have", not a ranking signal) before resorting
- // to mid-headline truncation.
+ // Validate the final head/OG value at the single emitter boundary. The shared
+ // clamp performs the word-aware truncation and locale-aware minimum enrichment
+ // (rather than allowing the separate head and JSON-LD source branches to
+ // drift); JSON-LD below intentionally keeps the full source description.
+ const metaDescription = clampMetaDescription(metaDescRaw, shell.metaDescriptionMaxChars, articleLocale);
+ // Keep Open Graph on the repaired source description. The CTR freshness
+ // marker belongs to the SERP meta description and must not rewrite the
+ // article's separate social-description contract.
+ const ogDescription = clampMetaDescription(localizedDesc, shell.metaDescriptionMaxChars, articleLocale);
+ // <title>: a dated article is a NewsArticle and keeps its source headline
+ // verbatim so <title>, H1 and NewsArticle.headline remain one identity. Bing's
+ // crawler has an explicit exemption for that exact invariant. Evergreen
+ // articles (WebPage) and Events have no such exemption: their emitted title
+ // must converge inside the shared cap, including after HTML escaping.
  const isEvent = en.sdType === 'Event';
+ const isNewsArticle = !isEvent && Boolean(en.datePub);
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
+ const escapedTitleLength = (value: string): number => esc(value).length;
  let htmlPageTitle: string;
- if (!isEvent) {
+ if (isNewsArticle) {
   // NewsArticle has a stricter invariant than the generic SERP title cap:
   // <title>, the visible H1 and NewsArticle.headline must remain the source
-  // headline byte-for-byte. The brand/disambiguator cap is Event-only.
+  // headline byte-for-byte. Do not cap this branch: changing only one of the
+  // three fields would invalidate the NewsArticle identity.
   htmlPageTitle = localizedTitle;
  } else if (!disamb) {
-  // No collision: trust buildTitleWithBrand to either keep brand or drop it.
-  // It never truncates -- long headlines emit verbatim and the audit baseline
-  // ratchets them down at source.
-  htmlPageTitle = buildTitleWithBrand(localizedTitle);
+  // No collision: keep the brand when it fits, then use the shared
+  // word-aware fallback for an overlong WebPage/Event headline. The helper's
+  // default deliberately returns long headlines verbatim, so the fallback is
+  // required here to satisfy this emitter's hard Bing title contract.
+  const brandedTitle = buildTitleWithBrand(
+   localizedTitle,
+   TITLE_BRAND_SUFFIX,
+   TITLE_MAX_CHARS,
+   escapedTitleLength,
+  );
+  htmlPageTitle = escapedTitleLength(brandedTitle) <= TITLE_MAX_CHARS
+   ? brandedTitle
+   : truncateHeadlineToMeasuredBudget(localizedTitle, TITLE_MAX_CHARS, escapedTitleLength);
  } else {
   // Disambiguator MUST survive (collision-resolution for title-uniqueness).
   // Try brand+disamb first; if it doesn't fit, drop brand and keep disamb;
@@ -1344,11 +1357,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   // only path where ellipsis truncation is acceptable because the alternative
   // is dropping the (#hash) and breaking the title-uniqueness audit).
   const withBrandAndDisamb = `${localizedTitle}${disamb}${TITLE_BRAND_SUFFIX}`;
-  if (esc(withBrandAndDisamb).length <= TITLE_MAX_CHARS) {
+  if (escapedTitleLength(withBrandAndDisamb) <= TITLE_MAX_CHARS) {
    htmlPageTitle = withBrandAndDisamb;
   } else {
    const headlinePlusDisamb = `${localizedTitle}${disamb}`;
-   if (esc(headlinePlusDisamb).length <= TITLE_MAX_CHARS) {
+   if (escapedTitleLength(headlinePlusDisamb) <= TITLE_MAX_CHARS) {
     htmlPageTitle = headlinePlusDisamb;
    } else {
     const truncated = truncateHeadlineToMeasuredBudget(
@@ -1755,12 +1768,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${FAVICON_LINKS}
  <title>${esc(htmlPageTitle)}</title>
- <meta name="description" content="${esc(clampMetaDescription(metaDesc, undefined, articleLocale))}">
+ <meta name="description" content="${esc(metaDescription)}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:title" content="${esc(socialTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleLocale))}">
+ <meta property="og:description" content="${esc(ogDescription)}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">

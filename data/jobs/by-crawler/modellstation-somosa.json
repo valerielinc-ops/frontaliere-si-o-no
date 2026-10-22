@@ -157,12 +157,12 @@
     },
     {
       "id": "modellstation-somosa-d93e007bb54a",
-      "slug": "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur",
+      "slug": "specialist-media-workshop-80-modellstation-somosa-winterthur",
       "slugByLocale": {
         "de": "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur",
-        "it": "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur",
+        "it": "specialist-media-workshop-80-modellstation-somosa-winterthur",
         "en": "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur",
-        "fr": "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+        "fr": "atelier-sur-les-medias-specialises-80-modellstation-somosa-winterthur"
       },
       "company": "Modellstation SOMOSA",
       "companyKey": "modellstation-somosa",
@@ -220,7 +220,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:18:30.991Z"
+      "firstSeenAt": "2026-10-22T09:18:30.991Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+        ],
+        "fr": [
+          "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-medienwerkstatt-80-modellstation-somosa-winterthur"
+      ]
     }
   ]
 }

@@ -3001,12 +3001,12 @@
     },
     {
       "id": "audemars-piguet-9782aacc3147",
-      "slug": "controleur-qualite-audemars-piguet-le-locle-ne-switzerland",
+      "slug": "controllo-qualita-audemars-piguet-le-locle-ne-switzerland",
       "slugByLocale": {
         "fr": "controleur-qualite-audemars-piguet-le-locle-ne-switzerland",
-        "it": "controleur-qualite-audemars-piguet-le-locle-ne-switzerland",
-        "en": "controleur-qualite-audemars-piguet-le-locle-ne-switzerland",
-        "de": "controleur-qualite-audemars-piguet-le-locle-ne-switzerland"
+        "it": "controllo-qualita-audemars-piguet-le-locle-ne-switzerland",
+        "en": "quality-controller-audemars-piguet-le-locle-ne-switzerland",
+        "de": "qualitatskontrolleur-audemars-piguet-le-locle-ne-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -3065,16 +3065,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:33:15.807Z"
+      "firstSeenAt": "2026-10-22T09:33:15.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-qualite-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "en": [
+          "controleur-qualite-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "de": [
+          "controleur-qualite-audemars-piguet-le-locle-ne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-qualite-audemars-piguet-le-locle-ne-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-bcd1588ae83e",
-      "slug": "product-manager-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "responsabile-del-prodotto-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "product-manager-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "product-manager-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "responsabile-del-prodotto-audemars-piguet-le-brassus-vd-switzerland",
         "en": "product-manager-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "product-manager-audemars-piguet-le-brassus-vd-switzerland"
+        "de": "produktmanager-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -3134,16 +3148,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:33:15.804Z"
+      "firstSeenAt": "2026-10-22T09:33:15.804Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "product-manager-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-62e7a52bdaa9",
-      "slug": "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus",
+      "slug": "imparare-impiegato-d-affari-cfc-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus",
-        "en": "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        "it": "imparare-impiegato-d-affari-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "en": "learning-business-employee-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "de": "lernen-business-employee-cfc-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -3191,11 +3216,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland",
+          "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus"
+        ],
+        "en": [
+          "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
           "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
       "previousSlugs": [
-        "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "apprentissage-employe-de-commerce-cfc-audemars-piguet-le-brassus"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -3214,12 +3247,12 @@
     },
     {
       "id": "audemars-piguet-f912bef75016",
-      "slug": "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus",
+      "slug": "imparare-media-cfc-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus",
-        "en": "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        "it": "imparare-media-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "en": "learning-media-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "de": "lernen-medien-cfc-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -3267,11 +3300,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland",
+          "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus"
+        ],
+        "en": [
+          "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
           "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
       "previousSlugs": [
-        "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland"
+        "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus-vd-switzerland",
+        "apprentissage-mediamaticien-cfc-audemars-piguet-le-brassus"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3378,7 +3419,7 @@
       "slug": "retail-food-designer-audemars-piguet-le-brassus",
       "slugByLocale": {
         "it": "retail-food-designer-audemars-piguet-le-brassus",
-        "en": "retail-designer-audemars-piguet-le-brassus",
+        "en": "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "de": "einzelhandelsdesigner-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -3426,14 +3467,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "retail-designer-audemars-piguet-le-brassus-vd-switzerland",
-        "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+        "retail-designer-audemars-piguet-le-brassus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "en": [
-          "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"
+          "retail-designer-audemars-piguet-le-brassus"
         ]
       },
       "firstSeenAt": "2026-09-11T13:45:00.551Z",

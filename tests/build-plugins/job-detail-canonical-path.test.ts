@@ -81,6 +81,18 @@ describe('canonical job detail paths', () => {
     )).toBe('/de/jobs-im-thurgau/verwandte-stelle-turgovia/');
   });
 
+  it('collapses repeated internal slashes in the linked slug', () => {
+    const path = buildCanonicalJobDetailPath(
+      'it',
+      { canton: 'ZH', location: 'Zürich' },
+      'foo//bar',
+      'ZH',
+    );
+
+    expect(path).toBe('/cerca-lavoro-zurigo/foo/bar/');
+    expect(path).not.toContain('/foo//bar/');
+  });
+
   it('keeps the active emitter on the same canonical-path function', () => {
     const source = readFileSync(
       join(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),

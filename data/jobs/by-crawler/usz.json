@@ -13083,7 +13083,7 @@
       "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
         "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
@@ -13130,7 +13130,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13138,7 +13138,7 @@
         ],
         "en": [
           "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-          "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich"
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -16779,12 +16779,12 @@
     },
     {
       "id": "usz-9a6f91576f60",
-      "slug": "pflegefachperson-per-la-wochenbettabteilung-60-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-a-per-il-reparto-di-puerperio-60-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch",
-        "it": "pflegefachperson-per-la-wochenbettabteilung-60-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch",
-        "fr": "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch"
+        "it": "infermiere-a-per-il-reparto-di-puerperio-60-100-universitatsspital-zurich-usz-zurich",
+        "en": "care-specialist-for-the-postpartum-department-60-100-universitatsspital-zurich-usz-zurich",
+        "fr": "specialiste-des-soins-pour-le-departement-post-partum-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16831,11 +16831,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch",
+          "pflegefachperson-per-la-wochenbettabteilung-60-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch"
+        "pflegefachperson-fur-die-wochenbettabteilung-60-100-usz-ch",
+        "pflegefachperson-per-la-wochenbettabteilung-60-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16854,12 +16862,12 @@
     },
     {
       "id": "usz-ac64aed0ef8d",
-      "slug": "laborant-in-con-biologischer-ausrichtung-o-wissenschaftliche-r-assistent-in-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "tecnico-a-di-laboratorio-con-indirizzo-biologico-o-assistente-scientifico-a-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz",
-        "it": "laborant-in-con-biologischer-ausrichtung-o-wissenschaftliche-r-assistent-in-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz",
-        "fr": "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz"
+        "it": "tecnico-a-di-laboratorio-con-indirizzo-biologico-o-assistente-scientifico-a-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "laboratory-technician-with-a-focus-on-biology-or-research-assistant-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "laborantin-e-a-orientation-biologique-ou-assistant-e-scientifique-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16906,11 +16914,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz",
+          "laborant-in-con-biologischer-ausrichtung-o-wissenschaftliche-r-assistent-in-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz"
+        ],
+        "fr": [
           "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz"
         ]
       },
       "previousSlugs": [
-        "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz"
+        "laborant-in-mit-biologischer-ausrichtung-oder-wissenschaftliche-r-assistent-in-80-100-usz",
+        "laborant-in-con-biologischer-ausrichtung-o-wissenschaftliche-r-assistent-in-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

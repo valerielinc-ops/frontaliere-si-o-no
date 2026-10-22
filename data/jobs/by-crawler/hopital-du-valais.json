@@ -5333,12 +5333,12 @@
     },
     {
       "id": "hopital-du-valais-4a49e271ccc4",
-      "slug": "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et",
+      "slug": "infermiera-responsabile-del-servizio-per-il-settore-della-psichiatria-e-del-bambino-e-della-psichiatria-adolescente",
       "slugByLocale": {
         "fr": "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et",
-        "it": "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et",
-        "en": "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et",
-        "de": "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et"
+        "it": "infermiera-responsabile-del-servizio-per-il-settore-della-psichiatria-e-del-bambino-e-della-psichiatria-adolescente",
+        "en": "nurse-head-of-service-for-the-adult-outpatient-psychiatry-and-child-and-adolescent-psychiatry-sector-hopital-du-valais",
+        "de": "krankenschwester-serviceleiterin-fur-die-ambulante-erwachsenenpsychiatrie-sowie-den-bereich-kinder-und-jugendpsychiatrie"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5398,16 +5398,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-22T09:17:17.078Z"
+      "firstSeenAt": "2026-10-22T09:17:17.078Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et"
+        ],
+        "en": [
+          "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et"
+        ],
+        "de": [
+          "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-chef-fe-de-service-pour-le-secteur-de-la-psychiatrie-ambulatoire-adulte-et"
+      ]
     },
     {
       "id": "hopital-du-valais-60c4971ccbe3",
-      "slug": "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du",
+      "slug": "40-infermiera-per-il-centro-di-trattamento-del-dolore-ctd-a-martigny-hopital-du-valais-martigny",
       "slugByLocale": {
         "fr": "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du",
-        "it": "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du",
-        "en": "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du",
-        "de": "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du"
+        "it": "40-infermiera-per-il-centro-di-trattamento-del-dolore-ctd-a-martigny-hopital-du-valais-martigny",
+        "en": "40-nurse-for-the-pain-treatment-centre-ctd-in-martigny-hopital-du-valais-martigny",
+        "de": "40-krankenschwester-fur-das-schmerzbehandlungszentrum-ctd-in-martigny-hopital-du-valais-martigny"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5467,7 +5481,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-22T09:17:16.740Z"
+      "firstSeenAt": "2026-10-22T09:17:16.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du"
+        ],
+        "en": [
+          "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du"
+        ],
+        "de": [
+          "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-40-pour-le-centre-de-traitement-de-la-douleur-ctd-a-martigny-hopital-du"
+      ]
     },
     {
       "id": "hopital-du-valais-29be21b994eb",
