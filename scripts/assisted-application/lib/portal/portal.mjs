@@ -1469,18 +1469,18 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
     for (const frame of frames) {
       let previousCount;
       let beforeHandles;
-      if (beforeCounts.has(frame) && Array.isArray(beforeHandlesByFrame.get(frame))) {
-        previousCount = beforeCounts.get(frame);
-        beforeHandles = beforeHandlesByFrame.get(frame);
-      } else {
+      if (!beforeCounts.has(frame)) {
         ambiguous = true;
         continue;
       }
+      previousCount = beforeCounts.get(frame);
+      beforeHandles = beforeHandlesByFrame.get(frame);
+      // A frame that was present in the pre-click snapshot can be temporarily
+      // unreadable while the portal navigates it. Ignore that frame for this
+      // pass; a frame that was not in the snapshot remains ambiguous above.
+      if (!Number.isInteger(previousCount) || !Array.isArray(beforeHandles)) continue;
       const count = await dialogFileInputCount(frame);
-      if (count === null || !Number.isInteger(previousCount)) {
-        ambiguous = true;
-        continue;
-      }
+      if (count === null) continue;
       const added = count - previousCount;
       if (added > 1) ambiguous = true;
       else if (added === 1) {
@@ -1578,14 +1578,9 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   } catch {
     legacyDialogSurface = false;
   }
-  const unknownDialogBaseline = [...beforeCounts.values()].some((count) => count === null);
   if (trace) trace.preexistingDialog = preexistingDialog;
   if (preexistingDialog) {
     if (trace) trace.failure = 'preexisting_dialog';
-    return finish('unavailable');
-  }
-  if (unknownDialogBaseline && !legacyDialogSurface) {
-    if (trace) trace.failure = 'ambiguous_dialog_baseline';
     return finish('unavailable');
   }
   const chooserPromise = fileChooserAfterClick(page);
