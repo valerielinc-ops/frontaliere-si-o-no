@@ -27,7 +27,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
-import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from './plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
@@ -95,10 +95,10 @@ function makeCardConnector({ canton, plateCode, url, detailBaseUrl, fallbackUrls
           return parseCardSource(html, {
             canton,
             plateCode,
-            // Keep the source identity stable when the transport alias wins;
-            // detail links still follow the host that served the page.
+            // Keep both the source identity and public detail links on the
+            // canonical registry host when a transport alias wins.
             officialAuctionUrl: url,
-            detailBaseUrl: fetchUrl === url ? detailBaseUrl : new URL(fetchUrl).origin,
+            detailBaseUrl,
             fetchedAt,
           });
         } catch (error) {
@@ -336,21 +336,13 @@ const CONNECTORS = {
       });
     },
   },
-  tg: {
+  tg: makeCardConnector({
     canton: 'Turgovia',
     plateCode: 'TG',
-    url: 'https://auktion.tg.ch/de/',
-    parserVersion: '1.1.0',
-    parse(html, fetchedAt) {
-      return parseCardSource(html, {
-        canton: 'Turgovia',
-        plateCode: 'TG',
-        officialAuctionUrl: 'https://auktion.tg.ch/de/',
-        detailBaseUrl: 'https://auktion.tg.ch',
-        fetchedAt,
-      });
-    },
-  },
+    url: TG_AUCTION_URLS[0],
+    fallbackUrls: TG_AUCTION_URLS.slice(1),
+    detailBaseUrl: 'https://auktion.tg.ch',
+  }),
 };
 
 const ECARI_TABS = [

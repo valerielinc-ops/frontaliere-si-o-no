@@ -1182,6 +1182,7 @@ const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?fil
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
 const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
+const SUCCESS_FACTORS_DOWNLOAD_MARKER_RE = /(?:download|scarica(?:re)?|télécharger|herunterladen|descargar)/i;
 const UPLOAD_REMOVE_MARKER_RE = /(?:remove|delete|clear|detach|trash|cancel|rimuov|elimin|cancell|l[oö]schen|entfern|supprim|annul|smazz)/i;
 
 const successFactorsButtonAssociation = (button) => [
@@ -1207,6 +1208,26 @@ const successFactorsDocumentAssociationMatches = (association, kind) => {
   const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
     : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
   return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
+};
+
+// Some SuccessFactors pages place the icon next to an unrelated required
+// question, so the extractor's nearest-text context can belong to that field
+// rather than to the upload card. A document-specific DOM identity is safe to
+// use as a fallback only when the identity itself says both which document and
+// which upload action it controls; generic ids such as `action` remain
+// ambiguous and stay fail-closed.
+const successFactorsStrongDocumentUploadIdentity = (button, kind) => {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  const identity = [button?.domId, button?.name, button?.dataAutomationId]
+    .filter(Boolean).join(' ');
+  const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
+  return Boolean(documentPattern
+    && identity
+    && documentPattern.test(identity)
+    && !SUCCESS_FACTORS_DOWNLOAD_MARKER_RE.test(identity)
+    && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(identity)
+    && !(otherPattern && otherPattern.test(identity)));
 };
 
 const buttonHasExplicitDocumentContext = (button) => [
@@ -1363,7 +1384,8 @@ function successFactorsIconButtonFor(snapshot, kind) {
     // evidence than an id such as "resume-upload". Do not let a stale or
     // generic id bind an icon from another document section.
     const explicitContext = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
-    if (explicitContext && !documentPattern.test(explicitContext)) return false;
+    if (explicitContext && !documentPattern.test(explicitContext)
+      && !successFactorsStrongDocumentUploadIdentity(button, kind)) return false;
     const association = successFactorsButtonAssociation(button);
     return !UPLOAD_REMOVE_MARKER_RE.test(association)
       && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
@@ -2824,17 +2846,27 @@ export async function submitViaPortal(ctx) {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
       const recorded = [...given.values()];
       const recordedKeys = new Set(recorded.map(answerKey));
+      const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
       const visibleAnswers = (current?.fields || [])
         .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
-        .map((field) => ({
-          question: String(field.label || field.name || field.id || '').slice(0, 200),
-          answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
-          context: String(field.context || '').slice(0, 240),
-          section: String(field.section || '').slice(0, 240),
-          autocomplete: String(field.autocomplete || '').slice(0, 100),
-          source: 'answers',
-        }))
-        .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
+        .map((field) => {
+          const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
+          // A portal may prefill a default country or phone code before the
+          // planner sees the form. Keep an explicit candidate fact above that
+          // default; phone-code defaults are never candidate answers.
+          const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
+          if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          return {
+            question: String(field.label || field.name || field.id || '').slice(0, 200),
+            answer,
+            context: String(field.context || '').slice(0, 240),
+            section: String(field.section || '').slice(0, 240),
+            autocomplete: String(field.autocomplete || '').slice(0, 100),
+            source: 'answers',
+          };
+        })
+        .filter((item) => item && item.question && item.answer && !recordedKeys.has(answerKey(item)));
       const currentAnswers = [...visibleAnswers, ...recorded];
       const currentKeys = new Set(currentAnswers.map(answerKey));
       const previous = (candidate?.portalQuestionsAnswered || [])

@@ -147,6 +147,15 @@ const normalizedChoice = (value) => String(value || '')
   .trim()
   .toLowerCase();
 
+export function uniqueNormalizedOptionIndex(labels, selectedLabel) {
+  const wanted = normalizedChoice(selectedLabel);
+  const matches = labels.reduce((indices, label, index) => {
+    if (normalizedChoice(label) === wanted) indices.push(index);
+    return indices;
+  }, []);
+  return matches.length === 1 ? matches[0] : -1;
+}
+
 /**
  * A SuccessFactors combobox can paint the selected label before writing the
  * value that its form actually submits. If an associated hidden control exists,
@@ -367,10 +376,8 @@ async function fillCombobox(page, field, locator, value) {
         ? await fallbackOptions.allInnerTexts().catch(() => [])
         : [])
         .map((label) => String(label).replace(/\s+/g, ' ').trim());
-      const fallbackMatches = fallbackLabels
-        .map((label, index) => ({ label, index }))
-        .filter(({ label }) => normalizedChoice(label) === normalizedChoice(selectedLabel));
-      if (fallbackMatches.length !== 1) {
+      const fallbackIndex = uniqueNormalizedOptionIndex(fallbackLabels, selectedLabel);
+      if (fallbackIndex < 0) {
         await locator.press('Escape').catch(() => {});
         throw new Error('option_not_found');
       }

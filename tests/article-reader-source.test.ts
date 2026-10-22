@@ -132,6 +132,32 @@ describe('readStaticObjectEntries', () => {
     ]);
   });
 
+  it('ignores regex literals that contain article-looking properties', () => {
+    const source = [
+      "const pattern = /'blog\\.article\\.fake\\.literal':\\s*'fake'/u;",
+      "if (condition) /'blog\\.article\\.fake\\.body':\\s*'fake'/u;",
+      "const meta = { 'blog.article.real.title': 'actual' };",
+    ].join('\n');
+
+    expect(readStaticObjectEntries(source, 'fixture.ts').map(({ key, value }) => [key, value])).toEqual([
+      ['blog.article.real.title', 'actual'],
+    ]);
+  });
+
+  it('recognizes regex contexts after default, break, continue, and debugger', () => {
+    const source = [
+      "export default /'blog.article.fake.default': 'fake'/;",
+      "break\n/'blog.article.fake.break': 'fake',/u;",
+      "continue\n/'blog.article.fake.continue': 'fake',/u;",
+      "debugger\n/'blog.article.fake.debugger': 'fake',/u;",
+      "const meta = { 'blog.article.real.title': 'actual' };",
+    ].join('\n');
+
+    expect(readStaticObjectEntries(source, 'fixture.ts').map(({ key, value }) => [key, value])).toEqual([
+      ['blog.article.real.title', 'actual'],
+    ]);
+  });
+
   it('decodes a CRLF line continuation as no content', () => {
     expect(readStaticObjectEntries(
       "'blog.article.real.title': 'prima\\\r\nsecond' }",
