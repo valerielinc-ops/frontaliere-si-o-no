@@ -173,9 +173,6 @@ export function decideLatestPublish({
   if (!candidate) return skip('no-successful-build', 'no successful main build is available to publish');
 
   const candidateSha = text(candidate.headSha || candidate.head_sha);
-  if (durableReceipts?.pagesDeployed === true) {
-    return skip('already-live', `${candidateSha} has a durable Pages receipt for source run ${candidate.id}`);
-  }
   const publishedDeploymentSha = deploymentHeadSha(lastSuccessfulDeployment);
   const publishedSourceSha = successfulDeploymentSourceSha({
     deployment: lastSuccessfulDeployment,
@@ -183,8 +180,16 @@ export function decideLatestPublish({
   });
   const publishedArtifactSha = publishedSourceSha || publishedDeploymentSha;
   if (publishedArtifactSha.toLowerCase() === candidateSha.toLowerCase()) {
-    return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
+    const receiptDetail = durableReceipts?.pagesDeployed === true
+      ? ` and has a durable Pages receipt for source run ${candidate.id}`
+      : '';
+    return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision${receiptDetail}`);
   }
+
+  // A receipt belongs to one historical source run; it is not proof that the
+  // same source is still the current Pages deployment after a rollback. The
+  // live deployment identity must be resolved first. If it is unknown or
+  // points at another revision, keep the candidate publishable.
 
   // deploy-publish.yml deliberately keeps its long validate-dist and
   // post-deploy tails independent from the `pages-deploy` concurrency lock.

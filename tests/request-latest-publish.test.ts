@@ -118,9 +118,27 @@ describe('decideLatestPublish', () => {
         displayTitle: `Publish Pages build 2 @ ${SHA_LATEST}`,
       }],
       durableReceipts: { pagesDeployed: true },
-      lastSuccessfulDeployment: null,
+      lastSuccessfulDeployment: deployment(SHA_LATEST, '2026-10-20T12:05:00Z'),
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
     expect(pagesReceiptContext(2)).toBe('frontaliere/pages-deployed/2');
+  });
+
+  it('does not let a historical receipt hide a rollback of the live deployment', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [],
+      durableReceipts: { pagesDeployed: true },
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+  });
+
+  it('does not trust a receipt when the current Pages deployment is unknown', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [],
+      durableReceipts: { pagesDeployed: true },
+      lastSuccessfulDeployment: null,
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
   });
 
   it('counts a live attempt against the cap before admitting another retry', () => {

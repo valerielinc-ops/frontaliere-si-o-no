@@ -242,7 +242,7 @@ describe('locale publish admission plan', () => {
       recoveryRequired: true,
       legacySourceLocales: ['en', 'de', 'fr'],
     });
-    expect(plan.reason).toContain('dispatch a current build to replay the split handoff');
+    expect(plan.reason).toContain('enqueue one current build request to replay the split handoff');
   });
 
   it('blocks the snapshot when one matrix leg is cancelled', () => {
@@ -524,7 +524,12 @@ describe('locale publish workflow wiring', () => {
     expect(publish.jobs['resolve-publish-receipts']).toBeDefined();
     expect(publish.jobs['resolve-publish-receipts'].outputs.pages_deployed)
       .toContain('steps.receipts.outputs.pages_deployed');
-    expect(publish.jobs['recover-legacy-publish-contract']).toBeUndefined();
+    expect(publish.jobs['recover-legacy-publish-contract']).toBeDefined();
+    expect(publish.jobs['recover-legacy-publish-contract'].permissions)
+      .toMatchObject({ statuses: 'write' });
+    expect(publish.jobs['recover-legacy-publish-contract'].steps
+      .find((step: Record<string, any>) => step.name === 'Enqueue one current build for the legacy source contract')?.run)
+      .toContain('deploy-rearm-request.mjs');
     expect(publish).not.toContain('gh workflow run deploy.yml');
     expect((publish.jobs['resolve-nonit-publish'].steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Checkout current publish resolver')?.with?.ref)
@@ -545,6 +550,16 @@ describe('locale publish workflow wiring', () => {
     const recheck = (deployJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Enforce IT provenance identity');
     expect(String(recheck?.run)).toContain('--validate-dir');
+  });
+
+  it('rehydrates the Pages artifact even when the Pages side effect is already receipted', () => {
+    const deploySteps = publish.jobs.deploy.steps as Array<Record<string, any>>;
+    const download = deploySteps.find((step) => step.name === 'Download github-pages artifact from the build run');
+    const upload = deploySteps.find((step) => step.name === 'Re-upload github-pages artifact into this run');
+    const pagesSideEffect = deploySteps.find((step) => step.name === 'Deploy to GitHub Pages');
+    expect(String(download?.if || '')).not.toContain('pages_deployed');
+    expect(String(upload?.if || '')).not.toContain('pages_deployed');
+    expect(String(pagesSideEffect?.if || '')).toContain("steps.pages-receipt.outputs.pages_deployed != 'true'");
   });
 
   it('records the deferred tail budget outcome in the final receipt', () => {

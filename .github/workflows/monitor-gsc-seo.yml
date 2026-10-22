@@ -13,6 +13,8 @@ concurrency:
 permissions:
   contents: read
   issues: write
+  actions: read
+  statuses: write
 
 jobs:
   monitor:

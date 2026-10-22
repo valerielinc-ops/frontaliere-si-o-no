@@ -266,6 +266,43 @@ jobs:
             --source-sha "$SOURCE_SHA" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
+  # A source run created before the build→publish split can leave non-IT
+  # receipts in the old full-publish shape. Keep that payload fail-closed and
+  # enqueue one current-HEAD build request. This job deliberately does not
+  # dispatch deploy.yml: the self-driven deploy schedule is the sole consumer
+  # of the durable request, so an old source run can never publish shards or
+  # Pages as a side effect.
+  recover-legacy-publish-contract:
+    name: Recover legacy publish contract through deploy queue
+    needs: resolve-publish-plan
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.recovery_required == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      statuses: write
+    steps:
+      - name: Checkout current deploy queue helper
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /scripts/ci/deploy-rearm-request.mjs
+          sparse-checkout-cone-mode: false
+      - name: Enqueue one current build for the legacy source contract
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/deploy-rearm-request.mjs \
+            --reason legacy-publish-contract \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA"
+
   # Commit statuses are the durable idempotency ledger. The source artifacts
   # remain the payload, while these receipts answer the question artifacts
   # cannot: did this exact source run already push this locale, or complete
@@ -1761,7 +1798,6 @@ jobs:
       # the build's artifact and re-upload it here under the same name. This is a
       # download+upload of one tarball, not a rebuild.
       - name: Download github-pages artifact from the build run
-        if: steps.pages-receipt.outputs.pages_deployed != 'true'
         uses: actions/download-artifact@v8
         with:
           name: github-pages
@@ -1770,7 +1806,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Re-upload github-pages artifact into this run
-        if: steps.pages-receipt.outputs.pages_deployed != 'true'
         uses: actions/upload-artifact@v7
         with:
           name: github-pages

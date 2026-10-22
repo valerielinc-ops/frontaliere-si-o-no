@@ -95,6 +95,8 @@ jobs:
   # Schedule runs intentionally do not enter the expensive build graph. The
   # resolver counts queued/in-progress runs and successful builds for HEAD;
   # only when both are absent does it dispatch one workflow_dispatch on main.
+  # It also holds a translation `pending` tree and consumes the durable
+  # canonical-regression request; no external workflow dispatches this build.
   schedule-reconcile:
     name: Reconcile the current deploy tip
     if: github.event_name == 'schedule'
@@ -103,6 +105,7 @@ jobs:
     permissions:
       contents: read
       actions: write
+      statuses: read
     steps:
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash
@@ -123,10 +126,13 @@ jobs:
           ref: refs/heads/main
           sparse-checkout: |
             /scripts/ci/rearm-deploy-build.mjs
+            /scripts/ci/deploy-rearm-request.mjs
             /scripts/ci/lib/deploy-job-failure-signature.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/int-from-env.mjs
             /scripts/lib/is-invoked-directly.mjs
+            /scripts/ci/translation-deploy-handoff.mjs
+            /data/translation-deploy-handoff.json
           sparse-checkout-cone-mode: false
       - name: Dispatch only when the queue is idle
         env:
@@ -168,7 +174,11 @@ jobs:
         with:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
+            /scripts/ci/translation-deploy-handoff.mjs
+            /data/translation-deploy-handoff.json
           sparse-checkout-cone-mode: false
+      - name: Reject an incomplete translation tree
+        run: node scripts/ci/translation-deploy-handoff.mjs
       - name: Reject non-main or unverified source
         env:
           PROMOTION_EVENT: ${{ github.event_name }}
@@ -2685,7 +2695,9 @@ jobs:
   # RECURSION and STORM are closed in scripts/ci/rearm-deploy-build.mjs — the
   # cap is per-SHA (so each re-arm strictly consumes budget and the chain ends
   # after one retry) and the decision is taken for the current HEAD only, never
-  # once per superseded commit. See that file's header for the full argument.
+  # once per superseded commit. A canonical-regression status can override a
+  # green-build shortcut exactly once for that SHA; see the queue helper and
+  # that file's header for the full argument.
   # ───────────────────────────────────────────────────────────────────────
   rearm:
     needs: [validate-promotion-trigger, matrix-setup, prep, build-locale]
@@ -2702,6 +2714,7 @@ jobs:
     permissions:
       contents: read
       actions: write   # read this workflow's run list + POST /dispatches
+      statuses: read   # read the durable canonical-regression queue
     steps:
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash
@@ -2721,6 +2734,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          ref: refs/heads/main
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*

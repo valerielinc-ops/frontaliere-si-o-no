@@ -219,6 +219,21 @@ COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit 
 shift
 EXTRA_PATHS=("$@")
 
+# Translation writes carry their admission state in the same commit tree as
+# the data. The marker must be part of the staged path set before the private
+# isolated-index path is built; writing it after push would leave a race in
+# which deploy.yml could observe an intermediate SHA without the hold.
+TRANSLATION_DEPLOY_HANDOFF_PATH='data/translation-deploy-handoff.json'
+if [ -n "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" ]; then
+  case "$TRANSLATION_DEPLOY_HANDOFF_STATE" in
+    pending|complete) EXTRA_PATHS+=("$TRANSLATION_DEPLOY_HANDOFF_PATH") ;;
+    *)
+      echo "❌ TRANSLATION_DEPLOY_HANDOFF_STATE must be pending or complete" >&2
+      exit 1
+      ;;
+  esac
+fi
+
 # ── Append GitHub Actions run URL to commit message for traceability ─────────
 if [ -n "${GITHUB_RUN_ID:-}" ] && [ -n "${GITHUB_REPOSITORY:-}" ]; then
   RUN_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
@@ -1873,6 +1888,10 @@ fi
 # (Skipped in --slice-only mode: stats are generated during deploy assembly)
 if [ "$SLICE_ONLY" = false ] && [ -f "data/jobs.json" ]; then
   node scripts/generate-job-board-stats.mjs
+fi
+
+if [ -n "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" ]; then
+  node scripts/ci/translation-deploy-handoff.mjs --write "$TRANSLATION_DEPLOY_HANDOFF_STATE"
 fi
 
 # ── 1. Detect changes ──────────────────────────────────────────────────────

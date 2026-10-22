@@ -63,6 +63,8 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { execFileSync } from 'node:child_process';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { createdSinceQuery } from './lib/run-listing-window.mjs';
+import { readTranslationDeployHandoff } from './translation-deploy-handoff.mjs';
+import { readDeployRearmStatuses, resolveDeployRearmRequest } from './deploy-rearm-request.mjs';
 import {
   buildLocaleFromJobName,
   classifyBuildLocaleFailure,
@@ -200,6 +202,7 @@ export function decideBuildLocaleRecovery({
  * @param {string} [input.selfHeadSha]          SHA built by the caller; used to
  *        keep a green run of an older SHA from masking a newer main tip
  * @param {number} [input.maxBuildsPerSha]
+ * @param {{state?: string, reason?: string}} [input.redeployRequest]
  * @returns {{ action: 'dispatch'|'skip', reason: string, detail: string }}
  */
 export function decideRearm({
@@ -209,6 +212,7 @@ export function decideRearm({
   selfConclusion = '',
   selfHeadSha = '',
   maxBuildsPerSha = DEFAULT_MAX_BUILDS_PER_SHA,
+  redeployRequest = null,
 }) {
   if (!headSha) {
     // Fail closed: not knowing what HEAD is means not knowing what to build.
@@ -234,6 +238,18 @@ export function decideRearm({
   }
 
   const forHead = all.filter((r) => r.headSha === headSha);
+
+  // A canonical regression can require one fresh build even when HEAD already
+  // has a green build. The request is a status on this SHA and is considered
+  // fulfilled only by a run created after that status; therefore this branch
+  // cannot loop or rebuild for an old request.
+  if (redeployRequest?.state === 'pending') {
+    return {
+      action: 'dispatch',
+      reason: 'canonical-regression-redeploy',
+      detail: redeployRequest.reason || `durable redeploy request for ${headSha}`,
+    };
+  }
 
   // 2. HEAD already has a green build — the invariant holds, nothing to do.
   if (forHead.some((r) => r.conclusion === 'success')
@@ -289,7 +305,7 @@ function ghJson(args) {
   }
 }
 
-const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, headBranch: .head_branch, status, conclusion, event}]';
+const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, headBranch: .head_branch, status, conclusion, event, createdAt: .created_at}]';
 
 function mergeRuns(...collections) {
   const byId = new Map();
@@ -409,6 +425,12 @@ async function main() {
     return 0;
   }
 
+  const translationHandoff = readTranslationDeployHandoff();
+  if (!translationHandoff.admitted) {
+    console.log(`[rearm] skip: ${translationHandoff.reason}`);
+    return 0;
+  }
+
   const localeRecovery = process.env.REARM_SKIP_LOCALE_RECOVERY === '1'
     ? recoverySkip('recovery-disabled', 'locale recovery is disabled for the schedule-only resolver')
     : await inspectBuildLocaleRecovery({
@@ -493,6 +515,19 @@ async function main() {
     return 0;
   }
 
+  let redeployRequest;
+  try {
+    const statuses = readDeployRearmStatuses({ repo, headSha });
+    redeployRequest = resolveDeployRearmRequest({ statuses, runs, headSha });
+    if (redeployRequest.state === 'invalid') {
+      console.warn(`⚠️  could not resolve the durable redeploy request (${redeployRequest.reason}) — skipping re-arm`);
+      return 0;
+    }
+  } catch (err) {
+    console.warn(`⚠️  could not read the durable redeploy request (${err?.message?.split('\n')[0]}) — skipping re-arm`);
+    return 0;
+  }
+
   const verdict = decideRearm({
     headSha,
     runs,
@@ -500,6 +535,7 @@ async function main() {
     selfConclusion: process.env.REARM_SELF_CONCLUSION,
     selfHeadSha: process.env.GITHUB_SHA,
     maxBuildsPerSha,
+    redeployRequest,
   });
   console.log(`[rearm] head=${headSha} runs=${runs.length} → ${verdict.action} (${verdict.reason}): ${verdict.detail}`);
 

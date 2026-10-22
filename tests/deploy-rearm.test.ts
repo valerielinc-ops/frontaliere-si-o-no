@@ -285,6 +285,15 @@ describe('decideRearm — the pipeline is still MOVING (99 of the 100 measured r
     expect(v.reason).toBe('head-already-built');
   });
 
+  it('honours one durable canonical-regression request even after a green build', () => {
+    const v = decideRearm({
+      headSha: HEAD,
+      runs: [done(1, HEAD, 'success')],
+      redeployRequest: { state: 'pending', reason: 'canonical regression requests one bounded build' },
+    });
+    expect(v).toMatchObject({ action: 'dispatch', reason: 'canonical-regression-redeploy' });
+  });
+
   it('a green build on a DIFFERENT sha does not satisfy HEAD', () => {
     // The negative counterpart: "some build succeeded recently" is not the
     // invariant. It has to be a build of the commit that is live-facing now.
@@ -364,7 +373,7 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
   });
 
   it('has exactly the permissions the dispatch needs and nothing more', () => {
-    expect(doc.jobs.rearm.permissions).toEqual({ contents: 'read', actions: 'write' });
+    expect(doc.jobs.rearm.permissions).toEqual({ contents: 'read', actions: 'write', statuses: 'read' });
   });
 
   it('cannot fail the deploy: the re-arm step is continue-on-error', () => {

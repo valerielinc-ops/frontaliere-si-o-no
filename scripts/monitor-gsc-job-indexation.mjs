@@ -33,6 +33,7 @@ import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { enqueueDeployRearmRequest } from './ci/deploy-rearm-request.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -367,10 +368,19 @@ async function triggerRedeploy(failedPages) {
   );
   if (canonicalFails.length === 0) return;
 
-  // deploy.yml is self-driven now. The monitor reports the regression and
-  // sends the affected URLs to IndexNow; it must never create a second build
-  // queue or bypass the deploy workflow's per-SHA guard.
-  log('ℹ️', `Canonical regression on ${canonicalFails.length} page(s); deploy pipeline is self-driven, submitting to IndexNow`);
+  // deploy.yml is self-driven now. The monitor records one durable request on
+  // the current SHA; only deploy.yml's own schedule/finalizer consumes it.
+  log('ℹ️', `Canonical regression on ${canonicalFails.length} page(s); queueing one bounded self-driven re-arm and submitting to IndexNow`);
+  try {
+    const request = enqueueDeployRearmRequest({
+      reason: 'canonical-regression',
+      sourceRunId: process.env.GITHUB_RUN_ID,
+      sourceSha: process.env.GITHUB_SHA,
+    });
+    log('  ', request.enqueued ? `durable re-arm queued for ${request.headSha}` : `durable re-arm already ${request.state} for ${request.headSha}`);
+  } catch (error) {
+    log('⚠️', `durable re-arm request failed: ${error?.message || error}`);
+  }
   await submitToIndexNow(canonicalFails.map(p => p.url));
 }
 
