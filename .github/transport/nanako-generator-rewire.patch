@@ -820,17 +820,18 @@ index 7ccfe25..3c3b0ff 100644
      if (!existsSync(metaPath)) return [];
      return extractItTitlesFromMeta(readFileSync(metaPath, 'utf-8'));
 diff --git a/generator/scripts/lib/meta-field-regex.mjs b/generator/scripts/lib/meta-field-regex.mjs
-index d7de8b8..5c94ee0 100644
+index b0e31ee..0394c10 100644
 --- a/generator/scripts/lib/meta-field-regex.mjs
 +++ b/generator/scripts/lib/meta-field-regex.mjs
-@@ -1,5 +1,5 @@
+@@ -1,225 +1,159 @@
  /**
 - * Token-aware extraction of `blog.article.<id>.<field>` values from the
 + * Quote-safe extraction of `blog.article.<id>.<field>` values from the
   * `blog-meta-*.ts` tables.
   *
   * Extracted here because the naive `'[^']*'` shape had drifted into five
-@@ -8,181 +8,26 @@
+  * independent copies inside `create-article.mjs` alone (#4881), four of them
+  * truncating on the first apostrophe. Article titles routinely contain one
   * ("l'iniziativa", "dell'A9"), so those copies silently under-matched and
   * weakened duplicate detection across the whole corpus.
   *
@@ -841,12 +842,12 @@ index d7de8b8..5c94ee0 100644
 + * previously re-declared their own copy and so could have gone on passing
 + * while the script regressed.
   */
-
+ 
 -import { parseStaticArticleTranslationEntries } from '../../packages/articles/engine/shared/articleStaticSource.mjs';
 +import { readStaticObjectEntries } from '../../../engine/shared/ts-literals.mjs';
 +import { parseStaticArticleTranslationEntries } from '../../../engine/shared/articleStaticSource.mjs';
  import { unescapeTsString } from './unescape-ts-string.mjs';
-
+ 
 -const STATIC_QUOTES = new Set(["'", '"', '`']);
 -
 -function skipTrivia(source, start) {
@@ -916,9 +917,7 @@ index d7de8b8..5c94ee0 100644
 - * top-level object member boundary, and requires `,` or `}` after the value.
 - * Dynamic or malformed matching entries throw instead of returning a partial
 - * corpus to duplicate detection.
-+ * This API is additive. The RegExp-compatible exports below remain available
-+ * for consumers that edit source spans rather than read field values.
-  *
+- *
 - * @returns {Array<{id: string, value: string}>}
 - */
 -export function readMetaFieldEntries(source, field) {
@@ -1006,7 +1005,7 @@ index d7de8b8..5c94ee0 100644
 - * missing files decide which modules to omit before calling this function.
 - * A present malformed module rejects the whole operation.
 - *
-  * @param {{source: string, sourcePath: string}|Array<{source: string, sourcePath: string}>} modules
+- * @param {{source: string, sourcePath: string}|Array<{source: string, sourcePath: string}>} modules
 - * @param {string} field
 - * @returns {Array<{id: string, value: string}>}
 - */
@@ -1019,21 +1018,32 @@ index d7de8b8..5c94ee0 100644
 - * same canonical entry sequence. Callers that need title and excerpt together
 - * should use this operation-scoped map instead of reparsing the source once
 - * per field. No parsed AST or source text is retained by this module.
-- *
-- * @param {{source: string, sourcePath: string}|Array<{source: string, sourcePath: string}>} modules
++ * This API is additive. The RegExp-compatible exports below remain available
++ * for consumers that edit source spans rather than read field values.
+  *
+  * @param {{source: string, sourcePath: string}|Array<{source: string, sourcePath: string}>} modules
   * @param {string[]} fields
   * @returns {Record<string, Array<{id: string, value: string}>>}
   */
-@@ -199,7 +44,7 @@
+ export function readStaticMetaFields(modules, fields) {
+   if (!Array.isArray(fields) || fields.length === 0) {
+     throw new TypeError('[meta-fields] fields must be a non-empty array');
+   }
+   for (const field of fields) {
+     if (typeof field !== 'string' || !/^[A-Za-z][A-Za-z0-9]*$/u.test(field)) {
+       throw new TypeError('[meta-fields] each field must be a simple identifier');
+     }
+   }
+   if (new Set(fields).size !== fields.length) {
      throw new TypeError('[meta-fields] fields must not contain duplicates');
    }
-
+ 
 -  const fieldsSet = new Set(fields);
 +  const requestedFields = new Set(fields);
    const inputs = Array.isArray(modules) ? modules : [modules];
    const entriesByField = Object.fromEntries(fields.map((field) => [field, []]));
    for (const module of inputs) {
-@@ -207,14 +52,103 @@
+     if (!module || typeof module.source !== 'string' || typeof module.sourcePath !== 'string' || module.sourcePath.trim() === '') {
        throw new TypeError('[meta-fields] each module must include source text and a non-empty sourcePath');
      }
      for (const entry of parseStaticArticleTranslationEntries(module.source, module.sourcePath)) {
@@ -1045,7 +1055,7 @@ index d7de8b8..5c94ee0 100644
    }
    return entriesByField;
  }
-
+ 
 +/** @returns {Array<{id: string, value: string}>} */
 +export function readStaticMetaFieldEntries(modules, field) {
 +  return readStaticMetaFields(modules, [field])[field];
@@ -1060,8 +1070,7 @@ index d7de8b8..5c94ee0 100644
 +  return match;
 +}
 +
- /**
-- * Unescapes a TS single-quoted string body captured by the metadata reader.
++/**
 + * Token-aware replacement for the old raw RegExp API.
 + *
 + * Callers historically use both `source.matchAll(metaFieldRegex(field))` and
@@ -1134,11 +1143,17 @@ index d7de8b8..5c94ee0 100644
 +  return matcher;
 +}
 +
-+/**
+ /**
+- * Unescapes a TS single-quoted string body captured by the metadata reader.
 + * Unescapes a TS single-quoted string body captured by `metaFieldRegex`.
-  * Only quotes and a literal backslash are decoded here — title/excerpt
-  * fields are single-line, so `\n`/`\r`/`\t` were never part of this
-  * function's scope and stay untouched (see unescape-ts-string.mjs for why
+  * Quotes, a literal backslash, and explicit Unicode escapes are decoded here.
+  * Title/excerpt fields are single-line, so `\n`/`\r`/`\t` remain untouched
+  * (see unescape-ts-string.mjs for why that matters and for the shared decoder
+  * this now runs through, fixed for #5632).
+  */
+ export function unescapeTsValue(s) {
+   return unescapeTsString(s, { "'": "'", '"': '"', '\\': '\\' }, { decodeUnicode: true });
+ }
 diff --git a/generator/scripts/lib/corpus-paths.mjs b/generator/scripts/lib/corpus-paths.mjs
 new file mode 100644
 index 0000000..2a020a0
@@ -2886,3 +2901,33 @@ index 0000000..0000000 100644
  for (const c of borderCrossings) {
   const slug = slugifyCrossingName(c.name);
   const entry = computed[slug];
+diff --git a/generator/scripts/lib/unescape-ts-string.mjs b/generator/scripts/lib/unescape-ts-string.mjs
+index 2e00ca9..d24ba62 100644
+--- a/generator/scripts/lib/unescape-ts-string.mjs
++++ b/generator/scripts/lib/unescape-ts-string.mjs
+@@ -49,6 +49,7 @@
+  */
+ 
+ const ESCAPE_RX = /\\([\s\S])/g;
++const UNICODE_ESCAPE_RX = /\\u([\da-fA-F]{4})|\\([\s\S])/g;
+ 
+ /**
+  * Decode escape sequences out of raw TS string-literal source text.
+@@ -63,10 +64,13 @@ const ESCAPE_RX = /\\([\s\S])/g;
+  *   the pipeline (e.g. `JSON.parse` on a `faq` field) see it.
+  * @returns {string} the decoded value.
+  */
+-export function unescapeTsString(value, escapes) {
+-  return value.replace(ESCAPE_RX, (whole, ch) => (
+-    Object.prototype.hasOwnProperty.call(escapes, ch) ? escapes[ch] : whole
+-  ));
++export function unescapeTsString(value, escapes, { decodeUnicode = false } = {}) {
++  const pattern = decodeUnicode ? UNICODE_ESCAPE_RX : ESCAPE_RX;
++  return value.replace(pattern, (whole, first, second) => {
++    if (decodeUnicode && first !== undefined) return String.fromCharCode(Number.parseInt(first, 16));
++    const ch = decodeUnicode ? second : first;
++    return Object.prototype.hasOwnProperty.call(escapes, ch) ? escapes[ch] : whole;
++  });
+ }
+ 
+ /**
