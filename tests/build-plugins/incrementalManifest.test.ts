@@ -155,7 +155,7 @@ describe('incremental manifest input contract', () => {
     // The renderer receives records and renders their locale slug/title. Passing
     // only stable ids would turn that dependency into { slug: '', digest: null }.
     expect(inputSource).toContain(
-      'sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug)',
+      'sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug, jobCanton)',
     );
     expect(inputSource).not.toContain('.map((relatedJob: any) => stableJobId(relatedJob))');
 
