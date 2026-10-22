@@ -395,6 +395,14 @@ export interface SearchConsoleCompatResolution {
  fallbackPath?: string;
 }
 
+export interface SearchConsoleCompatResolutionOptions {
+ // GSC ingestion must not turn a route-shaped guess into a compatibility
+ // destination. Keep the default permissive for the existing bridge/redirect
+ // consumers, while allowing ingestion to request only mappings backed by an
+ // explicit alias, emitted registry, or verified route family.
+ sourceBackedOnly?: boolean;
+}
+
 /**
  * Optional slug→canonical-path index for canton-drift recovery. A job slug is
  * globally unique (company + city + hash), but the URL SECTION encodes the
@@ -578,8 +586,10 @@ const GO_REDIRECT_PATH_PATTERN = /^\/go\/([^/]+)$/;
 export function resolveSearchConsoleCompatTarget(
  inputPath: string,
  slugIndex?: JobSlugCanonicalIndex,
+ options?: SearchConsoleCompatResolutionOptions,
 ): SearchConsoleCompatResolution | null {
  const path = normalizePath(inputPath);
+ const sourceBackedOnly = options?.sourceBackedOnly === true;
  const exact = COMPAT_REDIRECTS[path] || COMPAT_REDIRECTS[`${path}/`];
  if (exact) {
  return {
@@ -884,6 +894,7 @@ export function resolveSearchConsoleCompatTarget(
  if (mapped) {
  return { canonicalPath: mapped, kind: 'search', locale };
  }
+ if (sourceBackedOnly) return null;
  // Canton-aware: a search-style slug under a known job-board section
  // (e.g. /cerca-lavoro-berna/ricerca-offerte-...) must canonicalize to THAT
  // canton's listing, not the locale's TI default — otherwise every
@@ -914,6 +925,7 @@ export function resolveSearchConsoleCompatTarget(
  // whenever any event exists at all (see review finding on PR #4252).
  const eventsMatch = EVENTS_SECTION_PATTERN.exec(path);
  if (eventsMatch) {
+ if (sourceBackedOnly) return null;
  return {
  canonicalPath: eventsMatch[0],
  kind: 'legacy',
@@ -924,6 +936,7 @@ export function resolveSearchConsoleCompatTarget(
 
  const companyMatch = path.match(COMPANY_COMPAT_PATTERN);
  if (companyMatch) {
+ if (sourceBackedOnly) return null;
  const slug = companyMatch[4];
  // Company hubs stay on TI listing (legacy preservation — company hub
  // is canton-independent, and the existing landing remains the listing
@@ -945,6 +958,7 @@ export function resolveSearchConsoleCompatTarget(
  // canton is already encoded in urlSection, so no slug index lookup needed.
  const barePageMatch = slug.match(BARE_PAGE_NUMBER_PATTERN);
  if (barePageMatch) {
+ if (sourceBackedOnly) return null;
  const pageNum = barePageMatch[1];
  const word = PAGINATION_WORD_BY_LOCALE[locale];
  return {
@@ -1002,6 +1016,7 @@ export function resolveSearchConsoleCompatTarget(
  locale,
  };
  }
+ if (sourceBackedOnly) return null;
  // Fallback (slug unknown / already this path): canonicalize to the canton
  // listing already encoded IN THE URL (capture group 2), not one re-derived
  // from the slug. The matched section IS the canton Google/the user referenced
@@ -1027,6 +1042,7 @@ export function resolveSearchConsoleCompatTarget(
 
  const trailingIdMatch = path.match(JOB_BOARD_TRAILING_ID_PATTERN);
  if (trailingIdMatch) {
+ if (sourceBackedOnly) return null;
  const urlSection = canonicalJobBoardSection(trailingIdMatch[2]);
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
  return {
@@ -1037,6 +1053,7 @@ export function resolveSearchConsoleCompatTarget(
  }
 
  // Fallback: match known site sections and redirect to their landing page
+ if (sourceBackedOnly) return null;
  for (const fb of SECTION_FALLBACKS) {
  if (fb.pattern.test(path)) {
  return {
