@@ -108,9 +108,9 @@ jobs:
             --regenerate-cmd "npx --no-install tsx scripts/generate-border-wait-ranking-article.mjs && node scripts/lib/git-add-resolved.mjs public/data/border-wait-ranking.json services/locales/blog-body/it/classifica-dogane-ticino.ts services/locales/blog-body/en/classifica-dogane-ticino.ts services/locales/blog-body/de/classifica-dogane-ticino.ts services/locales/blog-body/fr/classifica-dogane-ticino.ts"
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 
-      - name: Trigger deploy workflow
+      - name: Record self-driven deploy handoff
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh || true
+        run: echo '✅ Ranking committato; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -38,9 +38,9 @@ name: Refresh GSC marquee demand
 #
 # ── AND IT DOES NOT DISPATCH A DEPLOY ───────────────────────────────────────
 # Deliberate. A push made with GITHUB_TOKEN does not trigger workflows (GitHub
-# anti-recursion), which is why the ~15 data workflows that DO need a rebuild
-# call scripts/lib/trigger-deploy.sh explicitly — and why deploy.yml's comment
-# measures those manual dispatches as 40 of 141 deploy runs in 48 h. Nothing
+# anti-recursion). Every data workflow now relies on deploy.yml's self-driven
+# queue; this workflow therefore never dispatches a deploy and deploy.yml owns
+# the build slot. Nothing
 # reads this artifact at build time yet, so dispatching a 130-minute build for
 # it would buy nothing and cost a deploy slot. Whoever wires the floor onto
 # this file inherits that decision: by then the next scheduled deploy (several

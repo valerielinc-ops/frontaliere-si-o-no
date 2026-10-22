@@ -624,12 +624,12 @@
     },
     {
       "id": "spitex-zuerich-aa734f3415ba",
-      "slug": "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
+      "slug": "specialista-in-ferite-60-80-a-spitex-zurich-zurich",
       "slugByLocale": {
         "de": "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
-        "it": "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
-        "en": "wundspezialist-in-60-80-a-spitex-zuerich-zurich",
-        "fr": "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        "it": "specialista-in-ferite-60-80-a-spitex-zurich-zurich",
+        "en": "wound-specialist-60-80-a-spitex-zurich-zurich",
+        "fr": "specialiste-des-plaies-60-80-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
@@ -686,7 +686,21 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        ],
+        "en": [
+          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        ],
+        "fr": [
+          "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "wundspezialist-in-60-80-a-spitex-zuerich-zurich"
+      ]
     },
     {
       "id": "spitex-zuerich-fa06da56b8bf",

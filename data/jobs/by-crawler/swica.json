@@ -2154,12 +2154,12 @@
     },
     {
       "id": "swica-0e8938f83db1",
-      "slug": "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur",
+      "slug": "servizi-di-negoziazione-gestione-partner-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
         "de": "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur",
-        "it": "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur",
-        "en": "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur",
-        "fr": "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur"
+        "it": "servizi-di-negoziazione-gestione-partner-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "negotiator-service-purchasing-partner-management-all-swica-gesundheitsorganisation-winterthur",
+        "fr": "service-de-negociateur-achats-gestion-de-partenaires-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2217,7 +2217,21 @@
           "maxValue": 131000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur"
+        ],
+        "en": [
+          "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur"
+        ],
+        "fr": [
+          "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "verhandlungsleiter-leistungseinkauf-partnermanagement-alle-swica-winterthur"
+      ]
     }
   ]
 }

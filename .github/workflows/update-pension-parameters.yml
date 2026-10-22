@@ -113,17 +113,13 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # Trigger deploy after data push (GITHUB_TOKEN pushes don't trigger workflows)
       - name: Load secrets from Remote Config
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      # Niente `|| true`: un dispatch fallito lascerebbe i parametri committati
-      # ma non pubblicati (latest.json obsoleto sul CDN per il corpus) dietro
-      # una run verde; il job deve diventare rosso e raggiungere il reporter.
-      - name: Trigger deploy workflow
+      - name: Record self-driven deploy handoff
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh
+        run: echo '✅ Parametri pensione committati; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Report failure to GitHub Issues
         if: failure()

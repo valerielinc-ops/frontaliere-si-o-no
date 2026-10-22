@@ -40,6 +40,8 @@ import {
   buildOsmQuery,
   buildTicinoCompleteRecords,
   parseTicinoPdfText,
+  rebuildUrlAliasesAfterSlugChange,
+  uniqueSlug,
 } from './lib/pharmacy-border-parser.mjs';
 import {
   buildPharmacyEnrichmentSnapshot,
@@ -391,10 +393,35 @@ export async function readPreviousTicinoSnapshots({ completePath = TICINO_OUTPUT
   const legacy = await readPreviousSnapshot(legacyPath, 'Ticino legacy');
   if (!complete) return legacy || { pharmacies: [] };
   if (!legacy?.pharmacies?.length) return complete;
-  const knownIds = new Set((complete.pharmacies || []).map((pharmacy) => pharmacy.id));
+  const pharmacies = [...(complete.pharmacies || [])];
+  const knownIds = new Set(pharmacies.map((pharmacy) => pharmacy.id));
+  const usedSlugs = new Set(pharmacies.map((pharmacy) => pharmacy.slug).filter(Boolean));
+  const legacyOnly = [];
+  for (const pharmacy of legacy.pharmacies) {
+    if (knownIds.has(pharmacy.id)) continue;
+    // The complete snapshot owns the canonical slug. Legacy records remain in
+    // the identity pool for duty reconciliation, but a fallback release must
+    // still satisfy the global route uniqueness gate when the same venue was
+    // emitted under different IDs by the two historical sources.
+    const slug = typeof pharmacy.slug === 'string' && pharmacy.slug
+      ? uniqueSlug(pharmacy.slug, usedSlugs)
+      : pharmacy.slug;
+    legacyOnly.push({
+      record: slug === pharmacy.slug ? pharmacy : { ...pharmacy, slug },
+      renamed: slug !== pharmacy.slug,
+    });
+    knownIds.add(pharmacy.id);
+  }
+  const mergedPharmacies = [...pharmacies, ...legacyOnly.map(({ record }) => record)];
+  const canonicalSlugs = new Set(mergedPharmacies.map((pharmacy) => pharmacy.slug).filter(Boolean));
   return {
     ...complete,
-    pharmacies: [...(complete.pharmacies || []), ...legacy.pharmacies.filter((pharmacy) => !knownIds.has(pharmacy.id))],
+    pharmacies: [
+      ...pharmacies,
+      ...legacyOnly.map(({ record, renamed }) => renamed
+        ? rebuildUrlAliasesAfterSlugChange(record, canonicalSlugs)
+        : record),
+    ],
   };
 }
 

@@ -491,7 +491,7 @@
       "slug": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrie-st-gallen-pfafers",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
+        "en": "occupational-therapist-psychiatrie-st-gallen-pfafers",
         "de": "ergotherapeutin-ergotherapeut-psgn-pfafers",
         "fr": "ergotherapeute-psychiatrie-st-gallen-pfafers"
       },
@@ -538,8 +538,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-psgn-pfafers",
-        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers",
-        "occupational-therapist-psychiatrie-st-gallen-pfafers"
+        "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -547,7 +546,7 @@
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "en": [
-          "occupational-therapist-psychiatrie-st-gallen-pfafers"
+          "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-pfafers"
@@ -573,7 +572,7 @@
       "slug": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "it": "terapeuta-dello-sport-terapeuta-dello-sport-psychiatrie-st-gallen-wil",
-        "en": "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
+        "en": "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil",
         "de": "sporttherapeutin-sporttherapeut-psgn-wil",
         "fr": "therapeute-sportotherapeute-psychiatrie-st-gallen-wil"
       },
@@ -620,8 +619,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sporttherapeutin-sporttherapeut-psgn-wil",
-        "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil",
-        "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil"
+        "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -629,7 +627,7 @@
           "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
         ],
         "en": [
-          "sports-therapist-sport-therapist-psychiatrie-st-gallen-wil"
+          "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
         ],
         "fr": [
           "sporttherapeutin-sporttherapeut-psychiatrie-st-gallen-wil"
@@ -652,12 +650,12 @@
     },
     {
       "id": "psgn-5f86fe9537d5",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil",
+      "slug": "assistente-di-pratica-medica-assistente-di-pratica-medica-psychiatrie-st-gallen-wil",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
+        "it": "assistente-di-pratica-medica-assistente-di-pratica-medica-psychiatrie-st-gallen-wil",
+        "en": "medical-practice-assistant-medical-practice-assistant-psychiatrie-st-gallen-wil",
+        "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-psychiatrie-st-gallen-wil"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -704,11 +702,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil",
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil"
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-psgn-wil",
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-psychiatrie-st-gallen-wil"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -727,12 +733,12 @@
     },
     {
       "id": "psgn-13fcd1d12195",
-      "slug": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
+      "slug": "dipl-professionista-hf-fh-psychiatrie-st-gallen-pfafers",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-psgn-pfafers",
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
-        "en": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers",
-        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        "it": "dipl-professionista-hf-fh-psychiatrie-st-gallen-pfafers",
+        "en": "dipl-care-professional-hf-fh-psychiatrie-st-gallen-pfafers",
+        "fr": "dipl-soins-professionnels-hf-fh-psychiatrie-st-gallen-pfafers"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -779,11 +785,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-psgn-pfafers"
+          "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psgn-pfafers"
+        "dipl-pflegefachperson-hf-fh-psgn-pfafers",
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-pfafers"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

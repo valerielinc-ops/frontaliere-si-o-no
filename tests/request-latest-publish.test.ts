@@ -107,6 +107,52 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 
+  it('uses the successful deployment identity as the live receipt', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [{
+        id: 99,
+        status: 'completed',
+        conclusion: 'failure',
+        displayTitle: `Publish Pages build 2 @ ${SHA_LATEST}`,
+      }],
+      durableReceipts: { pagesDeployed: true },
+      lastSuccessfulDeployment: deployment(SHA_LATEST, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+  });
+
+  it('does not let a historical receipt hide a rollback of the live deployment', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [],
+      durableReceipts: { pagesDeployed: true },
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+  });
+
+  it('does not trust a receipt when the current Pages deployment is unknown', () => {
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [],
+      durableReceipts: { pagesDeployed: true },
+      lastSuccessfulDeployment: null,
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+  });
+
+  it('counts a live attempt against the cap before admitting another retry', () => {
+    const liveRuns = Array.from({ length: DEFAULT_MAX_PUBLISH_ATTEMPTS }, (_, index) => ({
+      id: index + 10,
+      status: index === 0 ? 'in_progress' : 'completed',
+      conclusion: index === 0 ? null : 'failure',
+      displayTitle: `Publish Pages build 2 @ ${SHA_LATEST}`,
+    }));
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: liveRuns,
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T09:00:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'attempt-cap' });
+  });
+
   it('uses the successful deployment source SHA when its dispatch ref differs', () => {
     expect(decideLatestPublish({
       builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
@@ -212,14 +258,18 @@ describe('Pages publish queue wiring', () => {
   const request = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
   const publish = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
 
-  it('runs the publish reconciler from the existing durable coordinator checkout', () => {
+  it('runs only the status-aware publish reconciler from the existing checkout', () => {
     expect(request).toContain('/scripts/ci/request-latest-publish.mjs');
     expect(request).toContain('node scripts/ci/request-latest-publish.mjs');
-    expect(request).toContain("cron: '*/5 * * * *'");
+    expect(request).toContain("cron: '*/10 * * * *'");
     expect(request).toContain('actions: write');
     expect(request).toContain('deployments: read');
+    expect(request).toContain('statuses: read');
     expect(request).toContain("APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'");
     expect(request).toContain('APP_TOKEN_DEPLOYMENTS_READ');
+    expect(request).toContain('APP_TOKEN_STATUSES_READ');
+    expect(request).not.toContain('request-latest-deploy.mjs');
+    expect(request).not.toContain('gh workflow run deploy.yml');
   });
 
   it('passes the minted App token to the reconciler at shell runtime', () => {

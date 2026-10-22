@@ -163,12 +163,12 @@
     },
     {
       "id": "pictet-0a9cdf34f80a",
-      "slug": "business-risk-manager-pictet-zurich",
+      "slug": "gestore-del-rischio-aziendale-pictet-group-zurich",
       "slugByLocale": {
         "en": "business-risk-manager-pictet-zurich",
-        "it": "business-risk-manager-pictet-zurich",
-        "de": "business-risk-manager-pictet-zurich",
-        "fr": "business-risk-manager-pictet-zurich"
+        "it": "gestore-del-rischio-aziendale-pictet-group-zurich",
+        "de": "geschaftsrisikomanager-pictet-group-zurich",
+        "fr": "gestionnaire-des-risques-operationnels-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -227,16 +227,30 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-22T09:23:24.028Z"
+      "firstSeenAt": "2026-10-22T09:23:24.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-risk-manager-pictet-zurich"
+        ],
+        "de": [
+          "business-risk-manager-pictet-zurich"
+        ],
+        "fr": [
+          "business-risk-manager-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "business-risk-manager-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-6fd1878b21fb",
-      "slug": "client-relationship-officer-eastern-europe-market-pictet-zurich",
+      "slug": "client-relationship-officer-mercato-dell-europa-dell-est-pictet-group-zurich",
       "slugByLocale": {
         "en": "client-relationship-officer-eastern-europe-market-pictet-zurich",
-        "it": "client-relationship-officer-eastern-europe-market-pictet-zurich",
-        "de": "client-relationship-officer-eastern-europe-market-pictet-zurich",
-        "fr": "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        "it": "client-relationship-officer-mercato-dell-europa-dell-est-pictet-group-zurich",
+        "de": "client-relationship-officer-osteuropa-markt-pictet-group-zurich",
+        "fr": "agent-de-relations-client-marche-de-l-europe-de-l-est-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -295,7 +309,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-22T09:23:23.325Z"
+      "firstSeenAt": "2026-10-22T09:23:23.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        ],
+        "de": [
+          "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        ],
+        "fr": [
+          "client-relationship-officer-eastern-europe-market-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-eastern-europe-market-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-b8312df4028c",
@@ -303,7 +331,7 @@
       "slugByLocale": {
         "en": "financial-controlling-analyst-pictet-geneva",
         "it": "financial-controlling-analyst-pictet-geneva",
-        "de": "financial-controlling-analyst-pictet-geneva",
+        "de": "finanzkontrolle-pictet-group-geneva",
         "fr": "financial-controlling-analyst-pictet-geneva"
       },
       "company": "Pictet Group",
@@ -533,7 +561,7 @@
         "it": "consigliere-legale-squadra-investimenti-pictet-group-geneva",
         "en": "legal-adviser-investment-team-pictet-geneva",
         "de": "rechtsberater-investment-team-pictet-group-geneva",
-        "fr": "legal-adviser-investment-team-pictet-group-geneva"
+        "fr": "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -578,7 +606,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-adviser-investment-team-pictet-geneva",
-        "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
+        "legal-adviser-investment-team-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -589,7 +617,7 @@
         ],
         "fr": [
           "legal-adviser-investment-team-pictet-geneva",
-          "conseiller-juridique-equipe-d-investissement-pictet-group-geneva"
+          "legal-adviser-investment-team-pictet-group-geneva"
         ]
       },
       "firstSeenAt": "2026-10-19T09:20:38.189Z",

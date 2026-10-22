@@ -87,7 +87,7 @@ describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)'
     expect(
       push,
       'Push locale shard must stay gated on the ordering guard — hoisting the CDN push must not relax the gate',
-    ).toMatch(/if: matrix\.locale != 'it' && steps\.cdn-gate\.outcome == 'success'/);
+    ).toMatch(/if: matrix\.locale != 'it' && env\.DURABLE_LOCALE_PUBLISHED != 'true' && steps\.cdn-gate\.outcome == 'success'/);
     const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
     expect(gate, 'the gate must still poll the marker script').toMatch(/wait-cdn-build-id\.sh/);
     expect(gate, 'the gate must stay continue-on-error (one shard must not abort the deploy)').toMatch(
@@ -111,8 +111,8 @@ describe('deploy.yml — a timeout and a push failure are told APART (#5251)', (
   it('each cause has its OWN step, gated on its OWN outcome', () => {
     const gateStep = step('Surface an unpublished locale shard (#2569 CDN ordering gate timed out)');
     const pushStep = step('Surface a stale-locale shard push failure (#2658)');
-    expect(gateStep).toMatch(/if: matrix\.locale != 'it' && steps\.cdn-gate\.outcome == 'failure'/);
-    expect(pushStep).toMatch(/if: matrix\.locale != 'it' && steps\.push-shard\.outcome == 'failure'/);
+    expect(gateStep).toMatch(/if: matrix\.locale != 'it' && env\.DURABLE_LOCALE_PUBLISHED != 'true' && steps\.cdn-gate\.outcome == 'failure'/);
+    expect(pushStep).toMatch(/if: matrix\.locale != 'it' && env\.DURABLE_LOCALE_PUBLISHED != 'true' && steps\.push-shard\.outcome == 'failure'/);
     // The regression: collapsing them back into one `||` condition loses the
     // distinction that cost the #5224/#5225/#5227 misdiagnosis.
     expect(
@@ -171,7 +171,7 @@ describe('deploy.yml — a timeout and a push failure are told APART (#5251)', (
 
   it('a green push resolves BOTH canonical issue titles, spelled exactly as filed', () => {
     const resolve_ = step('Resolve stale-locale shard issues on successful push (#2658)');
-    expect(resolve_).toMatch(/if: matrix\.locale != 'it' && steps\.push-shard\.outcome == 'success'/);
+    expect(resolve_).toMatch(/if: matrix\.locale != 'it' && env\.DURABLE_LOCALE_PUBLISHED != 'true' && steps\.push-shard\.outcome == 'success'/);
     // Title drift is the failure mode: a surfacing step that files title A and
     // a resolve step that closes title B leaves a permanently-open issue. These
     // two assertions go red the moment either title is edited in one place only.
@@ -1131,7 +1131,7 @@ describe('deploy-request.yml — the paths-ignore denylist keeps its recorded ve
     const head = DEPLOY_REQUEST_YML.slice(0, DEPLOY_REQUEST_YML.indexOf('paths-ignore:'));
     expect(head).toMatch(/workflow_run/);
     expect(head).toMatch(/workflow_dispatch/);
-    expect(DEPLOY_REQUEST_YML).toMatch(/Queue latest GitHub Pages deploy|request workflow/i);
+    expect(DEPLOY_REQUEST_YML).toMatch(/Reconcile latest GitHub Pages publish|request workflow/i);
   });
 });
 

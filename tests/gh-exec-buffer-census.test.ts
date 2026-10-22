@@ -91,7 +91,7 @@ describe('synchronous reads of gh declare their buffer', () => {
   });
 
   it('keeps the deploy control plane off the list', () => {
-    for (const file of ['scripts/ci/request-latest-deploy.mjs', 'scripts/ci/rearm-deploy-build.mjs', 'scripts/crawler-quarantine-review.mjs']) {
+    for (const file of ['scripts/ci/rearm-deploy-build.mjs', 'scripts/crawler-quarantine-review.mjs']) {
       expect(KNOWN_UNBUFFERED_READS, file).not.toHaveProperty(file);
       expect(unbufferedGhReads(readFileSync(path.join(ROOT, file), 'utf8')), file).toBe(0);
     }

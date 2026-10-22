@@ -71,7 +71,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
   });
 
   it('deploys after a successful rerun even when the checkpoint is already on main', () => {
-    const deployStart = workflow.indexOf('- name: Trigger deploy after validated backfill');
+    const deployStart = workflow.indexOf('- name: Record self-driven deploy handoff after validated backfill');
     const deployBlock = workflow.slice(deployStart);
 
     expect(deployStart).toBeGreaterThanOrEqual(0);
