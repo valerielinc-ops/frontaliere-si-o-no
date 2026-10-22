@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-22T13:52:20.020Z",
+  "updatedAt": "2026-10-22T13:54:06.663Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1017334,12 +1017334,12 @@
     },
     "seiro@baar": {
       "key": "seiro@baar",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:27.587Z",
-      "updatedAt": "2026-10-22T13:29:07.165Z",
+      "updatedAt": "2026-10-22T13:54:06.591Z",
       "name": "SEIRO GmbH",
       "city": "Baar",
       "zip": "6340",
@@ -1017689,7 +1017689,9 @@
       },
       "secoEmployerName": "SEIRO GmbH",
       "qualityContractVersion": 3,
-      "validationAnomalyIds": []
+      "validationAnomalyIds": [],
+      "promotionPr": "14599",
+      "promotionBranch": "prospector/promote-2026-10-22"
     },
     "sejouredelweiss.ch": {
       "key": "sejouredelweiss.ch",

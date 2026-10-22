@@ -19183,3 +19183,5 @@
 {"eventType":"candidate_attempt","key":"cte.ch","status":"validated","outcome":"weak","at":"2026-10-22T13:52:06.281Z","runId":"39749632951","runAttempt":1,"phase":"validate","eventId":"3c450959f107cff44f854451"}
 {"eventType":"candidate_attempt","key":"elvetino.ch","status":"promoted","outcome":"good","at":"2026-10-22T13:52:19.890Z","runId":"39749632951","runAttempt":1,"phase":"validate","eventId":"822ca57aca005625331e9996"}
 {"eventType":"phase_finished","at":"2026-10-22T13:52:20.254Z","outcome":"complete","durationMs":6179691,"inputCount":64,"successCount":28,"retryCount":36,"runId":"39749632951","runAttempt":1,"phase":"validate","eventId":"aa2db7ae1635c9ecff91ce92"}
+{"eventType":"phase_started","at":"2026-10-22T13:53:41.111Z","runId":"39749632951","runAttempt":1,"phase":"promote","eventId":"f631fb7b29857be5cc4ffaae"}
+{"eventType":"candidate_transition","key":"seiro@baar","from":"promoted","to":"promoting","at":"2026-10-22T13:54:06.591Z","runId":"39749632951","runAttempt":1,"phase":"promote","eventId":"74b5a30dafe203d7ee4d55dd"}
