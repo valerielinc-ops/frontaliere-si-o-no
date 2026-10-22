@@ -51,4 +51,18 @@ describe('durable build -> publish receipts', () => {
     });
     expect(state.pendingLocales).toEqual(['de', 'fr']);
   });
+
+  it('deduplicates the requested matrix and ignores unsupported locale contexts', () => {
+    const state = resolvePublishReceipts({
+      sourceRunId,
+      locales: ['fr', 'en', 'fr', 'xx'],
+      statuses: [
+        { context: localeReceiptContext(sourceRunId, 'en'), state: 'success' },
+        { context: 'frontaliere/shard-published/39606182063/xx', state: 'success' },
+      ],
+    });
+    expect(state.publishedLocales).toEqual(['en']);
+    expect(state.pendingLocales).toEqual(['fr']);
+    expect(Object.keys(state.localeContexts)).toEqual(['fr', 'en']);
+  });
 });
