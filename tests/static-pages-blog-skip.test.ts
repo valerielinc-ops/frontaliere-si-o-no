@@ -3,6 +3,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
 import { parseStaticArticleBodyPreviews } from '../build-plugins/shared/staticArticleBodyPreviews';
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
@@ -243,7 +244,7 @@ describe('ogPagesPlugin skip-set covers every article section (no missingTarget 
     }
   });
 
-  it('derives Swiss skip paths from the complete SEO and slug-registry modules', () => {
+  it.skipIf(SKIP_LIVE_DATA)('derives Swiss skip paths from the complete SEO and slug-registry modules', () => {
     const seoPath = 'packages/articles/content/seo/seo-blog-ch.ts';
     const routerPath = 'packages/articles/content/routerSwissData.ts';
     const seoPaths = readSwissSeoCanonicalPaths(readTrackedSource(seoPath));
