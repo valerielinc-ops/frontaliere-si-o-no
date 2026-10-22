@@ -16,6 +16,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { normalizePhysioswissListingTitle } from './prospector/detail-extract.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -38,6 +39,8 @@ function normalize(value = '') {
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
+
+export { normalizePhysioswissListingTitle };
 
 /* ── Company Matchers ──────────────────────────────────────── */
 

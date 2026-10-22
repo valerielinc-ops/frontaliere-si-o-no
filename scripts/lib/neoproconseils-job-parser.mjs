@@ -16,8 +16,12 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { sourceBackedSwissGeographyFields } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import { canonicalChCountry } from './ch-country-guard.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -127,7 +131,15 @@ export function buildNeoproconseilsJobFromListing(listing) {
   const sourceCountry = canonicalChCountry(listing.addressCountry, listing.country);
   if (!sourceCountry) return null;
   const sourceEvidence = { ...listing, addressCountry: sourceCountry, country: sourceCountry };
-  const geography = sourceBackedSwissGeographyFields(sourceEvidence);
+  const geography = sourceBackedSwissGeographyFields(sourceEvidence, resolveSourceBackedSwissGeography({
+    ...listing,
+    addressLocality: listing.addressLocality,
+    addressRegion: listing.addressRegion,
+    addressCountry: sourceCountry,
+    country: sourceCountry,
+    postalCode: listing.postalCode,
+    streetAddress: listing.streetAddress,
+  }));
   if (!geography) return null;
   const {
     location,
@@ -210,7 +222,13 @@ export async function fetchAllNeoproconseilsJobs() {
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
-  const jobs = listings.map(buildNeoproconseilsJobFromListing).filter(Boolean);
+  const jobs = listings
+    .filter((listing) => {
+      const descriptionText = stripHtml(listing?.description || '');
+      return meetsSourceBodyFloor(descriptionText);
+    })
+    .map(buildNeoproconseilsJobFromListing)
+    .filter(Boolean);
 
   console.log(`\n📋 Total NEO Pro conseils SA jobs discovered: ${jobs.length}`);
   return jobs;

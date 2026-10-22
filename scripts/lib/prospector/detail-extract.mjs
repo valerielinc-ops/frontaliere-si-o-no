@@ -20,6 +20,28 @@ import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-detail.mjs';
 import { normalizeSwissCantonCode } from '../target-swiss-locations.mjs';
 
+const PHYSIOSWISS_ACCESSIBLE_TITLE_RX = /^Stellenanzeige\s+(.+?)\s+öffnen\.?$/iu;
+
+/**
+ * Remove Physioswiss's accessible action wrapper from a listing title before
+ * comparing it with the detail-page H1. The wrapper is UI chrome, not vacancy
+ * identity, and the same normalization must run in production and validation.
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export function normalizePhysioswissListingTitle(value = '') {
+  const title = String(value || '').replace(/\s+/g, ' ').trim();
+  const match = PHYSIOSWISS_ACCESSIBLE_TITLE_RX.exec(title);
+  return String(match?.[1] || title).replace(/\s+/g, ' ').trim();
+}
+
+function normalizeDetailRecordTitle(spec, value = '') {
+  return spec?.companyKey === 'physioswiss'
+    ? normalizePhysioswissListingTitle(value)
+    : value;
+}
+
 function normalizedLabel(value) {
   return textOf(String(value || '').replace(/&nbsp;/gi, ' '))
     .toLowerCase()
@@ -90,9 +112,10 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     || (spec?.platform === 'pageexecutive.com'
       ? extractPageExecutiveDetailFields
       : extractDetailFields);
+  const recordTitle = normalizeDetailRecordTitle(spec, opts.recordTitle);
   const detail = base(html, url, {
     recordUrl: opts.recordUrl,
-    recordTitle: opts.recordTitle,
+    recordTitle,
   });
   const labelledLocation = extractLabelledDetailValue(html, spec?.detailLocationLabel);
   if (labelledLocation) {

@@ -128,7 +128,16 @@ export function resolveMedimeoChGeography(listing = {}) {
     if (locationOnly?.canton && locationOnly.canton !== structuredCanton) return null;
   }
 
-  const resolved = resolveSourceBackedSwissGeography(evidence);
+  const resolved = resolveSourceBackedSwissGeography({
+    ...listing,
+    location: evidence.location,
+    addressLocality: listing.addressLocality,
+    addressRegion: listing.addressRegion,
+    addressCountry: listing.addressCountry,
+    country: listing.country,
+    postalCode: listing.postalCode,
+    streetAddress: listing.streetAddress,
+  });
   if (resolved) return resolved;
 
   // The fallback is only for a Swiss country plus a verified canton marker:

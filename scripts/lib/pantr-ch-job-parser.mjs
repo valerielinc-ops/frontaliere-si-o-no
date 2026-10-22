@@ -16,7 +16,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { stripHtml } from './crawler-template.mjs';
 import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-import { sourceBackedSwissGeographyFields } from './prospector/location-evidence.mjs';
+import {
+  resolveSourceBackedSwissGeography,
+  sourceBackedSwissGeographyFields,
+} from './prospector/location-evidence.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { canonicalChCountry } from './ch-country-guard.mjs';
 
@@ -129,7 +132,15 @@ export function buildPantrChJobFromListing(listing) {
   const sourceCountry = canonicalChCountry(listing.addressCountry, listing.country);
   if (!sourceCountry) return null;
   const sourceEvidence = { ...listing, addressCountry: sourceCountry, country: sourceCountry };
-  const geography = sourceBackedSwissGeographyFields(sourceEvidence);
+  const geography = sourceBackedSwissGeographyFields(sourceEvidence, resolveSourceBackedSwissGeography({
+    ...listing,
+    addressLocality: listing.addressLocality,
+    addressRegion: listing.addressRegion,
+    addressCountry: sourceCountry,
+    country: sourceCountry,
+    postalCode: listing.postalCode,
+    streetAddress: listing.streetAddress,
+  }));
   // Required structured-data geography must come from the vacancy source.
   // Missing, foreign or non-specific values are not replaced with an HQ.
   if (!geography) return null;
