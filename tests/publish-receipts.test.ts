@@ -65,4 +65,17 @@ describe('durable build -> publish receipts', () => {
     expect(state.pendingLocales).toEqual(['fr']);
     expect(Object.keys(state.localeContexts)).toEqual(['fr', 'en']);
   });
+
+  it('requires exact receipt contexts while accepting normalized success state', () => {
+    const state = resolvePublishReceipts({
+      sourceRunId,
+      statuses: [
+        { context: `${localeReceiptContext(sourceRunId, 'en')}/extra`, state: 'success' },
+        { context: localeReceiptContext(sourceRunId, 'en'), state: ' SUCCESS ' },
+        { context: `${pagesReceiptContext(sourceRunId)}-retry`, state: 'success' },
+      ],
+    });
+    expect(state.publishedLocales).toEqual(['en']);
+    expect(state.pagesDeployed).toBe(false);
+  });
 });
