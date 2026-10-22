@@ -203,16 +203,19 @@ export function readStaticStringLiteral(source, startIdx, sourcePath = 'source',
  * Decode a static literal using the same escape contract as the TS readers.
  * @param {string} raw
  * @param {string} [quote]
- * @param {{ preserveEscapedCarriageReturn?: boolean }} [options]
+ * @param {{ newlineAs?: string, preserveEscapedCarriageReturn?: boolean }} [options]
  */
 export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
-  const { preserveEscapedCarriageReturn = false } = options;
+  const { newlineAs, preserveEscapedCarriageReturn = false } = options;
   return raw.replace(TS_ESCAPE_RX, (whole, escape) => {
     const codePoint = decodeTypeScriptCodePointEscape(escape);
     if (codePoint) return codePoint.value;
 
     switch (escape[0]) {
-      case 'n': return '\n';
+      // The object reader normalizes the complete CR/LF pair after decoding.
+      // Keep both code units when it opts into carriage preservation; direct
+      // decoder callers retain the historical `newlineAs` behavior.
+      case 'n': return preserveEscapedCarriageReturn ? '\n' : (newlineAs ?? '\n');
       // Keep CR/LF escapes intact until `readStaticObjectEntries` normalizes
       // them together, so an escaped CRLF pair becomes one replacement.
       case 'r': return preserveEscapedCarriageReturn ? '\r' : '';
@@ -398,6 +401,7 @@ export function readStaticObjectEntries(
       }
 
       const decodedValue = decodeStaticStringLiteral(valueLiteral.value, valueLiteral.quote, {
+        newlineAs,
         // `readStaticObjectEntries` flattens explicit line-break escapes for
         // its callers, while the low-level decoder omits escaped `\\r` by
         // default. Preserve it here so CRLF is normalized as one separator.
