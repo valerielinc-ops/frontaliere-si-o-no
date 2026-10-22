@@ -273,7 +273,7 @@ const CITATION_FALLBACK_RULES: ReadonlyArray<readonly [RegExp, string]> = [
   [/\bafd\b|bazg|amministrazione federale delle dogane|zollverwaltung/i, 'https://www.bazg.admin.ch/'],
   [/agcom/i, 'https://www.agcom.it/'],
   [/arcobaleno\.ch/i, 'https://www.arcobaleno.ch/'],
-  [/\bffs\b|\bsbb\b|\bcff\b/i, 'https://www.sbb.ch/'],
+  [/\bffs\b|\bsbb\b|\bcff\b/i, 'https://company.sbb.ch/it/'],
   [/\bsnb\b|\bbns\b|swiss national bank|banca nazionale svizzera|banque nationale suisse|schweizerische nationalbank/i, 'https://www.snb.ch/'],
   [/\b(?:zas|ucc|cdc)\b|centrale di compensazione|central compensation office/i, 'https://www.zas.admin.ch/'],
   [/\bifpdt\b|\bedoeb\b|\bfdpic\b|\bpfpdt\b|federal data protection/i, 'https://www.edoeb.admin.ch/'],

@@ -125,7 +125,7 @@ const companies: Company[] = [
  // Logistica
  { name: 'Planzer', sector: 'Logistica', employees: 250, city: 'Cadenazzo', coordinates: [46.1500, 8.9480], website: 'https://www.planzer.ch', description: 'Trasporti e logistica' },
  { name: 'Posta Svizzera Centro Regionale', sector: 'Logistica', employees: 600, city: 'Cadenazzo', coordinates: [46.1520, 8.9500], careersUrl: 'https://www.post.ch/en/jobs/jobs?canton=1085914&jobsCategory=professionals&workload-maximum=1&workload-minimum=0', description: 'Centro pacchi e logistica' },
- { name: 'FFS Officine (Ferrovie Federali)', sector: 'Logistica', employees: 800, city: 'Bellinzona', coordinates: [46.1980, 9.0250], website: 'https://www.sbb.ch', description: 'Officine di manutenzione treni, centro industriale' },
+ { name: 'FFS Officine (Ferrovie Federali)', sector: 'Logistica', employees: 800, city: 'Bellinzona', coordinates: [46.1980, 9.0250], website: 'https://company.sbb.ch/it/', description: 'Officine di manutenzione treni, centro industriale' },
  { name: 'DHL Express Ticino', sector: 'Logistica', employees: 100, city: 'Mezzovico', coordinates: [46.0910, 8.9540], website: 'https://www.dhl.ch', description: 'Spedizioni espresse internazionali' },
  { name: 'Kuehne + Nagel', sector: 'Logistica', employees: 120, city: 'Chiasso', coordinates: [45.8350, 9.0280], website: 'https://www.kuehne-nagel.com', description: 'Logistica internazionale, spedizioni doganali' },
  { name: 'Gondrand', sector: 'Logistica', employees: 80, city: 'Chiasso', coordinates: [45.8360, 9.0260], description: 'Spedizioni internazionali, sdoganamento' },
@@ -369,6 +369,14 @@ function normalizeDomainHost(value: string): string {
  return withoutProtocol.split('/')[0].replace(/^www\./, '').trim();
 }
 
+function canonicalCompanyMatchHost(value: string): string {
+ const host = normalizeDomainHost(value);
+ // FFS job feeds still publish the consumer host, while the profile links to
+ // the reachable corporate site. Keep the display URL and the job-match key
+ // independent so changing the outbound link cannot hide existing listings.
+ return host === 'company.sbb.ch' ? 'sbb.ch' : host;
+}
+
 function tokenizeCompany(value: string): string[] {
  return normalizeTextKey(value)
  .split(' ')
@@ -428,7 +436,7 @@ function buildCompanyMatchers(list: Company[]): CompanyMatchers {
  byBag.set(bag, current);
  }
 
- const host = normalizeDomainHost(company.website || '');
+ const host = canonicalCompanyMatchHost(company.website || '');
  if (host) {
  const current = byHost.get(host) || [];
  if (!current.includes(key)) current.push(key);
@@ -486,7 +494,7 @@ function resolveCompanyCountKey(job: JobListingLite, matchers: CompanyMatchers):
  }
  }
 
- const resolvedHost = normalizeDomainHost(
+ const resolvedHost = canonicalCompanyMatchHost(
  resolveCompanyWebsiteHost({
  company: job.company,
  companyKey: job.companyKey,
