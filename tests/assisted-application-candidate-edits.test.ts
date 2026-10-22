@@ -139,7 +139,9 @@ describe('candidate edits', () => {
   it('keeps substantive fieldset contexts independent for the same question text', () => {
     const residence = { id: 'residence-postal', question: 'Zip/Postal Code:', context: 'Residence address', type: 'text' };
     const employer = { id: 'employer-postal', question: 'Zip/Postal Code:', context: 'Employer address', type: 'text' };
+    const generic = { id: 'generic-postal', question: 'Zip/Postal Code:', context: 'Candidate contact address', type: 'text' };
     expect(candidateQuestionAnswerKey(residence)).not.toBe(candidateQuestionAnswerKey(employer));
+    expect(candidateQuestionAnswerKey(residence)).not.toBe(candidateQuestionAnswerKey(generic));
   });
 
   it('keeps the alias and the fields a question asks locked, with the reason', () => {

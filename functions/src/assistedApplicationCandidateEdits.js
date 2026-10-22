@@ -50,7 +50,7 @@ function normalizeQuestionValue(value) {
 // fieldset contexts in the answer key so a residence CAP and an employer CAP
 // remain independent, while generic contact metadata cannot split one answer
 // after the portal regenerates its question id.
-const GENERIC_QUESTION_CONTEXT_RE = /^(?:(?:candidate|applicant)\s+)?(?:contact|personal|my|residence|home|information|data|address)(?:\s+(?:contact|personal|address|details?|information|data|profile))?$/;
+const GENERIC_QUESTION_CONTEXT_RE = /^(?:(?:candidate|applicant)\s+)?(?:contact|personal|my|information|data|address)(?:\s+(?:contact|personal|address|details?|information|data|profile))?$/;
 
 function questionContextKey(value) {
   const context = normalizeQuestionValue(value);
