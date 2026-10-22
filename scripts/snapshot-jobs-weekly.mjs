@@ -17,7 +17,7 @@
  * (schema-valid) and exits 0 so the workflow can commit a placeholder.
  */
 
-import { resolveRolloutPostingDate } from './lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from './lib/job-posting-date.mjs';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -79,7 +79,7 @@ function main() {
       role: String(j.title || '').trim() || undefined,
       postingDateSource: j.postingDateSource,
       firstSeenAt: j.firstSeenAt,
-      postedAt: resolveRolloutPostingDate(j, () => j.postedDate || j.datePosted || null, now) || undefined,
+      postedAt: resolveReportedPostingDate(j, now) || undefined,
     });
   }
 

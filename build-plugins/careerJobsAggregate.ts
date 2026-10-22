@@ -302,8 +302,8 @@ function pickFeatured(matches: readonly JobRecord[], now: number, limit: number)
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
-    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
+    const aTs = firstParsableMs(resolveReportedPostingDate(a, new Date(now)));
+    const bTs = firstParsableMs(resolveReportedPostingDate(b, new Date(now)));
     return bTs - aTs;
   });
   const out: CareerFeaturedJob[] = [];
@@ -319,7 +319,7 @@ function fresh30Count(matches: readonly JobRecord[], now: number): number {
   const cutoff = now - 30 * DAY_MS;
   let n = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    const ts = firstParsableMs(resolveReportedPostingDate(job, new Date(now)));
     if (ts && ts >= cutoff && ts <= now) n++;
   }
   return n;

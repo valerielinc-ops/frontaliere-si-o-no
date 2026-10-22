@@ -248,8 +248,8 @@ function sortByFreshness(records: readonly JobRecord[], now: number): JobRecord[
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
-    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
+    const aTs = firstParsableMs(resolveReportedPostingDate(a, new Date(now)));
+    const bTs = firstParsableMs(resolveReportedPostingDate(b, new Date(now)));
     return bTs - aTs;
   });
 }
@@ -267,7 +267,7 @@ function buildSnapshotForCity(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    const ts = firstParsableMs(resolveReportedPostingDate(job, new Date(now)));
     if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 

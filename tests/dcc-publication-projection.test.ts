@@ -18,9 +18,9 @@ const base = {
 
 describe('DCC publication evidence through public projections and schema', () => {
   it.each([
-    ['legacy', { postedDate: publication }, null],
-    ['unknown', { postedDate: publication, postingDateSource: 'unknown' }, null],
-    ['invalid-reported', { postedDate: '2025-02-30', postingDateSource: 'reported' }, null],
+    ['legacy', { postedDate: publication }, observed],
+    ['unknown', { postedDate: publication, postingDateSource: 'unknown' }, observed],
+    ['invalid-reported', { postedDate: '2025-02-30', postingDateSource: 'reported' }, observed],
     ['reported', { postedDate: publication, postingDateSource: 'reported' }, publication],
   ] as const)('preserves %s semantics after actual merge and localization', (_kind, source, expected) => {
     const [merged] = mergePreserveLocaleData([], [{ ...base, ...source }]);
@@ -30,10 +30,9 @@ describe('DCC publication evidence through public projections and schema', () =>
       const detail = buildLocaleJob(merged, locale);
       const index = buildLocaleJobSlim(detail);
       for (const projected of [detail, index]) {
-        expect(projected.postingDateSource).toBe(expected ? 'reported' : 'unknown');
+        expect(projected.postingDateSource).toBe(_kind === 'reported' ? 'reported' : 'unknown');
         const schema = buildJobPostingSchema(projected, { locale, now, url: 'https://frontaliereticino.ch/jobs/dcc-publication-projection/' });
-        if (expected) expect(schema?.datePosted).toBe(expected);
-        else expect(schema).toBeNull();
+        expect(schema?.datePosted).toBe(expected);
       }
     }
   });
@@ -66,7 +65,7 @@ describe('DCC publication evidence through public projections and schema', () =>
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const detail = buildLocaleJob(winners[0], locale);
       for (const projected of [detail, buildLocaleJobSlim(detail)]) {
-        expect(buildJobPostingSchema(projected, { locale, now, url: base.url })).toBeNull();
+        expect(buildJobPostingSchema(projected, { locale, now, url: base.url })?.datePosted).toBe(observed);
       }
     }
   });
@@ -97,8 +96,7 @@ describe('DCC publication evidence through public projections and schema', () =>
         const detail = buildLocaleJob(job, locale);
         for (const projected of [detail, buildLocaleJobSlim(detail)]) {
           const schema = buildJobPostingSchema(projected, { locale, now, url: base.url });
-          if (expected) expect(schema?.datePosted).toBe(expected);
-          else expect(schema).toBeNull();
+          expect(schema?.datePosted).toBe(expected || observed);
         }
       }
     }
