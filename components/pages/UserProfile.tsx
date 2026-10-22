@@ -212,16 +212,12 @@ function resolveLegacyStringField(
  const { currentProfile, cloudProfile, localProfile, legacy, cvPrefill, editedFields } = sources;
  if (editedFields.has(field)) return currentProfile[field];
 
- const hasCloudField = cloudProfile !== null && Object.hasOwn(cloudProfile, field);
  const cloudValue = cloudProfile?.[field];
- if (hasCloudField) {
-  // An explicitly stored private blank is an intentional clear, not a missing value.
-  if (typeof cloudValue === 'string') return cloudValue;
-  if (typeof localProfile?.[field] === 'string' && (localProfile[field] as string).trim()) {
-   return localProfile[field] as string;
-  }
-  return currentProfile[field];
- }
+ // The private document and the account cache are both written as complete
+ // profile snapshots. Their empty strings are therefore cache defaults, not
+ // proof that the owner cleared a field. A field edited during this session
+ // was handled above and remains authoritative.
+ if (typeof cloudValue === 'string' && cloudValue.trim()) return cloudValue;
 
  const localValue = localProfile?.[field];
  if (typeof localValue === 'string' && localValue.trim()) return localValue;
@@ -236,16 +232,10 @@ function resolveLegacyFamilyMembers(sources: LegacyProfileImportSources): Family
  const { currentProfile, cloudProfile, localProfile, legacy, cvPrefill, editedFields } = sources;
  if (editedFields.has('familyMembersList')) return currentProfile.familyMembersList || [];
 
- const hasCloudFamily = cloudProfile !== null && Object.hasOwn(cloudProfile, 'familyMembersList');
  const cloudFamily = cloudProfile?.familyMembersList;
- if (hasCloudFamily) {
-  // An explicitly stored empty list means the owner removed every member.
-  if (Array.isArray(cloudFamily)) return cloudFamily as FamilyMember[];
-  if (Array.isArray(localProfile?.familyMembersList) && localProfile.familyMembersList.length) {
-   return localProfile.familyMembersList as FamilyMember[];
-  }
-  return currentProfile.familyMembersList || [];
- }
+ // Empty arrays are the same snapshot default as empty strings above. An
+ // active-session deletion is already represented in editedFields.
+ if (Array.isArray(cloudFamily) && cloudFamily.length) return cloudFamily as FamilyMember[];
 
  if (Array.isArray(localProfile?.familyMembersList) && localProfile.familyMembersList.length) {
   return localProfile.familyMembersList as FamilyMember[];
