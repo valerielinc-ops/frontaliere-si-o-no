@@ -20,3 +20,14 @@ export const BE_AUCTION_URLS = Object.freeze([
   'https://auktion-be.ch/de/',
   'https://www.auktion-be.ch/de/',
 ]);
+
+/**
+ * TG publishes the same official card catalogue on both host aliases. The
+ * edge has returned a transient 404 for one alias while the other still
+ * served the catalogue (run 39723591585), so both collectors try the
+ * canonical registry URL first and the official alias second.
+ */
+export const TG_AUCTION_URLS = Object.freeze([
+  'https://auktion.tg.ch/de/',
+  'https://www.auktion.tg.ch/de/',
+]);

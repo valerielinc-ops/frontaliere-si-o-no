@@ -11,7 +11,7 @@ import { EXPANDED_ECARI_SOURCES, fetchExpandedEcari } from '../scripts/plate-auc
 import { fetchSgPlateAuctions, SG_AUCTION_URL, SG_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { fetchTiPlateAuctions, TI_AUCTION_URL } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { SZ_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sz.mjs';
-import { fetchTgPlateAuctions, TG_AUCTION_URL } from '../scripts/plate-auctions/connectors/tg.mjs';
+import { fetchTgPlateAuctions, TG_AUCTION_URL, TG_AUCTION_URLS } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { fetchZhPlateAuctions, ZH_AUCTION_URL } from '../scripts/plate-auctions/connectors/zh.mjs';
 import { fetchUrFixedPrice } from '../scripts/plate-auctions/connectors/fixed-price.mjs';
 import { FIXED_PRICE_SOURCE_CONFIGS } from '../functions/src/plateAuctionsCore.js';
@@ -243,7 +243,7 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
     });
   });
 
-  it('TG: a card-platform 404 uses a fresh relay snapshot', async () => {
+  it('TG: both official card hosts failing uses a fresh relay snapshot', async () => {
     const relay = relayPayload(
       { tg: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } },
       [row('TG', 'tg-109715')],
@@ -251,8 +251,8 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
     relayCalls = [];
     vi.stubGlobal('fetch', vi.fn(async (url: string | URL) => {
       relayCalls.push(String(url));
-      if (String(url) === TG_AUCTION_URL) {
-        const error = new Error(`HTTP 404 from ${TG_AUCTION_URL}`) as Error & { retryable?: boolean };
+      if ([TG_AUCTION_URL, TG_AUCTION_URLS[1]].includes(String(url))) {
+        const error = new Error(`HTTP 404 from ${String(url)}`) as Error & { retryable?: boolean };
         error.retryable = false;
         throw error;
       }
@@ -265,7 +265,7 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
       sourceKey: 'TG',
       officialAuctionUrl: TG_AUCTION_URL,
     })]);
-    expect(relayCalls).toEqual([TG_AUCTION_URL, PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
+    expect(relayCalls).toEqual([TG_AUCTION_URL, TG_AUCTION_URLS[1], PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
   });
 
   it('ZH: the special card connector also uses a fresh relay snapshot after a 404', async () => {
