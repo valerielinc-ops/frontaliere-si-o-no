@@ -1,24 +1,24 @@
 {
   "companyKey": "paulcramatte-ch",
-  "companyName": "Paul Cramatte SA",
+  "companyName": "Paul Cramatte SA, Placement de personnel, succursale de la Chaux-de-Fonds",
   "companyHost": "paulcramatte.ch",
   "platform": "",
   "mode": "template",
   "seedUrls": [
-    "https://paulcramatte.ch/fr/offres-d-emploi.html"
+    "https://paulcramatte.ch/"
   ],
   "detailTemplate": "/fr/offres-d-emploi/*",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 51,
+  "sampleVacancyCount": 57,
   "sampleTitles": [
-    "Polisseur composants mouvement (H/F/X)",
-    "Passeur au bain (H/F/X)",
-    "Employé/e de commerce",
-    "Praticien en mécanique AFP (H/F)",
-    "Polymécanicien (H/F)"
+    "Voir cette offre",
+    "Voir cette offre",
+    "Voir cette offre",
+    "Voir cette offre",
+    "Voir cette offre"
   ],
-  "canton": "JU",
-  "sourceLang": "it",
-  "learnedAt": "2026-10-17T09:08:55.788Z"
+  "canton": "NE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-22T11:58:18.716Z"
 }

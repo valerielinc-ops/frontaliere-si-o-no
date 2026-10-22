@@ -1,0 +1,20 @@
+{
+  "companyKey": "nine-internet-solutions-ag",
+  "companyName": "Nine Internet Solutions AG",
+  "companyHost": "nine-internet-solutions-ag.jobs.personio.de",
+  "platform": "personio.de",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://nine-internet-solutions-ag.jobs.personio.de/job/1032092?language=en&display=en"
+  ],
+  "detailTemplate": "/job/1032092",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "open application"
+  ],
+  "canton": "ZH",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-22T11:55:31.553Z"
+}

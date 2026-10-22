@@ -1,0 +1,24 @@
+{
+  "companyKey": "careanesth-com",
+  "companyName": "Careanesth AG",
+  "companyHost": "careanesth.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://careanesth.com/de/fuer-stellensuchende/stellen/?mainDivision=acute&amp;profession%5B%5D=14926&amp;profession%5B%5D=7849&amp;profession%5B%5D=7851&amp;profession%5B%5D=7852&amp;profession%5B%5D=10252&amp;profession%5B%5D=7850&amp;profession%5B%5D=1092&amp;profession%5B%5D=1124&amp;profession%5B%5D=7853&amp;profession%5B%5D=10251&amp;profession%5B%5D=7855&amp;profession%5B%5D=14912&amp;division%5B%5D=1211&amp;division%5B%5D=1199&amp;division%5B%5D=1200&amp;division%5B%5D=1207&amp;division%5B%5D=1206&amp;division%5B%5D=1209&amp;division%5B%5D=1210&amp;division%5B%5D=1214&amp;division%5B%5D=10239&amp;division%5B%5D=10451&amp;division%5B%5D=1216&amp;sort="
+  ],
+  "detailTemplate": "/de/fuer-stellensuchende/stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "Technische/r Sterilisationsassistent/ Sterilisationsassistentin mit Fachkundekurs 1 für temporäre Einsätze (70-100) in der deutschsprachigen Schweiz gesucht",
+    "Dipl. Experte/-in Anästhesiepflege NDS HF für tageweise- oder temporäre Einsätze 20-100% in den Regionen Basel, Solothurn und Bern gesucht",
+    "Dipl. Fachperson medizinisch-technische Radiologie HF (m/w) für temporäre Einsätze 80-100% in der deutschsprachigen Schweiz gesucht",
+    "Dipl. OP-Pflegefachfrau/-mann/TOA/OTA für tageweise- oder temporäre Einsätze 20-100% in den Regionen Basel, Solothurn und Bern gesucht",
+    "Dipl. Pflegefachperson HF/FH (m/w) für tageweise Einsätze 20-40% in Pfäffikon SZ gesucht"
+  ],
+  "canton": "AI",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:38.530Z"
+}

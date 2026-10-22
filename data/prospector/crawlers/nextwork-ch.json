@@ -1,0 +1,24 @@
+{
+  "companyKey": "nextwork-ch",
+  "companyName": "Next Work AG",
+  "companyHost": "nextwork.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://nextwork.ch/"
+  ],
+  "detailTemplate": "/job_type/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Industrie und Technik Automatiker / Techniker Automation HF (m/w/d) Thurgau Festanstellung",
+    "Elektrotechnik Freileitungsmonteur / Kabelmonteur (m/w/d) GraubündenSt. GallenLiechtenstein FestanstellungTemporär",
+    "Industrie und Technik Polymechaniker / CNC-Fräser / CNC-Dreher (m/w/d) GraubündenSt. GallenLiechtenstein TemporärTry & Hire",
+    "Industrie und Technik Projektleiter/in Metallspritzguss (MIM) ThurgauWil Festanstellung",
+    "Maschinenbau Polymechaniker CNC-Drehen (m/w/d) Zürich Festanstellung"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:59:03.743Z"
+}

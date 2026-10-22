@@ -1,0 +1,21 @@
+{
+  "companyKey": "metanet",
+  "companyName": "Metanet",
+  "companyHost": "metanet.teamtailor.com",
+  "platform": "teamtailor.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://metanet.teamtailor.com/jobs"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Vice President Sales (m/w/d)",
+    "Support (m/w/d) Webhosting Helpdesk"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:17.707Z"
+}

@@ -1,0 +1,24 @@
+{
+  "companyKey": "jobdoorplus-ch",
+  "companyName": "Jobdoor Plus AG",
+  "companyHost": "jobdoorplus.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobdoorplus.ch/"
+  ],
+  "detailTemplate": "/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Dipl. Pflegefachperson HF Psychiatrie 60-100% Neuenhof Dauerstelle",
+    "Dipl. Pflegefachperson HF/FH 100% Aargau Try & Hire",
+    "Dipl. Pflegefachperson HF/FH 100% Lenzburg Try & Hire",
+    "Dipl. Pflegefachperson HF/FH 100% Zürich Dauerstelle",
+    "Dipl. Pflegefachperson HF/FH 100% Lenzburg Try & Hire"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T12:08:42.112Z"
+}

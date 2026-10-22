@@ -1,0 +1,23 @@
+{
+  "companyKey": "campobassowork-ch",
+  "companyName": "Campobasso Work Agency GmbH",
+  "companyHost": "campobassowork.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://campobassowork.ch/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Fenstermonteure/in",
+    "Montage-Elektriker/in",
+    "Spezialsaugarbeiten/ Dachbekiesungen oder -begrünungen",
+    "Kranführer (m/w) 100%"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:58:55.995Z"
+}

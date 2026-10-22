@@ -1,0 +1,20 @@
+{
+  "companyKey": "hsgcareer-ch",
+  "companyName": "hsgcareer",
+  "companyHost": "loreal.com",
+  "platform": "loreal.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.loreal.com/de-de/germany/pages/karriere/"
+  ],
+  "detailTemplate": "/de-de/germany/pages/deine-karriere/videos/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Bildergalerie ansehen",
+    "Bildergalerie ansehen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:22.915Z"
+}

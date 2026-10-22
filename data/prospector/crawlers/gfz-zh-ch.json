@@ -1,0 +1,24 @@
+{
+  "companyKey": "gfz-zh-ch",
+  "companyName": "GFZ Kindertagesstätte 5",
+  "companyHost": "karriere.gfz-zh.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://karriere.gfz-zh.ch/Jobs/All"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 11,
+  "sampleTitles": [
+    "Betreuungsperson Tagesfamilie (m/w)",
+    "Erzieherin (w/m), 90 %",
+    "Erzieherin (w/m), 90 %",
+    "Lehrfortsetzung als Lernende/Lernender Fachfrau/Fachmann Betreuung EFZ im 1. oder 2. Lehrjahr in der GFZ Kita 12",
+    "Erzieherin / Stellvertretung Leiterin Kita (w/m), 80 %"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:47:50.391Z"
+}

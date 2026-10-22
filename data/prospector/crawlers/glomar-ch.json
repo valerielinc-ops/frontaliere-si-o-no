@@ -1,0 +1,19 @@
+{
+  "companyKey": "glomar-ch",
+  "companyName": "glomar",
+  "companyHost": "rogergerm.ch",
+  "platform": "rogergerm.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.rogergerm.ch/stellen/netzelektriker-hs-prueflabor-kundenberatung-innendienst/"
+  ],
+  "detailTemplate": "/stellen/netzelektriker-hs-prueflabor-kundenberatung-innendienst/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Netzelektriker HS-Prüflabor, Kundenberatung und Innendienst (w/m)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:33.063Z"
+}

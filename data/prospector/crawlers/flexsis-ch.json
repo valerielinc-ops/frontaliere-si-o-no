@@ -1,0 +1,20 @@
+{
+  "companyKey": "flexsis-ch",
+  "companyName": "Flexsis SA",
+  "companyHost": "flexsis.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.flexsis.ch/emploi/3615362835-technicienne-ingenieure-civile-direction-de-travaux-gestion-des-couts-h-f-fr/"
+  ],
+  "detailTemplate": "/emploi/3615362835-technicienne-ingenieure-civile-direction-de-travaux-gestion-des-couts-h-f-fr/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "TECHNICIEN(NE) / INGÉNIEUR(E) CIVIL(E) – DIRECTION DE TRAVAUX & GESTION DES COÛTS"
+  ],
+  "canton": "TI",
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-22T11:50:19.561Z"
+}

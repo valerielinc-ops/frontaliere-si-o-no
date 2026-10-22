@@ -1,0 +1,23 @@
+{
+  "companyKey": "enableme",
+  "companyName": "enableme",
+  "companyHost": "enableme.myability.jobs",
+  "platform": "myability.jobs",
+  "mode": "template",
+  "seedUrls": [
+    "https://enableme.myability.jobs/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Architektur/Bauingenieurwesen (87)",
+    "Vertrieb/Verkauf/Kundendienst (84)",
+    "Medizin/Gesundheitswesen/Pharma (34)",
+    "Finanz-/Bankwesen/Versicherungen (11)",
+    "Facharbeit/Gewerbe/Produktion (4)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T11:55:15.904Z"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "securitas-ch",
+  "companyName": "Securitas AG Region 5",
+  "companyHost": "jobs.security",
+  "platform": "jobs.security",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.jobs.security/?company=Securitas+AG"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Wirtschaftsingenieur Jobs",
+    "Fachkraft Schutz und Sicherheit Jobs"
+  ],
+  "canton": "TG",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-22T12:07:24.454Z"
+}
