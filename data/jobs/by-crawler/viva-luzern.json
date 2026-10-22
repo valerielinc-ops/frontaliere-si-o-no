@@ -1,7 +1,7 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-10-22T09:20:10.213Z",
-  "runId": "39753416818",
+  "assembledAt": "2026-10-22T21:23:14.955Z",
+  "runId": "39855100996",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -34,7 +34,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.452Z",
+      "crawledAt": "2026-10-22T21:22:27.623Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -105,10 +105,10 @@
       "id": "viva-luzern-e87910a5c03f",
       "slug": "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-hf-viva-luzern",
+        "it": "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "fr": "professionnel-de-soins-viva-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -132,7 +132,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.451Z",
+      "crawledAt": "2026-10-22T21:22:27.619Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -173,7 +173,9 @@
         "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-uy50u4",
-        "professionnel-de-soins-viva-luzern"
+        "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
+        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
+        "pflegefachfrau-mann-hf-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -193,7 +195,9 @@
           "nursing-professional-hf-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern-luzern",
           "nursing-professional-hf-temporary-viva-luzern-luzern",
-          "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern"
+          "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
+          "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
+          "pflegefachfrau-mann-hf-viva-luzern"
         ],
         "en": [
           "care-specialist-hf-palliative-care-viva-luzern-luzern",
@@ -206,92 +210,10 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
-          "professionnel-de-soins-viva-luzern"
+          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "viva-luzern-d2d31a74dc40",
-      "slug": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern",
-      "slugByLocale": {
-        "it": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern",
-        "en": "health-and-social-affairs-assistant-or-src-nursing-assistant-viva-luzern-luzern",
-        "de": "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern",
-        "fr": "assistant-en-sante-et-affaires-sociales-ou-assistant-infirmier-src-viva-luzern-luzern"
-      },
-      "company": "Viva Luzern",
-      "companyKey": "viva-luzern",
-      "companyDomain": "viva-luzern.ch",
-      "title": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK",
-      "titleByLocale": {
-        "it": "Assistente Sanitario e Affari Sociali o Assistente Infermieristico SRC",
-        "en": "Health and Social Affairs Assistant or SRC Nursing Assistant",
-        "de": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK",
-        "fr": "Assistant en santé et affaires sociales ou assistant infirmier SRC"
-      },
-      "description": "access_time 80-100%\nplace Viva Luzern Dreilinden\ncalendar_today Unbefristet\n\n## Deine Hauptaufgaben sind\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\n## Du verfügst über\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n• Freude an der Arbeit im Langzeitbereich\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Dreilinden\nVier Häuser mit prachtvollem Blick auf See und Berge bieten ein vielseitiges Wohnangebot für 202 Bewohnerinnen. Abwechslungsreiche Veranstaltungen, eine vielfältige Gastronomie und eine herzliche Atmosphäre zeichnen den Ort im ruhigen Wohnquartier aus.\nErfahre mehr über Viva Luzern Dreilinden\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
-      "descriptionByLocale": {
-        "it": "tempo di accesso 80-100 %\nLuogo Viva Lucerna Dreilinden\ncalendario oggi illimitato\n\n## I vostri compiti principali sono:\n• Cura e cura dei residenti secondo il processo di cura\n• Guida specifica per nuovi infermieri e studenti\n• Implementare semplici misure preventive, diagnostiche e terapeutiche\n• Attuazione delle misure delegate nei settori della promozione della salute e della riabilitazione secondo l'ordine\n• Co-creazione della vita quotidiana tenendo conto delle esigenze individuali degli abitanti\n\n## Hai finito\n• Assistente/in Salute e Sociale EBA o assistente/in SRK\n• Divertimento del lavoro a lungo termine\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Aspetto ben curato e buone maniere\n• Atteggiamento favorevole e una forte comprensione delle persone anziane\nVi offriamo\n\n## Essere ben addestrato\n• Partecipazione genetica all'istruzione e alla formazione esterna\n• Ampia offerta di formazione interna\n• Consigli di pianificazione della carriera individuale\n\n## Godetevi il tempo libero\n• Almeno 25 giorni di vacanza (da 50 anni di età 30 e da 60 anni 33 giorni)\n• 15 giorni\n• 30 minuti di pausa pagata per giorno lavorativo completo\n• Per i dipendenti in abbigliamento professionale 15 minuti pagati che cambiano tempo al giorno lavorativo\n• L'orario è min. Quattro settimane di anticipo\n• Possibilità di progettare il vostro roster voi stessi come un pool di personale dipendente\n• 20 giorni lavorativi di congedo di paternità pagato o per altri genitori o adozione\n• Possibilità di congedo non retribuito\n• congedo supplementare da 10 anni di servizio ogni 5 anni\n\n## Rimani sano\n• Attività di promozione della salute, di sicurezza e di protezione della salute sul lavoro\n• Consulenza gratuita per difficoltà finanziarie, sociali, personali o altre\n\n## Ben assicurati\n• In caso di incidente e malattia prosecuzione salariale al 100% fino a 730 giorni\n• Prestazioni previdenziali\n• 16 settimane di congedo di maternità retribuito\n\n## Avere di più nel portafoglio\n• Lei beneficia di uno standard industriale salario lordo\n• Detrazioni assicurative profonde: Viva Lucerna occupa una gran parte del contributo del fondo pensionistico e dell'assicurazione malattia\n• 30% di sconto sul cibo nei ristoranti di Viva Lucerne\n• Una bevanda calda gratuita al giorno\n• Notte, fine settimana e ferie pubbliche\n• Indennità speciale di CHF 300 al mese\n• CHF 1.000 per un posto di lavoro di successo\n• Gli studenti e gli studenti ricevono CHF 200.00 per l'acquisto di un laptop\n\n## Vantaggio di condizioni speciali\nA Viva Lucerne si beneficiano di oltre 300 perks e...\n• Più economico per le vacanze\n• Pagare meno per vestiti e scarpe\n• acquisti ben noti prodotti di marca su termini preferenziali\n• Godetevi innumerevoli offerte per il tempo libero ai migliori prezzi\n\n## Viva Lucerna Dreilinden\nQuattro case con una magnifica vista sul lago e sulle montagne offrono una vasta gamma di opzioni residenziali per 202 residenti. Vari eventi, una variegata gastronomia e un'atmosfera calda caratterizzano il luogo nel tranquillo quartiere residenziale.\nScopri di più su Viva Lucerne Dreilinden\n\n## Viva Luzern AG\nLa gioia della vita non è una questione di età, ma di qualità della vita. Questo è esattamente ciò che Viva Lucerne offre ai suoi 850 residenti nei sei centri di età e a vivere con servizi nella città di Lucerna. Viva Lucerna è il fornitore leader di cure a lungo termine nella Svizzera centrale.",
-        "en": "access time 80-100 %\nplace Viva Lucerne Dreilinden\ncalendar today Unlimited\n\n## Your main tasks are\n• Care and care of residents according to the care process\n• Specific guidance for new nurses and learners\n• Implement simple preventive, diagnostic and therapeutic measures\n• Implementation of delegated measures in the areas of health promotion and rehabilitation according to order\n• Co-creation of everyday life taking into account the individual needs of the inhabitants\n\n## You have over\n• Training assistant/in Health and Social EBA or nursing assistant/in SRK\n• Enjoyment of working in the long term\n• Good knowledge of German in words and writing\n• Well-groomed appearance and good manners\n• Appreciative attitude and a strong understanding of older people\nWe offer you\n\n## Be well trained\n• Generous participation in external education and training\n• Extensive internal training offer\n• Individual career planning advice\n\n## Enjoy free time\n• At least 25 days of holiday (from 50 years of age 30 and from 60 years of age 33 days)\n• 15 paid holidays\n• 30 minutes paid break per full working day\n• For employees in professional clothing 15 minutes paid changing time per working day\n• Schedule is min. Four weeks in advance\n• Possibility to design your roster yourself as an employee staff pool\n• 20 working days of paid paternity leave or for other parents or adoption\n• Possibility of unpaid leave\n• Additional leave from 10 years of service every 5 years\n\n## Stay healthy\n• Targeted health promotion, occupational safety and health protection activities\n• Free advice for financial, social, personal or other difficulties\n\n## Well-insured\n• In case of accident and illness 100% wage continuation up to 730 days\n• Above-average occupational pension benefits\n• 16 weeks of paid maternity leave\n\n## Have more in your wallet\n• You benefit from an industry standard gross wage\n• Deep insurance deductions: Viva Lucerne takes over a large part of the pension fund contribution and the sickness allowance insurance\n• 30% discount on food in the restaurants of Viva Lucerne\n• One free hot drink per day\n• Night, weekend and public holiday allowances\n• Special family allowance of CHF 300 per month\n• CHF 1,000 for a successful job placement\n• Learners and students receive CHF 200.00 for the purchase of a laptop\n\n## Benefit from special conditions\nAt Viva Lucerne you benefit from over 300 perks and...\n• Get cheaper on holidays\n• Pay less for clothes and shoes\n• purchases well-known branded products on preferential terms\n• Enjoy countless leisure offers at the best prices\n\n## Viva Lucerne Dreilinden\nFour houses with magnificent views of the lake and mountains offer a wide range of residential options for 202 residents. Varied events, a diverse gastronomy and a warm atmosphere characterize the place in the quiet residential quarter.\nLearn more about Viva Lucerne Dreilinden\n\n## Viva Luzern AG\nThe joy of life is not a question of age, but of quality of life. This is exactly what Viva Lucerne offers its 850 residents in the six age centers and in living with services in the city of Lucerne. Viva Lucerne is the leading provider of long-term care in Central Switzerland.",
-        "de": "access_time 80-100%\nplace Viva Luzern Dreilinden\ncalendar_today Unbefristet\n\n## Deine Hauptaufgaben sind\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\n## Du verfügst über\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n• Freude an der Arbeit im Langzeitbereich\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Dreilinden\nVier Häuser mit prachtvollem Blick auf See und Berge bieten ein vielseitiges Wohnangebot für 202 Bewohnerinnen. Abwechslungsreiche Veranstaltungen, eine vielfältige Gastronomie und eine herzliche Atmosphäre zeichnen den Ort im ruhigen Wohnquartier aus.\nErfahre mehr über Viva Luzern Dreilinden\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
-        "fr": "temps d'accès 80-100 %\nlieu Viva Lucerne Dreilinden\ncalendrier aujourd'hui Illimité\n\n## Vos principales tâches sont :\n• Soins et soins aux résidents selon le processus de soins\n• Orientations spécifiques pour les nouveaux infirmiers et apprenants\n• Mettre en œuvre des mesures préventives, diagnostiques et thérapeutiques simples\n• Mise en œuvre des mesures déléguées dans les domaines de la promotion de la santé et de la réadaptation selon l ' ordre\n• Co-création de la vie quotidienne en tenant compte des besoins individuels des habitants\n\n## Vous avez fini\n• Assistante de formation/dans le domaine de la santé et de la sécurité sociale EBA ou assistante infirmière/en SRK\n• Appréciation du travail à long terme\n• Bonne connaissance de l'allemand en mots et en écriture\n• Aspect soigné et bonnes manières\n• Appréciation et compréhension des personnes âgées\nNous vous offrons\n\n## Être bien entraîné\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière\n\n## Profitez du temps libre\n• Au moins 25 jours de vacances (à partir de 50 ans 30 et à partir de 60 ans 33 jours)\n• 15 jours fériés payés\n• 30 minutes de pause rémunérée par journée de travail complète\n• Pour les employés en vêtements professionnels 15 minutes rémunérées temps de changement par jour ouvrable\n• L'horaire est min. Quatre semaines à l'avance\n• Possibilité de concevoir votre équipe comme un bassin d'employés\n• 20 jours ouvrables de congé de paternité payé ou pour les autres parents ou adoption\n• Possibilité de congé non rémunéré\n• Congé supplémentaire de 10 ans de service tous les 5 ans\n\n## Restez en bonne santé\n• Promotion de la santé ciblée, sécurité au travail et protection de la santé\n• Conseil gratuit pour les difficultés financières, sociales, personnelles ou autres\n\n## Bien assuré\n• En cas d'accident et de maladie 100% salaire continu jusqu'à 730 jours\n• Prestations professionnelles supérieures à la moyenne\n• 16 semaines de congé de maternité payé\n\n## Ayez plus dans votre portefeuille\n• Vous bénéficiez d'un salaire brut standard de l'industrie\n• Déductions d'assurance importantes: Viva Lucerne reprend une grande partie de la cotisation de la caisse de retraite et de l'assurance maladie\n• 30% de réduction sur la nourriture dans les restaurants de Viva Lucerne\n• Une boisson chaude gratuite par jour\n• Indemnités de nuit, de week-end et de jours fériés\n• Allocation familiale spéciale de CHF 300 par mois\n• 1 000 CHF pour un placement réussi\n• Les apprenants et les étudiants reçoivent CHF 200,00 pour l'achat d'un ordinateur portable\n\n## Bénéficiez de conditions spéciales\nChez Viva Lucerne vous bénéficiez de plus de 300 avantages et...\n• Obtenez moins cher pendant les vacances\n• Payez moins pour les vêtements et les chaussures\n• achète des produits de marque bien connus à des conditions préférentielles\n• Profitez d'innombrables offres de loisirs aux meilleurs prix\n\n## Viva Lucerne Dreilinden\nQuatre maisons avec une vue magnifique sur le lac et les montagnes offrent un large éventail d'options résidentielles pour 202 résidents. Des événements variés, une gastronomie diversifiée et une ambiance chaleureuse caractérisent l'endroit dans le quartier résidentiel calme.\nEn savoir plus sur Viva Lucerne Dreilinden\n\n## Viva Luzern AG\nLa joie de vivre n'est pas une question d'âge, mais de qualité de vie. C'est exactement ce que Viva Lucerne offre à ses 850 résidents dans les centres de six ans et en vivant avec des services dans la ville de Lucerne. Viva Lucerne est la principale prestataire de soins de longue durée en Suisse centrale."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
-      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.450Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Schweizerhausstrasse 10",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern-2qt7sz",
-        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern-2qt7sz",
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
-        ],
-        "en": [
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
-        ],
-        "fr": [
-          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T14:51:25.698Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -338,7 +260,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.450Z",
+      "crawledAt": "2026-10-22T21:22:27.618Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -411,6 +333,88 @@
       }
     },
     {
+      "id": "viva-luzern-d2d31a74dc40",
+      "slug": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern",
+      "slugByLocale": {
+        "it": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern",
+        "en": "health-and-social-affairs-assistant-or-src-nursing-assistant-viva-luzern-luzern",
+        "de": "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern",
+        "fr": "assistant-en-sante-et-affaires-sociales-ou-assistant-infirmier-src-viva-luzern-luzern"
+      },
+      "company": "Viva Luzern",
+      "companyKey": "viva-luzern",
+      "companyDomain": "viva-luzern.ch",
+      "title": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK",
+      "titleByLocale": {
+        "it": "Assistente Sanitario e Affari Sociali o Assistente Infermieristico SRC",
+        "en": "Health and Social Affairs Assistant or SRC Nursing Assistant",
+        "de": "Assistent/-in Gesundheit und Soziales oder Pflegehelfer/-in SRK",
+        "fr": "Assistant en santé et affaires sociales ou assistant infirmier SRC"
+      },
+      "description": "access_time 80-100%\nplace Viva Luzern Dreilinden\ncalendar_today Unbefristet\n\n## Deine Hauptaufgaben sind\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\n## Du verfügst über\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n• Freude an der Arbeit im Langzeitbereich\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Dreilinden\nVier Häuser mit prachtvollem Blick auf See und Berge bieten ein vielseitiges Wohnangebot für 202 Bewohnerinnen. Abwechslungsreiche Veranstaltungen, eine vielfältige Gastronomie und eine herzliche Atmosphäre zeichnen den Ort im ruhigen Wohnquartier aus.\nErfahre mehr über Viva Luzern Dreilinden\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
+      "descriptionByLocale": {
+        "it": "tempo di accesso 80-100 %\nLuogo Viva Lucerna Dreilinden\ncalendario oggi illimitato\n\n## I vostri compiti principali sono:\n• Cura e cura dei residenti secondo il processo di cura\n• Guida specifica per nuovi infermieri e studenti\n• Implementare semplici misure preventive, diagnostiche e terapeutiche\n• Attuazione delle misure delegate nei settori della promozione della salute e della riabilitazione secondo l'ordine\n• Co-creazione della vita quotidiana tenendo conto delle esigenze individuali degli abitanti\n\n## Hai finito\n• Assistente/in Salute e Sociale EBA o assistente/in SRK\n• Divertimento del lavoro a lungo termine\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Aspetto ben curato e buone maniere\n• Atteggiamento favorevole e una forte comprensione delle persone anziane\nVi offriamo\n\n## Essere ben addestrato\n• Partecipazione genetica all'istruzione e alla formazione esterna\n• Ampia offerta di formazione interna\n• Consigli di pianificazione della carriera individuale\n\n## Godetevi il tempo libero\n• Almeno 25 giorni di vacanza (da 50 anni di età 30 e da 60 anni 33 giorni)\n• 15 giorni\n• 30 minuti di pausa pagata per giorno lavorativo completo\n• Per i dipendenti in abbigliamento professionale 15 minuti pagati che cambiano tempo al giorno lavorativo\n• L'orario è min. Quattro settimane di anticipo\n• Possibilità di progettare il vostro roster voi stessi come un pool di personale dipendente\n• 20 giorni lavorativi di congedo di paternità pagato o per altri genitori o adozione\n• Possibilità di congedo non retribuito\n• congedo supplementare da 10 anni di servizio ogni 5 anni\n\n## Rimani sano\n• Attività di promozione della salute, di sicurezza e di protezione della salute sul lavoro\n• Consulenza gratuita per difficoltà finanziarie, sociali, personali o altre\n\n## Ben assicurati\n• In caso di incidente e malattia prosecuzione salariale al 100% fino a 730 giorni\n• Prestazioni previdenziali\n• 16 settimane di congedo di maternità retribuito\n\n## Avere di più nel portafoglio\n• Lei beneficia di uno standard industriale salario lordo\n• Detrazioni assicurative profonde: Viva Lucerna occupa una gran parte del contributo del fondo pensionistico e dell'assicurazione malattia\n• 30% di sconto sul cibo nei ristoranti di Viva Lucerne\n• Una bevanda calda gratuita al giorno\n• Notte, fine settimana e ferie pubbliche\n• Indennità speciale di CHF 300 al mese\n• CHF 1.000 per un posto di lavoro di successo\n• Gli studenti e gli studenti ricevono CHF 200.00 per l'acquisto di un laptop\n\n## Vantaggio di condizioni speciali\nA Viva Lucerne si beneficiano di oltre 300 perks e...\n• Più economico per le vacanze\n• Pagare meno per vestiti e scarpe\n• acquisti ben noti prodotti di marca su termini preferenziali\n• Godetevi innumerevoli offerte per il tempo libero ai migliori prezzi\n\n## Viva Lucerna Dreilinden\nQuattro case con una magnifica vista sul lago e sulle montagne offrono una vasta gamma di opzioni residenziali per 202 residenti. Vari eventi, una variegata gastronomia e un'atmosfera calda caratterizzano il luogo nel tranquillo quartiere residenziale.\nScopri di più su Viva Lucerne Dreilinden\n\n## Viva Luzern AG\nLa gioia della vita non è una questione di età, ma di qualità della vita. Questo è esattamente ciò che Viva Lucerne offre ai suoi 850 residenti nei sei centri di età e a vivere con servizi nella città di Lucerna. Viva Lucerna è il fornitore leader di cure a lungo termine nella Svizzera centrale.",
+        "en": "access time 80-100 %\nplace Viva Lucerne Dreilinden\ncalendar today Unlimited\n\n## Your main tasks are\n• Care and care of residents according to the care process\n• Specific guidance for new nurses and learners\n• Implement simple preventive, diagnostic and therapeutic measures\n• Implementation of delegated measures in the areas of health promotion and rehabilitation according to order\n• Co-creation of everyday life taking into account the individual needs of the inhabitants\n\n## You have over\n• Training assistant/in Health and Social EBA or nursing assistant/in SRK\n• Enjoyment of working in the long term\n• Good knowledge of German in words and writing\n• Well-groomed appearance and good manners\n• Appreciative attitude and a strong understanding of older people\nWe offer you\n\n## Be well trained\n• Generous participation in external education and training\n• Extensive internal training offer\n• Individual career planning advice\n\n## Enjoy free time\n• At least 25 days of holiday (from 50 years of age 30 and from 60 years of age 33 days)\n• 15 paid holidays\n• 30 minutes paid break per full working day\n• For employees in professional clothing 15 minutes paid changing time per working day\n• Schedule is min. Four weeks in advance\n• Possibility to design your roster yourself as an employee staff pool\n• 20 working days of paid paternity leave or for other parents or adoption\n• Possibility of unpaid leave\n• Additional leave from 10 years of service every 5 years\n\n## Stay healthy\n• Targeted health promotion, occupational safety and health protection activities\n• Free advice for financial, social, personal or other difficulties\n\n## Well-insured\n• In case of accident and illness 100% wage continuation up to 730 days\n• Above-average occupational pension benefits\n• 16 weeks of paid maternity leave\n\n## Have more in your wallet\n• You benefit from an industry standard gross wage\n• Deep insurance deductions: Viva Lucerne takes over a large part of the pension fund contribution and the sickness allowance insurance\n• 30% discount on food in the restaurants of Viva Lucerne\n• One free hot drink per day\n• Night, weekend and public holiday allowances\n• Special family allowance of CHF 300 per month\n• CHF 1,000 for a successful job placement\n• Learners and students receive CHF 200.00 for the purchase of a laptop\n\n## Benefit from special conditions\nAt Viva Lucerne you benefit from over 300 perks and...\n• Get cheaper on holidays\n• Pay less for clothes and shoes\n• purchases well-known branded products on preferential terms\n• Enjoy countless leisure offers at the best prices\n\n## Viva Lucerne Dreilinden\nFour houses with magnificent views of the lake and mountains offer a wide range of residential options for 202 residents. Varied events, a diverse gastronomy and a warm atmosphere characterize the place in the quiet residential quarter.\nLearn more about Viva Lucerne Dreilinden\n\n## Viva Luzern AG\nThe joy of life is not a question of age, but of quality of life. This is exactly what Viva Lucerne offers its 850 residents in the six age centers and in living with services in the city of Lucerne. Viva Lucerne is the leading provider of long-term care in Central Switzerland.",
+        "de": "access_time 80-100%\nplace Viva Luzern Dreilinden\ncalendar_today Unbefristet\n\n## Deine Hauptaufgaben sind\n• Betreuung und Pflege der Bewohnenden gemäss Pflegeprozess\n• Punktuell Anleiten von neuen Pflegemitarbeitenden und Lernenden\n• Einfache präventive, diagnostische und therapeutische Massnahmen ausführen\n• Durchführen von delegierten Massnahmen in den Bereichen Gesundheitsförderung und Rehabilitationen gemäss Anordnung\n• Mitgestaltung des Alltags unter Berücksichtigung der individuellen Bedürfnisse der Bewohner/innen\n\n## Du verfügst über\n• Ausbildung Assistent/-in Gesundheit und Soziales EBA oder Pflegehelfer/-in SRK\n• Freude an der Arbeit im Langzeitbereich\n• Gute Deutschkenntnisse in Wort und Schrift\n• Gepflegtes Erscheinungsbild und gute Umgangsformen\n• Wertschätzende Grundhaltung und ein ausgeprägtes Verständnis für ältere Menschen\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Dreilinden\nVier Häuser mit prachtvollem Blick auf See und Berge bieten ein vielseitiges Wohnangebot für 202 Bewohnerinnen. Abwechslungsreiche Veranstaltungen, eine vielfältige Gastronomie und eine herzliche Atmosphäre zeichnen den Ort im ruhigen Wohnquartier aus.\nErfahre mehr über Viva Luzern Dreilinden\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
+        "fr": "temps d'accès 80-100 %\nlieu Viva Lucerne Dreilinden\ncalendrier aujourd'hui Illimité\n\n## Vos principales tâches sont :\n• Soins et soins aux résidents selon le processus de soins\n• Orientations spécifiques pour les nouveaux infirmiers et apprenants\n• Mettre en œuvre des mesures préventives, diagnostiques et thérapeutiques simples\n• Mise en œuvre des mesures déléguées dans les domaines de la promotion de la santé et de la réadaptation selon l ' ordre\n• Co-création de la vie quotidienne en tenant compte des besoins individuels des habitants\n\n## Vous avez fini\n• Assistante de formation/dans le domaine de la santé et de la sécurité sociale EBA ou assistante infirmière/en SRK\n• Appréciation du travail à long terme\n• Bonne connaissance de l'allemand en mots et en écriture\n• Aspect soigné et bonnes manières\n• Appréciation et compréhension des personnes âgées\nNous vous offrons\n\n## Être bien entraîné\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière\n\n## Profitez du temps libre\n• Au moins 25 jours de vacances (à partir de 50 ans 30 et à partir de 60 ans 33 jours)\n• 15 jours fériés payés\n• 30 minutes de pause rémunérée par journée de travail complète\n• Pour les employés en vêtements professionnels 15 minutes rémunérées temps de changement par jour ouvrable\n• L'horaire est min. Quatre semaines à l'avance\n• Possibilité de concevoir votre équipe comme un bassin d'employés\n• 20 jours ouvrables de congé de paternité payé ou pour les autres parents ou adoption\n• Possibilité de congé non rémunéré\n• Congé supplémentaire de 10 ans de service tous les 5 ans\n\n## Restez en bonne santé\n• Promotion de la santé ciblée, sécurité au travail et protection de la santé\n• Conseil gratuit pour les difficultés financières, sociales, personnelles ou autres\n\n## Bien assuré\n• En cas d'accident et de maladie 100% salaire continu jusqu'à 730 jours\n• Prestations professionnelles supérieures à la moyenne\n• 16 semaines de congé de maternité payé\n\n## Ayez plus dans votre portefeuille\n• Vous bénéficiez d'un salaire brut standard de l'industrie\n• Déductions d'assurance importantes: Viva Lucerne reprend une grande partie de la cotisation de la caisse de retraite et de l'assurance maladie\n• 30% de réduction sur la nourriture dans les restaurants de Viva Lucerne\n• Une boisson chaude gratuite par jour\n• Indemnités de nuit, de week-end et de jours fériés\n• Allocation familiale spéciale de CHF 300 par mois\n• 1 000 CHF pour un placement réussi\n• Les apprenants et les étudiants reçoivent CHF 200,00 pour l'achat d'un ordinateur portable\n\n## Bénéficiez de conditions spéciales\nChez Viva Lucerne vous bénéficiez de plus de 300 avantages et...\n• Obtenez moins cher pendant les vacances\n• Payez moins pour les vêtements et les chaussures\n• achète des produits de marque bien connus à des conditions préférentielles\n• Profitez d'innombrables offres de loisirs aux meilleurs prix\n\n## Viva Lucerne Dreilinden\nQuatre maisons avec une vue magnifique sur le lac et les montagnes offrent un large éventail d'options résidentielles pour 202 résidents. Des événements variés, une gastronomie diversifiée et une ambiance chaleureuse caractérisent l'endroit dans le quartier résidentiel calme.\nEn savoir plus sur Viva Lucerne Dreilinden\n\n## Viva Luzern AG\nLa joie de vivre n'est pas une question d'âge, mais de qualité de vie. C'est exactement ce que Viva Lucerne offre à ses 850 résidents dans les centres de six ans et en vivant avec des services dans la ville de Lucerne. Viva Lucerne est la principale prestataire de soins de longue durée en Suisse centrale."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
+      "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T21:22:27.616Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Schweizerhausstrasse 10",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern-2qt7sz",
+        "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern-2qt7sz",
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T14:51:25.698Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "viva-luzern-855c90e1af46",
       "slug": "fachfrau-mann-gesundheit-cfc-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
       "slugByLocale": {
@@ -441,7 +445,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.448Z",
+      "crawledAt": "2026-10-22T21:22:27.615Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -524,7 +528,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.447Z",
+      "crawledAt": "2026-10-22T21:22:27.614Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -600,7 +604,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.446Z",
+      "crawledAt": "2026-10-22T21:22:27.612Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -681,7 +685,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.445Z",
+      "crawledAt": "2026-10-22T21:22:27.610Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -762,7 +766,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.444Z",
+      "crawledAt": "2026-10-22T21:22:27.608Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -837,7 +841,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-nacht-betreuung-und-pflege/f6cf51cf-3352-4ed9-ad4f-e53831f95338",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.443Z",
+      "crawledAt": "2026-10-22T21:22:27.605Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -931,7 +935,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/913e4859-1c5d-4545-ace6-4e596a948f0e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.442Z",
+      "crawledAt": "2026-10-22T21:22:27.603Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1012,7 +1016,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-pflege/28359277-7f1b-49c3-8572-694ea25e16fd",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.441Z",
+      "crawledAt": "2026-10-22T21:22:27.602Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1057,9 +1061,9 @@
     },
     {
       "id": "viva-luzern-bd569e8b0ec3",
-      "slug": "infermiere-a-sss-viva-luzern-luzern",
+      "slug": "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1",
       "slugByLocale": {
-        "it": "infermiere-a-sss-viva-luzern-luzern",
+        "it": "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1",
         "en": "registered-nurse-hf-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
         "fr": "infirmiere-infirmier-es-viva-luzern-luzern"
@@ -1086,7 +1090,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/3329bce2-ce82-4fbc-a21f-2e9461eced23",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.440Z",
+      "crawledAt": "2026-10-22T21:22:27.600Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1110,16 +1114,18 @@
         "pflegefachfrau-mann-hf-viva-luzern-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
         "pflegefachfrau-mann-hf-viva-luzern-feex39",
-        "pflegefachfrau-mann-hf-viva-luzern",
-        "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1"
+        "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1",
+        "infermiere-a-sss-viva-luzern-luzern",
+        "pflegefachfrau-mann-hf-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-viva-luzern-luzern",
           "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
           "pflegefachfrau-mann-hf-viva-luzern-feex39",
-          "pflegefachfrau-mann-hf-viva-luzern",
-          "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1"
+          "pflegefachfrau-mann-hf-viva-luzern-luzern-66c7b33af1",
+          "infermiere-a-sss-viva-luzern-luzern",
+          "pflegefachfrau-mann-hf-viva-luzern"
         ],
         "en": [
           "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
@@ -1175,7 +1181,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/e190e5d0-e970-4a27-92e4-c8a53f587b03",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.438Z",
+      "crawledAt": "2026-10-22T21:22:27.598Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1219,9 +1225,9 @@
     },
     {
       "id": "viva-luzern-f45f34fec097",
-      "slug": "infermiere-a-sss-viva-luzern-luzern-388f24",
+      "slug": "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224",
       "slugByLocale": {
-        "it": "infermiere-a-sss-viva-luzern-luzern-388f24",
+        "it": "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224",
         "en": "registered-nurse-hf-viva-luzern-luzern-388f24",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
         "fr": "infirmiere-infirmier-es-viva-luzern-luzern-388f24"
@@ -1248,7 +1254,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/65d772c5-cd0f-4a72-a422-6cbb949de951",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.437Z",
+      "crawledAt": "2026-10-22T21:22:27.597Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1272,16 +1278,18 @@
         "pflegefachfrau-mann-hf-viva-luzern-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
         "pflegefachfrau-mann-hf-viva-luzern-1zbr3c",
-        "pflegefachfrau-mann-hf-viva-luzern",
-        "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224"
+        "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224",
+        "infermiere-a-sss-viva-luzern-luzern-388f24",
+        "pflegefachfrau-mann-hf-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-viva-luzern-luzern",
           "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
           "pflegefachfrau-mann-hf-viva-luzern-1zbr3c",
-          "pflegefachfrau-mann-hf-viva-luzern",
-          "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224"
+          "pflegefachfrau-mann-hf-viva-luzern-luzern-a45139a224",
+          "infermiere-a-sss-viva-luzern-luzern-388f24",
+          "pflegefachfrau-mann-hf-viva-luzern"
         ],
         "en": [
           "pflegefachfrau-mann-hf-viva-luzern-luzern-2"
@@ -1337,7 +1345,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie-im-abendservice/62868e15-4bc9-4a9d-bd54-0b9083540e27",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.436Z",
+      "crawledAt": "2026-10-22T21:22:27.594Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1411,7 +1419,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-oder-fachfrau-mann-gesundheit-efz-im-nachtdienst/6d0fe6ae-81a5-4704-9267-25382f53ca73",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.435Z",
+      "crawledAt": "2026-10-22T21:22:27.592Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1486,7 +1494,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/fd8f79b8-ca1f-4e5e-952b-63da72aac07f",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.434Z",
+      "crawledAt": "2026-10-22T21:22:27.590Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1567,7 +1575,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aktivierungsfachfrau-mann-hf/af9e65bf-275f-40d3-b653-4faa1a279cda",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.432Z",
+      "crawledAt": "2026-10-22T21:22:27.587Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1648,7 +1656,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stellvertretung-teamleitung-pflege/48f0632b-dec9-47aa-a003-4890eb58772b",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.431Z",
+      "crawledAt": "2026-10-22T21:22:27.585Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1723,7 +1731,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-sofortaufnahme-und-entlastungsangebote/44917df6-f0be-4c3d-b146-7e17d09733e9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.430Z",
+      "crawledAt": "2026-10-22T21:22:27.582Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1806,7 +1814,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-hauswirtschaft-efz/ec5c815a-d29d-4e37-8e5a-f0c623180be0",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.428Z",
+      "crawledAt": "2026-10-22T21:22:27.578Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1861,9 +1869,9 @@
       "id": "viva-luzern-2d26e4f08a9f",
       "slug": "responsabile-rai-esperto-rai-viva-luzern-luzern",
       "slugByLocale": {
-        "de": "rai-verantwortliche-r-fachexpertin-fachexperte-rai-viva-luzern-luzern",
         "it": "responsabile-rai-esperto-rai-viva-luzern-luzern",
         "en": "rai-responsible-expert-expert-rai-viva-luzern-luzern",
+        "de": "rai-verantwortliche-r-fachexpertin-fachexperte-rai-viva-luzern-luzern",
         "fr": "rai-responsable-expert-expert-rai-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
@@ -1871,24 +1879,25 @@
       "companyDomain": "viva-luzern.ch",
       "title": "RAI-Verantwortliche/-r / Fachexpertin/Fachexperte RAI",
       "titleByLocale": {
-        "de": "RAI-Verantwortliche/-r / Fachexpertin/Fachexperte RAI",
         "it": "Responsabile RAI / esperto RAI",
         "en": "RAI-responsible / expert / expert RAI",
+        "de": "RAI-Verantwortliche/-r / Fachexpertin/Fachexperte RAI",
         "fr": "RAI-responsable / expert / expert RAI"
       },
       "description": "access_time 60 - 100%\nplace Viva Luzern Geschäftsstelle\ncalendar_today Befristet von Dezember 2026 bis Mai 2027\n\n## Deine Hauptaufgaben sind\n• Du steuerst den pflegerischen Einstufungsprozess und sorgst für den termingerechten Ablauf der interRAI LTCF-Erhebungen\n• Du wirkst aktiv bei der Umsetzung des interRAI LTCF-Einstufungssystems mit\n• Du erkennst selbstständig, ob Veränderungen im Pflegeaufwand zu einer Stufenveränderung führen\n• Du unterstützt die Pflegeteams bei der korrekten Umsetzung der Pflegedokumentation\n• Du übernimmst interne Controlling-Aufgaben und stellst die Datenqualität sicher\n• Du arbeitest eng mit deinem Team zusammen und bist später auch regelmässig in den fünf Betrieben unterwegs\n\n## Du verfügst über\n• Du verfügst über ein abgeschlossenes Studium als Dipl. Pflegefachperson HF sowie eine Weiterbildung als Supervisor/-in interRAI LTCF\n• Du bringst Erfahrung im Umgang mit dem interRAI LTCF-Einstufungssystem und eine hohe Kompetenz im Erfassen von RAI-Assessments mit\n• Du verfügst über ein ausgeprägtes Verständnis der Pflegeaufwandgruppen und kannst Veränderungen im Unterstützungsbedarf hinsichtlich ihrer Auswirkungen auf die Pflegestufe sicher einschätzen\n• Du hast gute IT-Kenntnisse (z. B. MS Office, RAIsoft, Pflegedokumentationssysteme)\n• Du arbeitest selbstständig, freundlich und mit ausgeprägter Sozialkompetenz\n• Du hast Freude an der interdisziplinären Zusammenarbeit und daran, Mitarbeitende fachlich zu begleiten\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Geschäftsstelle\nDie Geschäftsstelle von Viva Luzern befindet sich am linken Reussufer im lebhaften Bruchquartier. Von hier aus sind es nur wenige Schritte in die beliebte Luzerner Altstadt. Die zentrale Lage erlaubt einen regen Austausch mit den fünf Betagtenzentren. Zur Geschäftsstelle gehören auch die in den Betrieben angesiedelten Bereiche Ärztlicher Dienst und Physiotherapie.\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
       "descriptionByLocale": {
-        "de": "access_time 60 - 100%\nplace Viva Luzern Geschäftsstelle\ncalendar_today Befristet von Dezember 2026 bis Mai 2027\n\n## Deine Hauptaufgaben sind\n• Du steuerst den pflegerischen Einstufungsprozess und sorgst für den termingerechten Ablauf der interRAI LTCF-Erhebungen\n• Du wirkst aktiv bei der Umsetzung des interRAI LTCF-Einstufungssystems mit\n• Du erkennst selbstständig, ob Veränderungen im Pflegeaufwand zu einer Stufenveränderung führen\n• Du unterstützt die Pflegeteams bei der korrekten Umsetzung der Pflegedokumentation\n• Du übernimmst interne Controlling-Aufgaben und stellst die Datenqualität sicher\n• Du arbeitest eng mit deinem Team zusammen und bist später auch regelmässig in den fünf Betrieben unterwegs\n\n## Du verfügst über\n• Du verfügst über ein abgeschlossenes Studium als Dipl. Pflegefachperson HF sowie eine Weiterbildung als Supervisor/-in interRAI LTCF\n• Du bringst Erfahrung im Umgang mit dem interRAI LTCF-Einstufungssystem und eine hohe Kompetenz im Erfassen von RAI-Assessments mit\n• Du verfügst über ein ausgeprägtes Verständnis der Pflegeaufwandgruppen und kannst Veränderungen im Unterstützungsbedarf hinsichtlich ihrer Auswirkungen auf die Pflegestufe sicher einschätzen\n• Du hast gute IT-Kenntnisse (z. B. MS Office, RAIsoft, Pflegedokumentationssysteme)\n• Du arbeitest selbstständig, freundlich und mit ausgeprägter Sozialkompetenz\n• Du hast Freude an der interdisziplinären Zusammenarbeit und daran, Mitarbeitende fachlich zu begleiten\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Geschäftsstelle\nDie Geschäftsstelle von Viva Luzern befindet sich am linken Reussufer im lebhaften Bruchquartier. Von hier aus sind es nur wenige Schritte in die beliebte Luzerner Altstadt. Die zentrale Lage erlaubt einen regen Austausch mit den fünf Betagtenzentren. Zur Geschäftsstelle gehören auch die in den Betrieben angesiedelten Bereiche Ärztlicher Dienst und Physiotherapie.\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
         "it": "tempo di accesso 60 - 100%\nluogo Viva Lucerna Ufficio\ncalendario oggi Temporaneo dal dicembre 2026 al maggio 2027\n\n## I vostri compiti principali sono:\n• Si controlla il processo di classificazione dell'allattamento e si assicura che le indagini interRAI LTCF avvengano in orario\n• Sei attivamente coinvolto nell'attuazione del sistema di classificazione interRAI LTCF\n• Riconoscete in modo indipendente se le modifiche dei costi di assistenza comportano un cambiamento di fase\n• Supporti i team di assistenza nella corretta implementazione della documentazione di assistenza\n• Accetti le attività di controllo interne e garantisci la qualità dei dati\n• Si lavora a stretto contatto con il vostro team e sono in seguito regolarmente sulla strada nelle cinque aziende\n\n## Hai finito\n• Hai completato gli studi come Dipl. Infermieristica professionale HF e formazione continua come supervisore/in interRAI LTCF\n• Hai esperienza nel gestire il sistema di rating InterRAI LTCF e un alto livello di competenze nel catturare le valutazioni RAI\n• Hai una forte comprensione dei gruppi di assistenza e puoi valutare in modo sicuro i cambiamenti delle esigenze di supporto per quanto riguarda il loro impatto sul livello di assistenza\n• Hai buone conoscenze IT (ad esempio MS Office, RAIsoft, sistemi di documentazione di manutenzione)\n• Lavori in modo indipendente, amichevole e con forti competenze sociali\n• Ti piace la cooperazione interdisciplinare e i dipendenti che accompagnano professionalmente\nVi offriamo\n\n## Essere ben addestrato\n• Partecipazione genetica all'istruzione e alla formazione esterna\n• Ampia offerta di formazione interna\n• Consigli di pianificazione della carriera individuale\n\n## Godetevi il tempo libero\n• Almeno 25 giorni di vacanza (da 50 anni di età 30 e da 60 anni 33 giorni)\n• 15 giorni\n• 30 minuti di pausa pagata per giorno lavorativo completo\n• Per i dipendenti in abbigliamento professionale 15 minuti pagati che cambiano tempo al giorno lavorativo\n• L'orario è min. Quattro settimane di anticipo\n• Possibilità di progettare il vostro roster voi stessi come un pool di personale dipendente\n• 20 giorni lavorativi di congedo di paternità pagato o per altri genitori o adozione\n• Possibilità di congedo non retribuito\n• congedo supplementare da 10 anni di servizio ogni 5 anni\n\n## Rimani sano\n• Attività di promozione della salute, di sicurezza e di protezione della salute sul lavoro\n• Consulenza gratuita per difficoltà finanziarie, sociali, personali o altre\n\n## Ben assicurati\n• In caso di incidente e malattia prosecuzione salariale al 100% fino a 730 giorni\n• Prestazioni previdenziali\n• 16 settimane di congedo di maternità retribuito\n\n## Avere di più nel portafoglio\n• Lei beneficia di uno standard industriale salario lordo\n• Detrazioni assicurative profonde: Viva Lucerne occupa gran parte del contributo del fondo pensionistico e dell'assicurazione malattia\n• 30% di sconto sul cibo nei ristoranti di Viva Lucerne\n• Una bevanda calda gratuita al giorno\n• Notte, fine settimana e ferie pubbliche\n• Indennità speciale di CHF 300 al mese\n• CHF 1'000 per un posto di lavoro di successo\n• Gli studenti e gli studenti ricevono CHF 200.00 per l'acquisto di un laptop\n\n## Vantaggio di condizioni speciali\nA Viva Lucerne si beneficiano di oltre 300 perks e...\n• Più economico per le vacanze\n• Pagare meno per vestiti e scarpe\n• acquisti ben noti prodotti di marca su termini preferenziali\n• Godetevi innumerevoli offerte per il tempo libero ai migliori prezzi\n\n## Ufficio Viva Lucerna\nL'ufficio di Viva Lucerne si trova sulla sinistra Reussufer nel vivace Bruchquartier. Da qui si trova a pochi passi dalla famosa città vecchia di Lucerna. La posizione centrale consente uno scambio vivace con i cinque centri betagten. L'ufficio comprende anche le aree di servizio medico e fisioterapia situate nelle aziende.\n\n## Viva Luzern AG\nLa gioia della vita non è una questione di età, ma di qualità della vita. Questo è esattamente ciò che Viva Lucerne offre ai suoi 850 residenti nei sei centri di età e a vivere con servizi nella città di Lucerna. Viva Lucerna è il fornitore leader di cure a lungo termine nella Svizzera centrale.",
         "en": "access time 60 - 100%\nplace Viva Lucerne Office\ncalendar today Temporary from December 2026 to May 2027\n\n## Your main tasks are\n• You control the nursing classification process and ensure that the interRAI LTCF surveys run on schedule\n• You are actively involved in the implementation of the interRAI LTCF classification system\n• You independently recognize whether changes in care costs lead to a step change\n• You support the care teams in the correct implementation of the care documentation\n• You take on internal controlling tasks and ensure data quality\n• You work closely with your team and are later also regularly on the road in the five companies\n\n## You have over\n• You have completed your studies as a Dipl. Nursing professional HF and further training as supervisor/in interRAI LTCF\n• You have experience in handling the interRAI LTCF rating system and a high level of expertise in capturing RAI assessments\n• You have a strong understanding of care groups and can safely assess changes in support needs regarding their impact on the care level\n• You have good IT knowledge (e.g. MS Office, RAIsoft, maintenance documentation systems)\n• You work independently, friendly and with strong social skills\n• You enjoy interdisciplinary cooperation and accompanying employees professionally\nWe offer you\n\n## Be well trained\n• Generous participation in external education and training\n• Extensive internal training offer\n• Individual career planning advice\n\n## Enjoy free time\n• At least 25 days of holiday (from 50 years of age 30 and from 60 years of age 33 days)\n• 15 paid holidays\n• 30 minutes paid break per full working day\n• For employees in professional clothing 15 minutes paid changing time per working day\n• Schedule is min. Four weeks in advance\n• Possibility to design your roster yourself as an employee staff pool\n• 20 working days of paid paternity leave or for other parents or adoption\n• Possibility of unpaid leave\n• Additional leave from 10 years of service every 5 years\n\n## Stay healthy\n• Targeted health promotion, occupational safety and health protection activities\n• Free advice for financial, social, personal or other difficulties\n\n## Well-insured\n• In case of accident and illness 100% wage continuation up to 730 days\n• Above-average occupational pension benefits\n• 16 weeks of paid maternity leave\n\n## Have more in your wallet\n• You benefit from an industry standard gross wage\n• Deep insurance deductions: Viva Lucerne takes over a large part of the pension fund contribution and the sickness allowance insurance\n• 30% discount on food in the restaurants of Viva Lucerne\n• One free hot drink per day\n• Night, weekend and public holiday allowances\n• Special family allowance of CHF 300 per month\n• CHF 1'000 for a successful job placement\n• Learners and students receive CHF 200.00 for the purchase of a laptop\n\n## Benefit from special conditions\nAt Viva Lucerne you benefit from over 300 perks and...\n• Get cheaper on holidays\n• Pay less for clothes and shoes\n• purchases well-known branded products on preferential terms\n• Enjoy countless leisure offers at the best prices\n\n## Viva Lucerne Office\nThe office of Viva Lucerne is located on the left Reussufer in the lively Bruchquartier. From here it is only a few steps into the popular Lucerne old town. The central location allows a lively exchange with the five betagten centres. The office also includes the areas of medical service and physiotherapy located in the companies.\n\n## Viva Luzern AG\nThe joy of life is not a question of age, but of quality of life. This is exactly what Viva Lucerne offers its 850 residents in the six age centers and in living with services in the city of Lucerne. Viva Lucerne is the leading provider of long-term care in Central Switzerland.",
+        "de": "access_time 60 - 100%\nplace Viva Luzern Geschäftsstelle\ncalendar_today Befristet von Dezember 2026 bis Mai 2027\n\n## Deine Hauptaufgaben sind\n• Du steuerst den pflegerischen Einstufungsprozess und sorgst für den termingerechten Ablauf der interRAI LTCF-Erhebungen\n• Du wirkst aktiv bei der Umsetzung des interRAI LTCF-Einstufungssystems mit\n• Du erkennst selbstständig, ob Veränderungen im Pflegeaufwand zu einer Stufenveränderung führen\n• Du unterstützt die Pflegeteams bei der korrekten Umsetzung der Pflegedokumentation\n• Du übernimmst interne Controlling-Aufgaben und stellst die Datenqualität sicher\n• Du arbeitest eng mit deinem Team zusammen und bist später auch regelmässig in den fünf Betrieben unterwegs\n\n## Du verfügst über\n• Du verfügst über ein abgeschlossenes Studium als Dipl. Pflegefachperson HF sowie eine Weiterbildung als Supervisor/-in interRAI LTCF\n• Du bringst Erfahrung im Umgang mit dem interRAI LTCF-Einstufungssystem und eine hohe Kompetenz im Erfassen von RAI-Assessments mit\n• Du verfügst über ein ausgeprägtes Verständnis der Pflegeaufwandgruppen und kannst Veränderungen im Unterstützungsbedarf hinsichtlich ihrer Auswirkungen auf die Pflegestufe sicher einschätzen\n• Du hast gute IT-Kenntnisse (z. B. MS Office, RAIsoft, Pflegedokumentationssysteme)\n• Du arbeitest selbstständig, freundlich und mit ausgeprägter Sozialkompetenz\n• Du hast Freude an der interdisziplinären Zusammenarbeit und daran, Mitarbeitende fachlich zu begleiten\nWir bieten dir\n\n## Bestens ausgebildet sein\n• Grosszügige Beteiligung an externen Aus- und Weiterbildungen\n• Umfangreiches internes Weiterbildungsangebot\n• Individuelle Beratung bei der Laufbahnplanung\n\n## Freizeit geniessen\n• Mindestens 25 Tage Ferien (ab 50 Jahren 30 und ab 60 Jahren 33 Tage)\n• 15 bezahlte Feiertage\n• 30 Minuten bezahlte Pause pro ganzen Arbeitstag\n• Für Mitarbeitende in Berufskleidung 15 Minuten bezahlte Umkleidezeit pro Arbeitstag\n• Dienstplan ist mind. vier Wochen im Voraus bekannt\n• Möglichkeit deinen Dienstplan als Mitarbeitende Personalpool selbst zu gestalten\n• 20 Arbeitstage bezahlter Vaterschaftsurlaub bzw. für anderen Elternteil oder bei Adoption\n• Möglichkeit unbezahlter Urlaub\n• Zusätzliche Ferientage ab 10 Dienstjahren alle 5 Jahre\n\n## Gesund bleiben\n• Gezielte Aktivitäten zur Gesundheitsförderung, der Arbeitssicherheit und dem Gesundheitsschutz\n• Kostenlose Beratung bei finanziellen, sozialen, persönlichen oder anderen Schwierigkeiten\n\n## Gut versichert sein\n• Bei Unfall und Krankheit 100% Lohnfortzahlung bis zu 730 Tagen\n• Überdurchschnittliche Leistungen in der beruflichen Vorsorge\n• 16 Wochen bezahlten Mutterschaftsurlaub\n\n## Mehr im Portemonnaie haben\n• Du profitierst von einem branchenüblichen Bruttolohn\n• Tiefe Versicherungsabzüge: Viva Luzern übernimmt einen Grossteil des Pensionskassen-Beitrags und die Krankentaggeld-Versicherung\n• 30% Vergünstigung auf das Essen in den Restaurants von Viva Luzern\n• Ein kostenloses Heissgetränk pro Tag\n• Zulagen für Nacht-, Wochenend- und Feiertagsarbeit\n• Besondere Familienzulage von CHF 300 pro Monat\n• CHF 1'000 für eine erfolgreiche Job-Vermittlung\n• Lernende und Studierende erhalten CHF 200.00 für den Kauf eines Laptops\n\n## Von Sonderkonditionen profitieren\nBei Viva Luzern profitierst du von über 300 Vergünstigungen und...\n• fährst günstiger in die Ferien\n• bezahlst weniger für Kleider und Schuhe\n• beziehst bekannte Markenartikel zu Vorzugskonditionen\n• geniesst unzählige Freizeitangebote zu besten Preisen\n\n## Viva Luzern Geschäftsstelle\nDie Geschäftsstelle von Viva Luzern befindet sich am linken Reussufer im lebhaften Bruchquartier. Von hier aus sind es nur wenige Schritte in die beliebte Luzerner Altstadt. Die zentrale Lage erlaubt einen regen Austausch mit den fünf Betagtenzentren. Zur Geschäftsstelle gehören auch die in den Betrieben angesiedelten Bereiche Ärztlicher Dienst und Physiotherapie.\n\n## Viva Luzern AG\nLebensfreude ist keine Frage des Alters, sondern der Lebensqualität. Genau das bietet Viva Luzern ihren 850 Bewohnenden in den sechs Alterszentren und bei Wohnen mit Dienstleistungen in der Stadt Luzern. Viva Luzern ist die führende Anbieterin von Langzeitpflege in der Zentralschweiz.",
         "fr": "temps d'accès 60 - 100%\nlieu Bureau Viva Lucerne\ncalendrier aujourd'hui Temporaire de Décembre 2026 à Mai 2027\n\n## Vos principales tâches sont :\n• Vous contrôlez le processus de classification des infirmières et vous assurez que les enquêtes interRAI LTCF fonctionnent selon le calendrier\n• Vous participez activement à la mise en œuvre du système de classification interRAI LTCF\n• Vous reconnaissez indépendamment si les changements dans les coûts des soins conduisent à un changement d'étape\n• Vous soutenez les équipes de soins dans la mise en œuvre correcte de la documentation de soins\n• Vous assumez des tâches de contrôle interne et assurez la qualité des données\n• Vous travaillez en étroite collaboration avec votre équipe et êtes plus tard régulièrement sur la route dans les cinq entreprises\n\n## Vous avez fini\n• Vous avez terminé vos études en tant que Dipl. Soins infirmiers professionnels et formation continue en tant que superviseur/en interRAI LTCF\n• Vous avez une expérience dans le traitement du système de notation interRAI LTCF et un haut niveau d'expertise dans la saisie des évaluations RAI\n• Vous avez une bonne compréhension des groupes de soins et pouvez évaluer en toute sécurité les changements dans les besoins de soutien en ce qui concerne leur incidence sur le niveau de soins.\n• Vous avez de bonnes connaissances en TI (par exemple, MS Office, RAIsoft, systèmes de documentation de maintenance)\n• Vous travaillez de manière indépendante, amicale et avec de solides compétences sociales\n• Vous appréciez la coopération interdisciplinaire et les collaborateurs d'accompagnement professionnels\nNous vous offrons\n\n## Être bien entraîné\n• Participation généreuse à l'éducation et à la formation externes\n• Une vaste offre de formation interne\n• Conseils individuels en matière de planification de carrière\n\n## Profitez du temps libre\n• Au moins 25 jours de vacances (à partir de 50 ans 30 et à partir de 60 ans 33 jours)\n• 15 jours fériés payés\n• 30 minutes de pause rémunérée par journée de travail complète\n• Pour les employés en vêtements professionnels 15 minutes rémunéré temps de changement par jour ouvrable\n• L'horaire est min. Quatre semaines à l'avance\n• Possibilité de concevoir votre équipe comme un bassin d'employés\n• 20 jours ouvrables de congé de paternité payé ou pour les autres parents ou adoption\n• Possibilité de congé non rémunéré\n• Congé supplémentaire de 10 ans de service tous les 5 ans\n\n## Restez en bonne santé\n• Promotion de la santé ciblée, sécurité au travail et protection de la santé\n• Conseil gratuit pour les difficultés financières, sociales, personnelles ou autres\n\n## Bien assuré\n• En cas d'accident et de maladie 100% salaire continu jusqu'à 730 jours\n• Prestations professionnelles supérieures à la moyenne\n• 16 semaines de congé de maternité payé\n\n## Ayez plus dans votre portefeuille\n• Vous bénéficiez d'un salaire brut standard de l'industrie\n• Déductions d'assurance importantes: Viva Lucerne reprend une grande partie de la cotisation de la caisse de retraite et de l'assurance maladie\n• 30% de réduction sur la nourriture dans les restaurants de Viva Lucerne\n• Une boisson chaude gratuite par jour\n• Indemnités de nuit, de week-end et de jours fériés\n• Allocation familiale spéciale de CHF 300 par mois\n• CHF 1'000 pour un placement réussi\n• Les apprenants et les étudiants reçoivent CHF 200,00 pour l'achat d'un ordinateur portable\n\n## Bénéficiez de conditions spéciales\nChez Viva Lucerne vous bénéficiez de plus de 300 avantages et...\n• Obtenez moins cher pendant les vacances\n• Payez moins pour les vêtements et les chaussures\n• achète des produits de marque bien connus à des conditions préférentielles\n• Profitez d'innombrables offres de loisirs aux meilleurs prix\n\n## Bureau de Viva Lucerne\nLe bureau de Viva Lucerne est situé sur la gauche Reussufer dans le Bruchquartier animé. De là, il n'y a que quelques pas dans la vieille ville populaire de Lucerne. L'emplacement central permet un échange animé avec les cinq centres bétagnés. Le bureau comprend également les services médicaux et la physiothérapie situés dans les entreprises.\n\n## Viva Luzern AG\nLa joie de vivre n'est pas une question d'âge, mais de qualité de vie. C'est exactement ce que Viva Lucerne offre à ses 850 résidents dans les centres de six ans et en vivant avec des services dans la ville de Lucerne. Viva Lucerne est la principale prestataire de soins de longue durée en Suisse centrale."
       },
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.vivaluzern.ch/offene-stellen/rai-verantwortliche-r-fachexpertin-fachexperte-rai/cfae330b-2647-419a-982e-1278ff5dc45c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:19:27.417Z",
+      "crawledAt": "2026-10-22T21:22:27.557Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1907,23 +1916,10 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.vivaluzern.ch/offene-stellen/rai-verantwortliche-r-fachexpertin-fachexperte-rai/cfae330b-2647-419a-982e-1278ff5dc45c",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-22T09:19:27.417Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "rai-verantwortliche-r-fachexpertin-fachexperte-rai-viva-luzern-luzern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "rai-verantwortliche-r-fachexpertin-fachexperte-rai-viva-luzern-luzern"
@@ -1935,9 +1931,20 @@
           "rai-verantwortliche-r-fachexpertin-fachexperte-rai-viva-luzern-luzern"
         ]
       },
-      "previousSlugs": [
-        "rai-verantwortliche-r-fachexpertin-fachexperte-rai-viva-luzern-luzern"
-      ]
+      "firstSeenAt": "2026-10-22T09:19:27.417Z",
+      "salaryMin": 117000,
+      "salaryMax": 163000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 117000,
+          "maxValue": 163000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "viva-luzern-a21adcd1b6ac",
@@ -2027,7 +2034,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
