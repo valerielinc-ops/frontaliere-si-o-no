@@ -15,6 +15,8 @@ describe('translation completeness handoff', () => {
     expect(source).toContain('Record durable translation completeness handoff');
     expect(source).toContain("node scripts/validate-translation-completeness.mjs");
     expect(source).toContain('TRANSLATION_DEPLOY_HANDOFF_STATE=complete');
+    expect(source).toContain('TRANSLATION_DEPLOY_HANDOFF_STATE=fallback');
+    expect(source).toContain('Release translation deploy fallback after a failed phase');
     expect(source).toContain('data/translation-deploy-handoff.json');
     expect(source).not.toContain("context='frontaliere/translation-complete'");
     expect(source).not.toContain('gh api --method POST');

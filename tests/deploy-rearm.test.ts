@@ -22,6 +22,7 @@ import {
   decideBuildLocaleRecovery,
   decideDispatchAfterFreshQueue,
   decideRearm,
+  decideRearmAdmission,
   DEFAULT_MAX_BUILDS_PER_SHA,
   DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
 } from '../scripts/ci/rearm-deploy-build.mjs';
@@ -379,6 +380,28 @@ describe('decideRearm — recursion is bounded by a per-SHA cap, not by hope', (
   });
 });
 
+describe('decideRearmAdmission — validation failures stay narrowly scoped', () => {
+  it('allows the translation-only failure so the TTL/fallback resolver can act', () => {
+    expect(decideRearmAdmission({
+      promotionResult: 'failure',
+      translationResult: 'failure',
+      sourceResult: 'skipped',
+    })).toMatchObject({ allowed: true, reason: 'translation-handoff-failed' });
+  });
+
+  it('keeps a source-promotion failure fail-closed even if translation also failed', () => {
+    expect(decideRearmAdmission({
+      promotionResult: 'failure',
+      translationResult: 'failure',
+      sourceResult: 'failure',
+    })).toMatchObject({ allowed: false, reason: 'promotion-gate-failed' });
+  });
+
+  it('allows an observer without a build admission result to use the queue guard', () => {
+    expect(decideRearmAdmission()).toMatchObject({ allowed: true, reason: 'admission-passed' });
+  });
+});
+
 describe('deploy.yml — the rearm job is wired so it can only ever ADD a build', () => {
   const DEPLOY_YML = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
   const doc = YAML.parse(DEPLOY_YML) as {
@@ -393,6 +416,11 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     // The measured hole was a `failure`, so the job must not be gated on success.
     expect(job.if).toMatch(/always\(\)/);
     expect(job.if, 'must never re-arm off a non-main ref').toMatch(/github\.ref == 'refs\/heads\/main'/);
+    expect(job.if).not.toContain("needs.validate-promotion-trigger.result == 'success'");
+    expect(doc.jobs['validate-promotion-trigger'].outputs).toMatchObject({
+      translation_handoff_result: '${{ steps.translation_handoff.outcome }}',
+      source_promotion_result: '${{ steps.source_promotion.outcome }}',
+    });
   });
 
   it('has exactly the permissions the dispatch needs and nothing more', () => {
@@ -411,6 +439,9 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     expect(raw, 'the targeted locale recovery cap must stay at one job rerun').toMatch(
       /REARM_MAX_LOCALE_RECOVERY_ATTEMPTS: '1'/,
     );
+    expect(raw).toContain('REARM_PROMOTION_RESULT');
+    expect(raw).toContain('REARM_TRANSLATION_RESULT');
+    expect(raw).toContain('REARM_SOURCE_RESULT');
   });
 
   it('keeps schedule recovery out of the build pending slot', () => {

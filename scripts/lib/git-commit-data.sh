@@ -226,9 +226,9 @@ EXTRA_PATHS=("$@")
 TRANSLATION_DEPLOY_HANDOFF_PATH='data/translation-deploy-handoff.json'
 if [ -n "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" ]; then
   case "$TRANSLATION_DEPLOY_HANDOFF_STATE" in
-    pending|complete) EXTRA_PATHS+=("$TRANSLATION_DEPLOY_HANDOFF_PATH") ;;
+    pending|complete|fallback) EXTRA_PATHS+=("$TRANSLATION_DEPLOY_HANDOFF_PATH") ;;
     *)
-      echo "❌ TRANSLATION_DEPLOY_HANDOFF_STATE must be pending or complete" >&2
+      echo "❌ TRANSLATION_DEPLOY_HANDOFF_STATE must be pending, complete, or fallback" >&2
       exit 1
       ;;
   esac

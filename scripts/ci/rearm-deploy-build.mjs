@@ -8,8 +8,10 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * `cancel-in-progress: false`, so GitHub keeps 1 running + 1 pending and drops
  * only a superseded pending dispatch. That is newest-wins and it is CORRECT on
  * a linear `main`: the newer build already contains the commits it superseded;
- * The schedule in deploy.yml is only a recovery edge for a pending
- * cancellation; it never enters the build graph itself.
+ * The schedule in deploy.yml is only a best-effort recovery edge for a
+ * pending cancellation; deploy-stalled-watchdog.yml covers missed schedule
+ * delivery and terminal runs that cannot reach this final job. Neither
+ * resolver enters the build graph itself.
  *
  * Measured over the 100 deploy.yml runs from 2026-08-06T12:37Z to
  * 2026-08-08T05:58Z (~41 h): 82 cancelled, 10 success, 6 failure, 2 in flight.
@@ -279,6 +281,39 @@ export function decideRearm({
 }
 
 /**
+ * Keep the source-promotion gate fail-closed while allowing the one expected
+ * admission failure: a translation hold. The final deploy job is deliberately
+ * scheduled with `always()`, so it must distinguish that narrow case from a
+ * malformed/foreign promotion context before it can dispatch another build.
+ * A watchdog has no promotion result because it is an observer, not a build
+ * candidate; its queue and SHA checks are the admission boundary instead.
+ */
+export function decideRearmAdmission({
+  promotionResult = '',
+  translationResult = '',
+  sourceResult = '',
+} = {}) {
+  const promotion = String(promotionResult).trim().toLowerCase();
+  const translation = String(translationResult).trim().toLowerCase();
+  const source = String(sourceResult).trim().toLowerCase();
+  if (!promotion || promotion === 'success') {
+    return { allowed: true, reason: 'admission-passed' };
+  }
+  if (promotion === 'failure' && translation === 'failure' && source !== 'failure') {
+    return {
+      allowed: true,
+      reason: 'translation-handoff-failed',
+      detail: 'the translation hold is resolved by the handoff TTL/fallback path; source promotion remains intact',
+    };
+  }
+  return {
+    allowed: false,
+    reason: 'promotion-gate-failed',
+    detail: `promotion=${promotion || 'unknown'} translation=${translation || 'unknown'} source=${source || 'unknown'}`,
+  };
+}
+
+/**
  * The queue snapshot used for admission can become stale while the GitHub API
  * request is in flight. The caller must therefore take a second snapshot
  * while it still owns the durable `deploy-rearm-dispatch` job claim and use
@@ -490,6 +525,16 @@ async function main() {
     return 0;
   }
 
+  const admission = decideRearmAdmission({
+    promotionResult: process.env.REARM_PROMOTION_RESULT,
+    translationResult: process.env.REARM_TRANSLATION_RESULT,
+    sourceResult: process.env.REARM_SOURCE_RESULT,
+  });
+  if (!admission.allowed) {
+    console.log(`[rearm] skip: ${admission.reason} (${admission.detail})`);
+    return 0;
+  }
+
   const translationHandoff = readTranslationDeployHandoff();
   if (!translationHandoff.admitted) {
     console.log(`[rearm] skip: ${translationHandoff.reason}`);
@@ -627,7 +672,7 @@ async function main() {
     ]);
     console.log(`[rearm] ✅ dispatched ${workflow} on ${branch} — the pipeline is moving again`);
   } catch (err) {
-    // Never fail the deploy over this: the publish-lag watchdog is still the
+    // Never fail the deploy over this: the stalled-deploy watchdog is still the
     // backstop, and a red run here would be a second failure on top of the one
     // that stopped the pipeline in the first place.
     console.warn(`::warning::deploy re-arm dispatch failed: ${err?.message?.split('\n')[0]}`);

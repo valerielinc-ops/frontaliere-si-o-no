@@ -1,0 +1,79 @@
+name: Deploy stalled watchdog
+
+# GitHub does not guarantee delivery of a high-frequency schedule, and a run
+# cancelled while it is still queued cannot schedule deploy.yml's final job.
+# This is the single, deliberately narrow exception to the self-driven build
+# contract: it only invokes the existing queue/SHA resolver, never builds,
+# publishes, or bypasses the deploy admission checks. The resolver dispatches
+# deploy.yml only when no deploy is queued/running, HEAD has no successful
+# build, and the per-SHA retry cap permits it.
+on:
+  # Stagger away from deploy.yml's cron minute so a platform-wide cron delay
+  # does not affect both recovery edges at once.
+  schedule:
+    - cron: '3,13,23,33,43,53 * * * *'
+  push:
+    branches:
+      - main
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+    branches:
+      - main
+  workflow_dispatch: {}
+
+concurrency:
+  # This is the same durable claim used by deploy.yml's final rearm and its
+  # in-workflow schedule resolver; at most one resolver may dispatch.
+  group: deploy-rearm-dispatch
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+  statuses: read
+
+jobs:
+  reconcile:
+    name: Reconcile a stalled deploy tip
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+
+      - name: Checkout resolver
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /scripts/ci/rearm-deploy-build.mjs
+            /scripts/ci/deploy-rearm-request.mjs
+            /scripts/ci/lib/deploy-job-failure-signature.mjs
+            /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/int-from-env.mjs
+            /scripts/lib/is-invoked-directly.mjs
+            /scripts/ci/translation-deploy-handoff.mjs
+            /data/translation-deploy-handoff.json
+          sparse-checkout-cone-mode: false
+
+      - name: Re-arm only an idle, unbuilt main tip
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REARM_MODE: watchdog
+          REARM_WORKFLOW: deploy.yml
+          REARM_BRANCH: main
+          REARM_MAX_BUILDS_PER_SHA: '2'
+          REARM_SKIP_LOCALE_RECOVERY: '1'
+        run: node scripts/ci/rearm-deploy-build.mjs
