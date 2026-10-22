@@ -1342,8 +1342,15 @@ async function inputBelongsToTrigger(input, association) {
   try {
     return await input.evaluate((element, owner) => {
       const trigger = owner?.trigger || owner;
+      const context = owner?.context || null;
       if (!element?.isConnected || !trigger?.isConnected) return false;
       if (typeof trigger.contains === 'function' && trigger.contains(element)) return true;
+
+      // A portal that inserts its control next to the clicked trigger is
+      // explicitly associated by that adjacency. A generic form ancestor is
+      // deliberately not enough: another document control may share it.
+      if (element.parentElement && element.parentElement === trigger.parentElement
+        && (element.previousElementSibling === trigger || element.nextElementSibling === trigger)) return true;
 
       // Some ATS controls append the hidden input to document.body (or to a
       // generic overlay root) instead of the trigger's form. Accept that
@@ -1353,30 +1360,31 @@ async function inputBelongsToTrigger(input, association) {
         const value = node?.getAttribute?.(name);
         return value ? String(value).split(/\s+/).filter(Boolean) : [];
       });
-      const triggerRefs = new Set([
+      const triggerIdentityRefs = new Set([
         trigger.id,
-        ...attributes(trigger, [
-          'data-aa-id',
-          'data-upload-id',
-          'data-file-input',
-          'data-upload-target',
-          'data-target',
-          'aria-controls',
-          'aria-owns',
-          'for',
-        ]),
+        ...attributes(trigger, ['data-aa-id']),
       ].filter(Boolean));
+      const triggerPointerRefs = new Set(attributes(trigger, [
+        'data-upload-id',
+        'data-file-input',
+        'data-upload-target',
+        'data-target',
+        'aria-controls',
+        'aria-owns',
+        'for',
+      ]));
       const sharedAssociationNames = [
         'data-upload-key',
         'data-file-key',
         'data-document-key',
         'data-attachment-key',
       ];
-      const triggerAssociationRefs = new Set(attributes(trigger, sharedAssociationNames));
-      if (!triggerRefs.size && !triggerAssociationRefs.size) return false;
-      const inputRefNames = [
-        'id',
-        'data-aa-id',
+      const triggerAssociationRefs = new Set([
+        ...attributes(trigger, sharedAssociationNames),
+        ...attributes(context, sharedAssociationNames),
+      ]);
+      if (!triggerIdentityRefs.size && !triggerPointerRefs.size && !triggerAssociationRefs.size) return false;
+      const inputBackReferenceNames = [
         'data-upload-for',
         'data-file-for',
         'data-trigger',
@@ -1386,14 +1394,20 @@ async function inputBelongsToTrigger(input, association) {
         'aria-labelledby',
         'aria-describedby',
       ];
+      const inputTargetNames = [
+        'id',
+        'data-aa-id',
+      ];
       for (let node = element; node && node.nodeType === 1; node = node.parentElement) {
-        const refs = attributes(node, inputRefNames);
-        if (refs.some((ref) => triggerRefs.has(ref))) return true;
+        const backReferences = attributes(node, inputBackReferenceNames);
+        if (backReferences.some((ref) => triggerIdentityRefs.has(ref))) return true;
+        const targetReferences = attributes(node, inputTargetNames);
+        if (targetReferences.some((ref) => triggerPointerRefs.has(ref))) return true;
         if (triggerAssociationRefs.size
           && attributes(node, sharedAssociationNames).some((ref) => triggerAssociationRefs.has(ref))) return true;
         if (node === node.ownerDocument?.body) break;
       }
-      const targets = [...triggerRefs]
+      const targets = [...triggerPointerRefs]
         .flatMap((id) => [id, id.startsWith('#') ? id.slice(1) : ''])
         .filter(Boolean)
         .map((id) => element.ownerDocument?.getElementById?.(id))
