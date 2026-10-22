@@ -2910,7 +2910,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="font-bold text-sm text-strong group-hover:text-danger">🇨🇭 SECO</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.seco')}</div>
  </a>
- <a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.naspi-indennita-mensile-di-disoccupazione-51039.naspi-indennita-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-success transition-colors group">
+ <a href="https://www.inps.it/content/inps-site/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.50593.naspi-indennit-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-success transition-colors group">
  <div className="font-bold text-sm text-strong group-hover:text-success">🇮🇹 INPS - NASpI</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.inps')}</div>
  </a>
