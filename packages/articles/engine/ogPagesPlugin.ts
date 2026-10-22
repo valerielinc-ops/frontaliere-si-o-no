@@ -32,6 +32,7 @@ import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
 import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
+import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 
 /**
  * Rich author identity supplied by the site shell at runtime. The package
@@ -1397,6 +1398,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // page stays live, only the canonical hint + og:url change.
  const effectiveCanonicalUrl = resolveSwissArticleCanonicalUrl(articleSlugForLocale, articleCanonicalOverrides, full);
  const imgU = `${BASE_URL}${en.img}`;
+ const twitterCardMeta = buildTwitterCardMetaTags({
+   title: socialTitle,
+   description: ogDescription,
+   image: imgU,
+   locale: articleLocale,
+ });
  const pp = urlPath.slice(1).replace(/&/g, '~and~');
  const href = Object.entries(lp)
  .filter((x): x is [string, string] => x[1] !== null)
@@ -1781,6 +1788,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:image:alt" content="${esc(socialTitle)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
+ ${twitterCardMeta}
  <meta name="robots" content="${articleBodyHasPromptPlaceholder ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}
  <meta property="fb:app_id" content="891036063797338">
  ${publishedDate ? `<meta property="article:published_time" content="${esc(publishedDate)}">` : ''}

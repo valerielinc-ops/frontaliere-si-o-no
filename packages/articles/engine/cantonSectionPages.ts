@@ -64,6 +64,7 @@ import { rewriteBlogImageRefs } from './blogImageCdnFinalize';
 import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { readArticleDates, readArticleMetadata, readBlogUrlSlugs } from './shared/articleReaders';
 import type { ArticleSection } from '../articleSections';
+import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 
 type Locale = ArticleLocale;
 
@@ -214,6 +215,12 @@ function renderCantonPageShell(a: PageShellArgs): string {
   const pageTitle = buildTitleWithBrand(a.title);
   const description = clampMetaDescription(a.description, undefined, a.locale);
   const canonicalUrl = `${BASE_URL}${a.canonicalPath}`;
+  const twitterCardMeta = buildTwitterCardMetaTags({
+    title: pageTitle,
+    description,
+    image: `${BASE_URL}/og-image.png`,
+    locale: a.locale,
+  });
   const hreflangs = CANTON_SECTION_LOCALES
     .map((loc) => `    <link rel="alternate" hreflang="${loc}" href="${BASE_URL}${a.alternates[loc as Locale]}">`)
     .concat([`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${a.alternates.it}">`])
@@ -240,6 +247,7 @@ function renderCantonPageShell(a: PageShellArgs): string {
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(pageTitle)}">
+    ${twitterCardMeta}
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}
 ${ldTags}
