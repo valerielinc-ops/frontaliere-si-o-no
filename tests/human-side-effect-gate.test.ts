@@ -187,7 +187,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'publish-journalist-articles.yml': [
     /Publish queued journalist articles/u,
     /Commit registered article files/u,
-    /Trigger deploy workflow/u,
+    /Record self-driven deploy handoff/u,
     /Trigger fast-publish workflow/u,
   ],
   'recover-prev-slugs.yml': [
@@ -200,7 +200,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Generate keyword pages config/u,
     /Re-cluster orphan queries/u,
     /Commit if changed/u,
-    /Trigger deploy if config changed/u,
+    /Record self-driven deploy handoff if config changed/u,
   ],
   'sync-gsc-orphans.yml': [
     /Sync GSC orphan slugs/u,
@@ -210,7 +210,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Canton-aware migration/u,
     /Prune non-resolving/u,
     /Commit and push$/u,
-    /Trigger deploy if data changed/u,
+    /Record self-driven deploy handoff if data changed/u,
   ],
   'update-fuel-prices.yml': [
     /Generate and upload fuel prices/u,
@@ -221,7 +221,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'backfill-expired-from-history.yml': [
     /Recover dropped jobs/u,
     /Reassemble dataset/u,
-    /Trigger deploy after validated backfill/u,
+    /Record self-driven deploy handoff after validated backfill/u,
   ],
   'discover-404s.yml': [
     /Run URL Inspection sweep/u,
@@ -239,41 +239,41 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'generate-border-wait-ranking-weekly.yml': [
     /Refresh ranking digest article body/u,
     /Commit \+ push/u,
-    /Trigger deploy workflow/u,
+    /Record self-driven deploy handoff/u,
   ],
   'update-health-premiums.yml': [
     /Fetch health premiums/u,
     /Validate generated health premiums/u,
     /Commit and push if changed/u,
-    /Trigger deploy workflow/u,
+    /Record self-driven deploy handoff/u,
   ],
   'update-canton-tax-data.yml': [
     /Fetch canton tax data/u,
     /Validate canton tax data/u,
     /Commit and push if changed/u,
-    /Trigger deploy workflow/u,
+    /Record self-driven deploy handoff/u,
   ],
   'update-pension-parameters.yml': [
     /Fetch pension parameters/u,
     /Validate pension parameters/u,
     /Commit and push if changed/u,
-    /Trigger deploy workflow/u,
+    /Record self-driven deploy handoff/u,
   ],
   'refresh-plate-auctions.yml': [
     /Refresh every active public catalogue/u,
     /Commit and push static snapshot/u,
-    /Trigger static deploy/u,
+    /Record self-driven static deploy and sitemap handoff/u,
   ],
   'reconcile-expired-route-duplicates.yml': [
     /Sweep expired slices and reconcile ownership/u,
     /Reassemble dataset/u,
     /Commit and push changed slices/u,
-    /Trigger deploy if data changed/u,
+    /Record self-driven deploy handoff if data changed/u,
   ],
   'migrate-prospected-slugs.yml': [
     /Apply and validate migration/u,
     /Commit and push exact migration paths/u,
-    /Trigger deploy after migration/u,
+    /Record self-driven deploy handoff after migration/u,
   ],
   'seo-health-loop.yml': [
     /Run five-phase SEO health loop/u,
@@ -281,7 +281,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Save health state before compat push/u,
     /Commit and push corrected compat shards/u,
     /Restore and persist health state/u,
-    /Trigger deploy for live compat correction/u,
+    /Record self-driven deploy handoff for live compat correction/u,
   ],
 };
 

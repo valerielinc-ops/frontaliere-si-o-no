@@ -8,7 +8,8 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * `cancel-in-progress: false`, so GitHub keeps 1 running + 1 pending and drops
  * only a superseded pending dispatch. That is newest-wins and it is CORRECT on
  * a linear `main`: the newer build already contains the commits it superseded;
- * deploy-request.yml keeps ordinary push bursts out of this expensive queue.
+ * The schedule in deploy.yml is only a recovery edge for a pending
+ * cancellation; it never enters the build graph itself.
  *
  * Measured over the 100 deploy.yml runs from 2026-08-06T12:37Z to
  * 2026-08-08T05:58Z (~41 h): 82 cancelled, 10 success, 6 failure, 2 in flight.
@@ -189,21 +190,35 @@ export function decideBuildLocaleRecovery({
  *
  * @param {object} input
  * @param {string} input.headSha              current tip of `main`
- * @param {Array<{id: number|string, headSha: string, status: string, conclusion?: string|null}>} input.runs
+ * @param {Array<{id: number|string, headSha: string, status: string, conclusion?: string|null, event?: string}>} input.runs
  *        recent deploy.yml runs on `main`, newest first (order is irrelevant here)
  * @param {number|string} [input.selfRunId]   the caller's own run, excluded from
  *        the in-flight test (it is in_progress BY DEFINITION while this runs)
  *        and counted as already-completed against the cap (it is about to be)
+ * @param {string} [input.selfConclusion]      known final conclusion for the
+ *        caller when the final job runs before the Actions run is terminal
+ * @param {string} [input.selfHeadSha]          SHA built by the caller; used to
+ *        keep a green run of an older SHA from masking a newer main tip
  * @param {number} [input.maxBuildsPerSha]
  * @returns {{ action: 'dispatch'|'skip', reason: string, detail: string }}
  */
-export function decideRearm({ headSha, runs, selfRunId, maxBuildsPerSha = DEFAULT_MAX_BUILDS_PER_SHA }) {
+export function decideRearm({
+  headSha,
+  runs,
+  selfRunId,
+  selfConclusion = '',
+  selfHeadSha = '',
+  maxBuildsPerSha = DEFAULT_MAX_BUILDS_PER_SHA,
+}) {
   if (!headSha) {
     // Fail closed: not knowing what HEAD is means not knowing what to build.
     return { action: 'skip', reason: 'no-head-sha', detail: 'could not resolve the tip of main' };
   }
   const self = selfRunId == null ? null : String(selfRunId);
-  const all = Array.isArray(runs) ? runs : [];
+  const all = (Array.isArray(runs) ? runs : []).filter((run) => run?.event !== 'schedule');
+  const selfRun = self ? all.find((run) => String(run.id) === self) : null;
+  const selfBuiltSha = String(selfHeadSha || selfRun?.headSha || '').toLowerCase();
+  const currentHead = String(headSha).toLowerCase();
 
   // 1. Is the pipeline still moving on its own? Then there is nothing to
   //    re-arm, and dispatching would evict the very run we are waiting for:
@@ -221,7 +236,10 @@ export function decideRearm({ headSha, runs, selfRunId, maxBuildsPerSha = DEFAUL
   const forHead = all.filter((r) => r.headSha === headSha);
 
   // 2. HEAD already has a green build — the invariant holds, nothing to do.
-  if (forHead.some((r) => r.conclusion === 'success')) {
+  if (forHead.some((r) => r.conclusion === 'success')
+      || (self
+        && selfBuiltSha === currentHead
+        && String(selfConclusion).toLowerCase() === 'success')) {
     return { action: 'skip', reason: 'head-already-built', detail: `${headSha} already has a successful build` };
   }
 
@@ -269,6 +287,20 @@ function ghJson(args) {
   } catch {
     throw new Error(`invalid JSON from GitHub API for ${args.join(' ')}`);
   }
+}
+
+const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, status, conclusion, event}]';
+
+function mergeRuns(...collections) {
+  const byId = new Map();
+  for (const collection of collections) {
+    if (!Array.isArray(collection)) continue;
+    for (const run of collection) {
+      if (run?.id == null) continue;
+      byId.set(String(run.id), run);
+    }
+  }
+  return [...byId.values()];
 }
 
 function readJobAnnotations(job) {
@@ -377,13 +409,15 @@ async function main() {
     return 0;
   }
 
-  const localeRecovery = await inspectBuildLocaleRecovery({
-    repo,
-    runId: process.env.GITHUB_RUN_ID,
-    expectedSha: process.env.GITHUB_SHA,
-    currentAttempt: process.env.GITHUB_RUN_ATTEMPT,
-    maxRecoveryAttempts: maxLocaleRecoveryAttempts,
-  });
+  const localeRecovery = process.env.REARM_SKIP_LOCALE_RECOVERY === '1'
+    ? recoverySkip('recovery-disabled', 'locale recovery is disabled for the schedule-only resolver')
+    : await inspectBuildLocaleRecovery({
+      repo,
+      runId: process.env.GITHUB_RUN_ID,
+      expectedSha: process.env.GITHUB_SHA,
+      currentAttempt: process.env.GITHUB_RUN_ATTEMPT,
+      maxRecoveryAttempts: maxLocaleRecoveryAttempts,
+    });
   if (localeRecovery.action === 'rerun') {
     const jobId = localeRecovery.job?.id;
     console.log(
@@ -418,21 +452,33 @@ async function main() {
   try {
     headSha = gh(['api', `repos/${repo}/commits/${branch}`, '--jq', '.sha']);
     // per_page=60 comfortably spans the busiest measured window (100 runs / 41 h
-    // ⇒ ~2.4/h); older runs cannot change any branch above.
-    // The `created` window is what makes those 60 the CURRENT ones: a
-    // `branch=` listing without it can come back frozen weeks in the past
-    // (scripts/ci/lib/run-listing-window.mjs), and here a stale listing shows
-    // no live run and no build of HEAD — i.e. it reads as `pipeline-stopped`
-    // and dispatches. Seven days is far wider than the ~25 h those 60 rows
-    // span, so it never drops a run the decision used before. decideRearm()
-    // does not depend on the order of the rows.
+    // ⇒ ~2.4/h); this recent branch listing is for the live queue. The `created`
+    // window makes those 60 the CURRENT ones: a `branch=` listing without it can
+    // come back frozen weeks in the past (scripts/ci/lib/run-listing-window.mjs),
+    // and here a stale listing shows no live run — i.e. it reads as
+    // `pipeline-stopped` and dispatches. The second, head_sha-filtered listing
+    // below is the durable per-SHA history used for the success and retry cap.
+    // decideRearm() does not depend on row order.
     const raw = gh([
       'api',
       `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&${createdSinceQuery(REARM_LISTING_WINDOW_DAYS)}&per_page=60`,
       '--jq',
-      '[.workflow_runs[] | {id, headSha: .head_sha, status, conclusion}]',
+      RUNS_PROJECTION,
     ]);
-    runs = JSON.parse(raw);
+    const recentRuns = JSON.parse(raw);
+    // The recent branch listing is enough to see the live queue, but its
+    // seven-day window is not enough to enforce "one retry, then idle until a
+    // new commit". The head_sha filter is the durable per-SHA ledger: it keeps
+    // old failures/successes in the decision even when the branch has been
+    // quiet for weeks. Merge by run id so a current run appearing in both
+    // responses is counted once.
+    const rawForHead = gh([
+      'api',
+      `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&head_sha=${encodeURIComponent(headSha)}&per_page=100`,
+      '--jq',
+      RUNS_PROJECTION,
+    ]);
+    runs = mergeRuns(recentRuns, JSON.parse(rawForHead));
   } catch (err) {
     // Fail closed and LOUD-ish: an unreadable API means we cannot prove the
     // pipeline has stopped, and dispatching on a guess is how a storm starts.
@@ -440,7 +486,14 @@ async function main() {
     return 0;
   }
 
-  const verdict = decideRearm({ headSha, runs, selfRunId, maxBuildsPerSha });
+  const verdict = decideRearm({
+    headSha,
+    runs,
+    selfRunId,
+    selfConclusion: process.env.REARM_SELF_CONCLUSION,
+    selfHeadSha: process.env.GITHUB_SHA,
+    maxBuildsPerSha,
+  });
   console.log(`[rearm] head=${headSha} runs=${runs.length} → ${verdict.action} (${verdict.reason}): ${verdict.detail}`);
 
   const summary = process.env.GITHUB_STEP_SUMMARY;

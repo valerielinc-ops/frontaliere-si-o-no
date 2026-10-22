@@ -946,20 +946,14 @@ jobs:
         with:
           path: .cache/local-mt-units
           key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Trigger deploy
+      - name: Record self-driven deploy handoff
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
-            echo "✅ All translations complete — triggering deploy"
-            # Hard-fail by design (no `|| true`, #6936): a failed dispatch
-            # here fails the job, caught by "Report failure to GitHub Issues"
-            # below — that GitHub issue IS this caller's recovery net
-            # (auto-triage picks it up), so silencing it would just hide a
-            # real deploy gap.
-            GITHUB_REPOSITORY=valerielinc-ops/frontaliere-si-o-no bash scripts/lib/trigger-deploy.sh
+            echo "✅ All translations complete — site schedule will pick up the mirrored SHA"
           else
-            echo "⏳ Some translations still incomplete — skipping deploy trigger"
-            echo "   The next cron run will retry and trigger deploy once all jobs are translated."
+            echo "⏳ Some translations still incomplete — skipping deploy handoff"
+            echo "   The next cron run will retry once all jobs are translated."
           fi
       - name: Report failure to GitHub Issues
         if: failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')

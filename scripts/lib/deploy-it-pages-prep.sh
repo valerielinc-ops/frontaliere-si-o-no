@@ -423,14 +423,13 @@ _publish_cdn_r2() {
   # `pages-deploy` concurrency QUEUE was jammed, and the gates never got a say.
   # Two overlapping defects:
   #
-  #   · deploy-publish.yml triggers on `workflow_run: types: [completed]`, which
-  #     fires for the build runs deploy.yml's own newest-wins lock CANCELS —
-  #     121 of 141 builds per 48 h (#5251). Those runs skip every job, but a run
-  #     joins its concurrency group BEFORE any job `if:` is evaluated, and an
-  #     arrival into a full group (1 running + 1 pending) cancels the PENDING
-  #     member. Run 31100260885 arrived 12:10:14, killed queued publish
-  #     31100206740 at 12:10:15, then skipped at 12:14:48 — two thirds of
-  #     everything entering the group was such a no-op.
+  #   · the old workflow_run fan-in dispatched publish for build runs that
+  #     deploy.yml's own newest-wins lock CANCELS — 121 of 141 builds per 48 h
+  #     (#5251). Those runs skipped every job, but a run joined its concurrency
+  #     group BEFORE any job `if:` was evaluated, and an arrival into a full
+  #     group (1 running + 1 pending) cancelled the PENDING member. The current
+  #     direct build→publish handoff and the publish-only reconciler admit only
+  #     a verified successful source build.
   #   · no run in that group had a deadline of any kind. A `deploy` job parked
   #     at the `github-pages` environment gate is not "running", so neither
   #     `timeout-minutes` nor the 360-min default applies: run 31118787881 sat

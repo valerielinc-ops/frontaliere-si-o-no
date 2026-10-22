@@ -30,7 +30,6 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE, getJobBoardSectionPrefix } from './lib/jobBoardSections.mjs';
 import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
-import { githubApiHeaders } from './lib/githubApiHeaders.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
@@ -368,33 +367,11 @@ async function triggerRedeploy(failedPages) {
   );
   if (canonicalFails.length === 0) return;
 
-  const pat = process.env.GITHUB_PAT || process.env.GH_TOKEN;
-  if (!pat) {
-    log('ℹ️', 'No GITHUB_PAT — cannot trigger auto-redeploy, falling back to IndexNow');
-    await submitToIndexNow(canonicalFails.map(p => p.url));
-    return;
-  }
-
-  log('🔄', `Triggering re-deploy for ${canonicalFails.length} canonical regression(s)`);
-  try {
-    const res = await fetchWithTimeout(
-      'https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/actions/workflows/deploy.yml/dispatches',
-      {
-        method: 'POST',
-        headers: githubApiHeaders(pat),
-        body: JSON.stringify({ ref: 'main' }),
-      }
-    );
-    if (res.ok || res.status === 204) {
-      log('🚀', 'Re-deploy triggered successfully');
-    } else {
-      log('⚠️', `Re-deploy trigger failed (${res.status}) — submitting to IndexNow instead`);
-      await submitToIndexNow(canonicalFails.map(p => p.url));
-    }
-  } catch (err) {
-    log('⚠️', `Re-deploy trigger error: ${err.message}`);
-    await submitToIndexNow(canonicalFails.map(p => p.url));
-  }
+  // deploy.yml is self-driven now. The monitor reports the regression and
+  // sends the affected URLs to IndexNow; it must never create a second build
+  // queue or bypass the deploy workflow's per-SHA guard.
+  log('ℹ️', `Canonical regression on ${canonicalFails.length} page(s); deploy pipeline is self-driven, submitting to IndexNow`);
+  await submitToIndexNow(canonicalFails.map(p => p.url));
 }
 
 // ── Step Summary ────────────────────────────────────────────

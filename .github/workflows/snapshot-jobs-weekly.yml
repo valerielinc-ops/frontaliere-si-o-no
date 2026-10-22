@@ -179,13 +179,9 @@ jobs:
       - name: Refresh deploy token from Remote Config
         run: node scripts/load-rc-env.mjs
 
-      - name: Deploy weekly inventory and automatically promoted sector hubs
+      - name: Record self-driven weekly deploy handoff
         run: |
-          if [ -z "${GITHUB_PAT:-${GH_TOKEN:-}}" ]; then
-            echo "::error::Weekly snapshot deployment requires a GitHub workflow token from Remote Config."
-            exit 1
-          fi
-          EXPECTED_SHA="$(git rev-parse HEAD)" bash scripts/lib/trigger-deploy.sh
+          echo '✅ Inventario settimanale committato; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Cleanup Codex auth broker
         if: always()

@@ -212,9 +212,9 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(() => expectCurrentShadowContract(adjacencyProbe, sourceTranslate))
       .toThrowError();
     const currentTriggerDeploy = portableCurrent.jobs.translate.steps
-      .find((step: any) => step.name === 'Trigger deploy');
+      .find((step: any) => step.name === 'Record self-driven deploy handoff');
     const sourceTriggerDeploy = sourceTranslate.jobs.translate.steps
-      .find((step: any) => step.name === 'Trigger deploy');
+      .find((step: any) => step.name === 'Record self-driven deploy handoff');
     expect(currentTriggerDeploy).toBeDefined();
     expect(sourceTriggerDeploy).toBeDefined();
     expect(currentTriggerDeploy).toEqual(expectedPortableRecoveryStep(sourceTriggerDeploy));

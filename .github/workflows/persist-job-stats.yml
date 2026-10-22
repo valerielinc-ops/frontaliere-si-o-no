@@ -2,8 +2,8 @@ name: Persist Job Stats History
 
 on:
   workflow_dispatch:
-  # Runs after each deploy completes — deploy.yml dispatches this via trigger-deploy-stats
-  # Also runs on cron as safety net (in case dispatch is missed)
+  # Runs on its own cron; deploy.yml no longer dispatches this workflow.
+  # The manual trigger remains available for an explicitly requested replay.
   schedule:
     - cron: '15 6,18 * * *'  # 07:15 and 19:15 CET (after typical deploy times)
 

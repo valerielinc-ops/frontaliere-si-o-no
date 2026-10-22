@@ -63,7 +63,6 @@
     "scripts/lib/target-swiss-locations.mjs",
     "scripts/lib/translate-run-clock.mjs",
     "scripts/lib/translation-shadow-preflight-v2.mjs",
-    "scripts/lib/trigger-deploy.sh",
     "scripts/load-rc-env.mjs",
     "scripts/local-mt-mopup.mjs",
     "scripts/log-translation-stats.mjs",
@@ -1540,8 +1539,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "d0d5d96c4e213dff99669f1a06113295b565f90d1290e289dd2426a984850b5a",
-      "artifactSha256": "ab3f23f7d91b55a706a35227d9736caccf7fb0ebc00a4385f16f99f005d30ccb",
+      "sourceSha256": "dd85934d48c04cdc7cb5b3b8086f04d65396390fad1ef0a564d8845e1165b4b1",
+      "artifactSha256": "a8a0174e79b28eb08d4e38666e51a2c5053fa79320f00ca2ee54f00fa3eb8263",
       "generatorSha256": "80fd05f57fbc6f57f2c82af84e632b0b193d738c9bf01ed36fc72921c690f9cb",
       "members": []
     }

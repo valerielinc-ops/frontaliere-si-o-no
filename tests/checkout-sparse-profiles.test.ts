@@ -475,24 +475,23 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
     ]);
   });
 
-  it('boccia la allow-list di deploy-request arrivata su main con la PR 12277, e accetta quella corretta', () => {
-    // Il dispatcher legge il paths-ignore del proprio workflow dalla cartella
-    // di lavoro: non e' un import, e la lista conteneva solo il codice. A ogni
-    // fine deploy il confronto dei path falliva con ENOENT (issue 12344).
+  it('verifica la allow-list del reconciler publish, inclusi i moduli importati', () => {
     const OLD_DISPATCHER_LIST = [
-      '/scripts/ci/request-latest-deploy.mjs',
-      '/scripts/check-pages-publish-lag.mjs',
       '/scripts/ci/lib/run-listing-window.mjs',
       '/scripts/lib/is-invoked-directly.mjs',
-      '/scripts/ci/mint-app-token.mjs',
       '/scripts/lib/githubApiHeaders.mjs',
-      '/scripts/lib/int-from-env.mjs',
+      '/scripts/ci/publish-receipts.mjs',
       '/functions/src/githubApiHeaders.js',
     ];
-    const DISPATCHER_ENTRIES = ['scripts/ci/mint-app-token.mjs', 'scripts/ci/request-latest-deploy.mjs'];
-    expect(uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false })).toEqual([]);
-    expect(uncoveredAllowListOpenedFiles(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false }))
-      .toEqual(['.github/workflows/deploy-request.yml']);
+    const DISPATCHER_ENTRIES = [
+      'scripts/ci/request-latest-publish.mjs',
+      'scripts/ci/publish-receipts.mjs',
+      'scripts/ci/lib/run-listing-window.mjs',
+      'scripts/lib/is-invoked-directly.mjs',
+      'scripts/lib/githubApiHeaders.mjs',
+    ];
+    expect(uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false }))
+      .toEqual(['scripts/ci/request-latest-publish.mjs']);
     const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'deploy-request.yml'), 'utf8'));
     const checkout = doc.jobs.request.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
     const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);

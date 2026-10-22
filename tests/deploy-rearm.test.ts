@@ -29,7 +29,7 @@ const HEAD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const OLD = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
 const SELF = 999;
 
-type Run = { id: number | string; headSha: string; status: string; conclusion?: string | null };
+type Run = { id: number | string; headSha: string; status: string; conclusion?: string | null; event?: string };
 const done = (id: number, headSha: string, conclusion: string): Run => ({ id, headSha, status: 'completed', conclusion });
 const live = (id: number, headSha: string, status: string): Run => ({ id, headSha, status, conclusion: null });
 /** The caller: in_progress by definition, and about to end non-success. */
@@ -238,6 +238,43 @@ describe('decideRearm — the pipeline is still MOVING (99 of the 100 measured r
     expect(v.action).toBe('dispatch');
   });
 
+  it('a successful caller run is idle even before GitHub marks the run completed', () => {
+    const v = decideRearm({
+      headSha: HEAD,
+      runs: [selfRun()],
+      selfRunId: SELF,
+      selfConclusion: 'success',
+    });
+    expect(v.action).toBe('skip');
+    expect(v.reason).toBe('head-already-built');
+  });
+
+  it('does not let a successful older caller mask a newer main tip', () => {
+    const v = decideRearm({
+      headSha: HEAD,
+      runs: [selfRun(OLD)],
+      selfRunId: SELF,
+      selfHeadSha: OLD,
+      selfConclusion: 'success',
+    });
+    expect(v.action).toBe('dispatch');
+    expect(v.reason).toBe('pipeline-stopped');
+  });
+
+  it('does not count the lightweight schedule resolver as a build attempt', () => {
+    const v = decideRearm({
+      headSha: HEAD,
+      runs: [
+        { ...selfRun(), event: 'schedule' },
+        { id: 1, headSha: HEAD, status: 'completed', conclusion: 'failure', event: 'schedule' },
+      ],
+      selfRunId: SELF,
+      selfConclusion: 'failure',
+    });
+    expect(v.action).toBe('dispatch');
+    expect(v.reason).toBe('pipeline-stopped');
+  });
+
   it('HEAD already has a green build → skip: the invariant already holds', () => {
     const v = decideRearm({
       headSha: HEAD,
@@ -349,19 +386,23 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     // Either would let two builds race the same CDN / shard force-push targets,
     // which is the invariant build-locale's own comment relies on.
     expect(doc.concurrency?.group).toBe('pages-build-run');
+    expect(doc.concurrency?.group).not.toContain('deploy-schedule-reconcile');
     expect(doc.concurrency?.['cancel-in-progress']).toBe(false);
   });
 
-  it('moves push admission to the cheap request workflow', () => {
+  it('moves recovery admission into deploy.yml and keeps the request workflow publish-only', () => {
     const on = (YAML.parse(DEPLOY_YML) as { on?: Record<string, unknown> }).on ?? {};
-    expect(Object.keys(on), 'deploy.yml must remain dispatch-only').not.toContain('push');
+    expect(Object.keys(on)).toContain('schedule');
     expect(Object.keys(on)).toContain('workflow_dispatch');
-    expect(Object.keys(on), 'the build must not become schedule-driven').not.toContain('schedule');
 
     const request = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
     const requestOn = (YAML.parse(request) as { on?: Record<string, unknown> }).on ?? {};
     expect(Object.keys(requestOn)).toContain('push');
     expect(Object.keys(requestOn)).toContain('workflow_run');
-    expect(request).toContain('scripts/ci/request-latest-deploy.mjs');
+    expect(request).toContain('scripts/ci/request-latest-publish.mjs');
+    expect(request).not.toContain('scripts/ci/request-latest-deploy.mjs');
+    expect(request).not.toContain('gh workflow run deploy.yml');
+    expect(readFileSync(resolve('scripts/ci/rearm-deploy-build.mjs'), 'utf8'))
+      .toContain('head_sha=${encodeURIComponent(headSha)}');
   });
 });

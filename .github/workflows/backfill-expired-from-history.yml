@@ -380,18 +380,12 @@ jobs:
         # demonstrates that parallelism is safe for these subprocess tests.
         run: npm run test:backfill
 
-      - name: Trigger deploy after validated backfill
+      - name: Record self-driven deploy handoff after validated backfill
         if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
-        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
-        # fails the job, caught by "Report failure to GitHub Issues" below —
-        # that GitHub issue IS this caller's recovery net (auto-triage picks
-        # it up), so silencing the failure would just hide a real deploy gap.
         # Do not gate this on has_changes: a previous attempt may have pushed
         # its checkpoint and failed only in the test/deploy tail. A clean rerun
-        # must still publish the already-persisted data.
-        run: bash scripts/lib/trigger-deploy.sh
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
+        # must still leave the data for deploy.yml's self-driven schedule.
+        run: echo '✅ Backfill committato; la coda deploy self-driven lo prenderà al prossimo tick.'
 
       # ─── Perche' questo step esiste ────────────────────────────────────────
       # Il reporter qui sotto e' `run: node scripts/lib/github-issue-creator.mjs`,

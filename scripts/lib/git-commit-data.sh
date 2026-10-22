@@ -3152,11 +3152,7 @@ commit_isolated_from_worktree() {
       # updating a sibling's slice) look base-identical, skip the merge and
       # get silently reverted by the stale worktree copy.
 
-      if [ "${SKIP_AI_TRANSLATION:-0}" = "1" ]; then
-        echo "ℹ️ SKIP_AI_TRANSLATION=1 — skipping deploy trigger (translate-pending pipeline will deploy)"
-      else
-        EXPECTED_SHA="$new_commit" DEPLOY_REF="main" bash "$(dirname "$0")/trigger-deploy.sh" || true
-      fi
+      echo "✅ Main data push complete — deploy.yml observes the new SHA on its self-driven schedule"
       return 0
     fi
     isolated_phase_add push "$phase_started"
@@ -3465,15 +3461,11 @@ if push_out="$(run_bounded "$PUSH_TIMEOUT" \
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 
-  # ── 5. Trigger deploy — GITHUB_TOKEN pushes don't trigger other workflows ─
-  # When SKIP_AI_TRANSLATION=1 (orchestrated run), skip deploy trigger.
-  # The centralized translate-pending pipeline will trigger deploy after translation.
-  if [ "${SKIP_AI_TRANSLATION:-0}" = "1" ]; then
-    echo "ℹ️ SKIP_AI_TRANSLATION=1 — skipping deploy trigger (translate-pending pipeline will deploy)"
-  else
-    PUSHED_SHA="$(git rev-parse HEAD)"
-    EXPECTED_SHA="$PUSHED_SHA" DEPLOY_REF="main" bash "$(dirname "$0")/trigger-deploy.sh" || true
-  fi
+  # ── 5. Deploy handoff — deploy.yml observes the new SHA on schedule ──────
+  # GITHUB_TOKEN pushes do not trigger another workflow directly. The deploy
+  # workflow owns its queue and picks up this new main tip on its next
+  # self-driven run.
+  echo "✅ Main data push complete — deploy.yml observes the new SHA on its self-driven schedule"
 
   exit 0
 fi

@@ -511,27 +511,33 @@ describe('locale publish workflow wiring', () => {
     expect(String(resolver.if)).toContain("needs.validate-source-build.result == 'success'");
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
     expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
-    expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
+    expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'resolve-nonit-publish']);
     expect(String(deployJob.if)).toContain('outputs.allowed');
     expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
+    expect(String(deployJob.if)).toContain("needs.resolve-publish-receipts.result == 'success'");
     expect(String(deployJob.if)).toContain("needs.resolve-nonit-publish.outputs.allowed == 'true'");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
     expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
-    expect(publish.jobs['resolve-nonit-publish'].needs).toEqual(['resolve-publish-plan', 'publish-nonit-shards']);
-    const recovery = publish.jobs['recover-legacy-publish-contract'];
-    expect(recovery.needs).toBe('resolve-publish-plan');
-    expect(String(recovery.if)).toContain('outputs.recovery_required');
-    expect(recovery.permissions.actions).toBe('write');
-    expect((recovery.steps as Array<Record<string, any>>)
-      .find((step) => step.name === 'Dispatch a current build')?.run)
-      .toContain('gh workflow run deploy.yml');
+    expect(publish.jobs['resolve-nonit-publish'].needs)
+      .toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'publish-nonit-shards']);
+    expect(publish.jobs['resolve-publish-receipts']).toBeDefined();
+    expect(publish.jobs['resolve-publish-receipts'].outputs.pages_deployed)
+      .toContain('steps.receipts.outputs.pages_deployed');
+    expect(publish.jobs['recover-legacy-publish-contract']).toBeUndefined();
+    expect(publish).not.toContain('gh workflow run deploy.yml');
     expect((publish.jobs['resolve-nonit-publish'].steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Checkout current publish resolver')?.with?.ref)
       .toBe('refs/heads/main');
     const tailJob = publish.jobs['publish-nonit-shards'];
+    expect((tailJob.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Checkout durable receipt resolver')?.with?.ref)
+      .toBe('refs/heads/main');
+    expect((tailJob.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Recheck durable locale receipt before shard side effects')?.run)
+      .toContain('publish-receipts.mjs');
     expect(String(tailJob.strategy.matrix.locale)).toContain(
-      'fromJSON(needs.resolve-publish-plan.outputs.tail_locales)',
+      'fromJSON(needs.resolve-publish-receipts.outputs.pending_locales)',
     );
     expect(String(tailJob.if)).not.toContain('matrix.locale');
     expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'deploy']);

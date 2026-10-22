@@ -208,29 +208,13 @@ jobs:
             echo "expected_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Trigger static deploy and sitemap rebuild
+      - name: Record self-driven static deploy and sitemap handoff
         id: deploy
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        env:
-          EXPECTED_SHA: ${{ steps.commit.outputs.expected_sha }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
-          deploy_token="${GITHUB_PAT:-${GH_TOKEN:-}}"
-          if [ -z "$deploy_token" ]; then
-            echo "::error::No deploy token available; refusing to record an undeployed plate-auction snapshot."
-            exit 1
-          fi
-          dispatch_output="$(mktemp)"
-          trap 'rm -f "$dispatch_output"' EXIT
-          GITHUB_PAT="$deploy_token" \
-            GITHUB_OUTPUT="$dispatch_output" \
-            EXPECTED_SHA="$EXPECTED_SHA" \
-            bash scripts/lib/trigger-deploy.sh
-          if ! grep -qx 'dispatch_sent=true' "$dispatch_output"; then
-            echo "::error::Deploy trigger returned without dispatch_sent=true; refusing a false-green sitemap update."
-            exit 1
-          fi
+          echo '✅ Snapshot aste committato; deploy.yml verrà avviato dal proprio schedule.'
+          echo 'deploy_handoff=self-driven-schedule' >> "$GITHUB_OUTPUT"
 
       # The source-health verdict below is OWNED by one issue per degraded
       # source, `Plate auction source degraded: <plate code>`: opened (or given
