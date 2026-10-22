@@ -53,7 +53,13 @@ import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
 import { BASE_URL, BUILD_DATE_STAMP, buildCanonicalBridgePage, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { adSlotHtml, endOfContentMultiplexHtml, eventsInfeedAdGridBlockHtml } from './lib/adSlotHtml';
-import { truncateHeadline, TITLE_MAX_CHARS, composePlaceTitle } from './shared/titleSuffix';
+import {
+  normalizeShellTitle,
+  truncateHeadline,
+  TITLE_MAX_CHARS,
+  TITLE_TARGET_CHARS,
+  composePlaceTitle,
+} from './shared/titleSuffix';
 import { staticPagesFlushed } from './shared/buildSignals';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { dedupeUrlsetXmlByLoc } from './shared/sitemapUrlsetDedupe';
@@ -3633,7 +3639,31 @@ function eventDetailMetaTitle(
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
     title = truncateHeadline(completeTitle, max);
   }
-  const composed = `${title}${suffix}`;
+  let composed = `${title}${suffix}`;
+  // `buildSeoPageHtml` runs the result through `normalizeShellTitle`, which
+  // appends the site-wide brand when the event title leaves enough room. A
+  // short event title with the brandless place/date suffix can therefore grow
+  // from <=60 to 61–66 characters after this function returns. Prefer the
+  // already-built event suffix ("| Eventi"/localized equivalent) whenever it
+  // keeps the complete title inside the 60-character target; this avoids
+  // turning a valid event title into a 66-character shell-branded title.
+  if (esc(normalizeShellTitle(composed, (value) => esc(value).length)).length > TITLE_TARGET_CHARS) {
+    const richSuffix = firstMeaningful?.suffix;
+    if (richSuffix && richSuffix !== suffix) {
+      const richBudget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(richSuffix).length);
+      const richTitle = esc(completeTitle).length <= richBudget
+        ? completeTitle
+        : truncateHeadline(completeTitle, richBudget);
+      const richComposed = `${richTitle}${richSuffix}`;
+      const richShellTitle = normalizeShellTitle(richComposed, (value) => esc(value).length);
+      if (
+        esc(richComposed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS
+        && esc(richShellTitle).length <= TITLE_TARGET_CHARS
+      ) {
+        composed = richComposed;
+      }
+    }
+  }
   if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
   // Unreachable for gazetteer/canton-label comuni (the bare ` — ${comune}`
   // candidate always leaves budget); guards pathological place names so the
