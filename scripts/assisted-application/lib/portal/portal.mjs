@@ -1849,14 +1849,25 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   let cv;
   let cvFieldKey;
   const triedCvTriggers = new Set();
+  let pendingCvTriggers = [];
   // A discovered file field stays in the normal planning path. That path
   // removes an earlier upload before replacing it and records the receipt and
   // failure in the same evidence as other planned uploads.
   while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
     if (!attempt(cvKey)) break;
-    const triggerButtons = uploadButtonCandidatesFor(current, 'cv')
-      .filter((button) => iconUploadAllowedForPage(page, button, 'cv', current, channelType));
-    const triggerButton = triggerButtons.find((button) => !triedCvTriggers.has(uploadTriggerKey(button)));
+    let triggerButton = pendingCvTriggers.shift() || null;
+    if (!triggerButton) {
+      const triggerButtons = uploadButtonCandidatesFor(current, 'cv')
+        .filter((button) => iconUploadAllowedForPage(page, button, 'cv', current, channelType));
+      const nextIndex = triggerButtons.findIndex((button) => !triedCvTriggers.has(uploadTriggerKey(button)));
+      if (nextIndex >= 0) {
+        triggerButton = triggerButtons[nextIndex];
+        // Keep the remaining controls from this snapshot queued. This lets a
+        // redraw reorder two semantically identical controls without making
+        // the retry pick the first one again.
+        pendingCvTriggers = triggerButtons.slice(nextIndex + 1);
+      }
+    }
     const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCvTriggers.add(triggerKey);
     const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
@@ -1890,10 +1901,18 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const coverLetterKey = `cover-letter|${where}`;
   let coverLetter;
   const triedCoverLetterTriggers = new Set();
+  let pendingCoverLetterTriggers = [];
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
-    const triggerButtons = uploadButtonCandidatesFor(current, 'cover_letter')
-      .filter((button) => iconUploadAllowedForPage(page, button, 'cover_letter', current, channelType));
-    const triggerButton = triggerButtons.find((button) => !triedCoverLetterTriggers.has(uploadTriggerKey(button)));
+    let triggerButton = pendingCoverLetterTriggers.shift() || null;
+    if (!triggerButton) {
+      const triggerButtons = uploadButtonCandidatesFor(current, 'cover_letter')
+        .filter((button) => iconUploadAllowedForPage(page, button, 'cover_letter', current, channelType));
+      const nextIndex = triggerButtons.findIndex((button) => !triedCoverLetterTriggers.has(uploadTriggerKey(button)));
+      if (nextIndex >= 0) {
+        triggerButton = triggerButtons[nextIndex];
+        pendingCoverLetterTriggers = triggerButtons.slice(nextIndex + 1);
+      }
+    }
     const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCoverLetterTriggers.add(triggerKey);
     const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current, channelType)
