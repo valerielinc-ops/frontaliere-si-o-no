@@ -1838,7 +1838,11 @@ jobs:
         with:
           name: github-pages
           path: pages-artifact/artifact.tar
-          retention-days: 1
+          # cathedral-seo-gates-check may replay the exact deploy run for up
+          # to the artifact retention window. Keep the Pages payload alive for
+          # the same eight days as the resolver contract; the other shard
+          # artifacts remain short-lived and are not selected by that gate.
+          retention-days: 8
           if-no-files-found: error
           # artifact.tar is an UNCOMPRESSED tar (deploy-it-pages-prep.sh packs it
           # with `tar -cf`, no -z) — all the size reduction comes from the zip
