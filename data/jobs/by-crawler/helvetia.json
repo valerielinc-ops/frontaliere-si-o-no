@@ -11274,8 +11274,8 @@
       "slugByLocale": {
         "de": "technical-accountant-w-m-d-specialty-lines-teilzeit-oder-vollzeit-helvetia-zurich",
         "it": "technical-contabile-m-w-d-specialty-lines-teilzeit-o-vollzeit-helvetia-versicherungen-zurich",
-        "en": "technical-accountant-w-m-d-specialty-lines-teilzeit-oder-vollzeit-helvetia-zurich",
-        "fr": "technical-accountant-w-m-d-specialty-lines-teilzeit-oder-vollzeit-helvetia-zurich"
+        "en": "technical-accountant-m-f-d-specialty-lines-part-time-or-full-time-helvetia-versicherungen-zurich",
+        "fr": "comptable-technique-h-f-d-specialty-lines-a-temps-partiel-ou-a-temps-plein-helvetia-versicherungen-zurich"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11324,6 +11324,12 @@
       "previousSlugsByLocale": {
         "it": [
           "technical-accountant-w-m-d-specialty-lines-teilzeit-oder-vollzeit-helvetia-zurich"
+        ],
+        "en": [
+          "technical-accountant-w-m-d-specialty-lines-teilzeit-oder-vollzeit-helvetia-zurich"
+        ],
+        "fr": [
+          "technical-accountant-w-m-d-specialty-lines-teilzeit-oder-vollzeit-helvetia-zurich"
         ]
       },
       "previousSlugs": [
@@ -11346,12 +11352,12 @@
     },
     {
       "id": "helvetia-4446540e976e",
-      "slug": "risorse-umane-specialista-all-genders-befristet-per-sechs-monate-teilzeit-vollzeit-helvetia-versicherungen-basel-hauptsitz",
+      "slug": "specialista-hr-tutti-i-generi-a-tempo-determinato-per-sei-mesi-tempo-parziale-tempo-pieno-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel",
-        "it": "risorse-umane-specialista-all-genders-befristet-per-sechs-monate-teilzeit-vollzeit-helvetia-versicherungen-basel-hauptsitz",
-        "en": "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel",
-        "fr": "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel"
+        "it": "specialista-hr-tutti-i-generi-a-tempo-determinato-per-sei-mesi-tempo-parziale-tempo-pieno-helvetia-versicherungen-basel",
+        "en": "hr-specialist-all-genders-temporary-for-six-months-part-time-full-time-helvetia-versicherungen-basel-hauptsitz",
+        "fr": "specialiste-rh-tous-genres-contrat-a-duree-determinee-de-six-mois-temps-partiel-temps-plein-helvetia-versicherungen"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11399,11 +11405,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel",
+          "risorse-umane-specialista-all-genders-befristet-per-sechs-monate-teilzeit-vollzeit-helvetia-versicherungen-basel-hauptsitz"
+        ],
+        "en": [
+          "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel"
+        ],
+        "fr": [
           "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel"
         ]
       },
       "previousSlugs": [
-        "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel"
+        "hr-specialist-all-genders-befristet-fur-sechs-monate-teilzeit-vollzeit-helvetia-basel",
+        "risorse-umane-specialista-all-genders-befristet-per-sechs-monate-teilzeit-vollzeit-helvetia-versicherungen-basel-hauptsitz"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -11426,8 +11440,8 @@
       "slugByLocale": {
         "de": "reinsurance-specialist-w-m-d-teilzeit-oder-vollzeit-helvetia-basel",
         "it": "reinsurance-specialista-m-w-d-teilzeit-o-vollzeit-helvetia-versicherungen-basel",
-        "en": "reinsurance-specialist-w-m-d-teilzeit-oder-vollzeit-helvetia-basel",
-        "fr": "reinsurance-specialist-w-m-d-teilzeit-oder-vollzeit-helvetia-basel"
+        "en": "reinsurance-specialist-m-f-d-part-time-or-full-time-helvetia-versicherungen-basel",
+        "fr": "specialiste-en-reassurance-h-f-d-a-temps-partiel-ou-a-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -11476,6 +11490,12 @@
       "previousSlugsByLocale": {
         "it": [
           "reinsurance-specialist-w-m-d-teilzeit-oder-vollzeit-helvetia-basel"
+        ],
+        "en": [
+          "reinsurance-specialist-w-m-d-teilzeit-oder-vollzeit-helvetia-basel"
+        ],
+        "fr": [
+          "reinsurance-specialist-w-m-d-teilzeit-oder-vollzeit-helvetia-basel"
         ]
       },
       "previousSlugs": [
@@ -11502,7 +11522,7 @@
       "slugByLocale": {
         "de": "cobol-software-engineer-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
         "it": "cobol-software-engineer-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
-        "en": "cobol-software-engineer-w-m-d-teilzeit-vollzeit-helvetia-st-gallen",
+        "en": "cobol-software-engineer-m-f-d-part-time-full-time-helvetia-versicherungen-st-gallen",
         "fr": "cobol-software-engineer-w-m-d-teilzeit-vollzeit-helvetia-st-gallen"
       },
       "company": "Helvetia Versicherungen",

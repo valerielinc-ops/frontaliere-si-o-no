@@ -617,7 +617,7 @@
         "it": "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee",
         "en": "stv-music-therapist-in-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "fr": "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -668,7 +668,7 @@
         "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
         "stv-music-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
         "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
-        "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
+        "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -691,7 +691,7 @@
         "fr": [
           "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
           "artotherapeute-stv-f-m-d-privatklinik-wyss-munchenbuchsee",
-          "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
+          "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-06-24T22:36:14.843Z",
@@ -1230,9 +1230,9 @@
       "slug": "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "it": "formazione-diplomata-in-infermieristica-hf-in-azienda-m-f-d-privatklinik-wyss-munchenbuchsee",
-        "en": "education-senior-consultant-m-w-d-privatklinik-wyss-munchenbuchsee",
+        "en": "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
-        "fr": "consultant-principal-en-education-m-s-privatklinik-wyss-munchenbuchsee"
+        "fr": "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -1308,8 +1308,8 @@
         "ausbildung-dipl-pflegefachperson-hf-in-betriebsanstellung-w-m-d-privatklinik-wyss-ch",
         "consulente-per-l-istruzione-superiore-w-m-d-privatklinik-wyss-munchenbuchsee",
         "education-senior-consultant-w-m-d-privatklinik-wyss-munchenbuchsee",
-        "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee",
-        "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
+        "education-senior-consultant-m-w-d-privatklinik-wyss-munchenbuchsee",
+        "consultant-principal-en-education-m-s-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1318,10 +1318,10 @@
         ],
         "en": [
           "education-senior-consultant-w-m-d-privatklinik-wyss-munchenbuchsee",
-          "training-as-a-qualified-nurse-hf-in-employment-m-f-d-privatklinik-wyss-munchenbuchsee"
+          "education-senior-consultant-m-w-d-privatklinik-wyss-munchenbuchsee"
         ],
         "fr": [
-          "formation-en-tant-qu-infirmier-diplome-hf-en-entreprise-h-f-d-privatklinik-wyss-munchenbuchsee"
+          "consultant-principal-en-education-m-s-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-05-19T21:02:10.286Z",
@@ -1729,12 +1729,12 @@
     },
     {
       "id": "privatklinik-wyss-b16f22f04267",
-      "slug": "abteilungsleiter-in-pflege-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee",
+      "slug": "responsabile-del-reparto-infermieristico-m-f-d-per-il-reparto-privato-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
-        "it": "abteilungsleiter-in-pflege-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee",
-        "en": "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
-        "fr": "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+        "it": "responsabile-del-reparto-infermieristico-m-f-d-per-il-reparto-privato-privatklinik-wyss-munchenbuchsee",
+        "en": "head-of-nursing-department-m-f-d-for-the-private-department-privatklinik-wyss-munchenbuchsee",
+        "fr": "responsable-du-service-des-soins-infirmiers-h-f-d-pour-le-service-prive-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -1783,11 +1783,19 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
+          "abteilungsleiter-in-pflege-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee"
+        ],
+        "en": [
+          "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+        ],
+        "fr": [
           "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch"
+        "abteilungsleiter-in-pflege-w-m-d-fur-die-privatabteilung-privatklinik-wyss-ch",
+        "abteilungsleiter-in-pflege-m-w-d-per-la-privatabteilung-privatklinik-wyss-munchenbuchsee"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1807,12 +1815,12 @@
     },
     {
       "id": "privatklinik-wyss-4ab08cedc38d",
-      "slug": "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch",
+      "slug": "dipl-infermiera-hf-m-f-d-focus-psichiatria-triage-centrale-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch",
-        "it": "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch",
-        "en": "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch",
-        "fr": "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch"
+        "it": "dipl-infermiera-hf-m-f-d-focus-psichiatria-triage-centrale-privatklinik-wyss-munchenbuchsee",
+        "en": "dipl-nurse-hf-m-f-d-focus-psychiatry-central-triage-privatklinik-wyss-munchenbuchsee",
+        "fr": "dipl-infirmiere-hf-h-f-d-psychiatrie-triage-central-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -1873,7 +1881,21 @@
         }
       },
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-22T09:10:14.358Z"
+      "firstSeenAt": "2026-10-22T09:10:14.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-w-m-d-fokus-psychiatrie-zentrale-triage-privatklinik-wyss-ch"
+      ]
     }
   ]
 }

@@ -1879,7 +1879,7 @@
       "slug": "educatore-trice-sociale-jolly-stadt-bern-bern",
       "slugByLocale": {
         "it": "educatore-trice-sociale-jolly-stadt-bern-bern",
-        "en": "springer-in-sozialpadagogik-stadt-bern",
+        "en": "relief-social-pedagogue-stadt-bern-bern",
         "de": "springer-in-sozialpadagogik-stadt-bern-bern",
         "fr": "remplacant-e-en-pedagogie-sociale-stadt-bern-bern"
       },
@@ -1927,7 +1927,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "springer-in-sozialpadagogik-stadt-bern-bern",
-        "relief-social-pedagogue-stadt-bern-bern"
+        "springer-in-sozialpadagogik-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1935,7 +1935,7 @@
         ],
         "en": [
           "springer-in-sozialpadagogik-stadt-bern-bern",
-          "relief-social-pedagogue-stadt-bern-bern"
+          "springer-in-sozialpadagogik-stadt-bern"
         ],
         "fr": [
           "springer-in-sozialpadagogik-stadt-bern-bern"
@@ -3018,12 +3018,12 @@
     },
     {
       "id": "stadt-bern-ad3ed441d824",
-      "slug": "vorarbeiter-in-baumpflege-stadt-bern-bern",
+      "slug": "caposquadra-nella-cura-degli-alberi-stadt-bern-bern",
       "slugByLocale": {
         "de": "vorarbeiter-in-baumpflege-stadt-bern-bern",
-        "it": "vorarbeiter-in-baumpflege-stadt-bern-bern",
-        "en": "vorarbeiter-in-baumpflege-stadt-bern-bern",
-        "fr": "vorarbeiter-in-baumpflege-stadt-bern-bern"
+        "it": "caposquadra-nella-cura-degli-alberi-stadt-bern-bern",
+        "en": "tree-care-foreperson-stadt-bern-bern",
+        "fr": "contremaitre-sse-en-entretien-des-arbres-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -3082,16 +3082,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-19T09:47:26.841Z"
+      "firstSeenAt": "2026-08-19T09:47:26.841Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-baumpflege-stadt-bern-bern"
+        ],
+        "en": [
+          "vorarbeiter-in-baumpflege-stadt-bern-bern"
+        ],
+        "fr": [
+          "vorarbeiter-in-baumpflege-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-baumpflege-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-035900783204",
-      "slug": "sozialarbeiter-in-stadt-bern-bern",
+      "slug": "assistente-sociale-stadt-bern-bern",
       "slugByLocale": {
         "de": "sozialarbeiter-in-stadt-bern-bern",
-        "it": "sozialarbeiter-in-stadt-bern-bern",
-        "en": "sozialarbeiter-in-stadt-bern-bern",
-        "fr": "sozialarbeiter-in-stadt-bern-bern"
+        "it": "assistente-sociale-stadt-bern-bern",
+        "en": "social-worker-stadt-bern-bern",
+        "fr": "travailleur-euse-social-e-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -3150,7 +3164,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:16:08.554Z"
+      "firstSeenAt": "2026-10-22T09:16:08.554Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-stadt-bern-bern"
+        ],
+        "en": [
+          "sozialarbeiter-in-stadt-bern-bern"
+        ],
+        "fr": [
+          "sozialarbeiter-in-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-stadt-bern-bern"
+      ]
     }
   ]
 }

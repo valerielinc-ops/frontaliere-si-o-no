@@ -1201,12 +1201,12 @@
     },
     {
       "id": "talan-1ab717d8d693",
-      "slug": "solution-architect-talan-geneve-switzerland",
+      "slug": "solution-architetto-talan-geneve-switzerland",
       "slugByLocale": {
         "fr": "solution-architect-talan-geneve-switzerland",
-        "it": "solution-architect-talan-geneve-switzerland",
+        "it": "solution-architetto-talan-geneve-switzerland",
         "en": "solution-architect-talan-geneve-switzerland",
-        "de": "solution-architect-talan-geneve-switzerland"
+        "de": "architektenlosung-talan-geneve-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
@@ -1266,7 +1266,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:14:53.446Z"
+      "firstSeenAt": "2026-10-22T09:14:53.446Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-talan-geneve-switzerland"
+        ],
+        "de": [
+          "solution-architect-talan-geneve-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "solution-architect-talan-geneve-switzerland"
+      ]
     },
     {
       "id": "talan-af6c08192f75",

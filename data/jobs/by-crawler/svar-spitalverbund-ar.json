@@ -8,7 +8,7 @@
       "slug": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
         "fr": "physiotherapeute-physiotherapiste-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
@@ -56,7 +56,7 @@
       "externalId": "4084559",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-        "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +64,7 @@
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau",
-          "physiotherapist-physiotherapist-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "physiotherapeutin-physiotherapeut-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-svar-spitalverbund-ar-herisau"
@@ -752,12 +752,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-daaba3379cb7",
-      "slug": "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "infermiere-a-diplomato-a-fh-hf-per-il-reparto-di-degenza-interdisciplinare-di-ostetricia-e-ginecologia-m-f-d",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
-        "it": "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
-        "fr": "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
+        "it": "infermiere-a-diplomato-a-fh-hf-per-il-reparto-di-degenza-interdisciplinare-di-ostetricia-e-ginecologia-m-f-d",
+        "en": "dipl-nursing-specialist-fh-hf-for-the-obstetric-and-gynecological-interdisciplinary-bed-station-m-f-d-spitalverbund",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-hf-pour-la-station-de-lit-interdisciplinaire-obstetrique-et-gynecologique-h-f-d"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -805,11 +805,19 @@
       "externalId": "4089996",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
+          "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
+        ],
+        "fr": [
           "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare"
+        "dipl-pflegefachperson-fh-hf-fur-die-geburtshilfliche-und-gynakologische-interdisziplinare",
+        "dipl-pflegefachperson-fh-hf-per-la-geburtshilfliche-e-gynakologische-interdisziplinare-bettenstation-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,

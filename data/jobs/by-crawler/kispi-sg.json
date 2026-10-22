@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "kispi-sg-d183a03863df",
-      "slug": "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen",
+      "slug": "tirocinante-nell-assistenza-e-nella-cura-romerhuus-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
-        "it": "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen",
-        "en": "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
-        "fr": "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
+        "it": "tirocinante-nell-assistenza-e-nella-cura-romerhuus-ostschweizer-kinderspital-st-gallen",
+        "en": "intern-in-nursing-and-care-romerhuus-ostschweizer-kinderspital-st-gallen",
+        "fr": "stagiaire-en-soins-et-accompagnement-romerhuus-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -57,11 +57,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
+          "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
+          "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
+        ],
+        "fr": [
           "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
+        "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
+        "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen"
       ],
       "salaryMin": 73000,
       "salaryMax": 102000,
