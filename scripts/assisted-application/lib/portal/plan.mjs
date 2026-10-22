@@ -601,7 +601,10 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   // label suppress a real residence address in the same personal section.
   const phoneCodeContext = PHONE_CODE_FIELD_RE.test(fieldContext)
     && PHONE_COUNTRY_CODE_LABEL_RE.test(value);
-  const candidateContactAddress = CANDIDATE_CONTACT_ADDRESS_RE.test(value) || CANDIDATE_CONTACT_ADDRESS_RE.test(fieldContext);
+  // `fieldContext` is a flattened list of sibling labels. A candidate-owned
+  // label in that list must not reclassify an emergency/contact-person field
+  // as the candidate's own address.
+  const candidateContactAddress = CANDIDATE_CONTACT_ADDRESS_RE.test(value);
   const contactAddress = CONTACT_ADDRESS_RE.test(value) || CONTACT_ADDRESS_RE.test(fieldContext);
   if ((contactAddress && !candidateContactAddress) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
