@@ -1,7 +1,7 @@
 {
   "crawlerKey": "bobst",
-  "assembledAt": "2026-10-22T09:37:15.564Z",
-  "runId": "39754536788",
+  "assembledAt": "2026-10-22T21:47:57.841Z",
+  "runId": "39856271430",
   "jobs": [
     {
       "id": "bobst-f254d67b8a12",
@@ -34,7 +34,7 @@
       "url": "https://jobs.bobst.com/Vacancies/7706/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:37:10.170Z",
+      "crawledAt": "2026-10-22T21:47:51.475Z",
       "addressLocality": "Switzerland (Grenchen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +151,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8743/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:37:09.597Z",
+      "crawledAt": "2026-10-22T21:47:50.628Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -232,7 +232,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8868/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:08.810Z",
+      "crawledAt": "2026-10-22T21:47:49.835Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,7 +312,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9073/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:37:08.213Z",
+      "crawledAt": "2026-10-22T21:47:49.054Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -394,7 +394,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9070/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:37:07.351Z",
+      "crawledAt": "2026-10-22T21:47:48.270Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -466,7 +466,7 @@
         "it": "apprendimento-automatico-bobst-switzerland-mex",
         "en": "automatic-learning-bobst-switzerland-mex",
         "de": "automatisches-lernen-bobst-switzerland-mex",
-        "fr": "apprenti-automaticien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-automaticien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -491,7 +491,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9221/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:06.533Z",
+      "crawledAt": "2026-10-22T21:47:47.444Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -509,10 +509,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
-      "previousSlugs": [
-        "apprenti-automaticien-ne-bobst-ch"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "apprenti-automaticien-ne-bobst-switzerland-mex"
+        ],
         "it": [
           "apprenti-automaticien-ne-bobst-ch"
         ],
@@ -521,11 +521,12 @@
         ],
         "de": [
           "apprenti-automaticien-ne-bobst-ch"
-        ],
-        "fr": [
-          "apprenti-automaticien-ne-bobst-ch"
         ]
       },
+      "previousSlugs": [
+        "apprenti-automaticien-ne-bobst-ch",
+        "apprenti-automaticien-ne-bobst-switzerland-mex"
+      ],
       "firstSeenAt": "2026-09-26T14:13:51.733Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -575,7 +576,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9220/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:05.676Z",
+      "crawledAt": "2026-10-22T21:47:46.648Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -631,7 +632,7 @@
         "it": "apparecchiature-meccaniche-bobst-switzerland-mex",
         "en": "polymechanical-apprentice-bobst-switzerland-mex",
         "de": "polymechanischer-lehrling-bobst-switzerland-mex",
-        "fr": "apprenti-polymecanicien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-polymecanicien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -656,7 +657,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9222/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:04.823Z",
+      "crawledAt": "2026-10-22T21:47:45.860Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -674,10 +675,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
-      "previousSlugs": [
-        "apprenti-polymecanicien-ne-bobst-ch"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "apprenti-polymecanicien-ne-bobst-switzerland-mex"
+        ],
         "it": [
           "apprenti-polymecanicien-ne-bobst-ch"
         ],
@@ -686,11 +687,12 @@
         ],
         "de": [
           "apprenti-polymecanicien-ne-bobst-ch"
-        ],
-        "fr": [
-          "apprenti-polymecanicien-ne-bobst-ch"
         ]
       },
+      "previousSlugs": [
+        "apprenti-polymecanicien-ne-bobst-ch",
+        "apprenti-polymecanicien-ne-bobst-switzerland-mex"
+      ],
       "firstSeenAt": "2026-09-26T14:13:50.166Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -740,7 +742,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9223/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:03.968Z",
+      "crawledAt": "2026-10-22T21:47:45.050Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -825,7 +827,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9225/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:03.150Z",
+      "crawledAt": "2026-10-22T21:47:44.248Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -881,7 +883,7 @@
         "it": "median-n-apprentice-bobst-switzerland-mex",
         "en": "median-n-apprentice-bobst-switzerland-mex",
         "de": "median-n-lehrling-bobst-switzerland-mex",
-        "fr": "apprenti-mediamaticien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-mediamaticien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -905,7 +907,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9227/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:02.318Z",
+      "crawledAt": "2026-10-22T21:47:43.433Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -923,10 +925,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
-      "previousSlugs": [
-        "apprenti-mediamaticien-ne-bobst-ch"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "apprenti-mediamaticien-ne-bobst-switzerland-mex"
+        ],
         "it": [
           "apprenti-mediamaticien-ne-bobst-ch"
         ],
@@ -935,11 +937,12 @@
         ],
         "de": [
           "apprenti-mediamaticien-ne-bobst-ch"
-        ],
-        "fr": [
-          "apprenti-mediamaticien-ne-bobst-ch"
         ]
       },
+      "previousSlugs": [
+        "apprenti-mediamaticien-ne-bobst-ch",
+        "apprenti-mediamaticien-ne-bobst-switzerland-mex"
+      ],
       "firstSeenAt": "2026-09-26T14:13:47.720Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -988,7 +991,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9228/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:01.499Z",
+      "crawledAt": "2026-10-22T21:47:42.651Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1069,7 +1072,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9229/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:37:00.683Z",
+      "crawledAt": "2026-10-22T21:47:41.818Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1150,7 +1153,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9230/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:36:59.866Z",
+      "crawledAt": "2026-10-22T21:47:41.025Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1225,7 +1228,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9231/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:36:59.027Z",
+      "crawledAt": "2026-10-22T21:47:40.228Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1306,7 +1309,7 @@
       "url": "https://jobs.bobst.com/Vacancies/6267/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:36:58.234Z",
+      "crawledAt": "2026-10-22T21:47:39.394Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1362,7 +1365,7 @@
         "it": "apprendistato-bobst-switzerland-mex",
         "en": "apprenticeship-bobst-switzerland-mex",
         "de": "ausbildung-bobst-switzerland-mex",
-        "fr": "apprenti-logisitcien-ne-bobst-switzerland-mex"
+        "fr": "apprenti-logisitcien-ne-bobst-ch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -1387,7 +1390,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9224/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:36:57.398Z",
+      "crawledAt": "2026-10-22T21:47:38.586Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1405,10 +1408,10 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Apprenticeship",
-      "previousSlugs": [
-        "apprenti-logisitcien-ne-bobst-ch"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "apprenti-logisitcien-ne-bobst-switzerland-mex"
+        ],
         "it": [
           "apprenti-logisitcien-ne-bobst-ch"
         ],
@@ -1417,11 +1420,12 @@
         ],
         "de": [
           "apprenti-logisitcien-ne-bobst-ch"
-        ],
-        "fr": [
-          "apprenti-logisitcien-ne-bobst-ch"
         ]
       },
+      "previousSlugs": [
+        "apprenti-logisitcien-ne-bobst-ch",
+        "apprenti-logisitcien-ne-bobst-switzerland-mex"
+      ],
       "firstSeenAt": "2026-09-26T14:13:43.067Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
@@ -1471,7 +1475,7 @@
       "url": "https://jobs.bobst.com/Vacancies/9307/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:36:56.539Z",
+      "crawledAt": "2026-10-22T21:47:37.770Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1552,7 +1556,7 @@
       "url": "https://jobs.bobst.com/Vacancies/8728/Description/3",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:36:55.702Z",
+      "crawledAt": "2026-10-22T21:47:36.891Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1603,36 +1607,37 @@
     },
     {
       "id": "bobst-698fdd12ea0e",
-      "slug": "head-of-sales-excellence-bobst-ch",
+      "slug": "responsabile-sales-excellence-bobst-switzerland-mex",
       "slugByLocale": {
+        "it": "responsabile-sales-excellence-bobst-switzerland-mex",
         "en": "head-of-sales-excellence-bobst-ch",
-        "it": "head-of-sales-excellence-bobst-ch",
-        "de": "head-of-sales-excellence-bobst-ch",
-        "fr": "head-of-sales-excellence-bobst-ch"
+        "de": "leiter-sales-excellence-bobst-switzerland-mex",
+        "fr": "responsable-sales-excellence-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
       "companyDomain": "bobst.com",
       "title": "Head of Sales Excellence",
       "titleByLocale": {
-        "en": "Head of Sales Excellence",
         "it": "Responsabile Sales Excellence",
+        "en": "Head of Sales Excellence",
         "de": "Leiter Sales Excellence",
         "fr": "Responsable Sales Excellence"
       },
       "description": "Head of Sales Excellence\n\nKey Responsibilities\n• Lead the global Sales Excellence agenda, driving harmonized sales processes, methodologies, and tools across all regions and industries.\n• Define and prioritize sales process improvements, ensuring alignment with business needs and stakeholder expectations.\n• Drive the deployment, adoption, and continuous improvement of sales processes and best practices worldwide.\n• Lead the strategy, governance, and optimization of commercial tools, including CRM, sales automation, and analytics platforms.\n• Accountable for Customer Satisfaction / Customer Experience, including NPS, and tele sales\n• Establish and maintain high standards of data quality, integrity, and governance across commercial systems.\n• Partner with business and IT teams to implement scalable sales solutions and maximize user adoption.\n• Define and govern sales performance frameworks, KPIs, dashboards, and reporting processes aligned with business strategy.\n• Facilitate performance reviews, identify opportunities for improvement, and promote best practice sharing across regions.\n• Foster a culture of sales excellence by enhancing commercial capabilities, onboarding programs, and training initiatives.\n• Define and deploy global sales enablement programs, competency frameworks, certification paths, onboarding processes, and knowledge-sharing platforms.\n• Support and coach regional teams through expertise in sales methodologies, tools, and negotiation practices.\n• Lead the transformation towards one unified sales process, one CRM ecosystem, and a solution-selling approach across the organization.\n\nCompetencies & Capabilities\n• Proven leadership in sales excellence and transformation initiatives.\n• Strong stakeholder management and influencing skills in a global matrix environment.\n• Expertise in CRM, sales processes, and commercial performance management.\n• Data-driven mindset with strong analytical and problem-solving capabilities.\n• Change management and continuous improvement expertise.\n• Strong project management and execution skills.\n• Excellent communication and collaboration abilities.\n• Strategic thinker with a hands-on approach and customer-centric mindset.\n• Sales Methodology Expertise\n• Digital Transformation Leadership\n• Customer Journey Management\n\nPreferred Qualifications\n• Master's degree in Business Administration, Marketing, Engineering, or related field.\n• Significant experience in Sales Excellence, Commercial Excellence, Sales Operations, or Sales Transformation roles.\n• Experience in a multinational industrial or B2B environment.\n• Demonstrated success leading CRM and sales transformation projects at a global scale.\n• Fluency in English; additional languages are an asset.",
       "descriptionByLocale": {
-        "en": "Head of Sales Excellence\n\nKey Responsibilities\n• Lead the global Sales Excellence agenda, driving harmonized sales processes, methodologies, and tools across all regions and industries.\n• Define and prioritize sales process improvements, ensuring alignment with business needs and stakeholder expectations.\n• Drive the deployment, adoption, and continuous improvement of sales processes and best practices worldwide.\n• Lead the strategy, governance, and optimization of commercial tools, including CRM, sales automation, and analytics platforms.\n• Accountable for Customer Satisfaction / Customer Experience, including NPS, and tele sales\n• Establish and maintain high standards of data quality, integrity, and governance across commercial systems.\n• Partner with business and IT teams to implement scalable sales solutions and maximize user adoption.\n• Define and govern sales performance frameworks, KPIs, dashboards, and reporting processes aligned with business strategy.\n• Facilitate performance reviews, identify opportunities for improvement, and promote best practice sharing across regions.\n• Foster a culture of sales excellence by enhancing commercial capabilities, onboarding programs, and training initiatives.\n• Define and deploy global sales enablement programs, competency frameworks, certification paths, onboarding processes, and knowledge-sharing platforms.\n• Support and coach regional teams through expertise in sales methodologies, tools, and negotiation practices.\n• Lead the transformation towards one unified sales process, one CRM ecosystem, and a solution-selling approach across the organization.\n\nCompetencies & Capabilities\n• Proven leadership in sales excellence and transformation initiatives.\n• Strong stakeholder management and influencing skills in a global matrix environment.\n• Expertise in CRM, sales processes, and commercial performance management.\n• Data-driven mindset with strong analytical and problem-solving capabilities.\n• Change management and continuous improvement expertise.\n• Strong project management and execution skills.\n• Excellent communication and collaboration abilities.\n• Strategic thinker with a hands-on approach and customer-centric mindset.\n• Sales Methodology Expertise\n• Digital Transformation Leadership\n• Customer Journey Management\n\nPreferred Qualifications\n• Master's degree in Business Administration, Marketing, Engineering, or related field.\n• Significant experience in Sales Excellence, Commercial Excellence, Sales Operations, or Sales Transformation roles.\n• Experience in a multinational industrial or B2B environment.\n• Demonstrated success leading CRM and sales transformation projects at a global scale.\n• Fluency in English; additional languages are an asset.",
         "it": "Responsabile dell'eccellenza delle vendite\n\nPrincipali responsabilità\n• Guida l'agenda globale di Sales Excellence, guida processi di vendita armonizzati, metodologie e strumenti in tutte le regioni e industrie.\n• Definire e privilegiare i miglioramenti del processo di vendita, garantendo l'allineamento con le esigenze aziendali e le aspettative degli stakeholder.\n• Guidare la distribuzione, l'adozione e il miglioramento continuo dei processi di vendita e delle migliori pratiche in tutto il mondo.\n• Guidare la strategia, la governance e l'ottimizzazione di strumenti commerciali, tra cui CRM, l'automazione delle vendite e piattaforme di analisi.\n• Contabile per Customer Satisfaction / Customer Experience, tra cui NPS e vendite tele\n• Stabilire e mantenere elevati standard di qualità, integrità e governance dei dati attraverso i sistemi commerciali.\n• Partner con team business e IT per implementare soluzioni di vendita scalabili e massimizzare l'adozione degli utenti.\n• Definire e governare i quadri di performance di vendita, KPI, dashboard e processi di reporting allineati con la strategia aziendale.\n• Facilitare le recensioni sulle prestazioni, identificare le opportunità di miglioramento e promuovere la migliore condivisione delle pratiche in tutte le regioni.\n• Promuovere una cultura di eccellenza delle vendite migliorando le capacità commerciali, i programmi di bordo e le iniziative di formazione.\n• Definire e distribuire programmi di implementazione delle vendite globali, framework di competenza, percorsi di certificazione, processi di bordo e piattaforme di condivisione delle conoscenze.\n• Supporto e coach team regionali attraverso competenze nelle metodologie di vendita, strumenti e pratiche di negoziazione.\n• Condurre la trasformazione verso un processo di vendita unificato, un ecosistema CRM, e un approccio di soluzione-selling in tutta l'organizzazione.\n\nCompetenze e capacità\n• Prova leadership nelle iniziative di eccellenza e trasformazione delle vendite.\n• Forte gestione degli stakeholder e influenzando le competenze in un ambiente di matrice globale.\n• Competenza in CRM, processi di vendita e gestione delle prestazioni commerciali.\n• Mindset Data-driven con forti capacità analitiche e problem-solving.\n• Cambiare le competenze di gestione e miglioramento continuo.\n• Forte capacità di gestione e esecuzione del progetto.\n• Ottima capacità di comunicazione e collaborazione.\n• Pensatore strategico con un approccio pratico e mentalità orientata al cliente.\n• Metodologia di vendita\n• Leadership della trasformazione digitale\n• Gestione del viaggio dei clienti\n\nQualificazioni predestinate\n• Laurea magistrale in Business Administration, Marketing, Ingegneria o campo relativo.\n• Esperienza significativa in Eccellenza di Vendite, Eccellenza Commerciale, Operazioni di Vendite o ruoli di Trasformazione di Vendite.\n• Esperienza in un ambiente multinazionale industriale o B2B.\n• Dimostrato successo leader CRM e progetti di trasformazione delle vendite a livello globale.\n• Fluenza in inglese; lingue aggiuntive sono un bene.",
+        "en": "Head of Sales Excellence\n\nKey Responsibilities\n• Lead the global Sales Excellence agenda, driving harmonized sales processes, methodologies, and tools across all regions and industries.\n• Define and prioritize sales process improvements, ensuring alignment with business needs and stakeholder expectations.\n• Drive the deployment, adoption, and continuous improvement of sales processes and best practices worldwide.\n• Lead the strategy, governance, and optimization of commercial tools, including CRM, sales automation, and analytics platforms.\n• Accountable for Customer Satisfaction / Customer Experience, including NPS, and tele sales\n• Establish and maintain high standards of data quality, integrity, and governance across commercial systems.\n• Partner with business and IT teams to implement scalable sales solutions and maximize user adoption.\n• Define and govern sales performance frameworks, KPIs, dashboards, and reporting processes aligned with business strategy.\n• Facilitate performance reviews, identify opportunities for improvement, and promote best practice sharing across regions.\n• Foster a culture of sales excellence by enhancing commercial capabilities, onboarding programs, and training initiatives.\n• Define and deploy global sales enablement programs, competency frameworks, certification paths, onboarding processes, and knowledge-sharing platforms.\n• Support and coach regional teams through expertise in sales methodologies, tools, and negotiation practices.\n• Lead the transformation towards one unified sales process, one CRM ecosystem, and a solution-selling approach across the organization.\n\nCompetencies & Capabilities\n• Proven leadership in sales excellence and transformation initiatives.\n• Strong stakeholder management and influencing skills in a global matrix environment.\n• Expertise in CRM, sales processes, and commercial performance management.\n• Data-driven mindset with strong analytical and problem-solving capabilities.\n• Change management and continuous improvement expertise.\n• Strong project management and execution skills.\n• Excellent communication and collaboration abilities.\n• Strategic thinker with a hands-on approach and customer-centric mindset.\n• Sales Methodology Expertise\n• Digital Transformation Leadership\n• Customer Journey Management\n\nPreferred Qualifications\n• Master's degree in Business Administration, Marketing, Engineering, or related field.\n• Significant experience in Sales Excellence, Commercial Excellence, Sales Operations, or Sales Transformation roles.\n• Experience in a multinational industrial or B2B environment.\n• Demonstrated success leading CRM and sales transformation projects at a global scale.\n• Fluency in English; additional languages are an asset.",
         "de": "Leiter Sales Excellence\n\nHauptzuständigkeiten\n• Führen Sie die globale Sales Excellence-Agenda an und fördern Sie harmonisierte Verkaufsprozesse, Methoden und Tools in allen Regionen und Branchen.\n• Definieren und priorisieren Sie Verbesserungen des Verkaufsprozesses, um die Übereinstimmung mit den Geschäftsanforderungen und den Erwartungen der Stakeholder sicherzustellen.\n• Förderung der Bereitstellung, Einführung und kontinuierlichen Verbesserung von Verkaufsprozessen und Best Practices weltweit.\n• Führen Sie die Strategie, Governance und Optimierung von kommerziellen Tools, einschließlich CRM, Vertriebsautomatisierung und Analyseplattformen.\n• Verantwortlich für Kundenzufriedenheit / Customer Experience, einschließlich NPS und Televerkauf\n• Etablieren und pflegen Sie hohe Standards für Datenqualität, Integrität und Governance in kommerziellen Systemen.\n• Zusammenarbeit mit Geschäfts- und IT-Teams, um skalierbare Vertriebslösungen zu implementieren und die Benutzerakzeptanz zu maximieren.\n• Definieren und verwalten Sie Vertriebsleistungsframeworks, KPIs, Dashboards und Berichtsprozesse, die auf die Geschäftsstrategie ausgerichtet sind.\n• Erleichterung von Leistungsüberprüfungen, Ermittlung von Verbesserungsmöglichkeiten und Förderung des Austauschs bewährter Verfahren über Regionen hinweg.\n• Fördern Sie eine Kultur der Verkaufsexzellenz durch die Verbesserung der kommerziellen Fähigkeiten, Onboarding-Programme und Schulungsinitiativen.\n• Definieren und implementieren Sie globale Sales Enablement-Programme, Kompetenz-Frameworks, Zertifizierungspfade, Onboarding-Prozesse und Wissensaustauschplattformen.\n• Unterstützen und coachen Sie regionale Teams durch Fachwissen in Verkaufsmethoden, Tools und Verhandlungspraktiken.\n• Führen Sie die Transformation hin zu einem einheitlichen Verkaufsprozess, einem CRM-Ökosystem und einem Lösungsverkaufsansatz im gesamten Unternehmen.\n\nKompetenzen und Fähigkeiten\n• Bewährte Führungsrolle bei Sales Excellence und Transformationsinitiativen.\n• Starkes Stakeholder-Management und Einfluss auf Fähigkeiten in einem globalen Matrix-Umfeld.\n• Expertise in CRM, Vertriebsprozessen und kaufmännischem Performance Management.\n• Datengesteuerte Denkweise mit starken analytischen und Problemlösungsfähigkeiten.\n• Change Management und kontinuierliche Verbesserungskompetenz.\n• Starke Projektmanagement- und Ausführungsfähigkeiten.\n• Hervorragende Kommunikation und Zusammenarbeit Fähigkeiten.\n• Strategischer Denker mit praktischem Ansatz und kundenorientierter Denkweise.\n• Know-how für Vertriebsmethoden\n• Digital Transformation Leadership\n• Customer Journey Management\n\nBevorzugte Qualifikationen\n• Master-Abschluss in Business Administration, Marketing, Engineering oder verwandten Bereich.\n• Bedeutende Erfahrung in Sales Excellence, Commercial Excellence, Sales Operations oder Sales Transformation Rollen.\n• Erfahrung in einem multinationalen Industrie- oder B2B-Umfeld.\n• Demonstrierte Erfolg führenden CRM und Sales Transformation Projekte auf globaler Ebene.\n• Englisch fließend; zusätzliche Sprachen sind ein Gewinn.",
         "fr": "Chef de l'excellence des ventes\n\nPrincipales responsabilités\n• Diriger le programme d'excellence des ventes à l'échelle mondiale, en dirigeant des processus, des méthodologies et des outils de vente harmonisés dans toutes les régions et toutes les industries.\n• Définir et prioriser les améliorations du processus de vente, en assurant l'alignement sur les besoins opérationnels et les attentes des intervenants.\n• Favoriser le déploiement, l'adoption et l'amélioration continue des processus de vente et des meilleures pratiques dans le monde entier.\n• Diriger la stratégie, la gouvernance et l'optimisation des outils commerciaux, y compris le CRM, l'automatisation des ventes et les plateformes d'analyse.\n• Responsable de la satisfaction de la clientèle / Expérience client, y compris les NPS, et les ventes de télé\n• Établir et maintenir des normes élevées de qualité, d'intégrité et de gouvernance des données dans les systèmes commerciaux.\n• Partenaire avec les équipes d'affaires et d'informatique pour mettre en œuvre des solutions de vente évolutives et maximiser l'adoption des utilisateurs.\n• Définir et régir les cadres de rendement des ventes, les ICR, les tableaux de bord et les processus de rapport alignés sur la stratégie opérationnelle.\n• Faciliter les examens du rendement, cerner les possibilités d'amélioration et promouvoir le partage des pratiques exemplaires entre les régions.\n• Favoriser une culture de l'excellence commerciale en améliorant les capacités commerciales, les programmes d'embarquement et les initiatives de formation.\n• Définir et déployer des programmes mondiaux d'activation des ventes, des cadres de compétences, des voies de certification, des processus d'embarquement et des plateformes de partage des connaissances.\n• Soutenir et coacher les équipes régionales par l'expertise en méthodes de vente, outils et pratiques de négociation.\n• Diriger la transformation vers un processus de vente unifié, un écosystème de CRM et une approche de vente de solutions dans l'ensemble de l'organisation.\n\nCompétences et capacités\n• Un leadership éprouvé dans les initiatives d'excellence commerciale et de transformation.\n• Gestion efficace des parties prenantes et influence les compétences dans un environnement matriciel mondial.\n• Expertise en CRM, processus de vente et gestion des performances commerciales.\n• Un état d'esprit fondé sur les données, doté de solides capacités d'analyse et de résolution de problèmes.\n• Gestion du changement et expertise en amélioration continue.\n• Fortes compétences en gestion de projet et en exécution.\n• Excellente capacité de communication et de collaboration.\n• Penseur stratégique avec une approche pratique et une mentalité centrée sur le client.\n• Méthodologie des ventes Expertise\n• Leadership en matière de transformation numérique\n• Gestion du parcours client\n\nQualifications privilégiées\n• Maîtrise en administration des affaires, marketing, ingénierie ou domaine connexe.\n• Expérience importante en matière d'excellence en ventes, d'excellence commerciale, d'opérations de vente ou de transformation des ventes.\n• Expérience dans un environnement industriel multinational ou B2B.\n• Succès démontré menant des projets de CRM et de transformation des ventes à l'échelle mondiale.\n• Connaissance de l'anglais; les langues supplémentaires constituent un atout."
       },
+      "needsRetranslation": false,
       "location": "Switzerland (Mex)",
       "canton": "VD",
       "url": "https://jobs.bobst.com/Vacancies/9329/Description/2",
       "source": "Bobst Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:36:54.861Z",
+      "crawledAt": "2026-10-22T21:47:36.036Z",
       "addressLocality": "Switzerland (Mex)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1648,10 +1653,23 @@
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.bobst.com/Vacancies/9329/Description/2",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "department": "Customer Service",
+      "firstSeenAt": "2026-10-22T09:36:54.861Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-sales-excellence-bobst-ch"
+        ],
+        "de": [
+          "head-of-sales-excellence-bobst-ch"
+        ],
+        "fr": [
+          "head-of-sales-excellence-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-sales-excellence-bobst-ch"
+      ],
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1666,8 +1684,7 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-10-22T09:36:54.861Z"
+      "addressRegion": "VD"
     }
   ]
 }

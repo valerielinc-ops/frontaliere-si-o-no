@@ -1,14 +1,14 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-10-22T09:36:11.309Z",
+  "generatedAt": "2026-10-22T21:48:09.121Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
+  "discovered": 0,
+  "parsed": 0,
+  "lastFetchOutcome": "selector_miss",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": null,
+  "abortKind": "no-jobs-parsed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
