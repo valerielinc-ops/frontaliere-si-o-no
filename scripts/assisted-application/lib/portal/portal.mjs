@@ -1248,6 +1248,10 @@ function stableUploadTriggerDiscriminator(button, semanticKey) {
   if (!button || typeof button !== 'object') return '';
   const provided = String(button.uploadTriggerDiscriminator || '').trim();
   if (provided) return provided;
+  const stableIdentity = ['dataAaId', 'id', 'domId']
+    .map((field) => String(button?.[field] || '').trim())
+    .find(Boolean) || '';
+  if (stableIdentity) return `stable:${stableIdentity}`;
   const existing = uploadTriggerDiscriminatorByButton.get(button);
   if (existing) return existing;
   const next = (uploadTriggerDiscriminatorCounters.get(semanticKey) || 0) + 1;
@@ -1335,9 +1339,8 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
         ? `${field}:${value}`
         : '';
     }).find(Boolean) || stableUploadTriggerDiscriminator(button, semanticKey);
-    return discriminator
-      ? { ...button, uploadTriggerDiscriminator: discriminator }
-      : button;
+    if (discriminator) button.uploadTriggerDiscriminator = discriminator;
+    return button;
   });
 }
 
@@ -1363,7 +1366,7 @@ function uploadTriggerSemanticKey(button) {
 
 export function uploadTriggerKey(button) {
   const semanticKey = uploadTriggerSemanticKey(button);
-  const discriminator = String(button?.uploadTriggerDiscriminator || '').trim().toLowerCase();
+  const discriminator = String(button?.uploadTriggerDiscriminator || '').trim();
   return discriminator ? `${semanticKey}:candidate:${discriminator}` : semanticKey;
 }
 
@@ -1961,6 +1964,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
     cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
     current = await extractFields(page);
+    // The dialog can redraw the form. Any queued controls came from the old
+    // snapshot and must be rediscovered from `current` before the next try.
+    pendingCvTriggers = [];
     const uploadedCvField = current.fields.find(isCvFileField);
     trace.portalFileFieldObserved = Boolean(uploadedCvField);
     cvUploadDiagnostics.push(trace);
@@ -1984,6 +1990,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     if (!trigger || !visible) continue;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile, triggerButton.frame || 0);
     current = await extractFields(page);
+    pendingCoverLetterTriggers = [];
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);
   }
   return {
