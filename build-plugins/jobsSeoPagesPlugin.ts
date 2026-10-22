@@ -35,7 +35,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
-import { buildSeoPageHtml } from './shared/seoPageShell';
+import { buildSeoPageHtml as buildSeoPageHtmlBase } from './shared/seoPageShell';
 import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import {
@@ -119,7 +119,7 @@ import { nearbyEventsBlockForJobPage } from './shared/jobEventsCrosslink';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { getEnsuredDirsSize, WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription, finalizeJobBoardTitle, truncateHeadline, peelDanglingClauseTail, truncateTitleAtClauseBoundary, MIN_PEELED_TITLE_CHARS, truncateClauseAware } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS, logoUrlForRenderedOutput } from '../services/jobDataNormalization';
 import {
@@ -329,6 +329,18 @@ import {
 // accepted by the build so a rollback can restore the manual slot on the
 // treatment pages without touching Auto Ads or control pages.
 const STATIC_INFEED_AD_EXPERIMENT_ACTIVE = isInfeedAdExperimentActiveFromEnv(process.env);
+
+/**
+ * Job-board pages have a hard title contract at the final HTML boundary.
+ * Keep the generic shell's lossless title policy unchanged; this wrapper
+ * applies the job-board-only cap before the shell escapes and emits it.
+ */
+function buildSeoPageHtml(opts: Parameters<typeof buildSeoPageHtmlBase>[0]): string {
+ return buildSeoPageHtmlBase({
+  ...opts,
+  title: finalizeJobBoardTitle(opts.title),
+ });
+}
 
 // Bound repeated company-job payloads only at the shared in-feed boundary.
 // Keep one trailing card so the renderer can place the last eligible slot
@@ -3128,16 +3140,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  recompose: (disambiguator: string) => string,
  ): string => {
  const seen = claimedTitlesByLocale[locale];
+ const emittedTitleKey = (candidate: string): string =>
+  titleCompareKey(finalizeJobBoardTitle(candidate, TITLE_MAX_CHARS, (s) => esc(s).length));
  let candidate = title;
- if (seen.has(titleCompareKey(candidate))) {
+ let candidateKey = emittedTitleKey(candidate);
+ if (seen.has(candidateKey)) {
   const refLabel = REF_LABEL[locale] || REF_LABEL.it;
   candidate = recompose(`${refLabel} ${fnv8(uniqueKey)}`);
+  candidateKey = emittedTitleKey(candidate);
   let bump = 2;
-  while (seen.has(titleCompareKey(candidate))) {
+  while (seen.has(candidateKey)) {
    candidate = recompose(`${refLabel} ${fnv8(uniqueKey)}-${bump++}`);
+   candidateKey = emittedTitleKey(candidate);
   }
  }
- seen.add(titleCompareKey(candidate));
+ seen.add(candidateKey);
  return candidate;
  };
 
@@ -4192,7 +4209,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(title)}</title>
+ <title>${esc(finalizeJobBoardTitle(title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">${jobRobotsTag}
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
@@ -6197,19 +6214,19 @@ ${companyFollowHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -6360,19 +6377,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -6536,19 +6553,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -6724,19 +6741,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -6896,19 +6913,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${intentAlternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -7094,19 +7111,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -7379,19 +7396,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(pageTitle)}</title>
+ <title>${esc(finalizeJobBoardTitle(pageTitle))}</title>
  <meta name="description" content="${esc(clampMetaDescription(pageDesc, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(pageOgTitle)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(pageOgTitle))}">
  <meta property="og:description" content="${esc(clampMetaDescription(pageOgDesc, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(pageOgTitle)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(pageOgTitle))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -7606,19 +7623,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -7774,19 +7791,19 @@ ${staticAnalyticsHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
- <title>${esc(model.title)}</title>
+ <title>${esc(finalizeJobBoardTitle(model.title))}</title>
  <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
- <meta property="og:title" content="${esc(model.title)}">
+ <meta property="og:title" content="${esc(finalizeJobBoardTitle(model.title))}">
  <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="image/png">
- <meta property="og:image:alt" content="${esc(model.title)}">
+ <meta property="og:image:alt" content="${esc(finalizeJobBoardTitle(model.title))}">
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
@@ -13660,7 +13677,7 @@ ${staticAnalyticsHtml}
  // so a re-posted twin (active page + expired soft-landing, same role +
  // company + city) can never emit a duplicate <title> within the locale.
  pageTitleRaw = claimUniqueTitle(locale, pageTitleRaw, `${slug}::${locale}`, __expiredCompose);
- const pageTitle = esc(pageTitleRaw);
+ const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));
 
  // Meta description: lead with role + company + place (city when known,
  // canton otherwise) so the SERP snippet fallback carries the local-intent
@@ -15435,7 +15452,7 @@ ${staticAnalyticsHtml}
   const pageTitleRaw = composeSerpJobTitle(titleRaw, company, location, locale, {
    measureLength: (s) => esc(s).length,
   });
-  const pageTitle = esc(pageTitleRaw);
+  const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));
   const description = stripLeadingSectionLabel(String(archive?.description || ''));
   const descriptionHtml = description.length > 30 ? renderJobDescriptionGate(description, locale) : '';
   const detailItems = [

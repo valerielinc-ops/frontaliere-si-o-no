@@ -22,7 +22,7 @@
 // read via getSiteShell(). Same contract as build-plugins/ogPagesPlugin.ts.
 import './articlesSiteShellBootstrap';
 import type fsT from 'node:fs';
-import { clampMetaDescription } from './shared/titleSuffix';
+import { clampMetaDescription, finalizeJobBoardTitle } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT, FAVICON_LINKS, PARTNERIZE_TAG_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
@@ -1045,6 +1045,7 @@ function buildHtml(args: BuildHtmlArgs): string {
   const baseTitle = page > 1 ? `${title} — ${pageLabel(locale, page)}` : title;
   const brandSuffix = ' | Frontaliere Ticino';
   const pageTitle = baseTitle.length + brandSuffix.length <= 60 ? `${baseTitle}${brandSuffix}` : baseTitle;
+  const emittedPageTitle = hubKey === 'jobs' ? finalizeJobBoardTitle(pageTitle) : pageTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
@@ -1209,17 +1210,17 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${FAVICON_LINKS}
-    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
+    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(emittedPageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(pageTitle)}">
+    <meta property="og:title" content="${esc(emittedPageTitle)}">
     <meta property="og:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:alt" content="${esc(pageTitle)}">
+    <meta property="og:image:alt" content="${esc(emittedPageTitle)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1544,7 +1545,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
 
   return buildSeoPageHtml({
     locale,
-    title: copy.title,
+    title: finalizeJobBoardTitle(copy.title),
     description: archiveDescription,
     canonicalUrl,
     hreflangHtml: `${alternateLinks}${xDefault}`,
@@ -1876,6 +1877,7 @@ export function buildThinCantonHubHtml(args: {
     ? (locale === 'de' ? ` — Seite ${page}` : locale === 'fr' ? ` — Page ${page}` : ` — Pagina ${page}`)
     : '';
   const pageTitle = `${CANTON_HUB_LABELS[locale][hub]} ${cantonLabel}${pageSuffix} | Frontaliere`;
+  const emittedPageTitle = finalizeJobBoardTitle(pageTitle);
 
   // Long archives use the same page-range indexes as the parent canton
   // landing, so a job leaf is reached through parent → index → page → job
@@ -2066,17 +2068,17 @@ export function buildThinCantonHubHtml(args: {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${FAVICON_LINKS}
-    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
+    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(emittedPageTitle)}</title>
     <meta name="description" content="${esc(clampMetaDescription(intro, undefined, locale))}">
     <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(pageTitle)}">
+    <meta property="og:title" content="${esc(emittedPageTitle)}">
     <meta property="og:description" content="${esc(clampMetaDescription(intro, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:alt" content="${esc(pageTitle)}">
+    <meta property="og:image:alt" content="${esc(emittedPageTitle)}">
     <link rel="canonical" href="${canonicalUrl}">${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
@@ -3040,9 +3042,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const customTitle = `${r.label} Ticino | Frontaliere`;
       const customDesc = `Indice delle offerte di lavoro nel cantone Ticino pubblicate ${r.descLabel}. ${recentJobs.length} posizioni aperte aggiornate quotidianamente.`;
       const patched = html
-        .replace(/<title>[^<]*<\/title>/, `<title>${esc(customTitle)}</title>`)
+        .replace(/<title>[^<]*<\/title>/, `<title>${esc(finalizeJobBoardTitle(customTitle))}</title>`)
         .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(clampMetaDescription(customDesc, undefined, 'it'))}">`)
-        .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(customTitle)}">`)
+        .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(finalizeJobBoardTitle(customTitle))}">`)
         .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(clampMetaDescription(customDesc, undefined, 'it'))}">`)
         .replace(/<h1 [^>]*>[^<]*<\/h1>/, (match) => match.replace(/>[^<]*</, `>${esc(customH1)}<`))
         // The regex pattern matches the ORIGINAL inline-styled <p> emitted by

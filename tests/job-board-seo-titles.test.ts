@@ -13,6 +13,12 @@ import {
   type JobBoardLocale,
 } from '../build-plugins/jobBoardSeo'
 import { buildCantonLandingTitle } from '../services/seo/job-board-titles'
+import {
+  composeSerpJobTitle,
+  escapeForBudget,
+  finalizeJobBoardTitle,
+  TITLE_MAX_CHARS,
+} from '../build-plugins/shared/titleSuffix'
 
 describe('buildCantonLandingTitle', () => {
   it('uses live job-offer intent for the Zurich canton landing', () => {
@@ -25,6 +31,37 @@ describe('buildCantonLandingTitle', () => {
     expect(title).toContain('Offerte di lavoro in Zurigo')
     expect(title).toContain('137')
     expect(title).toContain('2026')
+  })
+})
+
+describe('job-board emitter title contract', () => {
+  it('measures the final title after HTML escaping, not only the raw builder value', () => {
+    const raw = 'Rossi & Figli Sagl — offerte di lavoro per tecnici specializzati a Lugano e dintorni';
+    const title = finalizeJobBoardTitle(raw);
+
+    expect(escapeForBudget(title).length).toBeLessThanOrEqual(66)
+    expect(title).toContain('Rossi & Figli Sagl')
+  })
+
+  it('keeps disambiguators visible for colliding overlong titles', () => {
+    const measureEscaped = (value: string) => escapeForBudget(value).length;
+    const role = 'Specialista amministrativo & compliance per grandi organizzazioni internazionali';
+    const titleA = composeSerpJobTitle(role, 'C&A Schweiz', 'Zurigo', 'it', {
+      disambiguator: 'rif. a1b2c3d4',
+      measureLength: measureEscaped,
+    });
+    const titleB = composeSerpJobTitle(role, 'C&A Schweiz', 'Zurigo', 'it', {
+      disambiguator: 'rif. e5f6a7b8',
+      measureLength: measureEscaped,
+    });
+    const emittedA = finalizeJobBoardTitle(titleA);
+    const emittedB = finalizeJobBoardTitle(titleB);
+
+    expect(escapeForBudget(emittedA).length).toBeLessThanOrEqual(TITLE_MAX_CHARS)
+    expect(escapeForBudget(emittedB).length).toBeLessThanOrEqual(TITLE_MAX_CHARS)
+    expect(emittedA).not.toBe(emittedB)
+    expect(emittedA).toContain('rif. a1b2c3d4')
+    expect(emittedB).toContain('rif. e5f6a7b8')
   })
 })
 

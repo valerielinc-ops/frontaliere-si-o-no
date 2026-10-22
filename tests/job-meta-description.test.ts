@@ -61,9 +61,24 @@ describe('buildJobMetaDescription', () => {
 
   expect(description).toContain('Analyst &eacute; at Hôpital in Città. Capacità für 𝐀 &eacute; and R&D');
   expect(description).not.toContain('é');
-  expect(buildJobMetaDescription({
+ expect(buildJobMetaDescription({
    locale: 'en', title: 'Analyst', company: 'Acme', location: 'Lugano',
    cleanDescription: 'Source &amp;eacute; text',
   })).toContain('Source &eacute; text');
+ });
+
+ it('keeps localized metadata in the shared 120–150 contract with entity-heavy input', () => {
+  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+   const description = buildJobMetaDescription({
+    locale,
+    title: 'Tecnico &amp; analista',
+    company: 'Rossi &amp; Figli',
+    location: 'Lugano &amp; Mendrisio',
+    cleanDescription: 'Descrizione completa con requisiti, sede, contratto e candidatura diretta sul sito ufficiale.',
+   });
+   expect(description.length, locale).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
+   expect(description.length, locale).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+   expect(description).not.toContain('&amp;amp;');
+  }
  });
 });

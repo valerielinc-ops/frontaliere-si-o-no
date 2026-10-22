@@ -493,6 +493,28 @@ export function escapeForBudget(s: string): string {
 }
 
 /**
+ * Finalize a job-board title at the HTML-emitter boundary.
+ *
+ * `normalizeShellTitle` deliberately preserves an overlong headline so its
+ * H1/title round-trip remains lossless for generic static pages. Job-board
+ * emitters have a stricter Bing contract: the crawler measures the escaped
+ * `<title>` source, so a raw headline that fits before `&`/`<` expansion can
+ * still exceed {@link TITLE_MAX_CHARS} after rendering. Keep that policy
+ * explicit at the job-board boundary instead of weakening the shared shell
+ * rule or duplicating ad-hoc truncation in each emitter.
+ *
+ * The input is raw text and callers escape the returned value exactly once.
+ */
+export function finalizeJobBoardTitle(
+  rawTitle: string,
+  maxChars: number = TITLE_MAX_CHARS,
+  measureLength: (value: string) => number = (value) => escapeForBudget(value).length,
+): string {
+  const normalized = String(rawTitle || '').replace(/\s+/g, ' ').trim();
+  return truncateHeadlineToMeasuredBudget(normalized, maxChars, measureLength);
+}
+
+/**
  * Normalizza il `<title>` fornito da un callsite nella forma finale emessa
  * da `buildSeoPageHtml`: strip del brand pre-esistente, `trim`, e ri-applica
  * il brand via {@link buildTitleWithBrand} (che garantisce il cap SERP a 66).
@@ -625,9 +647,9 @@ export interface SerpJobTitleOptions {
    * layer that HTML-escapes it exactly once (e.g. `<title>${esc(title)}</title>`
    * in `jobsSeoPagesPlugin.ts`) must pass `(s) => esc(s).length` so the
    * brand-append decision is budgeted on the string that actually ships —
-   * see {@link buildTitleWithBrand} for the "C&A Schweiz" rationale. Only
-   * applied to the internal {@link buildTitleWithBrand} call; the candidate
-   * cascade above still selects on raw length (unaffected by this option).
+   * see {@link buildTitleWithBrand} for the "C&A Schweiz" rationale. The same
+   * measurement is also used when a disambiguator is present, so the cascade
+   * reserves space for the token before the final emitter boundary.
    */
   measureLength?: (s: string) => number;
 }
@@ -692,6 +714,9 @@ export function composeSerpJobTitle(
   const disambToken = String(options.disambiguator || '').trim().replace(/\s+/g, ' ');
   const disamb = disambToken ? ` · ${disambToken}` : '';
   const budget = Math.max(1, maxChars - disamb.length);
+  const measureLength = options.measureLength || ((value: string) => value.length);
+  const fitsWithDisambiguator = (headline: string): boolean =>
+    measureLength(`${headline}${disamb}`) <= maxChars;
   const cityOptional = options.cityOptional === true;
 
   // When the city is droppable, it survives ONLY in the full
@@ -711,7 +736,12 @@ export function composeSerpJobTitle(
     cleanCompany ? `${role} — ${cleanCompany}` : '',
     role,
   ].filter(Boolean);
-  let headline = candidates.find((c) => c.length <= budget);
+  // The disambiguator is part of the emitted title, so fit candidates against
+  // the same escaped (or otherwise caller-supplied) measurement used by the
+  // emitter. Checking raw length alone lets an `&`/`<` expansion consume the
+  // reserved suffix budget; the final 66-char pass then truncates the suffix
+  // and collapses two otherwise distinct titles back together.
+  let headline = candidates.find(fitsWithDisambiguator);
   if (!headline) {
     // The city tail is preserved during truncation only when the city is
     // mandatory; a droppable city is sacrificed before the role is truncated.
@@ -720,11 +750,18 @@ export function composeSerpJobTitle(
     // Preserve the city tail while a meaningful role fragment (≥12 chars)
     // still fits; a malformed/oversized `city` (crawler body-text leak)
     // falls through to role-only truncation so the cap always holds.
-    headline = cityTail && roleBudget >= 12
+    const fallbackHeadline = cityTail && roleBudget >= 12
       ? truncateHeadline(role, roleBudget) + cityTail
       : truncateHeadline(role, budget);
+    headline = fitsWithDisambiguator(fallbackHeadline)
+      ? fallbackHeadline
+      : truncateHeadlineToMeasuredBudget(
+        fallbackHeadline,
+        maxChars,
+        (candidate) => measureLength(`${candidate}${disamb}`),
+      );
   }
-  return buildTitleWithBrand(headline + disamb, brand, maxChars, options.measureLength);
+  return buildTitleWithBrand(headline + disamb, brand, maxChars, measureLength);
 }
 
 /**

@@ -11,6 +11,8 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import {
   clampMetaDescription,
+  escapeForBudget,
+  finalizeJobBoardTitle,
   META_DESCRIPTION_MAX_CHARS,
   META_DESCRIPTION_MIN_CHARS,
 } from '../build-plugins/shared/titleSuffix';
@@ -78,5 +80,21 @@ describe('clampMetaDescription', () => {
     expect(clampMetaDescription('')).toBe('');
     // Runtime hardening against undefined source literals.
     expect(clampMetaDescription(undefined as unknown as string)).toBe('');
+  });
+});
+
+describe('finalizeJobBoardTitle', () => {
+  it('caps the escaped title at the final job-board emitter boundary', () => {
+    const raw = 'Rossi & Figli Sagl — offerte di lavoro per tecnici specializzati a Lugano e dintorni';
+    const title = finalizeJobBoardTitle(raw);
+
+    expect(escapeForBudget(title).length).toBeLessThanOrEqual(66);
+    expect(title).toContain('Rossi & Figli Sagl');
+    expect(title.endsWith('…')).toBe(true);
+  });
+
+  it('does not change a title that already fits after HTML escaping', () => {
+    const title = 'Offerte di lavoro a Lugano 2026';
+    expect(finalizeJobBoardTitle(title)).toBe(title);
   });
 });
