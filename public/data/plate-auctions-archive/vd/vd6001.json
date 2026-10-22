@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120541",
+      "sourceKey": "VD",
+      "sourceRecordId": "120541",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "6001",
+      "normalizedPlate": "VD6001",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 0,
+      "endsAt": "2026-10-25T21:00:00.000Z",
+      "closedAt": "2026-10-19T04:41:05.856Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120541",
+      "sourceFetchedAt": "2026-10-19T04:41:05.856Z",
+      "lastVerifiedAt": "2026-10-19T04:41:05.856Z",
+      "firstSeenAt": "2026-10-19T04:41:05.856Z",
+      "lastSeenAt": "2026-10-19T04:41:05.856Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "44814556c587"
+    }
+  ]
+}
