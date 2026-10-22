@@ -255,10 +255,13 @@ async function main() {
   console.log('   Run prune-404-compat-paths.ts next to drop non-resolving paths before commit.');
 }
 
-const entrypoint = process.argv[1]
-  ? pathToFileURL(realpathSync(process.argv[1])).href
-  : '';
-if (import.meta.url === entrypoint) {
+if ((() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})()) {
   main().catch((err) => {
     console.error(`❌ ${err?.message || err}`);
     process.exit(1);
