@@ -316,7 +316,7 @@ describe('article title resolver', () => {
     const source = fs.readFileSync(path.join(rootDir, 'packages/articles/engine/ogPagesPlugin.ts'), 'utf8');
 
     expect(source).toContain('const localizedTitle = articleTitleFor[articleLocale](en);');
-    expect(source).toContain('(article) => measuredTitleWithoutDisambiguator(articleTitleFor[locale](article)),');
+    expect(source).toContain('(article) => buildTitleWithBrand(articleTitleFor[locale](article)),');
     expect(source).not.toMatch(/\.title\s*\|\|\s*(?:en|article)\.ogT/);
   });
 });
