@@ -154,7 +154,13 @@ export function residenceCountryCode(value) {
     const start = codeMatch.index + codeMatch[0].length - code.length;
     const left = raw.slice(0, start).trimEnd().at(-1) || '';
     const right = raw.slice(start + code.length).trimStart()[0] || '';
-    if (text === code.toLowerCase() || /[()[\]{}:\/\-–—]/.test(`${left}${right}`)) return code;
+    const countryName = {
+      IT: /\b(?:italia|italy|italie|italien)\b/.test(text),
+      CH: /\b(?:svizzera|switzerland|suisse|schweiz)\b/.test(text),
+      DE: /\b(?:germania|germany|allemagne|deutschland)\b/.test(text),
+      FR: /\b(?:francia|france)\b/.test(text),
+    }[code];
+    if (text === code.toLowerCase() || countryName || /[()[\]{}:\/\-–—]/.test(`${left}${right}`)) return code;
   }
   if (/^(?:it|italia|italy|italie|italien)$/.test(text)) return 'IT';
   if (/^(?:ch|svizzera|switzerland|suisse|schweiz)$/.test(text)) return 'CH';
