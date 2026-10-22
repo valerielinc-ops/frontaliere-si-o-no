@@ -1,4 +1,5 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   PKB_KEY,
   COMPANY_NAME,
@@ -7,6 +8,10 @@ import {
   parsePkbDetailPage,
   buildPkbJob,
 } from '../scripts/lib/pkb-private-bank-job-parser.mjs';
+
+const PKB_UPDATER = readFileSync(new URL('../scripts/update-pkb-private-bank-jobs.mjs', import.meta.url), 'utf8');
+
+afterEach(() => vi.unstubAllGlobals());
 
 const LISTING_HTML = `
 <html><body>
@@ -161,5 +166,30 @@ describe('PKB Private Bank crawler parser', () => {
       expect(job.descriptionByLocale).toEqual({ it: '' });
       expect(JSON.stringify(job)).not.toContain('Posizione aperta');
     });
+  });
+
+  describe('fetchPkbJobUrls fetch outcome', () => {
+    it('marks a reachable page without known listing blocks as a selector miss', async () => {
+      vi.stubGlobal('fetch', async () => new Response('<html><body>no listing blocks</body></html>'));
+
+      const result = await fetchPkbJobUrls({ timeoutMs: 100 });
+
+      expect(result).toMatchObject({ jobs: [], succeeded: 1, failed: 0, fetchOutcome: 'selector_miss' });
+    });
+
+    it('preserves an anti-bot response as a fetch failure instead of an empty board', async () => {
+      vi.stubGlobal('fetch', async () => new Response('', { status: 403 }));
+
+      const result = await fetchPkbJobUrls({ timeoutMs: 100 });
+
+      expect(result).toMatchObject({ jobs: [], succeeded: 0, failed: 1, fetchOutcome: 'anti_bot_block' });
+    });
+  });
+
+  it('wires discovery outcomes into the exit summary guard', () => {
+    expect(PKB_UPDATER).toContain("registerCrawlerSummaryGuard(PKB_KEY, 'PKB', summaryCounts)");
+    expect(PKB_UPDATER).toContain('fetchAndParsePkbJobs(summaryCounts)');
+    expect(PKB_UPDATER).toContain('summaryCounts.abortKind = failed > 0 ? \'connection-level-fetch\' : \'no-jobs-parsed\';');
+    expect(PKB_UPDATER).toContain('lastFetchOutcome: summaryCounts.lastFetchOutcome');
   });
 });

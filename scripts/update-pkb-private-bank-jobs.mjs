@@ -88,14 +88,22 @@ function isTrustedPkbDomain(rawUrl = '') {
 // Fetch + parse
 // ──────────────────────────────────────────────────────────────
 
-async function fetchAndParsePkbJobs() {
+async function fetchAndParsePkbJobs(summaryCounts = null) {
   console.log(`🏦 Fetching ${COMPANY_NAME} jobs from Arca24 (${COMPANY_DOMAIN})...`);
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
-  const { jobs: listingJobs, attempted, succeeded, failed } = await fetchPkbJobUrls({ timeoutMs });
+  const { jobs: listingJobs, attempted, succeeded, failed, fetchOutcome } = await fetchPkbJobUrls({ timeoutMs });
+  if (summaryCounts) {
+    summaryCounts.discovered = listingJobs.length;
+    summaryCounts.lastFetchOutcome = fetchOutcome;
+  }
   console.log(`  📦 Listing pages: ${succeeded}/${attempted} fetched, ${listingJobs.length} job link(s) found`);
   if (listingJobs.length === 0) {
-    console.log('⚠️ No listing jobs found. Keeping existing PKB jobs unchanged.');
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.abortKind = failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed';
+    }
+    console.log(`⚠️ No listing jobs found (${fetchOutcome}). Keeping existing PKB jobs unchanged.`);
     return [];
   }
 
@@ -117,6 +125,11 @@ async function fetchAndParsePkbJobs() {
     console.log(`  ✅ ${job.title} — ${job.location} (${job.canton})`);
   }
   console.log(`✅ Parsed ${COMPANY_NAME} jobs: ${parsedJobs.length}`);
+  if (summaryCounts) {
+    summaryCounts.parsed = parsedJobs.length;
+    summaryCounts.lastFetchOutcome = parsedJobs.length > 0 ? 'ok' : 'selector_miss';
+    summaryCounts.abortKind = parsedJobs.length > 0 ? null : 'no-jobs-parsed';
+  }
   return parsedJobs;
 }
 
@@ -207,12 +220,13 @@ function cleanStoredJobsOnSoftExit() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(PKB_KEY, 'PKB');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(PKB_KEY, 'PKB', summaryCounts);
   console.log(`🏦 Running dedicated ${COMPANY_NAME} jobs crawler (Arca24)...`);
 
   const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(PKB_KEY, DATA_JOBS).filter(isPkbJob));
 
-  const parsedJobs = await fetchAndParsePkbJobs();
+  const parsedJobs = await fetchAndParsePkbJobs(summaryCounts);
   if (parsedJobs.length === 0) {
     console.log('⚠️ No valid jobs parsed — keeping existing PKB jobs unchanged.');
     await cleanStoredJobsOnSoftExit();
@@ -240,6 +254,10 @@ async function main() {
     label: 'PKB',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    written: _sliceJobs.length,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,
