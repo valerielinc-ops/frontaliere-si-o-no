@@ -195,7 +195,12 @@ jobs:
           download_status=$?
           set -e
           if [ "$download_status" -ne 0 ]; then
-            if [ "$EVENT_NAME" = 'workflow_run' ] && [ "$SOURCE_CONCLUSION" = 'success' ]; then
+            download_is_confirmed_missing_artifact() {
+              [ "$EVENT_NAME" = 'workflow_run' ] &&
+                [ "$SOURCE_CONCLUSION" = 'success' ] &&
+                grep -Fqi -- 'no valid artifacts found' <<<"$download_output"
+            }
+            if download_is_confirmed_missing_artifact; then
               echo "$download_output"
               echo "::notice::source artifact $SOURCE_ARTIFACT was listed but was not downloadable after the successful source run; treating it as absent"
               echo "- Durable ledger: source run $SOURCE_RUN_ID had no downloadable immutable evidence artifact; nothing to persist." >> "$GITHUB_STEP_SUMMARY"
