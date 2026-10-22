@@ -219,21 +219,47 @@ describe('the watchdog does not race the hub writer', () => {
     expect(WATCHDOG_WORKFLOW).not.toContain('group: article-hub-landing-watchdog');
   });
 
-  it('dispatches a recovery and rechecks after a scheduled stale observation', () => {
+  it('filters workflow_run events to the exact recovery dispatch', () => {
+    const unrelated = {
+      event: 'workflow_dispatch',
+      display_title: 'Rerender Article Hubs',
+    };
+    const exactRecovery = {
+      event: 'workflow_dispatch',
+      display_title: 'Rerender Article Hubs [watchdog-123-1]',
+    };
+    const isWatchdogRecovery = (run: typeof unrelated) => (
+      run.event === 'workflow_dispatch'
+      && /^Rerender Article Hubs \[watchdog-[1-9][0-9]*-[1-9][0-9]*\]$/u.test(run.display_title)
+    );
+
+    expect([unrelated, exactRecovery].filter(isWatchdogRecovery)).toEqual([exactRecovery]);
+    expect(WATCHDOG_WORKFLOW).toContain("github.event.workflow_run.event == 'workflow_dispatch'");
+    expect(WATCHDOG_WORKFLOW).toContain(
+      "startsWith(github.event.workflow_run.display_title, 'Rerender Article Hubs [watchdog-')",
+    );
+    expect(WATCHDOG_WORKFLOW).toContain('name: Validate completed recovery run');
+    expect(WATCHDOG_WORKFLOW).toContain('and .status == "completed"');
+    expect(WATCHDOG_WORKFLOW).toContain('and .display_title == $expected_title');
+  });
+
+  it('dispatches a recovery, waits for its exact completed run, and reports no match', () => {
     expect(WATCHDOG_WORKFLOW).toContain('actions: write');
     expect(WATCHDOG_WORKFLOW).toContain('workflow_run:');
     expect(WATCHDOG_WORKFLOW).toContain('workflows: ["Rerender Article Hubs"]');
     expect(WATCHDOG_WORKFLOW).toContain('types: [completed]');
+    expect(WATCHDOG_WORKFLOW).toContain('needs: watchdog');
+    expect(WATCHDOG_WORKFLOW).toContain('actions/workflows/rerender-article-hubs.yml/dispatches');
+    expect(WATCHDOG_WORKFLOW).toContain('RECOVERY_REQUEST_ID: watchdog-${{ github.run_id }}-${{ github.run_attempt }}');
     expect(WATCHDOG_WORKFLOW).toContain(
-      'continue-on-error: ${{ github.event_name != \'workflow_run\' }}',
+      'select(.display_title == ("Rerender Article Hubs [" + $request + "]"))',
     );
-    expect(WATCHDOG_WORKFLOW).toContain('gh workflow run rerender-article-hubs.yml');
-    expect(WATCHDOG_WORKFLOW).toContain('-f recovery_request_id="$RECOVERY_REQUEST_ID"');
-    expect(WATCHDOG_WORKFLOW).toContain('always()');
+    expect(WATCHDOG_WORKFLOW).toContain('select(.created_at >= $started)');
+    expect(WATCHDOG_WORKFLOW).toContain("if [ \"$status\" = 'completed' ]; then");
+    expect(WATCHDOG_WORKFLOW).toContain('exact rerender recovery run was not observed');
+    expect(WATCHDOG_WORKFLOW).toContain('Open / dedup degraded issue when recovery is not verified');
     expect(WATCHDOG_WORKFLOW).toContain("steps.health.outcome == 'failure'");
-    expect(WATCHDOG_WORKFLOW).toContain(
-      "(github.event_name == 'workflow_run' || steps.recovery.outcome != 'success')",
-    );
     expect(WATCHDOG_WORKFLOW).toContain("if: steps.health.outcome == 'success'");
+    expect(WATCHDOG_WORKFLOW).toContain('name: Set post-rerender verdict');
   });
 });
