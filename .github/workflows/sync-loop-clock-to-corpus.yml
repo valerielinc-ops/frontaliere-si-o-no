@@ -37,4 +37,17 @@ jobs:
       - name: Deliver loop-clock workflow contract through a corpus PR
         env:
           ARTICLES_REPO_PAT: ${{ secrets.ARTICLES_REPO_PAT }}
-        run: bash scripts/ci/sync-loop-clock-to-corpus.sh
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if bash scripts/ci/sync-loop-clock-to-corpus.sh; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo '::error::loop-clock corpus transport exhausted 3 attempts'
+              exit 1
+            fi
+            delay=$((attempt * 30))
+            echo "::warning::loop-clock corpus transport attempt $attempt failed; retrying in ${delay}s"
+            sleep "$delay"
+          done

@@ -113,12 +113,13 @@ export function hasLoopClockContract(source) {
  */
 export function patchLoopClockWorkflow(source) {
   const original = String(source ?? '');
+  const newline = original.includes('\r\n') ? '\r\n' : '\n';
   const lines = original.split(/\r?\n/u);
   const name = workflowName(lines);
   const bounds = workflowDispatchBounds(lines);
   if (!hasLoopClockInput(lines, bounds)) addLoopClockInput(lines, bounds);
   addOrRepairRunName(lines, name);
-  const content = lines.join('\n');
+  const content = lines.join(newline);
   if (!hasLoopClockContract(content)) throw new Error('loop-clock workflow contract could not be established');
   return { content, changed: content !== original };
 }
