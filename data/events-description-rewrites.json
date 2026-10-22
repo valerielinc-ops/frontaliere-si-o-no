@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-22T18:28:09.383Z",
+  "generatedAt": "2026-10-22T19:28:50.999Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -12815,6 +12815,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:21:06.368Z"
+    },
+    "ge-agenda:soiree-speciale-revelations-vagalumes-baiju-bhatt-agmj::3b471183294f3706b8e65b93afc5bc54255aebe50d13058a182922b2df341d92": {
+      "id": "ge-agenda:soiree-speciale-revelations-vagalumes-baiju-bhatt-agmj",
+      "sourceDescriptionHash": "3b471183294f3706b8e65b93afc5bc54255aebe50d13058a182922b2df341d92",
+      "description": "Il concerto si svolge a Ginevra e riunisce VAGALUMES, Baiju Bhatt e Red Sun. L’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Il concerto si svolge a Ginevra e riunisce VAGALUMES, Baiju Bhatt e Red Sun. L’ingresso costa 15 CHF.",
+        "en": "This concert takes place in Geneva and features VAGALUMES, Baiju Bhatt and Red Sun. Admission costs CHF 15.",
+        "de": "Das Konzert findet in Genf statt und bringt VAGALUMES, Baiju Bhatt und Red Sun zusammen. Der Eintritt kostet 15 CHF.",
+        "fr": "Ce concert a lieu à Genève et réunit VAGALUMES, Baiju Bhatt et Red Sun. L’entrée coûte 15 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T19:16:44.381Z"
     },
     "ge-agenda:soirees-artistes-complices-anna-marija-adomaityte-jerson-diasonama-maud-blandel::a8753021bae21999bb6145d77227670951c6ea543a69b3cabcc14257d7d39804": {
       "id": "ge-agenda:soirees-artistes-complices-anna-marija-adomaityte-jerson-diasonama-maud-blandel",
@@ -35089,6 +35103,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T15:23:04.778Z"
+    },
+    "guidle:AntSC7C::1ee0f2cee0e9297b52125e35031dc5e38f36fed690b9a243f3046c384720dcb6": {
+      "id": "guidle:AntSC7C",
+      "sourceDescriptionHash": "1ee0f2cee0e9297b52125e35031dc5e38f36fed690b9a243f3046c384720dcb6",
+      "description": "L’appuntamento propone Adrian Stern con il suo trio nell’ambito della musica pop. Il concerto si svolge al Kultroom 15 di Unterägeri.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone Adrian Stern con il suo trio nell’ambito della musica pop. Il concerto si svolge al Kultroom 15 di Unterägeri.",
+        "en": "The event presents Adrian Stern with his trio in a pop music setting. The concert takes place at Kultroom 15 in Unterägeri.",
+        "de": "Im Mittelpunkt steht ein Pop-Auftritt von Adrian Stern mit seinem Trio. Die Veranstaltung findet im Kultroom 15 in Unterägeri statt.",
+        "fr": "Le rendez-vous présente Adrian Stern avec son trio dans le domaine de la musique pop. Le concert a lieu au Kultroom 15 à Unterägeri."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T19:19:47.869Z"
     },
     "guidle:Antt49Z::43838cc52d216895e24945ff6d3e407d9fd6bb3fcd520fbf6c3278e14582daba": {
       "id": "guidle:Antt49Z",
@@ -163162,6 +163190,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T17:17:12.326Z"
     },
+    "tio-agenda:64352::3d09db887c83af0a6a55c076bbf205fb47b7f5a4635d0effa4f1eec44b4ee45f": {
+      "id": "tio-agenda:64352",
+      "sourceDescriptionHash": "3d09db887c83af0a6a55c076bbf205fb47b7f5a4635d0effa4f1eec44b4ee45f",
+      "description": "Lo spettacolo teatrale riflette con ironia sulla possibilità di rinunciare alla patente e sul rapporto tra mobilità, autonomia, identità e libertà personale nella terza e quarta età. La partecipazione è gratuita, ma è necessaria la prenotazione poiché i posti disponibili sono limitati.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale riflette con ironia sulla possibilità di rinunciare alla patente e sul rapporto tra mobilità, autonomia, identità e libertà personale nella terza e quarta età. La partecipazione è gratuita, ma è necessaria la prenotazione poiché i posti disponibili sono limitati.",
+        "en": "This theatre performance considers the possibility of giving up a driving licence and the effects of that choice on mobility, independence, identity and personal freedom in later life. Admission is free, but advance booking is required because capacity is limited.",
+        "de": "Die Theateraufführung beschäftigt sich mit einem möglichen Verzicht auf den Führerschein und mit den Folgen für Mobilität, Selbstständigkeit, Identität und persönliche Freiheit im höheren Alter. Der Eintritt ist kostenlos, eine Anmeldung ist jedoch wegen der begrenzten Platzkapazität erforderlich.",
+        "fr": "Cette représentation théâtrale examine la possibilité de renoncer au permis de conduire et les liens entre mobilité, autonomie, identité et liberté personnelle à un âge avancé. L’accès est gratuit, mais une réservation est nécessaire en raison du nombre limité de places."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T19:17:50.157Z"
+    },
     "tio-agenda:64356::ac32dfcb8615f6547cd5a04a6bf7e6838c28a9171cd7fc3889221b237d1e4c78": {
       "id": "tio-agenda:64356",
       "sourceDescriptionHash": "ac32dfcb8615f6547cd5a04a6bf7e6838c28a9171cd7fc3889221b237d1e4c78",
@@ -165444,6 +165486,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-20T15:17:39.764Z"
     },
+    "tio-agenda:64635::97b51363c50904e050ff8a507f4a67e278a0891776aca84037ae7e35cc20032d": {
+      "id": "tio-agenda:64635",
+      "sourceDescriptionHash": "97b51363c50904e050ff8a507f4a67e278a0891776aca84037ae7e35cc20032d",
+      "description": "Il programma propone uno spettacolo teatrale al Cinema Teatro Chiasso. La produzione nasce da un lavoro collettivo in ambito teatrale e sperimenta diversi linguaggi espressivi. L’ingresso costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma propone uno spettacolo teatrale al Cinema Teatro Chiasso. La produzione nasce da un lavoro collettivo in ambito teatrale e sperimenta diversi linguaggi espressivi. L’ingresso costa 10 CHF.",
+        "en": "The programme presents a theatre production at Cinema Teatro Chiasso. Created through collective work in a theatre workshop, it explores different forms of expression. Admission is CHF 10.",
+        "de": "Im Cinema Teatro Chiasso wird eine Theaterproduktion gezeigt. Sie entstand aus gemeinsamer Arbeit in einem Theateratelier und erprobt unterschiedliche Ausdrucksformen. Der Eintritt kostet 10 CHF.",
+        "fr": "Le Cinema Teatro Chiasso présente une création théâtrale. Elle est issue d’un travail collectif mené dans un atelier de théâtre et explore plusieurs formes d’expression. L’entrée coûte 10 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T19:16:29.539Z"
+    },
     "tio-agenda:64636::f2c28b7366361c8ce2163c6d4fb08b253c4ee150727165cc7a285141d063ee35": {
       "id": "tio-agenda:64636",
       "sourceDescriptionHash": "f2c28b7366361c8ce2163c6d4fb08b253c4ee150727165cc7a285141d063ee35",
@@ -165570,6 +165626,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T13:19:33.514Z"
     },
+    "tio-agenda:64657::69c6eba62914bcaecc0d2d36a55db15a35131d83ccbdb98e0403af1b9a66f1c4": {
+      "id": "tio-agenda:64657",
+      "sourceDescriptionHash": "69c6eba62914bcaecc0d2d36a55db15a35131d83ccbdb98e0403af1b9a66f1c4",
+      "description": "L’incontro propone un’attività scientifica dedicata all’aria, con esperimenti pensati per esplorarne alcune caratteristiche. Si svolge presso l’Atelier Manoamano a Pregassona e prevede una quota di partecipazione di 20 CHF.",
+      "descriptionByLocale": {
+        "it": "L’incontro propone un’attività scientifica dedicata all’aria, con esperimenti pensati per esplorarne alcune caratteristiche. Si svolge presso l’Atelier Manoamano a Pregassona e prevede una quota di partecipazione di 20 CHF.",
+        "en": "This activity explores air through science experiments. It takes place at Atelier Manoamano in Pregassona and has a participation fee of CHF 20.",
+        "de": "Die Veranstaltung widmet sich der Luft und vermittelt wissenschaftliche Inhalte anhand von Experimenten. Sie findet im Atelier Manoamano in Pregassona statt und kostet 20 CHF.",
+        "fr": "Cette activité aborde la science de l’air au moyen d’expériences. Elle a lieu à l’Atelier Manoamano à Pregassona et la participation coûte 20 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T19:16:51.532Z"
+    },
     "tio-agenda:64658::393998da114d2a56d09ede2cac8e52a36d3669175e0db0d91fca3523a5baf37a": {
       "id": "tio-agenda:64658",
       "sourceDescriptionHash": "393998da114d2a56d09ede2cac8e52a36d3669175e0db0d91fca3523a5baf37a",
@@ -165597,6 +165667,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-22T14:16:48.945Z"
+    },
+    "tio-agenda:64672::3c42be08311f7343da69ae7be9883ed0f22db0e31754314c956b0fbf1ed1e796": {
+      "id": "tio-agenda:64672",
+      "sourceDescriptionHash": "3c42be08311f7343da69ae7be9883ed0f22db0e31754314c956b0fbf1ed1e796",
+      "description": "Al Cinema Otello di Ascona è in programma un documentario del 2025 dedicato a George Orwell e diretto da Raoul Peck. Attraverso materiali d’archivio e altri elementi audiovisivi, il film ricostruisce il percorso dello scrittore e mette in relazione i temi di «1984» con sorveglianza, propaganda, disinformazione e democrazie contemporanee.",
+      "descriptionByLocale": {
+        "it": "Al Cinema Otello di Ascona è in programma un documentario del 2025 dedicato a George Orwell e diretto da Raoul Peck. Attraverso materiali d’archivio e altri elementi audiovisivi, il film ricostruisce il percorso dello scrittore e mette in relazione i temi di «1984» con sorveglianza, propaganda, disinformazione e democrazie contemporanee.",
+        "en": "Cinema Otello in Ascona screens a 2025 documentary directed by Raoul Peck about George Orwell and the experiences that shaped his political thought. Using archival material alongside other visual forms, the film examines ideas associated with 1984 and connects them with surveillance, propaganda, misinformation and current democratic challenges.",
+        "de": "Im Cinema Otello in Ascona wird ein Dokumentarfilm aus dem Jahr 2025 von Raoul Peck über George Orwell gezeigt. Der Film verbindet Archivmaterial mit weiteren filmischen Mitteln, zeichnet prägende Stationen des Schriftstellers nach und bezieht zentrale Motive aus «1984» auf Überwachung, Propaganda, Desinformation und aktuelle Herausforderungen für Demokratien.",
+        "fr": "Le Cinema Otello d’Ascona accueille la projection d’un documentaire franco-américain réalisé par Raoul Peck et consacré à George Orwell. En s’appuyant sur des archives et plusieurs formes d’images, le film retrace la formation de l’écrivain et met en regard les thèmes de 1984 avec la surveillance, la propagande, la désinformation et les fragilités démocratiques contemporaines."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T19:21:15.792Z"
     },
     "tio-agenda:64673::52953d27cf7d5f8a331402f1cf9426f49f5f15accb2d08b9d005535b5a361cfc": {
       "id": "tio-agenda:64673",
@@ -165916,8 +166000,8 @@
       "id": "ge-agenda:cours-tango-argentin-niveau-debutant-8",
       "sourceDescriptionHash": "c095bab9aa691296e1674d872617fa0621e858af5560775b0ecc8a2499f71e73",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:32:08.613Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:25:06.590Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -166326,15 +166410,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:soiree-speciale-revelations-vagalumes-baiju-bhatt-agmj::3b471183294f3706b8e65b93afc5bc54255aebe50d13058a182922b2df341d92": {
-      "id": "ge-agenda:soiree-speciale-revelations-vagalumes-baiju-bhatt-agmj",
-      "sourceDescriptionHash": "3b471183294f3706b8e65b93afc5bc54255aebe50d13058a182922b2df341d92",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:29:21.224Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:stage-autodefense-feministe-peux-55::c5a2bc173d2880dddaff138d7c67af0a578e1db34b32e00a1484c27dec3626da": {
       "id": "ge-agenda:stage-autodefense-feministe-peux-55",
       "sourceDescriptionHash": "c5a2bc173d2880dddaff138d7c67af0a578e1db34b32e00a1484c27dec3626da",
@@ -166474,8 +166549,8 @@
       "id": "guidle:A1TVT4g",
       "sourceDescriptionHash": "d5f0c0b1f1ada9cc0407c1d96c26082415cb329d113f26991826f75ae22c3057",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:33:38.708Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:23:23.675Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -166537,8 +166612,8 @@
       "id": "guidle:A3LG7NM",
       "sourceDescriptionHash": "b3f1a5b430873ff309c3a9dddeaaa64868cd9fe094bc56c2c67943fd821339fb",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:37:40.297Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:20:55.421Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167167,8 +167242,8 @@
       "id": "guidle:AG9mP7Z",
       "sourceDescriptionHash": "ad635a6dfab08bf0b0db8bf026bc7ed12d53346361785591ab32ae17995f1d01",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:37:04.010Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:20:20.169Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167734,8 +167809,8 @@
       "id": "guidle:AncRJth",
       "sourceDescriptionHash": "8cddc00b506e42cfcafa61c506463147e7134ff17aa5d69c5e3f8501f1431758",
       "code": "new-number",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:31:12.688Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:23:58.469Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167790,15 +167865,6 @@
       "code": "sentence-count",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-09T22:17:39.906Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AntSC7C::1ee0f2cee0e9297b52125e35031dc5e38f36fed690b9a243f3046c384720dcb6": {
-      "id": "guidle:AntSC7C",
-      "sourceDescriptionHash": "1ee0f2cee0e9297b52125e35031dc5e38f36fed690b9a243f3046c384720dcb6",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:22:18.146Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168175,8 +168241,8 @@
       "id": "guidle:AtEnbUt",
       "sourceDescriptionHash": "fba76a7db26a8167cee2fd9164b6f3ff0be87d5c54aa05dc35848a6263a0e36f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:31:41.219Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:24:30.920Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170308,8 +170374,8 @@
       "id": "myswitzerland:41c13f35b7a542fba4555a29a608b2c5",
       "sourceDescriptionHash": "29f081941155c6a3ab68369e183e1f175c539cb626c7fe8354d7adab84d61687",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:34:43.710Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:17:59.606Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170326,8 +170392,8 @@
       "id": "myswitzerland:425115ae18de4b1aba52b7fc26dd7fd8",
       "sourceDescriptionHash": "fdde891e72e73c99b2e5ec64dedd29f8914a364e457eff0298133d5ea2be665f",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:28:03.715Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:20:33.555Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170380,8 +170446,8 @@
       "id": "myswitzerland:44dbbfc058784dd6978d7a000dafcddf",
       "sourceDescriptionHash": "0955d8b305fb7d59e70be5469d310d46e2398b5d3509d5b2462ce0a020c64e4d",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:34:07.593Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:17:22.610Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -174736,8 +174802,8 @@
       "id": "tio-agenda:63606",
       "sourceDescriptionHash": "662b641f329a8e79e5caa3d70556d31b581f00666b3e211613555e59ae36f0a5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:19:46.634Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:18:23.629Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175263,15 +175329,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "tio-agenda:64352::3d09db887c83af0a6a55c076bbf205fb47b7f5a4635d0effa4f1eec44b4ee45f": {
-      "id": "tio-agenda:64352",
-      "sourceDescriptionHash": "3d09db887c83af0a6a55c076bbf205fb47b7f5a4635d0effa4f1eec44b4ee45f",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:19:16.413Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "tio-agenda:64364::c6f04ee638ae70bfb78ea1b0fae0ae51c3d7e08828c33165c1b0bad882590d47": {
       "id": "tio-agenda:64364",
       "sourceDescriptionHash": "c6f04ee638ae70bfb78ea1b0fae0ae51c3d7e08828c33165c1b0bad882590d47",
@@ -175384,8 +175441,8 @@
       "id": "tio-agenda:64480",
       "sourceDescriptionHash": "7debf3574d0d9aaa39343a47bac733959e90a7cad3b0ccd090247e20dc4674cd",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:27:28.302Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:20:02.380Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175437,18 +175494,9 @@
     "tio-agenda:64616::2186ff1a470afff613dad621da90b88ef6a641d1ea60a6ff3bfaef8448409a23": {
       "id": "tio-agenda:64616",
       "sourceDescriptionHash": "2186ff1a470afff613dad621da90b88ef6a641d1ea60a6ff3bfaef8448409a23",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:32:46.960Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64635::97b51363c50904e050ff8a507f4a67e278a0891776aca84037ae7e35cc20032d": {
-      "id": "tio-agenda:64635",
-      "sourceDescriptionHash": "97b51363c50904e050ff8a507f4a67e278a0891776aca84037ae7e35cc20032d",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:22:46.683Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:19:25.504Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175456,26 +175504,17 @@
       "id": "tio-agenda:64656",
       "sourceDescriptionHash": "b2b04833a161d83f650c5bba99da1f94e265c67a2f5770ac37e1e54b826a422d",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:35:52.141Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64657::69c6eba62914bcaecc0d2d36a55db15a35131d83ccbdb98e0403af1b9a66f1c4": {
-      "id": "tio-agenda:64657",
-      "sourceDescriptionHash": "69c6eba62914bcaecc0d2d36a55db15a35131d83ccbdb98e0403af1b9a66f1c4",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:23:12.205Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:18:30.992Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64661::f9e1f55bbfe081967dbd35b1e1a759f50dfa6cf3fe90a7325e4f9045933712d7": {
       "id": "tio-agenda:64661",
       "sourceDescriptionHash": "f9e1f55bbfe081967dbd35b1e1a759f50dfa6cf3fe90a7325e4f9045933712d7",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:20:16.898Z",
+      "code": "promotional-language",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:18:54.767Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175483,17 +175522,8 @@
       "id": "tio-agenda:64662",
       "sourceDescriptionHash": "3f8162d4b3c2df9671132d629224684d4e1a83222e892b517bc9fc054c092711",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:23:40.261Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:64672::3c42be08311f7343da69ae7be9883ed0f22db0e31754314c956b0fbf1ed1e796": {
-      "id": "tio-agenda:64672",
-      "sourceDescriptionHash": "3c42be08311f7343da69ae7be9883ed0f22db0e31754314c956b0fbf1ed1e796",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:28:52.831Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:17:23.772Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -175501,17 +175531,17 @@
       "id": "tio-agenda:64678",
       "sourceDescriptionHash": "41c6b4547368339eaea7126ef96ffe4e0bd7aab0fa379256c15f90393ddbd867",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:31:00.980Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:19:07.054Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:64680::7a0594c56d1ada5a45dee0a670409566491347151ab12c623ebc4f3d43f85eca": {
       "id": "tio-agenda:64680",
       "sourceDescriptionHash": "7a0594c56d1ada5a45dee0a670409566491347151ab12c623ebc4f3d43f85eca",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T16:20:48.310Z",
+      "code": "new-number",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T19:19:25.793Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

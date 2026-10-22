@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T18:29:51.554Z",
+  "generatedAt": "2026-10-22T19:30:03.925Z",
   "totalEvents": 14908,
   "events": [
     {
@@ -312178,7 +312178,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro propone un’attività scientifica dedicata all’aria, con esperimenti pensati per esplorarne alcune caratteristiche. Si svolge presso l’Atelier Manoamano a Pregassona e prevede una quota di partecipazione di 20 CHF.",
+      "descriptionByLocale": {
+        "it": "L’incontro propone un’attività scientifica dedicata all’aria, con esperimenti pensati per esplorarne alcune caratteristiche. Si svolge presso l’Atelier Manoamano a Pregassona e prevede una quota di partecipazione di 20 CHF.",
+        "en": "This activity explores air through science experiments. It takes place at Atelier Manoamano in Pregassona and has a participation fee of CHF 20.",
+        "de": "Die Veranstaltung widmet sich der Luft und vermittelt wissenschaftliche Inhalte anhand von Experimenten. Sie findet im Atelier Manoamano in Pregassona statt und kostet 20 CHF.",
+        "fr": "Cette activité aborde la science de l’air au moyen d’expériences. Elle a lieu à l’Atelier Manoamano à Pregassona et la participation coûte 20 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ge-agenda:soiree-prepro-leila-oscar",
@@ -314833,7 +314841,15 @@
       },
       "imageSourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
       "imageCopyrightNotice": "© Hugo Sykes",
-      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/"
+      "imageAcquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "description": "Il programma propone uno spettacolo teatrale al Cinema Teatro Chiasso. La produzione nasce da un lavoro collettivo in ambito teatrale e sperimenta diversi linguaggi espressivi. L’ingresso costa 10 CHF.",
+      "descriptionByLocale": {
+        "it": "Il programma propone uno spettacolo teatrale al Cinema Teatro Chiasso. La produzione nasce da un lavoro collettivo in ambito teatrale e sperimenta diversi linguaggi espressivi. L’ingresso costa 10 CHF.",
+        "en": "The programme presents a theatre production at Cinema Teatro Chiasso. Created through collective work in a theatre workshop, it explores different forms of expression. Admission is CHF 10.",
+        "de": "Im Cinema Teatro Chiasso wird eine Theaterproduktion gezeigt. Sie entstand aus gemeinsamer Arbeit in einem Theateratelier und erprobt unterschiedliche Ausdrucksformen. Der Eintritt kostet 10 CHF.",
+        "fr": "Le Cinema Teatro Chiasso présente une création théâtrale. Elle est issue d’un travail collectif mené dans un atelier de théâtre et explore plusieurs formes d’expression. L’entrée coûte 10 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:63868",
@@ -339081,7 +339097,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto si svolge a Ginevra e riunisce VAGALUMES, Baiju Bhatt e Red Sun. L’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Il concerto si svolge a Ginevra e riunisce VAGALUMES, Baiju Bhatt e Red Sun. L’ingresso costa 15 CHF.",
+        "en": "This concert takes place in Geneva and features VAGALUMES, Baiju Bhatt and Red Sun. Admission costs CHF 15.",
+        "de": "Das Konzert findet in Genf statt und bringt VAGALUMES, Baiju Bhatt und Red Sun zusammen. Der Eintritt kostet 15 CHF.",
+        "fr": "Ce concert a lieu à Genève et réunit VAGALUMES, Baiju Bhatt et Red Sun. L’entrée coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d81b6198826c4abcb837dbb0a5eaf476",
@@ -374320,7 +374344,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al Cinema Otello di Ascona è in programma un documentario del 2025 dedicato a George Orwell e diretto da Raoul Peck. Attraverso materiali d’archivio e altri elementi audiovisivi, il film ricostruisce il percorso dello scrittore e mette in relazione i temi di «1984» con sorveglianza, propaganda, disinformazione e democrazie contemporanee.",
+      "descriptionByLocale": {
+        "it": "Al Cinema Otello di Ascona è in programma un documentario del 2025 dedicato a George Orwell e diretto da Raoul Peck. Attraverso materiali d’archivio e altri elementi audiovisivi, il film ricostruisce il percorso dello scrittore e mette in relazione i temi di «1984» con sorveglianza, propaganda, disinformazione e democrazie contemporanee.",
+        "en": "Cinema Otello in Ascona screens a 2025 documentary directed by Raoul Peck about George Orwell and the experiences that shaped his political thought. Using archival material alongside other visual forms, the film examines ideas associated with 1984 and connects them with surveillance, propaganda, misinformation and current democratic challenges.",
+        "de": "Im Cinema Otello in Ascona wird ein Dokumentarfilm aus dem Jahr 2025 von Raoul Peck über George Orwell gezeigt. Der Film verbindet Archivmaterial mit weiteren filmischen Mitteln, zeichnet prägende Stationen des Schriftstellers nach und bezieht zentrale Motive aus «1984» auf Überwachung, Propaganda, Desinformation und aktuelle Herausforderungen für Demokratien.",
+        "fr": "Le Cinema Otello d’Ascona accueille la projection d’un documentaire franco-américain réalisé par Raoul Peck et consacré à George Orwell. En s’appuyant sur des archives et plusieurs formes d’images, le film retrace la formation de l’écrivain et met en regard les thèmes de 1984 avec la surveillance, la propagande, la désinformation et les fragilités démocratiques contemporaines."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:db8acca6b7924b74a53cb133d40b0c7a",
@@ -410517,7 +410549,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale riflette con ironia sulla possibilità di rinunciare alla patente e sul rapporto tra mobilità, autonomia, identità e libertà personale nella terza e quarta età. La partecipazione è gratuita, ma è necessaria la prenotazione poiché i posti disponibili sono limitati.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale riflette con ironia sulla possibilità di rinunciare alla patente e sul rapporto tra mobilità, autonomia, identità e libertà personale nella terza e quarta età. La partecipazione è gratuita, ma è necessaria la prenotazione poiché i posti disponibili sono limitati.",
+        "en": "This theatre performance considers the possibility of giving up a driving licence and the effects of that choice on mobility, independence, identity and personal freedom in later life. Admission is free, but advance booking is required because capacity is limited.",
+        "de": "Die Theateraufführung beschäftigt sich mit einem möglichen Verzicht auf den Führerschein und mit den Folgen für Mobilität, Selbstständigkeit, Identität und persönliche Freiheit im höheren Alter. Der Eintritt ist kostenlos, eine Anmeldung ist jedoch wegen der begrenzten Platzkapazität erforderlich.",
+        "fr": "Cette représentation théâtrale examine la possibilité de renoncer au permis de conduire et les liens entre mobilité, autonomie, identité et liberté personnelle à un âge avancé. L’accès est gratuit, mais une réservation est nécessaire en raison du nombre limité de places."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1a001705d9ab484c877ed30f88ce2d8e",
@@ -634164,7 +634204,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone Adrian Stern con il suo trio nell’ambito della musica pop. Il concerto si svolge al Kultroom 15 di Unterägeri.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone Adrian Stern con il suo trio nell’ambito della musica pop. Il concerto si svolge al Kultroom 15 di Unterägeri.",
+        "en": "The event presents Adrian Stern with his trio in a pop music setting. The concert takes place at Kultroom 15 in Unterägeri.",
+        "de": "Im Mittelpunkt steht ein Pop-Auftritt von Adrian Stern mit seinem Trio. Die Veranstaltung findet im Kultroom 15 in Unterägeri statt.",
+        "fr": "Le rendez-vous présente Adrian Stern avec son trio dans le domaine de la musique pop. Le concert a lieu au Kultroom 15 à Unterägeri."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AdNqRML",
