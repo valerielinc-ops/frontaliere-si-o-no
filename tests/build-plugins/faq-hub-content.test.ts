@@ -318,6 +318,16 @@ describe('FAQ hub — [fonte:]/[source:]/[Quelle:] citations are hyperlinked (#4
   });
 });
 
+describe('FAQ hub — FFS citations use the reachable Italian corporate source', () => {
+  it('does not render the SBB consumer root that rejects automated requests', async () => {
+    const htmlByLocale = await buildAllLocaleHtml();
+    for (const locale of FAQ_HUB_LOCALES) {
+      expect(htmlByLocale[locale], locale).toContain('https://company.sbb.ch/it/');
+      expect(htmlByLocale[locale], locale).not.toContain('href="https://www.sbb.ch/"');
+    }
+  });
+});
+
 describe('FAQ hub — audited official source URLs remain live', () => {
   const RETIRED_AUDIT_URLS = [
     'https://www.bsv.admin.ch/bsv/de/home/sozialversicherungen/bv/reformen-revisionen.html',

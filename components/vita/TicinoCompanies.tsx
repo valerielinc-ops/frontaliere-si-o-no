@@ -125,7 +125,7 @@ const companies: Company[] = [
  // Logistica
  { name: 'Planzer', sector: 'Logistica', employees: 250, city: 'Cadenazzo', coordinates: [46.1500, 8.9480], website: 'https://www.planzer.ch', description: 'Trasporti e logistica' },
  { name: 'Posta Svizzera Centro Regionale', sector: 'Logistica', employees: 600, city: 'Cadenazzo', coordinates: [46.1520, 8.9500], careersUrl: 'https://www.post.ch/en/jobs/jobs?canton=1085914&jobsCategory=professionals&workload-maximum=1&workload-minimum=0', description: 'Centro pacchi e logistica' },
- { name: 'FFS Officine (Ferrovie Federali)', sector: 'Logistica', employees: 800, city: 'Bellinzona', coordinates: [46.1980, 9.0250], website: 'https://www.sbb.ch', description: 'Officine di manutenzione treni, centro industriale' },
+ { name: 'FFS Officine (Ferrovie Federali)', sector: 'Logistica', employees: 800, city: 'Bellinzona', coordinates: [46.1980, 9.0250], website: 'https://company.sbb.ch/it/', description: 'Officine di manutenzione treni, centro industriale' },
  { name: 'DHL Express Ticino', sector: 'Logistica', employees: 100, city: 'Mezzovico', coordinates: [46.0910, 8.9540], website: 'https://www.dhl.ch', description: 'Spedizioni espresse internazionali' },
  { name: 'Kuehne + Nagel', sector: 'Logistica', employees: 120, city: 'Chiasso', coordinates: [45.8350, 9.0280], website: 'https://www.kuehne-nagel.com', description: 'Logistica internazionale, spedizioni doganali' },
  { name: 'Gondrand', sector: 'Logistica', employees: 80, city: 'Chiasso', coordinates: [45.8360, 9.0260], description: 'Spedizioni internazionali, sdoganamento' },
