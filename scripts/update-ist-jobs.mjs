@@ -220,13 +220,13 @@ function hasVerifiedIstRoleTenantSignal(detail = {}) {
  * so a generic Swiss row without the source's role-context proof remains
  * incomplete and cannot certify an empty IST source.
  */
-function hasVerifiedGenericSwissIstSignal(detail = {}) {
+function hasVerifiedGenericSwissIstSignal(detail = {}, sourceUrl = detail.sourceUrl) {
   if (!IST_GENERIC_SWISS_LOCATION_RE.test(normalizeSpace(detail.location))) return false;
   if (!IST_GENERIC_GROUP_ROLE_RE.test(normalizeSpace(detail.description))) return false;
   if (!IST_GENERIC_IB_SCHOOL_RE.test(normalizeSpace(detail.description))) return false;
 
   try {
-    const parsed = new URL(String(detail.sourceUrl || ''));
+    const parsed = new URL(String(sourceUrl || ''));
     return parsed.hostname.toLowerCase() === IST_COMPANY_HOST
       && /^\/job\/[^/]+\/\d+\/?$/i.test(parsed.pathname);
   } catch {
@@ -459,7 +459,7 @@ export function hasIstSitemapPositiveHint(jobUrls = []) {
   });
 }
 
-export function isIstDetailJob(detail = {}) {
+export function isIstDetailJob(detail = {}, sourceUrl = detail.sourceUrl) {
   const detailIdentityValues = [
     detail.hiringOrganization,
     detail.company,
@@ -479,7 +479,7 @@ export function isIstDetailJob(detail = {}) {
   const detailCompanies = [detail.hiringOrganization, detail.company]
     .map((value) => normalize(value))
     .filter(Boolean);
-  const normalizedSourceUrl = normalize(detail.sourceUrl).replace(/[-_/]+/g, ' ');
+  const normalizedSourceUrl = normalize(sourceUrl).replace(/[-_/]+/g, ' ');
   const hasIstTenantMarker = IST_DETAIL_TENANT_RE.test(normalizedSourceUrl);
   const hasVerifiedIstTenant = detailIdentityValues.some((value) => IST_DETAIL_TENANT_RE.test(value));
   const hasOnlySharedPortalCompanies = detailCompanies.length === 0
@@ -496,7 +496,7 @@ export function isIstDetailJob(detail = {}) {
     || (hasOnlySharedPortalCompanies && (
       hasIstTenantMarker
       || hasVerifiedIstRoleTenantSignal(detail)
-      || hasVerifiedGenericSwissIstSignal(detail)
+      || hasVerifiedGenericSwissIstSignal(detail, sourceUrl)
     ));
 }
 
@@ -988,7 +988,7 @@ export function classifyIstDetailPage({
     ...extractIstMicrodata(html),
     sourceUrl,
   });
-  if (!hasCompleteIstDetailEvidence(detail)) {
+  if (!hasCompleteIstDetailEvidence(detail, sourceUrl)) {
     return {
       outcome: 'incomplete',
       evidence: 'unknown-template',
@@ -1003,7 +1003,7 @@ export function classifyIstDetailPage({
     sourceUrl,
     finalUrl,
     detail,
-    isIst: isIstDetailJob(detail),
+    isIst: isIstDetailJob(detail, sourceUrl),
   };
 }
 
@@ -1098,7 +1098,7 @@ export function parseCountryCode(locText = '') {
  * location or tenant marker can be selector drift on an IST posting and must
  * keep the run fail-closed.
  */
-export function hasCompleteIstDetailEvidence(detail = {}) {
+export function hasCompleteIstDetailEvidence(detail = {}, sourceUrl = detail.sourceUrl) {
   const location = normalizeSpace(detail.location);
   if (!normalizeSpace(detail.title) || !location) return false;
 
@@ -1131,7 +1131,7 @@ export function hasCompleteIstDetailEvidence(detail = {}) {
   ]
     .map((value) => normalize(value))
     .filter(Boolean);
-  const hasIstTenantEvidence = isIstDetailJob(detail);
+  const hasIstTenantEvidence = isIstDetailJob(detail, sourceUrl);
 
   // A foreign location is not enough on its own: if tenant/identity fields
   // disappear after a schema change, the detail must remain fail-closed.

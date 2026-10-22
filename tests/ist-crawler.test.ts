@@ -344,6 +344,31 @@ describe('IST empty-source proof', () => {
 describe('IST detail response classification', () => {
   const detailUrl = 'https://jobs.inspirededu.com/job/Teacher/12345/';
 
+  it('classifies the generic Swiss Inspired role with native detail evidence', () => {
+    const sourceUrl = 'https://jobs.inspirededu.com/job/Lugano-German-Teacher/1375440257/';
+    const result = classifyIstDetailPage({
+      sourceUrl,
+      status: 200,
+      html: `
+        <article>
+          <h1 data-job-field="title">German Teacher</h1>
+          <div data-job-field="location">Lugano, CH</div>
+          <div data-job-field="hiringOrganization">Inspired Education</div>
+          <div data-careersite-propertyid="description">
+            An Inspired Education Group school in Central/Western Europe is seeking a German Teacher for an IB World School.
+          </div>
+        </article>
+      `,
+    });
+
+    expect(result).toMatchObject({
+      outcome: 'classified',
+      evidence: 'native-detail-fields',
+      isIst: true,
+      detail: { sourceUrl },
+    });
+  });
+
   it('treats HTTP 410 as proof that the sitemap entry is no longer active', () => {
     expect(classifyIstDetailPage({ sourceUrl: detailUrl, status: 410 }))
       .toMatchObject({ outcome: 'removed', evidence: 'http-410' });
