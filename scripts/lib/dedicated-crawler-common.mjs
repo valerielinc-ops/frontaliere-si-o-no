@@ -5094,9 +5094,11 @@ export function validateDedicatedLocaleCoverage({
     // 429'd, missing translations are not a content-quality failure: they're an
     // infrastructure transient. Jobs are saved with `needsRetranslation` flag
     // and the dedicated `translate-pending.yml` workflow retries them once
-    // quotas reset. The deploy gate (`validate-translation-completeness.mjs`)
-    // is the authoritative stop for incomplete translations — gating again at
-    // the crawler creates a chicken-and-egg: the crawler exits 1, the
+    // quotas reset. The deploy handoff (`translation-deploy-handoff.mjs`)
+    // is the authoritative admission boundary for incomplete translations:
+    // fresh `pending` holds briefly, while terminal `fallback` or an expired
+    // marker lets the existing locale fallback serve production. Gating again
+    // at the crawler creates a chicken-and-egg: the crawler exits 1, the
     // `Commit and push` step skips, so the new jobs (with their flag) never
     // reach git, so translate-pending has nothing to recover.
     //
@@ -5295,7 +5297,7 @@ export function validateDedicatedLocaleCoverage({
               process.env.GITHUB_STEP_SUMMARY,
               `\n⚠️ **${label}**: tolerated ${translationIssues.length} translation issue(s) ` +
               `(proportional tolerance ${effectiveTolerance}/${jobs.length} jobs): ${sample}${suffix}\n` +
-              `Recovered by translate-pending.yml; will hard-fail deploy via validate-translation-completeness.mjs if still missing.\n`,
+              `Recovered by translate-pending.yml; a fresh pending handoff holds deploy briefly, then fallback prevents an indefinite production hold.\n`,
             );
           } catch { /* best-effort only */ }
         }

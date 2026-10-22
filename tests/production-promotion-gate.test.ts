@@ -159,16 +159,37 @@ describe('production promotion admission', () => {
     expect(validateDeployPublishCaller({ ...caller, deployRef: 'bad-ref' }).valid).toBe(false);
   });
 
-  it('puts the build workflow behind the fail-closed trigger job', () => {
+  it('keeps build admission fail-closed while allowing translation fallback rearm', () => {
     const workflow = readWorkflow('deploy.yml');
     const trigger = workflow.jobs['validate-promotion-trigger'];
 
     expect(findStep(trigger, 'trigger')).toBeDefined();
+    const sourcePromotionStep = (trigger.steps || []).find((step: any) => step.id === 'source_promotion');
+    expect(sourcePromotionStep?.if).toContain('always()');
     expect(needs(workflow.jobs['matrix-setup'])).toContain('validate-promotion-trigger');
-    // `rearm` runs under always(), which drops the implicit needs-success
-    // gate, so admission has to be re-asserted in its own condition.
-    expect(needs(workflow.jobs.rearm)).toContain('validate-promotion-trigger');
-    expect(workflow.jobs.rearm.if).toContain("needs.validate-promotion-trigger.result == 'success'");
+    // `rearm` runs under always() so a failed build can reach the resolver.
+    // The resolver receives each admission outcome and allows only the
+    // translation-handoff failure through; source-promotion failures remain
+    // fail-closed in rearm-deploy-build.mjs.
+    expect(needs(workflow.jobs.rearm)).toEqual(expect.arrayContaining([
+      'validate-promotion-trigger',
+      'matrix-setup',
+      'prep',
+      'build-locale',
+    ]));
+    expect(workflow.jobs.rearm.if).toContain('always()');
+    expect(workflow.jobs.rearm.if).toContain("github.event_name != 'schedule'");
+    expect(workflow.jobs.rearm.if).toContain("github.ref == 'refs/heads/main'");
+    expect(workflow.jobs.rearm.if).not.toContain("needs.validate-promotion-trigger.result == 'success'");
+
+    const resolverStep = (workflow.jobs.rearm.steps || []).find((step: any) =>
+      typeof step.run === 'string' && step.run.includes('rearm-deploy-build.mjs'));
+    expect(resolverStep).toBeDefined();
+    expect(resolverStep?.env).toMatchObject({
+      REARM_PROMOTION_RESULT: "${{ needs.validate-promotion-trigger.result }}",
+      REARM_TRANSLATION_RESULT: "${{ needs.validate-promotion-trigger.outputs.translation_handoff_result }}",
+      REARM_SOURCE_RESULT: "${{ needs.validate-promotion-trigger.outputs.source_promotion_result }}",
+    });
   });
 
   it('rechecks the dispatched source run before the publish plan can start', () => {

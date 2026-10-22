@@ -1,10 +1,12 @@
 name: Deploy to GitHub Pages
 
 on:
-  # A completed run owns its next dispatch. The schedule is only a cheap
+  # A completed run owns its next dispatch. The schedule is only a best-effort
   # recovery edge for the one case GitHub cannot execute a final job: a run
   # cancelled while it is still pending. It never builds in the scheduled run;
-  # it exits after checking the current queue and main tip.
+  # it exits after checking the current queue and main tip. The separate
+  # deploy-stalled-watchdog.yml covers schedule delivery gaps and completion
+  # events that never reach this workflow's final job.
   schedule:
     - cron: '*/10 * * * *'
   workflow_dispatch:
@@ -73,10 +75,12 @@ permissions:
 # replace a legitimate pending manual build between the resolver's final queue
 # read and its dispatch. The build-locale jobs carry the shared per-locale
 # production lock across both lanes; their four locales still run in parallel.
-# The ten-minute schedule is only a cheap rescue for a run cancelled before
-# its final job can start. Schedule reconciliation has its own group so a new
-# schedule tick cannot replace a legitimate pending build; its queue check
-# still sees the build group and skips whenever that pipeline is moving.
+# The ten-minute schedule is only a cheap, best-effort rescue for a run
+# cancelled before its final job can start. Schedule reconciliation has its
+# own group so a new schedule tick cannot replace a legitimate pending build;
+# its queue check still sees the build group and skips whenever that pipeline
+# is moving. The external watchdog is the recovery edge when GitHub never
+# records a schedule tick at all.
 #
 # Crucially, this run now ENDS at the build: deploy / validate / publish moved to
 # the separate `deploy-publish.yml` workflow. The final build step dispatches the
@@ -166,6 +170,9 @@ jobs:
   validate-promotion-trigger:
     name: validate production promotion trigger
     if: github.event_name != 'schedule'
+    outputs:
+      translation_handoff_result: ${{ steps.translation_handoff.outcome }}
+      source_promotion_result: ${{ steps.source_promotion.outcome }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -195,8 +202,13 @@ jobs:
             /data/translation-deploy-handoff.json
           sparse-checkout-cone-mode: false
       - name: Reject an incomplete translation tree
+        id: translation_handoff
         run: node scripts/ci/translation-deploy-handoff.mjs
       - name: Reject non-main or unverified source
+        id: source_promotion
+        # Run independently of the translation handoff so the rearm resolver
+        # can admit only a translation hold with a verified source promotion.
+        if: always()
         env:
           PROMOTION_EVENT: ${{ github.event_name }}
           PROMOTION_REF: ${{ github.ref }}
@@ -2719,9 +2731,10 @@ jobs:
   # WHY `if: always()` AND THE CANCELLATION COVER. GitHub evaluates this final
   # job after failed and cancelled dependencies when the run is still executing.
   # A run cancelled while PENDING can be removed before this job is scheduled;
-  # the schedule-reconcile job is the explicit rescue for that documented
-  # platform edge. It exits after the same queue/HEAD check, so it cannot add a
-  # duplicate while another build is queued, running, or already green.
+  # the schedule-reconcile job and deploy-stalled-watchdog.yml are the explicit
+  # rescues for that documented platform edge. They exit after the same
+  # queue/HEAD check, so they cannot add a duplicate while another build is
+  # queued, running, or already green.
   #
   # RECURSION and STORM are closed in scripts/ci/rearm-deploy-build.mjs — the
   # cap is per-SHA (so each re-arm strictly consumes budget and the chain ends
@@ -2733,13 +2746,13 @@ jobs:
   rearm:
     needs: [validate-promotion-trigger, matrix-setup, prep, build-locale]
     # `always()` bypasses the implicit needs-success gate, so admission is
-    # evaluated here even after a failed/cancelled build. The dispatch step
-    # still re-asserts the fail-closed trigger check before it can add work.
+    # evaluated here even after a failed/cancelled build. The resolver allows
+    # only a translation-handoff failure through; every other promotion-gate
+    # failure remains fail-closed before it can add work.
     if: >-
       always() &&
       github.event_name != 'schedule' &&
-      github.ref == 'refs/heads/main' &&
-      needs.validate-promotion-trigger.result == 'success'
+      github.ref == 'refs/heads/main'
     # Same durable admission claim as schedule-reconcile. The final rearm
     # keeps it until its queue recheck and any workflow_dispatch have returned.
     concurrency:
@@ -2799,7 +2812,7 @@ jobs:
       - name: Re-arm the build pipeline if it has stopped with work outstanding
         # Never fail the deploy over this. A red job here would be a second
         # failure stacked on the one that stopped the pipeline, and
-        # pages-publish-lag-watchdog.yml remains the backstop either way.
+        # deploy-stalled-watchdog.yml remains the backstop either way.
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -2809,6 +2822,9 @@ jobs:
           # to the "CI Failure (build)" issue this workflow already files.
           REARM_MAX_BUILDS_PER_SHA: '2'
           REARM_SELF_CONCLUSION: ${{ needs.build-locale.result == 'success' && 'success' || 'failure' }}
+          REARM_PROMOTION_RESULT: ${{ needs.validate-promotion-trigger.result }}
+          REARM_TRANSLATION_RESULT: ${{ needs.validate-promotion-trigger.outputs.translation_handoff_result }}
+          REARM_SOURCE_RESULT: ${{ needs.validate-promotion-trigger.outputs.source_promotion_result }}
           # A confirmed host-loss/timeout in one matrix leg gets exactly one
           # job-level rerun. The rerun reuses this run's SHA and prepared
           # snapshot artifact; it must never fan out into a second full matrix.
