@@ -1408,48 +1408,44 @@ async function inputBelongsToTrigger(input, association) {
     }, association);
   } catch {
     return false;
-  } finally {
-    if (typeof association.dispose === 'function') await association.dispose().catch(() => {});
   }
 }
 
 /** Finds one newly mounted file input in the frame of the clicked upload control. */
 async function newlyMountedFileInput(page, preferredFrame, beforeHandles, triggerContext, timeoutMs = 8_000) {
-  if (!Array.isArray(beforeHandles)) {
-    if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
-    return null;
-  }
-  const deadline = Date.now() + timeoutMs;
-  while (Date.now() < deadline) {
-    const afterHandles = await fileInputHandles(preferredFrame);
-    if (!Array.isArray(afterHandles)) {
-      if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
-      return null;
-    }
-    const added = [];
-    for (const after of afterHandles) {
-      let known = false;
-      for (const before of beforeHandles) {
-        const equal = await sameElement(after, before);
-        if (equal === null) return null;
-        if (equal) {
-          known = true;
-          break;
+  try {
+    if (!Array.isArray(beforeHandles)) return null;
+    const deadline = Date.now() + timeoutMs;
+    while (Date.now() < deadline) {
+      const afterHandles = await fileInputHandles(preferredFrame);
+      if (!Array.isArray(afterHandles)) return null;
+      const added = [];
+      for (const after of afterHandles) {
+        let known = false;
+        for (const before of beforeHandles) {
+          const equal = await sameElement(after, before);
+          if (equal === null) return null;
+          if (equal) {
+            known = true;
+            break;
+          }
         }
+        if (!known) added.push(after);
       }
-      if (!known) added.push(after);
+      if (added.length === 1) {
+        // The portal can mount the input first and add its trigger reference
+        // in a following effect. Keep the unique candidate under review until
+        // the bounded polling window expires instead of rejecting it once.
+        if (await inputBelongsToTrigger(added[0], triggerContext)) return added[0];
+      } else if (added.length > 1) {
+        return null;
+      }
+      await page.waitForTimeout(150);
     }
-    if (added.length === 1) {
-      return await inputBelongsToTrigger(added[0], triggerContext) ? added[0] : null;
-    }
-    if (added.length > 1) {
-      if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
-      return null;
-    }
-    await page.waitForTimeout(150);
+    return null;
+  } finally {
+    if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
   }
-  if (typeof triggerContext?.dispose === 'function') await triggerContext.dispose().catch(() => {});
-  return null;
 }
 
 /** Finds one newly opened, visible upload dialog across the page's current frames. */
