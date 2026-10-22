@@ -1,14 +1,14 @@
 {
   "key": "brefispersonal",
   "label": "brefis personal ag",
-  "generatedAt": "2026-10-21T09:57:37.865Z",
+  "generatedAt": "2026-10-22T09:40:31.993Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
-  "lastFetchOutcome": null,
+  "lastFetchOutcome": "selector_miss",
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "no-jobs-parsed",
+  "abortKind": "source-extraction-failed",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
@@ -20,5 +20,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }
