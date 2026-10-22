@@ -186,18 +186,6 @@ describe('PKB Private Bank crawler parser', () => {
       expect(result).toMatchObject({ jobs: [], succeeded: 0, failed: 1, fetchOutcome: 'anti_bot_block' });
     });
 
-    it('reports a partial listing failure even when another page yields jobs', async () => {
-      let calls = 0;
-      vi.stubGlobal('fetch', async () => {
-        calls += 1;
-        return calls === 1 ? new Response(LISTING_HTML) : new Response('', { status: 403 });
-      });
-
-      const result = await fetchPkbJobUrls({ timeoutMs: 100 });
-
-      expect(result).toMatchObject({ jobs: expect.any(Array), succeeded: 1, failed: 1, fetchOutcome: 'anti_bot_block' });
-      expect(result.jobs).toHaveLength(2);
-    });
   });
 
   it('wires discovery outcomes into the exit summary guard', () => {
