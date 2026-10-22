@@ -538,6 +538,7 @@ describe('legacy portal sections', () => {
       })),
       locator: vi.fn((selector: string) => {
         if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
+        if (selector === 'input[type="file"]') return {};
         if (selector.includes('input[type="file"]')) return {
           count: vi.fn(async () => 0),
           elementHandles: vi.fn(async () => []),
@@ -547,7 +548,7 @@ describe('legacy portal sections', () => {
     };
     const page = {
       url: () => snapshot.url,
-      frames: vi.fn(() => [frame]),
+      frames: vi.fn(() => domClicked ? [frame] : []),
       mainFrame: () => frame,
       waitForEvent: vi.fn(async () => {
         chooserCalls += 1;
