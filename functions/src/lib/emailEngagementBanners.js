@@ -189,10 +189,11 @@ function ctaHtml(href, label) {
  * Render the selected option 1 — three editorial cards in a fixed order.
  * `telegramUrl` is a convenience override for Cloud Functions callers that
  * resolve the public URL from Remote Config asynchronously before rendering.
- * `trailingSlash` preserves the URL convention of consumers such as the
- * welcome template, whose internal links are contractually slash-terminated.
+ * `trailingSlash` defaults to the site's canonical slash-terminated URL
+ * convention; callers can disable it only when they explicitly need the
+ * legacy bare-path form.
  */
-export function renderEmailEngagementBanners({ locale = 'it', socialLinks, telegramUrl, trailingSlash = false } = {}) {
+export function renderEmailEngagementBanners({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true } = {}) {
   const lang = normLocale(locale);
   const copy = COPY[lang];
   const links = resolveSocialLinks({
@@ -228,7 +229,7 @@ export function renderEmailEngagementBanners({ locale = 'it', socialLinks, teleg
 }
 
 /** Plain-text companion for templates that build their own multipart body. */
-export function emailEngagementBannersText({ locale = 'it', socialLinks, telegramUrl, trailingSlash = false } = {}) {
+export function emailEngagementBannersText({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true } = {}) {
   const lang = normLocale(locale);
   const copy = COPY[lang];
   const links = resolveSocialLinks({
