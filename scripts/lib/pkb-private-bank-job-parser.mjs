@@ -340,7 +340,9 @@ export async function fetchPkbJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
     // A reachable page that yields no known listing block is not proof of an
     // empty board: keep it distinct from a transport/endpoint failure so the
     // summary guard can name the bail-out instead of publishing "unknown".
-    fetchOutcome: allJobs.length > 0 ? 'ok' : failedOutcomes[0] || 'selector_miss',
+    // A partial listing fetch is not a healthy snapshot: preserve the jobs
+    // found on reachable pages, but expose the failed source observation.
+    fetchOutcome: failedOutcomes[0] || (allJobs.length > 0 ? 'ok' : 'selector_miss'),
   };
 }
 

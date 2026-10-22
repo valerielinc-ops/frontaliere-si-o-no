@@ -315,10 +315,18 @@ export function parseArca24DetailPage(html, pageUrl = '') {
 
 // ── Network helpers ──────────────────────────────────────────
 
+function classifyFetchFailure(status) {
+  if (status === 401 || status === 403) return 'anti_bot_block';
+  if (status === 408 || status === 429 || (status >= 500 && status <= 599)) return 'exhausted_retry';
+  if (Number.isInteger(status)) return 'feed_endpoint_unavailable';
+  return 'connection_error';
+}
+
 async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retries = 2, backoffMs = 1000 } = {}) {
   // Retry transient failures (network/5xx/timeout) with exponential backoff.
   // 4xx (except 408/429) are treated as terminal — the page genuinely doesn't exist.
   let lastErrorReason = '';
+  let lastStatus = null;
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -328,12 +336,13 @@ async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retri
         signal: controller.signal,
         redirect: 'follow',
       });
-      if (res.ok) return await res.text();
+      if (res.ok) return { html: await res.text(), fetchOutcome: 'ok' };
       const status = res.status;
+      lastStatus = status;
       // 408/429/5xx are retryable; other 4xx are not.
       const retryable = status === 408 || status === 429 || (status >= 500 && status <= 599);
       lastErrorReason = `HTTP ${status}`;
-      if (!retryable) return null;
+      if (!retryable) return { html: null, fetchOutcome: classifyFetchFailure(status) };
     } catch (err) {
       lastErrorReason = err?.name === 'AbortError' ? 'timeout' : (err?.message || 'fetch_error');
     } finally {
@@ -346,7 +355,7 @@ async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retri
   if (lastErrorReason) {
     console.warn(`  ⚠️ fetchPage exhausted retries for ${url}: ${lastErrorReason}`);
   }
-  return null;
+  return { html: null, fetchOutcome: classifyFetchFailure(lastStatus) };
 }
 
 // ── Public API ───────────────────────────────────────────────
@@ -354,7 +363,7 @@ async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retri
 /**
  * Discover all job URLs from the Arca24 listing pages.
  *
- * Returns `{ jobs, attempted, succeeded, failed, failedUrls }`. The caller is
+ * Returns `{ jobs, attempted, succeeded, failed, failedUrls, fetchOutcome }`. The caller is
  * expected to use `failed > 0` as the signal that the discovery was partial
  * and the previous slice should be merged (not replaced) \u2014 see run
  * 26422783451 (2026-05-25) where a single listing-fetch failure silently
@@ -364,12 +373,14 @@ export async function fetchLisJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
   const allJobs = [];
   const seenUrls = new Set();
   const failedUrls = [];
+  const failedOutcomes = [];
 
   for (const listingUrl of LISTING_URLS) {
-    const html = await fetchPage(listingUrl, { userAgent, timeoutMs });
+    const { html, fetchOutcome } = await fetchPage(listingUrl, { userAgent, timeoutMs });
     if (!html) {
       console.warn(`  \u26a0\ufe0f Failed to fetch listing page: ${listingUrl}`);
       failedUrls.push(listingUrl);
+      failedOutcomes.push(fetchOutcome);
       continue;
     }
     const jobs = parseArca24ListingPage(html, listingUrl);
@@ -388,6 +399,10 @@ export async function fetchLisJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
     succeeded: LISTING_URLS.length - failedUrls.length,
     failed: failedUrls.length,
     failedUrls,
+    // A partial listing fetch is not a healthy snapshot: the jobs from the
+    // reachable page must be preserved, but the run still needs to expose the
+    // failed source observation to crawler-health.
+    fetchOutcome: failedOutcomes[0] || (allJobs.length > 0 ? 'ok' : 'selector_miss'),
   };
 }
 
@@ -396,7 +411,7 @@ export async function fetchLisJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
  * Returns parsed job data or null on failure.
  */
 export async function fetchLisDetailPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const html = await fetchPage(url, { userAgent, timeoutMs });
+  const { html } = await fetchPage(url, { userAgent, timeoutMs });
   if (!html) return null;
   return parseArca24DetailPage(html, url);
 }
