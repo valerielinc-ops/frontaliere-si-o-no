@@ -55,8 +55,22 @@ export function resolveYellowsharkListingAdmission(listing = {}) {
     return { accepted: false, reason: 'source country is foreign or conflicting', countryEvidence };
   }
 
-  const sourceGeographyEvidence = { ...listing, addressCountry: 'CH' };
-  const resolvedGeography = resolveSourceBackedSwissGeography(sourceGeographyEvidence);
+  const sourceGeographyEvidence = {
+    ...listing,
+    addressLocality: listing.addressLocality,
+    addressRegion: listing.addressRegion,
+    addressCountry: 'CH',
+    postalCode: listing.postalCode,
+    streetAddress: listing.streetAddress,
+  };
+  const resolvedGeography = resolveSourceBackedSwissGeography({
+    ...listing,
+    addressLocality: listing.addressLocality,
+    addressRegion: listing.addressRegion,
+    addressCountry: 'CH',
+    postalCode: listing.postalCode,
+    streetAddress: listing.streetAddress,
+  });
   const geography = resolvedGeography
     && sourceBackedSwissGeographyFields(sourceGeographyEvidence, resolvedGeography);
   if (!geography) {
