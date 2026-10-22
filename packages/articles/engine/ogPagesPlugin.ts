@@ -122,6 +122,46 @@ export function createArticleTitleResolver<T extends { articleId: string; ogT: s
  };
 }
 
+export type TitleCollisionKeyOptions = Pick<
+ SiteShellContract,
+ 'buildTitleWithBrand' | 'truncateHeadlineToMeasuredBudget' | 'titleBrandSuffix' | 'titleMaxChars'
+>;
+
+/** Escape the text exactly as the article HTML emitter does. */
+const escapeArticleTitleHtml = (value: string): string => value
+ .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+ .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/**
+ * Return the escaped title that the no-disambiguator emitter will publish.
+ *
+ * Collision detection must use the same bounded/escaped representation as the
+ * HTML emitter. `buildTitleWithBrand` deliberately returns an overlong
+ * headline verbatim when the brand does not fit; the emitter then applies its
+ * measured truncation fallback. Keying the map on that raw headline lets two
+ * distinct long headlines collapse to the same emitted `<title>`.
+ */
+export function buildArticleTitleCollisionKey(
+ headline: string,
+ options: TitleCollisionKeyOptions,
+): string {
+ const escapedTitleLength = (value: string): number => escapeArticleTitleHtml(value).length;
+ const brandedTitle = options.buildTitleWithBrand(
+  headline,
+  options.titleBrandSuffix,
+  options.titleMaxChars,
+  escapedTitleLength,
+ );
+ const boundedTitle = escapedTitleLength(brandedTitle) <= options.titleMaxChars
+  ? brandedTitle
+  : options.truncateHeadlineToMeasuredBudget(
+   headline,
+   options.titleMaxChars,
+   escapedTitleLength,
+  );
+ return escapeArticleTitleHtml(boundedTitle);
+}
+
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
  *
@@ -869,6 +909,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleTitleCollisions: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
   it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
+ const titleCollisionKeyOptions: TitleCollisionKeyOptions = {
+  buildTitleWithBrand,
+  truncateHeadlineToMeasuredBudget,
+  titleBrandSuffix: TITLE_BRAND_SUFFIX,
+  titleMaxChars: TITLE_MAX_CHARS,
+ };
+ const titleCollisionKey = (headline: string): string =>
+  buildArticleTitleCollisionKey(headline, titleCollisionKeyOptions);
  // NewsArticle headlines stay verbatim; WebPage/Event head titles are bounded
  // at the emission point below without mutating their schema headline.
 
@@ -991,7 +1039,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
   articleTitleCollisions[locale] = countArticlesByTitleKey(
    entries,
-   (article) => buildTitleWithBrand(articleTitleFor[locale](article)),
+   (article) => titleCollisionKey(articleTitleFor[locale](article)),
   );
  }
 
@@ -1075,9 +1123,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  };
 
  /* ── 3. Write OG landing pages ──────────────────────────────── */
- const esc = (s: string) =>
- s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
- .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+ const esc = escapeArticleTitleHtml;
 
  const LOC_TAG: Record<string, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 
@@ -1326,7 +1372,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // must converge inside the shared cap, including after HTML escaping.
  const isEvent = en.sdType === 'Event';
  const isNewsArticle = !isEvent && Boolean(en.datePub);
- const baseTitleProbe = buildTitleWithBrand(localizedTitle);
+ const baseTitleProbe = titleCollisionKey(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
