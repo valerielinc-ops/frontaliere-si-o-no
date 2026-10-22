@@ -55,6 +55,40 @@ describe('Bing title/meta template inventory', () => {
     }
   });
 
+  it('maps the remaining known data and landing families with exact context', () => {
+    const positiveCases = [
+      [`${BASE}/mercato-lavoro-ticino/`, 'job-market-snapshot-pages'],
+      [`${BASE}/en/ticino-job-market/week-16-2026/`, 'job-market-snapshot-pages'],
+      [`${BASE}/de/tessiner-arbeitsmarkt/branche/infermieri/`, 'job-market-snapshot-pages'],
+      [`${BASE}/en/find-jobs-geneva/snapshot/`, 'job-market-snapshot-pages'],
+      [`${BASE}/traffico-dogane/chiasso-brogeda/oggi/`, 'border-wait-pages'],
+      [`${BASE}/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/2026-10/`, 'border-wait-pages'],
+      [`${BASE}/fr/primes-assurance-maladie/tessin/adulte-31-45/`, 'health-premium-pages'],
+      [`${BASE}/lavoro-ticino-infermiere/`, 'profession-landing-pages'],
+      [`${BASE}/aziende-che-assumono/ticino/settimana-corrente/`, 'weekly-employers-pages'],
+      [`${BASE}/aziende-che-assumono/lugano/acme-sa/settimana-16-2026/`, 'weekly-employers-pages'],
+      [`${BASE}/en/companies-hiring/all/`, 'weekly-employers-pages'],
+      [`${BASE}/en/aziende/eoc-ente-ospedaliero/`, 'employer-profile-pages'],
+      [`${BASE}/meteo-frontalieri/lugano/`, 'weather-pages'],
+      [`${BASE}/fr/alertes/orages/`, 'weather-pages'],
+    ] as const;
+
+    for (const [url, family] of positiveCases) {
+      expect(classifyBingTemplate(url).id, url).toBe(family);
+    }
+
+    const nearbyNonTargets = [
+      `${BASE}/blog/mercato-lavoro-ticino/week-16-2026/`,
+      `${BASE}/mercato-lavoro-ticino/week-16-2026/`,
+      `${BASE}/blog/traffico-dogane/chiasso-brogeda/oggi/`,
+      `${BASE}/en/aziende/not-a-profile/nested/`,
+      `${BASE}/meteo-frontalieri-old/lugano/`,
+    ];
+    for (const url of nearbyNonTargets) {
+      expect(classifyBingTemplate(url).id, url).toBe('unknown');
+    }
+  });
+
   it('records the concrete emitters for the newly classified families', () => {
     expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'event-pages')?.sourcePaths)
       .toEqual(expect.arrayContaining(['build-plugins/eventsSeoPagesPlugin.ts']));
@@ -65,6 +99,16 @@ describe('Bing title/meta template inventory', () => {
       ]));
     expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'calculator-legacy-alias-pages')?.sourcePaths)
       .toEqual(expect.arrayContaining(['build-plugins/calculatorLegacyAliasPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'job-market-snapshot-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/jobMarketSnapshotPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'profession-landing-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/professionCantonLandings.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'weekly-employers-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/weeklyEmployersPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'employer-profile-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/employerProfilePagesPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'weather-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/weatherAlertPagesPlugin.ts']));
   });
 
   it('preserves unknown paths instead of assigning a guessed first match', () => {

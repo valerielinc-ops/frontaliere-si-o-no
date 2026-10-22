@@ -14,11 +14,22 @@
 
 import { FUEL_INDEX_SLUG, FUEL_SECTION_SLUG } from '../../build-plugins/shared/fuelRouteSlugs.mjs';
 import { isBlogSectionPath } from '../lib/articleSections.mjs';
+import { isBorderWaitPath } from '../lib/borderWaitSections.mjs';
 import { isEventsSectionPath } from '../lib/eventsSections.mjs';
 import { isHealthFacilitiesSectionPath } from '../lib/healthFacilitiesSections.mjs';
-import { isJobBoardSectionPathname } from '../lib/jobBoardSections.mjs';
+import {
+  EMPLOYER_PROFILE_PATH_RX,
+  isJobBoardSectionPathname,
+} from '../lib/jobBoardSections.mjs';
+import { classifyProfessionLandingFeature } from '../lib/professionLandingsSections.mjs';
+import { isHealthPremiumsPath } from '../lib/healthPremiumSections.mjs';
 import { isPlateAuctionSectionPath } from '../lib/plateAuctionSections.mjs';
 import { isPharmacySectionPath } from '../lib/pharmacySections.mjs';
+import { isJobMarketSnapshotPath } from '../lib/weeklyJobMarketSections.mjs';
+import {
+  WEEKLY_EMPLOYERS_CITIES,
+  WEEKLY_EMPLOYERS_ROUTE_CONFIG,
+} from '../../build-plugins/shared/weeklyEmployersRoutes.mjs';
 import { BING_METADATA_FINDING_CODES } from './bing-finding-codes.mjs';
 
 export const TEMPLATE_FINDING_CODES = BING_METADATA_FINDING_CODES;
@@ -65,6 +76,86 @@ const CALCULATOR_LEGACY_ALIAS_PATHS = Object.freeze(new Set([
 
 function isCalculatorLegacyAliasPath(pathname) {
   return CALCULATOR_LEGACY_ALIAS_PATHS.has(pathname);
+}
+
+const WEEKLY_EMPLOYERS_ARCHIVE_RE = /^(?:settimana|week|woche|semaine)-(?:0[1-9]|[1-4]\d|5[0-3])-\d{4}$/;
+const WEEKLY_EMPLOYERS_COMPANY_RE = /^[a-z0-9][a-z0-9-]*$/;
+const WEEKLY_EMPLOYERS_ALL_HUB_PATHS = Object.freeze(new Set([
+  '/aziende-che-assumono/tutte/',
+  '/en/companies-hiring/all/',
+  '/de/firmen-die-einstellen/alle/',
+  '/fr/entreprises-qui-recrutent/toutes/',
+]));
+
+function isWeeklyEmployersPeriod(config, value) {
+  return value === config.currentSlug
+    || (value.startsWith(`${config.archivePrefix}-`) && WEEKLY_EMPLOYERS_ARCHIVE_RE.test(value));
+}
+
+/** Match only canonical weekly-employers and company-hub route shapes. */
+function isWeeklyEmployersTemplatePath(pathname) {
+  if (WEEKLY_EMPLOYERS_ALL_HUB_PATHS.has(pathname)) return true;
+
+  const segments = pathname.split('/').filter(Boolean);
+  let locale = 'it';
+  let offset = 0;
+  if (['en', 'de', 'fr'].includes(segments[0])) {
+    locale = segments[0];
+    offset = 1;
+  }
+  const config = WEEKLY_EMPLOYERS_ROUTE_CONFIG.find((candidate) => candidate.locale === locale);
+  if (!config || segments[offset] !== config.section) return false;
+
+  const tail = segments.slice(offset + 1);
+  if (tail.length === 0) return true;
+  if (tail.length === 2) {
+    return WEEKLY_EMPLOYERS_CITIES.includes(tail[0])
+      && isWeeklyEmployersPeriod(config, tail[1]);
+  }
+  if (tail.length === 3) {
+    return WEEKLY_EMPLOYERS_CITIES.includes(tail[0])
+      && tail[0] !== 'ticino'
+      && WEEKLY_EMPLOYERS_COMPANY_RE.test(tail[1])
+      && isWeeklyEmployersPeriod(config, tail[2]);
+  }
+  return false;
+}
+
+function isJobBoardTemplatePath(pathname) {
+  // Canton snapshot pages sit below a job-board section but are emitted by
+  // jobMarketSnapshotChCantonPages, not jobsSeoPagesPlugin. Exclude the
+  // exact snapshot form before assigning the generic job-board owner.
+  return isJobBoardSectionPathname(pathname) && !isJobMarketSnapshotPath(pathname);
+}
+
+const WEATHER_CITY_ROOTS = Object.freeze([
+  '/meteo-frontalieri/',
+  '/en/commute-weather/',
+  '/de/pendler-wetter/',
+  '/fr/meteo-frontaliers/',
+]);
+const WEATHER_ALERT_HUB_ROOTS = Object.freeze([
+  '/allerte-meteo/',
+  '/en/weather-alerts/',
+  '/de/wetterwarnungen/',
+  '/fr/alertes-meteo/',
+]);
+const WEATHER_ALERT_PAGE_ROOTS = Object.freeze([
+  '/allerte/',
+  '/en/alerts/',
+  '/de/warnungen/',
+  '/fr/alertes/',
+]);
+const WEATHER_CHILD_PATH_RE = /^[a-z0-9][a-z0-9-]*\/$/;
+
+function hasOneRouteChild(pathname, root) {
+  return pathname.startsWith(root) && WEATHER_CHILD_PATH_RE.test(pathname.slice(root.length));
+}
+
+function isWeatherTemplatePath(pathname) {
+  return WEATHER_CITY_ROOTS.some((root) => pathname === root || hasOneRouteChild(pathname, root))
+    || WEATHER_ALERT_HUB_ROOTS.includes(pathname)
+    || WEATHER_ALERT_PAGE_ROOTS.some((root) => hasOneRouteChild(pathname, root));
 }
 
 const CORE_FAMILY_DEFINITIONS = Object.freeze([
@@ -122,7 +213,7 @@ const CORE_FAMILY_DEFINITIONS = Object.freeze([
       'services/seo/meta-descriptions.ts',
       'build-plugins/shared/titleSuffix.ts',
     ]),
-    matches: isJobBoardSectionPathname,
+    matches: isJobBoardTemplatePath,
   },
 ]);
 
@@ -154,6 +245,68 @@ const ADDITIONAL_FAMILY_DEFINITIONS = Object.freeze([
       'build-plugins/shared/titleSuffix.ts',
     ]),
     matches: isCalculatorLegacyAliasPath,
+  },
+  {
+    id: 'job-market-snapshot-pages',
+    label: 'Snapshot del mercato del lavoro',
+    sourcePaths: Object.freeze([
+      'build-plugins/jobMarketSnapshotPlugin.ts',
+      'build-plugins/jobMarketSnapshotChCantonPages.ts',
+    ]),
+    matches: isJobMarketSnapshotPath,
+  },
+  {
+    id: 'border-wait-pages',
+    label: 'Pagine tempi di attesa alla frontiera',
+    sourcePaths: Object.freeze([
+      'build-plugins/borderWaitPagesPlugin.ts',
+      'build-plugins/staticPagesPlugin.ts',
+    ]),
+    matches: isBorderWaitPath,
+  },
+  {
+    id: 'health-premium-pages',
+    label: 'Pagine premi di cassa malati',
+    sourcePaths: Object.freeze([
+      'build-plugins/healthPremiumsLandingPlugin.ts',
+    ]),
+    matches: isHealthPremiumsPath,
+  },
+  {
+    id: 'profession-landing-pages',
+    label: 'Landing professione e località',
+    sourcePaths: Object.freeze([
+      'build-plugins/professionLandingsPlugin.ts',
+      'build-plugins/professionCantonLandings.ts',
+      'build-plugins/professionCityLandings.ts',
+    ]),
+    matches: (pathname) => classifyProfessionLandingFeature(pathname) !== null,
+  },
+  {
+    id: 'weekly-employers-pages',
+    label: 'Snapshot aziende che assumono',
+    sourcePaths: Object.freeze([
+      'build-plugins/weeklyEmployersPlugin.ts',
+      'build-plugins/seoHubsPlugin.ts',
+    ]),
+    matches: isWeeklyEmployersTemplatePath,
+  },
+  {
+    id: 'employer-profile-pages',
+    label: 'Profili azienda',
+    sourcePaths: Object.freeze([
+      'build-plugins/employerProfilePagesPlugin.ts',
+    ]),
+    matches: (pathname) => EMPLOYER_PROFILE_PATH_RX.test(pathname),
+  },
+  {
+    id: 'weather-pages',
+    label: 'Pagine meteo e allerte',
+    sourcePaths: Object.freeze([
+      'build-plugins/weatherCityPagesPlugin.ts',
+      'build-plugins/weatherAlertPagesPlugin.ts',
+    ]),
+    matches: isWeatherTemplatePath,
   },
 ]);
 
