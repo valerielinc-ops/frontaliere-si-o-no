@@ -124,7 +124,15 @@ function safeSocialUrl(value, key) {
       telegram: ['t.me'],
       facebook: ['www.facebook.com', 'facebook.com'],
     }[key] || [];
-    return allowedHost.includes(url.hostname.toLowerCase()) ? url.toString() : '';
+    if (!allowedHost.includes(url.hostname.toLowerCase())) return '';
+    if (key === 'telegram') {
+      // Keep the email CTA aligned with services/telegramChannel.ts: only a
+      // public channel handle is valid, without redirects, query data, or
+      // credentials that could turn the optional promotion into a wrong link.
+      if (!/^\/[A-Za-z0-9_+-]+\/?$/.test(url.pathname)) return '';
+      if (url.search || url.hash || url.username || url.password || url.port) return '';
+    }
+    return url.toString();
   } catch {
     return '';
   }
