@@ -402,7 +402,9 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     expect(request).toContain('scripts/ci/request-latest-publish.mjs');
     expect(request).not.toContain('scripts/ci/request-latest-deploy.mjs');
     expect(request).not.toContain('gh workflow run deploy.yml');
-    expect(readFileSync(resolve('scripts/ci/rearm-deploy-build.mjs'), 'utf8'))
-      .toContain('runs?branch=${branch}&head_sha=${encodeURIComponent(headSha)}&per_page=100');
+    const rearm = readFileSync(resolve('scripts/ci/rearm-deploy-build.mjs'), 'utf8');
+    expect(rearm).toContain('head_sha=${encodeURIComponent(headSha)}');
+    expect(rearm).toContain('headBranch: .head_branch');
+    expect(rearm).toContain('durableRuns.filter((run) => run?.headBranch === branch)');
   });
 });

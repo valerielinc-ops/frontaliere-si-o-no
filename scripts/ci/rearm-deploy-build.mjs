@@ -289,7 +289,7 @@ function ghJson(args) {
   }
 }
 
-const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, status, conclusion, event}]';
+const RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, headBranch: .head_branch, status, conclusion, event}]';
 
 function mergeRuns(...collections) {
   const byId = new Map();
@@ -470,15 +470,22 @@ async function main() {
     // seven-day window is not enough to enforce "one retry, then idle until a
     // new commit". The head_sha filter is the durable per-SHA ledger: it keeps
     // old failures/successes in the decision even when the branch has been
-    // quiet for weeks. Merge by run id so a current run appearing in both
-    // responses is counted once.
+    // quiet for weeks. The durable query is intentionally unbounded by
+    // `created`: filter its projected head_branch locally so the full history
+    // remains branch-safe without creating a branch listing without a window.
+    // Merge by run id so a current run appearing in both responses is counted
+    // once.
     const rawForHead = gh([
       'api',
-      `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&head_sha=${encodeURIComponent(headSha)}&per_page=100`,
+      `repos/${repo}/actions/workflows/${workflow}/runs?head_sha=${encodeURIComponent(headSha)}&per_page=100`,
       '--jq',
       RUNS_PROJECTION,
     ]);
-    runs = mergeRuns(recentRuns, JSON.parse(rawForHead));
+    const durableRuns = JSON.parse(rawForHead);
+    runs = mergeRuns(
+      recentRuns,
+      Array.isArray(durableRuns) ? durableRuns.filter((run) => run?.headBranch === branch) : [],
+    );
   } catch (err) {
     // Fail closed and LOUD-ish: an unreadable API means we cannot prove the
     // pipeline has stopped, and dispatching on a guess is how a storm starts.
