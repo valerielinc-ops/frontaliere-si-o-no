@@ -7,7 +7,7 @@
  * Autologin is handled externally by wrapping links with Firebase auth.
  */
 
-import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+import { pickNewsletterRecommendation, renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
 import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 // Shared with functions/src/lib/welcomeEmailTemplate.js (Cloud Functions
@@ -727,6 +727,11 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
  */
 export function buildNewsletter(data) {
   const locale = nlNormLocale(data.locale);
+  const recommendation = pickNewsletterRecommendation({
+    locale,
+    interest: data.interest,
+    campaign: data.recommendationCampaign,
+  });
   const dateStr = formatDate(locale);
   const preheader = data.preheaderText || (data.exchangeRate
     ? 'CHF/EUR ' + data.exchangeRate.rate.toFixed(4) + ' \u00b7 ' + dateStr
@@ -808,7 +813,14 @@ export function buildNewsletter(data) {
   // 13. Engagement suite — the three closing cards stay in this order across
   // every editorial/lifecycle email. Telegram remains conditional until its
   // public Remote Config URL is available.
-  html += renderEmailEngagementBanners({ locale, telegramUrl: data.telegramChannelUrl, includeAutomation: false });
+  // The recommendation slot owns the automation card only when it selected
+  // the first-party service. Sponsors and affiliates must leave the shared
+  // automation card visible exactly once in the closing suite.
+  html += renderEmailEngagementBanners({
+    locale,
+    telegramUrl: data.telegramChannelUrl,
+    includeAutomation: recommendation?.kind !== 'internal',
+  });
 
   // 14. Footer
   html += renderFooter(locale, data.unsubscribeUrl, data.preferencesUrl);
