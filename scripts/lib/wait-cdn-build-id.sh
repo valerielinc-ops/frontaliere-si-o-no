@@ -18,6 +18,11 @@
 # into cdn-build-id.txt inside the SAME force-push as the assets/data, so the
 # marker turning equal to the expected id PROVES this build's CDN payload is live
 # (atomic: one force-push publishes the whole tree + the marker together).
+# A later successful source run can replace this singleton marker while an older
+# publish tail is still queued. A strictly newer numeric marker therefore means
+# this source run has been superseded: fail closed immediately and let the newer
+# all-locale publisher own the shard, rather than waiting 2700s for an id that
+# the singleton marker will never return to.
 #
 # Usage:
 #   wait-cdn-build-id.sh <expected_build_id>
@@ -64,10 +69,11 @@
 #   0  — the CDN marker matched <expected_build_id> within the timeout, OR the
 #        guard is intentionally a NO-OP (empty expected id → e.g. a local run /
 #        non-matrix path that never sets DEPLOY_BUILD_ID). Safe to publish.
-#   1  — timed out without the CDN reaching this build's id, OR the IT leg is
-#        already over and failed so the marker can never turn (#5331) → DO NOT
-#        publish the shard (the caller fails the leg so a stale/ahead shard is
-#        never shipped).
+#   1  — timed out without the CDN reaching this build's id, the IT leg is
+#        already over and failed so the marker can never turn (#5331), OR a
+#        strictly newer numeric marker proves this source run is superseded →
+#        DO NOT publish the shard (the caller fails closed so a stale/ahead
+#        shard is never shipped).
 #
 # WHY AN EARLY ABORT IS SAFE — and where the danger actually is (#5331).
 # On run 31202386246 `build-locale (it)` ended in FAILURE at 18:07:04. The fr
@@ -99,8 +105,9 @@
 # window — the IT leg pushes the CDN payload early and dies in a LATER step, in
 # which case the payload IS live and the shard is safe to publish.
 #
-# NEAR MISS (why exit 0 is not enough on its own). This gate has exactly two
-# reported states — matched or timed out — and they sit one poll apart. On run
+# NEAR MISS (why exit 0 is not enough on its own). The normal gate states are
+# matched and timed out, and they sit one poll apart; superseded is a separate
+# fail-closed terminal state. On run
 # 31076991699 the de leg matched after 2714s of a 2700s budget: the LAST of its
 # 181 polls. That run is recorded as a success and is indistinguishable, from
 # the outside, from a run that matched in 20s. One deploy later (31062047677)
@@ -108,9 +115,9 @@
 # inside CDN_WAIT_MARGIN_WARN_S of the budget emits a ::warning:: and a job
 # summary row: the erosion becomes visible BEFORE it turns into a stale locale.
 #
-# MACHINE-READABLE FACTS. Both terminal states append to $GITHUB_OUTPUT
+# MACHINE-READABLE FACTS. Every terminal marker state appends to $GITHUB_OUTPUT
 # (cdn_wait_result / cdn_waited_s / cdn_margin_s / cdn_last_seen /
-# cdn_expected / cdn_timeout_s). The optional readiness phase also appends
+# cdn_expected / cdn_timeout_s / cdn_superseding_build_id). The optional readiness phase also appends
 # cdn_ready_result / cdn_ready_waited_s / cdn_ready_timeout_s /
 # cdn_ready_api_failures, so marker time and pre-marker time never blur together.
 # These facts let the caller name the cause precisely
@@ -533,6 +540,42 @@ gate_timeout() {
   exit 1
 }
 
+# Build ids are minted with `date +%s%3N`, so their decimal ordering is the
+# source ordering. Compare as strings after normalising leading zeroes instead
+# of using Bash arithmetic: this keeps the guard correct if the id ever grows
+# past the shell's integer range, while non-numeric test/legacy ids retain the
+# exact-match-only contract.
+marker_is_newer_than_expected() {
+  local candidate="${1:-}"
+  local baseline="${2:-}"
+  [[ "$candidate" =~ ^[0-9]+$ ]] || return 1
+  [[ "$baseline" =~ ^[0-9]+$ ]] || return 1
+  while [ "${#candidate}" -gt 1 ] && [ "${candidate:0:1}" = '0' ]; do candidate="${candidate:1}"; done
+  while [ "${#baseline}" -gt 1 ] && [ "${baseline:0:1}" = '0' ]; do baseline="${baseline:1}"; done
+  if [ "${#candidate}" -ne "${#baseline}" ]; then
+    [ "${#candidate}" -gt "${#baseline}" ]
+    return
+  fi
+  [[ "$candidate" > "$baseline" ]]
+}
+
+gate_superseded() {
+  local superseding_build_id="$1"
+  local margin=$((timeout_s - elapsed))
+  [ "$margin" -ge 0 ] || margin=0
+  echo "::warning title=CDN ordering gate SOURCE SUPERSEDED::[wait-cdn-build-id] CDN already advertises newer build id=${superseding_build_id} than expected=${expected} after ${elapsed}s — NOT publishing this stale source shard (#2569 atomicity guard)"
+  emit_output cdn_wait_result superseded
+  emit_output cdn_waited_s "$elapsed"
+  emit_output cdn_margin_s "$margin"
+  emit_output cdn_last_seen "$superseding_build_id"
+  emit_output cdn_expected "$expected"
+  emit_output cdn_timeout_s "$timeout_s"
+  emit_output cdn_superseding_build_id "$superseding_build_id"
+  emit_output cdn_near_miss "false"
+  emit_summary "ℹ️ **#2569 CDN ordering gate — SOURCE SUPERSEDED** after \`${elapsed}s\`: CDN already serves newer build \`${superseding_build_id}\` while this tail expected \`${expected}\`. **This stale source shard was NOT published; the newer all-locale publisher owns the replacement.**"
+  exit 1
+}
+
 clamped_wait="$(clamp_to_job_deadline "$timeout_s")"
 if [ "$clamped_wait" -lt "$timeout_s" ]; then
   echo "[wait-cdn-build-id] #7106 job-deadline safety margin: shrinking phase 2/2 budget from ${timeout_s}s to ${clamped_wait}s so this gate can still exit cleanly before the job's own hard kill"
@@ -630,6 +673,14 @@ while :; do
       emit_summary "✅ #2569 CDN ordering gate: matched after \`${elapsed}s\` (\`${margin}s\` of \`${timeout_s}s\` budget left)."
     fi
     exit 0
+  fi
+  # A later source run has already replaced the singleton CDN marker. Waiting
+  # for this older id would only burn the full budget and can never make the
+  # old source coherent with the current CDN payload. Fail closed before the
+  # #5331 IT-leg observer or the timeout branch; the caller must leave this
+  # stale shard unpublished so the newer publisher can replace it.
+  if marker_is_newer_than_expected "$got" "$expected"; then
+    gate_superseded "$got"
   fi
   # The marker did not match AND the IT leg is positively over-and-failed, so
   # nothing is left in this run that could ever write the marker. Stop now with
