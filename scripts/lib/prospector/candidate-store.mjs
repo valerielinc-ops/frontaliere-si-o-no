@@ -184,13 +184,17 @@ function subdomainTenantFallbackKey(candidate, source) {
   if (registrableCandidateDomain(host) !== platform || !hostPrefix) return '';
   const hostLabels = hostPrefix.split('.').map(normalizeCompanyName);
   if (!hostLabels.some((label) => label && !GENERIC_TENANT_NAMES.has(label))) return '';
-  if (platformEntry.hostEmployerUnknown?.[host] === true) return '';
+  // Localised Umantis recruitingapp hosts have a stable tenant id even when
+  // the registry has not yet verified the employer behind that host.
+  const stableUmantisTenantHost = platform === 'umantis.com'
+    && /^recruitingapp-\d+(?:\.de)?$/.test(hostPrefix);
+  if (platformEntry.hostEmployerUnknown?.[host] === true && !stableUmantisTenantHost) return '';
   const owners = platformEntry.hostEmployers?.[host];
   if (Array.isArray(owners) && owners.length) {
     const verifiedOwners = owners.map(registrableCandidateDomain);
     if (verifiedOwners.some((owner) => !owner || !owner.includes('.'))
       || new Set(verifiedOwners).size !== 1) return '';
-  } else if (!(platform === 'umantis.com' && /^recruitingapp-\d+(?:\.de)?$/.test(hostPrefix))) {
+  } else if (!stableUmantisTenantHost) {
     // Unknown hosts on a mixed platform can still be shared front doors
     // (`api.vendor.com`, `ats.vendor.com`). Their hostname alone cannot name
     // an employer. Umantis tenant IDs have a stable, provider-specific shape.
