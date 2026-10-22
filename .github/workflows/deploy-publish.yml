@@ -1924,12 +1924,14 @@ jobs:
   # its long report walk never holds the dist-validation concurrency lock.
   # ───────────────────────────────────────────────────────────────────────
   audit-dist-report:
-    needs: [resolve-publish-plan, resolve-nonit-publish]
+    needs: [resolve-publish-plan, resolve-nonit-publish, publish-nonit-shards]
     if: >-
-      ${{ needs.resolve-publish-plan.result == 'success' &&
+      ${{ always() &&
+          needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-nonit-publish.result == 'success' &&
-          needs.resolve-nonit-publish.outputs.allowed == 'true' }}
+          needs.resolve-nonit-publish.outputs.allowed == 'true' &&
+          needs.publish-nonit-shards.result == 'success' }}
     uses: ./.github/workflows/audit-dist-from-run.yml
     with:
       deploy_run_id: ${{ inputs.source_run_id }}

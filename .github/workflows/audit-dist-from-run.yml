@@ -99,6 +99,10 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
+    env:
+      # Replayed source gates must execute against the rehydrated report
+      # rather than self-skipping behind their default safety switch.
+      RUN_DIST_GATES: '1'
     # The audits now walk the COMPLETE rehydrated site instead of the trunk
     # artifact alone. Keep the report runner below the hosted six-hour ceiling;
     # it is independent of the 350-minute dist-validation lock and cannot delay
