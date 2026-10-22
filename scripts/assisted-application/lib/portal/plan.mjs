@@ -141,6 +141,10 @@ const AGE_UNDER_RE = /\b(?:(?:under|below)(?:\s+the\s+age\s+of)?|younger\s+than|
 const AGE_EXPERIENCE_RE = /\b(?:experience|esperienza|exp[ée]rience|erfahrung|of\s+work|di\s+lavoro|d['’]exp[ée]rience)\b/i;
 const ADDRESS_FIELD_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street|cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|npa|residen\w*|domicil\w*|wohn(?:sitz|ort)\w*)\b/i;
 const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo|contact\s+(?:address|adresse|indirizzo))\b/i;
+// «Candidate contact address» is the applicant's own postal address. Keep
+// the generic contact-address guard for emergency/contact-person fields, but
+// let the CV address answer this explicit candidate-owned variant.
+const CANDIDATE_CONTACT_ADDRESS_RE = /\b(?:candidate|applicant|candidate['’]s|applicant['’]s|my|your)\s+(?:contact\s+)?address\b|\b(?:contact\s+)?address\s+(?:of|for)\s+(?:the\s+)?(?:candidate|applicant)\b/i;
 const CONTACT_ADDRESS_ONLY_RE = /^\s*(?:e[-\s]?mail|email|courriel|correo)(?:\s*[-–—:]?\s*(?:address|adresse|indirizzo))?(?:\s*[/|]\s*(?:login|identifiant))?(?:\s*(?:\((?:required|obligatoire|obbligatorio|pflichtfeld|erforderlich)\)|[*:?!]))*\s*$/i;
 const IDENTITY_EMAIL_RE = /\b(?:e[-\s]?mail|email|courriel|correo)\b/i;
 const EMAIL_CONFIRMATION_RE = /\b(?:re[- ]?enter|enter again|repeat|confirm(?:ation)?|again|erneut|wiederholen|bestätigen|bestaetigen|nochmals|ripeti|conferma|répéter|repeter|confirmer|à nouveau|de nouveau)\b/i;
@@ -269,6 +273,15 @@ const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 // questions; a generic yes/no helper must not reinterpret a third choice.
 const PERMIT_YES_OPTION_RE = /^(?:ja|sì|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
 const PERMIT_NO_OPTION_RE = /^(?:nein|no|non|ne|falso|false)(?![\p{L}\p{N}])/iu;
+/** Resolve a qualified yes/no permit label after a lazy ATS list has loaded. */
+export function permitBooleanOptionLabel(value, options = []) {
+  const desired = PERMIT_YES_OPTION_RE.test(String(value || '').trim()) ? PERMIT_YES_OPTION_RE
+    : PERMIT_NO_OPTION_RE.test(String(value || '').trim()) ? PERMIT_NO_OPTION_RE : null;
+  if (!desired) return '';
+  const labels = options.map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim()).filter(Boolean);
+  const matches = labels.filter((label) => desired.test(label));
+  return matches.length === 1 ? matches[0] : '';
+}
 const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
 const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnis|conoscenz|connaiss|knowledge|proficien(?:cy|t)|parlat[oa]|parle[sz]?|scritt[oa]|speak|spoken|written|oral|communicat\w*|mündlich|schriftlich|parlé|écrit|\b[abc][12]\b/i;
@@ -588,7 +601,9 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   // label suppress a real residence address in the same personal section.
   const phoneCodeContext = PHONE_CODE_FIELD_RE.test(fieldContext)
     && PHONE_COUNTRY_CODE_LABEL_RE.test(value);
-  if (CONTACT_ADDRESS_RE.test(value) || CONTACT_ADDRESS_RE.test(fieldContext) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
+  const candidateContactAddress = CANDIDATE_CONTACT_ADDRESS_RE.test(value) || CANDIDATE_CONTACT_ADDRESS_RE.test(fieldContext);
+  const contactAddress = CONTACT_ADDRESS_RE.test(value) || CONTACT_ADDRESS_RE.test(fieldContext);
+  if ((contactAddress && !candidateContactAddress) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
     || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
     || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
@@ -1440,8 +1455,16 @@ export function guardPlan(plan, fields, candidate = null) {
   // A field that asks what the candidate needs or applies for is never answered by the code.
   const status = candidate?.swissStatus?.code || '';
   const statusPick = new Map(status ? fields
-    .filter((field) => isPermitField(field.label) && asksHeldStatus(questionFromLabel(field.label))
-      && !recordedAnswerForQuestion(candidate, field.label, field.context, field))
+    .filter((field) => {
+      if (!isPermitField(field.label) || !asksHeldStatus(questionFromLabel(field.label))) return false;
+      const recorded = recordedAnswerForQuestion(candidate, field.label, field.context, field);
+      // A saved portal answer such as «G Permit» is the candidate's own
+      // status in free text, not a competing yes/no correction. Normalize it
+      // to the current option catalogue. Preserve a distinct explicit answer
+      // to this exact question (for example a candidate correction of Yes/No).
+      const recordedStatus = permitStatusOf(recorded) || permitOptionCode(recorded);
+      return !recorded || recordedStatus === status;
+    })
     .map((field) => [field.id, permitAnswerForStatus(field, status)])
     .filter(([, value]) => value) : []);
   for (const [fieldId, value] of statusPick) {
