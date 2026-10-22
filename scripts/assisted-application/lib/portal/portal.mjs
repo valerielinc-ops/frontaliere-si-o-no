@@ -1275,9 +1275,30 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   return candidates;
 }
 
-function uploadTriggerKey(button, index = 0) {
-  const identity = button?.id || button?.domId || button?.dataAaId || button?.dataAutomationId || button?.name || `candidate-${index}`;
-  return `${button?.frame || 0}:${identity}`;
+export function uploadTriggerKey(button) {
+  const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+  // `id` is normally the extractor's per-scan data-aa-id (`f1`, `f2`, ...),
+  // so it must not identify a trigger across a portal redraw. Prefer an ATS
+  // identity that comes from the DOM and keep generated ids only when they
+  // are not the extractor's counter values.
+  const identity = [
+    button?.domId,
+    button?.dataAutomationId,
+    button?.dataAaId,
+    button?.name,
+    button?.id && !/^f\d+$/i.test(String(button.id)) ? button.id : '',
+  ].map(normalize).find(Boolean);
+  const signature = [
+    button?.text,
+    button?.label,
+    button?.title,
+    button?.ariaLabel,
+    button?.section,
+    button?.context,
+    button?.fileContext,
+    button?.href,
+  ].map(normalize).filter(Boolean).join('|');
+  return `${button?.frame || 0}:${identity ? `id:${identity}` : `signature:${signature || 'anonymous'}`}`;
 }
 
 export function uploadButtonFor(snapshot, kind) {
@@ -1808,9 +1829,8 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     if (!attempt(cvKey)) break;
     const triggerButtons = uploadButtonCandidatesFor(current, 'cv')
       .filter((button) => iconUploadAllowedForPage(page, button, 'cv', current, channelType));
-    const triggerButton = triggerButtons.find((button, index) => !triedCvTriggers.has(uploadTriggerKey(button, index)))
-      || triggerButtons[0];
-    const triggerKey = triggerButton && uploadTriggerKey(triggerButton, triggerButtons.indexOf(triggerButton));
+    const triggerButton = triggerButtons.find((button) => !triedCvTriggers.has(uploadTriggerKey(button)));
+    const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCvTriggers.add(triggerKey);
     const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
       ? ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim()) ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
@@ -1846,9 +1866,8 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
     const triggerButtons = uploadButtonCandidatesFor(current, 'cover_letter')
       .filter((button) => iconUploadAllowedForPage(page, button, 'cover_letter', current, channelType));
-    const triggerButton = triggerButtons.find((button, index) => !triedCoverLetterTriggers.has(uploadTriggerKey(button, index)))
-      || triggerButtons[0];
-    const triggerKey = triggerButton && uploadTriggerKey(triggerButton, triggerButtons.indexOf(triggerButton));
+    const triggerButton = triggerButtons.find((button) => !triedCoverLetterTriggers.has(uploadTriggerKey(button)));
+    const triggerKey = triggerButton && uploadTriggerKey(triggerButton);
     if (triggerKey) triedCoverLetterTriggers.add(triggerKey);
     const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current, channelType)
       ? ICON_ONLY_BUTTON_RE.test(String(triggerButton.text || '').trim()) ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
