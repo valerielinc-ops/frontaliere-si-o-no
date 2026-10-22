@@ -1337,25 +1337,75 @@ async function sameElement(left, right) {
   }
 }
 
-async function inputBelongsToTrigger(input, context) {
-  // The preferred frame is the primary association: a candidate from another
-  // frame never reaches this function. Some portals mount the hidden picker
-  // in a global body container, so a missing/loose DOM ancestor is not itself
-  // evidence that the candidate belongs to another document field.
-  if (!context) return true;
-  if (typeof input?.evaluate !== 'function') return false;
+async function inputBelongsToTrigger(input, association) {
+  if (!association || typeof input?.evaluate !== 'function') return false;
   try {
-    return await input.evaluate((element, owner) => Boolean(
-      element?.isConnected
-      && owner?.isConnected
-      // `contains` is useful evidence when present, but global mounts are
-      // associated by the same-frame uniqueness check above.
-      && (owner.contains(element) || document.contains(element)),
-    ), context);
+    return await input.evaluate((element, owner) => {
+      const trigger = owner?.trigger || owner;
+      const context = owner?.context || owner;
+      if (!element?.isConnected || !trigger?.isConnected) return false;
+      if (context?.isConnected && typeof context.contains === 'function' && context.contains(element)) return true;
+      if (typeof trigger.contains === 'function' && trigger.contains(element)) return true;
+
+      // Some ATS controls append the hidden input to document.body (or to a
+      // generic overlay root) instead of the trigger's form. Accept that
+      // mount only when the DOM exposes an explicit reference between the
+      // clicked control and the new input or one of its ancestors.
+      const attributes = (node, names) => names.flatMap((name) => {
+        const value = node?.getAttribute?.(name);
+        return value ? String(value).split(/\s+/).filter(Boolean) : [];
+      });
+      const triggerRefs = new Set([
+        trigger.id,
+        ...attributes(trigger, [
+          'data-aa-id',
+          'data-upload-id',
+          'data-file-input',
+          'data-upload-target',
+          'data-target',
+          'aria-controls',
+          'aria-owns',
+          'for',
+        ]),
+      ].filter(Boolean));
+      const sharedAssociationNames = [
+        'data-upload-key',
+        'data-file-key',
+        'data-document-key',
+        'data-attachment-key',
+      ];
+      const triggerAssociationRefs = new Set(attributes(trigger, sharedAssociationNames));
+      if (!triggerRefs.size && !triggerAssociationRefs.size) return false;
+      const inputRefNames = [
+        'id',
+        'data-aa-id',
+        'data-upload-for',
+        'data-file-for',
+        'data-trigger',
+        'data-trigger-id',
+        'data-owner',
+        'data-for',
+        'aria-labelledby',
+        'aria-describedby',
+      ];
+      for (let node = element; node && node.nodeType === 1; node = node.parentElement) {
+        const refs = attributes(node, inputRefNames);
+        if (refs.some((ref) => triggerRefs.has(ref))) return true;
+        if (triggerAssociationRefs.size
+          && attributes(node, sharedAssociationNames).some((ref) => triggerAssociationRefs.has(ref))) return true;
+        if (node === node.ownerDocument?.body) break;
+      }
+      const targets = [...triggerRefs]
+        .flatMap((id) => [id, id.startsWith('#') ? id.slice(1) : ''])
+        .filter(Boolean)
+        .map((id) => element.ownerDocument?.getElementById?.(id))
+        .filter(Boolean);
+      return targets.some((target) => target === element || target.contains?.(element));
+    }, association);
   } catch {
     return false;
   } finally {
-    if (typeof context.dispose === 'function') await context.dispose().catch(() => {});
+    if (typeof association.dispose === 'function') await association.dispose().catch(() => {});
   }
 }
 
@@ -1511,9 +1561,12 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     ? preferredFrame.locator(`[data-aa-id="${trigger.snapshot.id}"]`).first()
     : trigger;
   const triggerContext = typeof triggerLocator?.evaluateHandle === 'function'
-    ? await triggerLocator.evaluateHandle((element) => element?.closest(
-      'form, [role="dialog"], [aria-modal="true"], dialog, fieldset, [data-upload-container]',
-    )).catch(() => null)
+    ? await triggerLocator.evaluateHandle((element) => ({
+      trigger: element || null,
+      context: element?.closest(
+        'form, [role="dialog"], [aria-modal="true"], dialog, fieldset, [data-upload-container]',
+      ) || null,
+    })).catch(() => null)
     : null;
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
