@@ -160,7 +160,13 @@ import {
 } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
-import { acceptsGzip, getCachedPublicPlateAuctionSnapshotBody, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
+import {
+ acceptsGzip,
+ getCachedPublicPlateAuctionSnapshotBody,
+ getCachedPublicPlateAuctionSourceBody,
+ refreshPlateAuctions as runPlateAuctionRefresh,
+ resolvePublicPlateAuctionSourceKey,
+} from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 import { GCP_COST_MONITOR_CLOUD_SCHEDULE, dispatchGcpCostMonitorWorkflow } from './src/gcpCostMonitorDispatch.js';
@@ -579,15 +585,11 @@ export const getTrafficHistory = onRequest(
 
 // Public plate-auction snapshot. Firestore stays server-only; the response is
 // allow-listed in plateAuctions.js and deliberately excludes bidder/winner
-// identities from eCari sources. The body is loaded at most once per 5 minutes
-// per instance (getCachedPublicPlateAuctionSnapshotBody), from the object each
-// refreshPlateAuctions run publishes to Cloud Storage; only when that object is
-// missing or stale is it built from Firestore, ~22'700 billed reads. 1GiB like
-// refreshPlateAuctions, which reads the same
-// collection: at 256MiB a build overran the limit (258-269 MiB measured
-// 2026-10-01) and every call in flight on the instance failed. Clients that
-// accept gzip get the copy compressed once per build: uncompressed, each
-// answer was ~16.5 MB of internet egress.
+// identities from eCari sources. The full body is loaded at most once per 5
+// minutes per instance from the object each refreshPlateAuctions run publishes
+// to Cloud Storage; source-scoped relay requests use only that source's rows,
+// so a cold relay does not rebuild ~22'700 Firestore reads to recover FR/TI/SZ.
+// Clients that accept gzip get the copy compressed once per build.
 export const getPlateAuctions = onRequest(
  {
  region: 'europe-west6',
@@ -601,7 +603,17 @@ export const getPlateAuctions = onRequest(
  return;
  }
  try {
- const { body, gzip } = await getCachedPublicPlateAuctionSnapshotBody();
+ const requestedSource = req.query?.source;
+ const sourceKey = requestedSource === undefined
+  ? null
+  : resolvePublicPlateAuctionSourceKey(requestedSource);
+ if (requestedSource !== undefined && !sourceKey) {
+  res.status(400).json({ error: 'invalid_plate_auction_source' });
+  return;
+ }
+ const { body, gzip } = sourceKey
+  ? await getCachedPublicPlateAuctionSourceBody({ sourceKey })
+  : await getCachedPublicPlateAuctionSnapshotBody();
  res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
  res.vary('Accept-Encoding');
  if (acceptsGzip(req.get('accept-encoding'))) {

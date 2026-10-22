@@ -27,6 +27,7 @@ const NOW = new Date('2026-09-25T12:00:00.000Z');
 const FRESH = new Date(NOW.getTime() - 60 * 60 * 1000).toISOString();
 const STALE = new Date(NOW.getTime() - PLATE_AUCTION_API_RELAY_MAX_AGE_MS - 60 * 1000).toISOString();
 const FR_URL = EXPANDED_ECARI_SOURCES.fr.officialAuctionUrl;
+const sourceRelayUrl = (sourceKey: string) => `${PLATE_AUCTION_PUBLIC_API_RELAY_URL}?source=${sourceKey}&fresh=${NOW.getTime()}`;
 // La pagina che ogni sonda non svizzera riceve da www.carieauktion.ti.ch.
 const TI_GEO_BLOCK_PAGE = '<html><head><title>Pagina non disponibile</title></head><body><h1>Pagina non disponibile</h1><p>Support ID: 1234567890</p></body></html>';
 
@@ -171,7 +172,7 @@ describe('fetchWithPublicApiRelay', () => {
     serveRelay(healthy);
     const rows = await fetchWithPublicApiRelay({ ...base, direct: async () => { throw new Error('Timeout fetching'); } });
     expect(rows).toEqual([expect.objectContaining({ id: 'ti-1532', officialAuctionUrl: TI_AUCTION_URL })]);
-    expect(relayCalls).toEqual([PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
+    expect(relayCalls).toEqual([sourceRelayUrl('ti')]);
     expect(console.warn).toHaveBeenCalledWith(expect.stringContaining('official endpoint failed; used API relay: Timeout fetching'));
   });
 
@@ -195,7 +196,7 @@ describe('fetchWithPublicApiRelay', () => {
       direct: async () => { throw new TypeError('fetch failed'); },
     });
     expect(rows).toEqual([expect.objectContaining({ id: 'ti-1532', officialAuctionUrl: TI_AUCTION_URL })]);
-    expect(relayCalls).toEqual(Array(3).fill(PLATE_AUCTION_PUBLIC_API_RELAY_URL));
+    expect(relayCalls).toEqual(Array(3).fill(sourceRelayUrl('ti')));
   });
 
   it('names the reads and the body length when the relay body never parses', async () => {
@@ -265,7 +266,7 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
       sourceKey: 'TG',
       officialAuctionUrl: TG_AUCTION_URL,
     })]);
-    expect(relayCalls).toEqual([TG_AUCTION_URL, TG_AUCTION_URLS[1], PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
+    expect(relayCalls).toEqual([TG_AUCTION_URL, TG_AUCTION_URLS[1], sourceRelayUrl('tg')]);
   });
 
   it('ZH: the special card connector also uses a fresh relay snapshot after a 404', async () => {
@@ -290,7 +291,7 @@ describe('connectors read the relay when the direct fetch is unavailable', () =>
       sourceKey: 'ZH',
       officialAuctionUrl: ZH_AUCTION_URL,
     })]);
-    expect(relayCalls).toEqual([ZH_AUCTION_URL, PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
+    expect(relayCalls).toEqual([ZH_AUCTION_URL, sourceRelayUrl('zh')]);
   });
 
   it('TI: a served eCari catalogue is parsed directly and the relay is never read', async () => {
@@ -326,7 +327,7 @@ describe('fixed-price connectors read the relay after a direct source failure', 
     const originalFetch = globalThis.fetch;
     globalThis.fetch = vi.fn(async (url: string | URL) => {
       calls.push(String(url));
-      if (String(url) === PLATE_AUCTION_PUBLIC_API_RELAY_URL) {
+      if (String(url) === sourceRelayUrl('ur')) {
         return new Response(JSON.stringify(relay), { status: 200 });
       }
       throw new TypeError('fetch failed');
@@ -339,7 +340,7 @@ describe('fixed-price connectors read the relay after a direct source failure', 
         sourceKey: 'UR',
         officialAuctionUrl: urSource.officialUrl,
       })]);
-      expect(calls.at(-1)).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
+      expect(calls.at(-1)).toBe(sourceRelayUrl('ur'));
     } finally {
       globalThis.fetch = originalFetch;
     }

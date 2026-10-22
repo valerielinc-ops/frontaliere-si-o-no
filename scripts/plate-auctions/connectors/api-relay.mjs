@@ -53,14 +53,19 @@ function errorMessage(error) {
 export async function readPublicApiRelayPayload(relayUrl, {
   attempts = PLATE_AUCTION_API_RELAY_READ_ATTEMPTS,
   retryDelayMs = PLATE_AUCTION_API_RELAY_RETRY_DELAY_MS,
+  sourceKey,
+  fresh,
 } = {}) {
   let lastError;
+  const requestUrl = new URL(relayUrl);
+  if (sourceKey) requestUrl.searchParams.set('source', String(sourceKey).trim().toLowerCase());
+  if (fresh !== undefined) requestUrl.searchParams.set('fresh', String(fresh));
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     // A missing relay endpoint is a transport failure, not a transient
     // catalogue publication. Keep the shared helper's 5xx/network retries,
     // but do not turn one HTTP 404 into three relay reads; the loop below is
     // reserved for incomplete 2xx bodies.
-    const body = await fetchHtml(relayUrl, { retryOn404: false });
+    const body = await fetchHtml(requestUrl, { retryOn404: false });
     try {
       return JSON.parse(body);
     } catch (parseError) {
@@ -142,7 +147,14 @@ export async function fetchWithPublicApiRelay({
     if (process.env.PLATE_AUCTION_ENABLE_API_RELAY !== "1") throw directError;
 
     try {
-      const payload = await readPublicApiRelayPayload(relayUrl, { retryDelayMs: relayRetryDelayMs });
+      const payload = await readPublicApiRelayPayload(relayUrl, {
+        retryDelayMs: relayRetryDelayMs,
+        sourceKey,
+        // The endpoint keeps a five-minute public cache for browser clients;
+        // the static collector needs the source state from this run, not a
+        // cached 500 or an older relay response after a function restart.
+        fresh: now.getTime(),
+      });
       const rows = rowsFromPublicApiRelay(payload, {
         sourceKey,
         plateCode,
