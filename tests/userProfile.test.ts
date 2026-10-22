@@ -6,6 +6,7 @@
  */
 import {
   loadUserProfile,
+  mergeLegacyProfileImport,
   profileToSimInputs,
   type UserProfileData,
   type FamilyMember,
@@ -21,9 +22,83 @@ const BASE_FIELDS: Pick<UserProfileData, 'gender' | 'workplace' | 'preferredDoga
   permitExpiry: '',
 };
 
+const emptyProfile = (): UserProfileData => ({
+  workPosition: '',
+  age: '',
+  gender: '',
+  familySituation: '',
+  frontaliereType: '',
+  municipality: '',
+  children: '',
+  familyMembers: '',
+  familyMembersList: [],
+  workplace: '',
+  preferredDogana: '',
+  preferredLanguage: '',
+  grossSalary: '',
+  permitExpiry: '',
+});
+
 describe('UserProfile helpers', () => {
   beforeEach(() => {
     localStorage.clear();
+  });
+
+  describe('mergeLegacyProfileImport', () => {
+    it('preserves an explicitly blank private field instead of restoring stale legacy data', () => {
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: { workPosition: '' },
+        localProfile: { workPosition: '' },
+        legacy: { workPosition: 'Engineer' },
+        cvPrefill: { workPosition: 'Analyst' },
+        editedFields: new Set(),
+      });
+
+      expect(merged.workPosition).toBe('');
+    });
+
+    it('preserves an explicitly empty private family list instead of restoring deleted legacy members', () => {
+      const deletedMember: FamilyMember = {
+        id: 'legacy-child',
+        relationship: 'child',
+        liveTogether: true,
+        dependent: true,
+      };
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: { familyMembersList: [] },
+        localProfile: { familyMembersList: [] },
+        legacy: { familyMembersList: [deletedMember] },
+        cvPrefill: { familyMembersList: [deletedMember] },
+        editedFields: new Set(),
+      });
+
+      expect(merged.familyMembersList).toEqual([]);
+    });
+
+    it('imports legacy values when the corresponding private fields are absent', () => {
+      const legacyMember: FamilyMember = {
+        id: 'legacy-child',
+        relationship: 'child',
+        liveTogether: true,
+        dependent: true,
+      };
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: {},
+        localProfile: { workPosition: '', familyMembersList: [] },
+        legacy: { workPosition: 'Engineer', familyMembersList: [legacyMember] },
+        cvPrefill: {},
+        editedFields: new Set(),
+      });
+
+      expect(merged.workPosition).toBe('Engineer');
+      expect(merged.familyMembersList).toEqual([legacyMember]);
+    });
   });
 
   describe('loadUserProfile', () => {
