@@ -169,20 +169,15 @@ export const NEWSLETTER_AFFILIATE_ENTRIES = [
  * Choose the single recommendation for this send, or null when nothing is
  * active (→ the block is not rendered, never an empty box).
  *
- * @param {{ locale?: string, interest?: string, campaign?: string, excludeIds?: string[] }} args
+ * @param {{ locale?: string, interest?: string, campaign?: string }} args
  * @returns {null | { kind: 'sponsor'|'affiliate'|'internal', id: string, name: string, emoji: string, title: string, body: string, cta: string, disclosure: string, url?: string, goId?: string }}
  */
-export function pickNewsletterRecommendation({ locale, interest, campaign, excludeIds } = {}) {
+export function pickNewsletterRecommendation({ locale, interest, campaign } = {}) {
   const loc = normLocale(locale);
-  const excludedIds = new Set(
-    (Array.isArray(excludeIds) ? excludeIds : [excludeIds])
-      .filter(Boolean)
-      .map((id) => String(id)),
-  );
 
   // 1. Paid sponsor wins (guaranteed revenue).
   const activeSponsors = NEWSLETTER_SPONSORS
-    .filter((s) => s && s.active && s.url && s.copy?.[loc] && !excludedIds.has(String(s.id)))
+    .filter((s) => s && s.active && s.url && s.copy?.[loc])
     .sort((a, b) => (b.weight || 0) - (a.weight || 0));
   if (activeSponsors.length > 0) {
     const s = activeSponsors[0];
@@ -209,7 +204,6 @@ export function pickNewsletterRecommendation({ locale, interest, campaign, exclu
   if (
     serviceCampaign
     && APPLICATION_CONCIERGE_RECOMMENDATION.interests.includes(wanted)
-    && !excludedIds.has(APPLICATION_CONCIERGE_RECOMMENDATION.id)
   ) {
     const c = APPLICATION_CONCIERGE_RECOMMENDATION.copy[loc];
     return {
@@ -225,12 +219,7 @@ export function pickNewsletterRecommendation({ locale, interest, campaign, exclu
   const candidates = NEWSLETTER_AFFILIATE_ENTRIES
     .map((entry) => {
       const partner = getEnabledPartner(entry.goId); // null when disabled/unknown
-      if (
-        !partner
-        || !entry.copy?.[loc]
-        || excludedIds.has(String(entry.goId))
-        || excludedIds.has(String(partner.id))
-      ) return null;
+      if (!partner || !entry.copy?.[loc]) return null;
       const matches = (entry.interests || []).includes(wanted);
       return { entry, partner, matches, priority: partner.priority || 0 };
     })
@@ -349,12 +338,12 @@ export function buildRecommendedHref(rec, { acquisitionSource, campaign, placeme
  * renders the block once can omit it (defaults to 1), one that renders it twice
  * must number them, or the two clicks come back under the same `pos`.
  *
- * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number, excludeIds?: string[] }} [args]
+ * @param {{ locale?: string, interest?: string, acquisitionSource?: string|null, campaign?: string, placement?: string, slot?: number }} [args]
  * @returns {string} HTML `<tr>…</tr>` or ''
  */
-export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement, slot, excludeIds } = {}) {
+export function renderRecommendedBlock({ locale, interest, acquisitionSource, campaign, placement, slot } = {}) {
   const loc = normLocale(locale);
-  const rec = pickNewsletterRecommendation({ locale: loc, interest, campaign, excludeIds });
+  const rec = pickNewsletterRecommendation({ locale: loc, interest, campaign });
   if (!rec) return '';
 
   const href = buildRecommendedHref(rec, { acquisitionSource, campaign, placement, slot });

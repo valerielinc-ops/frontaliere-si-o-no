@@ -320,13 +320,17 @@ describe('job alert email — plaintext alternative', () => {
   });
 });
 
-describe('job alert email — engagement suite does not duplicate the recommendation slot', () => {
-  it('renders the automation destination once and keeps the recommendation slot for an affiliate', () => {
+describe('job alert email — recommendation owns the automation CTA', () => {
+  it('keeps the original automation recommendation and does not duplicate it in the engagement suite', () => {
     const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
     const automationPathMatches = result.html.match(/automatizza-ricerca-lavoro-svizzera/g) || [];
 
     expect(automationPathMatches).toHaveLength(1);
-    expect(result.html).toContain('/go/');
+    expect(result.html).toContain('Consigliato per te');
+    expect(result.html).toContain('Automatizza la ricerca di lavoro in Svizzera');
+    const engagementStart = result.html.indexOf('data-email-component="engagement-banners"');
+    expect(engagementStart).toBeGreaterThan(-1);
+    expect(result.html.slice(engagementStart)).not.toContain('Automatizza la ricerca di lavoro');
     expect((result.html.match(/Automatizza/g) || [])).toHaveLength(1);
   });
 });

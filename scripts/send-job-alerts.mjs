@@ -1344,10 +1344,6 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
           interest: 'jobs',
           acquisitionSource: alert.acquisitionSource || alert.source || null,
           campaign: 'jobalert',
-          // The engagement suite below already owns the automation CTA. Keep
-          // this revenue slot, but rotate to an affiliate instead of showing
-          // the same first-party service twice in one job alert.
-          excludeIds: ['application-concierge'],
         })}
 
         <!-- Closer (aligned with newsletter) -->
@@ -1358,7 +1354,7 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
           </div>
         </td></tr>
 
-        ${renderEmailEngagementBanners({ locale })}
+        ${renderEmailEngagementBanners({ locale, includeAutomation: false })}
 
         <!-- Footer (dark, aligned with newsletter) -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">

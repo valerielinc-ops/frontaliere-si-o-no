@@ -800,10 +800,6 @@ export function buildNewsletter(data) {
     interest: data.interest,
     acquisitionSource: data.acquisitionSource,
     campaign: data.recommendationCampaign,
-    // The closing engagement suite already renders the automation CTA. The
-    // recommendation slot stays available for a partner without duplicating
-    // that first-party service in weekly sends.
-    excludeIds: ['application-concierge'],
   });
 
   // 12. Closer
@@ -812,7 +808,7 @@ export function buildNewsletter(data) {
   // 13. Engagement suite — the three closing cards stay in this order across
   // every editorial/lifecycle email. Telegram remains conditional until its
   // public Remote Config URL is available.
-  html += renderEmailEngagementBanners({ locale, telegramUrl: data.telegramChannelUrl });
+  html += renderEmailEngagementBanners({ locale, telegramUrl: data.telegramChannelUrl, includeAutomation: false });
 
   // 14. Footer
   html += renderFooter(locale, data.unsubscribeUrl, data.preferencesUrl);
