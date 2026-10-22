@@ -236,7 +236,11 @@ export function listDispatchRuns(
   options,
 ) {
   const normalizedOptions = typeof options === 'function' ? { ghImpl: options } : options || {};
-  const event = options === null ? null : (normalizedOptions.event ?? 'workflow_dispatch');
+  const event = options === null
+    ? null
+    : Object.prototype.hasOwnProperty.call(normalizedOptions, 'event')
+      ? normalizedOptions.event
+      : 'workflow_dispatch';
   const ghImpl = normalizedOptions.ghImpl ?? gh;
   const requestedLimit = Number(limit);
   if (!Number.isInteger(requestedLimit) || requestedLimit <= 0) {
