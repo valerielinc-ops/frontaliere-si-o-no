@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, currentEmploymentOption, guardPlan, holdsValue, inferredNativeLanguageCodes, isDateField, knownValuesOf, nativeLanguageOption, normalizeDateAnswer, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
@@ -710,6 +710,48 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
 
     expect(result).toEqual([{ fieldId: 'permit', ok: true }]);
     expect(selected).toBe('G Permit');
+  });
+
+  it('fails closed when a normalized fallback label is ambiguous', async () => {
+    expect(uniqueNormalizedOptionIndex(['Côte d’Ivoire', 'Cote d’Ivoire'], 'Cote d’Ivoire')).toBe(-1);
+
+    let selected = '';
+    const labels = ['française', 'francaise'];
+    const fallbackOptions = {
+      allInnerTexts: vi.fn(async () => labels),
+      nth: vi.fn((index: number) => ({
+        waitFor: vi.fn(async () => {}),
+        click: vi.fn(async () => { selected = labels[index]; }),
+      })),
+    };
+    const control = {
+      click: vi.fn(async () => {}),
+      press: vi.fn(async () => {}),
+      pressSequentially: vi.fn(async () => {}),
+      evaluate: vi.fn(async () => Boolean(selected)),
+    };
+    const missingOption = {
+      first: () => ({ waitFor: vi.fn(async () => { throw new Error('not found'); }) }),
+    };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes('data-aa-id')
+        ? { first: () => control }
+        : fallbackOptions),
+      getByRole: vi.fn((_role: string, options?: { name?: string; exact?: boolean }) => options?.name
+        ? missingOption
+        : fallbackOptions),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'nationality',
+      kind: 'combobox',
+      label: '* Nationalité',
+      selectLike: false,
+    }], [{ fieldId: 'nationality', action: 'select', value: 'francese' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'nationality', ok: false, error: 'option_not_found' }]);
+    expect(fallbackOptions.nth).not.toHaveBeenCalled();
+    expect(selected).toBe('');
   });
 
   it('reports a checkbox that did not commit instead of treating the click as done', async () => {
