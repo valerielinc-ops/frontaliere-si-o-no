@@ -22,7 +22,7 @@
     '[data-portal~="successfactors" i]',
     '[data-portal~="sapsf" i]',
   ].join(', ');
-  const isSuccessFactorsPage = () => {
+  const isSuccessFactorsPage = (validatedChannelType = channelType) => {
     const location = window.location;
     const hostname = String(location?.hostname || '');
     const path = [location?.pathname, location?.search, location?.hash].filter(Boolean).join(' ');
@@ -34,7 +34,7 @@
       document.body?.getAttribute('data-channel'),
       document.body?.getAttribute('data-portal'),
     ].some((value) => String(value || '').split(/[\s,;|]+/).some((token) => SUCCESS_FACTORS_CHANNEL_RE.test(token)));
-    return String(channelType).toLowerCase() === 'successfactors'
+    return String(validatedChannelType).toLowerCase() === 'successfactors'
       || SUCCESS_FACTORS_HOST_RE.test(hostname)
       || SUCCESS_FACTORS_ROUTE_RE.test(path)
       || SUCCESS_FACTORS_URL_MARKER_RE.test(path)
@@ -441,12 +441,12 @@
         // owned picklist, not a free-text combobox.
         && (EMPTY_PICKLIST_RE.test(element.getAttribute('placeholder') || '')
           || EMPTY_PICKLIST_RE.test(element.value || '')
-          || (isSuccessFactorsPage() && /paginatedselect/i.test(String(element.className || '')))
+          || (isSuccessFactorsPage(channelType) && /paginatedselect/i.test(String(element.className || '')))
           // Some SuccessFactors tenants omit the prompt/class decoration on
           // required lazy picklists. The ARIA-owned listbox is the stable
           // control contract; without this branch the initial form snapshot
           // has no options and the planner cannot select the required value.
-          || (isSuccessFactorsPage() && field.required && owned.listbox));
+          || (isSuccessFactorsPage(channelType) && field.required && owned.listbox));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);
