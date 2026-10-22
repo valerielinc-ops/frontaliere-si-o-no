@@ -11,7 +11,7 @@ import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsole
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import { releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
-import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
+import { countStaticAdSlots, countVisibleHtmlChars } from '../scripts/adsense-prereview-thresholds.mjs';
 import {
   EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
@@ -333,8 +333,9 @@ describe('employerProfilePagesPlugin', () => {
     expect(itemList.numberOfItems).toBe(cardCount);
     expect(itemList.itemListElement).toHaveLength(cardCount);
 
-    const audit = auditPage('https://frontaliereticino.ch/aziende/acme-corp/', '', html);
-    expect(audit.issues.filter((issue) => issue.startsWith('low_content_to_ad_ratio:'))).toEqual([]);
+    const staticSlots = countStaticAdSlots(html);
+    expect(staticSlots).toBe(1); // the ratio-safe end-of-content multiplex
+    expect(countVisibleHtmlChars(html)).toBeGreaterThanOrEqual(500 * staticSlots);
   });
 
   it('adds the opt-in mid unit only to the EOC treatment profile', () => {

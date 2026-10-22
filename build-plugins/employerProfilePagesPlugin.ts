@@ -914,8 +914,8 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         const rendered = LOCALES.map((locale) => {
           // Probe without manual ad markup; noindex/thin pages must not carry
           // manual slots. Employer profiles keep the page-level multiplex as
-          // their control unit; the opt-in EOC test and shared every-three-jobs
-          // cadence are added only to the indexable final render below.
+          // their control unit; the opt-in EOC test is added only to the
+          // indexable final render below.
           const bodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
             interleaveInfeedAds: false,
           });
