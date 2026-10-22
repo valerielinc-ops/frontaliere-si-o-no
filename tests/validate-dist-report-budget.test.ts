@@ -1,125 +1,52 @@
-import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 
 /**
- * `validate:page-seo` e' un passo report-only: una camminata seriale su tutto
- * dist/ che costa 60-115 minuti. Girava PRIMA dei validatori bloccanti e ne
- * consumava il budget. Nella pubblicazione 37754770528 il timeout del job
- * (300 min) ha tagliato i gate a meta': un job `cancelled` viene letto da
- * integrity-verdict come `__UNKNOWN__:dist`, quindi integrity_ok=false e il
- * job `publish` (IndexNow, Indexing API, GSC) e' stato saltato.
- *
- * Contratto fissato qui: il report gira per ultimo, con un limite proprio pari
- * al tempo rimasto del job, e non puo' mai essere lui a far scattare il timeout
- * del job.
+ * The 60–115 minute page-quality walk used to be the last step of
+ * validate-dist-postbuild. Keeping it there made a report-only audit hold the
+ * dist-validation lock and delay publish. These assertions pin the split:
+ * the blocking workflow contains integrity only, while the reusable report
+ * workflow owns the quality walk and can be called without a publish edge.
  */
 
 const root = path.resolve(import.meta.dirname, '..');
-const workflowPath = path.join(root, '.github', 'workflows', 'post-deploy-validate-dist.yml');
+const distPath = path.join(root, '.github', 'workflows', 'post-deploy-validate-dist.yml');
+const auditPath = path.join(root, '.github', 'workflows', 'audit-dist-from-run.yml');
+const distText = fs.readFileSync(distPath, 'utf8');
+const auditText = fs.readFileSync(auditPath, 'utf8');
+const distWorkflow = YAML.parse(distText) as any;
+const auditWorkflow = YAML.parse(auditText) as any;
+const distJob = distWorkflow.jobs['validate-dist-postbuild'];
+const auditJob = auditWorkflow.jobs.audit;
 
-type Step = {
-  name?: string;
-  id?: string;
-  if?: string;
-  run?: string;
-  env?: Record<string, string>;
-  'continue-on-error'?: boolean;
-  'timeout-minutes'?: number | string;
-};
+const stepNames = (job: any): string[] => (job?.steps ?? []).map((step: any) => String(step?.name ?? ''));
 
-const workflow = YAML.parse(fs.readFileSync(workflowPath, 'utf8'));
-const job = workflow.jobs['validate-dist-postbuild'] as { 'timeout-minutes': number; steps: Step[] };
-const steps = job.steps;
-const indexOf = (name: string) => steps.findIndex((step) => step.name === name);
-
-const REPORT = 'Validate page SEO quality (report-only)';
-const BUDGET = 'Budget for the report-only SEO quality walk';
-
-function runBudget(env: Record<string, string>): { minutes: string; log: string } {
-  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'seo-report-budget-'));
-  const output = path.join(dir, 'output');
-  fs.writeFileSync(output, '');
-  try {
-    const log = execFileSync('bash', ['-c', String(steps[indexOf(BUDGET)].run)], {
-      env: { PATH: process.env.PATH ?? '', ...steps[indexOf(BUDGET)].env, ...env, GITHUB_OUTPUT: output },
-      encoding: 'utf8',
-    });
-    const match = /^minutes=(.*)$/m.exec(fs.readFileSync(output, 'utf8'));
-    return { minutes: match ? match[1] : '(missing)', log };
-  } finally {
-    fs.rmSync(dir, { recursive: true, force: true });
-  }
-}
-
-const startedMinutesAgo = (minutes: number) => String(Math.floor(Date.now() / 1000) - minutes * 60);
-
-describe('validate-dist: il report SEO non consuma il budget dei gate', () => {
-  it('registra l\'inizio del job come primo passo', () => {
-    expect(steps[0].name).toBe('Record job start');
-    expect(steps[0].run).toContain('VALIDATE_DIST_STARTED_AT=');
-    expect(steps[0].run).toContain('$GITHUB_ENV');
+describe('validate-dist: quality reports stay outside the blocking gate', () => {
+  it('does not carry the serial page-SEO report or its timeout budget', () => {
+    const names = stepNames(distJob);
+    expect(names).not.toContain('Validate page SEO quality (report-only)');
+    expect(names).not.toContain('Budget for the report-only SEO quality walk');
+    expect(distText).not.toContain('npm run validate:page-seo');
+    expect(distText).not.toContain('VALIDATE_DIST_STARTED_AT=');
   });
 
-  it('esegue il report dopo ogni validatore e dopo la pubblicazione del verdetto', () => {
-    const report = indexOf(REPORT);
-    expect(report).toBe(steps.length - 1);
-    expect(indexOf(BUDGET)).toBe(report - 1);
-    for (const earlier of [
-      'Run source validators (parallel — 4 vCPU)',
-      'Post-build validations + SEO audits (capped parallel)',
-      'BFS-depth + orphan-sitemap-pages audits (serial chain)',
-      'Publish combined gate results',
-      'Fail when a dist validator failed',
-    ]) {
-      expect(indexOf(earlier), earlier).toBeGreaterThan(-1);
-      expect(indexOf(earlier), earlier).toBeLessThan(report);
-    }
+  it('keeps the blocking job fail-closed and bounded at 350 minutes', () => {
+    expect(distJob['timeout-minutes']).toBe(350);
+    expect(distText).toContain('collect_failed source /tmp/source-val-results.txt');
+    expect(distText).toContain('collect_failed postbuild /tmp/post-build-timings.txt');
+    expect(distText).not.toContain('collect_failed bfs /tmp/bfs-timings.txt');
+    expect(distText).toContain('missing validator result file');
+    expect(distText).toContain('[ "$FAIL" -eq 0 ] || exit 1');
   });
 
-  it('tiene il report non bloccante e limitato dal budget calcolato', () => {
-    const report = steps[indexOf(REPORT)];
-    expect(report['continue-on-error']).toBe(true);
-    expect(String(report['timeout-minutes'])).toContain('steps.seo_report_budget.outputs.minutes');
-    expect(report.if).toContain("steps.seo_report_budget.outputs.minutes != '0'");
-    expect(report.if).toContain('always()');
-    expect(steps[indexOf(BUDGET)].id).toBe('seo_report_budget');
-    expect(steps[indexOf(BUDGET)].if).toBe('always()');
-  });
-
-  it('calcola il budget sullo stesso timeout dichiarato dal job', () => {
-    expect(steps[indexOf(BUDGET)].env?.VALIDATE_DIST_TIMEOUT_MIN).toBe(String(job['timeout-minutes']));
-    expect(job['timeout-minutes']).toBeLessThan(360);
-  });
-
-  it('in una giornata normale lascia al report il tempo rimasto meno il margine', () => {
-    // 191 min di gate (run dell'8 ottobre 01:00 UTC): 350 - 10 - 191 = 149.
-    const { minutes } = runBudget({ VALIDATE_DIST_STARTED_AT: startedMinutesAgo(191) });
-    expect(Number(minutes)).toBeGreaterThanOrEqual(148);
-    expect(Number(minutes)).toBeLessThanOrEqual(149);
-  });
-
-  it('in una giornata lenta salta il report invece di sforare il timeout del job', () => {
-    const { minutes, log } = runBudget({ VALIDATE_DIST_STARTED_AT: startedMinutesAgo(330) });
-    expect(minutes).toBe('0');
-    expect(log).toContain('SEO quality report skipped');
-  });
-
-  it('non concede mai piu\' del tempo rimasto', () => {
-    for (const elapsed of [0, 60, 200, 300, 324, 326, 349, 400]) {
-      const { minutes } = runBudget({ VALIDATE_DIST_STARTED_AT: startedMinutesAgo(elapsed) });
-      const granted = Number(minutes);
-      expect(granted === 0 || granted >= 15, `elapsed=${elapsed}`).toBe(true);
-      expect(granted + elapsed, `elapsed=${elapsed}`).toBeLessThanOrEqual(job['timeout-minutes'] - 10 + (granted === 0 ? elapsed : 0));
-    }
-  });
-
-  it('salta il report se manca l\'orario di inizio', () => {
-    const { minutes, log } = runBudget({ VALIDATE_DIST_STARTED_AT: '' });
-    expect(minutes).toBe('0');
-    expect(log).toContain('job start timestamp missing');
+  it('exposes audit-dist-from-run as a reusable report workflow', () => {
+    expect(auditWorkflow.on.workflow_call).toBeTruthy();
+    expect(auditWorkflow.on.workflow_call.inputs.deploy_run_id.required).toBe(true);
+    expect(auditWorkflow.on.workflow_call.inputs.audit_all_audits).toBeTruthy();
+    expect(auditWorkflow.on.workflow_call.inputs.shard_artifact_run_id).toBeTruthy();
+    expect(auditJob?.steps?.find((step: any) => step.name === 'Run requested audits')?.env?.INPUT_AUDIT_ALL).toContain('inputs.audit_all_audits');
+    expect(auditText).toContain('report:meta-description');
   });
 });

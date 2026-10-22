@@ -22,6 +22,15 @@ const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
 const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
+const AUDIT_REPORT_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-dist-from-run.yml'), 'utf-8');
+const AUDIT_SURFACE_YML = `${VALIDATION_YML}\n${AUDIT_REPORT_YML}\n${DEPLOY_PUBLISH_YML}`;
+const DEPLOY_PUBLISH_WORKFLOW = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+const REPORT_AUDIT_NAMES = new Set<string>([
+  ...String(DEPLOY_PUBLISH_WORKFLOW.jobs?.['audit-dist-report']?.with?.audits ?? '')
+    .split(/[\s,]+/).filter(Boolean),
+  ...String(DEPLOY_PUBLISH_WORKFLOW.jobs?.['audit-dist-report']?.with?.audit_all_audits ?? '')
+    .split(/[\s,]+/).filter(Boolean).map((name) => `audit:${name}`),
+]);
 // Every workflow that uploads dist/audit-reports/** as an artifact — the
 // directory scripts/lib/auditReport.mjs writes to (discover-eligibility.json
 // included). Since #6202 that report is written only 1-in-7 post-deploy
@@ -61,7 +70,7 @@ const PAGES_ARTIFACT_EXTRACTION_WORKFLOWS = [
 
 // `audit:title-uniqueness` was moved to a separate weekly workflow because it
 // OOM-killed the parallel block. All remaining gates must stay in parallel.
-const AUDIT_SCRIPTS_IN_PARALLEL_BLOCK = [
+const AUDIT_SCRIPTS_IN_VALIDATION_SURFACE = [
   'audit:hreflang',
   'audit:content-duplicates',
   'audit:page-weight',
@@ -95,23 +104,24 @@ const POSTBUILD_VALIDATIONS_STEP = (YAML.parse(VALIDATION_YML) as any).jobs['val
  */
 function isInvokedDirectlyOrViaAuditAll(name: string): boolean {
   const directRe = new RegExp(`npm run ${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
-  if (directRe.test(VALIDATION_YML)) return true;
-  return AUDIT_ALL_WRAPS.has(name) && /npm run audit:all\b/.test(VALIDATION_YML);
+  if (directRe.test(AUDIT_SURFACE_YML)) return true;
+  if (REPORT_AUDIT_NAMES.has(name) && /script=\$\(resolve_script "\$n"\)/.test(AUDIT_REPORT_YML)) return true;
+  return AUDIT_ALL_WRAPS.has(name) && /npm run audit:all\b/.test(AUDIT_SURFACE_YML);
 }
 
-describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
-  it('every gate in the parallel block is defined in package.json', () => {
+describe('post-deploy validation/report surface — audit wiring', () => {
+  it('every audit in the validation/report surface is defined in package.json', () => {
     const scripts = PACKAGE_JSON.scripts || {};
-    for (const name of AUDIT_SCRIPTS_IN_PARALLEL_BLOCK) {
-      expect(scripts[name], `missing npm script "${name}" referenced by post-deploy-validate-dist.yml`).toBeDefined();
+    for (const name of AUDIT_SCRIPTS_IN_VALIDATION_SURFACE) {
+      expect(scripts[name], `missing npm script "${name}" referenced by the post-deploy audit surface`).toBeDefined();
     }
   });
 
-  it('every gate is reachable from post-deploy-validate-dist.yml (directly or via audit:all)', () => {
-    for (const name of AUDIT_SCRIPTS_IN_PARALLEL_BLOCK) {
+  it('every audit is reachable from the validation/report surface (directly or via audit:all)', () => {
+    for (const name of AUDIT_SCRIPTS_IN_VALIDATION_SURFACE) {
       expect(
         isInvokedDirectlyOrViaAuditAll(name),
-        `"${name}" is unreachable from post-deploy-validate-dist.yml. ` +
+        `"${name}" is unreachable from the post-deploy validation/report surface. ` +
         `Either invoke it directly via \`npm run ${name}\`, or register it in ` +
         `scripts/audit-all.mjs REGISTRY (audit-all is invoked in workflow). ` +
         `audit-all currently wraps: ${[...AUDIT_ALL_WRAPS].sort().join(', ')}`,
@@ -152,12 +162,36 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     expect(workflow.jobs['validate-dist-postbuild-bfs']).toBeUndefined();
     expect(VALIDATION_YML.match(/- name: Rehydrate locale then section shards into dist\//g)).toHaveLength(1);
     expect(VALIDATION_YML).toContain('collect_failed source /tmp/source-val-results.txt');
-    expect(VALIDATION_YML).toContain('collect_failed bfs /tmp/bfs-timings.txt');
+    expect(VALIDATION_YML).not.toContain('collect_failed bfs /tmp/bfs-timings.txt');
+    expect(VALIDATION_YML).not.toContain('BFS-depth + orphan-sitemap-pages audits (serial chain)');
     expect(VALIDATION_YML).toContain('gate-offenders');
     expect(VALIDATION_YML).toContain('Fail when a dist validator failed');
   });
 
-  it('any new audit:* script added to package.json must be reachable in post-deploy-validate-dist.yml (direct or via audit:all)', () => {
+  it('keeps report-only dist/live audits out of the publish dependency and lock', () => {
+    const workflow = YAML.parse(DEPLOY_PUBLISH_YML) as any;
+    const reportDist = workflow.jobs['audit-dist-report'];
+    const reportLive = workflow.jobs['audit-live-report'];
+    const publishNeeds = workflow.jobs.publish.needs as string[];
+
+    expect(reportDist?.uses).toBe('./.github/workflows/audit-dist-from-run.yml');
+    expect(reportLive?.uses).toBe('./.github/workflows/post-deploy-audit-live.yml');
+    expect(String(reportDist?.with?.audits)).toContain('validate:page-seo');
+    expect(String(reportDist?.with?.audits)).toContain('audit:max-bfs-depth');
+    expect(String(reportDist?.with?.audits)).toContain('validate:og-images');
+    expect(String(reportDist?.with?.audits)).toContain('gate:seo-source');
+    expect(VALIDATION_YML).not.toContain('npm run validate:og-images');
+    expect(VALIDATION_YML).not.toContain('npm run gate:seo-source');
+    expect(publishNeeds).not.toContain('audit-dist-report');
+    expect(publishNeeds).not.toContain('audit-live-report');
+    expect(workflow.jobs.publish.if).toContain('always()');
+    expect(workflow.jobs.publish.if).not.toContain("needs.validate-dist.result == 'success'");
+    expect(workflow.jobs.publish.if).toContain("needs.validate-dist.outputs.integrity_ok == 'true'");
+    expect(reportDist?.concurrency).toBeUndefined();
+    expect(reportLive?.concurrency).toBeUndefined();
+  });
+
+  it('any new audit:* script added to package.json must be reachable in the post-deploy validation/report surface', () => {
     // Gates intentionally NOT in the dist-validate parallel block:
     // - `:rebaseline` variants mutate the checked-in baseline; never CI.
     // - `audit:title-uniqueness` runs on a separate weekly workflow because
