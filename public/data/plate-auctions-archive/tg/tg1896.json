@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109688",
+      "sourceKey": "TG",
+      "sourceRecordId": "109688",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "1896",
+      "normalizedPlate": "TG1896",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 500,
+      "bidCount": 0,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109688",
+      "sourceFetchedAt": "2026-10-19T04:40:58.899Z",
+      "lastVerifiedAt": "2026-10-19T04:40:58.899Z",
+      "firstSeenAt": "2026-10-07T06:06:06.221Z",
+      "lastSeenAt": "2026-10-19T04:40:58.899Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "a60a15e389a2"
+    }
+  ]
+}

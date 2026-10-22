@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109811",
+      "sourceKey": "TG",
+      "sourceRecordId": "109811",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "579957",
+      "normalizedPlate": "TG579957",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109811",
+      "sourceFetchedAt": "2026-10-21T04:46:43.306Z",
+      "lastVerifiedAt": "2026-10-21T04:46:43.306Z",
+      "firstSeenAt": "2026-10-09T22:43:12.558Z",
+      "lastSeenAt": "2026-10-21T04:46:43.306Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "0daccc952b49"
+    }
+  ]
+}
