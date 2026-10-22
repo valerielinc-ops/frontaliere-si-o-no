@@ -23,7 +23,7 @@ const BRANCH = 'main';
 // deploy.yml's scheduled run is only a queue reconciler: it deliberately
 // skips the build graph and therefore never owns a Pages artifact. Only the
 // direct build triggers can be handed to deploy-publish.yml.
-const BUILD_EVENTS = new Set(['push', 'workflow_dispatch']);
+const BUILD_EVENTS = new Set(['workflow_dispatch', 'push']);
 const RUN_LISTING_WINDOW_DAYS = 35;
 const LIVE_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending', 'action_required']);
 const ACTIVE_DEPLOYMENT_STATES = new Set(['queued', 'pending', 'in_progress', 'waiting']);
