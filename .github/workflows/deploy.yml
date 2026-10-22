@@ -175,6 +175,7 @@ jobs:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
             /scripts/ci/translation-deploy-handoff.mjs
+            /scripts/lib/is-invoked-directly.mjs
             /data/translation-deploy-handoff.json
           sparse-checkout-cone-mode: false
       - name: Reject an incomplete translation tree
