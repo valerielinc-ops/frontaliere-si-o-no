@@ -143,6 +143,19 @@ export function residenceCountryCode(value) {
   const text = fold(value);
   const catalogueCode = nationalityOf(text)?.code;
   if (catalogueCode) return catalogueCode;
+  // Country picklists commonly append or prepend the ISO code (for example
+  // «Switzerland (CH)» or «CH - Switzerland»). Match one exact two-letter
+  // token; never treat a substring such as «IT» inside another label as a
+  // country.
+  const raw = String(value ?? '').replace(/\s+/g, ' ').trim();
+  const codeMatch = /(?:^|[\s([{:\/\-–—])([A-Z]{2})(?=$|[\s)\]}:\/\-–—])/i.exec(raw);
+  const code = codeMatch?.[1]?.toUpperCase() || '';
+  if (/^(?:IT|CH|DE|FR)$/.test(code)) {
+    const start = codeMatch.index + codeMatch[0].length - code.length;
+    const left = raw.slice(0, start).trimEnd().at(-1) || '';
+    const right = raw.slice(start + code.length).trimStart()[0] || '';
+    if (text === code.toLowerCase() || /[()[\]{}:\/\-–—]/.test(`${left}${right}`)) return code;
+  }
   if (/^(?:it|italia|italy|italie|italien)$/.test(text)) return 'IT';
   if (/^(?:ch|svizzera|switzerland|suisse|schweiz)$/.test(text)) return 'CH';
   if (/^(?:de|germania|germany|allemagne|deutschland)$/.test(text)) return 'DE';
