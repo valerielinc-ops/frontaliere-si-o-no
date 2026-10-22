@@ -18,7 +18,8 @@ function escapeMetaAttribute(value: string): string {
 }
 
 function hasMetaName(html: string, name: string): boolean {
-  return (html.match(/<meta\b[^>]*>/gi) ?? []).some((tag) => {
+  const tags: string[] = html.match(/<meta\b[^>]*>/gi) ?? [];
+  return tags.some((tag) => {
     const match = tag.match(/\bname\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s/>]+))/i);
     return [match?.[1], match?.[2], match?.[3]]
       .some((value) => value?.toLowerCase() === name.toLowerCase());
