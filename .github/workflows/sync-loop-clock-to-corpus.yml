@@ -1,0 +1,61 @@
+name: Sync loop-clock contract to the corpus
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/ci/patch-corpus-loop-clock-workflow.mjs'
+      - 'scripts/ci/sync-loop-clock-to-corpus.sh'
+      - '.github/workflows/sync-loop-clock-to-corpus.yml'
+      - 'functions/src/loopClockTable.js'
+      - '.github/workflows/issue-triage.yml'
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-loop-clock-to-corpus
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout transport
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /scripts/ci/patch-corpus-loop-clock-workflow.mjs
+            /scripts/ci/sync-loop-clock-to-corpus.sh
+            /scripts/ci/pr-body-check-gate.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
+            /scripts/ci/lib/hook-command-parser.mjs
+            /scripts/ci/lib/hook-exit-codes.mjs
+            /scripts/ci/lib/hook-stdin.mjs
+            /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/pr-body-closes-check.mjs
+            /scripts/lib/pr-body-sections-check.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Deliver loop-clock workflow contract through a corpus PR
+        env:
+          ARTICLES_REPO_PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if bash scripts/ci/sync-loop-clock-to-corpus.sh; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo '::error::loop-clock corpus transport exhausted 3 attempts'
+              exit 1
+            fi
+            delay=$((attempt * 30))
+            echo "::warning::loop-clock corpus transport attempt $attempt failed; retrying in ${delay}s"
+            sleep "$delay"
+          done
