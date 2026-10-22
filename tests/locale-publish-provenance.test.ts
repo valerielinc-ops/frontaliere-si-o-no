@@ -242,7 +242,7 @@ describe('locale publish admission plan', () => {
       recoveryRequired: true,
       legacySourceLocales: ['en', 'de', 'fr'],
     });
-    expect(plan.reason).toContain('dispatch a current build to replay the split handoff');
+    expect(plan.reason).toContain('enqueue one current build request to replay the split handoff');
   });
 
   it('blocks the snapshot when one matrix leg is cancelled', () => {
@@ -511,27 +511,38 @@ describe('locale publish workflow wiring', () => {
     expect(String(resolver.if)).toContain("needs.validate-source-build.result == 'success'");
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
     expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
-    expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
+    expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'resolve-nonit-publish']);
     expect(String(deployJob.if)).toContain('outputs.allowed');
     expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
+    expect(String(deployJob.if)).toContain("needs.resolve-publish-receipts.result == 'success'");
     expect(String(deployJob.if)).toContain("needs.resolve-nonit-publish.outputs.allowed == 'true'");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
     expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
-    expect(publish.jobs['resolve-nonit-publish'].needs).toEqual(['resolve-publish-plan', 'publish-nonit-shards']);
-    const recovery = publish.jobs['recover-legacy-publish-contract'];
-    expect(recovery.needs).toBe('resolve-publish-plan');
-    expect(String(recovery.if)).toContain('outputs.recovery_required');
-    expect(recovery.permissions.actions).toBe('write');
-    expect((recovery.steps as Array<Record<string, any>>)
-      .find((step) => step.name === 'Dispatch a current build')?.run)
-      .toContain('gh workflow run deploy.yml');
+    expect(publish.jobs['resolve-nonit-publish'].needs)
+      .toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'publish-nonit-shards']);
+    expect(publish.jobs['resolve-publish-receipts']).toBeDefined();
+    expect(publish.jobs['resolve-publish-receipts'].outputs.pages_deployed)
+      .toContain('steps.receipts.outputs.pages_deployed');
+    expect(publish.jobs['recover-legacy-publish-contract']).toBeDefined();
+    expect(publish.jobs['recover-legacy-publish-contract'].permissions)
+      .toMatchObject({ statuses: 'write' });
+    expect(publish.jobs['recover-legacy-publish-contract'].steps
+      .find((step: Record<string, any>) => step.name === 'Enqueue one current build for the legacy source contract')?.run)
+      .toContain('deploy-rearm-request.mjs');
+    expect(publish).not.toContain('gh workflow run deploy.yml');
     expect((publish.jobs['resolve-nonit-publish'].steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Checkout current publish resolver')?.with?.ref)
       .toBe('refs/heads/main');
     const tailJob = publish.jobs['publish-nonit-shards'];
+    expect((tailJob.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Checkout durable receipt resolver')?.with?.ref)
+      .toBe('refs/heads/main');
+    expect((tailJob.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Recheck durable locale receipt before shard side effects')?.run)
+      .toContain('publish-receipts.mjs');
     expect(String(tailJob.strategy.matrix.locale)).toContain(
-      'fromJSON(needs.resolve-publish-plan.outputs.tail_locales)',
+      'fromJSON(needs.resolve-publish-receipts.outputs.pending_locales)',
     );
     expect(String(tailJob.if)).not.toContain('matrix.locale');
     expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'deploy']);
@@ -539,6 +550,16 @@ describe('locale publish workflow wiring', () => {
     const recheck = (deployJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Enforce IT provenance identity');
     expect(String(recheck?.run)).toContain('--validate-dir');
+  });
+
+  it('rehydrates the Pages artifact even when the Pages side effect is already receipted', () => {
+    const deploySteps = publish.jobs.deploy.steps as Array<Record<string, any>>;
+    const download = deploySteps.find((step) => step.name === 'Download github-pages artifact from the build run');
+    const upload = deploySteps.find((step) => step.name === 'Re-upload github-pages artifact into this run');
+    const pagesSideEffect = deploySteps.find((step) => step.name === 'Deploy to GitHub Pages');
+    expect(String(download?.if || '')).not.toContain('pages_deployed');
+    expect(String(upload?.if || '')).not.toContain('pages_deployed');
+    expect(String(pagesSideEffect?.if || '')).toContain("steps.pages-receipt.outputs.pages_deployed != 'true'");
   });
 
   it('records the deferred tail budget outcome in the final receipt', () => {

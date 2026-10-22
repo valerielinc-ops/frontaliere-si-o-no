@@ -184,13 +184,9 @@ jobs:
           # nondeterministic, so losing the local commit must remain visible.
           bash scripts/lib/git-push-with-retry.sh --max-attempts 3
 
-      - name: Trigger deploy
+      - name: Record self-driven deploy handoff
         if: steps.count.outputs.modified_count != '0'
-        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
-        # fails the job, caught by "Report failure to GitHub Issues" below —
-        # that GitHub issue IS this caller's recovery net (auto-triage picks
-        # it up), so silencing the failure would just hide a real deploy gap.
-        run: bash scripts/lib/trigger-deploy.sh
+        run: echo '✅ FAQ committate; la coda deploy self-driven osserverà il nuovo SHA.'
 
       - name: Summary
         if: always()

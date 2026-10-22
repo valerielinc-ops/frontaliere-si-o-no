@@ -9,8 +9,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-lager-m-w-d-planzer-domat-ems",
         "it": "collaboratore-trice-magazzino-m-w-d-planzer-domat-ems",
-        "en": "mitarbeiter-lager-m-w-d-planzer-domat-ems",
-        "fr": "mitarbeiter-lager-m-w-d-planzer-domat-ems"
+        "en": "employee-camp-m-f-d-planzer-domat-ems",
+        "fr": "camp-des-employes-h-f-d-planzer-domat-ems"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -60,6 +60,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-lager-m-w-d-planzer-domat-ems"
+        ],
+        "en": [
+          "mitarbeiter-lager-m-w-d-planzer-domat-ems"
+        ],
+        "fr": [
+          "mitarbeiter-lager-m-w-d-planzer-domat-ems"
         ]
       },
       "previousSlugs": [
@@ -82,12 +88,12 @@
     },
     {
       "id": "planzer-bfbd809561ae",
-      "slug": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
+      "slug": "logistician-ne-cfc-learning-orientamento-storage-planzer-satigny-meyrin",
       "slugByLocale": {
         "fr": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
-        "it": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
-        "en": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin",
-        "de": "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        "it": "logistician-ne-cfc-learning-orientamento-storage-planzer-satigny-meyrin",
+        "en": "logistician-ne-cfc-learning-storage-orientation-planzer-satigny-meyrin",
+        "de": "logistiker-ne-cfc-lernen-lagerungsorientierung-planzer-satigny-meyrin"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -146,16 +152,30 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        ],
+        "en": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        ],
+        "de": [
+          "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-logisticien-ne-cfc-orientation-stockage-planzer-satigny-meyrin"
+      ]
     },
     {
       "id": "planzer-4fe3b1143169",
-      "slug": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
+      "slug": "logistician-ne-cfc-learning-orientamento-alla-distribuzione-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
-        "it": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
-        "en": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy",
-        "de": "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        "it": "logistician-ne-cfc-learning-orientamento-alla-distribuzione-planzer-grand-lancy",
+        "en": "logistician-ne-cfc-learning-distribution-orientation-planzer-grand-lancy",
+        "de": "logistiker-ne-cfc-lernen-verteilungsorientierung-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -214,16 +234,30 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        ],
+        "en": [
+          "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        ],
+        "de": [
+          "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-logisticien-ne-cfc-orientation-distribution-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-471943161a4b",
-      "slug": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
+      "slug": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
-        "it": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
-        "en": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy",
-        "de": "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        "it": "apprendimento-dipendente-di-affari-swc-ramo-di-trasporto-planzer-grand-lancy",
+        "en": "learning-business-employee-swc-transportation-branch-planzer-grand-lancy",
+        "de": "learning-business-mitarbeiter-swc-transportation-branch-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -282,16 +316,30 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        ],
+        "en": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        ],
+        "de": [
+          "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-employe-e-de-commerce-cfc-branche-transport-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-a3eda6605e04",
-      "slug": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
+      "slug": "formazione-cfc-driver-del-veicolo-pesante-planzer-grand-lancy",
       "slugByLocale": {
         "fr": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
-        "it": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
-        "en": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy",
-        "de": "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        "it": "formazione-cfc-driver-del-veicolo-pesante-planzer-grand-lancy",
+        "en": "learning-cfc-heavy-vehicle-driver-planzer-grand-lancy",
+        "de": "lernen-cfc-fahrer-schwerer-nutzfahrzeuge-planzer-grand-lancy"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -350,16 +398,30 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        ],
+        "en": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        ],
+        "de": [
+          "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-conducteur-trice-de-vehicules-lourds-cfc-planzer-grand-lancy"
+      ]
     },
     {
       "id": "planzer-31e8ab4aa65a",
-      "slug": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
+      "slug": "team-leader-nella-raccolta-m-f-d-planzer-villmergen",
       "slugByLocale": {
         "de": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
-        "it": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
-        "en": "teamleiter-kommissionierung-m-w-d-planzer-villmergen",
-        "fr": "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        "it": "team-leader-nella-raccolta-m-f-d-planzer-villmergen",
+        "en": "team-leader-picking-m-f-d-planzer-villmergen",
+        "fr": "chef-d-equipe-selection-h-f-d-planzer-villmergen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -419,16 +481,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:15:37.458Z"
+      "firstSeenAt": "2026-10-22T09:15:37.458Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "en": [
+          "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        ],
+        "fr": [
+          "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kommissionierung-m-w-d-planzer-villmergen"
+      ]
     },
     {
       "id": "planzer-79a02bc4b7a5",
-      "slug": "paketzusteller-samstag-m-w-d-planzer-bern",
+      "slug": "consegna-del-parco-sabato-m-f-d-planzer-bern",
       "slugByLocale": {
         "de": "paketzusteller-samstag-m-w-d-planzer-bern",
-        "it": "paketzusteller-samstag-m-w-d-planzer-bern",
-        "en": "paketzusteller-samstag-m-w-d-planzer-bern",
-        "fr": "paketzusteller-samstag-m-w-d-planzer-bern"
+        "it": "consegna-del-parco-sabato-m-f-d-planzer-bern",
+        "en": "parcel-delivery-saturday-m-f-d-planzer-bern",
+        "fr": "livraison-par-colis-samedi-h-f-d-planzer-bern"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -488,16 +564,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:15:36.822Z"
+      "firstSeenAt": "2026-10-22T09:15:36.822Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "paketzusteller-samstag-m-w-d-planzer-bern"
+        ],
+        "en": [
+          "paketzusteller-samstag-m-w-d-planzer-bern"
+        ],
+        "fr": [
+          "paketzusteller-samstag-m-w-d-planzer-bern"
+        ]
+      },
+      "previousSlugs": [
+        "paketzusteller-samstag-m-w-d-planzer-bern"
+      ]
     },
     {
       "id": "planzer-71fa488cc1eb",
-      "slug": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
+      "slug": "cuoco-con-responsabilita-amministrative-m-f-d-planzer-pratteln",
       "slugByLocale": {
         "de": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
-        "it": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
-        "en": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln",
-        "fr": "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        "it": "cuoco-con-responsabilita-amministrative-m-f-d-planzer-pratteln",
+        "en": "cook-with-administrative-responsibility-m-f-d-planzer-pratteln",
+        "fr": "cuisson-avec-responsabilite-administrative-h-f-d-planzer-pratteln"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -516,7 +606,6 @@
         "en": "In our own canteens at various locations, we ensure the well-being of our employees every day. With fresh ingredients, a lot of passion and a well-established team, we create places of recreation and enjoyment. Become part of our gastro family and bring your talent to our kitchen!\n\nWhat you move\n• In the warm and cold kitchen you prepare our food independently and with much pleasure (Monday to Friday from 6:00 to 15:00)\n• During the lunch service you set the plates in front of the guest and can recommend your delicious dishes and actively sell them.\n• You take care of the daily administrative tasks on the PC: help with quotation planning, writing menu plans, supplier orders, etc.\n• Apéros, office supplies, creative event meals and our rich snacks you prepare with a lot of commitment and a sense of pleasure\n• In the kitchen you pack everywhere, support with the dishes and cleaning work and ensure order\n• You ensure compliance with our regulations and quality standards and ensure that the cleaning concept is implemented reliably\n\nWhy do you succeed?\n• The passion for cooking and your strong service orientation distinguish you\n• You bring a completed training as a chef as well as several years of professional experience. Experience in Community Gastronomy is a Plus\n• When dealing with digital systems you feel comfortable, have very good PC knowledge and like to do administrative tasks\n• You like to get involved, be flexible and resilient and appreciate teamwork\n• An independent, reliable and well-organized way of working is a matter of course for you. You also attach importance to cleanliness and orderliness\n• In the absence of the restaurant manager, you take responsibility for the kitchen and ensure that it runs smoothly.\n\nYour Benefits\n• Generous holiday regulations: With us you start with 5 weeks holidays and even benefit from 6 weeks from the 5th year of service!\n• Family culture: You become part of our family culture - respect, trust and decency are important to us\n• Modern work equipment: We keep up with the times – modern and safe work equipment is available to you\n• Free parking: Get ready for parking - with us you can park for free\n\nWho we are\nFor us as a company, the focus is on a supportive cooperation and a positive working atmosphere. That is why we particularly appreciate qualities such as team spirit, helpfulness and motivation. We also attach great importance to punctuality, loyalty and accuracy, as these values form the basis for a reliable and customer-oriented way of working.",
         "fr": "Dans nos propres cantines à différents endroits, nous assurons le bien-être de nos employés chaque jour. Avec des ingrédients frais, beaucoup de passion et une équipe bien établie, nous créons des lieux de loisirs et de plaisir. Faites partie de notre famille de gastro et apportez votre talent à notre cuisine!\n\nCe que tu bouges\n• Dans la cuisine chaude et froide vous préparez notre nourriture indépendamment et avec beaucoup de plaisir (lundi au vendredi de 6:00 à 15:00)\n• Pendant le service de déjeuner, vous placez les assiettes devant l'invité et pouvez recommander vos délicieux plats et les vendre activement.\n• Vous vous occupez des tâches administratives quotidiennes sur le PC: aide à la planification des devis, rédaction de plans de menu, commandes de fournisseurs, etc.\n• Apéros, fournitures de bureau, repas d'événements créatifs et nos snacks riches que vous préparez avec beaucoup d'engagement et un sentiment de plaisir\n• Dans la cuisine vous emballer partout, le soutien avec la vaisselle et les travaux de nettoyage et assurer la commande\n• Vous assurez le respect de nos règlements et normes de qualité et vous assurez que le concept de nettoyage est mis en œuvre de manière fiable\n\nPourquoi tu réussis ?\n• La passion pour la cuisine et votre forte orientation service vous distinguent\n• Vous apportez une formation complète en tant que chef ainsi que plusieurs années d'expérience professionnelle. L'expérience en gastronomie communautaire est un Plus\n• Lorsque vous traitez avec des systèmes numériques, vous vous sentez à l'aise, avoir de très bonnes connaissances PC et aimer faire des tâches administratives\n• Vous aimez vous impliquer, être flexible et résilient et apprécier le travail d'équipe\n• Une façon de travailler indépendante, fiable et bien organisée est bien sûr une question pour vous. Vous attachez également de l'importance à la propreté et à l'ordre\n• En l'absence du directeur du restaurant, vous prenez la responsabilité de la cuisine et vous assurez qu'elle fonctionne bien.\n\nVos avantages\n• Règles de vacances généreuses: Avec nous vous commencez par 5 semaines de vacances et même bénéficier de 6 semaines à partir de la 5ème année de service!\n• Culture familiale : vous faites partie de notre culture familiale - le respect, la confiance et la décence sont importants pour nous\n• Équipement de travail moderne: Nous nous tenons au courant des temps – des équipements de travail modernes et sûrs sont à votre disposition\n• Parking gratuit: Préparez-vous pour le stationnement - avec nous vous pouvez garer gratuitement\n\nQui nous sommes\nPour nous en tant qu'entreprise, l'accent est mis sur une coopération solidaire et une atmosphère de travail positive. C'est pourquoi nous apprécions particulièrement les qualités telles que l'esprit d'équipe, la serviabilité et la motivation. Nous attachons également une grande importance à la ponctualité, à la fidélité et à la précision, car ces valeurs constituent la base d'un mode de travail fiable et axé sur le client."
       },
-      "needsRetranslation": true,
       "location": "Pratteln",
       "canton": "BL",
       "url": "https://live.solique.ch/planzer/job/details/4089373",
@@ -558,14 +647,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:15:36.190Z"
+      "firstSeenAt": "2026-10-22T09:15:36.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        ],
+        "en": [
+          "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        ],
+        "fr": [
+          "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "koch-mit-administrativer-verantwortung-m-w-d-planzer-pratteln"
+      ]
     },
     {
       "id": "planzer-38b5eff36968",
-      "slug": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
+      "slug": "it-requirement-ingegnere-business-analista-logistiksystem-m-w-d-planzer-dietikon",
       "slugByLocale": {
         "de": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
-        "it": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
+        "it": "it-requirement-ingegnere-business-analista-logistiksystem-m-w-d-planzer-dietikon",
         "en": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon",
         "fr": "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon"
       },
@@ -627,7 +730,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-22T00:06:53.528Z"
+      "firstSeenAt": "2026-09-22T00:06:53.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "it-requirement-engineer-business-analyst-logistiksystem-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-7fcdeff5f495",

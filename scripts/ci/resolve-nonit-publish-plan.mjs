@@ -58,6 +58,7 @@ function manifestMap(entries) {
 export function resolveNonItPublishPlan({
   sourceHealthyLocales = [],
   sourceStaleLocales = [],
+  durablePublishedLocales = [],
   tailLocales = [],
   sourceRunId,
   sourceSha,
@@ -69,12 +70,22 @@ export function resolveNonItPublishPlan({
   const { map, errors: manifestErrors } = manifestMap(provenance);
   const healthy = new Set(uniqueLocales(sourceHealthyLocales));
   const stale = new Set(uniqueLocales(sourceStaleLocales));
+  // A durable commit-status receipt proves that this locale's shard push
+  // already succeeded for this source run. A retry may therefore omit the
+  // force-push and still keep the last successful locale in the plan; the
+  // current run only has to recreate validation artifacts if it needs them.
+  const durable = new Set(uniqueLocales(durablePublishedLocales));
+  for (const locale of durable) {
+    healthy.add(locale);
+    stale.delete(locale);
+  }
   const staleReasons = {};
   const readyLocales = [];
   const failures = [...provenanceErrors, ...manifestErrors];
   const requestedTail = uniqueLocales(tailLocales).filter((locale) => NON_IT_LOCALES.includes(locale));
 
   for (const locale of requestedTail) {
+    if (durable.has(locale)) continue;
     const entry = map.get(locale);
     if (!entry) {
       const reason = 'post-build non-IT provenance receipt is missing';
@@ -193,6 +204,7 @@ function main() {
     sourceHealthyLocales: parseJsonList(args['source-healthy-locales']),
     sourceStaleLocales: parseJsonList(args['source-stale-locales']),
     tailLocales: parseJsonList(args['tail-locales']),
+    durablePublishedLocales: parseJsonList(args['durable-published-locales']),
     sourceRunId: args['source-run-id'],
     sourceSha: args['source-sha'],
     expectedBuildId: args['expected-build-id'],

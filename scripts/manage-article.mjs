@@ -49,6 +49,8 @@
 import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { SITE_RENDERED_ARTICLE_SECTIONS } from '../build-plugins/shared/articleSectionCore.mjs';
 import {
   ARTICLE_LOCALES,
@@ -60,9 +62,9 @@ import {
 import { parseSlugRegistry } from './lib/article-slug-registry.mjs';
 import { resolveGitAddPath, resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
 
-const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
+const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-function resolve(rel) { return `${PROJECT_ROOT}/${rel}`; }
+function resolve(rel) { return path.resolve(PROJECT_ROOT, rel); }
 function read(rel) { return readFileSync(resolve(rel), 'utf-8'); }
 function write(rel, content) { writeFileSync(resolve(rel), content, 'utf-8'); }
 

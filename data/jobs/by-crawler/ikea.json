@@ -475,7 +475,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -522,7 +522,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -530,7 +530,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",
@@ -2142,7 +2142,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-restaurant-koch-in-100-ikea-ch"
@@ -2253,12 +2252,12 @@
     },
     {
       "id": "ikea-1311866a5854",
-      "slug": "collaboratore-trice-ikea-food-schwerpunkt-logistik-40-60-ikea-st-gallen",
+      "slug": "collaboratore-trice-ikea-food-con-focus-sulla-logistica-40-60-ikea-st-gallen-sankt-gallen",
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch",
-        "it": "collaboratore-trice-ikea-food-schwerpunkt-logistik-40-60-ikea-st-gallen",
-        "en": "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch",
-        "fr": "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch"
+        "it": "collaboratore-trice-ikea-food-con-focus-sulla-logistica-40-60-ikea-st-gallen-sankt-gallen",
+        "en": "ikea-food-employee-focus-on-logistics-40-60-ikea-st-gallen-sankt-gallen",
+        "fr": "collaborateur-rice-ikea-food-specialise-e-en-logistique-40-60-ikea-st-gallen-sankt-gallen"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2303,14 +2302,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch",
+          "collaboratore-trice-ikea-food-schwerpunkt-logistik-40-60-ikea-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch"
+        "mitarbeiter-in-ikea-food-schwerpunkt-logistik-40-60-ikea-ch",
+        "collaboratore-trice-ikea-food-schwerpunkt-logistik-40-60-ikea-st-gallen"
       ],
       "salaryMin": 34500,
       "salaryMax": 52200,
@@ -2387,7 +2393,6 @@
           "mitarbeiter-in-verkauf-samstags-20-bis-ende-februar-2027-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 14800,
       "salaryMax": 22700,
       "salarySource": "estimated",

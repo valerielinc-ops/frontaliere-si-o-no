@@ -1580,12 +1580,12 @@
     },
     {
       "id": "sonova-f62e48f415b3",
-      "slug": "senior-strategic-brand-manager-sonova-ch",
+      "slug": "responsabile-senior-della-strategia-del-brand-sonova-staefa-switzerland",
       "slugByLocale": {
         "en": "senior-strategic-brand-manager-sonova-ch",
-        "it": "senior-strategic-brand-manager-sonova-ch",
+        "it": "responsabile-senior-della-strategia-del-brand-sonova-staefa-switzerland",
         "de": "senior-strategic-brand-manager-sonova-ch",
-        "fr": "senior-strategic-brand-manager-sonova-ch"
+        "fr": "gestionnaire-strategique-principal-de-la-marque-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1628,7 +1628,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1643,7 +1642,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-22T09:10:41.608Z"
+      "firstSeenAt": "2026-10-22T09:10:41.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-strategic-brand-manager-sonova-ch"
+        ],
+        "fr": [
+          "senior-strategic-brand-manager-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-strategic-brand-manager-sonova-ch"
+      ]
     },
     {
       "id": "sonova-403b793762fb",

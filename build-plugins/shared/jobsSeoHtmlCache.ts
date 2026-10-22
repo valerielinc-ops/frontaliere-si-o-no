@@ -1,6 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+/** Filesystem errors that mean an optional HTML probe has no readable page. */
+function isMissingOrNotDirectoryError(error: unknown): boolean {
+  const code = (error as NodeJS.ErrnoException | null | undefined)?.code;
+  return code === 'ENOENT' || code === 'ENOTDIR';
+}
+
 function indexPath(distDir: string, relativePath: string): string {
   const normalized = relativePath.replace(/^\/+/, '').replace(/\/+$/, '');
   return path.join(distDir, normalized, 'index.html');
@@ -23,7 +29,7 @@ export function readEmittedHtml(distDir: string, relativePath: string): string |
   try {
     return fs.readFileSync(indexPath(distDir, relativePath), 'utf8');
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+    if (isMissingOrNotDirectoryError(error)) return undefined;
     throw error;
   }
 }

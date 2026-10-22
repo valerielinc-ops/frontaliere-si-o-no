@@ -193,6 +193,29 @@ describe('job alert delivery record — ranking_jobs is the lean manifest', () =
     expect(sets[0].data.consent_checked_at).not.toBe(sets[0].data.sent_at.toISOString());
   });
 
+  it('persists the job-alert subject arm and exact rendered subject', async () => {
+    const { db, sets } = createDeliveryFakeDb();
+    __setFirestoreAdminForTest(db);
+    const item = deliveryItem();
+    item.meta.subjectExperiment = 'job-alert-subject-v1';
+    item.meta.subjectExperimentActive = true;
+    item.meta.subjectExperimentPeriod = 'week-current';
+    item.meta.subjectVariant = 'scoperta';
+    item.meta.subject = '🔎 Cosa è uscito per amministrazione a Lugano? (5 offerte)';
+    item.meta.subjectFreshnessQualified = null;
+
+    await persistJobAlertDelivery(item, { provider: 'maileroo', messageId: 'ref_subject' });
+
+    expect(sets[0].data).toMatchObject({
+      subject_experiment: 'job-alert-subject-v1',
+      subject_experiment_active: true,
+      subject_experiment_period: 'week-current',
+      subject_variant: 'scoperta',
+      subject_line: '🔎 Cosa è uscito per amministrazione a Lugano? (5 offerte)',
+      subject_freshness_qualified: null,
+    });
+  });
+
   it('retains a successful send without an alert id as an unattributed delivery row', async () => {
     const { db, sets } = createDeliveryFakeDb();
     __setFirestoreAdminForTest(db);

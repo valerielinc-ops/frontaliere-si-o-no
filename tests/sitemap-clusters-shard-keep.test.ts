@@ -39,6 +39,7 @@ const IT = `${BASE}/cerca-lavoro-ticino/ricerca-data-center-technician/`;
 const EN = `${BASE}/en/find-jobs-ticino/search-data-center-technician/`;
 const DE = `${BASE}/de/jobs-im-tessin/suche-data-center-technician/`;
 const FR = `${BASE}/fr/trouver-emploi-tessin/recherche-data-center-technician/`;
+const PDF = `${BASE}/guides/guida-completa-frontaliere-2026.pdf`;
 
 // Self-canonical, indexable HTML — the KEEP case for a present file.
 const okHtml = (loc: string) =>
@@ -66,6 +67,14 @@ describe('dropOverwrittenLocs — default build (no BUILD_LOCALE) unchanged', ()
     const kept = await dropOverwrittenLocs(dist, [IT, EN, DE, FR]);
     // Only IT exists on disk → en/de/fr dropped as DROP_MISSING (status quo).
     expect(kept).toEqual([IT]);
+  });
+
+  it('treats a file URL as a non-HTML target without throwing ENOTDIR', async () => {
+    const pdfPath = path.join(dist, 'guides', 'guida-completa-frontaliere-2026.pdf');
+    fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
+    fs.writeFileSync(pdfPath, '%PDF-fixture');
+    const { dropOverwrittenLocs } = await loadPlugin(undefined);
+    await expect(dropOverwrittenLocs(dist, [PDF])).resolves.toEqual([]);
   });
 });
 

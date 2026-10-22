@@ -462,4 +462,25 @@ describe('run-related-tests selection contract', () => {
     expect(divergent.status, divergent.stderr || divergent.stdout).toBe(0);
     expect(divergent.stdout).toMatch(/Related graph: reused 0 entries, rebuilt [1-9]\d*\./);
   });
+
+  it('does not reuse a cached graph entry for a tracked source missing from a sparse checkout', () => {
+    const source = 'services/missing-from-sparse.mjs';
+    const reader = 'tests/missing-from-sparse-reader.test.ts';
+    const root = fixture({
+      'data/blog-articles-data.ts': 'export const articles = [] as const;\n',
+      'data/swiss-articles-data.ts': 'export const articles = [] as const;\n',
+      'public/.nojekyll': '',
+      [source]: 'export const value = true;\n',
+      [reader]: `import { value } from '../${source}'; export const observed = value;\n`,
+    });
+
+    const initial = select(root, ['data/blog-articles-data.ts']);
+    expect(initial.status, initial.stderr || initial.stdout).toBe(0);
+    fs.rmSync(path.join(root, source));
+
+    const sparse = select(root, ['data/blog-articles-data.ts']);
+    expect(sparse.status, sparse.stderr || sparse.stdout).toBe(0);
+    expect(sparse.stdout).toContain('tracked file(s) unreadable');
+    expect(sparse.stdout).toContain(source);
+  });
 });

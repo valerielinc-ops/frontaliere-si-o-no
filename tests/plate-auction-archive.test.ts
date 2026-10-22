@@ -4,8 +4,10 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { readPlateAuctionArchive, writePlateAuctionArchive } from '../scripts/lib/plate-auction-archive.mjs';
+import { extractMetaDescription } from '../scripts/lib/meta-description-extract.mjs';
 import { parsePlateAuctionApiSnapshot, withStaticPlateAuctionDetail } from '../services/plateAuctions/api';
-import { renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
+import { allPlateAuctionCantonCodes } from '../services/plateAuctions/paths';
+import { loadPlateAuctionContext, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
 import { PLATE_AUCTION_DETAIL_SEED_ID } from '../scripts/lib/plateAuctionSections.mjs';
 import registry from '../data/plate-auction-sources-registry.json';
 
@@ -25,6 +27,40 @@ const temp = () => { const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'plate-ar
 afterEach(() => { for (const dir of directories.splice(0)) fs.rmSync(dir, { recursive: true, force: true }); });
 
 describe('durable plate detail archive', () => {
+  it('keeps every static view within the Bing title/meta contract in every locale', () => {
+    const root = temp();
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'public/data'), { recursive: true });
+    fs.writeFileSync(path.join(root, 'data/plate-auction-sources-registry.json'), JSON.stringify(registry));
+    fs.writeFileSync(path.join(root, 'public/data/plate-auctions.json'), JSON.stringify({ sources, auctions: [], history: [] }));
+    const context = loadPlateAuctionContext(root);
+    const locales = ['it', 'en', 'de', 'fr'] as const;
+    const pages = locales.flatMap((locale) => [
+      { locale, view: 'hub' as const },
+      { locale, view: 'rankings' as const },
+      { locale, view: 'detail' as const, canton: 'FR', plate: 'FR84262' },
+      ...allPlateAuctionCantonCodes().flatMap((canton) => [
+        { locale, view: 'canton' as const, canton },
+        { locale, view: 'directory' as const, canton },
+      ]),
+    ]);
+
+    for (const pageInput of pages) {
+      const page = renderPlateAuctionPage({ rootDir: root, ...pageInput, context });
+      const title = page.html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim() || '';
+      const description = extractMetaDescription(page.html) || '';
+      expect(title.length, `${pageInput.locale}/${pageInput.view} title`).toBeGreaterThan(0);
+      expect(title.length, `${pageInput.locale}/${pageInput.view} title`).toBeLessThanOrEqual(66);
+      expect(description.length, `${pageInput.locale}/${pageInput.view} description`).toBeGreaterThanOrEqual(120);
+      expect(description.length, `${pageInput.locale}/${pageInput.view} description`).toBeLessThanOrEqual(150);
+
+      if (pageInput.view === 'directory') {
+        const h1 = page.html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1]?.replace(/<[^>]+>/g, '').trim() || '';
+        expect(h1).not.toBe(title);
+      }
+    }
+  });
+
   it.each(['it', 'en', 'de', 'fr'] as const)('preserves an attested observation with unknown availability through SSR/hydration in %s', (locale) => {
     const root = temp();
     const historical = { ...row(), listingType: 'fixed-price', auctionStatus: 'unknown',

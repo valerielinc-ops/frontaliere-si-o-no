@@ -1003,12 +1003,12 @@
     },
     {
       "id": "kanton-gr-9af8555686d9",
-      "slug": "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur",
+      "slug": "impiegato-a-per-le-imposte-alla-fonte-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "sachbearbeiter-in-quellensteuer-kanton-gr-ch",
-        "it": "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur",
-        "en": "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur",
-        "fr": "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur"
+        "it": "impiegato-a-per-le-imposte-alla-fonte-kantonale-verwaltung-graubunden-chur",
+        "en": "withholding-tax-clerk-kantonale-verwaltung-graubunden-chur",
+        "fr": "gestionnaire-de-l-impot-a-la-source-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1057,14 +1057,21 @@
       "pensumMin": 50,
       "pensumMax": 60,
       "pensum": "50-60%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-quellensteuer-kanton-gr-ch"
+          "sachbearbeiter-in-quellensteuer-kanton-gr-ch",
+          "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-quellensteuer-kanton-gr-ch"
+        "sachbearbeiter-in-quellensteuer-kanton-gr-ch",
+        "sachbearbeiter-in-quellensteuer-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -1084,12 +1091,12 @@
     },
     {
       "id": "kanton-gr-166dd468a7c5",
-      "slug": "personalberater-in-kantonale-verwaltung-graubunden-chur",
+      "slug": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "personalberater-in-kanton-gr-ch",
-        "it": "personalberater-in-kantonale-verwaltung-graubunden-chur",
-        "en": "personalberater-in-kantonale-verwaltung-graubunden-chur",
-        "fr": "personalberater-in-kantonale-verwaltung-graubunden-chur"
+        "it": "consulente-del-personale-kantonale-verwaltung-graubunden-chur",
+        "en": "hr-consultant-kantonale-verwaltung-graubunden-chur",
+        "fr": "conseiller-conseillere-en-personnel-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1141,11 +1148,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "personalberater-in-kanton-gr-ch"
+          "personalberater-in-kanton-gr-ch",
+          "personalberater-in-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "personalberater-in-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "personalberater-in-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "personalberater-in-kanton-gr-ch"
+        "personalberater-in-kanton-gr-ch",
+        "personalberater-in-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1165,12 +1180,12 @@
     },
     {
       "id": "kanton-gr-17876a88291a",
-      "slug": "jurist-in-rechtsetzung-kanton-gr-ch",
+      "slug": "giurista-per-la-legislazione-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "jurist-in-rechtsetzung-kanton-gr-ch",
-        "it": "jurist-in-rechtsetzung-kanton-gr-ch",
-        "en": "jurist-in-rechtsetzung-kanton-gr-ch",
-        "fr": "jurist-in-rechtsetzung-kanton-gr-ch"
+        "it": "giurista-per-la-legislazione-kantonale-verwaltung-graubunden-chur",
+        "en": "legal-expert-in-legislation-kantonale-verwaltung-graubunden-chur",
+        "fr": "juriste-en-legislation-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1219,7 +1234,6 @@
       "pensumMin": 40,
       "pensumMax": 50,
       "pensum": "40-50%",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1234,16 +1248,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-22T09:11:01.220Z"
+      "firstSeenAt": "2026-10-22T09:11:01.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-rechtsetzung-kanton-gr-ch"
+        ],
+        "en": [
+          "jurist-in-rechtsetzung-kanton-gr-ch"
+        ],
+        "fr": [
+          "jurist-in-rechtsetzung-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-rechtsetzung-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-46b8777d8d7b",
-      "slug": "wildhuter-in-kanton-gr-ch",
+      "slug": "guardacaccia-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "wildhuter-in-kanton-gr-ch",
-        "it": "wildhuter-in-kanton-gr-ch",
-        "en": "wildhuter-in-kanton-gr-ch",
-        "fr": "wildhuter-in-kanton-gr-ch"
+        "it": "guardacaccia-kantonale-verwaltung-graubunden-chur",
+        "en": "wildlife-ranger-kantonale-verwaltung-graubunden-chur",
+        "fr": "garde-faune-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1292,7 +1320,6 @@
       "pensumMin": 75,
       "pensumMax": 75,
       "pensum": "75%",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1307,16 +1334,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-22T09:11:00.573Z"
+      "firstSeenAt": "2026-10-22T09:11:00.573Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wildhuter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "wildhuter-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "wildhuter-in-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wildhuter-in-kanton-gr-ch"
+      ]
     },
     {
       "id": "kanton-gr-60815c55f316",
-      "slug": "wildhuter-in-kanton-gr-ch-2",
+      "slug": "guardacaccia-kantonale-verwaltung-graubunden-chur-c77ea7",
       "slugByLocale": {
-        "de": "wildhuter-in-kanton-gr-ch",
-        "it": "wildhuter-in-kanton-gr-ch-2",
-        "en": "wildhuter-in-kanton-gr-ch-2",
-        "fr": "wildhuter-in-kanton-gr-ch-2"
+        "de": "wildhuter-in-kanton-gr-ch-1dyq6y",
+        "it": "guardacaccia-kantonale-verwaltung-graubunden-chur-c77ea7",
+        "en": "wildlife-ranger-kantonale-verwaltung-graubunden-chur-c77ea7",
+        "fr": "garde-faune-kantonale-verwaltung-graubunden-chur-c77ea7"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1365,7 +1406,6 @@
       "pensumMin": 75,
       "pensumMax": 75,
       "pensum": "75%",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1383,21 +1423,32 @@
       "firstSeenAt": "2026-10-22T09:10:59.926Z",
       "previousSlugsByLocale": {
         "it": [
+          "wildhuter-in-kanton-gr-ch",
+          "wildhuter-in-kanton-gr-ch-2"
+        ],
+        "de": [
           "wildhuter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "wildhuter-in-kanton-gr-ch-2"
+        ],
+        "fr": [
+          "wildhuter-in-kanton-gr-ch-2"
         ]
       },
       "previousSlugs": [
-        "wildhuter-in-kanton-gr-ch"
+        "wildhuter-in-kanton-gr-ch",
+        "wildhuter-in-kanton-gr-ch-2"
       ]
     },
     {
       "id": "kanton-gr-9900172a0567",
-      "slug": "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur",
+      "slug": "specialista-responsabile-r-promozione-anticipata-specialist-office-integration-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kanton-gr-ch",
-        "it": "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur",
-        "en": "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur",
-        "fr": "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur"
+        "it": "specialista-responsabile-r-promozione-anticipata-specialist-office-integration-kantonale-verwaltung-graubunden-chur",
+        "en": "specialist-responsible-r-early-promotion-specialist-office-integration-kantonale-verwaltung-graubunden-chur",
+        "fr": "specialiste-responsable-r-promotion-precoce-integration-des-bureaux-specialises-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1448,11 +1499,19 @@
       "pensum": "50-60%",
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kanton-gr-ch"
+          "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kanton-gr-ch",
+          "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur"
+        ],
+        "en": [
+          "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kanton-gr-ch"
+        "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kanton-gr-ch",
+        "fachverantwortliche-r-fruhe-forderung-fachstelle-integration-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2202,8 +2261,8 @@
       "id": "kanton-gr-74a97250cd9e",
       "slug": "professionista-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "professionista-legale-presso-la-corte-regionale-plessur-kantonale-verwaltung-graubunden-chur",
-        "en": "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur",
+        "it": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
+        "en": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur",
         "de": "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
         "fr": "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
       },
@@ -2254,15 +2313,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
-        "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+        "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch",
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+          "rechtspraktikant-in-beim-regionalgericht-plessur-kanton-gr-ch"
         ],
         "en": [
-          "rechtspraktikant-in-beim-regionalgericht-plessur-kantonale-verwaltung-graubunden-chur"
+          "legal-practitioner-at-the-regional-court-plessur-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-10-08T09:16:56.030Z",

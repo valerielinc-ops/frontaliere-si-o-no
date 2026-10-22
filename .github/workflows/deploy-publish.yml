@@ -3,10 +3,11 @@ name: Publish to GitHub Pages (deploy + validate)
 run-name: Publish Pages build ${{ inputs.source_run_id }} @ ${{ inputs.source_sha }}
 
 # Second half of the build→publish split (see deploy.yml's concurrency comment).
-# deploy.yml now only BUILDS (matrix-setup → prep → build-locale ×4) under a
+# deploy.yml only BUILDS (matrix-setup → prep → build-locale ×4) under a
 # workflow-level `pages-build-run` lock that releases the moment the build
-# finishes. The cheap deploy-request coordinator dispatches this workflow for
-# the latest successful build. It carries its own
+# finishes. Its final job dispatches this workflow for its own source run; the
+# small deploy-request workflow remains only as a status-aware recovery tick.
+# This workflow carries its own
 # stage-specific locks so a new build can proceed while the previous build's
 # validation and post-deploy tail run here independently. Publish admission
 # remains all-locale: a new IT snapshot must not be paired with an older
@@ -64,6 +65,7 @@ permissions:
   id-token: write
   issues: write     # for github-issue-creator on deploy failure
   actions: read     # for cross-run download-artifact
+  statuses: write   # durable Pages/shard receipts on the immutable source SHA
 
 # There is deliberately NO workflow-level lock here. The Pages deploy job owns
 # the shared `pages-deploy` lock below; the long dist validator and the
@@ -128,9 +130,22 @@ jobs:
               ;;
           esac
           source_run_json="$RUNNER_TEMP/canonical-source-run.json"
-          gh api --method GET \
-            "repos/${PROMOTION_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" \
-            > "$source_run_json"
+          # The source run's final job dispatches this publisher before GitHub
+          # marks that run completed. Wait for the authoritative run record,
+          # then validate the final conclusion and identity; never infer
+          # success from the build matrix alone.
+          for attempt in $(seq 1 60); do
+            gh api --method GET \
+              "repos/${PROMOTION_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" \
+              > "$source_run_json"
+            source_status=$(jq -r '.status // empty' "$source_run_json")
+            if [ "$source_status" = 'completed' ]; then break; fi
+            if [ "$attempt" = '60' ]; then
+              echo '::error::source build did not reach a terminal status before publish admission timed out'
+              exit 1
+            fi
+            sleep 10
+          done
           PROMOTION_SOURCE_RUN_ID="$SOURCE_RUN_ID" \
             node scripts/ci/production-promotion-gate.mjs source-run < "$source_run_json"
           jq -e \
@@ -252,11 +267,13 @@ jobs:
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
   # A source run created before the build→publish split can leave non-IT
-  # receipts in the old full-publish shape. Keep that payload fail-closed, but
-  # recover automatically by dispatching one current build; a current build
-  # emits the source artifacts required by publish-nonit-shards.
+  # receipts in the old full-publish shape. Keep that payload fail-closed and
+  # enqueue one current-HEAD build request. This job deliberately does not
+  # dispatch deploy.yml: the self-driven deploy schedule is the sole consumer
+  # of the durable request, so an old source run can never publish shards or
+  # Pages as a side effect.
   recover-legacy-publish-contract:
-    name: Recover legacy publish contract
+    name: Recover legacy publish contract through deploy queue
     needs: resolve-publish-plan
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
@@ -265,45 +282,73 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
-      actions: write
+      statuses: write
     steps:
-      - name: Checkout recovery dispatcher
+      - name: Checkout current deploy queue helper
         uses: actions/checkout@v7
         with:
           ref: refs/heads/main
           sparse-checkout: |
-            scripts/ci/mint-app-token.mjs
-            scripts/lib/githubApiHeaders.mjs
-            functions/src/githubApiHeaders.js
+            /scripts/ci/deploy-rearm-request.mjs
           sparse-checkout-cone-mode: false
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: '22'
-
-      - name: Mint GitHub App token
+      - name: Enqueue one current build for the legacy source contract
         env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      - name: Require verified workflow dispatch capability
-        if: env.APP_TOKEN_ACTIONS != 'true'
-        run: |
-          echo '::error::legacy publish recovery requires an App token with actions: write'
-          exit 1
-
-      - name: Dispatch a current build
-        env:
-          GH_TOKEN: ${{ env.APP_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
           SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
-          gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
-          echo "Dispatched current deploy after legacy source run $SOURCE_RUN_ID ($SOURCE_SHA)"
+          node scripts/ci/deploy-rearm-request.mjs \
+            --reason legacy-publish-contract \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA"
+
+  # Commit statuses are the durable idempotency ledger. The source artifacts
+  # remain the payload, while these receipts answer the question artifacts
+  # cannot: did this exact source run already push this locale, or complete
+  # the Pages deployment? A failed status read blocks closed rather than
+  # silently republishing a build whose state is unknown.
+  resolve-publish-receipts:
+    name: Resolve durable shard and Pages receipts
+    needs: resolve-publish-plan
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      statuses: read
+    outputs:
+      pages_deployed: ${{ steps.receipts.outputs.pages_deployed }}
+      published_locales: ${{ steps.receipts.outputs.published_locales }}
+      published_locales_csv: ${{ steps.receipts.outputs.published_locales_csv }}
+      pending_locales: ${{ steps.receipts.outputs.pending_locales }}
+    steps:
+      - name: Checkout receipt resolver
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /scripts/ci/publish-receipts.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Resolve source-run receipts
+        id: receipts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+          TAIL_LOCALES: ${{ needs.resolve-publish-plan.outputs.tail_locales }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/publish-receipts.mjs \
+            --resolve \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --locales "$(node -e 'process.stdout.write(JSON.parse(process.env.TAIL_LOCALES || "[]").join(","))')" \
+            --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
   # ───────────────────────────────────────────────────────────────────────
   # ───────────────────────────────────────────────────────────────────────
@@ -315,15 +360,17 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   publish-nonit-shards:
     name: Publish non-IT shard tail (${{ matrix.locale }})
-    needs: resolve-publish-plan
+    needs: [resolve-publish-plan, resolve-publish-receipts]
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
-          needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
+          needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+          needs.resolve-publish-receipts.outputs.pending_locales != '[]' &&
+          needs.resolve-publish-receipts.result == 'success' }}
     strategy:
       fail-fast: false
       matrix:
-        locale: ${{ fromJSON(needs.resolve-publish-plan.outputs.tail_locales) }}
+        locale: ${{ fromJSON(needs.resolve-publish-receipts.outputs.pending_locales) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     # shard-secrets-overflow: stesso environment del build-locale di deploy.yml
@@ -341,11 +388,13 @@ jobs:
       contents: read
       actions: read
       issues: write
+      statuses: write
     env:
       BUILD_LOCALE: ${{ matrix.locale }}
       DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
       SOURCE_RUN_ID: ${{ inputs.source_run_id }}
       SOURCE_SHA: ${{ inputs.source_sha }}
+      DURABLE_LOCALE_PUBLISHED: ${{ contains(needs.resolve-publish-receipts.outputs.published_locales, matrix.locale) && 'true' || 'false' }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
     steps:
@@ -363,6 +412,18 @@ jobs:
           # resterebbe sopra CROSSOVER_MB. Il profilo scritto a mano escludeva
           # quei bucket e tests/checkout-sparse-profiles.test.ts lo boccia.
           ref: ${{ inputs.source_sha }}
+
+      # The source build may predate the receipt module during the transition.
+      # Keep the race check on the current workflow contract, not on the
+      # historical source checkout used for its payload.
+      - name: Checkout durable receipt resolver
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          path: receipt-resolver
+          sparse-checkout: |
+            /scripts/ci/publish-receipts.mjs
+          sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -428,7 +489,7 @@ jobs:
 
       - name: Wait for IT CDN push (cross-shard ordering guard)
         id: cdn-gate
-        if: always()
+        if: always() && env.DURABLE_LOCALE_PUBLISHED != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -451,6 +512,33 @@ jobs:
           CDN_JOB_DEADLINE_S: 21600
           CDN_JOB_FINISH_RESERVE_S: 180
         run: GITHUB_RUN_ID="$CDN_IT_RUN_ID" bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
+
+      # A duplicate publisher can have passed the matrix-level resolver before
+      # the first publisher wrote its receipt. Re-read after this locale job has
+      # acquired its own concurrency slot and before any shard push; an
+      # unreadable ledger fails closed instead of repeating an expensive push.
+      - name: Recheck durable locale receipt before shard side effects
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          receipt_state="$RUNNER_TEMP/durable-locale-receipt"
+          node receipt-resolver/scripts/ci/publish-receipts.mjs \
+            --resolve \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --locales "$BUILD_LOCALE" \
+            --github-output "$receipt_state" | tee -a "$GITHUB_STEP_SUMMARY"
+          cat "$receipt_state" >> "$GITHUB_OUTPUT"
+          if grep -Fxq "published_locales_csv=$BUILD_LOCALE" "$receipt_state"; then
+            echo "DURABLE_LOCALE_PUBLISHED=true" >> "$GITHUB_ENV"
+            : > "$RUNNER_TEMP/shard-ok-${BUILD_LOCALE}"
+            echo "✅ ${BUILD_LOCALE} shard receipt appeared while this publisher was queued; skipping duplicate side effects"
+          fi
+
       # ── Section shards (non-IT) → frontaliere-<section>-<loc> shard repos ──
       # Section shard push FIRST (before the offload below) so
       # push-section-shard.sh stages the RAW subtree and offloads its own
@@ -461,7 +549,7 @@ jobs:
       # push ok-marker.
       - name: Push section shards (non-IT → frontaliere-<section>-<loc>)
         id: push-section-shards-nonit
-        if: matrix.locale != 'it'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
         continue-on-error: true
         env:
           SHARD_TICINO_IT_DEPLOY_KEY: ${{ secrets.SHARD_TICINO_IT_DEPLOY_KEY }}
@@ -659,7 +747,7 @@ jobs:
       # Same gap and same fix as the IT leg above — see that step's comment
       # for the full rationale (ok-marker gate, not outcome, batched calls).
       - name: Purge edge for pushed section shards (apex AND origin)
-        if: matrix.locale != 'it'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
         continue-on-error: true
         env:
           LOCALE: ${{ matrix.locale }}
@@ -1103,7 +1191,7 @@ jobs:
         # surfacing step below fires on skip|failure so the unpublished locale is
         # never shipped silently. (cdn-gate is itself a no-op exit-0 when
         # DEPLOY_BUILD_ID is unset, so non-matrix/local paths are unaffected.)
-        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'success' && steps.tail-budget.outcome == 'success'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.cdn-gate.outcome == 'success' && steps.tail-budget.outcome == 'success'
         # Stays continue-on-error (transient shard-repo/network errors must NOT
         # block the whole Pages publish — build-locale has fail-fast:false, a
         # hard failure here would flip build-locale.result→failure→no publish).
@@ -1126,6 +1214,29 @@ jobs:
           # script, che resta quello dello step.
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           GITHUB_SHA="$DEPLOY_HEAD_SHA" bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+
+      # This is written immediately after the locale push, not after the
+      # aggregate publish workflow. A later retry can therefore skip this
+      # expensive force-push even when validation or Pages failed afterwards.
+      - name: Write durable locale shard receipt
+        if: >-
+          ${{ always() && matrix.locale != 'it' &&
+              env.DURABLE_LOCALE_PUBLISHED != 'true' &&
+              steps.push-section-shards-nonit.outcome == 'success' &&
+              steps.push-shard.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          test -f "$RUNNER_TEMP/shard-ok-${BUILD_LOCALE}" \
+            || { echo '::error::locale push reported success without its durable shard-ok marker'; exit 1; }
+          node scripts/ci/publish-receipts.mjs \
+            --write locale \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --locale "$BUILD_LOCALE"
 
       - name: Upload advisory shard push verification report
         if: always() && vars.SHARD_PUSH_VERIFY == '1'
@@ -1172,7 +1283,7 @@ jobs:
       # PAT fallback when available), and purging after a skip would spend the
       # call on bytes that never moved.
       - name: Purge the edge for the pushed locale shard (apex AND origin)
-        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.push-shard.outcome == 'success'
         continue-on-error: true
         env:
           LOCALE: ${{ matrix.locale }}
@@ -1212,7 +1323,7 @@ jobs:
         # fatal: aborting here would take down the other 26 shards for one
         # locale's ordering problem, which is exactly the tolerance the
         # continue-on-error posture exists to preserve.
-        if: matrix.locale != 'it' && steps.cdn-gate.outcome == 'failure'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.cdn-gate.outcome == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1313,7 +1424,7 @@ jobs:
         # resilience is deliberate) — but make it LOUD: annotation + a deduped
         # tracking issue so the stale locale is never shipped silently.
         # Self-resolves on the next green push (reopen-within).
-        if: matrix.locale != 'it' && steps.push-shard.outcome == 'failure'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.push-shard.outcome == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1352,7 +1463,7 @@ jobs:
         # per-run storm). Both titles must be resolved here — a shard that was
         # held back by a gate timeout last run and pushes fine this run has an
         # open "#2569 scaduto" issue, and only this step can close it.
-        if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.push-shard.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1425,17 +1536,19 @@ jobs:
   # from this workflow run can move the snapshot into validation/live.
   resolve-nonit-publish:
     name: Resolve non-IT shard tail
-    needs: [resolve-publish-plan, publish-nonit-shards]
+    needs: [resolve-publish-plan, resolve-publish-receipts, publish-nonit-shards]
     if: >-
       ${{ always() &&
           needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
-          needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
+          needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+          needs.resolve-publish-receipts.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: read
       actions: read
+      statuses: read
     outputs:
       allowed: ${{ steps.plan.outputs.allowed }}
       healthy_locales: ${{ steps.plan.outputs.healthy_locales }}
@@ -1454,6 +1567,7 @@ jobs:
           sparse-checkout: |
             scripts/ci/locale-publish-provenance.mjs
             scripts/ci/resolve-nonit-publish-plan.mjs
+            scripts/ci/publish-receipts.mjs
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -1482,6 +1596,7 @@ jobs:
           SOURCE_HEALTHY_LOCALES: ${{ needs.resolve-publish-plan.outputs.healthy_locales }}
           SOURCE_STALE_LOCALES: ${{ needs.resolve-publish-plan.outputs.stale_locales }}
           TAIL_LOCALES: ${{ needs.resolve-publish-plan.outputs.tail_locales }}
+          DURABLE_PUBLISHED_LOCALES: ${{ needs.resolve-publish-receipts.outputs.published_locales }}
         run: |
           set -euo pipefail
           node scripts/ci/resolve-nonit-publish-plan.mjs \
@@ -1493,6 +1608,7 @@ jobs:
             --source-healthy-locales "$SOURCE_HEALTHY_LOCALES" \
             --source-stale-locales "$SOURCE_STALE_LOCALES" \
             --tail-locales "$TAIL_LOCALES" \
+            --durable-published-locales "$DURABLE_PUBLISHED_LOCALES" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
   # deploy: publish the build run's dist/ to GitHub Pages.
   #
@@ -1507,11 +1623,12 @@ jobs:
     # Publish only after the explicit source and post-build plans prove every
     # locale. A missing, stale, or skewed locale blocks all Pages/CDN side
     # effects so the live hreflang graph remains snapshot-consistent.
-    needs: [resolve-publish-plan, resolve-nonit-publish]
+    needs: [resolve-publish-plan, resolve-publish-receipts, resolve-nonit-publish]
     if: >-
       ${{ needs.resolve-publish-plan.result == 'success' &&
           needs.resolve-publish-plan.outputs.allowed == 'true' &&
           needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+          needs.resolve-publish-receipts.result == 'success' &&
           needs.resolve-nonit-publish.result == 'success' &&
           needs.resolve-nonit-publish.outputs.allowed == 'true' }}
     runs-on: ubuntu-latest
@@ -1529,6 +1646,7 @@ jobs:
         ${{ inputs.source_conclusion == 'success' &&
             needs.resolve-publish-plan.outputs.allowed == 'true' &&
             needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+            needs.resolve-publish-receipts.outputs.pages_deployed != 'true' &&
             'pages-deploy' ||
             format('pages-deploy-noop-{0}', github.run_id) }}
       cancel-in-progress: false
@@ -1539,6 +1657,7 @@ jobs:
       issues: write
       actions: read       # cross-run download-artifact
       deployments: read   # the extended server-side poll reads /deployments + /statuses
+      statuses: write     # durable Pages deployment receipt
     # ⚠️ This `environment:` is the single point where a run can WEDGE, and it
     # cannot be removed: actions/deploy-pages binds the Pages deployment to this
     # run through the environment's OIDC identity.
@@ -1625,6 +1744,20 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Check durable Pages deployment receipt
+        id: pages-receipt
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/publish-receipts.mjs \
+            --resolve \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
+
       # Re-check the receipt in the side-effecting job, rather than trusting
       # only the resolver's output. This keeps the Pages handoff fail-closed if
       # an artifact is malformed or the source identity changes between jobs.
@@ -1697,6 +1830,7 @@ jobs:
       # first lets THIS deploy's deployment activate. Conditional: no-op unless
       # currently errored, so healthy deploys are untouched.
       - name: Reset Pages errored state (only if stuck)
+        if: steps.pages-receipt.outputs.pages_deployed != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1737,6 +1871,7 @@ jobs:
       # reports the publish succeeded.
       - name: Deploy to GitHub Pages
         id: deployment_first
+        if: steps.pages-receipt.outputs.pages_deployed != 'true'
         uses: actions/deploy-pages@v5
         continue-on-error: true
         with:
@@ -1744,14 +1879,14 @@ jobs:
           error_count: 100
 
       - name: Wait for previous Pages deployment to finish
-        if: steps.deployment_first.outcome == 'failure'
+        if: steps.pages-receipt.outputs.pages_deployed != 'true' && steps.deployment_first.outcome == 'failure'
         run: |
           echo "::warning::First deploy attempt failed (likely Pages busy or 10-minute polling cap). Retrying in 30s..."
           sleep 30
 
       - name: Deploy to GitHub Pages (retry)
         id: deployment
-        if: steps.deployment_first.outcome == 'failure'
+        if: steps.pages-receipt.outputs.pages_deployed != 'true' && steps.deployment_first.outcome == 'failure'
         uses: actions/deploy-pages@v5
         continue-on-error: true
         with:
@@ -1787,7 +1922,7 @@ jobs:
       # succeed if ANY is success; we give up early only when EVERY deployment
       # for the sha is `inactive` (definitively superseded by a newer deploy).
       - name: Wait for server-side Pages publish (extended, beyond the 10-min action cap)
-        if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
+        if: steps.pages-receipt.outputs.pages_deployed != 'true' && steps.deployment_first.outcome == 'failure' && steps.deployment.outcome == 'failure'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -1837,6 +1972,23 @@ jobs:
           done
           echo "::error::GitHub Pages did not report success before the remaining deploy-job budget expired for ${GITHUB_SHA} (job deadline ${job_deadline})."
           exit 1
+
+      # Write this only after actions/deploy-pages or the extended server-side
+      # poll has proved success. It is the durable marker used by every later
+      # retry, so a red validator cannot cause a second Pages upload.
+      - name: Write durable Pages deployment receipt
+        if: >-
+          ${{ success() && steps.pages-receipt.outputs.pages_deployed != 'true' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/publish-receipts.mjs \
+            --write pages \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA"
 
       # Reporter diagnostico (#5437). SECONDA famiglia: gli opener che aprono
       # `priority:urgent`. Misurato su 30 giorni (97 issue urgent totali), questo

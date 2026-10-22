@@ -8,17 +8,24 @@ import { afterEach, describe, expect, it } from 'vitest';
 import {
   TokenIndex,
   buildClusterContext,
+  buildClusterContextFromSummary,
+  decideClusterEmission,
+  hasSelfCanonicalClusterUrl,
   isClusterBelowFloor,
   renderClusterPage,
+  type ClusterTrafficFilter,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import type {
   CandidateEntry,
   EnrichedEntry,
+  RelatedSearchClusterSummaryEntry,
   RawJob,
 } from '../build-plugins/relatedSearchClustersData';
+import { BASE_URL } from '../build-plugins/constants';
 import { SPA_ENTRY_CSS_FILENAME, SPA_ENTRY_JS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
 
 const tmpDirs: string[] = [];
+const TEST_DATE_STAMP = new Date().toISOString().slice(0, 10);
 
 function makeDist(): string {
   const dir = mkdtempSync(join(tmpdir(), 'rsc-probe-'));
@@ -121,7 +128,7 @@ function renderSet(
     const enriched = ENRICHED[`${ctx.candidate.locale}::${ctx.candidate.slug}`];
     const page = renderClusterPage({
       distDir,
-      dateStamp: '2026-10-06',
+      dateStamp: TEST_DATE_STAMP,
       ctx,
       enriched,
       hreflang: [],
@@ -182,5 +189,154 @@ describe('TokenIndex floor probe API', () => {
     expect(index.matchingOccupationJobs('it', ['alpha', 'beta', 'gamma'], 3, 2, [], {
       stopWhenAtLeast: 3,
     })).toHaveLength(3);
+  });
+});
+
+describe('locale-shard shared matching summary', () => {
+  const jobs: RawJob[] = [
+    { id: 'zh-alpha-beta', title: 'Alpha Beta', company: 'A', location: 'Zurich', canton: 'ZH' },
+    { id: 'zh-alpha-gamma', title: 'Alpha Gamma', company: 'B', location: 'Zurich', canton: 'ZH' },
+    { id: 'zh-beta-gamma', title: 'Beta Gamma', company: 'C', location: 'Zurich', canton: 'ZH' },
+    { id: 'ti-gamma', title: 'Gamma', company: 'D', location: 'Lugano', canton: 'TI' },
+  ];
+  const candidates: CandidateEntry[] = [
+    { slug: 'ricerca-alpha-beta-zurich', locale: 'it', jobCount: 3, sampleTerms: ['alpha beta Zurich'], editorialCollision: null },
+    { slug: 'search-alpha-beta-zurich', locale: 'en', jobCount: 3, sampleTerms: ['alpha beta Zurich'], editorialCollision: null },
+    { slug: 'suche-alpha-beta-zurich', locale: 'de', jobCount: 3, sampleTerms: ['alpha beta Zurich'], editorialCollision: null },
+    { slug: 'recherche-alpha-beta-zurich', locale: 'fr', jobCount: 3, sampleTerms: ['alpha beta Zurich'], editorialCollision: null },
+    { slug: 'recherche-gamma-lugano', locale: 'fr', jobCount: 1, sampleTerms: ['gamma Lugano'], editorialCollision: null },
+  ];
+
+  type Context = NonNullable<ReturnType<typeof buildClusterContext>>;
+
+  function fullContexts(): Context[] {
+    const index = new TokenIndex(jobs);
+    return candidates
+      .map((candidate) => buildClusterContext(candidate, index, jobs))
+      .filter((ctx): ctx is Context => ctx !== null);
+  }
+
+  function summaryFor(context: Context): RelatedSearchClusterSummaryEntry {
+    return {
+      key: `${context.candidate.locale}::${context.candidate.slug}`,
+      keyword: context.keyword,
+      city: context.city,
+      matchingJobCount: context.matchingJobCount,
+      legacyCantonGroup: context.legacyCantonGroup,
+    };
+  }
+
+  const stableTrafficFilter: ClusterTrafficFilter = {
+    decideMulti() {
+      return { action: 'full', reason: 'equivalence-test' } as ReturnType<ClusterTrafficFilter['decideMulti']>;
+    },
+  };
+
+  const indexedCantonMirrors = new Map<string, string[]>([
+    ['fr::recherche-gamma-lugano', ['/fr/trouver-emploi-zurich/recherche-gamma-lugano/']],
+  ]);
+
+  it('keeps all-locale metadata and owned HTML byte-identical', () => {
+    const full = fullContexts();
+    const fullByKey = new Map(full.map((context) => [
+      `${context.candidate.locale}::${context.candidate.slug}`,
+      context,
+    ]));
+    const summaries = new Map(full.map((context) => [
+      `${context.candidate.locale}::${context.candidate.slug}`,
+      summaryFor(context),
+    ]));
+
+    for (const owner of ['it', 'en', 'de', 'fr'] as const) {
+      const optimized = candidates
+        .map((candidate) => {
+          if (candidate.locale === owner) return fullByKey.get(`${candidate.locale}::${candidate.slug}`)!;
+          const summary = summaries.get(`${candidate.locale}::${candidate.slug}`);
+          return summary ? buildClusterContextFromSummary(candidate, summary) : null;
+        })
+        .filter((ctx): ctx is Context => ctx !== null);
+
+      const signature = (contexts: ReadonlyArray<Context>) => contexts.map((context) => ({
+        key: `${context.candidate.locale}::${context.candidate.slug}`,
+        keyword: context.keyword,
+        city: context.city,
+        matchingJobCount: context.matchingJobCount,
+        legacyCantonGroup: context.legacyCantonGroup,
+        belowFloor: isClusterBelowFloor(context, undefined),
+        selfCanonical: hasSelfCanonicalClusterUrl(context, undefined),
+      }));
+      expect(signature(optimized)).toEqual(signature(full));
+
+      const fullOwned = full.filter((context) => context.candidate.locale === owner);
+      const optimizedOwned = optimized.filter((context) => context.candidate.locale === owner);
+      const fullDist = makeDist();
+      const optimizedDist = makeDist();
+      const fullUrlByKey = new Map(full.map((context) => {
+        const page = renderClusterPage({
+          distDir: fullDist,
+          dateStamp: TEST_DATE_STAMP,
+          ctx: context,
+          enriched: undefined,
+          hreflang: [],
+          related: [],
+        });
+        return [`${context.candidate.locale}::${context.candidate.slug}`, `${BASE_URL}${page.urlPath}`];
+      }));
+      const optimizedUrlByKey = new Map(optimized.map((context) => {
+        const page = renderClusterPage({
+          distDir: optimizedDist,
+          dateStamp: TEST_DATE_STAMP,
+          ctx: context,
+          enriched: undefined,
+          hreflang: [],
+          related: [],
+        });
+        return [`${context.candidate.locale}::${context.candidate.slug}`, `${BASE_URL}${page.urlPath}`];
+      }));
+      const fullHreflang = full.map((context) => ({
+        locale: context.candidate.locale,
+        url: fullUrlByKey.get(`${context.candidate.locale}::${context.candidate.slug}`)!,
+      }));
+      const optimizedHreflang = optimized.map((context) => ({
+        locale: context.candidate.locale,
+        url: optimizedUrlByKey.get(`${context.candidate.locale}::${context.candidate.slug}`)!,
+      }));
+      expect(optimizedHreflang).toEqual(fullHreflang);
+
+      const emissionSignature = (contexts: ReadonlyArray<Context>) => contexts.map((context) => {
+        const emission = decideClusterEmission({
+          ctx: context,
+          locale: context.candidate.locale,
+          enriched: undefined,
+          indexedClusterUrlsByKey: indexedCantonMirrors,
+          trafficFilter: stableTrafficFilter,
+        });
+        return {
+          key: `${context.candidate.locale}::${context.candidate.slug}`,
+          urlPath: emission.urlPath,
+          mirrorPaths: [...emission.mirrorPaths].sort(),
+          sitemapEligible: emission.sitemapEligible,
+        };
+      });
+      expect(emissionSignature(optimized)).toEqual(emissionSignature(full));
+      const fullPages = fullOwned.map((context) => renderClusterPage({
+        distDir: fullDist,
+        dateStamp: TEST_DATE_STAMP,
+        ctx: context,
+        enriched: undefined,
+        hreflang: fullHreflang,
+        related: [],
+      }));
+      const optimizedPages = optimizedOwned.map((context) => renderClusterPage({
+        distDir: optimizedDist,
+        dateStamp: TEST_DATE_STAMP,
+        ctx: context,
+        enriched: undefined,
+        hreflang: optimizedHreflang,
+        related: [],
+      }));
+      expect(optimizedPages.map((page) => page.urlPath)).toEqual(fullPages.map((page) => page.urlPath));
+      expect(optimizedPages.map((page) => page.html)).toEqual(fullPages.map((page) => page.html));
+    }
   });
 });

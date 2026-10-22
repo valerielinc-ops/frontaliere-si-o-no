@@ -1919,7 +1919,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -1966,7 +1966,7 @@
       "previousSlugs": [
         "professorship-of-neurology-universitat-zurich-zurich",
         "professorship-of-neurology-uzh-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich"
+        "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1974,7 +1974,7 @@
         ],
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich"
+          "professorship-of-neurology-universitat-zurich"
         ]
       },
       "firstSeenAt": "2026-06-23T12:36:12.623Z",
@@ -7517,10 +7517,10 @@
       "id": "uzh-e0618949b867",
       "slug": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "liaison-librarian-ub-scienze-naturali-universitat-zurich-zurich",
+        "it": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "en": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich",
         "de": "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "fr": "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
+        "fr": "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -7566,15 +7566,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-        "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+        "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "liaison-librarian-ub-naturwissenschaften-uzh-zurich",
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "liaison-librarian-ub-naturwissenschaften-uzh-zurich"
         ],
         "fr": [
-          "liaison-librarian-ub-naturwissenschaften-universitat-zurich-zurich"
+          "bibliothecaire-de-liaison-ub-sciences-naturelles-universitat-zurich-zurich"
         ]
       },
       "salaryMin": 91500,
@@ -8233,12 +8232,12 @@
     },
     {
       "id": "uzh-46ec194fbbb8",
-      "slug": "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34",
+      "slug": "assistente-studentesco-nel-campo-della-gestione-dati-psichica-e-gestione-dei-dati-universitat-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34",
-        "it": "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34",
-        "en": "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34",
-        "fr": "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34"
+        "it": "assistente-studentesco-nel-campo-della-gestione-dati-psichica-e-gestione-dei-dati-universitat-zurich-zurich",
+        "en": "student-assistant-in-the-field-of-psychological-data-management-and-stewardship-universitat-zurich-zurich",
+        "fr": "assistant-etudiant-dans-le-domaine-gestion-et-gerance-des-donnees-psychologiques-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -8297,7 +8296,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:11:43.612Z"
+      "firstSeenAt": "2026-10-22T09:11:43.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34"
+        ],
+        "en": [
+          "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34"
+        ],
+        "fr": [
+          "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-hilfsassistenz-im-bereich-34-psychological-data-management-and-stewardship-34"
+      ]
     }
   ]
 }
