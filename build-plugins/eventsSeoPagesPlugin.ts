@@ -3647,6 +3647,8 @@ function eventDetailMetaTitle(
   // already-built event suffix ("| Eventi"/localized equivalent) whenever it
   // keeps the complete title inside the 60-character target; this avoids
   // turning a valid event title into a 66-character shell-branded title.
+  // The returned value is still fed through the shell, so this check must use
+  // the same escaped-length measurement as `normalizeShellTitle`.
   if (esc(normalizeShellTitle(composed, (value) => esc(value).length)).length > TITLE_TARGET_CHARS) {
     const richSuffix = firstMeaningful?.suffix;
     if (richSuffix && richSuffix !== suffix) {
