@@ -397,6 +397,16 @@ describe('decideRearmAdmission — validation failures stay narrowly scoped', ()
     })).toMatchObject({ allowed: false, reason: 'promotion-gate-failed' });
   });
 
+  it('keeps an absent or successful source result fail-closed', () => {
+    for (const sourceResult of ['', 'success']) {
+      expect(decideRearmAdmission({
+        promotionResult: 'failure',
+        translationResult: 'failure',
+        sourceResult,
+      })).toMatchObject({ allowed: false, reason: 'promotion-gate-failed' });
+    }
+  });
+
   it('allows an observer without a build admission result to use the queue guard', () => {
     expect(decideRearmAdmission()).toMatchObject({ allowed: true, reason: 'admission-passed' });
   });
