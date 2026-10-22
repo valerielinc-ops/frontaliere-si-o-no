@@ -668,6 +668,7 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('gh api --paginate --slurp');
     expect(source).toContain("SOURCE_CONCLUSION: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion || '' }}");
     expect(source).toContain("[ \"$EVENT_NAME\" != 'workflow_run' ] || [ \"$SOURCE_CONCLUSION\" != 'success' ]");
+    expect(source).toContain("[ \"$source_conclusion\" != 'success' ]");
     expect(source).toContain("echo 'available=false' >> \"$GITHUB_OUTPUT\"");
     expect(source).toContain("echo 'available=true' >> \"$GITHUB_OUTPUT\"");
 
