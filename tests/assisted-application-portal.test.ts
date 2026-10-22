@@ -444,6 +444,7 @@ describe('legacy portal sections', () => {
     };
     const trigger = {
       click: vi.fn(async () => {}),
+      evaluateHandle: vi.fn(async () => ({ dispose: vi.fn(async () => {}) })),
       evaluate: vi.fn(async (run: (element: unknown) => void) => { run({ click: () => { domClicked = true; } }); }),
       isVisible: vi.fn(async () => true),
     };
@@ -478,6 +479,7 @@ describe('legacy portal sections', () => {
 
     expect(result.cv).toBe('uploaded');
     expect(trigger.click).toHaveBeenCalledOnce();
+    expect(trigger.evaluateHandle).toHaveBeenCalledTimes(2);
     expect(trigger.evaluate).toHaveBeenCalledOnce();
     expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
   });

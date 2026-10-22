@@ -1786,14 +1786,15 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   const triggerLocator = trigger.snapshot
     ? preferredFrame.locator(`[data-aa-id="${trigger.snapshot.id}"]`).first()
     : trigger;
-  const triggerContext = typeof triggerLocator?.evaluateHandle === 'function'
-    ? await triggerLocator.evaluateHandle((element) => ({
+  const readTriggerContext = () => typeof triggerLocator?.evaluateHandle === 'function'
+    ? triggerLocator.evaluateHandle((element) => ({
       trigger: element || null,
       context: element?.closest(
         'form, [role="dialog"], [aria-modal="true"], dialog, fieldset, [data-upload-container]',
       ) || null,
     })).catch(() => null)
-    : null;
+    : Promise.resolve(null);
+  let triggerContext = await readTriggerContext();
   // An already-open picker is unrelated to this trigger; fail closed instead
   // of risking an upload into a stale dialog or a different document field.
   const preexistingDialog = [...beforeCounts.values()].some((count) => count > 0);
@@ -1846,6 +1847,10 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
   // applied before selecting a file input.
   if (!firstTarget.target && typeof triggerLocator?.evaluate === 'function') {
     try {
+      // newlyMountedFileInput disposes its association handle when the first
+      // bounded wait ends. Re-read it before the DOM retry so a global hidden
+      // input can still be proven to belong to this control.
+      triggerContext = await readTriggerContext();
       await triggerLocator.evaluate((element) => element?.click?.());
       if (trace) trace.domClick = 'succeeded';
       firstTarget = await waitForTarget(fileChooserAfterClick(page));
