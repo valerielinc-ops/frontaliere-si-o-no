@@ -6,6 +6,7 @@ import {
   hasActionsWrite,
   hasDataRefreshWrite,
   hasDeploymentsRead,
+  hasStatusesRead,
   hasWorkflowsWrite,
 } from '../scripts/ci/mint-app-token.mjs';
 
@@ -112,6 +113,20 @@ describe('hasDeploymentsRead — Pages API capability read from the token, not a
     expect(hasDeploymentsRead({ deployments: 'none' })).toBe(false);
     expect(hasDeploymentsRead(undefined)).toBe(false);
     expect(hasDeploymentsRead(null)).toBe(false);
+  });
+});
+
+describe('hasStatusesRead — durable receipt API capability read from the token', () => {
+  it('accepts read and write grants', () => {
+    expect(hasStatusesRead({ statuses: 'read' })).toBe(true);
+    expect(hasStatusesRead({ statuses: 'write' })).toBe(true);
+  });
+
+  it('rejects an absent, malformed, or unrelated permission', () => {
+    expect(hasStatusesRead({ actions: 'write' })).toBe(false);
+    expect(hasStatusesRead({ statuses: 'none' })).toBe(false);
+    expect(hasStatusesRead(undefined)).toBe(false);
+    expect(hasStatusesRead(null)).toBe(false);
   });
 });
 
