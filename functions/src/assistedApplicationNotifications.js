@@ -1360,20 +1360,16 @@ export async function handleAssistedApplicationOrderWritten(
   }
 
   // Concierge children inherit payment and candidate data from the parent
-  // service. They still use this trigger for the server-side CV magic-byte
-  // check, but must not receive the legacy €0.99 payment/materials emails.
-  if (conciergeChild) {
-    return results.length > 0 ? { ok: true, results } : { ok: true, skipped: 'concierge_child' };
-  }
-
-  if (isPaid(after) && !isPaid(before)) {
+  // service. They must not receive the legacy €1.99 payment/materials emails,
+  // but they still need the same confirmation when their application is sent.
+  if (!conciergeChild && isPaid(after) && !isPaid(before)) {
     results.push(...await sendPaidOrderNotifications(db, orderId, { nowMs, automation: await automationEnabled(orderId) }));
   }
 
   const fromStatus = before?.submissionStatus || null;
   const toStatus = after.submissionStatus || null;
   if (isPaid(after) && fromStatus !== toStatus) {
-    if (toStatus === 'ready_for_manual_submission' && fromStatus === 'awaiting_upload') {
+    if (!conciergeChild && toStatus === 'ready_for_manual_submission' && fromStatus === 'awaiting_upload') {
       const receivedAutomation = await automationEnabled(orderId);
       results.push(await sendOrderNotification({
         db,
