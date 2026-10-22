@@ -1,4 +1,3 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * healthFacilitiesJobsAggregate.ts — build-time live aggregator for the
@@ -20,7 +19,7 @@ import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs'
 
 import { loadJobsJson } from './shared/loadJobsJson';
 import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
-import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { classifyHealthcareRole, type HealthcareRole } from './healthFacilitiesMatch';
 import { HEALTH_FACILITIES, type HealthFacilityRecord } from './healthFacilitiesData';
 
@@ -113,7 +112,7 @@ let _cacheRootDir: string | null = null;
 
 function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const postedDate = resolveReportedPostingDate(job, new Date(now)) || '';
   const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {

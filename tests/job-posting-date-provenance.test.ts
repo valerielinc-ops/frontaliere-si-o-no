@@ -102,7 +102,10 @@ describe('employer publication date provenance', () => {
       const snapshot = aggregateHealthFacilityJobs(root).get(facility.slug)!;
       expect(snapshot.featured[0]?.datePosted).toBe(kind === 'reported' ? yesterday : null);
       expect(snapshot.featured[0]?.postingDateSource).toBe(kind === 'legacy' ? undefined : kind === 'unknown' ? 'unknown' : 'reported');
-      if (kind !== 'reported') expect(snapshot.featured[0]?.postedDate).toBe(now.toISOString());
+      if (kind !== 'reported') {
+        expect(snapshot.featured[0]?.postedDate).toBe('');
+        expect(snapshot.featured[0]?.firstSeenAt).toBe(now.toISOString());
+      }
       for (const locale of ['it', 'en', 'de', 'fr'] as const) {
         const html = renderFacilityPage(locale, facility, snapshot, today, root).html;
         if (kind === 'reported') expect(html).toMatch(new RegExp(`data-posted=["']?${yesterday}`));

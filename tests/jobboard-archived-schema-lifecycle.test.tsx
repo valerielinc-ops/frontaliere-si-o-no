@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
+import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { buildJobPostingSchema } from '../build-plugins/shared/jobPostingSchema';
 import { resolveJobPostingPostalCode } from '../services/jobLocationSnapshot';
 import { readFileSync } from 'node:fs';
@@ -74,7 +75,7 @@ describe('archived JobPosting hydration and list navigation', () => {
     expect(document.querySelector('h1')?.textContent).toBe('Infermiere');
     expect(document.querySelector('a')?.getAttribute('href')).toBe('https://employer.test/apply/');
     // A subsequent genuine source date restores eligible schema without remounting.
-    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate);
+    executeEffect(document, false, { ...selected, postingDateSource: 'reported' }, 'active', null, null, null, null, window, () => false, null, () => '/lavoro/active/', 'it', (title: string) => title, () => '', resolveJobPostingPostalCode, buildJobPostingSchema, resolveReportedPostingDate, resolveRolloutPostingDate);
     expect(JSON.parse(document.getElementById('jobposting-structured-data')!.textContent!)['@graph'][0].datePosted).toBe(date);
     run(selected);
     expect(document.getElementById('jobposting-structured-data')).toBeNull();

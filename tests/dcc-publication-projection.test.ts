@@ -92,7 +92,7 @@ describe('DCC publication evidence through public projections and schema', () =>
     expect(source).toMatchObject({ title: 'Current slice title', postingDateSource: 'reported', postedDate: publication });
     expect(different).toMatchObject({ postingDateSource: 'unknown', postedDate: '', datePosted: '' });
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-      for (const [job, expected] of [[source, publication], [different, null]] as const) {
+      for (const [job, expected] of [[source, publication], [different, observed]] as const) {
         const detail = buildLocaleJob(job, locale);
         for (const projected of [detail, buildLocaleJobSlim(detail)]) {
           const schema = buildJobPostingSchema(projected, { locale, now, url: base.url });

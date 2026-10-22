@@ -1,4 +1,3 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the 4 career-landing topic pages (template B).
@@ -30,7 +29,7 @@ import {
 } from './careerLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
 import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
-import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -255,9 +254,9 @@ function jobCityString(job: JobRecord): string {
 
 function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  // First PARSEABLE date, not first truthy: a malformed postedDate must not
-  // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  // Aggregate freshness stays source-only; cards receive firstSeenAt separately
+  // and can use it for the synthetic display date.
+  const postedDate = resolveReportedPostingDate(job, new Date(now)) || '';
   const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   // Type-safe slugByLocale: jobs.json keys are arbitrary 2-char strings, but at

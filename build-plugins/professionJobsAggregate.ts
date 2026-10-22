@@ -1,4 +1,3 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the profession landings (AE-3 template B).
@@ -35,7 +34,7 @@ import {
 } from './professionLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
 import { realSalaryMedianChf, reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
-import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { jobMatchesCity, type CityHubKey } from './cityJobsHub';
 import { PROFESSION_CITY_DEFS } from './professionCityData';
 import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
@@ -399,9 +398,9 @@ function jobMatchesProfession(job: JobRecord, m: ProfessionMatcher): boolean {
 
 function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  // First PARSEABLE date, not first truthy: a malformed postedDate must not
-  // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  // Keep the aggregate's publication field source-only. Card rendering gets
+  // firstSeenAt separately and can apply the synthetic display fallback.
+  const postedDate = resolveReportedPostingDate(job, new Date(now)) || '';
   const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {

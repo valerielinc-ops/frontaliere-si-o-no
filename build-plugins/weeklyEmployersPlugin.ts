@@ -1,5 +1,4 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — Vite build plugin (F5).
  *
@@ -1079,7 +1078,7 @@ export function buildCompanyCityStats(opts: {
       detailPath: buildJobDetailPath(j, locale),
       postingDateSource: j.postingDateSource,
       datePosted: resolveReportedPostingDate(j) || undefined,
-      postedDate: resolveRolloutPostingDate(j, () => j.postedDate || j.datePosted || null) || undefined,
+      postedDate: resolveReportedPostingDate(j) || undefined,
       firstSeenAt: j.firstSeenAt,
       description: description.trim() ? description : undefined,
       employmentType: resolveEmploymentType(j),
@@ -3468,6 +3467,7 @@ function jobToJsonLd(
     postingDateSource: job.postingDateSource,
     datePosted: job.datePosted,
     postedDate: job.postedDate,
+    firstSeenAt: job.firstSeenAt,
     crawledAt: job.crawledAt,
     validThrough: job.validThrough,
     employmentType: job.employmentType,
