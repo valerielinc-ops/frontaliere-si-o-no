@@ -1281,6 +1281,17 @@ function orderedUploadFrames(page, preferredFrame) {
   return [preferred, ...frames.filter((frame) => frame !== preferred)];
 }
 
+function frameDescendsFrom(frame, ancestor) {
+  if (frame === ancestor) return true;
+  let current = frame;
+  for (let depth = 0; depth < 32 && current; depth += 1) {
+    if (typeof current.parentFrame !== 'function') return false;
+    current = current.parentFrame();
+    if (current === ancestor) return true;
+  }
+  return false;
+}
+
 async function dialogFileInputCount(frame) {
   try {
     const input = frame.locator(DIALOG_FILE_INPUT_SELECTOR);
@@ -1393,42 +1404,37 @@ async function newlyMountedFileInput(page, preferredFrame, beforeHandles, trigge
 
 /** Finds one newly opened, visible upload dialog across the page's current frames. */
 async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
-  const frames = orderedUploadFrames(page, preferredFrame);
-  const hasCountSurface = frames.some((frame) => {
-    try {
-      return typeof frame.locator(DIALOG_FILE_INPUT_SELECTOR).count === 'function';
-    } catch {
-      return false;
-    }
-  });
-  if (!hasCountSurface) {
-    try {
-      const legacyLocator = page.locator(DIALOG_FILE_INPUT_SELECTOR);
-      if (typeof legacyLocator.count !== 'function' && typeof legacyLocator.first === 'function') {
-        return legacyLocator.first() || null;
-      }
-    } catch {
-      // No legacy locator is available.
-    }
-    return null;
-  }
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
+    // A portal can create the dialog in a child iframe after the click. Read
+    // the frame list on every pass so that new descendants of the clicked
+    // frame get the empty pre-click baseline they necessarily had.
+    const frames = orderedUploadFrames(page, preferredFrame);
+    const hasCountSurface = frames.some((frame) => {
+      try {
+        return typeof frame.locator(DIALOG_FILE_INPUT_SELECTOR).count === 'function';
+      } catch {
+        return false;
+      }
+    });
+    if (!hasCountSurface) break;
     const candidates = [];
     let ambiguous = false;
     for (const frame of frames) {
+      let previousCount;
+      let beforeHandles;
+      if (beforeCounts.has(frame) && Array.isArray(beforeHandlesByFrame.get(frame))) {
+        previousCount = beforeCounts.get(frame);
+        beforeHandles = beforeHandlesByFrame.get(frame);
+      } else if (!beforeCounts.has(frame) && frame !== preferredFrame && frameDescendsFrom(frame, preferredFrame)) {
+        previousCount = 0;
+        beforeHandles = [];
+      } else {
+        ambiguous = true;
+        continue;
+      }
       const count = await dialogFileInputCount(frame);
-      if (count === null || !beforeCounts.has(frame)) {
-        ambiguous = true;
-        continue;
-      }
-      const beforeHandles = beforeHandlesByFrame.get(frame);
-      if (!Array.isArray(beforeHandles)) {
-        ambiguous = true;
-        continue;
-      }
-      const previousCount = beforeCounts.get(frame);
-      if (!Number.isInteger(previousCount)) {
+      if (count === null || !Number.isInteger(previousCount)) {
         ambiguous = true;
         continue;
       }
