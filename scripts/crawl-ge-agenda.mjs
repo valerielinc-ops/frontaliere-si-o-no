@@ -303,6 +303,30 @@ export function extractGeneveEventPrice(html, eventUrl) {
   }
 }
 
+function isGeneveAgendaUrl(value) {
+  try {
+    const url = new URL(value);
+    return (url.hostname === 'geneve.ch' || url.hostname === 'www.geneve.ch')
+      && url.pathname.startsWith('/agenda/');
+  } catch {
+    return false;
+  }
+}
+
+function extractGeneveCanonicalUrl(html, eventUrl) {
+  const dom = new JSDOM(html);
+  try {
+    const href = dom.window.document.querySelector('link[rel~="canonical"][href]')?.getAttribute('href');
+    if (!href) return undefined;
+    const url = new URL(href, eventUrl);
+    return isGeneveAgendaUrl(url.href) ? url.href : undefined;
+  } catch {
+    return undefined;
+  } finally {
+    dom.window.close();
+  }
+}
+
 export async function enrichGeneveEvent(event, fetchHtml) {
   const html = await fetchHtml(event.url);
   if (!html) {
@@ -313,8 +337,20 @@ export async function enrichGeneveEvent(event, fetchHtml) {
     });
     return unchanged;
   }
-  const price = extractGeneveEventPrice(html, event.url);
-  return price ? { ...event, price } : event;
+  const canonicalUrl = extractGeneveCanonicalUrl(html, event.url);
+  const normalizedEvent = canonicalUrl ? { ...event, url: canonicalUrl } : event;
+  const price = extractGeneveEventPrice(html, canonicalUrl || event.url);
+  if (!price) return normalizedEvent;
+
+  // The Geneva source sometimes leaves an expired official agenda page in
+  // the reservation field. Validate only same-site agenda URLs; third-party
+  // ticket providers remain untouched and are not fetched a second time.
+  let verifiedPrice = price;
+  if (price.url && isGeneveAgendaUrl(price.url) && !(await fetchHtml(price.url))) {
+    const { url: _expiredUrl, ...withoutExpiredUrl } = price;
+    verifiedPrice = Object.keys(withoutExpiredUrl).length ? withoutExpiredUrl : undefined;
+  }
+  return verifiedPrice ? { ...normalizedEvent, price: verifiedPrice } : normalizedEvent;
 }
 
 const crawler = createAgendaCrawler({
