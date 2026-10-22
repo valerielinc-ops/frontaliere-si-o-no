@@ -28,7 +28,10 @@ const resolveSearchConsoleCompatTarget = vi.hoisted(() => vi.fn(
 
 vi.mock('../build-plugins/searchConsoleCompat', () => ({ resolveSearchConsoleCompatTarget }));
 
-import { classifyUnresolvedCoveragePath } from '../scripts/ingest-gsc-coverage-404s';
+import {
+  buildJobSlugCanonicalIndex,
+  classifyUnresolvedCoveragePath,
+} from '../scripts/ingest-gsc-coverage-404s';
 
 describe('GSC Coverage non-200 classification', () => {
   it('accepts an explicit source-backed redirect', () => {
@@ -74,13 +77,9 @@ describe('GSC Coverage non-200 classification', () => {
   });
 
   it('accepts a job redirect only when a canonical identity is supplied', () => {
-    const slugIndex = {
-      get(slug: string) {
-        return slug === 'known-job'
-          ? { it: '/cerca-lavoro-berna/known-job' }
-          : undefined;
-      },
-    };
+    const slugIndex = buildJobSlugCanonicalIndex({
+      canonical: { it: '/cerca-lavoro-berna/known-job/' },
+    });
 
     expect(
       classifyUnresolvedCoveragePath('/cerca-lavoro-ticino/known-job', slugIndex),

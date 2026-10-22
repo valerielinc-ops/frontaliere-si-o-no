@@ -64,6 +64,7 @@ import {
   type JobSlugCanonicalIndex,
   type SearchConsoleCompatResolution,
 } from '../build-plugins/searchConsoleCompat';
+import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { gscOrphanPathKey, isAllowedGscOrphanUrl } from './lib/gsc-orphan-snapshot.mjs';
@@ -190,6 +191,42 @@ function safeCanonicalPath(input: string): string | null {
 }
 
 /**
+ * Build the resolver's localized-slug index from the authoritative registry.
+ * The registry is keyed by its canonical slug, while GSC paths carry the
+ * localized slug as their final segment (which can differ by locale).
+ */
+export function buildJobSlugCanonicalIndex(
+  tracking: unknown,
+): JobSlugCanonicalIndex | undefined {
+  const slugCanonical = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>();
+  if (!tracking || typeof tracking !== 'object') return undefined;
+
+  for (const entry of Object.values(tracking as Record<string, unknown>)) {
+    if (!entry || typeof entry !== 'object') continue;
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const localizedPath = (entry as Record<string, unknown>)[locale];
+      if (typeof localizedPath !== 'string' || !localizedPath) continue;
+      const localizedSlug = localizedPath.replace(/\/+$/, '').split('/').pop();
+      if (localizedSlug && !slugCanonical.has(localizedSlug)) {
+        slugCanonical.set(localizedSlug, entry as Partial<Record<'it' | 'en' | 'de' | 'fr', string>>);
+      }
+    }
+  }
+
+  return slugCanonical.size > 0 ? slugCanonical : undefined;
+}
+
+function loadJobSlugCanonicalIndex(rootDir: string): JobSlugCanonicalIndex | undefined {
+  try {
+    return buildJobSlugCanonicalIndex(readAllKnownJobSlugs(rootDir));
+  } catch {
+    // A missing or unreadable ledger must preserve the resolver's conservative
+    // listing fallback; it must never turn an unverified route into a target.
+    return undefined;
+  }
+}
+
+/**
  * Classify a Coverage URL before it can enter either compatibility store.
  *
  * The normal resolver intentionally has conservative section/job fallbacks for
@@ -255,6 +292,7 @@ function main(): void {
   let rawDataRows = 0;
   const unresolved: Array<Extract<GscCoveragePathClassification, { kind: 'unknown' }>> = [];
   const byClassification: Record<string, number> = {};
+  const slugIndex = loadJobSlugCanonicalIndex(ROOT);
 
   for (const { file, basename } of csvs) {
     rawDataRows += csvDataRowCount(file);
@@ -262,7 +300,7 @@ function main(): void {
     let resolved = 0;
     for (const url of urls) {
       totalRows++;
-      const classification = classifyUnresolvedCoveragePath(url);
+      const classification = classifyUnresolvedCoveragePath(url, slugIndex);
       byClassification[classification.kind] = (byClassification[classification.kind] || 0) + 1;
       if (classification.kind === 'unknown') { unresolved.push(classification); continue; }
       byKind[classification.resolution.kind] = (byKind[classification.resolution.kind] || 0) + 1;
