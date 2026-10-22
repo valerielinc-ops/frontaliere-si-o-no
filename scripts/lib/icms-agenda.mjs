@@ -79,6 +79,24 @@ function absoluteUrl(href, origin) {
   }
 }
 
+const ICMS_EVENT_PATH_BY_SOURCE = Object.freeze({
+  'nw-agenda': 'anlaesseaktuelles',
+  'ow-agenda': 'anlaesseaktuelles',
+  'lu-stadt-agenda': 'sitzung',
+});
+
+/**
+ * iCMS exposes event records through `/_rte/anlass/<id>`, but the public
+ * detail routes are source-specific and the former path redirects (or is
+ * reported as a broken external link by crawlers). Keep non-iCMS URLs
+ * untouched: this helper only canonicalizes the known platform route.
+ */
+function canonicalIcmsHref(sourceKey, href, rawId) {
+  const path = ICMS_EVENT_PATH_BY_SOURCE[sourceKey];
+  if (!path || !/\/_rte\/anlass\/\d+(?:[/?#]|$)/.test(String(href || ''))) return href;
+  return `/${path}/${rawId}`;
+}
+
 /**
  * Parse an iCMS "Anlässe" page into events.
  * @param {string} html
@@ -114,6 +132,7 @@ export function parseIcmsAnlaesseHtml(html, { sourceKey, canton, origin }) {
         }
         const endDay = validIsoDay(row._datumBis);
         const href = nameDom.querySelector('a[href]')?.getAttribute('href') || `/_rte/anlass/${rawId}`;
+        const canonicalHref = canonicalIcmsHref(sourceKey, href, rawId);
         const locality = localityName(row._ort || row.ort);
         const venueName = cleanEventText(String(row.lokalitaet || ''));
         const organizer = cleanEventText(String(row.organisator || ''));
@@ -126,7 +145,7 @@ export function parseIcmsAnlaesseHtml(html, { sourceKey, canton, origin }) {
           ...(startTime ? { startTime } : {}),
           ...(venueName || locality ? { venue: [venueName, locality].filter(Boolean).join(', ') } : {}),
           ...attributeLocality(locality || venueName, canton),
-          url: absoluteUrl(href, origin),
+          url: absoluteUrl(canonicalHref, origin),
           ...(locality ? { address: { locality } } : {}),
           ...(organizer ? { organizer: { '@type': 'Organization', name: organizer } } : {}),
         });
@@ -158,9 +177,9 @@ export function parseRssEventDate(raw) {
 /**
  * Parse an iCMS events RSS (RSS event module) into events.
  * @param {string} xml
- * @param {{ sourceKey: string, canton: string }} source
+ * @param {{ sourceKey: string, canton: string, origin?: string }} source
  */
-export function parseIcmsTermineRss(xml, { sourceKey, canton }) {
+export function parseIcmsTermineRss(xml, { sourceKey, canton, origin }) {
   const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '', parseTagValue: false, trimValues: true });
   let doc;
   try {
@@ -190,6 +209,7 @@ export function parseIcmsTermineRss(xml, { sourceKey, canton }) {
       ? /<img[^>]+src="(https:\/\/[^"]+)"/i.exec(descriptionHtml)?.[1]
       : undefined;
     const { comune, method } = resolveComune({ venue: description, title }, comuni);
+    const canonicalHref = canonicalIcmsHref(sourceKey, link, rawId);
     events.push({
       id: eventStableId(sourceKey, rawId),
       title,
@@ -199,7 +219,7 @@ export function parseIcmsTermineRss(xml, { sourceKey, canton }) {
       ...(description ? { description } : {}),
       ...(comune ? { comune, comuneMatch: method } : {}),
       canton,
-      url: link,
+      url: absoluteUrl(canonicalHref, origin) || link,
       ...(imageUrl ? { imageUrl } : {}),
     });
   }

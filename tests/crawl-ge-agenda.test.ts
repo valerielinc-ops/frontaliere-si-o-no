@@ -48,6 +48,26 @@ describe('Geneva event admission metadata', () => {
     expect((await enrichGeneveEvent(event, async () => html)).price).toEqual({ url: 'https://www.geneve.ch/book' });
   });
 
+  it('drops an expired same-site Geneva booking page while retaining its tariff', async () => {
+    const staleUrl = 'https://www.geneve.ch/agenda/cours-tango-argentin-niveau-debutant-5?date=2026-10-22';
+    const detailHtml = `<div class="field--name-field-rates-and-conditions">CHF 20.-</div>
+      <div class="field--name-field-oa-reservation-link"><a href="${staleUrl}">Book</a></div>`;
+    const fetchHtml = vi.fn()
+      .mockResolvedValueOnce(detailHtml)
+      .mockResolvedValueOnce(null);
+    expect(await enrichGeneveEvent(event, fetchHtml)).toEqual({
+      ...event,
+      price: { amount: 20, currency: 'CHF', isFree: false },
+    });
+    expect(fetchHtml).toHaveBeenNthCalledWith(2, staleUrl);
+  });
+
+  it('adopts the canonical event URL when Geneva redirects an old slug', async () => {
+    const canonicalUrl = 'https://www.geneve.ch/agenda/despossessions-vanessa-riera-complet';
+    const html = `<link rel="canonical" href="${canonicalUrl}">`;
+    expect(await enrichGeneveEvent(event, async () => html)).toEqual({ ...event, url: canonicalUrl });
+  });
+
   it('retains an ambiguous tariff and ignores non-HTTP booking links', () => {
     const html = `<div class="field--name-field-rates-and-conditions">Sur demande</div>
       <div class="field--name-field-oa-reservation-link"><a href="javascript:alert(1)">Book</a></div>`;

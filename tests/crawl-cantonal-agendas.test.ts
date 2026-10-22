@@ -127,7 +127,7 @@ describe('iCMS "Anlässe" page (nw.ch / ow.ch)', () => {
       comune: 'Stans',
       comuneMatch: 'exact',
       canton: 'NW',
-      url: 'https://www.nw.ch/_rte/anlass/88340',
+      url: 'https://www.nw.ch/anlaesseaktuelles/88340',
       address: { locality: 'Stans' },
       organizer: { '@type': 'Organization', name: 'Frauen Gemeinschaft Stans' },
     });
@@ -151,6 +151,21 @@ describe('iCMS "Anlässe" page (nw.ch / ow.ch)', () => {
     expect(parseIcmsAnlaesseHtml(html, source)[0]).toMatchObject({ comune: 'Sachseln', canton: 'OW' });
   });
 
+  it.each([
+    ['nw-agenda', 'NW', 'https://www.nw.ch', 'https://www.nw.ch/anlaesseaktuelles/123'],
+    ['ow-agenda', 'OW', 'https://www.ow.ch', 'https://www.ow.ch/anlaesseaktuelles/123'],
+  ])('canonicalizes the public iCMS listing route for %s', (sourceKey, canton, origin, expectedUrl) => {
+    const row = { id: '123', name: '<a href="/_rte/anlass/123">Evento</a>', _datumVon: '2026-10-10' };
+    const html = `<div data-entities="${JSON.stringify({ data: [row] }).replace(/"/g, '&quot;')}"></div>`;
+    expect(parseIcmsAnlaesseHtml(html, { sourceKey, canton, origin })[0].url).toBe(expectedUrl);
+  });
+
+  it('leaves a non-iCMS listing route unchanged', () => {
+    const row = { id: '124', name: '<a href="/agenda/124">Evento</a>', _datumVon: '2026-10-10' };
+    const html = `<div data-entities="${JSON.stringify({ data: [row] }).replace(/"/g, '&quot;')}"></div>`;
+    expect(parseIcmsAnlaesseHtml(html, source)[0].url).toBe('https://www.nw.ch/agenda/124');
+  });
+
   it('skips a row without a valid start day', () => {
     const rows = [
       { id: '2', name: 'Ohne Datum', _datumVon: '' },
@@ -170,7 +185,11 @@ describe('iCMS "Anlässe" page (nw.ch / ow.ch)', () => {
 });
 
 describe('iCMS events RSS (stadtluzern.ch termine.rss)', () => {
-  const events = parseIcmsTermineRss(fixture('stadtluzern-termine.rss'), { sourceKey: 'lu-stadt-agenda', canton: 'LU' });
+  const events = parseIcmsTermineRss(fixture('stadtluzern-termine.rss'), {
+    sourceKey: 'lu-stadt-agenda',
+    canton: 'LU',
+    origin: 'https://www.stadtluzern.ch',
+  });
 
   it('reads ev:startdate / ev:enddate and never the author contact', () => {
     expect(events).toHaveLength(2);
@@ -181,7 +200,7 @@ describe('iCMS events RSS (stadtluzern.ch termine.rss)', () => {
       endDate: '2026-10-10',
       canton: 'LU',
       comune: 'Luzern',
-      url: 'https://www.stadtluzern.ch/_rte/anlass/6840391',
+      url: 'https://www.stadtluzern.ch/sitzung/6840391',
     });
     expect(events[0].startTime).toBeUndefined();
     expect(events[1]).toMatchObject({ startDate: '2026-10-09', startTime: '12:00', canton: 'LU' });
@@ -194,6 +213,18 @@ describe('iCMS events RSS (stadtluzern.ch termine.rss)', () => {
     expect(parseRssEventDate('2026-10-09 12:00:00')).toEqual({ day: '2026-10-09', time: '12:00' });
     expect(parseRssEventDate('09.10.2026')).toBeNull();
     expect(parseRssEventDate('2026-10-10 25:99:00')).toBeNull();
+  });
+
+  it('canonicalizes the public Luzern route', () => {
+    const xml = `<rss><channel>
+      <item><title>Evento</title><link>https://www.stadtluzern.ch/_rte/anlass/42</link><ev:startdate>2026-10-10</ev:startdate></item>
+    </channel></rss>`;
+    const events = parseIcmsTermineRss(xml, {
+      sourceKey: 'lu-stadt-agenda',
+      canton: 'LU',
+      origin: 'https://www.stadtluzern.ch',
+    });
+    expect(events.map((event) => event.url)).toEqual(['https://www.stadtluzern.ch/sitzung/42']);
   });
 });
 
