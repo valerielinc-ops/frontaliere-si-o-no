@@ -1293,6 +1293,16 @@ main() {
   else
     run_nonfatal "Push generated assets to CDN repo" step_push_cdn   # non-fatal
   fi
+  # A matrix build carries a shared id because the non-IT shards must wait for
+  # this exact CDN generation. The push helper is intentionally non-fatal so
+  # the later prep steps can preserve the pre-hoist retry order, but that must
+  # not let a build-scoped IT prep certify success without a publish
+  # acknowledgement. Failing here makes the source leg terminal; the #2569
+  # observer can then stop its wait early while keeping the shard unpublished.
+  if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ -z "${CDN_BASE:-}" ]; then
+    echo "::error::[deploy-it-pages-prep] CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged (CDN_BASE unset) — failing the IT leg so non-IT shards do not spend the full #2569 wait"
+    return 1
+  fi
   run_nonfatal "Offload og refs + data base into dist" step_offload  # non-fatal
   run_nonfatal "Prune superseded CDN asset hashes" step_prune_cdn    # non-fatal
   run_fatal "Drop dist/assets after CDN push" step_drop_assets       # FATAL
