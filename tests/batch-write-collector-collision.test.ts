@@ -23,7 +23,7 @@ import {
   clearPostWalkDerivedDigestCacheForTest,
   writePostWalkDerivedDigestSidecar,
 } from '@/build-plugins/shared/postWalkDerivedDigest';
-import { DistPathCollisionError } from '@/build-plugins/shared/distPathCollision';
+import { DistPathCollisionError } from '@/build-plugins/sharedWriteRegistry';
 import {
   hashContent,
   reset,

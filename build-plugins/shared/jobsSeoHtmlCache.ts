@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { isMissingOrNotDirectoryError } from './distPathCollision';
+import { isMissingOrNotDirectoryError } from '../sharedWriteRegistry';
 
 function indexPath(distDir: string, relativePath: string): string {
   const normalized = relativePath.replace(/^\/+/, '').replace(/\/+$/, '');

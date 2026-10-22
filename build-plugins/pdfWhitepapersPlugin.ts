@@ -22,7 +22,7 @@ import { PDF_PAGE_A4, PDF_MARGIN_DEFAULT, PDF_BASE_PALETTE, collectPdfBuffer } f
 import {
   assertDistFilePathAvailable,
   assertNoFileDirectoryPathCollisions,
-} from './shared/distPathCollision';
+} from './sharedWriteRegistry';
 import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
 /**

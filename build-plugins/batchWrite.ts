@@ -21,13 +21,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getManifest } from './contentHash';
-import { claim, type ClaimOutcome } from './sharedWriteRegistry';
+import {
+ assertNoFileDirectoryPathCollisions,
+ claim,
+ type ClaimOutcome,
+} from './sharedWriteRegistry';
 import { shouldEmitPath, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
 import {
  preservePostWalkDerivedOutput,
  type PostWalkDerivedKind,
 } from './shared/postWalkDerivedDigest';
-import { assertNoFileDirectoryPathCollisions } from './shared/distPathCollision';
 
 export interface PendingWrite {
  filePath: string;

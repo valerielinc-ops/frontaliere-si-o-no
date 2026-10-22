@@ -7,7 +7,7 @@ import {
   assertNoFileDirectoryPathCollisions,
   DistPathCollisionError,
   isMissingOrNotDirectoryError,
-} from '../../build-plugins/shared/distPathCollision';
+} from '../../build-plugins/sharedWriteRegistry';
 import { pdfWhitepapersPlugin } from '../../build-plugins/pdfWhitepapersPlugin';
 
 describe('dist file/directory collision guard', () => {
