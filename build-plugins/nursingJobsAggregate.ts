@@ -171,6 +171,7 @@ function toFeatured(job: JobRecord, now: number): NursingFeaturedJob | null {
     postingDateSource: job.postingDateSource ?? undefined,
     datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
+    firstSeenAt: job.firstSeenAt,
     daysAgo,
     slug: job.slug,
     slugByLocale: job.slugByLocale ?? {},

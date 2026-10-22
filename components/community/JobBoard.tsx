@@ -1,4 +1,5 @@
 import { resolveReportedPostingDate } from '../../scripts/lib/job-posting-date.mjs';
+import { resolveRolloutPostingDate } from '../../scripts/lib/job-posting-date-rollout.mjs';
 import { hasActiveSalarySearchIntent } from '../../services/jobSearchIntent';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../../services/jobSearchRelevance';
 import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
@@ -850,6 +851,7 @@ export function normalizeIncomingJob(raw: any): JobListing {
  const companyKey = String(raw?.companyKey || '').trim() || undefined;
  const rawCompanyDomain = String(raw?.companyDomain || '').trim();
  const rawApplyUrl = String(raw?.applyUrl || '').trim();
+ const displayPostingDate = resolveRolloutPostingDate(raw || {}, () => '') || '';
 
  return {
  ...raw,
@@ -867,11 +869,12 @@ export function normalizeIncomingJob(raw: any): JobListing {
  ? raw.requirements.map((item: unknown) => String(item || '').trim()).filter(Boolean)
  : [],
  featured: Boolean(raw?.featured),
- // Only verified employer publication dates populate these aliases.
- // Observation timestamps remain separate and cannot establish publication.
+ // A verified employer date wins. When it is unavailable, firstSeenAt is an
+ // explicit synthetic fallback for display/schema output; keep the upstream
+ // provenance separate so date filters still require a reported date.
  postingDateSource: raw?.postingDateSource,
- datePosted: resolveReportedPostingDate(raw || {}) || undefined,
- postedDate: resolveReportedPostingDate(raw || {}) || '',
+ datePosted: displayPostingDate || undefined,
+ postedDate: displayPostingDate,
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
  companyDomain: rawCompanyDomain || undefined,
@@ -6114,6 +6117,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
+ firstSeenAt: job.firstSeenAt,
  crawledAt: job.crawledAt,
  salaryMin: job.salaryMin,
  salaryMax: job.salaryMax,
@@ -6262,6 +6266,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
+ firstSeenAt: job.firstSeenAt,
  crawledAt: job.crawledAt,
  contract: job.contract,
  salaryMin,
@@ -6283,7 +6288,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // (e.g., slim index loaded first without description), preserve the
  // static HTML's JobPosting injected by the build plugin. The full data
  // will load shortly and re-trigger this effect with a valid schema.
- if (selectedJob && jobPostings.length === 0 && resolveReportedPostingDate(selectedJob)) {
+ if (selectedJob && jobPostings.length === 0 && resolveRolloutPostingDate(selectedJob, () => '')) {
  return;
  }
 
@@ -10402,6 +10407,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  postingDateSource: selectedJob.postingDateSource,
  datePosted: selectedJob.datePosted,
  postedDate: selectedJob.postedDate,
+ firstSeenAt: selectedJob.firstSeenAt,
  crawledAt: selectedJob.crawledAt,
  contract: selectedJob.contract,
  salaryMin: selectedJob.salaryMin ?? selectedJob.baseSalary?.value?.minValue ?? null,

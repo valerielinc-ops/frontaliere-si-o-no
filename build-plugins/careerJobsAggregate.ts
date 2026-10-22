@@ -84,6 +84,7 @@ export interface CareerFeaturedJob {
   readonly postingDateSource?: string;
   readonly datePosted?: string | null;
   readonly postedDate: string;
+  readonly firstSeenAt?: string;
   readonly daysAgo: number;
   readonly slug: string;
   readonly slugByLocale: Partial<Record<CareerLocale, string>>;
@@ -287,6 +288,7 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
     postingDateSource: job.postingDateSource ?? undefined,
     datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
+    firstSeenAt: job.firstSeenAt,
     daysAgo,
     slug: job.slug,
     slugByLocale,

@@ -20,6 +20,7 @@ function validate(
   source: string | undefined,
   schema: Record<string, unknown> | null,
   overrides: {
+    firstSeenAt?: string;
     canonicalUrlByLocale?: Record<string, string>;
     schemaByLocale?: Record<string, Record<string, unknown> | null>;
   } = {},
@@ -27,7 +28,7 @@ function validate(
   const root = mkdtempSync(join(tmpdir(), 'rich-result-provenance-'));
   try {
     mkdirSync(join(root, 'data'));
-    writeFileSync(join(root, 'data/jobs.json'), JSON.stringify([{ slug: 'example', postingDateSource: source, postedDate: date }]));
+    writeFileSync(join(root, 'data/jobs.json'), JSON.stringify([{ slug: 'example', postingDateSource: source, postedDate: date, firstSeenAt: overrides.firstSeenAt }]));
     for (const [locale, section] of Object.entries(SECTION_LEGACY_TI)) {
       const dir = join(root, 'dist', locale === 'it' ? '' : locale, section, 'example');
       mkdirSync(dir, { recursive: true });
@@ -44,7 +45,7 @@ function validate(
   }
 }
 describe('rich-result eligibility validation', () => {
-  it.each(['unknown'])('requires schema absence for %s provenance', (source) => {
+  it.each(['unknown'])('still withholds schema when %s has no first observation', (source) => {
     const result = validate(source, null);
     expect(result.status, result.stdout + result.stderr).toBe(0);
     expect(result.stdout).toContain('JobPosting withheld (unverified publication): 4');
@@ -57,6 +58,13 @@ describe('rich-result eligibility validation', () => {
     const result = validate('unknown', posting);
     expect(result.status).toBe(1);
     expect(result.stdout).toContain('jobposting_without_reported_publication_date');
+  });
+  it('accepts a first-seen fallback when the record carries its observation timestamp', () => {
+    const firstSeenAt = new Date(Date.now() - 4 * 86400000).toISOString();
+    const result = validate('unknown', { ...posting, datePosted: firstSeenAt }, { firstSeenAt });
+    expect(result.status, result.stdout + result.stderr).toBe(0);
+    expect(result.stdout).toContain('JobPosting first-seen dates: 4');
+    expect(result.stdout).toContain('Eligible locale checks: 4');
   });
   it('accepts the safe default only for an exact canonical issue URL', () => {
     const result = validate('unknown', null, {

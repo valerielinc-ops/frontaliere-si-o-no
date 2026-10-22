@@ -49,6 +49,7 @@ export interface JobCardJob {
   postingDateSource?: string;
   postedDate?: string;
   datePosted?: string;
+  firstSeenAt?: string;
   salaryMin?: number | string | null;
   salaryMax?: number | string | null;
   /** Source-reported, explicitly estimated, or unverified legacy/unknown. */

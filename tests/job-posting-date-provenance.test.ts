@@ -7,6 +7,7 @@ import { renderFacilityPage } from '../build-plugins/healthFacilitiesPlugin';
 import { describe, expect, it, vi } from 'vitest';
 import {
   JOB_POSTING_DATE_SAFE_DEFAULT,
+  resolveFirstSeenPostingDate,
   resolveReportedPostingDate,
   resolveSchemaPostingDate,
 } from '../scripts/lib/job-posting-date.mjs';
@@ -39,11 +40,23 @@ describe('employer publication date provenance', () => {
     expect(resolveReportedPostingDate({ ...job, postingDateSource }, now)).toBeNull();
     expect(buildJobPostingSchema({ ...job, postingDateSource }, options)).toBeNull();
   });
-  it.each([undefined, null, 'unknown'])('never converts collection/build clocks into publication for %s', (postingDateSource) => {
-    for (const clocks of [{}, { firstSeenAt: yesterday }, { crawledAt: yesterday }, { scrapedAt: yesterday }]) {
+  it('uses firstSeenAt as a synthetic fallback while preserving a reported date', () => {
+    const firstSeenAt = new Date(now.getTime() - 3 * 86400000).toISOString();
+    expect(resolveFirstSeenPostingDate({ firstSeenAt }, now)).toBe(firstSeenAt);
+    expect(resolveRolloutPostingDate({ ...job, postingDateSource: 'unknown', firstSeenAt }, vi.fn(), now)).toBe(firstSeenAt);
+    expect(buildJobPostingSchema({ ...job, postingDateSource: 'unknown', firstSeenAt }, options)?.datePosted).toBe(firstSeenAt);
+    expect(resolveRolloutPostingDate({ ...job, postingDateSource: 'reported', firstSeenAt }, vi.fn(), now)).toBe(yesterday);
+    expect(buildJobPostingSchema({ ...job, postingDateSource: 'reported', firstSeenAt }, options)?.datePosted).toBe(yesterday);
+  });
+  it.each([undefined, null, 'unknown'])('does not use crawl/build clocks without firstSeenAt for %s', (postingDateSource) => {
+    for (const clocks of [{}, { crawledAt: yesterday }, { scrapedAt: yesterday }]) {
       expect(buildJobPostingSchema({ ...job, postingDateSource, ...clocks }, options)).toBeNull();
       expect(buildJobPostingSchema({ postingDateSource, ...clocks }, options)).toBeNull();
     }
+  });
+  it.each(['', 'not-a-date', '2025-02-29', '2024-04-31', '2024-01-01T24:00:00Z'])('rejects invalid firstSeenAt %s', (firstSeenAt) => {
+    expect(resolveFirstSeenPostingDate({ firstSeenAt }, now)).toBeNull();
+    expect(buildJobPostingSchema({ ...job, postingDateSource: 'unknown', firstSeenAt }, options)).toBeNull();
   });
   it.each(['', 'not-a-date', '2025-02-29', '2024-04-31', '2024-01-01T24:00:00Z'])('rejects invalid reported date %s', (postedDate) => {
     expect(resolveReportedPostingDate({ postedDate, postingDateSource: 'reported' }, now)).toBeNull();
@@ -89,11 +102,11 @@ describe('employer publication date provenance', () => {
       const snapshot = aggregateHealthFacilityJobs(root).get(facility.slug)!;
       expect(snapshot.featured[0]?.datePosted).toBe(kind === 'reported' ? yesterday : null);
       expect(snapshot.featured[0]?.postingDateSource).toBe(kind === 'legacy' ? undefined : kind === 'unknown' ? 'unknown' : 'reported');
-      if (kind !== 'reported') expect(snapshot.featured[0]?.postedDate).toBe('');
+      if (kind !== 'reported') expect(snapshot.featured[0]?.postedDate).toBe(now.toISOString());
       for (const locale of ['it', 'en', 'de', 'fr'] as const) {
         const html = renderFacilityPage(locale, facility, snapshot, today, root).html;
         if (kind === 'reported') expect(html).toMatch(new RegExp(`data-posted=["']?${yesterday}`));
-        expect(html).not.toMatch(new RegExp(`data-posted=["']?${today}`));
+        if (kind !== 'reported') expect(html).toMatch(new RegExp(`data-posted=["']?${today}`));
       }
     } finally {
       rmSync(root, { recursive: true, force: true });

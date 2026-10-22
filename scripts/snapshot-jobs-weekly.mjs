@@ -7,7 +7,7 @@
  *   `data/jobs-snapshots-history/{YYYY-WW}.json`
  *
  * Each row in the snapshot keeps just the fields needed by the build plugin:
- *   { slug, employer, employerKey?, city, role?, postingDateSource?, postedAt? }
+ *   { slug, employer, employerKey?, city, role?, postingDateSource?, firstSeenAt?, postedAt? }
  *
  * The snapshot file name uses the ISO 8601 week + ISO-week-year of the
  * moment the script runs. Running multiple times in the same ISO week
@@ -78,6 +78,7 @@ function main() {
       city: String(j.addressLocality || j.location || '').trim(),
       role: String(j.title || '').trim() || undefined,
       postingDateSource: j.postingDateSource,
+      firstSeenAt: j.firstSeenAt,
       postedAt: resolveRolloutPostingDate(j, () => j.postedDate || j.datePosted || null, now) || undefined,
     });
   }

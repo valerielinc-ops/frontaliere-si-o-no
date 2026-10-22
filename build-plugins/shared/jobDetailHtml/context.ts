@@ -34,6 +34,7 @@ export interface JobDetailJob {
   readonly postingDateSource?: string;
   readonly datePosted?: string;
   readonly postedDate?: string;
+  readonly firstSeenAt?: string;
   readonly crawledAt?: string;
   readonly url?: string;
   readonly applyUrl?: string;

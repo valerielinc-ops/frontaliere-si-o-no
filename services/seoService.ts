@@ -496,6 +496,7 @@ async function resolveJobSeoBySlug(
  postingDateSource: job?.postingDateSource,
  datePosted: job?.datePosted,
  postedDate: job?.postedDate,
+ firstSeenAt: job?.firstSeenAt,
  crawledAt: job?.crawledAt,
  updatedAt: job?.updatedAt,
  contract: job?.contract,

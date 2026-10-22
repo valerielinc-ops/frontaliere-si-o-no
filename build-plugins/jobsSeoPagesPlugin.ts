@@ -998,7 +998,7 @@ const ACTIVE_JOB_REUSE_MARKERS = Object.freeze({
 
 export type ActiveJobReuseFragments = {
  jobPostingDatePosted: string | null;
- jobPostingDateProvenance: 'reported' | 'safe-default' | null;
+ jobPostingDateProvenance: 'reported' | 'first-seen' | 'safe-default' | null;
  jobPostingValidThrough: string;
  heroBadges: string;
  mobileAction: string;
@@ -1070,9 +1070,12 @@ export function hasActiveJobPostingJsonLd(fragment: string): boolean {
 
 export function shouldInvalidateActiveJobReuseForSafeDefault(
  fragment: string,
- provenance: 'reported' | 'safe-default' | null,
+ provenance: 'reported' | 'first-seen' | 'safe-default' | null,
 ): boolean {
- return provenance === 'safe-default' && !hasActiveJobPostingJsonLd(fragment);
+ // Function name retained for the cache contract; both synthetic date paths
+ // need a fresh render when a legacy cache has no JobPosting script.
+ return (provenance === 'first-seen' || provenance === 'safe-default')
+  && !hasActiveJobPostingJsonLd(fragment);
 }
 
 export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFragments): string {
@@ -1084,7 +1087,7 @@ export function rewriteActiveJobHtml(html: string, fragments: ActiveJobReuseFrag
     current,
     fragments.jobPostingDateProvenance,
    )) {
-    throw new Error('cached active-job HTML missing JobPosting JSON-LD for safe-default date');
+    throw new Error('cached active-job HTML missing JobPosting JSON-LD for fallback date');
    }
    return replaceActiveJobPostingDates(
     current,
@@ -4056,6 +4059,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  postingDateSource: job.postingDateSource,
  datePosted: job.datePosted,
  postedDate: job.postedDate,
+ firstSeenAt: job.firstSeenAt,
  crawledAt: job.crawledAt,
  updatedAt: job.updatedAt,
  contract: job.contract,

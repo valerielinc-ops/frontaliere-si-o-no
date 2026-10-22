@@ -187,6 +187,7 @@ export function renderFeaturedJobs(
       postingDateSource: j.postingDateSource,
       datePosted: j.datePosted ?? undefined,
       postedDate: j.postedDate,
+      firstSeenAt: j.firstSeenAt,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
     href: buildFeaturedJobUrl(j, locale),

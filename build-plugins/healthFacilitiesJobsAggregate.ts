@@ -83,6 +83,7 @@ export interface FacilityFeaturedJob {
   readonly postingDateSource?: string;
   readonly postedDate: string | null;
   readonly datePosted: string | null;
+  readonly firstSeenAt: string | null;
   readonly validThrough: string | null;
   readonly crawledAt: string | null;
   readonly daysAgo: number;
@@ -137,6 +138,7 @@ function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
     postingDateSource: job.postingDateSource ?? undefined,
     datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
+    firstSeenAt: job.firstSeenAt ?? null,
     validThrough: job.validThrough ?? null,
     crawledAt: job.crawledAt ?? null,
     daysAgo,
