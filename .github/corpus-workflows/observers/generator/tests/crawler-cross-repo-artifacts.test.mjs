@@ -356,7 +356,11 @@ test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo 
     // recovery separato dopo timeout/failure; il job pesante resta comunque
     // unico e serializzato.
     const expectedRunnableJobs = artifact.file === 'translate-pending.yml' ? 3 : 1;
-    assert.equal(occurrences(text, /^  [a-z0-9_]+:\n    runs-on:/gm), expectedRunnableJobs, artifact.file);
+    assert.equal(
+      occurrences(text, /^  [a-z0-9_]+:\n(?:(?!^ {2}\S).*\n)*?    runs-on:/gm),
+      expectedRunnableJobs,
+      artifact.file,
+    );
     if (artifact.file === 'translate-pending.yml') {
       assert.match(text, /^  translate_queue_guard:\n    runs-on:/m);
       assert.match(text, /needs: translate_queue_guard/);
