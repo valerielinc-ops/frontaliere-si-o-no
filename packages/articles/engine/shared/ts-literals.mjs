@@ -203,10 +203,10 @@ export function readStaticStringLiteral(source, startIdx, sourcePath = 'source',
  * Decode a static literal using the same escape contract as the TS readers.
  * @param {string} raw
  * @param {string} [quote]
- * @param {{ newlineAs?: string }} [options]
+ * @param {{ newlineAs?: string, preserveEscapedCarriageReturn?: boolean }} [options]
  */
 export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
-  const { newlineAs } = options;
+  const { newlineAs, preserveEscapedCarriageReturn = false } = options;
   return raw.replace(TS_ESCAPE_RX, (whole, escape) => {
     const codePoint = decodeTypeScriptCodePointEscape(escape);
     if (codePoint) return codePoint.value;
@@ -215,7 +215,7 @@ export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
       case 'n': return newlineAs ?? '\n';
       // A backslash followed by CRLF (or the escaped `\r` form) is a source
       // continuation, not content. `newlineAs` applies only to decoded `\n`.
-      case 'r': return '';
+      case 'r': return preserveEscapedCarriageReturn ? '\r' : '';
       case '\n': return '';
       case '\r': return '';
       case '\u2028': return '';
@@ -397,7 +397,14 @@ export function readStaticObjectEntries(
         }
       }
 
-      const decodedValue = decodeStaticStringLiteral(valueLiteral.value, valueLiteral.quote, { newlineAs });
+      const decodedValue = decodeStaticStringLiteral(valueLiteral.value, valueLiteral.quote, {
+        newlineAs,
+        // `readStaticObjectEntries` flattens explicit line-break escapes for
+        // its callers, while the low-level decoder keeps `\\r` a continuation
+        // marker. Preserve it here so the common post-processing below can
+        // apply the requested replacement consistently with `\\n`.
+        preserveEscapedCarriageReturn: newlineAs !== undefined,
+      });
       const entry = {
         key: decodedKey,
         value: newlineAs === undefined
