@@ -14,6 +14,6 @@ describe('SEO entry lexical resolver', () => {
     expect(matches.map(({ id }) => id)).toEqual(['demo', 'next']);
     expect(source.slice(matches[0].openIdx, matches[0].closeIdx + 1))
       .toContain('.../foo[}]/');
-    expect(matches[0].closeIdx).toBe(source.indexOf(' },\n  \'blog-next\''));
+    expect(matches[0].closeIdx).toBe(source.indexOf("},\n  'blog-next'"));
   });
 });
