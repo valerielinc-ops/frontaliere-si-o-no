@@ -1610,7 +1610,7 @@ async function newlyMountedFileInput(page, preferredFrame, beforeHandles, trigge
 }
 
 /** Finds one newly opened, visible upload dialog across the page's current frames. */
-async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
+export async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     // A portal can create the dialog in a child iframe after the click. Read
