@@ -355,6 +355,12 @@ function main(): void {
   console.log(`[ingest-gsc-coverage] wrote ${wrote}`);
 }
 
-if (process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href === import.meta.url) {
+if (process.argv[1] && (() => {
+  try {
+    return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})()) {
   main();
 }
