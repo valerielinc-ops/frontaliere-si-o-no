@@ -218,4 +218,21 @@ describe('the watchdog does not race the hub writer', () => {
     expect(RERENDER_WORKFLOW).toContain('cancel-in-progress: false');
     expect(WATCHDOG_WORKFLOW).not.toContain('group: article-hub-landing-watchdog');
   });
+
+  it('dispatches a recovery and rechecks after a scheduled stale observation', () => {
+    expect(WATCHDOG_WORKFLOW).toContain('actions: write');
+    expect(WATCHDOG_WORKFLOW).toContain('workflow_run:');
+    expect(WATCHDOG_WORKFLOW).toContain('workflows: ["Rerender Article Hubs"]');
+    expect(WATCHDOG_WORKFLOW).toContain('types: [completed]');
+    expect(WATCHDOG_WORKFLOW).toContain(
+      'continue-on-error: ${{ github.event_name != \'workflow_run\' }}',
+    );
+    expect(WATCHDOG_WORKFLOW).toContain('gh workflow run rerender-article-hubs.yml');
+    expect(WATCHDOG_WORKFLOW).toContain('-f recovery_request_id="$RECOVERY_REQUEST_ID"');
+    expect(WATCHDOG_WORKFLOW).toContain("steps.health.outcome == 'failure'");
+    expect(WATCHDOG_WORKFLOW).toContain(
+      "(github.event_name == 'workflow_run' || steps.recovery.outcome != 'success')",
+    );
+    expect(WATCHDOG_WORKFLOW).toContain("if: steps.health.outcome == 'success'");
+  });
 });

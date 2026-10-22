@@ -41,8 +41,16 @@ on:
     # archives.
     - cron: '40 6,18 * * *'
   workflow_dispatch: {}
+  # A scheduled probe can run before the six-hour rerender window catches a
+  # newly published article. Re-run the same probe after that writer finishes:
+  # a transient stale page gets repaired and verified without opening a false
+  # recurrence issue.
+  workflow_run:
+    workflows: ["Rerender Article Hubs"]
+    types: [completed]
 
 permissions:
+  actions: write
   contents: read
   issues: write
 
@@ -107,13 +115,39 @@ jobs:
       # which is the only comparison that can see one of them go stale.
       - name: Probe the article-hub landings
         id: health
+        # A scheduled/manual probe is the recovery trigger. Keep its measured
+        # failure available to the dispatch step without making the recovery
+        # run itself red; a post-rerender probe remains fail-closed.
+        continue-on-error: ${{ github.event_name != 'workflow_run' }}
         run: node scripts/check-article-hub-landings.mjs
+
+      - name: Request hub rerender recovery
+        id: recovery
+        if: >-
+          steps.health.outcome == 'failure' &&
+          github.event_name != 'workflow_run'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RECOVERY_REQUEST_ID: watchdog-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          gh workflow run rerender-article-hubs.yml \
+            --repo "${GITHUB_REPOSITORY}" \
+            --ref main \
+            -f section=all \
+            -f dry_run=false \
+            -f recovery_request_id="$RECOVERY_REQUEST_ID"
+          echo 'dispatched=true' >> "$GITHUB_OUTPUT"
 
       # Degraded → open (or comment on) the canonical issue. The helper dedups
       # on the first 60 chars of the STABLE title, so consecutive degraded runs
-      # comment on the same issue instead of spawning duplicates.
+      # comment on the same issue instead of spawning duplicates. A scheduled
+      # failure that dispatched recovery waits for the workflow_run probe; if
+      # dispatch fails, or the post-rerender probe still fails, this opens it.
       - name: Open / dedup degraded issue
-        if: failure() && steps.health.conclusion == 'failure'
+        if: >-
+          steps.health.outcome == 'failure' &&
+          (github.event_name == 'workflow_run' || steps.recovery.outcome != 'success')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEALTH_SUMMARY: ${{ steps.health.outputs.summary }}
@@ -177,7 +211,7 @@ jobs:
       # The body above PROMISED an auto-resolve that did not exist (#5437: the
       # dangerous class — a title nobody could ever close).
       - name: Resolve degraded issue on green
-        if: steps.health.conclusion == 'success'
+        if: steps.health.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
