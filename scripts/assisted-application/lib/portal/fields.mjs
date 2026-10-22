@@ -14,6 +14,7 @@
 export function extractFieldsInPage() {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
+  const isSuccessFactorsPage = () => String(window.location?.hostname || '').split('.').some((part) => part.toLowerCase() === 'successfactors');
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
   // Ids a framework generates, which say nothing to the planner: React's
@@ -402,7 +403,7 @@ export function extractFieldsInPage() {
           // required lazy picklists. The ARIA-owned listbox is the stable
           // control contract; without this branch the initial form snapshot
           // has no options and the planner cannot select the required value.
-          || (field.required && ownedList?.getAttribute('role') === 'listbox'));
+          || (isSuccessFactorsPage() && field.required && ownedList?.getAttribute('role') === 'listbox'));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);

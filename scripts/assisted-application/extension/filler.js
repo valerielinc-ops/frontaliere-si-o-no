@@ -543,6 +543,8 @@
   // French form uses «Aucune sélection», which must remain an empty select
   // rather than being treated as text already filled by the candidate.
   const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
+  const isSuccessFactorsPage = (input) => String(input.ownerDocument?.defaultView?.location?.hostname || '')
+    .split('.').some((part) => part.toLowerCase() === 'successfactors');
   function selectLike(input) {
     const listId = input.getAttribute('aria-owns') || input.getAttribute('aria-controls');
     const ownedList = listId ? input.ownerDocument.getElementById(listId) : null;
@@ -551,7 +553,7 @@
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
         || SELECT_PROMPT_RE.test(input.value || '')
         || /paginatedselect/i.test(String(input.className || ''))
-        || (required && ownedList?.getAttribute('role') === 'listbox'));
+        || (isSuccessFactorsPage(input) && required && ownedList?.getAttribute('role') === 'listbox'));
   }
 
   async function chooseInCombobox(input, answer) {

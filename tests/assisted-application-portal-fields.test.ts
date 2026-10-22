@@ -323,6 +323,22 @@ describe('portal field extraction', () => {
     ]));
   });
 
+  it('keeps a required non-SuccessFactors ARIA autocomplete as a text combobox', () => {
+    const page = extract(`
+      <form>
+        <label for="city">City</label>
+        <input id="city" type="text" role="combobox" aria-controls="city-options" aria-required="true">
+        <ul id="city-options" role="listbox"></ul>
+      </form>`, 'https://jobs.example.ch/apply');
+
+    expect(page.fields.find((field: any) => field.label === 'City')).toMatchObject({
+      kind: 'combobox',
+      required: true,
+      selectLike: false,
+      ownedList: 'city-options',
+    });
+  });
+
   it('answers «Vermittlungsbüro?» with its No, whatever the plan said, and never asks the candidate', () => {
     const agency = { id: 'f27', kind: 'combobox', selectLike: true, label: '* Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: Mit Einreichen des Dossiers werden die AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis akzeptiert.)', required: true, value: '', options: [{ value: 'Ja', label: 'Ja' }, { value: 'Nein', label: 'Nein' }] };
     const yes = guardPlan({ actions: [{ fieldId: 'f27', action: 'select', value: 'Ja', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [agency]);

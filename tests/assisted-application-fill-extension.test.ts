@@ -450,6 +450,28 @@ describe('fill extension: the runner’s reading on any portal', () => {
     expect(result.missing).toEqual([]);
   });
 
+  it('types into a required non-SuccessFactors ARIA autocomplete', async () => {
+    const { F, document, read } = runnerPage(`<form>
+      <label for="city">City</label>
+      <input id="city" type="text" role="combobox" aria-controls="city-options" aria-required="true">
+      <ul id="city-options" role="listbox"></ul>
+    </form>`, 'https://jobs.example.ch/apply');
+    const field = read().fields.find((item: any) => item.label === 'City');
+    expect(field).toMatchObject({ kind: 'combobox', required: true, selectLike: false, ownedList: 'city-options' });
+    const input = document.getElementById('city') as HTMLInputElement;
+    const list = document.getElementById('city-options')!;
+    input.addEventListener('input', () => {
+      list.innerHTML = '<li role="option">Como</li>';
+      list.querySelector('[role="option"]')!.addEventListener('click', () => { input.value = 'Como'; list.innerHTML = ''; });
+    });
+    const result = await F.fillPage(document, {
+      ...kit,
+      answers: [{ question: field.label, answer: 'Como', source: 'answers' }],
+    }, { getFile: async () => null, attempts: new WeakMap() });
+    expect(input.value).toBe('Como');
+    expect(result.missing).toEqual([]);
+  });
+
   /** A page with the runner's reading and the engine, every element laid out as in a browser. */
   function runnerPage(html: string, url: string) {
     const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url, runScripts: 'outside-only' });
