@@ -13304,7 +13304,7 @@ ${staticAnalyticsHtml}
  // before `${spaBundleJs}` snapshots `.ft-static-article` from DOM at parse time, BEFORE the
  // module-script SPA bundle hydrates and replaces #root. JobOrphanView.tsx then reads
  // window.__STATIC_BODY_HTML__ exactly as before. Saves ~3-5 KB × 98k pages ≈ ~400 MB dist.
- const buildSoftLandingHtml = (locale: string, pageTitle: string, pageDesc: string, robotsTag: string,
+ const buildSoftLandingHtml = (locale: keyof typeof localeOg, pageTitle: string, pageDesc: string, robotsTag: string,
  selfUrl: string, hreflangLinks: string, jsonLdScripts: string, expiredWindowData: string,
  staticBody: string, adSnippet: string): string => {
  // Sub-phase profiler: ph:ejp:shell measured at 48.7s (45% of expired-
