@@ -149,7 +149,13 @@ export function parseLiteralRedirectMap(source) {
     let i = offset;
     while (i < text.length && /[ \t\r\n]/u.test(text[i])) i += 1;
     if (text[i] === ',' || text[i] === '}' || i >= text.length) return true;
-    if (text.startsWith('//', i)) return true;
+    if (text.startsWith('//', i)) {
+      const lineEnd = text.indexOf('\n', i + 2);
+      if (lineEnd < 0) return true;
+      i = lineEnd + 1;
+      while (i < text.length && /[ \t\r\n]/u.test(text[i])) i += 1;
+      return text[i] === ',' || text[i] === '}' || i >= text.length;
+    }
     if (text.startsWith('/*', i)) {
       const commentEnd = text.indexOf('*/', i + 2);
       if (commentEnd < 0) return false;
