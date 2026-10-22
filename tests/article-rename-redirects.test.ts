@@ -455,15 +455,17 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
    * exact failure shape this whole PR is about. So a key line the parser cannot
    * read is now an error, not an absence.
    */
-  it('refuses to under-count: a re-quoted entry is an error, not a silent skip', () => {
+  it('counts a re-quoted entry instead of silently skipping it', () => {
     const source = [
       "const redirects: Record<string, string> = {",
       ...Array.from({ length: 60 }, (_, i) => ` '/articoli-frontaliere/a${i}/': '/articoli-frontaliere/b${i}/',`),
-      ' "/articoli-frontaliere/re-quoted/": "/articoli-frontaliere/target/",',
+      ' "/articoli-frontaliere/re-quoted/": "/articoli-frontaliere/target-with-\'quote/",',
       '};',
     ].join('\n');
-    expect(() => readHardcodedRedirects(ROOT, { readFileSync: (() => source) as never }))
-      .toThrow(/re-quoted/);
+    const parsed = readHardcodedRedirects(ROOT, { readFileSync: (() => source) as never });
+    expect(Object.keys(parsed)).toHaveLength(61);
+    expect(parsed['/articoli-frontaliere/re-quoted/'])
+      .toBe("/articoli-frontaliere/target-with-'quote/");
   });
 
   it('tolerates the one computed entry (a job path, which no article can collide with)', () => {
