@@ -347,6 +347,29 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
         continue;
       }
     }
+    // A portal may present the held-permit question as a boolean combobox
+    // while the candidate data stores the concrete permit (for example,
+    // «G Permit»).  Reuse the shared planner mapping before the option picker
+    // sees the raw permit label; this covers agentic fallback turns as well as
+    // the deterministic plan.
+    if (candidate && ['fill', 'type', 'select'].includes(action.action)
+      && questionTopic(action.question, context, metadata) === 'permit'
+      && action.source !== 'widget') {
+      const profileAnswer = candidateAnswerForField(candidate, {
+        label: action.question,
+        context,
+        ...metadata,
+        kind: 'combobox',
+        options: [],
+      });
+      if (profileAnswer) {
+        action.value = profileAnswer.value;
+        action.answer = profileAnswer.value;
+        action.source = profileAnswer.source;
+        grounded.add(questionKey(action.question, context, section, autocomplete));
+        continue;
+      }
+    }
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
     const knockOut = !languageIntent && !languageAbility && !languageLabelOnly && !SENSITIVE.test(action.question);
