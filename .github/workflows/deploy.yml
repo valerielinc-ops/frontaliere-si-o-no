@@ -98,10 +98,7 @@ concurrency:
   # replaced by the recovery run. The build-locale jobs below share a
   # per-locale admission lock, so the separate workflow lane cannot make two
   # runs mutate the same production target at once.
-  group: >-
-    ${{ github.event_name == 'schedule'
-        && 'deploy-schedule-reconcile'
-        || (inputs.rearm_dispatch == true && 'pages-build-rearm' || 'pages-build-run') }}
+  group: ${{ github.event_name == 'schedule' && 'deploy-schedule-reconcile' || (inputs.rearm_dispatch == true && 'pages-build-rearm' || 'pages-build-run') }}
   cancel-in-progress: false
 
 jobs:
