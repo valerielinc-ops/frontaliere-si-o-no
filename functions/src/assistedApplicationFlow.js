@@ -28,7 +28,12 @@
  */
 
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
-import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
+import {
+  candidateAnswersForQuestions,
+  candidateQuestionAnswerKey,
+  candidateWithEdits,
+  questionsForCandidate,
+} from './assistedApplicationCandidateEdits.js';
 
 export const OWNER_REVIEW_MS = 60 * 60 * 1000;
 export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
@@ -312,6 +317,90 @@ function enterSubmitting(next, reason) {
   return [{ type: 'dispatch', mode: 'submit', reason }];
 }
 
+function hasAnswer(value) {
+  return typeof value === 'boolean'
+    || (typeof value === 'number' && Number.isFinite(value))
+    || (typeof value === 'string' && value.trim().length > 0)
+    || (Array.isArray(value) && value.some((item) => String(item ?? '').trim().length > 0));
+}
+
+/**
+ * A portal question is reported by id for backwards compatibility and by a
+ * descriptor when the runner knows its label. The descriptor lets the flow
+ * use the semantic answer ledger after an ATS regenerates the field id.
+ */
+function questionDescriptor(question) {
+  if (!question || typeof question !== 'object') return null;
+  const id = typeof question.id === 'string' || typeof question.id === 'number' ? String(question.id).trim() : '';
+  if (!id) return null;
+  return { ...question, id };
+}
+
+function normalizedQuestionPart(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+/** Read an answer the portal already recorded, including answers derived from the CV. */
+function portalAnswerForQuestion(question, draft) {
+  const records = Array.isArray(draft?.portalAnswers?.answers) ? draft.portalAnswers.answers : [];
+  if (!records.length) return undefined;
+  const semanticKey = String(question?.semanticKey || question?.portalKey || '').trim();
+  const label = normalizedQuestionPart(question?.question);
+  if (!semanticKey && !label) return undefined;
+  const context = normalizedQuestionPart(question?.context);
+  const section = normalizedQuestionPart(question?.section);
+  const autocomplete = normalizedQuestionPart(question?.autocomplete);
+  let fallback;
+  for (const record of records) {
+    if (!record || typeof record !== 'object' || !hasAnswer(record.answer)) continue;
+    const recordKey = String(record.semanticKey || record.portalKey || '').trim();
+    if (semanticKey && recordKey === semanticKey) return record.answer;
+    if (!label || normalizedQuestionPart(record.question) !== label) continue;
+    if (context && normalizedQuestionPart(record.context) !== context) continue;
+    if (section && normalizedQuestionPart(record.section) !== section) continue;
+    if (autocomplete && normalizedQuestionPart(record.autocomplete) !== autocomplete) continue;
+    fallback = record.answer;
+  }
+  return fallback;
+}
+
+function knownAnswerForQuestion(question, { draft, answers, questionAnswers }) {
+  if (hasAnswer(answers?.[question.id])) return answers[question.id];
+  const projected = candidateAnswersForQuestions(draft?.questions || [], answers, questionAnswers);
+  if (hasAnswer(projected?.[question.id])) return projected[question.id];
+  const portalAnswer = portalAnswerForQuestion(question, draft);
+  if (hasAnswer(portalAnswer)) return portalAnswer;
+  const key = candidateQuestionAnswerKey(question);
+  if (!key) return undefined;
+  const remembered = candidateAnswersForQuestions([question], {}, questionAnswers);
+  if (hasAnswer(remembered?.[question.id])) return remembered[question.id];
+  for (const current of Array.isArray(draft?.questions) ? draft.questions : []) {
+    if (candidateQuestionAnswerKey(current) !== key) continue;
+    if (hasAnswer(projected?.[current.id])) return projected[current.id];
+  }
+  return undefined;
+}
+
+function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
+  next.state = 'owner_takeover';
+  next.deadlineAt = null;
+  next.reminderAt = null;
+  next.heldBy = [`portal:${String(event.reason || 'portal_needs_candidate').slice(0, 60)}`];
+  const reason = String(event.reason || 'portal_needs_candidate');
+  const attempts = Number(current.portalAutoRetryCount) || 0;
+  next.portalAutoRetryCount = attempts;
+  next.portalAutoRetryAt = reason === 'portal_needs_candidate' && PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+    ? nowMs + PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+    : null;
+  return {
+    type: 'email',
+    kind: 'owner_takeover',
+    reason: `portal:${reason}`,
+    stage: 'submit',
+    attempts: Number(attemptsOverride) || Number(current?.dispatch?.attempts) || 1,
+  };
+}
+
 /**
  * @param {object|null} flow current flow (order.automation)
  * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
@@ -473,19 +562,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // Valerie. A generic unsupported page gets two delayed retries so the
       // portal-stop fixer can teach the runner before the order stays held.
       if (state !== 'submitting') return ignore('not_submitting');
-      next.state = 'owner_takeover';
-      next.deadlineAt = null;
-      next.reminderAt = null;
-      next.heldBy = [`portal:${String(event.reason || 'portal_needs_candidate').slice(0, 60)}`];
-      {
-        const reason = String(event.reason || 'portal_needs_candidate');
-        const attempts = Number(current.portalAutoRetryCount) || 0;
-        next.portalAutoRetryCount = attempts;
-        next.portalAutoRetryAt = reason === 'portal_needs_candidate' && PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
-          ? nowMs + PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
-          : null;
-      }
-      effects = [{ type: 'email', kind: 'owner_takeover', reason: `portal:${event.reason || 'portal_needs_candidate'}`, stage: 'submit', attempts: Number(flow?.dispatch?.attempts) || 1 }];
+      effects = [portalTakeover(next, current, event, nowMs)];
       break;
     case 'owner_retry_submit':
       // The approved application is sent again by the robot (after a runner
@@ -624,7 +701,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       if (state !== 'submitting') return ignore('not_submitting');
       // Portal adapters return question IDs as strings; submit.mjs returns
       // objects with an `id`. Normalize both shapes before persisting the hold.
-      const questionIds = [...new Set((Array.isArray(event.questions) ? event.questions : []).map((question) => {
+      const rawQuestions = Array.isArray(event.questions) ? event.questions : [];
+      const rawDetails = Array.isArray(event.questionDetails) ? event.questionDetails : [];
+      const detailsById = new Map(rawDetails.map(questionDescriptor).filter(Boolean).map((question) => [question.id, question]));
+      const questionIds = [...new Set([...rawQuestions, ...rawDetails].map((question) => {
         const id = typeof question === 'string' ? question : question?.id;
         return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
       }).filter(Boolean))];
@@ -649,17 +729,17 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         break;
       }
       const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
-        if (!Object.prototype.hasOwnProperty.call(answers || {}, id)) return false;
-        const answer = answers?.[id];
-        return typeof answer === 'boolean'
-          || (typeof answer === 'number' && Number.isFinite(answer))
-          || (typeof answer === 'string' && answer.trim().length > 0)
-          || (Array.isArray(answer) && answer.some((value) => String(value ?? '').trim().length > 0));
+        const question = detailsById.get(id) || { id };
+        return hasAnswer(knownAnswerForQuestion(question, {
+          draft,
+          answers,
+          questionAnswers: flow?.questionAnswers || {},
+        }));
       });
       // A portal can report a validation step as a candidate question even
       // after the runner filled it from an answer already saved in the flow.
       // Retry once without sending an unnecessary candidate-action notice;
-      // if the portal still asks, hand it to the candidate as usual.
+      // if the portal still asks, use the delayed portal recovery path below.
       if (
         answersAlreadyExist
         && eventDocuments.length === 0
@@ -669,6 +749,18 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       ) {
         effects = enterSubmitting(next, 'existing_candidate_answers');
         effects[0].attempts = attempts + 1;
+        break;
+      }
+      // The answer is known, but the portal still reports the field after the
+      // bounded immediate retry. This is a portal automation stop, not a
+      // candidate wait: schedule the same delayed recovery used for an
+      // unsupported page and never send a request for information we already
+      // have from the CV or the answer ledger.
+      if (answersAlreadyExist
+        && eventDocuments.length === 0
+        && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)) {
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
       next.state = 'needs_candidate_action';
