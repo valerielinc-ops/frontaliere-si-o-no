@@ -192,7 +192,7 @@ const NOSCRIPT_RAW_TEXT_TOKEN_RE = /<!--[\s\S]*?(?:-->|$)|<(script|style|textare
 const NOSCRIPT_RECOVERABLE_TAIL_RE = /^<(p|h2|h3|h4|li|blockquote)\b[^>]*>/i;
 const NOSCRIPT_END_TAG_RE = /^<\/noscript\s*>/i;
 const NOSCRIPT_REGEX_PREFIX_KEYWORDS = new Set([
-  'await', 'case', 'delete', 'do', 'else', 'extends', 'in', 'instanceof',
+  'await', 'break', 'case', 'continue', 'debugger', 'default', 'delete', 'do', 'else', 'extends', 'in', 'instanceof',
   'new', 'of', 'return', 'throw', 'typeof', 'void', 'yield',
 ]);
 const NOSCRIPT_CONTROL_FLOW_KEYWORDS = new Set(['catch', 'for', 'if', 'switch', 'while', 'with']);
