@@ -27,7 +27,11 @@ import { fileURLToPath } from 'node:url';
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { normalizeContract, formatSalary, emailTagChip } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
-import { pickNewsletterRecommendation, renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
+import {
+  isApplicationConciergeRecommendation,
+  pickNewsletterRecommendation,
+  renderRecommendedBlock,
+} from '../services/newsletter/recommendedBlock.mjs';
 import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import {
   buildAlertProfile,
@@ -997,6 +1001,7 @@ function buildAlertEmail(
 ) {
   const locale = nlNormLocale(alert.locale);
   const recommendation = pickNewsletterRecommendation({ locale, interest: 'jobs', campaign: 'jobalert' });
+  const recommendationOwnsAutomation = isApplicationConciergeRecommendation(recommendation);
   const s = getStrings(locale);
   const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
@@ -1384,7 +1389,7 @@ function buildAlertEmail(
           </div>
         </td></tr>
 
-        ${renderEmailEngagementBanners({ locale, includeAutomation: recommendation?.kind !== 'internal' })}
+        ${renderEmailEngagementBanners({ locale, includeAutomation: !recommendationOwnsAutomation })}
 
         <!-- Footer (dark, aligned with newsletter) -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">

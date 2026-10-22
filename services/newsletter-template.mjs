@@ -7,7 +7,11 @@
  * Autologin is handled externally by wrapping links with Firebase auth.
  */
 
-import { pickNewsletterRecommendation, renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+import {
+  isApplicationConciergeRecommendation,
+  pickNewsletterRecommendation,
+  renderRecommendedBlock,
+} from './newsletter/recommendedBlock.mjs';
 import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 // Shared with functions/src/lib/welcomeEmailTemplate.js (Cloud Functions
@@ -732,6 +736,7 @@ export function buildNewsletter(data) {
     interest: data.interest,
     campaign: data.recommendationCampaign,
   });
+  const recommendationOwnsAutomation = isApplicationConciergeRecommendation(recommendation);
   const dateStr = formatDate(locale);
   const preheader = data.preheaderText || (data.exchangeRate
     ? 'CHF/EUR ' + data.exchangeRate.rate.toFixed(4) + ' \u00b7 ' + dateStr
@@ -819,7 +824,7 @@ export function buildNewsletter(data) {
   html += renderEmailEngagementBanners({
     locale,
     telegramUrl: data.telegramChannelUrl,
-    includeAutomation: recommendation?.kind !== 'internal',
+    includeAutomation: !recommendationOwnsAutomation,
   });
 
   // 14. Footer

@@ -101,6 +101,10 @@ const APPLICATION_CONCIERGE_RECOMMENDATION = {
   },
 };
 
+export function isApplicationConciergeRecommendation(rec) {
+  return rec?.kind === 'internal' && rec.id === APPLICATION_CONCIERGE_RECOMMENDATION.id;
+}
+
 /**
  * Email presentation config for affiliate partners, keyed by the registry
  * `goId`. This is email-specific benefit-first copy + segment relevance — NOT a

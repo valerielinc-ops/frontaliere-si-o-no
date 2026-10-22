@@ -8,6 +8,7 @@ import {
   mailerooMetaOnSent,
   __setFirestoreAdminForTest,
 } from '../scripts/send-job-alerts.mjs';
+import { NEWSLETTER_SPONSORS } from '../services/newsletter/recommendedBlock.mjs';
 
 // Minimal Firestore fake capturing .collection().doc().collection().doc().set() chains,
 // recording the final docId + payload so the maileroo-meta writer can be asserted.
@@ -332,6 +333,28 @@ describe('job alert email — recommendation owns the automation CTA', () => {
     expect(engagementStart).toBeGreaterThan(-1);
     expect(result.html.slice(engagementStart)).not.toContain('Automatizza la ricerca di lavoro');
     expect((result.html.match(/Automatizza/g) || [])).toHaveLength(1);
+  });
+
+  it('keeps the automation card when an active sponsor owns the recommendation slot', () => {
+    NEWSLETTER_SPONSORS.push({
+      id: 'test-sponsor',
+      name: 'Test sponsor',
+      emoji: '🏷️',
+      url: 'https://sponsor.example/offer/',
+      active: true,
+      weight: 1,
+      copy: { it: { title: 'Offerta sponsor', body: 'Corpo sponsor', cta: 'Scopri →' } },
+    });
+    try {
+      const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+
+      expect(result.html).toContain('Offerta sponsor');
+      expect(result.html).toContain('Automatizza la tua ricerca di lavoro');
+      expect(result.html.match(/automatizza-ricerca-lavoro-svizzera/g) || []).toHaveLength(1);
+      expect((result.html.match(/Automatizza/g) || [])).toHaveLength(1);
+    } finally {
+      NEWSLETTER_SPONSORS.length = 0;
+    }
   });
 });
 
