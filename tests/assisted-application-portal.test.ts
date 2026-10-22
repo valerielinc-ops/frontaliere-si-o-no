@@ -2454,6 +2454,35 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(guardPlan({ actions: [fill], missingRequired: [] }, [text], candidate({ permitStatus: 'permit_b' })).actions).toEqual([fill]);
   });
 
+  it('maps a held permit to the positive answer when an ATS qualifies its negative choices', () => {
+    const field = permitField('Do you hold a valid work permit for Switzerland?', [
+      'Yes',
+      'No, I would have to apply as EU/EFTA citizen',
+      'No, I would have to apply as non EU/EFTA citizen',
+    ]);
+    const held = candidate({ permitStatus: 'permit_g' });
+    const fromPlan = guardPlan({ actions: [select('p1', 'G Permit', 'profile')], missingRequired: [] }, [field], held);
+    expect(fromPlan.actions).toEqual([select('p1', 'Yes')]);
+    expect(fromPlan.missingRequired).toEqual([]);
+
+    // SuccessFactors can expose the same combobox before its lazy list has
+    // been read.  The status still maps to the localized boolean answer, so
+    // the agent never sends «G Permit» to a yes/no control.
+    const unread = guardPlan(
+      { actions: [select('p1', 'G Permit', 'profile')], missingRequired: [] },
+      [{ ...field, options: [] }],
+      held,
+    );
+    expect(unread.actions).toEqual([select('p1', 'Yes')]);
+    expect(unread.missingRequired).toEqual([]);
+
+    const italian = permitField('Hai un permesso svizzero valido?', [
+      'Sì',
+      'No, dovrei fare domanda come cittadino UE/AELS',
+    ]);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [italian], held).actions).toEqual([select('p1', 'Sì')]);
+  });
+
   it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {
     const field = { id: 'n1', kind: 'select', label: 'Nationalität', required: true, options: [{ label: 'Italien' }, { label: 'Deutschland' }, { label: 'Schweiz' }] };
     expect(guardPlan({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).actions).toEqual([select('n1', 'Italien', 'profile')]);
