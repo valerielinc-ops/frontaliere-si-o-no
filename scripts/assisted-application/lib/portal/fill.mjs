@@ -377,7 +377,7 @@ async function fillCombobox(page, field, locator, value) {
         : [])
         .map((label) => String(label).replace(/\s+/g, ' ').trim());
       const fallbackIndex = uniqueNormalizedOptionIndex(fallbackLabels, selectedLabel);
-      if (fallbackIndex < 0) {
+      if (!Number.isInteger(fallbackIndex) || fallbackIndex < 0) {
         await locator.press('Escape').catch(() => {});
         throw new Error('option_not_found');
       }

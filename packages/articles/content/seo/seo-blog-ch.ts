@@ -108324,6 +108324,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ora-solare-ritorno-ottobre-svizzera': {
+    title: 'Ritorno all\'ora solare: lancette indietro il 25 ottobre',
+    description: 'Tra il 24 e il 25 ottobre torna l\'ora solare Alle 3 le lancette tornano indietro di un\'ora Il 71% degli intervistati Forsa vuole abolire il cambio',
+    keywords: 'frontalieri, ticino, svizzera, italia, ritorno, solare, lancette, indietro',
+    ogTitle: 'Ritorno all\'ora solare: un\'ora in più di sonno ma buio prima',
+    ogDescription: 'Tra il 24 e il 25 ottobre torna l\'ora solare Alle 3 le lancette tornano indietro di un\'ora Il 71% degli intervistati Forsa vuole abolire il cambio Sonno',
+    canonicalPath: '/articoli-svizzera/ora-solare-ritorno-ottobre-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ritorno all'ora solare: lancette indietro il 25 ottobre",
+      "description": "Tra il 24 e il 25 ottobre torna l'ora solare Alle 3 le lancette tornano indietro di un'ora Il 71% degli intervistati Forsa vuole abolire il cambio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ora-solare-ritorno-ottobre-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T23:00:36+00:00",
+      "dateModified": "2026-10-21T23:00:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ora-solare-ritorno-ottobre-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-revisione-serv-consultazione-2026': {
+    title: 'Apertura consultazione su revisione parziale SERV: gli obiettivi',
+    description: 'Revisione parziale della SERV indicata il 21 ottobre 2026 Obiettivo: facilitare l’accesso alle prestazioni della SERV Riduzione degli oneri',
+    keywords: 'frontalieri, ticino, svizzera, italia, apertura, consultazione, revisione, parziale',
+    ogTitle: 'Revisione SERV: consultazione per semplificare le esportazioni svizzere',
+    ogDescription: 'Revisione parziale della SERV indicata il 21 ottobre 2026 Obiettivo: facilitare l’accesso alle prestazioni della SERV Riduzione degli oneri e semplificazione',
+    canonicalPath: '/articoli-svizzera/revisione-serv-consultazione-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apertura consultazione su revisione parziale SERV: gli obiettivi",
+      "description": "Revisione parziale della SERV indicata il 21 ottobre 2026 Obiettivo: facilitare l’accesso alle prestazioni della SERV Riduzione degli oneri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-revisione-serv-consultazione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-22T01:25:51+00:00",
+      "dateModified": "2026-10-22T01:25:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revisione-serv-consultazione-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stop-emergenza-centrale-nucleare-gosgen': {
+    title: 'Stop d’emergenza alla centrale nucleare di Gösgen, nessun pericolo',
+    description: 'Martedì, verso le 6.40, Gösgen si è disattivata. Causa indicata: calo della tensione elettrica. I sistemi di sicurezza hanno agito secondo',
+    keywords: 'frontalieri, ticino, svizzera, italia, stop, emergenza, alla, centrale',
+    ogTitle: 'Stop d’emergenza a Gösgen: nessun pericolo radioattivo',
+    ogDescription: 'Martedì, verso le 6.40, Gösgen si è disattivata.',
+    canonicalPath: '/articoli-svizzera/stop-emergenza-centrale-nucleare-gosgen/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stop d’emergenza alla centrale nucleare di Gösgen, nessun pericolo",
+      "description": "Martedì, verso le 6.40, Gösgen si è disattivata. Causa indicata: calo della tensione elettrica. I sistemi di sicurezza hanno agito secondo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-stop-emergenza-centrale-nucleare-gosgen.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-22T02:15:54+00:00",
+      "dateModified": "2026-10-22T02:15:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stop-emergenza-centrale-nucleare-gosgen/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-regole-usato-mercatini-svizzera': {
+    title: 'Acquisti di usato in Svizzera: garanzia e regole',
+    description: 'Garanzia di un anno, salvo esclusione esplicita Suolo pubblico: gli oggetti gratis sono spesso vietati Falsi oltreconfine: possibile sequestro e tassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, acquisti, usato, garanzia, regole',
+    ogTitle: 'Acquisti di usato in Svizzera: garanzia e regole',
+    ogDescription: 'Garanzia di un anno, salvo esclusione esplicita Suolo pubblico: gli oggetti gratis sono spesso vietati Falsi oltreconfine: possibile sequestro e tassa di circa',
+    canonicalPath: '/articoli-svizzera/regole-usato-mercatini-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acquisti di usato in Svizzera: garanzia e regole",
+      "description": "Garanzia di un anno, salvo esclusione esplicita Suolo pubblico: gli oggetti gratis sono spesso vietati Falsi oltreconfine: possibile sequestro e tassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-regole-usato-mercatini-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-22T03:59:33+00:00",
+      "dateModified": "2026-10-22T03:59:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regole-usato-mercatini-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
