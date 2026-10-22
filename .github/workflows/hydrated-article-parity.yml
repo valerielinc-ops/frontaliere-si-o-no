@@ -230,7 +230,7 @@ jobs:
               -f event=workflow_dispatch -f per_page=100)"
             recovery_run_id="$(jq -r --arg request "$RECOVERY_REQUEST_ID" --arg started "$dispatch_started_at" '
               [.workflow_runs[]
-                | select((.display_title // "") | contains($request))
+                | select(.display_title == ("Rerender Article Hubs [" + $request + "]"))
                 | select(.created_at >= $started)]
               | sort_by(.created_at)
               | .[0].id // empty

@@ -29,6 +29,7 @@ describe('hydrated parity recovery wiring', () => {
     expect(PARITY_WORKFLOW).toContain('name: Recover hydrated article parity before reporting');
     expect(PARITY_WORKFLOW).toContain('actions/workflows/rerender-article-hubs.yml/dispatches');
     expect(PARITY_WORKFLOW).toContain('inputs[recovery_request_id]');
+    expect(RERENDER_WORKFLOW).toContain("format('Rerender Article Hubs [{0}]', inputs.recovery_request_id)");
     expect(PARITY_WORKFLOW).toContain('name: Recheck hydrated article parity after recovery');
     expect(PARITY_WORKFLOW).toContain('steps.recovery_check.outcome');
     expect(PARITY_WORKFLOW).toContain("steps.final_verdict.outcome == 'failure'");
