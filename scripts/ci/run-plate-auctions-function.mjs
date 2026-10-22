@@ -35,7 +35,10 @@ import { pathToFileURL } from 'node:url';
 import { googleApiJson } from '../lib/google-api-json.mjs';
 import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from '../../functions/src/plateAuctionSourceRegistry.js';
-import { PLATE_AUCTION_PUBLIC_API_RELAY_URL } from '../plate-auctions/connectors/api-relay.mjs';
+import {
+  PLATE_AUCTION_API_RELAY_MAX_AGE_MS,
+  PLATE_AUCTION_PUBLIC_API_RELAY_URL,
+} from '../plate-auctions/connectors/api-relay.mjs';
 
 export const SCHEDULER_LOCATION = 'europe-west6';
 export const JOB_NAME_FRAGMENT = 'refreshPlateAuctions';
@@ -100,6 +103,26 @@ export function expectedSourceKeys(registry = PUBLIC_PLATE_AUCTION_SOURCE_REGIST
 function isFreshSince(value, sinceMs) {
   const parsed = Date.parse(value || '');
   return Number.isFinite(parsed) && parsed >= sinceMs;
+}
+
+/**
+ * The static collector cannot use an old relay snapshot safely. The envelope's
+ * generatedAt is stamped when the HTTP function serves it, so only each
+ * source's lastSuccessAt is evidence that the Swiss collector actually ran.
+ */
+export function staleRelaySourceKeys(
+  rows,
+  nowMs,
+  maxAgeMs = PLATE_AUCTION_API_RELAY_MAX_AGE_MS,
+) {
+  return rows
+    .filter((row) => {
+      const lastSuccessMs = Date.parse(row.lastSuccessAt || '');
+      return row.status !== 'active'
+        || !Number.isFinite(lastSuccessMs)
+        || nowMs - lastSuccessMs > maxAgeMs;
+    })
+    .map((row) => row.key);
 }
 
 /**
@@ -168,6 +191,8 @@ export async function runPlateAuctionsFunction({
   expectedKeys = expectedSourceKeys(),
   pollIntervalMs = POLL_INTERVAL_MS,
   pollTimeoutMs = POLL_TIMEOUT_MS,
+  onlyIfStale = false,
+  staleAfterMs = PLATE_AUCTION_API_RELAY_MAX_AGE_MS,
 }) {
   const projectId = credentials?.project_id;
   if (!credentials?.client_email || !credentials?.private_key || !projectId) {
@@ -180,9 +205,31 @@ export async function runPlateAuctionsFunction({
   const job = selectRefreshJob(await listSchedulerJobs(fetchImpl, token, projectId));
   log(`Cloud Scheduler job: ${job.name} (schedule "${job.schedule || '?'}" ${job.timeZone || ''}, state ${job.state || '?'}, last attempt ${job.lastAttemptTime || 'never'})`);
 
+  let relayProbeRows = null;
+  if (onlyIfStale) {
+    try {
+      relayProbeRows = sourceRows(await readRelay(fetchImpl, relayUrl, now()), expectedKeys);
+    } catch (error) {
+      // A relay 5xx is itself a stale-source signal. In the watchdog path it
+      // must trigger one bounded scheduler run instead of preventing the
+      // static collector from refreshing the cantons it can still reach.
+      if (dryRun) throw error;
+      log(`Relay freshness probe failed; triggering a refresh: ${error instanceof Error ? error.message : String(error)}`);
+    }
+    if (relayProbeRows) {
+      const stale = staleRelaySourceKeys(relayProbeRows, now(), staleAfterMs);
+      if (stale.length === 0) {
+        log(`Relay snapshot is fresh for ${expectedKeys.length} active sources; scheduler job not triggered.`);
+        summary(`### refreshPlateAuctions relay watchdog\n\nRelay snapshot is fresh; no scheduler run was triggered.\n\n${renderMarkdownTable(relayProbeRows)}\n`);
+        return { dryRun, skipped: true, job: job.name, rows: relayProbeRows };
+      }
+      log(`Relay snapshot is stale for ${stale.join(', ')}; triggering a scheduler refresh.`);
+    }
+  }
+
   if (dryRun) {
     // Solo lettura: nessun trigger, e il relay mostra il giro più recente.
-    const rows = sourceRows(await readRelay(fetchImpl, relayUrl, now()), expectedKeys);
+    const rows = relayProbeRows || sourceRows(await readRelay(fetchImpl, relayUrl, now()), expectedKeys);
     log(`Dry run: job not triggered. Current relay state of the ${expectedKeys.length} active sources:`);
     log(renderTable(rows));
     summary(`### refreshPlateAuctions (dry run)\n\nJob \`${job.name}\` not triggered.\n\n${renderMarkdownTable(rows)}\n`);
@@ -235,14 +282,17 @@ async function main() {
   let credentials = null;
   try { credentials = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON || ''); } catch { credentials = null; }
   const dryRun = process.argv.includes('--dry-run') || process.env.PLATE_AUCTIONS_FUNCTION_RUN_DRY_RUN !== 'false';
+  const onlyIfStale = process.argv.includes('--only-if-stale')
+    || process.env.PLATE_AUCTIONS_FUNCTION_RUN_ONLY_IF_STALE === 'true';
   const summaryPath = process.env.GITHUB_STEP_SUMMARY;
   try {
     const result = await runPlateAuctionsFunction({
       credentials,
       dryRun,
       summary: summaryPath ? (markdown) => appendFileSync(summaryPath, `${markdown}\n`) : () => {},
+      onlyIfStale,
     });
-    console.log(`Result: ${result.dryRun ? 'dry run' : 'run'} of ${result.job}`);
+    console.log(`Result: ${result.skipped ? 'skipped' : result.dryRun ? 'dry run' : 'run'} of ${result.job}`);
   } catch (error) {
     const message = String(error?.message || error).replaceAll(credentials?.private_key || '\u0000', '[redacted]');
     console.log(`::error::refreshPlateAuctions run failed: ${message}`);
