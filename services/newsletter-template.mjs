@@ -800,6 +800,10 @@ export function buildNewsletter(data) {
     interest: data.interest,
     acquisitionSource: data.acquisitionSource,
     campaign: data.recommendationCampaign,
+    // The closing engagement suite already renders the automation CTA. The
+    // recommendation slot stays available for a partner without duplicating
+    // that first-party service in weekly sends.
+    excludeIds: ['application-concierge'],
   });
 
   // 12. Closer

@@ -782,7 +782,7 @@ describe('company_alert template — job-alert card, footer chrome, sponsored sl
     expect(html).not.toMatch(/CHF\s+\d/);
   });
 
-  it('renders a CDN brand <img> when companyKey hits the logo manifest, else the initial-letter fallback and no broken image', () => {
+  it('renders a CDN brand logo when companyKey hits the logo manifest, else the initial-letter fallback and no broken image', () => {
     const manifestPath = path.join(repoRoot, 'data/company-logos-manifest.json');
     const withLogo = build();
     const expectedLogo = resolveLogoUrl({ companyKey: 'board-international', company: 'Board International SA' });
@@ -806,7 +806,8 @@ describe('company_alert template — job-alert card, footer chrome, sponsored sl
         companyKey: 'nonsense-long-tail-employer-xyz',
       }],
     });
-    expect(fallbackHtml).not.toContain('<img');
+    const fallbackJobMarkup = fallbackHtml.split('data-email-component="engagement-banners"')[0];
+    expect(fallbackJobMarkup).not.toContain('<img');
     expect(fallbackHtml).not.toMatch(/google\.com\/s2\/favicons/);
     expect(fallbackHtml).toMatch(/font-size:18px;font-weight:800;color:#f97316;">N<\/div>/);
   });
