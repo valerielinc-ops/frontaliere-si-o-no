@@ -398,6 +398,17 @@ export function sanitizeFeedBody(body) {
     .replace(/\bnav:[a-z0-9-]+\b/gi, '');
 }
 
+/**
+ * Normalize line endings before article text enters RSS CDATA.
+ *
+ * Static TypeScript literals can preserve a source body's literal CRLF, while
+ * the feed's runtime contract uses LF. Normalize both CRLF and lone CR so a
+ * platform-written body cannot leak a second line-ending representation.
+ */
+export function normalizeFeedLineEndings(value) {
+  return String(value ?? '').replace(/\r\n?/g, '\n');
+}
+
 function toRfc822(isoDate) {
   try {
     return new Date(isoDate).toUTCString();
@@ -481,8 +492,9 @@ function renderFeed(section, locale, articles, slugs, titles, excerpts, bodies, 
       // media:content. An uncredited cover keeps the self-closing element.
       const creditHtml = item.imageCredit ? renderImageCreditHtml(item.imageCredit, locale) : '';
       const encoded = body && creditHtml ? `${body}\n\n${creditHtml}` : body;
-      const contentEncoded = encoded
-        ? `\n      <content:encoded><![CDATA[${escapeCData(encoded)}]]></content:encoded>`
+      const normalizedEncoded = normalizeFeedLineEndings(encoded);
+      const contentEncoded = normalizedEncoded
+        ? `\n      <content:encoded><![CDATA[${escapeCData(normalizedEncoded)}]]></content:encoded>`
         : '';
       const mediaContent = item.imageCredit
         ? `<media:content url="${escapeXml(item.imageUrl)}" medium="image">${mediaRssCreditXml(item.imageCredit, locale)}</media:content>`

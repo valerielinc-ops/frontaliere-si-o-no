@@ -1,4 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
+import { XMLValidator } from 'fast-xml-parser';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
@@ -8,6 +9,7 @@ import {
   RSS_SECTIONS,
   SITE_RSS_SECTIONS,
   RSS_MAX_ITEMS,
+  normalizeFeedLineEndings,
   sanitizeFeedBody,
 } from '../packages/articles/engine/rssFeeds.mjs';
 import { repairSerpSnippet } from '../build-plugins/shared/clauseTail.mjs';
@@ -298,6 +300,37 @@ describe('packages/articles/engine/rssFeeds', () => {
       expect(encoded).toContain(expected);
       expect(encoded).not.toContain("\\'");
     }
+  });
+
+  it('normalizes literal CRLF in content:encoded while preserving text and XML validity', () => {
+    expect(normalizeFeedLineEndings('prima\r\nseconda\rterza')).toBe('prima\nseconda\nterza');
+
+    const root = makeFixture();
+    const source = [
+      'const body: Record<string, string> = {',
+      " 'blog.article.alpha.body1': `Prima riga\r\nSeconda riga — testo abbastanza lungo da restare nel feed.`,",
+      '};',
+      'export default body;',
+    ].join('\n');
+    fs.writeFileSync(
+      path.join(root, 'locales', RSS_SECTIONS[0].bodyDir, 'it', 'alpha.ts'),
+      source,
+    );
+
+    const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const xml = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
+    const encoded = xml.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/)?.[1];
+
+    expect(encoded).toBe('Prima riga\nSeconda riga — testo abbastanza lungo da restare nel feed.');
+    expect(encoded).not.toContain('\r');
+    expect(XMLValidator.validate(xml)).toBe(true);
   });
 
   it('fails the whole source for interpolation before or after body fields', () => {
