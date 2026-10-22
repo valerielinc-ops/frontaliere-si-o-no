@@ -1850,9 +1850,19 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
       const discovered = uploadButtonCandidatesFor(snapshot, kind)
         .filter((button) => iconUploadAllowedForPage(page, button, kind, snapshot, channelType));
       const nextIndex = discovered.findIndex((button) => !tried.has(uploadTriggerKey(button)));
-      if (nextIndex < 0) return null;
-      candidate = discovered[nextIndex];
-      pending.push(...discovered.slice(nextIndex + 1));
+      if (nextIndex < 0) {
+        // A portal may drop the first click without redrawing the control
+        // (the flaky SuccessFactors tenant does exactly this). Once every
+        // distinct candidate has had one bounded attempt, return the first
+        // still-allowed candidate so the caller can spend its remaining
+        // per-action retry budget on the same control. Distinct candidates
+        // are still exhausted in order before this fallback is reached.
+        candidate = discovered[0] || null;
+        if (!candidate) return null;
+      } else {
+        candidate = discovered[nextIndex];
+        pending.push(...discovered.slice(nextIndex + 1));
+      }
     }
     const key = uploadTriggerKey(candidate);
     if (!iconUploadAllowedForPage(page, candidate, kind, snapshot, channelType)) {
