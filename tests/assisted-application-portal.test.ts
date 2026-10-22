@@ -335,7 +335,7 @@ describe('legacy portal sections', () => {
       text: '',
     };
     let mounted = false;
-    const uploadContext = { isConnected: true, contains: (element: { identity?: string }) => element?.identity === 'new-cv-input' };
+    const uploadContext = { isConnected: true, contains: () => false };
     const trigger = {
       click: vi.fn(async () => { mounted = true; }),
       isVisible: vi.fn(async () => true),
@@ -344,8 +344,10 @@ describe('legacy portal sections', () => {
     const handle = (identity: string) => ({
       identity,
       isConnected: true,
-      evaluate: vi.fn(async (_read: unknown, other: { identity?: string; contains?: (element: { identity?: string }) => boolean }) => (
-        other?.identity === identity || Boolean(other?.contains?.({ identity }))
+      evaluate: vi.fn(async (_read: unknown, other: { identity?: string; isConnected?: boolean; contains?: (element: { identity?: string }) => boolean }) => (
+        other?.identity === identity
+        || Boolean(other?.contains?.({ identity }))
+        || (Boolean(other?.isConnected) && identity === 'new-cv-input')
       )),
     });
     const existingCv = handle('existing-cv');

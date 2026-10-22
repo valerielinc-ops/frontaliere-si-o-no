@@ -1338,12 +1338,19 @@ async function sameElement(left, right) {
 }
 
 async function inputBelongsToTrigger(input, context) {
-  if (!context || typeof input?.evaluate !== 'function') return false;
+  // The preferred frame is the primary association: a candidate from another
+  // frame never reaches this function. Some portals mount the hidden picker
+  // in a global body container, so a missing/loose DOM ancestor is not itself
+  // evidence that the candidate belongs to another document field.
+  if (!context) return true;
+  if (typeof input?.evaluate !== 'function') return false;
   try {
     return await input.evaluate((element, owner) => Boolean(
       element?.isConnected
       && owner?.isConnected
-      && owner.contains(element),
+      // `contains` is useful evidence when present, but global mounts are
+      // associated by the same-frame uniqueness check above.
+      && (owner.contains(element) || document.contains(element)),
     ), context);
   } catch {
     return false;
