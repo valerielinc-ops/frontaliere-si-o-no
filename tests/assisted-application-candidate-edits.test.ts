@@ -120,6 +120,30 @@ describe('candidate edits', () => {
     expect(cleared[candidateQuestionAnswerKey(first)]).toBe('');
   });
 
+  it('reuses an answer when an ATS adds a generic contact context to the same question id family', () => {
+    const legacy = {
+      id: 'portal_zip_postal_code', question: 'Zip/Postal Code:', type: 'text', required: true,
+    };
+    const regenerated = {
+      id: 'portal_zip_postal_code_ep7qeh', question: 'Zip/Postal Code:', context: 'Candidate contact address', type: 'text', required: true,
+    };
+    expect(candidateQuestionAnswerKey(legacy)).toBe(candidateQuestionAnswerKey(regenerated));
+    const current = candidateWithEdits({
+      order,
+      draft: { profile: {}, questions: [legacy, regenerated] },
+      flow: { answers: { [legacy.id]: '8000' } },
+    });
+    expect(current.answers[regenerated.id]).toBe('8000');
+  });
+
+  it('keeps substantive fieldset contexts independent for the same question text', () => {
+    const residence = { id: 'residence-postal', question: 'Zip/Postal Code:', context: 'Residence address', type: 'text' };
+    const employer = { id: 'employer-postal', question: 'Zip/Postal Code:', context: 'Employer address', type: 'text' };
+    const generic = { id: 'generic-postal', question: 'Zip/Postal Code:', context: 'Candidate contact address', type: 'text' };
+    expect(candidateQuestionAnswerKey(residence)).not.toBe(candidateQuestionAnswerKey(employer));
+    expect(candidateQuestionAnswerKey(residence)).not.toBe(candidateQuestionAnswerKey(generic));
+  });
+
   it('keeps the alias and the fields a question asks locked, with the reason', () => {
     const current = draft({ questions: [{ id: 'work_permit', question: 'Permesso?', type: 'choice', options: ['G'], required: true }] });
     const views = Object.fromEntries(formAnswersWithEdits({ order, draft: current, flow: {} }).map((field) => [field.key, fieldView(field, { draft: current, locale: 'de' })]));

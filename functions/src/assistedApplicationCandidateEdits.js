@@ -44,6 +44,19 @@ function normalizeQuestionValue(value) {
     .replace(/[’‘`]/g, "'").replace(/[^\p{L}\p{N}]+/gu, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// ATS tenants often add a generic fieldset label when a question is observed
+// again (for example, `Candidate contact address`). It does not identify a
+// different fact from the same question without a context. Keep substantive
+// fieldset contexts in the answer key so a residence CAP and an employer CAP
+// remain independent, while generic contact metadata cannot split one answer
+// after the portal regenerates its question id.
+const GENERIC_QUESTION_CONTEXT_RE = /^(?:(?:candidate|applicant)\s+)?(?:contact|personal|my|information|data|address)(?:\s+(?:contact|personal|address|details?|information|data|profile))?$/;
+
+function questionContextKey(value) {
+  const context = normalizeQuestionValue(value);
+  return context && !GENERIC_QUESTION_CONTEXT_RE.test(context) ? context : '';
+}
+
 function questionHash(value) {
   let hash = 2166136261;
   for (const character of value) {
@@ -92,7 +105,7 @@ export function candidateQuestionAnswerKey(question) {
   }
   const normalized = normalizeQuestionValue(text);
   if (!normalized) return '';
-  const context = normalizeQuestionValue(question?.context);
+  const context = questionContextKey(question?.context);
   const type = normalizeQuestionValue(question?.type) || 'unknown';
   const options = [...new Set(optionValues(question))].sort().join('|');
   return `question_${questionHash(`${type}\u0000${context}\u0000${normalized}\u0000${options}`)}`;
