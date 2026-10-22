@@ -128,6 +128,27 @@ describe('checkPlateAuctionQuality', () => {
     expect(issues.filter((i) => i.code === 'source-changed')).toEqual([]);
   });
 
+  it('treats the TG www host alias as the same source identity', () => {
+    const previous = makeAuction({
+      id: 'tg-123',
+      canton: 'Turgovia',
+      normalizedPlate: 'TG123',
+      rawSnapshotHash: 'hash-a',
+      officialAuctionUrl: 'https://www.auktion.tg.ch/de/',
+    });
+    const next = makeAuction({
+      ...previous,
+      rawSnapshotHash: 'hash-b',
+      officialAuctionUrl: 'https://auktion.tg.ch/de/',
+    });
+    const issues = checkPlateAuctionQuality(
+      [next],
+      new Map([[previous.id, previous]]),
+      NOW,
+    );
+    expect(issues.filter((i) => i.code === 'source-changed')).toEqual([]);
+  });
+
   it('skips the source-changed check when no previous batch is given', () => {
     const auction = makeAuction();
     const issues = checkPlateAuctionQuality([auction], undefined, NOW);

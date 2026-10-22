@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import https from 'node:https';
 import tls from 'node:tls';
+import { normalizePlateAuctionUrl } from './plateAuctionUrlNormalization.js';
 
 export const SWISSSIGN_RSA_TLS_OV_ICA_2022_1 = readFileSync(
   new URL('./certs/swisssign-rsa-tls-ov-ica-2022-1.pem', import.meta.url),
@@ -714,19 +715,19 @@ export function parseZhAuctionCards(
   const normalizedSourceKey = String(sourceKey || platePrefix || '').toUpperCase();
   const normalizedPlatePrefix = String(platePrefix || sourceKey || '').toUpperCase();
   const escapedPlatePrefix = normalizedPlatePrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const cardRe = /<a\s+href="([^"]*\/auction\/[^"?#]+)"\s+class="auction-element-link"[\s\S]*?<\/a>/gi;
+  const cardRe = /<a\s+href="([^"]*(?:\/auction|\/detail)\/[^"?#]+)"\s+class="auction-element-link"[\s\S]*?<\/a>/gi;
   let cardMatch;
   while ((cardMatch = cardRe.exec(String(html || ''))) !== null) {
     const block = cardMatch[0];
     const plate = block.match(new RegExp(`<figure\\s+title="${escapedPlatePrefix}\\s+([^"<]+)"`, 'i'))?.[1]
       || block.match(new RegExp(`<figcaption[^>]*>\\s*${escapedPlatePrefix}\\s+([^<]+)`, 'i'))?.[1];
-    const sourceRecordId = cardMatch[1].match(/\/auction\/([^/?#]+)/i)?.[1];
+    const sourceRecordId = cardMatch[1].match(/\/(?:auction|detail)\/([^/?#]+)/i)?.[1];
     if (!plate || !sourceRecordId) continue;
     const currentBidChf = parseZhMoney(block.match(/class="auction-current-bid"[^>]*>([\s\S]*?)<\/div>/i)?.[1]);
     const bidCount = numericText(block.match(/class="auction-number-bids"[^>]*>([\s\S]*?)<\/div>/i)?.[1]);
     const fallbackEndDate = [...String(html || '').slice(0, cardMatch.index).matchAll(/Auktionsende\s+am\s+(\d{1,2}\.\d{1,2}\.\d{4})/gi)].at(-1)?.[1];
     const endsAt = parseZhDate(block.match(/class="auction-ends-at-text"[\s\S]*?<\/div>\s*<div>([\s\S]*?)<\/div>/i)?.[1], fallbackEndDate);
-    const detailUrl = new URL(cardMatch[1], detailBaseUrl).toString();
+    const detailUrl = normalizePlateAuctionUrl(new URL(cardMatch[1], detailBaseUrl).toString());
     const normalizedNumber = String(plate).replace(/\s+/g, '').toUpperCase();
     auctions.push({
       id: `${normalizedSourceKey.toLowerCase()}-${sourceRecordId}`,

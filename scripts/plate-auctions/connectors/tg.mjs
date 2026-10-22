@@ -6,7 +6,7 @@ import { fetchCardCantonAuctions, parseCardCantonAuctions } from "./cards.mjs";
 
 export const TG_CANTON = "Turgovia";
 export const TG_PLATE_CODE = "TG";
-export const TG_AUCTION_URL = "https://www.auktion.tg.ch/de/";
+export const TG_AUCTION_URL = "https://auktion.tg.ch/de/";
 
 export function parseTgAuctionRows(
   html,
@@ -16,7 +16,7 @@ export function parseTgAuctionRows(
     canton: TG_CANTON,
     plateCode: TG_PLATE_CODE,
     officialAuctionUrl: TG_AUCTION_URL,
-    detailBaseUrl: "https://www.auktion.tg.ch",
+    detailBaseUrl: "https://auktion.tg.ch",
     fetchedAt,
   });
 }
@@ -26,7 +26,7 @@ export async function fetchTgPlateAuctions(options = {}) {
     canton: TG_CANTON,
     plateCode: TG_PLATE_CODE,
     officialAuctionUrl: TG_AUCTION_URL,
-    detailBaseUrl: "https://www.auktion.tg.ch",
+    detailBaseUrl: "https://auktion.tg.ch",
   }, options);
 }
 

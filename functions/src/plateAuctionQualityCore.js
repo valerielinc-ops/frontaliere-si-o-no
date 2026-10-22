@@ -7,6 +7,8 @@
  * second implementation of the policy.
  */
 
+import { normalizePlateAuctionUrl } from './plateAuctionUrlNormalization.js';
+
 const ACTIVE_STATUSES = new Set(['upcoming', 'active']);
 const NUMERIC_FIELDS = [
   'currentBidChf',
@@ -145,7 +147,7 @@ function checkSourceChanged(auction, previous) {
   if (!previous || previous.rawSnapshotHash === auction.rawSnapshotHash) return [];
   const identityChanged = previous.canton !== auction.canton
     || previous.normalizedPlate !== auction.normalizedPlate
-    || previous.officialAuctionUrl !== auction.officialAuctionUrl;
+    || normalizePlateAuctionUrl(previous.officialAuctionUrl) !== normalizePlateAuctionUrl(auction.officialAuctionUrl);
   if (!identityChanged) return [];
   return [issue(auction.id, 'source-changed', `${auction.id}: source identity changed between fetches (was ${previous.canton}/${previous.normalizedPlate}/${previous.officialAuctionUrl}, now ${auction.canton}/${auction.normalizedPlate}/${auction.officialAuctionUrl})`)];
 }

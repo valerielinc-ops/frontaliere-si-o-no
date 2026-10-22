@@ -339,14 +339,14 @@ const CONNECTORS = {
   tg: {
     canton: 'Turgovia',
     plateCode: 'TG',
-    url: 'https://www.auktion.tg.ch/de/',
+    url: 'https://auktion.tg.ch/de/',
     parserVersion: '1.1.0',
     parse(html, fetchedAt) {
       return parseCardSource(html, {
         canton: 'Turgovia',
         plateCode: 'TG',
-        officialAuctionUrl: 'https://www.auktion.tg.ch/de/',
-        detailBaseUrl: 'https://www.auktion.tg.ch',
+        officialAuctionUrl: 'https://auktion.tg.ch/de/',
+        detailBaseUrl: 'https://auktion.tg.ch',
         fetchedAt,
       });
     },
