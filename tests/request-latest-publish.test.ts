@@ -35,6 +35,28 @@ describe('decideLatestPublish', () => {
     expect(verdict.candidate).toMatchObject({ id: 2, headSha: SHA_LATEST });
   });
 
+  it('does not mistake the scheduled queue reconciler for a build artifact', () => {
+    const scheduledReconciler = {
+      ...build(3, SHA_LATEST, '2026-10-20T13:00:00Z'),
+      event: 'schedule',
+    };
+    const verdict = decideLatestPublish({
+      builds: [scheduledReconciler, build(2, SHA_OLD, '2026-10-20T12:00:00Z')],
+      publishRuns: [],
+      lastSuccessfulDeployment: deployment(SHA_OLDER_TAIL, '2026-10-20T09:00:00Z'),
+    });
+    expect(verdict).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+    expect(verdict.candidate).toMatchObject({ id: 2, headSha: SHA_OLD, event: 'workflow_dispatch' });
+  });
+
+  it('does not dispatch when the only successful deploy run is a schedule reconciliation', () => {
+    expect(decideLatestPublish({
+      builds: [{ ...build(3, SHA_LATEST, '2026-10-20T13:00:00Z'), event: 'schedule' }],
+      publishRuns: [],
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T09:00:00Z'),
+    })).toMatchObject({ action: 'skip', reason: 'no-successful-build' });
+  });
+
   it.each(['queued', 'in_progress', 'waiting', 'pending', 'requested'])(
     'does not dispatch while another publish workflow is %s',
     (status) => {
