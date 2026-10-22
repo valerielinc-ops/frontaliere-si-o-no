@@ -3140,16 +3140,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  recompose: (disambiguator: string) => string,
  ): string => {
  const seen = claimedTitlesByLocale[locale];
+ const emittedTitleKey = (candidate: string): string =>
+  titleCompareKey(finalizeJobBoardTitle(candidate, TITLE_MAX_CHARS, (s) => esc(s).length));
  let candidate = title;
- if (seen.has(titleCompareKey(candidate))) {
+ let candidateKey = emittedTitleKey(candidate);
+ if (seen.has(candidateKey)) {
   const refLabel = REF_LABEL[locale] || REF_LABEL.it;
   candidate = recompose(`${refLabel} ${fnv8(uniqueKey)}`);
+  candidateKey = emittedTitleKey(candidate);
   let bump = 2;
-  while (seen.has(titleCompareKey(candidate))) {
+  while (seen.has(candidateKey)) {
    candidate = recompose(`${refLabel} ${fnv8(uniqueKey)}-${bump++}`);
+   candidateKey = emittedTitleKey(candidate);
   }
  }
- seen.add(titleCompareKey(candidate));
+ seen.add(candidateKey);
  return candidate;
  };
 
