@@ -1182,6 +1182,7 @@ const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?fil
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
 const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
+const SUCCESS_FACTORS_DOWNLOAD_MARKER_RE = /(?:download|scarica(?:re)?|télécharger|herunterladen|descargar)/i;
 const UPLOAD_REMOVE_MARKER_RE = /(?:remove|delete|clear|detach|trash|cancel|rimuov|elimin|cancell|l[oö]schen|entfern|supprim|annul|smazz)/i;
 
 const successFactorsButtonAssociation = (button) => [
@@ -1224,6 +1225,7 @@ const successFactorsStrongDocumentUploadIdentity = (button, kind) => {
   return Boolean(documentPattern
     && identity
     && documentPattern.test(identity)
+    && !SUCCESS_FACTORS_DOWNLOAD_MARKER_RE.test(identity)
     && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(identity)
     && !(otherPattern && otherPattern.test(identity)));
 };

@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { openFormSections, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply') {
@@ -95,6 +95,12 @@ describe('portal field extraction', () => {
       ...page,
       buttons: [{ ...page.buttons.find((button: any) => button.domId === 'cv-upload-control'), domId: 'cv-preview-control' }],
     }, 'cv')).toBeNull();
+  });
+
+  it('rejects an icon identity that names a document download action', () => {
+    expect(uploadButtonCandidatesFor({
+      buttons: [{ text: '', domId: 'cv-scarica', context: 'required question' }],
+    }, 'cv')).toEqual([]);
   });
 
   it.each([
