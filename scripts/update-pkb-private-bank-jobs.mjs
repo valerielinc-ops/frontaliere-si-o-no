@@ -127,7 +127,9 @@ async function fetchAndParsePkbJobs(summaryCounts = null) {
   console.log(`✅ Parsed ${COMPANY_NAME} jobs: ${parsedJobs.length}`);
   if (summaryCounts) {
     summaryCounts.parsed = parsedJobs.length;
-    summaryCounts.lastFetchOutcome = parsedJobs.length > 0 ? 'ok' : 'selector_miss';
+    // A successful parse on one page does not erase a failed listing-page
+    // observation: crawler health must remain red for a partial discovery.
+    summaryCounts.lastFetchOutcome = fetchOutcome;
     summaryCounts.abortKind = parsedJobs.length > 0 ? null : 'no-jobs-parsed';
   }
   return parsedJobs;
