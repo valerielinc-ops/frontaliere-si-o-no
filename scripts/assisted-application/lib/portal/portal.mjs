@@ -1280,6 +1280,11 @@ function successFactorsIconButtonFor(snapshot, kind) {
   if (!documentPattern) return null;
   const candidates = (snapshot?.buttons || []).filter((button) => {
     if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    // If the extractor supplied an explicit section/context, it is stronger
+    // evidence than an id such as "resume-upload". Do not let a stale or
+    // generic id bind an icon from another document section.
+    const explicitContext = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
+    if (explicitContext && !documentPattern.test(explicitContext)) return false;
     const association = successFactorsButtonAssociation(button);
     return !UPLOAD_REMOVE_MARKER_RE.test(association)
       && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
