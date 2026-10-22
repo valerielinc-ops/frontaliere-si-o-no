@@ -1,7 +1,7 @@
 {
   "key": "suchthilfe-region-basel",
   "label": "Suchthilfe Region Basel",
-  "generatedAt": "2026-10-22T09:27:02.421Z",
+  "generatedAt": "2026-10-22T21:22:56.085Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,60 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5466,
-  "avgDurationMs": 5466,
+  "durationMs": 5692,
+  "avgDurationMs": 5692,
   "durationHistory": [
-    5466
+    5692
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "suchthilfe-region-basel-7919dba2884a",
-      "slug": "allenatori-80-100-nella-clinica-esta-suchthilfe-region-basel-reinach",
-      "company": "Suchthilfe Region Basel",
-      "companyKey": "suchthilfe-region-basel",
-      "companyDomain": "suchthilfe.ch",
-      "title": "Coaches 80-100% in der ESTA-Klinik",
-      "needsRetranslation": false,
-      "location": "Reinach",
-      "canton": "BL",
-      "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/07/Coach_2026.pdf",
-      "source": "Suchthilfe Region Basel Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:19:56.661Z",
-      "addressLocality": "Reinach",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4153",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.suchthilfe.ch/jobs/",
-      "firstSeenAt": "2026-07-09T22:26:32.387Z",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "suchthilfe-region-basel-9ee6eb185429",
@@ -81,7 +37,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/10/PflegeHF_ESTA_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:26:46.388Z",
+      "crawledAt": "2026-10-22T21:22:39.352Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -123,7 +79,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:26:45.790Z",
+      "crawledAt": "2026-10-22T21:22:38.761Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -165,7 +121,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:26:45.052Z",
+      "crawledAt": "2026-10-22T21:22:38.026Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -195,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
