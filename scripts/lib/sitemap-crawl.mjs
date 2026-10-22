@@ -90,11 +90,15 @@ function addUrl(target, raw, options) {
 export function parseSitemapXml(xml, { baseUrl, host = DEFAULT_HOST } = {}) {
   const text = String(xml || '');
   const options = { baseUrl, host };
+  const rootMatch = text.match(/<(?:(?:[\w.-]+):)?(sitemapindex|urlset)\b[^>]*>/i);
+  if (!rootMatch) {
+    throw new Error('Invalid sitemap XML: expected a <sitemapindex> or <urlset> root');
+  }
   const urls = new Set();
   const alternateUrls = new Set();
   const lastmod = {};
   const referencedSitemaps = new Set();
-  const isIndex = /<sitemapindex\b/i.test(text);
+  const isIndex = rootMatch[1].toLowerCase() === 'sitemapindex';
 
   if (isIndex) {
     for (const match of text.matchAll(XML_SITEMAP_RE)) {
@@ -241,8 +245,9 @@ export async function crawlSitemaps({
 
   const queue = seedValues.map((value) => normalizeUrl(value, options)).filter(Boolean);
   const queued = new Set(queue);
+  const requiredValues = source === 'live' ? seedValues : (requiredSeeds || []);
   const required = new Set(
-    (requiredSeeds || []).map((value) => normalizeUrl(value, options)).filter(Boolean),
+    requiredValues.map((value) => normalizeUrl(value, options)).filter(Boolean),
   );
   const visited = new Set();
   const records = new Map();
@@ -380,21 +385,19 @@ export function changedUrls(
       if (now.size > 0) for (const url of now) changed.add(url);
       continue;
     }
-    if (currentDigests[key] === previousDigests[key]) continue;
-
-    let perUrlChange = false;
     const nowLastmod = currentLastmods[key] || {};
     const beforeLastmod = previousLastmods[key] || {};
-    for (const url of now) {
-      if ((nowLastmod[url] || '') !== (beforeLastmod[url] || '')) {
-        changed.add(url);
-        perUrlChange = true;
+    if (currentDigests[key] === previousDigests[key]) {
+      for (const url of now) {
+        if ((nowLastmod[url] || '') !== (beforeLastmod[url] || '')) changed.add(url);
       }
+      continue;
     }
-    // If XML changed without a trustworthy per-URL lastmod change, submit the
-    // entire current sitemap. That is the safe branch for generated sitemaps
-    // whose content changed but whose producer forgot to update lastmod.
-    if (!perUrlChange && now.size > 0) for (const url of now) changed.add(url);
+    // A sitemap digest covers the complete XML block, including alternate,
+    // image and news metadata that may not have its own lastmod. Once the
+    // payload changes, submit every current URL unless a future per-URL digest
+    // can prove a narrower affected set.
+    if (now.size > 0) for (const url of now) changed.add(url);
   }
 
   if (includeRemoved && includeRemovedFromMissingSitemaps) {

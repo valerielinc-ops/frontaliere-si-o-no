@@ -44,6 +44,11 @@ describe('sitemap graph parser', () => {
     );
     expect(result.urls).toEqual([`${BASE}/a`]);
   });
+
+  it('rejects an HTML/challenge response instead of recording an empty sitemap', () => {
+    expect(() => parseSitemapXml('<html><body>challenge</body></html>', { baseUrl: BASE }))
+      .toThrow('Invalid sitemap XML');
+  });
 });
 
 describe('sitemap change snapshots', () => {
@@ -70,6 +75,24 @@ describe('sitemap change snapshots', () => {
     const previous = crawlSnapshot('before', '');
     const current = crawlSnapshot('after', '');
     expect(changedUrls(current, previous)).toEqual([`${BASE}/articolo`]);
+  });
+
+  it('submits every URL when the sitemap digest changes beside one URL lastmod', () => {
+    const first = `${BASE}/first`;
+    const second = `${BASE}/second`;
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-blog.xml': [first, second] },
+      perSitemapDigests: { 'sitemap-blog.xml': 'before' },
+      perSitemapLastmod: { 'sitemap-blog.xml': { [first]: '2026-10-21', [second]: '2026-10-21' } },
+    };
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-blog.xml': [first, second] },
+      perSitemapDigests: { 'sitemap-blog.xml': 'after' },
+      perSitemapLastmod: { 'sitemap-blog.xml': { [first]: '2026-10-22', [second]: '2026-10-21' } },
+    };
+    expect(changedUrls(current, previous)).toEqual([first, second]);
   });
 
   it('does not mistake edge-owned files absent from a local build for removals', () => {
@@ -124,7 +147,7 @@ describe('sitemap change snapshots', () => {
 });
 
 describe('sitemap graph availability policy', () => {
-  it('keeps optional robots seeds from blocking reachable graph URLs', async () => {
+  it('fails closed when a default or robots-discovered seed is unavailable', async () => {
     vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
       const url = String(input);
       if (url.endsWith('/robots.txt')) {
@@ -148,11 +171,8 @@ describe('sitemap graph availability policy', () => {
       return Promise.resolve(new Response('missing', { status: 404 }));
     }));
 
-    const crawl = await crawlSitemaps({ baseUrl: BASE, strict: true });
-
-    expect(crawl.records.has('sitemap-pages.xml')).toBe(true);
-    expect(crawl.missing).toContain('sitemap-cantons.xml');
-    expect(crawl.missingRequired).toEqual([]);
+    await expect(crawlSitemaps({ baseUrl: BASE, strict: true }))
+      .rejects.toThrow('sitemap-cantons.xml');
   });
 
   it('fails closed when the master sitemap itself is unavailable', async () => {
