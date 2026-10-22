@@ -52,6 +52,9 @@ runs:
         # bwrap probes 2×(10+3)=26s; apt update is 2×(45+3)+4=100s;
         # apt install is 2×(120+3)+4=250s; profile install is 8+3=11s;
         # apparmor_parser is 2×(10+3)+4=30s: 417s (6m57s), below ten minutes.
+        # The install allowance covers transient mirror latency observed while
+        # fetching the AppArmor dependencies; it remains bounded and fail-closed
+        # after two attempts.
         if [ -x /usr/bin/bwrap ] && run_bounded 'initial bubblewrap sandbox probe' 10 \
           /usr/bin/bwrap --unshare-user --unshare-net --ro-bind / / --proc /proc --dev /dev /bin/true; then
           exit 0
