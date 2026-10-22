@@ -1182,6 +1182,7 @@ const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?fil
 // labels can contain accents and filenames commonly use underscores, so only
 // Unicode letters, numbers and combining marks are token characters here.
 const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
+const SUCCESS_FACTORS_DOWNLOAD_MARKER_RE = /(?:download|scarica(?:re)?|télécharger|herunterladen|descargar)/i;
 const UPLOAD_REMOVE_MARKER_RE = /(?:remove|delete|clear|detach|trash|cancel|rimuov|elimin|cancell|l[oö]schen|entfern|supprim|annul|smazz)/i;
 
 const successFactorsButtonAssociation = (button) => [
@@ -1207,6 +1208,26 @@ const successFactorsDocumentAssociationMatches = (association, kind) => {
   const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
     : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
   return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
+};
+
+// Some SuccessFactors pages place the icon next to an unrelated required
+// question, so the extractor's nearest-text context can belong to that field
+// rather than to the upload card. A document-specific DOM identity is safe to
+// use as a fallback only when the identity itself says both which document and
+// which upload action it controls; generic ids such as `action` remain
+// ambiguous and stay fail-closed.
+const successFactorsStrongDocumentUploadIdentity = (button, kind) => {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  const identity = [button?.domId, button?.name, button?.dataAutomationId]
+    .filter(Boolean).join(' ');
+  const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
+  return Boolean(documentPattern
+    && identity
+    && documentPattern.test(identity)
+    && !SUCCESS_FACTORS_DOWNLOAD_MARKER_RE.test(identity)
+    && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(identity)
+    && !(otherPattern && otherPattern.test(identity)));
 };
 
 const buttonHasExplicitDocumentContext = (button) => [
@@ -1297,7 +1318,8 @@ function successFactorsIconButtonFor(snapshot, kind) {
     // evidence than an id such as "resume-upload". Do not let a stale or
     // generic id bind an icon from another document section.
     const explicitContext = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
-    if (explicitContext && !documentPattern.test(explicitContext)) return false;
+    if (explicitContext && !documentPattern.test(explicitContext)
+      && !successFactorsStrongDocumentUploadIdentity(button, kind)) return false;
     const association = successFactorsButtonAssociation(button);
     return !UPLOAD_REMOVE_MARKER_RE.test(association)
       && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)

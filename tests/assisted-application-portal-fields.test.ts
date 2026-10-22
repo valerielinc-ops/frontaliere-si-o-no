@@ -3,7 +3,7 @@ import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { openFormSections, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
 function extract(html: string, url = 'https://jobs.example/apply') {
@@ -77,6 +77,30 @@ describe('portal field extraction', () => {
     expect(result.cv).toBe('uploaded');
     expect(uploaded).toBe(true);
     expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
+  });
+
+  it('keeps a document-specific SuccessFactors upload id when nearby field text polluted the context', () => {
+    const page = extract(`
+      <form>
+        <label>Email address<input type="email" required></label>
+        <label>Choose password<input type="password" required></label>
+        <label>Repeat password<input type="password" required></label>
+        <label>Do you hold a valid work permit for Switzerland?<input required></label>
+        <button type="button" id="cv-upload-control" data-automation-id="action"></button>
+        <button type="submit">Submit application</button>
+      </form>`, 'https://career5.successfactors.eu/careers');
+
+    expect(uploadButtonFor(page, 'cv')).toMatchObject({ domId: 'cv-upload-control', text: '' });
+    expect(uploadButtonFor({
+      ...page,
+      buttons: [{ ...page.buttons.find((button: any) => button.domId === 'cv-upload-control'), domId: 'cv-preview-control' }],
+    }, 'cv')).toBeNull();
+  });
+
+  it('rejects an icon identity that names a document download action', () => {
+    expect(uploadButtonCandidatesFor({
+      buttons: [{ text: '', domId: 'cv-scarica', context: 'required question' }],
+    }, 'cv')).toEqual([]);
   });
 
   it.each([
