@@ -231,6 +231,8 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
   // real `</noscript>` boundary remains visible.
   let canStartRegex = true;
   let pendingControlFlowParen = false;
+  let memberAccessPending = false;
+  let breakContinueState = null;
   const parenContexts = [];
   for (let index = contentStart; index < markup.length; index += 1) {
     const char = markup[index];
@@ -254,7 +256,11 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     }
 
     if (state === 'line-comment') {
-      if (char === '\n' || char === '\r') state = 'code';
+      if (char === '\n' || char === '\r') {
+        state = 'code';
+        if (breakContinueState === 'label') canStartRegex = true;
+        breakContinueState = null;
+      }
       continue;
     }
 
@@ -324,17 +330,28 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       canStartRegex = true;
       pendingControlFlowParen = false;
     } else if (/\s/u.test(char)) {
+      if (char === '\n' || char === '\r') {
+        if (breakContinueState === 'label') canStartRegex = true;
+        breakContinueState = null;
+      }
       continue;
     } else if (JS_IDENTIFIER_START_RE.test(char)) {
       let end = index + 1;
       while (end < markup.length && JS_IDENTIFIER_PART_RE.test(markup[end])) end += 1;
       const word = markup.slice(index, end);
-      canStartRegex = NOSCRIPT_REGEX_PREFIX_KEYWORDS.has(word);
-      pendingControlFlowParen = NOSCRIPT_CONTROL_FLOW_KEYWORDS.has(word);
+      const isMemberName = memberAccessPending;
+      const isBreakContinueLabel = !isMemberName && breakContinueState === 'keyword';
+      canStartRegex = !isMemberName && NOSCRIPT_REGEX_PREFIX_KEYWORDS.has(word);
+      pendingControlFlowParen = !isMemberName && NOSCRIPT_CONTROL_FLOW_KEYWORDS.has(word);
+      breakContinueState = isBreakContinueLabel ? 'label'
+        : !isMemberName && (word === 'break' || word === 'continue') ? 'keyword' : null;
+      memberAccessPending = false;
       index = end - 1;
     } else if (/[0-9]/u.test(char)) {
       canStartRegex = false;
       pendingControlFlowParen = false;
+      memberAccessPending = false;
+      breakContinueState = null;
     } else if ('([{'.includes(char)) {
       if (char === '(') parenContexts.push(pendingControlFlowParen);
       pendingControlFlowParen = false;
@@ -355,6 +372,8 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     } else if (',;:?=!.~*%&|^<>'.includes(char)) {
       canStartRegex = true;
       pendingControlFlowParen = false;
+      memberAccessPending = char === '.' && markup[index - 1] !== '.' && next !== '.';
+      breakContinueState = null;
     }
   }
   return -1;

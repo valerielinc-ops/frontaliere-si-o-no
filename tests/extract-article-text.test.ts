@@ -229,6 +229,25 @@ describe('extractArticleText', () => {
       expect(result.text).toContain(outerParagraph);
     });
 
+  it('treats a member named default as an operand before division', () => {
+    const outerParagraph = 'Outer source prose after a member named default remains available to extraction.';
+    const html = '<main><noscript><script>const ratio = item.default / 2;'
+      + `</noscript><p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+  });
+
+  it.each(['break', 'continue'])
+    ('recognizes a regex after a labeled %s statement and its line break', (keyword) => {
+      const outerParagraph = `Outer source prose after a labeled ${keyword} remains available to extraction.`;
+      const html = `<main><noscript><script>outer: while (true) { ${keyword} outer\n/[</noscript>]/u; }`
+        + `</noscript><p>${outerParagraph}</p></main>`;
+      const result = extractArticleText(html, { scriptingDisabled: true });
+
+      expect(result.text).toContain(outerParagraph);
+    });
+
   it('ignores raw-text-looking openers inside HTML comments', () => {
     const outerParagraph = 'Editorial prose after a commented script opener remains available to extraction.';
     const html = '<main><noscript><!-- <script> -->'
