@@ -44,7 +44,11 @@ on:
     branches: [main]
     paths:
       - 'packages/articles/content/**'
+      - 'public/sitemap-blog.xml'
+      - 'public/sitemap-blog-ch.xml'
+      - 'public/sitemap-articles-archive.xml'
       - 'public/sitemap-news.xml'
+      - 'public/sitemap.xml'
       - 'public/rss*.xml'
       - 'public/news-ticker-live.json'
       - '.github/workflows/sync-articles-sitemaps.yml'
@@ -996,6 +1000,18 @@ jobs:
           # publish-article-chunks.mjs already issues after its own PUT.
           node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
 
+      # Article sitemap files are published by the corpus publisher and by the
+      # edge replay above, not by a Pages deploy. Reconcile the complete article
+      # family here (blog/blog-ch, archive, news candidates and every canton
+      # descendant of sitemap-cantons.xml) so a corpus-only publication reaches
+      # IndexNow even when no full site deploy follows it. A stable refresh PR
+      # deliberately skips this step; its push-triggered replay owns the same
+      # delivery after the PR is merged.
+      - name: Reconcile article sitemap surfaces with IndexNow
+        if: steps.gate.outputs.skipped != 'true' && steps.commit.outputs.published-via-pr != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        timeout-minutes: 20
+        run: node scripts/submit-indexnow-batch.mjs --sitemap article --sitemap news --endpoint indexnow
+
       # ── LAST STEP, and that is the whole point: a green run must have
       #    DELIVERED ────────────────────────────────────────────────────────────
       #
@@ -1442,6 +1458,11 @@ jobs:
             exit 1
           fi
           node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
+
+      - name: Reconcile replayed article sitemap surfaces with IndexNow
+        if: steps.recheck_replay_source_before_edge.outcome == 'success' && (steps.recheck_replay_source_before_edge.outputs.verdict == 'current' || steps.recheck_replay_source_before_edge.outputs.verdict == 'unrelated-advance') && steps.recheck_replay_source_before_edge.outputs.edge_publish == 'true'
+        timeout-minutes: 20
+        run: node scripts/submit-indexnow-batch.mjs --sitemap article --sitemap news --endpoint indexnow
 
       # Release the lease even when a strict surface replay fails. Stop the
       # watcher before the second ETag-guarded release, matching the other

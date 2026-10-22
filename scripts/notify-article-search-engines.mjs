@@ -24,6 +24,7 @@
  * post-deploy submitters remain the backstop either way.
  *
  * Usage: node scripts/notify-article-search-engines.mjs --summary <summary.json>
+ *        node scripts/notify-article-search-engines.mjs --indexnow-only --summary <summary.json>
  *        node scripts/notify-article-search-engines.mjs <url> [url...]
  */
 import { realpathSync } from 'node:fs';
@@ -31,7 +32,45 @@ import { pathToFileURL } from 'node:url';
 import fs from 'node:fs';
 
 import { notifyGoogleIndexing } from './lib/indexing-api.mjs';
-import { submitIndexNowUrls } from './lib/indexnow-submit.mjs';
+import { submitIndexNowUrls, verifyIndexNowKey } from './lib/indexnow-submit.mjs';
+
+const SITE_ORIGIN = 'https://frontaliereticino.ch';
+
+function indexableUrlFromShardPath(relPath) {
+  if (typeof relPath !== 'string' || !/\/index\.html$/i.test(relPath)) return null;
+  const route = `/${relPath.replace(/^\/+/, '').replace(/\/index\.html$/i, '')}/`;
+  try {
+    return new URL(route, SITE_ORIGIN).href;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * The fast-publish summary contains every path pushed to the locale shards,
+ * not only the article's four canonical URLs. Include the section landing,
+ * archive pagination and topic hubs as well: they are real changed pages and
+ * the topic sitemap is produced from the same rendered set.
+ */
+export function urlsFromPublishSummary(summary) {
+  const urls = new Set();
+  for (const shard of Array.isArray(summary?.shards) ? summary.shards : []) {
+    if (typeof shard?.url === 'string' && shard.url) urls.add(shard.url);
+    for (const relPath of Array.isArray(shard?.paths) ? shard.paths : []) {
+      const url = indexableUrlFromShardPath(relPath);
+      if (url) urls.add(url);
+    }
+  }
+  for (const section of Object.values(summary?.sections || {})) {
+    for (const paths of Object.values(section?.pathsByLocale || {})) {
+      for (const relPath of Array.isArray(paths) ? paths : []) {
+        const url = indexableUrlFromShardPath(relPath);
+        if (url) urls.add(url);
+      }
+    }
+  }
+  return [...urls].sort();
+}
 
 function parseArgs(argv) {
   const summaryIdx = argv.indexOf('--summary');
@@ -43,7 +82,7 @@ function parseArgs(argv) {
     }
     try {
       const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
-      return (summary.shards || []).map((s) => s?.url).filter(Boolean);
+      return urlsFromPublishSummary(summary);
     } catch (err) {
       console.error(`[notify-search-engines] cannot read ${summaryPath}: ${err.message}`);
       return [];
@@ -53,7 +92,9 @@ function parseArgs(argv) {
 }
 
 async function main() {
-  const urls = [...new Set(parseArgs(process.argv.slice(2)))];
+  const argv = process.argv.slice(2);
+  const indexNowOnly = argv.includes('--indexnow-only');
+  const urls = [...new Set(parseArgs(argv))];
   if (urls.length === 0) {
     console.log('[notify-search-engines] no URLs to submit — nothing to do');
     return;
@@ -62,13 +103,24 @@ async function main() {
   console.log(`[notify-search-engines] submitting ${urls.length} URL(s):`);
   for (const u of urls) console.log(`  • ${u}`);
 
+  const key = await verifyIndexNowKey({ attempts: 3, delayMs: 1000 });
+  if (key.ok) {
+    console.log(`[notify-search-engines] IndexNow key verified (attempt ${key.attempts})`);
+  } else {
+    // Keep the publish path best-effort, but make a propagation/key failure
+    // visible. The daily complete-graph workflow remains the durable retry.
+    console.warn(`[notify-search-engines] IndexNow key preflight failed: ${key.reason}`);
+  }
+
   // Run both channels independently: one failing must not skip the other.
   const [google, indexnow] = await Promise.allSettled([
-    notifyGoogleIndexing(urls),
+    indexNowOnly ? Promise.resolve(null) : notifyGoogleIndexing(urls),
     submitIndexNowUrls(urls),
   ]);
 
-  if (google.status === 'fulfilled') {
+  if (indexNowOnly) {
+    console.log('[notify-search-engines] Google Indexing API: skipped (--indexnow-only)');
+  } else if (google.status === 'fulfilled') {
     const ok = (google.value || []).filter((r) => r?.ok).length;
     console.log(`[notify-search-engines] Google Indexing API: ${ok}/${urls.length} accepted`);
   } else {
@@ -79,8 +131,10 @@ async function main() {
     const ok = (indexnow.value?.results || []).filter((r) => r?.ok).length;
     const total = (indexnow.value?.results || []).length;
     console.log(`[notify-search-engines] IndexNow: ${ok}/${total} endpoint(s) accepted ${indexnow.value?.submitted ?? 0} URL(s)`);
+    if (ok === 0) process.exitCode = 1;
   } else {
     console.log(`[notify-search-engines] IndexNow failed: ${indexnow.reason?.message || indexnow.reason}`);
+    process.exitCode = 1;
   }
 }
 
