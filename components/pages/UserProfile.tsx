@@ -196,6 +196,76 @@ const saveProfileToFirestore = async (uid: string, data: Record<string, unknown>
 
 const PROFILE_STRING_FIELDS = ['workPosition', 'age', 'gender', 'familySituation', 'frontaliereType', 'municipality', 'children', 'familyMembers', 'workplace', 'preferredDogana', 'preferredLanguage', 'grossSalary', 'permitExpiry'] as const;
 
+type LegacyProfileImportSources = {
+ currentProfile: UserProfileData;
+ cloudProfile: Record<string, unknown> | null;
+ localProfile: Record<string, unknown> | null;
+ legacy: Record<string, unknown>;
+ cvPrefill: Partial<UserProfileData>;
+ editedFields: ReadonlySet<keyof UserProfileData>;
+};
+
+function resolveLegacyStringField(
+ field: typeof PROFILE_STRING_FIELDS[number],
+ sources: LegacyProfileImportSources,
+): string {
+ const { currentProfile, cloudProfile, localProfile, legacy, cvPrefill, editedFields } = sources;
+ if (editedFields.has(field)) return currentProfile[field];
+
+ const hasCloudField = cloudProfile !== null && Object.hasOwn(cloudProfile, field);
+ const cloudValue = cloudProfile?.[field];
+ if (hasCloudField) {
+  // An explicitly stored private blank is an intentional clear, not a missing value.
+  if (typeof cloudValue === 'string') return cloudValue;
+  if (typeof localProfile?.[field] === 'string' && (localProfile[field] as string).trim()) {
+   return localProfile[field] as string;
+  }
+  return currentProfile[field];
+ }
+
+ const localValue = localProfile?.[field];
+ if (typeof localValue === 'string' && localValue.trim()) return localValue;
+ if (currentProfile[field].trim()) return currentProfile[field];
+ const legacyValue = legacy[field];
+ if (typeof legacyValue === 'string' && legacyValue.trim()) return legacyValue;
+ const cvValue = cvPrefill[field];
+ return typeof cvValue === 'string' ? cvValue : currentProfile[field];
+}
+
+function resolveLegacyFamilyMembers(sources: LegacyProfileImportSources): FamilyMember[] {
+ const { currentProfile, cloudProfile, localProfile, legacy, cvPrefill, editedFields } = sources;
+ if (editedFields.has('familyMembersList')) return currentProfile.familyMembersList || [];
+
+ const hasCloudFamily = cloudProfile !== null && Object.hasOwn(cloudProfile, 'familyMembersList');
+ const cloudFamily = cloudProfile?.familyMembersList;
+ if (hasCloudFamily) {
+  // An explicitly stored empty list means the owner removed every member.
+  if (Array.isArray(cloudFamily)) return cloudFamily as FamilyMember[];
+  if (Array.isArray(localProfile?.familyMembersList) && localProfile.familyMembersList.length) {
+   return localProfile.familyMembersList as FamilyMember[];
+  }
+  return currentProfile.familyMembersList || [];
+ }
+
+ if (Array.isArray(localProfile?.familyMembersList) && localProfile.familyMembersList.length) {
+  return localProfile.familyMembersList as FamilyMember[];
+ }
+ if (currentProfile.familyMembersList?.length) return currentProfile.familyMembersList;
+ if (Array.isArray(legacy.familyMembersList) && legacy.familyMembersList.length) {
+  return legacy.familyMembersList as FamilyMember[];
+ }
+ return Array.isArray(cvPrefill.familyMembersList) ? cvPrefill.familyMembersList : [];
+}
+
+export function mergeLegacyProfileImport(sources: LegacyProfileImportSources): UserProfileData {
+ const merged = { ...DEFAULT_PROFILE } as UserProfileData;
+ PROFILE_STRING_FIELDS.forEach((field) => {
+  merged[field] = resolveLegacyStringField(field, sources);
+ });
+ merged.familyMembersList = resolveLegacyFamilyMembers(sources);
+ return merged;
+}
+
 const loadLegacyProfileFromFirestore = async (email: string): Promise<Partial<UserProfileData> | null> => {
  if (!email.trim()) return null;
  try {
@@ -762,37 +832,14 @@ const UserProfile: React.FC = () => {
     const cvPrefill: Partial<UserProfileData> = cvProfile?.userId === uid && cvProfile.profile
       ? cvProfilePrefill(cvProfile.profile)
       : {};
-    const merged = { ...DEFAULT_PROFILE } as UserProfileData;
-
-    PROFILE_STRING_FIELDS.forEach((field) => {
-     if (localProfile && Object.hasOwn(localProfile, field)) {
-      merged[field] = typeof localProfile[field] === 'string' ? localProfile[field] as string : '';
-     } else if (cloudProfile && Object.hasOwn(cloudProfile, field)) {
-      merged[field] = typeof cloudProfile[field] === 'string' ? cloudProfile[field] as string : '';
-     } else if (userEditedProfileFieldsRef.current.has(field)) {
-      merged[field] = currentProfile[field];
-     } else if (currentProfile[field].trim()) {
-      merged[field] = currentProfile[field];
-     } else if (typeof legacy[field] === 'string' && (legacy[field] as string).trim()) {
-      merged[field] = legacy[field] as string;
-     } else if (typeof cvPrefill[field] === 'string') {
-      merged[field] = cvPrefill[field] as string;
-     }
+    const merged = mergeLegacyProfileImport({
+     currentProfile,
+     cloudProfile,
+     localProfile,
+     legacy,
+     cvPrefill,
+     editedFields: userEditedProfileFieldsRef.current,
     });
-
-    if (localProfile && Object.hasOwn(localProfile, 'familyMembersList') && Array.isArray(localProfile.familyMembersList)) {
-     merged.familyMembersList = localProfile.familyMembersList as FamilyMember[];
-    } else if (cloudProfile && Object.hasOwn(cloudProfile, 'familyMembersList') && Array.isArray(cloudProfile.familyMembersList)) {
-     merged.familyMembersList = cloudProfile.familyMembersList as FamilyMember[];
-    } else if (userEditedProfileFieldsRef.current.has('familyMembersList')) {
-     merged.familyMembersList = currentProfile.familyMembersList || [];
-    } else if (currentProfile.familyMembersList?.length) {
-     merged.familyMembersList = currentProfile.familyMembersList;
-    } else if (Array.isArray(legacy.familyMembersList) && legacy.familyMembersList.length) {
-     merged.familyMembersList = legacy.familyMembersList as FamilyMember[];
-    } else if (Array.isArray(cvPrefill.familyMembersList)) {
-     merged.familyMembersList = cvPrefill.familyMembersList;
-    }
 
     if (!saveStoredUserProfile(uid, merged as unknown as Record<string, unknown>)) {
      throw new Error('Scoped profile cache could not be saved');
