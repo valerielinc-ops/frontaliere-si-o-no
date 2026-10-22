@@ -144,17 +144,6 @@ jobs:
             echo "artifact=$artifact"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Download immutable source artifact
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
-          SOURCE_ARTIFACT: ${{ steps.source.outputs.artifact }}
-          INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
-        run: |
-          set -euo pipefail
-          mkdir -p "$INPUT_DIR"
-          gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SOURCE_ARTIFACT" --dir "$INPUT_DIR"
-
       - name: Validate source run provenance
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -168,12 +157,44 @@ jobs:
           observed_source_sha=$(jq -r '.headSha // ""' <<<"$source_run")
           source_status=$(jq -r '.status // ""' <<<"$source_run")
           source_conclusion=$(jq -r '.conclusion // ""' <<<"$source_run")
-          if [ "$source_status" != 'completed' ] || [ "$source_branch" != 'main' ] || [ "$source_event" = 'pull_request' ] || [ "$observed_source_sha" != "$SOURCE_SHA" ] || [ "$source_conclusion" = 'cancelled' ]; then
+          if [ "$source_status" != 'completed' ] || [ "$source_branch" != 'main' ] || [ "$source_event" = 'pull_request' ] || [ "$observed_source_sha" != "$SOURCE_SHA" ] || [ "$source_conclusion" != 'success' ]; then
             echo "::error::source run is not an eligible completed main run; refusing durable persistence"
             exit 1
           fi
 
+      - name: Download immutable source artifact
+        id: source_artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          SOURCE_CONCLUSION: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion || '' }}
+          SOURCE_RUN_ID: ${{ steps.source.outputs.run_id }}
+          SOURCE_ARTIFACT: ${{ steps.source.outputs.artifact }}
+          INPUT_DIR: ${{ runner.temp }}/loop-fleet-ledger-input
+        run: |
+          set -euo pipefail
+          mkdir -p "$INPUT_DIR"
+          artifacts_json="$(gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100")"
+          artifact_count="$(jq -r --arg artifact "$SOURCE_ARTIFACT" '[.[].artifacts[]? | select(.name == $artifact and .expired == false)] | length' <<<"$artifacts_json")"
+          if [ "$artifact_count" -eq 0 ]; then
+            if [ "$EVENT_NAME" != 'workflow_run' ] || [ "$SOURCE_CONCLUSION" != 'success' ]; then
+              echo "::error::source artifact $SOURCE_ARTIFACT is unavailable; refusing durable persistence"
+              exit 1
+            fi
+            echo "::notice::source run $SOURCE_RUN_ID completed successfully without $SOURCE_ARTIFACT; the source workflow produced no evidence to persist"
+            echo "- Durable ledger: source run $SOURCE_RUN_ID produced no immutable evidence artifact; nothing to persist." >> "$GITHUB_STEP_SUMMARY"
+            echo 'available=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$artifact_count" -ne 1 ]; then
+            echo "::error::expected exactly one unexpired source artifact named $SOURCE_ARTIFACT, found $artifact_count"
+            exit 1
+          fi
+          gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SOURCE_ARTIFACT" --dir "$INPUT_DIR"
+          echo 'available=true' >> "$GITHUB_OUTPUT"
+
       - name: Initialize trusted ledger benchmark
+        if: ${{ steps.source_artifact.outputs.available == 'true' }}
         env:
           BENCHMARK_DIR: ${{ runner.temp }}/loop-fleet-ledger-benchmark
           BENCHMARK_CONTEXT: ${{ runner.temp }}/loop-fleet-ledger-benchmark/context.json
@@ -205,6 +226,7 @@ jobs:
           '
 
       - name: Prepare Firebase credentials
+        if: ${{ steps.source_artifact.outputs.available == 'true' }}
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -217,9 +239,11 @@ jobs:
           fi
 
       - name: Load reviewed write credentials from Remote Config
+        if: ${{ steps.source_artifact.outputs.available == 'true' }}
         run: node scripts/load-rc-env.mjs
 
       - name: Mint App token for the durable ledger branch
+        if: ${{ steps.source_artifact.outputs.available == 'true' }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -228,6 +252,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Append ledger to durable branch
+        if: ${{ steps.source_artifact.outputs.available == 'true' }}
         env:
           # APP_TOKEN solo con contents+pull_requests verificati dal conio
           # (APP_TOKEN_DATA_REFRESH): altrimenti vale vuoto e lo script ricade
@@ -468,7 +493,7 @@ jobs:
           exit 1
 
       - name: Aggregate trusted before-after ledger benchmark
-        if: always()
+        if: ${{ always() && steps.source_artifact.outputs.available == 'true' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BENCHMARK_DIR: ${{ runner.temp }}/loop-fleet-ledger-benchmark
@@ -541,7 +566,7 @@ jobs:
           echo "::notice::post_change_append_p95_ms=$post_change_append_p95_ms"
 
       - name: Upload trusted ledger benchmark
-        if: always()
+        if: ${{ always() && steps.source_artifact.outputs.available == 'true' }}
         uses: actions/upload-artifact@v7
         with:
           name: loop-fleet-ledger-benchmark-${{ github.run_id }}

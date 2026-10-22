@@ -2880,6 +2880,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cofinanziamento-tox-info-suisse': { it: 'cofinanziamento-tox-info-suisse', en: 'cofinancing-tox-info-suisse', de: 'cofinanzierung-tox-info-suisse', fr: 'cofinancement-tox-info-suisse' },
  'consiglio-poverta-prima-conferenza': { it: 'consiglio-poverta-prima-conferenza', en: 'national-poverty-council-first-conference', de: 'nationaler-armutsrat-erste-konferenz', fr: 'conseil-national-pauvrete-premiere-conference' },
  'furto-dati-publica-100mila-dipendenti': { it: 'furto-dati-publica-100mila-dipendenti', en: 'akira-hack-publica-federal-employee-data', de: 'akira-hack-publica-bundesangestellten-daten', fr: 'piratage-akira-publica-donnees-employes-federaux' },
+ 'ora-solare-ritorno-ottobre-svizzera': { it: 'ora-solare-ritorno-ottobre-svizzera', en: 'standard-time-return-october-switzerland', de: 'winterzeit-rueckkehr-oktober-schweiz', fr: 'retour-heure-hiver-octobre-suisse' },
+ 'revisione-serv-consultazione-2026': { it: 'revisione-serv-consultazione-2026', en: 'serv-partial-revision-consultation-2026', de: 'serv-teilrevision-anhorung-2026', fr: 'revision-partielle-serv-consultation-2026' },
+ 'stop-emergenza-centrale-nucleare-gosgen': { it: 'stop-emergenza-centrale-nucleare-gosgen', en: 'emergency-shutdown-gosgen-nuclear-plant', de: 'notstopp-atomkraftwerk-gosgen', fr: 'arret-urgence-centrale-nucleaire-gosgen' },
+ 'regole-usato-mercatini-svizzera': { it: 'regole-usato-mercatini-svizzera', en: 'second-hand-market-rules-switzerland', de: 'second-hand-markt-regeln-schweiz', fr: 'regles-marche-aux-puces-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
