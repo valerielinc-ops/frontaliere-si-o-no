@@ -7,6 +7,7 @@ import {
   POLL_TIMEOUT_MS,
   runPlateAuctionsFunction,
   selectRefreshJob,
+  staleRelaySourceKeys,
 } from '../scripts/ci/run-plate-auctions-function.mjs';
 
 const CREDENTIALS = { client_email: 'sa@example.iam.gserviceaccount.com', private_key: 'PRIVATE', project_id: 'demo-project' };
@@ -23,6 +24,7 @@ type RelaySources = Record<string, Record<string, unknown>>;
 function fakeWorld({
   jobs = [[{ name: JOB, schedule: 'every 6 hours', timeZone: 'Europe/Zurich', state: 'ENABLED' }, { name: OTHER_JOB }]] as Array<Array<{ name: string; [key: string]: unknown }>>,
   relayResponses = [] as RelaySources[],
+  relayStatuses = [] as Array<number | null>,
   forbidden = null as null | 'list' | 'run',
   serverDate = 'Fri, 25 Sep 2026 10:00:00 GMT',
 } = {}) {
@@ -47,8 +49,11 @@ function fakeWorld({
       return json(200, { name: JOB }, { date: serverDate });
     }
     if (url.startsWith(`${RELAY}?fresh=`)) {
-      const sources = relayResponses[Math.min(relayIndex, relayResponses.length - 1)] || {};
+      const readIndex = relayIndex;
       relayIndex += 1;
+      const status = relayStatuses[Math.min(readIndex, relayStatuses.length - 1)] || 200;
+      if (status !== 200) return json(status, { error: 'relay unavailable' });
+      const sources = relayResponses[Math.min(readIndex, relayResponses.length - 1)] || {};
       return json(200, { schema: 1, sources, auctions: [] });
     }
     return json(404, { error: { message: `unexpected ${method} ${url}` } });
@@ -74,6 +79,8 @@ const source = (lastFetchedAt: string, extra: Record<string, unknown> = {}) => (
   status: 'active', lastFetchedAt, lastSuccessAt: lastFetchedAt, rowCount: 3, ...extra,
 });
 const OLD = at(START - 6 * 60 * 60 * 1000);
+const RELAY_OLD = at(START - 9 * 60 * 60 * 1000);
+const RECENT = at(START - 60 * 60 * 1000);
 
 describe('run-plate-auctions-function', () => {
   it('picks the single refreshPlateAuctions job and refuses 0 or several', () => {
@@ -87,6 +94,15 @@ describe('run-plate-auctions-function', () => {
     expect(keys).toEqual(expect.arrayContaining(['fr', 'sz', 'ti']));
     expect(keys).not.toContain('ju');
     expect(expectedSourceKeys({ a: { status: 'active' }, b: { status: 'blocked' } })).toEqual(['a']);
+  });
+
+  it('treats missing, degraded, and older relay successes as stale', () => {
+    expect(staleRelaySourceKeys([
+      { key: 'fr', status: 'active', lastSuccessAt: RECENT },
+      { key: 'sz', status: 'active', lastSuccessAt: RELAY_OLD },
+      { key: 'ti', status: 'degraded', lastSuccessAt: RECENT },
+      { key: 'sg', status: 'active', lastSuccessAt: '-' },
+    ], START)).toEqual(['sz', 'ti', 'sg']);
   });
 
   it('dry run: lists the jobs across pages, never triggers, prints the current relay state', async () => {
@@ -121,6 +137,42 @@ describe('run-plate-auctions-function', () => {
     expect(output).toMatch(new RegExp(`fr\\s+active\\s+${fresh}\\s+${fresh}\\s+3\\s+-`));
     expect(output).not.toContain(TOKEN);
     expect(world.summaries.join('\n')).toContain('| ti | active |');
+  });
+
+  it('uses the scheduler only when the relay snapshot is stale', async () => {
+    const fresh = at(START + 5_000);
+    const world = fakeWorld({
+      relayResponses: [
+        { fr: source(RECENT), sz: source(RELAY_OLD), ti: source(RECENT) },
+        { fr: source(fresh), sz: source(fresh), ti: source(fresh) },
+      ],
+    });
+    const result = await world.run({ dryRun: false, onlyIfStale: true });
+    expect(result).toMatchObject({ dryRun: false, job: JOB });
+    expect(world.calls.filter((call) => call.method === 'POST')).toHaveLength(1);
+    expect(world.relayReads()).toBe(2); // freshness probe, then the post-trigger poll
+  });
+
+  it('triggers a recovery when the freshness probe itself returns HTTP 500', async () => {
+    const fresh = at(START + 5_000);
+    const world = fakeWorld({
+      relayStatuses: [500, null],
+      relayResponses: [{ fr: source(fresh), sz: source(fresh), ti: source(fresh) }],
+    });
+    const result = await world.run({ dryRun: false, onlyIfStale: true });
+    expect(result).toMatchObject({ dryRun: false, job: JOB });
+    expect(world.calls.filter((call) => call.method === 'POST')).toHaveLength(1);
+    expect(world.logs.join('\n')).toContain('Relay freshness probe failed; triggering a refresh');
+  });
+
+  it('does not trigger a scheduler run when every relay source is fresh', async () => {
+    const world = fakeWorld({
+      relayResponses: [{ fr: source(RECENT), sz: source(RECENT), ti: source(RECENT) }],
+    });
+    const result = await world.run({ dryRun: false, onlyIfStale: true });
+    expect(result).toMatchObject({ dryRun: false, skipped: true, job: JOB });
+    expect(world.calls.filter((call) => call.method === 'POST')).toHaveLength(0);
+    expect(world.relayReads()).toBe(1);
   });
 
   it('fails when a source was reached by the run but has no successful snapshot from it', async () => {

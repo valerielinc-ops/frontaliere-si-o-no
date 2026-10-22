@@ -188,6 +188,17 @@ describe('plate-auction Cloud Function schedule', () => {
     }
   });
 
+  it('attempts a bounded relay recovery before the static producer', () => {
+    const workflow = readFileSync(new URL('../.github/workflows/refresh-plate-auctions.yml', import.meta.url), 'utf8');
+    const heal = workflow.indexOf('Heal stale plate-auction relay before static refresh');
+    const producer = workflow.indexOf('Refresh every active public catalogue');
+    expect(heal).toBeGreaterThan(-1);
+    expect(heal).toBeLessThan(producer);
+    expect(workflow.slice(heal, producer)).toContain('continue-on-error: true');
+    expect(workflow.slice(heal, producer)).toContain('FIREBASE_SERVICE_ACCOUNT_JSON');
+    expect(workflow.slice(heal, producer)).toContain('run-plate-auctions-function.mjs --only-if-stale');
+  });
+
   it('refreshes the heavy BS catalogue last, after every small source', () => {
     const keys = ['ag', 'bl', 'bs', 'gr', 'sz', 'zh'];
     expect(plateAuctionRefreshOrder(keys)).toEqual(['ag', 'bl', 'gr', 'sz', 'zh', 'bs']);

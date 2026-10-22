@@ -132,6 +132,18 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
+      - name: Heal stale plate-auction relay before static refresh
+        # SZ (and the geo-fenced FR/TI sources) cannot be read from the GitHub
+        # runner. If the Cloud Scheduler clock stopped, let this run make one
+        # bounded recovery attempt before ingest; a failed attempt must not
+        # freeze the cantons that the static collector can still reach.
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          PLATE_AUCTIONS_FUNCTION_RUN_DRY_RUN: 'false'
+        run: node scripts/ci/run-plate-auctions-function.mjs --only-if-stale
+
       - name: Refresh every active public catalogue
         id: refresh
         if: inputs.dry_run != true && inputs.dry_run != 'true'
