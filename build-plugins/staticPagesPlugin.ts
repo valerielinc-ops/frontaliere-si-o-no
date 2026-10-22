@@ -1383,6 +1383,41 @@ const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; l
  ],
 };
 
+// The 2026-10 crawl still found the translated comparison and guide leaves
+// with only the locale-root rail as an incoming edge. Keep these two small
+// clusters mutually connected so every leaf has a second discovery path;
+// the links are rendered only on the cluster members and therefore do not
+// inflate unrelated pages.
+const LOCALIZED_SINGLE_INBOUND_GROUPS: ReadonlyArray<ReadonlyArray<{ href: string; label: string }>> = [
+  [
+    { href: '/en/service-comparison/compare-banks/', label: 'Compare banks' },
+    { href: '/en/service-comparison/cost-of-living/', label: 'Cost of living' },
+    { href: '/en/service-comparison/compare-job-offers/', label: 'Compare job offers' },
+  ],
+  [
+    { href: '/de/service-vergleich/banken-vergleichen/', label: 'Banken vergleichen' },
+    { href: '/de/service-vergleich/lebenshaltungskosten/', label: 'Lebenshaltungskosten' },
+    { href: '/de/service-vergleich/stellenangebote-vergleichen/', label: 'Stellenangebote vergleichen' },
+  ],
+  [
+    { href: '/fr/comparaison-services/comparer-banques/', label: 'Comparer les banques' },
+    { href: '/fr/comparaison-services/cout-de-la-vie/', label: 'Coût de la vie' },
+    { href: '/fr/comparaison-services/comparer-offres-emploi/', label: 'Comparer les offres d’emploi' },
+  ],
+  [
+    { href: '/en/cross-border-guide/first-day-at-work/', label: 'First day at work' },
+    { href: '/en/cross-border-guide/compare-permit-g-vs-b/', label: 'Compare Permit G vs B' },
+  ],
+  [
+    { href: '/de/grenzgaenger-ratgeber/erster-arbeitstag/', label: 'Erster Arbeitstag' },
+    { href: '/de/grenzgaenger-ratgeber/bewilligung-g-vs-b/', label: 'Bewilligung G vs. B' },
+  ],
+  [
+    { href: '/fr/guide-frontalier/premier-jour-travail/', label: 'Premier jour de travail' },
+    { href: '/fr/guide-frontalier/comparer-permis-g-vs-b/', label: 'Comparer les permis G et B' },
+  ],
+];
+
 const escAttr = (s: string): string => s
  .replace(/&/g, '&amp;')
  .replace(/</g, '&lt;')
@@ -3706,6 +3741,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    : [];
  // Add contextual siblings: link to related pages in the same section
  const contextualLinks: { href: string; label: string }[] = [];
+ for (const group of LOCALIZED_SINGLE_INBOUND_GROUPS) {
+   if (group.some((link) => link.href === canonicalPath)) {
+     contextualLinks.push(...group);
+     break;
+   }
+ }
+
  if (canonicalPath.startsWith('/glossario-frontaliere/')) {
  // Add a few sibling glossary terms for internal linking
  const siblings = italianUrls
