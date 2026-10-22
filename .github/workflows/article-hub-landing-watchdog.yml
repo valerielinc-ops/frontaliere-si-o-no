@@ -146,6 +146,7 @@ jobs:
       # dispatch fails, or the post-rerender probe still fails, this opens it.
       - name: Open / dedup degraded issue
         if: >-
+          always() &&
           steps.health.outcome == 'failure' &&
           (github.event_name == 'workflow_run' || steps.recovery.outcome != 'success')
         env:

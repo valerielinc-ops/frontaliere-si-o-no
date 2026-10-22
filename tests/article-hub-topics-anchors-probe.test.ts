@@ -229,6 +229,7 @@ describe('the watchdog does not race the hub writer', () => {
     );
     expect(WATCHDOG_WORKFLOW).toContain('gh workflow run rerender-article-hubs.yml');
     expect(WATCHDOG_WORKFLOW).toContain('-f recovery_request_id="$RECOVERY_REQUEST_ID"');
+    expect(WATCHDOG_WORKFLOW).toContain('always()');
     expect(WATCHDOG_WORKFLOW).toContain("steps.health.outcome == 'failure'");
     expect(WATCHDOG_WORKFLOW).toContain(
       "(github.event_name == 'workflow_run' || steps.recovery.outcome != 'success')",
