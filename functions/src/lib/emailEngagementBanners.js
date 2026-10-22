@@ -2,10 +2,9 @@
  * emailEngagementBanners.js — the shared closing suite for editorial and
  * lifecycle emails.
  *
- * The order is intentional and part of the surface contract:
- *   1. automate the job search;
- *   2. make Frontaliere Ticino a preferred Google source;
- *   3. follow the social channel the reader prefers.
+ * The order is intentional and part of the surface contract. Surfaces that
+ * already render the "Consigliato per te" first-party service can omit the
+ * first card so the automation CTA remains in its original slot exactly once.
  *
  * This module stays inside functions/src/lib/ so Cloud Functions, scripts and
  * the browser-side newsletter preview can render the same bytes. It uses only
@@ -29,25 +28,12 @@ const ICON_TILE_BG = '#fff7ed';
 const GOOGLE_LOGO_URL = 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
 const SOCIAL_ICON_URLS = Object.freeze({
   linkedin: 'https://www.linkedin.com/favicon.ico',
-  instagram: 'https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png',
+  instagram: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png',
   tiktok: 'https://www.tiktok.com/favicon.ico',
   telegram: 'https://telegram.org/img/t_logo.png',
   facebook: 'https://www.facebook.com/favicon.ico',
 });
-const SOCIAL_MARKS = Object.freeze({
-  linkedin: 'in',
-  instagram: 'IG',
-  tiktok: 'TK',
-  telegram: 'TG',
-  facebook: 'f',
-});
-const SOCIAL_ICON_BACKGROUNDS = Object.freeze({
-  linkedin: '#0a66c2',
-  instagram: '#e1306c',
-  tiktok: '#111827',
-  telegram: '#229ed9',
-  facebook: '#1877f2',
-});
+const SOCIAL_ICON_KEYS = Object.freeze(['linkedin', 'instagram', 'tiktok', 'facebook']);
 
 const COPY = {
   it: {
@@ -179,11 +165,22 @@ export function emailEngagementCopy(locale = 'it') {
   return COPY[normLocale(locale)];
 }
 
-function socialLinkHtml(profile) {
+function socialLogoHtml(profile, size = 20) {
   const iconUrl = SOCIAL_ICON_URLS[profile.key] || '';
-  const mark = SOCIAL_MARKS[profile.key] || profile.label.slice(0, 1);
-  const iconBackground = SOCIAL_ICON_BACKGROUNDS[profile.key] || BRAND_DARK;
-  return `<a target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(profile.label)}" href="${escapeHtml(profile.url)}" style="display:inline-block;margin:0 4px 6px 0;padding:7px 9px;border:1px solid ${BORDER};border-radius:8px;color:${BRAND_DARK};background:#ffffff;font-size:13px;line-height:18px;font-weight:700;text-decoration:none;white-space:nowrap;"><span style="display:inline-block;width:20px;height:20px;margin-right:5px;vertical-align:-5px;border-radius:6px;background:${iconBackground};text-align:center;line-height:20px;color:#ffffff;font-size:12px;font-weight:800;"><img data-email-logo="${escapeHtml(profile.key)}" src="${escapeHtml(iconUrl)}" alt="${escapeHtml(mark)}" width="18" height="18" style="display:block;width:18px;height:18px;border:0;border-radius:4px;"></span><span>${escapeHtml(profile.label)}</span></a>`;
+  return `<img data-email-logo="${escapeHtml(profile.key)}" src="${escapeHtml(iconUrl)}" alt="" width="${size}" height="${size}" style="display:inline-block;width:${size}px;height:${size}px;border:0;vertical-align:middle;">`;
+}
+
+function socialLinkHtml(profile) {
+  return `<a target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(profile.label)}" href="${escapeHtml(profile.url)}" style="display:inline-block;width:58px;margin:0 8px 8px 0;vertical-align:top;text-align:center;color:${TEXT};text-decoration:none;"><span style="display:block;width:44px;height:44px;margin:0 auto;border:1px solid ${BORDER};border-radius:10px;background:#ffffff;color:${BRAND_DARK};text-align:center;line-height:44px;">${socialLogoHtml(profile)}</span><span style="display:block;margin-top:5px;font-size:11px;line-height:14px;font-weight:700;color:${BRAND_DARK};">${escapeHtml(profile.label)}</span></a>`;
+}
+
+function socialIconTile() {
+  const profiles = SOCIAL_ICON_KEYS
+    .map((key) => SOCIAL_PROFILES.find((profile) => profile.key === key))
+    .filter(Boolean);
+  const firstRow = profiles.slice(0, 2).map((profile) => `<td align="center" style="padding:3px 2px;">${socialLogoHtml(profile, 14)}</td>`).join('');
+  const secondRow = profiles.slice(2, 4).map((profile) => `<td align="center" style="padding:3px 2px;">${socialLogoHtml(profile, 14)}</td>`).join('');
+  return `<table role="presentation" width="44" height="44" cellpadding="0" cellspacing="0" border="0" style="width:44px;height:44px;background:${ICON_TILE_BG};color:${BRAND_DARK};border:1px solid ${BORDER};border-radius:10px;"><tr>${firstRow}</tr><tr>${secondRow}</tr></table>`;
 }
 
 function maybeTrailingSlash(url, enabled) {
@@ -197,12 +194,12 @@ function maybeTrailingSlash(url, enabled) {
   }
 }
 
-function cardShell({ background, border, color, content, padding = '17px 19px' }) {
-  return `<tr><td style="padding:0 0 10px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${background}" style="width:100%;background:${background};color:${color};border:1px solid ${border};border-radius:14px;"><tr><td style="padding:${padding};color:${color};">${content}</td></tr></table></td></tr>`;
+function cardShell({ background, border, color, content, padding = '18px', bottomPadding = '10px' }) {
+  return `<tr><td style="padding:0 0 ${bottomPadding};"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${background}" style="width:100%;background:${background};color:${color};border:1px solid ${border};border-radius:14px;"><tr><td style="padding:${padding};color:${color};">${content}</td></tr></table></td></tr>`;
 }
 
 function ctaHtml(href, label) {
-  return `<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="display:inline-block;background:${BRAND_ORANGE};color:#ffffff;font-size:13px;line-height:18px;font-weight:800;text-decoration:none;padding:9px 14px;border-radius:8px;">${escapeHtml(label)}</a>`;
+  return `<a target="_blank" rel="noopener noreferrer" href="${escapeHtml(href)}" style="display:inline-block;background:${BRAND_ORANGE};color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;padding:9px 20px;border-radius:8px;">${escapeHtml(label)}</a>`;
 }
 
 function textIconTile(mark) {
@@ -218,19 +215,21 @@ function featureCard({ iconHtml, title, body, ctaHref, ctaLabel }) {
     background: CARD_BG,
     border: BORDER,
     color: TEXT,
-    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${iconHtml}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;line-height:20px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(title)}</div><div style="margin:6px 0 12px;font-size:13px;line-height:20px;color:${TEXT};">${escapeHtml(body)}</div>${ctaHtml(ctaHref, ctaLabel)}</td></tr></table>`,
+    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${iconHtml}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;font-weight:800;color:${BRAND_DARK};margin:0 0 4px;line-height:1.3;">${escapeHtml(title)}</div><div style="font-size:13px;color:${TEXT};line-height:1.5;margin:0 0 10px;">${escapeHtml(body)}</div>${ctaHtml(ctaHref, ctaLabel)}</td></tr></table>`,
   });
 }
 
 /**
- * Render the selected option 1 — three editorial cards in a fixed order.
+ * Render the selected option 1 — editorial cards in a fixed order.
+ * `includeAutomation` is false on surfaces whose existing "Consigliato per
+ * te" slot already owns the automation CTA.
  * `telegramUrl` is a convenience override for Cloud Functions callers that
  * resolve the public URL from Remote Config asynchronously before rendering.
  * `trailingSlash` defaults to the site's canonical slash-terminated URL
  * convention; callers can disable it only when they explicitly need the
  * legacy bare-path form.
  */
-export function renderEmailEngagementBanners({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true } = {}) {
+export function renderEmailEngagementBanners({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true, includeAutomation = true } = {}) {
   const lang = normLocale(locale);
   const copy = COPY[lang];
   const links = resolveSocialLinks({
@@ -240,13 +239,15 @@ export function renderEmailEngagementBanners({ locale = 'it', socialLinks, teleg
   const automationUrl = maybeTrailingSlash(localizedUrl(APPLICATION_CONCIERGE_PATH, lang), trailingSlash);
   const socialLinksHtml = links.map(socialLinkHtml).join(' ');
 
-  const automation = featureCard({
-    iconHtml: textIconTile('A'),
-    title: copy.automationTitle,
-    body: copy.automationBody,
-    ctaHref: automationUrl,
-    ctaLabel: copy.automationCta,
-  });
+  const automation = includeAutomation
+    ? featureCard({
+        iconHtml: textIconTile('A'),
+        title: copy.automationTitle,
+        body: copy.automationBody,
+        ctaHref: automationUrl,
+        ctaLabel: copy.automationCta,
+      })
+    : '';
 
   const preferredSource = featureCard({
     iconHtml: imageIconTile(GOOGLE_LOGO_URL, 'Google', 36, 14),
@@ -260,15 +261,16 @@ export function renderEmailEngagementBanners({ locale = 'it', socialLinks, teleg
     background: CARD_BG,
     border: BORDER,
     color: TEXT,
-    padding: '17px 19px 11px',
-    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${textIconTile('S')}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;line-height:20px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(copy.socialTitle)}</div><div style="margin:6px 0 0;font-size:13px;line-height:20px;color:${TEXT};">${escapeHtml(copy.socialBody)}</div></td></tr></table><div style="margin:14px 0 0;font-size:0;line-height:0;">${socialLinksHtml}</div>`,
+    padding: '18px 18px 14px',
+    bottomPadding: '0',
+    content: `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td width="56" style="padding:0;vertical-align:top;">${socialIconTile()}</td><td style="padding:0 0 0 14px;vertical-align:top;"><div style="font-size:15px;font-weight:800;color:${BRAND_DARK};margin:0 0 4px;line-height:1.3;">${escapeHtml(copy.socialTitle)}</div><div style="font-size:13px;color:${TEXT};line-height:1.5;margin:0;">${escapeHtml(copy.socialBody)}</div></td></tr></table><div style="margin:14px 0 0;font-size:0;line-height:0;">${socialLinksHtml}</div>`,
   });
 
-  return `<tr><td data-email-component="engagement-banners" style="background:#ffffff;color:${TEXT};padding:4px 28px 14px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#ffffff;color:${TEXT};">${automation}${preferredSource}${social}</table></td></tr>`;
+  return `<tr><td data-email-component="engagement-banners" style="background:#ffffff;color:${TEXT};padding:8px 28px 24px;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;background:#ffffff;color:${TEXT};">${automation}${preferredSource}${social}</table></td></tr>`;
 }
 
 /** Plain-text companion for templates that build their own multipart body. */
-export function emailEngagementBannersText({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true } = {}) {
+export function emailEngagementBannersText({ locale = 'it', socialLinks, telegramUrl, trailingSlash = true, includeAutomation = true } = {}) {
   const lang = normLocale(locale);
   const copy = COPY[lang];
   const links = resolveSocialLinks({
@@ -277,10 +279,7 @@ export function emailEngagementBannersText({ locale = 'it', socialLinks, telegra
   });
   const automationUrl = maybeTrailingSlash(localizedUrl(APPLICATION_CONCIERGE_PATH, lang), trailingSlash);
   return [
-    copy.automationTitle,
-    copy.automationBody,
-    `${copy.automationCta}: ${automationUrl}`,
-    '',
+    ...(includeAutomation ? [copy.automationTitle, copy.automationBody, `${copy.automationCta}: ${automationUrl}`, ''] : []),
     copy.preferredSourceTitle,
     copy.preferredSourceBody,
     `${copy.preferredSourceCta}: ${PREFERRED_SOURCE_URL}`,

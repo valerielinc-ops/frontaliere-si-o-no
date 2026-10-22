@@ -7,7 +7,11 @@
  * Autologin is handled externally by wrapping links with Firebase auth.
  */
 
-import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+import {
+  isApplicationConciergeRecommendation,
+  pickNewsletterRecommendation,
+  renderRecommendedBlock,
+} from './newsletter/recommendedBlock.mjs';
 import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 // Shared with functions/src/lib/welcomeEmailTemplate.js (Cloud Functions
@@ -727,6 +731,12 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
  */
 export function buildNewsletter(data) {
   const locale = nlNormLocale(data.locale);
+  const recommendation = pickNewsletterRecommendation({
+    locale,
+    interest: data.interest,
+    campaign: data.recommendationCampaign,
+  });
+  const recommendationOwnsAutomation = isApplicationConciergeRecommendation(recommendation);
   const dateStr = formatDate(locale);
   const preheader = data.preheaderText || (data.exchangeRate
     ? 'CHF/EUR ' + data.exchangeRate.rate.toFixed(4) + ' \u00b7 ' + dateStr
@@ -800,10 +810,6 @@ export function buildNewsletter(data) {
     interest: data.interest,
     acquisitionSource: data.acquisitionSource,
     campaign: data.recommendationCampaign,
-    // The closing engagement suite already renders the automation CTA. The
-    // recommendation slot stays available for a partner without duplicating
-    // that first-party service in weekly sends.
-    excludeIds: ['application-concierge'],
   });
 
   // 12. Closer
@@ -812,7 +818,14 @@ export function buildNewsletter(data) {
   // 13. Engagement suite — the three closing cards stay in this order across
   // every editorial/lifecycle email. Telegram remains conditional until its
   // public Remote Config URL is available.
-  html += renderEmailEngagementBanners({ locale, telegramUrl: data.telegramChannelUrl });
+  // The recommendation slot owns the automation card only when it selected
+  // the first-party service. Sponsors and affiliates must leave the shared
+  // automation card visible exactly once in the closing suite.
+  html += renderEmailEngagementBanners({
+    locale,
+    telegramUrl: data.telegramChannelUrl,
+    includeAutomation: !recommendationOwnsAutomation,
+  });
 
   // 14. Footer
   html += renderFooter(locale, data.unsubscribeUrl, data.preferencesUrl);

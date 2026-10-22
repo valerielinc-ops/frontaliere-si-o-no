@@ -8,6 +8,7 @@ import {
   mailerooMetaOnSent,
   __setFirestoreAdminForTest,
 } from '../scripts/send-job-alerts.mjs';
+import { NEWSLETTER_SPONSORS } from '../services/newsletter/recommendedBlock.mjs';
 
 // Minimal Firestore fake capturing .collection().doc().collection().doc().set() chains,
 // recording the final docId + payload so the maileroo-meta writer can be asserted.
@@ -320,14 +321,40 @@ describe('job alert email — plaintext alternative', () => {
   });
 });
 
-describe('job alert email — engagement suite does not duplicate the recommendation slot', () => {
-  it('renders the automation destination once and keeps the recommendation slot for an affiliate', () => {
+describe('job alert email — recommendation owns the automation CTA', () => {
+  it('keeps the original automation recommendation and does not duplicate it in the engagement suite', () => {
     const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
     const automationPathMatches = result.html.match(/automatizza-ricerca-lavoro-svizzera/g) || [];
 
     expect(automationPathMatches).toHaveLength(1);
-    expect(result.html).toContain('/go/');
+    expect(result.html).toContain('Consigliato per te');
+    expect(result.html).toContain('Automatizza la ricerca di lavoro in Svizzera');
+    const engagementStart = result.html.indexOf('data-email-component="engagement-banners"');
+    expect(engagementStart).toBeGreaterThan(-1);
+    expect(result.html.slice(engagementStart)).not.toContain('Automatizza la ricerca di lavoro');
     expect((result.html.match(/Automatizza/g) || [])).toHaveLength(1);
+  });
+
+  it('keeps the automation card when an active sponsor owns the recommendation slot', () => {
+    NEWSLETTER_SPONSORS.push({
+      id: 'test-sponsor',
+      name: 'Test sponsor',
+      emoji: '🏷️',
+      url: 'https://sponsor.example/offer/',
+      active: true,
+      weight: 1,
+      copy: { it: { title: 'Offerta sponsor', body: 'Corpo sponsor', cta: 'Scopri →' } },
+    });
+    try {
+      const result = buildAlertEmail(fixtureAlert('it'), [fixtureJob()], true);
+
+      expect(result.html).toContain('Offerta sponsor');
+      expect(result.html).toContain('Automatizza la tua ricerca di lavoro');
+      expect(result.html.match(/automatizza-ricerca-lavoro-svizzera/g) || []).toHaveLength(1);
+      expect((result.html.match(/Automatizza/g) || [])).toHaveLength(1);
+    } finally {
+      NEWSLETTER_SPONSORS.length = 0;
+    }
   });
 });
 

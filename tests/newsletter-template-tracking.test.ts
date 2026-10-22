@@ -4,6 +4,7 @@ const { buildNewsletter, FEATURED_TOOLS, directUrl } = await import('@/services/
 const { matchJobsForSubscriber, validateJobUrls, getFallbackBriefing, FALLBACK_SUBJECT, decayFactor } = await import('@/services/newsletter-content.mjs');
 const { PARTNERS_REGISTRY } = await import('@/functions/src/lib/affiliatePartnersRegistry.js');
 const { NEWSLETTER_JOB_LIMIT } = await import('@/functions/src/lib/jobEmailRankingLinks.js');
+const { NEWSLETTER_SPONSORS } = await import('@/services/newsletter/recommendedBlock.mjs');
 
 const SAMPLE_EXCHANGE = { rate: 1.0942, previousRate: 1.0885 };
 const SAMPLE_FACT = { text: 'Oltre 78.000 frontalieri lavorano nel Canton Ticino.', source: 'USTAT' };
@@ -137,6 +138,37 @@ describe('newsletter template v2', () => {
 
     expect(html).toContain(`Tutte le ${NEWSLETTER_JOB_LIMIT} offerte`);
     expect(html).not.toContain('Tutte le 99 offerte');
+  });
+
+  it('keeps the automation card when an active sponsor owns the weekly recommendation slot', () => {
+    NEWSLETTER_SPONSORS.push({
+      id: 'test-sponsor',
+      name: 'Test sponsor',
+      emoji: '🏷️',
+      url: 'https://sponsor.example/offer/',
+      active: true,
+      weight: 1,
+      copy: { it: { title: 'Offerta sponsor', body: 'Corpo sponsor', cta: 'Scopri →' } },
+    });
+    try {
+      const html = buildNewsletter({
+        exchangeRate: SAMPLE_EXCHANGE,
+        matchedJobs: [],
+        featuredTool: SAMPLE_TOOL,
+        weeklyFact: SAMPLE_FACT,
+        locale: 'it',
+        interest: 'jobs',
+        recommendationCampaign: 'weekly_2026-10-12',
+        unsubscribeUrl: 'https://frontaliereticino.ch/?action=unsubscribe&email=test@example.com',
+      });
+
+      expect(html).toContain('Offerta sponsor');
+      expect(html).toContain('Automatizza la tua ricerca di lavoro');
+      expect(html.match(/automatizza-ricerca-lavoro-svizzera/g) || []).toHaveLength(1);
+      expect((html.match(/Automatizza/g) || [])).toHaveLength(1);
+    } finally {
+      NEWSLETTER_SPONSORS.length = 0;
+    }
   });
 });
 

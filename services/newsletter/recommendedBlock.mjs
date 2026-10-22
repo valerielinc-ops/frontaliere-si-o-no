@@ -11,6 +11,7 @@
 export {
   NEWSLETTER_SPONSORS,
   NEWSLETTER_AFFILIATE_ENTRIES,
+  isApplicationConciergeRecommendation,
   pickNewsletterRecommendation,
   buildRecommendedHref,
   renderRecommendedBlock,

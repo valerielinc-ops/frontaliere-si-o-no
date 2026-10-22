@@ -27,7 +27,11 @@ import { fileURLToPath } from 'node:url';
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { normalizeContract, formatSalary, emailTagChip } from '../services/newsletter-content.mjs';
 import { nlNormLocale } from '../services/newsletter-template.mjs';
-import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
+import {
+  isApplicationConciergeRecommendation,
+  pickNewsletterRecommendation,
+  renderRecommendedBlock,
+} from '../services/newsletter/recommendedBlock.mjs';
 import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import {
   buildAlertProfile,
@@ -996,6 +1000,8 @@ function buildAlertEmail(
   subjectExperiment = null,
 ) {
   const locale = nlNormLocale(alert.locale);
+  const recommendation = pickNewsletterRecommendation({ locale, interest: 'jobs', campaign: 'jobalert' });
+  const recommendationOwnsAutomation = isApplicationConciergeRecommendation(recommendation);
   const s = getStrings(locale);
   const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
   const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
@@ -1373,10 +1379,6 @@ function buildAlertEmail(
           interest: 'jobs',
           acquisitionSource: alert.acquisitionSource || alert.source || null,
           campaign: 'jobalert',
-          // The engagement suite below already owns the automation CTA. Keep
-          // this revenue slot, but rotate to an affiliate instead of showing
-          // the same first-party service twice in one job alert.
-          excludeIds: ['application-concierge'],
         })}
 
         <!-- Closer (aligned with newsletter) -->
@@ -1387,7 +1389,7 @@ function buildAlertEmail(
           </div>
         </td></tr>
 
-        ${renderEmailEngagementBanners({ locale })}
+        ${renderEmailEngagementBanners({ locale, includeAutomation: !recommendationOwnsAutomation })}
 
         <!-- Footer (dark, aligned with newsletter) -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
