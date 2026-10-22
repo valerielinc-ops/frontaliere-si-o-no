@@ -7,7 +7,7 @@ import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
 import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
 import { VD_BROWSER_USER_AGENT } from '../functions/src/plateAuctionsCore.js';
-import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
@@ -19,6 +19,19 @@ const GR_PARTIAL_FEED = `
     <td class="amount">500</td><td class="amount">50</td><td class="amount">900</td>
     <td class="closingTime">2026/09/14 20:00:00</td><td>4</td>
   </tr></tbody></table></div>`;
+
+const BE_CARD_SAMPLE = `
+  <div class="auction-grid"><div class="auctions">
+    <div>Auktionsende am 23.09.2026</div>
+    <a href="/de/auction/109715" class="auction-element-link">
+      <figure title="BE 13926"><figcaption>BE 13926</figcaption></figure>
+      <div class="auction-element-title"><img src="/bundles/auction/icons/car.svg" alt="Icon eines Autos"/></div>
+      <div class="auction-current-bid">CHF&nbsp;600</div>
+      <div class="auction-element-text"><div class="auction-number-bids">1 Gebot</div>
+        <div class="auction-ends-at-text">Endet am:</div><div>19:00:00</div>
+      </div>
+    </a>
+  </div></div>`;
 
 function fakeFirestore(previousRows: Record<string, unknown>[]) {
   const deletes: string[] = [];
@@ -76,6 +89,31 @@ describe('Glarus Cloud Function collector', () => {
     expect(result.summaries.gl).toMatchObject({ status: 'active' });
     expect(store.writes.some(write => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'gl-1585' && write.value.normalizedPlate === 'GL3100' && write.value.vehicleType === 'motorcycle' && write.value.startingPriceChf === 150)).toBe(true);
     expect(store.sourceSets.find(source => source.id === 'gl')?.value).toMatchObject({ status: 'active', rowCount: 1 });
+  });
+});
+
+describe('Berne Cloud Function collector', () => {
+  it('tries the alternate official host before degrading the source', async () => {
+    const firestore = fakeFirestore([]);
+    const calls: string[] = [];
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string) => {
+        calls.push(url);
+        if (url === BE_AUCTION_URLS[0]) throw new Error('HTTP 404');
+        if (url === BE_AUCTION_URLS[1]) return BE_CARD_SAMPLE;
+        return '';
+      },
+      now: new Date('2026-09-20T12:00:00.000Z'),
+    });
+
+    expect(calls).toContain(BE_AUCTION_URLS[0]);
+    expect(calls).toContain(BE_AUCTION_URLS[1]);
+    expect(result.summaries.be).toMatchObject({ status: 'active', rowCount: 1 });
+    expect(firestore.writes.find((write) => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'be-109715')?.value).toMatchObject({
+      officialAuctionUrl: BE_AUCTION_URLS[0],
+      officialDetailUrl: `${new URL(BE_AUCTION_URLS[1]).origin}/de/auction/109715`,
+    });
   });
 });
 

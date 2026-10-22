@@ -26,7 +26,7 @@ export function parseCardCantonAuctions(
   });
 }
 
-export async function fetchCardCantonAuctions(config, { now = new Date() } = {}) {
+export async function fetchCardCantonAuctions(config, { now = new Date(), fetchPage = fetchHtml } = {}) {
   return fetchWithPublicApiRelay({
     sourceKey: String(config.plateCode).toLowerCase(),
     plateCode: config.plateCode,
@@ -34,13 +34,34 @@ export async function fetchCardCantonAuctions(config, { now = new Date() } = {})
     now,
     logLabel: `fetch${config.plateCode}PlateAuctions`,
     direct: async () => {
-      const html = await fetchHtml(config.officialAuctionUrl, {
-        ...(config.userAgent ? { userAgent: config.userAgent } : {}),
-      });
-      return parseCardCantonAuctions(html, {
-        ...config,
-        fetchedAt: now.toISOString(),
-      });
+      const fetchUrls = [...new Set([
+        config.officialAuctionUrl,
+        ...(Array.isArray(config.officialAuctionUrls) ? config.officialAuctionUrls : []),
+      ])];
+      const errors = [];
+      for (const fetchUrl of fetchUrls) {
+        try {
+          const html = await fetchPage(fetchUrl, {
+            ...(config.userAgent ? { userAgent: config.userAgent } : {}),
+          });
+          return parseCardCantonAuctions(html, {
+            ...config,
+            // Keep the public source identity on the registry URL while
+            // detail links follow the alias that actually answered.
+            detailBaseUrl: fetchUrl === config.officialAuctionUrl
+              ? config.detailBaseUrl
+              : new URL(fetchUrl).origin,
+            fetchedAt: now.toISOString(),
+          });
+        } catch (error) {
+          errors.push({ fetchUrl, error });
+        }
+      }
+      if (errors.length === 1) throw errors[0].error;
+      throw new Error(
+        `${config.plateCode} card endpoints failed: ${errors.map(({ fetchUrl, error }) => `${fetchUrl} (${error instanceof Error ? error.message : String(error)})`).join('; ')}`,
+        { cause: errors.at(-1)?.error },
+      );
     },
   });
 }
