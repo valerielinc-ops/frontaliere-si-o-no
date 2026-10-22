@@ -129,6 +129,234 @@ export function resolveArticleRouteHref(href, maps = {}) {
   return isAbsolute ? `${SITE_ORIGIN}${path}${suffix}` : `${path}${suffix}`;
 }
 
+/** @typedef {{ index: number, closed: boolean }} TriviaResult */
+
+/**
+ * Skip whitespace and comments without ever interpreting their contents as
+ * source tokens. A closed flag lets callers fail closed on a truncated block
+ * comment instead of silently dropping the entry that preceded it.
+ *
+ * @param {string} text
+ * @param {number} offset
+ * @returns {TriviaResult}
+ */
+function skipTrivia(text, offset) {
+  let index = offset;
+  while (index < text.length) {
+    if (/\s/u.test(text[index])) {
+      index += 1;
+      continue;
+    }
+    if (text.startsWith('//', index)) {
+      const lineEnd = text.indexOf('\n', index + 2);
+      index = lineEnd < 0 ? text.length : lineEnd + 1;
+      continue;
+    }
+    if (text.startsWith('/*', index)) {
+      const commentEnd = text.indexOf('*/', index + 2);
+      if (commentEnd < 0) return { index: text.length, closed: false };
+      index = commentEnd + 2;
+      continue;
+    }
+    break;
+  }
+  return { index, closed: true };
+}
+
+/**
+ * Read a single- or double-quoted JavaScript string. The raw contents are
+ * retained because this parser only accepts route literals; decoding escapes
+ * here would make the source scan disagree with the build validator.
+ *
+ * @param {string} text
+ * @param {number} offset
+ * @returns {{ value: string, end: number } | null}
+ */
+function readQuotedLiteral(text, offset) {
+  const quote = text[offset];
+  if (quote !== "'" && quote !== '"') return null;
+  let index = offset + 1;
+  while (index < text.length) {
+    const char = text[index];
+    if (char === '\\') {
+      index += 2;
+      continue;
+    }
+    if (char === quote) {
+      return { value: text.slice(offset + 1, index), end: index + 1 };
+    }
+    if (char === '\n' || char === '\r') return null;
+    index += 1;
+  }
+  return null;
+}
+
+/**
+ * Skip a template expression, including nested braces, strings, comments,
+ * and nested template literals. The redirect map has one dynamic template
+ * value, but its contents must never be scanned for fake map properties.
+ *
+ * @param {string} text
+ * @param {number} offset
+ * @returns {number | null}
+ */
+function skipTemplateExpression(text, offset) {
+  let depth = 1;
+  let index = offset;
+  while (index < text.length) {
+    const char = text[index];
+    if (char === "'" || char === '"') {
+      const literal = readQuotedLiteral(text, index);
+      if (!literal) return null;
+      index = literal.end;
+      continue;
+    }
+    if (char === '`') {
+      const end = skipTemplateLiteral(text, index);
+      if (end === null) return null;
+      index = end;
+      continue;
+    }
+    if (text.startsWith('//', index)) {
+      const lineEnd = text.indexOf('\n', index + 2);
+      index = lineEnd < 0 ? text.length : lineEnd + 1;
+      continue;
+    }
+    if (text.startsWith('/*', index)) {
+      const commentEnd = text.indexOf('*/', index + 2);
+      if (commentEnd < 0) return null;
+      index = commentEnd + 2;
+      continue;
+    }
+    if (char === '{') {
+      depth += 1;
+    } else if (char === '}') {
+      depth -= 1;
+      if (depth === 0) return index + 1;
+    }
+    index += 1;
+  }
+  return null;
+}
+
+/**
+ * Skip a template literal, including `${...}` expressions.
+ *
+ * @param {string} text
+ * @param {number} offset
+ * @returns {number | null}
+ */
+function skipTemplateLiteral(text, offset) {
+  let index = offset + 1;
+  while (index < text.length) {
+    const char = text[index];
+    if (char === '\\') {
+      index += 2;
+      continue;
+    }
+    if (char === '`') return index + 1;
+    if (char === '$' && text[index + 1] === '{') {
+      const expressionEnd = skipTemplateExpression(text, index + 2);
+      if (expressionEnd === null) return null;
+      index = expressionEnd;
+      continue;
+    }
+    index += 1;
+  }
+  return null;
+}
+
+/**
+ * Scan literal redirect entries from the host's legacy redirect source.
+ * Unlike a line-oriented regex, this scanner advances over comments, quoted
+ * strings, and template literals as lexical units. It therefore cannot treat
+ * a property-shaped line in a comment/string as a redirect. Trivia after a
+ * literal is consumed repeatedly, so consecutive comments before `,` or `}`
+ * do not make a valid entry disappear.
+ *
+ * @param {string} source
+ * @returns {{entries: Record<string, string>, literalCount: number, dynamicCount: number, unsupported: string[]}}
+ */
+export function scanRedirectSource(source) {
+  const entries = {};
+  let literalCount = 0;
+  let dynamicCount = 0;
+  const unsupported = [];
+  const text = String(source ?? '');
+  let index = 0;
+
+  while (index < text.length) {
+    const trivia = skipTrivia(text, index);
+    if (!trivia.closed) break;
+    index = trivia.index;
+    if (index >= text.length) break;
+
+    if (text[index] === '`') {
+      index = skipTemplateLiteral(text, index) ?? text.length;
+      continue;
+    }
+    if (text[index] !== "'" && text[index] !== '"') {
+      index += 1;
+      continue;
+    }
+
+    const keyLiteral = readQuotedLiteral(text, index);
+    if (!keyLiteral) {
+      index += 1;
+      continue;
+    }
+    index = keyLiteral.end;
+    if (!keyLiteral.value.startsWith('/')) continue;
+
+    const colon = skipTrivia(text, index);
+    if (!colon.closed) break;
+    if (text[colon.index] !== ':') {
+      index = colon.index;
+      continue;
+    }
+
+    const valueStart = skipTrivia(text, colon.index + 1);
+    if (!valueStart.closed) {
+      unsupported.push(keyLiteral.value);
+      break;
+    }
+    index = valueStart.index;
+
+    if (text[index] === '`') {
+      const templateEnd = skipTemplateLiteral(text, index);
+      if (templateEnd === null) {
+        unsupported.push(keyLiteral.value);
+        break;
+      }
+      dynamicCount += 1;
+      index = templateEnd;
+      continue;
+    }
+
+    const valueLiteral = readQuotedLiteral(text, index);
+    if (!valueLiteral || !valueLiteral.value.startsWith('/')) {
+      unsupported.push(keyLiteral.value);
+      index = valueLiteral?.end ?? index + 1;
+      continue;
+    }
+
+    const tail = skipTrivia(text, valueLiteral.end);
+    if (!tail.closed || (text[tail.index] !== ',' && text[tail.index] !== '}' && tail.index < text.length)) {
+      unsupported.push(keyLiteral.value);
+      index = valueLiteral.end;
+      continue;
+    }
+
+    const from = keyLiteral.value.endsWith('/') ? keyLiteral.value : `${keyLiteral.value}/`;
+    const to = valueLiteral.value.endsWith('/') ? valueLiteral.value : `${valueLiteral.value}/`;
+    entries[from] = to;
+    literalCount += 1;
+    index = valueLiteral.end;
+  }
+
+  return { entries, literalCount, dynamicCount, unsupported };
+}
+
 /**
  * Parse literal redirect entries from the host's legacy redirect source.
  * The build-side validator uses this same parser, so route ownership cannot
@@ -139,57 +367,7 @@ export function resolveArticleRouteHref(href, maps = {}) {
  * @returns {{entries: Record<string, string>, literalCount: number, dynamicCount: number, unsupported: string[]}}
  */
 export function parseLiteralRedirectMap(source) {
-  const entries = {};
-  let literalCount = 0;
-  let dynamicCount = 0;
-  const unsupported = [];
-  const text = String(source ?? '');
-  const keyPattern = /^[ \t]*(?:'(\/[^'\n]*)'|"(\/[^"\n]*)")\s*:\s*/gm;
-  const literalTailIsTerminated = (offset) => {
-    let i = offset;
-    while (i < text.length && /[ \t\r\n]/u.test(text[i])) i += 1;
-    if (text[i] === ',' || text[i] === '}' || i >= text.length) return true;
-    if (text.startsWith('//', i)) {
-      const lineEnd = text.indexOf('\n', i + 2);
-      if (lineEnd < 0) return true;
-      i = lineEnd + 1;
-      while (i < text.length && /[ \t\r\n]/u.test(text[i])) i += 1;
-      return text[i] === ',' || text[i] === '}' || i >= text.length;
-    }
-    if (text.startsWith('/*', i)) {
-      const commentEnd = text.indexOf('*/', i + 2);
-      if (commentEnd < 0) return false;
-      i = commentEnd + 2;
-      while (i < text.length && /[ \t\r\n]/u.test(text[i])) i += 1;
-      return text[i] === ',' || text[i] === '}' || i >= text.length;
-    }
-    return false;
-  };
-  for (const match of text.matchAll(keyPattern)) {
-    const fromRaw = match[1] ?? match[2];
-    const valueOffset = match.index + match[0].length;
-    const valueSource = text.slice(valueOffset);
-    const singleLiteral = /^'(\/[^'\n]*)'/.exec(valueSource);
-    const doubleLiteral = /^"(\/[^"\n]*)"/.exec(valueSource);
-    const literal = singleLiteral || doubleLiteral;
-    const toRaw = literal?.[1];
-    if (toRaw !== undefined) {
-      const literalEnd = valueOffset + literal[0].length;
-      if (literalTailIsTerminated(literalEnd)) {
-        const from = fromRaw.endsWith('/') ? fromRaw : `${fromRaw}/`;
-        const to = toRaw.endsWith('/') ? toRaw : `${toRaw}/`;
-        entries[from] = to;
-        literalCount += 1;
-        continue;
-      }
-      unsupported.push(fromRaw);
-    } else if (valueSource.trimStart().startsWith('`')) {
-      dynamicCount += 1;
-    } else {
-      unsupported.push(fromRaw);
-    }
-  }
-  return { entries, literalCount, dynamicCount, unsupported };
+  return scanRedirectSource(source);
 }
 
 /**

@@ -61,7 +61,12 @@ import {
   withTrailingSlash,
 } from '../build-plugins/shared/articleRedirects.mjs';
 import { loadSwissArticleCanonicalOverrides } from '../packages/articles/engine/shared/swissArticleCanonicalOverrides';
-import { loadArticleRouteRedirects, resolveArticleRouteHref } from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
+import {
+  loadArticleRouteRedirects,
+  parseLiteralRedirectMap,
+  resolveArticleRouteHref,
+  scanRedirectSource,
+} from '../packages/articles/engine/shared/articleRouteOwnership.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const REDIRECTS_ABS = resolve(ROOT, ARTICLE_REDIRECTS_FILE);
@@ -630,5 +635,50 @@ describe('every entry is in a valid phase of a rename (see the truth table above
         winner: '/en/cross-border-articles/final-title/',
       },
     ]);
+  });
+});
+
+describe('scanRedirectSource — lexical legacy redirect scanning', () => {
+  it('ignores property-shaped text in comments, strings, and template literals', () => {
+    const source = [
+      'const prose = "\'/in-a-string/\': \'/also-in-a-string/\'";',
+      'const template = `',
+      "  '/in-a-template/': '/also-in-a-template/',",
+      '`;',
+      'const redirects = {',
+      '  /*',
+      "   '/in-a-comment/': '/also-in-a-comment/',",
+      '  */',
+      "  '/real/': '/target/',",
+      '};',
+    ].join('\n');
+
+    expect(scanRedirectSource(source)).toEqual({
+      entries: { '/real/': '/target/' },
+      literalCount: 1,
+      dynamicCount: 0,
+      unsupported: [],
+    });
+    expect(parseLiteralRedirectMap(source)).toEqual(scanRedirectSource(source));
+  });
+
+  it('consumes consecutive line and block comments after a literal', () => {
+    const source = [
+      'const redirects = {',
+      "  '/first/': '/first-target/' /* first */ /* second */,",
+      "  '/last/': '/last-target/' // first",
+      '    /* second */',
+      '};',
+    ].join('\n');
+
+    expect(scanRedirectSource(source)).toEqual({
+      entries: {
+        '/first/': '/first-target/',
+        '/last/': '/last-target/',
+      },
+      literalCount: 2,
+      dynamicCount: 0,
+      unsupported: [],
+    });
   });
 });
