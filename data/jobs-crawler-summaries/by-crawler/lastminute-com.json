@@ -1,18 +1,60 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-21T09:27:17.653Z",
-  "total": 6,
-  "newCount": 0,
+  "generatedAt": "2026-10-22T09:28:03.693Z",
+  "total": 7,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9182,
-  "avgDurationMs": 9182,
+  "durationMs": 10535,
+  "avgDurationMs": 10535,
   "durationHistory": [
-    9182
+    10535
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Software Engineering - Finance Core Platform",
+      "slug": "software-engineering-finance-core-platform-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000156745735&jobName=Software+Engineering+-+Finance+Core+Platform",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000156745735-software-engineering-finance-core-platform?oga=true",
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "source": "Company Careers Crawler",
+      "sourceLang": "en",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "datePosted": "2026-10-21T09:00:29.258Z",
+      "postedDate": "2026-10-21T09:00:29.258Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "streetAddress": "Corso San Gottardo 84",
+      "contract": "full-time",
+      "id": "lastminute-com-178f8efe6193",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-22T09:27:56.864Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Administrative B2B Specialist",
@@ -262,5 +304,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }
