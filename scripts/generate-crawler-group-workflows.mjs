@@ -3331,6 +3331,12 @@ export function buildStandaloneCrossRepoWorkflow({
   const job = Object.values(workflow.jobs ?? {})[0];
   if (!job?.steps) throw new Error(`${name}: reusable logic has no runnable job steps`);
   const isTranslatePendingArtifact = workflowFile === 'translate-pending.yml';
+  const timeoutRecoveryJob = isTranslatePendingArtifact
+    ? workflow.jobs?.translate_timeout_recovery
+    : null;
+  if (timeoutRecoveryJob && !timeoutRecoveryJob.steps) {
+    throw new Error(`${name}: timeout recovery job has no runnable steps`);
+  }
 
   // Keep the portable workflow's run-name/job/step env aligned with the
   // canonical helper. `required: true` documents the supported caller, but an
@@ -3405,6 +3411,24 @@ export function buildStandaloneCrossRepoWorkflow({
     run: 'true',
   };
   job.steps.splice(checkoutIndex, 1, primary, backoff, retry, reportCheckoutFailure, checkoutReady);
+
+  // A hard timeout cancels the long-running translate job before its trailing
+  // `always()` step can publish the fallback marker. The source logic keeps a
+  // small, separate compensation job for that outcome; carry its checkout
+  // across the same sparse cross-repo boundary as the primary job.
+  if (timeoutRecoveryJob) {
+    const recoveryCheckoutIndex = timeoutRecoveryJob.steps.findIndex((step) =>
+      typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'));
+    if (recoveryCheckoutIndex < 0) {
+      throw new Error(`${name}: timeout recovery job has no actions/checkout step`);
+    }
+    const recoveryCheckout = timeoutRecoveryJob.steps[recoveryCheckoutIndex];
+    timeoutRecoveryJob.steps[recoveryCheckoutIndex] = {
+      ...recoveryCheckout,
+      name: 'Checkout frontaliere-si-o-no (sparse timeout recovery)',
+      with: checkoutWithSparse(recoveryCheckout.with, sparsePatterns, checkoutRef),
+    };
+  }
 
   // A workflow rerun keeps the original run id and advances run_attempt. The
   // recovery planner can authorize exactly one such successor, but only after
@@ -3520,6 +3544,10 @@ export function buildStandaloneCrossRepoWorkflow({
     job.needs = 'translate_queue_guard';
     job.if = "needs.translate_queue_guard.outputs.run == 'true'";
     job.concurrency = concurrency;
+    if (timeoutRecoveryJob) {
+      timeoutRecoveryJob.needs = ['translate_queue_guard', 'translate'];
+      timeoutRecoveryJob.concurrency = concurrency;
+    }
   }
 
   if (job.permissions !== undefined) {
@@ -3542,7 +3570,11 @@ export function buildStandaloneCrossRepoWorkflow({
     permissions: { ...STANDALONE_PERMISSIONS },
     env: workflow.env,
     jobs: isTranslatePendingArtifact
-      ? { translate_queue_guard: translatePendingQueueGuardJob(), translate: job }
+      ? {
+          translate_queue_guard: translatePendingQueueGuardJob(),
+          translate: job,
+          ...(timeoutRecoveryJob ? { translate_timeout_recovery: timeoutRecoveryJob } : {}),
+        }
       : workflow.jobs,
   };
 

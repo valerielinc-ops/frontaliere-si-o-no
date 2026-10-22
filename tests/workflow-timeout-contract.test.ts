@@ -11,6 +11,7 @@ const TIMEOUT_WORKFLOWS = [
   '.github/workflows/lessons-harvester.yml',
   '.github/workflows/post-merge-followup.yml',
 ];
+const TRANSLATE_PENDING_LOGIC = '.github/workflows/translate-pending-logic.yml';
 
 function stepsOf(file: string): Array<Record<string, any>> {
   const document = YAML.parse(readFileSync(join(ROOT, file), 'utf8')) as any;
@@ -74,5 +75,23 @@ describe('timeout-capped Claude workflows keep their downstream diagnostics aliv
         );
       }
     }
+  });
+
+  it('releases the deploy fallback from a separate job after a hard translation timeout', () => {
+    const document = YAML.parse(readFileSync(join(ROOT, TRANSLATE_PENDING_LOGIC), 'utf8')) as any;
+    const recovery = document.jobs?.translate_timeout_recovery;
+    expect(recovery, 'translate timeout recovery job missing').toBeDefined();
+    expect(recovery.needs).toEqual(['translate']);
+    expect(recovery.if).toContain("needs.translate.result == 'cancelled'");
+    expect(recovery.if).toContain('inputs.dry_run != true');
+    expect(recovery['timeout-minutes']).toBeGreaterThan(0);
+    const runs = recovery.steps
+      .filter((step: any) => typeof step.run === 'string')
+      .map((step: any) => step.run);
+    expect(runs).toContain('npm ci --ignore-scripts');
+    expect(runs).toContain('node scripts/load-rc-env.mjs');
+    expect(runs.some((run: string) => run.includes('TRANSLATION_DEPLOY_HANDOFF_STATE: fallback'))).toBe(false);
+    expect(runs.some((run: string) => run.includes('TRANSLATION_DEPLOY_HANDOFF_STATE=fallback'))).toBe(true);
+    expect(runs.some((run: string) => run.includes('data/translation-deploy-handoff.json'))).toBe(true);
   });
 });
