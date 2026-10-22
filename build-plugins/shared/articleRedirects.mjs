@@ -267,10 +267,11 @@ const HARDCODED_SCAN_FLOOR = 50;
  * `searchConsoleCompat.ts`, which `import` a dozen files under `data/` and
  * `public/assets/` at module scope. `data/` alone is 1.7 GB and is absent from
  * every sparse worktree in this repo (CLAUDE.md), so an import would make every
- * consumer of this function red locally and green in CI. The scan matches only
- * the single-quoted `'/from/': '/to/',` pairs of the literal — the one entry
- * built with a template literal (`/job-board/`) is deliberately out of reach,
- * and it is a job path, which no article redirect can ever collide with.
+ * consumer of this function red locally and green in CI. The scan matches
+ * literal pairs written with either quote style — `'/from/': '/to/',` or
+ * `"/from/": "/to/",` — while the one entry built with a template literal
+ * (`/job-board/`) is deliberately out of reach, and it is a job path, which
+ * no article redirect can ever collide with.
  *
  * @param {string} rootDir
  * @param {{ readFileSync?: typeof readFileSync }} [io]
@@ -286,7 +287,7 @@ export function readHardcodedRedirects(rootDir, io = {}) {
   if (unsupported.length > 0) {
     throw new Error(
       `${LEGACY_REDIRECTS_SOURCE}: ${unsupported.length} voci con un valore che questo scan non sa leggere ` +
-      `(atteso '/percorso/' fra apici singoli): ${unsupported.join(', ')}. ` +
+      `(atteso '/percorso/' o "/percorso/" fra apici): ${unsupported.join(', ')}. ` +
       'Sono redirect reali che verrebbero esclusi in silenzio dai controlli sulle catene: ' +
       'aggiornare lo scan, non ignorarle.',
     );
