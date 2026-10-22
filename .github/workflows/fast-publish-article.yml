@@ -526,7 +526,7 @@ jobs:
       # before. This is the exact ordering bug fast-publish-article.yml fixes
       # relative to generate-article.yml's old "Notify Google Indexing API"
       # step (removed in the same change — see that workflow's comment),
-      # which pinged immediately after dispatching deploy.yml on the false
+      # which pinged immediately after a deploy handoff on the false
       # assumption "deploy takes ~2-3 min" (worst measured deploy:
       # 2h04m37s — Google was being sent to crawl a 404).
       # Exit 2 means "the push landed, Pages has not caught up yet" — the pages

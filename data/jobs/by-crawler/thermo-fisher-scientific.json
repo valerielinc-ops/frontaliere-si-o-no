@@ -624,7 +624,7 @@
       "slugByLocale": {
         "it": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "en": "demand-and-supply-manager-thermo-fisher-scientific-ch",
-        "de": "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "de": "gestione-della-domanda-e-dell-offerta-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland",
         "fr": "gestionnaire-de-la-demande-et-de-l-offre-thermo-fisher-scientific-schweiz-ag-allschwil-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
@@ -675,7 +675,8 @@
         "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch",
         "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
         "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil",
-        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
+        "demand-and-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -690,7 +691,8 @@
           "demand-and-supply-management-coordinator-thermo-fisher-scientific-ch"
         ],
         "de": [
-          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil"
+          "demand-and-supply-management-koordinator-thermo-fisher-scientific-schweiz-ag-allschwil",
+          "demand-und-supply-manager-thermo-fisher-scientific-schweiz-ag-allschwil"
         ],
         "fr": [
           "demand-and-supply-management-coordinateur-thermo-fisher-scientific-schweiz-ag-allschwil"
@@ -870,12 +872,12 @@
     },
     {
       "id": "thermo-fisher-scientific-b47e3256edd9",
-      "slug": "manager-operations-secondary-packaging-thermo-fisher-scientific-ch",
+      "slug": "manager-operazioni-imballaggio-secondario-thermo-fisher-scientific-schweiz-ag-allschwil",
       "slugByLocale": {
         "en": "manager-operations-secondary-packaging-thermo-fisher-scientific-ch",
-        "it": "manager-operations-secondary-packaging-thermo-fisher-scientific-ch",
-        "de": "manager-operations-secondary-packaging-thermo-fisher-scientific-ch",
-        "fr": "manager-operations-secondary-packaging-thermo-fisher-scientific-ch"
+        "it": "manager-operazioni-imballaggio-secondario-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "de": "manager-operationen-sekundarverpackung-thermo-fisher-scientific-schweiz-ag-allschwil",
+        "fr": "gestionnaire-operations-emballage-secondaire-thermo-fisher-scientific-schweiz-ag-allschwil"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -934,7 +936,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-04T09:23:14.171Z"
+      "firstSeenAt": "2026-10-04T09:23:14.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-operations-secondary-packaging-thermo-fisher-scientific-ch"
+        ],
+        "de": [
+          "manager-operations-secondary-packaging-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
+          "manager-operations-secondary-packaging-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-operations-secondary-packaging-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-724abdeef482",

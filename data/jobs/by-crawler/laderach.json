@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "laderach-0ddd51e42cc4",
-      "slug": "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten",
+      "slug": "guida-del-museo-del-cioccolato-e-della-fabbrica-40-bilten-m-f-d-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "de": "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten",
-        "it": "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten",
-        "en": "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten",
-        "fr": "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten"
+        "it": "guida-del-museo-del-cioccolato-e-della-fabbrica-40-bilten-m-f-d-laderach-schweiz-ag-bilten",
+        "en": "tour-guide-chocolate-museum-and-factory-40-bilten-m-f-d-laderach-schweiz-ag-bilten",
+        "fr": "guide-touristique-musee-et-usine-du-chocolat-40-bilten-h-f-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -51,11 +51,19 @@
       "crawledAt": "2026-10-22T09:24:40.420Z",
       "previousSlugsByLocale": {
         "it": [
+          "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten",
+          "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten"
+        ],
+        "en": [
+          "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten"
+        ],
+        "fr": [
           "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten"
         ]
       },
       "previousSlugs": [
-        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten"
+        "tour-guide-schokoladenmuseum-und-fabrik-40-bilten-w-m-d-laderach-bilten",
+        "tour-guide-schokoladenmuseum-e-fabrik-40-bilten-m-w-d-laderach-schweiz-ag-bilten"
       ],
       "salaryMin": 26800,
       "salaryMax": 36200,
@@ -77,12 +85,12 @@
     },
     {
       "id": "laderach-564d0a6b08ef",
-      "slug": "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg",
+      "slug": "aiuto-di-natale-25-friburgo-cioccolato-cdd-dal-15-11-2026-al-31-01-2027-laderach-schweiz-ag-fribourg",
       "slugByLocale": {
         "fr": "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg",
-        "it": "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg",
-        "en": "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg",
-        "de": "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg"
+        "it": "aiuto-di-natale-25-friburgo-cioccolato-cdd-dal-15-11-2026-al-31-01-2027-laderach-schweiz-ag-fribourg",
+        "en": "christmas-aid-25-chocolate-fribourg-cdd-from-15-11-2026-to-31-01-2027-laderach-schweiz-ag-fribourg",
+        "de": "weihnachtshilfe-25-schokolade-fribourg-cdd-vom-15-11-2026-bis-31-01-2027-laderach-schweiz-ag-fribourg"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -137,7 +145,21 @@
       "postalCode": "1700",
       "applyUrl": "https://laderach.career.softgarden.de/jobs/68220876/Aide-de-No%C3%ABl-25%25-Chocolaterie-Fribourg-CDD-du-15-11-2026-au-31-01-2027-/",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-22T09:24:40.232Z"
+      "firstSeenAt": "2026-10-22T09:24:40.232Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg"
+        ],
+        "en": [
+          "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg"
+        ],
+        "de": [
+          "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "aide-de-noel-25-chocolaterie-fribourg-cdd-du-15-11-2026-au-31-01-2027-laderach-fribourg"
+      ]
     },
     {
       "id": "laderach-3b4850c710a0",
@@ -1121,7 +1143,7 @@
       "id": "laderach-d638f6ff59b7",
       "slug": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
       "slugByLocale": {
-        "it": "apprendistato-nel-commercio-al-dettaglio-efz-2027-m-f-d-laderach-schweiz-ag-zurich-09c5c9481b",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "en": "apprenticeship-in-the-retail-trade-efz-2027-m-f-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "apprentissage-dans-le-commerce-de-detail-efz-2027-h-f-d-laderach-schweiz-ag-zurich"
@@ -1949,7 +1971,7 @@
       "id": "laderach-b632c366aa12",
       "slug": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
       "slugByLocale": {
-        "it": "posto-di-apprendistato-nel-commercio-al-dettaglio-afc-2027-m-f-d-laderach-schweiz-ag-zurich-90a927428a",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "en": "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "de": "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich",
         "fr": "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich"

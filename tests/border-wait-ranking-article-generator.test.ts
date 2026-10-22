@@ -12,6 +12,7 @@ import path from 'node:path';
 import {
   computeSnapshot,
   buildData,
+  buildDataFromSnapshot,
   refreshBodyFiles,
   buildRankingJson,
 } from '../scripts/generate-border-wait-ranking-article.mjs';
@@ -141,6 +142,20 @@ describe('border-wait ranking article generator', () => {
     expect(data.content.it.body2).toContain('|'); // has a ranking table, not the no-data fallback
     expect(data.content.it.body4).toContain('##'); // advice/movers section (task #6)
     expect(data.slugs.it).toBe('classifica-dogane-ticino');
+  });
+
+  it('buildDataFromSnapshot reuses the computed snapshot without rereading history', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'bwr-gen-snapshot-'));
+    const [best, worst] = BORDER_WAIT_CROSSINGS;
+    for (let i = 1; i <= 7; i += 1) {
+      const date = `2026-12-${String(24 + i).padStart(2, '0')}`;
+      writeDay(dir, date, { [best]: makeHours(5, 10), [worst]: makeHours(45, 10) });
+    }
+
+    const snapshot = computeSnapshot('2027-01-01', dir);
+    const data = buildDataFromSnapshot('2027-01-01', snapshot);
+    expect(data._rankedCount).toBe(snapshot.ranking.length);
+    expect(data.content.it.body2).toContain('|');
   });
 
   it('buildData falls back gracefully when the history dir has no usable data', () => {

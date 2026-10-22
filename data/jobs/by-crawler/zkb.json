@@ -181,8 +181,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-wealth-planning-w-m-d-zkb-zurich",
         "it": "sachbearbeiter-in-wealth-planning-w-m-d-zurcher-kantonalbank-zurich",
-        "en": "sachbearbeiter-in-wealth-planning-w-m-d-zurcher-kantonalbank-zurich",
-        "fr": "sachbearbeiter-in-wealth-planning-w-m-d-zurcher-kantonalbank-zurich"
+        "en": "administrative-specialist-wealth-planning-m-f-d-zurcher-kantonalbank-zurich",
+        "fr": "collaborateur-rice-administratif-ve-wealth-planning-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -256,12 +256,12 @@
     },
     {
       "id": "zkb-10b2a0ef0e27",
-      "slug": "filialleiter-in-zurcher-kantonalbank-meilen",
+      "slug": "responsabile-di-filiale-zurcher-kantonalbank-meilen",
       "slugByLocale": {
         "de": "filialleiter-in-zkb-meilen",
-        "it": "filialleiter-in-zurcher-kantonalbank-meilen",
-        "en": "filialleiter-in-zurcher-kantonalbank-meilen",
-        "fr": "filialleiter-in-zurcher-kantonalbank-meilen"
+        "it": "responsabile-di-filiale-zurcher-kantonalbank-meilen",
+        "en": "branch-manager-zurcher-kantonalbank-meilen",
+        "fr": "responsable-de-filiale-zurcher-kantonalbank-meilen"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -312,11 +312,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-zkb-meilen"
+          "filialleiter-in-zkb-meilen",
+          "filialleiter-in-zurcher-kantonalbank-meilen"
+        ],
+        "en": [
+          "filialleiter-in-zurcher-kantonalbank-meilen"
+        ],
+        "fr": [
+          "filialleiter-in-zurcher-kantonalbank-meilen"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-zkb-meilen"
+        "filialleiter-in-zkb-meilen",
+        "filialleiter-in-zurcher-kantonalbank-meilen"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -586,7 +594,7 @@
         "it": "ufficiale-di-conformita-m-f-d-zurcher-kantonalbank-zurich",
         "en": "compliance-officer-m-w-d-zkb-zurich",
         "de": "compliance-officer-m-w-d-zkb-zurich",
-        "fr": "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
+        "fr": "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -635,14 +643,14 @@
       "pensum": "60%",
       "previousSlugs": [
         "compliance-officer-m-w-d-zkb-zurich",
-        "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+        "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "compliance-officer-m-w-d-zkb-zurich"
         ],
         "fr": [
-          "agent-de-conformite-h-f-d-zurcher-kantonalbank-zurich"
+          "compliance-officer-m-w-d-zurcher-kantonalbank-zurich"
         ]
       },
       "firstSeenAt": "2026-10-19T09:16:47.839Z",

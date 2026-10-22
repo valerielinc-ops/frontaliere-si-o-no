@@ -181,9 +181,10 @@ export function decideLatestPublish({
     return skip('already-live', `${candidateSha} is the latest successful Pages deployment revision`);
   }
 
-  if (activeDeployment) {
-    return skip('pages-moving', `Pages deployment ${text(activeDeployment.id) || '<unknown>'} is ${text(activeDeployment.state)}`);
-  }
+  // A receipt belongs to one historical source run; it is not proof that the
+  // same source is still the current Pages deployment after a rollback. The
+  // live deployment identity must be resolved first. If it is unknown or
+  // points at another revision, keep the candidate publishable.
 
   // deploy-publish.yml deliberately keeps its long validate-dist and
   // post-deploy tails independent from the `pages-deploy` concurrency lock.
@@ -200,6 +201,17 @@ export function decideLatestPublish({
       .map((sha) => text(sha).toLowerCase())
       .filter(Boolean),
   );
+  // Count completed AND live attempts. A queued/in-progress retry consumes a
+  // slot immediately; otherwise two concurrent reconciler ticks can each see
+  // one completed attempt and both admit another publish.
+  const attempts = (Array.isArray(publishRuns) ? publishRuns : [])
+    .filter((run) => publishRunBelongsTo(run, candidate))
+    .length;
+  const cap = Number.isSafeInteger(maxAttempts) && maxAttempts > 0 ? maxAttempts : DEFAULT_MAX_PUBLISH_ATTEMPTS;
+  if (attempts >= cap) {
+    return skip('attempt-cap', `build ${candidate.id} already has ${attempts} publish attempt(s), including live runs (cap ${cap})`);
+  }
+
   const activeRun = (Array.isArray(publishRuns) ? publishRuns : []).find((run) => {
     if (!LIVE_STATUSES.has(text(run?.status))) return false;
     const runRevision = text(run?.headSha || run?.head_sha).toLowerCase();
@@ -209,13 +221,8 @@ export function decideLatestPublish({
     return skip('publish-moving', `publish run ${text(activeRun.id) || '<unknown>'} is ${text(activeRun.status)}`);
   }
 
-  const attempts = (Array.isArray(publishRuns) ? publishRuns : [])
-    .filter((run) => publishRunBelongsTo(run, candidate))
-    .filter((run) => text(run?.status) === 'completed')
-    .length;
-  const cap = Number.isSafeInteger(maxAttempts) && maxAttempts > 0 ? maxAttempts : DEFAULT_MAX_PUBLISH_ATTEMPTS;
-  if (attempts >= cap) {
-    return skip('attempt-cap', `build ${candidate.id} already has ${attempts} completed publish attempt(s) (cap ${cap})`);
+  if (activeDeployment) {
+    return skip('pages-moving', `Pages deployment ${text(activeDeployment.id) || '<unknown>'} is ${text(activeDeployment.state)}`);
   }
 
   return {

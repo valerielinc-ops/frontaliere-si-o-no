@@ -79,7 +79,7 @@ lines.push("### Next steps");
 lines.push("1. Curl a failing URL: `curl -sI <url>` — confirm content-type / content-length match the canary report.");
 lines.push("2. `curl -sI <url>index.html` — if `/index.html` returns a different (larger) body, this is the dotfile-bridge class.");
 lines.push("3. `gh run view <recent-deploy-run-id> --log | grep audit-no-dotfile-html` — verify the pre-deploy gate ran on the build that shipped.");
-lines.push("4. If RPM is degrading, rollback via `gh workflow run deploy.yml --ref $(node scripts/deploy-registry.mjs get-good | jq -r .sha)`.");
+lines.push("4. If RPM is degrading, the owner may override the self-driven queue with `FRONTALIERE_OWNER_DEPLOY_DISPATCH=I_UNDERSTAND_DEPLOY_DISPATCH gh workflow run deploy.yml --ref $(node scripts/deploy-registry.mjs get-good | jq -r .sha)`.");
 lines.push("");
 
 process.stdout.write(lines.join("\n"));

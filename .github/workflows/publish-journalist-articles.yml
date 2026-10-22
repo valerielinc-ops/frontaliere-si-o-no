@@ -154,9 +154,9 @@ jobs:
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Trigger deploy workflow
+      - name: Record self-driven deploy handoff
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh || true
+        run: echo '✅ Articoli committati; il deploy completo seguirà dalla coda self-driven.'
 
       # Issue #4837 stream C: this workflow can publish MULTIPLE articles per
       # run (unlike generate-article.yml, one per run), so it dispatches

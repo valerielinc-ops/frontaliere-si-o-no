@@ -3085,9 +3085,9 @@
       "slug": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
       "slugByLocale": {
         "it": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
-        "en": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
-        "de": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano",
-        "fr": "una-uno-specialista-in-ricerca-e-analisi-dei-dati-di-audience-srg-ssr-lugano"
+        "en": "a-a-specialist-in-research-and-analysis-of-audience-data-srg-ssr-lugano",
+        "de": "a-ein-spezialist-fur-forschung-und-analyse-von-publikumsdaten-srg-ssr-lugano",
+        "fr": "a-un-specialiste-de-la-recherche-et-de-l-analyse-des-donnees-du-public-srg-ssr-lugano"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3171,12 +3171,12 @@
     },
     {
       "id": "srg-ssr-50e195e80f37",
-      "slug": "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich",
+      "slug": "produttore-trice-video-srf-virus-a-tempo-determinato-da-gennaio-a-luglio-2027-srg-ssr-zurich",
       "slugByLocale": {
         "de": "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich",
-        "it": "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich",
-        "en": "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich",
-        "fr": "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich"
+        "it": "produttore-trice-video-srf-virus-a-tempo-determinato-da-gennaio-a-luglio-2027-srg-ssr-zurich",
+        "en": "video-producer-srf-virus-fixed-term-january-to-july-2027-srg-ssr-zurich",
+        "fr": "producteur-rice-video-srf-virus-contrat-a-duree-determinee-de-janvier-a-juillet-2027-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -3252,7 +3252,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-22T09:14:30.578Z"
+      "firstSeenAt": "2026-10-22T09:14:30.578Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich"
+        ],
+        "en": [
+          "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich"
+        ],
+        "fr": [
+          "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "video-produzent-in-srf-virus-befristet-januar-bis-juli-2027-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-e3d58e75efed",

@@ -129,6 +129,8 @@ import {
   type EnrichedEntry,
   type EnrichedFile,
   type LocaleCopy,
+  type RelatedSearchClusterSummaryEntry,
+  type RelatedSearchClustersSummaryFile,
   type RawJob,
 } from './relatedSearchClustersData';
 import {
@@ -847,6 +849,88 @@ function loadJobs(rootDir: string): RawJob[] {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse jobs.json:', err);
     return [];
   }
+}
+
+type RelatedSearchClusterSummaryIndex = ReadonlyMap<string, RelatedSearchClusterSummaryEntry | null>;
+
+/**
+ * Read the authoritative all-locale matching summary produced by the shared
+ * prep job. A shard uses it only for foreign locales; the owning locale still
+ * runs the full matcher so its HTML/JSON stays on the original path.
+ *
+ * The candidate/job cardinalities are deliberately checked here. A stale or
+ * partial summary must fall back to the exact matcher, never silently change
+ * sitemap, hreflang or legacy-mirror decisions.
+ */
+function loadRelatedSearchClusterSummary(
+  rootDir: string,
+  candidates: ReadonlyArray<CandidateEntry>,
+  jobs: ReadonlyArray<RawJob>,
+): RelatedSearchClusterSummaryIndex | null {
+  const summaryPath = path.join(rootDir, 'data', 'related-search-clusters-summary.json');
+  if (!fs.existsSync(summaryPath)) return null;
+
+  let raw: RelatedSearchClustersSummaryFile;
+  try {
+    raw = JSON.parse(fs.readFileSync(summaryPath, 'utf-8')) as RelatedSearchClustersSummaryFile;
+  } catch (err) {
+    console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to parse matching summary — falling back to exact matching:', err);
+    return null;
+  }
+
+  if (
+    raw?.version !== 1
+    || raw.candidateCount !== candidates.length
+    || raw.jobCount !== jobs.length
+    || !Array.isArray(raw.entries)
+    || !Array.isArray(raw.skippedKeys)
+  ) {
+    console.warn(
+      '\x1b[33m[related-search-clusters]\x1b[0m matching summary inputs do not match this shard — falling back to exact matching',
+    );
+    return null;
+  }
+
+  const candidateKeys = new Set(candidates.map((candidate) => `${candidate.locale}::${candidate.slug}`));
+  const index = new Map<string, RelatedSearchClusterSummaryEntry | null>();
+  for (const entry of raw.entries) {
+    if (
+      !entry
+      || typeof entry.key !== 'string'
+      || !candidateKeys.has(entry.key)
+      || typeof entry.keyword !== 'string'
+      || (entry.city !== null && typeof entry.city !== 'string')
+      || !Number.isInteger(entry.matchingJobCount)
+      || entry.matchingJobCount < 0
+      || typeof entry.legacyCantonGroup !== 'string'
+      || index.has(entry.key)
+    ) {
+      console.warn(
+        '\x1b[33m[related-search-clusters]\x1b[0m matching summary contains an invalid entry — falling back to exact matching',
+      );
+      return null;
+    }
+    index.set(entry.key, entry);
+  }
+
+  for (const key of raw.skippedKeys) {
+    if (typeof key !== 'string' || !candidateKeys.has(key) || index.has(key)) {
+      console.warn(
+        '\x1b[33m[related-search-clusters]\x1b[0m matching summary contains an invalid skipped key — falling back to exact matching',
+      );
+      return null;
+    }
+    index.set(key, null);
+  }
+
+  if (index.size !== candidateKeys.size) {
+    console.warn(
+      '\x1b[33m[related-search-clusters]\x1b[0m matching summary is incomplete — falling back to exact matching',
+    );
+    return null;
+  }
+
+  return index;
 }
 
 /**
@@ -1911,6 +1995,75 @@ export function buildClusterContext(
     cantonGroup,
     legacyCantonGroup,
   };
+}
+
+/**
+ * Rehydrate the metadata-only context used for a foreign locale shard from
+ * the shared exact-match summary. Foreign contexts never enter the render
+ * path, so retaining job rows/top companies here would only repeat the
+ * expensive work the summary is designed to share.
+ */
+export function buildClusterContextFromSummary(
+  candidate: CandidateEntry,
+  summary: RelatedSearchClusterSummaryEntry,
+): ClusterContext | null {
+  const expectedKey = `${candidate.locale}::${candidate.slug}`;
+  if (
+    summary.key !== expectedKey
+    || summary.matchingJobCount < 0
+    || !Number.isInteger(summary.matchingJobCount)
+    || typeof summary.keyword !== 'string'
+    || (summary.city !== null && typeof summary.city !== 'string')
+    || typeof summary.legacyCantonGroup !== 'string'
+  ) {
+    return null;
+  }
+
+  return {
+    candidate,
+    keyword: summary.keyword,
+    city: summary.city,
+    matchingJobCount: summary.matchingJobCount,
+    matchingJobs: [],
+    topCompanies: [],
+    cantonGroup: AGGREGATE_KEY,
+    legacyCantonGroup: summary.legacyCantonGroup,
+  };
+}
+
+function writeRelatedSearchClusterSummary(
+  rootDir: string,
+  outputPath: string,
+  candidates: ReadonlyArray<CandidateEntry>,
+  jobs: ReadonlyArray<RawJob>,
+  contexts: ReadonlyArray<ClusterContext>,
+): void {
+  const contextKeys = new Set<string>();
+  const entries: RelatedSearchClusterSummaryEntry[] = [];
+  for (const ctx of contexts) {
+    const key = `${ctx.candidate.locale}::${ctx.candidate.slug}`;
+    contextKeys.add(key);
+    entries.push({
+      key,
+      keyword: ctx.keyword,
+      city: ctx.city,
+      matchingJobCount: ctx.matchingJobCount,
+      legacyCantonGroup: ctx.legacyCantonGroup,
+    });
+  }
+
+  const summary: RelatedSearchClustersSummaryFile = {
+    version: 1,
+    candidateCount: candidates.length,
+    jobCount: jobs.length,
+    entries,
+    skippedKeys: candidates
+      .map((candidate) => `${candidate.locale}::${candidate.slug}`)
+      .filter((key) => !contextKeys.has(key)),
+  };
+  const absolutePath = path.resolve(rootDir, outputPath);
+  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
+  fs.writeFileSync(absolutePath, JSON.stringify(summary), 'utf-8');
 }
 
 // ── Page emission ───────────────────────────────────────────────────────
@@ -4969,6 +5122,15 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const jobs = loadJobs(rootDir);
       profileRecord('load-jobs', __tLoadJobs);
       console.log(`\x1b[36m[related-search-clusters]\x1b[0m ${candidates.length} candidates, ${Object.keys(enriched).length} enriched entries, ${jobs.length} jobs, ${indexedClusterUrlsByKey.size} GSC-driven mirror keys, ${publishedClusterKeys.size} previously-emitted cluster keys`);
+      const summaryOnly = Boolean(process.env.RELATED_SEARCH_CLUSTERS_SUMMARY_OUT);
+      const matchingSummary = !EMIT_ALL_LOCALES && !summaryOnly
+        ? loadRelatedSearchClusterSummary(rootDir, candidates, jobs)
+        : null;
+      if (matchingSummary) {
+        console.log(
+          `\x1b[36m[related-search-clusters]\x1b[0m shared matching summary loaded: foreign contexts use metadata-only rehydration`,
+        );
+      }
 
       // Inverted token index: lazy posting lists per (locale, token), shared
       // across every candidate. Memory budget is dominated by the haystack
@@ -4994,7 +5156,13 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const prepassDisabled = process.env.RELATED_SEARCH_POSTINGS_PREPASS === '0';
       const tokensByLocale = new Map<Locale, Set<string>>();
       if (!prepassDisabled) {
-        for (const cand of candidates) {
+        // The prep artifact contains exact matching metadata for every
+        // foreign locale. A shard only needs posting lists for its owner;
+        // the summary itself was produced once with the same full matcher.
+        const prepassCandidates = matchingSummary
+          ? candidates.filter((candidate) => shouldEmitLocale(candidate.locale))
+          : candidates;
+        for (const cand of prepassCandidates) {
           const sampleTerm = (cand.sampleTerms || [])[0] || '';
           if (!sampleTerm) continue;
           // Warm the SAME stripped tokens buildClusterContext queries (L923).
@@ -5135,14 +5303,17 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         // tests/related-search-cluster-probe-equivalence.test.ts) for whoever
         // re-measures it against a full shard before wiring it back.
         // Every locale still needs context metadata for cross-locale links,
-        // path planning, sitemap decisions and the locale hubs. Only this
-        // shard's locale is rendered here, so retain matching RawJob rows and
-        // top-company data only for contexts the shard owns. Keeping those
-        // other locale contexts still support link/sitemap metadata, but
-        // their rows are not rendered by this shard and need not stay live.
-        const ctx = buildClusterContext(cand, tokenIndex, jobs, {
-          retainMatchingJobs: shouldEmitLocale(cand.locale),
-        });
+        // path planning, sitemap decisions and the locale hubs. When the
+        // shared summary is present, the non-owned locales rehydrate those
+        // exact facts without retaining or rematching their RawJob rows.
+        const summaryEntry = matchingSummary && !shouldEmitLocale(cand.locale)
+          ? matchingSummary.get(`${cand.locale}::${cand.slug}`)
+          : undefined;
+        const ctx = summaryEntry !== undefined
+          ? (summaryEntry === null ? null : buildClusterContextFromSummary(cand, summaryEntry))
+          : buildClusterContext(cand, tokenIndex, jobs, {
+              retainMatchingJobs: summaryOnly ? false : shouldEmitLocale(cand.locale),
+            });
         if (ctx) contexts.push(ctx);
         if (++processedContexts % 10_000 === 0) {
           console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
@@ -5168,6 +5339,18 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       // top of that tuned mechanism risks reintroducing the same class of
       // wall-time regression instead of a clean memory win.
       forceGc();
+
+      const summaryOutput = process.env.RELATED_SEARCH_CLUSTERS_SUMMARY_OUT;
+      if (summaryOutput) {
+        const __tSummaryWrite = profileStart();
+        writeRelatedSearchClusterSummary(rootDir, summaryOutput, candidates, jobs, contexts);
+        profileRecord('summary-write', __tSummaryWrite);
+        console.log(
+          `\x1b[36m[related-search-clusters]\x1b[0m wrote shared matching summary: ${contexts.length} contexts, ${candidates.length - contexts.length} skipped, ${jobs.length} jobs, ${summaryOutput}`,
+        );
+        printRelatedSearchProfile();
+        return;
+      }
 
       if (contexts.length === 0) {
         await writeIncrementalManifests();

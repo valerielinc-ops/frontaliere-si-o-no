@@ -204,12 +204,12 @@
     },
     {
       "id": "mobiliar-a6102d31425f",
-      "slug": "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
+      "slug": "key-account-manager-previdenza-privata-mercato-ovest-m-f-d-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
-        "it": "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
-        "en": "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch",
-        "de": "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        "it": "key-account-manager-previdenza-privata-mercato-ovest-m-f-d-die-mobiliar-nyon",
+        "en": "key-account-manager-private-insurance-market-west-m-f-d-die-mobiliar-nyon",
+        "de": "key-account-manager-private-insurance-market-west-m-w-d-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -270,7 +270,21 @@
       },
       "postalCode": "1260",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-22T09:17:54.242Z"
+      "firstSeenAt": "2026-10-22T09:17:54.242Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        ],
+        "en": [
+          "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        ],
+        "de": [
+          "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-prevoyance-privee-marche-ouest-f-h-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-c851c27f18f5",
@@ -3227,12 +3241,12 @@
     },
     {
       "id": "mobiliar-f42cc2e103ed",
-      "slug": "leiter-recht-compliance-glb-versicherungen-m-w-d-die-mobiliar-bern",
+      "slug": "capo-della-legge-e-conformita-glb-assicurazione-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch",
-        "it": "leiter-recht-compliance-glb-versicherungen-m-w-d-die-mobiliar-bern",
-        "en": "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch",
-        "fr": "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch"
+        "it": "capo-della-legge-e-conformita-glb-assicurazione-m-f-d-die-mobiliar-bern",
+        "en": "head-of-law-compliance-glb-insurance-m-f-d-die-mobiliar-bern",
+        "fr": "responsable-du-droit-et-de-la-conformite-glb-assurance-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3295,11 +3309,19 @@
       "sfJobId": "1165657755",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch",
+          "leiter-recht-compliance-glb-versicherungen-m-w-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch"
+        "leiter-recht-compliance-glb-versicherungen-w-m-d-mobiliar-ch",
+        "leiter-recht-compliance-glb-versicherungen-m-w-d-die-mobiliar-bern"
       ],
       "salaryMin": 122000,
       "salaryMax": 209000,
@@ -3320,12 +3342,12 @@
     },
     {
       "id": "mobiliar-ce34953b13fe",
-      "slug": "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch",
+      "slug": "specialista-bilingue-fr-ted-previdenza-privata-m-f-d-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch",
-        "it": "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch",
-        "en": "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch",
-        "de": "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch"
+        "it": "specialista-bilingue-fr-ted-previdenza-privata-m-f-d-die-mobiliar-nyon",
+        "en": "bilingual-specialist-en-all-private-planning-m-f-d-die-mobiliar-nyon",
+        "de": "bilingualer-spezialist-en-all-private-planung-m-w-d-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3386,7 +3408,21 @@
       },
       "postalCode": "1260",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-22T09:17:24.641Z"
+      "firstSeenAt": "2026-10-22T09:17:24.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch"
+        ],
+        "en": [
+          "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch"
+        ],
+        "de": [
+          "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-bilingue-fr-all-prevoyance-privee-f-h-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-24ef77ad131e",
@@ -3470,12 +3506,12 @@
     },
     {
       "id": "mobiliar-a829cafd91c0",
-      "slug": "vulnerability-service-manager-in-w-m-d-mobiliar-ch",
+      "slug": "responsabile-del-servizio-di-gestione-delle-vulnerabilita-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "vulnerability-service-manager-in-w-m-d-mobiliar-ch",
-        "it": "vulnerability-service-manager-in-w-m-d-mobiliar-ch",
+        "it": "responsabile-del-servizio-di-gestione-delle-vulnerabilita-m-f-d-die-mobiliar-bern",
         "en": "vulnerability-service-manager-in-w-m-d-mobiliar-ch",
-        "fr": "vulnerability-service-manager-in-w-m-d-mobiliar-ch"
+        "fr": "responsable-du-service-de-gestion-des-vulnerabilites-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -3551,7 +3587,18 @@
       },
       "postalCode": "3004",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-22T09:17:23.022Z"
+      "firstSeenAt": "2026-10-22T09:17:23.022Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vulnerability-service-manager-in-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "vulnerability-service-manager-in-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vulnerability-service-manager-in-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-0cd73df633ad",
@@ -5956,12 +6003,12 @@
     },
     {
       "id": "mobiliar-21b55a182c40",
-      "slug": "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
+      "slug": "gestione-dei-contratti-di-processo-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
-        "it": "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
-        "en": "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
-        "fr": "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
+        "it": "gestione-dei-contratti-di-processo-m-f-d-die-mobiliar-bern",
+        "en": "product-owner-data-products-process-contract-management-m-f-d-die-mobiliar-bern",
+        "fr": "product-owner-data-products-process-contract-management-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6039,7 +6086,21 @@
       },
       "postalCode": "3004",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-10-22T09:17:01.856Z"
+      "firstSeenAt": "2026-10-22T09:17:01.856Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-datenprodukte-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-1c0d58d17b12",
@@ -6643,9 +6704,9 @@
       "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
       "slugByLocale": {
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "fr": "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
+        "fr": "projektleiter-m-d-die-mobiliar-lenzburg"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6709,17 +6770,18 @@
       "sfJobId": "1164762355",
       "previousSlugs": [
         "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-lenzburg"
+        "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-lenzburg"
+          "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
         ]
       },
       "firstSeenAt": "2026-05-21T12:48:35.788Z",
@@ -6743,9 +6805,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6809,17 +6871,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",
@@ -7115,9 +7178,9 @@
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
       "slugByLocale": {
         "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
-        "en": "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "en": "m-d-generalagentur-biel-die-mobiliar-biel",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "fr": "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
+        "fr": "m-d-generalagentur-biel-die-mobiliar-biel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7162,17 +7225,18 @@
       "sfJobId": "1164039955",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "m-d-generalagentur-biel-die-mobiliar-biel"
+        "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch"
         ],
         "en": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel"
         ],
         "fr": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:34.732Z",

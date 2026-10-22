@@ -10,7 +10,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -53,14 +53,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz"
+        "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz"
+          "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
       "salaryMin": 74500,
@@ -3173,7 +3173,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "leitender-rechtsberater-rechtliche-geschaftsentwicklung-gesellschaftsrecht-roche-basel",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -3216,7 +3216,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+        "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3226,7 +3226,7 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
+          "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:04.141Z",
@@ -3326,7 +3326,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -3370,12 +3370,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "needsRetranslation": true,
@@ -5641,7 +5645,7 @@
         "it": "gestione-globale-dei-contratti-e-dei-partner-roche-basel",
         "en": "global-expert-contracting-partner-management-roche-ch",
         "de": "globales-experten-contracting-partner-management-roche-basel",
-        "fr": "global-expert-contracting-partner-management-roche-basel"
+        "fr": "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -5684,7 +5688,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "global-expert-contracting-partner-management-roche-ch",
-        "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+        "global-expert-contracting-partner-management-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5695,7 +5699,7 @@
         ],
         "fr": [
           "global-expert-contracting-partner-management-roche-ch",
-          "marches-d-experts-mondiaux-et-gestion-de-partenaires-roche-basel"
+          "global-expert-contracting-partner-management-roche-basel"
         ]
       },
       "firstSeenAt": "2026-10-15T21:14:39.547Z",
@@ -5954,7 +5958,7 @@
       "slug": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
       "slugByLocale": {
         "it": "esperto-di-produzione-temporaneo-a-18-mesi-kaiseraugst-roche-kaiseraugst",
-        "en": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
+        "en": "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst",
         "de": "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
         "fr": "expert-en-production-temporaire-a-18-mois-kaiseraugst-roche-kaiseraugst"
       },
@@ -5999,8 +6003,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst",
-        "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+        "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6009,7 +6012,7 @@
         ],
         "en": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch",
-          "production-expert-temporary-to-18-months-kaiseraugst-roche-kaiseraugst"
+          "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-kaiseraugst"
         ],
         "fr": [
           "produktionsexperte-befristet-auf-18-monate-kaiseraugst-roche-ch"
@@ -6272,7 +6275,7 @@
       "slugByLocale": {
         "it": "gestore-delle-risorse-per-gli-studi-globali-gsam-roche-basel",
         "en": "global-studies-asset-manager-gsam-roche-ch",
-        "de": "global-studies-asset-manager-gsam-roche-ch",
+        "de": "asset-manager-fur-globale-studien-gsam-roche-basel",
         "fr": "gestionnaire-d-actifs-d-etudes-mondiales-gsam-roche-basel"
       },
       "company": "Roche",
@@ -6322,6 +6325,9 @@
           "global-studies-asset-manager-gsam-roche-ch"
         ],
         "fr": [
+          "global-studies-asset-manager-gsam-roche-ch"
+        ],
+        "de": [
           "global-studies-asset-manager-gsam-roche-ch"
         ]
       },
@@ -7737,12 +7743,12 @@
     },
     {
       "id": "roche-1e6d00d00d25",
-      "slug": "senior-scientist-in-flow-cytometry-roche-ch",
+      "slug": "scienziato-senior-in-citometria-di-flusso-roche-basel",
       "slugByLocale": {
         "en": "senior-scientist-in-flow-cytometry-roche-ch",
-        "it": "senior-scientist-in-flow-cytometry-roche-ch",
-        "de": "senior-scientist-in-flow-cytometry-roche-ch",
-        "fr": "senior-scientist-in-flow-cytometry-roche-ch"
+        "it": "scienziato-senior-in-citometria-di-flusso-roche-basel",
+        "de": "senior-wissenschaftler-in-fur-durchflusszytometrie-roche-basel",
+        "fr": "chercheur-principal-en-cytometrie-des-debits-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7800,7 +7806,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-22T09:12:48.739Z"
+      "firstSeenAt": "2026-10-22T09:12:48.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-in-flow-cytometry-roche-ch"
+        ],
+        "de": [
+          "senior-scientist-in-flow-cytometry-roche-ch"
+        ],
+        "fr": [
+          "senior-scientist-in-flow-cytometry-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-in-flow-cytometry-roche-ch"
+      ]
     },
     {
       "id": "roche-d66eaef656b6",
@@ -7809,7 +7829,7 @@
         "en": "internship-in-tdmpk-pd-drug-disposition-and-bioanalysis-ddb-ps-pred-as-of-1-february-2027",
         "it": "internship-in-tdmpk-pd-drug-disposition-and-bioanalysis-ddb-ps-pred-as-of-1-february-2027",
         "de": "internship-in-tdmpk-pd-drug-disposition-and-bioanalysis-ddb-ps-pred-as-of-1-february-2027",
-        "fr": "internship-in-tdmpk-pd-drug-disposition-and-bioanalysis-ddb-ps-pred-as-of-1-february-2027"
+        "fr": "stage-dans-l-elimination-et-la-bioanalyse-des-medicaments-ddb-ps-pred-au-1er-fevrier-2027-pendant-12-mois-a-bale-roche"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7871,12 +7891,12 @@
     },
     {
       "id": "roche-a9f572a789f4",
-      "slug": "student-internship-in-device-development-and-verification-engineering-basel-9-12-months",
+      "slug": "stage-studentesco-in-ingegneria-per-lo-sviluppo-e-la-verifica-dei-dispositivi-basel-9-12-mesi-roche-basel",
       "slugByLocale": {
         "en": "student-internship-in-device-development-and-verification-engineering-basel-9-12-months",
-        "it": "student-internship-in-device-development-and-verification-engineering-basel-9-12-months",
-        "de": "student-internship-in-device-development-and-verification-engineering-basel-9-12-months",
-        "fr": "student-internship-in-device-development-and-verification-engineering-basel-9-12-months"
+        "it": "stage-studentesco-in-ingegneria-per-lo-sviluppo-e-la-verifica-dei-dispositivi-basel-9-12-mesi-roche-basel",
+        "de": "studentisches-praktikum-in-device-development-und-verification-engineering-basel-9-12-monate-roche-basel",
+        "fr": "stage-etudiant-en-genie-du-developpement-et-de-la-verification-d-appareils-bale-9-12-mois-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7934,16 +7954,30 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-22T09:12:47.146Z"
+      "firstSeenAt": "2026-10-22T09:12:47.146Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-internship-in-device-development-and-verification-engineering-basel-9-12-months"
+        ],
+        "de": [
+          "student-internship-in-device-development-and-verification-engineering-basel-9-12-months"
+        ],
+        "fr": [
+          "student-internship-in-device-development-and-verification-engineering-basel-9-12-months"
+        ]
+      },
+      "previousSlugs": [
+        "student-internship-in-device-development-and-verification-engineering-basel-9-12-months"
+      ]
     },
     {
       "id": "roche-5662b60bca37",
-      "slug": "praktikum-per-pharmazeuten-e-naturwissenschaftler-in-der-mu-packaging-assembly-asset-small-volume-ab-1-mai-2026-per-6-12-monate-in-kaiseraugst-roche-kaiseraugst",
+      "slug": "tirocinio-per-farmacisti-e-scienziati-naturali-in-mu-packaging-assembly-asset-small-volume-dal-1-maggio-2026-per-6-12",
       "slugByLocale": {
         "de": "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset",
-        "it": "praktikum-per-pharmazeuten-e-naturwissenschaftler-in-der-mu-packaging-assembly-asset-small-volume-ab-1-mai-2026-per-6-12-monate-in-kaiseraugst-roche-kaiseraugst",
-        "en": "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset",
-        "fr": "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset"
+        "it": "tirocinio-per-farmacisti-e-scienziati-naturali-in-mu-packaging-assembly-asset-small-volume-dal-1-maggio-2026-per-6-12",
+        "en": "internship-for-pharmacists-and-natural-scientists-in-the-mu-packaging-assembly-asset-small-volume-from-1-may-2026-for-6",
+        "fr": "stage-pour-les-pharmaciens-et-les-scientifiques-naturels-dans-le-mu-packaging-assemblage-asset-small-volume-a-partir-de"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7989,11 +8023,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset",
+          "praktikum-per-pharmazeuten-e-naturwissenschaftler-in-der-mu-packaging-assembly-asset-small-volume-ab-1-mai-2026-per-6-12-monate-in-kaiseraugst-roche-kaiseraugst"
+        ],
+        "en": [
+          "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset"
+        ],
+        "fr": [
           "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset"
         ]
       },
       "previousSlugs": [
-        "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset"
+        "praktikum-fur-pharmazeuten-und-naturwissenschaftler-in-der-mu-packaging-assembly-asset",
+        "praktikum-per-pharmazeuten-e-naturwissenschaftler-in-der-mu-packaging-assembly-asset-small-volume-ab-1-mai-2026-per-6-12-monate-in-kaiseraugst-roche-kaiseraugst"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
