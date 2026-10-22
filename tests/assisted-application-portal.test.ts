@@ -2475,6 +2475,12 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     );
     expect(unread.actions).toEqual([select('p1', 'Yes')]);
     expect(unread.missingRequired).toEqual([]);
+
+    const italian = permitField('Hai un permesso svizzero valido?', [
+      'Sì',
+      'No, dovrei fare domanda come cittadino UE/AELS',
+    ]);
+    expect(guardPlan({ actions: [], missingRequired: [] }, [italian], held).actions).toEqual([select('p1', 'Sì')]);
   });
 
   it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {

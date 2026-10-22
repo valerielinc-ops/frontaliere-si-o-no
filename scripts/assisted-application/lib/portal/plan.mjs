@@ -267,8 +267,8 @@ const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 // Some ATSes put a qualification after the boolean label («No, I would have
 // to apply as EU/EFTA citizen»).  Keep this broader match scoped to permit
 // questions; a generic yes/no helper must not reinterpret a third choice.
-const PERMIT_YES_OPTION_RE = /^(?:ja|sì|si|yes|oui|vero|true)\b/i;
-const PERMIT_NO_OPTION_RE = /^(?:nein|no|non|ne|falso|false)\b/i;
+const PERMIT_YES_OPTION_RE = /^(?:ja|sì|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
+const PERMIT_NO_OPTION_RE = /^(?:nein|no|non|ne|falso|false)(?![\p{L}\p{N}])/iu;
 const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
 const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnis|conoscenz|connaiss|knowledge|proficien(?:cy|t)|parlat[oa]|parle[sz]?|scritt[oa]|speak|spoken|written|oral|communicat\w*|mündlich|schriftlich|parlé|écrit|\b[abc][12]\b/i;
