@@ -53,6 +53,26 @@ describe('corpus loop-clock workflow transport', () => {
       .toThrow(/workflow_dispatch trigger missing/u);
   });
 
+  it('expands an empty workflow_dispatch trigger without touching other triggers', () => {
+    const source = [
+      'name: Corpus issue triage',
+      'on:',
+      '  schedule:',
+      "    - cron: '17 */4 * * *'",
+      '  workflow_dispatch: {}',
+      '',
+      'jobs:',
+      '  sweep:',
+      '    runs-on: ubuntu-latest',
+      '',
+    ].join('\n');
+
+    const result = patchLoopClockWorkflow(source);
+    expect(result.content).toContain('  workflow_dispatch:\n    inputs:');
+    expect(result.content).toContain('  schedule:');
+    expect(hasLoopClockContract(result.content)).toBe(true);
+  });
+
   it('keeps the transport scoped to the external workflow', () => {
     const workflow = readFileSync(resolve(ROOT, '.github/workflows/sync-loop-clock-to-corpus.yml'), 'utf8');
     expect(workflow).toContain('secrets.ARTICLES_REPO_PAT');

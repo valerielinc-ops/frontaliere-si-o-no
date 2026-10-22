@@ -69,8 +69,31 @@ node "$site_root/scripts/ci/patch-corpus-loop-clock-workflow.mjs" --file "$targe
 git diff --check
 git add -- "$target_path"
 
+assert_transport_delta() {
+  local changed
+  changed=$(git diff --name-only origin/main...HEAD)
+  if [ -n "$changed" ] && [ "$changed" != "$target_path" ]; then
+    echo '::error::loop-clock transport branch contains a path outside the single workflow target'
+    printf '%s\n' "$changed"
+    exit 1
+  fi
+  local deleted
+  deleted=$(git diff --diff-filter=D --name-only origin/main...HEAD)
+  if [ -n "$deleted" ]; then
+    echo '::error::loop-clock transport branch contains a deletion'
+    printf '%s\n' "$deleted"
+    exit 1
+  fi
+}
+
+# A retry can inherit a branch whose target is already patched. Validate the
+# complete committed delta before treating that as a no-op; otherwise an old
+# unrelated commit on the shared transport branch could be hidden by the
+# early exit below.
+assert_transport_delta
+
 staged=$(git diff --cached --name-only)
-if [ "$staged" != "$target_path" ]; then
+if [ -n "$staged" ] && [ "$staged" != "$target_path" ]; then
   echo '::error::loop-clock transport staged a path outside the single workflow target'
   printf '%s\n' "$staged"
   exit 1
@@ -85,12 +108,7 @@ git config user.name 'frontaliere-automation[bot]'
 git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 git commit -m 'fix(ci): identify corpus loop-clock triage dispatches'
 
-changed=$(git diff --name-only origin/main...HEAD)
-if [ "$changed" != "$target_path" ]; then
-  echo '::error::loop-clock transport branch contains a path outside the workflow target'
-  printf '%s\n' "$changed"
-  exit 1
-fi
+assert_transport_delta
 git push -u origin "HEAD:$target_branch"
 
 body="$work/pr-body.md"
