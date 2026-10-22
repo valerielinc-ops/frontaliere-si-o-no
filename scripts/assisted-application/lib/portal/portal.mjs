@@ -1644,9 +1644,15 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
         // frame that exposes more than one such input, whose target is
         // ambiguous.
         const count = await dialogFileInputCount(frame);
-        if (count === null) continue;
+        if (count === null) {
+          ambiguous = true;
+          continue;
+        }
         const handles = await dialogFileInputHandles(frame);
-        if (!Array.isArray(handles)) continue;
+        if (!Array.isArray(handles)) {
+          ambiguous = true;
+          continue;
+        }
         if (count === 0) {
           beforeCounts.set(frame, 0);
           beforeHandlesByFrame.set(frame, handles);
