@@ -1,4 +1,32 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+const resolveSearchConsoleCompatTarget = vi.hoisted(() => vi.fn(
+  (
+    input: string,
+    slugIndex?: { get(slug: string): { it?: string } | undefined },
+    options?: { sourceBackedOnly?: boolean },
+  ) => {
+    const path = input.replace(/\/+$/, '') || '/';
+    const strict = options?.sourceBackedOnly === true;
+    if (path === '/fisco-frontaliere/dichiarazione-redditi') {
+      return { canonicalPath: '/tasse-e-pensione/', kind: 'legacy', locale: 'it' };
+    }
+    if (path === '/contattaci') {
+      return { canonicalPath: '/contattaci/', kind: 'legacy', locale: 'it' };
+    }
+    if (path === '/articoli-frontaliere/unknown-editorial-slug') {
+      return strict ? null : { canonicalPath: '/articoli-frontaliere/', kind: 'legacy', locale: 'it' };
+    }
+    if (path === '/cerca-lavoro-ticino/known-job') {
+      const target = slugIndex?.get('known-job')?.it;
+      if (target) return { canonicalPath: `${target}/`, kind: 'canton-moved', locale: 'it' };
+      return strict ? null : { canonicalPath: '/cerca-lavoro-ticino/', kind: 'expired-job', locale: 'it' };
+    }
+    return null;
+  },
+));
+
+vi.mock('../build-plugins/searchConsoleCompat', () => ({ resolveSearchConsoleCompatTarget }));
 
 import { classifyUnresolvedCoveragePath } from '../scripts/ingest-gsc-coverage-404s';
 

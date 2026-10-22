@@ -27,8 +27,9 @@
  *    (or a single file via `--csv <path>`).
  * 2. Normalises each URL to a path and resolves it through the shared
  *    `resolveSearchConsoleCompatTarget()` (the single source of truth for how a
- *    404 path maps to a canonical landing). Unresolvable paths are dropped (and
- *    reported) — we never add junk that would itself 404.
+ *    404 path maps to a canonical landing). Only source-backed mappings enter
+ *    the bridge set; ambiguous/unknown paths remain in the `unresolved`
+ *    diagnostic list — we never add junk that would itself 404.
  * 3. Writes the resolvable set to `data/gsc-coverage-404s.json` (BOUNDED — only
  *    the URLs Google actually reports as 404, a small slow-growing list). The
  *    `cfHot404BridgePlugin` reads this file as a second source (beside
