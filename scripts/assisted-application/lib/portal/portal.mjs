@@ -1277,37 +1277,21 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
 
 export function uploadTriggerKey(button) {
   const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
-  // `id` is normally the extractor's per-scan data-aa-id (`f1`, `f2`, ...),
-  // so it must not identify a trigger across a portal redraw. Prefer an ATS
-  // identity that comes from the DOM and keep generated ids only when they
-  // are not the extractor's counter values.
-  const identity = [
-    button?.domId,
-    button?.dataAutomationId,
-    button?.dataAaId,
-    button?.name,
-    button?.id && !/^f\d+$/i.test(String(button.id)) ? button.id : '',
-  ].map(normalize).find(Boolean);
+  // `id`/`domId` can be generated again by a portal redraw. Use only the
+  // control's semantic attributes and label, which remain stable when the
+  // candidate array changes order. Shared automation ids are harmless because
+  // the visible label and document section are part of the same signature.
   const signature = [
     button?.text,
     button?.label,
     button?.title,
     button?.ariaLabel,
+    button?.dataAutomationId,
+    button?.name,
     button?.section,
-    button?.context,
-    button?.fileContext,
     button?.href,
   ].map(normalize).filter(Boolean).join('|');
-  // Keep both parts: SuccessFactors often reuses one data-automation id for
-  // the CV and cover-letter controls, while their surrounding text is the
-  // only stable distinction. If the semantic signature also collides, the
-  // controls remain intentionally indistinguishable and no positional guess
-  // is allowed by the caller.
-  const stablePart = [
-    identity ? `id:${identity}` : '',
-    signature ? `signature:${signature}` : 'signature:anonymous',
-  ].filter(Boolean).join('|');
-  return `${button?.frame || 0}:${stablePart}`;
+  return `${button?.frame || 0}:signature:${signature || 'anonymous'}`;
 }
 
 export function uploadButtonFor(snapshot, kind) {
