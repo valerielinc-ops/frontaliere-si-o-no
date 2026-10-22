@@ -1,7 +1,7 @@
 import {
+  findTopLevelStaticObjectLiterals,
   findTopLevelArrays,
   findObjectLiterals,
-  isObjectLiteral,
   parseStaticSource,
   readStaticObjectProperties,
   readStaticString,
@@ -77,7 +77,7 @@ export function parseArticleRegistryEntries(source: string): ArticleRegistryEntr
   }
   const arrays = findTopLevelArrays(sourceFile);
   const objects = arrays.length > 0
-    ? arrays.flatMap((array) => array.elements.filter((element) => isObjectLiteral(element)))
+    ? findTopLevelStaticObjectLiterals(sourceFile)
     : findObjectLiterals(sourceFile);
   const out: ArticleRegistryEntry[] = [];
   const seen = new Set<string>();

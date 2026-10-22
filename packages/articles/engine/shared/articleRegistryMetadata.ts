@@ -1,6 +1,5 @@
 import {
-  findTopLevelArrays,
-  isObjectLiteral,
+  findTopLevelStaticObjectLiterals,
   parseStaticSource,
   readStaticObjectProperties,
   readStaticString,
@@ -33,28 +32,25 @@ export function readArticleRegistryMetadata(source: string): ArticleRegistryMeta
   } catch {
     throw new SyntaxError('Unbalanced article registry');
   }
-  const arrays = findTopLevelArrays(sourceFile);
-  if (arrays.length === 0) return [];
+  const objects = findTopLevelStaticObjectLiterals(sourceFile);
+  if (objects.length === 0) return [];
   const records: ArticleRegistryMetadata[] = [];
   const fields = new Set(['id', 'category', 'date', 'image', 'updatedAt', 'authorSlug', 'authorName']);
   const seen = new Set<string>();
-  for (const array of arrays) {
-    for (const element of array.elements) {
-      if (!isObjectLiteral(element)) continue;
-      const values: Record<string, string> = {};
-      for (const property of readStaticObjectProperties(element, 'article registry entry')) {
-        const key = staticPropertyName(property.name);
-        if (!key || !fields.has(key)) continue;
-        values[key] = readStaticString(property.initializer, sourceFile, {
-          label: `${key} in article registry entry`,
-          errorPrefix: '[article-registry]',
-        });
-      }
-      if (!values.id) continue;
-      if (seen.has(values.id)) throw new SyntaxError(`Duplicate article registry id: ${values.id}`);
-      seen.add(values.id);
-      records.push({ ...values, id: values.id });
+  for (const object of objects) {
+    const values: Record<string, string> = {};
+    for (const property of readStaticObjectProperties(object, 'article registry entry')) {
+      const key = staticPropertyName(property.name);
+      if (!key || !fields.has(key)) continue;
+      values[key] = readStaticString(property.initializer, sourceFile, {
+        label: `${key} in article registry entry`,
+        errorPrefix: '[article-registry]',
+      });
     }
+    if (!values.id) continue;
+    if (seen.has(values.id)) throw new SyntaxError(`Duplicate article registry id: ${values.id}`);
+    seen.add(values.id);
+    records.push({ ...values, id: values.id });
   }
   return records;
 }

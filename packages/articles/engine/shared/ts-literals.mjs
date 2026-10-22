@@ -98,7 +98,7 @@ export function skipStaticTrivia(source, startIdx, sourcePath = 'source', errorL
  * may opt into EOF termination explicitly with `allowTerminalFragment`.
  * @param {string} source
  * @param {string} [sourcePath]
- * @param {{ errorLabel?: string, allowTerminalFragment?: boolean, newlineAs?: string }} [options]
+ * @param {{ errorLabel?: string, allowTerminalFragment?: boolean, newlineAs?: string, requireObjectClosure?: boolean }} [options]
  */
 export function readStaticObjectEntries(
   source,
@@ -109,6 +109,9 @@ export function readStaticObjectEntries(
     errorLabel = 'static-literal',
     allowTerminalFragment = false,
     newlineAs,
+    // A complete object must close. Callers that intentionally pass a
+    // property fragment can opt out explicitly; the default remains strict.
+    requireObjectClosure = !allowTerminalFragment,
   } = options;
   if (newlineAs !== undefined && typeof newlineAs !== 'string') {
     throw new TypeError('newlineAs must be a string when provided');
@@ -116,9 +119,30 @@ export function readStaticObjectEntries(
 
   const entries = [];
   let cursor = 0;
+  let braceDepth = 0;
+  let sawObjectOpen = false;
+  let closedObject = false;
   while (cursor < source.length) {
     cursor = skipStaticTrivia(source, cursor, sourcePath, errorLabel);
     if (cursor >= source.length) break;
+    if (source[cursor] === '{') {
+      braceDepth += 1;
+      sawObjectOpen = true;
+      cursor += 1;
+      continue;
+    }
+    if (source[cursor] === '}') {
+      if (braceDepth > 0) {
+        braceDepth -= 1;
+        if (braceDepth === 0) closedObject = true;
+      } else if (!sawObjectOpen) {
+        // Compatibility fragments commonly start at the first property and
+        // retain the generated object's closing brace.
+        closedObject = true;
+      }
+      cursor += 1;
+      continue;
+    }
     if (!STATIC_LITERAL_QUOTES.has(source[cursor])) {
       cursor += 1;
       continue;
@@ -170,6 +194,12 @@ export function readStaticObjectEntries(
     });
     entries.push(entry);
     cursor = valueLiteral.end;
+  }
+  if (requireObjectClosure && (
+    (!sawObjectOpen && !closedObject)
+    || (sawObjectOpen && (braceDepth !== 0 || !closedObject))
+  )) {
+    throw new Error(`[${errorLabel}] Static object is not closed in ${sourcePath}`);
   }
   return entries;
 }
