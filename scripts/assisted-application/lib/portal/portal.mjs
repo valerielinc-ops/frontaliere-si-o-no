@@ -1813,28 +1813,45 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     // a failure.
     if (trace) trace.click = 'failed';
   }
-  const chooserTarget = chooserPromise.then((chooser) => chooser ? { chooser } : null);
-  const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts, beforeDialogHandlesByFrame)
-    .then((input) => input ? { input } : null, () => null);
-  const mountedInputTarget = newlyMountedFileInput(page, preferredFrame, beforeFileInputHandles, triggerContext)
-    .then((input) => input ? { input } : null, () => null);
   // A timeout from one strategy is not evidence that the other failed. In
   // particular, the chooser watcher starts before the click, so it can time
   // out while the dialog watcher is still in its post-click window. Keep
   // waiting for every still-running strategy after a null result and select
   // the first actual target instead of treating a timeout as a final answer.
-  const pendingTargets = [
-    { source: 'chooser', promise: chooserTarget },
-    { source: 'dialog', promise: dialogTarget },
-    { source: 'mounted', promise: mountedInputTarget },
-  ];
-  let firstTarget = { source: null, target: null };
-  while (pendingTargets.length && !firstTarget.target) {
-    const outcome = await Promise.race(pendingTargets.map((entry) => entry.promise
-      .then((target) => ({ entry, target }), () => ({ entry, target: null }))));
-    const index = pendingTargets.indexOf(outcome.entry);
-    if (index >= 0) pendingTargets.splice(index, 1);
-    if (outcome.target) firstTarget = { source: outcome.entry.source, target: outcome.target };
+  const waitForTarget = async (chooser) => {
+    const pendingTargets = [
+      { source: 'chooser', promise: chooser.then((value) => value ? { chooser: value } : null, () => null) },
+      { source: 'dialog', promise: dialogFileInput(page, preferredFrame, beforeCounts, beforeDialogHandlesByFrame)
+        .then((input) => input ? { input } : null, () => null) },
+      { source: 'mounted', promise: newlyMountedFileInput(page, preferredFrame, beforeFileInputHandles, triggerContext)
+        .then((input) => input ? { input } : null, () => null) },
+    ];
+    let firstTarget = { source: null, target: null };
+    while (pendingTargets.length && !firstTarget.target) {
+      const outcome = await Promise.race(pendingTargets.map((entry) => entry.promise
+        .then((target) => ({ entry, target }), () => ({ entry, target: null }))));
+      const index = pendingTargets.indexOf(outcome.entry);
+      if (index >= 0) pendingTargets.splice(index, 1);
+      if (outcome.target) firstTarget = { source: outcome.entry.source, target: outcome.target };
+    }
+    return firstTarget;
+  };
+  let firstTarget = await waitForTarget(chooserPromise);
+  // Some SuccessFactors tenants expose the upload control as an inline
+  // `onclick` handler on an icon-only span. Chromium's trusted locator click
+  // can report success without dispatching that handler (the SIX tenant does
+  // this after the form has been scanned for fields). A DOM click on the same
+  // live control is a bounded fallback: it runs only after every normal upload
+  // target stayed absent, and the same frame/dialog uniqueness checks are
+  // applied before selecting a file input.
+  if (!firstTarget.target && typeof triggerLocator?.evaluate === 'function') {
+    try {
+      await triggerLocator.evaluate((element) => element?.click?.());
+      if (trace) trace.domClick = 'succeeded';
+      firstTarget = await waitForTarget(fileChooserAfterClick(page));
+    } catch {
+      if (trace) trace.domClick = 'failed';
+    }
   }
   const target = firstTarget.target;
   if (target?.chooser) {

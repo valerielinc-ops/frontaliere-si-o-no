@@ -421,6 +421,67 @@ describe('legacy portal sections', () => {
     expect(trigger.click).toHaveBeenCalledOnce();
   });
 
+  it('retries a SuccessFactors upload control with a DOM click when the trusted click opens no target', async () => {
+    let domClicked = false;
+    let uploaded = false;
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Choose Password: *', required: true },
+      ],
+      buttons: [{ id: 'resume-trigger', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const fileInput = {
+      setInputFiles: vi.fn(async () => { uploaded = true; }),
+      waitFor: vi.fn(async () => {}),
+      elementHandles: vi.fn(async () => []),
+    };
+    const trigger = {
+      click: vi.fn(async () => {}),
+      evaluate: vi.fn(async (run: (element: unknown) => void) => { run({ click: () => { domClicked = true; } }); }),
+      isVisible: vi.fn(async () => true),
+    };
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async () => ({
+        ...snapshot,
+        fields: uploaded ? [...snapshot.fields, { id: 'cv', kind: 'file', inputType: 'file', label: 'Resume / CV', required: true }] : snapshot.fields,
+      })),
+      locator: vi.fn((selector: string) => {
+        if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
+        if (selector === 'input[type="file"]') return {};
+        if (selector.includes('input[type="file"]')) return {
+          count: vi.fn(async () => domClicked ? 1 : 0),
+          elementHandles: vi.fn(async () => domClicked ? [fileInput] : []),
+        };
+        return { count: vi.fn(async () => 0), elementHandles: vi.fn(async () => []) };
+      }),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: vi.fn(() => domClicked ? [frame] : []),
+      mainFrame: () => frame,
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { allInnerTexts: vi.fn(async () => []) }),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(trigger.click).toHaveBeenCalledOnce();
+    expect(trigger.evaluate).toHaveBeenCalledOnce();
+    expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+  });
+
   it('re-resolves queued upload controls from the post-redraw snapshot', async () => {
     const url = 'https://jobs.example.test/apply';
     const snapshots = [
