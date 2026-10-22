@@ -187,6 +187,24 @@ describe('profili di sparse-checkout', () => {
     expect(sparsePaths).toContain('/scripts/lib/https-url.mjs');
   });
 
+  it('il gate promotion include il helper del controllo di ingresso diretto', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'deploy.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const checkout = workflow?.jobs?.['validate-promotion-trigger']?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+
+    expect(sparsePaths).toContain('/scripts/ci/translation-deploy-handoff.mjs');
+    expect(sparsePaths).toContain('/scripts/lib/is-invoked-directly.mjs');
+    expect(isExcludedBy(sparsePaths, 'scripts/lib/is-invoked-directly.mjs')).toBe(false);
+  });
+
   it('estrae solo import veri verso data/public, non stringhe letterali generiche (issue #6149)', () => {
     // `tsc` risolve gli specificatori di import sul disco, non le stringhe
     // passate a `fs.readFileSync` a runtime: quelle le legge il codice quando
