@@ -487,6 +487,7 @@ describe('legacy portal sections', () => {
   it('catches a native chooser opened synchronously by the DOM fallback click', async () => {
     let domClicked = false;
     let chooserEventEmitted = false;
+    let chooserCalls = 0;
     let selected = false;
     const chooserWaiters: Array<(value: unknown) => void> = [];
     const request = {
@@ -549,6 +550,8 @@ describe('legacy portal sections', () => {
       frames: vi.fn(() => [frame]),
       mainFrame: () => frame,
       waitForEvent: vi.fn(async () => {
+        chooserCalls += 1;
+        if (chooserCalls === 1) return null;
         if (chooserEventEmitted) return null;
         return await new Promise((resolve) => chooserWaiters.push(resolve));
       }),
