@@ -45,7 +45,7 @@ describe('UserProfile helpers', () => {
   });
 
   describe('mergeLegacyProfileImport', () => {
-    it('preserves an explicitly blank private field instead of restoring stale legacy data', () => {
+    it('imports legacy values into blank private snapshot fields', () => {
       const profile = emptyProfile();
       const merged = mergeLegacyProfileImport({
         currentProfile: profile,
@@ -56,10 +56,24 @@ describe('UserProfile helpers', () => {
         editedFields: new Set(),
       });
 
+      expect(merged.workPosition).toBe('Engineer');
+    });
+
+    it('preserves an explicit field clear made during the current session', () => {
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: { workPosition: 'Engineer' },
+        localProfile: { workPosition: 'Engineer' },
+        legacy: { workPosition: 'Legacy engineer' },
+        cvPrefill: { workPosition: 'Analyst' },
+        editedFields: new Set(['workPosition']),
+      });
+
       expect(merged.workPosition).toBe('');
     });
 
-    it('preserves an explicitly empty private family list instead of restoring deleted legacy members', () => {
+    it('imports legacy family members into an empty private snapshot list', () => {
       const deletedMember: FamilyMember = {
         id: 'legacy-child',
         relationship: 'child',
@@ -74,6 +88,26 @@ describe('UserProfile helpers', () => {
         legacy: { familyMembersList: [deletedMember] },
         cvPrefill: { familyMembersList: [deletedMember] },
         editedFields: new Set(),
+      });
+
+      expect(merged.familyMembersList).toEqual([deletedMember]);
+    });
+
+    it('preserves an explicit family deletion made during the current session', () => {
+      const deletedMember: FamilyMember = {
+        id: 'legacy-child',
+        relationship: 'child',
+        liveTogether: true,
+        dependent: true,
+      };
+      const profile = emptyProfile();
+      const merged = mergeLegacyProfileImport({
+        currentProfile: profile,
+        cloudProfile: { familyMembersList: [deletedMember] },
+        localProfile: { familyMembersList: [deletedMember] },
+        legacy: { familyMembersList: [deletedMember] },
+        cvPrefill: { familyMembersList: [deletedMember] },
+        editedFields: new Set(['familyMembersList']),
       });
 
       expect(merged.familyMembersList).toEqual([]);
