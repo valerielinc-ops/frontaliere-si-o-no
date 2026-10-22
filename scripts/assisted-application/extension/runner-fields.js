@@ -2,10 +2,15 @@
 // Do not edit: run `node scripts/assisted-application/extension/build-runner-fields.mjs`.
 (function (root) {
   'use strict';
-  root.CompilaRunnerFields = function extractFieldsInPage() {
+  root.CompilaRunnerFields = function extractFieldsInPage({ channelType = '' } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   const SUCCESS_FACTORS_URL_RE = /success[\s._-]?factors/i;
+  const SUCCESS_FACTORS_HOST_SUFFIXES = ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'];
+  const isSuccessFactorsHost = (host) => {
+    const value = String(host || '').toLowerCase();
+    return value === 'jobs.sap.com' || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => value === suffix || value.endsWith(`.${suffix}`));
+  };
   const SUCCESS_FACTORS_DOM_SELECTOR = [
     '[class*="successfactors" i]',
     '[class*="paginatedselect" i]',
@@ -20,7 +25,10 @@
   const isSuccessFactorsPage = () => {
     const location = [window.location?.hostname, window.location?.pathname, window.location?.search, window.location?.hash]
       .filter(Boolean).join(' ');
-    return SUCCESS_FACTORS_URL_RE.test(location) || Boolean(document.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
+    return String(channelType).toLowerCase() === 'successfactors'
+      || isSuccessFactorsHost(window.location?.hostname)
+      || SUCCESS_FACTORS_URL_RE.test(location)
+      || Boolean(document.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
   };
   const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
   const ownedListFor = (element) => {

@@ -456,8 +456,8 @@ describe('fill extension: the runner’s reading on any portal', () => {
       <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
       <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
       <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
-    </form>`, 'https://careers.example.ch/careers?ats=successfactors');
-    const field = read().fields.find((item: any) => item.label === 'Do you hold a valid work permit for Switzerland?');
+    </form>`, 'https://careers.example.ch/careers');
+    const field = read({ channelType: 'successfactors' }).fields.find((item: any) => item.label === 'Do you hold a valid work permit for Switzerland?');
     expect(field).toMatchObject({
       kind: 'combobox',
       required: true,
@@ -475,6 +475,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
     });
     const result = await F.fillPage(document, {
       ...kit,
+      channelType: 'successfactors',
       answers: [{ question: field.label, answer: 'Yes', source: 'answers' }],
     }, { getFile: async () => null, attempts: new WeakMap() });
     expect(input.value).toBe('Yes');

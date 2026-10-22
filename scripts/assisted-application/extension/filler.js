@@ -210,12 +210,12 @@
    * reading puts on each (radio options carry their own). Empty without
    * runner-fields.js or when the reading fails: the page's own names remain.
    */
-  function runnerLabels() {
+  function runnerLabels(channelType = '') {
     const read = root.CompilaRunnerFields;
     const byId = new Map();
     if (typeof read !== 'function') return byId;
     try {
-      for (const field of read().fields || []) {
+      for (const field of read({ channelType }).fields || []) {
         if (field.id) byId.set(field.id, field.label || '');
         for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field.label || '');
       }
@@ -288,9 +288,9 @@
    * The page's questions: text-like inputs, selects, comboboxes, files,
    * checkboxes, radio groups (native and ARIA) and date pickers.
    */
-  function collect(doc) {
+  function collect(doc, channelType = '') {
     const entries = [];
-    const runner = runnerLabels();
+    const runner = runnerLabels(channelType);
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
       if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: questionOf(picker) || labelOf(picker), required: true });
@@ -324,7 +324,8 @@
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
       const label = labelOf(element);
       const labels = labelsOf(element, label, runnerLabelOf(runner, element));
-      entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)), type });
+      entries.push({ kind, element, label, labels, required: requiredByAttribute || labels.some((value) => REQUIRED_RE.test(value)),
+        ...(kind === 'combobox' ? { selectLike: selectLike(element, channelType) } : {}), type });
     }
     // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
     for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
@@ -391,7 +392,7 @@
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
     if (entry.kind === 'combobox') {
       // A SuccessFactors picklist holds its choice in the input itself.
-      if (selectLike(element)) return !String(element.value || '').trim() || SELECT_PROMPT_RE.test(String(element.value).trim());
+      if (entry.selectLike ?? selectLike(element)) return !String(element.value || '').trim() || SELECT_PROMPT_RE.test(String(element.value).trim());
       if (String(element.value || '').trim()) return false;
       // react-select shows the choice next to the input, or a placeholder.
       const box = comboBox(element);
@@ -611,13 +612,21 @@
     'link[href*="successfactors" i]',
     'meta[content*="successfactors" i]',
   ].join(', ');
-  const isSuccessFactorsPage = (input) => {
+  const SUCCESS_FACTORS_HOST_SUFFIXES = ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'];
+  const isSuccessFactorsHost = (host) => {
+    const value = String(host || '').toLowerCase();
+    return value === 'jobs.sap.com' || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => value === suffix || value.endsWith(`.${suffix}`));
+  };
+  const isSuccessFactorsPage = (input, channelType = '') => {
     const doc = input.ownerDocument;
     const location = [doc.defaultView?.location?.hostname, doc.defaultView?.location?.pathname,
       doc.defaultView?.location?.search, doc.defaultView?.location?.hash].filter(Boolean).join(' ');
-    return SUCCESS_FACTORS_URL_RE.test(location) || Boolean(doc.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
+    return String(channelType).toLowerCase() === 'successfactors'
+      || isSuccessFactorsHost(doc.defaultView?.location?.hostname)
+      || SUCCESS_FACTORS_URL_RE.test(location)
+      || Boolean(doc.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
   };
-  function selectLike(input) {
+  function selectLike(input, channelType = '') {
     const owned = ownedListFor(input);
     const ownedList = owned.element;
     const required = isRequiredControl(input);
@@ -625,11 +634,11 @@
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
         || SELECT_PROMPT_RE.test(input.value || '')
         || /paginatedselect/i.test(String(input.className || ''))
-        || (isSuccessFactorsPage(input) && required && ownedList?.getAttribute('role') === 'listbox'));
+        || (isSuccessFactorsPage(input, channelType) && required && ownedList?.getAttribute('role') === 'listbox'));
   }
 
-  async function chooseInCombobox(input, answer) {
-    if (selectLike(input)) {
+  async function chooseInCombobox(input, answer, selectLikeOverride = null) {
+    if (selectLikeOverride ?? selectLike(input)) {
       // A select by another name: opened, never typed into.
       press(input);
       const option = await waitFor(() => bestOption(optionsNear(input).filter((item) => !SELECT_PROMPT_RE.test(item.label)), answer), Math.max(config.waitMs, 8000));
@@ -834,7 +843,7 @@
         return true;
       }
       case 'combobox':
-        return chooseInCombobox(element, answer.value);
+        return chooseInCombobox(element, answer.value, entry.selectLike);
       case 'listbox': {
         // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
         press(element);
@@ -920,7 +929,7 @@
     const filled = [];
     const missing = [];
     const failed = [];
-    const entries = collect(doc);
+    const entries = collect(doc, kit?.channelType);
     for (const entry of entries) {
       if (!isEmpty(entry)) continue;
       const answer = answerFor(entry, kit);
@@ -952,14 +961,14 @@
    * before this tab saw any application form (sawForm): on a review page with
    * no field, «Invia candidatura» is the send button, never a start.
    */
-  function pageState(doc, { sawForm = false } = {}) {
+  function pageState(doc, { sawForm = false, channelType = '' } = {}) {
     const text = textOf(doc.body);
     if (REFUSED_RE.test(text)) return { kind: 'refused' };
     // An error page may retain generic thank-you copy; refusal is authoritative.
     if (CONFIRM_RE.test(text)) return { kind: 'confirmed' };
     const next = nextButton(doc);
-    if (VERIFY_RE.test(text) && !collect(doc).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
-    const required = collect(doc).filter((entry) => entry.required).length;
+    if (VERIFY_RE.test(text) && !collect(doc, channelType).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
+    const required = collect(doc, channelType).filter((entry) => entry.required).length;
     if (!sawForm && !next && !required) {
       const start = buttons(doc).find((button) => APPLY_RE.test(button.text) && !APPLY_LATER_RE.test(button.text) && !SOCIAL_RE.test(button.text)
         && !/^(conferma|confirm|bestatig|confirmer|invia|send|absenden|envoyer|submit)/i.test(normalize(button.text)));
@@ -977,8 +986,8 @@
   }
 
   /** What changes when the portal moves to another step. */
-  function pageSignature(doc) {
-    return `${doc.defaultView.location.pathname}|${collect(doc).map((entry) => `${entry.kind}:${normalize(entry.label)}`).join('|')}`;
+  function pageSignature(doc, channelType = '') {
+    return `${doc.defaultView.location.pathname}|${collect(doc, channelType).map((entry) => `${entry.kind}:${normalize(entry.label)}`).join('|')}`;
   }
 
   root.CompilaCandidatura = {

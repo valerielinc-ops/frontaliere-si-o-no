@@ -11,10 +11,15 @@
  */
 
 /* eslint-disable no-undef -- runs in the browser */
-export function extractFieldsInPage() {
+export function extractFieldsInPage({ channelType = '' } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   const SUCCESS_FACTORS_URL_RE = /success[\s._-]?factors/i;
+  const SUCCESS_FACTORS_HOST_SUFFIXES = ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'];
+  const isSuccessFactorsHost = (host) => {
+    const value = String(host || '').toLowerCase();
+    return value === 'jobs.sap.com' || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => value === suffix || value.endsWith(`.${suffix}`));
+  };
   const SUCCESS_FACTORS_DOM_SELECTOR = [
     '[class*="successfactors" i]',
     '[class*="paginatedselect" i]',
@@ -29,7 +34,10 @@ export function extractFieldsInPage() {
   const isSuccessFactorsPage = () => {
     const location = [window.location?.hostname, window.location?.pathname, window.location?.search, window.location?.hash]
       .filter(Boolean).join(' ');
-    return SUCCESS_FACTORS_URL_RE.test(location) || Boolean(document.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
+    return String(channelType).toLowerCase() === 'successfactors'
+      || isSuccessFactorsHost(window.location?.hostname)
+      || SUCCESS_FACTORS_URL_RE.test(location)
+      || Boolean(document.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
   };
   const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
   const ownedListFor = (element) => {
@@ -691,14 +699,25 @@ export async function readOwnedListOptions(frame, field) {
  * about to be planned, since the Escape that closes a list also closes a modal
  * (Workday's apply dialog).
  */
-export async function extractFields(page, { listboxOptions = true } = {}) {
+const portalChannelTypes = new WeakMap();
+
+/** Pass the already validated ATS classification to pages on this context.
+ * Branded SuccessFactors tenants have employer hosts, so the page URL alone
+ * cannot identify the portal reliably. */
+export function registerPortalChannelType(context, channelType) {
+  if (context && String(channelType || '').trim()) portalChannelTypes.set(context, String(channelType).trim());
+}
+
+export async function extractFields(page, { listboxOptions = true, channelType = '' } = {}) {
   const frames = page.frames();
   const result = { url: page.url(), fields: [], buttons: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
+  const context = typeof page.context === 'function' ? page.context() : null;
+  const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
   for (const [index, frame] of frames.entries()) {
     if (index > 0 && /recaptcha|hcaptcha|challenges\.cloudflare|turnstile|captcha-delivery|doubleclick|googletagmanager|youtube|vimeo/i.test(frame.url())) continue;
     let snapshot;
     try {
-      snapshot = await frame.evaluate(extractFieldsInPage);
+      snapshot = await frame.evaluate(extractFieldsInPage, { channelType: effectiveChannelType });
     } catch {
       continue; // cross-origin or detached
     }

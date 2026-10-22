@@ -1,12 +1,12 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { LIST_PROMPT_RE, extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { openFormSections, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
-function extract(html: string, url = 'https://jobs.example/apply') {
+function extract(html: string, url = 'https://jobs.example/apply', context: Record<string, string> = {}) {
   const { window } = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url });
   // JSDOM does not implement the browser's rendered-text `innerText`; the
   // extractor uses it to keep an icon glyph separate from its aria label.
@@ -24,7 +24,7 @@ function extract(html: string, url = 'https://jobs.example/apply') {
   vi.stubGlobal('document', window.document);
   vi.stubGlobal('location', window.location);
   vi.stubGlobal('CSS', { escape: (value: string) => String(value).replace(/["\\\]]/g, '\\$&') });
-  return extractFieldsInPage();
+  return extractFieldsInPage(context);
 }
 
 afterEach(() => {
@@ -323,13 +323,13 @@ describe('portal field extraction', () => {
     ]));
   });
 
-  it('recognizes a branded SuccessFactors tenant from its ATS URL marker', () => {
+  it('recognizes a branded SuccessFactors tenant from its validated ATS context', () => {
     const page = extract(`
       <form>
         <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
         <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
         <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
-      </form>`, 'https://careers.example.ch/careers?ats=successfactors');
+      </form>`, 'https://careers.example.ch/careers', { channelType: 'successfactors' });
 
     expect(page.fields.find((field: any) => field.label === 'Do you hold a valid work permit for Switzerland?')).toMatchObject({
       kind: 'combobox',
@@ -337,6 +337,28 @@ describe('portal field extraction', () => {
       selectLike: true,
       ownedList: 'permit-list',
     });
+  });
+
+  it('forwards the validated ATS context to every portal frame', async () => {
+    const url = 'https://careers.example.ch/careers';
+    const html = `<form>
+      <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
+      <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
+      <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
+    </form>`;
+    extract(html, url);
+    const context = {};
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (_fn: unknown, args: Record<string, string>) => extractFieldsInPage(args)),
+    };
+    const page = { url: () => url, frames: () => [frame], context: () => context };
+    registerPortalChannelType(context, 'successfactors');
+
+    const snapshot = await extractFields(page as any, { listboxOptions: false });
+    expect(snapshot.fields.find((field: any) => field.label === 'Do you hold a valid work permit for Switzerland?'))
+      .toMatchObject({ selectLike: true, ownedList: 'permit-list' });
+    expect(frame.evaluate).toHaveBeenCalledWith(extractFieldsInPage, { channelType: 'successfactors' });
   });
 
   it('keeps a required non-SuccessFactors ARIA autocomplete as a text combobox', () => {
