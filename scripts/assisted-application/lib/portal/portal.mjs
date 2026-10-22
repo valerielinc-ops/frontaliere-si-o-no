@@ -1232,6 +1232,7 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   if (!pattern || !contextPattern) return [];
   const candidates = [];
   const candidateKeys = new Set();
+  const contextIconCandidates = [];
   const iconCandidates = [];
   const add = (button) => {
     if (!button || button.disabled || button.chrome) return;
@@ -1256,8 +1257,9 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     }
     if (ICON_ONLY_BUTTON_RE.test(text)) {
       const association = successFactorsButtonAssociation(button);
-      if (!UPLOAD_REMOVE_MARKER_RE.test(association)
-        && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+      if (UPLOAD_REMOVE_MARKER_RE.test(association)) continue;
+      contextIconCandidates.push(button);
+      if (SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
         && successFactorsDocumentAssociationMatches(association, kind)) iconCandidates.push(button);
     }
   }
@@ -1265,7 +1267,8 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
   // labelled card was the first candidate returned by the snapshot. A single
   // context-bound icon is safe; multiple icons remain ambiguous even when one
   // carries an upload marker, so never guess between them.
-  const icon = iconCandidates.length === 1
+  const icon = contextIconCandidates.length !== 1 ? null
+    : iconCandidates.length === 1
     ? iconCandidates[0]
     : iconCandidates.length === 0 ? successFactorsIconButtonFor(snapshot, kind) : null;
   add(icon);
