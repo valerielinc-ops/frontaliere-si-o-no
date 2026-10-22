@@ -274,15 +274,24 @@ export function listDispatchRuns(
   if (!Number.isFinite(windowStart)) throw new TypeError('workflow run window must be finite');
   const minimumRows = Math.min(requestedLimit, RUN_LIST_MAX);
   const attempts = EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1;
+  let lastUnfilteredRows = [];
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const eventRows = readWorkflowRunPages({ repository, workflow, event, windowStart, minimumRows, ghImpl });
     if (eventRows.length > 0 || event === null) return eventRows;
 
     // A zero result from the event index is the false-negative seen by the
-    // watchdog. The broader collection is a bounded second observation;
-    // selectLoopClockRun still rejects every non-dispatch/non-main row.
-    const allRows = readWorkflowRunPages({ repository, workflow, event: null, windowStart, minimumRows, ghImpl });
-    if (allRows.length > 0 || attempt === attempts) return allRows;
+    // watchdog. Unrelated rows in the broader collection do not confirm the
+    // filtered index is current, so retry that index before accepting fallback
+    // rows as evidence of absence.
+    lastUnfilteredRows = readWorkflowRunPages({
+      repository,
+      workflow,
+      event: null,
+      windowStart,
+      minimumRows,
+      ghImpl,
+    });
+    if (attempt === attempts) return lastUnfilteredRows;
 
     const delayMs = EMPTY_RUN_LIST_RETRY_DELAYS_MS[attempt - 1];
     warn(

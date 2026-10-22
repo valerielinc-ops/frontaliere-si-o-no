@@ -526,28 +526,37 @@ describe('loop clock observer', () => {
     expect(secondCall[1]).toContain('page=2');
   });
 
-  it('corroborates an empty event index with the unfiltered workflow collection', () => {
+  it('uses unfiltered rows only after bounded retries of an empty event index', () => {
     const entry = customEntry('api-fallback');
-    const apiRun = {
-      id: 1,
-      created_at: minutesAgo(1),
-      html_url: 'https://example.invalid/runs/1',
-      event: 'workflow_dispatch',
+    const unrelatedRun = {
+      id: 2,
+      created_at: minutesAgo(2),
+      html_url: 'https://example.invalid/runs/2',
+      event: 'schedule',
       head_branch: 'main',
-      display_title: `Workflow ${LOOP_CLOCK_RUN_MARKER_PREFIX}${loopClockInputValue(entry, minutesAgo(1))}]`,
+      display_title: 'Scheduled workflow',
     };
+    const delays: number[] = [];
+    const warnings: string[] = [];
     const ghImpl = vi.fn((args: string[]) => {
       const endpoint = args[1] ?? '';
       if (endpoint.includes('event=workflow_dispatch')) return JSON.stringify({ total_count: 0, workflow_runs: [] });
-      return JSON.stringify({ total_count: 1, workflow_runs: [apiRun] });
+      return JSON.stringify({ total_count: 1, workflow_runs: [unrelatedRun] });
     });
 
-    const rows = listDispatchRuns('owner/site', entry.workflow, 10, 720, ghImpl);
+    const rows = listDispatchRuns('owner/site', entry.workflow, 10, 720, {
+      ghImpl,
+      sleep: (delayMs: number) => delays.push(delayMs),
+      warn: (message: string) => warnings.push(message),
+    });
 
     expect(rows).toHaveLength(1);
-    expect(rows[0]).toMatchObject({ databaseId: 1, headBranch: 'main' });
-    expect(ghImpl).toHaveBeenCalledTimes(2);
-    expect((ghImpl.mock.calls[1][0] as string[])[1]).not.toContain('event=workflow_dispatch');
+    expect(rows[0]).toMatchObject({ databaseId: 2, event: 'schedule' });
+    expect(ghImpl).toHaveBeenCalledTimes(6);
+    expect(ghImpl.mock.calls.filter(([args]) => (args[1] ?? '').includes('event=workflow_dispatch'))).toHaveLength(3);
+    expect(ghImpl.mock.calls.filter(([args]) => !(args[1] ?? '').includes('event=workflow_dispatch'))).toHaveLength(3);
+    expect(delays).toEqual(EMPTY_RUN_LIST_RETRY_DELAYS_MS);
+    expect(warnings).toHaveLength(EMPTY_RUN_LIST_RETRY_DELAYS_MS.length);
   });
 
   it('re-reads empty Actions collections before treating a marked dispatch as absent', () => {
@@ -561,13 +570,23 @@ describe('loop clock observer', () => {
       head_branch: 'main',
       display_title: `Workflow ${LOOP_CLOCK_RUN_MARKER_PREFIX}${loopClockInputValue(entry, createdAt)}]`,
     };
+    const unrelatedRun = {
+      id: 2,
+      created_at: minutesAgo(6),
+      html_url: 'https://example.invalid/runs/2',
+      event: 'schedule',
+      head_branch: 'main',
+      display_title: 'Scheduled workflow',
+    };
     const empty = JSON.stringify({ total_count: 0, workflow_runs: [] });
     let eventReads = 0;
     const delays: number[] = [];
     const warnings: string[] = [];
     const rows = listDispatchRuns('owner/site', entry.workflow, 10, 720, {
       ghImpl: (args: string[]) => {
-        if (!(args[1] ?? '').includes('event=workflow_dispatch')) return empty;
+        if (!(args[1] ?? '').includes('event=workflow_dispatch')) {
+          return JSON.stringify({ total_count: 1, workflow_runs: [unrelatedRun] });
+        }
         eventReads += 1;
         return eventReads === 1
           ? empty
