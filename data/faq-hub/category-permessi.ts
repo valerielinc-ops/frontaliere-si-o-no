@@ -97,7 +97,7 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
     },
     sources: [
       'https://www.fedlex.admin.ch/eli/cc/2007/758/it',
-      'https://www.easygov.swiss/',
+      'https://www.easygov.swiss/easygov/',
     ],
   },
   {
