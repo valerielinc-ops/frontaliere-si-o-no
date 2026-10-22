@@ -12,6 +12,12 @@ import {
   readArticleMetadata,
   readArticleSlugs,
 } from '../packages/articles/engine/shared/articleReaders';
+import {
+  findTopLevelObjects,
+  parseStaticSource,
+  readStaticObjectProperties,
+  staticPropertyName,
+} from '../packages/articles/engine/shared/staticSourceAst.mjs';
 
 const BODY_PATH = 'packages/articles/content/blog-body/it/alpha.ts';
 
@@ -110,6 +116,27 @@ describe('static article TypeScript source reader', () => {
     ].join('\n');
     expect(() => parseStaticBlogBodySource(dynamicSource, BODY_PATH))
       .toThrow(/Interpolated template literal is not supported/u);
+  });
+
+  it('normalizes static template keys without losing newlines or escaped backticks', () => {
+    const source = [
+      'const translations = {',
+      '  `line',
+      'break`: "value",',
+      '  `escaped\\`tick`: "other",',
+      '};',
+      'export default translations;',
+    ].join('\n');
+
+    const parsed = parseStaticSource(source, 'static-template-keys.ts', {
+      normalizeTemplatePropertyNames: true,
+    });
+    const properties = readStaticObjectProperties(findTopLevelObjects(parsed)[0]);
+
+    expect(properties.map((property) => staticPropertyName(property.name))).toEqual([
+      'line\nbreak',
+      'escaped`tick',
+    ]);
   });
 
   it('rejects computed keys, duplicate keys, dynamic values, and malformed trailing source', () => {
