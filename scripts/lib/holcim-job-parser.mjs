@@ -452,10 +452,10 @@ export async function fetchAllHolcimJobs() {
     const detail = await fetchJobDetail(publicUrl);
 
     // Server-side `locationsearch=Switzerland` already filters the board, so
-    // we trust every listing here is Swiss (same as Constellium/Oerlikon);
-    // parseHolcimLocation() only ever resolves an explicit "CH" or "" for
-    // `country` (never a foreign code), so it's not used as an admission
-    // gate here — only city/canton extraction.
+    // the listing is a valid fallback when the detail page has no scoped
+    // location. When the detail exposes one, resolveHolcimLocation() uses it
+    // instead: the same URL has been served with different search-card
+    // locations across refreshes, while the detail field is vacancy-scoped.
     const resolvedLocation = resolveHolcimLocation(
       listing.locationText || '',
       detail?.locationTexts || [],
