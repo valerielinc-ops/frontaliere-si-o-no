@@ -301,7 +301,7 @@ describe('mappa-del-sito source contains the small-sitemap hub-link arrays', () 
     ]) {
       expect(src.includes(path), `single-inbound contextual link missing: ${path}`).toBe(true);
     }
-    expect(src.includes('localizedSingleInboundGroups')).toBe(true);
+    expect(src.includes('LOCALIZED_SINGLE_INBOUND_GROUPS')).toBe(true);
   });
 
   it('source declares NURSING_LINKS for the 3 nursing orphans', () => {
