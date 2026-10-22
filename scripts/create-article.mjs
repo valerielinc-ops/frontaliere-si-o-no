@@ -203,6 +203,12 @@ import { findCrossSectionSourceDuplicate } from './lib/cross-section-dedup.mjs';
 import { newsUrlKey, legacyNewsUrlKey, makeLedgerEntry, ledgerViewsForLookup } from './lib/news-url-key.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
 
+// Resolve the repository root through the filesystem URL conversion. Reading
+// `.pathname` leaves percent-encoded paths encoded (and is not portable to
+// Windows); the corpus-side `corpusPath()` has the same root invariant after
+// its layout mapping, while the site keeps its own services/locales layout.
+const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
 // data/demand-vocabulary.json + data/experimental-candidates.json are
@@ -245,7 +251,7 @@ const _evidenceIndex = USE_CASCADED_SCORING
 // rationale and the full keyword list (5 + 1 macro-themes).
 const NEWS_SITEMAP_WHITELIST_TOKENS = (() => {
   try {
-    const wlPath = path.resolve('data/news-sitemap-whitelist.ts');
+    const wlPath = path.resolve(PROJECT_ROOT, 'data/news-sitemap-whitelist.ts');
     if (!existsSync(wlPath)) return [];
     const src = readFileSync(wlPath, 'utf-8');
     const block = src.match(/NEWS_SITEMAP_WHITELIST[^=]*=\s*Object\.freeze\(\s*\[([\s\S]*?)\]\s*\)/);
@@ -1819,11 +1825,9 @@ const NEWS_SOURCES_SVIZZERA_FALLBACK_MAP = {
   'https://www.watson.ch/api/1.0/rss/all.xml': 'https://www.watson.ch/',
 };
 
-const PROJECT_ROOT = new URL('..', import.meta.url).pathname.replace(/\/$/, '');
-
 // ── Helpers ─────────────────────────────────────────────────
 function resolve(rel) {
-  return `${PROJECT_ROOT}/${rel}`;
+  return path.resolve(PROJECT_ROOT, rel);
 }
 
 function read(rel) {
