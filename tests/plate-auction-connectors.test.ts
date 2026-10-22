@@ -13,6 +13,7 @@ import {
   parseBsFixedPricePdfText,
   parseLuFixedPricePdfText,
   parseUrFixedPricePdfText,
+  parseZhAuctionCards,
 } from '../functions/src/plateAuctionsCore.js';
 import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
@@ -103,6 +104,21 @@ describe('expanded plate-auction connectors', () => {
       officialAuctionUrl: TG_AUCTION_URL,
       officialDetailUrl: 'https://auktion.tg.ch/de/auction/109715',
     });
+  });
+
+  it('rewrites an absolute TG www detail href to the canonical host', () => {
+    const absoluteHrefCard = CARD_SAMPLE.replace('/de/auction/109715', 'https://www.auktion.tg.ch/detail/123');
+    const [scriptRow] = parseTgAuctionRows(absoluteHrefCard, { fetchedAt: '2026-10-21T22:00:00.000Z' });
+    const [functionRow] = parseZhAuctionCards(absoluteHrefCard, {
+      fetchedAt: '2026-10-21T22:00:00.000Z',
+      officialAuctionUrl: TG_AUCTION_URL,
+      detailBaseUrl: 'https://auktion.tg.ch',
+      sourceKey: 'TG',
+      canton: 'Turgovia',
+      platePrefix: 'TG',
+    });
+    expect(scriptRow.officialDetailUrl).toBe('https://auktion.tg.ch/detail/123');
+    expect(functionRow.officialDetailUrl).toBe('https://auktion.tg.ch/detail/123');
   });
 
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
