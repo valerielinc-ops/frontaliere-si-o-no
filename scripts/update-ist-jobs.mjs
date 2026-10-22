@@ -180,6 +180,9 @@ const IST_SHARED_PORTAL_COMPANIES = new Set([
 ]);
 const IST_DETAIL_TENANT_RE = /\b(?:international\s+school\s+of\s+ticino|scuola\s+internazionale\s+(?:di|del)\s+ticino|école\s+internationale\s+du\s+tessin|internationale\s+schule\s+des\s+tessins)\b/i;
 const IST_ROLE_TENANT_SIGNAL_RE = /(?:\b(?:the\s+)?international\s+school\s+of\s+ticino\s+(?:\([^)]*\)\s+)?(?:is\s+(?:seeking|looking\s+for|recruiting|hiring))\b|\bscuola\s+internazionale\s+(?:di|del)\s+ticino\s+(?:cerca|sta\s+cercando)\b|\bécole\s+internationale\s+du\s+tessin\s+(?:recherche|cherche)\b|\binternationale\s+schule\s+des\s+tessins\s+sucht\b)/i;
+const IST_GENERIC_SWISS_LOCATION_RE = /^(?:lugano|cadempino),\s*ch$/i;
+const IST_GENERIC_GROUP_ROLE_RE = /\binspired\s+education\s+group\s+school\b/i;
+const IST_GENERIC_IB_SCHOOL_RE = /\bib\s+world\s+school\b/i;
 const TRAILING_COUNTRY_CODE_RE = /,\s*([A-Za-z]{2})\s*$/;
 const IST_DETAIL_REDIRECT_STATUSES = new Set([301, 302, 303, 307, 308]);
 const IST_NATIVE_FIELD_ALIASES = {
@@ -207,6 +210,28 @@ const IST_NATIVE_FILLED_MESSAGE_RE = /^sorry,\s*this\s+position\s+has\s+been\s+f
 
 function hasVerifiedIstRoleTenantSignal(detail = {}) {
   return IST_ROLE_TENANT_SIGNAL_RE.test(normalizeSpace(detail.description));
+}
+
+/**
+ * The current portal has one Swiss vacancy whose native detail omits both
+ * `facility` and `tenant`: it exposes only the shared organization, the
+ * native `Lugano, CH` location, and a role body explicitly scoped to an
+ * Inspired IB World School. Keep this fallback narrower than a city allowlist
+ * so a generic Swiss row without the source's role-context proof remains
+ * incomplete and cannot certify an empty IST source.
+ */
+function hasVerifiedGenericSwissIstSignal(detail = {}) {
+  if (!IST_GENERIC_SWISS_LOCATION_RE.test(normalizeSpace(detail.location))) return false;
+  if (!IST_GENERIC_GROUP_ROLE_RE.test(normalizeSpace(detail.description))) return false;
+  if (!IST_GENERIC_IB_SCHOOL_RE.test(normalizeSpace(detail.description))) return false;
+
+  try {
+    const parsed = new URL(String(detail.sourceUrl || ''));
+    return parsed.hostname.toLowerCase() === IST_COMPANY_HOST
+      && /^\/job\/[^/]+\/\d+\/?$/i.test(parsed.pathname);
+  } catch {
+    return false;
+  }
 }
 
 function normalizeIstFieldMarker(value = '') {
@@ -468,7 +493,11 @@ export function isIstDetailJob(detail = {}) {
   // retained as the portal's verified fallback for pages whose structured
   // detail payload contains only the shared group organization.
   return hasVerifiedIstTenant
-    || (hasOnlySharedPortalCompanies && (hasIstTenantMarker || hasVerifiedIstRoleTenantSignal(detail)));
+    || (hasOnlySharedPortalCompanies && (
+      hasIstTenantMarker
+      || hasVerifiedIstRoleTenantSignal(detail)
+      || hasVerifiedGenericSwissIstSignal(detail)
+    ));
 }
 
 function isTrustedDomain(rawUrl = '') {

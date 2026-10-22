@@ -519,6 +519,24 @@ describe('IST detail tenant identity', () => {
     })).toBe(true);
   });
 
+  it('accepts the live generic Swiss role only with native role-context proof', () => {
+    expect(isIstDetailJob({
+      hiringOrganization: 'Inspired Education',
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-German-Teacher/1375440257/',
+      description: 'An Inspired Education Group school in Central/Western Europe is seeking a German Teacher for an IB World School.',
+      location: 'Lugano, CH',
+    })).toBe(true);
+  });
+
+  it('keeps a generic Swiss detail incomplete without the IB role-context proof', () => {
+    expect(isIstDetailJob({
+      hiringOrganization: 'Inspired Education',
+      sourceUrl: 'https://jobs.inspirededu.com/job/Lugano-German-Teacher/1375440257/',
+      description: 'An Inspired Education Group school is seeking a German Teacher.',
+      location: 'Lugano, CH',
+    })).toBe(false);
+  });
+
   it('rejects another Inspired tenant even when its description mentions IST', () => {
     expect(isIstDetailJob({
       hiringOrganization: 'Inspired Education',
