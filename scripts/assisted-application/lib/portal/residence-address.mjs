@@ -148,7 +148,10 @@ export function residenceCountryCode(value) {
   // token; never treat a substring such as «IT» inside another label as a
   // country.
   const raw = String(value ?? '').replace(/\s+/g, ' ').trim();
-  const codeMatch = /(?:^|[\s([{:\/\-–—])([A-Z]{2})(?=$|[\s)\]}:\/\-–—])/i.exec(raw);
+  const codeMatches = [...raw.matchAll(/(?:^|[\s([{:\/\-–—])([A-Z]{2})(?=$|[\s)\]}:\/\-–—])/gi)]
+    .filter((match) => /^(?:IT|CH|DE|FR)$/i.test(match[1]));
+  if (codeMatches.length > 1) return '';
+  const codeMatch = codeMatches[0];
   const code = codeMatch?.[1]?.toUpperCase() || '';
   if (/^(?:IT|CH|DE|FR)$/.test(code)) {
     const start = codeMatch.index + codeMatch[0].length - code.length;

@@ -521,6 +521,10 @@
       && actionControl(element))
     .map((element) => ({
       id: idFor(element),
+      // The generated data-aa-id is kept on the DOM node between snapshots;
+      // expose it explicitly so upload-trigger identity survives object
+      // replacement and form redraws.
+      uploadTriggerDiscriminator: idFor(element),
       domId: clean(element.getAttribute('id') || ''),
       name: clean(element.getAttribute('name') || ''),
       label: buttonAccessibleLabel(element),
