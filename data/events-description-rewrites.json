@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-22T06:21:35.811Z",
+  "generatedAt": "2026-10-22T07:21:07.055Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -58399,6 +58399,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-10T10:22:26.992Z"
+    },
+    "myswitzerland:1b482a39a8ad43d2ba4dbad31965bf14::237933bf69b47f7e8f92b6895d381cac73493a46ab8fbfb1f241abff2fcaa9cf": {
+      "id": "myswitzerland:1b482a39a8ad43d2ba4dbad31965bf14",
+      "sourceDescriptionHash": "237933bf69b47f7e8f92b6895d381cac73493a46ab8fbfb1f241abff2fcaa9cf",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kultur- und Kongresszentrum La Poste; comune: Visp; cantone: VS; categoria: Music; data: 2027-01-24; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kultur- und Kongresszentrum La Poste; comune: Visp; cantone: VS; categoria: Music; data: 2027-01-24; ora: 18:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kultur- und Kongresszentrum La Poste; municipality: Visp; canton: VS; category: Music; date: 2027-01-24; time: 18:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kultur- und Kongresszentrum La Poste; gemeinde: Visp; kanton: VS; kategorie: Music; datum: 2027-01-24; uhrzeit: 18:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kultur- und Kongresszentrum La Poste; commune: Visp; canton: VS; catégorie: Music; date: 2027-01-24; heure: 18:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T07:15:33.145Z"
     },
     "myswitzerland:1b48b0e5e3274b6cb9b9973cda061a23::22e103ad129ea275079b6686a7d04aa45bcf4cd4086b20adb9812ef977f5a757": {
       "id": "myswitzerland:1b48b0e5e3274b6cb9b9973cda061a23",
@@ -167147,15 +167161,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T03:23:32.868Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:1b482a39a8ad43d2ba4dbad31965bf14::237933bf69b47f7e8f92b6895d381cac73493a46ab8fbfb1f241abff2fcaa9cf": {
-      "id": "myswitzerland:1b482a39a8ad43d2ba4dbad31965bf14",
-      "sourceDescriptionHash": "237933bf69b47f7e8f92b6895d381cac73493a46ab8fbfb1f241abff2fcaa9cf",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T13:19:58.522Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

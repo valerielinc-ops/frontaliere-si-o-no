@@ -184,7 +184,13 @@ describe('every internal href is trailing-slashed', () => {
           preferencesUrl: PREFS_URL,
           acquisitionSource: 'job-page',
         });
-        const hrefs = extractHrefs(html).filter((h) => h.includes('frontaliereticino.ch'));
+        const hrefs = extractHrefs(html).filter((href) => {
+          try {
+            return new URL(href).hostname === 'frontaliereticino.ch';
+          } catch {
+            return false;
+          }
+        });
         expect(hrefs.length).toBeGreaterThan(0);
         for (const href of hrefs) {
           const pathname = new URL(href).pathname;

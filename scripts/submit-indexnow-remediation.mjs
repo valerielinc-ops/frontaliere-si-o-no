@@ -3,12 +3,12 @@
 /**
  * Submit only the URLs Bing identified as missing via single-URL streaming.
  *
- * The full-sitemap batch remains available as an explicit manual recovery
- * tool; routine remediation must not recreate the batch-mode warning.
+ * The full-sitemap batch also runs as a daily reconciliation; this narrow
+ * policy remains useful for the Bing-specific URLs between full sweeps.
  */
 
 import { BING_INDEXNOW_REMEDIATION_URLS } from './seo/bing-seo-policy.mjs';
-import { submitIndexNowUrlsStreaming } from './lib/indexnow-submit.mjs';
+import { submitIndexNowUrlsStreaming, verifyIndexNowKey } from './lib/indexnow-submit.mjs';
 
 const dryRun = process.argv.includes('--dry-run');
 
@@ -49,6 +49,12 @@ const output = {
 };
 
 if (!dryRun && checked.errors.length === 0 && checked.live.length > 0) {
+  const key = await verifyIndexNowKey({ attempts: 3, delayMs: 1000 });
+  output.key = key;
+  if (!key.ok) {
+    console.error(`[indexnow-remediation] key preflight failed: ${key.reason}`);
+    process.exitCode = 1;
+  }
   output.result = await submitIndexNowUrlsStreaming(checked.live, {
     batchSize: 1,
     delayMs: 750,

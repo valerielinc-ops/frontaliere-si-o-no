@@ -6,7 +6,6 @@ import {
   hasPotentialJobSearchQualifier,
   matchesJobSearchRoleProfile,
   prepareJobOccupationTerms,
-  matchesPreparedJobOccupation,
   type JobSearchRoleProfile,
 } from '../services/jobSearchRelevance';
 /**
@@ -1208,8 +1207,17 @@ export function buildRelatedSitemapManifestInput(input: {
 // substring — the same `haystack.includes(token)` condition the prior
 // per-candidate scan applied via queryMatchScore. Stemming is intentionally
 // skipped (matches plurals/feminines via substring, like the SPA filter).
+interface OccupationLocaleIndex {
+  readonly exactPostings: Map<string, number[]>;
+  readonly sortedTerms: string[];
+  readonly rolePostings: Map<string, readonly number[]>;
+}
+
+type JobAcceptance = (job: RawJob, jobIdx: number) => boolean;
+
 export class TokenIndex {
   private occupationTermsByLocale = new Map<Locale, WeakMap<RawJob, readonly string[]>>();
+  private occupationPostingsByLocale = new Map<Locale, OccupationLocaleIndex>();
   private haystacksByLocale = new Map<Locale, string[]>();
   private postingsByLocale = new Map<Locale, Map<string, number[]>>();
   private gramPostingsByLocale = new Map<Locale, Map<string, number[]>>();
@@ -1280,7 +1288,7 @@ export class TokenIndex {
     tokens: readonly string[],
     maxJobs: number,
     minOrScore = 1,
-    accept: (job: RawJob) => boolean = () => true,
+    accept: JobAcceptance = () => true,
     options: { readonly stopWhenAtLeast?: number } = {},
   ): RawJob[] {
     const __tPostings = profileStart();
@@ -1299,7 +1307,7 @@ export class TokenIndex {
       const __tSingle = profileStart();
       const out: RawJob[] = [];
       for (const idx of lists[0]) {
-        if (accept(this.jobs[idx])) out.push(this.jobs[idx]);
+        if (accept(this.jobs[idx], idx)) out.push(this.jobs[idx]);
         if (out.length >= resultLimit) break;
       }
       profileRecord('bc:mj-single', __tSingle);
@@ -1336,20 +1344,13 @@ export class TokenIndex {
     options: { readonly stopWhenAtLeast?: number } = {},
   ): RawJob[] {
     if (roles.length === 0) return this.matchingJobs(locale, tokens, maxJobs, minOrScore, undefined, options);
-    let prepared = this.occupationTermsByLocale.get(locale);
-    if (!prepared) {
-      prepared = new WeakMap<RawJob, readonly string[]>();
-      this.occupationTermsByLocale.set(locale, prepared);
-    }
-    const termsByJob = prepared;
-    return this.matchingJobs(locale, tokens, maxJobs, minOrScore, (job) => {
-      let terms = termsByJob.get(job);
-      if (!terms) {
-        terms = prepareJobOccupationTerms(job, locale);
-        termsByJob.set(job, terms);
-      }
-      return matchesPreparedJobOccupation(terms, roles);
-    }, options);
+    const rolePostings = roles.map((role) => this.occupationPostingForRole(locale, role));
+    if (rolePostings.some((posting) => posting.length === 0)) return [];
+
+    const accept: JobAcceptance = rolePostings.length === 1
+      ? (_job, jobIdx) => binaryIncludes(rolePostings[0], jobIdx)
+      : (_job, jobIdx) => rolePostings.every((posting) => binaryIncludes(posting, jobIdx));
+    return this.matchingJobs(locale, tokens, maxJobs, minOrScore, accept, options);
   }
 
   /**
@@ -1387,6 +1388,7 @@ export class TokenIndex {
   /** Free the haystack + postings cache once index queries are complete. */
   clear(): void {
     this.occupationTermsByLocale.clear();
+    this.occupationPostingsByLocale.clear();
     this.haystacksByLocale.clear();
     this.postingsByLocale.clear();
     this.gramPostingsByLocale.clear();
@@ -1464,7 +1466,7 @@ export class TokenIndex {
     return rarest ?? [];
   }
 
-  private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number, accept: (job: RawJob) => boolean): number[] {
+  private firstAndMatches(lists: ReadonlyArray<readonly number[]>, maxJobs: number, accept: JobAcceptance): number[] {
     if (lists.some((list) => list.length === 0)) return [];
 
     let shortestIdx = 0;
@@ -1480,7 +1482,7 @@ export class TokenIndex {
         if (i === shortestIdx) continue;
         if (!binaryIncludes(lists[i], idx)) continue outer;
       }
-      if (!accept(this.jobs[idx])) continue;
+      if (!accept(this.jobs[idx], idx)) continue;
       out.push(idx);
       if (out.length >= maxJobs) break;
     }
@@ -1493,7 +1495,7 @@ export class TokenIndex {
     out: number[],
     maxJobs: number,
     minScore: number,
-    accept: (job: RawJob) => boolean,
+    accept: JobAcceptance,
     stopWhenAtLeast?: number,
   ): void {
     const scores = this.scratchScores;
@@ -1530,7 +1532,7 @@ export class TokenIndex {
             score >= minScore
             && score < fullScore
             && !selected.has(idx)
-            && accept(this.jobs[idx])
+            && accept(this.jobs[idx], idx)
           ) {
             selected.add(idx);
             probeMatches.push(idx);
@@ -1579,16 +1581,92 @@ export class TokenIndex {
       if (orderedTouched) {
         for (const idx of orderedTouched) {
           if (out.length >= maxJobs) break;
-          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+          if (scores[idx] === score && accept(this.jobs[idx], idx)) out.push(idx);
         }
       } else {
         for (let idx = 0; idx < scores.length && out.length < maxJobs; idx++) {
-          if (scores[idx] === score && accept(this.jobs[idx])) out.push(idx);
+          if (scores[idx] === score && accept(this.jobs[idx], idx)) out.push(idx);
         }
       }
     }
 
     clearScratch();
+  }
+
+  private occupationPostingForRole(locale: Locale, role: string): readonly number[] {
+    const index = this.getOccupationIndex(locale);
+    const cached = index.rolePostings.get(role);
+    if (cached !== undefined) return cached;
+
+    if (role.length < 2) {
+      index.rolePostings.set(role, []);
+      return [];
+    }
+
+    if (role.length === 2) {
+      const exact = index.exactPostings.get(role) ?? [];
+      index.rolePostings.set(role, exact);
+      return exact;
+    }
+
+    // For a stem of length >= 3, tokenMatchesStem(term, stem) is exactly
+    // equivalent to term.startsWith(stem.slice(0, max(3, stem.length - 1))):
+    // the forward-prefix branch implies it, and the reverse-prefix branch
+    // requires the same prefix. Keep this proof next to the index so this
+    // optimization cannot silently become an approximate matcher.
+    const prefix = role.slice(0, Math.max(3, role.length - 1));
+    const firstTerm = lowerBound(index.sortedTerms, prefix);
+    const matching = new Set<number>();
+    for (let termIdx = firstTerm; termIdx < index.sortedTerms.length; termIdx++) {
+      const term = index.sortedTerms[termIdx];
+      if (!term.startsWith(prefix)) break;
+      for (const jobIdx of index.exactPostings.get(term) ?? []) matching.add(jobIdx);
+    }
+    const posting = [...matching].sort((a, b) => a - b);
+    index.rolePostings.set(role, posting);
+    return posting;
+  }
+
+  private getOccupationIndex(locale: Locale): OccupationLocaleIndex {
+    const cached = this.occupationPostingsByLocale.get(locale);
+    if (cached) return cached;
+
+    let termsByJob = this.occupationTermsByLocale.get(locale);
+    if (!termsByJob) {
+      termsByJob = new WeakMap<RawJob, readonly string[]>();
+      this.occupationTermsByLocale.set(locale, termsByJob);
+    }
+
+    const __tOccupationIndex = profileStart();
+    const exactPostings = new Map<string, number[]>();
+    for (let jobIdx = 0; jobIdx < this.jobs.length; jobIdx++) {
+      const job = this.jobs[jobIdx];
+      let terms = termsByJob.get(job);
+      if (!terms) {
+        terms = prepareJobOccupationTerms(job, locale);
+        termsByJob.set(job, terms);
+      }
+      const seen = new Set<string>();
+      for (const term of terms) {
+        if (seen.has(term)) continue;
+        seen.add(term);
+        let posting = exactPostings.get(term);
+        if (!posting) {
+          posting = [];
+          exactPostings.set(term, posting);
+        }
+        posting.push(jobIdx);
+      }
+    }
+
+    const index: OccupationLocaleIndex = {
+      exactPostings,
+      sortedTerms: [...exactPostings.keys()].sort(),
+      rolePostings: new Map(),
+    };
+    this.occupationPostingsByLocale.set(locale, index);
+    profileRecord('bc:occupation-index', __tOccupationIndex);
+    return index;
   }
 }
 
@@ -1613,6 +1691,17 @@ function binaryIncludes(sorted: readonly number[], value: number): boolean {
     else hi = mid - 1;
   }
   return false;
+}
+
+function lowerBound(sorted: readonly string[], value: string): number {
+  let lo = 0;
+  let hi = sorted.length;
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1;
+    if (sorted[mid] < value) lo = mid + 1;
+    else hi = mid;
+  }
+  return lo;
 }
 
 function filterAndDedupeCandidates(all: CandidateEntry[]): CandidateEntry[] {

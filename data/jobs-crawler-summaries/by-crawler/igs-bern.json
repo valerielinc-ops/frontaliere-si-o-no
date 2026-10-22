@@ -1,7 +1,7 @@
 {
   "key": "igs-bern",
   "label": "Interessengemeinschaft Sozialpsychiatrie Bern",
-  "generatedAt": "2026-10-21T09:31:27.631Z",
+  "generatedAt": "2026-10-22T09:22:39.996Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,59 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4711,
-  "avgDurationMs": 4711,
+  "unchangedCount": 3,
+  "durationMs": 4709,
+  "avgDurationMs": 4709,
   "durationHistory": [
-    4711
+    4709
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "igs-bern-52ea00b2fd44",
-      "slug": "posto-di-apprendistato-come-operatrice-operatore-socioassistenziale-efz-per-persone-con-disabilita",
-      "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
-      "companyKey": "igs-bern",
-      "companyDomain": "igsbern.ch",
-      "title": "Lehrstelle als Fachfrau/Fachmann Betreuung EFZ Menschen mit Beeinträchtigung",
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
-      "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:31:14.618Z",
-      "addressLocality": "Bern",
-      "postalCode": "3004",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
-      "firstSeenAt": "2026-10-20T09:21:59.517Z",
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "salarySource": "estimated",
-      "addressRegion": "BE",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +37,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:31:15.160Z",
+      "crawledAt": "2026-10-22T09:22:27.157Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3302",
       "addressCountry": "CH",
@@ -113,6 +70,48 @@
       }
     },
     {
+      "id": "igs-bern-52ea00b2fd44",
+      "slug": "posto-di-apprendistato-come-operatrice-operatore-socioassistenziale-efz-per-persone-con-disabilita",
+      "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
+      "companyKey": "igs-bern",
+      "companyDomain": "igsbern.ch",
+      "title": "Lehrstelle als Fachfrau/Fachmann Betreuung EFZ Menschen mit Beeinträchtigung",
+      "needsRetranslation": false,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
+      "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T09:22:26.583Z",
+      "addressLocality": "Bern",
+      "postalCode": "3004",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job167324?ext",
+      "firstSeenAt": "2026-10-20T09:21:59.517Z",
+      "salaryMin": 66000,
+      "salaryMax": 112000,
+      "salarySource": "estimated",
+      "addressRegion": "BE",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
       "id": "igs-bern-53da410315b2",
       "slug": "stage-nella-vita-assistita-interessengemeinschaft-sozialpsychiatrie-bern-bern",
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
@@ -125,7 +124,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:31:14.040Z",
+      "crawledAt": "2026-10-22T09:22:25.999Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressCountry": "CH",
@@ -155,5 +154,5 @@
       }
     }
   ],
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }

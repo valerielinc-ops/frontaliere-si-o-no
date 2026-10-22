@@ -25,7 +25,7 @@
 #   4. Prune superseded CDN asset hashes    → ci/prune-cdn-assets.mjs
 #   5. Drop dist/assets after CDN push      → cdnAssetOffloadRx guard + rm
 #   6. Capture pre-deploy sitemap URLs      → capture-deployed-sitemaps.mjs
-#   7. Pack new sitemap URLs from dist/     → inline node → new-sitemap-urls.json
+#   7. Pack new sitemap URLs from dist/     → sitemap graph crawler → new-sitemap-urls.json
 #   8. Stage sitemaps bundle                → /tmp/sitemaps-bundle/
 #   9. Pack dist/ into Pages tar archive    → tar → artifact.tar, export TAR_BYTES
 #  10. Audit dist bytes                     → report-dist-bytes-by-plugin.mjs
@@ -1153,42 +1153,25 @@ step_drop_assets() {
 # deploy.yml: "Capture pre-deploy sitemap URLs" — NON-FATAL.
 # Writes /tmp/pre-deploy-sitemap-urls.json.
 step_capture_sitemaps() {
-  node scripts/capture-deployed-sitemaps.mjs
+  if ! node scripts/capture-deployed-sitemaps.mjs; then
+    echo '⚠️ pre-deploy sitemap capture failed — IndexNow will reconcile the full current build graph'
+  fi
 }
 
 # ── 7. Pack new sitemap URLs from dist/ ───────────────────────────────────────
 # deploy.yml: "Pack new sitemap URLs from dist/" — NON-FATAL.
-# Inline node script producing /tmp/new-sitemap-urls.json.
+# Use the same recursive crawler as the live pre-deploy snapshot. This keeps
+# sitemap indexes, nested canton files, hreflang URLs and change metadata on one
+# contract instead of maintaining a second direct-file parser here.
 step_pack_new_sitemaps() {
-  node -e "
-    const fs = require('node:fs');
-    const path = require('node:path');
-    const distDir = 'dist';
-    if (!fs.existsSync(distDir)) {
-      console.error('dist/ missing — skipping new-sitemap-urls.json');
-      process.exit(0);
-    }
-    const files = fs.readdirSync(distDir)
-      .filter(f => /^sitemap-.+\.xml\$/.test(f) && f !== 'sitemap-index.xml')
-      .sort();
-    const perSitemap = {};
-    const all = new Set();
-    for (const f of files) {
-      const xml = fs.readFileSync(path.join(distDir, f), 'utf8');
-      const urls = [...new Set([...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim()))].sort();
-      perSitemap[f] = urls;
-      for (const u of urls) all.add(u);
-    }
-    const out = {
-      version: 2,
-      capturedAt: new Date().toISOString(),
-      source: 'dist',
-      perSitemap,
-      _allUrls: [...all].sort(),
-    };
-    fs.writeFileSync('/tmp/new-sitemap-urls.json', JSON.stringify(out));
-    console.log('📦 Packed ' + out._allUrls.length + ' new sitemap URLs across ' + Object.keys(perSitemap).length + ' files → /tmp/new-sitemap-urls.json');
-  "
+  if [ ! -d dist ]; then
+    echo 'dist/ missing — skipping new-sitemap-urls.json'
+    return 0
+  fi
+  if ! SOURCE=local LOCAL_ROOT=dist OUTPUT=/tmp/new-sitemap-urls.json \
+    node scripts/capture-deployed-sitemaps.mjs; then
+    echo '⚠️ new sitemap graph packing failed — post-deploy IndexNow will use its safe local fallback'
+  fi
 }
 
 # ── 8. Stage sitemaps bundle (pre-deploy + new + build-id) ────────────────────

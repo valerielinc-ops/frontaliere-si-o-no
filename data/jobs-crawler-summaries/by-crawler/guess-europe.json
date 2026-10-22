@@ -1,18 +1,66 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-21T09:20:02.352Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-10-22T09:16:13.718Z",
+  "total": 9,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 2335,
-  "avgDurationMs": 2335,
+  "durationMs": 2439,
+  "avgDurationMs": 2439,
   "durationHistory": [
-    2335
+    2439
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Social Media Manager",
+      "slug": "social-media-manager-guess-europe-sagl-bioggio-switzerland",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/1389DB96D4/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/1389DB96D4/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-21T00:00:00.000Z",
+      "postedDate": "2026-10-21T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-df110eb844b5",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-10-22T09:16:05.725Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sales Associate - Zurich Area (Hourly Paid Contract)",
@@ -374,5 +422,5 @@
       }
     }
   ],
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }

@@ -89,6 +89,7 @@ import { SLUG_TABLES } from '../services/routeSlugs.data.ts';
 // both email channels.
 import { renderJobCard as renderSharedJobCard, formatPostedDate } from '../services/newsletter/jobCard.mjs';
 import { renderRecommendedBlock } from '../services/newsletter/recommendedBlock.mjs';
+import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
@@ -847,15 +848,12 @@ table{border-collapse:collapse;}
           </div>
         </td></tr>
 
+        ${renderEmailEngagementBanners({ locale })}
+
         <!-- Footer -->
         <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
           <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
             ${escapeHtml(footerReason)}
-          </div>
-          <div style="margin-bottom:12px;">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/frontaliereticino/" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">📘</a>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">💼</a>
-            <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">🌐</a>
           </div>
           <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
             <a target="_blank" rel="noopener noreferrer" href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${escapeHtml(s.manageLink)}</a>
@@ -896,6 +894,8 @@ export function buildEmailText({ locale, s, savedEntries = [], applicationIntent
     `${s.textViewAllLine} ${manageUrl}`,
     '',
     `${s.textUnsubLine} ${unsubUrl}`,
+    '',
+    emailEngagementBannersText({ locale }),
     '',
     `© ${new Date().getFullYear()} Frontaliere Ticino`,
     dataControllerFooterLine(locale),

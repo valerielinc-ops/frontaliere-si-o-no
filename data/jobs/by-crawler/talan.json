@@ -1,83 +1,8 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-21T09:16:55.038Z",
-  "runId": "39574208310",
+  "assembledAt": "2026-10-22T09:15:02.150Z",
+  "runId": "39752721661",
   "jobs": [
-    {
-      "id": "talan-68cff378c8b2",
-      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
-        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
-        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
-        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "QA Engineer Ebanking",
-      "titleByLocale": {
-        "it": "QA Ingegnere Ebanking",
-        "en": "QA Engineer Ebanking",
-        "de": "QA Ingenieur Ebanking",
-        "fr": "QA Ingénieur Ebanking"
-      },
-      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
-        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
-        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
-        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.987Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14T15:17:38.323Z",
-      "postedDate": "2026-07-14T15:17:38.323Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
-      "jobReqId": "744000137693459",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "qa-engineer-ebanking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-engineer-ebanking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:58:50.426Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "talan-838cc2a04384",
       "slug": "sviluppatore-abap-s-4hana-talan-geneva",
@@ -110,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.987Z",
+      "crawledAt": "2026-10-22T09:14:53.481Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -140,6 +65,81 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:41:37.239Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-68cff378c8b2",
+      "slug": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "qa-ingegnere-ebanking-talan-geneve-switzerland",
+        "en": "qa-engineer-ebanking-talan-geneve-switzerland",
+        "de": "qa-ingenieur-ebanking-talan-geneve-switzerland",
+        "fr": "qa-engineer-ebanking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "QA Engineer Ebanking",
+      "titleByLocale": {
+        "it": "QA Ingegnere Ebanking",
+        "en": "QA Engineer Ebanking",
+        "de": "QA Ingenieur Ebanking",
+        "fr": "QA Ingénieur Ebanking"
+      },
+      "description": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\n Missions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un ingegnere QA per rafforzare un team dedicato alle piattaforme web e mobile e-banking in un ambiente bancario privato.\nPrincipali missioni\n\n• Progettazione, preparazione ed esecuzione di test funzionali, piani di non regressione e integrazione.\n\n• Assicurare la qualità delle piattaforme digitali e-banking (web e mobile).\n\n• Partecipare a test di automazione quando necessario.\n\n• Assicurare la tracciabilità di requisiti, test e anomalie.\n\n• Identificare, analizzare e monitorare i difetti fino a risolverli.\n\n• Eseguire le validazioni dei dati tramite query SQL e controlli di coerenza.\n\n• Testare e convalidare le API REST.\n\n• Analizzare i registri delle applicazioni per diagnosticare gli incidenti.\n\n• Partecipare alle attività UAT e sostenere le professioni nella convalida dei comunicati.\n\n• Contribuire al miglioramento continuo dei processi di qualità.\n\nÈ richiesta un'esperienza confermata nelle seguenti aree:\n\n• Minimo 5 anni in QA, idealmente in un ambiente bancario o finanziario.\n\n• Alta capacità di analisi e problem solving.\n\n• Sensibilità ai problemi di sicurezza, conformità e gestione dei rischi.\n\n• Eccellente capacità di comunicazione con partner tecnici e commerciali.\n\n• Spirito collaborativo, autonomia e proattività.\n\n• Forte esperienza nel test manuale e automatizzato sulle applicazioni web e mobile in un ambiente Agile.\n\n• Mastery di JIRA-Xray (gestione di piani di prova, esecuzione, tracciabilità, monitoraggio delle anomalie).\n\n• Buona pratica SQL per la convalida dei dati e la riconciliazione.\n\n• Esperienza nella convalida di REST API (Postman, Swagger).\n\n• Mastery professionale di francese e inglese.",
+        "en": "We are looking for a QA Engineer to strengthen a team dedicated to web and mobile e-banking platforms in a private banking environment.\nMain missions\n\n• Design, prepare and execute functional testing, non-regression and integration plans.\n\n• Ensure the quality of e-banking digital platforms (web and mobile).\n\n• Participate in testing automation when relevant.\n\n• Ensure traceability of requirements, tests and anomalies.\n\n• Identify, analyze and track defects until resolved.\n\n• Perform data validations via SQL queries and consistency checks.\n\n• Test and validate REST APIs.\n\n• Analyze application logs to help diagnose incidents.\n\n• Participate in UAT activities and support the professions in the validation of releases.\n\n• Contribute to continuous improvement of quality processes.\n\nConfirmed experience in the following areas is required:\n\n• Minimum 5 years in QA, ideally in a banking or financial environment.\n\n• High capacity for analysis and problem solving.\n\n• Sensitivity to safety, compliance and risk management issues.\n\n• Excellent communication skills with technical and trade partners.\n\n• Collaborative spirit, autonomy and proactivity.\n\n• Strong experience in manual and automated testing on web and mobile applications in an Agile environment.\n\n• Mastery of JIRA-Xray (management of test plans, execution, traceability, monitoring of anomalies).\n\n• Good SQL practice for data validation and reconciliation.\n\n• Experience in validation of REST API (Postman, Swagger).\n\n• Professional mastery of French and English.",
+        "de": "Wir suchen einen QA-Ingenieur, der ein Team für Web- und mobile E-Banking-Plattformen in einem Private-Banking-Umfeld stärkt.\nHauptmissionen\n\n• Entwurf, Vorbereitung und Durchführung von Funktionstests, Nicht-Regressions- und Integrationsplänen.\n\n• Sicherstellung der Qualität digitaler E-Banking-Plattformen (Web und Mobil).\n\n• Nehmen Sie an der Testautomatisierung teil, wenn dies relevant ist.\n\n• Gewährleistung der Rückverfolgbarkeit von Anforderungen, Tests und Anomalien.\n\n• Identifizieren, analysieren und verfolgen Sie Fehler, bis sie behoben sind.\n\n• Führen Sie Datenvalidierungen über SQL-Abfragen und Konsistenzprüfungen durch.\n\n• Testen und validieren Sie REST-APIs.\n\n• Analysieren Sie Anwendungsprotokolle, um Vorfälle zu diagnostizieren.\n\n• Nehmen Sie an UAT-Aktivitäten teil und unterstützen Sie die Berufe bei der Validierung von Releases.\n\n• Beitrag zur kontinuierlichen Verbesserung der Qualitätsprozesse.\n\nBestätigte Erfahrung in den folgenden Bereichen ist erforderlich:\n\n• Mindestens 5 Jahre in QA, idealerweise in einem Bank- oder Finanzumfeld.\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Sensibilisierung für Sicherheits-, Compliance- und Risikomanagementfragen.\n\n• Hervorragende Kommunikationsfähigkeiten mit technischen und Handelspartnern.\n\n• Kooperationsgeist, Autonomie und Proaktivität.\n\n• Starke Erfahrung im manuellen und automatisierten Testen von Web- und mobilen Anwendungen in einer agilen Umgebung.\n\n• Beherrschung von JIRA-Xray (Management von Testplänen, Ausführung, Rückverfolgbarkeit, Überwachung von Anomalien).\n\n• Gute SQL-Praxis für Datenvalidierung und -abgleich.\n\n• Erfahrung in der Validierung von REST API (Postman, Swagger).\n\n• Professionelle Beherrschung von Französisch und Englisch.",
+        "fr": "Nous recherchons un(e) QA Engineer pour renforcer une équipe dédiée aux plateformes e-banking web et mobile dans un environnement de banque privée.\nMissions principales\n\n• Concevoir, préparer et exécuter les plans de tests fonctionnels, de non-régression et d’intégration.\n\n• Assurer la qualité des plateformes digitales e-banking (web et mobile).\n\n• Participer à l’automatisation des tests lorsque pertinent.\n\n• Garantir la traçabilité des exigences, des tests et des anomalies.\n\n• Identifier, analyser et suivre les défauts jusqu’à leur résolution.\n\n• Effectuer des validations de données via requêtes SQL et contrôles de cohérence.\n\n• Tester et valider les API REST.\n\n• Analyser les logs applicatifs afin de faciliter le diagnostic des incidents.\n\n• Participer aux activités UAT et accompagner les métiers dans la validation des releases.\n\n• Contribuer à l’amélioration continue des processus qualité.\n\nUne expérience confirmée sur les domaines suivants est requise :\n\n• 5 ans minimum en QA, idéalement dans un environnement bancaire ou financier.\n\n• Forte capacité d’analyse et de résolution de problèmes.\n\n• Sensibilité aux enjeux de sécurité, de conformité et de gestion des risques.\n\n• Excellentes capacités de communication avec des interlocuteurs techniques et métiers.\n\n• Esprit collaboratif, autonomie et proactivité.\n\n• Expérience solide en tests manuels et automatisés sur applications web et mobiles dans un environnement Agile.\n\n• Maîtrise de JIRA-Xray (gestion des plans de test, exécution, traçabilité, suivi des anomalies).\n\n• Bonne pratique de SQL pour la validation et la réconciliation de données.\n\n• Expérience en validation d’API REST (Postman, Swagger).\n\n• Maîtrise professionnelle du français et de l’anglais."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-22T09:14:53.480Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14T15:17:38.323Z",
+      "postedDate": "2026-07-14T15:17:38.323Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
+      "jobReqId": "744000137693459",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "qa-engineer-ebanking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-engineer-ebanking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T21:58:50.426Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -186,7 +186,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.986Z",
+      "crawledAt": "2026-10-22T09:14:53.476Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -216,244 +216,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-3d22739aef94",
-      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
-        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
-        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
-        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst – Enterprise Data Management (EDM)",
-      "titleByLocale": {
-        "it": "Business Analista – Enterprise Data Management (EDM)",
-        "en": "Business Analyst – Enterprise Data Management (EDM)",
-        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
-        "fr": "Business Analyste – Enterprise Data Management (EDM)"
-      },
-      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
-      "descriptionByLocale": {
-        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
-        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
-        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
-        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.985Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08T13:16:20.226Z",
-      "postedDate": "2026-09-08T13:16:20.226Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "jobReqId": "744000148235109",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:44.207Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-827097ba6739",
-      "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
-      "slugByLocale": {
-        "it": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
-        "en": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
-        "de": "ai-platform-ingenieur-plugins-marketplace-talan-geneva",
-        "fr": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "AI Platform Engineer — Plugins & Marketplace",
-      "titleByLocale": {
-        "it": "AI Platform Ingegnere — Plugins & Marketplace",
-        "en": "AI Platform Engineer — Plugins & Marketplace",
-        "de": "AI Platform Ingenieur — Plugins & Marketplace",
-        "fr": "AI Platform Ingénieur — Plugins & Marketplace"
-      },
-      "description": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\n Pour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\n Vos missions principales\n 1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n 2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n 3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n 4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique.",
-      "descriptionByLocale": {
-        "it": "Come parte della massiccia distribuzione dell'IA generale all'interno di ambienti aziendali complessi, strutturamo il mercato interno dei plugin basati sull'ecosistema Claude / Antropico. Questa piattaforma è destinata a essere messa a disposizione di tutti i dipendenti a livello di una grande organizzazione.\nPer sostenere questa ambizione, stiamo cercando un AI Platform Engineer. Il vostro ruolo sarà quello di progettare, adattare e industrializzare plug-in trasversali robusti, accompagnando allo sviluppo operativo e tecnico di questo mercato ai team aziendali.\nLe vostre principali missioni\n1. Sviluppo di plugin e competenze trasversali\n\n• Progettare e sviluppare i plugin strategici del mercato:\n• Enterprise Search: un motore di ricerca interno che cerca i dati e i documenti dell'organizzazione direttamente via Claude.\n\n• Data Plugin: Generazione di analisi interattive e dashboard collegati alle piattaforme analitiche dell'azienda e ai Data Lakes.\n\n• roadmap evolutiva di nuovi plugin in base alle esigenze aziendali identificate.\n\n• Costruire sull'ecosistema antropico (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugin di terze parti \"3P\") e adattare i mattoni esistenti ai vincoli di architettura e sicurezza dell'azienda.\n2. Integrazione dell'ecosistema Microsoft Office\n\n• Componenti aggiuntivi dell'ufficio di distribuzione (Excel, PowerPoint, Outlook) collegati al mercato interno nella prova di concetto (PoC)\n\n• Lavorare a stretto contatto con il team Packaging per garantire l'industrializzazione e la distribuzione su larga scala.\n3. Controllo dei consumi\n\n• Disegno token monitoraggio dei consumi dashboard per manager e sponsor.\n\n• Migrare FinOps monitoraggio al nuovo fatturazione / costi per modello utente.\n\n• Impostare un sistema di allarme automatico in caso di sovratensioni delle quote.\n4. Evoluzione dell'accesso & IAM\n\n• Definire e implementare V2 del flusso di accesso sul mercato interno in coordinamento con i team IAM, Supply e Packaging.\n\n• Permettere ai manager di personalizzare l'ambiente delle loro squadre (assegnando quote token, selezionando modelli accessibili, ecc.).\n\n• Formazione & Esperienza: Bac+5 (Master o Engineering School) specializzato in AI / Informatica, o esperienza equivalente\n\n• Esperienza professionale: da 3 a 7 anni\n\n• Esperienza antropica: padronanza pratica e operativa degli strumenti antropi: Claude, Claude Code, Claude Agent SDK, nonché lo sviluppo e l'adattamento dei server/plugins MCP.\n\n• Principali competenze tecniche:\n• Buona conoscenza nell'integrazione degli ambienti Modern Data Stack / Data Lakehouse (accoglienza, molto utile per il plugin Data).\n\n• Esperienza di successo nella distribuzione di componenti aggiuntivi Microsoft Office nell'ambiente aziendale.\n\n• Visione e Trasversalità del prodotto: Capacità di interagire con i vari stakeholder (Security Teams, IAM, Packaging, Business Managers) e tradurre una necessità di business in funzionalità realizzabili.\n\n• Lingue: Inglese attuale e francese.\n\n• Impatto diretto: Un ruolo chiave nel cuore della trasformazione AI all'interno di una grande organizzazione.\n\n• Ambiente avanzato: Accesso diretto alle ultime innovazioni dell'ecosistema antropico (MCP, Cowork, plugin aziendali).\n\n• Autonomia: Un team dedicato all'innovazione AI con grande libertà di iniziativa tecnica.",
-        "en": "As part of the massive deployment of the general AI within complex business environments, we structure the internal marketplace of plugins based on the Claude / Anthropic ecosystem. This platform is intended to be made available to all employees at the level of a large organization.\nTo support this ambition, we are looking for an AI Platform Engineer. Your role will be to design, adapt and industrialize robust transverse plugins, while accompanying the operational and technical deployment of this marketplace to the business teams.\nYour main missions\n1. Development of transverse plugins & skills\n\n• Design and develop the strategic plugins of the marketplace:\n• Enterprise Search: an internal search engine that searches the organization's data and documents directly via Claude.\n\n• Data Plugin: Generation of interactive analysis and dashboards connected to the company's analytical data platforms and Data Lakes.\n\n• Evolutionary roadmap of new plugins according to the business needs identified.\n\n• Building on the Anthropic ecosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, third-party plugins \"3P\") and adapting existing bricks to the constraints of architecture and security of the company.\n2. Microsoft Office ecosystem integration\n\n• Deploy Office add-ins (Excel, PowerPoint, Outlook) connected to Internal Marketplace in Proof of Concept (PoC)\n\n• Work closely with the Packaging team to ensure large scale industrialization and deployment.\n3. FinOps & consumption control\n\n• Design token consumption monitoring dashboards for managers and sponsors.\n\n• Migrate FinOps tracking to the new billing/costs per user model.\n\n• Set up an automatic alert system in case of quota overruns.\n4. Evolution of access & IAM\n\n• Define and implement V2 of the Internal Marketplace access stream in coordination with IAM, Supply and Packaging teams.\n\n• Allow managers to customize the environment of their teams (assigning token quotas, selecting accessible models, etc.).\n\n• Training & Experience: Bac+5 (Master or Engineering School) specialized in AI / Computer Science, or equivalent experience\n\n• Professional experience: 3 to 7 years\n\n• Anthropic experience: Practical and operational mastery of Anthropic tools: Claude, Claude Code, Claude Agent SDK, as well as the development and adaptation of MCP servers/plugins.\n\n• Key Technical Skills:\n• Good knowledge in integration of Modern Data Stack / Data Lakehouse environments (welcome, very useful for the Data plugin).\n\n• Successful experience in deploying Microsoft Office add-ins in the business environment.\n\n• Product Vision & Transversality: Ability to interact with various stakeholders (Security Teams, IAM, Packaging, Business Managers) and translate a business need into deliverable functionality.\n\n• Languages: Current English & French.\n\n• Direct impact: A key role at the heart of AI transformation within a large organization.\n\n• Advanced environment: Direct access to the latest innovations of the Anthropic ecosystem (MCP, Cowork, corporate plugins).\n\n• Autonomy: A team dedicated to innovation AI with great freedom of technical initiative.",
-        "de": "Im Rahmen des massiven Einsatzes der allgemeinen KI in komplexen Geschäftsumgebungen strukturieren wir den internen Marktplatz von Plugins auf Basis des Claude / Anthropic Ökosystems. Diese Plattform soll allen Mitarbeitern auf der Ebene einer großen Organisation zur Verfügung gestellt werden.\nUm dieses Ziel zu unterstützen, suchen wir einen AI Platform Engineer. Ihre Aufgabe wird es sein, robuste transversale Plugins zu entwerfen, anzupassen und zu industrialisieren, während Sie den operativen und technischen Einsatz dieses Marktplatzes für die Geschäftsteams begleiten.\nIhre wichtigsten Missionen\n1. Entwicklung von transversalen Plugins & Skills\n\n• Design und Entwicklung der strategischen Plugins des Marktplatzes:\n• Enterprise Search: Eine interne Suchmaschine, die die Daten und Dokumente der Organisation direkt über Claude durchsucht.\n\n• Data Plugin: Erstellung von interaktiven Analysen und Dashboards, die mit den analytischen Datenplattformen des Unternehmens und Data Lakes verbunden sind.\n\n• Evolutionäre Roadmap neuer Plugins entsprechend den identifizierten Geschäftsanforderungen.\n\n• Aufbauend auf dem anthropischen Ökosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, Drittanbieter-Plugins \"3P\") und Anpassung bestehender Bausteine an die Einschränkungen der Architektur und Sicherheit des Unternehmens.\n2. Microsoft Office-Ökosystemintegration\n\n• Bereitstellen von Office-Add-Ins (Excel, PowerPoint, Outlook) verbunden mit Internal Marketplace in Proof of Concept (PoC)\n\n• Arbeiten Sie eng mit dem Packaging-Team zusammen, um eine groß angelegte Industrialisierung und Bereitstellung sicherzustellen.\n3. FinOps & Verbrauchskontrolle\n\n• Design token consumption monitoring dashboards für manager und sponsoren.\n\n• Migrieren Sie das FinOps-Tracking auf die neue Abrechnung / Kosten pro Benutzermodell.\n\n• Einrichtung eines automatischen Warnsystems bei Quotenüberschreitungen.\n4. Evolution von Access & IAM\n\n• Definieren und implementieren Sie V2 des Internal Marketplace Access Stream in Abstimmung mit IAM, Supply und Packaging Teams.\n\n• Ermöglichen Sie es Managern, die Umgebung ihrer Teams anzupassen (Zuweisung von Token-Quoten, Auswahl zugänglicher Modelle usw.).\n\n• Training & Erfahrung: Bac + 5 (Master oder Engineering School) spezialisiert auf AI / Informatik, oder gleichwertige Erfahrung\n\n• Berufserfahrung: 3 bis 7 Jahre\n\n• Anthropische Erfahrung: Praktische und operative Beherrschung von Anthropischen Tools: Claude, Claude Code, Claude Agent SDK, sowie die Entwicklung und Anpassung von MCP-Servern / Plugins.\n\n• Technische Schlüsselkompetenzen:\n• Gute Kenntnisse in der Integration von Modern Data Stack / Data Lakehouse Umgebungen (willkommen, sehr nützlich für das Data Plugin).\n\n• Erfolgreiche Erfahrung in der Bereitstellung von Microsoft Office-Add-Ins in der Geschäftsumgebung.\n\n• Produktvision & Transversalität: Fähigkeit, mit verschiedenen Stakeholdern (Sicherheitsteams, IAM, Packaging, Business Manager) zu interagieren und einen Geschäftsbedarf in zu liefernde Funktionen zu übersetzen.\n\n• Sprachen: Aktuelles Englisch & Französisch.\n\n• Direkte Auswirkungen: Eine Schlüsselrolle im Herzen der KI-Transformation innerhalb einer großen Organisation.\n\n• Erweiterte Umgebung: Direkter Zugang zu den neuesten Innovationen des anthropischen Ökosystems (MCP, Cowork, Corporate Plugins).\n\n• Autonomie: Ein Team, das sich der Innovations-KI mit großer Freiheit der technischen Initiative widmet.",
-        "fr": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\nPour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\nVos missions principales\n1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.984Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25T14:26:22.869Z",
-      "postedDate": "2026-09-25T14:26:22.869Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
-      "jobReqId": "744000151870429",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-        "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
-        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
-        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
-        ],
-        "en": [
-          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
-          "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-04T22:55:58.547Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "talan-61c9acf4f11b",
-      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
-      "slugByLocale": {
-        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
-        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
-        "de": "berater-expert-sap-crm-f-h-talan-geneva",
-        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant Expert SAP CRM F/H",
-      "titleByLocale": {
-        "it": "Consulente Expert SAP CRM F/H",
-        "en": "Consultant Expert SAP CRM M/F",
-        "de": "Berater Expert SAP CRM F/H",
-        "fr": "Consultant Expert SAP CRM F/H"
-      },
-      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
-        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
-        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
-        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
-      },
-      "location": "Geneva, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.983Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-02T09:11:46.418Z",
-      "postedDate": "2026-10-02T09:11:46.418Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
-      "jobReqId": "744000153133249",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-03T09:10:26.715Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -500,7 +262,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.983Z",
+      "crawledAt": "2026-10-22T09:14:53.474Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -561,6 +323,244 @@
       }
     },
     {
+      "id": "talan-827097ba6739",
+      "slug": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
+      "slugByLocale": {
+        "it": "ai-platform-ingegnere-plugins-marketplace-talan-geneva",
+        "en": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland",
+        "de": "ai-platform-ingenieur-plugins-marketplace-talan-geneva",
+        "fr": "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "AI Platform Engineer — Plugins & Marketplace",
+      "titleByLocale": {
+        "it": "AI Platform Ingegnere — Plugins & Marketplace",
+        "en": "AI Platform Engineer — Plugins & Marketplace",
+        "de": "AI Platform Ingenieur — Plugins & Marketplace",
+        "fr": "AI Platform Ingénieur — Plugins & Marketplace"
+      },
+      "description": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\n Pour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\n Vos missions principales\n 1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n 2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n 3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n 4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique.",
+      "descriptionByLocale": {
+        "it": "Come parte della massiccia distribuzione dell'IA generale all'interno di ambienti aziendali complessi, strutturamo il mercato interno dei plugin basati sull'ecosistema Claude / Antropico. Questa piattaforma è destinata a essere messa a disposizione di tutti i dipendenti a livello di una grande organizzazione.\nPer sostenere questa ambizione, stiamo cercando un AI Platform Engineer. Il vostro ruolo sarà quello di progettare, adattare e industrializzare plug-in trasversali robusti, accompagnando allo sviluppo operativo e tecnico di questo mercato ai team aziendali.\nLe vostre principali missioni\n1. Sviluppo di plugin e competenze trasversali\n\n• Progettare e sviluppare i plugin strategici del mercato:\n• Enterprise Search: un motore di ricerca interno che cerca i dati e i documenti dell'organizzazione direttamente via Claude.\n\n• Data Plugin: Generazione di analisi interattive e dashboard collegati alle piattaforme analitiche dell'azienda e ai Data Lakes.\n\n• roadmap evolutiva di nuovi plugin in base alle esigenze aziendali identificate.\n\n• Costruire sull'ecosistema antropico (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugin di terze parti \"3P\") e adattare i mattoni esistenti ai vincoli di architettura e sicurezza dell'azienda.\n2. Integrazione dell'ecosistema Microsoft Office\n\n• Componenti aggiuntivi dell'ufficio di distribuzione (Excel, PowerPoint, Outlook) collegati al mercato interno nella prova di concetto (PoC)\n\n• Lavorare a stretto contatto con il team Packaging per garantire l'industrializzazione e la distribuzione su larga scala.\n3. Controllo dei consumi\n\n• Disegno token monitoraggio dei consumi dashboard per manager e sponsor.\n\n• Migrare FinOps monitoraggio al nuovo fatturazione / costi per modello utente.\n\n• Impostare un sistema di allarme automatico in caso di sovratensioni delle quote.\n4. Evoluzione dell'accesso & IAM\n\n• Definire e implementare V2 del flusso di accesso sul mercato interno in coordinamento con i team IAM, Supply e Packaging.\n\n• Permettere ai manager di personalizzare l'ambiente delle loro squadre (assegnando quote token, selezionando modelli accessibili, ecc.).\n\n• Formazione & Esperienza: Bac+5 (Master o Engineering School) specializzato in AI / Informatica, o esperienza equivalente\n\n• Esperienza professionale: da 3 a 7 anni\n\n• Esperienza antropica: padronanza pratica e operativa degli strumenti antropi: Claude, Claude Code, Claude Agent SDK, nonché lo sviluppo e l'adattamento dei server/plugins MCP.\n\n• Principali competenze tecniche:\n• Buona conoscenza nell'integrazione degli ambienti Modern Data Stack / Data Lakehouse (accoglienza, molto utile per il plugin Data).\n\n• Esperienza di successo nella distribuzione di componenti aggiuntivi Microsoft Office nell'ambiente aziendale.\n\n• Visione e Trasversalità del prodotto: Capacità di interagire con i vari stakeholder (Security Teams, IAM, Packaging, Business Managers) e tradurre una necessità di business in funzionalità realizzabili.\n\n• Lingue: Inglese attuale e francese.\n\n• Impatto diretto: Un ruolo chiave nel cuore della trasformazione AI all'interno di una grande organizzazione.\n\n• Ambiente avanzato: Accesso diretto alle ultime innovazioni dell'ecosistema antropico (MCP, Cowork, plugin aziendali).\n\n• Autonomia: Un team dedicato all'innovazione AI con grande libertà di iniziativa tecnica.",
+        "en": "As part of the massive deployment of the general AI within complex business environments, we structure the internal marketplace of plugins based on the Claude / Anthropic ecosystem. This platform is intended to be made available to all employees at the level of a large organization.\nTo support this ambition, we are looking for an AI Platform Engineer. Your role will be to design, adapt and industrialize robust transverse plugins, while accompanying the operational and technical deployment of this marketplace to the business teams.\nYour main missions\n1. Development of transverse plugins & skills\n\n• Design and develop the strategic plugins of the marketplace:\n• Enterprise Search: an internal search engine that searches the organization's data and documents directly via Claude.\n\n• Data Plugin: Generation of interactive analysis and dashboards connected to the company's analytical data platforms and Data Lakes.\n\n• Evolutionary roadmap of new plugins according to the business needs identified.\n\n• Building on the Anthropic ecosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, third-party plugins \"3P\") and adapting existing bricks to the constraints of architecture and security of the company.\n2. Microsoft Office ecosystem integration\n\n• Deploy Office add-ins (Excel, PowerPoint, Outlook) connected to Internal Marketplace in Proof of Concept (PoC)\n\n• Work closely with the Packaging team to ensure large scale industrialization and deployment.\n3. FinOps & consumption control\n\n• Design token consumption monitoring dashboards for managers and sponsors.\n\n• Migrate FinOps tracking to the new billing/costs per user model.\n\n• Set up an automatic alert system in case of quota overruns.\n4. Evolution of access & IAM\n\n• Define and implement V2 of the Internal Marketplace access stream in coordination with IAM, Supply and Packaging teams.\n\n• Allow managers to customize the environment of their teams (assigning token quotas, selecting accessible models, etc.).\n\n• Training & Experience: Bac+5 (Master or Engineering School) specialized in AI / Computer Science, or equivalent experience\n\n• Professional experience: 3 to 7 years\n\n• Anthropic experience: Practical and operational mastery of Anthropic tools: Claude, Claude Code, Claude Agent SDK, as well as the development and adaptation of MCP servers/plugins.\n\n• Key Technical Skills:\n• Good knowledge in integration of Modern Data Stack / Data Lakehouse environments (welcome, very useful for the Data plugin).\n\n• Successful experience in deploying Microsoft Office add-ins in the business environment.\n\n• Product Vision & Transversality: Ability to interact with various stakeholders (Security Teams, IAM, Packaging, Business Managers) and translate a business need into deliverable functionality.\n\n• Languages: Current English & French.\n\n• Direct impact: A key role at the heart of AI transformation within a large organization.\n\n• Advanced environment: Direct access to the latest innovations of the Anthropic ecosystem (MCP, Cowork, corporate plugins).\n\n• Autonomy: A team dedicated to innovation AI with great freedom of technical initiative.",
+        "de": "Im Rahmen des massiven Einsatzes der allgemeinen KI in komplexen Geschäftsumgebungen strukturieren wir den internen Marktplatz von Plugins auf Basis des Claude / Anthropic Ökosystems. Diese Plattform soll allen Mitarbeitern auf der Ebene einer großen Organisation zur Verfügung gestellt werden.\nUm dieses Ziel zu unterstützen, suchen wir einen AI Platform Engineer. Ihre Aufgabe wird es sein, robuste transversale Plugins zu entwerfen, anzupassen und zu industrialisieren, während Sie den operativen und technischen Einsatz dieses Marktplatzes für die Geschäftsteams begleiten.\nIhre wichtigsten Missionen\n1. Entwicklung von transversalen Plugins & Skills\n\n• Design und Entwicklung der strategischen Plugins des Marktplatzes:\n• Enterprise Search: Eine interne Suchmaschine, die die Daten und Dokumente der Organisation direkt über Claude durchsucht.\n\n• Data Plugin: Erstellung von interaktiven Analysen und Dashboards, die mit den analytischen Datenplattformen des Unternehmens und Data Lakes verbunden sind.\n\n• Evolutionäre Roadmap neuer Plugins entsprechend den identifizierten Geschäftsanforderungen.\n\n• Aufbauend auf dem anthropischen Ökosystem (Claude, Claude Agent SDK, Model Context Protocol / MCP, Drittanbieter-Plugins \"3P\") und Anpassung bestehender Bausteine an die Einschränkungen der Architektur und Sicherheit des Unternehmens.\n2. Microsoft Office-Ökosystemintegration\n\n• Bereitstellen von Office-Add-Ins (Excel, PowerPoint, Outlook) verbunden mit Internal Marketplace in Proof of Concept (PoC)\n\n• Arbeiten Sie eng mit dem Packaging-Team zusammen, um eine groß angelegte Industrialisierung und Bereitstellung sicherzustellen.\n3. FinOps & Verbrauchskontrolle\n\n• Design token consumption monitoring dashboards für manager und sponsoren.\n\n• Migrieren Sie das FinOps-Tracking auf die neue Abrechnung / Kosten pro Benutzermodell.\n\n• Einrichtung eines automatischen Warnsystems bei Quotenüberschreitungen.\n4. Evolution von Access & IAM\n\n• Definieren und implementieren Sie V2 des Internal Marketplace Access Stream in Abstimmung mit IAM, Supply und Packaging Teams.\n\n• Ermöglichen Sie es Managern, die Umgebung ihrer Teams anzupassen (Zuweisung von Token-Quoten, Auswahl zugänglicher Modelle usw.).\n\n• Training & Erfahrung: Bac + 5 (Master oder Engineering School) spezialisiert auf AI / Informatik, oder gleichwertige Erfahrung\n\n• Berufserfahrung: 3 bis 7 Jahre\n\n• Anthropische Erfahrung: Praktische und operative Beherrschung von Anthropischen Tools: Claude, Claude Code, Claude Agent SDK, sowie die Entwicklung und Anpassung von MCP-Servern / Plugins.\n\n• Technische Schlüsselkompetenzen:\n• Gute Kenntnisse in der Integration von Modern Data Stack / Data Lakehouse Umgebungen (willkommen, sehr nützlich für das Data Plugin).\n\n• Erfolgreiche Erfahrung in der Bereitstellung von Microsoft Office-Add-Ins in der Geschäftsumgebung.\n\n• Produktvision & Transversalität: Fähigkeit, mit verschiedenen Stakeholdern (Sicherheitsteams, IAM, Packaging, Business Manager) zu interagieren und einen Geschäftsbedarf in zu liefernde Funktionen zu übersetzen.\n\n• Sprachen: Aktuelles Englisch & Französisch.\n\n• Direkte Auswirkungen: Eine Schlüsselrolle im Herzen der KI-Transformation innerhalb einer großen Organisation.\n\n• Erweiterte Umgebung: Direkter Zugang zu den neuesten Innovationen des anthropischen Ökosystems (MCP, Cowork, Corporate Plugins).\n\n• Autonomie: Ein Team, das sich der Innovations-KI mit großer Freiheit der technischen Initiative widmet.",
+        "fr": "Dans le cadre du déploiement massif de l'IA générative au sein d'environnements d'entreprise complexes, nous structurons la marketplace interne de plugins basée sur l'écosystème Claude / Anthropic. Cette plateforme a pour vocation d'être mise à disposition de l'ensemble des collaborateurs à l'échelle d'une grande organisation.\nPour soutenir cette ambition, nous recherchons un·e AI Platform Engineer. Votre rôle sera de concevoir, adapter et industrialiser des plugins transverses robustes, tout en accompagnant le déploiement opérationnel et technique de cette marketplace auprès des équipes métiers.\nVos missions principales\n1. Développement de plugins & skills transverses\n\n• Concevoir et développer les plugins stratégiques de la marketplace :\n• Enterprise Search : moteur de recherche interne interrogeant les données et documents de l'organisation directement via Claude.\n\n• Plugin Data : génération d'analyses et de dashboards interactifs connectés aux plateformes de données analytiques et Data Lakes de l'entreprise.\n\n• Roadmap évolutive de nouveaux plugins selon les besoins métiers identifiés.\n\n• S'appuyer sur l'écosystème Anthropic (Claude, Claude Agent SDK, Model Context Protocol / MCP, plugins tiers \"3P\") et adapter les briques existantes aux contraintes d'architecture et de sécurité de l'entreprise.\n2. Intégration de l'écosystème Microsoft Office\n\n• Déployer en Proof of Concept (PoC) les add-ins Office (Excel, PowerPoint, Outlook) connectés au Marketplace interne\n\n• Collaborer étroitement avec l'équipe Packaging pour assurer l'industrialisation et le déploiement à grande échelle.\n3. Volet FinOps & pilotage des consommations\n\n• Concevoir des tableaux de bord de suivi des consommations de tokens à destination des managers et sponsors.\n\n• Migrer le suivi FinOps vers le nouveau modèle de facturation/coûts par utilisateur.\n\n• Mettre en place un système d'alerte automatique en cas de dépassement de quotas.\n4. Évolution des accès & IAM\n\n• Définir et implémenter la V2 du flux d'accès au Marketplace interne en coordination avec les équipes IAM, Provisionnement et Packaging.\n\n• Permettre aux managers de personnaliser l'environnement de leurs équipes (attribution de quotas de tokens, sélection des modèles accessibles, etc.).\n\n• Formation & Expérience : Bac+5 (Master ou École d'Ingénieur) spécialisé en IA / Informatique, ou expérience équivalente\n\n• Expérience professionnelle : 3 à 7 ans\n\n• Expérience Anthropic : Maîtrise concrète et opérationnelle des outils Anthropic : Claude, Claude Code, Claude Agent SDK, ainsi que le développement et l'adaptation de serveurs/plugins MCP.\n\n• Compétences techniques clés :\n• Bonnes connaissances en intégration d'environnements Modern Data Stack / Data Lakehouse (souhaitées, très utiles pour le plugin Data).\n\n• Expérience réussie dans le déploiement d'add-ins Microsoft Office en environnement d'entreprise.\n\n• Vision Produit & Transversalité : Capacité à dialoguer avec des interlocuteurs variés (équipes Sécurité, IAM, Packaging, managers métiers) et à traduire un besoin métier en fonctionnalité livrable.\n\n• Langues : Français & Anglais courants.\n\n• Impact direct : Un rôle clé au cœur de la transformation IA au sein d'une organisation d'envergure.\n\n• Environnement de pointe : Accès direct aux dernières innovations de l'écosystème Anthropic (MCP, Cowork, plugins d'entreprise).\n\n• Autonomie : Une équipe dédiée à l'innovation IA disposant d'une grande liberté d'initiative technique."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-22T09:14:53.473Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25T14:26:22.869Z",
+      "postedDate": "2026-09-25T14:26:22.869Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
+      "jobReqId": "744000151870429",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+        "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland",
+        "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
+        "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-rt15jv",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platform-ingegnere-plugins-marketplace-talan-geneva-gq076j",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-gq076j",
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland"
+        ],
+        "en": [
+          "ai-platform-engineer-plugins-marketplace-talan-geneva-ge-switzerland-rt15jv",
+          "ai-platformlander-plugins-marketplace-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T22:55:58.547Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-3d22739aef94",
+      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
+        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
+        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
+        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyst – Enterprise Data Management (EDM)",
+      "titleByLocale": {
+        "it": "Business Analista – Enterprise Data Management (EDM)",
+        "en": "Business Analyst – Enterprise Data Management (EDM)",
+        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
+        "fr": "Business Analyste – Enterprise Data Management (EDM)"
+      },
+      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
+      "descriptionByLocale": {
+        "it": "Contesto\nNell'ambito di un programma strategico di trasformazione dei dati, il nostro cliente sta cercando un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per supportare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\nInterverrete nella gestione di depositi di titoli, qualità dei dati e integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\nLe vostre missioni\n\n• Raccogliere e analizzare le esigenze dei team Front Office, Risk, Operazioni e Finanza.\n\n• Partecipa alla progettazione di soluzioni EDM: ingestione, validazione, arricchimento e diffusione dei dati.\n\n• Assicurare la gestione e la qualità dei dati di riferimento finanziario.\n\n• Definire regole di controllo, KPI e indicatori di qualità.\n\n• Partecipa all'integrazione dei fornitori di dati finanziari.\n\n• Condurre workshop aziendali e coordinare i vari stakeholder del progetto.\n\n• Produce documentazione funzionale e supporto utenti.\n\nCompetenze funzionali\n\n• Esperienza minima da 3 a 5 anni in EDM, Dati di riferimento o Master di sicurezza.\n\n• Forte conoscenza degli strumenti finanziari:\n• ISIN, CUSIP, SEDOL\n\n• Azioni aziendali\n\n• Prezzi\n\n• Classificazioni e depositi di sicurezza\n\n• Esperienza nel settore bancario, Asset Management o Wealth Management.\n\n• Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\nCompetenza tecnica\n\n• Esperienza su una piattaforma EDM o Security Master:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• o equivalente\n\n• Buon comando di SQL.\n\n• Conoscenza dei flussi di integrazione, API, XML / JSON.\n\n• Un'esperienza cloud e ambienti Agile è un vantaggio.\nQualificazioni ricercate\n\n• Alta capacità di analisi e problem solving.\n\n• Eccellente rapporto e comunicazione con i trade e i team IT.\n\n• Autonomia, rigore e senso di organizzazione.\n\n• Capacità di evolversi in ambienti complessi e altamente orientati.",
+        "en": "Background\nAs part of a strategic Data Transformation Program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\nYou will intervene on the management of securities repositories, data quality and flow integration that feed the activities of Wealth Management and Asset Management.\nYour missions\n\n• Collect and analyse the needs of Front Office, Risk, Operations and Finance teams.\n\n• Participate in the design of EDM solutions: ingestion, validation, enrichment and dissemination of data.\n\n• Ensure the management and quality of financial reference data.\n\n• Define control rules, KPI and quality indicators.\n\n• Participate in the integration of financial data providers.\n\n• Conduct business workshops and coordinate the various project stakeholders.\n\n• Produce functional documentation and support users.\n\nFunctional competencies\n\n• 3 to 5 years minimum experience in EDM, Reference Data or Security Master.\n\n• Strong knowledge of financial instruments:\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Securities classifications and repositories\n\n• Experience in banking, Asset Management or Wealth Management.\n\n• Knowledge of data providers such as Bloomberg, Refinitiv or SIX.\nTechnical expertise\n\n• Experience on an EDM or Security Master platform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• or equivalent\n\n• Good command of SQL.\n\n• Knowledge of integration streams, API, XML / JSON.\n\n• A cloud experience and Agile environments is a plus.\nQualifications sought\n\n• High capacity for analysis and problem solving.\n\n• Excellent relationship and communication with trades and IT teams.\n\n• Autonomy, rigor and sense of organization.\n\n• Ability to evolve in complex and highly oriented environments.",
+        "de": "Hintergrund\nIm Rahmen eines strategischen Datentransformationsprogramms sucht unser Kunde einen Business Analysten, der sich auf Enterprise Data Management (EDM) und Instrument Data Management spezialisiert hat, um die Weiterentwicklung seiner Finanzdatenmanagement-Plattform zu unterstützen.\nSie werden in die Verwaltung von Wertpapierspeichern, die Datenqualität und die Flussintegration eingreifen, die die Aktivitäten von Wealth Management und Asset Management unterstützen.\nIhre Missionen\n\n• Sammeln und analysieren Sie die Bedürfnisse von Front Office, Risk, Operations und Finance Teams.\n\n• Beteiligen Sie sich am Design von EDM-Lösungen: Aufnahme, Validierung, Anreicherung und Verbreitung von Daten.\n\n• Gewährleistung der Verwaltung und Qualität der Finanzreferenzdaten.\n\n• Definieren Sie Kontrollregeln, KPI und Qualitätsindikatoren.\n\n• Beteiligen Sie sich an der Integration von Finanzdatenanbietern.\n\n• Durchführung von Business-Workshops und Koordination der verschiedenen Projektbeteiligten.\n\n• Erstellen Sie eine funktionale Dokumentation und unterstützen Sie die Benutzer.\n\nFunktionale Kompetenzen\n\n• 3 bis 5 Jahre Mindesterfahrung in EDM, Referenzdaten oder Security Master.\n\n• Starke Kenntnisse der Finanzinstrumente:\n• ISIN, CUSIP, SEDOL\n\n• Kapitalmaßnahmen\n\n• Preisgestaltung\n\n• Wertpapierklassifizierungen und Datenspeicher\n\n• Erfahrung in Banking, Asset Management oder Wealth Management.\n\n• Kenntnisse von Datenanbietern wie Bloomberg, Refinitiv oder SIX.\nTechnische Expertise\n\n• Erfahrung auf einer EDM oder Security Master Plattform:\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• oder gleichwertig\n\n• Gutes Kommando über SQL.\n\n• Kenntnisse von Integrationsstreams, API, XML / JSON.\n\n• Ein Cloud-Erlebnis und agile Umgebungen sind ein Plus.\nBeantragte Qualifikationen\n\n• Hohe Fähigkeit zur Analyse und Problemlösung.\n\n• Ausgezeichnete Beziehung und Kommunikation mit Trades und IT-Teams.\n\n• Autonomie, Strenge und Organisationssinn.\n\n• Fähigkeit, sich in komplexen und stark orientierten Umgebungen zu entwickeln.",
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-22T09:14:53.471Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-08T13:16:20.226Z",
+      "postedDate": "2026-09-08T13:16:20.226Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "jobReqId": "744000148235109",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:35:44.207Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "talan-61c9acf4f11b",
+      "slug": "consulente-expert-sap-crm-f-h-talan-geneva",
+      "slugByLocale": {
+        "it": "consulente-expert-sap-crm-f-h-talan-geneva",
+        "en": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland",
+        "de": "berater-expert-sap-crm-f-h-talan-geneva",
+        "fr": "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Consultant Expert SAP CRM F/H",
+      "titleByLocale": {
+        "it": "Consulente Expert SAP CRM F/H",
+        "en": "Consultant Expert SAP CRM M/F",
+        "de": "Berater Expert SAP CRM F/H",
+        "fr": "Consultant Expert SAP CRM F/H"
+      },
+      "description": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\n Le poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\n Missions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n Compétences techniques recherchées\n SAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\n Environnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto SAP CRM7 che possa intervenire sugli aspetti funzionali, tecnici e di integrazione della soluzione.\nLa posizione richiede un controllo significativo dell'ecosistema SAP, nonché una conoscenza approfondita dei componenti CRM7 e delle loro interazioni con le soluzioni SAP e non-SAP.\nPrincipali missioni\n\n• Partecipa alla manutenzione SAP CRM7\n\n• Analizzare le esigenze funzionali relative alla gestione dei rapporti con i clienti e ai processi aziendali associati.\n\n• Impostare e modificare la soluzione\n\n• Intervening sulle caratteristiche di:\n• Gestione dei casi\n\n• Gestione delle attività\n\n• Servizio\n\n• Gestione dei servizi sociali\n\n• Dati master\n\n• Progettazione e manutenzione di interfacce tra SAP CRM7, SAP S/4 e applicazioni di terze parti.\n\n• Partecipa all'integrazione di SAP CRM7 con soluzioni Microsoft Office e non SAP.\n\n• Sviluppare o adattare i servizi di scambio dati.\n\n• Contribuire a garantire flussi e integrazioni.\n\n• Fornire supporto tecnico e funzionale alle soluzioni implementate.\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\nCompetenza tecnica\nSAP CRM\n\n• SAP CRM\n\n• SSM / Gestione dei servizi sociali\n\n• Gestione dei casi\n\n• Gestione delle attività\nAmbiente\n\n• SAP Soluzioni locali\n\n• Ambienti cloud\n\n• Cybersecurity applicata alle integrazioni SAP\n\n• Capacità di intervenire su temi funzionali e tecnici.\n\n• Buona conoscenza dell'integrazione SAP CRM7 con SAP S/4 .\n\n• Esperienza desiderata nella conversazione di SAP CRM7 verso nuove soluzioni SAP (S/4 HANA Services, CX, C4C)\n\n• Masterizzazione delle tecnologie di integrazione\n\n• Interfacce di esperienza con applicazioni non SAP.\n\n• Capacità di lavorare con team funzionali, tecnici e commerciali.\n\n• Esperienza significativa sulla soluzione SAP CRM7.\n\nPerché unirsi a Talan Svizzera?\n\n• Partecipa alla crescita di una pratica di Data & AI in rapida espansione.\n\n• Gioca un ruolo chiave nella strutturazione della nostra offerta di Gestione dati.\n\n• Intervento sui programmi strategici con i principali conti svizzeri.\n\n• Approfittate di un ambiente imprenditoriale che offre autonomia, impatto e opportunità di cambiamento.\n\n• Collabora con esperti Data, Analytics, Data Governance e Artificial Intelligence.",
+        "en": "We are looking for a SAP CRM7 Expert who can intervene on the functional, technical and integration aspects of the solution.\nThe position requires significant control of the SAP ecosystem, as well as a thorough knowledge of CRM7 components and their interactions with SAP and non-SAP solutions.\nMain missions\n\n• Participate in SAP CRM7 maintenance\n\n• Analyze functional needs related to client relationship management and associated business processes.\n\n• Set and change the solution\n\n• Intervening on the features of:\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Design and maintain interfaces between SAP CRM7, SAP S/4 and third-party applications.\n\n• Participate in the integration of SAP CRM7 with Microsoft Office and non-SAP solutions.\n\n• Develop or adapt data exchange services.\n\n• Contribute to securing flows and integrations.\n\n• Provide technical and functional support for the solutions implemented.\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\nTechnical expertise sought\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironment\n\n• SAP On Premise Solutions\n\n• Cloud environments\n\n• Cybersecurity applied to SAP integrations\n\n• Ability to intervene on functional and technical topics.\n\n• Good knowledge of SAP CRM7 integration with SAP S/4 .\n\n• Desired experience in the conversation of SAP CRM7 towards new SAP solutions (S/4 HANA Services, CX, C4C)\n\n• Mastery of integration technologies\n\n• Experience interfaces with non-SAP applications.\n\n• Ability to work with functional, technical and trade teams.\n\n• Significant experience on SAP CRM7 solution.\n\nWhy join Talan Switzerland?\n\n• Participate in the growth of a rapidly expanding Data & AI practice.\n\n• Play a key role in structuring our Data Management offer.\n\n• Intervention on strategic programs with major Swiss accounts.\n\n• Benefit from an entrepreneurial environment offering autonomy, impact and opportunities for change.\n\n• Collaborate with experts Data, Analytics, Data Governance and Artificial Intelligence.",
+        "de": "Wir suchen einen SAP CRM7 Experten, der in die funktionalen, technischen und Integrationsaspekte der Lösung eingreifen kann.\nDie Position erfordert eine erhebliche Kontrolle des SAP-Ökosystems sowie eine gründliche Kenntnis der CRM7-Komponenten und ihrer Interaktionen mit SAP- und Nicht-SAP-Lösungen.\nHauptmissionen\n\n• Teilnahme an SAP CRM7 Maintenance\n\n• Analysieren Sie funktionale Anforderungen im Zusammenhang mit dem Kundenbeziehungsmanagement und den damit verbundenen Geschäftsprozessen.\n\n• Setzen und Ändern der Lösung\n\n• Eingriff in die Merkmale von:\n• Case Management\n\n• Tätigkeitsmanagement\n\n• Dienst\n\n• Social Services Management\n\n• Stammdaten\n\n• Design und Pflege von Schnittstellen zwischen SAP CRM7, SAP S/4 und Anwendungen von Drittanbietern.\n\n• Nehmen Sie an der Integration von SAP CRM7 mit Microsoft Office und Nicht-SAP-Lösungen teil.\n\n• Entwicklung oder Anpassung von Datenaustauschdiensten.\n\n• Beitrag zur Sicherung von Flüssen und Integrationen.\n\n• Bereitstellung technischer und funktionaler Unterstützung für die implementierten Lösungen.\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\nGefragtes technisches Fachwissen\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Tätigkeitsmanagement\nUmwelt\n\n• SAP On Premise Lösungen\n\n• Cloud-Umgebungen\n\n• Cybersecurity für SAP Integrationen\n\n• Fähigkeit, in funktionale und technische Themen einzugreifen.\n\n• Gute Kenntnisse der SAP CRM7 Integration mit SAP S/4 .\n\n• Gewünschte Erfahrung im Gespräch von SAP CRM7 zu neuen SAP-Lösungen (S/4 HANA Services, CX, C4C)\n\n• Beherrschung der Integrationstechnologien\n\n• Erleben Sie Schnittstellen mit Nicht-SAP-Anwendungen.\n\n• Fähigkeit, mit funktionalen, technischen und Handelsteams zu arbeiten.\n\n• Bedeutende Erfahrung mit SAP CRM7 Lösung.\n\nWarum bei Talan Schweiz?\n\n• Beteiligen Sie sich am Wachstum einer schnell wachsenden Data & AI-Praxis.\n\n• Spielen Sie eine Schlüsselrolle bei der Strukturierung unseres Datenmanagement-Angebots.\n\n• Intervention zu strategischen Programmen mit großen Schweizer Konten.\n\n• Profitieren Sie von einem unternehmerischen Umfeld, das Autonomie, Wirkung und Veränderungsmöglichkeiten bietet.\n\n• Arbeiten Sie mit den Experten Data, Analytics, Data Governance und Künstliche Intelligenz zusammen.",
+        "fr": "Nous recherchons un Expert SAP CRM7 capable d’intervenir sur les aspects fonctionnels, techniques et d’intégration de la solution.\nLe poste nécessite une maîtrise importante de l’écosystème SAP , ainsi qu’une connaissance approfondie des composants CRM7 et de leurs interactions avec des solutions SAP et non-SAP.\nMissions principales\n\n• Participer à la maintenance de SAP CRM7\n\n• Analyser les besoins fonctionnels liés à la gestion de la relation client et aux processus métiers associés.\n\n• Paramétrer et faire évoluer la solution\n\n• Intervenir sur les fonctionnalités de :\n• Case Management\n\n• Activity Management\n\n• Service\n\n• Social Services Management\n\n• Master Data\n\n• Concevoir et maintenir les interfaces entre SAP CRM7, SAP S/4 et les applications tierces.\n\n• Participer à l’intégration de SAP CRM7 avec Microsoft Office et des solutions non-SAP.\n\n• Développer ou adapter les services d’échange de données.\n\n• Contribuer à la sécurisation des flux et des intégrations.\n\n• Assurer le support technique et fonctionnel des solutions mises en place.\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\nCompétences techniques recherchées\nSAP CRM\n\n• SAP CRM\n\n• SSM / Social Services Management\n\n• Case Management\n\n• Activity Management\nEnvironnement\n\n• Solutions SAP On Premise\n\n• Environnements Cloud\n\n• Cybersécurité appliquée aux intégrations SAP\n\n• Capacité à intervenir sur des sujets fonctionnels et techniques.\n\n• Bonne connaissance de l’intégration de SAP CRM7 avec SAP S/4 .\n\n• Expérience souhaitée dans la conversation du SAP CRM7 vers les nouvelles solutions SAP (S/4 HANA Services, CX, C4C)\n\n• Maîtrise des technologies d’intégration\n\n• Expérience des interfaces avec des applications non-SAP.\n\n• Capacité à travailler avec des équipes fonctionnelles, techniques et métiers.\n\n• Expérience significative sur la solution SAP CRM7 .\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+      },
+      "location": "Geneva, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-22T09:14:53.469Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-02T09:11:46.418Z",
+      "postedDate": "2026-10-02T09:11:46.418Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
+      "jobReqId": "744000153133249",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-expert-sap-crm-f-h-talan-geneva-ge-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-03T09:10:26.715Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-77288cd4a877",
       "slug": "sviluppatore-sap-full-stack-abap-fiori-btp-talan-geneva",
       "slugByLocale": {
@@ -591,7 +591,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.982Z",
+      "crawledAt": "2026-10-22T09:14:53.468Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -677,7 +677,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000154716380-agentic-sdlc-transformation-lead?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.981Z",
+      "crawledAt": "2026-10-22T09:14:53.466Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "postalCode": "1217",
@@ -756,7 +756,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.981Z",
+      "crawledAt": "2026-10-22T09:14:53.460Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -835,7 +835,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155782339-data-platform-ms-fabric-databricks?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.980Z",
+      "crawledAt": "2026-10-22T09:14:53.459Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -883,6 +883,88 @@
       }
     },
     {
+      "id": "talan-9a6c7f90c0b3",
+      "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
+      "slugByLocale": {
+        "it": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
+        "en": "technical-project-leader-talan-lausanne-vd-switzerland",
+        "de": "technischer-projektleiter-talan-lausanne-vd-switzerland",
+        "fr": "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Chef·fe de projet technique",
+      "titleByLocale": {
+        "it": "Leader del progetto tecnico",
+        "en": "Technical Project Leader",
+        "de": "Technischer Projektleiter",
+        "fr": "Chef·fe de projet technique"
+      },
+      "description": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\n Mission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\n Responsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n.",
+      "descriptionByLocale": {
+        "it": "Contesto\n\nAll'interno della divisione Infrastructure, Data e DevOps dello stesso ISD, il volume dei progetti tecnici sta aumentando costantemente. Il team sta cercando un profilo confermato, specializzato nel pilotare progetti tecnici.\nMissione\n\n• Eseguire uno o più progetti tecnici end-to-end: infrastrutture, piattaforme, dati, cloud, cybersecurity, servizi tecnici.\n\n• Coordinare tutte le parti interessate in materia di qualità, prestazioni, sicurezza, disponibilità, costi e scadenze.\n\n• Assicurare la coerenza delle soluzioni con l'architettura SI, gli standard tecnici e la strategia organizzativa.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, organizzare e gestire progetti.\n\n• Coordinare i team interni (infra, reti, sistemi, sicurezza, database, funzionamento, supporto) e i fornitori esterni.\n\n• Definire compiti, pietre miliari, risorse, competenze, interfacce tecniche e budget.\n\n• Gestire i rischi tecnici, le dipendenze e gli impatti sul resto dell'IS.\n\n• Gestione finanziaria.\n\n• Fornire secondo gli impegni.\n\n• Produce documentazione HERMES e documentazione tecnica, e mantenere lo strumento PMO.\n\n• Incontra gli standard PMO, architettura e sicurezza.\n\n• Distribuzione\n• Pianificare e supervisionare la produzione.\n\n• Coordinare le migrazioni, il rocking e il ritorno inverso.\n\n• Organizza le validazioni tecniche prima della produzione.\n\n• Assicurare la transizione allo sfruttamento.\n\n• Assicurare la documentazione completa dello sfruttamento e organizzare il trasferimento della conoscenza.\n\n• Configura il supporto di livello 3.\n\n• perimetro di arbitrato, costo, tempo e qualità\n• Ricette tecniche pilota.\n\n• Assicurare disponibilità, prestazioni, resilienza e continuità di servizio.\n\n• Analizzare le richieste di cambiamento, compreso il loro impatto sull'architettura.\n\n• Preparate gli arbitrati.\n\n• Seguire gli indicatori: progresso, costi, rischi, qualità e prestazioni delle soluzioni.\n\n• Formazione informatica avanzata (Master, Bachelor o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti tecnici (Infrastrutture, Dati, Cloud, Cybersecurity).\n\n• Ottima comprensione delle questioni infrastrutturali (rete, sistemi, banche dati, sicurezza, virtualizzazione/cloud) per dialogare efficacemente con esperti, anticipare i rischi architettonici e garantire la continuità del servizio.\n\n• Pratica comprovata della metodologia HERMES (certificazione desiderata) e adesione ai quadri metodologici PMO/ITIL.\n\n• Esperienza pratica nella gestione di start-up complessi (migrazioni, piani rock, roll-back, trasferimento a squadre operative e supporto N3).\n\n• Capacità di guidare le parti interessate esterne e partecipare alla redazione o valutazione dei componenti tecnici dell'offerta pubblica.\n\n.",
+        "en": "Background\n\nWithin the Infrastructure, Data and DevOps division of the same ISD, the volume of technical projects is steadily increasing. The team is looking for a confirmed profile, specialized in piloting technical projects.\nMission\n\n• Carry out one or more end-to-end technical projects: infrastructure, platforms, data, cloud, cybersecurity, technical services.\n\n• Coordinate all stakeholders with respect to quality, performance, safety, availability, costs and deadlines.\n\n• Ensure consistency of solutions with SI architecture, technical standards and organizational strategy.\nResponsibilities\n\n• Project management\n• Plan, organize and manage projects.\n\n• Coordinate internal teams (infra, networks, systems, security, databases, operation, support) and external providers.\n\n• Define tasks, milestones, resources, skills, technical interfaces and budget.\n\n• Manage technical risks, dependencies and impacts on the rest of the IS.\n\n• Financial management.\n\n• Deliver in accordance with commitments.\n\n• Produce HERMES documentation and technical documentation, and maintain the PMO tool.\n\n• Meet PMO, architecture and security standards.\n\n• Deployment\n• Plan and supervise production.\n\n• Coordinate migrations, rocking and reverse returns.\n\n• Organize technical validations prior to production.\n\n• Ensure the transition to exploitation.\n\n• Ensure complete exploitation documentation and organize knowledge transfer.\n\n• Set up Level 3 support.\n\n• Arbitrage perimeter, cost, time and quality\n• Pilot technical recipes.\n\n• Ensure availability, performance, resilience and continuity of service.\n\n• Analyze requests for change, including their impact on architecture.\n\n• Prepare arbitrations.\n\n• Follow the indicators: progress, costs, risks, quality and performance of solutions.\n\n• Advanced computer training (Master, Bachelor or equivalent) with at least 5 to 8 years experience in piloting major technical projects (Infrastructure, Data, Cloud, Cybersecurity).\n\n• Excellent understanding of infrastructure issues (networks, systems, databases, security, virtualization/cloud) to effectively dialogue with experts, anticipate architectural risks and ensure continuity of service.\n\n• Proven practice of HERMES methodology (desired certification) and adherence to PMO/ITIL methodological frameworks.\n\n• Practical experience in managing complex start-ups (migrations, rocking, roll-back plans, transfer to operating teams and N3 support).\n\n• Ability to lead external stakeholders and participate in the drafting or evaluation of technical public tendering components.\n\n.",
+        "de": "Hintergrund\n\nInnerhalb der Division Infrastructure, Data und DevOps derselben ISD nimmt das Volumen technischer Projekte stetig zu. Das Team sucht ein bestätigtes Profil, spezialisiert auf die Pilotierung technischer Projekte.\nMission\n\n• Durchführung eines oder mehrerer durchgängiger technischer Projekte: Infrastruktur, Plattformen, Daten, Cloud, Cybersicherheit, technische Dienste.\n\n• Koordination aller Stakeholder in Bezug auf Qualität, Leistung, Sicherheit, Verfügbarkeit, Kosten und Fristen.\n\n• Gewährleistung der Konsistenz der Lösungen mit der SI-Architektur, den technischen Standards und der Organisationsstrategie.\nZuständigkeiten\n\n• Projektmanagement\n• Planen, organisieren und verwalten Sie Projekte.\n\n• Koordinieren Sie interne Teams (Infrastruktur, Netzwerke, Systeme, Sicherheit, Datenbanken, Betrieb, Support) und externe Anbieter.\n\n• Definieren Sie Aufgaben, Meilensteine, Ressourcen, Fähigkeiten, technische Schnittstellen und Budget.\n\n• Management technischer Risiken, Abhängigkeiten und Auswirkungen auf den Rest des IS.\n\n• Finanzmanagement.\n\n• Erfüllung der Verpflichtungen.\n\n• Erstellen Sie HERMES Dokumentation und technische Dokumentation und pflegen Sie das PMO-Tool.\n\n• PMO, Architektur und Sicherheitsstandards erfüllen.\n\n• Einsatz\n• Planung und Überwachung der Produktion.\n\n• Koordinieren Sie Migrationen, Rocking und Reverse Returns.\n\n• Organisieren Sie technische Validierungen vor der Produktion.\n\n• Gewährleistung des Übergangs zur Nutzung.\n\n• Gewährleistung einer vollständigen Dokumentation der Nutzung und Organisation des Wissenstransfers.\n\n• Einrichten von Level 3 Support.\n\n• Arbitrage Perimeter, Kosten, Zeit und Qualität\n• Technische Pilotrezepturen.\n\n• Gewährleistung von Verfügbarkeit, Leistung, Widerstandsfähigkeit und Kontinuität des Dienstes.\n\n• Analysieren Sie Änderungswünsche, einschließlich ihrer Auswirkungen auf die Architektur.\n\n• Vorbereitung von Schiedsverfahren.\n\n• Folgen Sie den Indikatoren: Fortschritt, Kosten, Risiken, Qualität und Leistung der Lösungen.\n\n• Fortgeschrittene Computerausbildung (Master, Bachelor oder gleichwertig) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer technischer Projekte (Infrastruktur, Daten, Cloud, Cybersecurity).\n\n• Ausgezeichnetes Verständnis von Infrastrukturproblemen (Netzwerke, Systeme, Datenbanken, Sicherheit, Virtualisierung / Cloud), um effektiv mit Experten zu kommunizieren, architektonische Risiken zu antizipieren und die Kontinuität des Dienstes zu gewährleisten.\n\n• Bewährte Praxis der HERMES-Methodik (gewünschte Zertifizierung) und Einhaltung der methodischen Rahmenbedingungen von PMO/ITIL.\n\n• Praktische Erfahrung im Management komplexer Start-ups (Migrationen, Rocking, Rollback-Pläne, Transfer zu operativen Teams und N3-Support).\n\n• Fähigkeit, externe Interessengruppen zu leiten und an der Ausarbeitung oder Bewertung von technischen öffentlichen Ausschreibungskomponenten teilzunehmen.\n\n.",
+        "fr": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\nMission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\nResponsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n."
+      },
+      "needsRetranslation": false,
+      "location": "Lausanne, VD, Switzerland",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-22T09:14:53.457Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-15T15:36:32.821Z",
+      "postedDate": "2026-10-15T15:36:32.821Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
+      "jobReqId": "744000155789143",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ],
+        "en": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ],
+        "de": [
+          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-15T21:16:17.872Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "talan-02b98391d3fc",
       "slug": "responsabile-del-progetto-aziendale-talan-lausanne-vd-switzerland",
       "slugByLocale": {
@@ -914,7 +996,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155789639-chef-de-projet-metier?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.979Z",
+      "crawledAt": "2026-10-22T09:14:53.455Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -995,7 +1077,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155930739-lead-business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.978Z",
+      "crawledAt": "2026-10-22T09:14:53.453Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1040,88 +1122,6 @@
       }
     },
     {
-      "id": "talan-9a6c7f90c0b3",
-      "slug": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
-      "slugByLocale": {
-        "it": "leader-del-progetto-tecnico-talan-lausanne-vd-switzerland",
-        "en": "technical-project-leader-talan-lausanne-vd-switzerland",
-        "de": "technischer-projektleiter-talan-lausanne-vd-switzerland",
-        "fr": "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Chef·fe de projet technique",
-      "titleByLocale": {
-        "it": "Leader del progetto tecnico",
-        "en": "Technical Project Leader",
-        "de": "Technischer Projektleiter",
-        "fr": "Chef·fe de projet technique"
-      },
-      "description": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\n Mission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\n Responsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n.",
-      "descriptionByLocale": {
-        "it": "Contesto\n\nAll'interno della divisione Infrastructure, Data e DevOps dello stesso ISD, il volume dei progetti tecnici sta aumentando costantemente. Il team sta cercando un profilo confermato, specializzato nel pilotare progetti tecnici.\nMissione\n\n• Eseguire uno o più progetti tecnici end-to-end: infrastrutture, piattaforme, dati, cloud, cybersecurity, servizi tecnici.\n\n• Coordinare tutte le parti interessate in materia di qualità, prestazioni, sicurezza, disponibilità, costi e scadenze.\n\n• Assicurare la coerenza delle soluzioni con l'architettura SI, gli standard tecnici e la strategia organizzativa.\nresponsabilità\n\n• Gestione dei progetti\n• Pianificare, organizzare e gestire progetti.\n\n• Coordinare i team interni (infra, reti, sistemi, sicurezza, database, funzionamento, supporto) e i fornitori esterni.\n\n• Definire compiti, pietre miliari, risorse, competenze, interfacce tecniche e budget.\n\n• Gestire i rischi tecnici, le dipendenze e gli impatti sul resto dell'IS.\n\n• Gestione finanziaria.\n\n• Fornire secondo gli impegni.\n\n• Produce documentazione HERMES e documentazione tecnica, e mantenere lo strumento PMO.\n\n• Incontra gli standard PMO, architettura e sicurezza.\n\n• Distribuzione\n• Pianificare e supervisionare la produzione.\n\n• Coordinare le migrazioni, il rocking e il ritorno inverso.\n\n• Organizza le validazioni tecniche prima della produzione.\n\n• Assicurare la transizione allo sfruttamento.\n\n• Assicurare la documentazione completa dello sfruttamento e organizzare il trasferimento della conoscenza.\n\n• Configura il supporto di livello 3.\n\n• perimetro di arbitrato, costo, tempo e qualità\n• Ricette tecniche pilota.\n\n• Assicurare disponibilità, prestazioni, resilienza e continuità di servizio.\n\n• Analizzare le richieste di cambiamento, compreso il loro impatto sull'architettura.\n\n• Preparate gli arbitrati.\n\n• Seguire gli indicatori: progresso, costi, rischi, qualità e prestazioni delle soluzioni.\n\n• Formazione informatica avanzata (Master, Bachelor o equivalente) con almeno 5-8 anni di esperienza nel pilotare grandi progetti tecnici (Infrastrutture, Dati, Cloud, Cybersecurity).\n\n• Ottima comprensione delle questioni infrastrutturali (rete, sistemi, banche dati, sicurezza, virtualizzazione/cloud) per dialogare efficacemente con esperti, anticipare i rischi architettonici e garantire la continuità del servizio.\n\n• Pratica comprovata della metodologia HERMES (certificazione desiderata) e adesione ai quadri metodologici PMO/ITIL.\n\n• Esperienza pratica nella gestione di start-up complessi (migrazioni, piani rock, roll-back, trasferimento a squadre operative e supporto N3).\n\n• Capacità di guidare le parti interessate esterne e partecipare alla redazione o valutazione dei componenti tecnici dell'offerta pubblica.\n\n.",
-        "en": "Background\n\nWithin the Infrastructure, Data and DevOps division of the same ISD, the volume of technical projects is steadily increasing. The team is looking for a confirmed profile, specialized in piloting technical projects.\nMission\n\n• Carry out one or more end-to-end technical projects: infrastructure, platforms, data, cloud, cybersecurity, technical services.\n\n• Coordinate all stakeholders with respect to quality, performance, safety, availability, costs and deadlines.\n\n• Ensure consistency of solutions with SI architecture, technical standards and organizational strategy.\nResponsibilities\n\n• Project management\n• Plan, organize and manage projects.\n\n• Coordinate internal teams (infra, networks, systems, security, databases, operation, support) and external providers.\n\n• Define tasks, milestones, resources, skills, technical interfaces and budget.\n\n• Manage technical risks, dependencies and impacts on the rest of the IS.\n\n• Financial management.\n\n• Deliver in accordance with commitments.\n\n• Produce HERMES documentation and technical documentation, and maintain the PMO tool.\n\n• Meet PMO, architecture and security standards.\n\n• Deployment\n• Plan and supervise production.\n\n• Coordinate migrations, rocking and reverse returns.\n\n• Organize technical validations prior to production.\n\n• Ensure the transition to exploitation.\n\n• Ensure complete exploitation documentation and organize knowledge transfer.\n\n• Set up Level 3 support.\n\n• Arbitrage perimeter, cost, time and quality\n• Pilot technical recipes.\n\n• Ensure availability, performance, resilience and continuity of service.\n\n• Analyze requests for change, including their impact on architecture.\n\n• Prepare arbitrations.\n\n• Follow the indicators: progress, costs, risks, quality and performance of solutions.\n\n• Advanced computer training (Master, Bachelor or equivalent) with at least 5 to 8 years experience in piloting major technical projects (Infrastructure, Data, Cloud, Cybersecurity).\n\n• Excellent understanding of infrastructure issues (networks, systems, databases, security, virtualization/cloud) to effectively dialogue with experts, anticipate architectural risks and ensure continuity of service.\n\n• Proven practice of HERMES methodology (desired certification) and adherence to PMO/ITIL methodological frameworks.\n\n• Practical experience in managing complex start-ups (migrations, rocking, roll-back plans, transfer to operating teams and N3 support).\n\n• Ability to lead external stakeholders and participate in the drafting or evaluation of technical public tendering components.\n\n.",
-        "de": "Hintergrund\n\nInnerhalb der Division Infrastructure, Data und DevOps derselben ISD nimmt das Volumen technischer Projekte stetig zu. Das Team sucht ein bestätigtes Profil, spezialisiert auf die Pilotierung technischer Projekte.\nMission\n\n• Durchführung eines oder mehrerer durchgängiger technischer Projekte: Infrastruktur, Plattformen, Daten, Cloud, Cybersicherheit, technische Dienste.\n\n• Koordination aller Stakeholder in Bezug auf Qualität, Leistung, Sicherheit, Verfügbarkeit, Kosten und Fristen.\n\n• Gewährleistung der Konsistenz der Lösungen mit der SI-Architektur, den technischen Standards und der Organisationsstrategie.\nZuständigkeiten\n\n• Projektmanagement\n• Planen, organisieren und verwalten Sie Projekte.\n\n• Koordinieren Sie interne Teams (Infrastruktur, Netzwerke, Systeme, Sicherheit, Datenbanken, Betrieb, Support) und externe Anbieter.\n\n• Definieren Sie Aufgaben, Meilensteine, Ressourcen, Fähigkeiten, technische Schnittstellen und Budget.\n\n• Management technischer Risiken, Abhängigkeiten und Auswirkungen auf den Rest des IS.\n\n• Finanzmanagement.\n\n• Erfüllung der Verpflichtungen.\n\n• Erstellen Sie HERMES Dokumentation und technische Dokumentation und pflegen Sie das PMO-Tool.\n\n• PMO, Architektur und Sicherheitsstandards erfüllen.\n\n• Einsatz\n• Planung und Überwachung der Produktion.\n\n• Koordinieren Sie Migrationen, Rocking und Reverse Returns.\n\n• Organisieren Sie technische Validierungen vor der Produktion.\n\n• Gewährleistung des Übergangs zur Nutzung.\n\n• Gewährleistung einer vollständigen Dokumentation der Nutzung und Organisation des Wissenstransfers.\n\n• Einrichten von Level 3 Support.\n\n• Arbitrage Perimeter, Kosten, Zeit und Qualität\n• Technische Pilotrezepturen.\n\n• Gewährleistung von Verfügbarkeit, Leistung, Widerstandsfähigkeit und Kontinuität des Dienstes.\n\n• Analysieren Sie Änderungswünsche, einschließlich ihrer Auswirkungen auf die Architektur.\n\n• Vorbereitung von Schiedsverfahren.\n\n• Folgen Sie den Indikatoren: Fortschritt, Kosten, Risiken, Qualität und Leistung der Lösungen.\n\n• Fortgeschrittene Computerausbildung (Master, Bachelor oder gleichwertig) mit mindestens 5 bis 8 Jahren Erfahrung in der Pilotierung großer technischer Projekte (Infrastruktur, Daten, Cloud, Cybersecurity).\n\n• Ausgezeichnetes Verständnis von Infrastrukturproblemen (Netzwerke, Systeme, Datenbanken, Sicherheit, Virtualisierung / Cloud), um effektiv mit Experten zu kommunizieren, architektonische Risiken zu antizipieren und die Kontinuität des Dienstes zu gewährleisten.\n\n• Bewährte Praxis der HERMES-Methodik (gewünschte Zertifizierung) und Einhaltung der methodischen Rahmenbedingungen von PMO/ITIL.\n\n• Praktische Erfahrung im Management komplexer Start-ups (Migrationen, Rocking, Rollback-Pläne, Transfer zu operativen Teams und N3-Support).\n\n• Fähigkeit, externe Interessengruppen zu leiten und an der Ausarbeitung oder Bewertung von technischen öffentlichen Ausschreibungskomponenten teilzunehmen.\n\n.",
-        "fr": "Contexte\n\nAu sein du pôle Infrastructure, Data et DevOps de la même DSI, le volume de projets techniques est en hausse constante. L’équipe cherche un profil confirmé, spécialisé dans le pilotage de projets techniques.\nMission\n\n• Porter un ou plusieurs projets techniques de bout en bout : infrastructure, plateformes, data, cloud, cybersécurité, services techniques.\n\n• Coordonner toutes les parties prenantes en respectant les exigences de qualité, performance, sécurité, disponibilité, coûts et délais.\n\n• Garantir la cohérence des solutions avec l’architecture SI, les standards techniques et la stratégie de l’organisation.\nResponsabilités\n\n• Gestion de projet\n• Planifier, organiser et piloter les projets.\n\n• Coordonner les équipes internes (infra, réseaux, systèmes, sécurité, bases de données, exploitation, support) et les prestataires externes.\n\n• Définir tâches, jalons, ressources, compétences, interfaces techniques et budget.\n\n• Gérer les risques techniques, les dépendances et les impacts sur le reste du SI.\n\n• Assurer la gestion financière.\n\n• Livrer conformément aux engagements.\n\n• Produire la documentation HERMES et la documentation technique, et tenir à jour l’outil PMO.\n\n• Respecter les standards PMO, d’architecture et de sécurité.\n\n• Déploiement\n• Planifier et superviser les mises en production.\n\n• Coordonner migrations, bascules et retours arrière.\n\n• Organiser les validations techniques avant mise en production.\n\n• Assurer la transition vers l’exploitation.\n\n• Garantir une documentation d’exploitation complète et organiser le transfert de connaissances.\n\n• Mettre en place le support de niveau 3.\n\n• Arbitrage périmètre, coût, délai et qualité\n• Piloter les recettes techniques.\n\n• Garantir disponibilité, performance, résilience et continuité de service.\n\n• Analyser les demandes de changement, y compris leur impact sur l’architecture.\n\n• Préparer les arbitrages.\n\n• Suivre les indicateurs : avancement, coûts, risques, qualité et performance des solutions.\n\n• Formation supérieure en informatique (Master, Bachelor ou équivalent) avec au moins 5 à 8 ans d'expérience dans le pilotage de projets techniques d'envergure (Infrastructure, Data, Cloud, Cybersécurité).\n\n• Excellente compréhension des enjeux d'infrastructure (réseaux, systèmes, bases de données, sécurité, virtualisation/cloud) pour dialoguer efficacement avec les experts, anticiper les risques d'architecture et garantir la continuité de service.\n\n• Pratique avérée de la méthodologie HERMES (certification souhaitée) et respect des cadres méthodologiques PMO/ITIL.\n\n• Expérience concrète de la gestion des mises en production complexes (migrations, bascules, plans de retour arrière, transfert vers les équipes d'exploitation et support N3).\n\n• Capacité à piloter des intervenants externes et à participer à la rédaction ou l'évaluation de volets techniques d'appels d'offres publics.\n\n."
-      },
-      "needsRetranslation": false,
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.977Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T15:36:32.821Z",
-      "postedDate": "2026-10-15T15:36:32.821Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155789143-chef-fe-de-projet-technique?oga=true",
-      "jobReqId": "744000155789143",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ],
-        "en": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "chef-fe-de-projet-technique-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.872Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "talan-50e5f8ddcbfd",
       "slug": "consulente-e-technico-fonctionnel-sap-crm-senior-talan-lausanne",
       "slugByLocale": {
@@ -1152,7 +1152,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155806134-consultant-e-technico-fonctionnel-sap-crm-senior?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.976Z",
+      "crawledAt": "2026-10-22T09:14:53.451Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1200,6 +1200,76 @@
       }
     },
     {
+      "id": "talan-1ab717d8d693",
+      "slug": "solution-architect-talan-geneve-switzerland",
+      "slugByLocale": {
+        "fr": "solution-architect-talan-geneve-switzerland",
+        "it": "solution-architect-talan-geneve-switzerland",
+        "en": "solution-architect-talan-geneve-switzerland",
+        "de": "solution-architect-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Solution Architect",
+      "titleByLocale": {
+        "fr": "Solution Architect",
+        "it": "Solution Architetto",
+        "en": "Solution Architect",
+        "de": "Solution Architect"
+      },
+      "description": "Dans le cadre d’un programme majeur de transformation et de modernisation de son système d’information, notre client, acteur de référence de la Banque, renforce sa pratique Enterprise Solution Architecture .\n Nous recherchons un Solution Architect Senior capable de concevoir les architectures cibles, d’accompagner les équipes IT et métiers et de contribuer à la modernisation des plateformes vers des environnements Cloud, DevOps et API-driven .\n Vos responsabilités\n\n• Traduire les besoins métiers en solutions IT scalables, fiables, sécurisées et résilientes .\n\n• Définir les architectures fonctionnelles et techniques cibles et accompagner leur mise en œuvre.\n\n• Apporter un leadership technique aux équipes de développement et les accompagner dans les transformations DevOps, Cloud privé/public et containerisation .\n\n• Guider les Project Managers et équipes métiers vers l'architecture fonctionnelle cible.\n\n• Collaborer avec de nombreuses parties prenantes : Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture et équipes IT Delivery .\n\n• Assurer la cohérence des solutions avec les standards d’architecture d’entreprise.\n\n• Maintenir la documentation d’architecture et le référentiel Enterprise Architecture : Confluence, My-Carto , documentation de Solution Design.\n\n• Accompagner les initiatives de modernisation et l’intégration de technologies émergentes, notamment IA, Machine Learning et Blockchain .\n\n• Bachelor ou Master en informatique, IT ou domaine équivalent .\n\n• 5 à 10 ans d’expérience comme Solution Architect et/ou Tech Lead.\n\n• Solide expérience dans le Private Banking suisse et international .\n\n• Bonne compréhension fonctionnelle d’un ou plusieurs domaines :\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Capacité à travailler aussi bien avec les équipes métiers qu’avec les experts techniques et les fonctions de contrôle.\n\n• Excellente capacité à fédérer des équipes transverses autour d’une architecture cible.\n Compétences techniques\n Architecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• Architecture orientée API / BUS\n\n• Cloud privé et public\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\n Sécurité\n\n• Security by Design\n\n• Zero Trust\n Développement\n\n• Java\n\n• .NET\n\n• JavaScript / Vue.js\n\n• Python\n Bases de données\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\n DevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Approches Agile et Waterfall\n\n• Specification-driven development\n Technologies émergentes\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain",
+      "descriptionByLocale": {
+        "fr": "Dans le cadre d’un programme majeur de transformation et de modernisation de son système d’information, notre client, acteur de référence de la Banque, renforce sa pratique Enterprise Solution Architecture .\n Nous recherchons un Solution Architect Senior capable de concevoir les architectures cibles, d’accompagner les équipes IT et métiers et de contribuer à la modernisation des plateformes vers des environnements Cloud, DevOps et API-driven .\n Vos responsabilités\n\n• Traduire les besoins métiers en solutions IT scalables, fiables, sécurisées et résilientes .\n\n• Définir les architectures fonctionnelles et techniques cibles et accompagner leur mise en œuvre.\n\n• Apporter un leadership technique aux équipes de développement et les accompagner dans les transformations DevOps, Cloud privé/public et containerisation .\n\n• Guider les Project Managers et équipes métiers vers l'architecture fonctionnelle cible.\n\n• Collaborer avec de nombreuses parties prenantes : Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture et équipes IT Delivery .\n\n• Assurer la cohérence des solutions avec les standards d’architecture d’entreprise.\n\n• Maintenir la documentation d’architecture et le référentiel Enterprise Architecture : Confluence, My-Carto , documentation de Solution Design.\n\n• Accompagner les initiatives de modernisation et l’intégration de technologies émergentes, notamment IA, Machine Learning et Blockchain .\n\n• Bachelor ou Master en informatique, IT ou domaine équivalent .\n\n• 5 à 10 ans d’expérience comme Solution Architect et/ou Tech Lead.\n\n• Solide expérience dans le Private Banking suisse et international .\n\n• Bonne compréhension fonctionnelle d’un ou plusieurs domaines :\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Capacité à travailler aussi bien avec les équipes métiers qu’avec les experts techniques et les fonctions de contrôle.\n\n• Excellente capacité à fédérer des équipes transverses autour d’une architecture cible.\n Compétences techniques\n Architecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• Architecture orientée API / BUS\n\n• Cloud privé et public\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\n Sécurité\n\n• Security by Design\n\n• Zero Trust\n Développement\n\n• Java\n\n• .NET\n\n• JavaScript / Vue.js\n\n• Python\n Bases de données\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\n DevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Approches Agile et Waterfall\n\n• Specification-driven development\n Technologies émergentes\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain",
+        "it": "Dans le cadre d’un programme majeur de transformation et de modernisation de son système d’information, notre client, acteur de référence de la Banque, renforce sa pratique Enterprise Solution Architecture .\n Nous recherchons un Solution Architect Senior capable de concevoir les architectures cibles, d’accompagner les équipes IT et métiers et de contribuer à la modernisation des plateformes vers des environnements Cloud, DevOps et API-driven .\n Vos responsabilités\n\n• Traduire les besoins métiers en solutions IT scalables, fiables, sécurisées et résilientes .\n\n• Définir les architectures fonctionnelles et techniques cibles et accompagner leur mise en œuvre.\n\n• Apporter un leadership technique aux équipes de développement et les accompagner dans les transformations DevOps, Cloud privé/public et containerisation .\n\n• Guider les Project Managers et équipes métiers vers l'architecture fonctionnelle cible.\n\n• Collaborer avec de nombreuses parties prenantes : Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture et équipes IT Delivery .\n\n• Assurer la cohérence des solutions avec les standards d’architecture d’entreprise.\n\n• Maintenir la documentation d’architecture et le référentiel Enterprise Architecture : Confluence, My-Carto , documentation de Solution Design.\n\n• Accompagner les initiatives de modernisation et l’intégration de technologies émergentes, notamment IA, Machine Learning et Blockchain .\n\n• Bachelor ou Master en informatique, IT ou domaine équivalent .\n\n• 5 à 10 ans d’expérience comme Solution Architect et/ou Tech Lead.\n\n• Solide expérience dans le Private Banking suisse et international .\n\n• Bonne compréhension fonctionnelle d’un ou plusieurs domaines :\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Capacité à travailler aussi bien avec les équipes métiers qu’avec les experts techniques et les fonctions de contrôle.\n\n• Excellente capacité à fédérer des équipes transverses autour d’une architecture cible.\n Compétences techniques\n Architecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• Architecture orientée API / BUS\n\n• Cloud privé et public\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\n Sécurité\n\n• Security by Design\n\n• Zero Trust\n Développement\n\n• Java\n\n• .NET\n\n• JavaScript / Vue.js\n\n• Python\n Bases de données\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\n DevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Approches Agile et Waterfall\n\n• Specification-driven development\n Technologies émergentes\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain",
+        "en": "Dans le cadre d’un programme majeur de transformation et de modernisation de son système d’information, notre client, acteur de référence de la Banque, renforce sa pratique Enterprise Solution Architecture .\n Nous recherchons un Solution Architect Senior capable de concevoir les architectures cibles, d’accompagner les équipes IT et métiers et de contribuer à la modernisation des plateformes vers des environnements Cloud, DevOps et API-driven .\n Vos responsabilités\n\n• Traduire les besoins métiers en solutions IT scalables, fiables, sécurisées et résilientes .\n\n• Définir les architectures fonctionnelles et techniques cibles et accompagner leur mise en œuvre.\n\n• Apporter un leadership technique aux équipes de développement et les accompagner dans les transformations DevOps, Cloud privé/public et containerisation .\n\n• Guider les Project Managers et équipes métiers vers l'architecture fonctionnelle cible.\n\n• Collaborer avec de nombreuses parties prenantes : Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture et équipes IT Delivery .\n\n• Assurer la cohérence des solutions avec les standards d’architecture d’entreprise.\n\n• Maintenir la documentation d’architecture et le référentiel Enterprise Architecture : Confluence, My-Carto , documentation de Solution Design.\n\n• Accompagner les initiatives de modernisation et l’intégration de technologies émergentes, notamment IA, Machine Learning et Blockchain .\n\n• Bachelor ou Master en informatique, IT ou domaine équivalent .\n\n• 5 à 10 ans d’expérience comme Solution Architect et/ou Tech Lead.\n\n• Solide expérience dans le Private Banking suisse et international .\n\n• Bonne compréhension fonctionnelle d’un ou plusieurs domaines :\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Capacité à travailler aussi bien avec les équipes métiers qu’avec les experts techniques et les fonctions de contrôle.\n\n• Excellente capacité à fédérer des équipes transverses autour d’une architecture cible.\n Compétences techniques\n Architecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• Architecture orientée API / BUS\n\n• Cloud privé et public\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\n Sécurité\n\n• Security by Design\n\n• Zero Trust\n Développement\n\n• Java\n\n• .NET\n\n• JavaScript / Vue.js\n\n• Python\n Bases de données\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\n DevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Approches Agile et Waterfall\n\n• Specification-driven development\n Technologies émergentes\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain",
+        "de": "Dans le cadre d’un programme majeur de transformation et de modernisation de son système d’information, notre client, acteur de référence de la Banque, renforce sa pratique Enterprise Solution Architecture .\n Nous recherchons un Solution Architect Senior capable de concevoir les architectures cibles, d’accompagner les équipes IT et métiers et de contribuer à la modernisation des plateformes vers des environnements Cloud, DevOps et API-driven .\n Vos responsabilités\n\n• Traduire les besoins métiers en solutions IT scalables, fiables, sécurisées et résilientes .\n\n• Définir les architectures fonctionnelles et techniques cibles et accompagner leur mise en œuvre.\n\n• Apporter un leadership technique aux équipes de développement et les accompagner dans les transformations DevOps, Cloud privé/public et containerisation .\n\n• Guider les Project Managers et équipes métiers vers l'architecture fonctionnelle cible.\n\n• Collaborer avec de nombreuses parties prenantes : Security, Data Governance, Operational Resilience, Data Protection, Legal, Compliance, Architecture et équipes IT Delivery .\n\n• Assurer la cohérence des solutions avec les standards d’architecture d’entreprise.\n\n• Maintenir la documentation d’architecture et le référentiel Enterprise Architecture : Confluence, My-Carto , documentation de Solution Design.\n\n• Accompagner les initiatives de modernisation et l’intégration de technologies émergentes, notamment IA, Machine Learning et Blockchain .\n\n• Bachelor ou Master en informatique, IT ou domaine équivalent .\n\n• 5 à 10 ans d’expérience comme Solution Architect et/ou Tech Lead.\n\n• Solide expérience dans le Private Banking suisse et international .\n\n• Bonne compréhension fonctionnelle d’un ou plusieurs domaines :\n• Wealth Management\n\n• Asset Management\n\n• Trading\n\n• Treasury\n\n• Back Office / Operations\n\n• Capacité à travailler aussi bien avec les équipes métiers qu’avec les experts techniques et les fonctions de contrôle.\n\n• Excellente capacité à fédérer des équipes transverses autour d’une architecture cible.\n Compétences techniques\n Architecture & Infrastructure\n\n• Enterprise Architecture / Open Service Architecture\n\n• Architecture orientée API / BUS\n\n• Cloud privé et public\n\n• Bare Metal, VMware ESX / vCenter\n\n• Virtual Machines\n\n• Kubernetes / OpenShift\n\n• Microsoft Cloud\n Sécurité\n\n• Security by Design\n\n• Zero Trust\n Développement\n\n• Java\n\n• .NET\n\n• JavaScript / Vue.js\n\n• Python\n Bases de données\n\n• Oracle\n\n• SQL Server\n\n• MongoDB\n\n• Elasticsearch\n DevOps\n\n• Azure DevOps\n\n• Git\n\n• GitHub Copilot\n\n• Approches Agile et Waterfall\n\n• Specification-driven development\n Technologies émergentes\n\n• Artificial Intelligence / Machine Learning\n\n• Blockchain"
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000156838401-solution-architect?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-22T09:14:53.446Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21T15:28:57.106Z",
+      "postedDate": "2026-10-21T15:28:57.106Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000156838401-solution-architect?oga=true",
+      "jobReqId": "744000156838401",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-22T09:14:53.446Z"
+    },
+    {
       "id": "talan-af6c08192f75",
       "slug": "business-analista-talan-lausanne-vd-switzerland",
       "slugByLocale": {
@@ -1230,7 +1300,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155794329--business-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.974Z",
+      "crawledAt": "2026-10-22T09:14:53.444Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -1308,7 +1378,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000155941719-change-manager-cybersecurite?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-21T09:16:49.971Z",
+      "crawledAt": "2026-10-22T09:14:53.436Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1354,85 +1424,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "talan-9681a6fbc727",
-      "slug": "data-analytics-ingegnere-looker-gcp-talan-lausanne",
-      "slugByLocale": {
-        "it": "data-analytics-ingegnere-looker-gcp-talan-lausanne",
-        "en": "dataazers-benissian-zor-gcp-talan-lausanne-vd-switzerland",
-        "de": "data-analytics-ingenieur-looker-gcp-talan-lausanne",
-        "fr": "data-analytics-engineer-looker-gcp-talan-lausanne-vd-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Data Analytics Engineer Looker (GCP)",
-      "titleByLocale": {
-        "it": "Ingegnere di analisi dei dati Looker (GCP)",
-        "en": "DataAzers-Benissian-Zor (GCP)",
-        "de": "Ingenieur/in für Datenanalyse mit Looker (GCP)",
-        "fr": "Data Analytics Ingénieur Looker (GCP)"
-      },
-      "description": "Nous recherchons un.e Data Analytics Engineer spécialisé.e sur Looker , capable de structurer et de valoriser les données afin de les rendre accessibles, fiables et exploitables par les équipes métier.\n À l'interface entre les équipes techniques et les utilisateurs métier, vous contribuerez à la conception de modèles de données robustes et au développement d'outils d'analyse facilitant la prise de décision.\n Responsabilités\n\n• Structurer, transformer et préparer les données pour les rendre exploitables par les équipes métier.\n\n• Concevoir et maintenir des modèles de données dans Looker , notamment via LookML .\n\n• Développer et optimiser les transformations de données avec dbt .\n\n• Écrire et optimiser des requêtes SQL pour garantir la qualité et la performance des traitements.\n\n• Concevoir des outils d'analyse et des tableaux de bord fiables, adaptés aux besoins des utilisateurs.\n\n• Recueillir les besoins métier et les traduire en solutions analytiques pertinentes.\n\n• Garantir la cohérence, la fiabilité et la maintenabilité des modèles de données.\n\n• Collaborer avec les équipes Data et métier afin de favoriser l'adoption des outils analytiques.\n\n• Expérience confirmée en Data Analytics Engineering ou dans un rôle similaire.\n\n• Maîtrise de Looker (hors Looker Studio) et de LookML , notamment pour la modélisation des données.\n\n• Très bonnes compétences en SQL .\n\n• Expérience pratique de dbt pour la transformation et la modélisation des données.\n\n• Capacité à comprendre les besoins métier et à les traduire en solutions techniques.\n\n• Esprit analytique, autonomie et bonnes capacités de communication.\n\n• Français courant indispensable , langue de travail au quotidien.\n\n• Connaissance de l'environnement Google Cloud Platform (GCP) .",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nCerchiamo un/una Data Analytics Engineer specializzato/a in Looker , capace di strutturare e valorizzare i dati per renderli accessibili, affidabili e utilizzabili dai team aziendali.\n\nAll'interfaccia tra i team tecnici e gli utenti aziendali, contribuirete alla progettazione di modelli di dati robusti e allo sviluppo di strumenti di analisi che facilitino il processo decisionale.\n\nResponsabilità\n\n- Strutturare, trasformare e preparare i dati per renderli utilizzabili dai team aziendali.\n- Progettare e mantenere modelli di dati in Looker , in particolare tramite LookML .\n- Sviluppare e ottimizzare le trasformazioni dei dati con dbt .\n- Scrivere e ottimizzare query SQL per garantire la qualità e le prestazioni delle elaborazioni.\n- Progettare strumenti di analisi e dashboard affidabili, adeguati alle esigenze degli utenti.\n- Raccogliere le esigenze aziendali e tradurle in soluzioni analitiche pertinenti.\n- Garantire la coerenza, l'affidabilità e la manutenibilità dei modelli di dati.\n- Collaborare con i team Data e di business al fine di favorire l'adozione degli strumenti analitici.\n\nProfilo ricercato\n\n- Esperienza comprovata in Data Analytics Engineering o in un ruolo analogo.\n- Padronanza di Looker (escluso Looker Studio) e di LookML , in particolare per la modellazione dei dati.\n- Ottime competenze in SQL .\n- Esperienza pratica di dbt per la trasformazione e la modellazione dei dati.\n- Capacità di comprendere le esigenze aziendali e di tradurle in soluzioni tecniche.\n- Spirito analitico, autonomia e buone capacità comunicative.\n- Francese fluente indispensabile , lingua di lavoro quotidiana.\n- Conoscenza dell'ambiente Google Cloud Platform (GCP) .",
-        "en": "Description\n\nWe are looking for a Data Analytics Engineer specializing in Looker , capable of structuring and enhancing data so that it is accessible, reliable, and usable by business teams.\n\nAt the interface between technical teams and business users, you will contribute to the design of robust data models and the development of analysis tools that facilitate decision-making.\n\nResponsibilities\n\n- Structure, transform, and prepare data to make it usable by business teams.\n- Design and maintain data models in Looker , notably via LookML .\n- Develop and optimize data transformations with dbt .\n- Write and optimize SQL queries to ensure the quality and performance of processing.\n- Design reliable analysis tools and dashboards adapted to users' needs.\n- Gather business requirements and translate them into relevant analytical solutions.\n- Ensure the consistency, reliability, and maintainability of data models.\n- Collaborate with Data and business teams to encourage the adoption of analytics tools.\n\nCandidate profile\n\n- Proven experience in Data Analytics Engineering or a similar role.\n- Proficiency in Looker (excluding Looker Studio) and LookML , particularly for data modeling.\n- Very good SQL skills.\n- Practical experience with dbt for data transformation and modeling.\n- Ability to understand business needs and translate them into technical solutions.\n- Analytical mindset, autonomy, and good communication skills.\n- Fluent French essential, daily working language.\n- Knowledge of the Google Cloud Platform (GCP) environment.",
-        "de": "Beschreibung\n\nWir suchen eine:n auf Looker spezialisierte:n Data Analytics Engineer, der/die Daten strukturieren und aufwerten kann, damit sie für die Fachteams zugänglich, zuverlässig und nutzbar sind.\n\nAn der Schnittstelle zwischen den technischen Teams und den Fachanwendern tragen Sie zur Konzeption robuster Datenmodelle und zur Entwicklung von Analysetools bei, die die Entscheidungsfindung erleichtern.\n\nVerantwortlichkeiten\n\n- Daten strukturieren, transformieren und aufbereiten, um sie für die Fachteams nutzbar zu machen.\n- Datenmodelle in Looker entwerfen und pflegen, insbesondere mit LookML.\n- Datentransformationen mit dbt entwickeln und optimieren.\n- SQL-Abfragen schreiben und optimieren, um die Qualität und Leistungsfähigkeit der Verarbeitung zu gewährleisten.\n- Zuverlässige, auf die Bedürfnisse der Nutzer zugeschnittene Analysetools und Dashboards entwerfen.\n- Fachliche Anforderungen ermitteln und in geeignete analytische Lösungen übersetzen.\n- Die Konsistenz, Zuverlässigkeit und Wartbarkeit der Datenmodelle gewährleisten.\n- Mit den Data- und Fachteams zusammenarbeiten, um die Einführung analytischer Tools zu fördern.\n\nGesuchtes Profil\n\n- Nachweisliche Erfahrung im Data Analytics Engineering oder in einer ähnlichen Rolle.\n- Beherrschung von Looker (mit Ausnahme von Looker Studio) und LookML, insbesondere für die Datenmodellierung.\n- Sehr gute SQL-Kenntnisse .\n- Praktische Erfahrung mit dbt zur Transformation und Modellierung von Daten.\n- Fähigkeit, die geschäftlichen Anforderungen zu verstehen und in technische Lösungen zu übersetzen.\n- Analytisches Denkvermögen, Eigenständigkeit und gute Kommunikationsfähigkeiten.\n- Fließende Französischkenntnisse unerlässlich, tägliche Arbeitssprache.\n- Kenntnisse der Umgebung der Google Cloud Platform (GCP).",
-        "fr": "Nous recherchons un.e Data Analytics Engineer spécialisé.e sur Looker , capable de structurer et de valoriser les données afin de les rendre accessibles, fiables et exploitables par les équipes métier.\nÀ l'interface entre les équipes techniques et les utilisateurs métier, vous contribuerez à la conception de modèles de données robustes et au développement d'outils d'analyse facilitant la prise de décision.\nResponsabilités\n\n• Structurer, transformer et préparer les données pour les rendre exploitables par les équipes métier.\n\n• Concevoir et maintenir des modèles de données dans Looker , notamment via LookML .\n\n• Développer et optimiser les transformations de données avec dbt .\n\n• Écrire et optimiser des requêtes SQL pour garantir la qualité et la performance des traitements.\n\n• Concevoir des outils d'analyse et des tableaux de bord fiables, adaptés aux besoins des utilisateurs.\n\n• Recueillir les besoins métier et les traduire en solutions analytiques pertinentes.\n\n• Garantir la cohérence, la fiabilité et la maintenabilité des modèles de données.\n\n• Collaborer avec les équipes Data et métier afin de favoriser l'adoption des outils analytiques.\n\n• Expérience confirmée en Data Analytics Engineering ou dans un rôle similaire.\n\n• Maîtrise de Looker (hors Looker Studio) et de LookML , notamment pour la modélisation des données.\n\n• Très bonnes compétences en SQL .\n\n• Expérience pratique de dbt pour la transformation et la modélisation des données.\n\n• Capacité à comprendre les besoins métier et à les traduire en solutions techniques.\n\n• Esprit analytique, autonomie et bonnes capacités de communication.\n\n• Français courant indispensable , langue de travail au quotidien.\n\n• Connaissance de l'environnement Google Cloud Platform (GCP) ."
-      },
-      "location": "Lausanne, VD, Switzerland",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000155787599-data-analytics-engineer-looker-gcp-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-20T09:14:08.008Z",
-      "addressLocality": "Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-15T15:14:06.114Z",
-      "postedDate": "2026-10-15T15:14:06.114Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000155787599-data-analytics-engineer-looker-gcp-?oga=true",
-      "jobReqId": "744000155787599",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "data-analytics-engineer-looker-gcp-talan-lausanne-vd-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "data-analytics-engineer-looker-gcp-talan-lausanne-vd-switzerland"
-        ],
-        "de": [
-          "data-analytics-engineer-looker-gcp-talan-lausanne-vd-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-15T21:16:17.871Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

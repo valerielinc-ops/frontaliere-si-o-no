@@ -16,6 +16,7 @@
 
 import { peelDanglingClauseTail } from '../build-plugins/shared/clauseTail.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
@@ -224,12 +225,10 @@ export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsu
           <a target="_blank" rel="noopener noreferrer" href="${esc(adUrl)}" style="display:inline-block;background:${BRAND_ORANGE};color:${WHITE};font-weight:800;font-size:15px;text-decoration:none;padding:14px 38px;border-radius:10px;">${esc(s.cta)}</a>
         </td></tr>
 
+        ${renderEmailEngagementBanners({ locale: loc })}
+
         <!-- Footer -->
         <tr><td style="background:${BRAND_DARK};padding:26px 28px;text-align:center;">
-          <div style="margin-bottom:12px;">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">💼</a>
-            <a target="_blank" rel="noopener noreferrer" href="https://frontaliereticino.ch" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">🌐</a>
-          </div>
           <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 10px;line-height:1.5;">${esc(s.why(recipientEmail))}</div>
           <!--
             #5759 — this channel is third-party advertising, enabled only by

@@ -147,6 +147,13 @@ const TYPE_ONLY_CLAUSE_RE = /^\s*type\s+(?!from\b)[{*\w$]/;
 // Changing one of the listed importers still changes the fingerprint, because
 // the importer itself stays in the graph.
 export const JOBS_SEO_FINGERPRINT_INERT_MODULES = Object.freeze({
+  // Cache persistence and its private HTML parser are not part of the page
+  // emitter. Pruning the storage module (rather than merely omitting its own
+  // file from the hash) is important: otherwise its transitive imports stay
+  // in the graph and a change to a cache-only helper invalidates every page.
+  // If a render module starts importing this storage module, the allowlist
+  // stops matching and the graph fails closed by hashing it again.
+  [JOBS_SEO_REUSE_STORAGE_MODULE]: Object.freeze(['build-plugins/jobsSeoPagesPlugin.ts']),
   // Nightly-refreshed wait averages. borderCrossings.ts copies them onto the
   // morning/evening average fields; the job renderer reaches borderCrossings
   // only through the job location snapshot service, which ranks crossings by
@@ -330,10 +337,8 @@ function hashSourceModuleFiles(
   rootDir,
   entryFiles,
   inertModules = {},
-  excludedRelativePaths = new Set(),
 ) {
   const records = collectSourceModuleFiles(rootDir, entryFiles, inertModules)
-    .filter((relativeFile) => !excludedRelativePaths.has(relativeFile))
     .map((relativeFile) => ({
     path: relativeFile,
     hash: sha256File(path.resolve(rootDir, relativeFile)),
@@ -366,7 +371,6 @@ export function computeJobsSeoEmitterFingerprints(rootDir) {
     rootDir,
     [JOBS_SEO_RENDER_ENTRY],
     JOBS_SEO_FINGERPRINT_INERT_MODULES,
-    new Set([JOBS_SEO_REUSE_STORAGE_MODULE]),
   );
   const assetManifestHash = hashStaticShellAssetManifest(rootDir);
   const renderFlags = {

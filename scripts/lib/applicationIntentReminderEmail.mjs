@@ -1,6 +1,7 @@
 import { dataControllerFooterLine } from '../../functions/src/lib/dataControllerIdentity.js';
 import { renderJobCard } from '../../services/newsletter/jobCard.mjs';
 import { renderRecommendedBlock } from '../../services/newsletter/recommendedBlock.mjs';
+import { emailEngagementBannersText, renderEmailEngagementBanners } from '../../functions/src/lib/emailEngagementBanners.js';
 
 const BRAND_ORANGE = '#f97316';
 const BRAND_DARK = '#0f172a';
@@ -142,6 +143,7 @@ export function buildApplicationIntentReminderEmailHtml({
     <tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;"><div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;">${escapeHtml(s.sectionLabel)}</div><div style="font-size:18px;font-weight:800;color:${BRAND_DARK};">${escapeHtml(s.sectionTitle)}</div><div style="font-size:13px;color:${MUTED};margin:4px 0 0;">${escapeHtml(s.sectionDesc)}</div></td></tr>
     <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 20px;"><table width="100%" cellpadding="0" cellspacing="0">${sourceCards}${recommendationBlock}<tr><td style="text-align:center;padding-top:14px;"><a href="${escapeHtml(manageUrl)}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${escapeHtml(s.manageCta)}</a></td></tr></table></td></tr>
     ${sponsoredBlock}
+    ${renderEmailEngagementBanners({ locale })}
     <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;"><div style="background:#f8fafc;border-radius:12px;padding:18px 20px;text-align:center;"><div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${escapeHtml(s.closer)}</div><div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">${escapeHtml(s.signature)}</div></div></td></tr>
     <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;"><div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">${escapeHtml(s.footer(email))}</div><div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;"><a href="${escapeHtml(manageUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${escapeHtml(s.manageLink)}</a></div><div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">${escapeHtml(s.unsubscribe)}: <a href="${escapeHtml(unsubUrl)}" style="color:${MUTED_ON_DARK};text-decoration:underline;">${escapeHtml(unsubUrl)}</a></div><div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:12px;">© ${new Date().getFullYear()} Frontaliere Ticino</div><div style="font-size:11px;color:${MUTED_ON_DARK};margin-top:6px;">${escapeHtml(dataControllerFooterLine(locale))}</div></td></tr>
   </table></td></tr></table></body></html>`;
@@ -165,6 +167,6 @@ export function buildApplicationIntentReminderEmailText({
     lines.push('', s.recommendationsTitle);
     for (const entry of recommendations) lines.push(`- ${entry.title} (${s.at} ${entry.company}): ${entry.url}`);
   }
-  lines.push('', `${s.manageLink}: ${manageUrl}`, `${s.unsubscribe}: ${unsubUrl}`, '', s.closer, `© ${new Date().getFullYear()} Frontaliere Ticino`, dataControllerFooterLine(locale));
+  lines.push('', `${s.manageLink}: ${manageUrl}`, `${s.unsubscribe}: ${unsubUrl}`, '', s.closer, '', emailEngagementBannersText({ locale }), '', `© ${new Date().getFullYear()} Frontaliere Ticino`, dataControllerFooterLine(locale));
   return lines.join('\n');
 }

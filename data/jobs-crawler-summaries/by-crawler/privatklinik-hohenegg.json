@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-10-21T09:15:57.300Z",
+  "generatedAt": "2026-10-22T09:16:31.314Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -12,30 +12,30 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8839,
-  "avgDurationMs": 8839,
+  "durationMs": 5837,
+  "avgDurationMs": 5837,
   "durationHistory": [
-    8839
+    5837
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "privatklinik-hohenegg-ab3fc3a8544f",
-      "slug": "mitarbeitende-hotellerie-auf-abruf-privatklinik-hohenegg-ch",
+      "slug": "personale-dell-hotel-su-richiesta-privatklinik-hohenegg-meilen",
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
       "companyDomain": "hohenegg.ch",
       "title": "Mitarbeitende Hotellerie (auf Abruf)",
-      "needsRetranslation": true,
       "location": "Meilen",
       "canton": "ZH",
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:15:40.272Z",
+      "crawledAt": "2026-10-22T09:16:15.529Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -58,16 +58,16 @@
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 81,
+      "firstSeenAt": "2026-10-22T09:16:15.529Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -83,7 +83,7 @@
       "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:15:39.847Z",
+      "crawledAt": "2026-10-22T09:16:15.104Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -126,7 +126,7 @@
       "url": "https://apply.refline.ch/640332/0066/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:15:39.420Z",
+      "crawledAt": "2026-10-22T09:16:14.680Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:15:37.895Z",
+      "crawledAt": "2026-10-22T09:16:14.254Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -215,7 +215,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:15:37.471Z",
+      "crawledAt": "2026-10-22T09:16:13.832Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-21T09:15:37.011Z",
+      "crawledAt": "2026-10-22T09:16:13.383Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,5 +293,5 @@
       }
     }
   ],
-  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
+  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
 }

@@ -515,6 +515,7 @@ jobs:
       # successfully so the required Vitest check runs before discovery data
       # reaches main.
       - name: Publish + commit the topic-hub sitemap
+        id: publish_topic_sitemap
         if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success' && steps.render.outputs.deferred != 'true'
         env:
           GH_TOKEN: ${{ env.GITHUB_PAT }}
@@ -559,6 +560,17 @@ jobs:
             --commit-message "🗺️ Topic-hub sitemap: $REL ($COUNT URL)" \
             --title "chore(data): publish $INPUT_SECTION topic-hub sitemap" \
             --body-file "$body"
+
+      # The topic sitemap and its pages are a separate edge publication from
+      # the normal Pages deploy. Notify IndexNow from the same live graph after
+      # that publication so every rendered landing/archive/topic URL does not
+      # wait for the daily full sweep. The command is idempotent and the daily
+      # sweep remains the retry path.
+      - name: Reconcile topic-hub URLs with IndexNow
+        if: steps.publish_topic_sitemap.outcome == 'success' && steps.mode.outputs.dry != 'true'
+        continue-on-error: true
+        timeout-minutes: 20
+        run: node scripts/notify-article-search-engines.mjs --indexnow-only --summary "$RUNNER_TEMP/hubs/summary.json"
 
       # A BOUNDED purge, on purpose.
       #
