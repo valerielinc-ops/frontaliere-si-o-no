@@ -265,8 +265,16 @@ export function parsePkbDetailPage(html, pageUrl = '') {
 
 /* ── Network helpers ──────────────────────────────────────────── */
 
+function classifyFetchFailure(status) {
+  if (status === 401 || status === 403) return 'anti_bot_block';
+  if (status === 408 || status === 429 || (status >= 500 && status <= 599)) return 'exhausted_retry';
+  if (Number.isInteger(status)) return 'feed_endpoint_unavailable';
+  return 'connection_error';
+}
+
 async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retries = 2, backoffMs = 1000 } = {}) {
   let lastErrorReason = '';
+  let lastStatus = null;
   for (let attempt = 0; attempt <= retries; attempt += 1) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -276,11 +284,12 @@ async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retri
         signal: controller.signal,
         redirect: 'follow',
       });
-      if (res.ok) return await res.text();
+      if (res.ok) return { html: await res.text(), fetchOutcome: 'ok' };
       const status = res.status;
+      lastStatus = status;
       const retryable = status === 408 || status === 429 || (status >= 500 && status <= 599);
       lastErrorReason = `HTTP ${status}`;
-      if (!retryable) return null;
+      if (!retryable) return { html: null, fetchOutcome: classifyFetchFailure(status) };
     } catch (err) {
       lastErrorReason = err?.name === 'AbortError' ? 'timeout' : (err?.message || 'fetch_error');
     } finally {
@@ -293,7 +302,7 @@ async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retri
   if (lastErrorReason) {
     console.warn(`  ⚠️ fetchPage exhausted retries for ${url}: ${lastErrorReason}`);
   }
-  return null;
+  return { html: null, fetchOutcome: classifyFetchFailure(lastStatus) };
 }
 
 /**
@@ -303,12 +312,14 @@ export async function fetchPkbJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
   const allJobs = [];
   const seenUrls = new Set();
   const failedUrls = [];
+  const failedOutcomes = [];
 
   for (const listingUrl of LISTING_URLS) {
-    const html = await fetchPage(listingUrl, { userAgent, timeoutMs });
+    const { html, fetchOutcome } = await fetchPage(listingUrl, { userAgent, timeoutMs });
     if (!html) {
       console.warn(`  ⚠️ Failed to fetch listing page: ${listingUrl}`);
       failedUrls.push(listingUrl);
+      failedOutcomes.push(fetchOutcome);
       continue;
     }
     const jobs = parsePkbListingPage(html, PKB_BASE);
@@ -326,6 +337,12 @@ export async function fetchPkbJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
     succeeded: LISTING_URLS.length - failedUrls.length,
     failed: failedUrls.length,
     failedUrls,
+    // A reachable page that yields no known listing block is not proof of an
+    // empty board: keep it distinct from a transport/endpoint failure so the
+    // summary guard can name the bail-out instead of publishing "unknown".
+    // A partial listing fetch is not a healthy snapshot: preserve the jobs
+    // found on reachable pages, but expose the failed source observation.
+    fetchOutcome: failedOutcomes[0] || (allJobs.length > 0 ? 'ok' : 'selector_miss'),
   };
 }
 
@@ -334,7 +351,7 @@ export async function fetchPkbJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
  * Returns parsed job data or null on failure.
  */
 export async function fetchPkbDetailPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const html = await fetchPage(url, { userAgent, timeoutMs });
+  const { html } = await fetchPage(url, { userAgent, timeoutMs });
   if (!html) return null;
   return parsePkbDetailPage(html, url);
 }

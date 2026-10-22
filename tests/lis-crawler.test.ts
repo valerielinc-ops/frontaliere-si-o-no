@@ -4,9 +4,11 @@
  * Tests parseArca24ListingPage(), parseArca24DetailPage(), and buildLisJob()
  * using HTML fixtures matching the real Arca24 structure at lavoraconnoi.lugano-lis.ch.
  */
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 
 import {
+  fetchLisJobUrls,
   parseArca24ListingPage,
   parseArca24DetailPage,
   buildLisJob as buildLisJobSource,
@@ -15,6 +17,10 @@ import {
   slugify,
   extractLisSalary,
 } from '@/scripts/lib/lis-lugano-istituti-sociali-job-parser.mjs';
+
+const LIS_UPDATER = readFileSync(new URL('../scripts/update-lis-jobs.mjs', import.meta.url), 'utf8');
+
+afterEach(() => vi.unstubAllGlobals());
 
 const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
 const buildLisJob = (url: string, parsed: any) => buildLisJobSource(url, parsed, OBSERVED_AT);
@@ -271,6 +277,38 @@ describe('LIS Arca24 parser — listing page', () => {
   it('returns empty array for non-listing HTML', () => {
     const jobs = parseArca24ListingPage('<html><body><p>No jobs</p></body></html>');
     expect(jobs).toEqual([]);
+  });
+});
+
+describe('LIS Arca24 fetch outcome', () => {
+  it('marks reachable pages without listing blocks as selector misses', async () => {
+    vi.stubGlobal('fetch', async () => new Response('<html><body>no listing blocks</body></html>'));
+
+    const result = await fetchLisJobUrls({ timeoutMs: 100 });
+
+    expect(result).toMatchObject({ jobs: [], succeeded: 2, failed: 0, fetchOutcome: 'selector_miss' });
+  });
+
+  it('preserves an anti-bot response even when another listing page succeeds', async () => {
+    let calls = 0;
+    vi.stubGlobal('fetch', async () => {
+      calls += 1;
+      return calls === 1 ? new Response(LISTING_HTML) : new Response('', { status: 403 });
+    });
+
+    const result = await fetchLisJobUrls({ timeoutMs: 100 });
+
+    expect(result).toMatchObject({ jobs: expect.any(Array), succeeded: 1, failed: 1, fetchOutcome: 'anti_bot_block' });
+    expect(result.jobs).toHaveLength(2);
+  });
+});
+
+describe('LIS Arca24 summary guard wiring', () => {
+  it('passes discovery counts into the early-exit summary', () => {
+    expect(LIS_UPDATER).toContain("registerCrawlerSummaryGuard(LIS_KEY, 'LIS', summaryCounts)");
+    expect(LIS_UPDATER).toContain('crawlArca24Direct(summaryCounts)');
+    expect(LIS_UPDATER).toContain("summaryCounts.abortKind = discovery.failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed';");
+    expect(LIS_UPDATER).toContain('lastFetchOutcome: summaryCounts.lastFetchOutcome');
   });
 });
 

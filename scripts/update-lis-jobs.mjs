@@ -984,7 +984,7 @@ function runBaseCrawler() {
  *
  * This function bypasses those issues by scraping Arca24 directly.
  */
-export async function crawlArca24Direct() {
+export async function crawlArca24Direct(summaryCounts = null) {
   console.log('\n🔍 Direct Arca24 scraping: discovering job URLs...');
   const discovery = await fetchLisJobUrls({
     userAgent: LIS_USER_AGENT,
@@ -992,6 +992,10 @@ export async function crawlArca24Direct() {
   });
   const listingJobs = discovery.jobs;
   const partialDiscovery = discovery.failed > 0;
+  if (summaryCounts) {
+    summaryCounts.discovered = listingJobs.length;
+    summaryCounts.lastFetchOutcome = discovery.fetchOutcome;
+  }
   console.log(`📋 Found ${listingJobs.length} job URLs on Arca24 listing pages (listings: ${discovery.succeeded}/${discovery.attempted} ok)`);
 
   // Bail out completely when every listing page failed — writing nothing
@@ -999,11 +1003,19 @@ export async function crawlArca24Direct() {
   // (run 26422783451, 2026-05-25) silently truncates the slice and the
   // build emits expired soft-landings for jobs still live on the ATS.
   if (discovery.succeeded === 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.abortKind = 'connection-level-fetch';
+    }
     console.warn('⚠️  All listing pages failed to fetch — leaving existing LIS jobs untouched.');
     return { discovered: 0, parsed: 0, merged: 0, preservedExisting: 0, aborted: 'all_listings_failed' };
   }
 
   if (listingJobs.length === 0) {
+    if (summaryCounts) {
+      summaryCounts.parsed = 0;
+      summaryCounts.abortKind = discovery.failed > 0 ? 'connection-level-fetch' : 'no-jobs-parsed';
+    }
     console.warn('⚠️  No job URLs found on Arca24 listing pages — the ATS may be down or structure changed');
     return { discovered: 0, parsed: 0, merged: 0 };
   }
@@ -1040,6 +1052,11 @@ export async function crawlArca24Direct() {
   }
 
   console.log(`\n🏛️ Parsed LIS jobs: ${parsedJobs.length} / ${listingJobs.length}`);
+  if (summaryCounts) {
+    summaryCounts.parsed = parsedJobs.length;
+    summaryCounts.abortKind = parsedJobs.length === 0 && !partialDiscovery ? 'no-jobs-parsed' : null;
+    if (parsedJobs.length === 0 && !partialDiscovery) summaryCounts.lastFetchOutcome = 'selector_miss';
+  }
   if (parsedJobs.length === 0 && !partialDiscovery) {
     console.warn('⚠️  All detail pages failed to parse — Arca24 structure may have changed; leaving existing LIS jobs untouched.');
     return { discovered: listingJobs.length, parsed: 0, merged: 0, aborted: 'all_details_failed' };
@@ -1192,7 +1209,8 @@ function validateLisLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(LIS_KEY, 'LIS');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(LIS_KEY, 'LIS', summaryCounts);
   console.log('🏛️ Running dedicated LIS – Lugano Istituti Sociali jobs crawler...');
 
   // Ensure the adapter has the correct Arca24 seed URLs
@@ -1207,7 +1225,7 @@ async function main() {
   // ── Step 1: Direct Arca24 scraping ──
   // The shared pipeline cannot discover Arca24 jobs due to host-matching
   // limitations (see parser module for details). Scrape directly first.
-  const arca24Result = await crawlArca24Direct();
+  const arca24Result = await crawlArca24Direct(summaryCounts);
 
   // ── Step 2: Run shared pipeline for AI localization of discovered jobs ──
   // If we found jobs via direct scraping, run the base crawler in
@@ -1248,6 +1266,10 @@ async function main() {
     label: 'LIS',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: summaryCounts.discovered,
+    parsed: summaryCounts.parsed,
+    lastFetchOutcome: summaryCounts.lastFetchOutcome,
+    abortKind: summaryCounts.abortKind,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,
