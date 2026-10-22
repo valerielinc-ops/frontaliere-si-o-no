@@ -1032,7 +1032,7 @@ jobs:
   # separate job so a cancelled translation still releases the deploy
   # admission marker and cannot leave the site waiting on a stale `pending`.
   translate_timeout_recovery:
-    needs: translate
+    needs: [translate]
     if: always() && needs.translate.result != 'success' && needs.translate.result != 'skipped' && inputs.dry_run != true
     runs-on: ubuntu-latest
     timeout-minutes: 30

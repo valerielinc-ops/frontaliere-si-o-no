@@ -3040,7 +3040,7 @@ describe('cross-repo crawler execution artifacts', () => {
 
     for (const artifact of contract.artifacts) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
-      expect(Object.keys(doc.jobs)).toHaveLength(artifact.file === 'translate-pending.yml' ? 2 : 1);
+      expect(Object.keys(doc.jobs)).toHaveLength(artifact.file === 'translate-pending.yml' ? 3 : 1);
       const job: any = artifact.file === 'translate-pending.yml'
         ? doc.jobs.translate
         : Object.values(doc.jobs)[0];
@@ -3202,6 +3202,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
     const guardJob: any = translation.jobs.translate_queue_guard;
     const translateJob: any = translation.jobs.translate;
+    const timeoutRecoveryJob: any = translation.jobs.translate_timeout_recovery;
     const guardStep = guardJob.steps.find((step: any) => step.id === 'translate_queue_guard');
 
     expect(translation.concurrency).toBeUndefined();
@@ -3214,6 +3215,8 @@ describe('cross-repo crawler execution artifacts', () => {
       'cancel-in-progress': false,
       queue: 'max',
     });
+    expect(timeoutRecoveryJob.needs).toEqual(['translate_queue_guard', 'translate']);
+    expect(timeoutRecoveryJob.concurrency).toBeUndefined();
     expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=');
     expect(guardStep.run).toContain('select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")');
     expect(guardStep.run).toContain('for run_status in queued pending waiting requested in_progress');
