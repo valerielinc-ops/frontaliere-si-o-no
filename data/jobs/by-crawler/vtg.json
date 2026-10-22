@@ -50,7 +50,6 @@
         "de": "hochschulpraktikant-in-internationale-ausbildung-und-ubungen-swiss-armed-forces-vtg-bern-p2n63p",
         "fr": "hochschulpraktikant-in-internationale-ausbildung-und-ubungen-swiss-armed-forces-vtg-bern-p2n63p"
       },
-      "needsRetranslation": true,
       "sourceLang": "de",
       "postalCode": "3004",
       "addressLocality": "Bern",
@@ -293,7 +292,6 @@
         "fr": "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-c84xy3"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "postalCode": "7000",
       "addressLocality": "Chur",
       "addressRegion": "GR",
@@ -4450,7 +4448,8 @@
       "datePosted": "2026-09-30T22:00:00Z",
       "postingDateSource": "reported",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-v2ihnk",
