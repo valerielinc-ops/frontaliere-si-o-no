@@ -483,10 +483,10 @@ export interface JobListing {
  addressCountry?: string;
  featured: boolean;
  postingDateSource?: string;
+ /** Resolved date for presentation only; source aliases stay upstream-owned. */
+ displayPostingDate: string;
  datePosted?: string;
  postedDate: string;
- /** Presentation-only date: reported publication or validated firstSeenAt fallback. */
- displayPostingDate: string;
  crawledAt?: string;
  firstSeenAt?: string;
  url?: string;
@@ -853,7 +853,6 @@ export function normalizeIncomingJob(raw: any): JobListing {
  const companyKey = String(raw?.companyKey || '').trim() || undefined;
  const rawCompanyDomain = String(raw?.companyDomain || '').trim();
  const rawApplyUrl = String(raw?.applyUrl || '').trim();
- const reportedPostingDate = resolveReportedPostingDate(raw || {}) || '';
  const displayPostingDate = resolveRolloutPostingDate(raw || {}, () => '') || '';
 
  return {
@@ -876,8 +875,6 @@ export function normalizeIncomingJob(raw: any): JobListing {
  // in displayPostingDate so a reported record with an invalid/missing source
  // date cannot be re-read as if its observation timestamp were reported.
  postingDateSource: raw?.postingDateSource,
- datePosted: reportedPostingDate || undefined,
- postedDate: reportedPostingDate,
  displayPostingDate,
  // Do not promote job.url (which may be an ATS host) into ownership proof.
  // Static SEO and runtime JSON-LD must both use the crawler's raw domain.
@@ -2070,7 +2067,7 @@ function scoreListingJob(job: JobListing): number {
  if (job.salaryMax) score += 3;
  if (job.canonicalContent?.byLocale) score += 8;
  if (job.slug || (job.slugByLocale && Object.keys(job.slugByLocale).length > 0)) score += 3;
- const ts = new Date(job.crawledAt || job.postedDate || '').getTime();
+ const ts = new Date(job.crawledAt || job.displayPostingDate || '').getTime();
  if (!Number.isNaN(ts)) score += Math.floor(ts / 1_000_000_000);
  return score;
 }
@@ -2124,7 +2121,7 @@ export function computeSimilarJobs(source: JobListing, pool: JobListing[], limit
  if (j.category === source.category) score += 3;
  if (j.location === source.location) score += 2;
  if (j.company === source.company) score += 1;
- const freshness = new Date(j.crawledAt || j.postedDate).getTime();
+ const freshness = new Date(j.crawledAt || j.displayPostingDate).getTime();
  return { job: j, score, freshness };
  });
  return withScore
@@ -4535,7 +4532,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // caps featured at 6/canton in the projection), so this can't flood the list.
  sp: j.featured ? 1 : 0,
  rank: cantonRank(j),
- day: dayTs(j.crawledAt || j.postedDate),
+ day: dayTs(j.crawledAt || j.displayPostingDate),
  qs: j.qualityScore ?? 0,
  }));
  }, [jobs]);
@@ -6100,7 +6097,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let score = 0;
  if (category && j.category === category) score += 3;
  if (company && j.company === company) score += 2;
- const freshness = new Date(j.crawledAt || j.postedDate).getTime();
+ const freshness = new Date(j.crawledAt || j.displayPostingDate).getTime();
  return { job: j, score, freshness };
  })
  .sort((a, b) => (b.score !== a.score ? b.score - a.score : b.freshness - a.freshness))
@@ -6417,9 +6414,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  return cleanup;
  }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t, resultDerivationPending]);
-
- const displayPostingDateFor = (job: Pick<JobListing, 'displayPostingDate' | 'postedDate'>) =>
-  job.displayPostingDate || job.postedDate || '';
 
  const daysSincePosted = (dateStr: string) => {
  if (!dateStr || !Number.isFinite(Date.parse(dateStr))) return ({
@@ -6917,7 +6911,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  salary={formatSalary(job, locale)}
  logo={companyLogoUrl(job)}
  isNew={isNewJob(job)}
- postedLabel={daysSincePosted(displayPostingDateFor(job))}
+ postedLabel={daysSincePosted(job.displayPostingDate)}
  locale={locale}
  t={t}
  onSelect={openDetail}
@@ -9672,7 +9666,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobCategory = selectedJob.category || '';
  const gateSalary = formatSalary(selectedJob, locale);
  const gateContract = t(contractTranslationKey(selectedJob));
- const gatePosted = daysSincePosted(displayPostingDateFor(selectedJob));
+ const gatePosted = daysSincePosted(selectedJob.displayPostingDate);
  const gateIsNew = isNewJob(selectedJob);
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
  const publicDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? '';
@@ -10228,7 +10222,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </span>
  <span className="inline-flex items-center gap-1">
  <Clock className="w-3 h-3" />
- {daysSincePosted(displayPostingDateFor(job))}
+ {daysSincePosted(job.displayPostingDate)}
  </span>
  </div>
  </a>
@@ -10834,7 +10828,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t(contractTranslationKey(selectedJob))}
  </span>
  <span className="px-2 py-1 rounded-full bg-success-subtle text-success">
- {daysSincePosted(displayPostingDateFor(selectedJob))}
+ {daysSincePosted(selectedJob.displayPostingDate)}
  </span>
  {isNewJob(selectedJob) && (
  <span className="px-2 py-1 rounded-full bg-success-subtle text-success inline-flex items-center gap-1">
@@ -11004,7 +10998,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="rounded-lg bg-surface-alt p-2 text-center">
  <dt className="uppercase tracking-wide text-[10px] text-muted">{t('jobBoard.snapshot.published')}</dt>
  <dd className="font-semibold font-display text-strong mt-0.5 leading-tight">
- {daysSincePosted(displayPostingDateFor(selectedJob))}
+ {daysSincePosted(selectedJob.displayPostingDate)}
  </dd>
  </div>
  </dl>
@@ -11100,7 +11094,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </section>
  )}
- </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(displayPostingDateFor(selectedJob))}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} <Suspense fallback={null}><PartnerRecommendations context="jobs" maxCards={1} /></Suspense> {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className={RAIL_ASIDE_CLASS_X}> <Suspense fallback={null}><ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.flatMap((job, relIdx) => { const jobLogo = companyLogoUrl(job); const card = ( <button key={buildListingDedupKey(job)} onClick={() => { if (selectedJob) { Analytics.trackJobMatchSimilarClick(selectedJob.slug || '', job.slug || '', describeSimilarJobMatchReason(selectedJob, job), relIdx); } openDetail(job); }} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
+ </article> <aside className="hidden lg:block lg:col-span-4"> <div className="sticky top-20 space-y-4"> <Callout status="accent" icon={<Briefcase size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold font-display text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-[11px] text-muted leading-tight mt-0.5"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold font-display text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold font-display text-strong">{daysSincePosted(selectedJob.displayPostingDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold font-display uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] lg:min-h-0 lg:py-1.5 bg-surface-alt hover:bg-surface-raised/50 text-body transition-colors" > <span className="font-medium font-display leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </Callout> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <Callout status="info" icon={<Calendar size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-info "> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-sm leading-relaxed text-subtle">{item}</li> ))} </ul> </Callout> )} <Callout status="success" icon={<Users size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg" > {t('jobBoard.adviceCta')} </button> </Callout> {relatedSearches.length > 0 && ( <Callout status="accent" icon={<Search size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-accent-subtle text-accent border border-accent-border" > {keyword} </a> ); })} </div> </Callout> )} {salaryEstimateWidget} {sectorContextWidget} <Suspense fallback={null}><PartnerRecommendations context="jobs" maxCards={1} /></Suspense> {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )}<Callout status="accent" icon={<Mail size={15} />} className="rounded-xl"> <div className="text-sm font-bold font-display text-heading"> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-sm leading-relaxed text-subtle"> {t('jobBoard.publishDescription', cantonI18n)} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-sm font-semibold font-display border border-accent-border text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </Callout> </div> </aside> </div> {/* ── Right Rail (desktop xl only) ── */} <aside className={RAIL_ASIDE_CLASS_X}> <Suspense fallback={null}><ArticleRailAdStack side="right" onEmptyResolved={onRightEmptyResolved} /></Suspense> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold font-display text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.flatMap((job, relIdx) => { const jobLogo = companyLogoUrl(job); const card = ( <button key={buildListingDedupKey(job)} onClick={() => { if (selectedJob) { Analytics.trackJobMatchSimilarClick(selectedJob.slug || '', job.slug || '', describeSimilarJobMatchReason(selectedJob, job), relIdx); } openDetail(job); }} className="text-left rounded-xl border border-edge p-3 hover:border-accent-border hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={handleCompanyLogoError} />
  ) : (
  <Building2 className="w-5 h-5 text-muted" />
  )}

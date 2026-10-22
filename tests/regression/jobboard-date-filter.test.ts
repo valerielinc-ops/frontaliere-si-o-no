@@ -59,15 +59,13 @@ describe('JobBoard date filters', () => {
     });
 
     expect(normalized.datePosted).toBe('2026-09-01');
-    expect(normalized.postedDate).toBe('2026-09-01');
+    expect(normalized.postedDate).toBe('');
     expect(normalized.displayPostingDate).toBe('2026-09-01');
     expect(normalized.firstSeenAt).toBe('2026-09-10T05:27:13.245Z');
   });
 
-  it('does not promote firstSeenAt into reported aliases when a reported date is invalid', () => {
+  it('keeps invalid reported aliases out of publication provenance', () => {
     const normalized = normalizeIncomingJob({
-      id: 'reported-invalid-date',
-      title: 'Invalid reported listing',
       postingDateSource: 'reported',
       datePosted: 'bad',
       postedDate: 'bad',
@@ -75,15 +73,14 @@ describe('JobBoard date filters', () => {
     });
     const now = new Date('2026-01-02T00:00:00Z');
 
-    expect(normalized.datePosted).toBeUndefined();
-    expect(normalized.postedDate).toBe('');
+    expect(normalized.datePosted).toBe('bad');
+    expect(normalized.postedDate).toBe('bad');
     expect(normalized.displayPostingDate).toBe('2026-01-01T00:00:00Z');
     expect(resolveReportedPostingDate(normalized, now)).toBeNull();
-    expect(resolveRolloutSchemaPostingDate(
-      normalized,
-      now,
-      'https://frontaliereticino.ch/jobs/reported-invalid-date/',
-    )).toEqual({ value: '2026-01-01T00:00:00Z', provenance: 'first-seen' });
+    expect(resolveRolloutSchemaPostingDate(normalized, now, 'https://frontaliereticino.ch/jobs/example/')).toEqual({
+      value: '2026-01-01T00:00:00Z',
+      provenance: 'first-seen',
+    });
   });
 
   it.each(['unknown', 'reported', undefined] as const)('normalizes mixed provenance %s without promoting collection clocks', (postingDateSource) => {
@@ -96,8 +93,8 @@ describe('JobBoard date filters', () => {
     });
     expect(normalized.postingDateSource).toBe(postingDateSource);
     expect(isJobWithinDateRange(normalized, Date.now() - 7 * 86400000)).toBe(postingDateSource === 'reported');
-    expect(normalized.postedDate).toBe(postingDateSource === 'reported' ? datePosted : '');
-    expect(normalized.datePosted).toBe(postingDateSource === 'reported' ? datePosted : undefined);
+    expect(normalized.postedDate).toBe('');
+    expect(normalized.datePosted).toBe(postingDateSource === 'reported' ? datePosted : '');
     expect(normalized.displayPostingDate).toBe(postingDateSource === 'reported' ? datePosted : firstSeenAt);
   });
 
