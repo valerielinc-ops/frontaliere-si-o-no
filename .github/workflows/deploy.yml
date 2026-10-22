@@ -100,6 +100,12 @@ jobs:
   schedule-reconcile:
     name: Reconcile the current deploy tip
     if: github.event_name == 'schedule'
+    # Durable admission claim shared with the final rearm job. It is acquired
+    # before this job reads the queue and held through the pre-dispatch
+    # recheck/dispatch, so the two producers cannot race each other.
+    concurrency:
+      group: deploy-rearm-dispatch
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -2719,6 +2725,11 @@ jobs:
       github.event_name != 'schedule' &&
       github.ref == 'refs/heads/main' &&
       needs.validate-promotion-trigger.result == 'success'
+    # Same durable admission claim as schedule-reconcile. The final rearm
+    # keeps it until its queue recheck and any workflow_dispatch have returned.
+    concurrency:
+      group: deploy-rearm-dispatch
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

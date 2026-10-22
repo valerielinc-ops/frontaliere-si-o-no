@@ -20,6 +20,7 @@ import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
   decideBuildLocaleRecovery,
+  decideDispatchAfterFreshQueue,
   decideRearm,
   DEFAULT_MAX_BUILDS_PER_SHA,
   DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
@@ -308,6 +309,28 @@ describe('decideRearm — the pipeline is still MOVING (99 of the 100 measured r
   });
 });
 
+describe('decideDispatchAfterFreshQueue — la coda cambia tra lettura e dispatch', () => {
+  it('lascia la workflow_dispatch pending e non aggiunge una seconda run', () => {
+    const initial = decideRearm({
+      headSha: HEAD,
+      runs: [selfRun()],
+      selfRunId: SELF,
+    });
+    const fresh = decideRearm({
+      headSha: HEAD,
+      runs: [selfRun(), live(123, HEAD, 'queued')],
+      selfRunId: SELF,
+    });
+
+    expect(initial.action).toBe('dispatch');
+    expect(fresh.reason).toBe('pipeline-moving');
+    expect(decideDispatchAfterFreshQueue(initial, fresh)).toMatchObject({
+      action: 'skip',
+      reason: 'pre-dispatch-pipeline-moving',
+    });
+  });
+});
+
 describe('decideRearm — recursion is bounded by a per-SHA cap, not by hope', () => {
   it('the cap counts the caller’s own run, so a re-armed chain is one retry long', () => {
     // Step 1: our run failed, no prior attempt for HEAD → retry (attempts = 1).
@@ -398,6 +421,17 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     expect(String(doc.concurrency?.group)).toContain('deploy-schedule-reconcile');
     expect(String(doc.concurrency?.group)).toContain('pages-build-run');
     expect(doc.concurrency?.['cancel-in-progress']).toBe(false);
+  });
+
+  it('serializza resolver e rearm con un claim durevole tenuto fino al dispatch', () => {
+    expect(doc.jobs['schedule-reconcile'].concurrency).toEqual({
+      group: 'deploy-rearm-dispatch',
+      'cancel-in-progress': false,
+    });
+    expect(doc.jobs.rearm.concurrency).toEqual({
+      group: 'deploy-rearm-dispatch',
+      'cancel-in-progress': false,
+    });
   });
 
   it('moves recovery admission into deploy.yml and keeps the request workflow publish-only', () => {
