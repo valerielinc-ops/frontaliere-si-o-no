@@ -820,13 +820,17 @@ function loadGraph(files, assets) {
     // cached revision diff covers commits added since that graph snapshot.
     // Existing source edits are re-indexed and data/asset edits leave import
     // topology unchanged; additions or deletions force the full rebuild above.
-    if (reusable && !changedFiles.has(file) && old?.signature) {
+    // A graph cache may have been produced by a full checkout and restored in
+    // a sparse one.  Do not let the fast path hide a tracked source that is no
+    // longer materialized: force it through `importsOf`, whose ENOENT branch
+    // records the incomplete checkout and makes a real verdict fail closed.
+    if (reusable && !changedFiles.has(file) && old?.signature && existsSync(file)) {
       graph[file] = old;
       reusedEntries += 1;
       continue;
     }
     const sig = signature(file);
-    if (reusable && old?.signature === sig) {
+    if (reusable && sig !== null && old?.signature === sig) {
       graph[file] = old;
       reusedEntries += 1;
     } else {
