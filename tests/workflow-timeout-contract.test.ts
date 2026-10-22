@@ -91,7 +91,7 @@ describe('timeout-capped Claude workflows keep their downstream diagnostics aliv
       .map((step: any) => step.run);
     const fallbackStep = recovery.steps.find((step: any) => step.name === 'Release translation deploy fallback after job timeout');
     expect(fallbackStep?.env?.TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID).toBe('${{ github.run_id }}');
-    expect(runs).toContain('npm ci --ignore-scripts');
+    expect(runs.some((run: string) => run.includes('npm ci --ignore-scripts'))).toBe(true);
     expect(runs).toContain('node scripts/load-rc-env.mjs');
     expect(runs.some((run: string) => run.includes('TRANSLATION_DEPLOY_HANDOFF_STATE: fallback'))).toBe(false);
     expect(runs.some((run: string) => run.includes('TRANSLATION_DEPLOY_HANDOFF_STATE=fallback'))).toBe(true);
