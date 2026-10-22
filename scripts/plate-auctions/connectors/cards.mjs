@@ -41,7 +41,9 @@ export async function fetchCardCantonAuctions(config, { now = new Date(), fetchP
       const errors = [];
       for (const fetchUrl of fetchUrls) {
         try {
-          const html = await fetchPage(fetchUrl);
+          const html = await fetchPage(fetchUrl, {
+            ...(config.userAgent ? { userAgent: config.userAgent } : {}),
+          });
           return parseCardCantonAuctions(html, {
             ...config,
             // Keep the public source identity on the registry URL while

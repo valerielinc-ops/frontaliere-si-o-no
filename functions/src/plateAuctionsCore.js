@@ -8,6 +8,12 @@ export const SWISSSIGN_RSA_TLS_OV_ICA_2022_1 = readFileSync(
   'utf8',
 );
 
+// The browser-facing VD portal returns HTTP 404 to the identifiable crawler
+// identity used by the scheduled collectors. Keep this exception scoped to
+// that official source; every other connector keeps the normal crawler UA.
+export const VD_BROWSER_USER_AGENT =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36';
+
 /**
  * Pure parsers shared by the scheduled collector and the local connector
  * smoke-tests. Keep this file free of Firebase imports: it is also imported
