@@ -1746,6 +1746,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
  *     reason: 'geography'
  *   }) => boolean
  *   requireExplicitCountryEvidence?: boolean
+ *   detailRecordTitleNormalizer?: (title: string, row: Record<string, any>) => string
  * }} [runtime]
  * @returns {Promise<Array<Record<string, any> & {
  *   title: string,
@@ -1927,10 +1928,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
             page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
           }
           // Same extractor the validator grades with — see detail-extract.mjs.
+          const detailRecordTitle = typeof runtime.detailRecordTitleNormalizer === 'function'
+            ? runtime.detailRecordTitleNormalizer(row.title, row)
+            : row.title;
           const detail = extractRuntimeDetailFields(spec, page.body, page.url || detailUrl, {
             detailExtractor: runtime.detailExtractor,
             recordUrl: row.url,
-            recordTitle: row.title,
+            recordTitle: typeof detailRecordTitle === 'string' && detailRecordTitle.trim()
+              ? detailRecordTitle
+              : row.title,
           });
           const rawTitles = rawDetailTitleEvidence(page.body);
           const decision = resolveDetailOrListingSwissGeography(detail, row);

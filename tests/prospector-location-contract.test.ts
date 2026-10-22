@@ -25,6 +25,7 @@ vi.mock('../scripts/lib/prospector/polite-fetch.mjs', async (importOriginal) => 
 import { fetchAllAccorJobs } from '../scripts/lib/accor-job-parser.mjs';
 import { fetchAllMabetexJobs } from '../scripts/lib/mabetex-job-parser.mjs';
 import { fetchAllProtonJobs } from '../scripts/lib/proton-job-parser.mjs';
+import { normalizePhysioswissListingTitle } from '../scripts/lib/physioswiss-job-parser.mjs';
 import {
   geographyFieldsForDecision,
   runSpecInProduction,
@@ -371,6 +372,52 @@ describe('prospector location and identity contract', () => {
       title,
       location: 'St. Gallen, SG',
       canton: 'SG',
+    })]);
+  });
+
+  it('strips the Physioswiss accessible action label before matching the detail H1', async () => {
+    const seed = 'https://physioswiss.ch/stelleninserate/';
+    const detailUrl = 'https://physioswiss.ch/stelleninserate/158228/physiotherapeutin-40-100-fuer-zentrum-in-olten-gesucht/';
+    const title = 'PhysiotherapeutIn (40 – 100%) für Zentrum in Olten gesucht';
+    expect(normalizePhysioswissListingTitle(`Stellenanzeige ${title} öffnen.`)).toBe(title);
+
+    const genericPosting = JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Header',
+      description: 'Header',
+    });
+    const detailHtml = `<main><h1>${title}</h1>`
+      + '<div class="job-location">4600 Olten</div>'
+      + `<div class="vacancy-description"><p>${'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team. '.repeat(2)}</p></div>`
+      + `<script type="application/ld+json">${genericPosting}</script>`
+      + `<script type="application/ld+json">${genericPosting}</script></main>`;
+    politeFetch.mockImplementation(async (url: string) => ({
+      ok: true,
+      status: 200,
+      body: url === seed
+        ? `<a href="${detailUrl}" aria-label="Stellenanzeige ${title} öffnen."></a>`
+        : detailHtml,
+      url,
+      host: new URL(url).hostname,
+    }));
+
+    const rows = await runSpecInProduction({
+      companyKey: 'physioswiss',
+      companyName: 'Physio swiss',
+      companyHost: 'physioswiss.ch',
+      mode: 'template',
+      seedUrls: [seed],
+      detailTemplate: '/stelleninserate/*/*/',
+      sourceLang: 'de',
+    } as any, {
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      detailRecordTitleNormalizer: normalizePhysioswissListingTitle,
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title,
+      location: '4600 Olten',
+      canton: 'SO',
     })]);
   });
 

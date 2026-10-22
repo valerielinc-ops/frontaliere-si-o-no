@@ -28,6 +28,7 @@ export const PHYSIOSWISS_COMPANY_NAME = 'Physio swiss';
 export const PHYSIOSWISS_COMPANY_DOMAIN = 'physioswiss.ch';
 
 const CAREER_URL = 'https://physioswiss.ch/stelleninserate/';
+const PHYSIOSWISS_ACCESSIBLE_TITLE_RX = /^Stellenanzeige\s+(.+?)\s+öffnen\.?$/iu;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -37,6 +38,17 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Physioswiss puts the accessible action label around some vacancy links.
+ * Keep the vacancy title itself as the identity sent to the detail extractor;
+ * the trailing action text is UI chrome, not part of the H1 title.
+ */
+export function normalizePhysioswissListingTitle(value = '') {
+  const title = normalizeSpace(value);
+  const match = PHYSIOSWISS_ACCESSIBLE_TITLE_RX.exec(title);
+  return normalizeSpace(match?.[1] || title);
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -114,7 +126,9 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(PHYSIOSWISS_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    detailRecordTitleNormalizer: normalizePhysioswissListingTitle,
+  });
 }
 
 /**

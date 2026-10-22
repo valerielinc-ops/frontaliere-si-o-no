@@ -3125,7 +3125,7 @@ describe('production spec runtime', () => {
     const parsers = fs.readdirSync(parserDir)
       .filter((name) => name.endsWith('-job-parser.mjs'))
       .map((name) => ({ name, source: fs.readFileSync(path.join(parserDir, name), 'utf8') }))
-      .filter(({ source }) => source.includes('runSpecInProduction(spec)'));
+      .filter(({ source }) => source.includes('runSpecInProduction(spec'));
     expect(parsers.length).toBeGreaterThan(0);
     for (const { name, source } of parsers) {
       expect(source, name).not.toMatch(/listing\.location\s*\|\|\s*['"]Lugano['"]/);
