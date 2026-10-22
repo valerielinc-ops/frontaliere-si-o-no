@@ -1121,6 +1121,13 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     expect(r.stdout).not.toMatch(/skipping the CDN push/);
     expect(r.stdout).toMatch(/CDN asset stage is missing|no dist\/assets — nothing to offload|no CDN_DEPLOY_KEY secret — skipping CDN push/);
   });
+
+  it('a build-scoped full prep cannot certify the IT leg without a CDN acknowledgement', () => {
+    const r = runPrep({ CDN_TARGET: 'pages', DEPLOY_BUILD_ID: '1792663641575' });
+    expect(r.code, 'a build with no CDN acknowledgement must fail the source leg').toBe(1);
+    expect(r.stdout).toMatch(/no CDN_DEPLOY_KEY secret — skipping CDN push/);
+    expect(r.stdout).toMatch(/CDN publish for build 1792663641575 was not acknowledged/);
+  });
 });
 
 describe('deploy-request.yml — the paths-ignore denylist keeps its recorded verdict', () => {
