@@ -8,9 +8,20 @@ const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'resi
 export function residenceCountryOptionLabel(value, options = []) {
   const wanted = residenceCountryCode(value);
   if (!wanted) return '';
+  const optionCode = (option) => {
+    const label = String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim();
+    const exact = residenceCountryCode(label);
+    if (exact) return exact;
+    // SuccessFactors' country picklists often append the ISO code («Switzerland (CH)»)
+    // or put it before the translated name («CH - Switzerland»). Keep this an
+    // exact country-code match; never fall back to a substring such as "IT".
+    const match = /(?:^|[\s([{:\/\-–—])([A-Z]{2})(?=$|[\s)\]}:\/\-–—])/i.exec(label);
+    const code = match?.[1]?.toUpperCase() || '';
+    return /^[A-Z]{2}$/.test(code) && residenceCountryCode(code) ? code : '';
+  };
   return options
-    .map((option) => String(option?.label ?? option ?? '').trim())
-    .find((label) => residenceCountryCode(label) === wanted) || '';
+    .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
+    .find((label) => optionCode(label) === wanted) || '';
 }
 
 /**
@@ -84,10 +95,15 @@ export function fitToLength(text, max) {
  * shows the label, a custom control shows the option's text near it.
  */
 async function choiceRegistered(locator, kind, label) {
-  const wanted = String(label || '').toLowerCase().trim();
+  const wanted = normalizedChoice(label);
   return locator.evaluate((element, { kind: fieldKind, wanted: text }) => {
     // Equal, never "contains" (review of #10715: "IT" is not "Italy").
-    const same = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim() === text;
+    const same = (value) => String(value || '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase() === text;
     if (fieldKind === 'select') return same(element.options?.[element.selectedIndex]?.text);
     if (same(element.value) && element.getAttribute('aria-expanded') !== 'true') return true;
     // A text shown next to the control equal to the choice, never one inside a
@@ -100,7 +116,7 @@ async function choiceRegistered(locator, kind, label) {
       }
     }
     return false;
-  }, { kind, wanted: wanted.replace(/\s+/g, ' ') }, { timeout: 2000 }).catch(() => false);
+  }, { kind, wanted }, { timeout: 2000 }).catch(() => false);
 }
 
 /**
@@ -131,7 +147,12 @@ export function searchHolds(shown, value) {
   return Boolean(tidy(value)) && tidy(shown).includes(tidy(value));
 }
 
-const normalizedChoice = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+const normalizedChoice = (value) => String(value || '')
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/\s+/g, ' ')
+  .trim()
+  .toLowerCase();
 
 /**
  * A SuccessFactors combobox can paint the selected label before writing the
@@ -143,7 +164,12 @@ async function choiceCommitted(locator, field, label) {
   if (!await choiceRegistered(locator, field.kind, label)) return false;
   const wanted = normalizedChoice(label);
   return locator.evaluate((element, { field: snapshot, wanted: expected }) => {
-    const same = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase() === expected;
+    const same = (value) => String(value || '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .toLowerCase() === expected;
     const visibleId = String(element.id || snapshot.id || '').trim();
     const visibleName = String(element.getAttribute('name') || snapshot.name || '').trim();
     const baseId = visibleId.replace(/(?:[-_:](?:in|input|select))$/i, '');
@@ -292,6 +318,25 @@ async function fillCombobox(page, field, locator, value) {
   try {
     await option.waitFor({ state: 'visible', timeout: 4000 });
   } catch {
+    // ATS picklists vary capitalization, whitespace and accents between the
+    // displayed option and the planner's answer. Match one normalized exact
+    // label before applying country-specific catalogue rules; never use a
+    // substring or a positional fallback.
+    const visibleOptions = frame.locator('[role="option"]:visible');
+    const visibleLabels = (typeof visibleOptions.allInnerTexts === 'function'
+      ? await visibleOptions.allInnerTexts().catch(() => [])
+      : [])
+      .map((label) => String(label).replace(/\s+/g, ' ').trim());
+    const normalizedMatches = visibleLabels
+      .map((label, index) => ({ label, index }))
+      .filter(({ label }) => normalizedChoice(label) === normalizedChoice(value));
+    if (normalizedMatches.length === 1) {
+      selectedLabel = normalizedMatches[0].label;
+      option = visibleOptions.nth(normalizedMatches[0].index);
+      await option.waitFor({ state: 'visible', timeout: 4000 });
+      await option.click({ timeout: ACTION_TIMEOUT_MS });
+      return selectedLabel;
+    }
     const nationality = isNationalityField(field.label);
     const residenceCountry = isResidenceCountryField(field.label);
     if (!nationality && !residenceCountry) {
@@ -321,7 +366,22 @@ async function fillCombobox(page, field, locator, value) {
       throw new Error('option_not_found');
     }
     option = frame.getByRole('option', { name: selectedLabel, exact: true }).first();
-    await option.waitFor({ state: 'visible', timeout: 4000 });
+    try {
+      await option.waitFor({ state: 'visible', timeout: 4000 });
+    } catch {
+      const fallbackOptions = frame.locator('[role="option"]:visible');
+      const fallbackLabels = (typeof fallbackOptions.allInnerTexts === 'function'
+        ? await fallbackOptions.allInnerTexts().catch(() => [])
+        : [])
+        .map((label) => String(label).replace(/\s+/g, ' ').trim());
+      const fallbackIndex = fallbackLabels.findIndex((label) => normalizedChoice(label) === normalizedChoice(selectedLabel));
+      if (fallbackIndex < 0) {
+        await locator.press('Escape').catch(() => {});
+        throw new Error('option_not_found');
+      }
+      option = fallbackOptions.nth(fallbackIndex);
+      await option.waitFor({ state: 'visible', timeout: 4000 });
+    }
   }
   await option.click({ timeout: ACTION_TIMEOUT_MS });
   return selectedLabel;
@@ -407,6 +467,10 @@ async function chooseInOwnedList(page, field, locator, value) {
           await page.waitForTimeout(Math.min(200, remaining));
         }
       }
+      // SuccessFactors may replace the combobox after the choice is accepted.
+      // The old locator then cannot observe the value even though the fresh
+      // field already shows it; re-read that field before reporting a failure.
+      if (await choiceShownAfterRedraw(page, field, selectedLabel)) return selectedLabel;
       if (Date.now() >= deadline) break;
       await page.waitForTimeout(Math.min(200, Math.max(0, deadline - Date.now())));
     }

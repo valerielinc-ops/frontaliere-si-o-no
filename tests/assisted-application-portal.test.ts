@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonFor, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -559,6 +559,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
     expect(nationalityOptionLabel('italiana', ['Italie', 'italienne'], 'fr')).toBe('italienne');
     expect(residenceCountryOptionLabel('Italia', ['Switzerland', 'Italy'])).toBe('Italy');
+    expect(residenceCountryOptionLabel('Svizzera', ['Germany (DE)', 'Switzerland (CH)'])).toBe('Switzerland (CH)');
   });
 
   it('binds a SuccessFactors icon-only CV trigger only to explicit document context', () => {
@@ -582,6 +583,22 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       'How did you hear about this position?',
     ]);
     expect(uploadButtonFor(page, 'cv')).toMatchObject({ id: 'resume-upload', text: '' });
+    expect(uploadButtonCandidatesFor({
+      buttons: [
+        { id: 'resume-card', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false },
+        ...page.buttons,
+      ],
+    }, 'cv').map((button) => button.id)).toEqual(['resume-card', 'resume-upload']);
+    expect(uploadButtonCandidatesFor({
+      buttons: [
+        { id: 'resume-card', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false },
+        { id: 'resume-upload', text: '', section: 'Resume / CV (PDF preferred):', context: 'Resume / CV (PDF preferred): Upload', disabled: false },
+        { id: 'resume-remove', text: '', section: 'Resume / CV (PDF preferred):', context: 'Resume / CV (PDF preferred): Remove', disabled: false },
+      ],
+    }, 'cv').map((button) => button.id)).toEqual(['resume-card', 'resume-upload']);
+    expect(uploadButtonCandidatesFor({
+      buttons: [{ id: 'resume-upload-remove', text: '', section: 'Resume / CV (PDF preferred):', context: 'Resume / CV (PDF preferred): Upload and Remove', disabled: false }],
+    }, 'cv')).toEqual([]);
     expect(uploadButtonFor({ buttons: [{ id: 'aria-label-upload', text: '', section: '', context: 'Upload CV', disabled: false }] }, 'cv'))
       .toMatchObject({ id: 'aria-label-upload', text: '' });
     expect(uploadButtonFor({ buttons: [{ id: 'french-upload', text: '', section: '', context: 'Résumé', disabled: false }] }, 'cv'))
@@ -590,6 +607,10 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       .toMatchObject({ id: 'filename-upload', text: '' });
     expect(uploadButtonFor({ buttons: [{ ...page.buttons[0], section: 'Correspondence', context: 'Correspondence' }] }, 'cv')).toBeNull();
     expect(uploadButtonFor({ buttons: [page.buttons[0], { ...page.buttons[0], id: 'other-icon', context: 'Resume / CV (PDF preferred):' }] }, 'cv')).toBeNull();
+    expect(uploadButtonFor({ buttons: [
+      { text: '', section: 'Resume / CV (PDF preferred):', context: 'Resume / CV (PDF preferred):', disabled: false },
+      { text: '', section: 'Resume / CV (PDF preferred):', context: 'Resume / CV (PDF preferred):', disabled: false },
+    ] }, 'cv')).toBeNull();
   });
 
   it('does not skip SuccessFactors picklist options on the initial application snapshot', () => {
@@ -657,6 +678,36 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
 
     expect(result).toEqual([{ fieldId: 'residence-country', ok: true }]);
     expect(control.selectOption).toHaveBeenCalledWith({ label: 'Italy' }, { timeout: 6000 });
+  });
+
+  it('matches a custom picklist label by normalized exact text', async () => {
+    let selected = '';
+    const option = (label: string) => ({
+      waitFor: vi.fn(async () => {}),
+      click: vi.fn(async () => { selected = label; }),
+    });
+    const options = {
+      allInnerTexts: vi.fn(async () => ['G Permit', 'Online Job Board']),
+      nth: vi.fn((index: number) => option(['G Permit', 'Online Job Board'][index])),
+    };
+    const control = {
+      click: vi.fn(),
+      pressSequentially: vi.fn(),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes(':visible') ? options : { first: () => control }),
+      getByRole: vi.fn((_role: string, roleOptions?: { name?: string; exact?: boolean }) => ({
+        first: () => ({ waitFor: vi.fn(async () => { throw new Error(`missing ${roleOptions?.name || ''}`); }) }),
+      })),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{ id: 'permit', kind: 'combobox', label: 'Do you hold a valid work permit for Switzerland?', selectLike: false }], [
+      { fieldId: 'permit', action: 'select', value: 'g permit' },
+    ], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'permit', ok: true }]);
+    expect(selected).toBe('G Permit');
   });
 
   it('reports a checkbox that did not commit instead of treating the click as done', async () => {
