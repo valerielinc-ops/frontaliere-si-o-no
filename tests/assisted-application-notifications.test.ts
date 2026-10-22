@@ -485,6 +485,28 @@ describe('follow-up emails', () => {
     expect(customer.html).toContain('1 ottobre 2026');
   });
 
+  it('confirms a submitted concierge child without sending legacy payment or materials emails', async () => {
+    store['order-1'] = paidOrder({
+      billingMode: 'application_concierge',
+      submissionStatus: 'submitted',
+      submittedAt: new Date('2026-10-01T09:00:00Z'),
+    });
+    const result = await handleAssistedApplicationOrderWritten(
+      paidOrder({ billingMode: 'application_concierge', submissionStatus: 'awaiting_upload' }),
+      store['order-1'],
+      'order-1',
+      { db, nowMs: NOW },
+    );
+
+    expect(result.ok).toBe(true);
+    expect(payloads()).toHaveLength(1);
+    expect(payloads()[0].to).toEqual(['candidate@example.com']);
+    expect(payloads()[0].subject).toBe('Ho inviato la tua candidatura a Clinica Esempio');
+    expect(store['order-1'].notifications.customer_submitted).toMatchObject({ status: 'sent' });
+    expect(store['order-1'].notifications.customer_intro).toBeUndefined();
+    expect(store['order-1'].notifications.customer_materials_received).toBeUndefined();
+  });
+
   it('sends a WhatsApp application its link and steps when the robot marks it submitted', async () => {
     const link = 'https://prod.pastahr.com/api/v1/redirect/COFU2003?remote_job_id=167757';
     store['order-1'] = paidOrder({ submissionStatus: 'submitted', submittedAt: new Date('2026-10-03T09:00:00Z'), submissionChannel: 'whatsapp', whatsappApplyUrl: link });
