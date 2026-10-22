@@ -221,7 +221,7 @@ export function listDispatchRuns(
     '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
     '--limit', String(limit),
     '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
-  ];
+  );
   const attempts = EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const output = ghImpl(args);
