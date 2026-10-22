@@ -196,10 +196,14 @@ export async function verifyCdnAssetRefs({
     try {
       let res = null;
       let budgetSkipped = false;
+      let budgetReason = null;
       for (let attemptNumber = 1; attemptNumber <= attemptsLimit; attemptNumber += 1) {
         let attempt = await fetchWithinBudget('HEAD', attemptNumber === 1 ? budgetMs - elapsed : null);
         if (attempt.budget) {
           budgetSkipped = true;
+          budgetReason = attemptNumber === 1
+            ? `budget di ${budgetMs}ms esaurito prima della richiesta`
+            : `budget di ${budgetMs}ms esaurito prima della richiesta di retry`;
           break;
         }
         if (attempt.error) throw attempt.error;
@@ -211,6 +215,7 @@ export async function verifyCdnAssetRefs({
           attempt = await fetchWithinBudget('GET');
           if (attempt.budget) {
             budgetSkipped = true;
+            budgetReason = `budget di ${budgetMs}ms esaurito prima del GET di fallback`;
             break;
           }
           if (attempt.error) throw attempt.error;
@@ -232,7 +237,7 @@ export async function verifyCdnAssetRefs({
           url,
           state: 'skipped',
           status: null,
-          reason: `budget di ${budgetMs}ms esaurito prima della richiesta${res ? ' di retry' : ''}`,
+          reason: budgetReason || `budget di ${budgetMs}ms esaurito prima della richiesta`,
         });
         continue;
       }
