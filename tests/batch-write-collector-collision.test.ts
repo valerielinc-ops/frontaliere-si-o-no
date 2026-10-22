@@ -209,8 +209,10 @@ describe('WriteCollector collision visibility', () => {
       collector.add(filePath, 'file');
       expect(() => collector.add(nestedIndexPath, '<html>nested</html>'))
         .toThrow(DistPathCollisionError);
-      await collector.flush();
-      expect(fs.existsSync(filePath)).toBe(true);
+      expect(fs.existsSync(filePath)).toBe(false);
+      expect(fs.existsSync(nestedIndexPath)).toBe(false);
+      await expect(collector.flush()).rejects.toBeInstanceOf(DistPathCollisionError);
+      expect(fs.existsSync(filePath)).toBe(false);
       expect(fs.existsSync(nestedIndexPath)).toBe(false);
     } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
