@@ -666,15 +666,21 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
   '.h-2\\.5{height:calc(var(--spacing)*2.5)}' +
   '.h-3{height:calc(var(--spacing)*3)}' +
   '.h-3\\.5{height:calc(var(--spacing)*3.5)}' +
+  // Profession journeys are emitted by static landings after the original
+  // utility scan; reserve their shared icon/link geometry before index.css
+  // swaps in (issue #5001 / PR #14204).
+  '.h-5{height:calc(var(--spacing)*5)}' +
   '.h-9{height:calc(var(--spacing)*9)}' +
   '.h-12{height:calc(var(--spacing)*12)}' +
   '.h-auto{height:auto}' +
   '.h-full{height:100%}' +
+  '.min-h-11{min-height:calc(var(--spacing)*11)}' +
   '.min-h-\\[44px\\]{min-height:44px}' +
   '.w-1\\.5{width:calc(var(--spacing)*1.5)}' +
   '.w-2\\.5{width:calc(var(--spacing)*2.5)}' +
   '.w-3{width:calc(var(--spacing)*3)}' +
   '.w-3\\.5{width:calc(var(--spacing)*3.5)}' +
+  '.w-5{width:calc(var(--spacing)*5)}' +
   '.w-8{width:calc(var(--spacing)*8)}' +
   '.w-9{width:calc(var(--spacing)*9)}' +
   '.w-12{width:calc(var(--spacing)*12)}' +
@@ -812,6 +818,7 @@ export const TAILWIND_UTILITY_RESERVE_CSS =
     '.sm\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}' +
     '.sm\\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}' +
     '.sm\\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}' +
+    '.sm\\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}' +
     '.sm\\:flex-row{flex-direction:row}' +
     '.sm\\:items-start{align-items:flex-start}' +
     '.sm\\:justify-between{justify-content:space-between}' +
