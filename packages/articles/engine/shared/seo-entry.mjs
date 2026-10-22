@@ -113,6 +113,14 @@ function matchingDelimiter(src, openIdx) {
       statementStart = false;
       continue;
     }
+    if (src.startsWith('...', i)) {
+      i += 2;
+      canStartRegex = true;
+      lastSignificant = 'spread';
+      lastIdentifier = null;
+      statementStart = false;
+      continue;
+    }
     if (ch === '/') {
       canStartRegex = true;
       lastSignificant = 'division';

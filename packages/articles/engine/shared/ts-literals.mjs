@@ -224,7 +224,7 @@ export function skipStaticTrivia(source, startIdx, sourcePath = 'source', errorL
     }
     if (source.startsWith('//', cursor)) {
       let newline = cursor + 2;
-      while (newline < source.length && source[newline] !== '\n' && source[newline] !== '\r') {
+      while (newline < source.length && !isRegexLineTerminator(source[newline])) {
         newline += 1;
       }
       cursor = newline;
