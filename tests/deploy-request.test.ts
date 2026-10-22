@@ -27,6 +27,7 @@ describe('deploy-request.yml — solo riconcilia la pubblicazione', () => {
     expect(request).toContain('group: deploy-request-dispatcher');
     expect(request).toContain('APP_TOKEN_ACTIONS');
     expect(request).toContain('APP_TOKEN_DEPLOYMENTS_READ');
+    expect(request).toContain('APP_TOKEN_STATUSES_READ');
     expect(request).toContain('GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-publish.mjs');
   });
 });
