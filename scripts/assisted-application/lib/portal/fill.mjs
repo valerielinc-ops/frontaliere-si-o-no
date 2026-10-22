@@ -1,6 +1,6 @@
 import path from 'node:path';
-import { isNationalityField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
-import { addressQuestionTopic } from './plan.mjs';
+import { asksHeldStatus, isNationalityField, isPermitField, nationalityLabelOf, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
+import { addressQuestionTopic, permitBooleanOptionLabel } from './plan.mjs';
 import { residenceCountryCode } from './residence-address.mjs';
 
 const isResidenceCountryField = (label) => addressQuestionTopic(label) === 'residence_country';
@@ -419,7 +419,9 @@ async function chooseInOwnedList(page, field, locator, value) {
     const findSelectedLabel = () => {
       const labels = entries.map(({ label }) => label);
       const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
-      return exact?.label || (nationality
+      const permit = isPermitField(field.label) && asksHeldStatus(field.label);
+      const permitBoolean = permit ? permitBooleanOptionLabel(value, labels) : '';
+      return exact?.label || permitBoolean || (nationality
         ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label))
         : residenceCountryOptionLabel(value, labels));
     };
@@ -776,6 +778,9 @@ export async function applyActions(page, fields, actions, files, {
           selectedLabel = await fillCombobox(page, field, locator, action.value);
         }
         // A click that did not take leaves the field empty while the run goes on as if answered.
+        // SuccessFactors commits a custom picklist on blur; do that without
+        // Enter, which can submit the form on this ATS.
+        if (field.selectLike && typeof locator.press === 'function') await locator.press('Tab');
         const registered = field.selectLike
           ? await choiceCommitted(locator, field, selectedLabel)
           : await choiceRegistered(locator, field.kind, selectedLabel);

@@ -17,10 +17,10 @@ import { codexPrompt } from '../../../../functions/src/assistedApplicationAiProm
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, isLanguageIntentQuestion, isLanguageNameOnly } from '../../../../functions/src/lib/languageFacts.js';
-import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
+import { asksHeldStatus, BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField, isPermitField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, permitBooleanOptionLabel, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
@@ -507,13 +507,16 @@ async function chooseOption(page, locator, info, value, question = '') {
   try {
     await exact.waitFor({ state: 'visible', timeout: 4000 });
   } catch {
-    if (!isNationalityField(question)) {
+    const permit = isPermitField(question) && asksHeldStatus(question);
+    if (!isNationalityField(question) && !permit) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
     const options = page.getByRole('option');
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
-    selectedLabel = nationalityOptionLabel(value, labels, nationalityFieldLanguage(question));
+    selectedLabel = permit
+      ? permitBooleanOptionLabel(value, labels)
+      : nationalityOptionLabel(value, labels, nationalityFieldLanguage(question));
     if (!selectedLabel) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
@@ -522,6 +525,11 @@ async function chooseOption(page, locator, info, value, question = '') {
     await exact.waitFor({ state: 'visible', timeout: 4000 });
   }
   await exact.click({ timeout: ACTION_TIMEOUT_MS });
+  // SuccessFactors stores a custom permit choice on blur; Enter is unsafe
+  // because it can submit the form, so Tab is the bounded commit signal.
+  if (isPermitField(question) && asksHeldStatus(question) && typeof locator.press === 'function') {
+    await locator.press('Tab');
+  }
 }
 
 // Returns how many files it set (the record of what left, submit.mjs).
