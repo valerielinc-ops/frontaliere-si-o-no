@@ -1,15 +1,15 @@
 {
   "crawlerKey": "klinik-susenberg",
-  "assembledAt": "2026-10-22T09:46:55.241Z",
-  "runId": "39754682369",
+  "assembledAt": "2026-10-22T21:35:41.164Z",
+  "runId": "39856422958",
   "jobs": [
     {
       "id": "klinik-susenberg-41c7b455532d",
       "slug": "ottobre-a-dicembre-2026-klinik-susenberg-zurich-35f1e2c63b",
       "slugByLocale": {
-        "de": "oktober-bis-dezember-2026-klinik-susenberg-zurich",
         "it": "ottobre-a-dicembre-2026-klinik-susenberg-zurich-35f1e2c63b",
         "en": "october-to-december-2026-klinik-susenberg-zurich",
+        "de": "oktober-bis-dezember-2026-klinik-susenberg-zurich",
         "fr": "octobre-a-decembre-2026-klinik-susenberg-zurich"
       },
       "company": "Klinik Susenberg",
@@ -34,7 +34,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/00-Unterassistent_Oktober-Dezember_2026-10-22.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:38.198Z",
+      "crawledAt": "2026-10-22T21:35:35.478Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,16 +55,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Unterassistentenstelle frei",
+      "previousSlugs": [
+        "oktober-bis-dezember-2026-klinik-susenberg-zurich",
+        "ottobre-a-dicembre-2026-klinik-susenberg-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oktober-bis-dezember-2026-klinik-susenberg-zurich",
           "ottobre-a-dicembre-2026-klinik-susenberg-zurich"
         ]
       },
-      "previousSlugs": [
-        "oktober-bis-dezember-2026-klinik-susenberg-zurich",
-        "ottobre-a-dicembre-2026-klinik-susenberg-zurich"
-      ],
+      "firstSeenAt": "2026-10-03T09:31:11.126Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -77,8 +78,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-03T09:31:11.126Z"
+      }
     },
     {
       "id": "klinik-susenberg-df6f28edbb03",
@@ -111,7 +111,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/06-Koch_Koechin-EFZ-Erfahrung-im-Diaetbereich_80-100_2026-10-16.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:37.996Z",
+      "crawledAt": "2026-10-22T21:35:35.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/05-Diaetkoch_Diaetkoechin_80_2026-10-16.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:37.779Z",
+      "crawledAt": "2026-10-22T21:35:35.159Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/04-Stv._Leitung_Gastronomie_80-100_2026-10-16.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:37.572Z",
+      "crawledAt": "2026-10-22T21:35:34.994Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -359,7 +359,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-Berufsbildner-in_HF_FH-40-60-2026-08-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:37.344Z",
+      "crawledAt": "2026-10-22T21:35:34.822Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -435,7 +435,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson_HF_FH_mit_Zusatzfunktion_BB_80-100_2026-08-05.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:36.980Z",
+      "crawledAt": "2026-10-22T21:35:34.643Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -512,7 +512,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/16-FAGE-BB-80-100-per_sofort_2026-07-02-.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:36.434Z",
+      "crawledAt": "2026-10-22T21:35:34.347Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -589,7 +589,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/03-Arztsekretaerin_80-100-2026-10-14.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:46:36.126Z",
+      "crawledAt": "2026-10-22T21:35:34.122Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -641,7 +641,7 @@
     },
     {
       "id": "klinik-susenberg-dc8381234762",
-      "slug": "ottobre-a-dicembre-2026-klinik-susenberg-zurich-3be9bc99d5",
+      "slug": "ottobre-a-dicembre-2026-klinik-susenberg-zurich",
       "slugByLocale": {
         "it": "ottobre-a-dicembre-2026-klinik-susenberg-zurich",
         "en": "october-to-december-2026-klinik-susenberg-zurich",
@@ -692,11 +692,13 @@
       "requirementsByLocale": {},
       "department": "Unterassistentenstelle frei",
       "previousSlugs": [
-        "oktober-bis-dezember-2026-klinik-susenberg-zurich"
+        "oktober-bis-dezember-2026-klinik-susenberg-zurich",
+        "ottobre-a-dicembre-2026-klinik-susenberg-zurich-3be9bc99d5"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oktober-bis-dezember-2026-klinik-susenberg-zurich"
+          "oktober-bis-dezember-2026-klinik-susenberg-zurich",
+          "ottobre-a-dicembre-2026-klinik-susenberg-zurich-3be9bc99d5"
         ]
       },
       "firstSeenAt": "2026-10-03T09:31:11.126Z",
@@ -713,7 +715,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
