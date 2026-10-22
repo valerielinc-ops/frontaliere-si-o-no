@@ -240,10 +240,12 @@ export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
  * run measured 9 missing cards out of 44 while the fetch returned 50. Later
  * TG runs on 2026-10-14 and 2026-10-21 measured 14 new missing cards out of
  * 49/50 while still returning 50 cards: the common 25% cap admitted only 13
- * at that catalogue size and reported a healthy board as degraded. Keep a
- * 25% / 75% band for the other card sources, and calibrate TG to 30% / 75%
- * for this repeated measured turnover; both still reject a feed that comes
- * back materially short.
+ * at that catalogue size and reported a healthy board as degraded. The
+ * 2026-10-22 run then measured 23 missing cards out of 44 while still
+ * returning 50 cards; the 30% TG cap admitted only 14 and repeated the same
+ * false degradation. Keep a 25% / 75% band for the other card sources, and
+ * calibrate TG to 55% / 75% for this measured board replacement; the 75%
+ * floor still rejects a feed that comes back materially short.
  *
  * This is deliberately separate from sale recognition. A timed card has no
  * evidence of a sale, so the collectors preserve it with `missingSince` rather
@@ -253,7 +255,7 @@ export const PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE = Object.freeze({
   ag: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   be: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   sh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
-  tg: Object.freeze({ maxVanishedRatio: 0.3, minFetchedRatio: 0.75 }),
+  tg: Object.freeze({ maxVanishedRatio: 0.55, minFetchedRatio: 0.75 }),
   vd: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
   zh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
 });

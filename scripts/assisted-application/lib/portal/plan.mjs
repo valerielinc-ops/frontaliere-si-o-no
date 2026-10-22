@@ -264,6 +264,11 @@ export function evidenceInData(knownValues, evidence) {
 
 const YES_RE = /^(ja|sì|si|yes|oui|vero|true|✓)$/i;
 const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
+// Some ATSes put a qualification after the boolean label («No, I would have
+// to apply as EU/EFTA citizen»).  Keep this broader match scoped to permit
+// questions; a generic yes/no helper must not reinterpret a third choice.
+const PERMIT_YES_OPTION_RE = /^(?:ja|sì|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
+const PERMIT_NO_OPTION_RE = /^(?:nein|no|non|ne|falso|false)(?![\p{L}\p{N}])/iu;
 const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
 const LANGUAGE_LEVEL_RE = /language|lingua|langue|sprach|livello|niveau|level|kenntnis|conoscenz|connaiss|knowledge|proficien(?:cy|t)|parlat[oa]|parle[sz]?|scritt[oa]|speak|spoken|written|oral|communicat\w*|mündlich|schriftlich|parlé|écrit|\b[abc][12]\b/i;
@@ -741,7 +746,7 @@ function comparableContext(context) {
 }
 
 function topicNeedsMatchingContext(topic) {
-  return /^(?:address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
+  return /^(?:birth_date|address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
 }
 
 function percentageAnswer(value) {
@@ -932,12 +937,52 @@ export function candidateAnswerForQuestion(candidate, question, context = '', me
     || addressQuestionAnswer(candidate, questionTopic(question, context, metadata));
 }
 
+/**
+ * Maps a candidate's held permit status to the wording a portal exposes.
+ *
+ * SuccessFactors sometimes exposes a boolean work-permit question as one
+ * positive option plus several qualified negative options.  `yesOption()` is
+ * deliberately stricter for document questions and therefore cannot resolve
+ * that shape.  A held status is safely answered by its sole positive option;
+ * a negative status is only resolved when there is one negative option, so a
+ * choice between EU/EFTA and non-EU/EFTA remains unknown rather than guessed.
+ */
+function permitAnswerForStatus(field, status) {
+  if (!status || questionTopic(field?.label, field?.context, field) !== 'permit') return '';
+  const options = Array.isArray(field?.options) ? field.options : [];
+  const labelOf = (option) => String(option?.label ?? option ?? '').trim();
+  const exact = options.filter((option) => permitOptionCode(labelOf(option)) === status);
+  if (exact.length === 1) return labelOf(exact[0]);
+  if (!asksHeldStatus(questionFromLabel(field?.label))) return '';
+  const yes = options.filter((option) => PERMIT_YES_OPTION_RE.test(labelOf(option)));
+  const no = options.filter((option) => PERMIT_NO_OPTION_RE.test(labelOf(option)));
+  const booleanOptions = options.every((option) => {
+    const label = labelOf(option);
+    return PERMIT_YES_OPTION_RE.test(label) || PERMIT_NO_OPTION_RE.test(label) || PLACEHOLDER.test(label);
+  });
+  if (booleanOptions && yes.length === 1 && status !== 'none') return labelOf(yes[0]);
+  if (booleanOptions && no.length === 1 && status === 'none') return labelOf(no[0]);
+  if (!options.length && isYesNoPermitQuestion(field?.label)) {
+    return localizedBoolean(status !== 'none', formLanguage(field?.label, null));
+  }
+  return '';
+}
+
+function isChoiceField(field) {
+  return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
+}
+
 function optionForAnswer(field, answer) {
   const options = Array.isArray(field?.options) ? field.options : [];
+  const topic = questionTopic(field.label, field.context, field);
+  if (topic === 'permit') {
+    const status = permitStatusOf(answer) || permitOptionCode(answer);
+    const permitAnswer = permitAnswerForStatus(field, status);
+    if (permitAnswer) return permitAnswer;
+  }
   if (!options.length) return String(answer || '').trim();
   const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
   if (exact) return exact.label;
-  const topic = questionTopic(field.label, field.context, field);
   if (topic.startsWith('language:')) {
     if (isNoLanguageAnswer(answer)) {
       const matches = options.filter((option) => isNoLanguageAnswer(option.label) || booleanAnswer(option.label) === false);
@@ -987,9 +1032,9 @@ function optionForAnswer(field, answer) {
     if (match) return match.label;
   }
   if (topic === 'permit') {
-    const answerCode = permitStatusOf(answer) || permitOptionCode(answer);
-    const match = options.find((option) => answerCode && (permitStatusOf(option.label) || permitOptionCode(option.label)) === answerCode);
-    if (match) return match.label;
+    const answerBoolean = booleanAnswer(answer);
+    const matches = options.filter((option) => booleanAnswer(option.label) === answerBoolean);
+    if (answerBoolean !== null && matches.length === 1) return matches[0].label;
   }
   if (topic.startsWith('age_under_')) {
     const answerBoolean = booleanAnswer(answer);
@@ -1207,11 +1252,8 @@ export function candidateAnswerForField(candidate, field) {
     if (value) return { value, source: 'answers' };
     if (topic === 'permit') {
       const status = permitStatusOf(previous);
-      if (status) {
-        const positive = status !== 'none';
-        const selected = positive ? yesOption(field?.options) : (field?.options || []).find((option) => booleanAnswer(String(option?.label ?? option)) === false);
-        if (selected) return { value: typeof selected === 'string' ? selected : String(selected?.label ?? ''), source: 'answers' };
-      }
+      const selected = permitAnswerForStatus(field, status);
+      if (selected) return { value: selected, source: 'answers' };
     }
     if (topic === 'current_school' && field?.options?.length) {
       const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
@@ -1282,17 +1324,8 @@ export function candidateAnswerForField(candidate, field) {
     if (!status || !asksHeldStatus(field?.label)) return null;
     const statusSource = candidate?.swissStatus?.code ? 'rule' : 'profile';
     const options = Array.isArray(field?.options) ? field.options : [];
-    const matchingPermit = options.filter((option) => permitOptionCode(option.label) === status);
-    if (matchingPermit.length === 1) return { value: matchingPermit[0].label, source: statusSource };
-    const yesNo = yesOption(options);
-    if (yesNo) {
-      const positive = status !== 'none';
-      const selected = options.find((option) => booleanAnswer(String(option?.label ?? option)) === positive);
-      if (selected) return { value: String(selected?.label ?? selected), source: statusSource };
-    }
-    if (!options.length && isYesNoPermitQuestion(field?.label)) {
-      return { value: localizedBoolean(status !== 'none', formLanguage(field?.label, candidate)), source: 'profile' };
-    }
+    const selected = permitAnswerForStatus(field, status);
+    if (selected) return { value: selected, source: statusSource };
     if (!options.length) return { value: candidate?.swissStatus?.statement || candidate?.profile?.workPermit || '', source: 'profile' };
     return null;
   }
@@ -1407,11 +1440,15 @@ export function guardPlan(plan, fields, candidate = null) {
   // A field that asks what the candidate needs or applies for is never answered by the code.
   const status = candidate?.swissStatus?.code || '';
   const statusPick = new Map(status ? fields
-    .filter((field) => field.options?.length && isPermitField(field.label) && asksHeldStatus(questionFromLabel(field.label)))
-    .map((field) => [field.id, field.options.filter((option) => permitOptionCode(option.label) === status)])
-    .filter(([, options]) => options.length === 1)
-    .map(([fieldId, [option]]) => [fieldId, option]) : []);
-  for (const [fieldId, option] of statusPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
+    .filter((field) => isPermitField(field.label) && asksHeldStatus(questionFromLabel(field.label))
+      && !recordedAnswerForQuestion(candidate, field.label, field.context, field))
+    .map((field) => [field.id, permitAnswerForStatus(field, status)])
+    .filter(([, value]) => value) : []);
+  for (const [fieldId, value] of statusPick) {
+    const field = byId.get(fieldId);
+    const action = isChoiceField(field) ? 'select' : 'fill';
+    actions.push({ fieldId, action, value, document: 'none', source: 'rule', evidence: '' });
+  }
   // A yes/no field that only asks whether the candidate holds a document attached to this application: its
   // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving
   // licence?» into a question for the candidate who has just uploaded it.
@@ -1458,7 +1495,7 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!field) continue;
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);
-      if (known?.value) action = { ...action, action: field.options?.length ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
+      if (known?.value) action = { ...action, action: isChoiceField(field) ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
@@ -1487,7 +1524,7 @@ export function guardPlan(plan, fields, candidate = null) {
     if (['fill', 'select'].includes(action.action) && isAddressTopic) {
       const answer = candidateAnswerForField(candidate, field);
       if (answer) {
-        actions.push({ ...action, action: field.options?.length ? 'select' : 'fill', value: answer.value, source: answer.source, evidence: '' });
+        actions.push({ ...action, action: isChoiceField(field) ? 'select' : 'fill', value: answer.value, source: answer.source, evidence: '' });
         continue;
       }
       ask(field);
@@ -1560,7 +1597,7 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     actions.push({
       fieldId: field.id,
-      action: field.options?.length ? 'select' : 'fill',
+      action: isChoiceField(field) ? 'select' : 'fill',
       value,
       document: 'none',
       source: answer.source,

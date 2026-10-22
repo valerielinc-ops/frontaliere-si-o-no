@@ -855,8 +855,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       || (schema.additionalProperties === false && Object.keys(schema.properties).every((key) => (schema.required.includes(key) || key === 'context') && strict(schema.properties[key]))
         && Object.values(schema.properties).every((value: any) => value.type !== 'array' || strict(value.items)));
     expect(strict(AGENT_SCHEMA)).toBe(true);
-    expect(AGENT_SCHEMA.properties.actions.items.required).not.toContain('context');
-    expect(AGENT_SCHEMA.properties.questions.items.required).not.toContain('context');
+    expect(AGENT_SCHEMA.properties.actions.items.required).toContain('context');
+    expect(AGENT_SCHEMA.properties.questions.items.required).toContain('context');
     const legacy = guardAgentStep(turn('act', [act({ question: 'Data di nascita', source: 'model', answer: '1900-01-01', value: '1900-01-01' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
     expect(legacy.questions).toEqual([expect.objectContaining({ question: 'Data di nascita', context: '' })]);
     const text = agentUserText({ url: 'https://x', title: '', snapshot: '- button "OK" [ref=e1]', candidate: { identity: {} }, hint: 'next_disabled' });
@@ -905,13 +905,23 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
 describe('portal agentic fallback: the candidate’s Swiss status and nationality', () => {
   const candidate = (profile: Record<string, any>) => candidateForForm({ identity: { name: 'Giulia Verdi', email: 'c-abc@candidature.frontaliereticino.ch', phone: '' }, profile, language: 'de' });
 
-  it('grounds a permit answer that names the status the candidate chose, asks any other', () => {
+  it('grounds a permit answer that names the status the candidate chose', () => {
     const question = 'Haben Sie eine Arbeitserlaubnis?';
     const grounded = guardAgentStep(turn('act', [act({ ref: 'e7', action: 'select', value: 'Ausweis G', question, answer: 'Ausweis G', source: 'profile' })]), candidate({ permitStatus: 'permit_g' }));
     expect(grounded).toMatchObject({ status: 'act', questions: [] });
     expect(grounded.actions).toHaveLength(1);
     const asked = guardAgentStep(turn('act', [act({ ref: 'e7', action: 'select', value: 'B', question, answer: 'B', source: 'profile' })]), candidate({ permitStatus: 'none' }));
-    expect(asked).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
+    expect(asked).toMatchObject({ status: 'act', questions: [] });
+    expect(asked.actions).toEqual([expect.objectContaining({ value: 'No', answer: 'No', source: 'rule' })]);
+  });
+
+  it('maps a concrete permit to Yes before the agent selects a qualified boolean list', () => {
+    const question = 'Do you hold a valid work permit for Switzerland?';
+    const grounded = guardAgentStep(turn('act', [act({
+      ref: 'e7', action: 'select', value: 'G Permit', question, answer: 'G Permit', source: 'profile',
+    })]), candidate({ permitStatus: 'permit_g' }));
+    expect(grounded).toMatchObject({ status: 'act', questions: [] });
+    expect(grounded.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'rule' })]);
   });
 
   it('grounds a nationality the candidate gave, in the form’s language', () => {

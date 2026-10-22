@@ -276,7 +276,9 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const context = boundedPortalContext(item.context);
     const section = boundedPortalContext(item.section);
     if (!question || isAnswered(question, context, section, item.autocomplete) || questions.some((other) => other.question === question
-      && other.context === context && other.section === section && other.autocomplete === item.autocomplete)) return;
+      && other.context === context
+      && boundedPortalContext(other.section) === section
+      && String(other.autocomplete || '') === String(item.autocomplete || ''))) return;
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
@@ -343,6 +345,29 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
+        grounded.add(questionKey(action.question, context, section, autocomplete));
+        continue;
+      }
+    }
+    // A portal may present the held-permit question as a boolean combobox
+    // while the candidate data stores the concrete permit (for example,
+    // «G Permit»).  Reuse the shared planner mapping before the option picker
+    // sees the raw permit label; this covers agentic fallback turns as well as
+    // the deterministic plan.
+    if (candidate && ['fill', 'type', 'select'].includes(action.action)
+      && questionTopic(action.question, context, metadata) === 'permit'
+      && action.source !== 'widget') {
+      const profileAnswer = candidateAnswerForField(candidate, {
+        label: action.question,
+        context,
+        ...metadata,
+        kind: 'combobox',
+        options: [],
+      });
+      if (profileAnswer) {
+        action.value = profileAnswer.value;
+        action.answer = profileAnswer.value;
+        action.source = profileAnswer.source;
         grounded.add(questionKey(action.question, context, section, autocomplete));
         continue;
       }

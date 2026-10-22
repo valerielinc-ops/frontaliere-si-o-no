@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-22T16:40:57.261Z",
+  "generatedAt": "2026-10-22T17:24:40.078Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -27081,6 +27081,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T19:27:02.669Z"
+    },
+    "guidle:AG6empn::2b5a5067287a5f353fada228b8c6ae4e57e9c183e0feb174c4e9a21120ef6c63": {
+      "id": "guidle:AG6empn",
+      "sourceDescriptionHash": "2b5a5067287a5f353fada228b8c6ae4e57e9c183e0feb174c4e9a21120ef6c63",
+      "description": "L’appuntamento propone un campionato svizzero di curling all’aperto ad Arosa, nel Canton Grigioni. La manifestazione si tiene presso la pista di ghiaccio all’aperto Offene Kunsteisbahn Arosa.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un campionato svizzero di curling all’aperto ad Arosa, nel Canton Grigioni. La manifestazione si tiene presso la pista di ghiaccio all’aperto Offene Kunsteisbahn Arosa.",
+        "en": "This event is an open-air Swiss curling championship held in Arosa, in the canton of Graubünden. Its venue is the Offene Kunsteisbahn Arosa open-air ice rink.",
+        "de": "Die Veranstaltung ist eine Schweizermeisterschaft im Curling unter freiem Himmel in Arosa, im Kanton GR. Austragungsort ist die Offene Kunsteisbahn Arosa.",
+        "fr": "Ce rendez-vous est un championnat suisse de curling en plein air à Arosa, dans le canton des Grisons. Il se déroule à la patinoire en plein air Offene Kunsteisbahn Arosa."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T17:18:58.415Z"
     },
     "guidle:Ag6MLL2::071e7d0cd9c5ad3c791ec6d4a4e51d834b83d014eaf97994a6988e5ecc725ec6": {
       "id": "guidle:Ag6MLL2",
@@ -167083,15 +167097,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AG6empn::2b5a5067287a5f353fada228b8c6ae4e57e9c183e0feb174c4e9a21120ef6c63": {
-      "id": "guidle:AG6empn",
-      "sourceDescriptionHash": "2b5a5067287a5f353fada228b8c6ae4e57e9c183e0feb174c4e9a21120ef6c63",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T14:33:54.253Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AG9mP7Z::ad635a6dfab08bf0b0db8bf026bc7ed12d53346361785591ab32ae17995f1d01": {
       "id": "guidle:AG9mP7Z",
       "sourceDescriptionHash": "ad635a6dfab08bf0b0db8bf026bc7ed12d53346361785591ab32ae17995f1d01",
@@ -167168,8 +167173,8 @@
       "id": "guidle:Ah9uP1F",
       "sourceDescriptionHash": "55d080066fefcf5a9a7ba273a20444e316627e8548668e1312ec36ce8d1c6813",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T14:34:22.385Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T17:19:37.826Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168328,9 +168333,9 @@
     "guidle:AvsEugS::ab8e27039d4d8278954d92707a406cd6025ad07f7e213700a300259bc5c37d0c": {
       "id": "guidle:AvsEugS",
       "sourceDescriptionHash": "ab8e27039d4d8278954d92707a406cd6025ad07f7e213700a300259bc5c37d0c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T14:31:15.015Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T17:20:59.099Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168706,9 +168711,9 @@
     "guidle:AYZ5WgX::114c64dd932c794e4235e00a58e2971225acdcb696136b725c862eea2bae2ff1": {
       "id": "guidle:AYZ5WgX",
       "sourceDescriptionHash": "114c64dd932c794e4235e00a58e2971225acdcb696136b725c862eea2bae2ff1",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T14:30:43.262Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T17:20:25.068Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

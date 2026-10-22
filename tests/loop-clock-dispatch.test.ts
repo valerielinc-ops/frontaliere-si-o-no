@@ -545,6 +545,23 @@ describe('loop clock observer', () => {
     expect((ghImpl.mock.calls[0][0] as string[])[1]).toContain('event=workflow_dispatch');
   });
 
+  it('omits the event filter for an explicit unfiltered read in options', () => {
+    const calls: string[][] = [];
+    listDispatchRuns('owner/site', 'unfiltered.yml', 10, 720, {
+      event: null,
+      ghImpl: (args: string[]) => {
+        calls.push(args);
+        return JSON.stringify({ total_count: 0, workflow_runs: [] });
+      },
+      sleep: () => {},
+      warn: () => {},
+    });
+
+    expect(calls).toHaveLength(1);
+    expect(calls[0][0]).toBe('api');
+    expect(calls[0][1]).not.toContain('event=');
+  });
+
   it('filters schedule rows out of the unfiltered fallback after bounded retries', () => {
     const entry = customEntry('api-fallback');
     const createdAt = minutesAgo(2);

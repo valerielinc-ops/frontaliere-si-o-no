@@ -473,13 +473,16 @@ describe('plate-auction Firestore pipeline: timed card turnover', () => {
 
   it('keeps TG active and preserves cards that rolled off the board', async () => {
     const firestore = statefulFirestore();
-    const allIds = Array.from({ length: 40 }, (_unused, index) => 1000 + index);
+    const allIds = Array.from({ length: 44 }, (_unused, index) => 1000 + index);
     await refresh(firestore, at(-6), allIds);
-    const result = await refresh(firestore, at(0), allIds.slice(8));
+    const result = await refresh(firestore, at(0), [
+      ...allIds.slice(23),
+      ...Array.from({ length: 29 }, (_unused, index) => 2000 + index),
+    ]);
 
-    expect(result.summaries.tg).toMatchObject({ status: 'active', rowCount: 32 });
+    expect(result.summaries.tg).toMatchObject({ status: 'active', rowCount: 50 });
     const missing = [...firestore.current.values()].filter((row) => row.sourceKey === 'TG' && row.missingSince !== undefined);
-    expect(missing).toHaveLength(8);
+    expect(missing).toHaveLength(23);
     expect([...firestore.history.values()].filter((row) => row.sourceKey === 'TG' && row.disappearedFromCatalogue)).toEqual([]);
     expect(firestore.sources.get('tg')).toMatchObject({ status: 'active', errorCode: null });
   });

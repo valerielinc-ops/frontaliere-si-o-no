@@ -203,9 +203,9 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.history.filter((auction) => auction.sourceKey === sourceCode)).toEqual([]);
   });
 
-  it('accepts TG\'s repeated 14-card turnover at its calibrated band', async () => {
+  it('accepts TG\'s measured 23-card turnover after a complete 50-card refresh', async () => {
     const endsAt = new Date(NOW.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
-    const previousCatalogue = Array.from({ length: 50 }, (_unused, index) => ({
+    const previousCatalogue = Array.from({ length: 44 }, (_unused, index) => ({
       ...previousRow,
       id: `tg-${index}`,
       sourceKey: 'TG',
@@ -221,17 +221,17 @@ describe('plate-auction ingest resilience', () => {
       lastSeenAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
     }));
     const stillListed = [
-      ...previousCatalogue.slice(14).map((row) => ({
+      ...previousCatalogue.slice(23).map((row) => ({
         ...row,
         sourceFetchedAt: NOW.toISOString(),
         lastVerifiedAt: NOW.toISOString(),
         lastSeenAt: NOW.toISOString(),
       })),
-      ...Array.from({ length: 14 }, (_unused, index) => ({
+      ...Array.from({ length: 29 }, (_unused, index) => ({
         ...previousCatalogue[0],
         id: `tg-new-${index}`,
-        plateNumber: String(50 + index),
-        normalizedPlate: `TG${50 + index}`,
+        plateNumber: String(44 + index),
+        normalizedPlate: `TG${44 + index}`,
         sourceFetchedAt: NOW.toISOString(),
         lastVerifiedAt: NOW.toISOString(),
         lastSeenAt: NOW.toISOString(),
@@ -245,11 +245,11 @@ describe('plate-auction ingest resilience', () => {
       now: NOW,
     });
 
-    // The 14 missing cards remain visible alongside the 50 fetched cards, so
-    // the published row count is 64 even though the source is healthy.
-    expect(snapshot.sources.tg).toMatchObject({ status: 'active', rowCount: 64 });
-    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG')).toHaveLength(64);
-    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG' && auction.missingSince)).toHaveLength(14);
+    // The 23 missing cards remain visible alongside the 50 fetched cards, so
+    // the published row count is 73 even though the source is healthy.
+    expect(snapshot.sources.tg).toMatchObject({ status: 'active', rowCount: 73 });
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG')).toHaveLength(73);
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG' && auction.missingSince)).toHaveLength(23);
     expect(snapshot.history.filter((auction) => auction.sourceKey === 'TG')).toEqual([]);
   });
 
