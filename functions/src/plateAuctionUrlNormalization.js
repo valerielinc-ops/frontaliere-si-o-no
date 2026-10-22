@@ -5,6 +5,13 @@ const PLATE_AUCTION_HOST_ALIASES = Object.freeze({
 const AI_BASE_PATH = '/themen/mobilitaet-und-verkehr/strassenverkehr';
 const AI_AUTO_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf`;
 const AI_MOTORCYCLE_PDF_PATH = `${AI_BASE_PATH}/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file/Freie%20Motorrad-Kontrollschilder.pdf`;
+const ECARI_ROOTS = Object.freeze({
+  'eauktion.gr.ch': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },
+  'ecarinwprod.ilz.info': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },
+  'ecariowprod.ilz.info': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },
+  'eauktion.so.ch': { root: '/ecari-auction/ui/app/init', locale: 'de_CH' },
+  'ecari.vs.ch': { root: '/ecari-auction/ui/app/init', locale: 'fr_CH' },
+});
 
 function rewriteKnownPlateAuctionUrl(url) {
   const host = url.hostname.toLowerCase();
@@ -38,14 +45,7 @@ function rewriteKnownPlateAuctionUrl(url) {
     }
   }
 
-  const ecariRoots = new Map([
-    ['eauktion.gr.ch', { root: '/ecari-auction/ui/app/init', locale: 'de_CH' }],
-    ['ecarinwprod.ilz.info', { root: '/ecari-auction/ui/app/init', locale: 'de_CH' }],
-    ['ecariowprod.ilz.info', { root: '/ecari-auction/ui/app/init', locale: 'de_CH' }],
-    ['eauktion.so.ch', { root: '/ecari-auction/ui/app/init', locale: 'de_CH' }],
-    ['ecari.vs.ch', { root: '/ecari-auction/ui/app/init', locale: 'fr_CH' }],
-  ]);
-  const ecari = ecariRoots.get(host);
+  const ecari = Object.hasOwn(ECARI_ROOTS, host) ? ECARI_ROOTS[host] : undefined;
   if (ecari) {
     const isCatalogueRoot = path === '/' || path === '/ecari-auction' || path === '/ecari-auction/ui/app/init';
     if (isCatalogueRoot) {
