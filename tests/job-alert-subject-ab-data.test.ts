@@ -138,5 +138,6 @@ describe('job-alert subject A/B aggregation', () => {
 
     expect(report.byVariant.control.opens).toBe(0);
     expect(report.byVariant.match.opens).toBe(1);
+    expect(report.matchedEvents).toBe(1);
   });
 });
