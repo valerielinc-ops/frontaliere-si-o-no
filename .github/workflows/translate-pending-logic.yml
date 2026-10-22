@@ -1082,5 +1082,6 @@ jobs:
       - name: Release translation deploy fallback after job timeout
         env:
           TRANSLATION_DEPLOY_HANDOFF_STATE: fallback
+          TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID: ${{ github.run_id }}
           SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "⚠️ Release translation deploy fallback after job timeout" data/translation-deploy-handoff.json

@@ -89,10 +89,19 @@ describe('timeout-capped Claude workflows keep their downstream diagnostics aliv
     const runs = recovery.steps
       .filter((step: any) => typeof step.run === 'string')
       .map((step: any) => step.run);
+    const fallbackStep = recovery.steps.find((step: any) => step.name === 'Release translation deploy fallback after job timeout');
+    expect(fallbackStep?.env?.TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID).toBe('${{ github.run_id }}');
     expect(runs).toContain('npm ci --ignore-scripts');
     expect(runs).toContain('node scripts/load-rc-env.mjs');
     expect(runs.some((run: string) => run.includes('TRANSLATION_DEPLOY_HANDOFF_STATE: fallback'))).toBe(false);
     expect(runs.some((run: string) => run.includes('TRANSLATION_DEPLOY_HANDOFF_STATE=fallback'))).toBe(true);
     expect(runs.some((run: string) => run.includes('data/translation-deploy-handoff.json'))).toBe(true);
+
+    const committer = readFileSync(join(ROOT, 'scripts/lib/git-commit-data.sh'), 'utf8');
+    expect(committer).toContain('&& [ -z "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ]; then');
+    expect(committer).toContain('--git-ref refs/remotes/origin/main');
+    expect(committer).toMatch(/git_fetch_retry\ntranslation_handoff_recovery_guard_or_skip false/u);
+    expect(committer).toMatch(/git_fetch_retry\ntranslation_handoff_recovery_guard_or_skip true\nif ! git rebase origin\/main/u);
+    expect(committer).toMatch(/translation_handoff_recovery_guard_or_skip true\n\n# Push/u);
   });
 });
