@@ -855,8 +855,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
       || (schema.additionalProperties === false && Object.keys(schema.properties).every((key) => (schema.required.includes(key) || key === 'context') && strict(schema.properties[key]))
         && Object.values(schema.properties).every((value: any) => value.type !== 'array' || strict(value.items)));
     expect(strict(AGENT_SCHEMA)).toBe(true);
-    expect(AGENT_SCHEMA.properties.actions.items.required).not.toContain('context');
-    expect(AGENT_SCHEMA.properties.questions.items.required).not.toContain('context');
+    expect(AGENT_SCHEMA.properties.actions.items.required).toContain('context');
+    expect(AGENT_SCHEMA.properties.questions.items.required).toContain('context');
     const legacy = guardAgentStep(turn('act', [act({ question: 'Data di nascita', source: 'model', answer: '1900-01-01', value: '1900-01-01' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
     expect(legacy.questions).toEqual([expect.objectContaining({ question: 'Data di nascita', context: '' })]);
     const text = agentUserText({ url: 'https://x', title: '', snapshot: '- button "OK" [ref=e1]', candidate: { identity: {} }, hint: 'next_disabled' });

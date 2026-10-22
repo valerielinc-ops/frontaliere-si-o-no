@@ -276,7 +276,9 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     const context = boundedPortalContext(item.context);
     const section = boundedPortalContext(item.section);
     if (!question || isAnswered(question, context, section, item.autocomplete) || questions.some((other) => other.question === question
-      && other.context === context && other.section === section && other.autocomplete === item.autocomplete)) return;
+      && other.context === context
+      && boundedPortalContext(other.section) === section
+      && String(other.autocomplete || '') === String(item.autocomplete || ''))) return;
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.

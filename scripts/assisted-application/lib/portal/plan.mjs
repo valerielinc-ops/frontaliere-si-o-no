@@ -746,7 +746,7 @@ function comparableContext(context) {
 }
 
 function topicNeedsMatchingContext(topic) {
-  return /^(?:address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
+  return /^(?:birth_date|address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
 }
 
 function percentageAnswer(value) {
