@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import YAML from 'yaml';
 
@@ -237,6 +239,135 @@ describe('every workflow PR body writer crosses the deterministic gate', () => {
         live.slice(writer.writeStart),
         `${writer.script} still contains an inline --body writer`,
       ).not.toMatch(/--body(?!-file)\b/);
+    }
+  });
+
+  it('keeps the loop-clock corpus transport behind the shared body gate', () => {
+    const writer = discoverWriters().scripts.find(
+      (candidate) => candidate.script === 'scripts/ci/sync-loop-clock-to-corpus.sh',
+    );
+    expect(writer, 'the loop-clock transport must remain covered as a PR-body writer').toBeDefined();
+    const gate = scriptGateStart(writer!.source);
+    expect(gate, 'the loop-clock transport must invoke the shared body gate').toBeGreaterThanOrEqual(0);
+    expect(gate, 'the loop-clock transport must validate before creating its remote PR').toBeLessThan(
+      writer!.writeStart,
+    );
+
+    const workflow = fs.readFileSync(
+      path.join(ROOT, '.github/workflows/sync-loop-clock-to-corpus.yml'),
+      'utf8',
+    );
+    for (const checkedOutPath of [
+      '/scripts/ci/pr-body-check-gate.mjs',
+      '/scripts/ci/lib/hook-exit-codes.mjs',
+      '/scripts/ci/lib/hook-stdin.mjs',
+      '/scripts/ci/lib/hook-command-parser.mjs',
+      '/scripts/ci/lib/hook-target-cwd.mjs',
+      '/scripts/ci/lib/false-positive-declaration.mjs',
+      '/scripts/lib/pr-body-closes-check.mjs',
+      '/scripts/lib/pr-body-sections-check.mjs',
+    ]) {
+      expect(workflow, `workflow sparse checkout is missing ${checkedOutPath}`).toContain(
+        checkedOutPath,
+      );
+    }
+  });
+
+  it('creates a missing corpus PR and no-ops only when a valid open PR exists', () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-clock-transport-'));
+    const bareRepo = path.join(tempRoot, 'corpus.git');
+    const seedRepo = path.join(tempRoot, 'seed');
+    const fakeBin = path.join(tempRoot, 'bin');
+    const ghLog = path.join(tempRoot, 'gh-calls.log');
+    fs.mkdirSync(fakeBin);
+
+    const isolatedGitEnv = {
+      ...process.env,
+      GIT_CONFIG_GLOBAL: '/dev/null',
+      GIT_CONFIG_NOSYSTEM: '1',
+    };
+    const run = (command: string, args: string[], cwd = ROOT, env = isolatedGitEnv) => execFileSync(
+      command,
+      args,
+      { cwd, env, encoding: 'utf8', stdio: 'pipe' },
+    );
+
+    try {
+      run('git', ['init', '--bare', bareRepo]);
+      run('git', ['init', '--initial-branch=main', seedRepo]);
+      run('git', ['-C', seedRepo, 'config', 'user.name', 'fixture']);
+      run('git', ['-C', seedRepo, 'config', 'user.email', 'fixture@example.invalid']);
+      const workflowPath = path.join(seedRepo, '.github', 'workflows', 'issue-triage.yml');
+      fs.mkdirSync(path.dirname(workflowPath), { recursive: true });
+      fs.writeFileSync(workflowPath, [
+        'name: Issue triage',
+        'on:',
+        '  workflow_dispatch:',
+        '  issues:',
+        '    types: [opened]',
+        'jobs:',
+        '  triage:',
+        '    runs-on: ubuntu-latest',
+        '    steps:',
+        '      - run: echo triage',
+        '',
+      ].join('\n'));
+      run('git', ['-C', seedRepo, 'add', '--', '.github/workflows/issue-triage.yml']);
+      run('git', ['-C', seedRepo, 'commit', '-m', 'create base workflow']);
+      run('git', ['-C', seedRepo, 'remote', 'add', 'origin', bareRepo]);
+      run('git', ['-C', seedRepo, 'push', 'origin', 'main']);
+      run(process.execPath, [path.join(ROOT, 'scripts/ci/patch-corpus-loop-clock-workflow.mjs'), '--file', workflowPath]);
+      run('git', ['-C', seedRepo, 'add', '--', '.github/workflows/issue-triage.yml']);
+      run('git', ['-C', seedRepo, 'commit', '-m', 'add loop-clock contract']);
+      run('git', ['-C', seedRepo, 'push', 'origin', 'HEAD:loop-clock-contract-sync']);
+      run('git', ['--git-dir', bareRepo, 'symbolic-ref', 'HEAD', 'refs/heads/main']);
+
+      const fakeGh = path.join(fakeBin, 'gh');
+      fs.writeFileSync(fakeGh, [
+        '#!/usr/bin/env bash',
+        'set -euo pipefail',
+        'if [ "$1" = api ] && [ "$2" = user ]; then',
+        '  printf "%s\\n" fixture-bot',
+        'elif [ "$1" = pr ] && [ "$2" = list ]; then',
+        '  printf "%s\\n" "${OPEN_PR_JSON:-[]}"',
+        'elif [ "$1" = pr ] && [ "$2" = create ]; then',
+        '  printf "%s\\n" "$*" >> "$GH_LOG"',
+        '  printf "%s\\n" "https://example.invalid/pull/1"',
+        'else',
+        '  echo "unexpected gh command: $*" >&2',
+        '  exit 1',
+        'fi',
+        '',
+      ].join('\n'));
+      fs.chmodSync(fakeGh, 0o755);
+
+      const env = {
+        ...isolatedGitEnv,
+        ARTICLES_REPO_PAT: 'fixture-token',
+        GITHUB_SHA: 'fixture-sha',
+        GITHUB_WORKSPACE: ROOT,
+        LOOP_CLOCK_CORPUS_URL: bareRepo,
+        GH_LOG: ghLog,
+        PATH: `${fakeBin}${path.delimiter}${process.env.PATH ?? ''}`,
+      };
+      run('bash', [path.join(ROOT, 'scripts/ci/sync-loop-clock-to-corpus.sh')], ROOT, env);
+      expect(fs.readFileSync(ghLog, 'utf8')).toContain('pr create');
+
+      const validOpenPr = [{
+        baseRefName: 'main',
+        headRefName: 'loop-clock-contract-sync',
+        headRepositoryOwner: { login: 'nanakokyobashi-rgb' },
+        headRepository: { name: 'frontaliere-articles' },
+        author: { login: 'fixture-bot' },
+        isCrossRepository: false,
+      }];
+      run('bash', [path.join(ROOT, 'scripts/ci/sync-loop-clock-to-corpus.sh')], ROOT, {
+        ...env,
+        OPEN_PR_JSON: JSON.stringify(validOpenPr),
+      });
+      expect(fs.readFileSync(ghLog, 'utf8').match(/pr create/g)).toHaveLength(1);
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
     }
   });
 });
