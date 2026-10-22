@@ -290,6 +290,8 @@ const enVita: Record<string, string> = {
  'profile.paidApplications.otherTitle': 'Other applications',
  'profile.paidApplications.allTitle': 'All applications',
  'profile.paidApplications.nextStep': 'Next step',
+ 'profile.paidApplications.openApplication': 'Open application',
+ 'profile.paidApplications.openNextStep': 'Open next step',
  'profile.paidApplications.openListing': 'Open job listing',
  'profile.paidApplications.untitled': 'Application',
  'profile.paidApplications.companyUnavailable': 'Employer unavailable',

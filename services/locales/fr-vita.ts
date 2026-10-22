@@ -290,6 +290,8 @@ const frVita: Record<string, string> = {
  'profile.paidApplications.otherTitle': 'Autres candidatures',
  'profile.paidApplications.allTitle': 'Toutes les candidatures',
  'profile.paidApplications.nextStep': 'Prochaine étape',
+ 'profile.paidApplications.openApplication': 'Ouvrir la candidature',
+ 'profile.paidApplications.openNextStep': 'Ouvrir la prochaine étape',
  'profile.paidApplications.openListing': 'Ouvrir l’annonce',
  'profile.paidApplications.untitled': 'Candidature',
  'profile.paidApplications.companyUnavailable': 'Employeur indisponible',

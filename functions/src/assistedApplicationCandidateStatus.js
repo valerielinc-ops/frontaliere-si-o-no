@@ -1,6 +1,14 @@
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { verifyCaller } from './stripePublisherCore.js';
 import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { flowRefFor } from './assistedApplicationAutomation.js';
+import {
+  buildOrderPageUrl,
+  buildReviewPageUrl,
+  resolveOrderLocale,
+  submittedReviewUrl,
+} from './assistedApplicationNotifications.js';
+import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 
 const CANDIDATE_ACTION_STATES = new Set([
   'candidate_review',
@@ -61,7 +69,36 @@ export function candidateStatusForAssistedApplication(order) {
   return 'in_progress';
 }
 
-function serializeCandidateApplication(doc, order) {
+async function applicationUrlFor(db, orderId, order, status, getSecret) {
+  const locale = resolveOrderLocale(order);
+  const orderPageUrl = buildOrderPageUrl(order, orderId, locale);
+
+  try {
+    if (status === 'needs_candidate') {
+      const snapshot = await flowRefFor(db, orderId).get();
+      const flow = snapshot.exists ? snapshot.data() || {} : {};
+      if (!CANDIDATE_ACTION_STATES.has(flow.state)) return orderPageUrl;
+
+      const token = mintReviewToken({
+        secret: await getSecret(),
+        orderId,
+        round: flow.round,
+      });
+      return buildReviewPageUrl(order, token, locale);
+    }
+
+    if (status === 'submitted') {
+      return await submittedReviewUrl({ db, orderId, order, getSecret }) || orderPageUrl;
+    }
+  } catch {
+    // The stable authenticated order page remains useful when a review token
+    // cannot be minted (for example during a secret rotation or after expiry).
+  }
+
+  return orderPageUrl;
+}
+
+async function serializeCandidateApplication(db, doc, order, getSecret) {
   const status = candidateStatusForAssistedApplication(order);
   return {
     orderId: boundedText(doc.id, 200),
@@ -74,6 +111,7 @@ function serializeCandidateApplication(doc, order) {
     status,
     updatedAt: latestIsoDate(order.automationUpdatedAt, order.updatedAt, order.statusChangedAt, order.createdAt),
     requiresCvUpload: status === 'awaiting_materials',
+    applicationUrl: await applicationUrlFor(db, doc.id, order, status, getSecret),
   };
 }
 
@@ -94,18 +132,26 @@ export async function handleListMyAssistedApplications(
   const decoded = await verify(req);
   if (!decoded?.uid) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
 
-  const snapshot = await getDb()
+  const db = await getDb();
+  const snapshot = await db
     .collection(ASSISTED_APPLICATIONS_COLLECTION)
     .where('userId', '==', decoded.uid)
     .get();
 
-  const applications = (snapshot.docs || [])
+  let reviewSecretPromise = null;
+  const getSecret = () => {
+    reviewSecretPromise ||= getReviewTokenSecret();
+    return reviewSecretPromise;
+  };
+  const eligible = (snapshot.docs || [])
     .map((doc) => ({ doc, order: doc.data() || {} }))
     .filter(({ order }) => order.userId === decoded.uid
       && (order.paymentStatus === 'paid'
         || order.paymentStatus === 'refunded'
-        || order.submissionStatus === 'refunded'))
-    .map(({ doc, order }) => serializeCandidateApplication(doc, order))
+        || order.submissionStatus === 'refunded'));
+  const applications = (await Promise.all(eligible.map(({ doc, order }) => (
+    serializeCandidateApplication(db, doc, order, getSecret)
+  ))))
     .filter((application) => application.orderId)
     .sort((left, right) => String(right.updatedAt || '').localeCompare(String(left.updatedAt || '')));
 
