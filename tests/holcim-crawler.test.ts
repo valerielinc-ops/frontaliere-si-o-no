@@ -9,6 +9,8 @@ import {
   isTrustedDomain,
   parseSearchPage,
   extractJobDescriptionHtml,
+  extractJobLocationTexts,
+  resolveHolcimLocation,
 } from '../scripts/lib/holcim-job-parser.mjs';
 import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
 
@@ -218,6 +220,41 @@ describe('Holcim Group crawler parser', () => {
     it('returns empty string when the description block is missing', () => {
       expect(extractJobDescriptionHtml('<html><body>maintenance</body></html>')).toBe('');
       expect(extractJobDescriptionHtml('')).toBe('');
+    });
+  });
+
+  // ── Detail-page location authority ──
+  describe('detail-page location authority', () => {
+    it('extracts the vacancy-scoped location from the real detail template', () => {
+      const html = readFileSync(join(FIXTURES, 'holcim-detail-baumaschinenfuehrer.html'), 'utf8');
+      expect(extractJobLocationTexts(html)).toEqual(['Kehrsiten, NW, CH, 6365']);
+    });
+
+    it('ignores generic location text outside the vacancy location scope', () => {
+      const html = `
+        <div class="jobGeoLocation">Mülligen, AG, CH, 5243</div>
+        <p id="job-location"><span class="jobGeoLocation">Oberdorf, NW, CH, 6370</span></p>
+        <footer><span class="jobGeoLocation">Zug, ZG, CH, 6300</span></footer>`;
+      expect(extractJobLocationTexts(html)).toEqual(['Oberdorf, NW, CH, 6370']);
+    });
+
+    it('prefers the authoritative detail location over a volatile listing location', () => {
+      expect(resolveHolcimLocation(
+        'Mülligen, AG, CH, 5243',
+        ['Oberdorf, NW, CH, 6370'],
+      )).toMatchObject({ city: 'Oberdorf', canton: 'NW', source: 'detail' });
+    });
+
+    it('does not invent a city when the source location is absent or ambiguous', () => {
+      expect(resolveHolcimLocation('', [])).toMatchObject({
+        city: '',
+        canton: '',
+        source: 'unknown',
+      });
+      expect(resolveHolcimLocation(
+        'Mülligen, AG, CH, 5243',
+        ['Mülligen, AG, CH, 5243', 'Oberdorf, NW, CH, 6370'],
+      )).toMatchObject({ city: '', canton: '', source: 'ambiguous-detail' });
     });
   });
 
