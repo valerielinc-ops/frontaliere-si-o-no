@@ -313,6 +313,15 @@ export function readStaticObjectEntries(
       continue;
     }
 
+    if (character === '.' && source.startsWith('...', cursor)) {
+      cursor += 3;
+      canStartRegex = true;
+      lastSignificant = 'spread';
+      lastIdentifier = null;
+      blockBracePending = false;
+      continue;
+    }
+
     if (character === '=' && nextCharacter === '>') {
       cursor += 2;
       canStartRegex = true;
