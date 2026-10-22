@@ -40,6 +40,7 @@ import {
   buildOsmQuery,
   buildTicinoCompleteRecords,
   parseTicinoPdfText,
+  rebuildUrlAliasesAfterSlugChange,
   uniqueSlug,
 } from './lib/pharmacy-border-parser.mjs';
 import {
@@ -405,27 +406,22 @@ export async function readPreviousTicinoSnapshots({ completePath = TICINO_OUTPUT
     const slug = typeof pharmacy.slug === 'string' && pharmacy.slug
       ? uniqueSlug(pharmacy.slug, usedSlugs)
       : pharmacy.slug;
-    if (slug === pharmacy.slug) {
-      legacyOnly.push(pharmacy);
-    } else {
-      const { urlAliases: previousAliases, ...withoutAliases } = pharmacy;
-      const urlAliases = Array.isArray(previousAliases)
-        ? previousAliases.filter((alias) => alias?.country !== 'CH' || !usedSlugs.has(alias?.slug))
-        : [];
-      // The legacy record no longer owns its old canonical slug. Remove any
-      // alias for a slug already claimed by the merged catalogue, while
-      // retaining unrelated historical routes.
-      legacyOnly.push({
-        ...withoutAliases,
-        slug,
-        ...(urlAliases.length ? { urlAliases } : {}),
-      });
-    }
+    legacyOnly.push({
+      record: slug === pharmacy.slug ? pharmacy : { ...pharmacy, slug },
+      renamed: slug !== pharmacy.slug,
+    });
     knownIds.add(pharmacy.id);
   }
+  const mergedPharmacies = [...pharmacies, ...legacyOnly.map(({ record }) => record)];
+  const canonicalSlugs = new Set(mergedPharmacies.map((pharmacy) => pharmacy.slug).filter(Boolean));
   return {
     ...complete,
-    pharmacies: [...pharmacies, ...legacyOnly],
+    pharmacies: [
+      ...pharmacies,
+      ...legacyOnly.map(({ record, renamed }) => renamed
+        ? rebuildUrlAliasesAfterSlugChange(record, canonicalSlugs)
+        : record),
+    ],
   };
 }
 
