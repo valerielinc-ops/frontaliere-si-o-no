@@ -765,12 +765,15 @@ const UserProfile: React.FC = () => {
     const merged = { ...DEFAULT_PROFILE } as UserProfileData;
 
     PROFILE_STRING_FIELDS.forEach((field) => {
-     if (localProfile && Object.hasOwn(localProfile, field)) {
-      merged[field] = typeof localProfile[field] === 'string' ? localProfile[field] as string : '';
-     } else if (cloudProfile && Object.hasOwn(cloudProfile, field)) {
-      merged[field] = typeof cloudProfile[field] === 'string' ? cloudProfile[field] as string : '';
-     } else if (userEditedProfileFieldsRef.current.has(field)) {
+     // User edits win, including an intentional blank. Account values are
+     // authoritative when they contain data, while empty cache/cloud fields
+     // must not hide the ownerless legacy value being imported now.
+     if (userEditedProfileFieldsRef.current.has(field)) {
       merged[field] = currentProfile[field];
+     } else if (typeof cloudProfile?.[field] === 'string' && (cloudProfile[field] as string).trim()) {
+      merged[field] = cloudProfile[field] as string;
+     } else if (typeof localProfile?.[field] === 'string' && (localProfile[field] as string).trim()) {
+      merged[field] = localProfile[field] as string;
      } else if (currentProfile[field].trim()) {
       merged[field] = currentProfile[field];
      } else if (typeof legacy[field] === 'string' && (legacy[field] as string).trim()) {
@@ -780,12 +783,12 @@ const UserProfile: React.FC = () => {
      }
     });
 
-    if (localProfile && Object.hasOwn(localProfile, 'familyMembersList') && Array.isArray(localProfile.familyMembersList)) {
-     merged.familyMembersList = localProfile.familyMembersList as FamilyMember[];
-    } else if (cloudProfile && Object.hasOwn(cloudProfile, 'familyMembersList') && Array.isArray(cloudProfile.familyMembersList)) {
-     merged.familyMembersList = cloudProfile.familyMembersList as FamilyMember[];
-    } else if (userEditedProfileFieldsRef.current.has('familyMembersList')) {
+    if (userEditedProfileFieldsRef.current.has('familyMembersList')) {
      merged.familyMembersList = currentProfile.familyMembersList || [];
+    } else if (Array.isArray(cloudProfile?.familyMembersList) && cloudProfile.familyMembersList.length) {
+     merged.familyMembersList = cloudProfile.familyMembersList as FamilyMember[];
+    } else if (Array.isArray(localProfile?.familyMembersList) && localProfile.familyMembersList.length) {
+     merged.familyMembersList = localProfile.familyMembersList as FamilyMember[];
     } else if (currentProfile.familyMembersList?.length) {
      merged.familyMembersList = currentProfile.familyMembersList;
     } else if (Array.isArray(legacy.familyMembersList) && legacy.familyMembersList.length) {
