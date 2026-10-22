@@ -1533,7 +1533,14 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
       let previousCount;
       let beforeHandles;
       if (!beforeCounts.has(frame)) {
-        ambiguous = true;
+        // Some ATS tenants add an auxiliary third-party frame when the upload
+        // dialog opens (SIX adds a Google Drive proxy). A frame that exposes
+        // no eligible file input cannot be the upload target and must not make
+        // the real dialog ambiguous. Keep the fail-closed behavior for a new
+        // frame that is unreadable or already contains a candidate input: its
+        // pre-click baseline is unknown, so it still cannot be selected safely.
+        const count = await dialogFileInputCount(frame);
+        if (count === null || count > 0) ambiguous = true;
         continue;
       }
       previousCount = beforeCounts.get(frame);
@@ -2722,17 +2729,27 @@ export async function submitViaPortal(ctx) {
       const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
       const recorded = [...given.values()];
       const recordedKeys = new Set(recorded.map(answerKey));
+      const fold = (value) => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      const isPhoneCode = (field) => /\b(?:country\s+phone\s+code|phone\s+code|country\s+code|dial(?:ing)?\s+code|indicativo|vorwahl|prefisso)\b/i.test(String(field?.label || ''));
       const visibleAnswers = (current?.fields || [])
         .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
-        .map((field) => ({
-          question: String(field.label || field.name || field.id || '').slice(0, 200),
-          answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
-          context: String(field.context || '').slice(0, 240),
-          section: String(field.section || '').slice(0, 240),
-          autocomplete: String(field.autocomplete || '').slice(0, 100),
-          source: 'answers',
-        }))
-        .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
+        .map((field) => {
+          const answer = field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim();
+          // A portal may prefill a default country or phone code before the
+          // planner sees the form. Keep an explicit candidate fact above that
+          // default; phone-code defaults are never candidate answers.
+          const candidateAnswer = candidateAnswerForField(candidate, field)?.value || '';
+          if (isPhoneCode(field) || (candidateAnswer && fold(candidateAnswer) !== fold(answer))) return null;
+          return {
+            question: String(field.label || field.name || field.id || '').slice(0, 200),
+            answer,
+            context: String(field.context || '').slice(0, 240),
+            section: String(field.section || '').slice(0, 240),
+            autocomplete: String(field.autocomplete || '').slice(0, 100),
+            source: 'answers',
+          };
+        })
+        .filter((item) => item && item.question && item.answer && !recordedKeys.has(answerKey(item)));
       const currentAnswers = [...visibleAnswers, ...recorded];
       const currentKeys = new Set(currentAnswers.map(answerKey));
       const previous = (candidate?.portalQuestionsAnswered || [])
