@@ -381,7 +381,7 @@ async function fillCombobox(page, field, locator, value) {
         await locator.press('Escape').catch(() => {});
         throw new Error('option_not_found');
       }
-      option = fallbackOptions.nth(fallbackMatches[0].index);
+      option = fallbackOptions.nth(fallbackIndex);
       await option.waitFor({ state: 'visible', timeout: 4000 });
     }
   }
