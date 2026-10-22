@@ -1033,7 +1033,7 @@ jobs:
   # admission marker and cannot leave the site waiting on a stale `pending`.
   translate_timeout_recovery:
     needs: translate
-    if: always() && needs.translate.result == 'cancelled' && inputs.dry_run != true
+    if: always() && needs.translate.result != 'success' && needs.translate.result != 'skipped' && inputs.dry_run != true
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
