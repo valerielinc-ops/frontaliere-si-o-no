@@ -369,6 +369,14 @@ function normalizeDomainHost(value: string): string {
  return withoutProtocol.split('/')[0].replace(/^www\./, '').trim();
 }
 
+function canonicalCompanyMatchHost(value: string): string {
+ const host = normalizeDomainHost(value);
+ // FFS job feeds still publish the consumer host, while the profile links to
+ // the reachable corporate site. Keep the display URL and the job-match key
+ // independent so changing the outbound link cannot hide existing listings.
+ return host === 'company.sbb.ch' ? 'sbb.ch' : host;
+}
+
 function tokenizeCompany(value: string): string[] {
  return normalizeTextKey(value)
  .split(' ')
@@ -428,7 +436,7 @@ function buildCompanyMatchers(list: Company[]): CompanyMatchers {
  byBag.set(bag, current);
  }
 
- const host = normalizeDomainHost(company.website || '');
+ const host = canonicalCompanyMatchHost(company.website || '');
  if (host) {
  const current = byHost.get(host) || [];
  if (!current.includes(key)) current.push(key);
@@ -486,7 +494,7 @@ function resolveCompanyCountKey(job: JobListingLite, matchers: CompanyMatchers):
  }
  }
 
- const resolvedHost = normalizeDomainHost(
+ const resolvedHost = canonicalCompanyMatchHost(
  resolveCompanyWebsiteHost({
  company: job.company,
  companyKey: job.companyKey,
