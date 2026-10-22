@@ -1861,6 +1861,7 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
     .filter((button) => iconUploadAllowedForPage(page, button, kind, snapshot, channelType));
   for (;;) {
     let candidate = null;
+    let boundedRetry = false;
     while (pending.length && !candidate) {
       const key = pending.shift();
       candidate = discovered.find((button) => uploadTriggerKey(button) === key) || null;
@@ -1876,13 +1877,18 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
         // are still exhausted in order before this fallback is reached.
         candidate = discovered[0] || null;
         if (!candidate) return null;
+        boundedRetry = true;
       } else {
         candidate = discovered[nextIndex];
         pending.push(...discovered.slice(nextIndex + 1).map(uploadTriggerKey));
       }
     }
     const key = uploadTriggerKey(candidate);
-    if (tried.has(key)) continue;
+    // The fallback above is the bounded retry budget for a portal that drops
+    // a click without redrawing. Queued/discovered candidates must still be
+    // skipped when already tried, but the fallback must be returned once so
+    // the caller can account for that retry and then stop at its attempt cap.
+    if (!boundedRetry && tried.has(key)) continue;
     if (!iconUploadAllowedForPage(page, candidate, kind, snapshot, channelType)) {
       // It may have become invalid while a previous trigger redrew the form.
       // Mark it before continuing so a fresh snapshot cannot select it again.
