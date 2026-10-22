@@ -1434,12 +1434,48 @@ const DIALOG_FILE_INPUT_SELECTOR = [
 ].join(', ');
 const FILE_INPUT_SELECTOR = 'input[type="file"]';
 
+// Some portals initialise an unrelated third-party frame at the same time as
+// their upload callout. SIX adds the Google Drive proxy and OAuth iframe; the
+// career-site cookie manager and captcha vendors use the same pattern. Those
+// frames cannot contain the employer's upload input. If their document is
+// still loading, Playwright may make both `count()` and `elementHandles()`
+// unreadable; keeping them in the uniqueness check would turn a valid upload
+// into a false ambiguity.
+function isKnownUploadAuxiliaryFrame(frame) {
+  try {
+    const rawUrl = typeof frame?.url === 'function' ? frame.url() : '';
+    const url = new URL(String(rawUrl));
+    const host = url.hostname.toLowerCase();
+    const path = url.pathname.toLowerCase();
+    const under = (prefix) => path === prefix || path.startsWith(`${prefix}/`);
+    const subdomainOf = (domain) => host === domain || host.endsWith(`.${domain}`);
+    return (host === 'content.googleapis.com' && path === '/static/proxy.html')
+      || (host === 'accounts.google.com' && path === '/o/oauth2/iframe')
+      || (host === 'jobs.six-group.com' && under('/widgets/cookiemanageriframe'))
+      || ((host === 'www.google.com' || host === 'www.recaptcha.net') && under('/recaptcha'))
+      || subdomainOf('hcaptcha.com')
+      || (host === 'challenges.cloudflare.com' && under('/turnstile'))
+      || subdomainOf('doubleclick.net')
+      || subdomainOf('googletagmanager.com')
+      || ((host === 'youtube.com' || host === 'youtube-nocookie.com' || subdomainOf('youtube.com') || subdomainOf('youtube-nocookie.com')) && under('/embed'));
+  } catch {
+    return false;
+  }
+}
+
 function orderedUploadFrames(page, preferredFrame) {
   const frames = page.frames();
   const preferred = preferredFrame && frames.includes(preferredFrame)
     ? preferredFrame
     : page.mainFrame();
-  return [preferred, ...frames.filter((frame) => frame !== preferred)];
+  // Keep the application frame first. Known vendor frames are explicitly
+  // excluded before the fail-closed ambiguity check; an unreadable unknown
+  // frame still blocks selection below. The preferred frame is subject to the
+  // same filter: a trigger frame can be replaced while a portal opens its
+  // upload dialog, so its old reference may point at a vendor iframe.
+  const eligible = frames.filter((frame) => !isKnownUploadAuxiliaryFrame(frame));
+  if (!eligible.includes(preferred)) return eligible;
+  return [preferred, ...eligible.filter((frame) => frame !== preferred)];
 }
 
 async function dialogFileInputCount(frame) {
