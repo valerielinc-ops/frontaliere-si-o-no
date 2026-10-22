@@ -27,7 +27,7 @@ import {
   SZ_PUBLIC_API_RELAY_URL,
 } from '../scripts/plate-auctions/connectors/sz.mjs';
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
-import { parseTgAuctionRows, TG_AUCTION_URL } from '../scripts/plate-auctions/connectors/tg.mjs';
+import { fetchTgPlateAuctions, parseTgAuctionRows, TG_AUCTION_URL, TG_AUCTION_URLS } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
 import { fetchEcariCantonAuctions } from '../scripts/plate-auctions/connectors/ecari.mjs';
 import { fetchExpandedCard, parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
@@ -106,6 +106,30 @@ describe('expanded plate-auction connectors', () => {
       officialAuctionUrl: TG_AUCTION_URL,
       officialDetailUrl: 'https://auktion.tg.ch/de/auction/109715',
     });
+  });
+
+  it('tries the official TG host alias when the canonical edge returns 404', async () => {
+    const calls: string[] = [];
+    const fetchPage = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (url === TG_AUCTION_URL) {
+        const error = Object.assign(new Error(`HTTP 404 from ${url}`), { retryable: false });
+        throw error;
+      }
+      return CARD_SAMPLE;
+    });
+
+    const rows = await fetchTgPlateAuctions({
+      fetchPage,
+      now: new Date('2026-10-22T05:00:00.000Z'),
+    });
+
+    expect(calls).toEqual([TG_AUCTION_URL, TG_AUCTION_URLS[1]]);
+    expect(rows).toEqual([expect.objectContaining({
+      id: 'tg-109715',
+      officialAuctionUrl: TG_AUCTION_URL,
+      officialDetailUrl: 'https://auktion.tg.ch/de/auction/109715',
+    })]);
   });
 
   it('rewrites an absolute TG www detail href to the canonical host', () => {

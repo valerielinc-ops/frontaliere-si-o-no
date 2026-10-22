@@ -7,7 +7,7 @@ import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
 import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
 import { VD_BROWSER_USER_AGENT } from '../functions/src/plateAuctionsCore.js';
-import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from '../functions/src/plateAuctionSourceUrls.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
@@ -32,6 +32,7 @@ const BE_CARD_SAMPLE = `
       </div>
     </a>
   </div></div>`;
+const TG_CARD_SAMPLE = BE_CARD_SAMPLE.replaceAll('BE', 'TG');
 
 function fakeFirestore(previousRows: Record<string, unknown>[]) {
   const deletes: string[] = [];
@@ -113,6 +114,31 @@ describe('Berne Cloud Function collector', () => {
     expect(firestore.writes.find((write) => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'be-109715')?.value).toMatchObject({
       officialAuctionUrl: BE_AUCTION_URLS[0],
       officialDetailUrl: `${new URL(BE_AUCTION_URLS[1]).origin}/de/auction/109715`,
+    });
+  });
+});
+
+describe('Turgovia Cloud Function collector', () => {
+  it('tries the alternate official host before degrading the source', async () => {
+    const firestore = fakeFirestore([]);
+    const calls: string[] = [];
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string) => {
+        calls.push(url);
+        if (url === TG_AUCTION_URLS[0]) throw new Error('HTTP 404');
+        if (url === TG_AUCTION_URLS[1]) return TG_CARD_SAMPLE;
+        return '';
+      },
+      now: new Date('2026-10-22T05:00:00.000Z'),
+    });
+
+    expect(calls).toContain(TG_AUCTION_URLS[0]);
+    expect(calls).toContain(TG_AUCTION_URLS[1]);
+    expect(result.summaries.tg).toMatchObject({ status: 'active', rowCount: 1 });
+    expect(firestore.writes.find((write) => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'tg-109715')?.value).toMatchObject({
+      officialAuctionUrl: TG_AUCTION_URLS[0],
+      officialDetailUrl: 'https://auktion.tg.ch/de/auction/109715',
     });
   });
 });

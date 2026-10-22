@@ -3,10 +3,13 @@ import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /** Turgovia official auction-card connector. */
 import { fetchCardCantonAuctions, parseCardCantonAuctions } from "./cards.mjs";
+import { TG_AUCTION_URLS } from "../../../functions/src/plateAuctionSourceUrls.js";
+
+export { TG_AUCTION_URLS };
 
 export const TG_CANTON = "Turgovia";
 export const TG_PLATE_CODE = "TG";
-export const TG_AUCTION_URL = "https://auktion.tg.ch/de/";
+export const TG_AUCTION_URL = TG_AUCTION_URLS[0];
 
 export function parseTgAuctionRows(
   html,
@@ -26,6 +29,7 @@ export async function fetchTgPlateAuctions(options = {}) {
     canton: TG_CANTON,
     plateCode: TG_PLATE_CODE,
     officialAuctionUrl: TG_AUCTION_URL,
+    officialAuctionUrls: TG_AUCTION_URLS.slice(1),
     detailBaseUrl: "https://auktion.tg.ch",
   }, options);
 }

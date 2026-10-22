@@ -27,7 +27,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
-import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from './plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
@@ -336,21 +336,13 @@ const CONNECTORS = {
       });
     },
   },
-  tg: {
+  tg: makeCardConnector({
     canton: 'Turgovia',
     plateCode: 'TG',
-    url: 'https://auktion.tg.ch/de/',
-    parserVersion: '1.1.0',
-    parse(html, fetchedAt) {
-      return parseCardSource(html, {
-        canton: 'Turgovia',
-        plateCode: 'TG',
-        officialAuctionUrl: 'https://auktion.tg.ch/de/',
-        detailBaseUrl: 'https://auktion.tg.ch',
-        fetchedAt,
-      });
-    },
-  },
+    url: TG_AUCTION_URLS[0],
+    fallbackUrls: TG_AUCTION_URLS.slice(1),
+    detailBaseUrl: 'https://auktion.tg.ch',
+  }),
 };
 
 const ECARI_TABS = [
