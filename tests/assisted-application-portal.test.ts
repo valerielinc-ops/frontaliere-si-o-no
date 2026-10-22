@@ -561,6 +561,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(residenceCountryOptionLabel('Italia', ['Switzerland', 'Italy'])).toBe('Italy');
     expect(residenceCountryOptionLabel('Svizzera', ['Germany (DE)', 'Switzerland (CH)'])).toBe('Switzerland (CH)');
     expect(residenceCountryOptionLabel('Svizzera', ['Switzerland CH'])).toBe('Switzerland CH');
+    expect(residenceCountryOptionLabel('Italia', ['IT manager'])).toBe('');
   });
 
   it('binds a SuccessFactors icon-only CV trigger only to explicit document context', () => {

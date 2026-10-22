@@ -10,14 +10,7 @@ export function residenceCountryOptionLabel(value, options = []) {
   if (!wanted) return '';
   const optionCode = (option) => {
     const label = String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim();
-    const exact = residenceCountryCode(label);
-    if (exact) return exact;
-    // SuccessFactors' country picklists often append the ISO code («Switzerland (CH)»)
-    // or put it before the translated name («CH - Switzerland»). Keep this an
-    // exact country-code match; never fall back to a substring such as "IT".
-    const match = /(?:^|[\s([{:\/\-–—])([A-Z]{2})(?=$|[\s)\]}:\/\-–—])/i.exec(label);
-    const code = match?.[1]?.toUpperCase() || '';
-    return /^[A-Z]{2}$/.test(code) && residenceCountryCode(code) ? code : '';
+    return residenceCountryCode(label);
   };
   return options
     .map((option) => String(option?.label ?? option ?? '').replace(/\s+/g, ' ').trim())
