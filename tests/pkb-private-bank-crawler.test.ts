@@ -4,6 +4,7 @@ import {
   PKB_KEY,
   COMPANY_NAME,
   HQ,
+  fetchPkbJobUrls,
   parsePkbListingPage,
   parsePkbDetailPage,
   buildPkbJob,
