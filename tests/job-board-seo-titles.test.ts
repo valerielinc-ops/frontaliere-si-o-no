@@ -13,6 +13,7 @@ import {
   type JobBoardLocale,
 } from '../build-plugins/jobBoardSeo'
 import { buildCantonLandingTitle } from '../services/seo/job-board-titles'
+import { escapeForBudget, finalizeJobBoardTitle } from '../build-plugins/shared/titleSuffix'
 
 describe('buildCantonLandingTitle', () => {
   it('uses live job-offer intent for the Zurich canton landing', () => {
@@ -25,6 +26,16 @@ describe('buildCantonLandingTitle', () => {
     expect(title).toContain('Offerte di lavoro in Zurigo')
     expect(title).toContain('137')
     expect(title).toContain('2026')
+  })
+})
+
+describe('job-board emitter title contract', () => {
+  it('measures the final title after HTML escaping, not only the raw builder value', () => {
+    const raw = 'Rossi & Figli Sagl — offerte di lavoro per tecnici specializzati a Lugano e dintorni';
+    const title = finalizeJobBoardTitle(raw);
+
+    expect(escapeForBudget(title).length).toBeLessThanOrEqual(66)
+    expect(title).toContain('Rossi & Figli Sagl')
   })
 })
 

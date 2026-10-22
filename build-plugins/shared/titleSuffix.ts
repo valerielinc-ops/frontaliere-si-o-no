@@ -493,6 +493,28 @@ export function escapeForBudget(s: string): string {
 }
 
 /**
+ * Finalize a job-board title at the HTML-emitter boundary.
+ *
+ * `normalizeShellTitle` deliberately preserves an overlong headline so its
+ * H1/title round-trip remains lossless for generic static pages. Job-board
+ * emitters have a stricter Bing contract: the crawler measures the escaped
+ * `<title>` source, so a raw headline that fits before `&`/`<` expansion can
+ * still exceed {@link TITLE_MAX_CHARS} after rendering. Keep that policy
+ * explicit at the job-board boundary instead of weakening the shared shell
+ * rule or duplicating ad-hoc truncation in each emitter.
+ *
+ * The input is raw text and callers escape the returned value exactly once.
+ */
+export function finalizeJobBoardTitle(
+  rawTitle: string,
+  maxChars: number = TITLE_MAX_CHARS,
+  measureLength: (value: string) => number = (value) => escapeForBudget(value).length,
+): string {
+  const normalized = String(rawTitle || '').replace(/\s+/g, ' ').trim();
+  return truncateHeadlineToMeasuredBudget(normalized, maxChars, measureLength);
+}
+
+/**
  * Normalizza il `<title>` fornito da un callsite nella forma finale emessa
  * da `buildSeoPageHtml`: strip del brand pre-esistente, `trim`, e ri-applica
  * il brand via {@link buildTitleWithBrand} (che garantisce il cap SERP a 66).

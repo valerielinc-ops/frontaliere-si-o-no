@@ -17,7 +17,7 @@
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
-import { clampMetaDescription } from './shared/titleSuffix';
+import { clampMetaDescription, finalizeJobBoardTitle } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
 import {
   BASE_URL,
@@ -325,7 +325,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
-    <title>${esc(model.title)}</title>
+    <title>${esc(finalizeJobBoardTitle(model.title))}</title>
     <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${recencyRobotsTag}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
