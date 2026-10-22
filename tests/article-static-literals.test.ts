@@ -51,4 +51,15 @@ describe('shared static literal reader compatibility', () => {
     expect(rawCarriageReturn.value).toBe('prima seconda');
     expect(replacementTokens.value).toBe('prima$&$$seconda');
   });
+
+  it('keeps regex literals opaque after an object spread', () => {
+    const entries = readStaticObjectEntries(
+      'const META = {"real":"ok", .../"article":"fake"/}',
+      'blog-meta.ts',
+    );
+
+    expect(entries.map(({ key, value }) => ({ key, value }))).toEqual([
+      { key: 'real', value: 'ok' },
+    ]);
+  });
 });
