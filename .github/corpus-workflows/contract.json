@@ -4,20 +4,20 @@
   "generatorSha256": "80fd05f57fbc6f57f2c82af84e632b0b193d738c9bf01ed36fc72921c690f9cb",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "652d42d93bdb63c62c3a728b314fd413334e2e55",
+  "sourceCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb",
   "artifactObservation": {
     "generatorSha256": "80fd05f57fbc6f57f2c82af84e632b0b193d738c9bf01ed36fc72921c690f9cb",
     "sourceRef": "main",
-    "sourceCommit": "652d42d93bdb63c62c3a728b314fd413334e2e55"
+    "sourceCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 649,
+  "crawlerCount": 650,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:8dca9f1911a12818d8ecf5840ef840c525172b4980a0aad58a21c8e2f7218a95",
+    "rosterDigest": "sha256:bcef9b1dd02b444e16c75560d1d61ed39f6911f33d2112b32849b47f1fc67183",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -479,6 +479,7 @@
     "scripts/update-schulthess-klinik-jobs.mjs",
     "scripts/update-schweizerhof-flims-jobs.mjs",
     "scripts/update-see-spital-jobs.mjs",
+    "scripts/update-seiro-jobs.mjs",
     "scripts/update-selecta-jobs.mjs",
     "scripts/update-senevita-jobs.mjs",
     "scripts/update-seniorenzentrum-engelhof-jobs.mjs",
@@ -1141,8 +1142,8 @@
     {
       "file": "crawler-group-14.yml",
       "sourceLogic": "crawler-group-14-logic.yml",
-      "sourceSha256": "4114ccdc4cd4d2efe233ae4b36ac1c74feba8c988bb52a7ff76d7f725480b667",
-      "artifactSha256": "e6c50af7f6d57f49d41de80bbdb485fadbd9d33351313f465ef29b6157bdd54a",
+      "sourceSha256": "43b27c452be3bc0e8695926d67d7fa1763d266d7e4d769e5076af1854aff4410",
+      "artifactSha256": "0bae4aaed21a488f5f43439753c512e25fa8f038de7301032a5d07854a9f4ae2",
       "generatorSha256": "80fd05f57fbc6f57f2c82af84e632b0b193d738c9bf01ed36fc72921c690f9cb",
       "members": [
         "spruengli",
@@ -1173,7 +1174,8 @@
         "alten",
         "city-pop",
         "endeso",
-        "abbott"
+        "abbott",
+        "seiro"
       ]
     },
     {

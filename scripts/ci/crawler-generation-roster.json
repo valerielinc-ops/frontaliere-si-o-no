@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 649,
+  "crawlerCount": 650,
   "groups": {
     "10": [
       "atec-personal",
@@ -149,6 +149,7 @@
       "pallas-kliniken",
       "recruitingapp-2649",
       "rhne-reseau-hospitalier-neuchatelois",
+      "seiro",
       "selecta",
       "somedia",
       "spital-schwyz",
@@ -1205,6 +1206,7 @@
     "schulthess-klinik": "data/jobs/by-crawler/schulthess-klinik.json",
     "schweizerhof-flims": "data/jobs/by-crawler/schweizerhof-flims.json",
     "see-spital": "data/jobs/by-crawler/see-spital.json",
+    "seiro": "data/jobs/by-crawler/seiro.json",
     "selecta": "data/jobs/by-crawler/selecta.json",
     "senevita": "data/jobs/by-crawler/senevita.json",
     "seniorenzentrum-engelhof": "data/jobs/by-crawler/seniorenzentrum-engelhof.json",
@@ -1352,5 +1354,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:8dca9f1911a12818d8ecf5840ef840c525172b4980a0aad58a21c8e2f7218a95"
+  "digest": "sha256:bcef9b1dd02b444e16c75560d1d61ed39f6911f33d2112b32849b47f1fc67183"
 }
