@@ -15,7 +15,6 @@ import fs from 'node:fs';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 import { createdSinceQuery } from './lib/run-listing-window.mjs';
-import { resolvePublishReceipts } from './publish-receipts.mjs';
 
 const API = 'https://api.github.com';
 const BUILD_WORKFLOW = 'deploy.yml';
@@ -166,16 +165,12 @@ export function decideLatestPublish({
   lastSuccessfulDeployment,
   activeDeployment = null,
   successfulDeploymentShas = [],
-  durableReceipts = null,
   maxAttempts = DEFAULT_MAX_PUBLISH_ATTEMPTS,
 } = {}) {
   const candidate = successfulBuilds(builds)[0];
   if (!candidate) return skip('no-successful-build', 'no successful main build is available to publish');
 
   const candidateSha = text(candidate.headSha || candidate.head_sha);
-  if (durableReceipts?.pagesDeployed === true) {
-    return skip('already-live', `${candidateSha} has a durable Pages receipt for source run ${candidate.id}`);
-  }
   const publishedDeploymentSha = deploymentHeadSha(lastSuccessfulDeployment);
   const publishedSourceSha = successfulDeploymentSourceSha({
     deployment: lastSuccessfulDeployment,
@@ -335,21 +330,6 @@ async function inspectDeployments(repo, publishRuns = []) {
   };
 }
 
-async function inspectDurableReceipts(repo, candidate) {
-  const sourceSha = text(candidate?.headSha || candidate?.head_sha);
-  const sourceRunId = numericId(candidate?.id);
-  if (!sourceSha || !sourceRunId) throw new Error('cannot inspect durable publish receipts without a source build identity');
-  const statuses = [];
-  for (let page = 1; page <= 20; page += 1) {
-    const pageStatuses = await ghJson(`/repos/${repo}/commits/${sourceSha}/statuses?per_page=100&page=${page}`);
-    if (!Array.isArray(pageStatuses)) throw new Error('commit status listing is malformed');
-    statuses.push(...pageStatuses);
-    if (pageStatuses.length < 100) break;
-    if (page === 20) throw new Error('commit status listing exceeded the bounded pagination window');
-  }
-  return resolvePublishReceipts({ statuses, sourceRunId });
-}
-
 function appendSummary(message) {
   const file = text(process.env.GITHUB_STEP_SUMMARY);
   if (file) fs.appendFileSync(file, `${message}\n`);
@@ -382,12 +362,9 @@ async function main() {
   const builds = rawBuilds.map(mapBuild);
   const publishRuns = rawPublishes.map(mapPublish);
   const deploymentState = await inspectDeployments(repo, publishRuns);
-  const candidate = successfulBuilds(builds)[0];
-  const durableReceipts = candidate ? await inspectDurableReceipts(repo, candidate) : null;
   const verdict = decideLatestPublish({
     builds,
     publishRuns,
-    durableReceipts,
     ...deploymentState,
   });
   console.log(`[publish-request] ${verdict.action} (${verdict.reason}): ${verdict.detail}`);

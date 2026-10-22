@@ -55,6 +55,7 @@ jobs:
           APP_ID: ${{ secrets.APP_ID }}
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Run GSC Job Indexation Monitor
@@ -65,7 +66,10 @@ jobs:
         # esiste). NON shadoware con secrets.* o il monitor gira con token vuoto
         # (cfr. #878).
         env:
-          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # The bounded redeploy path needs actions:write. Prefer the minted
+          # App token only after mint-app-token has verified that capability;
+          # otherwise retain the explicitly configured PAT fallback.
+          GITHUB_PAT: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           # gh CLI (used by scripts/lib/github-issue-creator.mjs for issue creation)
           # only honors GH_TOKEN/GITHUB_TOKEN, never GITHUB_PAT — without this the
           # monitor's issue-creation path was always a silent no-op (PR #3322 review).

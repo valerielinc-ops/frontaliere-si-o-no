@@ -266,6 +266,61 @@ jobs:
             --source-sha "$SOURCE_SHA" \
             --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
 
+  # A source run created before the build→publish split can leave non-IT
+  # receipts in the old full-publish shape. Keep that payload fail-closed, but
+  # recover automatically by dispatching one current build; a current build
+  # emits the source artifacts required by publish-nonit-shards.
+  recover-legacy-publish-contract:
+    name: Recover legacy publish contract
+    needs: resolve-publish-plan
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.recovery_required == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: Checkout recovery dispatcher
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            scripts/ci/mint-app-token.mjs
+            scripts/lib/githubApiHeaders.mjs
+            functions/src/githubApiHeaders.js
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Mint GitHub App token
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Require verified workflow dispatch capability
+        if: env.APP_TOKEN_ACTIONS != 'true'
+        run: |
+          echo '::error::legacy publish recovery requires an App token with actions: write'
+          exit 1
+
+      - name: Dispatch a current build
+        env:
+          APP_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || '' }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          SOURCE_SHA: ${{ inputs.source_sha }}
+        run: |
+          set -euo pipefail
+          : "${APP_TOKEN:?verified App token missing}"
+          GH_TOKEN="$APP_TOKEN" gh workflow run deploy.yml --repo "$GITHUB_REPOSITORY" --ref main
+          echo "Dispatched current deploy after legacy source run $SOURCE_RUN_ID ($SOURCE_SHA)"
+
   # Commit statuses are the durable idempotency ledger. The source artifacts
   # remain the payload, while these receipts answer the question artifacts
   # cannot: did this exact source run already push this locale, or complete
@@ -1761,7 +1816,6 @@ jobs:
       # the build's artifact and re-upload it here under the same name. This is a
       # download+upload of one tarball, not a rebuild.
       - name: Download github-pages artifact from the build run
-        if: steps.pages-receipt.outputs.pages_deployed != 'true'
         uses: actions/download-artifact@v8
         with:
           name: github-pages
@@ -1770,7 +1824,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Re-upload github-pages artifact into this run
-        if: steps.pages-receipt.outputs.pages_deployed != 'true'
         uses: actions/upload-artifact@v7
         with:
           name: github-pages

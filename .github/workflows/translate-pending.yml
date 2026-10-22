@@ -524,15 +524,27 @@ jobs:
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
-      - name: Record self-driven deploy handoff
+      - name: Record durable translation completeness handoff
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_REPOSITORY: ${{ github.repository }}
         run: |
-          if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
-            echo "✅ All translations complete — deploy self-driven in coda"
-          else
+          set -euo pipefail
+          if ! node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "⏳ Some translations still incomplete — skipping deploy handoff"
             echo "   The next cron run will retry once all jobs are translated."
+            exit 0
           fi
+          source_sha="$(git rev-parse HEAD)"
+          gh api --method POST \
+            "repos/${SITE_REPOSITORY}/statuses/${source_sha}" \
+            -f state=success \
+            -f context='frontaliere/translation-complete' \
+            -f description='Translation completeness validated after the final data commit' \
+            -f target_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            >/dev/null
+          echo "✅ Translation completeness validated; durable handoff recorded on ${source_sha}"
 
       # Title MUST use the standard "Workflow Failure: <name>" prefix so the
       # central reconciler (close-recovered-failure-issues.mjs, TITLE_RE

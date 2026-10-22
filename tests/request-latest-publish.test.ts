@@ -7,7 +7,6 @@ import {
   DEFAULT_MAX_PUBLISH_ATTEMPTS,
   deploymentSourceSha,
 } from '../scripts/ci/request-latest-publish.mjs';
-import { pagesReceiptContext } from '../scripts/ci/publish-receipts.mjs';
 
 const SHA_OLD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const SHA_LATEST = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
@@ -108,7 +107,7 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 
-  it('treats the durable Pages receipt as live even when the old publish run was red', () => {
+  it('does not treat a durable Pages receipt as live without a matching successful deployment', () => {
     expect(decideLatestPublish({
       builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
       publishRuns: [{
@@ -119,8 +118,13 @@ describe('decideLatestPublish', () => {
       }],
       durableReceipts: { pagesDeployed: true },
       lastSuccessfulDeployment: null,
-    })).toMatchObject({ action: 'skip', reason: 'already-live' });
-    expect(pagesReceiptContext(2)).toBe('frontaliere/pages-deployed/2');
+    })).toMatchObject({ action: 'dispatch', reason: 'retry-publish' });
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
+      publishRuns: [],
+      durableReceipts: { pagesDeployed: true },
+      lastSuccessfulDeployment: deployment(SHA_OLD, '2026-10-20T12:05:00Z'),
+    })).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
   });
 
   it('counts a live attempt against the cap before admitting another retry', () => {

@@ -524,8 +524,24 @@ describe('locale publish workflow wiring', () => {
     expect(publish.jobs['resolve-publish-receipts']).toBeDefined();
     expect(publish.jobs['resolve-publish-receipts'].outputs.pages_deployed)
       .toContain('steps.receipts.outputs.pages_deployed');
-    expect(publish.jobs['recover-legacy-publish-contract']).toBeUndefined();
-    expect(publish).not.toContain('gh workflow run deploy.yml');
+    const recovery = publish.jobs['recover-legacy-publish-contract'];
+    expect(recovery).toBeDefined();
+    expect(recovery.needs).toBe('resolve-publish-plan');
+    expect(String(recovery.if)).toContain("outputs.recovery_required == 'true'");
+    expect(recovery.permissions).toMatchObject({ contents: 'read', actions: 'write' });
+    expect((recovery.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Require verified workflow dispatch capability')?.if)
+      .toBe("env.APP_TOKEN_ACTIONS != 'true'");
+    expect((recovery.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Dispatch a current build')?.run)
+      .toContain('GH_TOKEN="$APP_TOKEN" gh workflow run deploy.yml');
+    const deploySteps = deployJob.steps as Array<Record<string, any>>;
+    for (const name of [
+      'Download github-pages artifact from the build run',
+      'Re-upload github-pages artifact into this run',
+    ]) {
+      expect(deploySteps.find((step) => step.name === name)?.if).toBeUndefined();
+    }
     expect((publish.jobs['resolve-nonit-publish'].steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Checkout current publish resolver')?.with?.ref)
       .toBe('refs/heads/main');

@@ -33,6 +33,8 @@ import { isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import { githubApiHeaders } from './lib/githubApiHeaders.mjs';
+import { createdSinceQuery } from './ci/lib/run-listing-window.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -44,6 +46,13 @@ const MAX_INSPECT = 30;
 const FETCH_TIMEOUT_MS = 20_000;
 const DRY_RUN = process.argv.includes('--dry-run');
 const HISTORY_FILE = join(__dirname, '..', 'data', 'gsc-monitor-history.json');
+const GITHUB_API = 'https://api.github.com';
+const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
+const DEPLOY_WORKFLOW = 'deploy.yml';
+const REDEPLOY_RUN_WINDOW_DAYS = 7;
+const LIVE_DEPLOY_RUN_STATUSES = new Set([
+  'queued', 'in_progress', 'waiting', 'requested', 'pending', 'action_required',
+]);
 
 // Closed-loop thresholds
 const ALERT_EMAIL = process.env.ALERT_EMAIL || 'valerielinc@gmail.com';
@@ -53,6 +62,7 @@ const PERSISTENCE_WEEKS = 2; // failures persisting 2+ weeks → escalation
 // ── Helpers ─────────────────────────────────────────────────
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 function log(emoji, msg) { console.log(`${emoji}  ${msg}`); }
+function text(value) { return value == null ? '' : String(value).trim(); }
 
 function fetchWithTimeout(url, options = {}) {
   const controller = new AbortController();
@@ -360,6 +370,48 @@ async function sendEmailAlert({ results, failedPages, persistentFailures, sample
 }
 
 // ── Auto-Redeploy Trigger ───────────────────────────────────
+async function enqueueBoundedRedeploy() {
+  const token = process.env.GITHUB_PAT || process.env.GH_TOKEN || process.env.GITHUB_TOKEN;
+  if (!token) {
+    log('ℹ️', 'No GitHub token — skipping bounded deploy enqueue');
+    return false;
+  }
+
+  const headers = githubApiHeaders(token);
+  const runsUrl = `${GITHUB_API}/repos/${SITE_REPOSITORY}/actions/workflows/${DEPLOY_WORKFLOW}/runs?branch=main&${createdSinceQuery(REDEPLOY_RUN_WINDOW_DAYS)}&per_page=20`;
+  try {
+    const runsResponse = await fetchWithTimeout(runsUrl, { headers });
+    if (!runsResponse.ok) throw new Error(`deploy run listing failed (${runsResponse.status})`);
+    const payload = await runsResponse.json();
+    if (!Array.isArray(payload?.workflow_runs)) throw new Error('deploy run listing is malformed');
+    const activeRun = payload.workflow_runs.find((run) => (
+      text(run?.head_branch || run?.headBranch) === 'main'
+      && LIVE_DEPLOY_RUN_STATUSES.has(text(run?.status))
+    ));
+    if (activeRun) {
+      log('ℹ️', `Canonical regression: deploy run ${text(activeRun.id) || '<unknown>'} is already ${text(activeRun.status)}; no second run enqueued`);
+      return false;
+    }
+
+    const dispatchResponse = await fetchWithTimeout(
+      `${GITHUB_API}/repos/${SITE_REPOSITORY}/actions/workflows/${DEPLOY_WORKFLOW}/dispatches`,
+      {
+        method: 'POST',
+        headers: githubApiHeaders(token, { 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ ref: 'main' }),
+      },
+    );
+    if (!dispatchResponse.ok && dispatchResponse.status !== 204) {
+      throw new Error(`deploy dispatch failed (${dispatchResponse.status})`);
+    }
+    log('🚀', `Enqueued bounded deploy run for canonical regression (${DEPLOY_WORKFLOW})`);
+    return true;
+  } catch (err) {
+    log('⚠️', `Bounded deploy enqueue failed: ${err.message}`);
+    return false;
+  }
+}
+
 async function triggerRedeploy(failedPages) {
   // Only trigger for canonical regressions (fixable by redeploy)
   const canonicalFails = failedPages.filter(p =>
@@ -367,10 +419,8 @@ async function triggerRedeploy(failedPages) {
   );
   if (canonicalFails.length === 0) return;
 
-  // deploy.yml is self-driven now. The monitor reports the regression and
-  // sends the affected URLs to IndexNow; it must never create a second build
-  // queue or bypass the deploy workflow's per-SHA guard.
-  log('ℹ️', `Canonical regression on ${canonicalFails.length} page(s); deploy pipeline is self-driven, submitting to IndexNow`);
+  log('ℹ️', `Canonical regression on ${canonicalFails.length} page(s); checking the bounded deploy queue and submitting to IndexNow`);
+  await enqueueBoundedRedeploy();
   await submitToIndexNow(canonicalFails.map(p => p.url));
 }
 
