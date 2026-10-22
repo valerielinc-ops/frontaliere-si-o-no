@@ -91,6 +91,8 @@ const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const QUOTA_BUFFER_RATIO = 0.1; // same 10% headroom as send-job-alerts.mjs
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DAILY_BRIEF_CAMPAIGN_PREFIX = 'daily-brief-';
+const DAILY_BRIEF_CAMPAIGN_END = 'daily-brief.';
 
 /** Localized blog hub paths — the same table pull-articles-api.mjs pins. */
 const BLOG_HUB = {
@@ -492,20 +494,22 @@ export function applyCadence(recipients, { brief, todayIso, nowMs, briefClickAtB
  * `daily-brief-`. Without that filter, a click on the weekly newsletter would
  * promote someone's BRIEF cadence.
  *
- * A collection-group query on `clicked_at` needs an index that may not exist in
- * this project. Rather than fail the send over telemetry, this degrades to the
- * subscriber-level `last_click_at` and says so — the sender prints which mode it
- * ran in, and the index to create if the precise one is wanted.
+ * A collection-group composite query on `campaign_id` + `clicked_at` needs an
+ * index that may not exist in this project. Rather than fail the send over
+ * telemetry, this degrades to the subscriber-level `last_click_at` and says so
+ * — the sender prints which mode it ran in.
  */
-async function fetchBriefClicks(db, sinceMs) {
+export async function fetchBriefClicks(db, sinceMs) {
   try {
     const snap = await db.collectionGroup('campaign_deliveries')
       .where('clicked_at', '>=', new Date(sinceMs))
+      .where('campaign_id', '>=', DAILY_BRIEF_CAMPAIGN_PREFIX)
+      .where('campaign_id', '<', DAILY_BRIEF_CAMPAIGN_END)
       .get();
     const byEmail = new Map();
     for (const doc of snap.docs) {
       const data = doc.data() || {};
-      if (!String(data.campaign_id || '').startsWith('daily-brief-')) continue;
+      if (!String(data.campaign_id || '').startsWith(DAILY_BRIEF_CAMPAIGN_PREFIX)) continue;
       const email = String(data.email || '').toLowerCase();
       const clickedAt = data.clicked_at?.toMillis?.() ?? new Date(data.clicked_at).getTime();
       if (!email || !Number.isFinite(clickedAt)) continue;
@@ -524,7 +528,7 @@ async function fetchBriefClicks(db, sinceMs) {
     console.warn(
       `⚠️ brief click attribution unavailable (${error?.message}) — falling back to subscriber-level last_click_at.\n`
       + '   A click on the weekly will therefore count as engagement with the brief.\n'
-      + '   To get the precise signal, add a collection-group index on campaign_deliveries.clicked_at.',
+      + '   To get the precise signal, add a collection-group composite index on campaign_deliveries.campaign_id + clicked_at.',
     );
     return { byEmail: null, mode: 'subscriber-level' };
   }
@@ -542,10 +546,29 @@ async function persistCadence(db, { email, state, engaged, opened, provider, sen
   }
 }
 
+export function sentCountFromResult(result) {
+  return Array.isArray(result?.sent) ? result.sent.length : 0;
+}
+
+export function writeSentOutput(sent, outputPath = process.env.GITHUB_OUTPUT) {
+  if (!outputPath) return;
+  const count = Number.isInteger(sent) && sent >= 0 ? sent : 0;
+  fs.appendFileSync(outputPath, `sent=${count}\n`, 'utf8');
+}
+
 
 // ── Main ───────────────────────────────────────────────────────────────────
 
 async function main() {
+  const runState = { sent: 0 };
+  try {
+    return await runMain(runState);
+  } finally {
+    writeSentOutput(runState.sent);
+  }
+}
+
+async function runMain(runState) {
   if (!DRY_RUN && process.env.ENABLE_DAILY_BRIEF !== 'true') {
     console.log('🚫 ENABLE_DAILY_BRIEF is not "true" — refusing a real send (dry-run works without it).');
     return;
@@ -683,12 +706,14 @@ async function main() {
   const result = await sendEmailCascade(emails, {
     concurrency: 3,
     onSent: async (item, sendResult) => {
-      const { email, state, engaged, opened, scheduledAt } = item.recipient;
+      runState.sent += 1;
+      const { email, state: recipientState, engaged, opened, scheduledAt } = item.recipient;
       await persistDelivery(db, { email, campaignId }, sendResult);
-      await persistCadence(db, { email, state, engaged, opened, provider: sendResult?.provider || null, sentAtIso, scheduledFor: scheduledAt });
+      await persistCadence(db, { email, state: recipientState, engaged, opened, provider: sendResult?.provider || null, sentAtIso, scheduledFor: scheduledAt });
       await resume.record(email);
     },
   });
+  runState.sent = sentCountFromResult(result);
   await resume.flush();
   console.log(`\n📊 Done — sent ${result.sent.length}, failed ${result.failed.length}, resume-marked ${resume.count()}.`);
 }

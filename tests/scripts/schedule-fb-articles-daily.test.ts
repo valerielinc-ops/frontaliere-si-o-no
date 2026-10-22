@@ -151,18 +151,20 @@ describe('parseSlugMap', () => {
 
 describe('parseMetaMap', () => {
   it('maps id → title + excerpt and unescapes apostrophes', () => {
-    const src = `const blogMetaIt = {
+    const src = `const blogMetaIt: Record<string, string> = {
  'blog.article.stipendio-netto-2026.title': 'Stipendio netto 2026',
  'blog.article.stipendio-netto-2026.excerpt': 'Guida completa, porta d\\'ingresso al calcolo.',
  'blog.article.stipendio-netto-2026.imageAlt': 'Lugano',
-};`;
+};
+export default blogMetaIt;`;
     const map = parseMetaMap(src);
     expect(map['stipendio-netto-2026'].title).toBe('Stipendio netto 2026');
     expect(map['stipendio-netto-2026'].excerpt).toBe("Guida completa, porta d'ingresso al calcolo.");
   });
 
-  it('returns {} for empty input', () => {
-    expect(parseMetaMap('')).toEqual({});
+  it('accepts an explicitly empty module and rejects a malformed present source', () => {
+    expect(parseMetaMap('const meta: Record<string, string> = {}; export default meta;')).toEqual({});
+    expect(() => parseMetaMap('')).toThrow(/translation module must contain exactly a const record and its default export/u);
   });
 });
 
@@ -184,12 +186,12 @@ describe('loadArticles', () => {
     );
     writeFileSync(
       join(tmp, 'services', 'locales', 'blog-meta-it.ts'),
-      `const m = { 'blog.article.a1.title': 'Titolo Uno', 'blog.article.a1.excerpt': 'Estratto uno.' };`,
+      `const m: Record<string, string> = { 'blog.article.a1.title': 'Titolo Uno', 'blog.article.a1.excerpt': 'Estratto uno.' };\nexport default m;`,
     );
     // svizzera (empty registry but files present)
     writeFileSync(join(tmp, 'data', 'swiss-articles-data.ts'), `const RAW_SWISS_ARTICLES = [];`);
     writeFileSync(join(tmp, 'services', 'routerSwissData.ts'), `export const SWISS_SLUGS = {};`);
-    writeFileSync(join(tmp, 'services', 'locales', 'blog-meta-ch-it.ts'), `const m = {};`);
+    writeFileSync(join(tmp, 'services', 'locales', 'blog-meta-ch-it.ts'), `const m: Record<string, string> = {}; export default m;`);
     return tmp;
   }
 
@@ -207,6 +209,12 @@ describe('loadArticles', () => {
       ogTitle: 'Titolo Uno',
       ogDescription: 'Estratto uno.',
     });
+  });
+
+  it('fails closed when a metadata file exists but is malformed', () => {
+    const tmp = setup();
+    writeFileSync(join(tmp, 'services', 'locales', 'blog-meta-it.ts'), 'const m = {');
+    expect(() => loadArticles(tmp)).toThrow(/TypeScript syntax error/u);
   });
 });
 
@@ -315,10 +323,10 @@ describe('run()', () => {
       .join(', ');
     writeFileSync(join(tmp, 'data', 'blog-articles-data.ts'), `const RAW_ARTICLES = [${reg}];`);
     writeFileSync(join(tmp, 'services', 'routerBlogData.ts'), `export const BLOG_SLUGS = { ${slugs} };`);
-    writeFileSync(join(tmp, 'services', 'locales', 'blog-meta-it.ts'), `const m = { ${meta} };`);
+    writeFileSync(join(tmp, 'services', 'locales', 'blog-meta-it.ts'), `const m: Record<string, string> = { ${meta} }; export default m;`);
     writeFileSync(join(tmp, 'data', 'swiss-articles-data.ts'), `const RAW_SWISS_ARTICLES = [];`);
     writeFileSync(join(tmp, 'services', 'routerSwissData.ts'), `export const SWISS_SLUGS = {};`);
-    writeFileSync(join(tmp, 'services', 'locales', 'blog-meta-ch-it.ts'), `const m = {};`);
+    writeFileSync(join(tmp, 'services', 'locales', 'blog-meta-ch-it.ts'), `const m: Record<string, string> = {}; export default m;`);
     writeFileSync(
       join(tmp, 'data', 'fb-posted-articles.json'),
       JSON.stringify({ schemaVersion: 1, posted: (opts.posted || []).map((id) => ({ id, url: 'u', ts: 't', fbPostId: 'p' })) }),

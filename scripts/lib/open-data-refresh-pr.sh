@@ -14,7 +14,7 @@
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
 #     [--optional-path data/example-dir] \
-#     [--force] [--resolve-symlinks] [--reconcile-main] \
+#     [--force] [--resolve-symlinks] [--reconcile-main] [--reconcile-refresh-paths] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -30,6 +30,7 @@ FORCE_ADD=false
 RECONCILE_COMPAT=false
 RESOLVE_SYMLINKS=false
 RECONCILE_MAIN=false
+RECONCILE_REFRESH_PATHS=false
 REQUIRE_NEW_BRANCH="${EVENTS_REFRESH_REQUIRE_NEW_BRANCH:-false}"
 PATHS=()
 OPTIONAL_PATHS=()
@@ -88,6 +89,10 @@ while [ "$#" -gt 0 ]; do
       RECONCILE_MAIN=true
       shift
       ;;
+    --reconcile-refresh-paths)
+      RECONCILE_REFRESH_PATHS=true
+      shift
+      ;;
     *)
       echo "::error::Unknown argument: $1"
       exit 2
@@ -96,6 +101,10 @@ while [ "$#" -gt 0 ]; do
 done
 
 [ "${#PATHS[@]}" -gt 0 ] || { echo "::error::At least one --path is required"; exit 2; }
+[ "$RECONCILE_REFRESH_PATHS" = false ] || [ "$RECONCILE_MAIN" = true ] || {
+  echo "::error::--reconcile-refresh-paths requires --reconcile-main"
+  exit 2
+}
 [ -n "$BRANCH" ] || { echo "::error::--branch is required"; exit 2; }
 [ -n "$COMMIT_MESSAGE" ] || { echo "::error::--commit-message is required"; exit 2; }
 [ -n "$TITLE" ] || { echo "::error::--title is required"; exit 2; }
@@ -160,6 +169,11 @@ if [ "${#OPTIONAL_PATHS[@]}" -gt 0 ]; then
   done
 fi
 
+# Preserve the producer-owned paths before the sparse publisher checkout
+# replaces PATHS with the files from this run's commit. Optional paths join the
+# reconciliation scope only when they are stageable in this refresh.
+RECONCILE_PATHS=("${PATHS[@]}")
+
 REPOSITORY="${GITHUB_REPOSITORY:-}"
 [ -n "$REPOSITORY" ] || {
   echo "::error::GITHUB_REPOSITORY is required"
@@ -218,7 +232,8 @@ compat_merge_base() {
 
 reconcile_compat_ref() {
   local merge_base="$1" theirs="$2"
-  node scripts/ci/reconcile-data-refresh-main.mjs \
+  node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
+    --compat \
     --base "$merge_base" --main "$theirs" --message "$COMMIT_MESSAGE"
 }
 
@@ -286,24 +301,26 @@ cleanup_refresh_checkout() {
 }
 trap 'cleanup_refresh_checkout || exit 1' EXIT
 
-# The stable branch may have been created by an older workflow revision. Keep
-# the reconciler from the current workflow checkout before creating its isolated
-# publisher checkout, otherwise stale code can reintroduce a fixed merge rule.
+# The stable branch may have been created by an older workflow revision. Pin
+# the merge tools to this run's refresh snapshot before selecting that branch;
+# a stale branch must not supply either the merge policy or its CLI contract.
+MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
+mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
+git show "${REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs" \
+  > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/open-data-refresh-merge.mjs"
+git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
+  > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/read-git-blob.mjs"
+
+if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then
+  git show "${REFRESH_BASE}:scripts/ci/reconcile-data-refresh-main.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
+fi
+
 if [ "$RECONCILE_COMPAT" = false ]; then
-  MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
-  mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
   git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"
-  git show "${REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs" \
-    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/open-data-refresh-merge.mjs"
   git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/resolve-git-add-path.mjs"
-  git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
-    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/read-git-blob.mjs"
-  if [ "$RECONCILE_MAIN" = true ]; then
-    git show "${REFRESH_BASE}:scripts/ci/reconcile-data-refresh-main.mjs" \
-      > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
-  fi
 fi
 
 # Validate the exact PR contract before creating a commit or remote branch.
@@ -570,8 +587,14 @@ if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] \
       run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch refresh merge base" \
         git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
     fi
+    RECONCILE_ARGS=(--base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE")
+    if [ "$RECONCILE_REFRESH_PATHS" = true ]; then
+      for refresh_path in "${RECONCILE_PATHS[@]}"; do
+        RECONCILE_ARGS+=(--path "$refresh_path")
+      done
+    fi
     node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
-      --base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE"
+      "${RECONCILE_ARGS[@]}"
   fi
 fi
 

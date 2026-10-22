@@ -2,9 +2,9 @@
 /**
  * build-legacy-aliases.mjs
  *
- * One-shot generator for `data/legacy-aliases.json` — the canonical
- * source of all "miscellaneous" 404 → bridge mappings (Cohort 5 of the
- * GSC `Indicizzata Non trovata` repair effort).
+ * Snapshot ingester for `data/legacy-aliases.json` — the canonical source of
+ * all "miscellaneous" 404 → bridge mappings (Cohort 5 of the GSC
+ * `Indicizzata Non trovata` repair effort).
  *
  * Reads two inputs:
  *   - download/frontaliereticino.ch-Coverage-{date}/Tabella.csv
@@ -61,12 +61,24 @@
  *     ]
  *   }
  *
+ * GSC exports are capped samples: routes absent from a new export are retained
+ * and re-classified from current source data. Remove a route only after an
+ * explicit recovery review, never from sample absence alone.
+ *
  * Run after dropping a new GSC CSV into download/ to re-classify and refresh.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
+import {
+  assertGscLegacyAliasSnapshot,
+  gscOrphanPathKey,
+  gscOrphanRouteKey,
+  mergeGscOrphanRecords,
+} from './lib/gsc-orphan-snapshot.mjs';
+import { resolveFuelStation } from './lib/fuel-station-aliases.mjs';
 import { isFuelSectionPath } from './lib/fuelSections.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -103,7 +115,7 @@ const BLOG_HUB_PATH = {
 function findCsvFiles() {
   if (!fs.existsSync(DOWNLOADS_DIR)) return [];
   const out = [];
-  for (const e of fs.readdirSync(DOWNLOADS_DIR)) {
+  for (const e of fs.readdirSync(DOWNLOADS_DIR).sort()) {
     if (!e.startsWith('frontaliereticino.ch-Coverage-')) continue;
     const csv = path.join(DOWNLOADS_DIR, e, 'Tabella.csv');
     if (fs.existsSync(csv)) out.push(csv);
@@ -117,11 +129,14 @@ function parseCsvUrls(file) {
 }
 
 function normalizePath(rawUrl) {
-  let p;
-  try { p = new URL(rawUrl).pathname; } catch { return null; }
-  // Always end with trailing slash (GH Pages canonical form)
-  if (!p.endsWith('/')) p = p + '/';
-  return p;
+  try {
+    return gscOrphanRouteKey({ url: rawUrl });
+  } catch {
+    // A GSC property may include subdomains or malformed rows outside the
+    // canonical site hosts. Ignore those rows as the previous parser did;
+    // historical snapshot validation remains fail-closed below.
+    return null;
+  }
 }
 
 // ── Cohort detection ────────────────────────────────────────────────────
@@ -136,16 +151,9 @@ const COHORT_PATTERNS = [
   // This PR's cohorts
   { cohort: 'blogLocaleMismatch', re: /^\/(en|de|fr)\/(cross-border-articles|grenzgaenger-artikel|articles-frontalier)\// },
   { cohort: 'blogITMissing', re: /^\/articoli-frontaliere\// },
-  // Cohort DETECTION delegates the "is this under a fuel section" check to
-  // the shared isFuelSectionPath() (scripts/lib/fuelSections.mjs) instead of
-  // an inline slug alternation — same drift class as #2853. resolveFuelStation()
-  // below intentionally keeps its OWN narrower capture regex: it needs the
-  // literal matched segment to reconstruct the canonical section path, and
-  // widening it to the full canonical+legacy-alias list would let a legacy
-  // alias segment (e.g. `prezzi-benzina-svizzera`) leak into a reconstructed
-  // "canonical" path that isn't actually live. Any path this cohort check
-  // newly matches but resolveFuelStation() can't parse is skipped in main()
-  // exactly as before (behavior-neutral — see comparison script).
+  // Cohort detection and URL resolution share the fuel route registry. Legacy
+  // section aliases are accepted only through an explicit locale/fuel mapping;
+  // never reuse an alias segment as though it were a live canonical section.
   { cohort: 'fuelStation', test: (p) => isFuelSectionPath(p) && /\/(stazioni|stations|tankstellen)\//.test(p) },
   { cohort: 'fuelLocaleAlias', re: /^\/de\/dieselpreise\// },
   { cohort: 'jobLegacySection', re: /^\/cerca-lavoro\/[^/]+\/?$/ },
@@ -205,22 +213,6 @@ function resolveBlogITMissing(orphanPath, blogIdToSlug) {
   return { kind: 'unmatched', canonicalPath: `${BLOG_HUB_PATH.it}/` };
 }
 
-const FUEL_SECTION_ROOT = {
-  it: { benzina: '/prezzi-benzina', diesel: '/prezzi-diesel' },
-  en: { benzina: '/en/gasoline-price-switzerland', diesel: '/en/diesel-price-switzerland' },
-  de: { benzina: '/de/benzinpreis-schweiz', diesel: '/de/dieselpreis-schweiz' },
-  fr: { benzina: '/fr/prix-essence-suisse', diesel: '/fr/prix-diesel-suisse' },
-};
-
-function resolveFuelStation(orphanPath) {
-  const m = orphanPath.match(/^\/(prezzi-benzina|prezzi-diesel|en\/gasoline-price-switzerland|de\/benzinpreis-schweiz|fr\/prix-essence-suisse)\/([^/]+)\/(stazioni|stations|tankstellen)\/[^/]+\/?$/);
-  if (!m) return null;
-  const sectionPath = '/' + m[1];
-  const city = m[2];
-  // City page is the parent dir of /stazioni|stations|tankstellen
-  return { kind: 'matched', canonicalPath: `${sectionPath}/${city}/` };
-}
-
 function resolveFuelLocaleAlias(orphanPath) {
   // /de/dieselpreise/heute/ → /prezzi-diesel/oggi/ (IT canonical) or section root
   return { kind: 'matched', canonicalPath: '/prezzi-diesel/' };
@@ -273,59 +265,89 @@ function pathLocale(orphanPath) {
   return 'it';
 }
 
+function classifyLegacyAlias(orphanPath, blogIdToSlug) {
+  const cohort = classifyCohort(orphanPath);
+  if (!cohort || cohort.startsWith('covered-')) return null;
+
+  let resolution = null;
+  switch (cohort) {
+    case 'blogLocaleMismatch':       resolution = resolveBlogLocaleMismatch(orphanPath, blogIdToSlug); break;
+    case 'blogITMissing':            resolution = resolveBlogITMissing(orphanPath, blogIdToSlug); break;
+    case 'fuelStation':              resolution = resolveFuelStation(orphanPath); break;
+    case 'fuelLocaleAlias':          resolution = resolveFuelLocaleAlias(orphanPath); break;
+    case 'jobLegacySection':         resolution = resolveJobLegacySection(orphanPath); break;
+    case 'legacySectionAltIT':       resolution = resolveLegacySectionAltIT(); break;
+    case 'legacySectionAltFR':       resolution = resolveLegacySectionAltFR(); break;
+    case 'subSlugOnly':              resolution = resolveSubSlugOnly(); break;
+    case 'localePrefixedConsulting': resolution = resolveLocalePrefixedConsulting(); break;
+    case 'localePrefixedApiStatus':  resolution = resolveLocalePrefixedApiStatus(); break;
+    case 'weeklyEmployersDeep':      resolution = resolveWeeklyEmployersDeep(orphanPath); break;
+  }
+  if (!resolution) return null;
+
+  return {
+    orphanPath,
+    locale: resolution.locale ?? pathLocale(orphanPath),
+    kind: resolution.kind,
+    canonicalPath: resolution.canonicalPath,
+    cohort,
+  };
+}
+
 // ── Main ────────────────────────────────────────────────────────────────
 
 function main() {
   const csvFiles = findCsvFiles();
   if (csvFiles.length === 0) {
     console.error('No GSC CSVs under download/');
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
   const blogIdToSlug = loadBlogIdToSlug();
   console.log(`Loaded ${blogIdToSlug.size} blog article-id translations.`);
 
-  const seen = new Set();
-  const aliases = [];
-  const cohortCounts = {};
+  const importedByPath = new Map();
 
   for (const file of csvFiles) {
     for (const url of parseCsvUrls(file)) {
       const p = normalizePath(url);
       if (!p) continue;
-      const cohort = classifyCohort(p);
-      if (!cohort || cohort.startsWith('covered-')) continue;
-      if (seen.has(p)) continue;
-      seen.add(p);
-
-      let resolution = null;
-      switch (cohort) {
-        case 'blogLocaleMismatch':       resolution = resolveBlogLocaleMismatch(p, blogIdToSlug); break;
-        case 'blogITMissing':            resolution = resolveBlogITMissing(p, blogIdToSlug); break;
-        case 'fuelStation':              resolution = resolveFuelStation(p); break;
-        case 'fuelLocaleAlias':          resolution = resolveFuelLocaleAlias(p); break;
-        case 'jobLegacySection':         resolution = resolveJobLegacySection(p); break;
-        case 'legacySectionAltIT':       resolution = resolveLegacySectionAltIT(); break;
-        case 'legacySectionAltFR':       resolution = resolveLegacySectionAltFR(); break;
-        case 'subSlugOnly':              resolution = resolveSubSlugOnly(); break;
-        case 'localePrefixedConsulting': resolution = resolveLocalePrefixedConsulting(); break;
-        case 'localePrefixedApiStatus':  resolution = resolveLocalePrefixedApiStatus(); break;
-        case 'weeklyEmployersDeep':      resolution = resolveWeeklyEmployersDeep(p); break;
-      }
-      if (!resolution) continue;
-
-      aliases.push({
-        orphanPath: p,
-        locale: pathLocale(p),
-        kind: resolution.kind,
-        canonicalPath: resolution.canonicalPath,
-        cohort,
-      });
-      cohortCounts[cohort] = (cohortCounts[cohort] || 0) + 1;
+      const alias = classifyLegacyAlias(p, blogIdToSlug);
+      if (alias) importedByPath.set(gscOrphanPathKey(alias.orphanPath), alias);
     }
   }
 
-  console.log(`\nTotal legacy aliases: ${aliases.length}`);
+  let existingFile = { aliases: [] };
+  if (fs.existsSync(OUT_PATH)) {
+    existingFile = JSON.parse(fs.readFileSync(OUT_PATH, 'utf-8'));
+    assertGscLegacyAliasSnapshot(existingFile, {
+      file: path.relative(ROOT, OUT_PATH),
+      validateRoute: (entry) => {
+        const refreshed = classifyLegacyAlias(entry.orphanPath, blogIdToSlug);
+        return refreshed?.locale === entry.locale && refreshed?.cohort === entry.cohort;
+      },
+    });
+  }
+  const imported = [...importedByPath.values()];
+  const refreshedExisting = existingFile.aliases.map((entry) => {
+    const refreshed = classifyLegacyAlias(entry.orphanPath, blogIdToSlug);
+    if (!refreshed) throw new Error(`Unable to refresh legacy alias ${entry.orphanPath}; refusing to overwrite.`);
+    return refreshed;
+  });
+  const aliases = mergeGscOrphanRecords(
+    refreshedExisting,
+    imported,
+    (entry) => gscOrphanPathKey(entry.orphanPath),
+  );
+  const cohortCounts = aliases.reduce((counts, alias) => {
+    counts[alias.cohort] = (counts[alias.cohort] || 0) + 1;
+    return counts;
+  }, {});
+
+  console.log(`\nImported legacy aliases: ${imported.length}`);
+  console.log(`Retained from prior imports (not present in this sample): ${Math.max(0, aliases.length - imported.length)}`);
+  console.log(`Total tracked legacy aliases: ${aliases.length}`);
   console.log('By cohort:', cohortCounts);
 
   if (DRY_RUN) {
@@ -339,8 +361,14 @@ function main() {
     counts: cohortCounts,
     aliases,
   };
-  fs.writeFileSync(OUT_PATH, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  const tempPath = `${OUT_PATH}.${process.pid}.tmp`;
+  fs.writeFileSync(tempPath, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  fs.renameSync(tempPath, OUT_PATH);
   console.log(`\nWrote ${aliases.length} legacy-alias entries to ${path.relative(ROOT, OUT_PATH)}`);
 }
 
-main();
+const lock = withSingleFlightLock(`${OUT_PATH}.lock`, main);
+if (!lock.acquired) {
+  console.error(`✗ ${path.relative(ROOT, OUT_PATH)} is already being updated; retry after it completes.`);
+  process.exitCode = 1;
+}

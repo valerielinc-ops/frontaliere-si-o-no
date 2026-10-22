@@ -20,7 +20,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
-import { acceptPrivacyStatement, submitViaPortal } from './lib/portal/portal.mjs';
+import { acceptPrivacyStatement, readPortalRequirements, submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
@@ -38,15 +38,25 @@ const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], sixApplications: [], sixPostingViews: 0, summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, registrationValidationOnce: false, registrationInvalidOnlyOnce: false, registrationNeedsAnswerAfterValidation: false, registrationNeedsAnswer: false, registrationRequests: 0, registeredPermit: '', unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, privacyValidationRetry: false, privacyValidationRetries: 0, applicationPrivacySubmissions: [], flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
   const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, uploadFails: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
+  const registrationForm = ({ submit = true, error = '', includePermit = state.registrationNeedsAnswer, invalidEmail = false } = {}) => {
+    const validationError = error ? `<p role="alert">${error}</p>` : '';
+    const permitField = includePermit
+      ? '<label for="permit">Do you hold a valid work permit?</label><select id="permit" name="permit" required><option value="">Select</option><option>Yes</option><option>No</option></select>'
+      : '';
+    const submitButton = submit ? '<button type="submit">Konto erstellen</button>' : '';
+    const fields = `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required${invalidEmail ? ' aria-invalid="true"' : ''}><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required>${permitField}<label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submitButton}`;
+    return page('Registrieren', `${validationError}${form('/register', fields)}`);
+  };
+  const loginForm = (error = '') => page('Anmelden', `${error ? `<p role="alert">${error}</p>` : ''}${form('/login', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p">Kennwort</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<a href="/register">Konto erstellen</a>`);
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
   // uploads, «Submit final application». The page names the role, never the company.
   const umantisPhoto = '<label for="ph">Photo</label><input id="ph" type="file" name="photo">';
@@ -125,9 +135,18 @@ function fakePortal() {
         <label for="97:_datepicker">Geburtsdatum:*</label><div id="97:_datepicker" class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" title="Geburtsdatum" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required="" placeholder="TT.MM.JJJJ"></ui5-date-picker-xweb-calendar-widget></div><input type="hidden" name="birth" id="birth-v">
         <label for="agency-in">* Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: Mit Einreichen des Dossiers werden die AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis akzeptiert.)</label><input id="agency-in" type="text" role="combobox" placeholder="Bitte auswählen" aria-owns="ag:_listSelect" aria-required="true" aria-expanded="false" class="rcmpaginatedselectinput"><input type="hidden" name="agency" id="agency-v"><ul id="ag:_listSelect" role="listbox"></ul>
       </section>
+      <input type="hidden" name="applicationPrivacy" id="applicationPrivacy" value="">
+      <label>Terms of Use * <a id="applicationPrivacyLink" role="button" tabindex="0" aria-haspopup="dialog">Read and accept the data privacy statement</a></label>
       <button type="button">Speichern</button><button type="submit">Bewerben</button>`)}
     <div role="dialog" id="up" hidden></div>
+    <div role="dialog" id="applicationPrivacyDialog" hidden><label><input type="checkbox" id="applicationPrivacyReview"> I have read and accept the data privacy statement.</label><button type="button" id="applicationPrivacyAccept" disabled>Accept</button></div>
     <script>
+      const privacyDialog = document.getElementById('applicationPrivacyDialog');
+      const privacyReview = document.getElementById('applicationPrivacyReview');
+      const privacyAccept = document.getElementById('applicationPrivacyAccept');
+      document.getElementById('applicationPrivacyLink').addEventListener('click', () => { privacyDialog.hidden = false; });
+      privacyReview.addEventListener('change', () => { privacyAccept.disabled = !privacyReview.checked; });
+      privacyAccept.addEventListener('click', () => { document.getElementById('applicationPrivacy').value = '1'; privacyDialog.hidden = true; });
       // A flaky portal (review of #11022): the first click on each control is dropped.
       const flaky = ${coop.flaky ? 'true' : 'false'};
       const dropped = new Set();
@@ -279,6 +298,26 @@ function fakePortal() {
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(html); };
     const redirect = (to, headers = {}) => { res.writeHead(303, { location: to, ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
+    // SIX's SuccessFactors route: a cold direct apply URL falls back to the
+    // generic career page. Visiting the matching posting first sets the site
+    // cookie, and its own Apply link opens the actual application form.
+    if (route === 'GET /job/Zurich-Senior-IT-Manager/1448418433/') {
+      state.sixPostingViews += 1;
+      res.writeHead(200, { 'content-type': 'text/html; charset=utf-8', 'set-cookie': 'sixPostingSeen=1; Path=/' });
+      return res.end(page('Senior IT Manager - CIO Office | SIX', '<h1>Senior IT Manager - CIO Office</h1><p>SIX Group</p><a href="/talentcommunity/apply/1448418433/?locale=en_US">Apply now »</a>'));
+    }
+    if (route === 'GET /talentcommunity/apply/1448418433/') {
+      if (!/sixPostingSeen=1/.test(req.headers.cookie || '')) return redirect('/careers.html');
+      return send(page('Career Opportunities: Senior IT Manager - CIO Office (8299)', `<h1>Senior IT Manager - CIO Office (8299)</h1><p>SIX Group</p>
+        ${form('/six/submit', '<label for="first">First Name *</label><input id="first" name="first" required><label for="email">Email Address *</label><input id="email" name="email" type="email" required><label for="cv">Resume / CV *</label><input id="cv" name="cv" type="file" required><label for="workload">What is your preferred workload? *</label><input id="workload" name="workload" required><button type="submit">Submit application</button>', true)}`));
+    }
+    if (route === 'GET /careers.html') return send(page('Career Opportunities | SIX', '<h1>Finde deinen Traumjob</h1><label for="search">Suche</label><input id="search" name="search"><button type="button">Finden</button>'));
+    if (route === 'POST /six/submit') {
+      const body = await readBody(req);
+      state.sixApplications.push({ workload: /name="workload"\r\n\r\n80%/.test(body) });
+      state.sixApplications.at(-1).hasCv = /name="cv"; filename="CV_Luca_Bianchi\.pdf"/.test(body);
+      return send(page('Application received', '<h1>Thank you for your application</h1>'));
+    }
     if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
     // jobs.coopjobs.ch as seen on 2026-10-02: «Später bewerben» (a bookmark by
     // e-mail) comes first, a Usercentrics banner in a shadow root covers the
@@ -382,6 +421,12 @@ function fakePortal() {
     }
     if (route === 'POST /sf/apply') {
       const body = new URLSearchParams(await readBody(req));
+      coop.applicationPrivacySubmissions.push(body.get('applicationPrivacy') || '');
+      if (coop.privacyValidationRetry) {
+        coop.privacyValidationRetry = false;
+        coop.privacyValidationRetries += 1;
+        return send(sfApplyPage(['Please open the data privacy agreement to accept the terms.']));
+      }
       const errors = [
         body.get('cv') !== '1' && 'Lebenslauf ist erforderlich',
         !body.get('first') && 'Vorname ist erforderlich',
@@ -389,6 +434,7 @@ function fakePortal() {
         !body.get('anrede') && 'Anrede ist erforderlich',
         !body.get('birth') && 'Geburtsdatum ist erforderlich',
         !body.get('agency') && 'Stammt diese Bewerbung von einem Vermittlungsbüro? ist erforderlich',
+        body.get('applicationPrivacy') !== '1' && 'Please open the data privacy agreement to accept the terms.',
       ].filter(Boolean);
       if (errors.length) {
         coop.validationRefusals += 1;
@@ -542,13 +588,13 @@ function fakePortal() {
     }
     if (route === 'GET /login') {
       if (state.sessions.has(sessionOf(req))) return redirect('/apply');
-      return send(page('Anmelden', `${form('/login', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p">Kennwort</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<a href="/register">Konto erstellen</a>`));
+      return send(loginForm());
     }
     if (route === 'POST /login') {
       const body = new URLSearchParams(await readBody(req));
       const email = body.get('email');
-      if (state.accounts.get(email) !== body.get('password')) return send(page('Anmelden', '<p role="alert">Falsches Kennwort</p>'));
-      if (state.unverifiedLoginStaysOnSignIn && !state.verified.has(email)) return send(page('Anmelden', '<p role="alert">Ungültige Anmeldedaten</p>'));
+      if (state.accounts.get(email) !== body.get('password')) return send(loginForm('Falsches Kennwort'));
+      if (state.unverifiedLoginStaysOnSignIn && !state.verified.has(email)) return send(loginForm('Ungültige Anmeldedaten'));
       if (!state.verified.has(email)) return send(page('Bestätigung', '<p>Bitte bestätigen Sie zuerst Ihre E-Mail-Adresse.</p>'));
       const sid = Math.random().toString(36).slice(2);
       state.sessions.add(sid);
@@ -557,15 +603,26 @@ function fakePortal() {
     if (route === 'GET /register') {
       const submit = state.omitNextRegistrationSubmit ? '' : '<button type="submit">Konto erstellen</button>';
       state.omitNextRegistrationSubmit = false;
-      return send(page('Registrieren', form('/register', `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required><label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submit}`)));
+      return send(registrationForm({ submit: Boolean(submit) }));
     }
     if (route === 'POST /register') {
       const body = new URLSearchParams(await readBody(req));
+      state.registrationRequests += 1;
+      if (state.registrationInvalidOnlyOnce) {
+        state.registrationInvalidOnlyOnce = false;
+        return send(registrationForm({ invalidEmail: true }));
+      }
+      if (state.registrationValidationOnce) {
+        state.registrationValidationOnce = false;
+        state.registrationNeedsAnswer = state.registrationNeedsAnswerAfterValidation;
+        return send(registrationForm({ error: 'Ungültig' }));
+      }
       if (state.refuseNextRegistration || body.get('p1') !== body.get('p2') || !body.get('privacy') || String(body.get('p1')).length < 12) {
         state.refuseNextRegistration = false;
         return send(page('Registrieren', '<p role="alert">Ungültig</p>'));
       }
       if (body.get('news')) state.newsletter = true;
+      state.registeredPermit = body.get('permit') || '';
       state.accounts.set(body.get('email'), body.get('p1'));
       state.pending = { email: body.get('email'), token: `tok${Math.random().toString(36).slice(2)}` };
       return send(page('E-Mail gesendet', '<p>Wir haben Ihnen eine E-Mail gesendet. Bitte bestätigen Sie Ihre E-Mail-Adresse über den Link.</p>'));
@@ -735,6 +792,10 @@ async function fakeCodex({ prompt }) {
     if (/^institution\b/i.test(field.label)) return act('fill', education.institution || '', { source: 'profile' });
     if (/^start date\b/i.test(field.label)) return act('fill', experience.start || education.start || '', { source: 'profile' });
     if (/^end date\b/i.test(field.label)) return act('fill', experience.end || education.end || '', { source: 'profile' });
+    if (/preferred workload/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /preferred workload/i.test(item.question || ''))?.answer || '';
+      return act('fill', answer, { source: 'answers' });
+    }
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
     if (/datenschutz|privacy policy/i.test(field.label)) return act('check', '', { source: 'consent' });
     if (/vermittlungsb/i.test(field.label)) return act('select', 'Ja', { source: 'rule' });
@@ -756,6 +817,10 @@ async function fakeCodex({ prompt }) {
     // A honeypot must never reach the planner (fields.mjs): one that did would be filled.
     if (/website/i.test(field.label)) return act('fill', 'https://example.com');
     if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
+    if (/valid work permit/i.test(field.label)) {
+      const answer = candidate?.portalQuestionsAnswered?.find((item) => /valid work permit/i.test(item.question || ''))?.answer || 'Yes';
+      return act('select', answer, { source: 'answers' });
+    }
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
     if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
@@ -906,20 +971,20 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   state.sessions.clear();
   const profileResult = await run(job, profileCandidate);
   const profileForm = workday.forms.at(-1) || {};
-  check('Workday: profile sections add complete experience and education entries in source order, skipping rows without month-level dates',
-    profileResult.event.type === 'submit_succeeded'
-    && JSON.stringify(profileForm.experience) === JSON.stringify([
-      'Retail Assistant|Mendrisio Market|2020-03|2022-04',
-      'Cashier|Lugano Foods|2022-05|2024-10',
-    ])
-    && JSON.stringify(profileForm.education) === JSON.stringify([
-      'Vocational Diploma|Scuola Cantonale|2015-09|2018-06',
-      'Secondary School|Liceo Lugano|2012-09|2015-06',
-    ])
-    && profileResult.evidence.steps.some((step) => JSON.stringify(step.profileSections) === JSON.stringify([
+  const profileSections = profileResult.evidence.steps.map((step) => step.profileSections).filter(Boolean);
+  check('Workday: profile sections submit the application', profileResult.event.type === 'submit_succeeded');
+  check('Workday: experience rows are complete and retain source order', JSON.stringify(profileForm.experience) === JSON.stringify([
+    'Retail Assistant|Mendrisio Market|2020-03|2022-04',
+    'Cashier|Lugano Foods|2022-05|2024-10',
+  ]), { values: profileForm.experience, profileSections });
+  check('Workday: education rows are complete and retain source order', JSON.stringify(profileForm.education) === JSON.stringify([
+    'Vocational Diploma|Scuola Cantonale|2015-09|2018-06',
+    'Secondary School|Liceo Lugano|2012-09|2015-06',
+  ]), { values: profileForm.education, profileSections });
+  check('Workday: rows without month-level dates are skipped', profileResult.evidence.steps.some((step) => JSON.stringify(step.profileSections) === JSON.stringify([
       { section: 'experience', added: 2, skipped: 1 },
       { section: 'education', added: 2, skipped: 0 },
-    ])));
+  ])), profileSections);
 }
 
 async function main() {
@@ -968,12 +1033,17 @@ async function main() {
   };
 
   const checks = [];
-  const check = (name, ok) => { checks.push({ name, ok }); console.log(`${ok ? '✓' : '✗'} ${name}`); };
+  const check = (name, ok, actual) => {
+    checks.push({ name, ok });
+    console.log(`${ok ? '✓' : '✗'} ${name}`);
+    if (!ok && actual !== undefined) console.log(`  actual: ${JSON.stringify(actual)}`);
+  };
   const focusWorkday = process.env.AA_PORTAL_E2E_FOCUS === 'workday-assisted';
+  const focusRegistration = process.env.AA_PORTAL_E2E_FOCUS === 'registration-retry';
   try {
     if (focusWorkday) {
       await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check }, true);
-    } else {
+    } else if (!focusRegistration) {
     const dry = await run({ dryRun: true });
     check('a dry run stops before creating the account', dry.event.type === 'dry_run_ready' && dry.event.stage === 'account' && state.accounts.size === 0);
     // The portal refuses the registration once: no account is kept, so the next run creates it again.
@@ -1004,6 +1074,46 @@ async function main() {
     state.unverifiedLoginStaysOnSignIn = false;
     check('the evidence names the files the form received', first.evidence.uploads?.some((item) => item.document === 'cv'));
     check('the newsletter box is left alone', !state.newsletter);
+    const sixApplyUrl = `${base}/talentcommunity/apply/1448418433/?locale=en_US`;
+    const sixPostingUrl = `${base}/job/Zurich-Senior-IT-Manager/1448418433/`;
+    const sixJob = { title: 'Senior IT Manager - CIO Office', company: 'SIX Group' };
+    const sixDirect = await run({ applyUrl: sixApplyUrl, job: sixJob });
+    check('SIX cold apply redirects to the generic careers page and never sends', sixDirect.event.type === 'submit_handoff' && state.sixApplications.length === 0);
+    const sixRead = await readPortalRequirements({
+      channelType: 'employer_site', applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, language: 'en', candidateLocale: 'it',
+      candidate: { identity: { email: ALIAS } },
+      codex: async (request) => {
+        const result = await fakeCodex(request);
+        const input = JSON.parse(request.prompt.slice(request.prompt.lastIndexOf('{"form"'), request.prompt.lastIndexOf('\n\nReturn exactly')));
+        const workload = input.form.fields.find((field) => /preferred workload/i.test(field.label));
+        return { ...result, missingRequired: workload ? [{ fieldId: workload.id, question: workload.label }] : [] };
+      },
+      launch: () => launchChromium({ headless: true, executablePath }),
+    });
+    check('SIX pre-read follows the posting and captures the required workload question', sixRead.questions.some((item) => /preferred workload/i.test(item.question)) && state.sixPostingViews === 1);
+    const sixCodex = async (request) => {
+      const planned = await fakeCodex(request);
+      if (!request.prompt.includes('{"form"')) return planned;
+      const payload = JSON.parse(request.prompt.slice(request.prompt.lastIndexOf('{"form"'), request.prompt.lastIndexOf('\n\nReturn exactly')));
+      const cv = payload.form.fields.find((field) => field.kind === 'file' && /resume|cv/i.test(field.label));
+      if (!cv) return planned;
+      // The deterministic runner must attach a supplied CV even when the plan omits it.
+      return { ...planned, actions: planned.actions.map((action) => action.fieldId === cv.id ? { ...action, action: 'skip', document: 'none' } : action) };
+    };
+    const six = await run({
+      applyUrl: sixApplyUrl, postingUrl: sixPostingUrl, job: sixJob,
+      codex: sixCodex,
+      candidate: {
+        identity: { email: ALIAS },
+        profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+        portalQuestionsAnswered: [{ question: 'What is your preferred workload?', answer: '80%' }],
+      },
+    });
+    check('SIX opens the matching form and submits with the reviewed workload answer', six.event.type === 'submit_succeeded'
+      && state.sixPostingViews === 2 && state.sixApplications.length === 1 && state.sixApplications[0].workload
+      && six.evidence.postingMatch === 'match');
+    check('SIX uploads the supplied CV when the planner skips its file field', state.sixApplications[0]?.hasCv === true
+      && six.evidence.uploads?.some((item) => item.document === 'cv'));
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).
     const unknown = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: {}, answers: {}, portalQuestionsAnswered: [] } });
     const asked = unknown.event.questions || [];
@@ -1194,6 +1304,11 @@ async function main() {
       && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
+    coop.privacyValidationRetry = true;
+    const privacyRetry = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
+    check('SuccessFactors reopens and accepts the required privacy statement after same-page validation',
+      privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
+      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
     // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
@@ -1249,6 +1364,73 @@ async function main() {
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
     await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check });
+    }
+
+    if (!focusWorkday) {
+      const resetRegistration = () => {
+        state.accounts.clear();
+        state.verified.clear();
+        state.sessions.clear();
+        state.pending = null;
+        state.registrationNeedsAnswer = false;
+        state.registrationNeedsAnswerAfterValidation = false;
+        state.registrationInvalidOnlyOnce = false;
+        state.registeredPermit = '';
+        saved.clear();
+      };
+      resetRegistration();
+      const registrationsBeforeRepair = state.registrationRequests;
+      const applicationsBeforeRepair = state.applications.length;
+      state.registrationValidationOnce = true;
+      state.registrationNeedsAnswerAfterValidation = true;
+      const candidateWithPermit = {
+        identity: { email: ALIAS },
+        profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+        answers: { valid_work_permit: 'Yes' },
+        portalQuestionsAnswered: [{ id: 'valid_work_permit', question: 'Do you hold a valid work permit?', answer: 'Yes' }],
+      };
+      const repairedRegistration = await run({ candidate: candidateWithPermit });
+      check('a registration validation response replans a newly required known answer and retries automatically',
+        repairedRegistration.event.type === 'submit_succeeded' && state.registrationRequests === registrationsBeforeRepair + 2
+        && state.registeredPermit === 'Yes' && state.applications.length === applicationsBeforeRepair + 1
+        && Boolean(saved.get(accountHost)?.verifiedAt));
+
+      resetRegistration();
+      const registrationsBeforeInvalidOnly = state.registrationRequests;
+      const applicationsBeforeInvalidOnly = state.applications.length;
+      state.registrationInvalidOnlyOnce = true;
+      const invalidOnlyRegistration = await run();
+      check('a field marked aria-invalid without an error message is treated as a validation response and retried',
+        invalidOnlyRegistration.event.type === 'submit_succeeded'
+        && state.registrationRequests === registrationsBeforeInvalidOnly + 2
+        && state.applications.length === applicationsBeforeInvalidOnly + 1
+        && Boolean(saved.get(accountHost)?.verifiedAt));
+
+      resetRegistration();
+      const registrationsBeforeQuestion = state.registrationRequests;
+      const applicationsBeforeQuestion = state.applications.length;
+      state.registrationValidationOnce = true;
+      state.registrationNeedsAnswerAfterValidation = true;
+      const registrationQuestion = await run();
+      const permitQuestion = registrationQuestion.event.questions?.find((question) => /valid work permit/i.test(question.question || ''));
+      check('a newly exposed registration fact becomes a candidate question and keeps the credential for resume',
+        registrationQuestion.event.type === 'submit_needs_candidate' && Boolean(permitQuestion)
+        && saved.get(accountHost)?.status === 'unanswered' && Boolean(saved.get(accountHost)?.password)
+        && state.registrationRequests === registrationsBeforeQuestion + 1 && state.accounts.size === 0
+        && state.applications.length === applicationsBeforeQuestion);
+      if (permitQuestion) {
+        const candidate = {
+          identity: { email: ALIAS },
+          profile: { location: 'Lugano', address: { street: 'Via Esempio 1', postalCode: '6830', city: 'Lugano', country: 'Svizzera' } },
+          answers: { [permitQuestion.id]: 'Yes' },
+          portalQuestionsAnswered: [{ id: permitQuestion.id, question: permitQuestion.question, context: permitQuestion.context, answer: 'Yes' }],
+        };
+        const resumedApplication = await run({ candidate });
+        check('an answered registration question resumes account creation and submits the application',
+          resumedApplication.event.type === 'submit_succeeded' && state.registeredPermit === 'Yes'
+          && state.accounts.has(ALIAS) && state.verified.has(ALIAS)
+          && state.applications.length === applicationsBeforeQuestion + 1);
+      }
     }
   } finally {
     server.close();

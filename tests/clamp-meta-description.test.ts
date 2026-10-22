@@ -5,9 +5,10 @@
  *
  * Closes the SearchAtlas audit 141162 `meta_desc_invalid_length` gap: SSG
  * pages (e.g. career landings) were emitting 180-253 char descriptions, past
- * Google's ~155-160 char SERP snippet budget.
+ * Google's ~155-160 char SERP snippet budget, with a 10-char display buffer.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   clampMetaDescription,
   META_DESCRIPTION_MAX_CHARS,
@@ -15,6 +16,14 @@ import {
 } from '../build-plugins/shared/titleSuffix';
 
 describe('clampMetaDescription', () => {
+  it('keeps the document-shell homepage description within the shared budget', () => {
+    const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+    const description = /<meta name="description" content="([^"]*)"/.exec(html)?.[1] ?? '';
+
+    expect(description).not.toBe('');
+    expect(description.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+  });
+
   it('enriches non-empty descriptions below the minimum without touching page copy', () => {
     const short = 'Guida completa al frontaliere 2026: permesso G, tasse e netto.';
     expect(short.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
@@ -29,7 +38,7 @@ describe('clampMetaDescription', () => {
     expect(out).toContain('Explore practical guides');
   });
 
-  it('clamps over-budget descriptions to ≤160 char (word-aware, with …)', () => {
+  it('clamps over-budget descriptions to ≤150 char (word-aware, with …)', () => {
     // Real offender from the audit: career landing, 253 char.
     const long =
       "Guida alle agenzie del lavoro (collocamento e prestito di personale) attive a Lugano nel 2026: come verificare l'autorizzazione SECO, cosa controllare nel contratto interinale, diritti del frontaliere con permesso G e differenze con le agenzie italiane.";

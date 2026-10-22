@@ -352,7 +352,8 @@ describe('borderWaitPagesPlugin — page generation', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toContain('<figure');
     expect(html).toMatch(/\bloading=["']?lazy["']?/);
-    expect(html).toMatch(/\brel=["']?nofollow noopener["']?/);
+    expect(html).toMatch(/\brel=["']?noopener["']?/);
+    expect(html).not.toMatch(/\brel=["']?nofollow noopener["']?/);
     expect(html).toContain('data-webcam-refresh=');
     expect(html).toContain('data-webcam-base-url=');
     expect(html).toMatch(/\bwidth=["']?640["']?/);

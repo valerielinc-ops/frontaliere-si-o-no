@@ -10,7 +10,11 @@ function safeMarkdownHref(value: string): string | null {
   return /^(?:https?:\/\/|\/(?!\/))/i.test(value) ? value : null;
 }
 
-function renderRawUrls(value: string): string {
+export interface PlainTextLinkOptions {
+  resolveHref?: (href: string) => string;
+}
+
+function renderRawUrls(value: string, opts: PlainTextLinkOptions): string {
   let cursor = 0;
   let html = '';
   for (const match of value.matchAll(RAW_URL_RX)) {
@@ -18,25 +22,27 @@ function renderRawUrls(value: string): string {
     // Sentence punctuation is not part of a source URL.
     const url = match[0].replace(/[.,;:!?\)\]]+$/, '');
     html += escHtml(value.slice(cursor, start));
-    html += `<a href="${escHtml(url)}" rel="noopener noreferrer">${escHtml(url)}</a>`;
+    const href = opts.resolveHref ? opts.resolveHref(url) : url;
+    html += `<a href="${escHtml(href)}" rel="noopener noreferrer">${escHtml(url)}</a>`;
     cursor = start + url.length;
   }
   return html + escHtml(value.slice(cursor));
 }
 
 /** Keep FAQ prose plain text while making its HTTP(S) sources usable. */
-export function renderPlainTextLinks(value: string): string {
+export function renderPlainTextLinks(value: string, opts: PlainTextLinkOptions = {}): string {
   let cursor = 0;
   let html = '';
   for (const match of value.matchAll(MARKDOWN_LINK_RX)) {
     const start = match.index!;
-    html += renderRawUrls(value.slice(cursor, start));
+    html += renderRawUrls(value.slice(cursor, start), opts);
     const label = match[1];
     const href = safeMarkdownHref(match[2]);
-    html += href
-      ? `<a href="${escHtml(href)}" rel="noopener noreferrer">${escHtml(label)}</a>`
+    const resolvedHref = href && opts.resolveHref ? opts.resolveHref(href) : href;
+    html += resolvedHref
+      ? `<a href="${escHtml(resolvedHref)}" rel="noopener noreferrer">${escHtml(label)}</a>`
       : escHtml(label);
     cursor = start + match[0].length;
   }
-  return html + renderRawUrls(value.slice(cursor));
+  return html + renderRawUrls(value.slice(cursor), opts);
 }

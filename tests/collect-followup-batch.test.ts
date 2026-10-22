@@ -19,6 +19,9 @@ import {
   parseCompleteMergedPRSearch,
   parseMergedPRPages,
   parseMergedPRs,
+  readCompleteMergedPRSearch,
+  MERGED_PR_SEARCH_ATTEMPTS,
+  MERGED_PR_SEARCH_RETRY_DELAYS_MS,
   hasTriageComment,
   latestTriageCommentBody,
   latestTriageComment,
@@ -186,6 +189,51 @@ describe('collector fail-closed parsing', () => {
     expect(parsed.at(0)?.number).toBe(9000);
     expect(parsed.at(-1)?.number).toBe(9100);
   });
+
+  it('retries a transient incomplete snapshot without weakening the parser', () => {
+    const incomplete = JSON.stringify([{
+      total_count: 1,
+      incomplete_results: true,
+      items: [],
+    }]);
+    const complete = JSON.stringify([{
+      total_count: 1,
+      incomplete_results: false,
+      items: [{
+        number: 9101,
+        title: 'retried candidate',
+        user: { login: 'valerielinc-ops' },
+        pull_request: { merged_at: '2026-09-09T10:00:00Z' },
+      }],
+    }]);
+    let reads = 0;
+    const delays: number[] = [];
+    const result = readCompleteMergedPRSearch(
+      () => (++reads === 1 ? incomplete : complete),
+      { sleep: (delay) => delays.push(delay), log: () => {} },
+    );
+
+    expect(result.map((pr) => pr.number)).toEqual([9101]);
+    expect(reads).toBe(2);
+    expect(delays).toEqual([MERGED_PR_SEARCH_RETRY_DELAYS_MS[0]]);
+  });
+
+  it('remains fail-closed after the bounded retry budget', () => {
+    const incomplete = JSON.stringify([{
+      total_count: 1,
+      incomplete_results: true,
+      items: [],
+    }]);
+    let reads = 0;
+    const delays: number[] = [];
+
+    expect(() => readCompleteMergedPRSearch(
+      () => { reads += 1; return incomplete; },
+      { sleep: (delay) => delays.push(delay), log: () => {} },
+    )).toThrow(/incompleta\/non verificabile/);
+    expect(reads).toBe(MERGED_PR_SEARCH_ATTEMPTS);
+    expect(delays).toEqual([...MERGED_PR_SEARCH_RETRY_DELAYS_MS]);
+  });
 });
 
 describe('separazione dispatch manuale / raccolta schedulata', () => {
@@ -325,10 +373,102 @@ describe('marker idempotency requires durable bucket/item evidence', () => {
     expect(persistedBucketIssueMatches(persisted, 8101)).toBe(true);
   });
 
+  it('does not treat an ordinary issue source bullet as persisted follow-up evidence', () => {
+    const ordinary = {
+      title: 'ordinary issue',
+      body: 'mentions FU-2026-10-19-001\n- Sources: PR #14038',
+    };
+    expect(persistedBucketIssueMatches(ordinary, 14038)).toBe(false);
+  });
+
+  it('keeps a daily source bullet tied to its own stable item heading', () => {
+    const unrelatedHeading = {
+      title: 'follow-up(daily:2026-09-09): 2 items — owner/repo',
+      body: [
+        '### FU-2026-09-09-001 — another item',
+        '- Sources: PR #8102',
+        '',
+        '### FU-2026-09-09-002 — item for this PR',
+        '- State: open',
+      ].join('\n'),
+    };
+    expect(persistedBucketIssueMatches(unrelatedHeading, 8101)).toBe(false);
+  });
+
   it('recognizes Markdown bullet markers as persistence claims', () => {
     expect(triageMarkerPersistenceExpectation(
       '## Post-merge follow-up triage\n- Created: daily bucket #42 con 1 item',
     )).toEqual({ buckets: [42], requiresBucket: true });
+  });
+
+  it('recognizes the updated daily-bucket marker emitted by the triage summary', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      '- Daily bucket aggiornato: #14286 — `follow-up(daily:2026-10-21)`, repository target `valerielinc-ops/frontaliere-si-o-no`.',
+      '- FU-2026-10-21-003 — URL GSC non-200 senza destinazione dimostrata',
+    ].join('\n');
+    const persisted = {
+      number: 14286,
+      title: 'follow-up(daily:2026-10-21): 9 items — owner/repo',
+      body: '### FU-2026-10-21-003 — URL GSC non-200 senza destinazione dimostrata\n- Sources: PR #14112\n',
+    };
+
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [14286], requiresBucket: true });
+    expect(verifyTriageMarkerPersistence(marker, 14112, () => persisted)).toBe(true);
+  });
+
+  it('recognizes an existing parent bucket updated without creating a child issue', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: parent #13803 (follow-up window 2026-10-17) with 1 existing item; no child issue created:',
+      '- FU-2026-10-17-004 — source PR #13825 recorded on the parent',
+    ].join('\n');
+    const persisted = {
+      number: 13803,
+      title: 'follow-up(daily:2026-10-17): 6 items — owner/repo',
+      body: '### FU-2026-10-17-004 — item\n- Sources: PR #13825\n',
+    };
+    expect(triageMarkerPersistenceExpectation(marker)).toEqual({ buckets: [13803], requiresBucket: true });
+    expect(verifyTriageMarkerPersistence(marker, 13825, () => persisted)).toBe(true);
+    expect(triageMarkerPersistenceExpectation(
+      '## Post-merge follow-up triage\nCreated/updated: parent PR #13825 with 1 item',
+    )).toEqual({ buckets: [], requiresBucket: true });
+  });
+
+  it('proves persistence in a decomposed parent tracker with inline source bullets', () => {
+    const marker = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: parent #13803 (follow-up window 2026-10-17) with 6 existing items; no child issue created:',
+      '- FU-2026-10-17-004 — baseline reale dell’estimator webcam; source PR #13825 recorded on the parent',
+    ].join('\n');
+    const parent = {
+      number: 13803,
+      title: 'Residual 2026-10-17 follow-up: 8 unresolved units',
+      body: [
+        '## Residuo',
+        '- FU-2026-10-17-004 — baseline reale dell’estimator webcam — `functions/src/trafficProviderMesh.js`.',
+        '',
+        '## Additional sources from PR #13825',
+        '- FU-2026-10-17-004 — Sources: PR #13825',
+      ].join('\n'),
+    };
+    const SITE = 'valerielinc-ops/frontaliere-si-o-no';
+    const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
+    const run = (args: string[]) => (args[args.indexOf('--repo') + 1] === CORPUS
+      ? false
+      : JSON.stringify(parent));
+    const read = readBucketIssue(13803, run as never, [SITE, CORPUS]);
+    const comments = JSON.stringify({ comments: [{
+      createdAt: '2026-10-19T04:41:58Z',
+      body: marker,
+    }] });
+
+    expect(read).toEqual({ candidates: [{ ...parent, repo: SITE }], unreadable: false });
+    expect(persistedBucketIssueMatches(parent, 13825)).toBe(true);
+    expect(verifyTriageMarkerPersistence(marker, 13825, () => read, comments)).toBe(true);
   });
 
   it('ignores historical bucket references in a positive marker', () => {

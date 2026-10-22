@@ -8,10 +8,9 @@
  * read them again: every rule on that path requires `request.auth.uid ==
  * uid`, and that uid can never authenticate again).
  *
- * `users/{uid}` holds only saved-jobs-feature data (email, locale,
- * savedJobsDigest.optedOut — see savedJobsService.ensureUserProfileDoc) with
- * no other reader in the repo, so deleting the whole doc alongside the
- * subcollection is safe — nothing else depends on it surviving.
+ * `users/{uid}` holds saved-jobs preferences and the owner's private profile
+ * fields, with no cross-account reader. Deleting the whole doc alongside its
+ * subcollections removes that private profile when its Auth account is deleted.
  *
  * Email-keyed subscriber docs are a different hole: firestore.rules has no
  * `allow delete` on `newsletter_subscribers/{email}`, so the profile page's

@@ -1,173 +1,201 @@
-# Frontaliere Ticino Design System
+---
+name: Frontaliere Ticino
+description: A clear, trustworthy toolkit for cross-border work and life in Switzerland.
+colors:
+  primary: "#533afd"
+  primary-hover: "#4529e6"
+  primary-soft: "#f5f3ff"
+  surface: "#ffffff"
+  surface-alt: "#f8fafc"
+  surface-raised: "#f1f5f9"
+  heading: "#0f172a"
+  strong: "#1e293b"
+  body: "#334155"
+  subtle: "#475569"
+  muted: "#64748b"
+  edge: "#e2e8f0"
+  success: "#059669"
+  warning: "#d97706"
+  danger: "#dc2626"
+  info: "#0d9488"
+  neutral: "#57534e"
+  footer-navy: "#0a2540"
+  on-accent: "#ffffff"
+typography:
+  display:
+    fontFamily: "'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif"
+    fontSize: "1.875rem"
+    fontWeight: 600
+    lineHeight: 1.25
+    letterSpacing: "-0.025em"
+  body:
+    fontFamily: "'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.5
+  label:
+    fontFamily: "'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 600
+    lineHeight: 1.5
+rounded:
+  compact: "6px"
+  control: "8px"
+  comfortable: "12px"
+  card: "16px"
+  feature: "24px"
+spacing:
+  xs: "4px"
+  sm: "8px"
+  md: "16px"
+  lg: "24px"
+  xl: "32px"
+components:
+  button-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-accent}"
+    typography: "{typography.label}"
+    rounded: "{rounded.control}"
+    padding: "12px 16px"
+  button-primary-hover:
+    backgroundColor: "{colors.primary-hover}"
+    textColor: "{colors.on-accent}"
+    rounded: "{rounded.control}"
+  button-secondary:
+    backgroundColor: "{colors.surface-alt}"
+    textColor: "{colors.body}"
+    typography: "{typography.label}"
+    rounded: "{rounded.control}"
+    padding: "10px 20px"
+  input-text:
+    backgroundColor: "{colors.surface-alt}"
+    textColor: "{colors.strong}"
+    typography: "{typography.body}"
+    rounded: "{rounded.comfortable}"
+    padding: "10px 12px"
+  chip-selected:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-accent}"
+    typography: "{typography.label}"
+    rounded: "{rounded.control}"
+    padding: "6px 12px"
+  card-metric:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.heading}"
+    rounded: "{rounded.compact}"
+    padding: "16px"
+  nav-active:
+    textColor: "{colors.primary}"
+    typography: "{typography.label}"
+    padding: "12px 8px"
+---
 
-> **Stripe-inspired**: Sophisticated authority meets financial precision.
-> "Precise. Authoritative. Trustworthy." — Technical sophistication meets approachable clarity.
+# Design System: Frontaliere Ticino
 
-## 1. Visual Theme & Atmosphere
+## Overview
 
-Frontaliere Ticino is a financial decision-making tool for cross-border workers ("frontalieri") navigating the Swiss-Italian border. The design draws from **Stripe's** visual language: clean, authoritative, and technically sophisticated without being cold.
+**Creative North Star: “Precise. Authoritative. Trustworthy.”**
 
-The visual language operates on a **clean white canvas** with high-contrast text and a signature **electric purple** accent (`#533afd`). This immediately communicates fintech credibility and modernity. The purple stands apart from the green/blue fintech crowd while signaling innovation and trust.
+The visual system combines restrained fintech cues with practical clarity for people navigating cross-border work and financial decisions. White and slate surfaces, clear typography, and a recognizable purple accent keep calculators, job flows, and guidance approachable while giving estimates an appropriately careful presentation.
 
-**Key aesthetic properties:**
-- Conservative border-radius (`6px`) — sharp, professional, not playful
-- Blue-tinted shadows (`rgba(50,50,93,*)`) — adds depth without heaviness
-- Ultra-light display headings (weight 300) — elegant, not aggressive
-- High information density with generous whitespace between sections
+The interface uses semantic color tokens that adapt to light and dark mode. Space Grotesk gives headings and prominent figures a distinct voice; Inter keeps controls, tables, and longer reading comfortable. The system supports dense information, but gives each tool and content section room to breathe.
 
-## 2. Color System
+**Key Characteristics:**
+- Precise hierarchy for financial and practical information.
+- Purple as the shared interaction accent, with semantic colors for status and section context.
+- Responsive layouts that keep the next useful action close to the information it supports.
 
-### Light Mode (`:root`)
+## Colors
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--_surface` | `#ffffff` | Primary background |
-| `--_surface-alt` | `#f8fafc` | Alternate/grouped sections |
-| `--_surface-raised` | `#f1f5f9` | Elevated surfaces |
-| `--_heading` | `#0f172a` | Headlines — near-black |
-| `--_body` | `#334155` | Body text |
-| `--_subtle` | `#475569` | Secondary text |
-| `--_muted` | `#64748b` | Helper/meta text |
-| `--_edge` | `#e2e8f0` | Borders, dividers |
-| `--_accent` | `#533afd` | Primary accent — Stripe purple |
-| `--_accent-hover` | `#4529e6` | Accent hover state |
-| `--_link` | `#533afd` | Link color — matches accent |
-| `--_success` | `#059669` | Positive states |
-| `--_warning` | `#d97706` | Warning states |
-| `--_danger` | `#dc2626` | Error/danger states |
+The light palette pairs a vivid Stripe-inspired purple with cool slate neutrals; dark mode shifts surfaces and text while keeping the same semantic roles.
 
-### Dark Mode (`html.dark`)
+### Primary
+- **Electric Purple** (`#533afd`): Links, primary actions, focus indicators, and the active top-level navigation item.
+- **Deep Purple** (`#4529e6`): Hover emphasis for the light theme.
+- In dark mode, the accent shifts to `#7a5af8`, with `#9b8afb` for hover and `#a78bfa` for links.
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--_surface` | `#1e293b` | Dark background |
-| `--_surface-alt` | `#0f172a` | Deeper dark |
-| `--_accent` | `#7a5af8` | Lighter purple for dark mode |
-| `--_accent-hover` | `#9b8afb` | Purple hover in dark |
-| `--_link` | `#7a5af8` | Link in dark mode |
+### Neutral
+- **Paper** (`#ffffff`): Main light surface.
+- **Slate Mist** (`#f8fafc`) and **Raised Slate** (`#f1f5f9`): Grouped and elevated light surfaces.
+- **Ink** (`#0f172a`), **Strong Slate** (`#1e293b`), **Body Slate** (`#334155`), **Secondary Slate** (`#475569`), and **Muted Slate** (`#64748b`): Text hierarchy in light mode.
+- **Slate Edge** (`#e2e8f0`): Borders and dividers.
+- **Navy** (`#0a2540`): Footer and selected dark surfaces.
+- Dark surfaces use `#1e293b`, `#0f172a`, and `#334155`; headings use `#f1f5f9`, emphasized text `#e2e8f0`, body text `#cbd5e1`, and borders `#334155`.
 
-### Stripe Purple Palette (Tailwind `stripe-*`)
+### Semantic
+- **Success** (`#059669`), **Warning** (`#d97706`), **Danger** (`#dc2626`), and **Information** (`#0d9488`) identify status and guidance. Their light and dark variants are defined by the semantic CSS tokens.
+- **The Unified Navigation Accent Rule.** The six top-level tabs share the purple active state; section-specific accents remain available for meaningful product context.
 
-```
-stripe-50:  #f5f3ff    stripe-500: #7a5af8
-stripe-100: #ede9fe    stripe-600: #533afd  ← Primary accent
-stripe-200: #ddd6fe    stripe-700: #4529e6
-stripe-300: #c4b5fd    stripe-800: #3b1fc7
-stripe-400: #a78bfa    stripe-900: #2e1a9e
-                       stripe-950: #1a0f5e
-```
+## Typography
 
-### Navy Palette (Tailwind `navy-*`) — for footer, dark surfaces
+**Display Font:** Space Grotesk (`'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif`)
+**Body Font:** Inter (`'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif`)
 
-```
-navy-800: #243b53
-navy-900: #0a2540  ← Footer background
-navy-950: #061b30
-```
+**Character:** Space Grotesk distinguishes headings and prominent figures. Inter carries body copy, controls, and tables with a neutral, readable rhythm.
 
-## 3. Typography
+### Hierarchy
+- **Display** (usually 600–700, `1.875rem` and responsive sizes): Main page headings and prominent figures.
+- **Headline** (600–700, commonly `1.25rem`–`1.5rem`): Section headings and card titles.
+- **Body** (400, `1rem`): Explanatory copy, forms, and longer reading.
+- **Label** (600, `0.75rem`–`0.875rem`): Compact control labels, table headings, and metadata.
+- Financial figures and tabular data use tabular numerals for alignment.
 
-| Role | Font | Weight | Usage |
-|------|------|--------|-------|
-| Display/Hero | Space Grotesk | 300 (light) | Page titles, hero headings |
-| Display bold | Space Grotesk | 500 | Emphasized display text |
-| Body | Inter | 400 | Body text, paragraphs |
-| Body bold | Inter | 600-700 | Labels, buttons, nav |
-| Data/Tables | Inter | 400 (tabular-nums) | Financial figures, tables |
+## Layout
 
-**Key typographic decisions:**
-- Headlines use weight **300** (light), not bold — this is Stripe's signature. Bold emphasis uses weight 500 at most.
-- `font-variant-numeric: tabular-nums` on all financial data for proper alignment
-- Font loading: Space Grotesk from Google Fonts (`display=swap`), Inter via local woff2 + Google Fonts fallback
+The product uses a responsive, content-first layout. On narrow screens, navigation and controls remain touch-friendly and content stacks into a readable flow; larger screens use wider grids and persistent navigation. Breakpoints follow Tailwind's `sm` through `2xl` scale, with project-specific `xlc` (1200px) and `xlw` (1400px) breakpoints for article layouts. Keep the operational answer, live data, or main action close to the page heading.
 
-### CSS Font Stacks
-```css
---font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
---font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
-```
+## Elevation & Depth
 
-## 4. Shadows (Blue-tinted, Stripe-style)
+Depth comes from slate surface changes, fine borders, and a restrained family of blue-tinted shadows. The `shadow-stripe-*` tokens cover compact cards through overlays; individual components also use Tailwind's standard shadow utilities, including deeper shadows for some dialogs.
 
-All shadows use `rgba(50,50,93,*)` base instead of pure black — this is the core of the Stripe aesthetic.
+### Shadow Vocabulary
+- **Subtle** (`0 1px 3px rgba(50,50,93,0.08), 0 1px 2px rgba(0,0,0,0.04)`): Compact cards and resting surfaces.
+- **Standard** (`0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08)`): General card elevation.
+- **Raised** (`0 6px 12px rgba(50,50,93,0.1), 0 3px 6px rgba(0,0,0,0.06)`): Popovers and raised panels.
+- **Overlay** (`0 13px 27px rgba(50,50,93,0.12), 0 8px 16px rgba(0,0,0,0.06)`): Strong elevation token; some dialogs use Tailwind's deeper `shadow-2xl` utility.
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `shadow-stripe-sm` | `0 1px 3px rgba(50,50,93,0.08), 0 1px 2px rgba(0,0,0,0.04)` | Subtle elevation |
-| `shadow-stripe` | `0 4px 6px rgba(50,50,93,0.11), 0 1px 3px rgba(0,0,0,0.08)` | Cards, surfaces |
-| `shadow-stripe-md` | `0 6px 12px rgba(50,50,93,0.1), 0 3px 6px rgba(0,0,0,0.06)` | Dropdowns, popovers |
-| `shadow-stripe-lg` | `0 13px 27px rgba(50,50,93,0.12), 0 8px 16px rgba(0,0,0,0.06)` | Modals, dialogs |
-| `shadow-stripe-xl` | `0 30px 60px rgba(50,50,93,0.15), 0 18px 36px rgba(0,0,0,0.08)` | Hero elements |
+## Shapes
 
-## 5. Border Radius
+The CSS defines a 6px Stripe radius token, while implemented controls commonly use 8–12px and cards range from 6–24px depending on the surface. Use compact corners for controls and data panels, and reserve larger radii for prominent feature cards. Pills use fully rounded ends. Borders are generally thin and low-contrast.
 
-Conservative, professional — not playful bubbles.
+## Components
 
-| Element | Radius |
-|---------|--------|
-| Buttons, inputs | `6px` (`rounded-stripe`) |
-| Cards | `6px` |
-| Modals | `8px` |
-| Pills, tags | `9999px` (`rounded-full`) |
-| Sub-nav items | `12px` (`rounded-xl`) |
+### Buttons
+- **Primary:** Purple fill, white text, medium-to-semibold label, and a compact 8–12px radius. Hover uses the theme's stronger accent token.
+- **Secondary:** Surface or raised-surface fill, edge border, and body text; hover shifts the surface or accent border.
+- **Focus:** A 2px purple outline with a 2px offset; interactive controls retain a visible keyboard focus state.
+- Common touch controls use a minimum 44px target where the layout permits.
 
-## 6. Focus & Accessibility
+### Chips
+- **Style:** Compact, rounded filter controls. Unselected chips use neutral surfaces and borders; selected chips use the strong accent and white text.
 
-- Focus ring: `2px solid #533afd` with `2px offset` (Stripe purple)
-- Contrast: 4.5:1 minimum for normal text, 3:1 for large text
-- All interactive elements must have accessible names
-- Dark mode: every visual element has a `dark:` variant
-- `prefers-reduced-motion`: all animations/transitions disabled
+### Cards / Containers
+- **Style:** Surface or raised-surface background with a fine edge border; data panels may use the subtle Stripe shadow.
+- **Shape:** 6–16px is common for data cards; larger feature cards may use 24px.
+- **Spacing:** Internal padding commonly uses 12–24px and adapts to the viewport.
 
-## 7. Navigation — Unified Accent
+### Inputs / Fields
+- **Style:** Surface-alt fill, edge border, and 8–12px radius.
+- **Focus:** Purple outline with a 2px offset; errors and statuses use semantic colors.
 
-All 6 navigation tabs use the **same** `stripe-600` accent color (light) / `stripe-400` (dark). Tab identity comes from icons and labels, not color differentiation.
+### Navigation
+- The sticky top navigation uses a shared purple active label and underline, with muted inactive labels. The active state is not distinguished by color alone: labels and icons remain present. On mobile, navigation becomes a compact touch-oriented control.
 
-Active states:
-- Top nav: `text-stripe-600` + `h-0.5 bg-stripe-600` bottom bar
-- Sub-nav: `bg-stripe-100 text-stripe-700 ring-1 ring-stripe-300` (light)
-- Mobile: `text-stripe-600` + `bg-stripe-600` top bar
+### Motion and Interaction
+- Control-state transitions commonly use 150ms; broader navigation and surface transitions use 300ms with `cubic-bezier(0.4, 0, 0.2, 1)`.
+- `prefers-reduced-motion` reduces animation and transition durations to `0.01ms` and disables smooth scrolling.
 
-## 8. Do & Don't
+## Do's and Don'ts
 
-### Do
-- Use `shadow-stripe-*` for all elevations
-- Keep headings at weight 300-500, never 700+
-- Use `stripe-600` as the unified accent everywhere
-- Let whitespace breathe between sections
-- Use `tabular-nums` on all financial data
+### Do:
+- **Do** use semantic surface, text, accent, and status tokens so light and dark themes stay coordinated.
+- **Do** use tabular numerals for financial values and tables.
+- **Do** preserve visible keyboard focus and reduced-motion behavior.
+- **Do** keep normal-text contrast at least 4.5:1 and large-text contrast at least 3:1.
+- **Do** keep the shared top-level navigation accent consistent; use section colors only where they carry meaning.
 
-### Don't
-- Don't use rainbow tab colors (each tab having its own color)
-- Don't use rounded-2xl or larger on cards — keep it sharp (6px)
-- Don't use pure black shadows — always blue-tinted
-- Don't use bold (700+) on display headings
-- Don't add decorative gradients or blob backgrounds
-
-## 9. Implementation Notes
-
-### Color Migration Map
-
-All previous accent colors now map to `stripe-*`:
-- `indigo-*` → `stripe-*`
-- `violet-*` → `stripe-*`
-- `purple-*` → `stripe-*`
-- `blue-*` (UI accent) → `stripe-*`
-
-Semantic colors are preserved:
-- `emerald-*` → success/positive (unchanged)
-- `amber-*` → warning (unchanged)
-- `red-*` → error/danger (unchanged)
-- `green-*` → positive indicators (unchanged)
-
-### Decisions Log
-
-| Date | Decision | Rationale |
-|------|----------|-----------|
-| 2026-04-11 | Stripe theme selected | User chose from 4 brand proposals (Wise, Revolut, Stripe, N26) — Stripe won for authority and sophistication |
-| 2026-04-11 | Unified nav accent | Replaced 6 individual tab colors with single stripe-600 — Stripe doesn't use rainbow tabs |
-| 2026-04-11 | Space Grotesk display font | Matches Stripe's lightweight heading aesthetic (weight 300) |
-| 2026-04-11 | Blue-tinted shadows | Core Stripe visual signature — rgba(50,50,93,*) base |
-
-## 10. Content-first / Mobile-first
-
-Static pages put the operational answer, primary action, or live data immediately after the H1 and a short lede. Long editorial context, methodology, and FAQs follow the action/data area or stay inside collapsed accordions. Every landing page must be checked at a 390px viewport for readable hierarchy, comfortable tap targets, and zero horizontal overflow.
+### Don't:
+- **Don't** hardcode light-theme colors where a semantic token exists.
+- **Don't** make status, chart, or section meaning depend on color alone.
+- **Don't** use large radii as the default for compact controls or dense data panels.
+- **Don't** remove reduced-motion or keyboard-focus treatments from interactive components.

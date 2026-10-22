@@ -20,6 +20,7 @@ import {
   hasStableItemIdsForDailyKey,
   hasUnterminatedMarkdownFence,
   parseFollowupItems,
+  dailyBucketScopeDecision,
   selectFirstOpenItem,
   updateFollowupItemState,
 } from '../scripts/ci/followup-resolution-match.mjs';
@@ -345,6 +346,29 @@ describe('daily follow-up identity and dedup', () => {
 });
 
 describe('daily item parsing and lifecycle', () => {
+  it('separa bucket valido, item in-progress e stato non riconosciuto', () => {
+    const title = dailyBucketTitle(DAY, 'owner/repo', 1);
+    const sealed = (state: string) => body(item(`FU-${DAY}-001`, state)).replace('- State: collecting', '- State: sealed');
+    expect(dailyBucketScopeDecision(title, sealed('open'))).toMatchObject({
+      isDaily: true,
+      valid: true,
+      terminal: false,
+      item: { id: `FU-${DAY}-001` },
+    });
+    expect(dailyBucketScopeDecision(title, sealed('in-progress'))).toMatchObject({
+      isDaily: true,
+      valid: true,
+      terminal: false,
+      reason: 'item-in-progress',
+      item: null,
+    });
+    expect(dailyBucketScopeDecision(title, sealed('mystery'))).toMatchObject({
+      isDaily: true,
+      valid: false,
+      reason: 'invalid-item-state',
+    });
+  });
+
   it('recupera il formato shorthand del triage e apre gli item senza State', () => {
     const shorthand = [
       'State: collecting',
@@ -554,7 +578,7 @@ describe('daily mint gate and reconciliation', () => {
       title: dailyBucketTitle(DAY, 'owner/repo', 2),
       body: source,
     });
-    expect(queueBefore).toEqual({ eligible: false, reason: 'bucket-collecting', item: null });
+    expect(queueBefore).toEqual({ eligible: false, reason: 'bucket-not-sealed', item: null });
 
     const decision = decideDailyMintGate({
       title: dailyBucketTitle(DAY, 'owner/repo', 2),
@@ -700,6 +724,21 @@ describe('daily drainer item mutex', () => {
       ...pr,
       body: `Addresses #9\nFollow-up item: ${id}`,
     });
+  });
+
+  it('treats the shared issue branch as a mutex even when its marker names another item', () => {
+    const id = `FU-${DAY}-001`;
+    const pr = {
+      number: 43,
+      title: 'fix another item',
+      body: `Addresses #9\nFollow-up item: FU-${DAY}-002`,
+      headRefName: 'fix/issue-9',
+      head: {
+        ref: 'fix/issue-9',
+        repo: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      },
+    };
+    expect(openPrForDailyItem(id, [pr], 9, 'valerielinc-ops/frontaliere-si-o-no')).toEqual(pr);
   });
 
   it('distingue una scansione open-PR fallita da una lista vuota e pagina tutte le risposte', () => {

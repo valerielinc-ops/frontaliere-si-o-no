@@ -5,6 +5,9 @@ import { useTranslation, type Locale } from '@/services/i18n';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/services/assistedApplicationExperiment';
 
 const SUMUP_SDK_SRC = 'https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js';
+const SUMUP_GOOGLE_PAY_MERCHANT_ID_RC_KEY = 'SUMUP_GOOGLE_PAY_MERCHANT_ID';
+const SUMUP_GOOGLE_PAY_MERCHANT_NAME = 'Frontaliere Ticino';
+const SUMUP_GOOGLE_PAY_CONFIG_TIMEOUT_MS = 1500;
 const SUMUP_LOCALE: Record<Locale, string> = {
   it: 'it-CH',
   en: 'en-GB',
@@ -20,6 +23,10 @@ interface SumUpMountOptions {
   locale: string;
   country: 'CH';
   showFooter: boolean;
+  googlePay?: {
+    merchantId: string;
+    merchantName: string;
+  };
   onResponse: (type: string, body: unknown) => void;
   onLoad?: () => void;
 }
@@ -70,18 +77,42 @@ function loadSumUpSdk(): Promise<void> {
   return sdkPromise;
 }
 
+async function loadSumUpGooglePayOptions(): Promise<SumUpMountOptions['googlePay']> {
+  try {
+    const merchantId = await Promise.race([
+      import('@/services/firebase').then(({ getConfigValue }) =>
+        getConfigValue(SUMUP_GOOGLE_PAY_MERCHANT_ID_RC_KEY),
+      ),
+      new Promise<string>((resolve) => {
+        window.setTimeout(() => resolve(''), SUMUP_GOOGLE_PAY_CONFIG_TIMEOUT_MS);
+      }),
+    ]);
+    const normalizedMerchantId = merchantId.trim();
+    if (!normalizedMerchantId) return undefined;
+    return {
+      merchantId: normalizedMerchantId,
+      merchantName: SUMUP_GOOGLE_PAY_MERCHANT_NAME,
+    };
+  } catch {
+    // A missing/unavailable RC value must never disable the regular card form.
+    return undefined;
+  }
+}
+
 export interface SumUpPaymentWidgetProps {
   checkoutId: string;
   locale: Locale;
   onResponse: (type: string, body: unknown) => void;
   onError: (error: unknown) => void;
   onClose: () => void;
+  amountCents?: number;
+  title?: string;
   error?: string | null;
   busy?: boolean;
 }
 
 /**
- * Embedded SumUp payment form for the assisted-application flow.
+ * Embedded SumUp payment form shared by assisted applications and concierge.
  *
  * The checkout status is still confirmed by the SumUp webhook on the server;
  * the widget callback only controls the client's return to the order page.
@@ -92,6 +123,8 @@ export default function SumUpPaymentWidget({
   onResponse,
   onError,
   onClose,
+  amountCents = ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+  title,
   error = null,
   busy = false,
 }: SumUpPaymentWidgetProps) {
@@ -107,7 +140,7 @@ export default function SumUpPaymentWidget({
     style: 'currency',
     currency: 'EUR',
     minimumFractionDigits: 2,
-  }).format(ASSISTED_APPLICATION_PRICE_EUR_CENTS / 100);
+  }).format(amountCents / 100);
 
   useEffect(() => {
     responseRef.current = onResponse;
@@ -135,19 +168,20 @@ export default function SumUpPaymentWidget({
     let card: SumUpCardInstance | null = null;
     setSdkLoading(true);
 
-    void loadSumUpSdk()
-      .then(() => {
+    void Promise.all([loadSumUpSdk(), loadSumUpGooglePayOptions()])
+      .then(([, googlePay]) => {
         if (cancelled) return;
         const sumUpCard = window.SumUpCard;
         if (!sumUpCard) throw new Error('sumup_sdk_unavailable');
         card = sumUpCard.mount({
           id: containerId,
           checkoutId,
-          amount: (ASSISTED_APPLICATION_PRICE_EUR_CENTS / 100).toFixed(2),
+          amount: (amountCents / 100).toFixed(2),
           currency: 'EUR',
           locale: SUMUP_LOCALE[locale],
           country: 'CH',
           showFooter: true,
+          ...(googlePay ? { googlePay } : {}),
           onResponse: (type, body) => responseRef.current(type, body),
           onLoad: () => {
             if (!cancelled) setSdkLoading(false);
@@ -166,7 +200,7 @@ export default function SumUpPaymentWidget({
       cancelled = true;
       card?.unmount?.();
     };
-  }, [checkoutId, containerId, locale]);
+  }, [amountCents, checkoutId, containerId, locale]);
 
   const handleBackdropMouseDown = (event: MouseEvent<HTMLDivElement>) => {
     if (!busy && event.target === event.currentTarget) onClose();
@@ -194,7 +228,7 @@ export default function SumUpPaymentWidget({
               </div>
               <div className="min-w-0">
                 <h2 id={titleId} className="font-display text-lg font-semibold text-heading sm:text-xl">
-                  {t('jobBoard.assisted.title')}
+                  {title || t('jobBoard.assisted.title')}
                 </h2>
                 <p className="mt-1 text-sm text-subtle">SumUp</p>
               </div>

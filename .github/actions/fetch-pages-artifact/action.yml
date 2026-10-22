@@ -16,12 +16,13 @@ description: >-
 inputs:
   run-id:
     description: >-
-      Pin a specific workflow run whose github-pages artifact to download.
+      Pin a specific successful deploy.yml run on main whose github-pages
+      artifact to download.
       Leave EMPTY (the normal case) to walk back over the most recent
       successful deploy.yml runs on main until one still has a live artifact.
-      A pinned run is never walked back from: if its artifact is gone the
-      step fails, because silently auditing a different run than the operator
-      asked for is worse than failing.
+      A pinned run is never walked back from: if its identity or artifact is
+      invalid, the step fails, because silently auditing a different run than
+      the operator asked for is worse than failing.
     required: false
     default: ""
   output-dir:
@@ -101,14 +102,42 @@ runs:
           # The pinned run needs its created_at looked up: this is the branch
           # where a WRONG run is most likely (an id typed by hand), so it is
           # the branch that most needs #7397's timestamp in the log. One extra
-          # API call. If the lookup fails the run id is almost certainly not a
-          # run of this repo, and saying so here beats a 404 three steps later.
+          # API call. Validate the complete source identity before looking for
+          # an artifact: a tests.yml run can be a perfectly readable Actions
+          # run while still being the wrong dist. Saying that here beats a
+          # misleading "no artifact" three steps later.
+          PINNED_RUN_JSON="$WORK/pinned-run.json"
           if ! gh api "repos/$GH_REPO/actions/runs/$PINNED" \
-                 --jq '[(.id|tostring), .created_at, .head_sha] | @tsv' \
-               > "$CANDS"; then
+               > "$PINNED_RUN_JSON"; then
             echo "::error::Run $PINNED does not exist in $GH_REPO (or the token cannot read it)."
             exit 1
           fi
+          if ! jq -e 'type == "object"' "$PINNED_RUN_JSON" >/dev/null 2>&1; then
+            echo "::error::GitHub returned an unreadable response for pinned run $PINNED; refusing to inspect an unknown source."
+            exit 1
+          fi
+          if ! jq -e --arg pinned "$PINNED" '
+                ((.id // "") | tostring) == $pinned
+                and .name == "Deploy to GitHub Pages"
+                and .path == ".github/workflows/deploy.yml"
+                and .head_branch == "main"
+                and (.event == "push" or .event == "workflow_dispatch")
+                and .status == "completed"
+                and .conclusion == "success"
+              ' "$PINNED_RUN_JSON" >/dev/null 2>&1; then
+            PINNED_META=$(jq -r '[
+              (.name // "(missing)"),
+              (.path // "(missing)"),
+              (.head_branch // "(missing)"),
+              (.event // "(missing)"),
+              (.status // "(missing)"),
+              (.conclusion // "(missing)")
+            ] | @tsv' "$PINNED_RUN_JSON")
+            IFS=$'\t' read -r PINNED_NAME PINNED_PATH PINNED_BRANCH PINNED_EVENT PINNED_STATUS PINNED_CONCLUSION <<< "$PINNED_META"
+            echo "::error::Pinned run $PINNED is not a successful deploy.yml run on main (name=$PINNED_NAME, path=$PINNED_PATH, branch=$PINNED_BRANCH, event=$PINNED_EVENT, status=$PINNED_STATUS, conclusion=$PINNED_CONCLUSION). Pass a deploy.yml run ID or leave run-id empty to walk back automatically."
+            exit 1
+          fi
+          jq -r '[(.id|tostring), .created_at, .head_sha] | @tsv' "$PINNED_RUN_JSON" > "$CANDS"
           echo "Operator-pinned deploy run: $(cat "$CANDS")"
         else
           page=1

@@ -155,6 +155,20 @@ describe('related-search cluster floor probe', () => {
     expect(isClusterBelowFloor(enriched!, ENRICHED['it::ricerca-ghost-lugano'])).toBe(false);
     expect(isClusterBelowFloor(bridge!, undefined)).toBe(true);
   });
+
+  it('keeps exact shard metadata while releasing foreign-locale job rows', () => {
+    const candidate = CANDIDATES[1];
+    const full = buildClusterContext(candidate, new TokenIndex(JOBS), JOBS)!;
+    const compact = buildClusterContext(candidate, new TokenIndex(JOBS), JOBS, {
+      retainMatchingJobs: false,
+    })!;
+
+    expect(compact.matchingJobs).toEqual([]);
+    expect(compact.matchingJobCount).toBe(full.matchingJobs.length);
+    expect(compact.legacyCantonGroup).toBe(full.legacyCantonGroup);
+    expect(compact.keyword).toBe(full.keyword);
+    expect(isClusterBelowFloor(compact, undefined)).toBe(isClusterBelowFloor(full, undefined));
+  });
 });
 
 describe('TokenIndex floor probe API', () => {

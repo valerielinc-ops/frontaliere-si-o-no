@@ -61,9 +61,16 @@
     {
       "key": "reviewer-finding/fp:github-github-github-github",
       "outcome": "declined",
-      "decidedAt": "2026-10-01T11:46:17Z",
-      "ref": "#10596, #9970, #8862",
-      "reason": "Fingerprint catch-all basato sui path `.github`: gli esempi sono difetti eterogenei (heredoc shell, flag npm e contratto producer/consumer), quindi non sostengono una regola unica."
+      "decidedAt": "2026-10-16T10:02:28Z",
+      "ref": "#13449, #11631, #11108",
+      "reason": "Fingerprint catch-all basato sui path `.github`: retry con side effect, propagazione errori e duplicati di path sono difetti eterogenei, quindi non sostengono una regola preventiva unica."
+    },
+    {
+      "key": "reviewer-finding/fp:packages-packages-packages-packages",
+      "outcome": "added",
+      "decidedAt": "2026-10-16T10:02:28Z",
+      "ref": "#13452, #12351, #11274",
+      "reason": "Aggiunta in AGENTS.md una verifica source/consumer per il corpus articolo: campi plain-text completi, niente placeholder/Markdown/vuoti, date valide e immagini pertinenti in tutte le localizzazioni."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",
@@ -75,9 +82,9 @@
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-funnel",
       "outcome": "declined",
-      "decidedAt": "2026-10-06T12:13:36Z",
-      "ref": "#11638, #11578, #11036",
-      "reason": "Catch-all basato su path `scripts/` e classe funnel: i nuovi finding coprono retry/status, rilevazione di meta-risposte e guardie di candidatura, senza una regola preventiva unica; AGENTS.md #6 resta sufficiente per i casi di dominio, contesto e sibling."
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14003, #12620, #12253",
+      "reason": "Catch-all eterogeneo già coperto da AGENTS.md #6: la scansione dei sibling e dei consumer funnel-critical è esplicita; non serve una seconda regola senza classe comune più precisa."
     },
     {
       "key": "reviewer-finding/fp:scripts-correctness-treats-every",
@@ -117,9 +124,58 @@
     {
       "key": "reviewer-finding/fp:scripts-correctness-treats-any",
       "outcome": "declined",
-      "decidedAt": "2026-10-09T11:59:57Z",
-      "ref": "#12413, #11718, #11713",
-      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non classificano ogni URL, elemento DOM o substring come prova, ma validano dominio/contesto e gestiscono unknown, ambigui e vicino non-target."
+      "decidedAt": "2026-10-18T09:47:17Z",
+      "ref": "#13670, #13411, #13229",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard non trattano campi parziali, regex o heading come prova senza validare dominio/contesto e gestire unknown, ambigui e vicino non-target."
+    },
+    {
+      "key": "reviewer-finding/fp:body-contract-body-claims",
+      "outcome": "added",
+      "decidedAt": "2026-10-19T11:00:31Z",
+      "ref": "#13858, #12188, #12098",
+      "reason": "Aggiunta in REVIEW.md al punto sui claim perf/optimization: baseline, popolazione, fase e confronto dell'evidenza devono coincidere con il claim; un delta parziale o post-merge non prova un risultato piu' ampio."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:evidence-only",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14109, #13965, #13823, #13820, #13818",
+      "reason": "Clausola in ISSUES.md: FIX_OUTCOME resta riservato al terminale issue-fix; note manuali di sola evidenza non devono inventare esiti che il drainer interpreta come telemetria."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-does-not",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14122, #13300, #13151",
+      "reason": "AGENTS.md #6 richiede di verificare le rappresentazioni reali al confine parser/guard (case, Unicode, prefissi e header duplicati) e imporre l'invariante dopo normalizzazione."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:pr-updated",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#14111, #14063, #13743",
+      "reason": "Clausola in ISSUES.md: l'aggiornamento di una PR è progresso di riconciliazione, non un nuovo codice FIX_OUTCOME del fixer."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recurrence-after-fix",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#13822, #13600, #12130",
+      "reason": "Clausola in ISSUES.md: la verifica di una ricorrenza dopo una fix resta evidenza manuale e non può introdurre un codice FIX_OUTCOME non previsto."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recovery-observed",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#12669, #12001, #11916",
+      "reason": "Clausola in ISSUES.md: il recovery osservato è uno stato di riconciliazione, non un esito terminale dell'issue-fix."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:recovery-pending",
+      "outcome": "added",
+      "decidedAt": "2026-10-20T10:17:13Z",
+      "ref": "#9608, #9247, #9179",
+      "reason": "Clausola in ISSUES.md: recovery pending va documentato come evidenza in attesa, senza un marker FIX_OUTCOME inventato."
     }
   ]
 }

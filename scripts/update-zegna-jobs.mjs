@@ -50,6 +50,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { extractJobPostingNodes } from './lib/jobposting-jsonld.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -213,25 +214,22 @@ export function parseJobDetail(html = '', url = '') {
   const result = { title: '', location: '', city: '', region: '', brand: '', contractType: '', jobFunction: '', description: '' };
 
   // --- JSON-LD extraction (most reliable) ---
-  const jsonLdMatch = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i);
-  if (jsonLdMatch) {
-    try {
-      const ld = JSON.parse(jsonLdMatch[1]);
-      if (ld['@type'] === 'JobPosting') {
-        result.title = ld.title || '';
-        result.description = normalizeSpace(
-          (ld.description || '')
-            .replace(/\\r\\n|\\r|\\n/g, '\n')
-            .replace(/\r\n|\r|\n/g, '\n')
-            .replace(/\n{3,}/g, '\n\n')
-            .trim()
-        );
-        const loc = ld.jobLocation?.address || {};
-        result.city = loc.addressLocality || '';
-        result.region = loc.addressRegion || '';
-        result.location = [loc.addressCountry, loc.addressRegion, loc.addressLocality].filter(Boolean).join('/');
-      }
-    } catch { /* ignore JSON parse errors */ }
+  const [ld] = extractJobPostingNodes(html);
+  if (ld) {
+    result.title = ld.title || '';
+    result.description = normalizeSpace(
+      (ld.description || '')
+        .replace(/\\r\\n|\\r|\\n/g, '\n')
+        .replace(/\r\n|\r|\n/g, '\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+    );
+    const loc = ld.jobLocation?.address || {};
+    result.city = loc.addressLocality || '';
+    result.region = loc.addressRegion || '';
+    result.location = [loc.addressCountry, loc.addressRegion, loc.addressLocality]
+      .filter(Boolean)
+      .join('/');
   }
 
   // --- HTML table extraction for metadata ---
@@ -353,6 +351,7 @@ export async function fetchZegnaJobs() {
 
     if (!detailHtml) {
       console.warn(`  ⚠️ Failed to fetch detail for JobID ${link.jobId}`);
+      await delay(500);
       continue;
     }
 
@@ -363,6 +362,7 @@ export async function fetchZegnaJobs() {
     const canton = detectCanton(city, detail.region, detail.location);
     if (!city || !canton || !isZegnaSwissLocation(detail)) {
       console.log(`     ↳ Skipping (missing or non-Swiss source location): ${title} — ${detail.location || city || 'unknown location'}`);
+      await delay(500);
       continue;
     }
     const slug = slugify(title, 'zegna');

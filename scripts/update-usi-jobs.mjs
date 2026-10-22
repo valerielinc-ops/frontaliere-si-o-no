@@ -33,7 +33,15 @@ import { realpathSync } from 'node:fs';
 import { sourcePostingDateFields } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import {
+  exitCrawlerOnError,
+  fetchHtml,
+  isConnectionLevelFetchError,
+} from './lib/crawler-template.mjs';
+import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
+import { WAF_IP_BLOCK_STATUS, isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
+import { launchChromium } from './lib/ensure-chromium.mjs';
+import { looksLikeAntiBotChallenge } from './lib/jina-proxy.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
@@ -87,6 +95,26 @@ const LISTING_URL_EN = 'https://www.usi.ch/en/university/work-with-us/job-opport
 
 const USI_COMPANY_NAME = 'USI – Università della Svizzera italiana';
 const USI_COMPANY_HOST = 'usi.ch';
+
+// The USI listing returns an anti-bot response to the identifiable crawler UA
+// used by the old runner. Keep the source-specific transport fingerprint
+// browser-like; the generic JOBS_CRAWLER_USER_AGENT deliberately remains the
+// default for other sources.
+const USI_BROWSER_USER_AGENT =
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36';
+const USI_BROWSER_HEADERS = {
+  Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'Accept-Language': 'it-CH,it;q=0.9,en-CH;q=0.8,en;q=0.7',
+  'Upgrade-Insecure-Requests': '1',
+  'Sec-Fetch-Dest': 'document',
+  'Sec-Fetch-Mode': 'navigate',
+  'Sec-Fetch-Site': 'none',
+  'Sec-Fetch-User': '?1',
+  'User-Agent': process.env.JOBS_USI_USER_AGENT || USI_BROWSER_USER_AGENT,
+};
+const USI_BROWSER_EXTRA_HEADERS = Object.fromEntries(
+  Object.entries(USI_BROWSER_HEADERS).filter(([name]) => name !== 'User-Agent'),
+);
 
 /**
  * USI campuses and their cities.
@@ -302,38 +330,195 @@ function pdfFilenameId(pdfUrl = '') {
 // HTML fetching
 // ──────────────────────────────────────────────────────────────
 
-/**
- * Fetch a single URL with timeout and User-Agent header.
- * Returns the response body as text, or null on failure.
- */
-async function fetchPage(url, timeoutMs = 15000) {
-  // clearTimeout in `finally` (after the body read), NOT right after fetch():
-  // the abort timer must stay armed while `res.text()` streams the body, else
-  // a server that sends headers then stalls the body hangs the crawler forever
-  // (same class as the Google-News-decoder hang, PR #4118 / review sibling).
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+function isUsiListingUrl(url = '') {
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase();
+    const trustedHost = host === USI_COMPANY_HOST || host.endsWith(`.${USI_COMPANY_HOST}`);
+    return trustedHost && (
+      parsed.pathname === new URL(LISTING_URL_IT).pathname ||
+      parsed.pathname === new URL(LISTING_URL_EN).pathname
+    );
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * A browser rescue must prove that it received the USI document, not another
+ * 200 challenge page. The marker is present even when the listing is empty, so
+ * this check does not turn a legitimate empty source into a parser failure.
+ */
+export function looksLikeUsiListingHtml(html = '') {
+  return /concorsi e (?:le )?offerte di lavoro|Job opportunities/i.test(String(html || ''));
+}
+
+/**
+ * Last-resort fetch for a WAF response that survived the shared Jina rescue.
+ * Chromium is lazy and self-healing; normal runs pay no browser startup cost.
+ */
+export async function fetchUsiPageViaBrowser(url, timeoutMs, {
+  launchBrowser = launchChromium,
+  attempts = 3,
+  sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+} = {}) {
+  let browser;
+  try {
+    browser = await launchBrowser({
+      headless: true,
+      args: ['--disable-blink-features=AutomationControlled'],
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
+    const context = await browser.newContext({
+      userAgent: USI_BROWSER_HEADERS['User-Agent'],
+      viewport: { width: 1280, height: 720 },
+      locale: 'it-CH',
+      timezoneId: 'Europe/Zurich',
+      extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
+    });
+    if (typeof context.addInitScript === 'function') {
+      await context.addInitScript(() => {
+        Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+        Object.defineProperty(navigator, 'languages', { get: () => ['it-CH', 'it', 'en'] });
+      });
     }
-    return await res.text();
-  } catch (err) {
-    console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
+
+    let lastReason = 'unknown browser failure';
+    for (let attempt = 1; attempt <= attempts; attempt += 1) {
+      const page = await context.newPage();
+      try {
+        const response = await page.goto(url, {
+          waitUntil: 'domcontentloaded',
+          timeout: Math.max(timeoutMs, 45000),
+        });
+        // A WAF challenge may return HTTP 403 and only replace its DOM after
+        // the browser check runs. Always give that check a bounded settle
+        // window, including when the initial body has no known marker.
+        if (typeof page.waitForTimeout === 'function') {
+          await page.waitForTimeout(attempt === 1 ? 2500 : 4500);
+        }
+        const title = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
+        const bodyText = typeof page.locator === 'function'
+          ? await page.locator('body').textContent().catch(() => '')
+          : '';
+        const html = await page.content();
+        const challenged = looksLikeAntiBotChallenge(`${title}\n${bodyText}\n${html}`);
+        const verified = !isUsiListingUrl(url) || looksLikeUsiListingHtml(html);
+
+        // Do not accept a 200/403 interstitial as a real source page. A
+        // fresh navigation on the same context preserves any clearance cookie
+        // while giving the WAF another bounded opportunity to settle.
+        if (!challenged && verified) {
+          if (!response || (typeof response.ok === 'function' && !response.ok())) {
+            console.warn(`ℹ️ USI browser fallback verified the listing DOM after HTTP ${response?.status?.() ?? 'no response'}`);
+          }
+          return html;
+        }
+
+        lastReason = challenged
+          ? `HTTP ${response?.status?.() ?? 'no response'} with browser challenge marker`
+          : 'browser response did not contain the verified USI listing marker';
+      } catch (error) {
+        lastReason = error?.message || String(error);
+      } finally {
+        if (typeof page.close === 'function') await page.close().catch(() => {});
+      }
+
+      if (attempt < attempts) await sleepImpl(2500 * attempt);
+    }
+
+    console.warn(`⚠️ USI browser fallback exhausted for ${url} (${lastReason}).`);
+    return null;
+  } catch (error) {
+    console.warn(`⚠️ USI browser fallback failed for ${url}: ${error?.message || error}`);
     return null;
   } finally {
-    clearTimeout(timer);
+    if (browser) await browser.close().catch(() => {});
   }
+}
+
+function isUsiTransportFailure(error) {
+  const status = Number.isFinite(Number(error?.status)) ? Number(error.status) : null;
+  return isConnectionLevelFetchError(error) || (status !== null && WAF_IP_BLOCK_STATUS.has(status));
+}
+
+function usiAntiBotChallengeError(url) {
+  const error = new Error(`USI listing returned an anti-bot challenge: ${url}`);
+  // Keep the health receipt in the same explicit anti-bot bucket as a WAF 403.
+  error.status = 403;
+  error.antiBotChallenge = true;
+  return error;
+}
+
+/**
+ * Fetch a single URL through the shared crawler transport.
+ *
+ * The shared helper owns bounded retries and the clean-egress fallback. The
+ * previous bespoke fetch swallowed both transport errors and HTTP failures as
+ * `null`, which made the zero-job branch indistinguishable from a selector
+ * miss and left the summary guard without a cause.
+ */
+export async function fetchPage(url, timeoutMs = 15000, {
+  fetchHtmlImpl = fetchHtml,
+  browserFetchImpl = fetchUsiPageViaBrowser,
+} = {}) {
+  const requiresListingDocument = isUsiListingUrl(url);
+  const isVerifiedResponse = (candidate) => Boolean(candidate)
+    && (!requiresListingDocument || looksLikeUsiListingHtml(candidate));
+  const fetchVerifiedBrowserRescue = async () => {
+    const browserHtml = await browserFetchImpl(url, timeoutMs);
+    return isVerifiedResponse(browserHtml) ? browserHtml : null;
+  };
+
+  let html;
+  try {
+    html = await fetchHtmlImpl(url, {
+      timeoutMs,
+      headers: USI_BROWSER_HEADERS,
+    });
+  } catch (error) {
+    if (!isUsiTransportFailure(error)) throw error;
+    const browserHtml = await fetchVerifiedBrowserRescue();
+    if (browserHtml) return browserHtml;
+    throw error;
+  }
+
+  // fetchHtml can preserve either a known 200 challenge or an unverified 200
+  // page. Escalate both shapes for listing URLs instead of handing the parser
+  // an HTML page that looks like a selector miss.
+  if (looksLikeAntiBotChallenge(html) || !isVerifiedResponse(html)) {
+    const browserHtml = await fetchVerifiedBrowserRescue();
+    if (browserHtml) return browserHtml;
+    throw usiAntiBotChallengeError(url);
+  }
+  return html;
+}
+
+/**
+ * Keep an empty USI receipt honest about the layer that failed.
+ *
+ * @param {unknown} error
+ * @returns {{lastFetchOutcome: string, abortKind: string}}
+ */
+export function classifyUsiFetchError(error) {
+  const status = Number.isFinite(Number(error?.status)) ? Number(error.status) : null;
+  const lastFetchOutcome = status !== null && WAF_IP_BLOCK_STATUS.has(status)
+    ? 'anti_bot_block'
+    : error?.emptyResponse === true
+      ? 'feed_endpoint_unavailable'
+    : isConnectionLevelFetchError(error)
+      ? 'connection_error'
+      : isRetryBudgetExhausted(error)
+        ? 'exhausted_retry'
+        : status !== null
+          ? 'feed_endpoint_unavailable'
+          : 'connection_error';
+
+  return {
+    lastFetchOutcome,
+    abortKind: CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(lastFetchOutcome)
+      ? 'connection-level-fetch'
+      : 'no-jobs-parsed',
+  };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -610,14 +795,35 @@ function matchEnglishJobs(itJobs, enJobs) {
  * Fetch both IT and EN listing pages and extract all unique jobs.
  * Returns an array of merged job objects with both locale titles.
  */
-export async function fetchUsiJobs() {
+function recordUsiFetchFailure(counts, error) {
+  const classification = classifyUsiFetchError(error);
+  if (counts) {
+    Object.assign(counts, {
+      discovered: 0,
+      parsed: 0,
+      ...classification,
+    });
+  }
+  return classification;
+}
+
+export async function fetchUsiJobs(counts = null) {
   console.log('🔍 Fetching USI job listings from Drupal page...');
 
   // Fetch Italian page (primary source)
   console.log(`  📄 Fetching IT page: ${LISTING_URL_IT}`);
-  const htmlIt = await fetchPage(LISTING_URL_IT, 20000);
+  let htmlIt;
+  try {
+    htmlIt = await fetchPage(LISTING_URL_IT, 20000);
+  } catch (error) {
+    // fetch-failure-empty-ok: recordUsiFetchFailure classifies the error before main keeps the stored slice and exits.
+    const { lastFetchOutcome } = recordUsiFetchFailure(counts, error);
+    console.error(`❌ Failed to fetch USI Italian listing page (${lastFetchOutcome}): ${error?.message || error}`);
+    return [];
+  }
   if (!htmlIt) {
-    console.error('❌ Failed to fetch USI Italian listing page.');
+    const { lastFetchOutcome } = recordUsiFetchFailure(counts, { emptyResponse: true });
+    console.error(`❌ Failed to fetch USI Italian listing page (${lastFetchOutcome}).`);
     return [];
   }
 
@@ -626,14 +832,23 @@ export async function fetchUsiJobs() {
 
   // Fetch English page for cross-referencing titles
   console.log(`  📄 Fetching EN page: ${LISTING_URL_EN}`);
-  const htmlEn = await fetchPage(LISTING_URL_EN, 20000);
+  let htmlEn = null;
+  let enFetchFailed = false;
+  try {
+    htmlEn = await fetchPage(LISTING_URL_EN, 20000);
+  } catch (error) {
+    enFetchFailed = true;
+    console.warn(`  ⚠️ Failed to fetch EN page (${error?.message || error}) — will use AI localization for English titles.`);
+  }
   let enJobs = [];
   if (htmlEn) {
     enJobs = parseJobBlocks(htmlEn, 'en');
     console.log(`  ✅ EN page: ${enJobs.length} job blocks parsed`);
-  } else {
+  } else if (!enFetchFailed) {
     console.warn('  ⚠️ Failed to fetch EN page — will use AI localization for English titles.');
   }
+
+  if (counts) counts.discovered = itJobs.length + enJobs.length;
 
   // Match EN jobs to IT jobs
   const enMatches = matchEnglishJobs(itJobs, enJobs);
@@ -664,7 +879,12 @@ export async function fetchUsiJobs() {
     // full job body instead of an empty description.
     let externalContent = { title: '', body: '' };
     if (itJob.externalUrl && !itJob.pdfUrl) {
-      const detailHtml = await fetchPage(itJob.externalUrl, 15000);
+      let detailHtml = null;
+      try {
+        detailHtml = await fetchPage(itJob.externalUrl, 15000);
+      } catch (error) {
+        console.warn(`  ⚠️ Failed to fetch USI detail page ${itJob.externalUrl}: ${error?.message || error}`);
+      }
       if (detailHtml) {
         externalContent = extractIrsolDetailPage(detailHtml);
         if (externalContent.title) {
@@ -791,6 +1011,11 @@ export async function fetchUsiJobs() {
     jobs.push(job);
   }
 
+  if (counts) {
+    counts.parsed = jobs.length;
+    counts.lastFetchOutcome = jobs.length > 0 ? 'ok' : 'selector_miss';
+    counts.abortKind = jobs.length > 0 ? null : 'no-jobs-parsed';
+  }
   console.log(`\n📋 Total unique USI jobs discovered: ${jobs.length}`);
   return jobs;
 }
@@ -1283,15 +1508,23 @@ function cleanStoredJobsOnSoftExit() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(USI_KEY, 'USI');
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(USI_KEY, 'USI', counts);
   console.log('🎓 Running dedicated USI – Università della Svizzera italiana jobs crawler...');
   console.log(`   IT page: ${LISTING_URL_IT}`);
   console.log(`   EN page: ${LISTING_URL_EN}\n`);
 
   // 1. Fetch and parse job listings from both IT and EN pages
-  const discoveredJobs = await fetchUsiJobs();
+  const discoveredJobs = await fetchUsiJobs(counts);
 
   if (discoveredJobs.length === 0) {
+    // A zero without a classified fetch/parser outcome is never a proven
+    // empty source: keep the old slice and make the exit guard name the
+    // fail-closed parser bail-out instead of emitting `abortKind: null`.
+    if (!counts.lastFetchOutcome) {
+      counts.lastFetchOutcome = 'selector_miss';
+      counts.abortKind = 'no-jobs-parsed';
+    }
     console.log('⚠️ No USI jobs discovered from the listing pages.');
     console.log('   The careers page may have changed structure or be temporarily unavailable.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
@@ -1347,6 +1580,10 @@ async function main() {
     label: 'USI',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome || 'ok',
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,

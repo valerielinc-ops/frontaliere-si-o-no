@@ -1216,6 +1216,10 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           exec_timeout_minutes: "25"
+          # Il modello deve consegnare anche le diagnosi terminali senza push:
+          # lo step zero-Claude le pubblica prima del classificatore, così un
+          # rosso ereditato non diventa un falso "non-progress silenzioso".
+          response_artifact: redcheck-response.md
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           # `github_token` alimenta gli helper provider-neutral di quota/delivery;
           # usa la stessa identità write-capable del push, ma non è il bridge Codex.
@@ -1265,6 +1269,12 @@ jobs:
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
             - Rilancia il test dopo il fix, e verifica che sia verde, prima di committare.
 
+            **Risposta del round (obbligatoria, anche senza commit):** prima del push, oppure prima di terminare senza commit, scrivi `$RUNNER_TEMP/redcheck-response.md` con una spiegazione concisa del risultato. Usa una riga per il check rosso:
+            - `inherited: <prova che lo stesso failure è su main e perché la PR non è la causa>` se il rosso è ereditato;
+            - `fixed: <cosa hai cambiato>. Verifica: <test/comando> → <esito>` se hai preparato un fix;
+            - `not-fixable: <motivo concreto>` se non è riparabile con confidenza.
+            Lo step deterministico successivo pubblica quel file come commento sulla PR; non affidarti a un commento scritto direttamente dal modello per consegnare questa risposta al classificatore.
+
             **Chiusura:**
             - Commit con l'identity già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional.
             - Ogni commit porta il trailer `Fixer: redcheck-round-${{ steps.guard.outputs.round }}` (`git commit -m "<messaggio>" --trailer "Fixer: redcheck-round-${{ steps.guard.outputs.round }}"`): l'identity e' la stessa degli agenti locali e il trailer e' l'unico modo di distinguere i tuoi push.
@@ -1273,12 +1283,51 @@ jobs:
 
             **Constraint:**
             - SOLO il check rosso. Non rifare la PR, non drive-by, non "già che ci sono".
-            - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → commenta «❌ check non auto-fixabile: <motivo>» e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
+            - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → scrivi `not-fixable: <motivo>` nella risposta per il round e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
             - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
       - name: Cleanup Firebase credentials
         if: always()
         run: rm -f /tmp/firebase-sa.json
+
+      # La risposta del modello viene esportata dalla action in un file
+      # dichiarato e pubblicata qui con il trusted gh. Il classificatore sotto
+      # richiede una nuova traccia quando non c'è un push: senza questo handoff
+      # un verdetto corretto (per esempio "rosso ereditato") appare come
+      # "non-progress silenzioso" e mantiene il job rosso.
+      - name: Publish the redcheck response (zero-Claude)
+        id: response
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.ctx.outcome == 'success' && steps.diff_context.outcome == 'success' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+          FAILED_RUN_ID: ${{ needs.preflight.outputs.failed_run_id }}
+        run: |
+          set -uo pipefail
+          response="$RUNNER_TEMP/redcheck-response.md"
+          if [ ! -s "$response" ]; then
+            echo "Nessuna risposta del round scritta dal fixer."
+            echo "published=none" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          comment="$RUNNER_TEMP/redcheck-response-comment.md"
+          {
+            printf '<!-- REDCHECK_RESPONSE round=%s run=%s head=%s -->\n' "${FIX_ROUND:-?}" "${FAILED_RUN_ID:-?}" "${head_now:0:12}"
+            printf '## Risposta del ❌-check-fixer (round %s)\n\n' "${FIX_ROUND:-?}"
+            # Sotto il limite di 65.536 caratteri di un commento GitHub.
+            head -c 60000 "$response"
+            printf '\n'
+          } > "$comment"
+          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body-file "$comment"; then
+            echo "::error::Risposta del fixer non pubblicata: il classificatore non vedrà la diagnosi."
+            echo "published=failed" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo "published=yes" >> "$GITHUB_OUTPUT"
 
       # Colore del job = LAVORO reale del round, non l'exit della CLI Claude.
       #  • head remota non verificabile (fetch fallito o head cambiata fra le

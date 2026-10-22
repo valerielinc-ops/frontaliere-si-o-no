@@ -3,6 +3,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { writeMopupSlice } from '../scripts/local-mt-mopup.mjs';
+import { _resetDenylistCache } from '../scripts/lib/slug-preservation-guard.mjs';
 
 describe('local-mt-mopup slice persistence', () => {
   it('uses the shared writer boundary to preserve slugs while updating translations', () => {
@@ -11,6 +12,8 @@ describe('local-mt-mopup slice persistence', () => {
       const sliceDir = join(root, 'data/jobs/by-crawler');
       const slicePath = join(sliceDir, 'acme.json');
       mkdirSync(sliceDir, { recursive: true });
+      writeFileSync(join(root, 'data/prev-slug-restore-denylist.json'), '{"entries":[]}\n');
+      _resetDenylistCache();
       writeFileSync(slicePath, `${JSON.stringify({
         crawlerKey: 'acme',
         jobs: [{
@@ -42,6 +45,7 @@ describe('local-mt-mopup slice persistence', () => {
       expect(written.jobs[0].previousSlugsByLocale.it).toContain('old-italian-route');
       expect(written.jobs[0].previousSlugsByLocale.en).toContain('old-english-route');
     } finally {
+      _resetDenylistCache();
       rmSync(root, { recursive: true, force: true });
     }
   });

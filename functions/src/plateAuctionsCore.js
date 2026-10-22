@@ -143,21 +143,38 @@ const CARD_AUCTION_LINK_RE = /<a\b[^>]*\bhref\s*=\s*["'][^"']*\/auction\/[^"']*[
  * True only for the card platform's own complete page with no current cards.
  *
  * The shared card platform returns the normal catalogue shell after a daily
- * auction closes, but with no `auction-element-link` cards. Treating every
- * empty card parse as healthy would hide parser drift, so require the stable
- * shell and reject any auction link that the current parser did not consume.
- * The source page is German for all card connectors and exposes these labels
- * in the catalogue shell even when the current list is empty.
+ * auction closes, but with no `auction-element-link` cards. It has two
+ * observed empty-state headings: the older `Auktion von ...` shell and the
+ * newer `Keine Ergebnisse für Ihre Suche.` variant. Treating every empty card
+ * parse as healthy would hide parser drift, so require either exact heading
+ * plus the stable shell and reject any auction link that the current parser
+ * did not consume. The source page is German for all card connectors and
+ * exposes these labels in the catalogue shell even when the current list is
+ * empty.
  */
 export function isCardCatalogueExplicitlyEmpty(html) {
   const source = String(html || '');
-  if (!source || !hasHtmlClass(source, 'auction-grid') || !hasHtmlClass(source, 'auctions')) return false;
+  if (!source) return false;
   if (CARD_AUCTION_LINK_RE.test(source)) return false;
   const text = htmlText(source);
-  return /Auktion\s+von\s*(?:\.\.\.|…)/i.test(text)
-    && /Herzlich\s+willkommen/i.test(text)
-    && /Kontrollschild/i.test(text)
-    && /Suchen/i.test(text);
+  const hasSearchControls = (
+    (/Kontrollschild(?:typ)?/i.test(text) && /Suchen/i.test(text))
+    || (/Type\s+de\s+plaques/i.test(text) && /Rechercher/i.test(text))
+  );
+  if (!hasSearchControls) return false;
+
+  // Between two rounds the card platform can render its no-results state
+  // without the `auction-grid`/`auctions` containers. The exact German
+  // marker, together with the platform's search controls and no auction
+  // link, is an explicit empty catalogue — not a generic empty parse.
+  const hasNoResultsMarker = /Keine\s+Ergebnisse\s+f(?:ü|&uuml;)r\s+Ihre\s+Suche\.?/i.test(text)
+    || /Votre\s+recherche\s+n(?:['’]|&#39;|&apos;)a\s+donn(?:é|&eacute;|&#233;)\s+aucun\s+r(?:é|&eacute;|&#233;)sultat\.?/i.test(text);
+  if (hasNoResultsMarker) return true;
+
+  return hasHtmlClass(source, 'auction-grid')
+    && hasHtmlClass(source, 'auctions')
+    && /Auktion\s+von\s*(?:\.\.\.|…)/i.test(text)
+    && /Herzlich\s+willkommen/i.test(text);
 }
 
 /**
@@ -440,7 +457,44 @@ export function parseUrFixedPricePdfText(value, {
   return rows;
 }
 
-/** Official indexes and machine-readable endpoints for the four structured
+/** Only the verified public eSchild envelope/vehicle pairs are accepted.
+ * A challenge page, schema drift or ambiguous identity must retain the previous
+ * snapshot, not become an empty catalogue or a guessed car/price.
+ */
+export function parseGlFixedPriceJson(value, { fetchedAt = new Date().toISOString() } = {}) {
+  if (!value || value.status !== true || !Array.isArray(value.data) || !Number.isFinite(Date.parse(fetchedAt))) {
+    throw new Error('Glarus: invalid public catalogue envelope or fetch timestamp');
+  }
+  const config = FIXED_PRICE_SOURCE_CONFIGS.gl;
+  const rows = [], ids = new Set(), identities = new Set();
+  for (const item of value.data) {
+    if (!item || !Number.isSafeInteger(item.id) || item.id < 1
+      || !Number.isSafeInteger(item.number) || item.number < 1
+      || typeof item.price !== 'number' || !Number.isFinite(item.price) || item.price < 0
+      || ![0, 1].includes(item.available) || ![0, 1].includes(item.deleted) || ![0, 1].includes(item.registered)
+      || !Object.hasOwn(item, 'reservationid')) {
+      throw new Error('Glarus: invalid public plate fields');
+    }
+    const vehicleType = item.typeid === 1 && item.platetype === 'car_long_plate' ? 'car'
+      : item.typeid === 3 && item.platetype === 'motorcycle_plate' ? 'motorcycle' : null;
+    if (!vehicleType) throw new Error('Glarus: unknown or conflicting vehicle type');
+    const identity = `${item.number}:${vehicleType}`;
+    if (ids.has(item.id) || identities.has(identity)) throw new Error('Glarus: duplicate plate identity');
+    ids.add(item.id);
+    identities.add(identity);
+    if (item.available !== 1 || item.deleted !== 0 || item.registered !== 0 || item.reservationid !== null) continue;
+    rows.push(fixedPriceRow({
+      canton: config.canton, plateCode: config.plateCode, plateNumber: String(item.number),
+      sourceRecordId: String(item.id), price: item.price, vehicleType,
+      officialUrl: config.officialUrl, officialDetailUrl: config.url, fetchedAt,
+      sourceCategory: 'fixed-price-api',
+      rawSnapshot: JSON.stringify({ id: item.id, number: item.number, price: item.price, typeid: item.typeid, platetype: item.platetype }),
+    }));
+  }
+  return value.data.length === 0 ? explicitlyEmptyCatalogue() : rows;
+}
+
+/** Official indexes and machine-readable endpoints for the structured
  * catalogues that were previously classified as "no public auction". */
 export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
   ai: {
@@ -490,6 +544,14 @@ export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
       },
     ],
     parserVersion: 'fixed-price-1.0.0',
+  },
+  gl: {
+    kind: 'json',
+    canton: 'Glarona',
+    plateCode: 'GL',
+    officialUrl: 'https://www.gl.ch/verwaltung/sicherheit-und-justiz/justiz/strassenverkehrsamt/strassenverkehr/kontrollschilder/wunschkontrollschilder.html/450',
+    url: 'https://eschild.gl.ch/api/v1/plate',
+    parserVersion: 'eschild-json-1.0.0',
   },
   lu: {
     kind: 'pdf',
@@ -687,7 +749,24 @@ export function parseZhAuctionCards(
   return withCardEmptyState(auctions, html);
 }
 
-function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemaining = 4 } = {}) {
+/**
+ * Official auction portals can briefly answer 404 during an upstream edge
+ * interruption. Retry that one status within the bounded fetch budget so a
+ * transient outage does not become a false source degradation; persistent
+ * endpoint drift still fails closed after the retries are exhausted.
+ */
+function isRetryableHttpStatus(status, { retryOn404 = true } = {}) {
+  return (retryOn404 && status === 404) || status === 408 || status === 425 || status === 429 || status >= 500;
+}
+
+function fetchHttpsText(url, {
+  timeoutMs,
+  userAgent,
+  ca,
+  accept,
+  retryOn404 = true,
+  redirectsRemaining = 4,
+} = {}) {
   return new Promise((resolve, reject) => {
     const request = https.request(url, {
       method: 'GET',
@@ -709,13 +788,14 @@ function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemain
             userAgent,
             ca,
             accept,
+            retryOn404,
             redirectsRemaining: redirectsRemaining - 1,
           }));
           return;
         }
         if (status < 200 || status >= 300) {
           const error = new Error(`HTTP ${status} from ${url}`);
-          error.retryable = status === 408 || status === 425 || status === 429 || status >= 500;
+          error.retryable = isRetryableHttpStatus(status, { retryOn404 });
           reject(error);
           return;
         }
@@ -732,7 +812,15 @@ function fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, redirectsRemain
   });
 }
 
-export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2, retryDelayMs = 750, ca, accept } = {}) {
+export async function fetchHtml(url, {
+  timeoutMs = 20000,
+  userAgent,
+  retries = 2,
+  retryDelayMs = 750,
+  ca,
+  accept,
+  retryOn404 = true,
+} = {}) {
   const maxRetries = Number.isInteger(retries) && retries >= 0 ? retries : 2;
   let lastError;
 
@@ -740,7 +828,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept });
+      if (ca) return await fetchHttpsText(url, { timeoutMs, userAgent, ca, accept, retryOn404 });
       const response = await fetch(url, {
         redirect: 'follow',
         headers: {
@@ -751,7 +839,7 @@ export async function fetchHtml(url, { timeoutMs = 20000, userAgent, retries = 2
       });
       if (!response.ok) {
         const error = new Error(`HTTP ${response.status} from ${url}`);
-        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        error.retryable = isRetryableHttpStatus(response.status, { retryOn404 });
         throw error;
       }
       return await response.text();
@@ -889,7 +977,7 @@ export async function fetchPdfText(url, {
       });
       if (!response.ok) {
         const error = new Error(`HTTP ${response.status} from ${url}`);
-        error.retryable = response.status === 408 || response.status === 425 || response.status === 429 || response.status >= 500;
+        error.retryable = isRetryableHttpStatus(response.status);
         throw error;
       }
       return await extractPdfText(await response.arrayBuffer());

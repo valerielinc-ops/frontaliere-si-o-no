@@ -1,0 +1,20 @@
+{
+  "companyKey": "rodtegg-ch",
+  "companyName": "die rodtegg",
+  "companyHost": "jobs.rodtegg.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.rodtegg.ch/jobs/praktikantin-heilpaedagogik/"
+  ],
+  "detailTemplate": "/jobs/praktikantin-heilpaedagogik/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Praktikant*in Heilpädagogik"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:24:55.702Z"
+}

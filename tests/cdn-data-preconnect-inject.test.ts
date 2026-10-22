@@ -186,6 +186,60 @@ describe('data/image CDN preconnect injection', () => {
     expect(hintAt).toBeGreaterThan(actualEnd);
   });
 
+  it('fails closed on a malformed template scan and preserves CDN-backed trees', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'cdn-preconnect-malformed-'));
+    tmpDirs.push(tmp);
+    const distDir = path.join(tmp, 'dist');
+    const ogDir = path.join(distDir, 'og', 'jobs');
+    const dataDir = path.join(distDir, 'data');
+    fs.mkdirSync(ogDir, { recursive: true });
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.writeFileSync(path.join(ogDir, 'card.webp'), 'x', 'utf8');
+    fs.writeFileSync(path.join(dataDir, 'payload.json'), '{}', 'utf8');
+
+    const malformed =
+      '<!doctype html><html><head><template><meta charset="utf-8"><title>fake</title>' +
+      '</head><body><h1>x</h1></body></html>';
+    fs.writeFileSync(path.join(distDir, 'malformed.html'), malformed, 'utf8');
+    fs.writeFileSync(path.join(distDir, 'valid.html'), BASE_HTML, 'utf8');
+
+    execFileSync('node', [SCRIPT], {
+      cwd: tmp,
+      env: { ...process.env, CDN_BASE },
+      stdio: 'pipe',
+    });
+
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).toBe(malformed);
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).not.toContain('__CDN_DATA_BASE__');
+    expect(fs.readFileSync(path.join(distDir, 'valid.html'), 'utf8')).toContain('__CDN_DATA_BASE__');
+    expect(fs.existsSync(ogDir)).toBe(true);
+    expect(fs.existsSync(path.join(dataDir, 'payload.json'))).toBe(true);
+  });
+
+  it.each(['textarea', 'title'])('fails closed when a literal </template> appears inside <%s>', (rawName) => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), `cdn-preconnect-malformed-${rawName}-`));
+    tmpDirs.push(tmp);
+    const distDir = path.join(tmp, 'dist');
+    const dataDir = path.join(distDir, 'data');
+    fs.mkdirSync(dataDir, { recursive: true });
+    fs.writeFileSync(path.join(dataDir, 'payload.json'), '{}', 'utf8');
+
+    const malformed =
+      `<!doctype html><html><head><template><${rawName}></template><meta charset="utf-8"></${rawName}></head>` +
+      '<body><h1>x</h1></body></html>';
+    fs.writeFileSync(path.join(distDir, 'malformed.html'), malformed, 'utf8');
+
+    execFileSync('node', [SCRIPT], {
+      cwd: tmp,
+      env: { ...process.env, CDN_BASE },
+      stdio: 'pipe',
+    });
+
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).toBe(malformed);
+    expect(fs.readFileSync(path.join(distDir, 'malformed.html'), 'utf8')).not.toContain('__CDN_DATA_BASE__');
+    expect(fs.existsSync(path.join(dataDir, 'payload.json'))).toBe(true);
+  });
+
   it('preserves source offsets around non-ASCII text before the charset tag', () => {
     const actualMeta = '<meta charset=utf-8>';
     const withUnicode = BASE_HTML.replace('<meta charset="utf-8">', `İ${actualMeta}`);

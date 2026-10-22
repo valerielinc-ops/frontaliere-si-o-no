@@ -46,7 +46,7 @@ const normalized = (text) => String(text || '').replace(/\s+/g, ' ').trim();
 
 const page = (title, body, script = '') => `<!doctype html><html lang="it"><head><meta charset="utf-8"><title>${title}</title></head><body>${body}<script>${script}</script></body></html>`;
 
-function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false } = {}) {
+function instagramPage({ confirm = true, afterShare = '', createMenu = true, fallbackCreate = false, rolelessCreateMenu = false, missingUpload = false, bareUpload = false, externalPost = false, reel = false, reelMenu = true, reelNextDelayMs = 0, confirmText = '', videoReelNotice = false, videoReelNoticeDelayMs = 0, uploadDialogDelayMs = 0, uploadDialogLoadingForever = false } = {}) {
   const menuItem = (id, label) => rolelessCreateMenu
     ? `<div id="${id}"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></div>`
     : `<a href="#" id="${id}" role="link"><span>${label}</span><svg aria-label="${label}" role="img"><title>${label}</title></svg></a>`;
@@ -60,7 +60,9 @@ function instagramPage({ confirm = true, afterShare = '', createMenu = true, fal
   const createMarkup = fallbackCreate
     ? '<button type="button" id="create" aria-label="Open composer"><svg aria-label="New post" role="img" width="24" height="24"></svg></button>'
     : '<a href="#" id="create" role="link">Crea</a>';
-  const uploadInput = missingUpload ? '' : `<input id="file" type="file" accept="${reel ? 'video/mp4,video/quicktime' : 'image/jpeg,image/png,image/heic'}" multiple style="display:none">`;
+  const uploadInput = missingUpload ? '' : bareUpload
+    ? '<input id="file" type="file" multiple style="display:none">'
+    : `<input id="file" type="file" accept="${reel ? 'video/mp4,video/quicktime' : 'image/jpeg,image/png,image/heic'}" multiple style="display:none">`;
   const dialogContent = `
   <h2>Crea nuovo post</h2>
   <div id="pick"><form enctype="multipart/form-data">${uploadInput}</form><button type="button">Seleziona dal computer</button></div>
@@ -175,6 +177,10 @@ function tiktokPage({
     // The POST answers 200 and the page stays where it is: no toast, no redirect.
     stay: '',
     toast: "document.body.insertAdjacentHTML('beforeend', '<div class=\"TUXTopToast\" role=\"alert\"><span>Your post has been published</span></div>');",
+    // A stale hidden alert can precede the live success toast in the real
+    // composer. The flow must inspect all matching surfaces, not only the
+    // first DOM match.
+    'stale-toast': "document.body.insertAdjacentHTML('beforeend', '<div role=\"alert\" hidden><span>Your post has been published</span></div><div class=\"TUXTopToast\" role=\"alert\"><span>Your post has been published</span></div>');",
   }[afterPost];
   return page('TikTok Studio', `
 <nav><a href="/tiktokstudio/content">Manage your posts</a><a href="/tiktokstudio/upload">Upload</a></nav>
@@ -311,6 +317,7 @@ function fakePlatforms() {
       case '/ig-svg-fallback/': return send(200, instagramPage({ createMenu: false, fallbackCreate: true }));
       case '/ig-roleless-create-menu/': return send(200, instagramPage({ rolelessCreateMenu: true, externalPost: true }));
       case '/ig-roleless-create-menu-no-upload/': return send(200, instagramPage({ rolelessCreateMenu: true, missingUpload: true, externalPost: true }));
+      case '/ig-bare-upload/': return send(200, instagramPage({ bareUpload: true }));
       case '/ig-reel-roleless-menu/': return send(200, instagramPage({ reel: true, rolelessCreateMenu: true, externalPost: true }));
       case '/ig-silent/': return send(200, instagramPage({ confirm: false }));
       case '/ig-challenge-after-share/': return send(200, instagramPage({ afterShare: '/challenge/' }));
@@ -343,6 +350,7 @@ function fakePlatforms() {
       case '/tt-captcha-after-post/tiktokstudio/upload': return send(200, tiktokPage({ captchaAfterPost: true }));
       case '/tt-silent/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stay' }));
       case '/tt-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'toast' }));
+      case '/tt-stale-toast/tiktokstudio/upload': return send(200, tiktokPage({ afterPost: 'stale-toast' }));
       case '/tt-cookie-config-no-action/tiktokstudio/upload': return send(200, tiktokPage({ cookieConfig: true, unrelatedBanner: true }));
       case '/tt-unsaved-draft/tiktokstudio/upload': return send(200, tiktokPage({ unsavedDraft: true }));
       case '/tt-late-cookie/tiktokstudio/upload': return send(200, tiktokPage({ lateCookieBanner: true }));
@@ -417,6 +425,10 @@ async function main() {
     check(r.error?.errorClass === 'selector-missing' && r.error?.step === 'upload', 'roleless Post recognition still fails closed when the upload input is missing');
     check(await tab.locator('#dialog').isVisible(), 'roleless Post opened its composer before the missing upload field was rejected');
     check(state.igShares.length === 0, 'missing-upload dry run never shares');
+
+    r = await run('instagram', `${base}/ig-bare-upload/`, { dryRun: true, label: 'ig-bare-upload' });
+    check(r.result?.status === 'dry-run', `a bare upload input without accept metadata remains usable (${r.error?.message || 'ok'})`);
+    check(state.igShares.length === 0, 'bare-upload dry run never shares');
 
     r = await run('instagram', `${base}/ig-reel-roleless-menu/`, { dryRun: true, label: 'ig-reel-roleless-menu', reel: true, flowTimeouts: { ...timeouts, optional: 100 } });
     check(r.result?.status === 'dry-run', `a roleless Reel menu opens the Reel composer (${r.error?.message || 'ok'})`);
@@ -533,6 +545,9 @@ async function main() {
     r = await run('tiktok', `${base}/tt-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-toast' });
     check(r.result?.status === 'published' && /has been published/i.test(r.result.evidence), `the success toast confirms without a redirect (${r.result?.evidence || r.error?.message})`);
 
+    r = await run('tiktok', `${base}/tt-stale-toast/tiktokstudio/upload`, { dryRun: false, label: 'tt-stale-toast' });
+    check(r.result?.status === 'published' && /has been published/i.test(r.result.evidence), `a visible success toast is found after a stale hidden alert (${r.result?.evidence || r.error?.message})`);
+
     r = await run('tiktok', `${base}/tt-late-cookie/tiktokstudio/upload`, { dryRun: false, label: 'tt-late-cookie' });
     check(r.result?.status === 'published', `a cookie banner shown at publish is dismissed and the retry publishes (${r.result?.evidence || r.error?.message})`);
     check(state.ttPosts.at(-1).cookieShownByHover === true && state.ttPosts.at(-1).cookieAction === 'decline' && state.ttPosts.at(-1).cookieAcceptClicks === 0, 'the late banner used only the optional-cookie rejection, never the accept-all action');
@@ -588,7 +603,10 @@ async function main() {
     const dispatched = [];
     const robot = (cliMode, rcMode, startUrl) => runRobot({
       cliMode, rcMode, platforms: ['instagram'], sleep: async () => {},
-      reader: { readQueue: () => ({ pending: [entry] }), readLedger: () => parseLedger('') },
+      reader: {
+        readQueue: () => ({ pending: [entry] }),
+        readLedger: () => parseLedger('{"schemaVersion":1,"posted":[]}'),
+      },
       journalStore: { load: () => journal, save: (j) => { journal = j; } },
       fetchImages: async () => files,
       diagnosticsFor: () => path.join(work, 'diagnostics', `robot-${cliMode}-${rcMode}`),

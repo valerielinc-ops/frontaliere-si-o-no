@@ -3,6 +3,7 @@ import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import WhatsNewModal, { WhatsNewBell, RELEASES, STORAGE_KEY, releaseLinkToRoute } from '@/components/community/WhatsNewModal';
 import { buildPath } from '@/services/router';
 import itCore from '@/services/locales/it-core';
+import { ensureLocaleLoaded, setLocale } from '@/services/i18n';
 
 const findReleaseItem = (version: string, titleKey: string) => {
   const release = RELEASES.find((item) => item.version === version);
@@ -49,10 +50,12 @@ describe('WhatsNewBell', () => {
 describe('WhatsNewModal', () => {
   beforeEach(() => {
     localStorage.clear();
+    setLocale('it');
   });
 
   afterEach(() => {
     cleanup();
+    setLocale('it');
   });
 
   const getReleaseLink = (version: string, titleKey: string) => {
@@ -62,6 +65,18 @@ describe('WhatsNewModal', () => {
     const label = `${itCore[titleKey]} — ${itCore['whatsNew.goTo']}`;
     return screen.getByRole('link', { name: label });
   };
+
+  it.each([
+    ['it', '/farmacie-di-turno/settimana/2026-09-14/'],
+    ['en', '/en/on-duty-pharmacies/week/2026-09-14/'],
+    ['de', '/de/notdienst-apotheken/woche/2026-09-14/'],
+    ['fr', '/fr/pharmacies-de-garde/semaine/2026-09-14/'],
+  ] as const)('keeps the dated pharmacy archive link in the selected locale (%s)', async (locale, href) => {
+    await ensureLocaleLoaded(locale);
+    setLocale(locale);
+    const { container } = render(<WhatsNewModal open={true} onClose={vi.fn()} />);
+    expect(container.querySelector('a[href*="/2026-09-14/"]')).toHaveAttribute('href', href);
+  });
 
   it('renders nothing when open=false', () => {
     const { container } = render(<WhatsNewModal open={false} onClose={vi.fn()} />);

@@ -21,6 +21,7 @@
 import { captureEvent as posthogCapture } from './posthog';
 import { isJobBoardSectorHubPath } from './analyticsPageContext';
 import { FUEL_SECTION_SLUG as SHARED_FUEL_SECTION_SLUG } from '../build-plugins/shared/fuelRouteSlugs.mjs';
+import { WEEKLY_EMPLOYERS_ROUTE_CONFIG } from '../build-plugins/shared/weeklyEmployersRoutes.mjs';
 
 // ─── Locale detection ──────────────────────────────────────────────────
 
@@ -63,12 +64,7 @@ const FUEL_DAILY_SECTIONS: readonly string[] = Object.values(
 ).flatMap((byFuel) => Object.values(byFuel));
 
 /** F5 — Weekly "aziende che assumono" per-city hub. */
-const WEEKLY_EMPLOYERS_SECTIONS: readonly string[] = [
-  'aziende-che-assumono',        // IT
-  'companies-hiring',            // EN
-  'unternehmen-einstellen',      // DE
-  'entreprises-recrutent',       // FR
-];
+const WEEKLY_EMPLOYERS_SECTIONS: readonly string[] = WEEKLY_EMPLOYERS_ROUTE_CONFIG.map(({ section }) => section);
 
 /** F4 — Weekly/monthly Ticino job-market snapshot. */
 const JOB_MARKET_SNAPSHOT_SECTIONS: readonly string[] = [

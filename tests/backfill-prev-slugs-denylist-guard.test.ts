@@ -41,15 +41,25 @@ const POISON = {
 };
 
 describe('loadRestoreDenylist', () => {
-  it('returns an empty set (guard off, no crash) when the file is missing', () => {
-    const set = loadRestoreDenylist('/nonexistent/prev-slug-restore-denylist.json');
-    expect(set.size).toBe(0);
+  it('fails closed when the required denylist is missing', () => {
+    expect(() => loadRestoreDenylist('/nonexistent/prev-slug-restore-denylist.json'))
+      .toThrow(/Cannot read previous-slug restore denylist/);
   });
 
   it('throws on a present-but-corrupt file instead of silently disabling the guard', () => {
     const f = writeTmpDenylist({});
     fs.writeFileSync(f, '{ not json');
-    expect(() => loadRestoreDenylist(f)).toThrow();
+    expect(() => loadRestoreDenylist(f)).toThrow(/Malformed previous-slug restore denylist/);
+  });
+
+  it.each([
+    ['missing entries', '{}'],
+    ['non-array entries', '{"entries":{}}'],
+    ['incomplete entry', '{"entries":[{"file":"ksa.json","slug":"old-slug"}]}'],
+  ])('rejects a present denylist with %s', (_label, contents) => {
+    const f = writeTmpDenylist({ entries: [] });
+    fs.writeFileSync(f, contents);
+    expect(() => loadRestoreDenylist(f)).toThrow(/Invalid previous-slug restore denylist shape/);
   });
 
   it('indexes entries by file+slug', () => {

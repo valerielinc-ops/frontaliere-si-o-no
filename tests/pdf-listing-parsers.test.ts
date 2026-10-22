@@ -35,9 +35,14 @@ describe('PDF-backed HTML listing parsers', () => {
     ]);
   });
 
-  it('extracts PDF URLs only from actual anchor href attributes', () => {
+  it('reads only actual anchor href attributes, not metadata text', () => {
     expect(extractPdfLinks(
-      '<div data-href="/wp-content/uploads/fake.pdf"></div><a href="/wp-content/uploads/real.pdf"></a>',
+      [
+        '<div data-href="/wp-content/uploads/fake.pdf"></div>',
+        '<a data-href="/wp-content/uploads/fake-data.pdf" aria-href="/wp-content/uploads/fake-aria.pdf"></a>',
+        '<a title="metadata href=\'/wp-content/uploads/fake-title.pdf\'"></a>',
+        '<a href="/wp-content/uploads/real.pdf"></a>',
+      ].join(''),
       'https://reha-andeer.ch/offene-stellen/',
     )).toEqual([
       {

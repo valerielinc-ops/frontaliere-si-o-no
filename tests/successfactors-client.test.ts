@@ -35,6 +35,28 @@ describe('SuccessFactors client', () => {
     expect(detectSuccessFactorsKind('https://jobdetails.nestle.com/job/Orbe-Test/123/')).toBe('html-jobreq');
   });
 
+  it('fails closed when the OData page limit ends on a full page', async () => {
+    const results = Array.from({ length: 100 }, (_, index) => ({
+      jobReqId: `req-${index}`,
+      jobTitle: 'Engineer',
+      location: 'Zurich, CH',
+    }));
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify({ d: { results } }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const collect = async () => {
+      const jobs = [];
+      for await (const job of fetchSuccessFactorsJobs(
+        'https://api4.successfactors.com/odata/v2/JobRequisitionLocale',
+        { maxPages: 1, minDelayMs: 0, company: 'Swiss Re' },
+      )) jobs.push(job);
+      return jobs;
+    };
+
+    await expect(collect()).rejects.toThrow(/incomplete OData snapshot.*maxPages=1 exhausted on a full page/);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
   it('paginates server-rendered jobs2web search pages with startrow', async () => {
     const fetchMock = vi
       .fn()
@@ -57,6 +79,65 @@ describe('SuccessFactors client', () => {
     ]);
     expect(fetchMock).toHaveBeenNthCalledWith(1, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland', expect.any(Object));
     expect(fetchMock).toHaveBeenNthCalledWith(2, 'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland&startrow=10', expect.any(Object));
+  });
+
+  it('follows the source canonical pagination link before synthesizing startrow', async () => {
+    const firstPage = `<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span><a href="/go/Switzerland/4715801/10/">2</a>${fullSearchPage(1101)}`;
+    const secondPage = `<span class="paginationLabel">Results <b>11 – 20</b> of <b>20</b></span>${fullSearchPage(1111)}`;
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(firstPage, { status: 200 }))
+      .mockResolvedValueOnce(new Response(secondPage, { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/?q=&locationsearch=Switzerland',
+      { maxPages: 2, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(20);
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      'https://jobdetails.nestle.com/go/Switzerland/4715801/10/',
+      expect.any(Object),
+    );
+  });
+
+  it('ignores detail links when selecting a canonical jobs2web listing page', async () => {
+    const firstPage =
+      '<span class="paginationLabel">Results <b>1 – 10</b> of <b>20</b></span>' +
+      '<a href="/go/Switzerland/job/10/">detail</a>' +
+      '<a href="/go/Switzerland/job/10/?startrow=20">detail with offset</a>' +
+      '<a href="/go/Switzerland/jobsearch/10/">2</a>' +
+      fullSearchPage(1201);
+    const secondPage = `<span class="paginationLabel">Results <b>11 – 20</b> of <b>20</b></span>${fullSearchPage(1211)}`;
+    const response = (html: string, url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      text: async () => html,
+    });
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(response(firstPage, 'https://jobdetails.nestle.com/go/Switzerland/jobsearch/0/'))
+      .mockResolvedValueOnce(response(secondPage, 'https://jobdetails.nestle.com/go/Switzerland/jobsearch/10/'));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = [];
+    for await (const job of fetchSuccessFactorsJobs(
+      'https://jobdetails.nestle.com/search/',
+      { maxPages: 2, minDelayMs: 0, company: 'Nestlé' },
+    )) {
+      jobs.push(job);
+    }
+
+    expect(jobs).toHaveLength(20);
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      'https://jobdetails.nestle.com/go/Switzerland/jobsearch/10/',
+      expect.any(Object),
+    );
   });
 
   // jobdetails.nestle.com (2026-09-29): "Results 1 – 10 of 110" for the Swiss
@@ -194,6 +275,25 @@ describe('SuccessFactors client', () => {
     }
 
     expect(jobs).toHaveLength(10);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it('fails closed when maxPages is exhausted on a full page without an end signal', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(fullSearchPage(12001), { status: 200 }))
+      .mockResolvedValueOnce(new Response(fullSearchPage(12011), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const collect = async () => {
+      const jobs = [];
+      for await (const job of fetchSuccessFactorsJobs(
+        'https://www.swissre.com/careers/jobSearch.html',
+        { maxPages: 2, minDelayMs: 0, company: 'Swiss Re' },
+      )) jobs.push(job);
+      return jobs;
+    };
+
+    await expect(collect()).rejects.toThrow(/maxPages=2 exhausted on a full page without a source end signal/);
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 

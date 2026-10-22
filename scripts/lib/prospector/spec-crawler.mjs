@@ -36,7 +36,7 @@ import {
 import { PROSPECTOR_DIR } from './config.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { WAF_IP_BLOCK_STATUS } from '../transient-fetch.mjs';
-import { CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
+import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from '../jina-proxy.mjs';
@@ -46,6 +46,11 @@ import {
   umantisVacancyIdentity,
 } from './umantis-detail.mjs';
 import { extractRuntimeDetailFields, listingEvidenceFields, runtimeDetailFallbackUrl } from './detail-extract.mjs';
+import {
+  rawDetailTitleEvidence,
+  selectPublishableTitle,
+  vacancyTitleFromDocumentTitle,
+} from './production-title.mjs';
 export { createPublicConnectionLookup, createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
@@ -138,7 +143,17 @@ async function tryBrowserRescue(url, runtime) {
   }
 }
 
-const SPEC_FETCH_METADATA_KEYS = ['fetchOutcome', 'discoveredCount', 'fetchDetail', 'detailDrop'];
+const SPEC_FETCH_METADATA_KEYS = [
+  'fetchOutcome',
+  'discoveredCount',
+  'fetchDetail',
+  'detailDrop',
+  'expectedFilterCount',
+  'expectedFilters',
+  'authoritativeEmptyState',
+  'observedDetailsByUrl',
+  'titleEvidenceByUrl',
+];
 
 /**
  * Keep a spec fetch verdict attached to the array without making it part of the
@@ -162,6 +177,26 @@ export function copySpecFetchMetadata(target, source) {
 }
 
 /**
+ * Mark a listing-stage failure so the shared crawler can write an explicit
+ * fail-closed receipt instead of letting the runner exit before the summary
+ * guard sees the crawler. The original error object is retained so transport
+ * classifiers (connection-level, retry budget, anti-bot) still run first in
+ * the standard template.
+ *
+ * @param {unknown} error
+ * @param {number} [discoveredCount]
+ * @returns {Error & { specListingFailure: true, specDiscoveredCount?: number }}
+ */
+function markSpecListingFailure(error, discoveredCount) {
+  const failure = error instanceof Error ? error : new Error(String(error));
+  Object.assign(failure, { specListingFailure: true });
+  if (Number.isInteger(discoveredCount)) {
+    Object.assign(failure, { specDiscoveredCount: discoveredCount });
+  }
+  return failure;
+}
+
+/**
  * A spec may opt into an explicit outcome for a zero that remains after its
  * own rescue path. Unknown values are deliberately ignored: the shared
  * crawler vocabulary is fail-closed and must not gain a producer-only typo.
@@ -174,6 +209,22 @@ function configuredEmptyListingOutcome(spec) {
   return typeof outcome === 'string' && CRAWLER_FETCH_OUTCOMES.has(outcome)
     ? outcome
     : null;
+}
+
+/** @param {any[]} rows */
+function listingFetchOutcomeState(rows) {
+  const hasOutcome = Object.prototype.hasOwnProperty.call(rows || {}, 'fetchOutcome');
+  const rawOutcome = hasOutcome ? rows.fetchOutcome : null;
+  const outcome = typeof rawOutcome === 'string' ? rawOutcome : null;
+  const unknown = hasOutcome && rawOutcome !== null && (
+    typeof rawOutcome !== 'string' || !CRAWLER_FETCH_OUTCOMES.has(rawOutcome)
+  );
+  const failed = unknown || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome);
+  const authoritativeEmpty = rows.length === 0
+    && !failed
+    && (outcome === 'ok' || outcome === 'filtered_empty');
+  const unverifiedEmpty = rows.length === 0 && !failed && !authoritativeEmpty;
+  return { outcome, unknown, failed, authoritativeEmpty, unverifiedEmpty };
 }
 
 /**
@@ -236,9 +287,13 @@ export function geographyFieldsForDecision(decision = {}, options = {}) {
  * Exported so offline analyses reach the same pages through the same robots,
  * redirect and DNS checks the promoted crawler goes through.
  *
- * @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime
+ * @param {string} url
+ * @param {any} urlPolicy
+ * @param {Record<string, any>} runtime
+ * @param {{ method?: string, body?: string, contentType?: string, accept?: string,
+ *   headers?: Record<string, string|undefined>, allowJinaProxy?: boolean }} [request]
  */
-export async function fetchRuntimePage(url, urlPolicy, runtime) {
+export async function fetchRuntimePage(url, urlPolicy, runtime, request = {}) {
   const notifyPageFetched = (page) => {
     // This is an observational, synchronous hook: its return value is
     // deliberately ignored so it cannot change the fetch result or delay the
@@ -255,7 +310,11 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     retryBaseMs: runtime.retryBaseMs,
     timeoutMs: runtime.timeoutMs,
     hostDelayMs: runtime.hostDelayMs,
-    headers: runtime.headers,
+    method: request.method,
+    body: request.body,
+    contentType: request.contentType,
+    accept: request.accept,
+    headers: { ...(runtime.headers || {}), ...(request.headers || {}) },
   });
   let wafProxyExhausted = false;
   const directChallenge = result.ok && looksLikeAntiBotChallenge(result.body);
@@ -285,7 +344,8 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // a transport failure so the standard pipeline preserves the prior slice.
   if (!result.policyBlocked && !result.blockedByRobots
     && (connectionLevelFailure || antiBotResponse)
-    && runtime.disableWafProxy !== true) {
+    && runtime.disableWafProxy !== true
+    && request.allowJinaProxy !== false) {
     const proxiedBody = await fetchHtmlViaJinaWithRetry(url, {
       timeoutMs: runtime.timeoutMs,
       retries: runtime.jinaRetries,
@@ -318,7 +378,8 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // browser callback gets one last chance after the proxy, while the default
   // runtime remains unchanged for the rest of the prospector fleet.
   if (!result.policyBlocked && !result.blockedByRobots
-    && (connectionLevelFailure || antiBotResponse)) {
+    && (connectionLevelFailure || antiBotResponse)
+    && request.allowJinaProxy !== false) {
     const browserBody = await tryBrowserRescue(url, runtime);
     if (browserBody) {
       return notifyPageFetched({
@@ -360,6 +421,21 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
 function reportDroppedRows(spec, dropped, total, reason) {
   if (!dropped) return;
   console.warn(`[prospector:${spec.companyKey}] scartati ${dropped}/${total} annunci: ${reason}`);
+}
+
+function logRuntimeObservation(spec, observation) {
+  const drops = Object.entries(observation.dropCounts || {})
+    .filter(([, count]) => Number(count) > 0)
+    .map(([reason, count]) => `${reason}=${count}/${observation.listingCount}`);
+  console.info(
+    `[prospector:${spec.companyKey}] runtime output ${observation.runtimeOutputCount}/`
+    + `${observation.listingCount} listing candidates; ${observation.publishableCount} row(s) publishable; `
+    + `${observation.expectedFilterCount} expected filters; `
+    + `quality-drop denominator ${observation.qualityDropDenominator}; `
+    + `production snapshot ${observation.productionSnapshotAccepted ? 'accepted' : 'rejected'}; `
+    + `promotion observation ${observation.promotionObservationComplete ? 'complete' : 'incomplete'}; `
+    + `drops ${drops.length ? drops.join(', ') : '0'}`,
+  );
 }
 
 /**
@@ -497,14 +573,18 @@ function attachListingTenantMarkers(spec, html, effectiveUrl, candidates) {
  * @param {import('./synthesize.mjs').CrawlerSpec} [spec]
  * @returns {{ links: Array<{ url: string, text: string }>, candidates: any[] }}
  */
-function extractListingCandidates(html, effectiveUrl, templateRx, spec) {
+function extractListingCandidates(html, effectiveUrl, templateRx, spec, runtime = {}) {
   const links = extractLinks(html, effectiveUrl);
   const { vacancies } = extractVacancies(html, effectiveUrl, links);
+  const sourceCandidates = typeof runtime.listingExtractor === 'function'
+    ? runtime.listingExtractor(html, effectiveUrl)
+    : null;
   // jsonld/microdata are stronger evidence than any link-shape guess, so
   // only override when the generic cascade fell back to (or below) its own
   // template heuristic and we hold a better one already vetted for this spec.
-  let candidates = vacancies;
-  if (templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
+  let candidates = Array.isArray(sourceCandidates) ? sourceCandidates : vacancies;
+  if (!Array.isArray(sourceCandidates)
+    && templateRx && vacancies.every((v) => v.via !== 'jsonld' && v.via !== 'microdata')) {
     let host = '';
     try { host = normalizeHost(new URL(effectiveUrl).hostname); } catch { /* skip override */ }
     const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
@@ -522,6 +602,7 @@ function extractListingCandidates(html, effectiveUrl, templateRx, spec) {
   return {
     links,
     candidates: attachListingTenantMarkers(spec, html, effectiveUrl, candidates),
+    sourceFetchMetadata: Array.isArray(sourceCandidates) ? sourceCandidates : null,
   };
 }
 
@@ -706,6 +787,108 @@ const DEFAULT_PAGINATION_MAX_PAGES = 50;
 const DEFAULT_PAGINATION_MIN_COVERAGE = 0.95;
 
 /**
+ * A small number of promoted sources render their WP Job Manager listings
+ * through the source's own JSON AJAX endpoint. Keep that transport explicit in
+ * the spec: falling back to a guessed URL or scraping arbitrary script text
+ * would make a source mutation look like a valid empty board.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @returns {{ url: string, method: 'GET', params: Record<string, string>, pageParam: string, maxPages: number, responseFormat: 'json'|'jsonp', responseHtmlField: string, responseMaxPagesField: string, responseMaxNumPages: number|null }|null}
+ */
+function configuredListingEndpoint(spec) {
+  if (spec?.listingEndpoint == null) return null;
+  const raw = typeof spec.listingEndpoint === 'string'
+    ? { url: spec.listingEndpoint }
+    : spec.listingEndpoint;
+  if (!raw || typeof raw !== 'object' || typeof raw.url !== 'string' || !raw.url.trim()) {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint must declare a URL`);
+  }
+  const method = String(raw.method || 'GET').toUpperCase();
+  if (method !== 'GET') {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint supports GET only`);
+  }
+  const params = {};
+  if (raw.params && typeof raw.params === 'object' && !Array.isArray(raw.params)) {
+    for (const [key, value] of Object.entries(raw.params)) {
+      if (value == null || Array.isArray(value) || typeof value === 'object') continue;
+      params[String(key)] = String(value);
+    }
+  }
+  const pageParam = String(raw.pageParam || 'page').trim() || 'page';
+  const maxPages = Number(raw.maxPages);
+  const responseFormat = String(raw.responseFormat || 'json').trim().toLowerCase();
+  if (!['json', 'jsonp'].includes(responseFormat)) {
+    throw new Error(`[prospector:${spec.companyKey}] listingEndpoint responseFormat must be json or jsonp`);
+  }
+  const responseHtmlField = String(
+    raw.responseHtmlField || (responseFormat === 'jsonp' ? 'HTML' : 'html'),
+  ).trim();
+  const responseMaxPagesField = String(raw.responseMaxPagesField || 'max_num_pages').trim();
+  const responseMaxNumPages = Number(raw.responseMaxNumPages);
+  return {
+    url: raw.url,
+    method: 'GET',
+    params,
+    pageParam,
+    maxPages: Number.isInteger(maxPages) && maxPages > 0 ? maxPages : DEFAULT_PAGINATION_MAX_PAGES,
+    responseFormat,
+    responseHtmlField: responseHtmlField || (responseFormat === 'jsonp' ? 'HTML' : 'html'),
+    responseMaxPagesField: responseMaxPagesField || 'max_num_pages',
+    responseMaxNumPages: Number.isInteger(responseMaxNumPages) && responseMaxNumPages > 0
+      ? responseMaxNumPages
+      : null,
+  };
+}
+
+/**
+ * @param {{ url: string, params: Record<string, string>, pageParam: string }} endpoint
+ * @param {number} page
+ * @returns {string}
+ */
+function listingEndpointUrl(endpoint, page) {
+  const url = new URL(endpoint.url);
+  for (const [key, value] of Object.entries(endpoint.params)) url.searchParams.set(key, value);
+  url.searchParams.set(endpoint.pageParam, String(page));
+  return url.href;
+}
+
+/**
+ * @param {string} body
+ * @param {string} companyKey
+ * @param {{ responseFormat?: 'json'|'jsonp', responseHtmlField?: string, responseMaxPagesField?: string, responseMaxNumPages?: number|null }} endpoint
+ * @returns {{ html: string, maxNumPages: number }}
+ */
+function parseListingEndpointResponse(body, companyKey, endpoint = {}) {
+  let payload;
+  const rawBody = String(body || '');
+  try {
+    if (endpoint.responseFormat === 'jsonp') {
+      const match = /^\s*[A-Za-z_$][\w$]*\s*\(([\s\S]*)\)\s*;?\s*$/.exec(rawBody);
+      if (!match) throw new Error('JSONP wrapper missing');
+      payload = JSON.parse(match[1]);
+    } else {
+      payload = JSON.parse(rawBody);
+    }
+  } catch (error) {
+    throw new Error(
+      `[prospector:${companyKey}] listingEndpoint returned invalid ${endpoint.responseFormat === 'jsonp' ? 'JSONP' : 'JSON'} content: ${error?.message || error}`,
+    );
+  }
+  const html = payload?.[endpoint.responseHtmlField || 'html'];
+  const announcedMaxNumPages = payload?.[endpoint.responseMaxPagesField || 'max_num_pages'];
+  const maxNumPages = announcedMaxNumPages == null
+    ? endpoint.responseMaxNumPages
+    : announcedMaxNumPages;
+  if (!payload || typeof html !== 'string'
+    || !Number.isInteger(maxNumPages) || maxNumPages < 0) {
+    throw new Error(
+      `[prospector:${companyKey}] listingEndpoint response is missing ${endpoint.responseHtmlField || 'html'}/${endpoint.responseMaxPagesField || 'max_num_pages'}`,
+    );
+  }
+  return { html, maxNumPages: Math.max(1, maxNumPages) };
+}
+
+/**
  * Resolve the optional `spec.pagination` block.
  *
  * `maxPages` bounds the walk; reaching it with a next link still present is a
@@ -718,7 +901,7 @@ const DEFAULT_PAGINATION_MIN_COVERAGE = 0.95;
  * are stripped, so a real detail parameter (`lang`, a tenant id) survives.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
- * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, pageStateParams: string[] }}
+ * @returns {{ maxPages: number, minCoverage: number, declaredTotalRx: RegExp|null, pageStateParams: string[], selfNextIsTerminal: boolean, countDuplicateRowsForCoverage: boolean }}
  */
 export function normalizeSpecPagination(spec) {
   const raw = spec?.pagination && typeof spec.pagination === 'object' ? spec.pagination : {};
@@ -733,7 +916,15 @@ export function normalizeSpecPagination(spec) {
     ? raw.pageStateParams.map((name) => String(name || '').trim()).filter(Boolean)
     : [];
   const selfNextIsTerminal = raw.selfNextIsTerminal === true;
-  return { maxPages, minCoverage, declaredTotalRx, pageStateParams, selfNextIsTerminal };
+  const countDuplicateRowsForCoverage = raw.countDuplicateRowsForCoverage === true;
+  return {
+    maxPages,
+    minCoverage,
+    declaredTotalRx,
+    pageStateParams,
+    selfNextIsTerminal,
+    countDuplicateRowsForCoverage,
+  };
 }
 
 /**
@@ -753,10 +944,10 @@ export function readDeclaredListingTotal(html, pagination, spec) {
   const match = pagination.declaredTotalRx.exec(String(html || ''));
   const total = match ? Number(String(match[1] || '').replace(/[^\d]/g, '')) : NaN;
   if (!Number.isInteger(total) || total < 0 || !match?.[1]) {
-    throw new Error(
+    throw markSpecListingFailure(new Error(
       `[prospector:${spec.companyKey}] totale dichiarato dalla fonte non trovato `
       + `(declaredTotalPattern ${pagination.declaredTotalRx.source}): impossibile provare la listing completa`,
-    );
+    ));
   }
   return total;
 }
@@ -787,6 +978,20 @@ export function stripListingPageState(url, pageUrl, stateParams = []) {
   if (kept.length === [...detail.searchParams].length) return url;
   detail.search = new URLSearchParams(kept).toString();
   return detail.href;
+}
+
+function listingIdentityUrl(rawUrl) {
+  try {
+    const url = new URL(String(rawUrl));
+    // Fragments are not sent in HTTP requests, except that extractJsonLd uses
+    // `#job-<sha1>` as the stable identity of URL-less inline postings. Keep
+    // those synthetic identity fragments while ignoring browser-only anchors
+    // when deduplicating the same linked vacancy across pages.
+    if (!/^#job-[\da-f]{12}$/i.test(url.hash)) url.hash = '';
+    return url.href;
+  } catch {
+    return String(rawUrl || '');
+  }
 }
 
 /**
@@ -843,6 +1048,22 @@ function isTerminalNotFound(error) {
   return error?.status === 404
     && error?.retryable === false
     && !error?.antiBotExhausted;
+}
+
+const DETAIL_NOT_FOUND_EXPECTED_FILTER_POLICY = 'expected-filter';
+const MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED = 10;
+
+/**
+ * A few employer indexes retain stale vacancy links after the detail is gone.
+ * This is an explicit source contract, not a generic 404 exemption: the
+ * caller must opt in and require enough independently publishable detail rows
+ * to prove that the index still serves the source's vacancy shape.
+ *
+ * @param {Record<string, any>} spec
+ * @returns {boolean}
+ */
+function allowsExpectedDetailNotFound(spec) {
+  return spec?.detailNotFoundPolicy === DETAIL_NOT_FOUND_EXPECTED_FILTER_POLICY;
 }
 
 function numericPathPage(url) {
@@ -1046,12 +1267,28 @@ function isSameListingPageUrl(left, right) {
 export async function collectSpecListingRows(spec, runtime, validateUrl) {
   /** @type {Map<string, any>} */
   const bySlug = new Map();
+  // Most specs measure coverage by distinct detail URL. A small number of
+  // sources declare raw listing rows while duplicating a vacancy across pages;
+  // those specs opt into counting the source rows after URL/template guards,
+  // before de-duplication, so a complete walk is not rejected as truncated.
+  let listingRowsForCoverage = 0;
   const templateRx = spec.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
   const emptyOutcome = spec.rescueOnEmptyListing === true
     && runtime.disableWafProxy !== true
     ? configuredEmptyListingOutcome(spec)
     : null;
   const emptyDetails = [];
+  const sourceFetchMetadata = [];
+  const recordSourceFetchMetadata = (extracted) => {
+    const source = extracted?.sourceFetchMetadata;
+    if (!Array.isArray(source)) return;
+    if (['fetchOutcome', 'discoveredCount', 'fetchDetail', 'authoritativeEmptyState']
+      .some((key) => Object.prototype.hasOwnProperty.call(source, key))) {
+      sourceFetchMetadata.push(source);
+    }
+  };
+  const listingEndpoint = configuredListingEndpoint(spec);
+  let endpointConsumed = false;
 
   /**
    * Add one page of listing candidates to the de-duplicated row set.
@@ -1079,7 +1316,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       const sourceUrl = vacancy.sourceUrl || v.url;
       try { await validateUrl(sourceUrl); } catch { continue; }
       if (templateRx && !matchesDetailTemplate(sourceUrl, templateRx)) continue;
-      if (bySlug.has(v.url)) continue;
+      listingRowsForCoverage += 1;
+      const identityUrl = listingIdentityUrl(v.url);
+      if (bySlug.has(identityUrl)) continue;
       const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
       const publication = mergeSourcePostingDates({}, vacancy);
       const record = {
@@ -1107,26 +1346,96 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           configurable: true,
         });
       }
-      bySlug.set(v.url, record);
+      bySlug.set(identityUrl, record);
     }
   };
 
   for (const seed of spec.seedUrls || []) {
+    if (listingEndpoint) {
+      if (endpointConsumed) continue;
+      endpointConsumed = true;
+      const endpointSeed = seed || listingEndpoint.url;
+      const fetchEndpointPage = async (pageNumber) => {
+        const endpointUrl = listingEndpointUrl(listingEndpoint, pageNumber);
+        let response;
+        try {
+          response = await fetchRuntimePage(endpointUrl, validateUrl, runtime, {
+            method: listingEndpoint.method,
+            accept: listingEndpoint.responseFormat === 'jsonp'
+              ? 'application/javascript'
+              : 'application/json',
+            headers: {
+              Referer: endpointSeed,
+              'X-Requested-With': 'XMLHttpRequest',
+            },
+            // Jina is an HTML rescue and must never be allowed to turn a JSON
+            // endpoint failure into parseable-looking source evidence.
+            allowJinaProxy: false,
+          });
+        } catch (error) {
+          throw markSpecListingFailure(error, bySlug.size);
+        }
+        try {
+          return {
+            endpointUrl,
+            response: parseListingEndpointResponse(response.body, spec.companyKey, listingEndpoint),
+          };
+        } catch (error) {
+          throw markSpecListingFailure(error, bySlug.size);
+        }
+      };
+      const first = await fetchEndpointPage(1);
+      if (first.response.maxNumPages > listingEndpoint.maxPages) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listingEndpoint pagination exceeds `
+          + `maxPages=${listingEndpoint.maxPages} (${first.response.maxNumPages} pages announced)`,
+        ), bySlug.size);
+      }
+      const consumeEndpointPage = async ({ endpointUrl, response }) => {
+        const extracted = extractListingCandidates(response.html, endpointUrl, templateRx, spec, runtime);
+        recordSourceFetchMetadata(extracted);
+        const candidates = filterListingCandidates(spec, extracted.candidates);
+        const listingEvidence = spec.platform === 'umantis.com'
+          ? extractUmantisListingEvidence(response.html, endpointUrl, {
+            cantonOverrides: spec.umantisListingCantonOverrides,
+          })
+          : new Map();
+        await addListingCandidates(candidates, listingEvidence);
+      };
+      await consumeEndpointPage(first);
+      for (let pageNumber = 2; pageNumber <= first.response.maxNumPages; pageNumber++) {
+        const next = await fetchEndpointPage(pageNumber);
+        if (next.response.maxNumPages > listingEndpoint.maxPages) {
+          throw markSpecListingFailure(new Error(
+            `[prospector:${spec.companyKey}] listingEndpoint pagination exceeds `
+            + `maxPages=${listingEndpoint.maxPages} (${next.response.maxNumPages} pages announced)`,
+          ), bySlug.size);
+        }
+        await consumeEndpointPage(next);
+      }
+      continue;
+    }
+    const seedRowsBefore = bySlug.size;
+    const seedCoverageRowsBefore = listingRowsForCoverage;
     let page;
     try {
       page = await fetchRuntimePage(seed, validateUrl, runtime);
     } catch (err) {
       // Let the standard pipeline classify it: a connection-level failure is
       // infra and must soft-exit, an HTTP status is a real break.
-      throw err;
+      throw markSpecListingFailure(err);
     }
     let html = page.body;
     if (!html) continue;
     let effectiveSeedUrl = page.url || seed;
     let umantisListingEvidence = spec.platform === 'umantis.com'
-      ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+      ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+        cantonOverrides: spec.umantisListingCantonOverrides,
+      })
       : new Map();
-    let { links, candidates } = extractListingCandidates(html, effectiveSeedUrl, templateRx, spec);
+    const seedExtraction = extractListingCandidates(html, effectiveSeedUrl, templateRx, spec, runtime);
+    recordSourceFetchMetadata(seedExtraction);
+    let { links, candidates } = seedExtraction;
     candidates = filterListingCandidates(spec, candidates);
 
     // Some protected boards answer the direct request with a 200 interstitial
@@ -1151,7 +1460,8 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         sleepImpl: runtime.jinaSleepImpl,
       });
       if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
-        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec);
+        const rescuedRaw = extractListingCandidates(proxiedBody, effectiveSeedUrl, templateRx, spec, runtime);
+        recordSourceFetchMetadata(rescuedRaw);
         const rescued = {
           ...rescuedRaw,
           candidates: filterListingCandidates(spec, rescuedRaw.candidates),
@@ -1164,14 +1474,17 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           ({ links, candidates } = rescued);
           effectiveSeedUrl = page.url || seed;
           umantisListingEvidence = spec.platform === 'umantis.com'
-            ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+            ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+              cantonOverrides: spec.umantisListingCantonOverrides,
+            })
             : new Map();
         }
       }
       if (!candidates.length) {
         const browserBody = await tryBrowserRescue(effectiveSeedUrl, runtime);
         if (browserBody) {
-          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec);
+          const rescuedRaw = extractListingCandidates(browserBody, effectiveSeedUrl, templateRx, spec, runtime);
+          recordSourceFetchMetadata(rescuedRaw);
           const rescued = {
             ...rescuedRaw,
             candidates: filterListingCandidates(spec, rescuedRaw.candidates),
@@ -1184,7 +1497,9 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
             ({ links, candidates } = rescued);
             effectiveSeedUrl = page.url || seed;
             umantisListingEvidence = spec.platform === 'umantis.com'
-              ? extractUmantisListingEvidence(html, effectiveSeedUrl)
+              ? extractUmantisListingEvidence(html, effectiveSeedUrl, {
+                cantonOverrides: spec.umantisListingCantonOverrides,
+              })
               : new Map();
           }
         }
@@ -1204,7 +1519,6 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         );
       }
     }
-    const seedRowsBefore = bySlug.size;
     await addListingCandidates(candidates, umantisListingEvidence);
 
     // Opt-in pagination (`spec.pagination`). A listing that shows only its
@@ -1233,23 +1547,25 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           // A next link back to a page already read is a loop or an alias,
           // not the end of the listing: stopping here would publish a partial
           // set as if it were complete.
-          throw new Error(
+          throw markSpecListingFailure(new Error(
             `[prospector:${spec.companyKey}] listing troncata: il link rel=next dopo ${pages} pagine `
             + `torna a una pagina gia letta (${nextUrl})`,
-          );
+          ), bySlug.size);
         }
         if (pages >= pagination.maxPages) {
-          throw new Error(
+          throw markSpecListingFailure(new Error(
             `[prospector:${spec.companyKey}] listing troncata: ${pages} pagine lette, `
             + `maxPages=${pagination.maxPages} e un link rel=next ancora presente (${nextUrl})`,
-          );
+          ), bySlug.size);
         }
         visited.add(nextUrl);
         let next;
         try {
           next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
         } catch (error) {
-          const readRows = bySlug.size - seedRowsBefore;
+          const readRows = pagination.countDuplicateRowsForCoverage
+            ? listingRowsForCoverage - seedCoverageRowsBefore
+            : bySlug.size - seedRowsBefore;
           const coverageSatisfied = declaredTotal != null
             && readRows >= Math.ceil(declaredTotal * pagination.minCoverage);
           const announcedFinal = currentPageCandidateCount > 0
@@ -1289,10 +1605,10 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
                 probeError = caught;
               }
               if (!probeError) {
-                throw new Error(
+                throw markSpecListingFailure(new Error(
                   `[prospector:${spec.companyKey}] listing troncata: ${nextUrl} risponde HTTP 404 `
                   + `ma la pagina annunciata ${probeUrl} esiste (pagina mancante a meta listing)`,
-                );
+                ), bySlug.size);
               }
             }
             if (!probeUrl || isTerminalNotFound(probeError)) {
@@ -1305,15 +1621,18 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
               break;
             }
           }
-          throw error;
+          throw markSpecListingFailure(error, bySlug.size);
         }
         pages += 1;
         pageUrl = next.url || nextUrl;
         const body = next.body || '';
         const nextEvidence = spec.platform === 'umantis.com'
-          ? extractUmantisListingEvidence(body, pageUrl)
+          ? extractUmantisListingEvidence(body, pageUrl, {
+            cantonOverrides: spec.umantisListingCantonOverrides,
+          })
           : new Map();
-        const extracted = extractListingCandidates(body, pageUrl, templateRx, spec);
+        const extracted = extractListingCandidates(body, pageUrl, templateRx, spec, runtime);
+        recordSourceFetchMetadata(extracted);
         const nextCandidates = filterListingCandidates(spec, extracted.candidates);
         await addListingCandidates(
           nextCandidates,
@@ -1326,30 +1645,47 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
         nextUrl = findNextListingPageUrl(body, pageUrl);
       }
       const seedRows = bySlug.size - seedRowsBefore;
+      const coverageRows = pagination.countDuplicateRowsForCoverage
+        ? listingRowsForCoverage - seedCoverageRowsBefore
+        : seedRows;
       console.log(
         `[prospector:${spec.companyKey}] listing paginata: ${pages} pagine, ${seedRows} annunci`
-        + (declaredTotal == null ? '' : ` (totale dichiarato dalla fonte: ${declaredTotal})`),
+        + (declaredTotal == null
+          ? ''
+          : ` (copertura ${coverageRows}, totale dichiarato dalla fonte: ${declaredTotal})`),
       );
-      if (declaredTotal != null && seedRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
-        throw new Error(
-          `[prospector:${spec.companyKey}] listing incompleta: ${seedRows}/${declaredTotal} annunci `
+      if (declaredTotal != null && coverageRows < Math.ceil(declaredTotal * pagination.minCoverage)) {
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listing incompleta: ${coverageRows}/${declaredTotal} righe di copertura `
+          + `(annunci distinti: ${seedRows}) `
           + `dichiarati dalla fonte su ${pages} pagine (copertura minima ${pagination.minCoverage})`,
-        );
+        ), bySlug.size);
       }
     } else if (candidates.length) {
-      // Sibling observer: a seed that advertises a next page to a spec without
-      // pagination is read as a truncated listing, one page wide.
+      // A seed that advertises a next page to a spec without pagination is an
+      // incomplete listing. Never let one page masquerade as the population.
       const unfollowed = findNextListingPageUrl(html, effectiveSeedUrl);
       if (unfollowed) {
-        console.warn(
-          `[prospector:${spec.companyKey}] la pagina seed espone un link rel=next non seguito `
-          + `(${unfollowed}): la listing letta potrebbe essere solo la prima pagina `
-          + `(${candidates.length} candidati). Dichiarare spec.pagination.`,
-        );
+        throw markSpecListingFailure(new Error(
+          `[prospector:${spec.companyKey}] listing incompleta: la pagina seed espone `
+          + `un link rel=next non seguito (${unfollowed}; ${candidates.length} candidati). `
+          + 'Dichiarare spec.pagination.',
+        ), bySlug.size);
       }
     }
   }
   const rows = [...bySlug.values()];
+  if (listingEndpoint && endpointConsumed) {
+    copySpecFetchMetadata(rows, {
+      discoveredCount: rows.length,
+      ...(rows.length === 0
+        ? {
+          fetchOutcome: 'selector_miss',
+          fetchDetail: 'listingEndpoint returned no detail-template candidates',
+        }
+        : {}),
+    });
+  }
   // A configured outcome is evidence about an UNVERIFIED zero only. Never
   // attach it after a seed yielded accepted vacancies: a partial source result
   // must continue through the normal detail/geography gates instead of being
@@ -1360,6 +1696,32 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       discoveredCount: 0,
       fetchDetail: emptyDetails.join('; '),
     });
+  }
+  if (sourceFetchMetadata.length) {
+    const outcomes = sourceFetchMetadata
+      .filter((source) => Object.prototype.hasOwnProperty.call(source, 'fetchOutcome'))
+      .map((source) => source.fetchOutcome);
+    const failedOutcomeIndex = outcomes.findIndex((outcome) => (
+      outcome !== null && (
+        typeof outcome !== 'string'
+        || !CRAWLER_FETCH_OUTCOMES.has(outcome)
+        || CRAWLER_FETCH_FAILURE_OUTCOMES.has(outcome)
+      )
+    ));
+    const metadata = {};
+    if (failedOutcomeIndex >= 0) metadata.fetchOutcome = outcomes[failedOutcomeIndex];
+    else if (outcomes.length) metadata.fetchOutcome = outcomes.includes('ok') ? 'ok' : outcomes[0];
+    if (sourceFetchMetadata.length === 1) {
+      const [source] = sourceFetchMetadata;
+      if (Number.isInteger(source.discoveredCount) && source.discoveredCount >= 0) {
+        metadata.discoveredCount = source.discoveredCount;
+      }
+      if (typeof source.fetchDetail === 'string') metadata.fetchDetail = source.fetchDetail;
+      if (typeof source.authoritativeEmptyState === 'string') {
+        metadata.authoritativeEmptyState = source.authoritativeEmptyState;
+      }
+    }
+    copySpecFetchMetadata(rows, metadata);
   }
   return rows;
 }
@@ -1408,17 +1770,127 @@ export async function runSpecInProduction(spec, runtime = {}) {
   const validateUrl = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl || dnsLookup });
   try {
     const rows = await collectSpecListingRows(spec, runtime, validateUrl);
+    const listingOutcome = listingFetchOutcomeState(rows);
+    const configuredEmptyOutcome = spec.rescueOnEmptyListing === true
+      && runtime.disableWafProxy !== true
+      ? configuredEmptyListingOutcome(spec)
+      : null;
+    // A configured empty-listing outcome is transport evidence for the caller
+    // that owns the source-specific rescue (for example, Vereina must still
+    // inspect the employer page for an authoritative zero). Preserve that
+    // typed empty result for production merge while VALIDATE grades it as an
+    // incomplete observation. An unconfigured zero likewise remains a plain
+    // empty result: no outcome is invented. Typed failures emitted directly by
+    // a listing extractor, or attached to a non-empty population, still fail
+    // closed below.
+    const preserveEmptyListingResult = rows.length === 0
+      && (listingOutcome.unverifiedEmpty || Boolean(configuredEmptyOutcome));
+    const detailPagesByUrl = runtime.retainDetailPages === true ? new Map() : null;
+    const titleEvidenceByUrl = runtime.returnObservation === true || runtime.retainDetailPages === true
+      ? new Map()
+      : null;
     if (!needsDetailEnrichment(spec, rows)) {
+      const dropCounts = {
+        source_backed_geography_missing: 0,
+        generic_or_missing_title: 0,
+        ...(listingOutcome.failed
+          ? { [listingOutcome.unknown ? 'unknown_fetch_outcome' : `fetch_outcome_${listingOutcome.outcome}`]: 1 }
+          : {}),
+        ...(listingOutcome.unverifiedEmpty ? { unverified_empty_listing: 1 } : {}),
+      };
+      let sourceBackedLocationCount = 0;
       const safeRows = rows.flatMap((row) => {
         const fields = geographyFieldsForDecision(
           resolveDetailOrListingSwissGeography({}, row),
           runtime,
         );
-        return fields ? [{ ...row, ...fields }] : [];
+        if (!fields) {
+          dropCounts.source_backed_geography_missing++;
+          return [];
+        }
+        sourceBackedLocationCount++;
+        const title = selectPublishableTitle('', row.title);
+        if (!title) {
+          dropCounts.generic_or_missing_title++;
+          return [];
+        }
+        titleEvidenceByUrl?.set(row.url, {
+          listingTitle: row.title,
+          finalTitle: title,
+          titleSource: 'listing',
+        });
+        return [{ ...row, title, ...fields }];
       });
-      reportDroppedRows(spec, rows.length - safeRows.length, rows.length,
+      reportDroppedRows(spec, dropCounts.source_backed_geography_missing, rows.length,
         'localita svizzera source-backed assente o non verificabile');
-      return copySpecFetchMetadata(safeRows, rows);
+      reportDroppedRows(spec, dropCounts.generic_or_missing_title, rows.length,
+        'titolo generico o assente');
+      const locationDenominator = rows.length;
+      const qualityDrops = dropCounts.source_backed_geography_missing + dropCounts.generic_or_missing_title;
+      const snapshotAccepted = !listingOutcome.failed
+        && !listingOutcome.unverifiedEmpty
+        && !(locationDenominator >= DETAIL_DROP_ADVISORY_MIN_CANDIDATES
+          && !isDetailFailureWithinGrace(qualityDrops, locationDenominator));
+      const allUnexpectedDropsNoOutput = rows.length > 0 && safeRows.length === 0 && qualityDrops > 0;
+      const complete = snapshotAccepted && !allUnexpectedDropsNoOutput;
+      const exactListingCount = (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty;
+      const observation = {
+        algorithmVersion: 'spec-production-output-v1',
+        listingCount: rows.length,
+        exactListingCount,
+        listingPopulationComplete: exactListingCount,
+        publishableCount: safeRows.length,
+        runtimeOutputCount: snapshotAccepted ? safeRows.length : 0,
+        snapshotAccepted,
+        productionSnapshotAccepted: snapshotAccepted,
+        promotionObservationComplete: complete,
+        qualityDropDenominator: locationDenominator,
+        fetchOutcome: listingOutcome.outcome,
+        expectedFilterCount: 0,
+        expectedFilters: {},
+        dropCounts,
+        sourceBackedLocationCount,
+        sourceBackedLocationDenominator: locationDenominator,
+        sourceBackedLocationRate: locationDenominator
+          ? Number((sourceBackedLocationCount / locationDenominator).toFixed(3))
+          : 0,
+        complete,
+        detailDrop: {
+          candidates: locationDenominator,
+          gone: 0,
+          rejected: qualityDrops,
+          dropped: qualityDrops,
+        },
+      };
+      logRuntimeObservation(spec, observation);
+      const output = copySpecFetchMetadata(safeRows, rows);
+      copySpecFetchMetadata(output, {
+        detailDrop: observation.detailDrop,
+        discoveredCount: rows.length,
+        expectedFilterCount: observation.expectedFilterCount,
+        expectedFilters: observation.expectedFilters,
+        ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
+        ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
+      });
+      if (!snapshotAccepted && runtime.failOnIncomplete !== false && !preserveEmptyListingResult) {
+        const incompleteReason = listingOutcome.failed
+          ? `fetch outcome ${listingOutcome.outcome || 'unknown'} is not successful`
+          : listingOutcome.unverifiedEmpty
+            ? 'empty listing has no authoritative success outcome'
+            : `${qualityDrops}/${locationDenominator} listing candidate(s) dropped`;
+        const error = new Error(
+          `[prospector:${spec.companyKey}] runtime output snapshot incomplete: ${incompleteReason}`,
+        );
+        Object.assign(error, {
+          specRuntimeObservation: observation,
+          specDiscoveredCount: rows.length,
+          specDetailDrop: observation.detailDrop,
+        });
+        throw error;
+      }
+      return runtime.returnObservation === true
+        ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
+        : output;
     }
 
     // Template extraction has no per-row semantics. Visit the detail pages with
@@ -1426,18 +1898,18 @@ export async function runSpecInProduction(spec, runtime = {}) {
     // Workers complete out of order; index-addressed writes keep the listing
     // order deterministic so stable downstream sorts do not churn job slices.
     const enriched = new Array(rows.length);
-    const emptyOutcome = spec.rescueOnEmptyListing === true
-      && runtime.disableWafProxy !== true
-      ? configuredEmptyListingOutcome(spec)
-      : null;
+    const emptyOutcome = configuredEmptyOutcome;
     let detailAntiBotFailures = 0;
     let geographyDrops = 0;
     let descriptionDrops = 0;
     let detailCandidateDrops = 0;
+    let detailNotFound = 0;
     let detailTenantMatches = 0;
     let detailTenantMismatches = 0;
     let detailTenantMissing = 0;
     let expectedGeographyFilters = 0;
+    let titleDrops = 0;
+    let sourceBackedLocationCount = 0;
     let next = 0;
     const worker = async () => {
       while (next < rows.length) {
@@ -1458,7 +1930,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
           const detail = extractRuntimeDetailFields(spec, page.body, page.url || detailUrl, {
             detailExtractor: runtime.detailExtractor,
             recordUrl: row.url,
+            recordTitle: row.title,
           });
+          const rawTitles = rawDetailTitleEvidence(page.body);
           const decision = resolveDetailOrListingSwissGeography(detail, row);
           const geography = geographyFieldsForDecision(decision, runtime);
           const description = isSufficientVacancyDescription(detail.description)
@@ -1475,8 +1949,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
             continue;
           }
           detailTenantMatches++;
+          if (geography) sourceBackedLocationCount++;
           const publication = mergeSourcePostingDates(row, detail);
-          const publishable = { ...row, title: detail.title || row.title, description,
+          const publishable = { ...row, description,
             ...publication,
             postedAt: publication.postedDate || null,
             employmentType: detail.employmentType || row.employmentType };
@@ -1507,9 +1982,45 @@ export async function runSpecInProduction(spec, runtime = {}) {
             continue;
           }
           if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
+          const title = selectPublishableTitle(detail.title, row.title, [
+            rawTitles.rawH1Title,
+            rawTitles.rawOpenGraphTitle,
+            rawTitles.rawDocumentTitle,
+          ]);
+          if (!title) { titleDrops++; continue; }
           enriched[index] = { ...publishable, ...geography };
+          enriched[index].title = title;
+          const titleEvidence = {
+            listingTitle: row.title,
+            detailTitle: detail.title || '',
+            ...rawTitles,
+            finalTitle: title,
+            titleSource: [
+              { source: 'detail', value: detail.title },
+              { source: 'listing', value: row.title },
+              { source: 'raw_h1', value: rawTitles.rawH1Title },
+              { source: 'raw_open_graph', value: rawTitles.rawOpenGraphTitle },
+              { source: 'raw_document_title', value: vacancyTitleFromDocumentTitle(rawTitles.rawDocumentTitle) },
+            ].find(({ value }) => title === String(value || '').replace(/\s+/g, ' ').trim())?.source || 'unknown',
+          };
+          titleEvidenceByUrl?.set(row.url, titleEvidence);
+          detailPagesByUrl?.set(row.url, {
+            body: page.body,
+            status: page.status,
+            url: page.url || detailUrl,
+            detail,
+            ...titleEvidence,
+          });
         } catch (err) {
           if (err?.antiBotExhausted) detailAntiBotFailures++;
+          // Some indexes keep withdrawn vacancy URLs in their listing for a
+          // while. A definitive 404 is an expected source filter only when the
+          // spec explicitly declares that contract; all other detail failures
+          // remain fail-closed parser/source evidence.
+          if (isTerminalNotFound(err) && allowsExpectedDetailNotFound(spec)) {
+            detailNotFound++;
+            continue;
+          }
           // A failed detail fetch/extraction carries no source-backed tenant
           // evidence. Never let index-only fields satisfy the detail gate.
           detailCandidateDrops++;
@@ -1522,6 +2033,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'localita svizzera source-backed assente o non verificabile');
     reportDroppedRows(spec, descriptionDrops, rows.length,
       'descrizione source-backed assente o non verificabile');
+    reportDroppedRows(spec, titleDrops, rows.length,
+      'titolo generico o assente');
     reportDroppedRows(spec, detailCandidateDrops, rows.length,
       'pagina dettaglio non recuperabile o non estraibile');
     reportDroppedRows(spec, detailTenantMissing, rows.length,
@@ -1542,12 +2055,27 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const expectedTenantFilters = detailTenantMatches > 0 ? detailTenantMismatches : 0;
     const unmatchedTenantFailures = detailTenantMatches > 0 ? 0 : detailTenantMismatches;
     const publishedRows = enriched.filter(Boolean);
+    const configuredMinimumPublished = Number(spec.detailNotFoundMinimumPublished);
+    const minimumPublishedForNotFoundFilter = Number.isInteger(configuredMinimumPublished)
+      && configuredMinimumPublished > 0
+      ? Math.max(MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED, configuredMinimumPublished)
+      : MIN_EXPECTED_DETAIL_NOT_FOUND_PUBLISHED;
+    const expectedNotFoundFilters = allowsExpectedDetailNotFound(spec)
+      && detailNotFound > 0
+      && publishedRows.length >= minimumPublishedForNotFoundFilter
+      ? detailNotFound
+      : 0;
+    const unexpectedNotFound = detailNotFound - expectedNotFoundFilters;
+    const locationDenominator = Math.max(
+      0,
+      rows.length - expectedGeographyFilters - expectedTenantFilters - expectedNotFoundFilters,
+    );
     const detailDrop = {
-      candidates: rows.length - expectedGeographyFilters - expectedTenantFilters,
-      gone: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures,
-      rejected: geographyDrops + descriptionDrops,
-      dropped: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures
-        + geographyDrops + descriptionDrops,
+      candidates: locationDenominator,
+      gone: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures + unexpectedNotFound,
+      rejected: geographyDrops + descriptionDrops + titleDrops,
+      dropped: detailCandidateDrops + detailTenantMissing + unmatchedTenantFailures + unexpectedNotFound
+        + geographyDrops + descriptionDrops + titleDrops,
     };
     copySpecFetchMetadata(publishedRows, { detailDrop });
     // A non-empty partial detail snapshot is just as dangerous as an empty
@@ -1558,18 +2086,81 @@ export async function runSpecInProduction(spec, runtime = {}) {
     // Small sources keep their existing zero-row outcome semantics: one
     // unavailable detail page must not turn a one-vacancy board into a new
     // class of crash.
-    if (detailDrop.candidates >= DETAIL_DROP_ADVISORY_MIN_CANDIDATES
-      && !isDetailFailureWithinGrace(detailDrop.dropped, detailDrop.candidates)
-      && !(emptyOutcome && detailAntiBotFailures === rows.length)) {
+    const exceedsDropGrace = detailDrop.candidates >= DETAIL_DROP_ADVISORY_MIN_CANDIDATES
+      && !isDetailFailureWithinGrace(detailDrop.dropped, detailDrop.candidates);
+    const expectedAllDetailAntiBotFailure = Boolean(emptyOutcome)
+      && detailAntiBotFailures === rows.length;
+    // The production crawler may carry a typed anti-bot outcome so the shared
+    // merge preserves the previous slice. VALIDATE still records that read as
+    // incomplete, which revokes any earlier promotion readiness.
+    const snapshotAccepted = !listingOutcome.failed
+      && !listingOutcome.unverifiedEmpty
+      && !exceedsDropGrace
+      && !expectedAllDetailAntiBotFailure;
+    const allUnexpectedDropsNoOutput = rows.length > 0
+      && publishedRows.length === 0
+      && detailDrop.dropped > 0;
+    const complete = snapshotAccepted && !allUnexpectedDropsNoOutput;
+    const dropCounts = {
+      detail_fetch_or_extraction: detailCandidateDrops + unexpectedNotFound,
+      ...(expectedNotFoundFilters ? { detail_not_found_expected: expectedNotFoundFilters } : {}),
+      tenant_identity_missing: detailTenantMissing + unmatchedTenantFailures,
+      source_backed_geography_missing: geographyDrops,
+      publishable_description_missing: descriptionDrops,
+      generic_or_missing_title: titleDrops,
+      ...(listingOutcome.failed
+        ? { [listingOutcome.unknown ? 'unknown_fetch_outcome' : `fetch_outcome_${listingOutcome.outcome}`]: 1 }
+        : {}),
+      ...(listingOutcome.unverifiedEmpty ? { unverified_empty_listing: 1 } : {}),
+    };
+    const observation = {
+      algorithmVersion: 'spec-production-output-v1',
+      listingCount: rows.length,
+      exactListingCount: (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty,
+      listingPopulationComplete: (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty,
+      publishableCount: publishedRows.length,
+      runtimeOutputCount: snapshotAccepted ? publishedRows.length : 0,
+      snapshotAccepted,
+      productionSnapshotAccepted: snapshotAccepted,
+      promotionObservationComplete: complete,
+      qualityDropDenominator: detailDrop.candidates,
+      fetchOutcome: listingOutcome.outcome,
+      expectedFilterCount: expectedGeographyFilters + expectedTenantFilters + expectedNotFoundFilters,
+      expectedFilters: {
+        source_geography: expectedGeographyFilters,
+        tenant_scope: expectedTenantFilters,
+        detail_not_found: expectedNotFoundFilters,
+      },
+      dropCounts,
+      sourceBackedLocationCount,
+      sourceBackedLocationDenominator: locationDenominator,
+      sourceBackedLocationRate: locationDenominator
+        ? Number((sourceBackedLocationCount / locationDenominator).toFixed(3))
+        : 0,
+      complete,
+      detailDrop,
+    };
+    logRuntimeObservation(spec, observation);
+    const shouldThrow = (listingOutcome.failed && !preserveEmptyListingResult)
+      || (listingOutcome.unverifiedEmpty && !preserveEmptyListingResult)
+      || (!preserveEmptyListingResult && !expectedAllDetailAntiBotFailure && !snapshotAccepted);
+    if (shouldThrow && runtime.failOnIncomplete !== false) {
       const ratio = Math.round((detailDrop.dropped / detailDrop.candidates) * 100);
       const error = new Error(
-        `[prospector:${spec.companyKey}] detail snapshot incompleto: `
-        + `${detailDrop.dropped}/${detailDrop.candidates} detail page(s) dropped `
-        + `(${ratio}% > 15%); refusing partial publication`,
+        listingOutcome.failed
+          ? `[prospector:${spec.companyKey}] runtime output snapshot incomplete: fetch outcome ${listingOutcome.outcome || 'unknown'} is not successful`
+          : listingOutcome.unverifiedEmpty
+            ? `[prospector:${spec.companyKey}] runtime output snapshot incomplete: empty listing has no authoritative success outcome`
+          : expectedAllDetailAntiBotFailure
+            ? `[prospector:${spec.companyKey}] runtime output snapshot incomplete: all detail pages exhausted anti-bot rescue`
+            : `[prospector:${spec.companyKey}] detail snapshot incompleto: `
+              + `${detailDrop.dropped}/${detailDrop.candidates} detail page(s) dropped `
+              + `(${ratio}% > 15%); refusing partial publication`,
       );
       Object.assign(error, {
         specDetailDrop: detailDrop,
         specDiscoveredCount: rows.length,
+        specRuntimeObservation: observation,
       });
       throw error;
     }
@@ -1588,7 +2179,18 @@ export async function runSpecInProduction(spec, runtime = {}) {
         fetchDetail: `${rows.length} detail page(s) exhausted anti-bot rescue`,
       });
     }
-    return copySpecFetchMetadata(publishedRows, rows);
+    const output = copySpecFetchMetadata(publishedRows, rows);
+    copySpecFetchMetadata(output, {
+      detailDrop,
+      discoveredCount: rows.length,
+      expectedFilterCount: observation.expectedFilterCount,
+      expectedFilters: observation.expectedFilters,
+      ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),
+      ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
+    });
+    return runtime.returnObservation === true
+      ? { vacancies: output, observation, detailPagesByUrl, titleEvidenceByUrl }
+      : output;
   } finally {
     try {
       await validateUrl.dispatcher.close();
@@ -1596,6 +2198,28 @@ export async function runSpecInProduction(spec, runtime = {}) {
       console.warn(`[prospector:${spec.companyKey}] dispatcher cleanup failed:`, error);
     }
   }
+}
+
+/**
+ * Observe the exact in-memory output transformation used by production without
+ * converting a partial source snapshot into a publication error. VALIDATE
+ * grades this output and records its explicit listing/output/drop counts.
+ *
+ * This helper performs source reads only: it does not write candidate state,
+ * job slices, or crawl receipts. Detail HTML is retained only for the caller's
+ * immediate grading pass and is never attached to vacancy records.
+ *
+ * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {Record<string, any>} [runtime]
+ * @returns {Promise<{ vacancies: any[], observation: Record<string, any>, detailPagesByUrl: Map<string, any>|null }>}
+ */
+export async function observeSpecInProduction(spec, runtime = {}) {
+  return runSpecInProduction(spec, {
+    ...runtime,
+    returnObservation: true,
+    retainDetailPages: true,
+    failOnIncomplete: false,
+  });
 }
 
 /**

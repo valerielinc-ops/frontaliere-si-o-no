@@ -4,6 +4,7 @@ import { unlockAchievement, addXp } from '@/services/gamificationService';
 import { CheckCircle2, Circle, ChevronDown, ChevronUp, Flag, Sparkles, ExternalLink, Clock, AlertCircle, Trophy, User, Briefcase } from 'lucide-react';
 import { loadUserProfile } from '@/components/pages/UserProfile';
 import type { UserProfileData } from '@/components/pages/UserProfile';
+import { useAuth } from '@/services/authService';
 import { useNavigation } from '@/services/NavigationContext';
 import { buildPath } from '@/services/router';
 import { Analytics } from '@/services/analytics';
@@ -138,6 +139,7 @@ const STORAGE_KEY = 'frontaliere_firstday_checklist';
 
 const FirstDayGuide: React.FC = () => {
  const { t } = useTranslation();
+ const { user } = useAuth();
  const nav = useNavigation();
  const [completedSteps, setCompletedSteps] = useState<Set<string>>(() => {
  try {
@@ -152,9 +154,9 @@ const FirstDayGuide: React.FC = () => {
  // ─── Profile-aware personalization ──────────────────────────
  const profile = useMemo<UserProfileData | null>(() => {
  try {
- return loadUserProfile();
+ return loadUserProfile(user?.uid);
  } catch { return null; }
- }, []);
+ }, [user?.uid]);
 
  const profileHints = useMemo(() => {
  if (!profile) return {};

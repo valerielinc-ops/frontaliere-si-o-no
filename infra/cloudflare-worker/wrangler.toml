@@ -42,11 +42,16 @@ routes = [
   # and therefore need their own wildcard route so query-string variants reach
   # the same deterministic 301/410 response in locale-router.js.
   { pattern = "frontaliereticino.ch/cookie*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/farmacie/ticino/castagnola/di-turno*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/pharmacies/ticino/castagnola/on-duty*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/apotheken/ticino/castagnola/notdienst*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/pharmacies/ticino/castagnola/de-garde*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/fr/articles-frontalier/naspi-disoccupazione-frontalieri*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/jobs-im-tessin*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/grenzgaenger-artikel*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/trouver-emploi-tessin*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/nav:pension*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/nav:health*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/calcolatore-5x1000*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/servizi-partner*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/partner-services*", zone_name = "frontaliereticino.ch" },
@@ -58,6 +63,20 @@ routes = [
   { pattern = "frontaliereticino.ch/vivere-in-ticino/vivere-in-svizzera*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/statistiche/traffico-dogane*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/border-traffic/gaggiolo/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/chiasso-brogeda/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/oria-gandria/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/rodero-stabio/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/en/border-traffic/ponte-tresa/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/chiasso-brogeda/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/oria-gandria/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/rodero-stabio/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/gaggiolo/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/de/grenze-verkehr/ponte-tresa/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/chiasso-brogeda/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/oria-gandria/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/rodero-stabio/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/gaggiolo/oggi*", zone_name = "frontaliereticino.ch" },
+  { pattern = "frontaliereticino.ch/fr/trafic-frontalier/ponte-tresa/oggi*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14*", zone_name = "frontaliereticino.ch" },
   { pattern = "frontaliereticino.ch/de/veranstaltungen/tessin/weitere-veranstaltungen/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14*", zone_name = "frontaliereticino.ch" },
@@ -198,6 +217,10 @@ routes = [
   # the underlying application-intent signal. Wildcard preserves uid/email/
   # token query parameters for GET and one-click POST requests.
   { pattern = "frontaliereticino.ch/disiscrivi-promemoria-candidature*", zone_name = "frontaliereticino.ch" },
+  # Apple Pay domain verification. The Worker checks the repository/Pages
+  # origin first and uses its R2 copy only when the repository file is absent.
+  # Wildcard keeps query-string probes on the same deterministic path.
+  { pattern = "frontaliereticino.ch/.well-known/apple-developer-merchantid-domain-association*", zone_name = "frontaliereticino.ch" },
   # Pushable-origin edge file, rollout step 1 of N (issue #4881 Fase 3, see
   # locale-router.js EDGE_PUSHED_FILES). Adding the next pushed path is a
   # one-line addition here + one object-literal entry in EDGE_PUSHED_FILES, no

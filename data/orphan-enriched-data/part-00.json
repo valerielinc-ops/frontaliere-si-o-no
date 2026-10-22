@@ -22739,16 +22739,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
-        "en": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+        "it": "dipl-infermiera-hf-focus-psichiatria-stiftung-drei-tannen-wald",
+        "en": "dipl-nurse-hf-focus-psychiatry-stiftung-drei-tannen-wald",
         "de": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
-        "fr": "dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald"
+        "fr": "dipl-infirmiere-hf-focalisation-psychiatrie-stiftung-drei-tannen-wald"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
-        "en": "/en/find-jobs-lucerne/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
-        "de": "/de/jobs-in-luzern/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
-        "fr": "/fr/trouver-emploi-lucerne/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald"
+        "it": "/cerca-lavoro-zurigo/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+        "en": "/en/find-jobs-zurich/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+        "de": "/de/jobs-in-zurich/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald",
+        "fr": "/fr/trouver-emploi-zurich/dipl-pflegefachperson-hf-schwerpunkt-psychiatrie-spitex-ch-wald"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22756,6 +22756,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -32011,6 +32012,63 @@
       ]
     },
     {
+      "slug": "graben",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/graben/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/graben/"
+      },
+      "queries": [
+        {
+          "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "title": "Graben",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "graben",
+        "en": "graben",
+        "de": "graben",
+        "fr": "graben"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/graben",
+        "en": "/en/find-jobs-bern/graben",
+        "de": "/de/jobs-im-bern/graben",
+        "fr": "/fr/trouver-emploi-berne/graben"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "graduate-program-investment-services-union-bancaire-privee-singapore-singapore",
       "locale": "en",
       "path": "/en/find-jobs-ticino/graduate-program-investment-services-union-bancaire-privee-singapore-singapore",
@@ -40319,6 +40377,83 @@
       ]
     },
     {
+      "slug": "logistician-ne-cfc-learning-valfleurier-delemont",
+      "locale": "it",
+      "path": "/cerca-lavoro-giura/logistician-ne-cfc-learning-valfleurier-delemont/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-giura/logistician-ne-cfc-learning-valfleurier-delemont/"
+      },
+      "queries": [
+        {
+          "query": "emploi delemont",
+          "clicks": 3,
+          "impressions": 16
+        },
+        {
+          "query": "job delemont",
+          "clicks": 1,
+          "impressions": 9
+        },
+        {
+          "query": "offre emploi delemont",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "delemont emploi",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "emplois delemont",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 31,
+      "totalClicks": 4,
+      "topQuery": "emploi delemont",
+      "title": "Logistician ne cfc learning valfleurier delemont",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "logistician-ne-cfc-learning-valfleurier-delemont",
+        "en": "logistician-ne-cfc-learning-valfleurier-delemont",
+        "de": "logistician-ne-cfc-learning-valfleurier-delemont",
+        "fr": "logistician-ne-cfc-learning-valfleurier-delemont"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-giura/logistician-ne-cfc-learning-valfleurier-delemont",
+        "en": "/en/find-jobs-jura/logistician-ne-cfc-learning-valfleurier-delemont",
+        "de": "/de/jobs-im-jura/logistician-ne-cfc-learning-valfleurier-delemont",
+        "fr": "/fr/trouver-emploi-jura/logistician-ne-cfc-learning-valfleurier-delemont"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "logisticien-in-confederazione-svizzera-schattdorf",
       "locale": "en",
       "path": "/en/find-jobs-ticino/logisticien-in-confederazione-svizzera-schattdorf",
@@ -41342,7 +41477,7 @@
         {
           "query": "maison de retraite suisse recrutement",
           "clicks": 0,
-          "impressions": 6
+          "impressions": 7
         },
         {
           "query": "offre d emploi maison de retraite",
@@ -41365,7 +41500,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 24,
+      "totalImpressions": 25,
       "totalClicks": 0,
       "topQuery": "emploi maison de retraite suisse",
       "title": "Maisons retraite",
@@ -49914,7 +50049,7 @@
         {
           "query": "arbeiten ausland pflege",
           "clicks": 0,
-          "impressions": 20
+          "impressions": 33
         },
         {
           "query": "pflege jobs in uri",
@@ -49944,7 +50079,7 @@
         {
           "query": "pflegedienst tessin",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 12
         },
         {
           "query": "pflege jobs aargau",
@@ -50012,7 +50147,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 180,
+      "totalImpressions": 197,
       "totalClicks": 0,
       "topQuery": "arbeiten ausland pflege",
       "title": "Pflegepersonal",
@@ -62967,10 +63102,10 @@
         "fr": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8",
-        "en": "/en/find-jobs-zurich/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8",
-        "de": "/de/jobs-in-zurich/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8",
-        "fr": "/fr/trouver-emploi-zurich/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8"
+        "it": "/cerca-lavoro-zugo/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8",
+        "en": "/en/find-jobs-zug/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8",
+        "de": "/de/jobs-in-zug/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8",
+        "fr": "/fr/trouver-emploi-zoug/senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich-h2npx8"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69153,6 +69288,63 @@
         "slug-registry",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug",
+      "locale": "it",
+      "path": "/cerca-lavoro-zugo/strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zugo/strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug/"
+      },
+      "queries": [
+        {
+          "query": "zimmermann",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "zimmermann",
+      "title": "Strassenbauer opus personal ag zweigniederlassung altdorf zug",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug",
+        "en": "strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug",
+        "de": "strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug",
+        "fr": "strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zugo/strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug",
+        "en": "/en/find-jobs-zug/strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug",
+        "de": "/de/jobs-im-zug/strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug",
+        "fr": "/fr/trouver-emploi-zoug/strassenbauer-opus-personal-ag-zweigniederlassung-altdorf-zug"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -76917,10 +77109,10 @@
         "fr": "vendita-prodotti-freschi-coop-genossenschaft-richterswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/vendita-prodotti-freschi-coop-genossenschaft-richterswil",
-        "en": "/en/find-jobs-basel/vendita-prodotti-freschi-coop-genossenschaft-richterswil",
+        "it": "/cerca-lavoro-zurigo/vendita-prodotti-freschi-coop-genossenschaft-richterswil",
+        "en": "/en/find-jobs-zurich/vendita-prodotti-freschi-coop-genossenschaft-richterswil",
         "de": "/de/jobs-im-zurich/vendita-prodotti-freschi-coop-genossenschaft-richterswil",
-        "fr": "/fr/trouver-emploi-bale/vendita-prodotti-freschi-coop-genossenschaft-richterswil"
+        "fr": "/fr/trouver-emploi-zurich/vendita-prodotti-freschi-coop-genossenschaft-richterswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -82087,6 +82279,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "zug-jobs-today",
+      "locale": "en",
+      "path": "/en/find-jobs-zug/zug-jobs-today/",
+      "observedPaths": {
+        "en": "/en/find-jobs-zug/zug-jobs-today/"
+      },
+      "queries": [
+        {
+          "query": "site:frontaliereticino.ch",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "site:frontaliereticino.ch",
+      "title": "Zug jobs today",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "zug-jobs-today",
+        "en": "zug-jobs-today",
+        "de": "zug-jobs-today",
+        "fr": "zug-jobs-today"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zugo/zug-jobs-today",
+        "en": "/en/find-jobs-zug/zug-jobs-today",
+        "de": "/de/jobs-im-zug/zug-jobs-today",
+        "fr": "/fr/trouver-emploi-zoug/zug-jobs-today"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

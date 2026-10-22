@@ -278,13 +278,20 @@ const PREMIUM_FRESHNESS_COPY = {
   fr: { year: 'Année des primes', fetched: 'Données récupérées', generated: 'Page générée', missing: 'date non documentée', stale: 'Primes d’une année antérieure : vérifiez la prime actuelle à la source.', source: 'Source' },
 };
 
+const PRIMINFO_PREMIUM_PATH: Record<HealthPremiumLocale, string> = {
+  it: '/it/praemien',
+  en: '/de/praemien',
+  de: '/de/praemien',
+  fr: '/fr/praemien',
+};
+
 function renderPremiumFreshness(dataset: HealthPremiumsDataset, locale: HealthPremiumLocale, today: Date): string {
   const copy = PREMIUM_FRESHNESS_COPY[locale];
   const fetchedAt = sourceDateIso(dataset.fetchedAt, today);
   const oldYear = Number.isInteger(dataset.year) && dataset.year! < today.getUTCFullYear();
   return `<p class="text-xs text-muted" data-premium-freshness="${oldYear ? 'stale' : fetchedAt ? 'dated' : 'unknown'}">
     ${esc(copy.year)}: ${esc(dataset.year ?? '—')} · ${esc(copy.fetched)}: ${fetchedAt ? `<time datetime="${esc(fetchedAt)}">${esc(formatSourceDate(dataset.fetchedAt, locale, today))}</time>` : esc(copy.missing)} ·
-    ${esc(copy.source)}: <a href="https://www.priminfo.admin.ch/" class="underline">UFSP / BAG / FOPH / OFSP — Priminfo</a>
+    ${esc(copy.source)}: <a href="https://www.priminfo.admin.ch${PRIMINFO_PREMIUM_PATH[locale]}" class="underline">UFSP / BAG / FOPH / OFSP — Priminfo</a>
     ${oldYear ? `<strong>${esc(copy.stale)}</strong>` : ''}
     <span class="block">${esc(copy.generated)}: <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></span>
   </p>`;
@@ -2436,7 +2443,7 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Phase 3A: clamp brand suffix only when it fits the 60-char SERP budget.
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = introLong;
@@ -2878,7 +2885,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
   });
 
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = introLong;
@@ -3109,7 +3116,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
   });
 
   const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
-  // No 180-char pre-cut: clampMetaDescription (160) always won, so this only
+  // No 180-char pre-cut: clampMetaDescription (150) always won, so this only
   // handed it a string already broken mid-word. Let it do the clause-aware cut.
   const description = intro;
 

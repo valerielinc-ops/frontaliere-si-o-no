@@ -51,7 +51,11 @@ import {
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { htmlFragmentToMarkdown, parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
+import {
+  extractYoustyWidgetApplicationUrl,
+  htmlFragmentToMarkdown,
+  parseYoustyApprenticeshipHtml,
+} from './lib/yousty-job-parser.mjs';
 import { SWISS_CANTONS } from './lib/crawler-location-config.mjs';
 import {
   inferAnyCanton,
@@ -151,8 +155,8 @@ function resolveGalenicaApplyUrl(variants, youstyEnrichment) {
     if (url) return url;
   }
 
-  // Keep only an application destination parsed from the Yousty profile; the
-  // profile page itself is not an application handoff.
+  // A bare Yousty profile is not an application handoff; the parser may return
+  // its canonical URL only when the profile's JobPosting declares directApply.
   return trustedHttpsGalenicaUrl(youstyEnrichment?.applyUrl);
 }
 
@@ -407,10 +411,11 @@ function youstyProfileUrl(variants = []) {
 export async function enrichFromYoustyProfile(variants, timeoutMs) {
   const profileUrl = youstyProfileUrl(variants);
   if (!profileUrl) return null;
+  const widgetApplyUrl = extractYoustyWidgetApplicationUrl(profileUrl);
 
   try {
     const html = await fetchText(profileUrl, timeoutMs);
-    const parsed = parseYoustyApprenticeshipHtml(html);
+    const parsed = parseYoustyApprenticeshipHtml(html, profileUrl);
     if (!parsed.description) return { applyUrl: parsed.applyUrl || '', sourceObserved: false };
     return {
       description: parsed.description,
@@ -420,7 +425,10 @@ export async function enrichFromYoustyProfile(variants, timeoutMs) {
     };
   } catch (err) {
     console.warn(`⚠️  Failed to enrich Yousty apprenticeship profile ${profileUrl}: ${err?.message || err}`);
-    return { applyUrl: '', sourceObserved: false };
+    // The feed's UUID-bound widget URL is source evidence independent of the
+    // detail-page read. Keep it for merge preservation, but do not claim that
+    // the page's source description was observed after a failed fetch.
+    return { applyUrl: widgetApplyUrl, sourceObserved: false };
   }
 }
 
@@ -718,6 +726,14 @@ export function storedGalenicaSourceText(record) {
  * @returns {{ jobs: object[], stats: { added: number, updated: number, removed: number, unpublished: object[], collapsed: number, legacyBlurbRecords: number } }}
  */
 export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJobs = [], noSource = [], thin = [], dropped = [], quarantined = [] } = {}) {
+  // `buildGalenicaJob()` refuses a source row without a usable city, but the
+  // `buildGalenicaJob()` refuses a source row without a usable city, but the
+  // generic merge deliberately retains unmatched previous jobs for a bounded
+  // grace period. Keep malformed rows available for a matched fresh/no-source
+  // record so its slug, locale and source history can be recovered; exclude
+  // them only when they would otherwise survive as unmatched grace rows.
+  const validExistingJobs = existingGalenicaJobs.filter((job) =>
+    hasUsableGalenicaCity(job?.addressLocality || job?.location));
   const existingByKey = new Map(existingGalenicaJobs.map((j) => [galenicaStableKey(j), j]));
 
   // Without source text this run: keep what a previous run read from the
@@ -741,17 +757,19 @@ export function mergeGalenicaRecords(existingGalenicaJobs = [], { jobs: freshJob
     discoveredJobs.push(job);
   }
 
-  const existingKeys = new Set(existingByKey.keys());
+  const existingKeys = new Set(existingGalenicaJobs.map(galenicaStableKey));
   const discoveredKeys = new Set(discoveredJobs.map(galenicaStableKey));
   const added = [...discoveredKeys].filter((k) => !existingKeys.has(k)).length;
   const updated = [...discoveredKeys].filter((k) => existingKeys.has(k)).length;
+  const mergeableExistingJobs = existingGalenicaJobs.filter((job) =>
+    validExistingJobs.includes(job) || discoveredKeys.has(galenicaStableKey(job)));
 
   // mergePreserveLocaleData matches on the stable trailing job id extracted
   // from the URL (falls back to the normalized full URL when no stable
   // token is found), so a vendor title/slug rewrite no longer orphans the
   // job's previousSlugs/previousSlugsByLocale/firstSeenAt history the way
   // the previous exact-URL-keyed merge did (issue #3699).
-  const merged = mergePreserveLocaleData(existingGalenicaJobs, discoveredJobs);
+  const merged = mergePreserveLocaleData(mergeableExistingJobs, discoveredJobs);
   const mergedByKey = new Map(merged.map((j) => [galenicaStableKey(j), j]));
 
   // Collapsed republications: their stored URLs keep resolving on the survivor.

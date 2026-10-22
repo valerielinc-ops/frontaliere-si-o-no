@@ -63,7 +63,7 @@ const SHELL_OUTPUT_ALIAS_RE = /(?:^|[;\n])\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_
 const OUTPUT_HELPER_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)(?:=|<<)/g;
 const OUTPUT_HELPER_KV_CALL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s*\(\s*["'`]([A-Za-z_][A-Za-z0-9_-]*)["'`]\s*,/g;
 const OUTPUT_HELPER_SHELL_RE = /\b(?:write_output|writeOutput|writeGithubOutput|writeGithubOutputs|set_output|setOutput|emit_output|emitOutput)\s+["']?([A-Za-z_][A-Za-z0-9_-]*)["']?/g;
-const OUTPUT_ACTIONS_FILE_RE = /\bappendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
+const OUTPUT_ACTIONS_FILE_RE = /\bappend(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']\s*,\s*["']([A-Za-z_][A-Za-z0-9_-]*)["']/g;
 const LOCAL_MODULE_RE = /\b(?:from\s*|import\s*\(\s*|require\s*\(\s*)["'](\.{1,2}\/[^"']+)["']/g;
 const INVOKED_COMMAND_RE = /\b(?:node|bash|sh|tsx|bun|deno)\s+["']?((?:scripts|functions|tests|\.github\/actions|\.github\/scripts)\/[A-Za-z0-9_./-]+\.(?:mjs|cjs|js|ts|sh|yml|yaml))\b/g;
 const SCRIPT_DIR_COMMAND_RE = /\b(?:bash|sh|source|\.)\s+["']?\$\{SCRIPT_DIR\}\/([^"'\s]+)/g;
@@ -480,6 +480,7 @@ function extractDataWritePaths(run, operationalRun) {
 const SHELL_KEYWORDS = new Set(['case', 'do', 'done', 'elif', 'else', 'esac', 'fi', 'for', 'if', 'in', 'then', 'until', 'while']);
 const SHELL_COMMENT_PRECEDERS = new Set([';', '&', '|', '(', ')', '{', '}', '<', '>']);
 const SHELL_OPERATORS = [';&', ';;&', '||', '&&', '|&', ';;', '>>', '<<', '>&', '<&', '>|', ';', '|', '&', '(', ')', '{', '}', '<', '>'];
+const DATA_WRITE_VALIDATION_RE = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i;
 
 function shellTokens(source) {
   const raw = String(source || '');
@@ -663,6 +664,54 @@ function shellConditionalBranches(parsed) {
     }
   }
   return branches.filter((branch) => branch.then && branch.bodyEnd);
+}
+
+function shellErrexitChange(command) {
+  if (command.name !== 'set') return null;
+  const values = command.args
+    .filter((token) => token.type === 'word')
+    .map((token) => token.value);
+  for (let index = 0; index < values.length; index += 1) {
+    const value = values[index];
+    if (value === '+e' || (value === '+o' && values[index + 1] === 'errexit')) return false;
+    if (value === '-e' || (/^-[^-]*e/.test(value) && value !== '-o')
+      || (value === '-o' && values[index + 1] === 'errexit')) return true;
+  }
+  return null;
+}
+
+function shellErrexitEnabledBefore(parsed, target) {
+  let enabled = true;
+  for (const command of parsed.commands) {
+    if (command.start >= target.start) break;
+    const change = shellErrexitChange(command);
+    if (change !== null) enabled = change;
+  }
+  return enabled;
+}
+
+function shellValidationIsGuarded(source, parsed, command) {
+  if (command.name === '!' && command.prefixKeywords.includes('if')) {
+    const branch = shellConditionalBranches(parsed)
+      .filter((candidate) => command.start > candidate.conditionStart.end
+        && command.end <= candidate.then.start)
+      .sort((left, right) => right.conditionStart.start - left.conditionStart.start)[0];
+    return Boolean(branch && /\bexit(?:\s|;|$)/.test(source.slice(branch.then.end, branch.bodyEnd.start)));
+  }
+  if (command.operatorAfter !== '||') return false;
+  const commandIndex = parsed.commands.indexOf(command);
+  if (parsed.commands[commandIndex + 1]?.name === 'exit') return true;
+  const block = /^\s*\|\|\s*\{([\s\S]*?)\}/.exec(source.slice(command.end));
+  return Boolean(block && /\bexit(?:\s|;|$)/.test(block[1]));
+}
+
+function hasEffectiveDataValidation(operationalRun) {
+  const parsed = parseShellCommands(operationalRun);
+  const validationCommands = parsed.commands.filter((command) =>
+    DATA_WRITE_VALIDATION_RE.test(operationalRun.slice(command.start, command.end)));
+  if (validationCommands.length === 0) return false;
+  return validationCommands.every((command) =>
+    shellErrexitEnabledBefore(parsed, command) || shellValidationIsGuarded(operationalRun, parsed, command));
 }
 
 function fileExistencePath(command) {
@@ -1592,7 +1641,7 @@ function outputKeysFromSource(source, { outputFlags = null } = {}) {
     for (const key of objectEntryOutputKeys(raw, flagRanges)) keys.add(key);
   }
   if (outputFlags && outputFlags.size > 0) return keys;
-  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|appendActionsFile\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
+  if (!/\$GITHUB_OUTPUT\b|\$\{GITHUB_OUTPUT\b|(?:process|env)\.GITHUB_OUTPUT\b|append(?:Actions|GitHub)File\s*\(\s*["']GITHUB_OUTPUT["']/.test(raw)) return keys;
   for (const match of raw.matchAll(OUTPUT_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_CALL_RE)) keys.add(match[1]);
   for (const match of raw.matchAll(OUTPUT_HELPER_KV_CALL_RE)) keys.add(match[1]);
@@ -2035,7 +2084,7 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
         }
         const operationalRun = shellOperationalText(rawStep.run, { preserveQuotedWritePaths: true });
         const dataWritePaths = extractDataWritePaths(rawStep.run, operationalRun);
-        const hasValidation = /\b(?:validat(?:e|ion)|audit|check|assert|test|strict|quality|schema|diff)\b/i.test(operationalRun);
+        const hasValidation = hasEffectiveDataValidation(operationalRun);
         if (dataWritePaths.length > 0 && !hasValidation) {
           for (const dataPath of dataWritePaths) findings.push(finding(file, 'workflow.data-write-without-check', 'warning', `scrittura di ${dataPath} senza validazione visibile nello step; verificare completezza/timestamp/schema prima del commit`, stepLine, rawStep.run.trim().slice(0, 300)));
         }

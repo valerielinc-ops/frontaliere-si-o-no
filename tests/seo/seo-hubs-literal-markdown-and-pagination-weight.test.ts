@@ -1,10 +1,17 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import {
   renderPagination,
   buildThinCantonHubHtml,
   buildPaginationIndexHtml,
+  countEmittedJobArchivePages,
+  countEmittedJobArchivePagesByLocale,
 } from '../../build-plugins/seoHubsPlugin';
+import { buildCantonHubEditorial } from '../../build-plugins/shared/cantonHubEditorial';
 import {
+  JOBS_PAGE_SIZE,
   isSeoHubPath,
   paginationIndexCount,
   paginationIndexPath,
@@ -13,6 +20,7 @@ import { createAuditor } from '../../scripts/audit-no-literal-markdown.mjs';
 import { ROOT } from '../../scripts/lib/audit-runner.mjs';
 import { minifyHtml } from '../../build-plugins/shared/htmlMinify';
 import { SCAN_TEST_TIMEOUT_MS } from '../helpers/distHtmlScan';
+import { writeAllKnownJobSlugs } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 // Regression for post-deploy validate-dist run 29330607996 (issue #4060),
 // audit:all failing sub-audits:
@@ -67,6 +75,55 @@ describe('seoHubs — no literal markdown leaks into hub listings', () => {
 });
 
 describe('seoHubs — pagination ladder page-weight byte-shave', () => {
+  it('counts the archive navigator from emitted detail pages, not the historical registry tail', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-archive-pages-'));
+    try {
+      const distDir = path.join(root, 'dist');
+      const emittedPath = '/cerca-lavoro-ticino/emitted-detail/';
+      const missingPath = '/cerca-lavoro-ticino/missing-detail/';
+      const enEmittedPath = '/en/find-jobs-ticino/emitted-detail/';
+      const enMissingPath = '/en/find-jobs-ticino/missing-detail/';
+      const emittedFile = path.join(distDir, emittedPath, 'index.html');
+      const enEmittedFile = path.join(distDir, enEmittedPath, 'index.html');
+      fs.mkdirSync(path.dirname(emittedFile), { recursive: true });
+      fs.writeFileSync(emittedFile, '<!doctype html>');
+      fs.mkdirSync(path.dirname(enEmittedFile), { recursive: true });
+      fs.writeFileSync(enEmittedFile, '<!doctype html>');
+
+      const registry = Object.fromEntries(Array.from({ length: 7100 }, (_, index) => [
+        `historical-job-${index}`,
+        {
+          it: index < 6700 ? emittedPath : missingPath,
+          // An English registry href does not count unless that locale's
+          // detail page was emitted, even when the Italian detail exists.
+          en: index < 6100 ? enEmittedPath : enMissingPath,
+        },
+      ]));
+      writeAllKnownJobSlugs(registry, root);
+
+      expect(Math.ceil(Object.keys(registry).length / JOBS_PAGE_SIZE)).toBe(71);
+      expect(countEmittedJobArchivePages(fs, path, root, distDir, 'it')).toBe(67);
+      const pagesByLocale = countEmittedJobArchivePagesByLocale(fs, path, root, distDir);
+      expect(pagesByLocale.it).toBe(67);
+      expect(pagesByLocale.en).toBe(61);
+      expect(countEmittedJobArchivePages(fs, path, root, distDir, 'en')).toBe(pagesByLocale.en);
+
+      const englishHub = buildCantonHubEditorial({
+        canton: 'TI',
+        locale: 'en',
+        display: 'Ticino',
+        jobsCount: 6100,
+        totalPages: pagesByLocale.en,
+        archiveNavigablePages: pagesByLocale.en,
+        archiveBaseHref: '/en/find-jobs-ticino/tutti/',
+      }).join('');
+      expect(englishHub).toContain('(61 pages)');
+      expect(englishHub).not.toContain('(67 pages)');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('renderPagination replaces the unbounded page ladder with bounded range indexes', () => {
     const total = 2500;
     const basePath = '/cerca-lavoro-ticino/tutti/';
@@ -135,6 +192,30 @@ describe('seoHubs — pagination ladder page-weight byte-shave', () => {
     expect(html).not.toContain(`${basePath}page-41/`);
     expect(html).toContain('"@type":"CollectionPage"');
     expect(html).not.toContain('noindex');
+  });
+
+  it('keeps the pagination-index H1 distinct when the archive title is over the brand budget', () => {
+    const archiveTitle = 'Same Heading Text '.repeat(5).trim();
+    const html = buildPaginationIndexHtml({
+      locale: 'it',
+      basePath: '/cerca-lavoro-ticino/tutti/',
+      indexPage: 1,
+      totalPages: 15,
+      totalItems: 1500,
+      archiveTitle,
+      archiveDescription: 'Archivio completo delle offerte di lavoro.',
+      parentPath: '/cerca-lavoro-ticino/',
+      parentLabel: 'Cerca lavoro in Ticino',
+      dateStamp: '2026-10-16',
+    });
+    const title = html.match(/<title>([^<]*)<\/title>/i)?.[1];
+    const h1 = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1];
+
+    expect(title).toBeTruthy();
+    expect(h1).toBeTruthy();
+    expect(title).not.toBe(h1);
+    expect(h1).toContain('Pagine 1–15 dell\'archivio');
+    expect(h1).toContain(archiveTitle);
   });
 
   it('routes emitted page indexes but not article indexes', () => {

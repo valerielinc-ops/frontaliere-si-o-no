@@ -56,6 +56,7 @@ import { buildFaqHubPath } from '../../data/faq-hub/routes';
 import { PHARMACY_DUTY_HUB_PATH, PHARMACY_HUB_PATH } from '../../services/pharmacies/types';
 import { COMMUNICATIONS_PAGE_PATH } from '../../services/communicationChannels';
 import { buildPlateAuctionPath } from '../../services/plateAuctions/paths';
+import { EVENTS_INDEX_PATH } from '../../scripts/lib/events-utils.mjs';
 import { extractMetaDescription } from '../../scripts/lib/meta-description-extract.mjs';
 
 /** Minimal stand-in for the mirrored IT root the ratchet starts from. */
@@ -83,7 +84,7 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(title).toBe(HOMEPAGE_SEO_TITLES[locale]);
     expect(title.length).toBeLessThanOrEqual(60);
     expect(description.length).toBeGreaterThanOrEqual(120);
-    expect(description.length).toBeLessThanOrEqual(160);
+    expect(description.length).toBeLessThanOrEqual(150);
     expect(html).toContain('content="' + HOMEPAGE_SEO_TITLES[locale] + '"');
     expect(html).toContain('href="https://frontaliereticino.ch/' + locale + '/"');
     expect(html).toContain('content="' + locale + '_CH"');
@@ -142,6 +143,14 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(NAV_LABELS[locale]).toEqual(
       expect.arrayContaining([{ href, label: expect.any(String) }]),
     );
+  });
+
+  it.each(NON_IT_LOCALES)('/%s/ links the localized events hub from its static navigation', (locale) => {
+    const href = `${EVENTS_INDEX_PATH[locale]}/`;
+    expect(NAV_LABELS[locale]).toEqual(
+      expect.arrayContaining([{ href, label: expect.any(String) }]),
+    );
+    expect(renderLocaleRoot(locale)).toContain(`href="${href}"`);
   });
 
   it.each(['it', ...NON_IT_LOCALES] as const)('%s static navigation emits its plate-auction hub href', (locale) => {

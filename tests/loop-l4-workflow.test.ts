@@ -9,6 +9,9 @@ import { exportL4 } from '../scripts/ci/export-loop-outcomes.mjs';
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const ROOT = 'projects/test/databases/(default)/documents';
 const WORKFLOW_PATH = path.resolve('.github/workflows/loop-l4-alert-return.yml');
+const FILE_ONLY_L4_INPUTS = new Map([
+  ['data/alert-snoozes.json', 'repository-only deferredAlerts input; the same-day schedule measures the updated value'],
+]);
 
 function row(documentPath: string, data: Record<string, unknown>) {
   return { name: `${ROOT}/${documentPath}`, data };
@@ -30,6 +33,7 @@ function fixture() {
     campaign_deliveries: [
       row('job_alert_subscribers/user@example.com/campaign_deliveries/inactive', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'a'.repeat(24)}`,
         sent_at: '2026-09-03T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -43,6 +47,7 @@ function fixture() {
       // La finestra REST deve escludere questo documento.
       row('job_alert_subscribers/user@example.com/campaign_deliveries/old', {
         campaign_id: 'inactive',
+        ranking_delivery_id: `jer_job_alert_${'b'.repeat(24)}`,
         sent_at: '2026-09-01T09:00:00.000Z',
         consent_checked: true,
         consent_allowed: true,
@@ -50,6 +55,12 @@ function fixture() {
         consent_checked_at: '2026-09-01T08:59:00.000Z',
         outcome_contract_version: 1,
         delivered_at: '2026-09-01T09:01:00.000Z',
+      }),
+      // La collection group contiene anche consegne newsletter, ignorate dal
+      // ledger L4 e quindi escluse direttamente dalla query.
+      row('newsletter_subscribers/l4-fixture/campaign_deliveries/newsletter', {
+        campaign_id: 'weekly_2026-09-03',
+        sent_at: '2026-09-03T09:00:00.000Z',
       }),
     ],
     events: [
@@ -91,8 +102,11 @@ function fakeRestClient(data: ReturnType<typeof fixture>, calls: Array<Record<st
           return Number.isFinite(value) && value >= start;
         })
         : source;
+      const scoped = query.pathPrefix
+        ? inWindow.filter((item) => item.name.split(`${ROOT}/`)[1]?.startsWith(`${query.pathPrefix}/`))
+        : inWindow;
       const selected = new Set(query.fieldPaths || []);
-      return inWindow.map((item) => ({
+      return scoped.map((item) => ({
         ...item,
         data: Object.fromEntries(Object.entries(item.data).filter(([field]) => selected.has(field))),
       }));
@@ -170,17 +184,20 @@ function runScopeStep({
   fetchExit = 0,
   diffExit = 0,
   diffTreeExit = 0,
+  beforeSha,
 }: {
   changedPaths: string[];
   fetchExit?: number;
   diffExit?: number;
   diffTreeExit?: number;
+  beforeSha?: string;
 }) {
   const { scope } = workflowSteps();
   expect(scope?.run).toBeTruthy();
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l4-scope-test-'));
   const bin = path.join(directory, 'bin');
   const outputPath = path.join(directory, 'github-output');
+  const timeoutCallsPath = path.join(directory, 'timeout-calls');
   fs.mkdirSync(bin);
   fs.writeFileSync(path.join(bin, 'git'), [
     '#!/usr/bin/env bash',
@@ -192,6 +209,14 @@ function runScopeStep({
     'esac',
     '',
   ].join('\n'), { mode: 0o755 });
+  fs.writeFileSync(path.join(bin, 'timeout'), [
+    '#!/usr/bin/env bash',
+    'printf "%s\\n" "$*" >> "$TIMEOUT_CALLS"',
+    'if [ "$1" != "--signal=TERM" ] || [ "$2" != "--kill-after=5s" ] || [ "$3" != "30s" ]; then exit 125; fi',
+    'shift 3',
+    'exec "$@"',
+    '',
+  ].join('\n'), { mode: 0o755 });
   try {
     const stdout = execFileSync('bash', ['--noprofile', '--norc', '-e', '-c', scope?.run ?? 'false'], {
       cwd: directory,
@@ -200,9 +225,10 @@ function runScopeStep({
         ...process.env,
         PATH: `${bin}${path.delimiter}${process.env.PATH ?? ''}`,
         EVENT_NAME: 'push',
-        BEFORE_SHA: 'before-sha',
+        BEFORE_SHA: beforeSha ?? 'before-sha',
         AFTER_SHA: 'after-sha',
         GITHUB_OUTPUT: outputPath,
+        TIMEOUT_CALLS: timeoutCallsPath,
         L4_EXPORT_PERIMETER: scope?.env?.L4_EXPORT_PERIMETER ?? '',
         GIT_CHANGED_PATHS: changedPaths.join('\n'),
         GIT_FETCH_EXIT: String(fetchExit),
@@ -211,7 +237,8 @@ function runScopeStep({
       },
     });
     const outputs = Object.fromEntries(fs.readFileSync(outputPath, 'utf8').trim().split('\n').map((line) => line.split('=')));
-    return { outputs, stdout };
+    const timeoutCalls = fs.readFileSync(timeoutCallsPath, 'utf8').trim().split('\n');
+    return { outputs, stdout, timeoutCalls };
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }
@@ -235,13 +262,17 @@ describe('L4: query Firestore', () => {
       expect(byCollection.alerts.where).toBeUndefined();
       expect(byCollection.job_alert_subscribers.where).toBeUndefined();
       expect(byCollection.newsletter_subscribers.where).toBeUndefined();
+      expect(byCollection.campaign_deliveries.pathPrefix).toBe('job_alert_subscribers');
       expect(timestampFilter(byCollection.campaign_deliveries)).toEqual({
         field: 'sent_at',
         value: '2026-09-02T12:00:00.000Z',
       });
+      // The first delivery in the rolling window may carry a consent check
+      // up to 20 minutes earlier. Stop evidence must cover that whole
+      // filter-to-send interval, not start at the delivery boundary.
       expect(timestampFilter(byCollection.events)).toEqual({
         field: 'timestamp',
-        value: '2026-09-02T12:00:00.000Z',
+        value: '2026-09-02T11:40:00.000Z',
       });
       expect(byCollection.events.fieldPaths).toEqual(expect.arrayContaining([
         'event_type', 'eventType', 'message_id', 'messageId', 'timestamp',
@@ -253,16 +284,16 @@ describe('L4: query Firestore', () => {
 });
 
 describe('L4: perimetro del workflow', () => {
-  it('mantiene in un unico elenco il perimetro dell\'export e la sua chiusura locale', () => {
+  it('mantiene il perimetro dell\'export e dichiara gli input da file esclusi', () => {
     const { workflow, scope } = workflowSteps();
     const perimeter = exportPerimeter(scope);
     const exporter = 'scripts/ci/export-loop-outcomes.mjs';
     const closure = relativeImportClosure(exporter);
+    const sparse = workflow.jobs.audit.steps.find((step: Record<string, any>) => step.name === 'Checkout alert inputs')?.with?.['sparse-checkout'] ?? '';
     const expected = new Set([
       ...closure,
       '.github/workflows/loop-l4-alert-return.yml',
       'data/alert-config.json',
-      'data/alert-snoozes.json',
     ]);
 
     expect(perimeter).toEqual(expected);
@@ -270,8 +301,13 @@ describe('L4: perimetro del workflow', () => {
     for (const file of perimeter) {
       expect(workflow.on.push.paths, `push path ${file}`).toContain(file);
       expect(workflow.on.pull_request.paths, `pull_request path ${file}`).toContain(file);
-      const sparse = workflow.jobs.audit.steps.find((step: Record<string, any>) => step.name === 'Checkout alert inputs')?.with?.['sparse-checkout'] ?? '';
       expect(sparse, `sparse path ${file}`).toContain(`/${file}`);
+    }
+    for (const [file, reason] of FILE_ONLY_L4_INPUTS) {
+      expect(perimeter.has(file), reason).toBe(false);
+      expect(workflow.on.push.paths, reason).not.toContain(file);
+      expect(workflow.on.pull_request.paths, reason).toContain(file);
+      expect(sparse, reason).toContain(`/${file}`);
     }
     expect(scope?.run).toContain('L4_EXPORT_PERIMETER');
     expect(scope?.run).not.toContain("grep -F -x -e 'scripts/ci/export-loop-outcomes.mjs'");
@@ -279,32 +315,55 @@ describe('L4: perimetro del workflow', () => {
 
   it('mantiene il percorso live solo quando il push tocca il perimetro dell\'export', () => {
     const { exporter, audit, evidence, upload } = workflowSteps();
-    const targetPaths = [
-      'data/alert-config.json',
-      'data/alert-snoozes.json',
-      'scripts/lib/ga4-service-account.mjs',
-    ];
-    for (const changedPath of targetPaths) {
-      expect(runScopeStep({ changedPaths: [changedPath] }).outputs, changedPath).toMatchObject({
-        run_export: 'true',
-        run_audit: 'true',
-      });
-    }
-    expect(runScopeStep({ changedPaths: ['scripts/send-job-alerts.mjs'] }).outputs).toMatchObject({
+    expect(runScopeStep({ changedPaths: ['data/alert-config.json'] }).outputs).toMatchObject({
+      run_export: 'true',
+      run_audit: 'true',
+    });
+    const unrelated = runScopeStep({ changedPaths: ['scripts/send-job-alerts.mjs'] });
+    expect(unrelated.outputs).toMatchObject({
       run_export: 'false',
       run_audit: 'false',
     });
+    expect(unrelated.timeoutCalls).toEqual([
+      '--signal=TERM --kill-after=5s 30s git fetch --no-tags --depth=1 origin before-sha',
+      '--signal=TERM --kill-after=5s 30s git diff --name-only before-sha after-sha',
+    ]);
     expect(exporter?.if).toContain("steps.l4-scope.outputs.run_export == 'true'");
     expect(audit?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(evidence?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
     expect(upload?.if).toContain("steps.l4-scope.outputs.run_audit == 'true'");
   });
 
-  it('sceglie il percorso live prudente se fetch o diff non sono disponibili', () => {
-    for (const options of [{ fetchExit: 1 }, { diffExit: 1 }]) {
+  it('salta l\'export per il solo aggiornamento degli snooze, ma lo esegue con un path del perimetro', () => {
+    expect(runScopeStep({
+      changedPaths: ['data/alert-snoozes.json', 'data/quality-alerts-history.jsonl'],
+    }).outputs).toMatchObject({
+      run_export: 'false',
+      run_audit: 'false',
+    });
+    expect(runScopeStep({
+      changedPaths: ['data/alert-snoozes.json', 'scripts/ci/export-loop-outcomes.mjs'],
+    }).outputs).toMatchObject({
+      run_export: 'true',
+      run_audit: 'true',
+    });
+  });
+
+  it('limita i comandi Git e sceglie il percorso live prudente quando scadono', () => {
+    const deadlines: Array<{
+      options: { fetchExit?: number; diffExit?: number; diffTreeExit?: number; beforeSha?: string };
+      command: string;
+    }> = [
+      { options: { fetchExit: 124 }, command: 'git fetch ' },
+      { options: { diffExit: 124 }, command: 'git diff ' },
+      { options: { beforeSha: '', diffTreeExit: 124 }, command: 'git diff-tree ' },
+    ];
+    for (const { options, command } of deadlines) {
       const result = runScopeStep({ changedPaths: [], ...options });
       expect(result.outputs).toMatchObject({ run_export: 'true', run_audit: 'true' });
       expect(result.stdout).toContain('::notice::L4 percorso live prudente');
+      expect(result.timeoutCalls.every((call) => call.includes('--kill-after=5s 30s git '))).toBe(true);
+      expect(result.timeoutCalls.at(-1)).toContain(command);
     }
   });
 

@@ -106,6 +106,9 @@ function mockGh(failureJobs: unknown[], { cancelledRuns = [] as unknown[] } = {}
       if (path.includes('actions/runs?status=failure')) {
         return JSON.stringify({ workflow_runs: [RUN] });
       }
+      if (path.includes('actions/runs?status=startup_failure')) {
+        return JSON.stringify({ total_count: 0, workflow_runs: [] });
+      }
       if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: failureJobs });
       if (path.endsWith('/annotations')) return '[]';
       return '{}';

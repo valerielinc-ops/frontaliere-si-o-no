@@ -13,7 +13,12 @@ export interface FuelStationItaly {
  lng: number | null;
  priceEur: number;
  dieselPriceEur?: number | null;
+ /** MIMIT observation date for Benzina; absent in legacy cached datasets. */
+ benzinaUpdatedAt?: string | null;
+ /** MIMIT observation date for Gasolio; absent in legacy cached datasets. */
+ dieselUpdatedAt?: string | null;
  isSelf: boolean;
+ /** Legacy MIMIT row timestamp; it may refer to either fuel. */
  updatedAt: string | null;
 }
 
@@ -90,7 +95,7 @@ export interface FuelPricesDataset {
  sources: {
  italy: { provider: string; priceSnapshotDate: string | null; stationsUrl: string; pricesUrl: string; };
  switzerland: { provider: string; providerUrl: string; stationCount: number; latestObservedUpdate: string | null; dieselStationCount?: number; dieselCoveragePct?: number; };
- exchangeRate: { provider: string; sourceUrl: string; chfPerEur: number; eurPerChf: number; };
+ exchangeRate: { provider: string; sourceUrl: string; rateDate?: string | null; chfPerEur: number; eurPerChf: number; };
  };
  summary: {
  municipalityCount: number;

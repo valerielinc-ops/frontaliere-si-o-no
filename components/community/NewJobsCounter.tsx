@@ -1,53 +1,56 @@
 /**
- * NewJobsCounter — slim inline bar showing new jobs since last visit.
- *
- * DESIGN-1: Below filter chips, above job list. No emoji (Stripe aesthetic).
- * DESIGN-7: Hides"per te" suffix when matchingCount is 0.
+ * Return-visit action: toggles the job board to offers posted since the
+ * visitor's previous session.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Sparkles, X } from 'lucide-react';
+import { useTranslation } from '@/services/i18n';
 
 interface NewJobsCounterProps {
  newJobsCount: number;
- matchingCount: number;
+ isActive: boolean;
+ onToggle: () => void;
  onDismiss: () => void;
 }
 
-function NewJobsCounter({ newJobsCount, matchingCount, onDismiss }: NewJobsCounterProps) {
- const [dismissed, setDismissed] = useState(false);
+function NewJobsCounter({ newJobsCount, isActive, onToggle, onDismiss }: NewJobsCounterProps) {
+ const { t } = useTranslation();
 
- if (newJobsCount <= 0 || dismissed) return null;
-
- const handleDismiss = () => {
- setDismissed(true);
- onDismiss();
- };
+ if (newJobsCount <= 0 && !isActive) return null;
 
  return (
  <div
  role="status"
- className={`flex items-start sm:items-center gap-2 px-3 py-2 rounded-[6px] bg-accent-subtle border border-accent-border/40 text-xs text-body transition-[opacity,height,padding,border-width] duration-200 motion-reduce:transition-none ${dismissed ? 'h-0 overflow-hidden opacity-0 py-0 border-0' : ''}`}
+ data-testid="return-visit-new-jobs"
+ className="flex flex-wrap items-center gap-2 px-3 py-2 rounded-[6px] bg-accent-subtle border border-accent-border/40 text-xs text-body"
  >
- <Sparkles className="w-4 h-4 text-accent shrink-0 mt-0.5 sm:mt-0" />
+ <Sparkles className="w-4 h-4 text-accent shrink-0" aria-hidden="true" />
  <span className="flex-1 min-w-0">
  <strong className="font-semibold text-accent">{newJobsCount}</strong>
- {' nuovi lavori dalla tua ultima visita'}
- {matchingCount > 0 && (
- <>
- {', '}
- <strong className="font-semibold text-accent">{matchingCount}</strong>
- {' corrispondono al tuo profilo'}
- </>
- )}
+ {' '}
+ {t('jobBoard.returnVisit.message', { count: newJobsCount })}
  </span>
  <button
- onClick={handleDismiss}
- aria-label="Chiudi"
+ type="button"
+ onClick={onToggle}
+ aria-pressed={isActive}
+ data-testid="return-visit-toggle"
+ className="shrink-0 min-h-[44px] px-3 rounded-lg border border-accent-border bg-surface text-accent font-semibold hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ >
+ {t(isActive ? 'jobBoard.returnVisit.showAll' : 'jobBoard.returnVisit.show')}
+ </button>
+ {!isActive && (
+ <button
+ type="button"
+ onClick={onDismiss}
+ aria-label={t('jobBoard.returnVisit.dismiss')}
+ data-testid="return-visit-dismiss"
  className="shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity motion-reduce:transition-none"
  >
- <X className="w-4 h-4" />
+ <X className="w-4 h-4" aria-hidden="true" />
  </button>
+ )}
  </div>
  );
 }

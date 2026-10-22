@@ -125,10 +125,12 @@ export async function getChatMemberCount({ token, chatId, fetchImpl = globalThis
   try {
     const res = await fetchImpl(endpoint);
     const data = await res.json().catch(() => null);
-    if (data?.ok && typeof data.result === 'number') {
+    if (data?.ok && Number.isSafeInteger(data.result) && data.result >= 0) {
       return { ok: true, count: data.result, error: null };
     }
-    const desc = data?.description || `HTTP ${res?.status ?? '?'}`;
+    const desc = data?.description || (data?.ok
+      ? 'member count result must be a non-negative safe integer'
+      : `HTTP ${res?.status ?? '?'}`);
     return fail(`telegram error: ${desc}`);
   } catch (err) {
     return fail(err?.message || String(err));

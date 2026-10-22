@@ -2,148 +2,8 @@
   "version": 1,
   "runCounter": 1340,
   "currentQuota": 90,
-  "lastTune": "2026-10-14T09:25:42.041Z",
+  "lastTune": "2026-10-21T09:06:24.910Z",
   "history": [
-    {
-      "tunedAt": "2026-07-02T07:34:17.062Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=15 discovery=11",
-      "provenWinRate": 0.6667,
-      "discoveryWinRate": 0.5455,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 10,
-          "total": 15
-        },
-        "discovery": {
-          "winners": 6,
-          "total": 11
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-07-03T07:23:36.450Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=13 discovery=12",
-      "provenWinRate": 0.6154,
-      "discoveryWinRate": 0.5833,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 8,
-          "total": 13
-        },
-        "discovery": {
-          "winners": 7,
-          "total": 12
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-07-04T06:50:00.724Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=12 discovery=9",
-      "provenWinRate": 0.6667,
-      "discoveryWinRate": 0.5556,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 8,
-          "total": 12
-        },
-        "discovery": {
-          "winners": 5,
-          "total": 9
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-07-05T07:28:12.476Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=12 discovery=6",
-      "provenWinRate": 0.6667,
-      "discoveryWinRate": 0.5,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 8,
-          "total": 12
-        },
-        "discovery": {
-          "winners": 3,
-          "total": 6
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-07-06T08:23:05.380Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=12 discovery=5",
-      "provenWinRate": 0.6667,
-      "discoveryWinRate": 0.4,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 8,
-          "total": 12
-        },
-        "discovery": {
-          "winners": 2,
-          "total": 5
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-07-07T07:40:02.526Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=13 discovery=5",
-      "provenWinRate": 0.5385,
-      "discoveryWinRate": 0.4,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 7,
-          "total": 13
-        },
-        "discovery": {
-          "winners": 2,
-          "total": 5
-        }
-      }
-    },
-    {
-      "tunedAt": "2026-07-08T06:31:10.591Z",
-      "prevQuota": 80,
-      "newQuota": 80,
-      "decision": "hold",
-      "reason": "insufficient sample proven=15 discovery=5",
-      "provenWinRate": 0.4667,
-      "discoveryWinRate": 0.4,
-      "ratio": null,
-      "samples": {
-        "proven": {
-          "winners": 7,
-          "total": 15
-        },
-        "discovery": {
-          "winners": 2,
-          "total": 5
-        }
-      }
-    },
     {
       "tunedAt": "2026-07-09T07:50:43.736Z",
       "prevQuota": 80,
@@ -1986,6 +1846,146 @@
     },
     {
       "tunedAt": "2026-10-14T09:25:42.041Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-10-15T08:59:37.830Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-10-16T08:41:55.053Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-10-17T08:13:56.602Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-10-18T08:30:26.464Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-10-19T09:31:05.591Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-10-20T09:05:37.808Z",
+      "prevQuota": 90,
+      "newQuota": 90,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-10-21T09:06:24.910Z",
       "prevQuota": 90,
       "newQuota": 90,
       "decision": "hold",

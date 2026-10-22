@@ -11,7 +11,7 @@
  * whenever salary coverage was missing) — it's now `?? null`, degrading
  * to "N/D" like the rest of the page instead of lying.
  */
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -21,6 +21,7 @@ import { formatSourceDate } from '../../services/dataFreshness';
 
 const tempRoots: string[] = [];
 afterEach(() => {
+  vi.unstubAllEnvs();
   while (tempRoots.length) {
     const dir = tempRoots.pop()!;
     fs.rmSync(dir, { recursive: true, force: true });
@@ -69,6 +70,32 @@ describe('marketReportPlugin — salaryP tracks avgMid, no stale/fake hardcode',
 
     expect(html).not.toMatch(/CHF 73[ .,'’]?000/);
     expect(html).toMatch(/stipendio medio annuo si attesta intorno a N\/D lordi/);
+  });
+});
+
+describe('marketReportPlugin — localized report routes', () => {
+  it('uses each shared locale-qualified slug once for sitemap, canonical, and hreflang URLs', async () => {
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'market-report-routes-'));
+    tempRoots.push(tempRoot);
+    fs.mkdirSync(path.join(tempRoot, 'dist'));
+    vi.stubEnv('SKIP_MARKET_REPORT', '0');
+
+    await (marketReportPlugin(tempRoot).closeBundle as () => Promise<void>)();
+
+    const expected = {
+      it: '/reports/mercato-lavoro-frontalieri-ticino-2026/',
+      en: '/en/reports/ticino-cross-border-job-market-2026/',
+      de: '/de/reports/tessiner-grenzgaenger-arbeitsmarkt-2026/',
+      fr: '/fr/reports/marche-emploi-frontaliers-tessin-2026/',
+    } as const;
+    const sitemap = fs.readFileSync(path.join(tempRoot, 'dist/sitemap-market-report.xml'), 'utf8');
+    expect([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]).pathname)).toEqual(Object.values(expected));
+
+    for (const [locale, route] of Object.entries(expected)) {
+      const html = fs.readFileSync(path.join(tempRoot, 'dist', route, 'index.html'), 'utf8');
+      expect(html).toContain(`<link rel=canonical href="https://frontaliereticino.ch${route}">`);
+      expect(html).toContain(`<link rel=alternate hreflang=${locale} href="https://frontaliereticino.ch${route}">`);
+    }
   });
 });
 

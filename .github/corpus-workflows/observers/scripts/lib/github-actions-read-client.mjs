@@ -136,6 +136,19 @@ async function readBoundedResponse(response, maxBytes) {
   return bytes;
 }
 
+/**
+ * @typedef {object} GitHubActionsReadClientOptions
+ * @property {string} apiUrl
+ * @property {string} token
+ * @property {string} [apiVersion]
+ * @property {typeof fetch} [fetchImpl]
+ * @property {(milliseconds: number) => Promise<void>} [sleep]
+ * @property {number} [timeoutMs]
+ */
+
+/**
+ * @param {GitHubActionsReadClientOptions} [options]
+ */
 export function createGitHubActionsReadClient({
   apiUrl,
   token,
@@ -143,7 +156,7 @@ export function createGitHubActionsReadClient({
   fetchImpl = fetch,
   sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
   timeoutMs = 30_000,
-} = {}) {
+} = /** @type {GitHubActionsReadClientOptions} */ ({})) {
   if (typeof apiUrl !== 'string' || !/^https:\/\//.test(apiUrl)
       || typeof token !== 'string' || token.length === 0
       || typeof apiVersion !== 'string' || apiVersion.length === 0

@@ -123,3 +123,11 @@ describe('staticPagesPlugin — locale navigation fails closed', () => {
     expect(SOURCE).toContain('Object.hasOwn(NAV_LABELS, locale)');
   });
 });
+
+describe('staticPagesPlugin — emits X Card metadata on every static-page shell', () => {
+  it('shares one card builder across static-only, SPA, and bundle-fallback outputs', () => {
+    expect(SOURCE).toContain("import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';");
+    expect(SOURCE).toContain('const twitterCardMeta = buildTwitterCardMetaTags({');
+    expect(SOURCE.match(/\$\{twitterCardMeta\}/g) ?? []).toHaveLength(3);
+  });
+});

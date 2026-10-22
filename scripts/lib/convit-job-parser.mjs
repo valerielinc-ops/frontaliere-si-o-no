@@ -21,6 +21,7 @@ import {
 import { getCompanyDefaults, getCantonDisplayName } from './crawler-location-config.mjs';
 import { stripLocationRegionMarkers } from './job-location-plausibility.mjs';
 import { dropFabricatedLocaleText } from './source-locale-description.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 const HQ = getCompanyDefaults('convit');
 
@@ -269,17 +270,8 @@ function extractDescriptionFromDom(document) {
 export function parseConvitDetailPage(html = '', fallbackTitle = '') {
   const document = new JSDOM(html).window.document;
 
-  // Extract JSON-LD JobPosting
-  let jsonLd = null;
-  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
-    try {
-      const data = JSON.parse(script.textContent || '');
-      if (data?.['@type'] === 'JobPosting') {
-        jsonLd = data;
-        break;
-      }
-    } catch { /* ignore */ }
-  }
+  // Extract JSON-LD JobPosting, including array and @graph schema shapes.
+  const jsonLd = extractJobPostingNodes(html)[0] || null;
 
   // Title
   const h1 = document.querySelector('h1');

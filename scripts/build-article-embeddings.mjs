@@ -28,6 +28,7 @@ import { fileURLToPath } from 'node:url';
 
 import { embedBatch, lastUsedEmbeddingModel, selectProvider } from './lib/evidence/embeddingClient.mjs';
 import { EMBEDDING_DIM, EMBEDDING_MODEL } from './lib/evidence/constants.mjs';
+import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
@@ -54,20 +55,23 @@ function slugHashBuffer(slug) {
  * Parse `services/locales/blog-meta-it.ts` and return the
  * `Map<slug, { title, excerpt }>` we'll feed into the embedder.
  */
+export function parseEmbeddingArticleMetadata(text, sourcePath = BLOG_META_IT) {
+  const translations = parseStaticArticleTranslationSource(text, sourcePath);
+  const articles = new Map();
+  for (const [slug, fields] of translations) {
+    if (!/^[a-z0-9-]+$/.test(slug)) continue;
+    const title = fields.get('title');
+    const excerpt = fields.get('excerpt');
+    if (title === undefined && excerpt === undefined) continue;
+    articles.set(slug, { title: title ?? '', excerpt: excerpt ?? '' });
+  }
+  return articles;
+}
+
 function loadArticles() {
   if (!existsSync(BLOG_META_IT)) return new Map();
   const text = readFileSync(BLOG_META_IT, 'utf8');
-  const reKey = /'(blog\.article\.([a-z0-9-]+)\.(title|excerpt))': '((?:\\'|[^'])*)'/g;
-  const articles = new Map();
-  let m;
-  while ((m = reKey.exec(text)) !== null) {
-    const slug = m[2];
-    const field = m[3];
-    const value = m[4].replace(/\\'/g, "'");
-    if (!articles.has(slug)) articles.set(slug, { title: '', excerpt: '' });
-    articles.get(slug)[field] = value;
-  }
-  return articles;
+  return parseEmbeddingArticleMetadata(text, BLOG_META_IT);
 }
 
 /**

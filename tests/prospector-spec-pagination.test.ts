@@ -35,9 +35,15 @@ const STELLENTREFF_PAGE_57_OVERSHOOT = fs.readFileSync(
   'utf8',
 );
 
-function listingPage({ ids, page, total, next }: { ids: string[], page: number, total?: number, next?: string }) {
+function listingPage({ ids, page, total, next, fragments = {} }: {
+  ids: string[],
+  page: number,
+  total?: number,
+  next?: string,
+  fragments?: Record<string, string>,
+}) {
   const query = page > 1 ? `?sf_paged=${page}` : '';
-  const cards = ids.map((id) => `<div class="job"><h2><a href="${ORIGIN}/job/${id}/${query}" class="listing_link">Posizione ${id} a Lugano</a></h2></div>`).join('\n');
+  const cards = ids.map((id) => `<div class="job"><h2><a href="${ORIGIN}/job/${id}/${query}${fragments[id] || ''}" class="listing_link">Posizione ${id} a Lugano</a></h2></div>`).join('\n');
   const counter = total == null ? '' : `<p class="jobs_found"><span class="jobs_number">${total}</span> Jobs gefunden</p>`;
   const nextLink = next ? `<a class="nextpostslink" rel="next" aria-label="Nächste Seite" href="${next}">»</a>` : '';
   return `<html><head><title>Jobs</title></head><body>${counter}${cards}${nextLink}</body></html>`;
@@ -76,7 +82,7 @@ function specWith(extra: Record<string, unknown> = {}) {
   } as any;
 }
 
-async function collect(spec: any, pages: SitePages) {
+async function collect(spec: any, pages: SitePages, runtimeOverrides: Record<string, unknown> = {}) {
   const fetched: string[] = [];
   const policy = createSpecUrlPolicy(spec, { lookupImpl: publicLookup as any });
   try {
@@ -85,6 +91,7 @@ async function collect(spec: any, pages: SitePages) {
       sleepImpl: async () => {},
       retries: 0,
       disableWafProxy: true,
+      ...runtimeOverrides,
     }, policy);
     return { rows, fetched };
   } finally {
@@ -126,6 +133,143 @@ describe('spec.pagination', () => {
       `${ORIGIN}/`,
       `${ORIGIN}/?sf_paged=2`,
       `${ORIGIN}/?sf_paged=3`,
+    ]);
+  });
+
+  it('deduplica lo stesso annuncio tra pagine anche se i link hanno fragment diversi', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({
+        ids: ['sa1'],
+        page: 1,
+        total: 1,
+        next: `${ORIGIN}/?sf_paged=2`,
+        fragments: { sa1: '#open' },
+      }),
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({
+        ids: ['sa1'],
+        page: 2,
+        total: 1,
+        fragments: { sa1: '#details' },
+      }),
+    };
+
+    const { rows, fetched } = await collect(specWith({ pagination: PAGINATION }), pages);
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0].url).toBe(`${ORIGIN}/job/sa1/#open`);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([
+      `${ORIGIN}/`,
+      `${ORIGIN}/?sf_paged=2`,
+    ]);
+  });
+
+  it('legge un endpoint JSONP con HTML maiuscolo e limite di pagina revisionato', async () => {
+    const endpoint = `${ORIGIN}/easypublish/widget`;
+    const endpointPage = `${endpoint}?callback=frontaliere_callback&page=1`;
+    const listingHtml = `<article><h3><a href="${ORIGIN}/job/role-1">Role 1 a Lugano</a></h3></article>`;
+    const { rows, fetched } = await collect(specWith({
+      seedUrls: [`${ORIGIN}/careers`],
+      detailTemplate: '/job/*',
+      listingEndpoint: {
+        url: endpoint,
+        params: { callback: 'frontaliere_callback' },
+        responseFormat: 'jsonp',
+        responseHtmlField: 'HTML',
+        responseMaxNumPages: 1,
+        maxPages: 1,
+      },
+    }), {
+      [`${ORIGIN}/careers`]: '<html><title>Careers</title></html>',
+      [endpointPage]: `frontaliere_callback(${JSON.stringify({ HTML: listingHtml })})`,
+    });
+
+    expect(rows).toEqual([expect.objectContaining({
+      title: 'Role 1 a Lugano',
+      url: `${ORIGIN}/job/role-1`,
+    })]);
+    expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([endpointPage]);
+  });
+
+  it('preserva un outcome undefined presente quando aggrega pagine miste', async () => {
+    const seed = `${ORIGIN}/`;
+    const secondPage = `${ORIGIN}/?sf_paged=2`;
+    const pages = {
+      [seed]: listingPage({ ids: ['sa1'], page: 1, total: 2, next: secondPage }),
+      [secondPage]: listingPage({ ids: ['sa2'], page: 2, total: 2 }),
+    };
+    const listingExtractor = (_html: string, pageUrl: string) => {
+      const pageNumber = new URL(pageUrl).searchParams.get('sf_paged');
+      const rows: any[] = [{
+        url: `${ORIGIN}/job/sa${pageNumber === '2' ? '2' : '1'}/`,
+        title: 'Platform Engineer',
+      }];
+      Object.defineProperties(rows, {
+        fetchOutcome: {
+          value: pageNumber === '2' ? undefined : 'ok',
+          enumerable: false,
+        },
+        discoveredCount: { value: 1, enumerable: false },
+      });
+      return rows;
+    };
+
+    const { rows } = await collect(
+      specWith({ pagination: PAGINATION }),
+      pages,
+      { listingExtractor },
+    );
+
+    expect(Object.prototype.hasOwnProperty.call(rows, 'fetchOutcome')).toBe(true);
+    expect((rows as any).fetchOutcome).toBeUndefined();
+  });
+
+  it('non lascia che un outcome null nasconda il fallimento di una pagina successiva', async () => {
+    const seed = `${ORIGIN}/`;
+    const secondPage = `${ORIGIN}/?sf_paged=2`;
+    const pages = {
+      [seed]: listingPage({ ids: ['sa1'], page: 1, total: 2, next: secondPage }),
+      [secondPage]: listingPage({ ids: ['sa2'], page: 2, total: 2 }),
+    };
+    const listingExtractor = (_html: string, pageUrl: string) => {
+      const pageNumber = new URL(pageUrl).searchParams.get('sf_paged');
+      const rows: any[] = [{
+        url: `${ORIGIN}/job/sa${pageNumber === '2' ? '2' : '1'}/`,
+        title: 'Platform Engineer',
+      }];
+      Object.defineProperties(rows, {
+        fetchOutcome: {
+          value: pageNumber === '2' ? 'selector_miss' : null,
+          enumerable: false,
+        },
+        discoveredCount: { value: 1, enumerable: false },
+      });
+      return rows;
+    };
+
+    const { rows } = await collect(
+      specWith({ pagination: PAGINATION }),
+      pages,
+      { listingExtractor },
+    );
+
+    expect(Object.prototype.hasOwnProperty.call(rows, 'fetchOutcome')).toBe(true);
+    expect((rows as any).fetchOutcome).toBe('selector_miss');
+  });
+
+  it('può misurare la copertura sulle righe source duplicate prima del dedup', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` }),
+      // The source declares four rows but repeats sa2 on the second page;
+      // three distinct URLs are still a complete raw listing walk.
+      [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa2', 'sa3'], page: 2, total: 4 }),
+    };
+    const { rows } = await collect(specWith({
+      pagination: { ...PAGINATION, countDuplicateRowsForCoverage: true },
+    }), pages);
+    expect(rows.map((row) => row.url)).toEqual([
+      `${ORIGIN}/job/sa1/`,
+      `${ORIGIN}/job/sa2/`,
+      `${ORIGIN}/job/sa3/`,
     ]);
   });
 
@@ -179,7 +323,10 @@ describe('spec.pagination', () => {
       [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa2'], page: 2, total: 3, next: `${ORIGIN}/?sf_paged=3` }),
     };
     await expect(collect(specWith({ pagination: { ...PAGINATION, maxPages: 2 } }), pages))
-      .rejects.toThrow(/listing troncata: 2 pagine lette, maxPages=2/);
+      .rejects.toMatchObject({
+        specListingFailure: true,
+        message: expect.stringMatching(/listing troncata: 2 pagine lette, maxPages=2/),
+      });
   });
 
   it('fallisce chiuso quando il contatore dichiarato non si trova piu nella pagina', async () => {
@@ -187,7 +334,10 @@ describe('spec.pagination', () => {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1 }),
     };
     await expect(collect(specWith({ pagination: PAGINATION }), pages))
-      .rejects.toThrow(/totale dichiarato dalla fonte non trovato/);
+      .rejects.toMatchObject({
+        specListingFailure: true,
+        message: expect.stringMatching(/totale dichiarato dalla fonte non trovato/),
+      });
   });
 
   it('una pagina successiva che risponde con errore non produce una listing parziale', async () => {
@@ -195,7 +345,10 @@ describe('spec.pagination', () => {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 40, next: `${ORIGIN}/?sf_paged=2` })
         + `<a href="${ORIGIN}/?sf_paged=3">3</a>`,
     };
-    await expect(collect(specWith({ pagination: PAGINATION }), pages)).rejects.toThrow(/HTTP 404/);
+    await expect(collect(specWith({ pagination: PAGINATION }), pages)).rejects.toMatchObject({
+      specListingFailure: true,
+      message: expect.stringMatching(/HTTP 404/),
+    });
   });
 
   it('accetta un 404 successivo quando la copertura dichiarata e sufficiente', async () => {
@@ -303,16 +456,18 @@ describe('spec.pagination', () => {
     });
   });
 
-  it('senza spec.pagination legge solo il seed e segnala il next non seguito', async () => {
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+  it('senza spec.pagination fallisce chiuso se il seed espone un next non seguito', async () => {
     const pages = {
       [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 5, next: `${ORIGIN}/?sf_paged=2` }),
     };
-    const { rows, fetched } = await collect(specWith(), pages);
-    expect(rows).toHaveLength(2);
-    expect(fetched).not.toContain(`${ORIGIN}/?sf_paged=2`);
-    expect(warn.mock.calls.map((c) => String(c[0])).join('\n'))
-      .toMatch(/rel=next non seguito \(https:\/\/jobs\.example\.ch\/\?sf_paged=2\)/);
+    let failure: any;
+    try {
+      await collect(specWith(), pages);
+    } catch (error) {
+      failure = error;
+    }
+    expect(failure).toMatchObject({ specListingFailure: true, specDiscoveredCount: 2 });
+    expect(String(failure.message)).toMatch(/listing incompleta.*rel=next non seguito/);
   });
 });
 

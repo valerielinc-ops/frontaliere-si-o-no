@@ -64,12 +64,28 @@ export function extractPdfLinks(html = '', baseUrl = '') {
   }
 
   const links = [];
-  const hrefRe = /<a\b[^>]*?\s+href\s*=\s*(['"])([^>\r\n]*?)\1/gi;
-  let match;
-  while ((match = hrefRe.exec(html)) !== null) {
+  // Limit extraction to real anchor start tags and consume full attributes,
+  // so data-href, aria-href, and text inside another attribute cannot
+  // impersonate the actual href.
+  const anchorRe = /<a\b(?:[^>"']|"[^"]*"|'[^']*')*>/gi;
+  const attributeRe = /\s+([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
+  let anchorMatch;
+  while ((anchorMatch = anchorRe.exec(html)) !== null) {
+    let hrefMatch = null;
+    let attributeMatch;
+    attributeRe.lastIndex = 0;
+    while ((attributeMatch = attributeRe.exec(anchorMatch[0])) !== null) {
+      if (attributeMatch[1].toLowerCase() !== 'href') continue;
+      hrefMatch = attributeMatch;
+      break;
+    }
+    if (!hrefMatch) continue;
+    const quotedHref = hrefMatch[2] ?? hrefMatch[3];
+    if (quotedHref === undefined) continue;
+
     let rawHref;
     try {
-      rawHref = decodeEntities(match[2]).trim();
+      rawHref = decodeEntities(quotedHref).trim();
     } catch {
       // A malformed entity invalidates this candidate, not the whole listing.
       continue;

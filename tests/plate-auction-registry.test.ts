@@ -68,7 +68,7 @@ describe('plate-auction sources registry schema', () => {
     expect(Object.entries(registry.sources)
       .filter(([, entry]) => entry.status === 'active')
       .map(([key]) => key)
-      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
+      .sort()).toEqual(['ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'gl', 'gr', 'lu', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs', 'zh']);
   });
 
   it('never activates a source that has no fetcher, and never leaves a fetcher unbacked', async () => {
@@ -87,6 +87,7 @@ describe('plate-auction sources registry schema', () => {
   it('keeps live public catalogues active and Ricardo catalogues blocked', () => {
     expect(registry.sources.vs.status).toBe('active');
     expect(registry.sources.vs.accessMethod).toBe('html-scrape');
+    expect(registry.sources.vd.officialUrl).toBe('https://www.encheres-vd.ch/fr/');
     expect(registry.sources.gr.status).toBe('active');
     expect(registry.sources.zh.status).toBe('active');
     // TI e FR sono attivi: la «Pagina non disponibile» e il timeout su 443
@@ -108,9 +109,9 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.ai.accessMethod).toBe('pdf');
     expect(registry.sources.bs.status).toBe('active');
     expect(registry.sources.bs.accessMethod).toBe('pdf');
-    expect(registry.sources.gl.status).toBe('blocked');
-    expect(registry.sources.gl.accessMethod).toBe('manual');
-    expect(registry.sources.gl.notes).toMatch(/served HTML/);
+    expect(registry.sources.gl.status).toBe('active');
+    expect(registry.sources.gl.accessMethod).toBe('json-api');
+    expect(registry.sources.gl.notes).toMatch(/Invalid envelopes.*fail closed/);
     expect(registry.sources.lu.status).toBe('active');
     expect(registry.sources.ur.status).toBe('active');
     expect(registry.sources.zg.status).toBe('no-public-auction');

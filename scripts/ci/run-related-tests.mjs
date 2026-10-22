@@ -123,6 +123,17 @@ const socialRobotClosurePaths = new Set([
   'scripts/load-rc-env.mjs',
 ]);
 const sourceTreeLintTests = new Map([
+  // The pruner is executed in a disposable subprocess, never imported into
+  // Vitest (importing it would execute cleanup). These are real runtime/read
+  // dependencies that the static import graph cannot infer from path.join.
+  ...[
+    'tests/pruner-isolation.test.ts',
+    'tests/worktree-prune-signals.test.ts',
+    'tests/prune-merged-worktrees-e2e.test.ts',
+    'tests/prune-merged-worktrees-proofs-e2e.test.ts',
+    'tests/prune-merged-worktrees-corpus-e2e.test.ts',
+    'tests/prune-merged-worktrees-expiry-e2e.test.ts',
+  ].map((test) => [test, /^scripts\/prune-merged-worktrees\.mjs$/]),
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
   // `consent-shown-at-signup` discovers signup writers by reading every file
@@ -219,12 +230,10 @@ const sourceTreeLintTests = new Map([
   // Lo scan copre scripts/lib/** piu' un file nominato fuori da lib.
   ['tests/sanitize-control-chars.test.ts', /^scripts\/(?:lib\/.+\.(?:mjs|cjs|js)|publish-article-fast\.mjs)$/],
   ['tests/bounded-parallel.test.ts', /^scripts\/lib\/[^/]+\.sh$/],
-  // Il guard dei limiti di tempo su R2 legge da disco i due script del percorso
-  // di deploy e non li importa. Senza questa voce una PR che aggiunge una
-  // chiamata rclone a uno dei due non lo esegue: e' cosi' che la lookup senza
-  // limite riconoscibile di `upload-cdn-file.sh` e' arrivata su `main` (#11879)
-  // e il rosso e' comparso solo sulla prima PR che toccava `deploy.yml`.
-  ['tests/r2-calls-bounded.test.ts', /^scripts\/lib\/(?:deploy-it-pages-prep|upload-cdn-file)\.sh$/],
+  // Il guard dei limiti/lifecycle R2 legge da disco gli script del percorso
+  // deploy e il loro helper condiviso, senza importarli. Senza questa voce una
+  // modifica all'helper potrebbe saltare il guard fino a una PR non correlata.
+  ['tests/r2-calls-bounded.test.ts', /^scripts\/lib\/(?:deploy-it-pages-prep|upload-cdn-file|r2-image-lease-process)\.sh$/],
   // Questi scandiscono ricorsivamente tutto scripts/, ognuno con le proprie
   // estensioni; costano pochi secondi.
   ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
@@ -410,12 +419,13 @@ const testFixtureRe = /^tests\/.+\.json$/i;
 // string (for example a live-data guard message) expands that one phrase to
 // every workflow asset and turns a one-file workflow diff into hundreds of
 // unrelated tests.
-const assetLiteralRe = /(?<=['"`])(?:\.github|tests|data)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+const assetLiteralRe = /(?<=['"`])(?:(?:\.\.?\/)+)?(?:\.github|tests|data)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
 // La stessa dipendenza costruita a SEGMENTI: `path.join(ROOT, '.github',
-// 'workflows')` o `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
+// 'workflows')`, `path.join(__dirname, '..', 'data', 'x.json')` o
+// `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
 // La sequenza di letterali consecutivi separati da virgola che inizia con
-// `'.github'` vale come il path unito con `/`.
-const segmentedAssetRe = /(['"])(?:\.github|data)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
+// `'.github'`, `'data'`, `'.'` o `'..'` vale come il path unito con `/`.
+const segmentedAssetRe = /(['"])(?:\.github|data|\.\.?)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
 const segmentLiteralRe = /['"]([^'"]+)['"]/g;
 // Contratti di processo in prosa alla radice del repo. Come gli asset sotto
 // `.github/` non si importano: i test che ne congelano le frasi li aprono per
@@ -454,8 +464,11 @@ const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Se
 // Vitest invocation turn missing artifacts into application regressions.
 function requireFullCheckoutForVerdict() {
   const missing = missingFullCheckoutArtifacts();
-  const localInspection = selectionOnly
-    || (process.env.VITEST_RELATED_DRY_RUN === 'true' && process.env.GITHUB_ACTIONS !== 'true');
+  // --select-only is the CI scheduling probe as well as a useful local
+  // inspection seam. In Actions it is part of the blocking verdict, so it
+  // must not turn an incomplete checkout into a successful selection.
+  const localInspection = process.env.GITHUB_ACTIONS !== 'true'
+    && (selectionOnly || process.env.VITEST_RELATED_DRY_RUN === 'true');
   if (missing.length === 0 || localInspection) return;
   console.error('BLOCKED: related-test verdict requires a full checkout; generated runtime artifacts are missing.');
   console.error(`  Artefacts mancanti: ${missing.join(', ')}`);
@@ -475,6 +488,14 @@ const extensions = ['', '.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs', '.vue', '.
 
 const normalize = (file) => file.replaceAll('\\', '/').replace(/^\.\//, '');
 const NAME_STATUS_RE = /^[ACDMRTUXB](?:\d+)?$/;
+
+function resolveAssetLiteral(from, rawLiteral) {
+  const literal = rawLiteral.replace(/\/+$/, '');
+  const isRelative = literal.startsWith('./') || literal.startsWith('../');
+  return normalize(isRelative
+    ? path.posix.normalize(path.posix.join(path.posix.dirname(from), literal))
+    : literal);
+}
 
 /**
  * Parse the NUL-delimited `git diff --name-status -z` stream defensively.
@@ -672,7 +693,7 @@ function importsOf(file, fileSet, assets, assetSet) {
     // La barra finale va tolta: un riferimento costruito per template —
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
-    const literal = rawLiteral.replace(/\/+$/, '');
+    const literal = resolveAssetLiteral(file, rawLiteral);
     const directoryLiteral = hasDirectoryScan && !/\.[^/]+$/.test(literal);
     if (assetSet.has(literal)) deps.add(literal);
     if (directoryLiteral) {
@@ -734,7 +755,8 @@ function loadGraph(files, assets) {
   // descrittivo per una lettura di directory. La versione 11 conserva wildcard
   // solo per i file che dimostrano una scansione directory reale. La versione
   // 12 aggiunge gli asset `data/` e consente agli import di risolvere anche
-  // verso gli asset esclusi dal grafo dei sorgenti.
+  // verso gli asset esclusi dal grafo dei sorgenti. La versione 13 registra
+  // anche i literal `../data/...` e i loro equivalenti costruiti a segmenti.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -743,10 +765,45 @@ function loadGraph(files, assets) {
     previousAssets = cached.assets || null;
     previousRevision = cached.revision || '';
   } catch {}
-  const reusable = previousVersion === 12
-    && previousAssets === assetsDigest
-    && currentRevision !== ''
-    && previousRevision === currentRevision;
+  let changedSinceCache = null;
+  let sourceTopologyChanged = false;
+  if (previousVersion === 13 && previousAssets === assetsDigest
+    && previousRevision !== '' && currentRevision !== '') {
+    try {
+      execFileSync('git', ['merge-base', '--is-ancestor', previousRevision, currentRevision], {
+        stdio: 'ignore',
+      });
+      const output = previousRevision === currentRevision
+        ? ''
+        : execFileSync('git', [
+          'diff', '--name-status', '--no-renames', previousRevision, currentRevision,
+        ], {
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        });
+      changedSinceCache = new Set();
+      for (const line of output.split(/\r?\n/).filter(Boolean)) {
+        const [status, ...paths] = line.split('\t');
+        for (const file of paths) {
+          changedSinceCache.add(file);
+          if ((status.startsWith('A') || status.startsWith('D')) && sourceRe.test(file)) {
+            sourceTopologyChanged = true;
+          }
+        }
+      }
+    } catch {
+      // A cache from a divergent checkout is not a safe graph baseline. Keep
+      // the conservative full rebuild when ancestry or the intervening diff
+      // cannot be established from this checkout.
+    }
+  }
+  const changedPaths = new Set([...changed, ...(changedSinceCache || [])]);
+  // Source additions and deletions can change import resolution for otherwise
+  // untouched files, so rebuild when the source path set changed. Existing
+  // source files are re-indexed below; asset-path changes already invalidate
+  // the cache through assetsDigest.
+  const reusable = changedSinceCache !== null
+    && !sourceTopologyChanged;
   const fileSet = new Set([...files, ...assets]);
   const assetSet = new Set(assets);
   // Keep old entries for deleted files: a deleted module can still be a
@@ -754,31 +811,37 @@ function loadGraph(files, assets) {
   // to import it. Stale entries are harmless because only existing tests are
   // passed to Vitest below.
   const graph = { ...previous };
-  const changedFiles = new Set(changed);
+  const changedFiles = changedPaths;
+  let reusedEntries = 0;
+  let rebuiltEntries = 0;
   for (const file of files) {
     const old = previous[file];
-    // `changed-paths.txt` is the completeness boundary for this cache. On a
-    // complete diff, an unchanged tracked file cannot have changed since the
-    // previous graph snapshot, so re-hashing thousands of files on every
-    // selector subprocess is wasted work. Changed files are always re-read;
-    // an asset-set change already makes `reusable` false and rebuilds every
-    // edge that can point at it.
+    // `changed-paths.txt` is the completeness boundary for the PR diff; the
+    // cached revision diff covers commits added since that graph snapshot.
+    // Existing source edits are re-indexed and data/asset edits leave import
+    // topology unchanged; additions or deletions force the full rebuild above.
     if (reusable && !changedFiles.has(file) && old?.signature) {
       graph[file] = old;
+      reusedEntries += 1;
       continue;
     }
     const sig = signature(file);
-    graph[file] = reusable && old?.signature === sig
-      ? old
-      : { signature: sig, deps: importsOf(file, fileSet, assets, assetSet) };
+    if (reusable && old?.signature === sig) {
+      graph[file] = old;
+      reusedEntries += 1;
+    } else {
+      graph[file] = { signature: sig, deps: importsOf(file, fileSet, assets, assetSet) };
+      rebuiltEntries += 1;
+    }
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
   writeFileSync(graphFile, JSON.stringify({
-    version: 12,
+    version: 13,
     revision: currentRevision,
     assets: assetsDigest,
     files: graph,
   }));
+  console.log(`Related graph: reused ${reusedEntries} entries, rebuilt ${rebuiltEntries}.`);
   return graph;
 }
 

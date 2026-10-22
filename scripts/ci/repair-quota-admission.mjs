@@ -39,6 +39,8 @@ export const REPAIR_WORKFLOWS = Object.freeze([
   'pr-redcheck-fixer.yml',
 ]);
 export const ISSUE_FIX_WORKFLOW = 'issue-fix.yml';
+export const GH_READ_TIMEOUT_MS = 45_000;
+export const GH_READ_RETRY_DELAYS_MS = Object.freeze([1_000, 3_000]);
 
 function nonNegativeInteger(value, fallback = 0) {
   const number = Number(value);
@@ -137,12 +139,67 @@ export function repairWorkflowFromRef(value = '') {
   return REPAIR_WORKFLOWS.find((workflow) => text.includes(workflow)) || '';
 }
 
+function transientReadFailure(error) {
+  const stderr = Buffer.isBuffer(error?.stderr)
+    ? error.stderr.toString('utf8')
+    : String(error?.stderr || '');
+  const detail = `${error?.message || ''}\n${stderr}`;
+  const httpStatus = detail.match(/\bHTTP\s+(500|502|503|504)\b/i)?.[1];
+  if (httpStatus) return `HTTP ${httpStatus}`;
+  if ([error?.code, error?.errno, error?.error?.code].some((code) => code === 'ETIMEDOUT')
+    || /\bETIMEDOUT\b|timed out|timeout expired/i.test(detail)) {
+    return 'command timeout';
+  }
+  if (/\b(?:ECONNRESET|ECONNREFUSED|ECONNABORTED|EAI_AGAIN)\b|socket hang up|fetch failed/i.test(detail)) {
+    return 'network error';
+  }
+  return '';
+}
+
+function sleepSync(delayMs) {
+  if (delayMs <= 0) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, delayMs);
+}
+
+/**
+ * Run a read-only GitHub CLI query with a per-attempt deadline and bounded
+ * retries for transient service/network failures. Auth, permission, malformed
+ * JSON, and exhausted telemetry failures remain fail-closed.
+ */
+export function runGhJsonBounded(args, {
+  execute = execFileSync,
+  sleep = sleepSync,
+  warn = console.warn,
+  timeoutMs = GH_READ_TIMEOUT_MS,
+  retryDelaysMs = GH_READ_RETRY_DELAYS_MS,
+} = {}) {
+  const attempts = retryDelaysMs.length + 1;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const output = execute('gh', args, {
+        encoding: 'utf8',
+        maxBuffer: 64 * 1024 * 1024,
+        timeout: timeoutMs,
+      });
+      return JSON.parse(output);
+    } catch (error) {
+      const failure = transientReadFailure(error);
+      const delayMs = retryDelaysMs[attempt - 1];
+      if (!failure || delayMs === undefined) {
+        if (failure) {
+          throw new Error(`GitHub CLI read failed after ${attempt} attempts (${failure})`, { cause: error });
+        }
+        throw error;
+      }
+      warn(`::warning::GitHub telemetry read failed (${failure}); retry ${attempt}/${retryDelaysMs.length} after ${delayMs}ms.`);
+      sleep(delayMs);
+    }
+  }
+  throw new Error('GitHub CLI read retry loop exhausted unexpectedly');
+}
+
 function defaultRunJson(args) {
-  const output = execFileSync('gh', args, {
-    encoding: 'utf8',
-    maxBuffer: 64 * 1024 * 1024,
-  });
-  return JSON.parse(output);
+  return runGhJsonBounded(args);
 }
 
 function defaultRunCommand(args) {
@@ -154,6 +211,13 @@ function defaultRunCommand(args) {
 
 function sinceDate(now = Date.now()) {
   return new Date(now - 7 * 86_400_000).toISOString().slice(0, 10);
+}
+
+function activeQuotaCounts(floor) {
+  if (!floor.ok || !('activeCounts' in floor) || !floor.activeCounts) {
+    throw new Error(floor.reason || 'quota floor active counts missing');
+  }
+  return floor.activeCounts;
 }
 
 /**
@@ -195,14 +259,15 @@ export function collectRepairQuotaStats({
       runJson,
     });
     if (!floor.ok) throw new Error(floor.reason);
+    const activeCounts = activeQuotaCounts(floor);
     return {
       ok: true,
       since,
       repairRuns,
       issueFixRuns,
       queuedIssues: queued.length,
-      activeRepairLeases: floor.activeCounts.repair,
-      activeIssueFixLeases: floor.activeCounts['issue-fix'],
+      activeRepairLeases: activeCounts.repair,
+      activeIssueFixLeases: activeCounts['issue-fix'],
       floor,
     };
   } catch (error) {
@@ -225,26 +290,6 @@ function roundMarkerFor(workflow) {
   return workflow === 'pr-redcheck-fixer.yml' ? 'REDCHECK_FIX_ROUND' : 'REDFLAG_FIX_ROUND';
 }
 
-const TRUSTED_ROUND_MARKER_ACTOR = 'github-actions[bot]';
-
-function currentRoundMarkerLines({ workflow, round, sha, bodyRevision }) {
-  const marker = roundMarkerFor(workflow);
-  const lines = [];
-  if (/^[0-9a-f]{40}$/iu.test(sha)) {
-    if (/^body:[0-9a-f]{64}$/iu.test(bodyRevision || '')) {
-      lines.push(`<!-- ${marker}: ${round} HEAD: ${sha} BODY: ${bodyRevision} -->`);
-    }
-    // Marker emessi prima dell'introduzione della revisione body, ma gia'
-    // legati alla HEAD. Il guard dei due fixer continua ad accettarli.
-    lines.push(`<!-- ${marker}: ${round} HEAD: ${sha} -->`);
-  }
-  // Compatibilita' con i marker storici precedenti al binding sulla HEAD.
-  // L'autore trusted resta obbligatorio, quindi un commento utente non puo'
-  // farsi cancellare dal rimborso quota.
-  lines.push(`<!-- ${marker}: ${round} -->`);
-  return new Set(lines);
-}
-
 function commentArgs(repo, pr) {
   return ['api', `repos/${repo}/issues/${pr}/comments`, '--paginate', '--slurp'];
 }
@@ -264,7 +309,7 @@ function holdCurrentRound({
   pr,
   workflow,
   round,
-  bodyRevision,
+  reviewRevision,
   stats,
   decision,
   runJson,
@@ -278,17 +323,25 @@ function holdCurrentRound({
 
     const holdMarker = `<!-- REPAIR_QUOTA_HOLD: ${workflow}:${sha} -->`;
     const roundNumber = String(round || '').trim();
-    const roundLines = currentRoundMarkerLines({
-      workflow,
-      round: roundNumber,
-      sha,
-      bodyRevision,
-    });
-    const roundComment = roundNumber
-      ? [...comments].reverse().find((comment) => {
-        const firstLine = String(comment.body || '').split('\n', 1)[0];
-        return comment.user?.login === TRUSTED_ROUND_MARKER_ACTOR && roundLines.has(firstLine);
-      })
+    const marker = roundMarkerFor(workflow);
+    const candidates = comments.map((comment) => ({
+      comment,
+      line: String(comment.body || '').split(/\r?\n/u, 1)[0],
+    }));
+    // Both fixer producers scope rounds by HEAD and, now, body revision.
+    // Never refund an older unscoped marker when this round has a scoped one.
+    const hasScopedMarker = candidates.some(({ line }) => line.startsWith(`<!-- ${marker}: ${roundNumber} HEAD:`));
+    const scopedPattern = new RegExp(`^<!-- ${marker}: ([1-9]\\d*) HEAD: ([0-9a-f]{40})(?: BODY: (body:[0-9a-f]{64}))? -->$`, 'i');
+    const roundComment = /^[1-9]\d*$/u.test(roundNumber)
+      ? [...candidates].reverse().find(({ comment, line }) => {
+        if (!hasScopedMarker) return line === `<!-- ${marker}: ${roundNumber} -->`;
+        const parsed = line.match(scopedPattern);
+        return parsed?.[1] === roundNumber
+          && parsed[2].toLowerCase() === sha.toLowerCase()
+          && (!parsed[3] || parsed[3].toLowerCase() === String(reviewRevision || '').toLowerCase())
+          && comment.user?.login === 'github-actions[bot]'
+          && (!comment.user?.type || comment.user.type === 'Bot');
+      })?.comment
       : null;
     if (!roundComment?.id) {
       throw new Error('current round marker missing; refuse an untracked hold');
@@ -363,11 +416,12 @@ export function main({
     return emit({ admit: false, held: false, reason: 'PR context missing; fail-closed' }, env);
   }
 
-  const nowSec = Math.floor(new Date(now).getTime() / 1000);
+  const nowMs = new Date(now).getTime();
+  const nowSec = Math.floor(nowMs / 1000);
   const ledgerIssue = env.QUOTA_FLOOR_LEDGER_ISSUE || QUOTA_FLOOR_LEDGER_ISSUE;
   const stats = collectRepairQuotaStats({
     repo,
-    since: sinceDate(now),
+    since: sinceDate(nowMs),
     nowSec,
     ledgerIssue,
     runJson,
@@ -432,7 +486,7 @@ export function main({
     pr,
     workflow,
     round: env.FIX_ROUND,
-    bodyRevision: env.PR_BODY_EXPECTED_REVISION,
+    reviewRevision: env.PR_BODY_EXPECTED_REVISION,
     stats,
     decision,
     runJson,

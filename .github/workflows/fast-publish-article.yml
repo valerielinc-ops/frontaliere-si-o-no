@@ -109,6 +109,41 @@ jobs:
           # do not leave the ambient Actions token on origin as a competing
           # credential.
           persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      # Fast-publish may check out an inputs.sha older than this workflow. Do
+      # not render or upload from a tree whose single-file image writer does
+      # not enforce the shared R2 namespace lease protocol.
+      - name: Require image namespace lease protocol v1
+        run: |
+          protocol_version="$(bash scripts/lib/upload-cdn-file.sh --image-lease-protocol-version)" || {
+            echo "::error::checked-out source does not provide the R2 image lease protocol marker"
+            exit 1
+          }
+          if [ "$protocol_version" != "1" ]; then
+            echo "::error::unsupported R2 image lease protocol version: $protocol_version"
+            exit 1
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -136,8 +171,8 @@ jobs:
       # are Remote-Config-sourced, same as every other workflow in this repo
       # (scripts/load-rc-env.mjs RC_TO_ENV: R2_ACCOUNT_ID, R2_BUCKET,
       # R2_S3_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY). Deliberately
-      # NO full `npm ci` anywhere in this job — the renderer's one runtime
-      # dependency is installed from the root lockfile above. `tsx` stays
+      # NO full `npm ci` anywhere in this job — the renderer’s targeted runtime
+      # dependencies are installed from the root lockfile above. `tsx` stays
       # on-demand and the shard-push / CDN-upload scripts use Node built-ins.
       - name: Load secrets from Remote Config (R2 + indexing)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
@@ -162,7 +197,7 @@ jobs:
             echo "::notice::this checkout predates scripts/ci/ensure-cdn-shell-assets.mjs — shell assets not checked"
             exit 0
           fi
-          npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+          bash scripts/ci/run-pinned-tsx.sh scripts/ci/ensure-cdn-shell-assets.mjs
 
       - name: Render article (fast path)
         id: render
@@ -175,7 +210,7 @@ jobs:
           # Pinned to the same major the repo depends on (package.json
           # devDependencies: "tsx": "^4.21.0") so a future tsx major cannot
           # silently change loader behaviour on this un-installed fast path.
-          npx -y tsx@4.23.15 scripts/publish-article-fast.mjs \
+          bash scripts/ci/run-pinned-tsx.sh scripts/publish-article-fast.mjs \
             --id "$INPUT_ARTICLE_ID" \
             --section "$INPUT_SECTION" \
             --out /tmp/fast-publish/dist \
@@ -270,7 +305,7 @@ jobs:
             git checkout --detach --force origin/main
             PUBLISH_SHA="$(git rev-parse HEAD)"
             rm -rf /tmp/fast-publish/dist /tmp/fast-publish/summary.json
-            npx -y tsx@4.23.15 scripts/publish-article-fast.mjs \
+            bash scripts/ci/run-pinned-tsx.sh scripts/publish-article-fast.mjs \
               --id "$INPUT_ARTICLE_ID" \
               --section "$INPUT_SECTION" \
               --out /tmp/fast-publish/dist \
@@ -318,7 +353,7 @@ jobs:
             git checkout --detach --force origin/main
             SOURCE_SHA="$(git rev-parse HEAD)"
             rm -rf /tmp/fast-publish/dist /tmp/fast-publish/summary.json
-            npx -y tsx@4.23.15 scripts/publish-article-fast.mjs \
+            bash scripts/ci/run-pinned-tsx.sh scripts/publish-article-fast.mjs \
               --id "$INPUT_ARTICLE_ID" \
               --section "$INPUT_SECTION" \
               --out /tmp/fast-publish/dist \
@@ -342,7 +377,7 @@ jobs:
         if: steps.render.outcome == 'success' && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success' && steps.verify_chunk_lock_before_publish.outcome == 'success' && steps.check_chunk_source.outputs.current == 'true' && steps.recheck_chunk_source_before_publish.outcome == 'success' && steps.recheck_chunk_source_before_publish.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           ARTICLE_SECTION: ${{ inputs.section }}
-        run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/publish-article-chunks.mjs --section "$ARTICLE_SECTION" --strict --no-ticker
 
       # The renew step only proves that the watcher started. Its failure file
       # is the authoritative signal when the watcher loses the lease while the
@@ -538,7 +573,7 @@ jobs:
       - name: Publish news-ticker payload
         if: steps.verify.outcome == 'success' && steps.verify.outputs.delayed != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
-        run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --ticker-only
+        run: bash scripts/ci/run-pinned-tsx.sh scripts/publish-article-chunks.mjs --ticker-only
 
       # Issue #4881 Fase 3 (pushable-origin edge files). Independent of the
       # per-article render above: public/sitemap-blog-ch.xml was already

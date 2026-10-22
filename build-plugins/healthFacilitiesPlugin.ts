@@ -70,6 +70,7 @@ import {
 import {
   buildFacilityCopy,
   buildBridgeCopy,
+  FACILITY_HUB_COPY,
   BREADCRUMB_HOME,
   SECTION_LABEL,
   ROLE_LABEL,
@@ -217,6 +218,14 @@ function toJobCard(job: FacilityFeaturedJob): JobCardJob {
 interface RenderResult {
   html: string;
   wordCount: number;
+}
+
+export interface HealthFacilityHubEntry {
+  readonly facility: HealthFacilityRecord;
+  /** Live jobs in the current aggregate snapshot. */
+  readonly liveCount: number;
+  /** True only when the corresponding detail page is indexable this build. */
+  readonly indexable: boolean;
 }
 
 export function renderFacilityPage(
@@ -408,6 +417,144 @@ export function renderFacilityPage(
   return { html, wordCount: countHtmlBodyWords(html) };
 }
 
+function formatHubCount(count: number, locale: HealthFacilityLocale): string {
+  const numberLocale = locale === 'it' ? 'it-CH' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-CH';
+  return new Intl.NumberFormat(numberLocale).format(count);
+}
+
+/**
+ * Render the localised section root referenced by every facility breadcrumb
+ * and BreadcrumbList. The directory deliberately links the complete stable
+ * registry: below-floor detail URLs are still emitted as 200 noindex bridges,
+ * so the hub never publishes a dangling link when the live inventory changes.
+ */
+export function renderHealthFacilityHubPage(
+  locale: HealthFacilityLocale,
+  entries: readonly HealthFacilityHubEntry[],
+  dateStamp: string,
+  distDir: string,
+): RenderResult {
+  const copy = FACILITY_HUB_COPY[locale];
+  const canonicalPath = buildHealthFacilitySectionPath(locale);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const homeUrl = `${BASE_URL}/${locale === 'it' ? '' : `${locale}/`}`;
+  const activeEntries = entries.filter((entry) => entry.indexable && entry.liveCount > 0);
+  const activeOpenings = activeEntries.reduce((sum, entry) => sum + entry.liveCount, 0);
+  const tiles = renderStatGrid([
+    { label: copy.tileFacilities, value: formatHubCount(entries.length, locale), tone: 'neutral' },
+    { label: copy.tileActiveFacilities, value: formatHubCount(activeEntries.length, locale), tone: pickStatTileTone('openings', activeEntries.length) },
+    { label: copy.tileOpenings, value: formatHubCount(activeOpenings, locale), tone: pickStatTileTone('openings', activeOpenings) },
+  ]);
+
+  const directoryEntries = [...entries].sort((a, b) => a.facility.name.localeCompare(b.facility.name));
+  const directoryLinks = directoryEntries
+    .map((entry) => {
+      const status = entry.indexable && entry.liveCount > 0
+        ? `${formatHubCount(entry.liveCount, locale)} ${copy.openingWord}`
+        : copy.noOpenings;
+      return `<li class="s-card flex items-baseline justify-between gap-3"><a href="${esc(buildHealthFacilityPath(locale, entry.facility.slug))}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(entry.facility.name)}</a><span class="text-sm" style="color:var(--color-subtle);white-space:nowrap">${esc(status)}</span></li>`;
+    })
+    .join('');
+  const directory = `<section class="mt-6" aria-labelledby="health-facility-directory">
+    <h2 id="health-facility-directory" style="${headingStyle()}">${esc(copy.directoryTitle)}</h2>
+    <p class="mt-2" style="${LEDE_STYLE}">${esc(copy.directoryIntro)}</p>
+    <ul class="mt-4 grid gap-2 sm:grid-cols-2" data-health-facility-directory>${directoryLinks}</ul>
+  </section>`;
+
+  const breadcrumb = `<nav aria-label="breadcrumb" class="text-sm" style="color:var(--color-subtle)">
+    <a href="${esc(homeUrl)}" style="${LINK_ACCENT_STYLE}">${esc(BREADCRUMB_HOME[locale])}</a>
+    <span aria-hidden="true"> › </span>
+    <span aria-current="page">${esc(copy.h1)}</span>
+  </nav>`;
+  const header = `<header class="mt-3">
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)}</p>
+    <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
+    <p style="${LEDE_STYLE}">${esc(copy.lede)}</p>
+    <p class="text-sm font-medium mt-1" style="color:var(--color-accent)">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
+  </header>`;
+  const methodology = `<section class="mt-6"><h2 style="${headingStyle()}">${esc(copy.methodologyTitle)}</h2><p class="mt-2" style="${LEDE_STYLE}">${esc(copy.methodology)}</p></section>`;
+  const faqHtml = `<section class="mt-6"><h2 style="${headingStyle()}">${esc(copy.faqTitle)}</h2>${copy.faqs
+    .map((faq) => `<details class="mt-2"><summary class="font-semibold cursor-pointer">${esc(faq.question)}</summary><p class="mt-1" style="color:var(--color-body)">${esc(faq.answer)}</p></details>`)
+    .join('')}</section>`;
+  const bodyContent = `<div class="max-w-4xl mx-auto px-4 py-6">
+    ${breadcrumb}
+    ${header}
+    ${tiles}
+    ${directory}
+    ${methodology}
+    ${faqHtml}
+  </div>`;
+  const body = bodyContent.replace(
+    /<\/div>$/,
+    `${endOfContentMultiplexHtml({ indexable: true, contentHtml: bodyContent })}</div>`,
+  );
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: BREADCRUMB_HOME[locale], item: homeUrl },
+      { '@type': 'ListItem', position: 2, name: copy.h1, item: canonicalUrl },
+    ],
+  };
+  const collectionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: copy.h1,
+    description: guardArticleJsonLdDescription(copy.metaDesc),
+    inLanguage: locale,
+    url: canonicalUrl,
+    numberOfItems: entries.length,
+  };
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: copy.directoryTitle,
+    numberOfItems: directoryEntries.length,
+    itemListElement: directoryEntries.map((entry, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: entry.facility.name,
+      url: `${BASE_URL}${buildHealthFacilityPath(locale, entry.facility.slug)}`,
+    })),
+  };
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    mainEntity: copy.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  };
+  const hreflangPaths: HreflangPaths = {
+    it: buildHealthFacilitySectionPath('it'),
+    en: buildHealthFacilitySectionPath('en'),
+    de: buildHealthFacilitySectionPath('de'),
+    fr: buildHealthFacilitySectionPath('fr'),
+  };
+
+  const html = buildSeoPageHtml({
+    locale,
+    title: copy.metaTitle,
+    description: copy.metaDesc,
+    canonicalUrl,
+    hreflangHtml: renderHreflangTags(hreflangPaths),
+    bodyHtml: body,
+    jsonLdScripts: [
+      inlineScriptJson(breadcrumbLd),
+      inlineScriptJson(collectionLd),
+      inlineScriptJson(itemListLd),
+      inlineScriptJson(faqLd),
+    ],
+    robots: 'index,follow',
+    distDir,
+  });
+
+  return { html, wordCount: countHtmlBodyWords(html) };
+}
+
 function renderBelowFloorBridge(
   locale: HealthFacilityLocale,
   facility: HealthFacilityRecord,
@@ -498,16 +645,20 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
 export async function emitHealthFacilityPages(opts: {
   rootDir: string;
   distDir: string;
-}): Promise<{ pagesWritten: number; bridgesWritten: number; emitted: EmittedFacility[] }> {
+}): Promise<{ pagesWritten: number; bridgesWritten: number; hubPagesWritten: number; emitted: EmittedFacility[] }> {
   const { rootDir, distDir } = opts;
   const dateStamp = new Date().toISOString().slice(0, 10);
   const snapshots = aggregateHealthFacilityJobs(rootDir);
   const collector = new WriteCollector({ distDir, pluginName: 'healthFacilitiesPlugin' });
 
-  const sitemapPaths: string[] = [];
+  // The section roots are indexable collection hubs, unlike the detail
+  // sitemap's below-floor bridges. Seed them before the detail loop so the
+  // sitemap remains live even during a build with zero above-floor facilities.
+  const sitemapPaths: string[] = HEALTH_FACILITY_LOCALES.map((locale) => buildHealthFacilitySectionPath(locale));
   const emitted: EmittedFacility[] = [];
   let pagesWritten = 0;
   let bridgesWritten = 0;
+  let hubPagesWritten = 0;
 
   for (const facility of HEALTH_FACILITIES) {
     const snapshot = snapshots.get(facility.slug);
@@ -551,14 +702,27 @@ export async function emitHealthFacilityPages(opts: {
     }
   }
 
-  await collector.flush();
-
-  if (sitemapPaths.length > 0) {
-    fs.writeFileSync(np.join(distDir, SITEMAP_FILE), buildSitemap(sitemapPaths, dateStamp), 'utf-8');
-    patchSitemapIndex(distDir, dateStamp);
+  const emittedBySlug = new Map(emitted.map((facility) => [facility.slug, facility]));
+  const hubEntries: HealthFacilityHubEntry[] = HEALTH_FACILITIES.map((facility) => ({
+    facility,
+    liveCount: snapshots.get(facility.slug)?.liveCount ?? 0,
+    indexable: emittedBySlug.has(facility.slug),
+  }));
+  for (const locale of HEALTH_FACILITY_LOCALES) {
+    const outDir = np.join(distDir, buildHealthFacilitySectionPath(locale).replace(/^\/+/, ''));
+    collector.add(
+      np.join(outDir, 'index.html'),
+      renderHealthFacilityHubPage(locale, hubEntries, dateStamp, distDir).html,
+    );
+    hubPagesWritten++;
   }
 
-  return { pagesWritten, bridgesWritten, emitted };
+  await collector.flush();
+
+  fs.writeFileSync(np.join(distDir, SITEMAP_FILE), buildSitemap(sitemapPaths, dateStamp), 'utf-8');
+  patchSitemapIndex(distDir, dateStamp);
+
+  return { pagesWritten, bridgesWritten, hubPagesWritten, emitted };
 }
 
 export function healthFacilitiesPlugin(rootDir: string): Plugin {
@@ -580,7 +744,7 @@ export function healthFacilitiesPlugin(rootDir: string): Plugin {
         const res = await emitHealthFacilityPages({ rootDir, distDir });
         // eslint-disable-next-line no-console
         console.log(
-          `\x1b[36m[health-facilities]\x1b[0m Emitted ${res.pagesWritten} pages, ${res.bridgesWritten} below-floor bridges (${res.emitted.length} facilities above floor).`,
+          `\x1b[36m[health-facilities]\x1b[0m Emitted ${res.hubPagesWritten} section hubs + ${res.pagesWritten} pages, ${res.bridgesWritten} below-floor bridges (${res.emitted.length} facilities above floor).`,
         );
         resolveHealthFacilitiesFlushed(res.emitted);
       } catch (err) {

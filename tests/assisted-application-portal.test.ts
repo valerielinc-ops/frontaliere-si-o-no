@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, isOtpVerificationPage, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonFor, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -14,6 +14,23 @@ const fields = [
   { id: 'f4', kind: 'select', label: 'Country', required: true, options: [{ label: 'Switzerland' }, { label: 'Italy' }] },
   { id: 'f5', kind: 'file', label: 'Resume/CV', required: true },
 ];
+
+describe('application-surface detection', () => {
+  it('does not treat employer-site chrome as an application form', () => {
+    expect(hasApplicationSurface({
+      fields: [],
+      buttons: [{ text: 'Menu', chrome: true }, { text: 'Finden', chrome: true }],
+    })).toBe(false);
+    expect(hasApplicationSurface({
+      fields: [],
+      buttons: [{ text: 'Weiter', chrome: false }],
+    })).toBe(true);
+    expect(hasApplicationSurface({
+      fields: [{ id: 'f1', kind: 'text' }],
+      buttons: [{ text: 'Menu', chrome: true }],
+    })).toBe(true);
+  });
+});
 
 describe('assisted application profile history and file replacement', () => {
   it('matches an icon-only removal control through its nearby uploaded-file context', () => {
@@ -163,6 +180,273 @@ describe('legacy portal sections', () => {
     expect(headers.every((header) => header.click.mock.calls.length === 1)).toBe(true);
     expect(result.snapshot.fields.map((field: any) => field.id)).toEqual(['first', 'group_head_personal', 'group_head_language']);
   });
+
+  it('uses a lone SuccessFactors icon as the CV upload trigger on a mixed account/application page', async () => {
+    let uploaded = false;
+    const base = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *', required: true },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+        { id: 'cover-letter', name: 'cv-upload', kind: 'file', inputType: 'file', form: 0, label: 'Cover letter', context: 'CV · Cover letter', required: false },
+      ],
+      buttons: [{ id: 'f5', domId: 'upload-control', dataAutomationId: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'f6', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => ({
+        ...base,
+        fields: uploaded ? [...base.fields, { id: 'cv', kind: 'file', inputType: 'file', form: 0, label: 'Resume / CV (PDF preferred):', required: true }] : base.fields,
+      })),
+      locator: vi.fn((selector: string) => selector.includes('data-aa-id="f5"')
+        ? { first: () => ({ click: vi.fn(async () => { uploaded = true; }) }) }
+        : { first: () => ({ click: vi.fn() }) }),
+    };
+    const fileInput = {
+      waitFor: vi.fn(async () => {}),
+      setInputFiles: vi.fn(async () => {}),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      getByRole: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
+      locator: vi.fn((selector: string) => selector.includes('input[type="file"]')
+        ? { first: () => fileInput }
+        : { count: vi.fn(async () => 0) }),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    // The visible cover-letter field must not block the CV trigger that opens
+    // the SuccessFactors upload dialog.
+    expect(result.cv).toBe('uploaded');
+    expect(uploaded).toBe(true);
+    expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+    expect(result.snapshot.fields.some((field: any) => field.kind === 'file')).toBe(true);
+  });
+
+  it('uses SuccessFactors’ native file chooser for the English Resume/CV dialog', async () => {
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'language', kind: 'combobox', label: 'English US ‎(English US)‎', required: false },
+        { id: 'email', kind: 'text', inputType: 'email', label: 'Email Address: *', required: true },
+        { id: 'email-repeat', kind: 'text', inputType: 'email', label: 'Retype Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Choose Password: *', required: true },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', label: 'Retype Password: *', required: true },
+        { id: 'first-name', kind: 'text', label: 'First Name: *', required: true },
+        { id: 'last-name', kind: 'text', label: 'Last Name: *', required: true },
+        { id: 'salutation', kind: 'combobox', label: 'Salutation', required: false },
+        { id: 'phone', kind: 'text', label: 'Primary Phone (incl Prefix)*', required: true },
+        { id: 'address-1', kind: 'text', label: 'Address line 1:', required: false },
+        { id: 'address-2', kind: 'text', label: 'Address line 2:', required: false },
+        { id: 'city', kind: 'text', label: 'City:*', required: true },
+        { id: 'postal', kind: 'text', label: 'Zip/Postal Code:', required: false },
+        { id: 'country', kind: 'combobox', label: 'Country:', required: true },
+        { id: 'correspondence', kind: 'combobox', label: 'Correspondence [dato del candidato]', required: false },
+        { id: 'notice', kind: 'text', label: 'What is your notice period?', required: false },
+        { id: 'permit', kind: 'combobox', label: 'Do you hold a valid work [dato del candidato] for Switzerland?', required: true },
+        { id: 'source', kind: 'combobox', label: 'How did you hear about [dato del candidato] position?', required: true },
+        { id: 'source-detail', kind: 'text', label: 'Please specify source', required: false },
+        { id: 'workload', kind: 'textarea', label: 'What is your preferred workload?', required: true },
+        { id: 'salary', kind: 'textarea', label: 'What is your salary expectation? ([dato del candidato]% / Total comp. p.a. in CHF)', required: true },
+        { id: 'start-date', kind: 'textarea', label: 'When would be your next possible starting date?', required: true },
+        { id: 'residence', kind: 'select', label: 'Country/Region of Residence:*', required: true },
+        { id: 'notification', kind: 'checkbox', label: 'Notification:', required: false },
+        { id: 'criminal-record', kind: 'radio', label: 'Could you provide a clean criminal register record?', required: true },
+        { id: 'german', kind: 'radio', label: 'Do you [dato del candidato] German? If so, how would you describe your proficiency level?', required: true },
+      ],
+      buttons: [
+        { id: 'resume-trigger', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false },
+        { id: 'cover-trigger', text: 'Cover Letter (PDF preferred): Attach a Cover Letter Opens a dialog', disabled: false },
+        { id: 'icon', text: '', disabled: false },
+        { id: 'privacy', text: 'Read and accept the data privacy statement.', disabled: false },
+        { id: 'apply', text: 'Apply', disabled: false },
+      ],
+      captcha: false,
+      passwordVisible: true,
+      errors: ['Country is required', 'Do you hold a valid work [dato del candidato] for Switzerland? is required', 'How did you hear about [dato del candidato] position? is required'],
+      text: '',
+    };
+    const trigger = { click: vi.fn(async () => {}), isVisible: vi.fn(async () => true) };
+    let selected = false;
+    const input = { evaluate: vi.fn(async () => (selected ? ['candidate-cv.pdf'] : [])) };
+    const chooser = {
+      isMultiple: vi.fn(() => false),
+      setFiles: vi.fn(async () => { selected = true; }),
+      // The tenant redraws the native input after handling the chooser event.
+      element: vi.fn(async () => (selected ? null : input)),
+    };
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async () => snapshot),
+      locator: vi.fn((selector: string) => selector === '[data-aa-id="resume-trigger"]'
+        ? { first: () => trigger }
+        : { count: vi.fn(async () => 0) }),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForEvent: vi.fn(async () => chooser),
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { allInnerTexts: vi.fn(async () => []) }),
+      getByText: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
+      on: vi.fn(),
+      off: vi.fn(),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async (ms: number) => { await new Promise((resolve) => setTimeout(resolve, ms)); }),
+    };
+
+    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/fixtures/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(page.waitForEvent).toHaveBeenCalledWith('filechooser', { timeout: 8_000 });
+    expect(chooser.setFiles).toHaveBeenCalledWith('/fixtures/candidate-cv.pdf');
+    expect(trigger.click).toHaveBeenCalledOnce();
+  });
+
+  it('matches separate generic SuccessFactors upload icons to their document association', async () => {
+    const clicked: string[] = [];
+    const base = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *', required: true },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+      ],
+      buttons: [
+        { id: 'f5', name: 'cv upload', dataAutomationId: 'action', text: '\uE1EF', disabled: false, ariaLabel: 'Upload' },
+        { id: 'f6', name: 'cover letter upload', dataAutomationId: 'action', text: '\uE1EF', disabled: false, ariaLabel: 'Upload' },
+        { id: 'f7', text: 'Apply', disabled: false },
+      ],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => base),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1];
+            if (id) clicked.push(id);
+          }),
+        }),
+      })),
+    };
+    const fileInput = {
+      waitFor: vi.fn(async () => {}),
+      setInputFiles: vi.fn(async () => {}),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { first: () => fileInput }),
+      waitForLoadState: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, {
+      files: { cv: '/tmp/candidate-cv.pdf', cover_letter: '/tmp/candidate-letter.pdf' },
+    });
+
+    expect(result.cv).toBe('uploaded');
+    expect(result.coverLetter).toBe('uploaded');
+    expect(clicked).toEqual(['f5', 'f6']);
+  });
+
+  it('does not use a SuccessFactors upload marker on an account page without an application form', async () => {
+    let clicked = false;
+    const base = {
+      url: 'https://career5.successfactors.eu/careers',
+      fields: [
+        { id: 'f1', kind: 'text', inputType: 'email', label: 'Email address', required: true },
+        { id: 'f2', kind: 'text', inputType: 'password', label: 'Create password', required: true },
+      ],
+      buttons: [
+        { id: 'f3', domId: 'upload-control', dataAutomationId: 'cv-upload', text: '\uE1EF', disabled: false },
+        { id: 'f4', text: 'Create account', disabled: false },
+      ],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => base),
+      locator: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => { clicked = true; }) }) })),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      locator: vi.fn(() => ({ count: vi.fn(async () => 0) })),
+      waitForLoadState: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBeUndefined();
+    expect(clicked).toBe(false);
+  });
+
+  it('does not treat an unrelated private-use button as a CV trigger outside SuccessFactors', async () => {
+    let clicked = false;
+    const base = {
+      url: 'https://jobs.example.test/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *', required: true },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+      ],
+      buttons: [{ id: 'toolbar-help', text: '\uE1EF', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const frame = {
+      url: () => base.url,
+      evaluate: vi.fn(async () => base),
+      locator: vi.fn(() => ({ first: () => ({ click: vi.fn(async () => { clicked = true; }) }) })),
+    };
+    const page = {
+      url: () => base.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      getByRole: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { first: () => ({ waitFor: vi.fn(), setInputFiles: vi.fn() }) }),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, base as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBeUndefined();
+    expect(clicked).toBe(false);
+  });
 });
 
 describe('portal plan guard (career-ops apply rules in code)', () => {
@@ -173,6 +457,66 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
     expect(nationalityOptionLabel('italiana', ['Italie', 'italienne'], 'fr')).toBe('italienne');
     expect(residenceCountryOptionLabel('Italia', ['Switzerland', 'Italy'])).toBe('Italy');
+  });
+
+  it('binds a SuccessFactors icon-only CV trigger only to explicit document context', () => {
+    const page = {
+      fields: [
+        { label: 'Email Address: *', kind: 'text', required: true },
+        { label: 'Choose Password: *', kind: 'text', required: true },
+        { label: 'Do you hold a valid work permit for Switzerland?', kind: 'combobox', required: true },
+        { label: 'How did you hear about this position?', kind: 'text', required: true },
+      ],
+      buttons: [
+        { id: 'resume-upload', text: '', section: 'Resume / CV (PDF preferred):', context: 'Resume / CV (PDF preferred):', disabled: false },
+        { id: 'privacy', text: 'Read and accept the data privacy statement.', section: '', context: 'Data privacy', disabled: false },
+        { id: 'apply', text: 'Apply', section: '', context: '', disabled: false },
+      ],
+    };
+    expect(page.fields.map((field) => field.label)).toEqual([
+      'Email Address: *',
+      'Choose Password: *',
+      'Do you hold a valid work permit for Switzerland?',
+      'How did you hear about this position?',
+    ]);
+    expect(uploadButtonFor(page, 'cv')).toMatchObject({ id: 'resume-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'aria-label-upload', text: '', section: '', context: 'Upload CV', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'aria-label-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'french-upload', text: '', section: '', context: 'Résumé', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'french-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ id: 'filename-upload', text: '', section: '', context: 'my_resume.pdf', disabled: false }] }, 'cv'))
+      .toMatchObject({ id: 'filename-upload', text: '' });
+    expect(uploadButtonFor({ buttons: [{ ...page.buttons[0], section: 'Correspondence', context: 'Correspondence' }] }, 'cv')).toBeNull();
+    expect(uploadButtonFor({ buttons: [page.buttons[0], { ...page.buttons[0], id: 'other-icon', context: 'Resume / CV (PDF preferred):' }] }, 'cv')).toBeNull();
+  });
+
+  it('does not skip SuccessFactors picklist options on the initial application snapshot', () => {
+    const snapshot = {
+      buttons: [
+        { text: '' },
+        { text: 'Read and accept the data privacy statement.' },
+        { text: 'Apply' },
+      ],
+      fields: [
+        { id: 'language', kind: 'combobox', label: 'English US ‎(English US)‎' },
+        { id: 'email', kind: 'text', label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', label: 'Choose Password: *', required: true },
+        { id: 'first-name', kind: 'text', label: 'First Name: *', required: true },
+        { id: 'last-name', kind: 'text', label: 'Last Name: *', required: true },
+        { id: 'country', kind: 'combobox', label: 'Country:', required: true },
+        { id: 'permit', kind: 'combobox', label: 'Do you hold a valid work permit for Switzerland?', required: true, selectLike: true },
+        { id: 'source', kind: 'combobox', label: 'How did you hear about this position?', required: true, selectLike: true },
+        { id: 'workload', kind: 'textarea', label: 'What is your preferred workload?', required: true },
+        { id: 'salary', kind: 'textarea', label: 'What is your salary expectation?', required: true },
+        { id: 'start-date', kind: 'textarea', label: 'When would be your next possible starting date?', required: true },
+        { id: 'residence', kind: 'select', label: 'Country/Region of Residence:*', required: true },
+        { id: 'criminal-record', kind: 'radio', label: 'Could you provide a clean criminal register record?', required: true },
+        { id: 'german', kind: 'radio', label: 'Do you speak German?', required: true },
+      ],
+    };
+
+    expect(needsPortalOptionRead(snapshot)).toBe(true);
+    expect(needsPortalOptionRead({ ...snapshot, fields: snapshot.fields.filter((field) => !field.selectLike) })).toBe(false);
   });
 
   it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
@@ -651,6 +995,239 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guardPlan({ actions: [], missingRequired: [] }, [field], ended).missingRequired.map((item: any) => item.fieldId)).toEqual(['employment']);
   });
 
+  it('requires language-specific evidence for ability and proficiency answers', () => {
+    const candidate = {
+      answers: {},
+      profile: { residenceCity: 'Berlin', cvText: 'German C1 / English C2' },
+      portalQuestionsAnswered: [],
+    };
+    const ability = {
+      id: 'german-speaking', kind: 'select', label: 'Do you speak?', context: 'German', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const genericEvidence = guardPlan({
+      actions: [{ fieldId: ability.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'Berlin' }],
+      missingRequired: [],
+    }, [ability], candidate);
+    expect(genericEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: ability.id })]);
+
+    const proficiency = {
+      id: 'german-c2', kind: 'select', label: 'C2?', context: 'German language proficiency', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const mixedEvidence = guardPlan({
+      actions: [{ fieldId: proficiency.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C1 / English C2' }],
+      missingRequired: [],
+    }, [proficiency], candidate);
+    expect(mixedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiency.id })]);
+
+    const connectors = ['and', 'or', 'nor', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'și', 's\u0326i', 'sau', 'sowie', 'samt', 'plus', 'ni', 'né', 'noch', 'nem', '&', ';', ',', '/', '+', '-', '–', '—', 'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'oltre a', 'così come', 'insieme a', 'así como', 'bem como'];
+    for (const connector of connectors) {
+      for (const language of ['Xhosa', 'xhosa']) {
+        const multipleLanguages = {
+          id: 'two-languages', kind: 'select', label: `Do you speak German ${connector} ${language} at C2?`, required: true,
+          options: [{ label: 'Yes' }, { label: 'No' }],
+        };
+        const partialEvidence = guardPlan({
+          actions: [{ fieldId: multipleLanguages.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+          missingRequired: [],
+        }, [multipleLanguages], { ...candidate, profile: { cvText: 'German C2' } });
+        expect(partialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: multipleLanguages.id })]);
+      }
+    }
+
+    const pairedLanguage = {
+      id: 'paired-languages', kind: 'select', label: 'Sprichst du sowohl Deutsch als auch xhosa auf C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const pairedPartialEvidence = guardPlan({
+      actions: [{ fieldId: pairedLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'Deutsch C2' }],
+      missingRequired: [],
+    }, [pairedLanguage], { ...candidate, profile: { cvText: 'Deutsch C2' } });
+    expect(pairedPartialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: pairedLanguage.id })]);
+
+    const neitherNorLanguage = {
+      id: 'neither-nor-languages', kind: 'select', label: 'Do you speak neither German nor xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialNeitherNorEvidence = guardPlan({
+      actions: [{ fieldId: neitherNorLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [neitherNorLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialNeitherNorEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: neitherNorLanguage.id })]);
+
+    const explicitSingleLanguage = {
+      ...candidate,
+      profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C2' }] },
+    };
+    const explicitMultiLanguage = {
+      id: 'explicit-two-languages', kind: 'select', label: 'Do you speak German and Xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialExplicitList = guardPlan({
+      actions: [{ fieldId: explicitMultiLanguage.id, action: 'select', value: 'Yes', source: 'profile' }],
+      missingRequired: [],
+    }, [explicitMultiLanguage], explicitSingleLanguage);
+    expect(partialExplicitList.missingRequired).toEqual([expect.objectContaining({ fieldId: explicitMultiLanguage.id })]);
+
+    const pairedEnglish = {
+      id: 'paired-english-languages', kind: 'select', label: 'Do you speak not only German but also xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const englishPairPartialEvidence = guardPlan({
+      actions: [{ fieldId: pairedEnglish.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [pairedEnglish], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(englishPairPartialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: pairedEnglish.id })]);
+
+    const reversedLanguageOrder = {
+      id: 'reversed-two-languages', kind: 'select', label: 'Parlez-vous xhosa et allemand au niveau C2 ?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const reversedPartialEvidence = guardPlan({
+      actions: [{ fieldId: reversedLanguageOrder.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'allemand C2' }],
+      missingRequired: [],
+    }, [reversedLanguageOrder], { ...candidate, profile: { cvText: 'allemand C2' } });
+    expect(reversedPartialEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: reversedLanguageOrder.id })]);
+
+    const emDashReverseOrder = {
+      id: 'em-dash-reversed-two-languages', kind: 'select', label: 'Parlez-vous xhosa — allemand au niveau C2 ?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialEmDashEvidence = guardPlan({
+      actions: [{ fieldId: emDashReverseOrder.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'allemand C2' }],
+      missingRequired: [],
+    }, [emDashReverseOrder], { ...candidate, profile: { cvText: 'allemand C2' } });
+    expect(partialEmDashEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: emDashReverseOrder.id })]);
+
+    const singleLanguageQuestions = [
+      { question: 'What is your knowledge of German at C2?', evidence: 'German C2' },
+      { question: 'Level of German at C2?', evidence: 'German C2' },
+      { question: 'Level of German at C2 or higher?', evidence: 'German C2' },
+      { question: 'What is your German level, particularly in writing?', evidence: 'German C2' },
+      { question: 'What is your German level: C2 or at least B2?', evidence: 'German C2' },
+      { question: 'Can you speak English and use it?', evidence: 'English C2' },
+      { question: 'Can you read English and write it at C2 level?', evidence: 'English C2' },
+      { question: 'Can you read English and do it at C2 level?', evidence: 'English C2' },
+      { question: 'Quel est votre niveau d’anglais et de compétence orale ?', evidence: 'English C2' },
+      { question: 'Quel est votre niveau en allemand au C2?', evidence: 'German C2' },
+      { question: 'Niveau en allemand C2', evidence: 'German C2' },
+      { question: 'Qual è il livello di tedesco?', evidence: 'German C2' },
+    ];
+    for (const { question, evidence } of singleLanguageQuestions) {
+      const singleLanguage = {
+        id: 'single-language', kind: 'select', label: question, required: true,
+        options: [{ label: 'C2' }],
+      };
+      const supportedEvidence = guardPlan({
+        actions: [{ fieldId: singleLanguage.id, action: 'select', value: 'C2', source: 'profile', evidence }],
+        missingRequired: [],
+      }, [singleLanguage], { ...candidate, profile: { cvText: evidence } });
+      expect(supportedEvidence.actions).toEqual([expect.objectContaining({ fieldId: singleLanguage.id, value: 'C2' })]);
+      expect(supportedEvidence.missingRequired).toEqual([]);
+    }
+
+    const spokenOrWrittenItalian = {
+      id: 'italian-spoken-or-written', kind: 'select',
+      label: 'Qual è il livello di italiano parlato o scritto?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedModeEvidence = guardPlan({
+      actions: [{ fieldId: spokenOrWrittenItalian.id, action: 'select', value: 'C2', source: 'profile', evidence: 'Italian C2' }],
+      missingRequired: [],
+    }, [spokenOrWrittenItalian], { ...candidate, profile: { cvText: 'Italian C2' } });
+    expect(supportedModeEvidence.actions).toEqual([expect.objectContaining({ fieldId: spokenOrWrittenItalian.id, value: 'C2' })]);
+    expect(supportedModeEvidence.missingRequired).toEqual([]);
+
+    const advancedUnknownLanguage = {
+      id: 'advanced-unknown-language', kind: 'select', label: 'Do you speak German and advanced xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAdvancedEvidence = guardPlan({
+      actions: [{ fieldId: advancedUnknownLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [advancedUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAdvancedEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: advancedUnknownLanguage.id })]);
+
+    const alsoUnknownLanguage = {
+      id: 'also-unknown-language', kind: 'select', label: 'Do you speak German and also Xhosa at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAlsoEvidence = guardPlan({
+      actions: [{ fieldId: alsoUnknownLanguage.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [alsoUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAlsoEvidence.missingRequired).toEqual([expect.objectContaining({ fieldId: alsoUnknownLanguage.id })]);
+
+    const proficiencyWithContext = {
+      id: 'proficiency-context-unknown-language', kind: 'select',
+      label: 'What is your German level and your proficiency in Xhosa?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const partialProficiencyContext = guardPlan({
+      actions: [{ fieldId: proficiencyWithContext.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [proficiencyWithContext], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialProficiencyContext.missingRequired).toEqual([expect.objectContaining({ fieldId: proficiencyWithContext.id })]);
+
+    const shortLanguageCode = {
+      id: 'short-language-code-target', kind: 'select',
+      label: 'Do you speak German and zh at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialShortLanguageCode = guardPlan({
+      actions: [{ fieldId: shortLanguageCode.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [shortLanguageCode], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialShortLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: shortLanguageCode.id })]);
+
+    const ambiguousLanguageCode = {
+      id: 'ambiguous-language-code-target', kind: 'select',
+      label: 'Do you speak English and de at C2?', required: true,
+      options: [{ label: 'Yes' }, { label: 'No' }],
+    };
+    const partialAmbiguousLanguageCode = guardPlan({
+      actions: [{ fieldId: ambiguousLanguageCode.id, action: 'select', value: 'Yes', source: 'profile', evidence: 'English C2' }],
+      missingRequired: [],
+    }, [ambiguousLanguageCode], { ...candidate, profile: { cvText: 'English C2' } });
+    expect(partialAmbiguousLanguageCode.missingRequired).toEqual([expect.objectContaining({ fieldId: ambiguousLanguageCode.id })]);
+
+    const frenchDePreposition = {
+      id: 'french-de-preposition', kind: 'select',
+      label: 'Quel est votre niveau d’anglais et de compétence orale ?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedFrenchDePreposition = guardPlan({
+      actions: [{ fieldId: frenchDePreposition.id, action: 'select', value: 'C2', source: 'profile', evidence: 'English C2' }],
+      missingRequired: [],
+    }, [frenchDePreposition], { ...candidate, profile: { cvText: 'English C2' } });
+    expect(supportedFrenchDePreposition.actions).toEqual([expect.objectContaining({ fieldId: frenchDePreposition.id, value: 'C2' })]);
+    expect(supportedFrenchDePreposition.missingRequired).toEqual([]);
+
+    const atLeastUnknownLanguage = {
+      id: 'at-least-unknown-language', kind: 'select',
+      label: 'What is your German level and at least Xhosa?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const partialAtLeastUnknownLanguage = guardPlan({
+      actions: [{ fieldId: atLeastUnknownLanguage.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [atLeastUnknownLanguage], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(partialAtLeastUnknownLanguage.missingRequired).toEqual([expect.objectContaining({ fieldId: atLeastUnknownLanguage.id })]);
+
+    const singleLanguageModifiers = {
+      id: 'single-language-modifiers', kind: 'select',
+      label: 'What is your German level: conversational or professional?', required: true,
+      options: [{ label: 'C2' }],
+    };
+    const supportedModifierEvidence = guardPlan({
+      actions: [{ fieldId: singleLanguageModifiers.id, action: 'select', value: 'C2', source: 'profile', evidence: 'German C2' }],
+      missingRequired: [],
+    }, [singleLanguageModifiers], { ...candidate, profile: { cvText: 'German C2' } });
+    expect(supportedModifierEvidence.actions).toEqual([expect.objectContaining({ fieldId: singleLanguageModifiers.id, value: 'C2' })]);
+    expect(supportedModifierEvidence.missingRequired).toEqual([]);
+  });
+
   it('derives a native language from the CV language only with contrasting language evidence', () => {
     const candidate = candidateForForm({
       identity: { name: 'Test Candidate', email: 'test@example.com' },
@@ -849,7 +1426,9 @@ describe('portal runner helpers', () => {
     expect(questionTopic('Work city')).toBe('');
     expect(addressQuestionTopic('Country of birth')).toBe('');
     expect(addressQuestionTopic('City of birth')).toBe('');
+    expect(addressQuestionTopic('Adresse du contact d’urgence')).toBe('');
     expect(addressQuestionTopic('Country of residence')).toBe('residence_country');
+    expect(addressQuestionTopic('Postal Code', '', { section: 'Contact address' })).toBe('');
     expect(questionTopic('Street address')).toBe('address_street');
     expect(questionTopic('E-Mail-Adresse')).toBe('');
     expect(questionTopic('Email address')).toBe('');
@@ -928,6 +1507,7 @@ describe('portal runner helpers', () => {
       portalQuestionsAnswered: [],
     };
     const repeatEmail = { id: 'email-again', kind: 'text', label: 'E-Mail-Adresse erneut eingeben: *', required: true, options: [] };
+    const email = { id: 'email', kind: 'text', label: 'E-Mail-Adresse', required: true, options: [] };
     const street = { id: 'street-name', kind: 'text', label: 'Street Name', context: 'My Information', required: true, options: [] };
     const postcode = { id: 'postcode', kind: 'text', label: 'Postcode', context: 'My Information', required: true, options: [] };
     const country = { id: 'residence-country', kind: 'select', label: 'Land/Region des Wohnorts:*', required: true, options: [{ label: '- Bitte auswählen -' }, { label: 'Schweiz' }, { label: 'Italien' }] };
@@ -946,6 +1526,7 @@ describe('portal runner helpers', () => {
       .toEqual({ value: '6830', source: 'identity' });
     expect(candidateAnswerForField(candidate, { label: 'Nazione (di residenza)', context: flattenedPersonalContext, options: [{ label: 'Svizzera' }, { label: 'Italia' }] }))
       .toEqual({ value: 'Svizzera', source: 'identity' });
+    expect(candidateAnswerForField(candidate, email)).toEqual({ value: candidate.identity.email, source: 'identity' });
     expect(candidateAnswerForField(candidate, repeatEmail)).toBeNull();
     expect(candidateAnswerForField(candidate, street)).toEqual({ value: 'Via Esempio', source: 'identity' });
     expect(candidateAnswerForField(candidate, postcode)).toEqual({ value: '6830', source: 'identity' });
@@ -1115,7 +1696,7 @@ describe('portal runner helpers', () => {
     expect(named({ name: 'Maria' })).toMatchObject({ firstName: 'Maria', lastName: '' });
     expect(candidate.identity.address).toEqual({ street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' });
     expect(candidate.profile).toMatchObject({ nationality: 'italiana', dateOfBirth: '' });
-    expect(candidate.portalQuestionsAnswered).toEqual([{ question: 'Start date?', answer: '1.12.2026' }]);
+    expect(candidate.portalQuestionsAnswered).toEqual([{ question: 'Start date?', answer: '1.12.2026', source: 'answers' }]);
     expect(candidate.texts).toMatchObject({ motivationShort: 'Motivo', coverLetter: 'Lettera' });
   });
 
@@ -1247,7 +1828,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     // «Ja» answers another question of the candidate: the substring rule read it as backing this one.
     for (const permitStatus of ['none', 'permit_b']) {
       const guarded = guardPlan({ actions: [select('p1', 'Ja', 'answers')], missingRequired: [] }, [yesNo], candidate({ permitStatus }, { portal_fuehrerschein: 'Ja' }));
-      expect([permitStatus, guarded.actions, guarded.missingRequired.map((item: any) => item.fieldId)]).toEqual([permitStatus, [], ['p1']]);
+      const expected = permitStatus === 'none' ? select('p1', 'Nein') : select('p1', 'Ja');
+      expect([permitStatus, guarded.actions, guarded.missingRequired]).toEqual([permitStatus, [expected], []]);
     }
     // The candidate's own answer to this very question.
     const answered = candidate({ permitStatus: 'none' }, { portal_bewilligung: 'Ja' }, [{ id: 'portal_bewilligung', question }]);
@@ -1265,7 +1847,8 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
   it('keeps a nationality only when it names the one the candidate gave, Swiss for the status «swiss»', () => {
     const field = { id: 'n1', kind: 'select', label: 'Nationalität', required: true, options: [{ label: 'Italien' }, { label: 'Deutschland' }, { label: 'Schweiz' }] };
     expect(guardPlan({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).actions).toEqual([select('n1', 'Italien', 'profile')]);
-    expect(guardPlan({ actions: [select('n1', 'Deutschland', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })).missingRequired.map((item: any) => item.fieldId)).toEqual(['n1']);
+    expect(guardPlan({ actions: [select('n1', 'Deutschland', 'profile')], missingRequired: [] }, [field], candidate({ nationality: 'italiana' })))
+      .toEqual({ actions: [select('n1', 'Italien', 'profile')], missingRequired: [] });
     expect(guardPlan({ actions: [select('n1', 'Schweiz', 'profile')], missingRequired: [] }, [field], candidate({ permitStatus: 'swiss' })).actions).toEqual([select('n1', 'Schweiz', 'profile')]);
   });
 

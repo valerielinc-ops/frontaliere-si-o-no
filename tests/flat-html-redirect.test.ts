@@ -1,7 +1,9 @@
 import { describe, expect, it, beforeEach, afterEach } from 'vitest';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
+import { pathToFileURL } from 'node:url';
 import {
   buildFlatBridgeFromSibling,
   extractOgTags,
@@ -291,6 +293,34 @@ ${metas.join('\n')}
     expect(bridge).toContain('<title>Many metas</title>');
     expect(bridge).toContain(metas[3999]);
     expect(elapsedMs).toBeLessThan(5000);
+  });
+
+  it('fails closed on malformed quoted tags without stalling the bridge scanner', () => {
+    const malformedHtml = '<html><head><img "broken > quote" src="x">'
+      + '<title>Must not leak</title>'
+      + '<meta property="og:title" content="must-not-leak">'
+      + '</head></html>';
+    const engineUrl = pathToFileURL(
+      path.resolve('packages/articles/engine/flatHtmlRedirect.ts'),
+    ).href;
+    const childSource = `
+      import { buildFlatBridgeFromSibling } from ${JSON.stringify(engineUrl)};
+      process.stdout.write(buildFlatBridgeFromSibling(
+        ${JSON.stringify(malformedHtml)},
+        'https://frontaliereticino.ch/foo/',
+      ));
+    `;
+    const child = spawnSync(
+      process.execPath,
+      ['--import', 'tsx', '--input-type=module', '-e', childSource],
+      { cwd: process.cwd(), encoding: 'utf8', timeout: 3000 },
+    );
+
+    expect(child.error).toBeUndefined();
+    expect(child.status).toBe(0);
+    expect(child.stdout).toContain('<title>Redirecting to https://frontaliereticino.ch/foo/</title>');
+    expect(child.stdout).not.toContain('Must not leak');
+    expect(child.stdout).not.toContain('must-not-leak');
   });
 
   it('keeps the parser contract required by the mirrored fast-publish engine', () => {

@@ -10,6 +10,7 @@ const {
   MAX_RUN_ATTEMPTS,
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
+  PORTAL_AUTO_RETRY_DELAYS_MS,
   evaluateRedFlags,
   isTransientRunError,
   transition,
@@ -88,6 +89,41 @@ describe('red flags', () => {
     }, { salary: 'CHF 80k' });
     // A verdict «poor» is no owner flag any more: the candidate is told on the review page.
     expect(flags).toEqual({ owner: ['fact_check', 'channel_unknown'], candidate: ['permit'], documents: [] });
+  });
+
+  it('does not hold a legacy draft on a language question already answered by a complete CV list', () => {
+    const draft = {
+      ...cleanDraft,
+      profile: { languages: [
+        { language: 'English', level: 'C1' },
+        { language: 'Italian', level: 'C2' },
+        { language: 'French', level: 'B2' },
+        { language: 'Spanish', level: 'C1' },
+      ] },
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+      questions: [{ id: 'german_level', question: 'Do you speak German? If so, how would you describe your proficiency level?', required: true }],
+    };
+    expect(evaluateRedFlags(draft).candidate).toEqual([]);
+  });
+
+  it('releases an old candidate review hold when its last required question is now answered by the CV', () => {
+    const draft = {
+      ...cleanDraft,
+      profile: { languages: [
+        { language: 'English', level: 'C1' },
+        { language: 'Italian', level: 'C2' },
+        { language: 'French', level: 'B2' },
+        { language: 'Spanish', level: 'C1' },
+      ] },
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+      questions: [{ id: 'german_level', question: 'Do you speak German? If so, how would you describe your proficiency level?', required: true }],
+    };
+    const resolved = transition({
+      state: 'candidate_review', round: 1, heldBy: ['question:german_level'],
+      heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0],
+    }, { type: 'tick' }, { draft, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(resolved.flow).toMatchObject({ state: 'candidate_review', heldBy: [], deadlineAt: T0 + HELD_REMINDERS_AFTER_MS[0] + CANDIDATE_REVIEW_MS });
+    expect(resolved.effects).toEqual([]);
   });
 
   // Owner decision 2026-10-03: a profile that is not a full match goes on, the candidate reads why.
@@ -260,6 +296,50 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
   });
 
+  it('hands an unidentifiable portal question to owner takeover', () => {
+    const step = transition(
+      { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', attempts: 1 } },
+      { type: 'submit_needs_candidate', questions: [{ id: undefined }], documents: [] },
+      { draft: cleanDraft, nowMs: T0 },
+    );
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal_needs_candidate'] });
+    expect(step.effects).toEqual([{
+      type: 'email',
+      kind: 'owner_takeover',
+      reason: 'portal:portal_needs_candidate',
+      stage: 'submit',
+      attempts: 1,
+    }]);
+  });
+
+  it('retries once without a candidate email when the portal repeats questions that already have answers', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const event = { type: 'submit_needs_candidate', questions: ['work_permit'] };
+    const retry = transition(submitting, event, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    expect(retry.flow).toMatchObject({ state: 'submitting', heldBy: [], heldSince: null });
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+
+    const negativeAnswer = transition(submitting, { ...event, questions: ['can_work_in_switzerland'] }, {
+      draft: cleanDraft, answers: { can_work_in_switzerland: false }, nowMs: T0,
+    });
+    expect(negativeAnswer.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+
+    const repeated = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: 2 } }, event, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    expect(repeated.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit'], heldSince: T0 });
+    expect(repeated.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+  });
+
+  it('still asks the candidate when an existing answer is missing or a document is requested', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const question = { type: 'submit_needs_candidate', questions: ['work_permit'] };
+    const missing = transition(submitting, question, { draft: cleanDraft, answers: {}, nowMs: T0 });
+    expect(missing.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit'] });
+    expect(missing.effects).toEqual([{ type: 'email', kind: 'candidate_action_needed' }]);
+
+    const document = transition(submitting, { ...question, documents: ['certificate'] }, { draft: cleanDraft, answers: { work_permit: 'G' }, nowMs: T0 });
+    expect(document.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:work_permit', 'document:certificate'] });
+  });
+
   // Rolex 2026-10-02: school reports and the EVA test results go with the application.
   it('holds the send until each required document is uploaded: nothing else lifts the hold', () => {
     const draft = { ...cleanDraft, requiredDocuments: [
@@ -354,6 +434,37 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:whatsapp'] });
     step = transition(step.flow, { type: 'owner_handoff' }, { draft: roundDraft, nowMs: T0 });
     expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'whatsapp' }]);
+  });
+
+  it('retries an unsupported portal page twice with backoff, but leaves CAPTCHA for the owner', () => {
+    const roundDraft = { ...cleanDraft, round: 1 };
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    let step = transition(submitting, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({
+      state: 'owner_takeover',
+      heldBy: ['portal:portal_needs_candidate'],
+      portalAutoRetryCount: 0,
+      portalAutoRetryAt: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0],
+    });
+    expect(transition(step.flow, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] - 1 }).ignored).toBe('portal_retry_not_due');
+
+    // applyAutomationEvent keeps the existing dispatch when it persists a
+    // transition without a new dispatch effect.
+    step = transition({ ...step.flow, dispatch: submitting.dispatch }, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] });
+    expect(step.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: 1, portalAutoRetryAt: null });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'portal_auto_retry' }]);
+
+    const secondHandoffAt = T0 + PORTAL_AUTO_RETRY_DELAYS_MS[0] + 1_000;
+    const retryDispatch = { mode: 'submit', round: 1, attempts: 1, reason: 'portal_auto_retry' };
+    step = transition({ ...step.flow, dispatch: retryDispatch }, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt });
+    expect(step.flow.portalAutoRetryAt).toBe(secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1]);
+    step = transition({ ...step.flow, dispatch: retryDispatch }, { type: 'portal_auto_retry' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] });
+    expect(step.flow).toMatchObject({ state: 'submitting', portalAutoRetryCount: 2, portalAutoRetryAt: null });
+
+    step = transition(step.flow, { type: 'submit_handoff', reason: 'portal_needs_candidate' }, { draft: roundDraft, nowMs: secondHandoffAt + PORTAL_AUTO_RETRY_DELAYS_MS[1] + 1_000 });
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', portalAutoRetryCount: 2, portalAutoRetryAt: null });
+    const captcha = transition(submitting, { type: 'submit_handoff', reason: 'captcha' }, { draft: roundDraft, nowMs: T0 });
+    expect(captcha.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha'], portalAutoRetryAt: null });
   });
 
   // A real order of 2026-10-07: taken over while in the owner's review, «Riprova l'invio automatico» sent

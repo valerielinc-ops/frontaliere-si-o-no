@@ -27,7 +27,7 @@ vi.mock('@/services/i18n', () => ({
       'jobBoard.assisted.step3': 'La inviamo quando possibile',
       'jobBoard.assisted.transparency': 'Nessuna garanzia di assunzione.',
       'jobBoard.assisted.externalCta': 'Candidati da solo, gratis',
-      'jobBoard.assisted.paidCta': 'Delega l’invio — 0,99 €',
+      'jobBoard.assisted.paidCta': 'Delega l’invio — 1,99 €',
       'jobBoard.assisted.paidLoading': 'Apro il pagamento…',
       'jobBoard.assisted.priceNote': 'Pagamento unico · nessun abbonamento',
       'jobBoard.assisted.disclaimer': 'Privacy prima dell’upload.',
@@ -38,7 +38,7 @@ vi.mock('@/services/i18n', () => ({
 }));
 
 vi.mock('@/services/assistedApplicationExperiment', () => ({
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 99,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
 }));
 
@@ -69,12 +69,12 @@ describe('AssistedApplicationOffer', () => {
   it('shows one primary paid CTA, a clear free alternative, and records the price', () => {
     renderOffer();
 
-    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 0,99 €');
+    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 1,99 €');
     expect(screen.getByTestId('assisted-application-offer-external')).toHaveTextContent('Candidati da solo, gratis');
     expect(screen.getByText('Pagamento unico · nessun abbonamento')).toBeTruthy();
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
       'assisted_application_offer_viewed',
-      expect.objectContaining({ price_eur_cents: 99, jobId: 'job-42', companyId: 'company-acme' }),
+      expect.objectContaining({ price_eur_cents: 199, jobId: 'job-42', companyId: 'company-acme' }),
     );
   });
 
@@ -95,7 +95,7 @@ describe('AssistedApplicationOffer', () => {
 
     expect(screen.getByRole('heading', { name: title })).toBeTruthy();
     expect(screen.getByText(body)).toBeTruthy();
-    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 0,99 €');
+    expect(screen.getByTestId('assisted-application-offer-paid')).toHaveTextContent('Delega l’invio — 1,99 €');
     expect(mocks.trackAssistedApplicationEvent).toHaveBeenCalledWith(
       'assisted_application_offer_viewed',
       expect.objectContaining({ copy_variant: copyVariant }),
@@ -180,7 +180,7 @@ describe('AssistedApplicationOffer', () => {
       copy_variant: 'control',
       jobId: 'job-42',
       companyId: 'company-acme',
-      price_eur_cents: 99,
+      price_eur_cents: 199,
       trigger: 'offerwall_first',
     });
     document.body.style.overflow = '';

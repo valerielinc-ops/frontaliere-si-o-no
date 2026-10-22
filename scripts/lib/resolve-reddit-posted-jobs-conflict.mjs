@@ -15,8 +15,8 @@
  * key of `id + subreddit` (so the same job posted to two different subs
  * BOTH survive), dedup on collision keeping the locally-staged entry
  * (freshest ts + redditPostId — those are authoritative because they came
- * from our Reddit API call). The schemaVersion is taken from local; if
- * missing falls back to upstream's, then 1.
+ * from our Reddit API call). The schemaVersion is normalized to 1 by the
+ * shared ledger parser.
  *
  * Same shape as `resolve-fb-posted-jobs-conflict.mjs` — runs INSIDE the
  * rebase, leaves the file resolved + staged, then
@@ -26,6 +26,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { gitShowStage } from './git-show-stage.mjs';
+import { parseLedger } from './social-publish-queue.mjs';
 
 const TARGET = 'data/reddit-posted-jobs.json';
 const TRIM_LIMIT = 1000;
@@ -37,25 +38,11 @@ function readStage(stage) {
   return gitShowStage(stage, TARGET);
 }
 
-function parseOrEmpty(label, raw) {
+function parseStage(label, raw) {
   try {
-    const parsed = JSON.parse(raw);
-    if (
-      parsed &&
-      typeof parsed === 'object' &&
-      Array.isArray(parsed.posted)
-    ) {
-      return parsed;
-    }
-    process.stderr.write(
-      `[resolve-reddit-posted] ${label} version is not a valid ledger object; treating as empty\n`,
-    );
-    return { schemaVersion: 1, posted: [] };
-  } catch (err) {
-    process.stderr.write(
-      `[resolve-reddit-posted] ${label} JSON parse failed: ${err.message}\n`,
-    );
-    return { schemaVersion: 1, posted: [] };
+    return parseLedger(raw);
+  } catch (error) {
+    throw new Error(`[resolve-reddit-posted] ${label} version is not a valid ledger`, { cause: error });
   }
 }
 
@@ -84,8 +71,8 @@ if (conflicted.length > 1) {
   process.exit(1);
 }
 
-const upstream = parseOrEmpty('upstream', readStage(2));
-const local = parseOrEmpty('local', readStage(3));
+const upstream = parseStage('upstream', readStage(2));
+const local = parseStage('local', readStage(3));
 
 // Union by composite (id + subreddit). Local wins on collision (it carries
 // the fresh redditPostId + ts that we just got from the Reddit API).
@@ -121,7 +108,7 @@ for (const entry of local.posted) {
 const trimmed = merged.slice(-TRIM_LIMIT);
 
 const out = {
-  schemaVersion: local.schemaVersion ?? upstream.schemaVersion ?? 1,
+  schemaVersion: 1,
   posted: trimmed,
 };
 

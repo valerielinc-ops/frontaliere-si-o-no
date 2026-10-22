@@ -41,6 +41,7 @@ import {
 import { extractMigrosStructuredData } from './migros-job-parser.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -176,21 +177,7 @@ async function fetchHqJobUrls({ fetchPage = fetchHtml } = {}) {
 
 /** Parse the first JobPosting JSON-LD block from a detail page's HTML. */
 function extractJobPosting(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    let data;
-    try {
-      data = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const items = Array.isArray(data) ? data : data?.['@graph'] || [data];
-    for (const item of items) {
-      if (item?.['@type'] === 'JobPosting') return item;
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 async function fetchJobListings(jobUrls, {

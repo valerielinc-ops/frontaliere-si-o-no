@@ -160,7 +160,7 @@ describe('prepassDecision — famiglie di monitor riconosciute positivamente', (
 
 describe('prepassDecision — ciò che NON deve toccare', () => {
   it.each([
-    ['A/B test: candidatura assistita a 0,99 € con raccolta CV'],
+    ['A/B test: candidatura assistita a 1,99 € con raccolta CV'],
     ['Farmacie svizzere e farmacie di turno: ricerca per cantone'],
     ['Portale aste targhe svizzere: crawler cantonali'],
     ['Salari: le bande sono stime servite senza marcatore'],

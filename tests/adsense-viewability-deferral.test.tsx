@@ -64,6 +64,7 @@ interface StubIo {
 }
 
 let ioInstances: StubIo[] = [];
+let requestedStaticSlots: string[] = [];
 
 function installIntersectionObserver(): void {
   class Stub implements StubIo {
@@ -98,8 +99,28 @@ function pushCount(): number {
   return Array.isArray(q) ? q.length : 0;
 }
 
+/** Models the AdSense queue choosing the first unprocessed eligible `<ins>`.
+ *  That is the contract the static loader has to protect when a visitor jumps
+ *  directly to a deep slot. */
+function installStaticAdSenseQueue(): void {
+  const queue: unknown[] = [];
+  const nativePush = Array.prototype.push;
+  queue.push = (...items: unknown[]) => {
+    const target = document.querySelector<HTMLElement>(
+      'ins.adsbygoogle[data-ad-slot]:not([data-adsbygoogle-status])',
+    );
+    if (target) {
+      requestedStaticSlots.push(target.getAttribute('data-ad-slot') || '');
+      target.setAttribute('data-adsbygoogle-status', 'done');
+    }
+    return nativePush.apply(queue, items);
+  };
+  (window as unknown as { adsbygoogle: unknown[] }).adsbygoogle = queue;
+}
+
 beforeEach(() => {
   ioInstances = [];
+  requestedStaticSlots = [];
   document.head.innerHTML = '';
   document.body.innerHTML = '';
   window.localStorage.clear();
@@ -125,8 +146,17 @@ afterEach(() => {
 /** Lays out N `<ins class="adsbygoogle">` the way an in-feed list does, runs the
  *  loader, and fires the injected script's `load` event. Returns the slots and
  *  the per-slot observer the loader created on load. */
-function runStaticLoaderWithSlots(count: number): { slots: HTMLElement[]; slotIo: StubIo } {
+function runStaticLoaderWithSlots(
+  count: number,
+  options: { existingLoadedScript?: boolean; foreignAutoAd?: boolean } = {},
+): { slots: HTMLElement[]; slotIo: StubIo } {
   const slots: HTMLElement[] = [];
+  if (options.foreignAutoAd) {
+    const autoPlacement = document.createElement('div');
+    autoPlacement.className = 'google-auto-placed';
+    autoPlacement.innerHTML = '<ins class="adsbygoogle" data-ad-slot="auto-slot" data-ad-status="filled" data-adsbygoogle-status="done"></ins>';
+    document.body.appendChild(autoPlacement);
+  }
   for (let i = 0; i < count; i += 1) {
     const ins = document.createElement('ins');
     ins.className = 'adsbygoogle';
@@ -135,12 +165,20 @@ function runStaticLoaderWithSlots(count: number): { slots: HTMLElement[]; slotIo
     slots.push(ins);
   }
 
+  installStaticAdSenseQueue();
+  if (options.existingLoadedScript) {
+    const existing = document.createElement('script');
+    existing.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=test';
+    existing.setAttribute('data-loaded', '1');
+    document.head.appendChild(existing);
+  }
+
   // eslint-disable-next-line no-new-func
   new Function(ADSENSE_LOADER_CONTENT)();
 
   const script = document.querySelector<HTMLScriptElement>(ADSENSE_SELECTOR);
   expect(script, 'loader must still inject adsbygoogle.js — Auto Ads depend on it').not.toBeNull();
-  script!.dispatchEvent(new Event('load'));
+  if (!options.existingLoadedScript) script!.dispatchEvent(new Event('load'));
 
   // ioInstances[0] is the script-load observer created in observe();
   // the per-slot observer is the one created by armSlots() on script load.
@@ -172,16 +210,52 @@ describe('static shell loader — per-slot request deferral', () => {
     expect(pushCount()).toBe(2);
   });
 
-  it('catches up in DOM order when a slot below is reached first (deep link / scroll restore)', () => {
+  it('requests only the reached slot when a deep link / scroll restore skips earlier slots', () => {
     const { slots, slotIo } = runStaticLoaderWithSlots(5);
     intersect(slotIo, [slots[2]]);
-    // 3, not 1. `adsbygoogle.push({})` is NOT bound to an element — it fills the
-    // next `<ins>` in DOM order without a status. Pushing once here would have
-    // bound to slot 0 (off-screen) and left the slot the visitor is actually
-    // looking at empty, i.e. the deferral would have moved which unit is wasted
-    // instead of removing the waste. Catching up keeps each push on the element
-    // it was issued for.
+    expect(pushCount()).toBe(1);
+    expect(requestedStaticSlots).toEqual(['slot-2']);
+    expect(slots[0].classList.contains('adsbygoogle')).toBe(false);
+    expect(slots[1].classList.contains('adsbygoogle')).toBe(false);
+    expect(slots[2].classList.contains('adsbygoogle')).toBe(true);
+  });
+
+  it('requests reached slots once while scrolling back upward and restoring position', () => {
+    const { slots, slotIo } = runStaticLoaderWithSlots(4);
+    intersect(slotIo, [slots[3]]);
+    intersect(slotIo, [slots[1]]);
+    intersect(slotIo, [slots[0]]);
+    intersect(slotIo, [slots[3]]);
+    expect(requestedStaticSlots).toEqual(['slot-3', 'slot-1', 'slot-0']);
     expect(pushCount()).toBe(3);
+  });
+
+  it('keeps parked static slots in lifecycle recovery and leaves foreign Auto Ads untouched', () => {
+    const { slots, slotIo } = runStaticLoaderWithSlots(2, { foreignAutoAd: true });
+    const foreign = document.querySelector<HTMLElement>('.google-auto-placed ins');
+    expect(foreign?.classList.contains('adsbygoogle')).toBe(true);
+    intersect(slotIo, [slots[1]]);
+    expect(requestedStaticSlots).toEqual(['slot-1']);
+    expect(slots[0].hasAttribute('data-ft-static-ad-pending')).toBe(true);
+    expect(foreign?.classList.contains('adsbygoogle')).toBe(true);
+  });
+
+  it('arms a deep slot when the AdSense script was already loaded', () => {
+    const { slots, slotIo } = runStaticLoaderWithSlots(3, { existingLoadedScript: true });
+    intersect(slotIo, [slots[2]]);
+    expect(requestedStaticSlots).toEqual(['slot-2']);
+    expect(pushCount()).toBe(1);
+  });
+
+  it('does not duplicate eligibility when the script load callback runs twice', () => {
+    const { slots } = runStaticLoaderWithSlots(3);
+    const script = document.querySelector<HTMLScriptElement>(ADSENSE_SELECTOR)!;
+    script.dispatchEvent(new Event('load'));
+    const latestSlotIo = ioInstances[ioInstances.length - 1];
+    intersect(latestSlotIo, [slots[2]]);
+    intersect(latestSlotIo, [slots[2]]);
+    expect(requestedStaticSlots).toEqual(['slot-2']);
+    expect(pushCount()).toBe(1);
   });
 
   it('does not re-request a slot that scrolls back into view', () => {
@@ -204,7 +278,7 @@ describe('static shell loader — per-slot request deferral', () => {
 
   it('stops observing once every slot has been requested', () => {
     const { slots, slotIo } = runStaticLoaderWithSlots(3);
-    intersect(slotIo, [slots[2]]);
+    intersect(slotIo, slots);
     expect(pushCount()).toBe(3);
     expect(slotIo.disconnected).toBe(true);
   });
@@ -221,8 +295,10 @@ describe('static shell loader — browsers without IntersectionObserver', () => 
     // that cannot observe must not be silently demonetised — falling back to
     // today's eager behaviour is the correct trade (AGENTS.md #7: never suppress
     // the ad system).
-    runStaticLoaderWithSlots(4);
+    runStaticLoaderWithSlots(4, { foreignAutoAd: true });
     expect(pushCount()).toBe(4);
+    expect(requestedStaticSlots).toEqual(['slot-0', 'slot-1', 'slot-2', 'slot-3']);
+    expect(document.querySelector('.google-auto-placed ins')?.classList.contains('adsbygoogle')).toBe(true);
   });
 });
 

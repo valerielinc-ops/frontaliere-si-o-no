@@ -54,6 +54,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -188,8 +189,6 @@ function detectEmploymentType(workloadMax, ldTypes = []) {
 
 /* ── Detail Page (JSON-LD) ────────────────────────────────────── */
 
-const JSON_LD_RX = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i;
-
 /**
  * Fetch a posting's public detail page and extract its embedded
  * `application/ld+json` JobPosting block (server-rendered, no JS needed).
@@ -199,11 +198,7 @@ const JSON_LD_RX = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*
 async function fetchJobPostingLd(detailUrl) {
   try {
     const html = await fetchHtml(detailUrl);
-    const match = html.match(JSON_LD_RX);
-    if (!match) return null;
-    const data = JSON.parse(match[1]);
-    if (!data || data['@type'] !== 'JobPosting') return null;
-    return data;
+    return extractJobPostingNodes(html)[0] || null;
   } catch (err) {
     console.warn(`   ⚠️ Detail fetch failed for ${detailUrl}: ${err?.message || err}`);
     return null;

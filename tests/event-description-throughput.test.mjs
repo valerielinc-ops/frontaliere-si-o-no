@@ -25,6 +25,10 @@ import {
   EVENT_DESCRIPTION_PROMPT_VERSION,
   sourceDescriptionHash,
 } from '../scripts/lib/event-description-policy.mjs';
+import {
+  EVENT_DESCRIPTION_ARTIFACT_KEY_NAME,
+  stageEventDescriptionArtifactKey,
+} from '../scripts/lib/event-description-artifact-key.mjs';
 
 const workflow = readFileSync(path.join(process.cwd(), '.github/workflows/event-description-rewrite.yml'), 'utf8');
 
@@ -37,6 +41,65 @@ test('workflow publishes the site data PR with the site write credential', () =>
   assert.match(workflow, /\$\{GITHUB_PAT:\?GITHUB_PAT was not loaded from Remote Config\}/u);
   assert.match(workflow, /GH_TOKEN="\$GITHUB_PAT" bash scripts\/lib\/open-data-refresh-pr\.sh/u);
   assert.doesNotMatch(workflow, /GITHUB_PAT_NANAKO/u);
+});
+
+test('private crawl artifacts use a stable key instead of the rotating Codex login', () => {
+  const crawlWorkflow = readFileSync(path.join(process.cwd(), '.github/workflows/crawl-events.yml'), 'utf8');
+  assert.match(crawlWorkflow, /ensure-event-description-artifact-key\.mjs/u);
+  assert.match(crawlWorkflow, /-pass file:"\$key_file"/u);
+  assert.match(crawlWorkflow, /event-description-sources\.jsonl\.key-version/u);
+  assert.doesNotMatch(crawlWorkflow, /EVENT_DESCRIPTION_ARTIFACT_KEY:\s*\$\{\{\s*secrets\.CODEX_AUTH_JSON\s*\}\}/u);
+  assert.match(workflow, /ensure-event-description-artifact-key\.mjs/u);
+  assert.match(workflow, /Skipping a legacy event-description artifact/u);
+  assert.match(workflow, /-pass file:"\$key_file"/u);
+  assert.doesNotMatch(workflow, /EVENT_DESCRIPTION_ARTIFACT_KEY:\s*\$\{\{\s*secrets\.CODEX_AUTH_JSON\s*\}\}/u);
+});
+
+test('artifact key provisioning preserves an existing Remote Config key', () => {
+  const existing = 'stable-event-description-key-with-at-least-32-chars';
+  const existingTemplate = {
+    parameters: {
+      [EVENT_DESCRIPTION_ARTIFACT_KEY_NAME]: { defaultValue: { value: existing } },
+    },
+  };
+  const kept = stageEventDescriptionArtifactKey(existingTemplate, 'candidate-that-must-not-replace-it');
+  assert.equal(kept.changed, false);
+  assert.equal(kept.value, existing);
+
+  const staged = stageEventDescriptionArtifactKey({ parameters: {} }, existing);
+  assert.equal(staged.changed, true);
+  assert.equal(staged.value, existing);
+  assert.equal(staged.template.parameters[EVENT_DESCRIPTION_ARTIFACT_KEY_NAME].defaultValue.value, existing);
+});
+
+test('merge job falls back to the immutable run snapshot when moving main is incomplete', () => {
+  const validationStart = workflow.indexOf('- name: Validate main snapshot runtime');
+  const recoveryStart = workflow.indexOf('- name: Recover immutable run snapshot');
+  const setupStart = workflow.indexOf('- name: Setup Node.js', recoveryStart);
+  assert.ok(validationStart >= 0, 'main snapshot validation step not found');
+  assert.ok(recoveryStart > validationStart, 'immutable snapshot recovery must follow validation');
+  assert.ok(setupStart > recoveryStart, 'runtime setup must follow immutable snapshot recovery');
+
+  const validation = workflow.slice(validationStart, recoveryStart);
+  const recovery = workflow.slice(recoveryStart, setupStart);
+  for (const requiredPath of [
+    'package.json',
+    'package-lock.json',
+    'scripts/merge-event-description-rewrites.mjs',
+    'scripts/assemble-events-dataset.mjs',
+    'scripts/load-rc-env.mjs',
+    'scripts/lib/open-data-refresh-pr.sh',
+    'scripts/ci/pr-body-check-gate.mjs',
+    'data/events-description-rewrites.json',
+    'data/events.json',
+    'public/data/events.json',
+  ]) {
+    assert.match(validation, new RegExp(requiredPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+  assert.match(validation, /echo 'ready=true' >> "\$GITHUB_OUTPUT"/u);
+  assert.match(validation, /echo 'ready=false' >> "\$GITHUB_OUTPUT"/u);
+  assert.match(recovery, /if: steps\.main_snapshot\.outputs\.ready != 'true'/u);
+  assert.match(recovery, /ref: \$\{\{ github\.sha \}\}/u);
 });
 
 test('workflow defaults stay linked to the planner defaults', () => {

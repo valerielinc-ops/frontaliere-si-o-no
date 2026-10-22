@@ -1,12 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import {
   candidateWithEdits,
+  candidateQuestionAnswerKey,
+  questionsForCandidate,
+  rememberCandidateQuestionAnswers,
   factSourcesNow,
   fieldView,
   formAnswersWithEdits,
   planCandidateEdits,
+  questionNeedsCandidateAnswer,
 } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
+import { languageExplicitlyAbsent } from '../functions/src/lib/languageFacts.js';
+import { sanitizeProfile } from '../functions/src/assistedApplicationAiDraftCore.js';
 
 const LETTER = [
   'Gentili Signore e Signori,',
@@ -42,15 +48,76 @@ describe('candidate edits', () => {
     const edited = candidateWithEdits({ order, draft: draft(), flow });
     expect(edited.identity).toMatchObject({ name: 'Maria Luisa Rossi', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', email: 'maria.rossi.k7p2@candidature.frontaliereticino.ch' });
     expect(edited.profile).toMatchObject({ location: 'Varese', languages: [{ language: 'Italiano C2', level: '' }, { language: 'Tedesco B2', level: '' }] });
-    expect(edited.answers).toEqual({ salary_expectation: 'CHF 80k' });
+    expect(edited.answers).toEqual({ salary_expectation: 'CHF 80k', salutation: 'Signora' });
     expect(edited.overrides).not.toHaveProperty('unknown');
     // A correction replaces an older answer; a question the draft asks again wins over it.
     const stale = { answers: { work_permit: 'old', availability: 'old', salary_expectation: 'old' }, formOverrides: { workPermit: 'new', availability: 'soon', salary: '90000' } };
-    expect(candidateWithEdits({ order, draft: draft(), flow: stale }).answers).toEqual({ work_permit: 'new', availability: 'soon', salary_expectation: '90000' });
+    expect(candidateWithEdits({ order, draft: draft(), flow: stale }).answers).toEqual({ work_permit: 'new', availability: 'soon', salary_expectation: '90000', salutation: 'Signora' });
     const asking = draft({ questions: [{ id: 'salary_expectation', question: 'Pretese?', type: 'text', required: true }] });
     expect(candidateWithEdits({ order, draft: asking, flow: { ...flow, answers: { salary_expectation: 'CHF 90k' } } }).answers.salary_expectation).toBe('CHF 90k');
     const fields = Object.fromEntries(formAnswersWithEdits({ order, draft: draft(), flow }).map((field) => [field.key, field.value]));
-    expect(fields).toMatchObject({ firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese', salary: 'CHF 80k', motivationShort: 'Mi motiva il reparto.' });
+    expect(fields).toMatchObject({ salutation: 'Signora', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese', salary: 'CHF 80k', motivationShort: 'Mi motiva il reparto.' });
+  });
+
+  it('recovers complete legacy language lists from the CV section without trusting capped lists', () => {
+    const languages = [
+      { language: 'English', level: 'C1' },
+      { language: 'Italian', level: 'C2' },
+      { language: 'French', level: 'B2' },
+      { language: 'Spanish', level: 'C1' },
+    ];
+    const legacyProfile = sanitizeProfile({ ...draft().profile, languages }, { legacy: true });
+    expect(legacyProfile.languagesListTruncated).toBe(false);
+    const legacy = draft({
+      profile: legacyProfile,
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+    });
+    const recovered = candidateWithEdits({ order, draft: legacy, flow: { answers: {} } }).profile;
+    const germanQuestion = 'Do you speak German? If so, how would you describe your proficiency level?';
+    expect(recovered).toMatchObject({ languagesListTruncated: false, languagesExplicitList: true });
+    expect(languageExplicitlyAbsent(recovered, germanQuestion)).toBe(true);
+    expect(questionNeedsCandidateAnswer({ question: germanQuestion }, recovered)).toBe(false);
+
+    const cappedProfile = sanitizeProfile({ ...draft().profile, languages: Array.from({ length: 12 }, () => ({ language: 'English', level: 'C1' })) }, { legacy: true });
+    expect(cappedProfile.languagesListTruncated).toBe(true);
+    const capped = draft({
+      profile: cappedProfile,
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2' },
+    });
+    const conservative = candidateWithEdits({ order, draft: capped, flow: { answers: {} } }).profile;
+    expect(conservative).toMatchObject({ languagesListTruncated: true, languagesExplicitList: false });
+    expect(languageExplicitlyAbsent(conservative, germanQuestion)).toBe(false);
+    expect(questionNeedsCandidateAnswer({ question: germanQuestion }, conservative)).toBe(true);
+  });
+
+  it('reuses an answer when equivalent language questions have different ids, and carries it across drafts', () => {
+    const first = {
+      id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    const second = {
+      id: 'german_proficiency', question: 'Do you speak German? If so, how would you describe your proficiency level?', type: 'choice',
+      options: ['A1', 'A2', 'B1', 'B2'], required: true,
+    };
+    const currentDraft = { profile: { languages: [] }, questions: [first, second] };
+    const current = candidateWithEdits({ order, draft: currentDraft, flow: { answers: { german_level: 'B1' } } });
+    expect(current.answers.german_proficiency).toBe('B1');
+    expect(questionsForCandidate(currentDraft.questions, current.profile, current.answers)).toEqual([first]);
+
+    const memory = rememberCandidateQuestionAnswers({ questions: [first], answers: { german_level: 'B1' } });
+    const nextQuestion = { ...second, id: 'german_skill_level', question: 'What is your German proficiency level?' };
+    const next = candidateWithEdits({
+      order,
+      draft: { profile: { languages: [] }, questions: [nextQuestion] },
+      flow: { answers: {}, questionAnswers: memory },
+    });
+    expect(memory[candidateQuestionAnswerKey(first)]).toBe('B1');
+    expect(next.answers.german_skill_level).toBe('B1');
+
+    const cleared = rememberCandidateQuestionAnswers({
+      questions: [first], answers: { german_level: '' }, previous: memory, changed: { german_level: '' },
+    });
+    expect(cleared[candidateQuestionAnswerKey(first)]).toBe('');
   });
 
   it('keeps the alias and the fields a question asks locked, with the reason', () => {
@@ -162,7 +229,7 @@ describe('the candidate’s Swiss status and personal data', () => {
 
   it('shows the fields the tailored CV prints, the permit as the six options with the CV’s own words kept first', () => {
     const fields = formAnswersWithEdits({ order, draft: draft(), flow: {} });
-    expect(fields.map((field) => field.key)).toEqual(['firstName', 'lastName', 'email', 'phone', 'location', 'linkedin', 'dateOfBirth', 'nationality', 'workPermit', 'availability', 'salary', 'languages', 'motivationShort', 'whyCompany']);
+    expect(fields.map((field) => field.key)).toEqual(['salutation', 'firstName', 'lastName', 'email', 'phone', 'location', 'linkedin', 'dateOfBirth', 'nationality', 'workPermit', 'availability', 'salary', 'languages', 'motivationShort', 'whyCompany']);
     const views = Object.fromEntries(fields.map((field) => [field.key, fieldView(field, { draft: draft(), locale: 'it' })]));
     // The CV says «G»: shown and selected as written, never replaced by a status.
     expect(views.workPermit).toMatchObject({ editable: true, inCv: true, value: 'G', options: ['G', ...permitOptions('it')] });

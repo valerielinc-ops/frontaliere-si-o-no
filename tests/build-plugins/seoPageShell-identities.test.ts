@@ -15,6 +15,19 @@ import {
   organizationLdIds,
 } from '../../services/seo/organizationLd';
 
+const TWITTER_CARD_KEYS = ['card', 'title', 'description', 'image'] as const;
+
+function twitterCardMetaCount(html: string, key: (typeof TWITTER_CARD_KEYS)[number]): number {
+  const namePattern = new RegExp(`\\bname\\s*=\\s*["']?twitter:${key}["']?(?=\\s|>)`, 'i');
+  return (html.match(/<meta\b[^>]*>/gi) ?? []).filter((tag) => namePattern.test(tag)).length;
+}
+
+function expectOneOfEachTwitterCardMeta(html: string): void {
+  for (const key of TWITTER_CARD_KEYS) {
+    expect(twitterCardMetaCount(html, key), `twitter:${key} should appear exactly once`).toBe(1);
+  }
+}
+
 describe('static SEO JSON-LD identities', () => {
   it('gives the repeated site WebSite one stable id', () => {
     const [serialized] = normalizeStaticJsonLdScripts([
@@ -149,7 +162,15 @@ describe('static SEO JSON-LD identities', () => {
       },
     });
 
-    expect(normalizeStaticJsonLdScripts([source])).toEqual([source]);
+    const [serialized] = normalizeStaticJsonLdScripts([source]);
+    expect(JSON.parse(serialized)).toMatchObject({
+      creator: {
+        '@id': 'https://example.com/#department',
+        name: 'Dipartimento del territorio – Canton Ticino',
+        url: 'https://example.com/department',
+      },
+      creditText: 'Dipartimento del territorio – Canton Ticino',
+    });
   });
 
   it('gives repeated name-only external organizations a deterministic id', () => {
@@ -228,6 +249,64 @@ describe('static SEO JSON-LD identities', () => {
       name: 'Mercato del lavoro in Ticino — agosto 2026',
       url: 'https://frontaliereticino.ch/mercato-lavoro-ticino/agosto-2026/',
     });
+  });
+});
+
+describe('static SEO X cards', () => {
+  it('emits complete cards by default, preserves opt-out and page-specific overrides', () => {
+    const options = {
+      locale: 'it',
+      title: 'Evento <speciale> & novità',
+      description: 'Una descrizione dell’evento.',
+      canonicalUrl: 'https://frontaliereticino.ch/eventi/esempio/',
+      ogImage: '/images/events/esempio.webp',
+      bodyHtml: '<main><h1>Evento</h1></main>',
+    } as const;
+    const defaultHtml = buildSeoPageHtml(options);
+
+    expectOneOfEachTwitterCardMeta(defaultHtml);
+    expect(defaultHtml).toContain('name=twitter:card content=summary_large_image');
+    expect(defaultHtml).toMatch(/name=twitter:title content="Evento &lt;speciale&gt; &amp; novità/);
+    expect(defaultHtml).toContain('name=twitter:description');
+    expect(defaultHtml).toContain('name=twitter:image content=https://frontaliereticino.ch/images/events/esempio.webp');
+
+    const optOutHtml = buildSeoPageHtml({ ...options, includeTwitterCard: false });
+    expect(optOutHtml).not.toContain('name=twitter:card');
+
+    const overridden = buildSeoPageHtml({
+      ...options,
+      extraHeadHtml: [
+        '<meta name="twitter:card" content="summary">',
+        "<meta name='twitter:title' content='Titolo personalizzato'>",
+        '<meta name=twitter:description content="Descrizione personalizzata">',
+        '<meta name="twitter:image" content="https://social.example/custom.webp">',
+      ].join('\n'),
+    });
+    expectOneOfEachTwitterCardMeta(overridden);
+    expect(overridden).toContain('name=twitter:card content=summary');
+    expect(overridden).toMatch(/name=twitter:title content=['"]Titolo personalizzato['"]/);
+    expect(overridden).toContain('name=twitter:description content="Descrizione personalizzata"');
+    expect(overridden).toContain('name=twitter:image content=https://social.example/custom.webp');
+    expect(overridden).not.toContain('name=twitter:title content="Evento');
+  });
+
+  it('rejects a duplicated card from a deterministic second-emitter mutation', () => {
+    const html = buildSeoPageHtml({
+      locale: 'it',
+      title: 'Evento',
+      description: 'Descrizione evento.',
+      canonicalUrl: 'https://frontaliereticino.ch/eventi/esempio/',
+      bodyHtml: '<main><h1>Evento</h1></main>',
+    });
+    expectOneOfEachTwitterCardMeta(html);
+
+    const duplicated = html.replace(
+      '</head>',
+      '<meta name="twitter:card" content="summary_large_image"></head>',
+    );
+    expect(duplicated).not.toBe(html);
+    expect(twitterCardMetaCount(duplicated, 'card')).toBe(2);
+    expect(() => expectOneOfEachTwitterCardMeta(duplicated)).toThrow();
   });
 });
 

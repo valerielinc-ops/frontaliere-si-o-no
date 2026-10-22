@@ -126,6 +126,7 @@ describe('CV by e-mail reply', () => {
     expect(result).toEqual({ status: 200, body: { ok: true, matched: true } });
     const order = database.read(BASE)!;
     expect(order.cvStorageKey).toMatch(new RegExp(`^assisted-application-uploads/${ORDER}/\\d+-[0-9a-f-]+-CV-Maria\\.pdf$`));
+    expect(order.cvFileName).toBe('CV-Maria.pdf');
     expect(order).toMatchObject({ cvUploadedBy: 'email_reply', submissionStatus: 'in_progress' });
     expect(bucket.files.get(order.cvStorageKey)!.equals(PDF)).toBe(true);
     expect(database.read(`${BASE}/automation/intake`)).toMatchObject({ emailNotes: 'Ciao Valerie, ho il permesso G e sono disponibile dal 1° novembre.' });

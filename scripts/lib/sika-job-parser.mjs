@@ -20,6 +20,7 @@ import {
   schemaJobLocationCandidates,
 } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -253,8 +254,8 @@ async function fetchJobDetail(url) {
       } catch {
         continue;
       }
-      const node = Array.isArray(parsed) ? parsed.find((n) => n?.['@type'] === 'JobPosting') : parsed;
-      if (!node || node['@type'] !== 'JobPosting') continue;
+      const [node] = extractJobPostingNodesFromJson(parsed);
+      if (!node) continue;
       const locationCandidates = schemaJobLocationCandidates(node.jobLocation);
       const primaryLocation = locationCandidates[0];
       return {
@@ -322,7 +323,10 @@ export async function fetchAllSikaJobs() {
       || normalizeDescriptionSpace(decodeEntities(stripHtml(descriptionHtml)));
     const decision = resolveSikaListingGeography(listing, detail);
     const geography = decision.geography;
-    if (!geography) continue;
+    if (!geography) {
+      await new Promise((r) => setTimeout(r, 200));
+      continue;
+    }
     const { location, canton } = geography;
     const evidence = decision.candidate;
 

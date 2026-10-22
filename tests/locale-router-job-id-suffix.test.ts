@@ -9,7 +9,7 @@ beforeEach(() => vi.stubGlobal('caches', { default: { match: async () => undefin
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 function mockFetch(prefix: string | null, { targetStatus = 200, expectedOrigin = '' } = {}) {
-  return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+  return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, _init?: RequestInit) => {
     const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
     if (url.pathname.includes('/job-canon/')) return Response.json(prefix ? { 'known-job': { it: prefix, en: prefix, de: prefix, fr: prefix } } : {});
     if (prefix && url.pathname === `${prefix}/known-job/` && (!expectedOrigin || url.hostname === expectedOrigin)) {
@@ -19,27 +19,45 @@ function mockFetch(prefix: string | null, { targetStatus = 200, expectedOrigin =
   });
 }
 
-describe('registry-confirmed vacancy aliases with a source id suffix', () => {
+describe.each(['GET', 'HEAD'])('registry-confirmed vacancy aliases with a source id suffix (%s)', (method) => {
   it.each([
     ['/cerca-lavoro-zurigo', 'it'], ['/en/find-jobs-zurich', 'en'],
     ['/de/jobs-in-zurich', 'de'], ['/fr/trouver-emploi-zurich', 'fr'],
   ])('301s a known alias within its language: %s', async (prefix) => {
-    mockFetch(prefix);
-    const response = await worker.fetch(new Request(`${APEX}${prefix}/known-job/5162?utm_source=gsc`), {}, ctx);
+    const fetchMock = mockFetch(prefix);
+    const response = await worker.fetch(new Request(`${APEX}${prefix}/known-job/5162?utm_source=gsc`, { method }), {}, ctx);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe(`${prefix}/known-job/?utm_source=gsc`);
+    expect(await response.text()).toBe('');
+    const probe = fetchMock.mock.calls.find(([input]) => {
+      const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      return url.pathname === `${prefix}/known-job/`;
+    });
+    expect(probe).toBeDefined();
+    // HEAD must use the same GET evidence as GET, not infer availability from a
+    // possibly different origin HEAD/cache response.
+    const input = probe![0];
+    expect(probe![1]?.method ?? (input instanceof Request ? input.method : 'GET')).toBe('GET');
   });
 
   it('verifies a canton migration on the destination shard', async () => {
     mockFetch('/cerca-lavoro-appenzello', { expectedOrigin: 'origin-appenzello-it.frontaliereticino.ch' });
-    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/known-job/1150`), {}, ctx);
+    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/known-job/1150`, { method }), {}, ctx);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe('/cerca-lavoro-appenzello/known-job/');
   });
 
+  it('also preserves method parity for a registry-confirmed canton migration without a numeric suffix', async () => {
+    mockFetch('/de/jobs-im-luzern');
+    const response = await worker.fetch(new Request(`${APEX}/de/jobs-in-nidwalden/known-job/?utm_source=gsc`, { method }), {}, ctx);
+    expect(response.status).toBe(301);
+    expect(response.headers.get('Location')).toBe('/de/jobs-im-luzern/known-job/?utm_source=gsc');
+    expect(await response.text()).toBe('');
+  });
+
   it.each([404, 410, 429, 503])('distinguishes a missing vacancy from unavailable target verification (%s)', async (targetStatus) => {
     mockFetch('/cerca-lavoro-zurigo', { targetStatus });
-    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`), {}, ctx);
+    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`, { method }), {}, ctx);
     expect(response.status).toBe(targetStatus === 404 || targetStatus === 410 ? 404 : 503);
     expect(response.headers.get('Location')).toBeNull();
     if (response.status === 503) expect(response.headers.get('Retry-After')).toBe('60');
@@ -47,12 +65,12 @@ describe('registry-confirmed vacancy aliases with a source id suffix', () => {
 
   it.each(['/known-job/5162', '/known-job/extra/', '/known-job/5162/extra/', '/search-foo/2000', '/ricerca-foo/2000', '/azienda-foo/2000'])('does not guess a target without registry evidence: %s', async (suffix) => {
     mockFetch(null);
-    expect((await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo${suffix}`), {}, ctx)).status).toBe(404);
+    expect((await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo${suffix}`, { method }), {}, ctx)).status).toBe(404);
   });
 
   it('keeps a numeric search-like orphan off the English national board', async () => {
     mockFetch(null);
-    const response = await worker.fetch(new Request(`${APEX}/en/find-jobs-zurich/search-foo/2000`), {}, ctx);
+    const response = await worker.fetch(new Request(`${APEX}/en/find-jobs-zurich/search-foo/2000`, { method }), {}, ctx);
     expect(response.status).toBe(404);
     expect(response.headers.get('Location')).toBeNull();
   });
@@ -68,7 +86,7 @@ describe('registry-confirmed vacancy aliases with a source id suffix', () => {
       }
       return new Response('missing', { status: 404 });
     });
-    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`), {}, ctx);
+    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162`, { method }), {}, ctx);
     expect(response.status).toBe(503);
     expect(response.headers.get('Location')).toBeNull();
   });
@@ -84,9 +102,17 @@ describe('registry-confirmed vacancy aliases with a source id suffix', () => {
       }
       return new Response('page', { status: url.pathname === '/cerca-lavoro-ticino/known-job/' ? 200 : 404 });
     });
-    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/known-job/5162`), {}, ctx);
+    const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-ticino/known-job/5162`, { method }), {}, ctx);
     expect(unavailableLayoutProbes).toBeGreaterThan(0);
     expect(response.status).toBe(301);
     expect(response.headers.get('Location')).toBe('/cerca-lavoro-ticino/known-job/');
   });
+});
+
+it.each(['POST', 'PUT', 'DELETE'])('does not turn a %s into a permanent vacancy redirect', async (method) => {
+  const fetchMock = mockFetch('/cerca-lavoro-zurigo');
+  const response = await worker.fetch(new Request(`${APEX}/cerca-lavoro-zurigo/known-job/5162/`, { method }), {}, ctx);
+  expect(response.status).toBe(404);
+  expect(response.headers.get('Location')).toBeNull();
+  expect(fetchMock.mock.calls.some(([input]) => String(input).includes('/job-canon/'))).toBe(false);
 });

@@ -113,6 +113,24 @@ describe('locale publish provenance', () => {
     }).valid).toBe(true);
   });
 
+  it('rejects a published receipt when a required step outcome is missing or failed', () => {
+    const validIt = receipt('it');
+    const missingOutcome = { ...validIt, outcomes: { ...validIt.outcomes } };
+    delete (missingOutcome.outcomes as Record<string, string>).itPrep;
+    const missingVerdict = validateLocalePublishProvenance(missingOutcome, { locale: 'it' });
+    expect(missingVerdict.valid).toBe(false);
+    expect(missingVerdict.errors).toContain('itPrep outcome is "unknown"');
+
+    const validEn = receipt('en');
+    const failedOutcome = {
+      ...validEn,
+      outcomes: { ...validEn.outcomes, localePush: 'failure' },
+    };
+    const failedVerdict = validateLocalePublishProvenance(failedOutcome, { locale: 'en' });
+    expect(failedVerdict.valid).toBe(false);
+    expect(failedVerdict.errors).toContain('localePush outcome is "failure"');
+  });
+
   it('marks a failed non-IT leg stale instead of advertising a partial payload', () => {
     const manifest = createLocalePublishProvenance({
       locale: 'en',
@@ -489,6 +507,8 @@ describe('locale publish workflow wiring', () => {
     const deployJob = publish.jobs.deploy;
     const validateDist = publish.jobs['validate-dist'];
     expect(resolver).toBeDefined();
+    expect(resolver.needs).toBe('validate-source-build');
+    expect(String(resolver.if)).toContain("needs.validate-source-build.result == 'success'");
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
     expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
     expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);

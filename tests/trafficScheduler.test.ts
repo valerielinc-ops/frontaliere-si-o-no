@@ -4,8 +4,8 @@
  * Covers:
  *  1. slugifyCrossingName()   – matches the frontend helper in TrafficAlerts.tsx
  *  2. BORDER_CROSSINGS list   – no closed crossings, coordinates in valid range
- *  3. trafficService.getTrafficData() Firestore-first path
- *  4. Fallback to mock when Firestore is empty
+ *  3. trafficService.getTrafficData() public read-model path
+ *  4. Fallback to mock when the public read model is empty
  */
 
 import { describe, it, expect, vi, beforeEach } from 'vitest';
@@ -110,25 +110,51 @@ describe('BORDER_CROSSINGS (scheduler list)', () => {
   });
 });
 
-// ─── trafficService: Firestore-first path ─────────────────────
+// ─── trafficService: public read-model path ───────────────────
 
-vi.mock('firebase/firestore', () => ({
-  getFirestore: vi.fn(() => ({})),
-  collection:   vi.fn(() => ({})),
-  getDocs: vi.fn(),
-}));
+const mockFetch = vi.fn();
 
 import { trafficService } from '@/services/trafficService';
-import * as firestoreModule from 'firebase/firestore';
+
+function encodePublicValue(value: unknown): Record<string, unknown> | null {
+  if (value && typeof (value as { toDate?: unknown }).toDate === 'function') {
+    const date = (value as { toDate: () => Date }).toDate();
+    return { timestampValue: date.toISOString() };
+  }
+  if (value instanceof Date) return { timestampValue: value.toISOString() };
+  if (typeof value === 'string') return { stringValue: value };
+  if (typeof value === 'number') return Number.isInteger(value)
+    ? { integerValue: String(value) }
+    : { doubleValue: value };
+  if (typeof value === 'boolean') return { booleanValue: value };
+  return null;
+}
+
+function publicTrafficResponse(docs: Array<{ id: string; data: () => Record<string, unknown> }>) {
+  return {
+    ok: true,
+    json: async () => ({
+      documents: docs.map(doc => {
+        const fields: Record<string, unknown> = {};
+        for (const [key, value] of Object.entries(doc.data())) {
+          const encoded = encodePublicValue(value);
+          if (encoded) fields[key] = encoded;
+        }
+        return { name: doc.id, fields };
+      }),
+    }),
+  };
+}
 
 beforeEach(() => {
   vi.clearAllMocks();
+  vi.stubGlobal('fetch', mockFetch);
   vi.spyOn(console, 'warn').mockImplementation(() => {});
   trafficService.clearCache();
 });
 
-describe('trafficService.getTrafficData – Firestore path', () => {
-  it('returns Firestore data when collection is non-empty', async () => {
+describe('trafficService.getTrafficData – public endpoint path', () => {
+  it('returns public read-model data when the endpoint is non-empty', async () => {
     const fakeTimestamp = { toDate: () => new Date(Date.now() - 10 * 60 * 1000) }; // 10 min ago
     const fakeDocs = [
       {
@@ -146,10 +172,7 @@ describe('trafficService.getTrafficData – Firestore path', () => {
       },
     ];
 
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: false,
-      forEach: (cb: (doc: (typeof fakeDocs)[0]) => void) => fakeDocs.forEach(cb),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse(fakeDocs));
 
     const data = await trafficService.getTrafficData();
     expect(data).toHaveLength(1);
@@ -176,10 +199,7 @@ describe('trafficService.getTrafficData – Firestore path', () => {
       },
     ];
 
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: false,
-      forEach: (cb: (doc: (typeof fakeDocs)[0]) => void) => fakeDocs.forEach(cb),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse(fakeDocs));
 
     const data = await trafficService.getTrafficData();
     expect(data).toHaveLength(1);
@@ -193,7 +213,7 @@ describe('trafficService.getTrafficData – Firestore path', () => {
     expect(data[0]).not.toHaveProperty('status');
   });
 
-  it('does not turn a Firestore reading without a timestamp into a current reading', async () => {
+  it('does not turn a public reading without a timestamp into a current reading', async () => {
     const incompleteDocs = [
       {
         id: 'chiasso-centro',
@@ -206,20 +226,14 @@ describe('trafficService.getTrafficData – Firestore path', () => {
       },
     ];
 
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: false,
-      forEach: (cb: (doc: (typeof incompleteDocs)[0]) => void) => incompleteDocs.forEach(cb),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse(incompleteDocs));
 
     const data = await trafficService.getTrafficData();
     expect(data.every((item) => item.source === 'mock')).toBe(true);
   });
 
-  it('falls back to mock data when Firestore collection is empty', async () => {
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: true,
-      forEach: vi.fn(),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+  it('falls back to mock data when the public endpoint has no documents', async () => {
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse([]));
 
     const data = await trafficService.getTrafficData();
     // Should return mock data for all non-closed crossings (>0 entries)
@@ -229,14 +243,14 @@ describe('trafficService.getTrafficData – Firestore path', () => {
     }
   });
 
-  it('falls back gracefully when Firestore throws', async () => {
-    vi.mocked(firestoreModule.getDocs).mockRejectedValueOnce(new Error('Firestore unavailable'));
+  it('falls back gracefully when the public endpoint throws', async () => {
+    mockFetch.mockRejectedValueOnce(new Error('Public endpoint unavailable'));
 
     const data = await trafficService.getTrafficData();
     expect(data.length).toBeGreaterThan(0);
   });
 
-  it('falls back to mock when Firestore data is stale (>2 hours old)', async () => {
+  it('falls back to mock when public data is stale (>2 hours old)', async () => {
     const threeHoursAgo = new Date(Date.now() - 3 * 60 * 60 * 1000);
     const staleDocs = [
       {
@@ -254,13 +268,10 @@ describe('trafficService.getTrafficData – Firestore path', () => {
       },
     ];
 
-    vi.mocked(firestoreModule.getDocs).mockResolvedValueOnce({
-      empty: false,
-      forEach: (cb: (doc: (typeof staleDocs)[0]) => void) => staleDocs.forEach(cb),
-    } as unknown as Awaited<ReturnType<typeof firestoreModule.getDocs>>);
+    mockFetch.mockResolvedValueOnce(publicTrafficResponse(staleDocs));
 
     const data = await trafficService.getTrafficData();
-    // Should have fallen back to mock (stale Firestore data discarded)
+    // Should have fallen back to mock (stale public data discarded)
     expect(data.length).toBeGreaterThan(0);
     for (const d of data) {
       expect(d.source).toBe('mock');

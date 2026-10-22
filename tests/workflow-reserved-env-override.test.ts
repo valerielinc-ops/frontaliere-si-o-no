@@ -13,7 +13,7 @@ import { parse } from 'yaml';
  * GitHub docs, "Variables": "You can't overwrite the value of the default
  * environment variables named GITHUB_* and RUNNER_* … If you attempt to
  * override the value of one of these default variables, the assignment is
- * ignored." deploy-publish.yml set `GITHUB_RUN_ID: ${{ github.event.workflow_run.id }}`
+ * ignored." deploy-publish.yml set `GITHUB_RUN_ID: ${{ inputs.source_run_id }}`
  * on the cross-shard CDN gate: the value never arrived, the gate polled the
  * publish run instead of the deploy run, found no `build-locale (it)` job and
  * held every non-IT shard tail fail-closed for its whole 3 h budget (run
@@ -133,7 +133,7 @@ describe('workflow env never assigns a default GITHUB_*/RUNNER_* variable a diff
     const start = src.indexOf('      - name: Wait for IT CDN push (cross-shard ordering guard)');
     expect(start, 'CDN gate step not found').toBeGreaterThan(-1);
     const step = src.slice(start, src.indexOf('\n      - name: ', start + 1));
-    expect(step).toMatch(/CDN_IT_RUN_ID: \$\{\{ github\.event\.workflow_run\.id \}\}/);
+      expect(step).toMatch(/CDN_IT_RUN_ID: \$\{\{ inputs\.source_run_id \}\}/);
     expect(step).toMatch(/run: GITHUB_RUN_ID="\$CDN_IT_RUN_ID" bash scripts\/lib\/wait-cdn-build-id\.sh/);
   });
 });

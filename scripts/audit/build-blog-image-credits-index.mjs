@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
+import { readPublishedCantonArticles } from '../lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog');
@@ -66,8 +67,31 @@ function generatedFile(record) {
   };
 }
 
+function licensedPhotoFile(record) {
+  return {
+    source: 'licensed-photo',
+    photo: record.photo,
+    pageUrl: record.photo.pageUrl,
+    author: {
+      text: record.author.text,
+      name: record.author.name,
+      url: record.author.url,
+      type: record.author.type,
+    },
+    attribution: record.attribution,
+    licence: record.licence,
+    restrictions: record.restrictions,
+    fetchedAt: record.fetchedAt,
+  };
+}
+
 function main() {
-  const keys = new Set(REGISTRIES.flatMap((file) => [...parseRegistry(file)]));
+  const keys = new Set([
+    ...REGISTRIES.flatMap((file) => [...parseRegistry(file)]),
+    // This offline historical rebuild may run without the pull-generated API
+    // artifact; in-tree article registries remain the complete input there.
+    ...readPublishedCantonArticles(ROOT, { optional: true }).map(({ image }) => coverKey(image)).filter(Boolean),
+  ]);
   const ledger = readJson(LEDGER);
   const files = {};
   const covers = {};
@@ -102,8 +126,14 @@ function main() {
     }
     const fileKey = record.source === 'generated-provider'
       ? `generated:${record.generated.assetId}`
-      : record.commons.title;
-    const compact = record.source === 'generated-provider' ? generatedFile(record) : wikiFile(record);
+      : record.source === 'licensed-photo'
+        ? `licensed-photo:${record.photo.provider}:${record.photo.pageUrl}`
+        : record.commons.title;
+    const compact = record.source === 'generated-provider'
+      ? generatedFile(record)
+      : record.source === 'licensed-photo'
+        ? licensedPhotoFile(record)
+        : wikiFile(record);
     if (files[fileKey] && JSON.stringify(files[fileKey]) !== JSON.stringify(compact)) {
       throw new Error(`${key}: one compact file key maps to conflicting records: ${fileKey}`);
     }

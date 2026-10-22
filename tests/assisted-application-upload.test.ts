@@ -26,10 +26,16 @@ describe('assisted application post-payment upload', () => {
     expect(uploadSource).toContain('Math.min(pollDelayMs * 2, MAX_PAYMENT_POLL_INTERVAL_MS)');
     expect(uploadSource).not.toContain('MAX_PAYMENT_POLLS');
     expect(uploadSource).toContain('consentPersisted');
-    expect(uploadSource).toContain('disabled={consentPersisted || consentSaving || uploading || submitBusy}');
+    expect(uploadSource).toContain('disabled={consentSaving || uploading || submitBusy}');
     expect(uploadSource).toContain('cvUploadedAt: firestoreModule.serverTimestamp()');
     expect(uploadSource).toContain('await updateOrder({');
-    expect(uploadSource).toContain('disabled={!consent || Boolean(cvStorageKey)');
+    expect(uploadSource).toContain('<details');
+    expect(uploadSource).toContain('disabled={!consentPersisted || Boolean(cvStorageKey)');
+  });
+
+  it('does not attribute legacy orders with no stored copy arm to the control arm', () => {
+    expect(uploadSource).toContain('const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant);');
+    expect(uploadSource).toContain('...(copyVariant ? { copy_variant: copyVariant } : {}),');
   });
 
   it('allows only the server to create/pay an order and freezes payment identity for clients', () => {

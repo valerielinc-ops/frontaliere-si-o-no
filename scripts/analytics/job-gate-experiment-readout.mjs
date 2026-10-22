@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 /**
  * job-gate-experiment-readout.mjs — lettura dei risultati del test A/B del
- * job gate (`jobgate-v4`, id in scripts/experiments/jobgate-plan.mjs) e baseline pre-test. SOLA LETTURA su GA4 Data API,
+ * job gate (`jobgate-v5`, id in scripts/experiments/jobgate-plan.mjs) e baseline pre-test. SOLA LETTURA su GA4 Data API,
  * Firestore e Remote Config: nessuna scrittura, nessun publish.
  *
  * Uso:
  *   node scripts/analytics/job-gate-experiment-readout.mjs [--since 2026-09-26] \
- *     [--until 2026-10-09] [--experiment jobgate-v4] [--control control] \
+ *     [--until 2026-10-09] [--experiment jobgate-v5] [--control spotlight] \
  *     [--weights '{"control":50,"challenger":50}'] [--json out.json] [--md out.md]
  *   node scripts/analytics/job-gate-experiment-readout.mjs --baseline --days 14 [--json out.json]
  *   [--include-bots]  disattiva l'esclusione del traffico automatico (confronto)
  *
- * Per l'esperimento del piano `--since` vale di default il suo `analysisStart`
- * (scripts/experiments/jobgate-plan.mjs): il giorno dopo il lancio, così il
- * giorno della pubblicazione di Remote Config (traffico a metà) resta fuori.
+ * Per jobgate-v5 `--since` deriva dal marker server-only di Remote Config:
+ * il giorno dopo il lancio, così il giorno della pubblicazione (traffico a
+ * metà) resta fuori. Una data esplicita precedente al marker viene rifiutata.
  * Per un round chiuso (es. `jobgate-v3`, analisi dal 2026-09-26) passa
  * `--experiment` e `--since` a mano.
  *
@@ -25,7 +25,7 @@
  *    `variant = <experiment>:<braccio>` (esperimento) oppure `source_cta` del
  *    job gate (baseline). Si leggono solo i campi di stato/tempo (`select`),
  *    mai l'email.
- *  - Pesi: `--weights`, altrimenti env/RC `JOBGATE_EXPERIMENT_ARMS`.
+ *  - Pesi: `--weights`, altrimenti env/RC della versione richiesta.
  *  - Traffico automatico (GA4_EXCLUDED_TRAFFIC in experiment-stats.mjs):
  *    escluso da ogni query GA4 e contato a parte per firma e braccio, così il
  *    report dice quante persone ha tolto. Non entra nel numeratore Firestore:
@@ -43,8 +43,8 @@ import {
   getServiceAccountToken,
   runGa4Report,
 } from '../lib/ga4-service-account.mjs';
-import { ANALYTICS_PROCESSING_LAG_DAYS, settledWindow } from '../lib/analytics-settled-window.mjs';
 import { GA4_REPORT_TIMEZONE } from '../lib/ga4-report-timezone.mjs';
+import { resolveJobGateReadoutWindow } from '../lib/jobgate-readout-window.mjs';
 import {
   GA4_EXCLUDED_TRAFFIC,
   aggregateSubscribers,
@@ -64,6 +64,7 @@ import {
   renderExperimentMarkdown,
   sumGa4Metric,
 } from '../lib/experiment-stats.mjs';
+import { JOBGATE_RC_KEYS, JOBGATE_STARTED_AT_KEY } from '../../services/jobGateExperimentCore.mjs';
 import { JOBGATE_PLAN } from '../experiments/jobgate-plan.mjs';
 
 const JOB_GATE_CTAS = ['job_board_email_unlock', 'job_board_social_unlock', 'job_expired_email_unlock'];
@@ -76,9 +77,6 @@ const SUBSCRIBER_FIELDS = [
 ];
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-/** Primo giorno analizzabile per esperimento, quando `--since` manca. */
-const DEFAULT_SINCE = { [JOBGATE_PLAN.experimentId]: JOBGATE_PLAN.analysisStart };
-
 // ── Argomenti ────────────────────────────────────────────────
 
 const { values: args } = parseArgs({
@@ -87,7 +85,7 @@ const { values: args } = parseArgs({
     until: { type: 'string' },
     days: { type: 'string' },
     experiment: { type: 'string', default: JOBGATE_PLAN.experimentId },
-    control: { type: 'string', default: 'control' },
+    control: { type: 'string' },
     weights: { type: 'string' },
     json: { type: 'string' },
     md: { type: 'string' },
@@ -104,25 +102,39 @@ if (args.help) {
   process.exit(0);
 }
 
-const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 function fail(msg) {
   console.error(`❌ ${msg}`);
   process.exit(2);
 }
 
-function resolveWindow() {
-  if (args.days) {
-    const days = Number(args.days);
-    if (!Number.isInteger(days) || days < 1) fail('--days deve essere un intero >= 1');
-    const { start, end } = settledWindow({ days, lagDays: ANALYTICS_PROCESSING_LAG_DAYS });
-    return { since: start, until: end };
+function hasFirebaseCredentials() {
+  return Boolean(process.env.GOOGLE_APPLICATION_CREDENTIALS || process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+}
+
+async function readExperimentStartDate() {
+  const { getRemoteConfig, fetchRcTemplate } = await import('../lib/remote-config-admin.mjs');
+  const template = await fetchRcTemplate(await getRemoteConfig());
+  const startedAt = String(template.parameters?.[JOBGATE_STARTED_AT_KEY]?.defaultValue?.value ?? '').trim();
+  const parsed = new Date(`${startedAt}T00:00:00.000Z`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(startedAt)
+    || !Number.isFinite(parsed.getTime())
+    || parsed.toISOString().slice(0, 10) !== startedAt) {
+    throw new Error(`${JOBGATE_STARTED_AT_KEY} missing or invalid; refusing to guess the jobgate-v5 analysis window.`);
   }
-  const since = args.since || (args.baseline ? null : DEFAULT_SINCE[args.experiment]);
-  if (!since || !DATE_RE.test(since)) fail('serve --since YYYY-MM-DD (oppure --days N)');
-  const until = args.until || settledWindow({ days: 1, lagDays: ANALYTICS_PROCESSING_LAG_DAYS }).end;
-  if (!DATE_RE.test(until)) fail('--until deve essere YYYY-MM-DD');
-  if (until < since) fail(`--until ${until} precede --since ${since} (nessun giorno assestato nella finestra)`);
-  return { since, until };
+  return { startedAt, template };
+}
+
+function resolveWindow(experimentStart = null) {
+  try {
+    return resolveJobGateReadoutWindow(args, {
+      experimentStart,
+      defaultSince: !args.baseline && args.experiment === JOBGATE_PLAN.experimentId
+        ? JOBGATE_PLAN.analysisStart
+        : null,
+    });
+  } catch (error) {
+    fail(error?.message || String(error));
+  }
 }
 
 /** Mezzanotte Europe/Zurich del giorno `YYYY-MM-DD` in epoch ms. */
@@ -150,17 +162,23 @@ function parseWeights(raw) {
   }
 }
 
-async function loadWeights(notes) {
+async function loadWeights(notes, rcTemplate = null) {
   if (args.weights) return { weights: parseWeights(args.weights), source: '--weights' };
-  if (process.env.JOBGATE_EXPERIMENT_ARMS) {
-    return { weights: parseWeights(process.env.JOBGATE_EXPERIMENT_ARMS), source: 'env JOBGATE_EXPERIMENT_ARMS' };
+  const armsKey = args.experiment === JOBGATE_PLAN.experimentId
+    ? JOBGATE_RC_KEYS.arms
+    : 'JOBGATE_EXPERIMENT_ARMS';
+  if (process.env[armsKey]) {
+    return { weights: parseWeights(process.env[armsKey]), source: `env ${armsKey}` };
   }
   try {
-    const { getRemoteConfig, fetchRcTemplate } = await import('../lib/remote-config-admin.mjs');
-    const template = await fetchRcTemplate(await getRemoteConfig()); // sola lettura: nessun publish
-    const raw = template.parameters?.JOBGATE_EXPERIMENT_ARMS?.defaultValue?.value;
-    if (raw) return { weights: parseWeights(raw), source: 'Remote Config JOBGATE_EXPERIMENT_ARMS' };
-    notes.push('Remote Config non contiene `JOBGATE_EXPERIMENT_ARMS`: SRM calcolato su allocazione uniforme.');
+    let template = rcTemplate;
+    if (!template) {
+      const { getRemoteConfig, fetchRcTemplate } = await import('../lib/remote-config-admin.mjs');
+      template = await fetchRcTemplate(await getRemoteConfig()); // sola lettura: nessun publish
+    }
+    const raw = template.parameters?.[armsKey]?.defaultValue?.value;
+    if (raw) return { weights: parseWeights(raw), source: `Remote Config ${armsKey}` };
+    notes.push(`Remote Config non contiene \`${armsKey}\`: SRM calcolato su allocazione uniforme.`);
   } catch (e) {
     notes.push(`Lettura Remote Config fallita (${String(e?.message || e).slice(0, 120)}): SRM su allocazione uniforme.`);
   }
@@ -201,7 +219,19 @@ async function loadSubscriberDocs(query) {
 // ── Main ─────────────────────────────────────────────────────
 
 async function main() {
-  const { since, until } = resolveWindow();
+  let experimentStart = null;
+  let rcTemplate = null;
+  if (!args.baseline && args.experiment === JOBGATE_PLAN.experimentId) {
+    if (!hasFirebaseCredentials()) {
+      fail('credenziali mancanti: esporta GOOGLE_APPLICATION_CREDENTIALS (service account) oppure `source bin/rc-env.sh`');
+    }
+    try {
+      ({ startedAt: experimentStart, template: rcTemplate } = await readExperimentStartDate());
+    } catch (error) {
+      fail(`lettura data di lancio Remote Config fallita: ${error?.message || error}`);
+    }
+  }
+  const { since, until } = resolveWindow(experimentStart);
   const startMs = zurichMidnightMs(since);
   // Fine esclusiva = mezzanotte Zurich del giorno DOPO `until` (corretta anche
   // nei giorni di cambio ora, dove un giorno non dura 24h).
@@ -210,9 +240,9 @@ async function main() {
   const nowMs = Date.now();
   const notes = [];
   const experimentId = args.experiment;
-  const control = args.control;
+  const control = args.control || (args.experiment === JOBGATE_PLAN.experimentId ? JOBGATE_PLAN.control : 'control');
 
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+  if (!hasFirebaseCredentials()) {
     fail('credenziali mancanti: esporta GOOGLE_APPLICATION_CREDENTIALS (service account) oppure `source bin/rc-env.sh`');
   }
   const token = await getServiceAccountToken([GA4_READONLY_SCOPE], { logInfo: () => {} });
@@ -339,7 +369,7 @@ async function main() {
     notes.push(`Attribuzione: ${attribution.untaggedFromGate} nuovi iscritti partiti da una pagina annuncio (JobBoard o login social) SENZA tag \`${prefix}*\` contro ${attribution.tagged} con tag (copertura ${attribution.coverage == null ? '—' : `${Math.round(attribution.coverage * 100)}%`}; per componente: ${Object.entries(attribution.untaggedByComponent).map(([k, v]) => `${k} ${v}`).join(', ')}). Il numeratore della CR primaria è parziale.`);
   }
 
-  const { weights, source: weightsSource } = await loadWeights(notes);
+  const { weights, source: weightsSource } = await loadWeights(notes, rcTemplate);
   const arms = [...new Set([
     ...Object.keys(assigned.byKey),
     ...Object.keys(funnel.byArm),

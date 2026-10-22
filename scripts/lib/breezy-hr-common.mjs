@@ -39,6 +39,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 const DETAIL_DELAY_MS = 250;
 // Breezy's server-side prerender only kicks in for crawler UAs. Without
@@ -124,10 +125,7 @@ export function parseBreezyDetail(html) {
     } catch {
       continue;
     }
-    const candidates = Array.isArray(obj) ? obj : [obj];
-    for (const c of candidates) {
-      const type = c?.['@type'];
-      if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) {
+    for (const c of extractJobPostingNodesFromJson(obj)) {
         const title = String(c.title || '').trim();
         const descriptionHtml = String(c.description || '');
         const descriptionText = htmlToText(descriptionHtml);
@@ -146,7 +144,6 @@ export function parseBreezyDetail(html) {
           employmentTypeRaw,
           ...sourcePostingDateFields(c.datePosted),
         };
-      }
     }
   }
   return null;

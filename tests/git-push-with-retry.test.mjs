@@ -107,6 +107,7 @@ async function setupScenario({
 
   return {
     root,
+    bare,
     local,
     sleepPath: bin,
     file(name) {
@@ -383,8 +384,99 @@ test('in-place resolver preserves staged fixes when WIP overlaps the conflict', 
 
     assert.equal(result.status, 0, result.output);
     await assertWipRestored(scenario);
-    assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'resolved\n');
+    assert.equal(await readFile(scenario.file('conflict.txt'), 'utf8'), 'dirty WIP conflict\n');
+    assert.equal(git(scenario.bare, ['show', 'main:conflict.txt']), 'resolved');
   } finally {
     await rm(scenario.root, { recursive: true, force: true });
+  }
+});
+
+test('guarded main push refuses a collapsed tree before bypassing the pre-push hook', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'git-push-with-retry-tree-guard-'));
+  const bare = join(root, 'remote.git');
+  const local = join(root, 'local');
+  const bin = join(root, 'bin');
+  try {
+    git(root, ['init', '--bare', '--initial-branch=main', bare]);
+    git(root, ['init', '--initial-branch=main', local]);
+    configureIdentity(local);
+    const tracked = join(local, 'tracked');
+    await mkdir(tracked, { recursive: true });
+    for (let index = 0; index < 1_001; index += 1) {
+      await writeFile(join(tracked, `path-${index}.txt`), `tracked ${index}\n`);
+    }
+    git(local, ['add', 'tracked']);
+    git(local, ['commit', '-m', 'seed main']);
+    git(local, ['remote', 'add', 'origin', bare]);
+    git(local, ['push', '-u', 'origin', 'main']);
+
+    await rm(tracked, { recursive: true, force: true });
+    await mkdir(tracked, { recursive: true });
+    await writeFile(join(tracked, 'path-0.txt'), 'tracked 0\n');
+    git(local, ['add', '--all']);
+    git(local, ['commit', '-m', 'collapsed tree candidate']);
+
+    await mkdir(bin);
+    await writeFile(join(bin, 'sleep'), '#!/bin/sh\nexit 0\n');
+    await chmod(join(bin, 'sleep'), 0o755);
+
+    const result = invoke({ root, local, sleepPath: bin }, []);
+
+    assert.equal(result.status, 1, result.output);
+    assert.match(result.output, /Possible catastrophic main tree shrink/u);
+    assert.match(result.output, /refusing to retry (?:or soft-fail|a potentially destructive write)/u);
+    assert.equal(git(bare, ['ls-tree', '-r', '--name-only', 'main']).split('\n').length, 1_001);
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
+test('guarded main push retries when the refreshed base advanced after the candidate was created', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'git-push-with-retry-stale-base-'));
+  const bare = join(root, 'remote.git');
+  const seed = join(root, 'seed');
+  const local = join(root, 'local');
+  const updater = join(root, 'updater');
+  const bin = join(root, 'bin');
+  try {
+    git(root, ['init', '--bare', '--initial-branch=main', bare]);
+    git(root, ['init', '--initial-branch=main', seed]);
+    configureIdentity(seed);
+    await writeFile(join(seed, 'base.txt'), 'base\n');
+    git(seed, ['add', 'base.txt']);
+    git(seed, ['commit', '-m', 'seed main']);
+    git(seed, ['remote', 'add', 'origin', bare]);
+    git(seed, ['push', '-u', 'origin', 'main']);
+
+    git(root, ['clone', '--branch', 'main', bare, local]);
+    git(root, ['clone', '--branch', 'main', bare, updater]);
+    configureIdentity(local);
+    configureIdentity(updater);
+    await writeFile(join(local, 'generated.txt'), 'generated\n');
+    git(local, ['add', 'generated.txt']);
+    git(local, ['commit', '-m', 'generated candidate']);
+
+    await writeFile(join(updater, 'concurrent.txt'), 'concurrent\n');
+    git(updater, ['add', 'concurrent.txt']);
+    git(updater, ['commit', '-m', 'concurrent writer']);
+    git(updater, ['push', 'origin', 'main']);
+
+    // Model old-history-guard's refresh: origin/main now names the newer
+    // remote tip even though HEAD still contains the candidate from the old
+    // tip. The first guarded push must classify this as retryable.
+    git(local, ['fetch', 'origin', 'main']);
+
+    await mkdir(bin);
+    await writeFile(join(bin, 'sleep'), '#!/bin/sh\nexit 0\n');
+    await chmod(join(bin, 'sleep'), 0o755);
+
+    const result = invoke({ root, local, sleepPath: bin }, []);
+
+    assert.equal(result.status, 0, result.output);
+    assert.match(result.output, /Push rejected \(attempt 1\/2\); rebasing/u);
+    assert.equal(git(bare, ['show', 'main:generated.txt']), 'generated');
+    assert.equal(git(bare, ['show', 'main:concurrent.txt']), 'concurrent');
+  } finally {
+    await rm(root, { recursive: true, force: true });
   }
 });

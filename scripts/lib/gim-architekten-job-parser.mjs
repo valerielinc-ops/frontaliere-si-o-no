@@ -59,6 +59,7 @@ import {
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton, inferAnyCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import { resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -94,20 +95,7 @@ export { parseVacancyLinks };
 
 export function extractJobPostingJsonLd(html = '') {
   if (!html) return null;
-  const re = /<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    const raw = m[1].trim();
-    try {
-      const obj = JSON.parse(raw);
-      if (obj && (obj['@type'] === 'JobPosting' || (Array.isArray(obj) && obj.find((o) => o && o['@type'] === 'JobPosting')))) {
-        return Array.isArray(obj) ? obj.find((o) => o && o['@type'] === 'JobPosting') : obj;
-      }
-    } catch {
-      // try next script block
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**

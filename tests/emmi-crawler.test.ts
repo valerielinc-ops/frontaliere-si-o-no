@@ -7,6 +7,8 @@ import {
   isEmmiJob,
   isTrustedDomain,
   extractEmmiVacancyHtml,
+  assignEmmiJobIds,
+  emmiStableRef,
 } from '../scripts/lib/emmi-job-parser.mjs';
 import { slugify, stripHtml } from '../scripts/lib/crawler-template.mjs';
 
@@ -181,5 +183,102 @@ describe('extractEmmiVacancyHtml', () => {
 
   it('returns nothing for a page without the ad sections, so the OHWS blocks are used', () => {
     expect(extractEmmiVacancyHtml('<html><body><section id="contact">x</section></body></html>')).toBe('');
+  });
+});
+
+// 2026-10-15: «Projektleiter/in Engineering» in Dagmersellen was published
+// twice under one Emmi reference code, at two vacancy URLs. One id for both
+// put a duplicate key in the slice and failed translate-pending's scatter
+// parity (run 38854975768).
+describe('assignEmmiJobIds', () => {
+  const a = 'https://jobs.emmi.com/offene-stellen/projektleiter-in-engineering/4803d1e3-93c2-4108-b84f-ad85dd574200';
+  const b = 'https://jobs.emmi.com/offene-stellen/projektleiter-in-engineering/32f9576c-c60f-4714-b63d-80d3f8bb3ce3';
+
+  it('a reference code alone keeps the id it always had', () => {
+    const [alone] = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: a }]);
+    const both = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: b }, { stableRef: 'REF-1', publicUrl: a }]);
+    expect(alone).toMatch(/^emmi-[0-9a-f]{12}$/);
+    // Without history the last URL in sorted order (a, the 4803d1e3 posting
+    // that existed first on 2026-10-15) keeps the code's id.
+    expect(both[1]).toBe(alone);
+  });
+
+  it('distinct postings under one code get distinct ids, in any listing order', () => {
+    const forward = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: a }, { stableRef: 'REF-1', publicUrl: b }]);
+    const backward = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: b }, { stableRef: 'REF-1', publicUrl: a }]);
+    expect(new Set(forward).size).toBe(2);
+    expect(backward).toEqual([forward[1], forward[0]]);
+  });
+
+  it('the same URL listed twice is one posting with one id; no code falls back to the URL', () => {
+    const ids = assignEmmiJobIds([{ stableRef: 'REF-1', publicUrl: a }, { stableRef: 'REF-1', publicUrl: a }]);
+    expect(ids[0]).toBe(ids[1]);
+    const [noCode] = assignEmmiJobIds([{ stableRef: '', publicUrl: b }]);
+    expect(noCode).toMatch(/^emmi-[0-9a-f]{12}$/);
+    expect(noCode).not.toBe(ids[0]);
+  });
+
+  it('reads the reference code first, then viewkey, then the listing id', () => {
+    expect(emmiStableRef({ szas: { sza_reference_code: ' R ' }, viewkey: 'V', id: 1 })).toBe('R');
+    expect(emmiStableRef({ viewkey: 'V', id: 1 })).toBe('V');
+    expect(emmiStableRef({ id: 7 })).toBe('7');
+    expect(emmiStableRef({})).toBe('');
+  });
+});
+
+describe('assignReferenceJobIds is shared by the Prospective parsers', () => {
+  it('keeps each crawler\'s namespace: the VZ ids are those it always had', async () => {
+    const { assignReferenceJobIds } = await import('../scripts/lib/prospective-reference-ids.mjs');
+    const { createHash } = await import('node:crypto');
+    const legacy = `vz-vermoegenszentrum-${createHash('sha1').update('vz-vermoegenszentrum:REF-9').digest('hex').slice(0, 12)}`;
+    expect(assignReferenceJobIds([{ stableRef: 'REF-9', publicUrl: 'https://x/1' }], 'vz-vermoegenszentrum')).toEqual([legacy]);
+    const legacyEmmi = `emmi-${createHash('sha1').update('emmi:REF-9').digest('hex').slice(0, 12)}`;
+    expect(assignEmmiJobIds([{ stableRef: 'REF-9', publicUrl: 'https://x/1' }])).toEqual([legacyEmmi]);
+  });
+});
+
+describe('ids of postings the slice already knows', () => {
+  const a = 'https://jobs.emmi.com/offene-stellen/x/32f9576c';
+  const b = 'https://jobs.emmi.com/offene-stellen/x/4803d1e3';
+
+  it('a known posting keeps its id when a new one appears under the same code (review of PR 13506)', async () => {
+    const { assignReferenceJobIds } = await import('../scripts/lib/prospective-reference-ids.mjs');
+    for (const key of ['emmi', 'vz-vermoegenszentrum']) {
+      const [alone] = assignReferenceJobIds([{ stableRef: 'R', publicUrl: b }], key);
+      const both = assignReferenceJobIds(
+        [{ stableRef: 'R', publicUrl: a }, { stableRef: 'R', publicUrl: b }],
+        key,
+        { existingIdByUrl: new Map([[b, alone]]) },
+      );
+      expect(both[1]).toBe(alone);
+      expect(both[0]).not.toBe(alone);
+    }
+  });
+
+  it('the state of 2026-10-15 keeps both ids as they are on main', async () => {
+    const { assignProspectiveListingIds } = await import('../scripts/lib/prospective-reference-ids.mjs');
+    const listing = (url: string) => ({ szas: { sza_reference_code: 'R' }, links: { directlink: url } });
+    const existingJobs = [
+      { id: 'emmi-cfb6415b85ed', url: a },
+      { id: 'emmi-cfb6415b85ed-r5fbd0b15', url: b },
+    ];
+    expect(assignProspectiveListingIds([listing(b), listing(a)], 'emmi', 'https://x', { existingJobs }))
+      .toEqual(['emmi-cfb6415b85ed-r5fbd0b15', 'emmi-cfb6415b85ed']);
+  });
+
+  it('an id held by two URLs at once stays with one of them; the other gets its own', async () => {
+    const { assignReferenceJobIds } = await import('../scripts/lib/prospective-reference-ids.mjs');
+    const ids = assignReferenceJobIds(
+      [{ stableRef: 'R', publicUrl: a }, { stableRef: 'R', publicUrl: b }],
+      'emmi',
+      { existingIdByUrl: new Map([[a, 'emmi-same'], [b, 'emmi-same']]) },
+    );
+    expect(ids[0]).toBe('emmi-same');
+    expect(ids[1]).not.toBe('emmi-same');
+  });
+
+  it('refuses an empty crawler key', async () => {
+    const { assignReferenceJobIds } = await import('../scripts/lib/prospective-reference-ids.mjs');
+    expect(() => assignReferenceJobIds([{ stableRef: 'R', publicUrl: a }], '')).toThrow(TypeError);
   });
 });

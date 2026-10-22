@@ -1,8 +1,8 @@
 /**
  * scripts/lib/slug-history-journal.mjs
  *
- * In-memory append-only log of every previousSlugs / previousSlugsByLocale
- * mutation during a single crawler run.
+ * In-memory append-only log and mutation boundary for previousSlugs /
+ * previousSlugsByLocale changes during a single crawler run.
  *
  * Why this exists: when a crawl drops or rewrites a slug we lose the SEO
  * bridge. To debug WHICH function changed WHICH slug we tag every mutation
@@ -11,6 +11,8 @@
  *
  * Surface:
  *   recordSlugMutation({ jobId, locale, slug, action, source, reason? })
+ *   removePreviousSlugRoutes(job, routes, options?)
+ *   replaceSlugRouteEverywhere(job, fromRoute, toRoute, options?)
  *   summarize()      → { total, captured, dropped, restored, capTrimmed, sources, jobs }
  *   formatSummary()  → human-readable string for commit message body
  *   writeSummaryOnExit(path?) → registers process.on('exit') hook
@@ -88,6 +90,151 @@ export function recordSlugMutation({ jobId, locale, slug, action, source, reason
   _events[_writeIdx] = event;
   _writeIdx = (_writeIdx + 1) % RETAINED_EVENTS_CAP;
   if (_writeIdx === 0) _wrapped = true;
+}
+
+/**
+ * Remove previous-slug routes only at the shared journaling boundary.
+ * `routes` may be a Set/array of slugs or a Map from slug to its proven owner.
+ * Both the locale-aware history and the legacy flat view are filtered so they
+ * cannot reintroduce a route whose ownership has moved elsewhere.
+ *
+ * @param {object} job
+ * @param {Set<string>|string[]|Map<string,string>} routes
+ * @param {{source?:string,reason?:string}} [options]
+ * @returns {number} number of stored entries removed
+ */
+export function removePreviousSlugRoutes(job, routes, {
+  source = 'removePreviousSlugRoutes',
+  reason = 'route ownership moved outside this job',
+} = {}) {
+  if (!job || typeof job !== 'object' || !routes) return 0;
+  const routeSet = routes instanceof Map
+    ? new Set(routes.keys())
+    : new Set(routes);
+  if (routeSet.size === 0) return 0;
+
+  const ownerFor = (slug) => routes instanceof Map ? routes.get(slug) : undefined;
+  const recordDrop = (slug, locale) => {
+    const owner = ownerFor(slug);
+    recordSlugMutation({
+      jobId: job.id,
+      locale,
+      slug,
+      action: 'drop',
+      source,
+      reason: owner ? `route is uniquely owned by ${owner}` : reason,
+    });
+  };
+
+  let removed = 0;
+  const locales = job.previousSlugsByLocale;
+  if (locales && typeof locales === 'object' && !Array.isArray(locales)) {
+    const next = { ...locales };
+    for (const [locale, slugs] of Object.entries(locales)) {
+      if (!Array.isArray(slugs)) continue;
+      const kept = [];
+      for (const value of slugs) {
+        const slug = String(value ?? '').trim();
+        if (routeSet.has(slug)) {
+          recordDrop(slug, locale);
+          removed += 1;
+        } else {
+          kept.push(value);
+        }
+      }
+      if (kept.length > 0) next[locale] = kept;
+      else delete next[locale];
+    }
+    if (Object.keys(next).length > 0) job.previousSlugsByLocale = next;
+    else delete job.previousSlugsByLocale;
+  }
+
+  if (Array.isArray(job.previousSlugs)) {
+    const kept = [];
+    for (const value of job.previousSlugs) {
+      const slug = String(value ?? '').trim();
+      if (routeSet.has(slug)) {
+        recordDrop(slug, null);
+        removed += 1;
+      } else {
+        kept.push(value);
+      }
+    }
+    if (kept.length > 0) job.previousSlugs = kept;
+    else delete job.previousSlugs;
+  }
+
+  return removed;
+}
+
+/**
+ * Rename a proven route collision across every route-bearing field in one
+ * record. This is deliberately a journal primitive: a collision repair must
+ * not leave the old route in a locale map or in either historical mirror,
+ * while direct writes to those fields outside the authorized mutation
+ * boundaries are forbidden by the slug-write encapsulation ratchet.
+ *
+ * @param {object} job
+ * @param {string} fromRoute
+ * @param {string} toRoute
+ * @param {{source?: string, reason?: string}} [options]
+ * @returns {number} number of route occurrences renamed
+ */
+export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
+  source = 'replaceSlugRouteEverywhere',
+  reason = 'route ownership moved to a distinct posting',
+} = {}) {
+  if (!job || typeof job !== 'object') return 0;
+  const from = String(fromRoute ?? '').trim();
+  const to = String(toRoute ?? '').trim();
+  if (!from || !to || from === to) return 0;
+
+  let replaced = 0;
+  const recordDrop = (locale) => {
+    recordSlugMutation({
+      jobId: job.id || '<unkeyed>',
+      locale,
+      slug: from,
+      action: 'drop',
+      source,
+      reason,
+    });
+  };
+  const replace = (value, assign, locale) => {
+    if (value !== from) return;
+    assign(to);
+    replaced += 1;
+    recordDrop(locale);
+  };
+
+  replace(job.slug, (value) => { job.slug = value; }, 'it');
+
+  if (job.slugByLocale && typeof job.slugByLocale === 'object' && !Array.isArray(job.slugByLocale)) {
+    for (const [locale, value] of Object.entries(job.slugByLocale)) {
+      replace(value, (next) => { job.slugByLocale[locale] = next; }, locale);
+    }
+  }
+
+  if (Array.isArray(job.previousSlugs)) {
+    for (let index = 0; index < job.previousSlugs.length; index += 1) {
+      replace(job.previousSlugs[index], (next) => { job.previousSlugs[index] = next; }, null);
+    }
+  }
+
+  if (
+    job.previousSlugsByLocale
+    && typeof job.previousSlugsByLocale === 'object'
+    && !Array.isArray(job.previousSlugsByLocale)
+  ) {
+    for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale)) {
+      if (!Array.isArray(slugs)) continue;
+      for (let index = 0; index < slugs.length; index += 1) {
+        replace(slugs[index], (next) => { slugs[index] = next; }, locale);
+      }
+    }
+  }
+
+  return replaced;
 }
 
 /**

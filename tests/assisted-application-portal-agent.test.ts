@@ -82,6 +82,538 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(run.actions).toHaveLength(1);
   });
 
+  it('requires the candidate’s own answer for a language-intent question in a custom widget', async () => {
+    const question = 'Would you be willing to learn German?';
+    const candidate = {
+      answers: {},
+      profile: { languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const inferredFromProfile = guardAgentStep(turn('act', [act({
+      ref: 'e7', action: 'select', value: 'No', question, answer: 'No', source: 'profile', evidence: 'Italian C1',
+    })]), candidate);
+    expect(inferredFromProfile).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question })],
+    });
+
+    const answered = {
+      ...candidate,
+      portalQuestionsAnswered: [{ question, answer: 'Yes' }],
+    };
+    const reused = guardAgentStep(turn('act', [act({
+      ref: 'e7', action: 'select', value: 'Yes', question, answer: 'Yes', source: 'answers',
+    })]), answered);
+    expect(reused).toMatchObject({ status: 'act', questions: [] });
+    expect(reused.actions).toHaveLength(1);
+
+    const contextual = guardAgentStep(turn('act', [act({
+      ref: 'e8', action: 'click', value: 'No', question: 'German', context: question, answer: 'No', source: 'profile', evidence: 'Italian C1',
+    })]), answered);
+    expect(contextual).toMatchObject({ status: 'act', questions: [] });
+    expect(contextual.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'answers' })]);
+
+    let clicked = false;
+    const locator = {
+      evaluate: async () => ({ name: 'No', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { clicked = true; },
+    };
+    const result = await runAction({ locator: () => locator } as any, contextual.actions[0]);
+    expect(result).toEqual({ ok: false, error: 'answer_option_mismatch' });
+    expect(clicked).toBe(false);
+
+    const keyPress = guardAgentStep(turn('act', [act({
+      ref: 'e9', action: 'press', value: 'Enter', question: 'German', context: question, answer: 'No', source: 'profile', evidence: 'Italian C1',
+    })]), answered);
+    expect(keyPress.actions).toEqual([expect.objectContaining({ value: 'Enter', answer: 'Yes', source: 'answers' })]);
+
+    let pressed = false;
+    const keyboardLocator = {
+      evaluate: async () => ({ name: 'Yes', button: false, tag: 'div', inputType: '', editable: false, inList: true, submits: false, leaves: false }),
+      press: async () => { pressed = true; },
+    };
+    const savedAnswerKeyPress = await runAction({ locator: () => keyboardLocator } as any, keyPress.actions[0]);
+    expect(savedAnswerKeyPress).toEqual({ ok: true });
+    expect(pressed).toBe(true);
+  });
+
+  it('uses Enter to select a saved No for a language-intent question', async () => {
+    const question = 'Would you speak German?';
+    const candidate = {
+      answers: {}, profile: {}, portalQuestionsAnswered: [{ question, answer: 'No' }],
+    };
+    const step = guardAgentStep(turn('act', [act({
+      ref: 'e24', action: 'press', value: 'Enter', question, answer: 'Yes', source: 'profile',
+    })]), candidate);
+    expect(step).toMatchObject({ status: 'act', questions: [] });
+    expect(step.actions).toEqual([expect.objectContaining({ value: 'Enter', answer: 'No', source: 'answers' })]);
+
+    let pressed = false;
+    const locator = {
+      evaluate: async () => ({ name: 'No', button: false, tag: 'div', inputType: '', editable: false, inList: true, submits: false, leaves: false }),
+      press: async () => { pressed = true; },
+    };
+    const result = await runAction({ locator: () => locator } as any, step.actions[0]);
+    expect(result).toEqual({ ok: true });
+    expect(pressed).toBe(true);
+  });
+
+  it('uses an explicit CV language list to answer a current-ability question in a custom widget', () => {
+    const candidate = {
+      answers: {},
+      profile: { languagesExplicitList: true, languages: [{ language: 'Italian', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const question = 'Do you speak German?';
+    const guarded = guardAgentStep(turn('act', [act({
+      ref: 'e10', action: 'select', value: 'Yes', question: 'German', context: question,
+      answer: 'Yes', source: 'profile', evidence: 'Italian C1',
+    })]), candidate);
+
+    expect(guarded).toMatchObject({ status: 'act', questions: [] });
+    expect(guarded.actions).toEqual([expect.objectContaining({
+      value: 'No', answer: 'No', source: 'profile',
+    })]);
+
+    const alreadyKnown = guardAgentStep(turn('needs_candidate', [], [{ question, type: 'yes_no' }]), candidate);
+    expect(alreadyKnown).toMatchObject({ status: 'stuck', questions: [] });
+  });
+
+  it('requires candidate support for ordinary language-ability widgets', () => {
+    const question = 'Do you speak German?';
+    const ambiguous = {
+      answers: {},
+      profile: { languagesExplicitList: false, languages: [{ language: 'Italian', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const refused = guardAgentStep(turn('act', [act({
+      ref: 'e11', action: 'click', value: 'Yes', question, answer: 'Yes', source: 'widget', evidence: 'Italian C1',
+    })]), ambiguous);
+    expect(refused).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question })],
+    });
+
+    const unrelatedEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e21', action: 'click', value: 'Yes', question, answer: 'Yes', source: 'profile', evidence: 'Berlin',
+    })]), {
+      answers: {}, profile: { residenceCity: 'Berlin' }, portalQuestionsAnswered: [],
+    });
+    expect(unrelatedEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question })],
+    });
+
+    const contextOnlyLanguage = guardAgentStep(turn('act', [act({
+      ref: 'e22', action: 'click', value: 'Yes', question: 'Do you speak?', context: 'German',
+      answer: 'Yes', source: 'profile', evidence: 'Berlin',
+    })]), {
+      answers: {}, profile: { residenceCity: 'Berlin' }, portalQuestionsAnswered: [],
+    });
+    expect(contextOnlyLanguage).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: 'Do you speak?' })],
+    });
+
+    const wrongLanguageLevelEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e23', action: 'select', value: 'C1', question: 'German C1?', answer: 'C1',
+      source: 'profile', evidence: 'English C1',
+    })]), {
+      answers: {}, profile: { cvText: 'English C1' }, portalQuestionsAnswered: [],
+    });
+    expect(wrongLanguageLevelEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: 'German C1?' })],
+    });
+
+    const mixedLanguageEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e24', action: 'select', value: 'Yes', question: 'German C2?', answer: 'Yes',
+      source: 'profile', evidence: 'German C1 / English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C1 / English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(mixedLanguageEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: 'German C2?' })],
+    });
+
+    const connectors = ['and', 'or', 'nor', 'und', 'oder', 'et', 'ou', 'e', 'o', 'y', 'en', 'of', 'och', 'og', 'si', 'și', 's\u0326i', 'sau', 'sowie', 'samt', 'plus', 'ni', 'né', 'noch', 'nem', '&', ';', ',', '/', '+', '-', '–', '—', 'as well as', 'along with', 'together with', 'in addition to', 'ainsi que', 'de même que', 'oltre a', 'così come', 'insieme a', 'así como', 'bem como'];
+    for (const connector of connectors) {
+      for (const language of ['Xhosa', 'xhosa']) {
+        const questionWithUnknownLanguage = `Do you speak German ${connector} ${language} at C2?`;
+        const unrecognizedLanguageEvidence = guardAgentStep(turn('act', [act({
+          ref: 'e25', action: 'select', value: 'Yes', question: questionWithUnknownLanguage,
+          answer: 'Yes', source: 'profile', evidence: 'German C2',
+        })]), {
+          answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+        });
+        expect(unrecognizedLanguageEvidence).toMatchObject({
+          status: 'needs_candidate',
+          actions: [],
+          questions: [expect.objectContaining({ question: questionWithUnknownLanguage })],
+        });
+      }
+    }
+
+    const pairedGerman = 'Sprichst du sowohl Deutsch als auch xhosa auf C2?';
+    const partialPairedEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e26', action: 'select', value: 'Yes', question: pairedGerman, answer: 'Yes',
+      source: 'profile', evidence: 'Deutsch C2',
+    })]), {
+      answers: {}, profile: { cvText: 'Deutsch C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialPairedEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: pairedGerman })],
+    });
+
+    const neitherNor = 'Do you speak neither German nor xhosa at C2?';
+    const partialNeitherNorEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e29', action: 'select', value: 'Yes', question: neitherNor, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialNeitherNorEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: neitherNor })],
+    });
+
+    const pairedEnglish = 'Do you speak not only German but also xhosa at C2?';
+    const partialEnglishPair = guardAgentStep(turn('act', [act({
+      ref: 'e28', action: 'select', value: 'Yes', question: pairedEnglish, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialEnglishPair).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: pairedEnglish })],
+    });
+
+    const reversedLanguageOrder = 'Parlez-vous xhosa et allemand au niveau C2 ?';
+    const reversedPartialEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e27', action: 'select', value: 'Yes', question: reversedLanguageOrder, answer: 'Yes',
+      source: 'profile', evidence: 'allemand C2',
+    })]), {
+      answers: {}, profile: { cvText: 'allemand C2' }, portalQuestionsAnswered: [],
+    });
+    expect(reversedPartialEvidence).toMatchObject({
+      status: 'needs_candidate',
+      actions: [],
+      questions: [expect.objectContaining({ question: reversedLanguageOrder })],
+    });
+
+    const emDashReverseOrder = 'Parlez-vous xhosa — allemand au niveau C2 ?';
+    const partialEmDashEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e30', action: 'select', value: 'Yes', question: emDashReverseOrder, answer: 'Yes',
+      source: 'profile', evidence: 'allemand C2',
+    })]), {
+      answers: {}, profile: { cvText: 'allemand C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialEmDashEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: emDashReverseOrder })],
+    });
+
+    const spokenOrWrittenItalian = 'Qual è il livello di italiano parlato o scritto?';
+    const supportedModeEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e31', action: 'select', value: 'C2', question: spokenOrWrittenItalian, answer: 'C2',
+      source: 'profile', evidence: 'Italian C2',
+    })]), {
+      answers: {}, profile: { cvText: 'Italian C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedModeEvidence).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const advancedUnknownLanguage = 'Do you speak German and advanced xhosa at C2?';
+    const partialAdvancedEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e32', action: 'select', value: 'Yes', question: advancedUnknownLanguage, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAdvancedEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: advancedUnknownLanguage })],
+    });
+
+    const alsoUnknownLanguage = 'Do you speak German and also Xhosa at C2?';
+    const partialAlsoEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e34', action: 'select', value: 'Yes', question: alsoUnknownLanguage, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAlsoEvidence).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: alsoUnknownLanguage })],
+    });
+
+    const proficiencyWithContext = 'What is your German level and your proficiency in Xhosa?';
+    const partialProficiencyContext = guardAgentStep(turn('act', [act({
+      ref: 'e35', action: 'select', value: 'C2', question: proficiencyWithContext, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialProficiencyContext).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: proficiencyWithContext })],
+    });
+
+    const shortLanguageCode = 'Do you speak German and zh at C2?';
+    const partialShortLanguageCode = guardAgentStep(turn('act', [act({
+      ref: 'e36', action: 'select', value: 'Yes', question: shortLanguageCode, answer: 'Yes',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialShortLanguageCode).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: shortLanguageCode })],
+    });
+
+    const ambiguousLanguageCode = 'Do you speak English and de at C2?';
+    const partialAmbiguousLanguageCode = guardAgentStep(turn('act', [act({
+      ref: 'e39', action: 'select', value: 'Yes', question: ambiguousLanguageCode, answer: 'Yes',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAmbiguousLanguageCode).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: ambiguousLanguageCode })],
+    });
+
+    const frenchDePreposition = 'Quel est votre niveau d’anglais et de compétence orale ?';
+    const supportedFrenchDePreposition = guardAgentStep(turn('act', [act({
+      ref: 'e40', action: 'select', value: 'C2', question: frenchDePreposition, answer: 'C2',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedFrenchDePreposition).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const englishPronounIt = 'Can you speak English at C2 level and use it?';
+    const supportedEnglishPronounIt = guardAgentStep(turn('act', [act({
+      ref: 'e41', action: 'select', value: 'Yes', question: englishPronounIt, answer: 'Yes',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedEnglishPronounIt).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'Yes' })], questions: [],
+    });
+
+    const englishPronounItWithLevel = 'Can you read English and write it at C2 level?';
+    const supportedEnglishPronounItWithLevel = guardAgentStep(turn('act', [act({
+      ref: 'e42', action: 'select', value: 'C2', question: englishPronounItWithLevel, answer: 'C2',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedEnglishPronounItWithLevel).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const englishPronounItAfterDo = 'Can you read English and do it at C2 level?';
+    const supportedEnglishPronounItAfterDo = guardAgentStep(turn('act', [act({
+      ref: 'e43', action: 'select', value: 'C2', question: englishPronounItAfterDo, answer: 'C2',
+      source: 'profile', evidence: 'English C2',
+    })]), {
+      answers: {}, profile: { cvText: 'English C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedEnglishPronounItAfterDo).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const atLeastUnknownLanguage = 'What is your German level and at least Xhosa?';
+    const partialAtLeastUnknownLanguage = guardAgentStep(turn('act', [act({
+      ref: 'e37', action: 'select', value: 'C2', question: atLeastUnknownLanguage, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(partialAtLeastUnknownLanguage).toMatchObject({
+      status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question: atLeastUnknownLanguage })],
+    });
+
+    const singleLanguageModifiers = 'What is your German level: conversational or professional?';
+    const supportedModifierEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e33', action: 'select', value: 'C2', question: singleLanguageModifiers, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedModifierEvidence).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const atLeastSingleLanguage = 'What is your German level: C2 or at least B2?';
+    const supportedAtLeastEvidence = guardAgentStep(turn('act', [act({
+      ref: 'e38', action: 'select', value: 'C2', question: atLeastSingleLanguage, answer: 'C2',
+      source: 'profile', evidence: 'German C2',
+    })]), {
+      answers: {}, profile: { cvText: 'German C2' }, portalQuestionsAnswered: [],
+    });
+    expect(supportedAtLeastEvidence).toMatchObject({
+      status: 'act', actions: [expect.objectContaining({ value: 'C2' })], questions: [],
+    });
+
+    const listed = {
+      answers: {},
+      profile: { languagesExplicitList: true, languages: [{ language: 'German', level: 'C1' }] },
+      portalQuestionsAnswered: [],
+    };
+    const corrected = guardAgentStep(turn('act', [act({
+      ref: 'e11', action: 'click', value: 'No', question, answer: 'No', source: 'widget', evidence: 'Italian C1',
+    })]), listed);
+    expect(corrected).toMatchObject({ status: 'act', questions: [] });
+    expect(corrected.actions).toEqual([expect.objectContaining({ value: 'Yes', answer: 'Yes', source: 'profile' })]);
+  });
+
+  it('allows localized widget navigation and asks before a questionless language answer click', async () => {
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const navigation = guardAgentStep(turn('act', [act({
+      ref: 'e12', action: 'click', value: 'Afficher plus', question: '', context: 'German', answer: '', source: 'widget',
+    })]), candidate);
+    expect(navigation).toMatchObject({ status: 'act', questions: [] });
+    const abilityNavigation = guardAgentStep(turn('act', [act({
+      ref: 'e16', action: 'click', value: 'Open options', question: '', context: 'German proficiency', answer: '', source: 'widget',
+    })]), candidate);
+    expect(abilityNavigation).toMatchObject({ status: 'act', questions: [] });
+    expect(refusal(abilityNavigation.actions[0], { name: 'Open options', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false })).toBe('');
+    expect(refusal(act({
+      action: 'click', value: 'Yes', context: 'Language answers', answer: 'Yes',
+    }), { name: 'No', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('answer_option_mismatch');
+
+    let navigationClicks = 0;
+    const navigationLocator = {
+      evaluate: async () => ({ name: 'Afficher plus', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { navigationClicks += 1; },
+    };
+    await expect(runAction({ locator: () => navigationLocator } as any, navigation.actions[0])).resolves.toEqual({ ok: true });
+    expect(navigationClicks).toBe(1);
+
+    for (const value of ['Add another language', 'Ajouter une langue', 'Sprache hinzufügen', 'Aggiungi un\'altra lingua']) {
+      const addLanguage = guardAgentStep(turn('act', [act({
+        ref: 'e17', action: 'click', value, question: '', context: 'Languages', answer: '', source: 'widget',
+      })]), candidate);
+      expect(addLanguage).toMatchObject({ status: 'act', questions: [] });
+      expect(refusal(addLanguage.actions[0], { name: value, button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false })).toBe('');
+    }
+    const consentRequiredAdd = act({
+      ref: 'e18', action: 'click', value: 'Add another language',
+      question: 'Would you like to add another language?', context: 'Languages', answer: '', source: 'widget',
+    });
+    expect(guardAgentStep(turn('act', [consentRequiredAdd]), candidate)).toMatchObject({
+      status: 'needs_candidate', actions: [],
+      questions: [expect.objectContaining({ question: 'Would you like to add another language?' })],
+    });
+    expect(refusal(consentRequiredAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
+    const contextualIntentAdd = act({
+      ref: 'e19', action: 'click', value: 'Add another language',
+      question: '', context: 'Would you like to add another language?', answer: '', source: 'widget',
+    });
+    expect(guardAgentStep(turn('act', [contextualIntentAdd]), candidate)).toMatchObject({
+      status: 'needs_candidate', actions: [],
+      questions: [expect.objectContaining({ question: 'Would you like to add another language?' })],
+    });
+    expect(refusal(contextualIntentAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
+    const unrecognizedContextIntentAdd = act({
+      ref: 'e20', action: 'click', value: 'Add another language',
+      question: '', context: 'Can you add another language?', answer: '', source: 'widget',
+    });
+    expect(guardAgentStep(turn('act', [unrecognizedContextIntentAdd]), candidate)).toMatchObject({
+      status: 'needs_candidate', actions: [],
+      questions: [expect.objectContaining({ question: 'Can you add another language?' })],
+    });
+    expect(refusal(unrecognizedContextIntentAdd, { name: 'Add another language', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
+
+    const durationQuestion = 'How long have you spoken German?';
+    const durationAnswer = guardAgentStep(turn('act', [act({
+      ref: 'e14', action: 'click', value: 'More than 3 years', question: durationQuestion,
+      context: 'German proficiency', answer: 'More than 3 years', source: 'widget',
+    })]), candidate);
+    expect(durationAnswer).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(refusal(act({
+      action: 'click', value: 'More than 3 years', context: 'German language',
+    }), { name: 'More than 3 years', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('language_answer_requires_candidate');
+    expect(refusal(act({
+      action: 'click', value: 'Yes', answer: 'Yes',
+      question: 'What does the form ask about German, and how should it be answered?', context: 'German',
+    }), { name: 'No', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }))
+      .toBe('answer_option_mismatch');
+
+    const fallbackQuestion = 'What does the form ask about German language, and how should it be answered?';
+    const answeredCandidate = {
+      answers: {}, profile: {},
+      portalQuestionsAnswered: [{ question: fallbackQuestion, context: 'German language', answer: 'No' }],
+    };
+    const alreadyAnswered = guardAgentStep(turn('act', [act({
+      ref: 'e15', action: 'click', value: 'Yes', question: fallbackQuestion,
+      context: 'German language', answer: 'No', source: 'widget',
+    })]), answeredCandidate);
+    expect(alreadyAnswered).toMatchObject({ status: 'act', questions: [] });
+    let mismatchedAnswerClicks = 0;
+    const mismatchedAnswerLocator = {
+      evaluate: async () => ({ name: 'Yes', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { mismatchedAnswerClicks += 1; },
+    };
+    await expect(runAction({ locator: () => mismatchedAnswerLocator } as any, alreadyAnswered.actions[0]))
+      .resolves.toEqual({ ok: false, error: 'answer_option_mismatch' });
+    expect(mismatchedAnswerClicks).toBe(0);
+
+    let answerClicks = 0;
+    const answerLocator = {
+      evaluate: async () => ({ name: 'Yes', button: true, tag: 'button', inputType: '', editable: false, inList: false, submits: false, leaves: false }),
+      click: async () => { answerClicks += 1; },
+    };
+    const page = {
+      url: () => 'https://jobs.example/apply',
+      title: async () => 'Apply',
+      ariaSnapshot: async () => '- button "Yes" [ref=e13]',
+      locator: () => answerLocator,
+      waitForTimeout: async () => {},
+    };
+    const result = await completeWithAgent({
+      page: page as any,
+      hint: 'no_form_controls',
+      candidate,
+      candidateLocale: 'en',
+      codex: async () => turn('act', [act({
+        action: 'click', ref: 'e13', value: 'Yes', question: '', context: 'German language', answer: '', source: 'widget',
+      })]),
+    });
+    expect(result).toMatchObject({
+      status: 'needs_candidate',
+      questions: [expect.objectContaining({
+        question: 'What does the form ask about German language, and how should it be answered?',
+        context: 'German language',
+      })],
+    });
+    expect(answerClicks).toBe(0);
+
+    for (const context of ['Languages', 'German and English languages']) {
+      const genericLanguageLabel = guardAgentStep(turn('act', [act({
+        ref: 'e16', action: 'click', value: 'Yes', question: '', context, answer: '', source: 'widget',
+      })]), candidate);
+      expect(genericLanguageLabel).toMatchObject({
+        status: 'needs_candidate',
+        questions: [expect.objectContaining({ context })],
+        actions: [],
+      });
+    }
+  });
+
   // Review of #10707: calling the answer a widget move must not get past the guard.
   it('runs a widget move on a sensitive question only when the page grounded it in the candidate data', () => {
     const empty = { answers: {}, profile: {}, portalQuestionsAnswered: [] };

@@ -111,6 +111,17 @@ const TEXT_COLOR = '#1f2937';
 const MUTED_COLOR = '#6b7280';
 const BORDER_COLOR = '#dbe2ea';
 
+const ASSISTED_APPLICATION_ORDER_ID = /^[A-Za-z0-9_-]{1,200}$/;
+
+function assistedApplicationOrderEmail(order) {
+ const candidates = [order?.applicantEmail, order?.customerEmail];
+ for (const candidate of candidates) {
+ const value = String(candidate || '').trim().toLowerCase();
+ if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) && value.length <= 320) return value;
+ }
+ return '';
+}
+
 async function mintNewsletterAuthSession(normalizedEmail) {
  let uid = null;
  try {
@@ -203,7 +214,9 @@ async function clearCompanyFollowFollowupPending(db, email) {
  const ref = db.collection('newsletter_subscribers').doc(email);
  const snapshot = await ref.get();
  if (!snapshot.exists) return;
- await ref.set({ company_follow_followup_pending: false }, { merge: true });
+ if (snapshot.data()?.company_follow_followup_pending !== false) {
+  await ref.set({ company_follow_followup_pending: false }, { merge: true });
+ }
 }
 
 /**
@@ -561,7 +574,7 @@ function serializeAlertDoc(id, data) {
  */
 const RESUBSCRIBE_BURST_WINDOW_MS = 10_000;
 
-export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, mintAuthSession = mintNewsletterAuthSession, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, forensics = undefined, db: injectedDb }) {
+export async function handleSubscriptionManagement({ action, email, token, locale, secret, method = 'GET', mode = undefined, autologinPolicy = undefined, tokenPolicy = undefined, mintAuthSession = mintNewsletterAuthSession, enabled = undefined, subscribed = undefined, alertId = undefined, keywords = undefined, locations = undefined, sectors = undefined, frequency = undefined, frequencyOverride = undefined, active = undefined, paused = undefined, specificCompanyKey = undefined, specificJobId = undefined, emailConsentGiven = undefined, dailyBriefFrequency = undefined, advertisingEnabled = undefined, assistedApplicationOrderId = undefined, forensics = undefined, db: injectedDb }) {
  const db = injectedDb || getAdminDb();
  // Defaults to GET, i.e. FAIL-CLOSED. A caller that forgets to thread the verb
  // through cannot re-subscribe anybody; the opposite default would make the
@@ -747,12 +760,29 @@ export async function handleSubscriptionManagement({ action, email, token, local
  try {
  ensureAdminApp();
  let uid = null;
- try {
- const userRecord = await getAuth().getUserByEmail(normalizedEmail);
- uid = userRecord.uid;
- } catch {
- const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
- uid = newUser.uid;
+ const orderId = String(assistedApplicationOrderId || '').trim();
+ if (orderId) {
+  if (!ASSISTED_APPLICATION_ORDER_ID.test(orderId)) {
+   return { status: 400, json: { success: false, error: 'invalid_assisted_application_order' } };
+  }
+  const orderSnapshot = await db.collection('assisted_applications').doc(orderId).get();
+  const order = orderSnapshot.exists ? orderSnapshot.data() || {} : null;
+  if (!order || assistedApplicationOrderEmail(order) !== normalizedEmail || !String(order.userId || '').trim()) {
+   return { status: 403, json: { success: false, error: 'invalid_assisted_application_order' } };
+  }
+  // The signed email code proves the recipient. Reusing the order's owner UID
+  // keeps the session attached to anonymous checkouts as well as registered
+  // accounts, which is required by the Firestore ownership and payment APIs.
+  const ownerRecord = await getAuth().getUser(String(order.userId).trim());
+  uid = ownerRecord.uid;
+ } else {
+  try {
+   const userRecord = await getAuth().getUserByEmail(normalizedEmail);
+   uid = userRecord.uid;
+  } catch {
+   const newUser = await getAuth().createUser({ email: normalizedEmail, emailVerified: true });
+   uid = newUser.uid;
+  }
  }
  if (uid) {
  // Autologin authenticates the session; it does not witness a newsletter

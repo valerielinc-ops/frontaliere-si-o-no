@@ -62,6 +62,12 @@ vi.mock('firebase-admin', () => ({
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
   getRemoteConfigValue: vi.fn(async () => ''),
+  getNewsletterSecrets: vi.fn(async () => ({ newsletterSecret: '' })),
+  getAutologinPolicyConfig: vi.fn(async () => ({
+    NEWSLETTER_AC_SCHEME: '',
+    NEWSLETTER_AC_TTL_DAYS: '',
+    NEWSLETTER_AC_LEGACY_SUNSET: '',
+  })),
 }));
 
 const sendEmailCascade = vi.fn();
@@ -73,6 +79,8 @@ vi.mock('../functions/src/emailCascade.js', () => ({
 
 const {
   buildCustomerEmail,
+  buildPendingPaymentDigestEmail,
+  buildAuthenticatedOrderPageUrl,
   buildOwnerEmail,
   buildOrderPageUrl,
   localeFromSiteUrl,
@@ -98,7 +106,7 @@ function paidOrder(overrides: Doc = {}): Doc {
     jobUrl: 'https://jobs.example.ch/infermiere',
     paymentStatus: 'paid',
     submissionStatus: 'awaiting_upload',
-    amountTotal: 99,
+    amountTotal: 199,
     currency: 'eur',
     customerEmail: 'Candidate@Example.com',
     paidAt: new Date(NOW - HOUR),
@@ -138,7 +146,7 @@ describe('assisted application concierge copy', () => {
     expect(email.html).toContain('rispondi a questa email');
     expect(email.html).toContain('https://frontaliereticino.ch/cerca-lavoro-ticino/?assisted_application_order_id=order-1');
     expect(email.text).toContain('https://jobs.example.ch/infermiere');
-    expect(email.text).toMatch(/0,99\s€/);
+    expect(email.text).toMatch(/1,99\s€/);
   });
 
   it('reads the locale from the return path and escapes job data', () => {
@@ -192,6 +200,21 @@ describe('assisted application concierge copy', () => {
     expect(localeFromSiteUrl('https://www.frontaliereticino.ch/en/find-jobs-ticino/')).toBe('en');
     expect(localeFromSiteUrl('https://frontaliereticino.ch/cerca-lavoro-ticino/')).toBe('it');
     expect(localeFromSiteUrl('https://evil.example/fr/')).toBeNull();
+  });
+
+  it('adds the existing autologin pair only to the internal order page', () => {
+    const url = buildAuthenticatedOrderPageUrl(
+      { locale: 'it' },
+      'order-1',
+      'it',
+      { email: 'Candidate@Example.com', autologinCode: 'ac-test-code' },
+    );
+    const parsed = new URL(url);
+    expect(parsed.searchParams.get('ne')).toBe('candidate@example.com');
+    expect(parsed.searchParams.get('ac')).toBe('ac-test-code');
+    expect(parsed.searchParams.get('utm_source')).toBe('assisted_application');
+    expect(parsed.searchParams.get('utm_medium')).toBe('email');
+    expect(parsed.searchParams.get('utm_campaign')).toBe('customer_payment_recovery');
   });
 });
 
@@ -268,6 +291,61 @@ describe('brand shell', () => {
     expect(html).toContain('&quot;quoted&quot;');
     expect(html).not.toContain('<img src=x>');
     expect(html).toContain('<p>trusted</p>');
+  });
+});
+
+describe('pending-payment recovery digest', () => {
+  it('keeps one order per section and preserves the incumbent email shell', () => {
+    const first = paidOrder({
+      orderId: 'pending-1',
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+      jobTitle: 'Addetto/a vendite',
+      companyLogo: 'https://cdn.example.test/logos/clinica.png',
+      location: 'Lugano',
+      contract: 'full-time',
+      salaryMin: 75000,
+      salaryMax: 90000,
+      salaryCurrency: 'CHF',
+      baseSalary: { currency: 'CHF', value: { minValue: 75000, maxValue: 90000, unitText: 'YEAR' } },
+      createdAt: new Date(NOW - 4 * HOUR),
+    });
+    const second = paidOrder({
+      orderId: 'pending-2',
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+      jobTitle: 'Tecnico/a di laboratorio',
+      createdAt: new Date(NOW - 3 * HOUR),
+      paymentRecoverySessionRefreshed: true,
+    });
+
+    const email = buildPendingPaymentDigestEmail([first, second], { nowMs: NOW, reminderStage: 1 });
+    expect(email.subject).toBe('Hai candidature assistite da completare');
+    expect(email.html.startsWith('<!DOCTYPE html>')).toBe(true);
+    expect(email.html).toContain('Addetto/a vendite');
+    expect(email.html).toContain('Tecnico/a di laboratorio');
+    expect(email.html).toContain('La sessione precedente era scaduta');
+    expect(email.html.match(/Completa il pagamento/g)?.length).toBe(2);
+    expect(email.html).toContain('#0f172a');
+    expect(email.html).toContain('https://cdn.example.test/logos/clinica.png');
+    expect(email.html).toContain('Lugano');
+    expect(email.html).toContain('CHF 75K–90K/anno');
+    expect(email.html).toContain('Tempo pieno');
+    expect(email.html).toContain('rgba(59,130,246,0.18)');
+    expect(email.html).toContain('background:#1e293b');
+    expect(email.text).toContain('pending-1');
+    expect(email.text).toContain('pending-2');
+  });
+
+  it('uses a calmer final reminder and does not imply a second charge is safe', () => {
+    const email = buildPendingPaymentDigestEmail([paidOrder({
+      orderId: 'pending-final',
+      paymentStatus: 'pending',
+      submissionStatus: 'awaiting_payment',
+    })], { nowMs: NOW, reminderStage: 2 });
+    expect(email.subject).toContain('Completa il pagamento');
+    expect(email.text).toContain('un ultimo promemoria');
+    expect(email.text).toContain('non pagare una seconda volta');
   });
 });
 

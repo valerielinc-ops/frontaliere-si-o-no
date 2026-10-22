@@ -71,6 +71,11 @@ import { dailyBucketInfo, dailyKeyZurich } from './followup-resolution-match.mjs
 
 const WORKFLOW = 'post-merge-followup.yml';
 const TRIAGE_COMMENT_PREFIX = '## Post-merge follow-up triage';
+// A correction is a secondary note, not a new idempotency marker. Keeping it
+// in the marker stream can hide the canonical summary immediately before it;
+// the correction's prose then fails the structural claim parser and makes the
+// verifier report a false missing-bucket failure.
+const TRIAGE_CORRECTION_HEADING_RE = /^\s*##\s+Post-merge follow-up triage\s*(?:[-—:]\s*)(?:correction|rettifica)\b/i;
 const FALLBACK_HOURS = Number(process.env.FALLBACK_HOURS) || 6;
 // Tetto duro della finestra di raccolta. Non è un'ottimizzazione: è ciò che
 // impedisce al watermark «ultima run di SUCCESSO» di diventare un ratchet
@@ -91,6 +96,13 @@ export function positiveHours(raw, fallback) {
   return Number.isFinite(n) && n > 0 ? n : fallback;
 }
 const SEARCH_PAGE_SIZE = 100;
+// Search API responses can be transiently incomplete while GitHub refreshes
+// the index or serves one of the paginated pages. Retry the whole snapshot,
+// never a single page: mixing pages from different attempts would make the
+// total_count/duplicate checks meaningless. A response that remains
+// unverifiable after the bounded retry budget still fails closed.
+export const MERGED_PR_SEARCH_ATTEMPTS = 3;
+export const MERGED_PR_SEARCH_RETRY_DELAYS_MS = Object.freeze([250, 1000]);
 // Capacità della sessione provider: 14 PR (era 4, 2026-09-27), con cron ogni
 // 2h (era 3h). Il 4 nasceva dalla run 34602892494, arrivata al tetto provider di
 // allora (32 minuti) su una finestra di 36 PR. Con 4 la coda non si smaltiva:
@@ -216,6 +228,20 @@ const ELIGIBLE_AUTHORS = new Set(
     .filter(Boolean),
 );
 
+/**
+ * True for a primary triage marker, excluding a correction/retification note
+ * that repeats the marker prefix without being the marker itself.
+ *
+ * @param {unknown} body
+ * @param {string} prefix
+ * @returns {boolean}
+ */
+function isPrimaryTriageMarker(body, prefix = TRIAGE_COMMENT_PREFIX) {
+  const text = typeof body === 'string' ? body : '';
+  const trimmed = text.trimStart();
+  return trimmed.startsWith(prefix) && !TRIAGE_CORRECTION_HEADING_RE.test(trimmed);
+}
+
 /** Strip the `app/` prefix (gh GraphQL bot form) and `[bot]` suffix (REST form). */
 export function canonicalLogin(login) {
   return String(login || '').trim().replace(/^app\//, '').replace(/\[bot\]$/, '');
@@ -313,6 +339,55 @@ export function parseCompleteMergedPRSearch(searchPagesJson) {
 }
 
 /**
+ * Wait synchronously for the small, bounded retry delay used by the scheduled
+ * collector. The retry is deliberately outside the parser so the parser keeps
+ * its strict fail-closed contract and remains a pure validator.
+ */
+function waitForMergedPRSearchRetry(delayMs) {
+  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
+  const signal = new Int32Array(new SharedArrayBuffer(4));
+  Atomics.wait(signal, 0, 0, delayMs);
+}
+
+/**
+ * Read and validate one complete merged-PR search snapshot. A transient
+ * provider/indexing inconsistency is retried as a fresh paginated request;
+ * malformed, incomplete, or persistently truncated responses remain fatal.
+ *
+ * @param {() => string|null} read
+ * @param {{attempts?: number, retryDelaysMs?: number[], sleep?: (ms:number)=>void, log?: (line:string)=>void}} [options]
+ * @returns {Array<{number:number,title?:string,author?:{login:string},mergedAt?:string,headRefName?:string}>}
+ */
+export function readCompleteMergedPRSearch(read, {
+  attempts = MERGED_PR_SEARCH_ATTEMPTS,
+  retryDelaysMs = MERGED_PR_SEARCH_RETRY_DELAYS_MS,
+  sleep = waitForMergedPRSearchRetry,
+  log = () => {},
+} = {}) {
+  if (typeof read !== 'function') throw new TypeError('lettura Search API mancante');
+  const maxAttempts = Number.isInteger(attempts) && attempts > 0 ? attempts : MERGED_PR_SEARCH_ATTEMPTS;
+  let lastError = new Error('gh api search PR non riuscita: elenco incompleto');
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const raw = read();
+      if (raw === null || raw === undefined) {
+        throw new Error('gh api search PR non riuscita: elenco incompleto');
+      }
+      return parseCompleteMergedPRSearch(raw);
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      if (attempt >= maxAttempts) break;
+      const delayMs = Number(retryDelaysMs[attempt - 1]) || 0;
+      log(`Search API PR non verificabile (tentativo ${attempt}/${maxAttempts}): ${lastError.message}; nuovo snapshot tra ${delayMs} ms.`);
+      sleep(delayMs);
+    }
+  }
+
+  throw lastError;
+}
+
+/**
  * Parse a legacy `gh pr list --json number,title,author,mergedAt,headRefName` payload
  * and keep only eligible-author PRs. This pure compatibility helper remains lenient;
  * the CLI uses `parseMergedPRPages()` above and fails closed before calling it.
@@ -347,7 +422,7 @@ export function hasTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX) {
     return false;
   }
   const comments = Array.isArray(data) ? data : data && Array.isArray(data.comments) ? data.comments : [];
-  return comments.some((c) => typeof c?.body === 'string' && c.body.trimStart().startsWith(prefix));
+  return comments.some((c) => isPrimaryTriageMarker(c?.body, prefix));
 }
 
 /** Return the latest follow-up marker body, or null when comments are unreadable. */
@@ -364,7 +439,7 @@ export function latestTriageCommentBody(commentsJson, prefix = TRIAGE_COMMENT_PR
   if (!comments) return null;
   const bodies = comments
     .map((comment) => typeof comment?.body === 'string' ? comment.body : '')
-    .filter((body) => body.trimStart().startsWith(prefix));
+    .filter((body) => isPrimaryTriageMarker(body, prefix));
   return bodies.length ? bodies[bodies.length - 1] : null;
 }
 
@@ -394,7 +469,7 @@ export function latestTriageComment(commentsJson, prefix = TRIAGE_COMMENT_PREFIX
     : data && Array.isArray(data.comments) ? data.comments : null;
   if (!comments) return null;
   const markers = comments
-    .filter((comment) => typeof comment?.body === 'string' && comment.body.trimStart().startsWith(prefix));
+    .filter((comment) => isPrimaryTriageMarker(comment?.body, prefix));
   if (!markers.length) return null;
   const latest = markers[markers.length - 1];
   return { body: latest.body, at: commentInstant(latest.createdAt) };
@@ -452,7 +527,10 @@ function attestationLines(lines) {
   return out;
 }
 
-const TRIAGE_CLAIM_LINE_RE = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:/i;
+// Recent triage summaries also use the explicit `Daily bucket aggiornato:`
+// form. It is a persistence claim just like `Created/updated:`; accepting only
+// this named variant keeps ordinary prose from becoming bucket evidence.
+const TRIAGE_CLAIM_LINE_RE = /^\s*(?:[-*]\s+)?(?:Created(?:\/updated)?:|Daily\s+bucket\s+(?:aggiornato|updated):)/i;
 const CLAIM_BULLET_LINE_RE = /^\s*[-*+]\s+\S/;
 
 /**
@@ -489,13 +567,42 @@ function claimLinesWithBullets(lines) {
   return out;
 }
 
-// Un `#N` e' un bucket in due forme: `bucket #N` / `bucket: #N`, oppure `#N`
+// Un `#N` e' un bucket in due forme: una riga che nomina il bucket, oppure
+// `parent #N` per un bucket gia' esistente che il triage aggiorna senza creare
+// una figlia. La forma col parent e' il marker emesso quando il bucket ha gia'
+// item aperti (PR #13825); senza di essa la verifica vede il triage ma non la
+// sua persistenza e lascia la run rossa.
 // seguito sulla stessa riga dal tag `follow-up(daily:YYYY-MM-DD)` che il
 // template impone (FOLLOWUP.md § Closing comment), senza un altro `#` in mezzo:
 // il tag si lega al numero piu' vicino, non a una PR citata prima sulla riga.
 // Un `#N` preceduto da `PR`, `pull request` o `pull-request` non e' mai un bucket.
-const BUCKET_WORD_REF_RE = /\bbucket\s*:?\s*#([1-9]\d*)\b/gi;
+const BUCKET_WORD_REF_RE = /\bbucket\b[^\n#]*?(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b/gi;
+const PARENT_BUCKET_REF_RE = /\bparent(?:\s+issue)?\s+#([1-9]\d*)\b/gi;
 const BUCKET_TAG_REF_RE = /(?<!\b(?:PR|pull[-\s]+request)\s*)#([1-9]\d*)\b[^#\n]*?`follow-up\(daily:\d{4}-\d{2}-\d{2}\)`/gi;
+// Una riga di claim puo' riportare anche il bucket esaminato ma invariato.
+// Quel numero e' contesto di audit, non prova di persistenza: va escluso
+// anche quando sulla stessa riga esiste una seconda claim positiva.
+const NON_PERSISTED_BUCKET_TAIL_RE = /\b(?:non\s+(?:modificat[oa]|aggiornat[oa])|invariat[oa]|not\s+(?:modified|updated)|unchanged)\b/i;
+
+function isNonPersistedBucketReference(text, match) {
+  const matchStart = Number.isInteger(match.index) ? match.index : -1;
+  if (matchStart < 0) return false;
+  const numberToken = `#${match[1]}`;
+  const numberOffset = match[0].indexOf(numberToken);
+  if (numberOffset < 0) return false;
+  const numberEnd = matchStart + numberOffset + numberToken.length;
+  const lineEnd = text.indexOf('\n', numberEnd);
+  const nextReference = text.indexOf('#', numberEnd);
+  const boundary = [lineEnd, nextReference]
+    .filter((position) => position >= 0)
+    .sort((left, right) => left - right)[0] ?? text.length;
+  return NON_PERSISTED_BUCKET_TAIL_RE.test(text.slice(numberEnd, boundary));
+}
+
+function persistedBucketReferenceMatches(text, pattern) {
+  return [...text.matchAll(pattern)]
+    .filter((match) => !isNonPersistedBucketReference(text, match));
+}
 
 /** I `#N` legati al tag `follow-up(daily:YYYY-MM-DD)` in un testo. */
 export function dailyTagBucketReferences(text) {
@@ -522,14 +629,27 @@ export function claimDailyTagBucketReferences(markerBody) {
  * l'item della PR, quindi un numero omonimo nell'altro repository non puo'
  * provare nulla.
  */
-function claimBucketReferences(claim) {
+export function claimBucketReferences(claim) {
   return [
-    ...[...claim.matchAll(BUCKET_WORD_REF_RE)],
-    ...[...claim.matchAll(BUCKET_TAG_REF_RE)],
+    ...persistedBucketReferenceMatches(claim, BUCKET_WORD_REF_RE),
+    ...persistedBucketReferenceMatches(claim, PARENT_BUCKET_REF_RE),
+    ...persistedBucketReferenceMatches(claim, BUCKET_TAG_REF_RE),
   ]
     // Ordine di lettura del marker, per un log `bucket=[...]` leggibile.
     .sort((left, right) => left.index - right.index)
     .map((match) => Number(match[1]));
+}
+
+/**
+ * I bucket che un marker promette nella sua finestra di claim.
+ *
+ * Il gate sul conio usa questa stessa grammatica per qualificare il repository
+ * della PR sorgente; le citazioni dopo la lista restano contesto storico e non
+ * possono qualificare un bucket nuovo.
+ */
+export function triageMarkerBucketReferences(markerBody) {
+  const lines = String(markerBody || '').split(/\r?\n/);
+  return claimBucketReferences(claimLinesWithBullets(lines).join('\n'));
 }
 
 /**
@@ -658,7 +778,7 @@ export function gatePreservedFollowupMatches(commentsJson, bucketNumber, prNumbe
 }
 
 /**
- * Prove one persisted daily bucket contains a live item sourced by this PR,
+ * Prove one persisted follow-up container contains a live item sourced by this PR,
  * or that the mint gate preserved it AFTER the current marker
  * (`markerCreatedAt`, vedi `gatePreservedFollowupMatches`).
  */
@@ -666,10 +786,23 @@ export function persistedBucketIssueMatches(issue, prNumber, prComments = '', ma
   const info = dailyBucketInfo(issue?.title || '');
   const body = String(issue?.body || '');
   const pr = String(Number(prNumber));
+  // A daily bucket owns its source bullet through the preceding stable item
+  // heading. A decomposed parent is not titled like a daily bucket; its source
+  // ledger keeps the item id and Sources: PR #N on the same bullet. Keeping the
+  // two grammars separate prevents an ordinary issue's unrelated Sources bullet
+  // from being mistaken for persisted follow-up evidence.
+  const directEvidence = info
+    ? new RegExp(
+      `^\\s*###\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*$(?:(?!^\\s*#{2,3}\\s+)[\\s\\S])*?^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body)
+    : new RegExp(
+      `^\\s*-\\s+FU-\\d{4}-\\d{2}-\\d{2}-\\d{3}\\b[^\\n]*\\bSources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`,
+      'im',
+    ).test(body);
+  if (directEvidence) return true;
   if (!info) return false;
-  const directEvidence = /^###\s+FU-\d{4}-\d{2}-\d{2}-\d{3}\b/m.test(body)
-    && new RegExp(`^\\s*-\\s+Sources?\\s*:[^\\n]*\\bPR\\s+#${pr}\\b`, 'im').test(body);
-  return directEvidence || gatePreservedFollowupMatches(prComments, issue.number, prNumber, markerCreatedAt);
+  return gatePreservedFollowupMatches(prComments, issue.number, prNumber, markerCreatedAt);
 }
 
 /**
@@ -700,7 +833,7 @@ export function ghBucketRead(args, token = '', exec = execFileSync) {
 }
 
 /**
- * Read EVERY daily-bucket candidate numbered `bucket` across the repositories
+ * Read EVERY follow-up persistence candidate numbered `bucket` across the repositories
  * that can hold it. I due repository numerano le issue in modo INDIPENDENTE:
  * la scansione non si ferma al primo JSON valido, e il chiamante applica il
  * predicato bucket/PR a ogni candidato. `unreadable` dice se almeno una
@@ -728,7 +861,10 @@ export function readBucketIssue(bucket, run = ghBucketRead, repos = BUCKET_REPOS
     try { issue = JSON.parse(raw); } catch { unreadable = true; continue; }
     if (issue && typeof issue === 'object' && !Array.isArray(issue)
       && Number(issue.number) === Number(bucket)
-      && dailyBucketInfo(issue.title || '')) candidates.push({ ...issue, repo });
+      && (dailyBucketInfo(issue.title || '')
+        || /\bFU-\d{4}-\d{2}-\d{2}-\d{3}\b/.test(String(issue.body || '')))) {
+      candidates.push({ ...issue, repo });
+    }
   }
   return { candidates, unreadable };
 }
@@ -1069,12 +1205,14 @@ export function main({ eventName = process.env.GITHUB_EVENT_NAME || '', inputPRN
   // Search API pagination has an explicit total_count, unlike `gh pr list --limit`
   // which silently truncated the batch at 100 results and advanced the watermark.
   const query = `repo:${REPO} is:pr is:merged merged:>=${watermark}`;
-  const prListRaw = gh([
+  const searchArgs = [
     'api', `search/issues?q=${encodeURIComponent(query)}&per_page=${SEARCH_PAGE_SIZE}`,
     '--paginate', '--slurp',
-  ]);
-  if (prListRaw === null) throw new Error('gh api search PR non riuscita: elenco incompleto');
-  const scheduledCandidates = parseCompleteMergedPRSearch(prListRaw);
+  ];
+  const scheduledCandidates = readCompleteMergedPRSearch(
+    () => gh(searchArgs),
+    { log: console.log },
+  );
   // FIFO: i piu' VECCHI per primi. Il cap di sessione taglia la coda, quindi
   // l'ordine decide CHI viene rinviato. Prendendo i piu' recenti (l'ordine in
   // cui la Search API li restituisce) la coda vecchia veniva servita per

@@ -16,10 +16,11 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { hasLanguageContext, isLanguageAbilityQuestion, isLanguageContextLabel, isLanguageIntentQuestion, isLanguageNameOnly } from '../../../../functions/src/lib/languageFacts.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseChooserFiles, chooseFiles, documentPaths, nationalityFieldLanguage, nationalityOptionLabel, uploadReceipt } from './fill.mjs';
 import { saysYes } from '../../../../functions/src/lib/documentQuestions.js';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, asksAttachedDocument, candidateAnswerForField, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, isAddressLikeQuestion, knownAnswer, knownValuesOf, nativeLanguageAnswerMatches, nativeLanguageKnown, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 import { boundedPortalContext, normalizedPortalContext, portalQuestionKey } from './question-key.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
@@ -44,17 +45,14 @@ const QUESTION_PROPERTIES = {
   options: LIST(S),
   validation: ANSWER_VALIDATION_SCHEMA,
 };
-const ACTION_REQUIRED = Object.keys(ACTION_PROPERTIES).filter((key) => key !== 'context');
-const QUESTION_REQUIRED = Object.keys(QUESTION_PROPERTIES).filter((key) => key !== 'context');
-const OPTIONAL_CONTEXT_OBJ = (properties, required) => ({ type: 'object', properties, required, additionalProperties: false });
-
 export const AGENT_SCHEMA = OBJ({
+  // The strict response broker requires every nested object property to be required.
   status: { type: 'string', enum: ['act', 'done', 'needs_candidate', 'stuck'] },
   reason: S,
-  actions: LIST(OPTIONAL_CONTEXT_OBJ(ACTION_PROPERTIES, ACTION_REQUIRED)),
+  actions: LIST(OBJ(ACTION_PROPERTIES)),
   advanceRef: S,
   submitRef: S,
-  questions: LIST(OPTIONAL_CONTEXT_OBJ(QUESTION_PROPERTIES, QUESTION_REQUIRED)),
+  questions: LIST(OBJ(QUESTION_PROPERTIES)),
 });
 
 // Codex turns on one page, actions in one turn, characters of snapshot.
@@ -68,11 +66,85 @@ const KEYS = new Set(['Enter', 'Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLe
 export const FINAL_RE = /(submit|send|senden|absenden|abschicken|abschlie(ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina|bestätig|conferm|confirm|apply|bewerb|candida|postul)/i;
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
 
+function normalizeOptionAnswer(value) {
+  return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+}
+
+function booleanOptionAnswer(value) {
+  const normalized = normalizeOptionAnswer(value);
+  if (/^(?:ja|si|yes|oui|vero|true)$/.test(normalized)) return true;
+  if (/^(?:nein|no|non|falso|false)$/.test(normalized)) return false;
+  return null;
+}
+
+function optionAnswerMatches(expected, target) {
+  const expectedBoolean = booleanOptionAnswer(expected);
+  const targetBoolean = booleanOptionAnswer(target);
+  if (expectedBoolean !== null && targetBoolean !== null) return expectedBoolean === targetBoolean;
+  const expectedLabel = normalizeOptionAnswer(expected);
+  return expectedLabel !== '' && expectedLabel === normalizeOptionAnswer(target);
+}
+
+function hasLanguageActionAnswer(action) {
+  if (action.action === 'click' && !String(action.question || '').trim() && !String(action.answer || '').trim()
+    && (isWidgetNavigationTarget(action.value)
+      || (isAddLanguageTarget(action.value) && languageActionKind(action).languageLabelOnly))) return false;
+  if (action.action === 'press' && !String(action.answer || '').trim()
+    && ['Tab', 'Escape', 'ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(action.value)) return false;
+  if (String(action.question || '').trim()) return true;
+  if (String(action.answer || '').trim()) return true;
+  return Boolean(String(action.value || '').trim());
+}
+
+function isWidgetNavigationTarget(value) {
+  const name = normalizeOptionAnswer(value);
+  return /^(?:open|show|expand|collapse|toggle) (?:the )?(?:options?|menu|dropdown|list|search|details|suggestions)$/.test(name)
+    || /^(?:next|previous|back|close|options?|dropdown|menu|list|search)$/.test(name)
+    || /^(?:more options|show more|view more|see more|load more|display more)$/.test(name)
+    || /^(?:mehr anzeigen|mehr optionen anzeigen|weitere optionen(?: anzeigen)?|optionen anzeigen|dropdown offnen|menu offnen|liste offnen|ausklappen|erweitern)$/.test(name)
+    || /^(?:afficher plus|afficher plus d options|voir plus|plus d options|ouvrir les? options?|ouvrir le menu|ouvrir la liste|options supplementaires|developper les options)$/.test(name)
+    || /^(?:apri le? opzioni?|mostra le? opzioni?|mostra altro|altre opzioni|vedi altro|espandi le? opzioni?|opzioni aggiuntive)$/.test(name);
+}
+
+function isAddLanguageTarget(value) {
+  const name = normalizeOptionAnswer(value);
+  return /^(?:add|insert|create) (?:a |another |new )?language$/.test(name)
+    || /^(?:sprache|weitere sprache|neue sprache) hinzufugen$/.test(name)
+    || /^(?:ajoute|ajouter|ajoutez) (?:une autre |une nouvelle |une )?langue$/.test(name)
+    || /^(?:aggiungi|aggiungere) (?:una |un altra |nuova )?lingua$/.test(name);
+}
+
+function languageLabelFallback(context) {
+  return `What does the form ask about ${context}, and how should it be answered?`;
+}
+
+function languageActionKind(action) {
+  const question = String(action.question || '').trim();
+  const context = boundedPortalContext(action.context);
+  const prompt = `${question} ${context}`;
+  const languageIntent = isLanguageIntentQuestion(prompt);
+  const languageAbility = isLanguageAbilityQuestion(prompt);
+  const languageContextPresent = hasLanguageContext(prompt);
+  const languageLabelOnly = !languageIntent && !languageAbility
+    && (isLanguageNameOnly(question) || isLanguageContextLabel(question)
+      || ((!question || question === languageLabelFallback(context))
+        && (isLanguageNameOnly(context) || isLanguageContextLabel(context))));
+  return {
+    languageIntent,
+    languageAbility,
+    languageLabelOnly,
+    languageContextPresent,
+    languageAction: languageIntent || languageAbility || languageLabelOnly || languageContextPresent,
+  };
+}
+
 export const HINTS = {
   next_disabled: 'The deterministic filler filled the form controls it understood, but the button to the next step is missing or disabled: a question on this page is still unanswered (often a custom widget).',
   refused: 'The page did not move on after Next: the form refused a value or a required answer is missing. Look for error messages and fix them.',
   no_form_controls: 'No standard form controls were found on this page: its questions are custom widgets.',
   unclear_fields: 'Some required fields have no readable label (generated ids such as "select-input-_r_p_"): find their real question on the page and answer it.',
+  required_fields_unfilled: 'The portal still has required fields unfilled. Inspect the current page and repair every required field you can answer from the candidate profile, CV/documents, or previously saved portal answers. This includes custom controls and CV/document uploads when the matching file is available. Do not ask again for known answers and do not invent facts; use needs_candidate only for required information that is genuinely unavailable.',
 };
 
 export function agentSystemPrompt(candidateLocale) {
@@ -160,7 +232,7 @@ const TOPICS = [
 ];
 const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
 const contextKey = (context) => normalizedPortalContext(context);
-const questionKey = (question, context = '') => portalQuestionKey(question, boundedPortalContext(context));
+const questionKey = (question, context = '', section = '', autocomplete = '') => portalQuestionKey(question, boundedPortalContext(context), boundedPortalContext(section), autocomplete);
 const agentTopicKey = (question, context = '') => {
   const topic = topicOf(question);
   return topic >= 0 ? `agent_topic_${topic}|${contextKey(context)}` : '';
@@ -181,82 +253,139 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const answeredItems = (candidate?.portalQuestionsAnswered || []).filter((item) => item?.question);
   const answered = answeredItems.map((item) => item.question);
   const answeredTopics = new Set([
-    ...answeredItems.map((item) => questionKey(item.question, item.context)).filter(Boolean),
+    ...answeredItems.map((item) => questionKey(item.question, item.context, item.section, item.autocomplete)).filter(Boolean),
     ...answeredItems.map((item) => agentTopicKey(item.question, boundedPortalContext(item.context))).filter(Boolean),
   ]);
   const isAddressTopic = (topic) => ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(topic);
-  const isAnswered = (question, context = '') => Boolean(candidateAnswerForQuestion(candidate, question, context))
+  const isAnswered = (question, context = '', section = '', autocomplete = '') => Boolean(candidateAnswerForQuestion(candidate, question, context, { section, autocomplete }))
     || nativeLanguageKnown(candidate, question, context)
-    || (isAddressTopic(questionTopic(question, context)) && Boolean(candidateAnswerForField(candidate, { label: question, context, options: [] })))
+    || (isLanguageAbilityQuestion(`${question} ${context}`)
+      && Boolean(candidateAnswerForField(candidate, { label: question, context, section, autocomplete, kind: 'text', options: [] })))
+    || (isAddressTopic(questionTopic(question, context, { section, autocomplete })) && Boolean(candidateAnswerForField(candidate, { label: question, context, section, autocomplete, options: [] })))
     // «Do you hold…?» about a document attached to this application: the upload answered it (plan.mjs).
     || asksAttachedDocument(candidate, question)
     || answeredItems.some((item) => questionFromLabel(item.question).toLowerCase() === questionFromLabel(question).toLowerCase()
-      && normalizedPortalContext(item.context) === normalizedPortalContext(context))
-    || answeredTopics.has(questionKey(question, context))
+      && normalizedPortalContext(item.context) === normalizedPortalContext(context)
+      && normalizedPortalContext(item.section) === normalizedPortalContext(section)
+      && normalizedPortalContext(item.autocomplete) === normalizedPortalContext(autocomplete))
+    || answeredTopics.has(questionKey(question, context, section, autocomplete))
     || answeredTopics.has(agentTopicKey(question, context));
   const questions = [];
   const ask = (item) => {
     const question = questionFromLabel(item.question);
     const context = boundedPortalContext(item.context);
-    if (!question || isAnswered(question, context) || questions.some((other) => other.question === question && other.context === context)) return;
+    const section = boundedPortalContext(item.section);
+    if (!question || isAnswered(question, context, section, item.autocomplete) || questions.some((other) => other.question === question
+      && other.context === context && other.section === section && other.autocomplete === item.autocomplete)) return;
     questions.push({ why: '', options: [], ...item, question, context, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
   // Legal and demographic answers, and the knock-outs ("Deutsch C1?"), which a quote of the candidate's data may support.
-  const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '')
-    || KNOCK_OUT.test(action.question || '')
-    || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(action.question, boundedPortalContext(action.context))));
+  const sensitive = (raw.actions || []).filter((action) => {
+    const question = String(action.question || '').trim();
+    const context = boundedPortalContext(action.context);
+    const { languageAction } = languageActionKind(action);
+    return (languageAction && hasLanguageActionAnswer(action))
+      || SENSITIVE.test(question)
+      || KNOCK_OUT.test(question)
+      || ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(questionTopic(question, context, { section: action.section, autocomplete: action.autocomplete }));
+  });
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
+    const section = boundedPortalContext(action.section);
+    const autocomplete = String(action.autocomplete || '').slice(0, 100);
+    const metadata = { section, autocomplete };
+    const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
+    if (!String(action.question || '').trim() && languageLabelOnly) {
+      action.question = languageLabelFallback(context);
+    } else if (!String(action.question || '').trim() && (languageIntent || languageAbility || languageContextPresent)) {
+      action.question = context;
+    }
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const answer = action.answer || action.value;
-    const addressTopic = questionTopic(action.question, context);
+    const addressTopic = questionTopic(action.question, context, metadata);
+    const addressNeedsProvenance = isAddressLikeQuestion(action.question) && !isAddressTopic(addressTopic);
+    if (languageIntent) {
+      const previous = candidateAnswerForQuestion(candidate, action.question, context, metadata);
+      if (previous) {
+        if (action.action !== 'press') action.value = previous;
+        action.answer = previous;
+        action.source = 'answers';
+        grounded.add(questionKey(action.question, context, section, autocomplete));
+        continue;
+      }
+    }
+    if (languageAbility) {
+      const profileAnswer = candidateAnswerForField(candidate, {
+        label: action.question,
+        context,
+        ...metadata,
+        kind: 'text',
+        options: [],
+      });
+      if (profileAnswer) {
+        if (action.action !== 'press') action.value = profileAnswer.value;
+        action.answer = profileAnswer.value;
+        action.source = profileAnswer.source;
+        grounded.add(questionKey(action.question, context, section, autocomplete));
+        continue;
+      }
+    }
     if (candidate && ['fill', 'type', 'select'].includes(action.action)
       && ['address', 'address_street', 'address_house_number', 'residence_postal_code', 'residence_city', 'residence_country'].includes(addressTopic)
       && action.source !== 'widget') {
-      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, options: [] });
+      const knownAddress = candidateAnswerForField(candidate, { label: action.question, context, ...metadata, options: [] });
       if (knownAddress) {
         // A custom widget still has to receive the form-language option the
         // model saw. Accept equivalent country labels; correct a wrong model
         // value to the deterministic candidate value before the action runs.
-        if (!answeredByCandidate(candidate, action.question, answer, context)) {
+        if (!answeredByCandidate(candidate, action.question, answer, context, metadata)) {
           action.value = knownAddress.value;
           action.answer = knownAddress.value;
           action.source = knownAddress.source;
         }
-        grounded.add(questionKey(action.question, context));
+        grounded.add(questionKey(action.question, context, section, autocomplete));
         continue;
       }
     }
     // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
     // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
-    const knockOut = !SENSITIVE.test(action.question);
+    const knockOut = !languageIntent && !languageAbility && !languageLabelOnly && !SENSITIVE.test(action.question);
     // A permit or nationality question: the candidate's own status or nationality as the catalogue words it, or
     // their answer to this very question (decision 9), never the value occurring in the data.
     const own = action.source === 'widget' ? null : ownStatusAnswer(candidate, action.question, answer);
     const native = action.source !== 'widget' && nativeLanguageAnswerMatches(candidate, action.question, answer, context);
-    const fromCandidate = own !== null
-      ? own || answeredByCandidate(candidate, action.question, answer, context)
-      : knockOut
-        ? answeredByCandidate(candidate, action.question, answer, context)
-        : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
-    const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
-      && evidenceSupports(action.question, answer, action.evidence);
+    const fromCandidate = isAddressLikeQuestion(action.question)
+      ? addressNeedsProvenance && answeredByCandidate(candidate, action.question, answer, context, metadata)
+      : languageIntent || languageAbility || languageLabelOnly
+      ? answeredByCandidate(candidate, action.question, answer, context, metadata)
+      : own !== null
+        ? own || answeredByCandidate(candidate, action.question, answer, context, metadata)
+        : knockOut
+          ? answeredByCandidate(candidate, action.question, answer, context, metadata)
+          : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
+    const quoted = (knockOut || languageAbility) && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
+      && evidenceSupports(`${action.question} ${context}`, answer, action.evidence);
     // «A driving licence?», with that licence among the documents attached: its «yes» is grounded by the upload,
     // as on the planner's side (plan.mjs attachedDocumentYes). Only the «yes»: any other answer is refused.
     const attached = action.source !== 'widget' && saysYes(answer) && asksAttachedDocument(candidate, action.question);
-    if (fromCandidate || native || declines || quoted || attached || (knockOut && knownValues === null)) grounded.add(questionKey(action.question, context));
+    if (fromCandidate || (languageAbility && (native || quoted))
+      || (!languageIntent && !languageAbility && (native || declines || quoted || attached || (knockOut && knownValues === null)))) {
+      grounded.add(questionKey(action.question, context, section, autocomplete));
+    }
   }
   const refused = new Set();
   for (const action of sensitive) {
     const context = boundedPortalContext(action.context);
-    const key = questionKey(action.question, context);
+    const section = boundedPortalContext(action.section);
+    const autocomplete = String(action.autocomplete || '').slice(0, 100);
+    const key = questionKey(action.question, context, section, autocomplete);
     if (grounded.has(key)) continue;
     refused.add(key);
-    ask({ question: action.question, ...(context ? { context } : {}) });
+    ask({ question: action.question, ...(context ? { context } : {}), ...(section ? { section } : {}), ...(autocomplete ? { autocomplete } : {}) });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
-  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context)) && REF_RE.test(action.ref || ''));
+  const actions = (raw.actions || []).filter((action) => !refused.has(questionKey(action.question, action.context, action.section, action.autocomplete)) && REF_RE.test(action.ref || ''));
   let status = raw.status;
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
@@ -298,6 +427,32 @@ async function describe(locator) {
 
 /** Why the action must not run on this element, or '' (the runner alone moves on and submits). */
 export function refusal(action, info) {
+  const { languageIntent, languageAbility, languageLabelOnly, languageContextPresent } = languageActionKind(action);
+  const languageAction = languageIntent || languageAbility || languageLabelOnly || languageContextPresent;
+  if (action.action === 'press' && languageIntent
+    && !(action.value === 'Enter' && action.source === 'answers' && String(action.answer || '').trim())) {
+    return 'language_choice_keyboard_selection_unsupported';
+  }
+  if (action.action === 'press' && languageAction && action.value === 'Enter') {
+    if (!String(action.answer || '').trim()) return 'language_answer_requires_candidate';
+    if (!optionAnswerMatches(action.answer, info.name)) return 'answer_option_mismatch';
+  }
+  if (action.action === 'click' && languageAction) {
+    const hasQuestion = Boolean(String(action.question || '').trim());
+    const hasCandidateAnswer = Boolean(String(action.answer || '').trim());
+    if (!hasQuestion && !hasCandidateAnswer
+      && (isWidgetNavigationTarget(action.value) || isWidgetNavigationTarget(info.name))) {
+      return '';
+    }
+    if (!hasQuestion && !hasCandidateAnswer && languageLabelOnly && isAddLanguageTarget(info.name)) {
+      return '';
+    }
+    if (!hasCandidateAnswer) {
+      return 'language_answer_requires_candidate';
+    } else if (!optionAnswerMatches(action.answer, info.name)) {
+      return 'answer_option_mismatch';
+    }
+  }
   // On buttons and links only: a box "I confirm my data is complete" is ticked like any other.
   if (info.button && (action.action === 'click' || action.action === 'press')) {
     if (info.submits || FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) return 'final_submit_reserved';
@@ -524,6 +679,14 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
         // Which document went into the form and how many of its files (the record of what left, submit.mjs).
         ...(action.action === 'upload' && result.ok ? { document: action.document, files: result.files || 1 } : {}),
       });
+      if (result.error === 'language_answer_requires_candidate') {
+        const context = boundedPortalContext(action.context);
+        return end({
+          status: 'needs_candidate',
+          questions: [{ question: questionFromLabel(action.question || context), context }],
+          calls: round,
+        });
+      }
       results.push({ ref: action.ref, action: action.action, value: action.value, question: action.question, ...result });
       if (result.ok && action.question && action.source !== 'widget') answers.push({ question: action.question, answer: action.answer || action.value, source: action.source });
       await page.waitForTimeout(400);

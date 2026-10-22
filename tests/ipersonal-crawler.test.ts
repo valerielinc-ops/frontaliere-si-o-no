@@ -180,6 +180,113 @@ describe('MediPersonal crawler parser', () => {
       expect(jinaCalls).toEqual([]);
     });
 
+    it('keeps source JSON-LD geography when the listing uses a richer H1 title', async () => {
+      const seedUrl = 'https://ipersonal-title-variant.example/';
+      const detailUrl = `${seedUrl}jobs/elektroplaner-mels/`;
+      const listingTitle = 'Elektroplaner 100% in der Region Mels – Direkte Festanstellung';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${detailUrl}">${listingTitle}</a>`, { status: 200 });
+        return new Response(`
+          <h1>${listingTitle}</h1>
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Elektroplaner – Region Mels',
+            url: detailUrl,
+            description,
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Mels',
+                postalCode: '8887',
+                addressRegion: 'St. Gallen',
+                addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Elektroprojekte zuverlässig planen und dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'med-ipersonal', companyName: 'iPersonal AG', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        title: 'Elektroplaner – Region Mels',
+        location: 'Mels, St. Gallen',
+        canton: 'SG',
+      });
+      expect(jobs[0].description).toContain('\n• Elektroprojekte zuverlässig planen');
+    });
+
+    it('matches the detail URL before ignoring the marketing-rich title', async () => {
+      const seedUrl = 'https://ipersonal-multiple-records.example/';
+      const detailUrl = `${seedUrl}jobs/elektroplaner-mels/`;
+      const relatedUrl = `${seedUrl}jobs/related-zurich/`;
+      const listingTitle = 'Elektroplaner 100% in der Region Mels – Direkte Festanstellung';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.';
+      const record = (title: string, url: string, locality: string, region: string) => ({
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting', title, url, description,
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: locality,
+            addressRegion: region,
+            addressCountry: 'CH',
+          },
+        },
+      });
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${detailUrl}">${listingTitle}</a>`, { status: 200 });
+        return new Response(`
+          <h1>${listingTitle}</h1>
+          <script type="application/ld+json">${JSON.stringify([
+            record('Related role Zürich', relatedUrl, 'Zürich', 'Zürich'),
+            record('Elektroplaner – Region Mels', detailUrl, 'Mels', 'St. Gallen'),
+          ])}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Elektroprojekte zuverlässig planen und dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'med-ipersonal', companyName: 'iPersonal AG', platform: 'ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({
+        title: 'Elektroplaner – Region Mels',
+        location: 'Mels, St. Gallen',
+        canton: 'SG',
+      });
+      expect(jobs[0].location).not.toContain('Zürich');
+    });
+
     it('accounts for Jina-rescued seed and detail pages in the complete snapshot', async () => {
       const seedUrl = 'https://ipersonal-proxy-fixture.example/';
       const detailUrl = `${seedUrl}jobs/proxy-role/`;

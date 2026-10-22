@@ -27,12 +27,16 @@ const rel = (p: string) => `dist${p}index.html`;
 
 describe('health-facilities section matcher', () => {
   const facilityPaths = [
+    '/strutture-sanitarie/',
     '/strutture-sanitarie/clinique-la-source/',
     '/strutture-sanitarie/psgn/',
+    '/en/healthcare-facilities/',
     '/en/healthcare-facilities/clinique-la-source/',
     '/en/healthcare-facilities/spital-emmental/',
+    '/de/gesundheitseinrichtungen/',
     '/de/gesundheitseinrichtungen/psgn/',
     '/de/gesundheitseinrichtungen/merian-iselin/',
+    '/fr/etablissements-sante/',
     '/fr/etablissements-sante/clinique-la-source/',
     '/fr/etablissements-sante/institution-lavigny/',
   ];

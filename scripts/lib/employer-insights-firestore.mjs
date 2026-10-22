@@ -163,6 +163,63 @@ export async function readEmployerInsightsSnapshot(db, { discoverOrphans = false
   return { roots, ads, windowAds };
 }
 
+const NON_PLAIN_JSON = Symbol('non-plain-json');
+
+function canonicalizePlainJson(value, seen = new Set()) {
+  if (value === null) return null;
+  if (typeof value === 'string' || typeof value === 'boolean') return value;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : NON_PLAIN_JSON;
+  if (value === undefined || typeof value !== 'object') return NON_PLAIN_JSON;
+
+  if (seen.has(value)) return NON_PLAIN_JSON;
+  seen.add(value);
+  try {
+    if (Array.isArray(value)) {
+      if (Object.getPrototypeOf(value) !== Array.prototype
+        || Buffer.isBuffer(value)
+        || Object.getOwnPropertySymbols(value).length > 0
+        || Object.getOwnPropertyNames(value).length !== value.length + 1
+        || Object.keys(value).length !== value.length) {
+        return NON_PLAIN_JSON;
+      }
+      const result = [];
+      for (let index = 0; index < value.length; index += 1) {
+        const canonical = canonicalizePlainJson(value[index], seen);
+        if (canonical === NON_PLAIN_JSON) return NON_PLAIN_JSON;
+        result.push(canonical);
+      }
+      return result;
+    }
+    if (Buffer.isBuffer(value) || Object.getPrototypeOf(value) !== Object.prototype
+      || Object.getOwnPropertySymbols(value).length > 0
+      || Object.getOwnPropertyNames(value).length !== Object.keys(value).length) {
+      return NON_PLAIN_JSON;
+    }
+    const result = Object.create(null);
+    for (const key of Object.keys(value).sort()) {
+      if (value[key] === undefined) continue;
+      const canonical = canonicalizePlainJson(value[key], seen);
+      if (canonical === NON_PLAIN_JSON) return NON_PLAIN_JSON;
+      result[key] = canonical;
+    }
+    return result;
+  } finally {
+    seen.delete(value);
+  }
+}
+
+function equalPlainJson(left, right) {
+  try {
+    const canonicalLeft = canonicalizePlainJson(left);
+    const canonicalRight = canonicalizePlainJson(right);
+    return canonicalLeft !== NON_PLAIN_JSON
+      && canonicalRight !== NON_PLAIN_JSON
+      && JSON.stringify(canonicalLeft) === JSON.stringify(canonicalRight);
+  } catch {
+    return false;
+  }
+}
+
 function writeOperationItems(collection, documents, existing) {
   const items = [];
   for (const document of documents) {
@@ -178,7 +235,9 @@ function writeOperationItems(collection, documents, existing) {
     // Shards are written before the root pointer, so a reader never sees a new
     // root announcing ads that do not exist yet.
     for (const [id, data] of desiredAds) {
-      items.push({ operation: 'set-ad', ref: adRef.doc(id), data });
+      if (!equalPlainJson(currentAds.get(id), data)) {
+        items.push({ operation: 'set-ad', ref: adRef.doc(id), data });
+      }
     }
     for (const id of currentAds.keys()) {
       if (!desiredAds.has(id)) items.push({ operation: 'delete-ad', ref: adRef.doc(id) });
@@ -187,7 +246,9 @@ function writeOperationItems(collection, documents, existing) {
       const windowAdRef = rootRef.collection(collectionName);
       const current = currentWindowAds.get(collectionName) || new Map();
       for (const [id, data] of desired) {
-        items.push({ operation: 'set-ad', ref: windowAdRef.doc(id), data });
+        if (!equalPlainJson(current.get(id), data)) {
+          items.push({ operation: 'set-ad', ref: windowAdRef.doc(id), data });
+        }
       }
       for (const id of current.keys()) {
         if (!desired.has(id)) items.push({ operation: 'delete-ad', ref: windowAdRef.doc(id) });

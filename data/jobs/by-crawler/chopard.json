@@ -1,6 +1,7 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-10-14T21:17:30.322Z",
+  "assembledAt": "2026-10-21T09:21:16.899Z",
+  "runId": "39574622154",
   "jobs": [
     {
       "id": "chopard-5dded0f8e2fc",
@@ -33,7 +34,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.140Z",
+      "crawledAt": "2026-10-21T09:21:09.256Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -100,7 +101,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.134Z",
+      "crawledAt": "2026-10-21T09:21:09.252Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -167,7 +168,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.130Z",
+      "crawledAt": "2026-10-21T09:21:09.247Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -242,7 +243,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.126Z",
+      "crawledAt": "2026-10-21T09:21:09.243Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -317,7 +318,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:17:24.103Z",
+      "crawledAt": "2026-10-21T09:21:09.210Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -392,7 +393,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.102Z",
+      "crawledAt": "2026-10-21T09:21:09.209Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -472,7 +473,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.100Z",
+      "crawledAt": "2026-10-21T09:21:09.207Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -539,7 +540,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2583?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.064Z",
+      "crawledAt": "2026-10-21T09:21:09.168Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -620,7 +621,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2584?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.062Z",
+      "crawledAt": "2026-10-21T09:21:09.167Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -701,7 +702,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2640?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.058Z",
+      "crawledAt": "2026-10-21T09:21:09.160Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -753,36 +754,36 @@
     },
     {
       "id": "chopard-ac8da6d82d35",
-      "slug": "high-jewellery-assistant-m-f-d-chopard-meyrin",
+      "slug": "high-jewels-assistant-m-f-d-chopard-meyrin",
       "slugByLocale": {
-        "fr": "high-jewellery-assistant-m-f-d-chopard-meyrin",
-        "it": "high-jewellery-assistant-m-f-d-chopard-meyrin",
-        "en": "high-jewellery-assistant-m-f-d-chopard-meyrin",
-        "de": "high-jewellery-assistant-m-f-d-chopard-meyrin"
+        "it": "high-jewels-assistant-m-f-d-chopard-meyrin",
+        "en": "high-jewelery-assistant-m-f-d-chopard-meyrin",
+        "de": "high-jewellery-assistent-m-f-d-chopard-meyrin",
+        "fr": "high-jewellery-assistant-m-f-d-chopard-meyrin"
       },
       "company": "Chopard",
       "companyKey": "chopard",
       "companyDomain": "chopard.com",
       "title": "High Jewellery Assistant (m/f/d)",
       "titleByLocale": {
-        "fr": "High Jewellery Assistant (m/f/d)",
         "it": "High Jewels Assistant (m/f/d)",
         "en": "High Jewelery Assistant (m/f/d)",
-        "de": "High Jewellery Assistent (m/f/d)"
+        "de": "High Jewellery Assistent (m/f/d)",
+        "fr": "High Jewellery Assistant (m/f/d)"
       },
       "description": "Mission du poste Support du Head of High Jewellery Operations Lien entre le département de Haute Joaillerie et le département Marketing Communication afin d’assurer le suivi des projets communs. Etablir et développer les outils statistiques nécessaire au bon fonctionnement du département Tâches principales Mise à jour régulière et amélioration de PSP Haute Joaillerie (descriptif, certificat et photos) ; Coordination avec le département Marketing de toutes les activités digitales liée à la Haute Joaillerie. Coordonner et mettre en place l’outil CRM pour le département de Haute Joaillerie. Gestion de la banque de données clients du département Mise en place et optimisation des rapports mensuels sur le stock, les ventes et les marges : vérifier et analyser les résultats - établissements de divers tableaux et statistiques ; Communication par lettre et courriel avec les clients et suivi; Etablir les offres commerciales sous la supervision des membres du département; Aide à la création et mise à jour des supports de présentation d’aide à la vente Assurer le suivi des demandes spécifiques et traitements des demandes d’images, support presse, etc. ; Communication avec nos distributeurs au niveau international concernant les informations centralisées dans nos systèmes internes ; Participation à la mise en place des collections Haute Joaillerie (Cannes et divers événements Haute Joaillerie); Assurer un support et une permanence (téléphone et mail) en l’absence du Head of High Jewellery Operations; Participer à l’animation des présentations des collections Haute Joaillerie lors des visites clients ; Organisation et participation potentielle aux événements Haute-Joaillerie internationaux Aide à l’élaboration de divers rapports ; Interface et relais d’information aux différents départements; Collaboration étroite avec nos filiales et nos boutiques – renseignement par courriel et téléphone.",
       "descriptionByLocale": {
-        "fr": "Mission du poste Support du Head of High Jewellery Operations Lien entre le département de Haute Joaillerie et le département Marketing Communication afin d’assurer le suivi des projets communs. Etablir et développer les outils statistiques nécessaire au bon fonctionnement du département Tâches principales Mise à jour régulière et amélioration de PSP Haute Joaillerie (descriptif, certificat et photos) ; Coordination avec le département Marketing de toutes les activités digitales liée à la Haute Joaillerie. Coordonner et mettre en place l’outil CRM pour le département de Haute Joaillerie. Gestion de la banque de données clients du département Mise en place et optimisation des rapports mensuels sur le stock, les ventes et les marges : vérifier et analyser les résultats - établissements de divers tableaux et statistiques ; Communication par lettre et courriel avec les clients et suivi; Etablir les offres commerciales sous la supervision des membres du département; Aide à la création et mise à jour des supports de présentation d’aide à la vente Assurer le suivi des demandes spécifiques et traitements des demandes d’images, support presse, etc. ; Communication avec nos distributeurs au niveau international concernant les informations centralisées dans nos systèmes internes ; Participation à la mise en place des collections Haute Joaillerie (Cannes et divers événements Haute Joaillerie); Assurer un support et une permanence (téléphone et mail) en l’absence du Head of High Jewellery Operations; Participer à l’animation des présentations des collections Haute Joaillerie lors des visites clients ; Organisation et participation potentielle aux événements Haute-Joaillerie internationaux Aide à l’élaboration de divers rapports ; Interface et relais d’information aux différents départements; Collaboration étroite avec nos filiales et nos boutiques – renseignement par courriel et téléphone.",
         "it": "Post Mission Head of High Jewellery Operations Support Link tra il Dipartimento di Alta Gioielleria e il Dipartimento di Comunicazione Marketing per monitorare i progetti congiunti. Stabilire e sviluppare gli strumenti statistici necessari per il corretto funzionamento del reparto Principali compiti Aggiornamento e miglioramento regolare di PSP High Jewellery (descrittivo, certificato e foto); Coordinamento con il Dipartimento Marketing di tutte le attività digitali relative ad Alta Gioielleria. Coordinare e implementare lo strumento CRM per il dipartimento di alta gioielleria. Gestione del database clienti del dipartimento Impostazione e ottimizzazione delle relazioni mensili su azioni, vendite e margini: verifica e analisi dei risultati - istituzioni di varie tabelle e statistiche; Comunicazione lettera e-mail con i clienti e follow-up; Stabilire offerte commerciali sotto la supervisione dei membri del dipartimento; Supporto per la creazione e l'aggiornamento dei supporti di presentazione per aiutare con le vendite Seguire le richieste specifiche e l'elaborazione delle richieste di immagini, supporti stampa, ecc; Comunicazione con i nostri distributori a livello internazionale sull'informazione centralizzata nei nostri sistemi interni; Partecipazione alla creazione delle collezioni Haute Joaillerie (Cannes e vari eventi Haute Joaillerie); Fornire supporto e permanenza (telefono ed e-mail) in assenza del Capo di Alta Gioielleria Operazioni; Partecipare all'animazione delle presentazioni delle collezioni Haute Joaillerie durante le visite dei clienti; Organizzazione e partecipazione potenziale agli eventi internazionali di alta gioielleria Assistenza nella preparazione di varie relazioni; Interfaccia e relè di informazione a diversi dipartimenti; Chiudi la collaborazione con le nostre filiali e negozi – email e informazioni telefoniche.",
         "en": "Post Mission Head of High Jewellery Operations Support Link between the Department of High Jewellery and the Department of Marketing Communication to monitor joint projects. Establish and develop the statistical tools necessary for the proper functioning of the department Main tasks Regular updating and improvement of PSP High Jewellery (descriptive, certificate and photos); Coordination with the Marketing Department of all digital activities related to High Jewellery. Coordinate and implement the CRM tool for the department of High Jewellery. Management of the department's customer database Setting up and optimizing monthly reports on stock, sales and margins: checking and analysing results - institutions of various tables and statistics; Letter and e-mail communication with clients and follow-up; Establish commercial offers under the supervision of department members; Support for the creation and updating of presentation media to help with sales Follow-up of specific requests and processing of requests for images, press media, etc.; Communication with our distributors at international level concerning centralized information in our internal systems; Participation in the establishment of the Haute Joaillerie collections (Cannes and various Haute Joaillerie events); Provide support and permanence (telephone and e-mail) in the absence of the Head of High Jewellery Operations; Participate in the animation of the presentations of the Haute Joaillerie collections during customer visits; Organization and potential participation in International High Jewellery events Assistance in the preparation of various reports; Interface and information relays to different departments; Close collaboration with our subsidiaries and stores – email and telephone information.",
-        "de": "Post Mission Head of High Jewellery Operations Support Link zwischen der Abteilung für Hochschmuck und der Abteilung für Marketingkommunikation zur Überwachung gemeinsamer Projekte. Erstellung und Entwicklung der statistischen Werkzeuge, die für das ordnungsgemäße Funktionieren der Abteilung erforderlich sind Hauptaufgaben Regelmäßige Aktualisierung und Verbesserung von PSP High Jewellery (Beschreibung, Zertifikat und Fotos); Koordination mit der Marketingabteilung aller digitalen Aktivitäten im Zusammenhang mit High Jewellery. Koordinieren und implementieren Sie das CRM-Tool für die Abteilung Hochschmuck. Verwaltung der Kundendatenbank der Abteilung Einrichtung und Optimierung monatlicher Berichte über Lagerbestände, Verkäufe und Margen: Überprüfung und Analyse der Ergebnisse - Institutionen verschiedener Tabellen und Statistiken; Brief- und E-Mail-Kommunikation mit Kunden und Follow-up; Einrichtung von kommerziellen Angeboten unter der Aufsicht von Abteilungsmitgliedern; Unterstützung bei der Erstellung und Aktualisierung von Präsentationsmedien zur Unterstützung der Verkaufsverfolgung spezifischer Anfragen und der Bearbeitung von Anfragen für Bilder, Pressemedien usw.; Kommunikation mit unseren Vertriebspartnern auf internationaler Ebene über zentrale Informationen in unseren internen Systemen; Teilnahme an der Einrichtung der Haute Joaillerie-Kollektionen (Cannes und verschiedene Haute Joaillerie-Veranstaltungen); Unterstützung und Dauerhaftigkeit (Telefon und E-Mail) in Abwesenheit des Leiters der Hochschmuckbetriebe; Teilnahme an der Animation der Präsentationen der Haute Joaillerie-Kollektionen bei Kundenbesuchen; Organisation und mögliche Teilnahme an internationalen Hochschmuckveranstaltungen Unterstützung bei der Erstellung verschiedener Berichte; Schnittstellen- und Informationsrelais an verschiedene Abteilungen; Enge Zusammenarbeit mit unseren Tochtergesellschaften und Filialen – E-Mail- und Telefoninformationen."
+        "de": "Post Mission Head of High Jewellery Operations Support Link zwischen der Abteilung für Hochschmuck und der Abteilung für Marketingkommunikation zur Überwachung gemeinsamer Projekte. Erstellung und Entwicklung der statistischen Werkzeuge, die für das ordnungsgemäße Funktionieren der Abteilung erforderlich sind Hauptaufgaben Regelmäßige Aktualisierung und Verbesserung von PSP High Jewellery (Beschreibung, Zertifikat und Fotos); Koordination mit der Marketingabteilung aller digitalen Aktivitäten im Zusammenhang mit High Jewellery. Koordinieren und implementieren Sie das CRM-Tool für die Abteilung Hochschmuck. Verwaltung der Kundendatenbank der Abteilung Einrichtung und Optimierung monatlicher Berichte über Lagerbestände, Verkäufe und Margen: Überprüfung und Analyse der Ergebnisse - Institutionen verschiedener Tabellen und Statistiken; Brief- und E-Mail-Kommunikation mit Kunden und Follow-up; Einrichtung von kommerziellen Angeboten unter der Aufsicht von Abteilungsmitgliedern; Unterstützung bei der Erstellung und Aktualisierung von Präsentationsmedien zur Unterstützung der Verkaufsverfolgung spezifischer Anfragen und der Bearbeitung von Anfragen für Bilder, Pressemedien usw.; Kommunikation mit unseren Vertriebspartnern auf internationaler Ebene über zentrale Informationen in unseren internen Systemen; Teilnahme an der Einrichtung der Haute Joaillerie-Kollektionen (Cannes und verschiedene Haute Joaillerie-Veranstaltungen); Unterstützung und Dauerhaftigkeit (Telefon und E-Mail) in Abwesenheit des Leiters der Hochschmuckbetriebe; Teilnahme an der Animation der Präsentationen der Haute Joaillerie-Kollektionen bei Kundenbesuchen; Organisation und mögliche Teilnahme an internationalen Hochschmuckveranstaltungen Unterstützung bei der Erstellung verschiedener Berichte; Schnittstellen- und Informationsrelais an verschiedene Abteilungen; Enge Zusammenarbeit mit unseren Tochtergesellschaften und Filialen – E-Mail- und Telefoninformationen.",
+        "fr": "Mission du poste Support du Head of High Jewellery Operations Lien entre le département de Haute Joaillerie et le département Marketing Communication afin d’assurer le suivi des projets communs. Etablir et développer les outils statistiques nécessaire au bon fonctionnement du département Tâches principales Mise à jour régulière et amélioration de PSP Haute Joaillerie (descriptif, certificat et photos) ; Coordination avec le département Marketing de toutes les activités digitales liée à la Haute Joaillerie. Coordonner et mettre en place l’outil CRM pour le département de Haute Joaillerie. Gestion de la banque de données clients du département Mise en place et optimisation des rapports mensuels sur le stock, les ventes et les marges : vérifier et analyser les résultats - établissements de divers tableaux et statistiques ; Communication par lettre et courriel avec les clients et suivi; Etablir les offres commerciales sous la supervision des membres du département; Aide à la création et mise à jour des supports de présentation d’aide à la vente Assurer le suivi des demandes spécifiques et traitements des demandes d’images, support presse, etc. ; Communication avec nos distributeurs au niveau international concernant les informations centralisées dans nos systèmes internes ; Participation à la mise en place des collections Haute Joaillerie (Cannes et divers événements Haute Joaillerie); Assurer un support et une permanence (téléphone et mail) en l’absence du Head of High Jewellery Operations; Participer à l’animation des présentations des collections Haute Joaillerie lors des visites clients ; Organisation et participation potentielle aux événements Haute-Joaillerie internationaux Aide à l’élaboration de divers rapports ; Interface et relais d’information aux différents départements; Collaboration étroite avec nos filiales et nos boutiques – renseignement par courriel et téléphone."
       },
       "location": "Meyrin",
       "canton": "GE",
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2665?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-14T21:17:24.052Z",
+      "crawledAt": "2026-10-21T09:21:09.159Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -802,6 +803,154 @@
       "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2665?c=chopard&lang=en-US",
       "jobReqId": "2665",
       "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "high-jewellery-assistant-m-f-d-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "high-jewellery-assistant-m-f-d-chopard-meyrin"
+        ],
+        "en": [
+          "high-jewellery-assistant-m-f-d-chopard-meyrin"
+        ],
+        "de": [
+          "high-jewellery-assistant-m-f-d-chopard-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-10-14T21:17:24.052Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-8c4868344700",
+      "slug": "termineur-en-habillage-horloger-h-f-d-chopard-meyrin",
+      "slugByLocale": {
+        "it": "termineur-en-habillage-horloger-h-f-d-chopard-meyrin",
+        "en": "finisher-in-watchmaker-m-f-d-chopard-meyrin",
+        "de": "finisher-im-uhrmacher-m-w-d-chopard-meyrin",
+        "fr": "termineur-en-habillage-horloger-h-f-d-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Termineur en Habillage Horloger (H/F/D)",
+      "titleByLocale": {
+        "it": "Termineur en Habillage Horloger (f/m/d)",
+        "en": "Finisher in Watchmaker (M/F/D)",
+        "de": "Finisher im Uhrmacher (M/W/D)",
+        "fr": "Termineur en Habillage Horloger (H/F/D)"
+      },
+      "description": "Votre mission Polissage complet de tous composants relatifs à la boite de montre (carrures, fonds, lunettes, couronne, etc…) toutes matières (acier et métaux précieux) en respectant les critères de qualité et de productivité en place. \n• Vos responsabilités majeures Maitriser la réalisation des opérations suivantes en toutes autonomie (brosser, lapider, cabronner, feutrer, polir, satiner, aviver) Satiner : tous types de satinage (soleil, vertical, horizontal) avec maitrise de différentes techniques (main levée, toboggan, cabron, brosse) Préparer matériel et outillage nécessaire. Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Assurer le suivi informatique de l’OF. Participer aux projets d’amélioration continue du secteur. Assurer l’entretien de premier niveau des équipements et outillages. Savoir former et transmettre dans le cadre de la polyvalence de l’atelier.",
+      "descriptionByLocale": {
+        "it": "La vostra missione La lucidatura completa di tutti i componenti relativi alla scatola dell'orologio (carri, fondi, occhiali, corona, ecc...) tutti i materiali (acciaio e metalli preziosi) rispettando i criteri di qualità e produttività in atto.\n• Padroneggiare l'attuazione delle seguenti operazioni in completa autonomia (brush, stone, rubinetti, feltro, lucida, raso, aviver) Satiner: tutti i tipi di raso (sun, verticale, orizzontale) con padronanza di diverse tecniche (ascensore manuale, scivolo, cabron, pennello) Preparare materiale e strumenti necessari. Visivamente e dimensionalmente (comparatore, micrometro, panca di controllo, piede di scorrimento) controllano le parti prima e/o dopo l'operazione. Assicurare il monitoraggio dell'O. Partecipazione a progetti di miglioramento continuo del settore. Assicurare il primo livello di manutenzione di attrezzature e strumenti. Essere in grado di formare e trasmettere nel quadro della versatilità del workshop.",
+        "en": "Your mission Complete polishing of all components related to the watch box (carriages, bottoms, glasses, crown, etc...) all materials (steel and precious metals) respecting the quality and productivity criteria in place.\n• Your major responsibilities Master the implementation of the following operations in complete autonomy (brush, stone, rub, felt, polish, satin, aviver) Satiner: all types of satining (sun, vertical, horizontal) with mastery of different techniques (hand lift, slide, cabron, brush) Prepare material and tools necessary. Visually and dimensionally (comparator, micrometer, control bench, slide foot) control the parts before and/or after operation. Ensure IT monitoring of the OF. Participate in projects for continuous improvement of the sector. Ensure the first level maintenance of equipment and tools. Be able to train and transmit within the framework of the workshop's versatility.",
+        "de": "Ihre Mission Vollständiges Polieren aller Komponenten im Zusammenhang mit dem Uhrenkasten (Wagen, Böden, Gläser, Krone usw.) aller Materialien (Stahl und Edelmetalle) unter Berücksichtigung der vorhandenen Qualitäts- und Produktivitätskriterien.\n• Ihre Hauptaufgaben Meistern Sie die Durchführung der folgenden Operationen in völliger Autonomie (Pinsel, Stein, Reiben, Filz, Polieren, Satin, Aviver) Satiner: alle Arten von Satining (Sonne, vertikal, horizontal) mit Beherrschung der verschiedenen Techniken (Handlift, Rutsche, Cabron, Bürste) Bereiten Sie Material und Werkzeuge notwendig. Visuell und dimensioniert (Vergleicher, Mikrometer, Bedienstand, Schieberfuß) steuern die Teile vor und/oder nach dem Betrieb. Gewährleistung der IT-Überwachung des OF. Nehmen Sie an Projekten zur kontinuierlichen Verbesserung des Sektors teil. Gewährleistung der Wartung von Ausrüstung und Werkzeugen auf der ersten Ebene. In der Lage sein, im Rahmen der Vielseitigkeit des Workshops zu trainieren und zu übertragen.",
+        "fr": "Votre mission Polissage complet de tous composants relatifs à la boite de montre (carrures, fonds, lunettes, couronne, etc…) toutes matières (acier et métaux précieux) en respectant les critères de qualité et de productivité en place. \n• Vos responsabilités majeures Maitriser la réalisation des opérations suivantes en toutes autonomie (brosser, lapider, cabronner, feutrer, polir, satiner, aviver) Satiner : tous types de satinage (soleil, vertical, horizontal) avec maitrise de différentes techniques (main levée, toboggan, cabron, brosse) Préparer matériel et outillage nécessaire. Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Assurer le suivi informatique de l’OF. Participer aux projets d’amélioration continue du secteur. Assurer l’entretien de premier niveau des équipements et outillages. Savoir former et transmettre dans le cadre de la polyvalence de l’atelier."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2662?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-21T09:21:09.157Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2662?c=chopard&lang=en-US",
+      "jobReqId": "2662",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-19T21:22:23.893Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-84b518477237",
+      "slug": "health-safety-manager-m-f-chopard-meyrin",
+      "slugByLocale": {
+        "fr": "responsable-sante-securite-h-f-chopard-meyrin",
+        "it": "health-safety-manager-m-f-chopard-meyrin",
+        "en": "responsable-sante-securite-h-f-chopard-meyrin",
+        "de": "gesundheits-und-sicherheitsmanager-m-w-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Responsable Santé & Sécurité (H/F)",
+      "titleByLocale": {
+        "fr": "Responsable Santé & Sécurité (H/F)",
+        "it": "Health & Safety Manager (M/F)",
+        "en": "Health & Safety Manager (M/F)",
+        "de": "Gesundheits- und Sicherheitsmanager (M/W)"
+      },
+      "description": "MISSION La mission du poste est de promouvoir et coordonner les actions liées à la préservation de la santé des collaborateurs, à la prévention des risques et au développement d’une culture de santé / sécurité au travail. Il conseille la hiérarchie pour la mise en conformité de l’entreprise avec les prescriptions, directives et ordonnances légales en la matière et les solutions de branche. Il se tient informé de l’évolution de la législation et en informe tous les intéressés. Il élabore, documente et met à jour les dossiers relatifs à toutes les mesures SST engagées par l’entreprise. Il établit les statistiques nécessaires et les commente. Ses tâches comprennent également la formation et l’animation des équipes d’intervenants internes (pompiers, secouristes, évacuateurs, commission SST), ainsi que la tenue à jour des moyens et équipements dont ils disposent. SATISFAIRE LA MISSION Système Proposer / revoir / déployer l’organisation de l’Hygiène, la Santé et de la Sécurité au Travail en conformité avec la législation Suisse (Directive CFST 6508 ou solution de Branche de la CP Convention Patronale Horlogère ou selon ISO 45000) et les \n• Exigences de Certification RJC (Comprenant aussi l’Environnement (Selon ISO 14001)). Rédiger et promouvoir la Politique H S (E) Chopard Coordonner (toutes) les activités liées à l’Hygiène, à la Santé et à Sécurité au Travail dans l'entreprise Informer la direction des problématiques (Mandats SUVA / ESTI) touchant à l’Hygiène, à la Santé et à la Sécurité au Travail, et de l’avancement des plans d’action concernant les mesures préventives et correctives en cours. Périodiquement, publier les statistiques des accidents professionnels et non professionnels, et des incidents. Gérer la veille réglementaire H S / Environnement Contact avec les Autorités Être la personne de contact auprès des autorités, organes d’exécution officiels (SUVA, Convention Patronale, Inspection du travail, ESTI, etc.), pour toutes question relative à l’Hygiène, la Santé et la Sécurité au Travail (et à l’Environnement). Prendre en charge les Mandats / Constats concernant l’Hygiène, la Santé et la Sécurité au Travail émanant des autorités et planifier la mise en place des mesures demandées Assurer la liaison avec le Service Santé Sécurité de la Convention Patronale. Statistiques Accidents P et NP - Maladies professionnelles Effectuer les comptes rendus d’accidents, incidents et déterminer les causes racines. Mettre en place des mesures pour éviter qu’ils ne se reproduisent. Etablir des statistiques mensuelles et annuelles des accidents professionnels, non professionnels et des maladies professionnelles (fréquence et gravité). Selon les standards existants (CP / SUVA) Sur la base de l’analyse des statistiques accidents professionnels, non professionnels et des maladies professionnelles, proposer des objectifs d’amélioration et des plans d’action / mesures Rédiger les rapports périodiques selon les critères CP (SUVA) et les faire parvenir à l'attention de la Convention Patronale. Evaluation des dangers aux postes de travail Procéder à l’identification et évaluer les dangers aux postes de travail dans toute l’entreprise selon la méthode choisie / définie / en vigueur / nouvelle / SUVA (portefeuille des dangers) en collaboration avec les responsables concernés. Procéder à l’Analyse de risques là où cela est nécessaire. Si nécessaire faire intervenir des collaborateurs en interne ou des spécialistes externes (Exemples : Ergonome / Médecin du travail / Consultant Electrosuisse / Responsable Laser / Formateur Cariste/ Electricien OIBT). Sur la base de cette analyse proposer des plans d’action / de mesures STOP (Système, Techniques, Organisationnelles, Personnelles) pour diminuer les risques aux postes de travail. Traiter en priorité les dangers particuliers selon annexe 1 de la Directive CFST 6508 (Existants : Chimiques /Presses/ Laser /Gaz / travailleurs isolés /Chariots élévateurs). (Définir les équipements de protection P ersonnelle (EPI), et l'entreposage.). Valider la conformité, lorsque le processus est encore à l'état de projet, lors de l’achat de nouveaux équipements, des nouvelles installations / les nouvelles implantations (ergonomie) par rapport aux exigences légales. Valider les (nouvelles) substances dangereuses et leur mode d’utilisation sur la base des fiches de données de sécurité (FDS). Collaborer / être la personne de contact pour les produits chimiques, si cette fonction est nécessaire (voir OChim). Formation Mettre en place / dispenser la formation H S des nouveaux collaborateurs, notamment en priorité / principalement les consignes / comportements en cas d’urgence Accident / Maladie / Incendie / déversement accidentel de substances dangereuses. Maintenir à jour le contenu des formations Hygiène, Santé et Sécurité au Travail dispensées, ainsi que les listes de participants. Identifier / proposer / suivre les postes / fonctions nécessitant des formations / habilitations particulières. Notamment : s’assurer de la formation initiale et continue des équipes de Secouristes, Pompiers et Evacuateurs, Caristes de l’entreprise. Transmettre la documentation spécialisée H S aux personnes concernées. Relayer les instructions et les informations en matière d’Hygiène, Santé et Sécurité au Travail. Promouvoir au travers de la formation une culture Hygiène, Santé et Sécurité au travail. Identifier et proposer des programmes de prévention, de détection et des formations y relatives Gestion des cas d’Urgence Participer à l’organisation des premiers secours et à l'assistance médicale d'urgence. Rédiger / participer à la rédaction des procédures d’urgences (feu et secours à personne) pour les différents sites de l’entreprise. S’assurer de leur diffusion. Participer / s’assurer de la mise à jour des concepts de protection incendie lors de modifications ou adaptation des locaux. S’assurer que les inventaires de l'infirmerie / des mallettes secouristes / des installations incendie, défibrillateurs, rince œil, bombonnes oxygène tous les équipements des secouristes, évacuateurs et leurs EPI sont à jour, au niveau des contrôles et des dates de péremption. S’assurer que les FDS à jour sont accessibles aux équipes d’urgences, Secouristes et Pompiers S’assurer que des exercices d’intervention (secouristes) et d’évacuation (pompiers incendie / déversements accidentels) ont lieu régulièrement. Santé au travail S’assurer que les exigences particulières pour les travailleurs vulnérables soient prises en compte : protection de la maternité et des jeunes travailleurs. Préparer et animer les réunions du Groupe de Suivi /de la Commission Hygiène, Santé et Sécurité au Travail. Diffuser les procès-verbaux. S'assurer de la participation des collaborateurs en matière d’Hygiène, Santé et Sécurité au Travail, notamment en incluant des représentants au Groupe / Commission H S. Piloter / promouvoir des actions de prévention dans l'entreprise. Par exemple : Campagne de vaccination Grippe-Covid / 10'000 pas / Safety Day / Au boulot à vélo / Massage assis. Audits Selon les exigences et pour garantir / assurer la re certification RJC, effectuer des Audits internes « Système », processus (Gestion des Chimiques / gestion des cas d’urgence/ respect des mesures, port des EPI / conformité des équipements de production/ de manutention), dans un contexte d’amélioration continue. Sur la base de ces Audits, proposer /accompagner les responsables vers la mise en place de mesures de prévention / correctives / dans la mise en place de nouvelles procédures / de formations. Tâches Organisationnelles : Distribution EPI, réception de chaises, mobilier, rédaction fiches au poste, FDS simplifiées, gestion des FDS ACTIVITES ET COLLABORATION ANNEXES NECESSAIRES - Collaborer étroitement avec le Directeur administratif et le Cosec des sites de Fleurier / (Allemagne / Monde) afin de garantir que le niveau SST soit équivalent sur les différents sites. Etablir des liens de collaboration efficaces avec tous les départements et services de l’entreprise, participer à la commission des chimiques, de l’environnement, ainsi que le Médecin du travail de la société. - Conseiller les gérants des Boutiques Chopard en Suisse et les aider à minimiser leur exposition aux risques H S.",
+      "descriptionByLocale": {
+        "fr": "MISSION La mission du poste est de promouvoir et coordonner les actions liées à la préservation de la santé des collaborateurs, à la prévention des risques et au développement d’une culture de santé / sécurité au travail. Il conseille la hiérarchie pour la mise en conformité de l’entreprise avec les prescriptions, directives et ordonnances légales en la matière et les solutions de branche. Il se tient informé de l’évolution de la législation et en informe tous les intéressés. Il élabore, documente et met à jour les dossiers relatifs à toutes les mesures SST engagées par l’entreprise. Il établit les statistiques nécessaires et les commente. Ses tâches comprennent également la formation et l’animation des équipes d’intervenants internes (pompiers, secouristes, évacuateurs, commission SST), ainsi que la tenue à jour des moyens et équipements dont ils disposent. SATISFAIRE LA MISSION Système Proposer / revoir / déployer l’organisation de l’Hygiène, la Santé et de la Sécurité au Travail en conformité avec la législation Suisse (Directive CFST 6508 ou solution de Branche de la CP Convention Patronale Horlogère ou selon ISO 45000) et les \n• Exigences de Certification RJC (Comprenant aussi l’Environnement (Selon ISO 14001)). Rédiger et promouvoir la Politique H S (E) Chopard Coordonner (toutes) les activités liées à l’Hygiène, à la Santé et à Sécurité au Travail dans l'entreprise Informer la direction des problématiques (Mandats SUVA / ESTI) touchant à l’Hygiène, à la Santé et à la Sécurité au Travail, et de l’avancement des plans d’action concernant les mesures préventives et correctives en cours. Périodiquement, publier les statistiques des accidents professionnels et non professionnels, et des incidents. Gérer la veille réglementaire H S / Environnement Contact avec les Autorités Être la personne de contact auprès des autorités, organes d’exécution officiels (SUVA, Convention Patronale, Inspection du travail, ESTI, etc.), pour toutes question relative à l’Hygiène, la Santé et la Sécurité au Travail (et à l’Environnement). Prendre en charge les Mandats / Constats concernant l’Hygiène, la Santé et la Sécurité au Travail émanant des autorités et planifier la mise en place des mesures demandées Assurer la liaison avec le Service Santé Sécurité de la Convention Patronale. Statistiques Accidents P et NP - Maladies professionnelles Effectuer les comptes rendus d’accidents, incidents et déterminer les causes racines. Mettre en place des mesures pour éviter qu’ils ne se reproduisent. Etablir des statistiques mensuelles et annuelles des accidents professionnels, non professionnels et des maladies professionnelles (fréquence et gravité). Selon les standards existants (CP / SUVA) Sur la base de l’analyse des statistiques accidents professionnels, non professionnels et des maladies professionnelles, proposer des objectifs d’amélioration et des plans d’action / mesures Rédiger les rapports périodiques selon les critères CP (SUVA) et les faire parvenir à l'attention de la Convention Patronale. Evaluation des dangers aux postes de travail Procéder à l’identification et évaluer les dangers aux postes de travail dans toute l’entreprise selon la méthode choisie / définie / en vigueur / nouvelle / SUVA (portefeuille des dangers) en collaboration avec les responsables concernés. Procéder à l’Analyse de risques là où cela est nécessaire. Si nécessaire faire intervenir des collaborateurs en interne ou des spécialistes externes (Exemples : Ergonome / Médecin du travail / Consultant Electrosuisse / Responsable Laser / Formateur Cariste/ Electricien OIBT). Sur la base de cette analyse proposer des plans d’action / de mesures STOP (Système, Techniques, Organisationnelles, Personnelles) pour diminuer les risques aux postes de travail. Traiter en priorité les dangers particuliers selon annexe 1 de la Directive CFST 6508 (Existants : Chimiques /Presses/ Laser /Gaz / travailleurs isolés /Chariots élévateurs). (Définir les équipements de protection P ersonnelle (EPI), et l'entreposage.). Valider la conformité, lorsque le processus est encore à l'état de projet, lors de l’achat de nouveaux équipements, des nouvelles installations / les nouvelles implantations (ergonomie) par rapport aux exigences légales. Valider les (nouvelles) substances dangereuses et leur mode d’utilisation sur la base des fiches de données de sécurité (FDS). Collaborer / être la personne de contact pour les produits chimiques, si cette fonction est nécessaire (voir OChim). Formation Mettre en place / dispenser la formation H S des nouveaux collaborateurs, notamment en priorité / principalement les consignes / comportements en cas d’urgence Accident / Maladie / Incendie / déversement accidentel de substances dangereuses. Maintenir à jour le contenu des formations Hygiène, Santé et Sécurité au Travail dispensées, ainsi que les listes de participants. Identifier / proposer / suivre les postes / fonctions nécessitant des formations / habilitations particulières. Notamment : s’assurer de la formation initiale et continue des équipes de Secouristes, Pompiers et Evacuateurs, Caristes de l’entreprise. Transmettre la documentation spécialisée H S aux personnes concernées. Relayer les instructions et les informations en matière d’Hygiène, Santé et Sécurité au Travail. Promouvoir au travers de la formation une culture Hygiène, Santé et Sécurité au travail. Identifier et proposer des programmes de prévention, de détection et des formations y relatives Gestion des cas d’Urgence Participer à l’organisation des premiers secours et à l'assistance médicale d'urgence. Rédiger / participer à la rédaction des procédures d’urgences (feu et secours à personne) pour les différents sites de l’entreprise. S’assurer de leur diffusion. Participer / s’assurer de la mise à jour des concepts de protection incendie lors de modifications ou adaptation des locaux. S’assurer que les inventaires de l'infirmerie / des mallettes secouristes / des installations incendie, défibrillateurs, rince œil, bombonnes oxygène tous les équipements des secouristes, évacuateurs et leurs EPI sont à jour, au niveau des contrôles et des dates de péremption. S’assurer que les FDS à jour sont accessibles aux équipes d’urgences, Secouristes et Pompiers S’assurer que des exercices d’intervention (secouristes) et d’évacuation (pompiers incendie / déversements accidentels) ont lieu régulièrement. Santé au travail S’assurer que les exigences particulières pour les travailleurs vulnérables soient prises en compte : protection de la maternité et des jeunes travailleurs. Préparer et animer les réunions du Groupe de Suivi /de la Commission Hygiène, Santé et Sécurité au Travail. Diffuser les procès-verbaux. S'assurer de la participation des collaborateurs en matière d’Hygiène, Santé et Sécurité au Travail, notamment en incluant des représentants au Groupe / Commission H S. Piloter / promouvoir des actions de prévention dans l'entreprise. Par exemple : Campagne de vaccination Grippe-Covid / 10'000 pas / Safety Day / Au boulot à vélo / Massage assis. Audits Selon les exigences et pour garantir / assurer la re certification RJC, effectuer des Audits internes « Système », processus (Gestion des Chimiques / gestion des cas d’urgence/ respect des mesures, port des EPI / conformité des équipements de production/ de manutention), dans un contexte d’amélioration continue. Sur la base de ces Audits, proposer /accompagner les responsables vers la mise en place de mesures de prévention / correctives / dans la mise en place de nouvelles procédures / de formations. Tâches Organisationnelles : Distribution EPI, réception de chaises, mobilier, rédaction fiches au poste, FDS simplifiées, gestion des FDS ACTIVITES ET COLLABORATION ANNEXES NECESSAIRES - Collaborer étroitement avec le Directeur administratif et le Cosec des sites de Fleurier / (Allemagne / Monde) afin de garantir que le niveau SST soit équivalent sur les différents sites. Etablir des liens de collaboration efficaces avec tous les départements et services de l’entreprise, participer à la commission des chimiques, de l’environnement, ainsi que le Médecin du travail de la société. - Conseiller les gérants des Boutiques Chopard en Suisse et les aider à minimiser leur exposition aux risques H S.",
+        "it": "MISSIONE La missione del post è quella di promuovere e coordinare azioni relative alla conservazione della salute dei dipendenti, alla prevenzione dei rischi e allo sviluppo di una cultura della salute/sicurezza sul lavoro. Egli consiglia la gerarchia per portare l'azienda in linea con i relativi requisiti legali, direttive e ordini e soluzioni industriali. Essa si informa sugli sviluppi della legislazione e informa tutti gli interessati. Prepara, documenta e aggiorna i file relativi a tutte le misure OHS intraprese dalla società. Compila e commenta le statistiche necessarie. I suoi compiti includono anche la formazione e la facilitazione dei team di stakeholder interni (fuochi, lavoratori di primo soccorso, lavoratori di soccorso, commissione di SSL), nonché la manutenzione dei mezzi e delle attrezzature a loro disposizione. SATISFARY MISSION System Proporre/ rivedere/disporre l'organizzazione dell'igiene, della salute e della sicurezza sul lavoro in conformità alla legislazione svizzera (direttiva CFST 6508 o soluzione CP Branch)\n• Requisiti di certificazione RJC (anche l'Ambiente (secondo ISO 14001)). Sviluppare e promuovere la politica H S (E) Chopard Coordinate (tutte) attività connesse alla salute, alla salute e alla sicurezza sul lavoro nell'azienda Informare la Direzione delle questioni (SUVA / ESTI) relative all'igiene, alla salute e alla sicurezza sul lavoro, e il progresso dei piani d'azione relativi alle misure preventive e correttive in corso. Periodicamente, pubblicare statistiche sugli infortuni e sugli incidenti professionali e non professionali. Gestione della vigilanza regolamentare H S / Ambiente Contatto con le autorità Per essere la persona di contatto con le autorità, gli organismi di esecuzione ufficiali (SUVA, Convenzione Patronale, Ispettorato del lavoro, ESTI, ecc.), per qualsiasi domanda riguardante l'igiene, la salute e la sicurezza sul lavoro (e l'ambiente). Assumere l'incarico dei Mandati delle Autorità / Trovamenti su Igiene, Salute e Sicurezza sul Lavoro e pianificare l'attuazione delle misure richieste Liaise con il Servizio Salute e Sicurezza dell'Accordo Societario. Statistiche Incidenti P e NP - Malattie professionali Segnala incidenti, incidenti e identifica le cause della radice. Misure di attuazione per prevenire la loro ricorrenza. Preparare statistiche mensili e annuali sulle malattie professionali, non professionali e professionali (frequenza e gravità). Secondo gli standard esistenti (CP / SUVA) Sulla base dell'analisi delle statistiche degli infortuni sul lavoro, non professionali e professionali, proporre obiettivi di miglioramento e piani di azione/misure Scrivere relazioni periodiche secondo i criteri del CP (SUVA) e inviarli all'attenzione della Convenzione Patronale. Identificare e valutare i rischi di lavoro in tutta l'azienda utilizzando il metodo scelto / definito / corrente / nuovo / SUVA (Hazard Portfolio) in collaborazione con i funzionari responsabili. Condurre l'analisi del rischio se necessario. Se necessario coinvolgere i collaboratori interni o gli specialisti esterni (Esempio: Ergonomista / Lavoro medico / Electrosuisse Consultant / Laser Manager / Trainer Carist / ITTO Electrician). Sulla base di questa analisi proporre piani di azione / misure STOP (System, Techniques, Organisational, Personnel) per ridurre i rischi sul posto di lavoro. Priorizzare rischi specifici secondo l'allegato 1 della direttiva CFST 6508 (Esistere: Chimica /Press/ Laser /Gas / Lavoratori isolati / Carrelli elevatori). (Defining Personal Protective Equipment (PPE), e Storage.) Convalida la conformità, quando il processo è ancora nello stato del progetto, quando si acquista nuove attrezzature, nuove installazioni / nuove installazioni (ergonomia) in relazione alle esigenze legali. Convalida (nuovi) sostanze pericolose e il loro utilizzo sulla base di schede di dati di sicurezza (SDS). Collaborare / essere la persona di contatto per le sostanze chimiche, se necessario (vedi OChim). Formazione Implement/fornire H S formazione per i nuovi dipendenti, in particolare come priorità / principalmente istruzioni di emergenza / comportamento Incidente / Malattia / Fuoco / fuoriuscita accidentale di sostanze pericolose. Mantenere il contenuto dei corsi di salute, salute e sicurezza sul lavoro e le liste dei partecipanti. Identificare/proporre/seguire posizioni/funzioni che richiedono una formazione specifica/autorizzazione. In particolare: garantire la formazione iniziale e continua delle squadre di lavoratori di primo soccorso, vigili del fuoco e Evacuatori, Caristi della società. Trasmettere la documentazione H S specializzata alle persone interessate. Istruzioni di relè e informazioni sulla salute, la salute e la sicurezza sul lavoro. Promuovere una cultura del posto di lavoro sana, sana e sicura attraverso la formazione. Identificare e proporre programmi di prevenzione, rilevamento e formazione relativi alla gestione dei casi di emergenza Partecipare all'organizzazione di pronto soccorso e assistenza medica di emergenza. Scrivere / partecipare alla redazione di procedure di emergenza (fuoco e assistenza personale) per i vari siti aziendali. Assicuratevi la loro diffusione. Partecipare / garantire che i concetti di protezione antincendio siano aggiornati quando si cambiano o si adattano i locali. Assicurarsi che l'infermeria / valigetta di pronto soccorso / impianti antincendio, defibrillatori, risciacquo oculare, bombe di ossigeno tutte le attrezzature dei lavoratori di pronto soccorso, evacuatori e loro PPE sono aggiornati, a livello dei controlli e le date di scadenza. Assicurarsi che i SDS aggiornati siano accessibili a squadre di emergenza, pronto soccorso e vigili del fuoco Assicurarsi che gli esercizi di emergenza e di evacuazione (firefighters/accidental spills) abbiano luogo regolarmente. Assicurarsi che vengano presi in considerazione requisiti specifici per i lavoratori vulnerabili: maternità e protezione dei lavoratori giovani. Preparare e ospitare le riunioni del gruppo di sorveglianza/Salute, Commissione per la salute e la sicurezza. Diffusione dei minuti. Assicurare la partecipazione dei dipendenti nel campo dell'igiene, della salute e della sicurezza sul lavoro, in particolare includendo i rappresentanti della H S. Piloter/promuovere azioni preventive in azienda. Ad esempio: campagna di vaccinazione Influenza-Covid / 10'000 passi / Giorno di sicurezza / Al lavoro in bicicletta / Massaggio Seduto. Audit A seconda delle esigenze e per garantire la ricertificazione RJC, eseguire il processo interno \"System\", in un contesto di miglioramento continuo. Sulla base di questi Audits, proporre / sostenere i manager per l'attuazione di misure preventive / correttive / nell'attuazione di nuove procedure / formazione. Compiti organizzativi: distribuzione EPI, ricezione di sedie, mobili, scrittura, SDS semplificati, gestione delle ATTIVITÀ SDSS E COLLABORAZIONE - Lavorare a stretto contatto con il Direttore Esecutivo e Cosec dei siti Fleurier / (Germania / Mondo) per garantire che il livello di SSL sia equivalente ai diversi siti. Stabilire una collaborazione efficace con tutti i dipartimenti e i dipartimenti della società, partecipare alla commissione per i prodotti chimici, l'ambiente e il medico del lavoro sociale. - Consigliare i manager di Chopard Shops in Svizzera e aiutarli a ridurre al minimo l'esposizione ai rischi H S.",
+        "en": "MISSION The mission of the post is to promote and coordinate actions related to the preservation of the health of employees, the prevention of risks and the development of a culture of health/safety at work. He advises the hierarchy for bringing the company into line with the relevant legal requirements, directives and orders and industry solutions. It shall keep itself informed of developments in the legislation and inform all concerned. It prepares, documents and updates files relating to all OHS measures undertaken by the company. It compiles and comments on the necessary statistics. Its tasks also include the training and facilitation of internal stakeholder teams (firefighters, first aid workers, rescue workers, OSH commission), as well as the maintenance of the means and equipment at their disposal. SATISFARY MISSION System Propose/review/deploy the organisation of hygiene, health and safety at work in accordance with Swiss legislation (CFST Directive 6508 or CP Branch solution)\n• Certification requirements RJC (also including the Environment (according to ISO 14001)). Develop and promote Policy H S (E) Chopard Coordinate (all) activities related to Health, Health and Safety at Work in the Company Inform the Directorate of Issues (SUVA / ESTI) related to Hygiene, Health and Safety at Work, and the progress of action plans regarding the ongoing preventive and corrective measures. Periodically, publish statistics on occupational and non-occupational accidents and incidents. Managing Regulatory Watch H S / Environment Contact with Authorities To be the contact person with authorities, official implementing bodies (SUVA, Patronal Convention, Labour Inspectorate, ESTI, etc.), for any questions relating to Hygiene, Health and Safety at Work (and the Environment). Take charge of the Authorities' Mandates / Findings on Hygiene, Health and Safety at Work and plan the implementation of the requested measures Liaise with the Health and Safety Service of the Corporate Agreement. Statistics Accidents P and NP - Occupational diseases Report accidents, incidents and identify root causes. Implement measures to prevent their recurrence. Prepare monthly and annual statistics on occupational, non-occupational and occupational diseases (frequency and severity). According to existing standards (CP / SUVA) Based on the analysis of occupational, non-occupational and occupational accident statistics, propose improvement objectives and action plans/measures Write periodic reports according to the CP criteria (SUVA) and send them to the attention of the Patronal Convention. Workplace Hazard Assessment Identify and assess workplace hazards across the company using the chosen / defined / current / new / SUVA (Hazard Portfolio) method in collaboration with the responsible officials. Conduct risk analysis where necessary. If necessary involve in-house collaborators or external specialists (Examples: Ergonomist / Work physician / Electrosuisse Consultant / Laser Manager / Trainer Carist / ITTO Electrician). Based on this analysis propose action plans / measures STOP (System, Techniques, Organisational, Personnel) to reduce the risks at the workplace. Prioritize specific hazards according to Annex 1 of Directive CFST 6508 (Existing: Chemical /Press/ Laser /Gas / Isolated Workers / Forklifts). (Defining Personal Protective Equipment (PPE), and Storage.) Validate compliance, when the process is still in the project state, when purchasing new equipment, new installations / new installations ( ergonomics) in relation to legal requirements. Validate (new) hazardous substances and their use on the basis of safety data sheets (SDS). Collaborate / be the contact person for chemicals, if necessary (see OChim). Training Implement/provide H S training for new employees, especially as a priority / mainly emergency instructions / behaviour Accident / Disease / Fire / accidental spill of dangerous substances. Maintain the content of the Health, Health and Safety at Work courses and the lists of participants. Identify/propose/follow positions/functions requiring specific training/authorizations. In particular: to ensure the initial and continuous training of the teams of first aid workers, firefighters and Evacuators, Carists of the company. Transmit the specialized H S documentation to the persons concerned. Relay instructions and information on health, health and safety at work. Promote a healthy, healthy and safe workplace culture through training. Identify and propose prevention, detection and training programmes related to emergency case management Participate in the organisation of first aid and emergency medical assistance. Write/participate in the drafting of emergency procedures (fire and personal assistance) for the various company sites. Ensure their dissemination. Participate / ensure that fire protection concepts are updated when changing or adapting premises. Ensure that the infirmary / first aid briefcase / fire installations, defibrillators, eye rinses, oxygen bombs all the equipment of the first aid workers, evacuators and their PPE are up to date, at the level of the checks and expiry dates. Ensure that up-to-date SDSs are accessible to emergency teams, first aid and firefighters Ensure that emergency and evacuation exercises (firefighters/accidental spills) take place regularly. Occupational health Ensure that specific requirements for vulnerable workers are taken into account: maternity and young worker protection. Prepare and host meetings of the Monitoring Group/Health, Health and Safety Commission. Disseminating the minutes. Ensure the participation of employees in the field of hygiene, health and safety at work, in particular by including representatives of the H S. Piloter/promoting preventive actions in the company. For example: Influenza-Covid vaccination campaign / 10'000 paces / Safety Day / At work by bike / Sitting massage. Audits Depending on the requirements and to ensure RJC re-certification, perform internal \"System\", process (Chemical Management / Emergency Management / Measurement Compliance, PPE port / production/handling equipment compliance), in a context of continuous improvement. On the basis of these Audits, propose / support managers towards the implementation of preventive / corrective measures / in the implementation of new procedures / training. Organisational tasks: EPI distribution, receipt of chairs, furniture, writing, simplified SDSs, management of SDSS ACTIVITIES AND COLLABORATION - Work closely with the Executive Director and Cosec of Fleurier / (Germany / World) sites to ensure that the OSH level is equivalent at the different sites. To establish effective collaboration with all departments and departments of the company, to participate in the Committee on Chemicals, the Environment and the Social Work Doctor. - Advise the managers of Chopard Shops in Switzerland and help them minimize their exposure to H S risks.",
+        "de": "STELLUNG Die Aufgabe der Stelle besteht darin, Maßnahmen zur Erhaltung der Gesundheit der Arbeitnehmer, zur Vermeidung von Risiken und zur Entwicklung einer Kultur der Gesundheit und Sicherheit am Arbeitsplatz zu fördern und zu koordinieren. Er berät die Hierarchie, um das Unternehmen mit den relevanten gesetzlichen Anforderungen, Richtlinien und Aufträgen sowie Branchenlösungen in Einklang zu bringen. Sie hält sich über die Entwicklung der Rechtsvorschriften auf dem Laufenden und unterrichtet alle Beteiligten. Es bereitet, dokumentiert und aktualisiert Dateien in Bezug auf alle OHS-Maßnahmen des Unternehmens. Sie erstellt und kommentiert die erforderlichen Statistiken. Zu ihren Aufgaben gehören auch die Ausbildung und Vermittlung von internen Stakeholder-Teams (Feuerwehrleute, Erste-Hilfe-Mitarbeiter, Rettungskräfte, Arbeitsschutzkommission) sowie die Wartung der ihnen zur Verfügung stehenden Mittel und Ausrüstung. SATISFARY MISSION System Propose/review/deploy the organisation of hygiene, health and safety at work in accordance with Swiss legislation (CFST Directive 6508 oder CP Branch solution)\n• Zertifizierungsanforderungen RJC (auch Umwelt (nach ISO 14001)). Entwicklung und Förderung der Politik H S (E) Chopard Koordinieren (alle) Aktivitäten im Zusammenhang mit Gesundheit, Gesundheit und Sicherheit am Arbeitsplatz im Unternehmen Informieren Sie die Direktion für Fragen (SUVA / ESTI) im Zusammenhang mit Hygiene, Gesundheit und Sicherheit am Arbeitsplatz und den Fortschritt der Aktionspläne in Bezug auf die laufenden präventiven und korrigierenden Maßnahmen. Veröffentlichen Sie regelmäßig Statistiken über berufliche und nichtberufliche Unfälle und Störungen. Managing Regulatory Watch HS / Umweltkontakt mit Behörden Kontaktperson mit Behörden, amtlichen Durchführungsstellen (SUVA, Patronal Convention, Labour Inspectorate, ESTI usw.) für Fragen zu Hygiene, Gesundheit und Sicherheit am Arbeitsplatz (und der Umwelt). Übernahme der Mandate/Ergebnisse der Behörden zu Hygiene, Gesundheit und Sicherheit am Arbeitsplatz und Planung der Umsetzung der angeforderten Maßnahmen Verbindung mit dem Gesundheits- und Sicherheitsdienst des Gesellschaftsvertrags. Statistik Unfälle P und NP - Berufskrankheiten Melden Sie Unfälle, Vorfälle und identifizieren Sie Ursachen. Umsetzung von Maßnahmen zur Verhinderung ihrer Wiederholung. Erstellung monatlicher und jährlicher Statistiken über Berufs-, Berufs- und Berufskrankheiten (Häufigkeit und Schweregrad). Nach bestehenden Standards (CP / SUVA) Basierend auf der Analyse der beruflichen, nicht berufsbedingten und Arbeitsunfallstatistik, Verbesserungsziele und Aktionspläne / Maßnahmen vorschlagen Schreiben Sie regelmäßige Berichte nach den CP-Kriterien (SUVA) und senden Sie sie an die Patronal Convention. Ermittlung und Bewertung von Gefährdungen am Arbeitsplatz im gesamten Unternehmen mit der gewählten / definierten / aktuellen / neuen / SUVA-Methode (Hazard Portfolio) in Zusammenarbeit mit den zuständigen Beamten. Risikoanalyse durchführen, wo dies erforderlich ist. Gegebenenfalls interne Mitarbeiter oder externe Spezialisten (Beispiele: Ergonom / Arbeitsarzt / Electrosuisse Consultant / Laser Manager / Trainer Carist / ITTO Electrician). Basierend auf dieser Analyse schlagen Aktionspläne / Maßnahmen STOP (System, Techniken, Organisation, Personal) vor, um die Risiken am Arbeitsplatz zu reduzieren. Spezifische Gefahren gemäß Anhang 1 der Richtlinie CFST 6508 priorisieren (Vorhanden: Chemie / Presse / Laser / Gas / Isolierte Arbeiter / Gabelstapler). (Definieren persönlicher Schutzausrüstung (PPE) und Lagerung.) Validierung der Compliance, wenn der Prozess noch im Projektzustand ist, beim Kauf neuer Geräte, neuer Installationen / neuer Installationen (Ergonomie) in Bezug auf gesetzliche Anforderungen. Validierung (neuer) gefährlicher Stoffe und ihrer Verwendung auf der Grundlage von Sicherheitsdatenblättern (SDS). Arbeiten Sie mit / seien Sie Ansprechpartner für Chemikalien, falls erforderlich (siehe OChim). Schulung Implementierung / Bereitstellung von HS-Schulungen für neue Mitarbeiter, insbesondere als Priorität / hauptsächlich Notfallanweisungen / Verhaltensunfall / Krankheit / Feuer / versehentliches Verschütten gefährlicher Stoffe. Pflegen Sie den Inhalt der Kurse für Gesundheit, Gesundheit und Sicherheit am Arbeitsplatz und die Teilnehmerlisten. Identifizieren Sie / schlagen Sie vor / folgen Sie Positionen / Funktionen, die spezifische Schulungen / Genehmigungen erfordern. Insbesondere: um die anfängliche und kontinuierliche Ausbildung der Teams von Erste-Hilfe-Mitarbeitern, Feuerwehrleuten und Evakuatoren, Carists des Unternehmens zu gewährleisten. Übermittlung der spezialisierten HS-Dokumentation an die betroffenen Personen. Relaisanweisungen und Informationen zu Gesundheit, Gesundheit und Sicherheit am Arbeitsplatz. Förderung einer gesunden, gesunden und sicheren Arbeitsplatzkultur durch Schulungen. Ermittlung und Vorschlag von Präventions-, Aufdeckungs- und Schulungsprogrammen im Zusammenhang mit dem Notfallmanagement Teilnahme an der Organisation von Erster Hilfe und medizinischer Nothilfe. Schreiben / beteiligen Sie sich an der Ausarbeitung von Notfallverfahren (Brand und persönliche Unterstützung) für die verschiedenen Unternehmensstandorte. Gewährleistung ihrer Verbreitung. Beteiligen Sie sich / stellen Sie sicher, dass Brandschutzkonzepte beim Wechsel oder Anpassen von Räumlichkeiten aktualisiert werden. Stellen Sie sicher, dass die Krankenstation / Erste-Hilfe-Aktentasche / Feueranlagen, Defibrillatoren, Augenspülungen, Sauerstoffbomben alle Ausrüstungen der Ersthelfer, Evakuatoren und ihre PPE auf dem neuesten Stand sind, auf der Ebene der Kontrollen und Verfallsdaten. Sicherstellen, dass aktuelle Sicherheitsdatenblätter für Notfallteams, Erste Hilfe und Feuerwehrleute zugänglich sind Sicherstellen, dass regelmäßig Notfall- und Evakuierungsübungen (Feuerwehrleute/unfallbedingte Verschüttungen) stattfinden. Berufliche Gesundheit Gewährleistung, dass besondere Anforderungen an schutzbedürftige Arbeitnehmer berücksichtigt werden: Mutterschaft und Jugendschutz. Vorbereitung und Ausrichtung der Sitzungen der Begleitgruppe/der Kommission für Gesundheit, Gesundheit und Sicherheit. Verbreitung des Protokolls. Gewährleistung der Beteiligung der Mitarbeiter im Bereich Hygiene, Gesundheit und Sicherheit am Arbeitsplatz, insbesondere durch Einbeziehung von Vertretern der HS. Piloter/Förderung präventiver Maßnahmen im Unternehmen. Zum Beispiel: Influenza-Covid-Impfkampagne / 10'000 Schritte / Safety Day / Bei der Arbeit mit dem Fahrrad / Sitzen Massage. Audits Abhängig von den Anforderungen und um eine RJC-Rezertifizierung zu gewährleisten, führen Sie internes \"System\" durch, Prozess (Chemical Management / Emergency Management / Measurement Compliance, PPE-Port / Produktion / Handling Equipment Compliance), im Rahmen der kontinuierlichen Verbesserung. Auf der Grundlage dieser Audits schlagen / unterstützen Manager bei der Umsetzung von präventiven / Korrekturmaßnahmen / bei der Umsetzung neuer Verfahren / Schulungen. Organisationsaufgaben: EPI-Verteilung, Empfang von Stühlen, Möbeln, Schreiben, vereinfachte SDSS-Datenblätter, Management von SDSS-Aktivitäten und Zusammenstellung - Arbeiten Sie eng mit dem Executive Director und Cosec von Fleurier / (Deutschland / Welt) Standorten zusammen, um sicherzustellen, dass das OSH-Niveau an den verschiedenen Standorten gleichwertig ist. Aufbau einer effektiven Zusammenarbeit mit allen Abteilungen und Abteilungen des Unternehmens, Teilnahme am Ausschuss für Chemikalien, Umwelt und Sozialarbeit Doktor. - Beraten Sie die Manager von Chopard Shops in der Schweiz und helfen Sie ihnen, ihre Exposition gegenüber HS-Risiken zu minimieren."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2676?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-21T09:21:09.152Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2676?c=chopard&lang=en-US",
+      "jobReqId": "2676",
+      "requirements": [],
       "requirementsByLocale": {
         "fr": []
       },
@@ -818,7 +967,86 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-14T21:17:24.052Z"
+      "firstSeenAt": "2026-10-21T09:21:09.152Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-sante-securite-h-f-chopard-meyrin"
+        ],
+        "de": [
+          "responsable-sante-securite-h-f-chopard-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-sante-securite-h-f-chopard-meyrin"
+      ]
+    },
+    {
+      "id": "chopard-d63ba48aea54",
+      "slug": "operateur-en-polissage-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "operateur-en-polissage-h-f-d-chopard-fleurier",
+        "en": "polishing-operator-m-f-d-chopard-fleurier",
+        "de": "polieroperator-m-w-d-chopard-fleurier",
+        "fr": "operateur-en-polissage-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Opérateur en polissage (H/F/D)",
+      "titleByLocale": {
+        "it": "Opérateur en polissage (f/m/d)",
+        "en": "Polishing operator (M/F/D)",
+        "de": "Polieroperator (M/W/D)",
+        "fr": "Opérateur en polissage (H/F/D)"
+      },
+      "description": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité.\n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC.",
+      "descriptionByLocale": {
+        "it": "La vostra missione di lucidatura dei componenti in acciaio (attacco, raccordo, lunetta singola, singola piastrelle) in conformità con le scadenze e le istruzioni di sicurezza.\n• Padroneggiare l'esecuzione delle varie operazioni di lucidatura ( lucidatura, feltro, vibrante). Visivamente e dimensionalmente (comparatore, micrometro, panca di controllo, piede di scorrimento) controllano le parti prima e/o dopo l'operazione. Partecipare agli AIC.",
+        "en": "Your mission Polishing of watch-related steel components (attachment, fitting, single bezel, single tile) in accordance with deadlines and safety instructions.\n• Your major responsibilities Master the execution of the various polishing operations (polishing, felting, vibrating). Visually and dimensionally (comparator, micrometer, control bench, slide foot) control the parts before and/or after operation. Participate in AICs.",
+        "de": "Ihre Mission Polieren von uhrbezogenen Stahlkomponenten (Anbau, Montage, einzelne Lünette, einzelne Fliese) in Übereinstimmung mit Fristen und Sicherheitsanweisungen.\n• Ihre Hauptaufgaben Meistern Sie die Ausführung der verschiedenen Polieroperationen (Polieren, Filzen, Vibrieren). Visuell und dimensioniert (Vergleicher, Mikrometer, Bedienstand, Schieberfuß) steuern die Teile vor und/oder nach dem Betrieb. Nehmen Sie an AICs teil.",
+        "fr": "Votre mission Assurer le polissage de composants acier relatifs à la montre (attache, raccord, lunette simple, carrure simple) dans le respect des délais et des consignes de sécurité.\n• Vos responsabilités majeures Maitriser la réalisation des diverses opérations du polissage (polissage, feutrage, avivage). Contrôler visuellement et dimensionnellement (comparateur, micromètre, banc de contrôle, pied à coulisse) les pièces avant et/ou après opération. Participer aux AIC."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2685?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-20T09:17:04.779Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-16",
+      "postedDate": "2026-10-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2685?c=chopard&lang=en-US",
+      "jobReqId": "2685",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-16T21:17:28.484Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 2
     }
   ]
 }

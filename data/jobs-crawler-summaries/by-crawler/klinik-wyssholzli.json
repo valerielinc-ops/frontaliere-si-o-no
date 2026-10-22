@@ -1,18 +1,18 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-14T21:35:58.968Z",
-  "total": 5,
+  "generatedAt": "2026-10-21T09:53:36.849Z",
+  "total": 4,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 3583,
-  "avgDurationMs": 3583,
+  "durationMs": 3406,
+  "avgDurationMs": 3406,
   "durationHistory": [
-    3583
+    3406
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,49 +47,6 @@
       },
       "id": "klinik-wyssholzli-f225c2a9307c",
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "salaryMin": 51000,
-      "salaryMax": 71400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "title": "Psychologin Psychotherapeutin 01.2027–60% 09/2026",
-      "slug": "psicologo-psicoterapeuta-01-2027-60-09-2026-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf"
-      },
-      "id": "klinik-wyssholzli-7ae216cba293",
-      "firstSeenAt": "2026-09-25T15:00:02.770Z",
       "salaryMin": 51000,
       "salaryMax": 71400,
       "currency": "CHF",
@@ -189,7 +146,51 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Psychologin Psychotherapeutin 01.2027–60% 09/2026",
+      "slug": "psicologo-psicoterapeuta-01-2027-60-09-2026-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "Psychologin_Psychotherapeutin_01.2027_60_09_2026.pdf"
+      },
+      "id": "klinik-wyssholzli-7ae216cba293",
+      "firstSeenAt": "2026-09-25T15:00:02.770Z",
+      "salaryMin": 51000,
+      "salaryMax": 71400,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
@@ -234,5 +235,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

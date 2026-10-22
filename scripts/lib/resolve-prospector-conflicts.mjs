@@ -27,6 +27,7 @@ export const PROSPECTOR_PATHS = Object.freeze({
   platforms: 'data/prospector/platforms.json',
   validation: 'data/prospector/validation.json',
   webChannelHealth: 'data/prospector/web-channel-health.json',
+  secoPageCursors: 'data/prospector/seco-page-cursors.json',
 });
 
 const MISSING = Symbol('missing');
@@ -176,15 +177,40 @@ function mergeCandidate(upstream, local) {
   const statuses = [upstream.status, local.status].filter((status) => status in CANDIDATE_STATUS_RANK);
   if (statuses.length) merged.status = statuses.sort((a, b) => CANDIDATE_STATUS_RANK[a] - CANDIDATE_STATUS_RANK[b]).at(-1);
 
+  if (isObject(upstream.sourceSeenAt) || isObject(local.sourceSeenAt)) {
+    const upstreamSeen = objectOrEmpty(upstream.sourceSeenAt);
+    const localSeen = objectOrEmpty(local.sourceSeenAt);
+    const seenAt = {};
+    for (const source of new Set([...Object.keys(upstreamSeen), ...Object.keys(localSeen)])) {
+      const timestamp = newest(upstreamSeen[source], localSeen[source]);
+      if (timestamp) seenAt[source] = timestamp;
+    }
+    merged.sourceSeenAt = seenAt;
+  }
+
+  // SECO signal fields form one observation snapshot. A concurrent OSM/web
+  // merge must not overwrite fresher listing data just because its candidate
+  // object was serialized locally. Timestamp-less legacy collisions retain
+  // the established spread/local-wins behavior.
+  const upstreamSecoAt = Date.parse(String(upstream.sourceSeenAt?.seco || ''));
+  const localSecoAt = Date.parse(String(local.sourceSeenAt?.seco || ''));
+  if (Number.isFinite(upstreamSecoAt) || Number.isFinite(localSecoAt)) {
+    const secoWinner = Number.isFinite(upstreamSecoAt)
+      && (!Number.isFinite(localSecoAt) || upstreamSecoAt > localSecoAt)
+      ? upstream
+      : local;
+    for (const field of ['adCount', 'sampleTitles', 'applyHosts', 'secoEmployerName']) {
+      if (hasOwn(secoWinner, field)) merged[field] = clone(secoWinner[field]);
+      else delete merged[field];
+    }
+  }
+
   // These fields are observations accumulated by independent stages. A local
   // re-run must not erase a source, URL, or trail learned by the other run.
-  for (const field of ['sources', 'applyHosts', 'careersUrls', 'trailVia', 'vacancySignals']) {
+  for (const field of ['sources', 'careersUrls', 'trailVia', 'vacancySignals']) {
     if (Array.isArray(upstream[field]) || Array.isArray(local[field])) {
       merged[field] = unionArray(upstream[field], local[field]);
     }
-  }
-  if (Array.isArray(upstream.sampleTitles) || Array.isArray(local.sampleTitles)) {
-    merged.sampleTitles = unionArray(upstream.sampleTitles, local.sampleTitles).slice(0, 20);
   }
   if (Array.isArray(upstream.validationHistory) || Array.isArray(local.validationHistory)) {
     const history = unionArray(upstream.validationHistory, local.validationHistory)
@@ -194,7 +220,76 @@ function mergeCandidate(upstream, local) {
   if (upstream.firstSeenAt || local.firstSeenAt) merged.firstSeenAt = oldest(upstream.firstSeenAt, local.firstSeenAt);
   if (upstream.updatedAt || local.updatedAt) merged.updatedAt = newest(upstream.updatedAt, local.updatedAt);
   if (upstream.rejectedAt || local.rejectedAt) merged.rejectedAt = newest(upstream.rejectedAt, local.rejectedAt);
+  resolveLegacySynthesisRecovery(merged, upstream, local);
   return merged;
+}
+
+function resolveLegacySynthesisRecovery(merged, upstream, local) {
+  // Keep the normal monotonic status merge for live progress. This special
+  // ordering only resolves terminal-rejection conflicts against a recovery.
+  if (merged.status !== 'rejected') return;
+  // `synthesisOutcome` is per-attempt and changes to `transient_seed_failure`
+  // after a retry. The queue timestamp is the durable recovery marker.
+  const candidates = [upstream, local];
+  const recoveries = candidates
+    .map((candidate) => ({ candidate, queuedAt: Date.parse(String(candidate?.synthesisRecoveryQueuedAt || '')) }))
+    .filter(({ queuedAt }) => Number.isFinite(queuedAt));
+  if (!recoveries.length) return;
+
+  // Queue time alone is insufficient: a branch from an older queue can carry
+  // a later terminal attempt than a newer queue's transient failure. Compare
+  // every marked state with unmarked terminal rejections by effective state
+  // time; a truly later queue remains eligible to reopen the candidate.
+  const terminalRejections = candidates.filter((candidate) =>
+    candidate?.status === 'rejected'
+      && !Number.isFinite(Date.parse(String(candidate.synthesisRecoveryQueuedAt || ''))));
+  const winner = [...recoveries.map(({ candidate }) => candidate), ...terminalRejections]
+    .sort(compareSynthesisState)
+    .at(-1);
+  if (!winner) return;
+  const synthesisFields = [
+    'synthesisRetryable',
+    'synthesisAttempts',
+    'synthesisLastAttemptAt',
+    'synthesisRetryAt',
+    'synthesisRetryExhausted',
+    'synthesisOutcome',
+    'synthesisDiagnostics',
+    'synthesisRecoveryQueuedAt',
+    'reopenedAt',
+  ];
+  for (const field of synthesisFields) {
+    if (hasOwn(winner, field)) merged[field] = clone(winner[field]);
+    else delete merged[field];
+  }
+
+  merged.status = winner.status;
+  if (hasOwn(winner, 'reason')) merged.reason = clone(winner.reason);
+  else delete merged.reason;
+  if (hasOwn(winner, 'rejectedAt')) merged.rejectedAt = clone(winner.rejectedAt);
+  else delete merged.rejectedAt;
+}
+
+function compareSynthesisState(left, right) {
+  const stateAt = (candidate) => {
+    if (candidate?.status === 'rejected') {
+      const rejectedAt = Date.parse(String(candidate.rejectedAt || ''));
+      if (Number.isFinite(rejectedAt)) return rejectedAt;
+    }
+    const eventTimes = [candidate?.synthesisLastAttemptAt, candidate?.synthesisRecoveryQueuedAt];
+    const parsedTimes = eventTimes.map((value) => Date.parse(String(value || ''))).filter(Number.isFinite);
+    if (parsedTimes.length) return Math.max(...parsedTimes);
+    const updatedAt = Date.parse(String(candidate?.updatedAt || ''));
+    if (Number.isFinite(updatedAt)) return updatedAt;
+    return Number.NEGATIVE_INFINITY;
+  };
+  const leftAt = stateAt(left);
+  const rightAt = stateAt(right);
+  if (leftAt !== rightAt) return leftAt > rightAt ? 1 : -1;
+  if ((left?.status === 'rejected') !== (right?.status === 'rejected')) {
+    return left?.status === 'rejected' ? 1 : -1;
+  }
+  return 0;
 }
 
 function mergeCounter(upstream, local, base) {
@@ -226,11 +321,87 @@ function mergePlatform(upstream, local, base = {}) {
       merged[field] = Object.fromEntries(Object.keys(values).sort().map((key) => [key, values[key]]));
     }
   }
+  if (isObject(upstream.hostEmployers) || isObject(local.hostEmployers)) {
+    const values = {};
+    for (const host of new Set([
+      ...Object.keys(objectOrEmpty(upstream.hostEmployers)),
+      ...Object.keys(objectOrEmpty(local.hostEmployers)),
+    ])) {
+      values[host] = [...new Set([
+        ...(Array.isArray(upstream.hostEmployers?.[host]) ? upstream.hostEmployers[host] : []),
+        ...(Array.isArray(local.hostEmployers?.[host]) ? local.hostEmployers[host] : []),
+      ].map(String))].sort();
+    }
+    merged.hostEmployers = Object.fromEntries(Object.keys(values).sort().map((host) => [host, values[host]]));
+  }
+  if (isObject(upstream.hostEmployerUnknown) || isObject(local.hostEmployerUnknown)
+    || isObject(base.hostEmployerUnknown)) {
+    const hosts = new Set([
+      ...Object.keys(objectOrEmpty(base.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(upstream.hostEmployerUnknown)),
+      ...Object.keys(objectOrEmpty(local.hostEmployerUnknown)),
+    ]);
+    const values = Object.fromEntries([...hosts].sort()
+      .filter((host) => base.hostEmployerUnknown?.[host] === true
+        || upstream.hostEmployerUnknown?.[host] === true
+        || local.hostEmployerUnknown?.[host] === true)
+      .map((host) => [host, true]));
+    merged.hostEmployerUnknown = values;
+  }
   if (upstream.tenantCount !== undefined || local.tenantCount !== undefined) {
     merged.tenantCount = Math.max(Number(upstream.tenantCount) || 0, Number(local.tenantCount) || 0);
   }
   if (upstream.expansionAttempts !== undefined || local.expansionAttempts !== undefined) {
     merged.expansionAttempts = mergeCounter(upstream.expansionAttempts, local.expansionAttempts, base.expansionAttempts);
+  }
+  const upstreamExpandedAt = Date.parse(String(upstream.lastExpandedAt || ''));
+  const localExpandedAt = Date.parse(String(local.lastExpandedAt || ''));
+  const latestExpansionFirst = Number.isFinite(upstreamExpandedAt)
+    && (!Number.isFinite(localExpandedAt) || upstreamExpandedAt > localExpandedAt)
+    ? [upstream, local]
+    : [local, upstream];
+  if (upstream.expansionProbeOffset !== undefined || local.expansionProbeOffset !== undefined) {
+    const latestOffset = latestExpansionFirst.find((platform) => Number.isSafeInteger(platform.expansionProbeOffset)
+      && platform.expansionProbeOffset >= 0)?.expansionProbeOffset;
+    if (latestOffset !== undefined) merged.expansionProbeOffset = latestOffset;
+  }
+  if (Array.isArray(upstream.expansionRetryHosts) || Array.isArray(local.expansionRetryHosts)) {
+    const preferred = latestExpansionFirst.map((platform) => platform.expansionRetryHosts);
+    const baseRetries = new Map((Array.isArray(base.expansionRetryHosts) ? base.expansionRetryHosts : [])
+      .filter((entry) => typeof entry?.host === 'string' && Number.isSafeInteger(entry.attempts) && entry.attempts >= 1)
+      .map((entry) => [entry.host, entry]));
+    const sideRetries = [upstream.expansionRetryHosts, local.expansionRetryHosts].map((entries) => new Map(
+      (Array.isArray(entries) ? entries : [])
+        .filter((entry) => typeof entry?.host === 'string' && Number.isSafeInteger(entry.attempts) && entry.attempts >= 1)
+        .map((entry) => [entry.host, entry]),
+    ));
+    const retained = new Map();
+    const hosts = new Set([...baseRetries.keys(), ...sideRetries.flatMap((entries) => [...entries.keys()])]);
+    for (const host of hosts) {
+      const baseEntry = baseRetries.get(host);
+      const entries = sideRetries.map((side) => side.get(host)).filter(Boolean);
+      if (!entries.length) continue;
+      if (!baseEntry || entries.length === 2 || entries.some((entry) => entry.attempts !== baseEntry.attempts)) {
+        retained.set(host, { host, attempts: Math.max(...entries.map((entry) => entry.attempts)) });
+      }
+      // If one writer removed a base retry after a successful probe and the
+      // other left it untouched, the removal is meaningful. A changed retry
+      // entry above wins because it records a new transient failure.
+    }
+    // Preserve the complete queue order from the newest run first. Add changes
+    // from the older branch only into remaining capacity; this keeps unprobed
+    // pending entries from being evicted just to retain a stale side's tail.
+    const ordered = [];
+    const queued = new Set();
+    for (const entries of preferred) {
+      for (const entry of Array.isArray(entries) ? entries : []) {
+        const retry = retained.get(entry?.host);
+        if (!retry || queued.has(retry.host)) continue;
+        queued.add(retry.host);
+        ordered.push(retry);
+      }
+    }
+    merged.expansionRetryHosts = ordered.filter((entry) => entry.attempts < 4).slice(0, 500);
   }
   if (upstream.discoveredAt || local.discoveredAt) merged.discoveredAt = oldest(upstream.discoveredAt, local.discoveredAt);
   if (upstream.lastExpandedAt || local.lastExpandedAt) merged.lastExpandedAt = newest(upstream.lastExpandedAt, local.lastExpandedAt);
@@ -292,11 +463,25 @@ function reportKey(report) {
 }
 
 function mergeValidationDocument(base, upstream, local) {
-  const result = documentMeta(base, upstream, local, new Set(['generatedAt', 'tally', 'promotedVacancies', 'reports']));
+  const result = documentMeta(base, upstream, local, new Set(['generatedAt', 'tally', 'promotedVacancies', 'reports', 'validationSchedule']));
   result.generatedAt = newest(base?.generatedAt, upstream?.generatedAt, local?.generatedAt);
   const toMap = (reports) => Object.fromEntries((Array.isArray(reports) ? reports : []).map((report) => [reportKey(report), report]));
   const reports = mergeMap(toMap(base?.reports), toMap(upstream?.reports), toMap(local?.reports), (_upstream, localValue) => clone(localValue));
   result.reports = Object.values(reports).sort((a, b) => reportKey(a).localeCompare(reportKey(b)));
+
+  result.validationSchedule = mergeMap(
+    base?.validationSchedule,
+    upstream?.validationSchedule,
+    local?.validationSchedule,
+    (upstreamEntry, localEntry) => {
+      const upstreamAt = Date.parse(String(upstreamEntry?.at || ''));
+      const localAt = Date.parse(String(localEntry?.at || ''));
+      if (Number.isFinite(upstreamAt) && (!Number.isFinite(localAt) || upstreamAt > localAt)) {
+        return clone(upstreamEntry);
+      }
+      return clone(localEntry);
+    },
+  );
 
   const tally = Object.fromEntries(VALIDATION_VERDICTS.map((verdict) => [verdict, 0]));
   for (const report of result.reports) {
@@ -336,6 +521,20 @@ function mergeChannelHealth(base, upstream, local) {
       .slice(-CHANNEL_HISTORY_LIMIT);
   });
   return merged;
+}
+
+function mergeSecoPageCursors(base, upstream, local) {
+  const result = documentMeta(base, upstream, local, new Set(['version', 'updatedAt', 'cantons']));
+  result.version = Math.max(Number(base?.version) || 1, Number(upstream?.version) || 1, Number(local?.version) || 1);
+  result.updatedAt = newest(base?.updatedAt, upstream?.updatedAt, local?.updatedAt);
+  result.cantons = mergeMap(base?.cantons, upstream?.cantons, local?.cantons, (upstreamValue, localValue) => {
+    const upstreamAt = Date.parse(String(upstreamValue?.updatedAt || ''));
+    const localAt = Date.parse(String(localValue?.updatedAt || ''));
+    return Number.isFinite(upstreamAt) && (!Number.isFinite(localAt) || upstreamAt > localAt)
+      ? clone(upstreamValue)
+      : clone(localValue);
+  });
+  return result;
 }
 
 function mergeCrawlerDocument(base, upstream, local) {
@@ -380,6 +579,24 @@ function ensureShape(target, value) {
   if (target === PROSPECTOR_PATHS.validation && (!isObject(value) || !Array.isArray(value.reports))) {
     throw new Error(`${target}: expected an object with a reports array`);
   }
+  if (target === PROSPECTOR_PATHS.secoPageCursors && (!isObject(value) || !isObject(value.cantons))) {
+    throw new Error(`${target}: expected an object with a cantons map`);
+  }
+  if (target === PROSPECTOR_PATHS.secoPageCursors) {
+    for (const [canton, cursor] of Object.entries(value.cantons)) {
+      const stable = isObject(cursor)
+        && (cursor.headId === null || typeof cursor.headId === 'string')
+        && (cursor.afterId === null || typeof cursor.afterId === 'string')
+        && Number.isSafeInteger(cursor.afterPageHint) && cursor.afterPageHint >= 0;
+      const legacy = isObject(cursor)
+        && Number.isSafeInteger(cursor.nextPage) && cursor.nextPage >= 0;
+      if (!/^[A-Z]{2}$/.test(canton) || (!stable && !legacy)
+        || !Number.isSafeInteger(cursor.onlineSinceDays) || cursor.onlineSinceDays < 1
+        || typeof cursor.updatedAt !== 'string') {
+        throw new Error(`${target}: invalid cursor for ${canton}`);
+      }
+    }
+  }
   if (target === PROSPECTOR_PATHS.webChannelHealth && !Array.isArray(value)) {
     throw new Error(`${target}: expected an array`);
   }
@@ -396,6 +613,7 @@ function mergePath(target, base, upstream, local) {
   if (target === PROSPECTOR_PATHS.platforms) return mergePlatformsDocument(base, upstream, local);
   if (target === PROSPECTOR_PATHS.validation) return mergeValidationDocument(base, upstream, local);
   if (target === PROSPECTOR_PATHS.webChannelHealth) return mergeChannelHealth(base, upstream, local);
+  if (target === PROSPECTOR_PATHS.secoPageCursors) return mergeSecoPageCursors(base, upstream, local);
   if (CRAWLER_PATH.test(target)) return mergeCrawlerDocument(base, upstream, local);
   throw new Error(`unsupported Prospector conflict: ${target}`);
 }

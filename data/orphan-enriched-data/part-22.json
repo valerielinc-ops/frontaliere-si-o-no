@@ -3035,9 +3035,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
-        "en": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
-        "de": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
-        "fr": "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl"
+        "en": "apprenticeship-as-retail-assistant-eba-food-volg-elm-gl",
+        "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-elm-gl",
+        "fr": "place-d-apprentissage-d-assistant-e-du-commerce-de-detail-afp-alimentation-volg-elm-gl"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-elm-gl",
@@ -3051,6 +3051,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -10664,6 +10665,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "brienzwiler",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/brienzwiler/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/brienzwiler/"
+      },
+      "queries": [
+        {
+          "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+      "title": "Brienzwiler",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "brienzwiler",
+        "en": "brienzwiler",
+        "de": "brienzwiler",
+        "fr": "brienzwiler"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/brienzwiler",
+        "en": "/en/find-jobs-bern/brienzwiler",
+        "de": "/de/jobs-im-bern/brienzwiler",
+        "fr": "/fr/trouver-emploi-berne/brienzwiler"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -21602,6 +21660,63 @@
       ]
     },
     {
+      "slug": "dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern",
+      "locale": "en",
+      "path": "/en/find-jobs-obwalden/dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern/",
+      "observedPaths": {
+        "en": "/en/find-jobs-obwalden/dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern/"
+      },
+      "queries": [
+        {
+          "query": "lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lavoro ticino negli ultimi 3 giorni",
+      "title": "Dipl expertin experte nds notfallpflege medipersonal lungern",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern",
+        "en": "dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern",
+        "de": "dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern",
+        "fr": "dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-obvaldo/dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern",
+        "en": "/en/find-jobs-obwalden/dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern",
+        "de": "/de/jobs-im-obwalden/dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern",
+        "fr": "/fr/trouver-emploi-obwald/dipl-expertin-experte-nds-notfallpflege-medipersonal-lungern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
       "locale": "en",
       "path": "/en/find-jobs-ticino/dipl-expertin-oder-experte-intensivpflege-nds-hf-spital-limmattal-schlieren",
@@ -31821,6 +31936,63 @@
         "en": "/en/find-jobs-fribourg/hauterive",
         "de": "/de/jobs-im-freiburg/hauterive",
         "fr": "/fr/trouver-emploi-fribourg/hauterive"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "hautligen",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/hautligen/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/hautligen/"
+      },
+      "queries": [
+        {
+          "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "title": "Hautligen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "hautligen",
+        "en": "hautligen",
+        "de": "hautligen",
+        "fr": "hautligen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/hautligen",
+        "en": "/en/find-jobs-bern/hautligen",
+        "de": "/de/jobs-im-bern/hautligen",
+        "fr": "/fr/trouver-emploi-berne/hautligen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -47983,14 +48155,14 @@
       },
       "queries": [
         {
+          "query": "offerte di lavoro osa ticino",
+          "clicks": 9,
+          "impressions": 89
+        },
+        {
           "query": "offerte di lavoro canton ticino per frontalieri",
           "clicks": 3,
           "impressions": 83
-        },
-        {
-          "query": "offerte di lavoro osa ticino",
-          "clicks": 8,
-          "impressions": 79
         },
         {
           "query": "offerte lavoro svizzera per italiani",
@@ -48000,22 +48172,22 @@
         {
           "query": "osa offerte di lavoro",
           "clicks": 2,
-          "impressions": 48
+          "impressions": 55
         },
         {
           "query": "offerte di lavoro osa",
           "clicks": 0,
-          "impressions": 20
+          "impressions": 26
+        },
+        {
+          "query": "oss ticino offerte lavoro",
+          "clicks": 1,
+          "impressions": 22
         },
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
           "impressions": 20
-        },
-        {
-          "query": "oss ticino offerte lavoro",
-          "clicks": 0,
-          "impressions": 16
         },
         {
           "query": "offerte lavoro svizzera per italiani",
@@ -48028,14 +48200,14 @@
           "impressions": 13
         },
         {
-          "query": "offerte di lavoro",
+          "query": "osa ticino lavoro",
           "clicks": 0,
           "impressions": 12
         },
         {
-          "query": "osa ticino lavoro",
+          "query": "offerte di lavoro",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 12
         },
         {
           "query": "offerte di lavoro canton ticino",
@@ -48053,6 +48225,11 @@
           "impressions": 8
         },
         {
+          "query": "oss svizzera offerte lavoro",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
           "query": "lavoro svizzera",
           "clicks": 0,
           "impressions": 8
@@ -48063,6 +48240,11 @@
           "impressions": 8
         },
         {
+          "query": "offerte di lavoro centri diurni ticino",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
           "query": "operatrice socio assistenziale offerte di lavoro",
           "clicks": 0,
           "impressions": 7
@@ -48071,21 +48253,11 @@
           "query": "lavoro canton ticino",
           "clicks": 0,
           "impressions": 7
-        },
-        {
-          "query": "offerte di lavoro sistema sanitario svizzero",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "offerte di lavoro casa di riposo svizzera",
-          "clicks": 0,
-          "impressions": 6
         }
       ],
-      "totalImpressions": 835,
-      "totalClicks": 27,
-      "topQuery": "offerte di lavoro canton ticino per frontalieri",
+      "totalImpressions": 895,
+      "totalClicks": 31,
+      "topQuery": "offerte di lavoro osa ticino",
       "title": "Operatori socio sanitari",
       "titleByLocale": {
         "it": "",
@@ -48349,6 +48521,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "ordonnanceur-van-cleef-arpels-meyrin",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-geneve/ordonnanceur-van-cleef-arpels-meyrin/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/ordonnanceur-van-cleef-arpels-meyrin/"
+      },
+      "queries": [
+        {
+          "query": "van cleef meyrin",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "van cleef meyrin",
+      "title": "Ordonnanceur van cleef arpels meyrin",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ordonnanceur-van-cleef-arpels-meyrin",
+        "en": "ordonnanceur-van-cleef-arpels-meyrin",
+        "de": "ordonnanceur-van-cleef-arpels-meyrin",
+        "fr": "ordonnanceur-van-cleef-arpels-meyrin"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/ordonnanceur-van-cleef-arpels-meyrin",
+        "en": "/en/find-jobs-geneva/ordonnanceur-van-cleef-arpels-meyrin",
+        "de": "/de/jobs-im-genf/ordonnanceur-van-cleef-arpels-meyrin",
+        "fr": "/fr/trouver-emploi-geneve/ordonnanceur-van-cleef-arpels-meyrin"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -50104,6 +50333,63 @@
         "en": "/en/find-jobs-ticino/physiotherapeute-60-clienia-ag-pfaffikon-zh",
         "de": "/de/jobs-im-tessin/physiotherapeute-60-clienia-ag-pfaffikon-zh",
         "fr": "/fr/trouver-emploi-tessin/physiotherapeute-60-clienia-ag-pfaffikon-zh"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "physiotherapeute-medipersonal-stafa",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/physiotherapeute-medipersonal-stafa/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/physiotherapeute-medipersonal-stafa/"
+      },
+      "queries": [
+        {
+          "query": "emploi physiothérapeute",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "emploi physiothérapeute",
+      "title": "Physiotherapeute medipersonal stafa",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "physiotherapeute-medipersonal-stafa",
+        "en": "physiotherapeute-medipersonal-stafa",
+        "de": "physiotherapeute-medipersonal-stafa",
+        "fr": "physiotherapeute-medipersonal-stafa"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/physiotherapeute-medipersonal-stafa",
+        "en": "/en/find-jobs-zurich/physiotherapeute-medipersonal-stafa",
+        "de": "/de/jobs-im-zurich/physiotherapeute-medipersonal-stafa",
+        "fr": "/fr/trouver-emploi-zurich/physiotherapeute-medipersonal-stafa"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -52612,6 +52898,64 @@
       ]
     },
     {
+      "slug": "produits-laitiers-commandes-coop-genossenschaft-gossau",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-saint-gall/produits-laitiers-commandes-coop-genossenschaft-gossau/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-saint-gall/produits-laitiers-commandes-coop-genossenschaft-gossau/"
+      },
+      "queries": [
+        {
+          "query": "coop gossau jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop gossau jobs",
+      "title": "Produits laitiers commandes coop genossenschaft",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Gossau",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "produits-laitiers-commandes-coop-genossenschaft-gossau",
+        "en": "produits-laitiers-commandes-coop-genossenschaft-gossau",
+        "de": "produits-laitiers-commandes-coop-genossenschaft-gossau",
+        "fr": "produits-laitiers-commandes-coop-genossenschaft-gossau"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/produits-laitiers-commandes-coop-genossenschaft-gossau",
+        "en": "/en/find-jobs-st-gallen/produits-laitiers-commandes-coop-genossenschaft-gossau",
+        "de": "/de/jobs-im-st-gallen/produits-laitiers-commandes-coop-genossenschaft-gossau",
+        "fr": "/fr/trouver-emploi-saint-gall/produits-laitiers-commandes-coop-genossenschaft-gossau"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "produkt-merchandising-praktikant-in-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-v",
       "locale": "en",
       "path": "/en/find-jobs-ticino/produkt-merchandising-praktikant-in-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-v",
@@ -54006,6 +54350,63 @@
         "en": "/en/find-jobs-ticino/psychologie-klinik-sonnenhalde-riehen",
         "de": "/de/jobs-im-tessin/psychologie-klinik-sonnenhalde-riehen",
         "fr": "/fr/trouver-emploi-tessin/psychologie-klinik-sonnenhalde-riehen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf",
+      "locale": "de",
+      "path": "/de/jobs-in-luzern/psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf/",
+      "observedPaths": {
+        "de": "/de/jobs-in-luzern/psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf/"
+      },
+      "queries": [
+        {
+          "query": "lups stellen",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "lups stellen",
+      "title": "Psychologin luzerner psychiatrie lups hochdorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf",
+        "en": "psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf",
+        "de": "psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf",
+        "fr": "psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf",
+        "en": "/en/find-jobs-lucerne/psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf",
+        "de": "/de/jobs-im-luzern/psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf",
+        "fr": "/fr/trouver-emploi-lucerne/psychologin-60-80-m-w-d-luzerner-psychiatrie-lups-hochdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -68492,6 +68893,68 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel/"
+      },
+      "queries": [
+        {
+          "query": "offre emploi richemont",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stage micro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "offre emploi richemont",
+      "title": "Stage r i micro lavorazione laser 3d di precisione richemont neuchatel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "en": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "de": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "fr": "stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "en": "/en/find-jobs-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "de": "/de/jobs-im-neuenburg/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel",
+        "fr": "/fr/trouver-emploi-neuchatel/stage-r-i-micro-lavorazione-laser-3d-di-precisione-richemont-neuchatel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {

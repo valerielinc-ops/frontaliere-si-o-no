@@ -3,8 +3,8 @@
  *
  * Generates 4 hub families × 4 locales of paginated index pages:
  *   - JobsHub      → all known job slugs (28k+) → ~284 pages × 4 locales
- *   - SectorsHub   → curated 50-sector list   → 1 page × 4 locales
- *   - CompaniesHub → known-company-slugs.json → ~2 pages × 4 locales
+ *   - SectorsHub   → curated sectors + qualified automatic hubs → paginated × 4 locales
+ *   - CompaniesHub → known-company-slugs.json → paginated directory × 4 locales
  *   - ArticlesHub  → blog-meta-{lang}.ts      → ~9 pages × 4 locales
  *
  * Each page is fully static HTML with canonical, hreflang alternates,
@@ -84,6 +84,9 @@ import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from '
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { logoUrlForRenderedOutput } from '../services/jobDataNormalization';
+import { readAutoSectorHubInventory, countAutoSectorHubEmployers } from './shared/autoSectorHubPublicationData';
+import { isIndexableSectorHubPublication } from '../data/sector-hub-publications';
+import { buildAutoSectorHubPath } from './shared/autoSectorHubPaths';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_CH',
@@ -853,6 +856,69 @@ function hasEmittedJobDetailPage(
   }
 }
 
+function emittedJobArchiveItems(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  jobSlugs: readonly string[],
+  jobPerLocale: Record<HubLocale, Record<string, string>>,
+  locale: HubLocale,
+): Array<{ slug: string; href: string }> {
+  const localeMap = jobPerLocale[locale];
+  const itMap = jobPerLocale.it;
+  const emitted: Array<{ slug: string; href: string }> = [];
+  for (const slug of jobSlugs) {
+    const href = localeMap[slug] || itMap[slug];
+    if (!href || !hasEmittedJobDetailPage(fs, np, distDir, href)) continue;
+    emitted.push({ slug, href });
+  }
+  return emitted;
+}
+
+/**
+ * Count archive pages from the same emitted-detail inventory used by the hub
+ * renderer. The canonical slug registry is historical and monotonic, so its
+ * raw size can advertise a tail of page-index links whose targets were not
+ * emitted in the current build.
+ */
+export function countEmittedJobArchivePages(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  distDir: string,
+  locale: HubLocale = 'it',
+): number {
+  const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  return countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+}
+
+/** Count the rendered archive pages from one shared registry read, per locale. */
+export function countEmittedJobArchivePagesByLocale(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  distDir: string,
+): Record<HubLocale, number> {
+  const { slugs, perLocale } = readJobSlugsMap(rootDir);
+  const counts = {} as Record<HubLocale, number>;
+  for (const locale of HUB_LOCALES) {
+    counts[locale] = countEmittedJobArchivePagesForLocale(fs, np, distDir, slugs, perLocale, locale);
+  }
+  return counts;
+}
+
+function countEmittedJobArchivePagesForLocale(
+  fs: typeof fsT,
+  np: typeof npT,
+  distDir: string,
+  slugs: readonly string[],
+  perLocale: Record<HubLocale, Record<string, string>>,
+  locale: HubLocale,
+): number {
+  const itemCount = emittedJobArchiveItems(fs, np, distDir, slugs, perLocale, locale).length;
+  return Math.max(1, Math.ceil(itemCount / JOBS_PAGE_SIZE));
+}
+
 /**
  * Parse CRAWLED_COMPANY_LOGOS from services/jobDataNormalization.ts source.
  * Returns slug → URL map for use as fallback when the local manifest has no
@@ -903,7 +969,7 @@ function readCompanySlugs(fs: typeof fsT, np: typeof npT, rootDir: string): stri
 // `readArticleExcerpts` (was a private copy here) now lives in
 // `packages/articles/engine/shared/articleReaders.ts` alongside the title and
 // slug readers it belongs with — the topic-cluster hubs (#5001) parse the same
-// meta files, and a second literal copy of that regex is exactly the drift
+// meta files, and a second literal copy of that parser is exactly the drift
 // that module was created to prevent (AGENTS.md #6). Imported at the top.
 
 interface BuildHtmlArgs {
@@ -1345,6 +1411,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
   const copy = {
     it: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} dell'archivio — ${archiveTitle}`,
       intro: `Questo indice raccoglie i collegamenti alle pagine ${range.start}–${range.end} dell'archivio, su ${totalPages} pagine complessive e ${totalItems.toLocaleString('it')} contenuti aggiornati. Apri una pagina per consultare le offerte, i settori o le aziende della fascia corrispondente senza scorrere un elenco unico troppo pesante.`,
       listHeading: 'Pagine incluse in questo indice',
       indexHeading: "Altri indici dell'archivio",
@@ -1354,6 +1421,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     en: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} in the archive — ${archiveTitle}`,
       intro: `This index links to archive pages ${range.start}–${range.end}, within ${totalPages} pages and ${totalItems.toLocaleString('en')} updated entries in total. Open a page to browse the matching jobs, sectors, or companies without loading one oversized list of every archive page.`,
       listHeading: 'Pages in this index',
       indexHeading: 'Other archive indexes',
@@ -1363,6 +1431,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     de: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} im Archiv — ${archiveTitle}`,
       intro: `Dieser Index verlinkt die Archivseiten ${range.start}–${range.end} innerhalb von insgesamt ${totalPages} Seiten und ${totalItems.toLocaleString('de')} aktualisierten Einträgen. Öffnen Sie eine Seite, um die passenden Stellen, Branchen oder Unternehmen zu sehen, ohne eine übergroße Gesamtliste zu laden.`,
       listHeading: 'Seiten in diesem Index',
       indexHeading: 'Weitere Archivindizes',
@@ -1372,6 +1441,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     },
     fr: {
       title: `${archiveTitle} — ${rangeLabel}`,
+      h1: `${rangeLabel} de l’archive — ${archiveTitle}`,
       intro: `Cet index relie les pages d’archive ${range.start}–${range.end}, parmi ${totalPages} pages et ${totalItems.toLocaleString('fr')} contenus mis à jour au total. Ouvrez une page pour consulter les offres, secteurs ou entreprises correspondants sans charger une liste unique trop lourde.`,
       listHeading: 'Pages incluses dans cet index',
       indexHeading: 'Autres index de l’archive',
@@ -1457,7 +1527,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
       <span>${esc(rangeLabel)}</span>
     </nav>
     <header class="s-S1RSUf">
-      <h1 class="s-e3gkVi">${esc(copy.title)}</h1>
+      <h1 class="s-e3gkVi">${esc(copy.h1)}</h1>
       <p class="s-OPPwy-">${esc(copy.intro)}</p>
       <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
     </header>
@@ -1614,7 +1684,7 @@ function cantonHubH1(locale: HubLocale, hub: CantonHubKind, cantonLabel: string,
 }
 
 // Per-hub-kind meta description for the thin canton sub-hubs. Kept to the
-// 140-160 char SERP range via `finalizeMeta` (issue #2996 — the old one-liners
+// 140-150 char SERP range via `finalizeMeta` (issue #2996 — the old one-liners
 // were ~60 chars, which GSC flags as "Description too short", e.g. on
 // /cerca-lavoro-ticino/aziende/). These feed ONLY the <meta name="description">
 // (the visible header uses `h1`/`bodyCopy`), so length is free to grow without
@@ -1676,7 +1746,7 @@ function buildPageNCompactProse(locale: HubLocale, cantonLabel: string, hub: Can
  * push the page over the 50-word floor enforced by validate-sitemap-pages
  * for small cantons (Glarona / Uri / Svitto / Zugo / Neuchatel had only the
  * employer-link grid + 1-sentence intro and tripped the gate). Independent of
- * the meta description, which `cantonHubIntro` now sizes to the 140-160 char
+ * the meta description, which `cantonHubIntro` now sizes to the 140-150 char
  * SERP range (issue #2996).
  */
 function cantonHubBody(locale: HubLocale, hub: CantonHubKind, cantonLabel: string): string {
@@ -2455,15 +2525,17 @@ function readArticleDates(
   registryFile: string,
 ): Map<string, string> {
   const out = new Map<string, string>();
+  let src: string;
   try {
-    const src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
-    // Same field-order-independent parser as the package's reader: the regex
-    // here required `category` right after `id`, so an entry with `updatedAt`
-    // first had no date. `date: ''` (unknown) stays out of the map.
-    for (const entry of parseArticleRegistryEntries(src)) {
-      if (entry.date) out.set(entry.id, entry.date);
-    }
-  } catch { /* registry absent — keep insertion order */ }
+    src = fs.readFileSync(np.join(rootDir, registryFile), 'utf-8');
+  } catch { /* registry absent — keep insertion order */ return out; }
+  // Same field-order-independent parser as the package's reader: the old
+  // regex required `category` right after `id`, so an entry with `updatedAt`
+  // first had no date. `date: ''` (unknown) stays out of the map. Parser
+  // errors remain fatal so the hub cannot silently publish an incomplete order.
+  for (const entry of parseArticleRegistryEntries(src)) {
+    if (entry.date) out.set(entry.id, entry.date);
+  }
   return out;
 }
 
@@ -2657,6 +2729,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     cantonEmployerCounts,
   } = readJobsData(fs, np, rootDir);
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
+  const autoSectorInventory = readAutoSectorHubInventory(rootDir);
 
   const ensuredDirs = new Set<string>();
   function writeFile(canonicalPath: string, html: string): void {
@@ -2681,15 +2754,10 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       // is identical per locale — keeps hreflang alternates consistent. When a
       // locale-specific translated path is missing, fall back to the IT canonical
       // path (item is still browseable; user lands on the IT detail).
-      const localeMap = jobPerLocale[locale];
-      const itMap = jobPerLocale.it;
-      for (const slug of jobSlugs) {
-        const localePath = localeMap[slug] || itMap[slug];
-        if (!localePath || !hasEmittedJobDetailPage(fs, np, distDir, localePath)) continue;
-        items.push({ href: localePath, label: humanizeSlug(slug) });
+      for (const { slug, href } of emittedJobArchiveItems(fs, np, distDir, jobSlugs, jobPerLocale, locale)) {
+        items.push({ href, label: humanizeSlug(slug) });
       }
     } else if (hubKey === 'sectors') {
-      pageSize = HUB_SECTORS.length;
       const sectionRoot = legacyTiSectionRoot(locale);
       // Sectors with a curated static hub get the canonical URL; the rest fall
       // back to the TI job-board root. NEVER `?q=`: robots.txt disallows
@@ -2704,6 +2772,21 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
           : `${sectionRoot}/`;
         items.push({ href, label: sector[locale], emoji: sectorEmojiFor(sector.key) });
       }
+      for (const publication of autoSectorInventory.registry.hubs) {
+        const jobs = autoSectorInventory.jobsBySlug.get(publication.slug) || [];
+        const label = publication.labelByLocale[locale];
+        if (!label || !isIndexableSectorHubPublication(
+          publication, jobs.length, countAutoSectorHubEmployers(jobs), locale,
+        )) continue;
+        items.push({
+          href: buildAutoSectorHubPath(locale, publication.slug, publication.routeKind),
+          label,
+          emoji: '🔎',
+        });
+      }
+      // Keep the single-page index for the current curated set, then paginate
+      // dynamic growth at 100 items and emit those pages in all locales.
+      pageSize = Math.max(HUB_SECTORS.length, Math.min(100, items.length));
     } else {
       pageSize = COMPANIES_PAGE_SIZE;
       const sectionRoot = legacyTiSectionRoot(locale);
@@ -2730,30 +2813,13 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
     const total = items.length;
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
-    // Cap non-IT page-N>1 emission (2026-05-13): the master jobs hub has
-    // ~400 pages × 4 locales = ~1600 thin paginated HTML files at ~150 KB
-    // each = ~240 MB of dist — the dominant source of the deploy artifact
-    // crossing the 1 GB Pages cap + the text-html-ratio regression (471 →
-    // 1917 offenders, all `find-jobs-ticino/all/page-N` family). IT keeps
-    // every page-N as static HTML (canonical for search). Non-IT locales
-    // emit only page-1 — page-N>1 routes via the SPA shell.
-    //
-    // Hreflang impact: buildHtml only emits hreflang alternates on page-1
-    // (see line 661), so dropping non-IT page-N HTML doesn't break per-page
-    // hreflang signals. The sitemap entry for IT page-N>1 also drops its
-    // `xhtml:link` alternates (would 404 otherwise) — page-1 keeps the
-    // full 4-locale alternate set.
-    const emitNonItPageN = false;
-    // Pagination chrome (compact nav + bounded index links + <link rel="next">) is
-    // built from this value, NOT from `totalPages` above — passing the real
-    // ~400-page count to non-IT locales rendered dead `page-2..page-N`
-    // anchors on their own (never-emitted-beyond-1) page-1, which crawlers
-    // followed straight into the `JOB_BOARD_PAGINATION_PATTERN` catch-all in
-    // searchConsoleCompat.ts (redirects ANY `.../alle/page-N/` to the section
-    // root): every one of those links 301'd by construction, since the target
-    // page never existed. Capped to `1` for non-IT locales (matches what is
-    // actually emitted) removes the pagination chrome entirely there instead
-    // of advertising pages that don't exist (#6394).
+    // Keep the large non-IT job archive cap. Company directories are a
+    // separate inventory: truncating them to page 1 made valid company
+    // page-N URLs 404 and hid their remaining records. Emit their real
+    // pages in every locale; navigation must use the same emission policy.
+    // Page-1 hreflang remains reciprocal; page-N entries self-reference
+    // their actual locale (buildHtml emits no page-N head alternates).
+    const emitNonItPageN = hubKey === 'companies' || hubKey === 'sectors';
     const renderTotalPages = locale === 'it' || emitNonItPageN ? totalPages : 1;
     for (let page = 1; page <= totalPages; page++) {
       if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
@@ -2765,15 +2831,14 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const canonicalPath = paginatedPath(basePath, page);
       writeFile(canonicalPath, html);
 
-      // Sitemap: one entry per (hub, locale, page) tuple. Non-IT locales only
-      // ever reach page 1 (the `continue` above skips page>1 for them), so
+      // Sitemap: one entry per emitted (hub, locale, page) tuple. All locales
+      // reach page 1 and company directories also reach subsequent pages, so
       // each locale gets its own reciprocal <loc> here — required for the
       // 4-locale alternate group below to pass sanitizeSitemapHreflangReciprocity
       // (every href must resolve to a real <loc> elsewhere in the sitemap).
       //
       // Hreflang alternates: page-1 ships the full 4-locale set; page-N>1
-      // ships IT-only (non-IT page-N HTML is no longer emitted, so listing
-      // those URLs as alternates would advertise 404s).
+      // self-references the owning locale, without advertising unbuilt peers.
       const altLinks = page === 1
         ? HUB_LOCALES.map((alt) => {
             const altBase = alt === 'it' ? HUB_SLUGS.it[
@@ -2783,7 +2848,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
             ];
             return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altBase}" />`;
           }).join('\n')
-        : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
+        : `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${canonicalPath}" />`;
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
@@ -2791,10 +2856,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       );
     }
 
-    // Long non-article hubs keep all their archive pages static for IT, so
-    // emit the matching page-range indexes after the archive pages. Article
-    // archives use a separate core and never reach this function.
-    if (locale === 'it' && totalPages > PAGINATION_INDEX_THRESHOLD) {
+    // Emit matching range indexes wherever this family emits archive pages.
+    // Article archives use a separate core and never reach this function.
+    if ((locale === 'it' || emitNonItPageN) && totalPages > PAGINATION_INDEX_THRESHOLD) {
       const parentPath = basePath.replace(/[^/]+\/$/, '');
       const parentLabel = hubKey === 'companies'
         ? SECTION_LABEL[locale].companies

@@ -33,6 +33,7 @@ import { htmlHasIndexableRobots } from '../build-plugins/shared/incrementalHtmlR
 import { createAuditor as createTextHtmlRatioAuditor } from '../scripts/audit-text-html-ratio.mjs';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
+import { extractFuelBreadcrumbTargets } from './utils/fuelBreadcrumbs';
 import { AD_SLOTS } from '../services/adsenseSlots';
 
 // Minimal dataset sufficient for the renderer (nearby Swiss stations in each
@@ -204,6 +205,61 @@ describe('fuel-daily page generation — content quality', () => {
     expect(trend7).toBeGreaterThan(driveby);
   });
 
+  it('renders the shared same-currency calculator on regional petrol and diesel pages with known sample prices', () => {
+    const petrol = pages['/prezzi-benzina/oggi/'];
+    const diesel = pages['/prezzi-diesel/oggi/'];
+
+    expect(petrol).toContain('data-fuel-trip-calculator');
+    expect(petrol).toContain('data-currency=CHF');
+    expect(petrol).toContain('TCS · media campione');
+    expect(petrol).toContain('value=1.78');
+    expect(diesel).toMatch(/data-fuel=(?:"diesel"|'diesel'|diesel)(?=\s|>)/);
+    expect(diesel).toContain('data-currency=CHF');
+    expect(diesel).toMatch(/data-fuel-trip-field=(?:"additionalRoundTripKm"|'additionalRoundTripKm'|additionalRoundTripKm)(?=\s|>)/);
+
+    const undatedDatasetPage = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-daily-undated-test', dataset: DATASET, today, history: [] })['/prezzi-benzina/oggi/'];
+    expect(undatedDatasetPage).toContain('Data del prezzo iniziale: data non disponibile');
+
+    const datedDataset = {
+      ...DATASET,
+      municipalities: DATASET.municipalities.map((municipality) => ({
+        ...municipality,
+        swiss: { ...municipality.swiss, nearbyStations: municipality.swiss.nearbyStations.map((station) => station.id === 'c1' ? { ...station, updatedAt: '2026-04-18T06:00:00.000Z', dieselUpdatedAt: '2026-04-19T06:00:00.000Z' } : station) },
+      })),
+    };
+    const datedPages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-daily-dated-test', dataset: datedDataset, today, history: [] });
+    expect(datedPages['/prezzi-benzina/oggi/']).toContain('Data del prezzo iniziale: 18.04.2026');
+    expect(datedPages['/prezzi-diesel/oggi/']).toContain('Data del prezzo iniziale: 19.04.2026');
+  });
+
+  it('renders zone calculators from each zone sample with explicit CHF and known or unavailable dates', () => {
+    const expectedBenzina = {
+      chiasso: [1.795, 1.78],
+      mendrisio: [1.81, 1.8],
+      lugano: [1.85, 1.84],
+      bellinzona: [1.84, 1.83],
+      locarno: [1.88, 1.87],
+    } as const;
+    const readInitialValue = (html: string, field: string): number => {
+      const fieldPattern = `data-fuel-trip-field=(?:"${field}"|'${field}'|${field})(?=\\s|>)`;
+      const tag = html.match(new RegExp(`<input\\b(?=[^>]*${fieldPattern})[^>]*>`))?.[0];
+      expect(tag, `missing ${field} input`).toBeTruthy();
+      const value = tag?.match(/\bvalue=(?:"([^"]*)"|'([^']*)'|([^\s>]+))/);
+      const parsed = Number(value?.[1] ?? value?.[2] ?? value?.[3]);
+      expect(Number.isFinite(parsed), `${field} should have a finite price`).toBe(true);
+      return parsed;
+    };
+
+    for (const zone of FUEL_ZONES) {
+      const html = pages[buildFuelTodayPath('it', 'benzina', zone)];
+      expect(html).toContain('data-fuel-trip-calculator');
+      expect(html).toContain('data-currency=CHF');
+      expect(readInitialValue(html, 'referencePrice')).toBeCloseTo(expectedBenzina[zone][0]);
+      expect(readInitialValue(html, 'alternativePrice')).toBeCloseTo(expectedBenzina[zone][1]);
+      expect(html).toContain('Data del prezzo iniziale: data non disponibile');
+    }
+  });
+
   it('keeps history-rich daily pages above the production text/HTML floor', async () => {
     const history = Array.from({ length: 180 }, (_, index) => {
       const date = new Date(today.getTime() - (179 - index) * 86_400_000);
@@ -268,6 +324,18 @@ describe('fuel-daily page generation — content quality', () => {
       expect(types).toContain('BreadcrumbList');
       expect(types).toContain('WebPage');
       expect(types).toContain('FAQPage');
+    }
+  });
+
+  it('breadcrumb targets use emitted fuel routes', () => {
+    for (const [path, html] of Object.entries(pages)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      expect(targets.visible, `page ${path} has no visible breadcrumbs`).not.toHaveLength(0);
+      for (const target of [...targets.jsonLd, ...targets.visible]) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
     }
   });
 
@@ -602,6 +670,74 @@ describe('fuel-daily page generation — observation date', () => {
   });
 });
 
+describe('fuel-daily page generation — dated EUR equivalent', () => {
+  const today = new Date('2026-04-20T06:00:00.000Z');
+  const ecbSourceUrl = 'https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html';
+  const dataset = {
+    ...DATASET,
+    sources: {
+      exchangeRate: {
+        provider: 'ECB',
+        sourceUrl: ecbSourceUrl,
+        rateDate: '2026-04-17',
+        chfPerEur: 0.95,
+        eurPerChf: 1 / 0.95,
+      },
+    },
+  };
+  const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-eur-test', dataset, history: [], today });
+
+  it('shows the CHF-to-EUR equivalent with the dated ECB source on existing URLs in every locale', () => {
+    for (const [locale, path, rate] of [
+      ['it', '/prezzi-benzina/oggi/', '0,9500'],
+      ['en', '/en/gasoline-price-switzerland/today/', '0.9500'],
+      ['de', '/de/benzinpreis-schweiz/heute/', '0.9500'],
+      ['fr', '/fr/prix-essence-suisse/aujourd-hui/', '0,9500'],
+    ]) {
+      const html = pages[path];
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+      expect(html, locale).toMatch(htmlAttr('id', 'fuelEuroContext'));
+      expect(html, locale).toContain('17.04.2026');
+      expect(html, locale).toContain(ecbSourceUrl);
+      expect(html, locale).toContain(rate);
+      const descriptionTag = (html.match(/<meta\b[^>]*>/gi) ?? [])
+        .find(tag => /\sname=(?:"description"|'description'|description)(?=[\s>])/i.test(tag));
+      expect(descriptionTag, locale).toBeDefined();
+      const descriptionContent = descriptionTag?.match(/\scontent=(?:"([^"]*)"|'([^']*)'|([^\s>]+))(?=[\s>])/i);
+      expect(descriptionContent?.slice(1).find(value => value !== undefined), locale).toMatch(/EUR\/l/i);
+    }
+
+    // The regional SP95 fixture averages CHF 1.835/l; at 1 EUR = CHF 0.95,
+    // the reciprocal conversion rounds to EUR 1.932/l.
+    expect(pages['/prezzi-benzina/oggi/']).toContain('≈ 1,932 EUR/l');
+  });
+
+  it('hides the conversion when the ECB observation date is invalid', () => {
+    const invalidDataset = {
+      ...dataset,
+      sources: { exchangeRate: { ...dataset.sources.exchangeRate, rateDate: '2026-02-30' } },
+    };
+    const invalidPages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-eur-invalid-date-test', dataset: invalidDataset, history: [], today });
+    const html = invalidPages['/prezzi-benzina/oggi/'];
+
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
+  });
+
+  it('keeps the existing CHF-only output when exchange-rate metadata is absent', () => {
+    const withoutRatePages = generateFuelDailyPages({
+      rootDir: '/tmp/frontaliere-fuel-eur-no-rate-test',
+      dataset: DATASET,
+      history: [],
+      today,
+    });
+    const html = withoutRatePages['/prezzi-diesel/oggi/'];
+
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroEquivalent'));
+    expect(html).not.toMatch(htmlAttr('id', 'fuelEuroContext'));
+  });
+});
+
 describe('fuel-daily archive generation', () => {
   it('links every emitted archive month from its matching daily page', () => {
     const today = new Date('2026-10-14T06:00:00.000Z');
@@ -647,6 +783,27 @@ describe('fuel-daily archive generation', () => {
       expect(path.includes('2026-04')).toBe(false);
     }
     expect(Object.keys(archives).length).toBeGreaterThan(0);
+  });
+
+  it('archive breadcrumb targets use emitted fuel routes', () => {
+    const archiveSnapshot = {
+      date: '2026-03-15',
+      zones: Object.fromEntries(FUEL_ZONES.map((zone) => [zone, { benzina: 1.8, diesel: 1.9 }])),
+      regional: { benzina: 1.8, diesel: 1.9 },
+    } as Parameters<typeof generateFuelArchivePages>[0]['history'][number];
+    const archives = generateFuelArchivePages({
+      history: [archiveSnapshot],
+      today: new Date('2026-04-20T06:00:00.000Z'),
+    });
+
+    for (const [path, html] of Object.entries(archives)) {
+      const targets = extractFuelBreadcrumbTargets(html);
+      expect(targets.jsonLd, `page ${path} has no JSON-LD breadcrumbs`).not.toHaveLength(0);
+      for (const target of targets.jsonLd) {
+        if (target === '/') continue;
+        expect(isFuelDailyPath(target), `${path} breadcrumb target ${target}`).toBe(true);
+      }
+    }
   });
 
   it('returns empty object when history is empty', () => {

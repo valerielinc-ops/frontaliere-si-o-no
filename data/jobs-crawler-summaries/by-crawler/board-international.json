@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-10-14T21:24:54.331Z",
+  "generatedAt": "2026-10-21T09:32:21.864Z",
   "total": 5,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 2460,
-  "avgDurationMs": 2460,
+  "durationMs": 2689,
+  "avgDurationMs": 2689,
   "durationHistory": [
-    2460
+    2689
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -197,7 +197,7 @@
       "postedDate": "2026-07-20",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-10-18",
+      "validThrough": "",
       "id": "board-international-549138686b90",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -217,5 +217,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

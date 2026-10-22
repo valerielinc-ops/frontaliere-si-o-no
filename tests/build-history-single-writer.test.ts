@@ -205,6 +205,9 @@ const HISTORY = 'data/build-history/memory-peaks.jsonl';
 const WRITER_FILES = [
   'scripts/lib/commit-build-history-rows.sh',
   'scripts/lib/git-push-with-retry.sh',
+  // Il wrapper fail-closed verifica il candidato prima del push su main.
+  'scripts/lib/main-push-guard.mjs',
+  'scripts/lib/is-invoked-directly.mjs',
   // Il push con retry lancia ogni comando di rete attraverso questo wrapper.
   'scripts/lib/run-bounded-command.mjs',
   // Il wrapper importa questo helper per la telemetria non bloccante.
@@ -213,7 +216,10 @@ const WRITER_FILES = [
   'scripts/lib/clear-checkout-git-credentials.sh',
   'scripts/lib/git-push-rejection.sh',
   'scripts/lib/old-history-guard.mjs',
+  'scripts/lib/git-fetch-target.mjs',
   'scripts/lib/single-flight-lock.mjs',
+  // Il wrapper di push invoca questa CLI prima di aggiornare main.
+  'scripts/ci/guard-main-tree-shrink.mjs',
   'scripts/lib/accumulator-byte-floor-guard.mjs',
   'scripts/ci/assert-accumulator-write.mjs',
 ];

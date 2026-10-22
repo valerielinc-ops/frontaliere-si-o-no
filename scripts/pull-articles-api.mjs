@@ -59,6 +59,11 @@ import { dropRetiredSitemapUrlBlocks, isRetiredLoc } from './lib/sitemap-retired
 import { readSlugRegistryWithRows } from './lib/article-slug-registry.mjs';
 import { isReservedPublishedSlug } from './lib/published-slug-guard.mjs';
 import { validatePublishedBlogImageEvidence } from './lib/published-blog-image-evidence.mjs';
+import {
+  parsePublishedCantonArticles,
+  PUBLISHED_CANTON_ARTICLES_ARTIFACT,
+  PUBLISHED_CANTON_ARTICLES_PATH,
+} from './lib/published-canton-articles.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, 'public');
@@ -115,6 +120,20 @@ const log = (msg) => console.log(`[pull-articles-api] ${msg}`);
 const fail = (msg) => {
   console.error(`::error::[pull-articles-api] ${msg}`);
   process.exit(1);
+};
+
+const failSnapshotMismatch = (msg) => {
+  const output = process.env.GITHUB_OUTPUT;
+  if (output) {
+    try {
+      // The hint is consumed by the pair wrapper. Keep remote-derived details
+      // out of the workflow command file; the diagnostic remains in stderr.
+      fs.appendFileSync(output, 'retryable-snapshot=true\n');
+    } catch {
+      // The pull still fails closed if the wrapper cannot read this hint.
+    }
+  }
+  fail(msg);
 };
 
 // ── Artifacts the generator migration adds (issue #4974 item 3) ──────
@@ -621,7 +640,7 @@ try {
   fail(`${SLUGS_ARTIFACT} unavailable: ${err.message}`);
 }
 if (Buffer.byteLength(slugsRaw, 'utf8') !== slugsBytes) {
-  fail(`${SLUGS_ARTIFACT} byte count differs from manifest — refusing`);
+  failSnapshotMismatch(`${SLUGS_ARTIFACT} byte count differs from manifest — refusing`);
 }
 
 let publishedSlugs;
@@ -630,11 +649,48 @@ try {
 } catch (err) {
   fail(`${SLUGS_ARTIFACT} is not valid JSON: ${err.message}`);
 }
-if (!publishedSlugs || publishedSlugs.commit !== manifest.commit) {
-  fail(`${SLUGS_ARTIFACT} does not match manifest commit ${manifest.commit} — refusing`);
+if (!publishedSlugs || typeof publishedSlugs !== 'object' || Array.isArray(publishedSlugs)
+  || typeof publishedSlugs.commit !== 'string') {
+  fail(`${SLUGS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (publishedSlugs.commit !== manifest.commit) {
+  failSnapshotMismatch(`${SLUGS_ARTIFACT} does not match manifest commit ${manifest.commit} — refusing`);
 }
 
 const staged = new Map();
+
+// Canton article registries are published as a JSON artifact because their
+// source stays in the corpus/R2 boundary rather than in this checkout. Keep
+// the manifest commit and byte count as the transport contract before the
+// cover-ledger sync consumes the article/image pairs.
+const cantonArticleCount = manifest.counts?.cantonArticles;
+const cantonArticlesBytes = manifest.files?.[PUBLISHED_CANTON_ARTICLES_ARTIFACT];
+if (!Number.isSafeInteger(cantonArticleCount) || cantonArticleCount < 0) {
+  fail(`manifest is missing a valid canton article count for ${PUBLISHED_CANTON_ARTICLES_ARTIFACT} — refusing`);
+}
+if (!Number.isSafeInteger(cantonArticlesBytes) || cantonArticlesBytes <= 0) {
+  fail(`manifest is missing a valid byte count for ${PUBLISHED_CANTON_ARTICLES_ARTIFACT} — refusing`);
+}
+let cantonArticlesRaw;
+try {
+  cantonArticlesRaw = await get(PUBLISHED_CANTON_ARTICLES_ARTIFACT);
+} catch (err) {
+  fail(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT} unavailable: ${err.message}`);
+}
+if (Buffer.byteLength(cantonArticlesRaw, 'utf8') !== cantonArticlesBytes) {
+  failSnapshotMismatch(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT} byte count differs from manifest — refusing`);
+}
+try {
+  parsePublishedCantonArticles(cantonArticlesRaw, {
+    label: PUBLISHED_CANTON_ARTICLES_ARTIFACT,
+    expectedCommit: manifest.commit,
+    expectedCount: cantonArticleCount,
+  });
+} catch (err) {
+  fail(`${err.message}`);
+}
+staged.set(path.join(ROOT, PUBLISHED_CANTON_ARTICLES_PATH), cantonArticlesRaw);
+log(`${PUBLISHED_CANTON_ARTICLES_ARTIFACT}: validated ${cantonArticleCount} articles`);
 
 // The public blog index carries the generated-image registry alongside the
 // reader-facing credit records. Keep that evidence pinned to the same manifest
@@ -652,7 +708,7 @@ try {
   fail(`${BLOG_CREDITS_ARTIFACT} unavailable: ${err.message}`);
 }
 if (Buffer.byteLength(creditsRaw, 'utf8') !== creditsBytes) {
-  fail(`${BLOG_CREDITS_ARTIFACT} byte count differs from manifest — refusing`);
+  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} byte count differs from manifest — refusing`);
 }
 
 let credits;
@@ -661,10 +717,18 @@ try {
 } catch (err) {
   fail(`${BLOG_CREDITS_ARTIFACT} is not valid JSON: ${err.message}`);
 }
-if (!credits || credits.schema !== 1 || credits.section !== 'blog'
-  || credits.commit !== manifest.commit
+if (!credits || typeof credits !== 'object' || Array.isArray(credits)) {
+  fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (typeof credits.commit !== 'string') {
+  fail(`${BLOG_CREDITS_ARTIFACT} has an invalid JSON contract — refusing`);
+}
+if (credits.schema !== 1 || credits.section !== 'blog'
   || !credits.generated || typeof credits.generated !== 'object' || Array.isArray(credits.generated)) {
   fail(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
+}
+if (credits.commit !== manifest.commit) {
+  failSnapshotMismatch(`${BLOG_CREDITS_ARTIFACT} does not match the pinned blog-index contract — refusing`);
 }
 for (const [imageUrl, record] of Object.entries(credits.generated)) {
   const validation = validatePublishedBlogImageEvidence(imageUrl, record);

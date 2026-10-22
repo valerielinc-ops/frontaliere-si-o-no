@@ -30,6 +30,14 @@ import {
  jobGateSubscriberVariant,
  normalizeJobGateArm,
 } from '@/services/jobGateExperimentCore.mjs';
+
+const LEGACY_JOBGATE_V4_EXPERIMENT_ID = 'jobgate-v4';
+const LEGACY_JOBGATE_V4_ARMS: ReadonlySet<string> = new Set([
+ 'control',
+ 'navy_panel',
+ 'spotlight',
+ 'actions_first',
+]);
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
 let _auth: any = null;
@@ -1263,10 +1271,12 @@ export const ONE_TAP_ATTRIBUTION: Readonly<AuthAttributionContext> = Object.free
 
 /**
  * `newsletter_subscribers.variant` for a login that started from the JobBoard
- * gate of a visitor enrolled in the jobgate experiment — the same `jobgate-v4:<arm>` the
- * gate's email unlock writes (`upsertJobGateSubscriber`), which is the
- * readout's join key. The arm travels in the job context JobBoard parks at the
- * gate (`variant` + `experimentId`, re-parked when the assignment resolves)
+ * gate. Current v5 clients use the same `jobgate-v5:<arm>` tag the gate's
+ * email unlock writes; cached v4 clients keep their `jobgate-v4:<arm>` tag so
+ * their consent/OAuth round trip remains attributable after the rollout.
+ * This is the readout's join key. The arm travels in the job context JobBoard
+ * parks at the gate (`variant` + `experimentId`, re-parked when the
+ * assignment resolves)
  * and, for LinkedIn, through the OAuth round trip. Null for any other login:
  * not enrolled (kill switch, Remote Config timeout, bot bypass — the context
  * then carries the headline experiment's id), a job view outside the
@@ -1277,9 +1287,19 @@ export function jobGateSubscriberVariantFor(
  context: AuthJobContext | null | undefined,
  consentSurface: string,
 ): string | null {
- if (consentSurface !== 'job_gate' || !context || context.experimentId !== JOBGATE_EXPERIMENT_ID) return null;
- const arm = normalizeJobGateArm(context.variant);
- return arm ? jobGateSubscriberVariant(arm) : null;
+ if (consentSurface !== 'job_gate' || !context) return null;
+ const arm = String(context.variant ?? '').trim().toLowerCase();
+ if (context.experimentId === JOBGATE_EXPERIMENT_ID) {
+  const normalizedArm = normalizeJobGateArm(arm);
+  return normalizedArm ? jobGateSubscriberVariant(normalizedArm) : null;
+ }
+ if (
+  context.experimentId === LEGACY_JOBGATE_V4_EXPERIMENT_ID
+  && LEGACY_JOBGATE_V4_ARMS.has(arm)
+ ) {
+  return `${LEGACY_JOBGATE_V4_EXPERIMENT_ID}:${arm}`;
+ }
+ return null;
 }
 
 /** The surface a One Tap prompt was last shown for (`promptOneTap({ surface })`). */

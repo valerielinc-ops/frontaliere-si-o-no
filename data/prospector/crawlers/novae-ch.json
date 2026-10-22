@@ -1,0 +1,21 @@
+{
+  "companyKey": "novae-ch",
+  "companyName": "novae",
+  "companyHost": "novae.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://novae.ch/carriere/"
+  ],
+  "detailTemplate": "/emploi/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Plongeur / plongeuse CDI, 80-100% GE, VD, FR, NE, BS, BE, ZH, ZG et LU <svg aria-hidden=\"true\"",
+    "Chef gérant / cheffe gérante CDI, 80-100% GE, VD, FR, NE, BS, BE, ZH, ZG et LU <svg ari",
+    "Cuisinier / cuisinière CDI, 80-100% GE, VD, FR, NE, BS, BE, ZG et LU <svg aria-hidden=\"true\""
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-20T06:26:18.532Z"
+}

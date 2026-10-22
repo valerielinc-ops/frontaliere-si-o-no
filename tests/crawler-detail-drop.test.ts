@@ -11,7 +11,7 @@ import { nextCrawlerState } from '../scripts/check-crawler-health.mjs';
 const NOW_ISO = '2026-09-12T12:00:00.000Z';
 const NOW_MS = Date.parse(NOW_ISO);
 
-const observation = (detailDrop: unknown) => ({
+const observation = (detailDrop: unknown, overrides: Record<string, unknown> = {}) => ({
   slug: 'jumbo',
   freshnessAt: NOW_ISO,
   freshnessSource: 'summary',
@@ -24,6 +24,7 @@ const observation = (detailDrop: unknown) => ({
   authoritativeEmpty: false,
   earlyExit: false,
   exitCode: null,
+  ...overrides,
 });
 
 describe('Coop detail-drop summary channel', () => {
@@ -72,5 +73,56 @@ describe('Coop detail-drop summary channel', () => {
 
     expect(quiet.advisory).toBe(false);
     expect(uninstrumented.advisory).toBe(false);
+  });
+
+  it('does not turn a non-transport extraction abort into an immediate break', () => {
+    const state = nextCrawlerState(
+      { status: 'healthy', consecutiveEmptyRuns: 0 },
+      observation(
+        { candidates: 80, gone: 79, rejected: 1 },
+        {
+          jobCount: 0,
+          activeJobCount: 0,
+          written: 0,
+          parsed: 0,
+          earlyExit: true,
+          exitCode: 0,
+          abortKind: 'source-extraction-failed',
+          lastFetchOutcome: 'selector_miss',
+        },
+      ),
+      NOW_ISO,
+      NOW_MS,
+    ).state;
+
+    expect(state.status).toBe('healthy');
+    expect(state.consecutiveEmptyRuns).toBe(1);
+    expect(state.lastFailureReason).toBeNull();
+    expect(state.advisory).toBe(true);
+  });
+
+  it('still breaks after three distinct extraction aborts', () => {
+    const state = nextCrawlerState(
+      { status: 'healthy', consecutiveEmptyRuns: 2 },
+      observation(
+        { candidates: 80, gone: 79, rejected: 1 },
+        {
+          jobCount: 0,
+          activeJobCount: 0,
+          written: 0,
+          parsed: 0,
+          earlyExit: true,
+          exitCode: 0,
+          abortKind: 'source-extraction-failed',
+          lastFetchOutcome: 'selector_miss',
+        },
+      ),
+      NOW_ISO,
+      NOW_MS,
+    ).state;
+
+    expect(state.status).toBe('broken');
+    expect(state.lastFailureReason).toContain('aborted before publishing');
+    expect(state.lastFailureReason).toContain('source-extraction-failed');
   });
 });

@@ -26,6 +26,15 @@ describe('Stellenpartner AG crawler parser', () => {
     expect(readDeclaredListingTotal('<span>786</span> Resultate', pagination, spec)).toBe(786);
   });
 
+  it('uses the source stable title ordering for paginated snapshots', () => {
+    const spec = loadSpec(STELLENPARTNER_KEY);
+
+    expect(spec.seedUrls).toEqual([
+      'https://www.stellenpartner.ch/stellen/?sort=title-asc',
+    ]);
+    expect(spec.pagination.countDuplicateRowsForCoverage).toBe(true);
+  });
+
   // ── isCompanyJob ──
   describe('isStellenpartnerJob', () => {
     it('matches by companyKey', () => {

@@ -19,11 +19,11 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawn } from 'node:child_process';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, CRAWLER_GROUP_MAX_PARALLEL, generate, buildCrawlerShellBody, buildCrawlerLaunchShellBody, buildCrawlerAggregateShellBody, buildCrawlerAggregateFailureGateShellBody, crawlerWorkerWatchdogMinutes, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths, resolveCrawlerContractSource, assertCommittedContractSource, AGGREGATE_MEMBER_FUNCTION, GENERATED_WORKFLOW_SIZE_BUDGET_BYTES, GITHUB_WORKFLOW_SIZE_LIMIT_BYTES, workflowSizeBudgetViolations, formatWorkflowSizeBudgetViolation, cleanupCrawlerGenerationState } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
@@ -49,12 +49,19 @@ function crawlerResultSteps(steps: any[]) {
     && !step.id.startsWith('crawler-generation-'));
 }
 
+function decodeFixtureScript(script: string): string {
+  // `String.raw` keeps escaped newlines as two bytes. Decode them before the
+  // fixture is written as an executable script so its command boundaries are
+  // the same as the source template's intended shell script.
+  return script.replace(/\\n/g, '\n');
+}
+
 function runTranslateQueueGuardFixture(guardRun: string, ghScript: string, runId = '400') {
   const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-queue-guard-fixture-'));
   const binDir = path.join(scratch, 'bin');
   fs.mkdirSync(binDir);
   const outputPath = path.join(scratch, 'github-output');
-  fs.writeFileSync(path.join(binDir, 'gh'), ghScript, { mode: 0o755 });
+  fs.writeFileSync(path.join(binDir, 'gh'), decodeFixtureScript(ghScript), { mode: 0o755 });
   const fixtureRun = `PATH=${binDir}:$PATH\n${guardRun}`;
 
   try {
@@ -604,6 +611,29 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
   });
 
+  it('exit 45 (transient lease errors): reports an error, does not retry, no per-crawler issue', () => {
+    const transientLeaseDir = writeFixtureCommitScript(45);
+    const crawler = withInspectableFailureReporter(crawlerFixture({ commitCommand: transientLeaseDir }));
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(45);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+  });
+
+  it('exit 45 under the target timeout wrapper stays a real systemic error', () => {
+    const transientLeaseDir = writeFixtureCommitScript(45);
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: transientLeaseDir })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).toBe(45);
+    expect(stdout).not.toContain('TITLE=Crawler Failure: Run test-crawler');
+  });
+
   it('exit 143 (runner shutdown): preserves systemic status without a per-crawler issue', () => {
     const crawler = withInspectableFailureReporter(crawlerFixture({ runCommand: 'bash -c "exit 143"' }));
 
@@ -1024,7 +1054,67 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
   });
 });
 
-describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
+describe('crawler generation state cleanup', () => {
+  it('stops a stale detached slot waiter at startup and remains idempotent at final cleanup', async () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-cleanup-'));
+    const stateDir = path.join(temp, 'crawler-generation', 'group-23');
+    const slotsDir = path.join(stateDir, 'slots');
+    fs.mkdirSync(slotsDir, { recursive: true });
+    fs.writeFileSync(path.join(slotsDir, 'slot-1.lock'), '');
+
+    const launcherPath = path.join(stateDir, 'waiting-launcher.sh');
+    fs.writeFileSync(launcherPath, [
+      '#!/usr/bin/env bash',
+      'state_dir="$(dirname "$0")"',
+      'while [ -e "$state_dir/slots/slot-1.lock" ]; do sleep 1; done',
+      'touch "$state_dir/started-after-slot"',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    const child = spawn('bash', [launcherPath], { detached: true, stdio: 'ignore' });
+    if (!child.pid) throw new Error('detached launcher did not receive a pid');
+    const childExited = new Promise<void>((resolve) => child.once('exit', () => resolve()));
+    fs.writeFileSync(path.join(stateDir, 'waiting-launcher.pid'), `${child.pid}\n`);
+
+    try {
+      const startupCleanup = cleanupCrawlerGenerationState({ phase: 'startup' });
+      const finalCleanup = cleanupCrawlerGenerationState();
+      expect(startupCleanup).toMatchObject({ name: 'Cleanup stale crawler generation state' });
+      expect(startupCleanup).not.toHaveProperty('if');
+      expect(finalCleanup).toMatchObject({
+        name: 'Cleanup crawler generation state',
+        if: 'always()',
+        'continue-on-error': true,
+      });
+      execFileSync('bash', ['-e', '-c', startupCleanup.run], {
+        encoding: 'utf8',
+        env: { ...process.env, RUNNER_TEMP: temp },
+      });
+      expect(fs.existsSync(stateDir)).toBe(false);
+      await new Promise<void>((resolve, reject) => {
+        const timeout = setTimeout(() => reject(new Error('detached crawler launcher survived cleanup')), 5_000);
+        childExited.then(() => {
+          clearTimeout(timeout);
+          resolve();
+        });
+      });
+
+      execFileSync('bash', ['-e', '-c', finalCleanup.run], {
+        encoding: 'utf8',
+        env: { ...process.env, RUNNER_TEMP: temp },
+      });
+      expect(fs.existsSync(stateDir)).toBe(false);
+    } finally {
+      if (child.exitCode === null) {
+        try {
+          process.kill(-child.pid, 'SIGKILL');
+        } catch {
+          // The cleanup function may already have stopped the process group.
+        }
+      }
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  }, 10_000);
+
   it('does not pass RUNNER_TRACKING_ID to either detached launcher branch', () => {
     const body = buildCrawlerLaunchShellBody({
       slug: 'tracking-isolated',
@@ -1053,6 +1143,69 @@ describe('buildCrawlerLaunchShellBody — runner cleanup isolation', () => {
     expect(body).toContain('terminal_exit=143');
   });
 
+  it('keeps the timeout terminal when the worker publishes success after the deadline', () => {
+    const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-terminal-race-'));
+    const binDir = path.join(temp, 'bin');
+    fs.mkdirSync(binDir);
+    for (const name of ['bash', 'cat', 'env', 'mkdir', 'mv', 'nohup', 'rm', 'sleep']) {
+      const source = process.env.PATH?.split(path.delimiter)
+        .map((directory) => path.join(directory, name))
+        .find((candidate) => {
+          try {
+            fs.accessSync(candidate, fs.constants.X_OK);
+            return true;
+          } catch {
+            return false;
+          }
+        });
+      if (!source) throw new Error(`missing test executable: ${name}`);
+      fs.symlinkSync(source, path.join(binDir, name));
+    }
+    fs.writeFileSync(
+      path.join(binDir, 'timeout'),
+      [
+        '#!/usr/bin/env bash',
+        'while [[ "${1:-}" == --* ]]; do shift; done',
+        'shift',
+        '"$@" &',
+        'exit 124',
+        '',
+      ].join('\n'),
+      { mode: 0o755 },
+    );
+
+    const body = buildCrawlerLaunchShellBody({
+      slug: 'timeout-race',
+      durationMs: 60_000,
+      runStep: { env: {}, run: 'sleep 0.2; true' },
+      postSteps: [],
+    } as any, 23);
+
+    try {
+      execFileSync('bash', ['-e', '-c', body], {
+        env: { ...process.env, PATH: binDir, RUNNER_TEMP: temp },
+        encoding: 'utf8',
+      });
+
+      const stateDir = path.join(temp, 'crawler-generation', 'group-23');
+      const statusFile = path.join(stateDir, 'timeout-race.status');
+      const workerStatusFile = path.join(stateDir, 'timeout-race.worker.status');
+      const deadline = Date.now() + 5_000;
+      while (!fs.existsSync(statusFile) && Date.now() < deadline) {
+        execFileSync('sleep', ['0.05']);
+      }
+      // The timeout shim returns immediately while the worker remains alive;
+      // let its delayed success publication happen after the terminal write.
+      execFileSync('sleep', ['0.3']);
+      expect(fs.readFileSync(statusFile, 'utf8')).toBe('124\n');
+      expect(fs.readFileSync(workerStatusFile, 'utf8')).toBe('0\n');
+      expect(fs.existsSync(path.join(stateDir, 'timeout-race.watchdog'))).toBe(true);
+      expect(body).toContain('resolveCrawlerTerminalStatus() {');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
   it('derives a bounded worker watchdog from the target override or duration baseline', () => {
     expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 60 })).toBe(70);
     expect(crawlerWorkerWatchdogMinutes({ targetTimeoutMinutes: 320 })).toBe(330);
@@ -1066,7 +1219,7 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
   // reader. flock/setsid/timeout are shimmed so this runs on macOS too: the
   // semaphore and the watchdog are not what is under test, the file key and
   // its contents are.
-  function launchMember(runCommand: string, commitExit: number) {
+  function launchMember(runCommand: string, commitExit: number, fakeTimeout: Record<string, string> = {}) {
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-crawl-exit-'));
     const bin = path.join(temp, 'bin');
     fs.mkdirSync(bin);
@@ -1083,6 +1236,10 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
       '#!/usr/bin/env bash',
       'while [[ "${1:-}" == --* ]]; do shift; done',
       'shift',
+      'if [ -n "${FAKE_TIMEOUT_EXIT:-}" ]; then',
+      '  if [ "${FAKE_TIMEOUT_RUN_COMMAND:-0}" = "1" ]; then "$@"; fi',
+      '  exit "$FAKE_TIMEOUT_EXIT"',
+      'fi',
       'exec "$@"',
       '',
     ].join('\n'), { mode: 0o755 });
@@ -1100,7 +1257,7 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
       ],
     } as any, 15);
     execFileSync('bash', ['-e', '-c', body], {
-      env: { ...process.env, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
+      env: { ...process.env, ...fakeTimeout, PATH: `${bin}:${process.env.PATH ?? ''}`, RUNNER_TEMP: temp },
       encoding: 'utf8',
     });
     const stateDir = memberCrawlStateDir(temp, '15');
@@ -1126,6 +1283,36 @@ describe('member crawl exit signal end to end (CR-04b writer -> finalizer reader
     const { temp, stateDir, statusFile } = launchMember('true', 1);
     try {
       expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_ok' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.each([124, 137])('records watchdog exit %s as a roster-keyed crawl failure', (exit) => {
+    const { temp, stateDir, statusFile } = launchMember('true', 0, {
+      FAKE_TIMEOUT_EXIT: String(exit),
+      FAKE_TIMEOUT_RUN_COMMAND: '0',
+    });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe(String(exit));
+      expect(fs.readFileSync(path.join(stateDir, 'acme-europe.watchdog'), 'utf8').trim()).toBeTruthy();
+      expect(fs.existsSync(path.join(stateDir, 'acme-europe.crawl-exit'))).toBe(false);
+      expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_failed' });
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it('preserves a recorded crawl success when the watchdog wins a late status race', () => {
+    const { temp, stateDir, statusFile } = launchMember('true', 0, {
+      FAKE_TIMEOUT_EXIT: '124',
+      FAKE_TIMEOUT_RUN_COMMAND: '1',
+    });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('124');
+      expect(fs.readFileSync(path.join(stateDir, 'acme-europe.crawl-exit'), 'utf8')).toBe('0\n');
+      expect(fs.existsSync(path.join(stateDir, 'acme-europe.watchdog'))).toBe(true);
       expect(readMemberCrawlOutcomes(stateDir, ['acme-europe'])).toEqual({ 'acme-europe': 'crawl_ok' });
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
@@ -1427,6 +1614,14 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     expect(runAggregate({ status: '124' }).argv).toHaveLength(0);
   });
 
+  it('reports exit 45 as a systemic lease error without filing a per-crawler issue', () => {
+    const { stdout, argv, output } = runAggregate({ status: '45' });
+    expect(argv).toHaveLength(0);
+    expect(stdout).toContain('::error::sbb: global data-pipeline lease hit consecutive transient Firestore errors (exit 45)');
+    expect(output).toContain('failure_count=1');
+    expect(output).toContain('wait_outcome=failure');
+  });
+
   it('never files for other statuses, even with a stale marker', () => {
     expect(runAggregate({ status: '1', marker: '91' }).argv).toHaveLength(0);
     expect(runAggregate({ status: '0', marker: '91' }).argv).toHaveLength(0);
@@ -1438,6 +1633,27 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     expect(body).toContain('watchdog_status="$(cat "$state_dir/sbb.status" 2>/dev/null || true)"');
     expect(body).toContain('if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then');
     expect(body).toContain("node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run sbb'");
+  });
+
+  it('looks up the watchdog marker by roster id while reporting by crawler slug', () => {
+    const body = buildCrawlerAggregateShellBody([{
+      slug: 'sbb',
+      runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'sbb-europe' }, run: 'true' },
+      postSteps: [],
+    }] as any, 15);
+    expect(body).toContain('aggregate_crawler_member \'sbb\' \'sbb-europe\'');
+    expect(body).toContain('watchdog_file="$state_dir/$crawler_id.watchdog"');
+  });
+
+  it('defaults the watchdog lookup to the slug when its roster id is identical', () => {
+    const body = buildCrawlerAggregateShellBody([{
+      slug: 'sta',
+      runStep: { env: { JOBS_HOUSEKEEPING_SCOPE: 'sta' }, run: 'true' },
+      postSteps: [],
+    }] as any, 15);
+    expect(body).toContain('crawler_id="${2:-$slug}"');
+    expect(body).toContain("aggregate_crawler_member 'sta'");
+    expect(body).not.toContain("aggregate_crawler_member 'sta' 'sta'");
   });
 
   it('keeps the aggregate green when the issue cannot be filed', () => {
@@ -1455,21 +1671,25 @@ describe('push-contention class (exit 42) in generated steps', () => {
     expect(files.length).toBeGreaterThan(0);
     for (const f of files) {
       const y = fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8');
-      // the failure-report gate must exclude 42...
-      expect(y).toContain('[ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]');
+      // the arithmetic failure-report gate must exclude 42...
+      expect(y).toContain('git_commit_exit != 0 && git_commit_exit != 42');
       // ...and the contention branch must log loudly instead of filing an issue
       expect(y).toContain('push contention loss (exit 42)');
       // A global lease convoy is a separate retryable systemic class.
-      expect(y).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(y).toContain('git_commit_exit != 44 && git_commit_exit != 45');
       expect(y).toContain('global data-pipeline lease busy (exit 44)');
+      // A bounded transient Firestore outage is not retryable in this
+      // generation: it must stay red and skip the per-crawler flood.
+      expect(y).toContain('git_commit_exit != 45');
+      expect(y).toContain('consecutive transient Firestore errors (exit 45)');
       // real failures still fail the step (the plain exit 1 path survives)
       expect(y).toContain('exit 1');
     }
   });
 });
 
-describe('#9667 — token-bound retry class on the group-batch commit step', () => {
-  it('retries exit 42/44 in the same generation and fails closed after the bounded budget', () => {
+describe('#9667/#9886 — token-bound retry class on the group-batch commit step', () => {
+  it('retries exit 42/44/46 in the same generation and fails closed after the bounded budget', () => {
     const WORKFLOWS_DIR = path.resolve(import.meta.dirname, '../.github/workflows');
     const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
     expect(files.length).toBeGreaterThan(0);
@@ -1488,8 +1708,13 @@ describe('#9667 — token-bound retry class on the group-batch commit step', () 
       expect(commitStep.run).toContain('retrying the same generation');
       expect(commitStep.run).toContain('same-generation retry budget exhausted');
       // ...as must the cross-repository lease convoy (exit 44), while the
-      // exhausted retryable branch still propagates the non-zero status.
+      // receipt-write failure (exit 46), while the exhausted retryable branch
+      // still propagates the non-zero status.
       expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 44 ]');
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -ne 46 ]');
+      // Exit 45 is deliberately absent from the retry predicate: the generic
+      // non-retryable branch annotates the step and propagates it unchanged.
+      expect(commitStep.run).not.toContain('[ "$git_commit_exit" -ne 45 ]');
       expect(commitStep.run).toContain('retryable commit exit $git_commit_exit');
       expect(commitStep.run).toContain('exit "$git_commit_exit"');
     }
@@ -2303,6 +2528,22 @@ describe('cross-repo crawler execution artifacts', () => {
       sourceCommit: contract.sourceCommit,
     });
     expect(contract.artifacts.every((artifact: any) => artifact.generatorSha256 === contract.generatorSha256)).toBe(true);
+    const cleanupArtifacts = contract.artifacts.filter((artifact: any) => {
+      const generated = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job = Object.values(generated.jobs ?? {})[0] as any;
+      return job.steps.some((step: any) => step.name === 'Cleanup stale crawler generation state')
+        && job.steps.some((step: any) => step.name === 'Cleanup crawler generation state');
+    }).map((artifact: any) => artifact.file);
+    expect(cleanupArtifacts).toEqual(['crawler-group-23.yml']);
+    const generatedGroup23 = YAML.parse(fs.readFileSync(path.join(outDir, 'crawler-group-23.yml'), 'utf8'));
+    const group23Job = Object.values(generatedGroup23.jobs ?? {})[0] as any;
+    const startupCleanup = group23Job.steps.find((step: any) => step.name === 'Cleanup stale crawler generation state');
+    const finalCleanup = group23Job.steps.find((step: any) => step.name === 'Cleanup crawler generation state');
+    expect(group23Job.steps[0]).toBe(startupCleanup);
+    expect(group23Job.steps[group23Job.steps.length - 1]).toBe(finalCleanup);
+    expect(startupCleanup.run).toContain('cleanupCrawlerGenerationState() {');
+    expect(finalCleanup).toMatchObject({ if: 'always()', 'continue-on-error': true });
+    expect(finalCleanup.run).toContain('rm -rf "$state_dir"');
     expect(contract.observerCount).toBe(CORPUS_OBSERVER_FILES.length);
     expect(contract.observers.map(({ source, target }: any) => ({ source, target })))
       .toEqual(CORPUS_OBSERVER_FILES);
@@ -2659,7 +2900,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(translate).toMatch(/retries the atomic ref push after contention/);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
-  it('non applica il lease globale ai crawler e conserva il guard lease per gruppo', () => {
+  it('richiede il lease globale prima che il finalizer possa pubblicare dati condivisi', () => {
     const groupResults = generate({
       outDir: workflowsDir,
       assignmentsPath,
@@ -2671,6 +2912,13 @@ describe('cross-repo crawler execution artifacts', () => {
       const workflow = YAML.parse(result.content);
       const job = Object.values(workflow.jobs)[0] as any;
       expect(job.env?.DATA_PIPELINE_LEASE).toBeUndefined();
+      const firebaseStep = job.steps.find(
+        (step: any) => step.name === 'Prepare Firebase credentials and global data lease',
+      );
+      expect(firebaseStep?.run).toContain('FIREBASE_SERVICE_ACCOUNT_JSON is required to acquire the global data pipeline lease');
+      expect(firebaseStep?.run).toContain('exit 1');
+      expect(firebaseStep?.run).not.toContain('exit 0');
+      expect(firebaseStep?.run).toContain('echo "DATA_PIPELINE_LEASE=1" >> "$GITHUB_ENV"');
     }
     expect(groupResults[0].content).toContain('node scripts/check-crawler-group-live-run.mjs crawler-group-01.yml');
   }, CROSS_REPO_GENERATION_TIMEOUT);

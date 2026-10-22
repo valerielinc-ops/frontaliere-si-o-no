@@ -1,4 +1,4 @@
-import { onRequest } from 'firebase-functions/v2/https';
+import { HttpsError, onCall, onRequest } from 'firebase-functions/v2/https';
 import { handleJobsSourceRelay } from './src/jobsSourceRelay.js';
 import {
  ensureAdminApp,
@@ -58,6 +58,7 @@ import { handleEmployerInsights } from './src/employerInsights.js';
 import { handleRecaptchaVerification } from './src/recaptchaVerification.js';
 import { getPublicConfigValues } from './src/publicConfig.js';
 import { getPublicTrafficCurrent } from './src/publicTrafficCurrent.js';
+import { getPublicTrafficHistory } from './src/publicTrafficHistory.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
 import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
@@ -78,7 +79,17 @@ import {
   runConsultingPaidNoticeSweep,
 } from './src/consultingCore.js';
 import { handleCreateAssistedApplicationCheckout } from './src/assistedApplicationCheckout.js';
-import { handleAssistedApplicationSumUpWebhook } from './src/assistedApplicationSumupWebhook.js';
+import { handleListMyAssistedApplications } from './src/assistedApplicationCandidateStatus.js';
+import {
+  handleAssistedApplicationSumUpWebhook,
+  runAssistedApplicationSumUpReconciliation,
+} from './src/assistedApplicationSumupWebhook.js';
+import {
+  handleCreateSumUpPaymentTestCheckout,
+  handleGetSumUpPaymentTestStatus,
+  handleSumUpPaymentTestWebhook,
+  SUMUP_PAYMENT_TEST_ORIGINS,
+} from './src/sumupPaymentTest.js';
 import { recordApplicationIntent as handleRecordApplicationIntent } from './src/applicationIntentCore.js';
 import { handleCreateApplicationConciergeCheckout } from './src/applicationConciergeCheckout.js';
 import {
@@ -86,13 +97,20 @@ import {
   handleManageApplicationConcierge,
   expireApplicationConciergeServices,
 } from './src/applicationConciergeCore.js';
-import { enrichCandidateProfileFromCv } from './src/candidateCvProfile.js';
-import { runApplicationConciergeMatching } from './src/applicationConciergeMatching.js';
+import { enrichCandidateProfileFromCv, refreshCandidateCvProfile as refreshCandidateCvProfileRecord } from './src/candidateCvProfile.js';
+import {
+  runApplicationConciergeMatching,
+  shouldRunApplicationConciergeMatchingForServiceUpdate,
+} from './src/applicationConciergeMatching.js';
 import { purgeExpiredAssistedApplicationFiles } from './src/assistedApplicationRetention.js';
 import {
   handleAssistedApplicationOrderWritten,
   runAssistedApplicationNotificationSweep,
 } from './src/assistedApplicationNotifications.js';
+import {
+  handleResumeAssistedApplicationPayment,
+  runAssistedApplicationPaymentRecoverySweep,
+} from './src/assistedApplicationPaymentRecovery.js';
 import {
   handleRunnerEvent,
   isAutomationEnabledFor,
@@ -106,6 +124,7 @@ import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
 import { runRendererCheck } from './src/assistedApplicationRendererCheck.js';
 import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
+import { handleGetAssistedApplicationCvUrl } from './src/assistedApplicationCvUrl.js';
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
 import { codexStructured } from './src/lib/codexStructured.js';
@@ -460,6 +479,31 @@ export const manageAssistedApplicationAdmin = onRequest(
   },
 );
 
+// Candidate-safe list of the signed-in user's paid assisted applications.
+export const myAssistedApplications = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleListMyAssistedApplications(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[myAssistedApplications]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
 // Browser-safe Remote Config: returns ONLY the allowlisted client params
 // (see functions/src/publicConfig.js) so the full RC template — with all server
 // secrets — never reaches the browser. Cached at the edge; fails open to the
@@ -503,6 +547,32 @@ export const getTrafficCurrent = onRequest(
  // A non-2xx response is essential: the client then keeps the pre-rendered
  // values instead of treating an empty 200 snapshot as authoritative.
  res.status(503).json({ documents: [], error: 'traffic_snapshot_unavailable' });
+ }
+ },
+);
+
+// Public traffic history aggregate. The browser must not issue six 500-row
+// Firestore queries per visit; the function keeps the same sample and serves
+// the derived day/hour averages from a warm six-hour cache.
+export const getTrafficHistory = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: true,
+ },
+ async (req, res) => {
+ if (req.method !== 'GET') {
+  res.status(405).json({ error: 'method_not_allowed' });
+  return;
+ }
+ try {
+  const snapshot = await getPublicTrafficHistory();
+  res.set('Cache-Control', 'public, max-age=21600, s-maxage=21600');
+  res.status(200).json(snapshot);
+ } catch (error) {
+  console.error('[getTrafficHistory]', error instanceof Error ? error.message : String(error));
+  res.status(503).json({ history: {}, error: 'traffic_history_unavailable' });
  }
  },
 );
@@ -735,6 +805,7 @@ export const newsletterManageSubscription = onRequest(
  const email = String(params.email || '').trim().toLowerCase();
  const token = String(params.token || '').trim();
  const mode = String(params.mode || '').trim().toLowerCase();
+ const assistedApplicationOrderId = String(params.assisted_application_order_id || '').trim();
  const format = String(params.format || '').trim().toLowerCase();
  const enabled = params.enabled;
  const subscribed = params.subscribed;
@@ -843,6 +914,7 @@ export const newsletterManageSubscription = onRequest(
  specificJobId,
  dailyBriefFrequency,
  advertisingEnabled,
+ assistedApplicationOrderId,
  // Attribution for the unsubscribe write only — read nothing, gate nothing.
  // The RFC 8058 one-click POST and the plain footer GET behave identically
  // to before; the stored verb is what tells them apart afterwards.
@@ -1978,6 +2050,36 @@ export const createAssistedApplicationCheckout = onRequest(
   },
 );
 
+// Resume an assisted-application payment from the order page or its recovery
+// email. The server re-checks ownership, the public posting and the provider
+// state before returning a live checkout URL/id.
+export const resumeAssistedApplicationPayment = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleResumeAssistedApplicationPayment(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[resumeAssistedApplicationPayment]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
 // Application concierge endpoints use their own parent service and proposal API.
 // Expire active concierge entitlements after their fixed 30-day window. The
 // candidate endpoints enforce the same timestamp, so this is only a backstop.
@@ -2089,6 +2191,100 @@ export const sumupAssistedApplicationWebhook = onRequest(
         error instanceof Error ? error.message : String(error),
       );
       res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Isolated sandbox checkout for validating SumUp's Google Pay widget. It uses
+// its own Firestore ledger and webhook so a simulated payment cannot enter the
+// production assisted-application workflow.
+export const createSumUpPaymentTestCheckout = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: SUMUP_PAYMENT_TEST_ORIGINS,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleCreateSumUpPaymentTestCheckout(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[createSumUpPaymentTestCheckout]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(502).json({ ok: false, error: 'sandbox_checkout_unavailable' });
+    }
+  },
+);
+
+export const getSumUpPaymentTestStatus = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 15,
+    cors: SUMUP_PAYMENT_TEST_ORIGINS,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleGetSumUpPaymentTestStatus(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[getSumUpPaymentTestStatus]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+export const sumupPaymentTestWebhook = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: false,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleSumUpPaymentTestWebhook(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error(
+        '[sumupPaymentTestWebhook]',
+        error instanceof Error ? error.message : String(error),
+      );
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// SumUp retries webhook delivery, but a callback can still be acknowledged
+// while the provider is processing a later attempt. Re-check recent, unpaid
+// assisted-app checkouts so a provider-confirmed PAID state cannot remain
+// locked in the local ledger indefinitely.
+export const reconcileAssistedApplicationSumUpPayments = onSchedule(
+  {
+    region: 'europe-west6',
+    schedule: 'every 30 minutes',
+    timeZone: 'Europe/Zurich',
+    memory: '256MiB',
+    timeoutSeconds: 120,
+  },
+  async () => {
+    try {
+      const summary = await runAssistedApplicationSumUpReconciliation({ db: getAdminDb() });
+      if (summary.promoted || summary.errors) {
+        console.log('[reconcileAssistedApplicationSumUpPayments]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[reconcileAssistedApplicationSumUpPayments]',
+        error instanceof Error ? error.message : String(error),
+      );
+      throw error;
     }
   },
 );
@@ -2430,6 +2626,36 @@ export const getPublisherApplicationCvUrl = onRequest(
  },
 );
 
+// Mint a short-lived read link for the CV owner. The bucket stays client-read-
+// denied; this endpoint rechecks the authenticated order owner and payment.
+export const getAssistedApplicationCvUrl = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: [
+      'https://frontaliereticino.ch',
+      'https://www.frontaliereticino.ch',
+      'https://frontaliere-ticino.web.app',
+      'https://frontaliere-ticino.firebaseapp.com',
+      /^http:\/\/localhost(:\d+)?$/,
+    ],
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleGetAssistedApplicationCvUrl(req, {
+        db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
+      });
+      res.set('Cache-Control', 'no-store');
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[getAssistedApplicationCvUrl]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
 // GDPR retention: purge applications older than the retention window, daily.
 export const purgePublisherApplications = onSchedule(
  { region: 'europe-west6', schedule: 'every 24 hours', timeZone: 'Europe/Zurich' },
@@ -2443,7 +2669,7 @@ export const purgePublisherApplications = onSchedule(
  },
 );
 
-// Email concierge for the 0,99 € assisted application: on the payment, the
+// Email concierge for the 1,99 € assisted application: on the payment, the
 // materials upload and the "submitted" transition, the customer gets an email
 // from valerie@ (and Valerie an internal notice). Transition-based, so the
 // handler's own `notifications.*` bookkeeping never re-triggers a send.
@@ -2522,6 +2748,23 @@ export const enrichAssistedApplicationProfile = onDocumentWritten(
   },
 );
 
+// A deployed parser upgrade can refresh the signed-in owner's existing CV
+// projection without re-running concierge matching or changing an application.
+export const refreshCandidateCvProfile = onCall(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 120 },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    try {
+      const result = await refreshCandidateCvProfileRecord({ db: getAdminDb(), userId });
+      return result;
+    } catch (error) {
+      console.error('[refreshCandidateCvProfile]', error instanceof Error ? error.name : 'unknown_error');
+      throw new HttpsError('internal', 'cv_profile_refresh_failed');
+    }
+  },
+);
+
 // Uploading a CV starts the candidate-specific workflow: enrich the private
 // profile, then scan the published Swiss job index and create explainable
 // proposals. Every proposal remains pending until the candidate accepts it.
@@ -2532,24 +2775,27 @@ export const processApplicationConciergeCv = onDocumentWritten(
     if (!after?.exists) return;
     const before = event.data?.before?.exists ? event.data.before.data() : null;
     const data = after.data() || {};
-    if (!data.cvStorageKey || data.cvStorageKey === before?.cvStorageKey) return;
+    if (!shouldRunApplicationConciergeMatchingForServiceUpdate(before, data)) return;
     try {
       const db = getAdminDb();
-      const result = await enrichCandidateProfileFromCv({
-        db,
-        userId: data.userId,
-        sourceId: event.params.serviceId,
-        sourceType: 'application_concierge',
-        cvStorageKey: data.cvStorageKey,
-        applicantEmail: data.applicantEmail || data.customerEmail || '',
-        uploadedAt: data.cvUploadedAt || null,
-      });
-      if (result.status === 'ready') {
-        const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId });
-        console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
-      } else {
-        console.log('[processApplicationConciergeCv]', event.params.serviceId, result.status);
+      const cvChanged = data.cvStorageKey !== before?.cvStorageKey;
+      if (cvChanged) {
+        const profile = await enrichCandidateProfileFromCv({
+          db,
+          userId: data.userId,
+          sourceId: event.params.serviceId,
+          sourceType: 'application_concierge',
+          cvStorageKey: data.cvStorageKey,
+          applicantEmail: data.applicantEmail || data.customerEmail || '',
+          uploadedAt: data.cvUploadedAt || null,
+        });
+        if (profile.status !== 'ready') {
+          console.log('[processApplicationConciergeCv]', event.params.serviceId, profile.status);
+          return;
+        }
       }
+      const matching = await runApplicationConciergeMatching({ db, serviceId: event.params.serviceId });
+      console.log('[processApplicationConciergeCv]', event.params.serviceId, matching.status, matching.proposals ?? 0);
     } catch (error) {
       console.error('[processApplicationConciergeCv]', event.params.serviceId, error instanceof Error ? error.message : String(error));
     }
@@ -2586,7 +2832,7 @@ export const sweepAssistedApplicationAutomation = onSchedule(
   async () => {
     try {
       const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context), postingClosed: postingClosedForOrder });
-      if (summary.ticks || summary.redispatched || summary.timedOut || summary.failed || summary.refunds) {
+      if (summary.ticks || summary.redispatched || summary.portalRetries || summary.timedOut || summary.failed || summary.refunds) {
         console.log('[sweepAssistedApplicationAutomation]', summary);
       }
     } catch (error) {
@@ -2759,6 +3005,33 @@ export const sweepAssistedApplicationNotifications = onSchedule(
         '[sweepAssistedApplicationNotifications]',
         error instanceof Error ? error.message : String(error),
       );
+    }
+  },
+);
+
+// Recover unpaid assisted-application checkouts without sending a message
+// until the provider and the public posting have both been checked. The
+// workflow groups all eligible orders by user and is idempotent per reminder.
+export const sweepAssistedApplicationPaymentRecovery = onSchedule(
+  {
+    region: 'europe-west6',
+    schedule: 'every 60 minutes',
+    timeZone: 'Europe/Zurich',
+    memory: '512MiB',
+    timeoutSeconds: 540,
+  },
+  async () => {
+    try {
+      const summary = await runAssistedApplicationPaymentRecoverySweep({ db: getAdminDb() });
+      if (summary.sent || summary.regenerated || summary.promoted || summary.errors) {
+        console.log('[sweepAssistedApplicationPaymentRecovery]', summary);
+      }
+    } catch (error) {
+      console.error(
+        '[sweepAssistedApplicationPaymentRecovery]',
+        error instanceof Error ? error.message : String(error),
+      );
+      throw error;
     }
   },
 );

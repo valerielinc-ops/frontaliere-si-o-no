@@ -37,6 +37,34 @@ set -euo pipefail
 # historical working-tree fallback.
 push_input=$(cat)
 
+is_zero_sha() {
+  [[ "$1" =~ ^0{40}(0{24})?$ ]]
+}
+
+# A full-tree replacement can otherwise pass unnoticed when a local or
+# automated writer pushes a commit that contains only one generated snapshot.
+# Compare Git's tracked path counts (tree objects only; sparse checkouts work)
+# before running any advisory gate or its CI/data-writer early return below.
+if [ -n "$push_input" ]; then
+  while read -r _local_ref local_sha remote_ref remote_sha; do
+    [ "$remote_ref" = "refs/heads/main" ] || continue
+    [ -n "$local_sha" ] || continue
+    if is_zero_sha "$local_sha"; then
+      echo "::error::Refusing to delete refs/heads/main."
+      exit 1
+    fi
+    if is_zero_sha "$remote_sha"; then continue; fi
+    # A concurrent writer may have advanced main after this checkout was
+    # created. The advertised push SHA is still the correct comparison base,
+    # but a shallow/stale clone may not contain its commit object. The guard
+    # fetches that exact SHA from the push URL with a bounded single-flight fetch.
+    node scripts/ci/guard-main-tree-shrink.mjs \
+      --before "$remote_sha" \
+      --after "$local_sha" \
+      --fetch-missing-from "$2"
+  done <<< "$push_input"
+fi
+
 # La costante e la decisione di ascendenza vivono in un solo modulo condiviso
 # con CI e con i writer dei dati. Il modulo aggiorna origin/main solo quando il
 # ref spinto contiene davvero il marker, quindi il caso ordinario resta locale

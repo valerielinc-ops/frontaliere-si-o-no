@@ -231,7 +231,7 @@ function extractSchweizerhofTenantHeading(html = '') {
  *
  * @param {string} html
  * @param {string} url
- * @param {{ recordUrl?: string }} [opts]
+ * @param {{ recordUrl?: string, recordTitle?: string }} [opts]
  * @returns {Record<string, any>}
  */
 export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts = {}) {
@@ -239,7 +239,7 @@ export function extractSchweizerhofFlimsDetailFields(html = '', url = '', opts =
     {},
     removeSchweizerhofExcludedMarkup(html),
     url,
-    { recordUrl: opts.recordUrl },
+    { recordUrl: opts.recordUrl, recordTitle: opts.recordTitle },
   );
   const heading = extractSchweizerhofTenantHeading(html);
   const hasSchweizerhofTenantHeading = /\bschweizerhof\b/i.test(heading);

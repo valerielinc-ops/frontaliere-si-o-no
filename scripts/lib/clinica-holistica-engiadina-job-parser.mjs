@@ -342,7 +342,10 @@ export async function fetchAllClinicaHolisticaJobs() {
     const jobs = [];
     for (const detailUrl of detailUrls) {
       const detail = await fetchDetail(context, detailUrl);
-      if (!detail) continue;
+      if (!detail) {
+        await new Promise((r) => setTimeout(r, 600));
+        continue;
+      }
       const job = buildJob(detailUrl, detail);
       if (job) {
         jobs.push(job);

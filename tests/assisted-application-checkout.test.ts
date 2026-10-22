@@ -111,6 +111,20 @@ function request(overrides: Record<string, unknown> = {}) {
       jobUrl: 'https://jobs.example.test/jobs/job-42',
       companyName: 'ACME SA',
       jobTitle: 'Software Developer',
+      companyLogo: 'https://cdn.example.test/logos/acme.png',
+      companyKey: 'company-acme',
+      location: 'Lugano',
+      canton: 'TI',
+      contract: 'full-time',
+      salaryMin: 75000,
+      salaryMax: 90000,
+      salarySource: 'reported',
+      salaryCurrency: 'CHF',
+      baseSalary: { currency: 'CHF', value: { minValue: 75000, maxValue: 90000, unitText: 'YEAR' } },
+      postedDate: '2026-10-01',
+      firstSeenAt: '2026-10-02T10:00:00.000Z',
+      sector: 'Tecnologia',
+      category: 'tech',
       experimentVariant: 'assisted_application',
       copyVariant: 'time_saved',
       successUrl: 'https://frontaliereticino.ch/lavoro/job-42',
@@ -189,7 +203,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     });
   });
 
-  it('creates a pending owner-bound order and fixes the Checkout amount at 99 EUR cents', async () => {
+  it('creates a pending owner-bound order and fixes the Checkout amount at 199 EUR cents', async () => {
     const { handleCreateAssistedApplicationCheckout } = await loadCheckout();
 
     const result = await handleCreateAssistedApplicationCheckout(request());
@@ -205,7 +219,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(expect.objectContaining({
       mode: 'payment',
       line_items: [{
-        price_data: expect.objectContaining({ currency: 'eur', unit_amount: 99 }),
+        price_data: expect.objectContaining({ currency: 'eur', unit_amount: 199 }),
         quantity: 1,
       }],
       metadata: expect.objectContaining({
@@ -228,7 +242,22 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       stripeCheckoutSessionId: 'cs_assisted_1',
       consentVersion: null,
       consentedAt: null,
+      cvFileName: null,
       copyVariant: 'time_saved',
+      companyLogo: 'https://cdn.example.test/logos/acme.png',
+      companyKey: 'company-acme',
+      location: 'Lugano',
+      canton: 'TI',
+      contract: 'full-time',
+      salaryMin: 75000,
+      salaryMax: 90000,
+      salarySource: 'reported',
+      salaryCurrency: 'CHF',
+      baseSalary: { currency: 'CHF', value: { minValue: 75000, maxValue: 90000, unitText: 'YEAR' } },
+      postedDate: '2026-10-01',
+      firstSeenAt: '2026-10-02T10:00:00.000Z',
+      sector: 'Tecnologia',
+      category: 'tech',
     }));
   });
 
@@ -448,7 +477,7 @@ describe('handleCreateAssistedApplicationCheckout', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           metadata: { product: 'assisted_application', orderId: first.body.orderId },
         },
@@ -530,7 +559,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           customer_details: { email: 'candidate@example.com' },
@@ -561,7 +590,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'sumup_checkout_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'unpaid',
           metadata: {
@@ -584,7 +613,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'sumup_checkout_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: {
@@ -604,6 +633,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       sumupCheckoutId: 'sumup_checkout_1',
       sumupTransactionId: 'sumup_successful_transaction',
       paidAt: '__paid_timestamp__',
+      paymentFailureReason: null,
     }));
   });
 
@@ -619,7 +649,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -656,7 +686,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_stale_session',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -680,7 +710,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_unpaid',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'unpaid',
           metadata: { product: 'assisted_application', orderId: 'order-unpaid' },
@@ -724,7 +754,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_async',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-async' },
@@ -762,7 +792,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },
@@ -775,7 +805,7 @@ describe('handleAssistedApplicationWebhookEvent', () => {
       data: {
         object: {
           id: 'ch_assisted_1',
-          amount: 99,
+          amount: 199,
           amount_refunded: 50,
           refunded: false,
           payment_intent: 'pi_assisted_1',
@@ -800,7 +830,7 @@ describe('signed project-wide Stripe webhook wiring', () => {
       data: {
         object: {
           id: 'cs_assisted_1',
-          amount_total: 99,
+          amount_total: 199,
           currency: 'eur',
           payment_status: 'paid',
           metadata: { product: 'assisted_application', orderId: 'order-1' },

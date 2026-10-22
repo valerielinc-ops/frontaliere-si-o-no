@@ -10,6 +10,7 @@ import {
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
+  parseGlFixedPriceJson,
   parseLuFixedPricePdfText,
   parseEcariAuctionRows,
   parseUrFixedPricePdfText,
@@ -25,7 +26,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
-import { GR_ECARI_CATALOGUE_URL } from './plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
@@ -64,7 +65,8 @@ function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' })
   };
 }
 
-function makeCardConnector({ canton, plateCode, url, detailBaseUrl, parserVersion = '1.1.0' }) {
+function makeCardConnector({ canton, plateCode, url, detailBaseUrl, fallbackUrls = [], parserVersion = '1.1.0' }) {
+  const fetchUrls = [...new Set([url, ...fallbackUrls])];
   return {
     canton,
     plateCode,
@@ -78,6 +80,31 @@ function makeCardConnector({ canton, plateCode, url, detailBaseUrl, parserVersio
         detailBaseUrl,
         fetchedAt,
       });
+    },
+    async fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      const fetchPage = injectedFetcher || fetchHtml;
+      const errors = [];
+      for (const fetchUrl of fetchUrls) {
+        try {
+          const html = await fetchPage(fetchUrl, { timeoutMs: 20000 });
+          return parseCardSource(html, {
+            canton,
+            plateCode,
+            // Keep the source identity stable when the transport alias wins;
+            // detail links still follow the host that served the page.
+            officialAuctionUrl: url,
+            detailBaseUrl: fetchUrl === url ? detailBaseUrl : new URL(fetchUrl).origin,
+            fetchedAt,
+          });
+        } catch (error) {
+          errors.push({ fetchUrl, error });
+        }
+      }
+      if (errors.length === 1) throw errors[0].error;
+      throw new Error(
+        `${plateCode} card endpoints failed: ${errors.map(({ fetchUrl, error }) => `${fetchUrl} (${error instanceof Error ? error.message : String(error)})`).join('; ')}`,
+        { cause: errors.at(-1)?.error },
+      );
     },
   };
 }
@@ -146,8 +173,9 @@ const CONNECTORS = {
   be: makeCardConnector({
     canton: 'Berna',
     plateCode: 'BE',
-    url: 'https://www.auktion-be.ch/de/',
-    detailBaseUrl: 'https://www.auktion-be.ch',
+    url: BE_AUCTION_URLS[0],
+    fallbackUrls: BE_AUCTION_URLS.slice(1),
+    detailBaseUrl: 'https://auktion-be.ch',
   }),
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
@@ -163,6 +191,7 @@ const CONNECTORS = {
       return fetchGePlateAuctions({ fetchedAt, now: new Date(fetchedAt), injectedFetcher });
     },
   },
+  gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',
@@ -216,7 +245,7 @@ const CONNECTORS = {
   vd: makeCardConnector({
     canton: 'Vaud',
     plateCode: 'VD',
-    url: 'https://www.encheres-vd.ch/de/',
+    url: 'https://www.encheres-vd.ch/fr/',
     detailBaseUrl: 'https://www.encheres-vd.ch',
   }),
   ti: {
@@ -289,13 +318,13 @@ const CONNECTORS = {
   sh: {
     canton: 'Sciaffusa',
     plateCode: 'SH',
-    url: 'https://www.auktion-stva.sh.ch/',
+    url: 'https://www.auktion-stva.sh.ch/de/',
     parserVersion: '1.1.0',
     parse(html, fetchedAt) {
       return parseCardSource(html, {
         canton: 'Sciaffusa',
         plateCode: 'SH',
-        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/',
+        officialAuctionUrl: 'https://www.auktion-stva.sh.ch/de/',
         detailBaseUrl: 'https://www.auktion-stva.sh.ch',
         fetchedAt,
       });

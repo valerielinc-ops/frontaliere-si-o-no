@@ -21,6 +21,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -191,7 +192,8 @@ function extractJsonLd(html = '') {
   for (const block of blocks) {
     try {
       const parsed = JSON.parse(block[1]);
-      if (parsed?.['@type'] === 'JobPosting') return parsed;
+      const [posting] = extractJobPostingNodesFromJson(parsed);
+      if (posting) return posting;
     } catch {
       // ignore malformed JSON-LD blocks
     }
@@ -400,12 +402,14 @@ export async function fetchAllMatterhornGotthardBahnJobs() {
 
       if (!jsonLd) {
         console.warn(`  ⚠️ No JSON-LD found for j${rexxId}: ${detailUrl}`);
+        await new Promise((r) => setTimeout(r, 500));
         continue;
       }
 
       const job = buildJobFromJsonLd(jsonLd, detailUrl, rexxId);
       if (!job) {
         console.warn(`  ⚠️ Could not build job from j${rexxId}: ${detailUrl}`);
+        await new Promise((r) => setTimeout(r, 500));
         continue;
       }
 

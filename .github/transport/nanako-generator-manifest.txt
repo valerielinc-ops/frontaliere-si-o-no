@@ -127,6 +127,13 @@ scripts/lib/unescape-ts-string.mjs
 # `import` di primo livello: sul corpus diventa ERR_MODULE_NOT_FOUND prima di
 # main(). Il file e' puro e non importa nulla.
 scripts/lib/escape-regexp.mjs
+# Added 2026-10-15: article-factuality-gates distinguishes a person's
+# political affiliation from a title-cased institution tail with the same
+# dataset-backed recognizer used by the Node name flow. Keep its pure helper
+# and its data in the transport closure; importing deriveNameFromEmail.mjs
+# directly would also pull the browser-facing newsletter template graph.
+scripts/lib/first-name-recognition.mjs
+scripts/lib/first-names.json
 # Added 2026-09-08: create-article.mjs imports these top-level helpers for the
 # #7291/#7344 safeguards; keeping them in the transport closure prevents the
 # corpus-side generator from failing before main().
@@ -150,6 +157,10 @@ scripts/lib/borderWaitSections.mjs
 # non-destructive history check before its checkpoint writer; carry the guard
 # and its lock closure so the transported generator resolves before main().
 scripts/lib/old-history-guard.mjs
+# Added 2026-10-18: the guard now imports this shared credential-safe Git
+# target resolver; transport its dependency with the guard so corpus writers
+# do not fail module loading before main().
+scripts/lib/git-fetch-target.mjs
 scripts/lib/single-flight-lock.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------
@@ -184,6 +195,7 @@ scripts/lib/single-flight-lock.mjs
 # !rewired scripts/lib/google-service-account-token.mjs -- `free-translate.mjs` lo importa dinamicamente solo per il tier Google Cloud; nanako possiede gia' il proprio `generator/scripts/lib/google-service-account-token.mjs`, registrato `adapted` nel suo loop-sync manifest per i retry/quota OAuth specifici del corpus. Trasportare la copia del sito sovrascriverebbe quel gemello adattato invece di seguire il suo percorso locale.
 # !rewired scripts/lib/generated-image-engine.mjs -- E' il wrapper di compatibilita' del sito per `packages/articles/engine/`; nanako non deve riceverne una copia sotto `generator/scripts/lib/`, perche' il suo engine arriva come `engine/` dal mirror dedicato e il rewire del generatore deve importare quel percorso. La correzione del gemello adattato vive nel follow-up del corpus, non in questo manifest di trasporto strutturale.
 # !rewired packages/articles/engine/shared/generatedImageRegistry.mjs -- Il registro appartiene all'engine condiviso e non va duplicato sotto `generator/packages/articles/`; il mirror dedicato lo consegna come `engine/shared/generatedImageRegistry.mjs`. Il generatore nanako deve riallineare l'import nel follow-up del corpus dopo il mirror dell'engine.
+# !rewired packages/articles/engine/shared/articleStaticSource.mjs -- Il parser AST appartiene all'engine condiviso e arriva sul corpus come `engine/shared/articleStaticSource.mjs`; il gemello adattato di `generator/scripts/lib/meta-field-regex.mjs` riscrive il percorso topologico, quindi non va copiato sotto `generator/packages/articles/`.
 
 # --- discovery/** — topic discovery pipeline (fully reachable, safe to glob) --
 scripts/lib/discovery/**

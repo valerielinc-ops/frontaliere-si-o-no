@@ -1,0 +1,119 @@
+[
+  {
+    "schemaVersion": 2,
+    "runId": "39505379429",
+    "startedAt": "2026-10-20T22:07:18.511Z",
+    "finishedAt": "2026-10-20T22:23:05.826Z",
+    "sources": {
+      "seco": {
+        "attempts": 26,
+        "items": 7471,
+        "recordsSeen": 7471,
+        "newCandidatesFiled": 132,
+        "outcomes": {
+          "complete": 16,
+          "partial": 10,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "page_limit_reached": 10
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "osm": {
+        "attempts": 3,
+        "items": 5648,
+        "recordsSeen": 5648,
+        "newCandidatesFiled": 582,
+        "outcomes": {
+          "complete": 3,
+          "partial": 0,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {},
+        "lastOutcome": "complete",
+        "aggregateOutcome": "complete"
+      },
+      "web": {
+        "attempts": 1,
+        "items": 0,
+        "recordsSeen": 0,
+        "newCandidatesFiled": 0,
+        "outcomes": {
+          "complete": 0,
+          "partial": 0,
+          "unavailable": 1,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "http_504": 1
+        },
+        "lastOutcome": "unavailable",
+        "aggregateOutcome": "unavailable"
+      }
+    }
+  },
+  {
+    "schemaVersion": 2,
+    "runId": "39570908551",
+    "startedAt": "2026-10-21T08:42:15.114Z",
+    "finishedAt": "2026-10-21T09:22:18.047Z",
+    "sources": {
+      "seco": {
+        "attempts": 26,
+        "items": 2508,
+        "recordsSeen": 2508,
+        "newCandidatesFiled": 82,
+        "outcomes": {
+          "complete": 21,
+          "partial": 5,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "malformed_json": 3,
+          "page_limit_reached": 2
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "osm": {
+        "attempts": 3,
+        "items": 13305,
+        "recordsSeen": 13305,
+        "newCandidatesFiled": 6896,
+        "outcomes": {
+          "complete": 1,
+          "partial": 2,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "malformed_records": 2
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      },
+      "web": {
+        "attempts": 1,
+        "items": 168,
+        "recordsSeen": 168,
+        "newCandidatesFiled": 137,
+        "outcomes": {
+          "complete": 0,
+          "partial": 1,
+          "unavailable": 0,
+          "malformed": 0
+        },
+        "failureCodes": {
+          "http_504": 1
+        },
+        "lastOutcome": "partial",
+        "aggregateOutcome": "partial"
+      }
+    }
+  }
+]

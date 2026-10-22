@@ -22,8 +22,11 @@
  *   3. i 4 chunk passati come `workerData`, che il **structured clone COPIA**
  *      dentro l'isolate di ogni worker
  *   4. gli array `entries[]` che i worker rispediscono, clonati di nuovo
- *   5. `canonicalCleanedCache`, che le trattiene fino a `clear()` — cioe' per
- *      tutta la fase di emissione degli annunci attivi
+ *   5. `canonicalCleanedCache`, che le tratteneva fino a `clear()` — cioe' per
+ *      tutta la fase di emissione degli annunci attivi. Ora il consumer conta
+ *      gli ultimi lettori e rimuove ogni valore al suo ultimo uso; il pre-pass
+ *      conserva il riuso cross-locale senza tenere vivo il corpus canonical
+ *      fino al checkpoint di fine fase.
  *
  * E il pre-pass gira **esattamente sul picco**: fra le milestone
  * `[mem] jobsSeoPages: collector created` (heapUsed 4230 MB) e

@@ -1077,7 +1077,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
         '@type': 'ListItem',
         position: 2,
         name: fuelLabel,
-        item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/`,
+        item: `${BASE_URL}${buildFuelTodayPath(locale, fuel)}`,
       },
       { '@type': 'ListItem', position: 3, name: pageH1, item: canonicalUrl },
     ],
@@ -1126,7 +1126,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     },
   });
 
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = titles.description;
@@ -1155,7 +1155,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   <nav class="s-bcr">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
-    <a href="${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/" class="s-bcl">${esc(fuelLabel)}</a>
+    <a href="${buildFuelTodayPath(locale, fuel)}" class="s-bcl">${esc(fuelLabel)}</a>
     <span> / </span>
     <span>${esc(pageH1)}</span>
   </nav>

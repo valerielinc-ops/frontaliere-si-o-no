@@ -278,6 +278,10 @@ describe('Swiss Re crawler parser', () => {
         if (captured) return detailPage(captured.locationSection, captured.employment);
         return detailPage(zurichTemplate.locationSection, zurichTemplate.employment);
       });
+      expect(fetchSuccessFactorsJobs).toHaveBeenCalledWith(
+        expect.any(String),
+        expect.objectContaining({ maxPages: 100 }),
+      );
 
       const swissCards = capture.listing.filter((row) => row.location === 'Zurich, CH');
       expect(swissCards).toHaveLength(16);

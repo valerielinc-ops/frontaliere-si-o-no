@@ -12,8 +12,9 @@ afterEach(() => { vi.restoreAllMocks(); vi.useRealTimers(); });
 for (const tenant of [1154, 2563, 2649, 2677] as const) describe(`recruitingapp-${tenant} real pipeline`, () => {
   it.each(cases)('validates own source publication %s', async (raw, expected) => {
     const url = `https://recruitingapp-${tenant}.umantis.com/Vacancies/123/Description/1`;
-    const detail = `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', url, title: 'Fachperson Engineering', description: prose, datePosted: raw, jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } } })}</script><h1>Fachperson Engineering</h1><main>${prose}</main>`;
-    const fetchImpl = vi.fn(async (input: string | URL | Request) => new Response(String(input) === url ? detail : `<a href="${url}">Fachperson Engineering</a>`));
+    const title = tenant === 2563 ? 'Fachperson Engineering in Zürich' : 'Fachperson Engineering';
+    const detail = `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', url, title, description: prose, datePosted: raw, jobLocation: { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } } })}</script><h1>${title}</h1><main>${prose}</main>`;
+    const fetchImpl = vi.fn(async (input: string | URL | Request) => new Response(String(input) === url ? detail : `<a href="${url}">${title}</a>`));
     // Preserve the production tenant observers while replacing HTTP I/O only.
     io.page.mockImplementation(async (requested: string, options: { fetchImpl: typeof fetch }) => {
       const response = await options.fetchImpl(requested);

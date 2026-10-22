@@ -195,30 +195,15 @@ async function fetchDetailJsonLd(url, expectedTitle) {
     console.warn(`   ⚠️ detail fetch failed (${url}): ${err && err.message ? err.message : err}`);
     return null;
   }
-  const scripts = html.match(
-    /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
-  );
-  if (!scripts) return null;
-  for (const script of scripts) {
-    const inner = script.replace(/^[\s\S]*?>/, '').replace(/<\/script>$/i, '').trim();
-    let data;
-    try {
-      data = JSON.parse(inner);
-    } catch {
-      continue;
-    }
-    const candidates = Array.isArray(data) ? data : [data];
-    for (const c of candidates) {
-      if (c && c['@type'] === 'JobPosting') {
-        // Preserve the existing body selection; a date requires one identified vacancy.
-        const publication = extractJobPostingsLd(html).length === 1
-          ? identifiedPostingPublication(html, url, expectedTitle)
-          : sourcePostingDateFields();
-        return { ...c, ...publication };
-      }
-    }
-  }
-  return null;
+  const postings = extractJobPostingsLd(html);
+  const posting = postings[0];
+  if (!posting) return null;
+
+  // Preserve the existing body selection; a date requires one identified vacancy.
+  const publication = postings.length === 1
+    ? identifiedPostingPublication(html, url, expectedTitle)
+    : sourcePostingDateFields();
+  return { ...posting, ...publication };
 }
 
 /**

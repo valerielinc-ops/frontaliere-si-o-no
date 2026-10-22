@@ -14,7 +14,7 @@
  */
 
 import { LETTER_FILE_LABEL, applicationFileName } from './assistedApplicationAiDraftCore.js';
-import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
 import { isoDateOf } from './lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from './lib/permitStatus.js';
@@ -33,7 +33,7 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
   // The runner's own answers first: their questions are the portal's words.
   const fromPortal = (draft.portalAnswers?.answers || [])
     .map((item) => ({ question: item?.question, answer: item?.answer, source: item?.source || 'portal' }));
-  const fromDraft = (draft.questions || [])
+  const fromDraft = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers)
     .map((question) => ({ question: question.question, answer: answers[question.id], source: 'answers' }));
   const seen = new Set();
   const kitAnswers = [...fromPortal, ...fromDraft]

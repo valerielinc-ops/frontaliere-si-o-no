@@ -7,15 +7,15 @@
   "seedUrls": [
     "https://domino-rh.com/offres-interim-cdd-cdi/"
   ],
-  "detailTemplate": "/offres-emploi/poitou-charentes/86-vienne/*/",
+  "detailTemplate": "/offres-emploi/pays-de-la-loire/44-loire-atlantique/*/",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 2,
   "sampleTitles": [
-    "Frigoriste (F/H)",
-    "COUVREUR (F/H)"
+    "Agent de soin (F/H)",
+    "Accompagnement individuel de jeunes (F/H)"
   ],
-  "canton": "FR",
+  "canton": "GE",
   "sourceLang": "fr",
-  "learnedAt": "2026-10-04T12:02:28.174Z"
+  "learnedAt": "2026-10-16T10:20:33.687Z"
 }

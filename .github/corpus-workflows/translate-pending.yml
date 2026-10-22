@@ -282,7 +282,7 @@ jobs:
           done <<< "$in_progress_ids"
           waiting_candidates="${waiting_candidates}${waiting_candidates:+$'\n'}${current_created_at} ${GITHUB_RUN_ID}"
           candidate_count="$(printf "%s\n" "$waiting_candidates" | awk 'NF {count++} END {print count + 0}')"
-          oldest_candidate="$(printf "%s\n" "$waiting_candidates" | LC_ALL=C sort -k1,1 -k2,2n | head -n 1)"
+          oldest_candidate="$(printf "%s\n" "$waiting_candidates" | LC_ALL=C sort -k1,1 -k2,2n | awk 'NR == 1 { first=$0 } END { print first }')"
           oldest_run_id="$(printf "%s\n" "$oldest_candidate" | awk '{print $2}')"
           if [ -z "$oldest_run_id" ]; then fail_closed "oldest_run"; fi
           other_waiting=$((candidate_count - 1))

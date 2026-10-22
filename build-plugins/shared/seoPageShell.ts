@@ -59,19 +59,10 @@ import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
 import { jobBoardHeadTags } from '../jobBoardGpt';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { normalizeShellTitle } from './titleSuffix';
+import { buildTwitterCardMetaTags } from './twitterCardMeta';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
-import {
-  SITE_URL,
-  WEBSITE_ID,
-  TICINO_CUSTOMS_DEPARTMENT_ID,
-  TICINO_CUSTOMS_DEPARTMENT_NAME,
-  stableOrganizationId,
-} from '../../services/seo/organizationLd';
-import {
-  canonicalizeSiteOrganizationCreator,
-  isSiteOrganizationCreator,
-} from '../../services/seo/imageObjectLd';
+import { normalizeStructuredData } from '../../services/seo/schema-normalizers';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
 // che l'invariante di round-trip col confronto h1/title di
@@ -86,65 +77,6 @@ import {
 // non importato perche' titleSuffix.ts e' `mode: identical` e va copiato a
 // mano sul corpus, dove `shared/htmlEscape.ts` non esiste — vedi il suo
 // docblock. L'equivalenza fra le due copie e' pinnata dal test.
-
-type JsonLdRecord = Record<string, unknown>;
-
-function hasSchemaType(value: JsonLdRecord, expected: string): boolean {
-  const type = value['@type'];
-  return Array.isArray(type) ? type.includes(expected) : type === expected;
-}
-
-function isSiteWebSite(value: JsonLdRecord): boolean {
-  if (!hasSchemaType(value, 'WebSite')) return false;
-  if (value['@id'] === WEBSITE_ID) return true;
-  return value.name === 'Frontaliere Ticino'
-    && (value.url === SITE_URL || value.url === SITE_URL.slice(0, -1));
-}
-
-function schemaReferenceUrl(value: unknown): string | undefined {
-  const candidate = typeof value === 'string'
-    ? value
-    : value && typeof value === 'object' && !Array.isArray(value)
-      ? (() => {
-        const ref = value as JsonLdRecord;
-        return typeof ref.url === 'string' ? ref.url : ref['@id'];
-      })()
-      : undefined;
-  if (typeof candidate !== 'string' || !candidate.trim()) return undefined;
-  const withoutFragment = candidate.split('#', 1)[0];
-  return withoutFragment || undefined;
-}
-
-/**
- * Complete WebPage identity fields when an SEO emitter already supplied the
- * equivalent headline or page reference.  The shell receives serialized JSON
- * from several feature plugins, so this keeps their output consistent with
- * the static-page normalizer without requiring each plugin to duplicate it.
- */
-function normalizeWebPageIdentity(value: JsonLdRecord): boolean {
-  if (!hasSchemaType(value, 'WebPage')) return false;
-  let changed = false;
-  if (!value.name) {
-    const fallbackName = typeof value.headline === 'string'
-      ? value.headline
-      : typeof value.title === 'string'
-        ? value.title
-        : undefined;
-    if (fallbackName) {
-      value.name = fallbackName;
-      changed = true;
-    }
-  }
-  if (!value.url) {
-    const referenceUrl = schemaReferenceUrl(value.mainEntityOfPage)
-      ?? schemaReferenceUrl(value['@id']);
-    if (referenceUrl) {
-      value.url = referenceUrl;
-      changed = true;
-    }
-  }
-  return changed;
-}
 
 /**
  * Add stable identities to the two repeated entities emitted by static SEO
@@ -165,53 +97,10 @@ export function normalizeStaticJsonLdScripts(
       return raw;
     }
 
-    let changed = false;
-    const visit = (value: unknown): void => {
-      if (Array.isArray(value)) {
-        value.forEach(visit);
-        return;
-      }
-      if (!value || typeof value !== 'object') return;
-      const record = value as JsonLdRecord;
-
-      if (normalizeWebPageIdentity(record)) changed = true;
-
-      const isCanonicalSiteOrganization = isSiteOrganizationCreator(record);
-      if (canonicalizeSiteOrganizationCreator(record)) changed = true;
-
-      if (isSiteWebSite(record) && record['@id'] !== WEBSITE_ID) {
-        record['@id'] = WEBSITE_ID;
-        changed = true;
-      }
-      if (
-        hasSchemaType(record, 'Organization')
-        && record.name === TICINO_CUSTOMS_DEPARTMENT_NAME
-        && (!record['@id'] || record['@id'] === TICINO_CUSTOMS_DEPARTMENT_ID)
-      ) {
-        if (record['@id'] !== TICINO_CUSTOMS_DEPARTMENT_ID) {
-          record['@id'] = TICINO_CUSTOMS_DEPARTMENT_ID;
-          changed = true;
-        }
-        if (record.url !== TICINO_CUSTOMS_DEPARTMENT_ID) {
-          record.url = TICINO_CUSTOMS_DEPARTMENT_ID;
-          changed = true;
-        }
-      }
-
-      if (hasSchemaType(record, 'Organization') && !isCanonicalSiteOrganization) {
-        const stableId = stableOrganizationId(record, {
-          allowNameOnlyFallback: allowNameOnlyOrganizationIds,
-        });
-        if (stableId && record['@id'] !== stableId) {
-          record['@id'] = stableId;
-          changed = true;
-        }
-      }
-
-      Object.values(record).forEach(visit);
-    };
-    visit(parsed);
-    return changed ? JSON.stringify(parsed).replace(/</g, '\\u003c') : raw;
+    const normalized = normalizeStructuredData(parsed, { allowNameOnlyOrganizationIds });
+    const serialized = JSON.stringify(normalized).replace(/</g, '\\u003c');
+    const original = JSON.stringify(parsed).replace(/</g, '\\u003c');
+    return serialized === original ? raw : serialized;
   });
 }
 
@@ -324,6 +213,8 @@ export interface SeoPageShellOpts {
   canonicalUrl: string;
   /** Pre-rendered hreflang `<link>` tags joined by newlines. */
   hreflangHtml?: string;
+  /** Emit a complete X Card; defaults to true, with explicit opt-out for page families. */
+  includeTwitterCard?: boolean;
   /** Inner content HTML — placed inside `<div id="root"><main class="static-job-page">...</main></div>`. */
   bodyHtml: string;
   /** JSON-LD payloads as stringified JSON (one entry per `<script>` tag). */
@@ -474,6 +365,15 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     : { subnavHtml: '', bodyHtml };
 
   const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
+  const twitterCardHead = opts.includeTwitterCard !== false
+    ? buildTwitterCardMetaTags({
+        title: normalizeShellTitle(opts.title),
+        description: opts.description,
+        locale,
+        image: opts.ogImage,
+        existingHead: extraHeadHtml,
+      })
+    : '';
 
   const simpleOpts: SimplePageOpts = {
     locale,
@@ -489,7 +389,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${heroPreload}${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
+    extraHeadHtml: `${heroPreload}${twitterCardHead}${extraHeadHtml ? `\n${extraHeadHtml}` : ''}${jobBoardHeadTags(canonicalUrl)}`,
     jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds }),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,

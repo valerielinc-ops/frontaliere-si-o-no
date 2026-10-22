@@ -284,7 +284,15 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
+            /scripts/lib/canton-url-slugs.mjs
+            /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
+            /build-plugins/shared/cantonResolvers.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -292,7 +300,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -345,7 +355,15 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
+            /scripts/lib/canton-url-slugs.mjs
+            /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
+            /build-plugins/shared/cantonResolvers.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -353,7 +371,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -416,7 +436,15 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
+            /scripts/lib/canton-url-slugs.mjs
+            /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
+            /build-plugins/shared/cantonResolvers.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -424,7 +452,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -488,7 +518,15 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
+            /scripts/lib/canton-url-slugs.mjs
+            /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
+            /build-plugins/shared/cantonResolvers.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -496,7 +534,9 @@ jobs:
             /scripts/lib/bounded-response-body.mjs
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs
@@ -555,7 +595,15 @@ jobs:
           # shared article registry; materialize that closure explicitly.
           sparse-checkout: |
             /scripts/seo/
+            /data/canton-url-slugs.json
+            /build-plugins/shared/weeklyEmployersArchiveMarker.mjs
+            /build-plugins/shared/weeklyEmployersRoutes.mjs
+            /build-plugins/shared/jobBoardNoindexTargetMarker.mjs
+            /scripts/lib/canton-url-slugs.mjs
+            /build-plugins/shared/jobBoardEditorialBridgeMarker.mjs
             /build-plugins/shared/redirectStubMarker.mjs
+            /build-plugins/shared/companyCantonBridgeMarker.mjs
+            /build-plugins/shared/cantonResolvers.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -564,7 +612,9 @@ jobs:
             /data/profession-landing-routes.json
             /build-plugins/shared/fuelRouteSlugs.mjs
             /scripts/lib/articleSections.mjs
+            /scripts/lib/eventsSections.mjs
             /scripts/lib/healthFacilitiesSections.mjs
+            /scripts/lib/pharmacySections.mjs
             /scripts/lib/plateAuctionSections.mjs
             /build-plugins/shared/articleSectionCore.mjs
             /packages/articles/engine/shared/articleSectionCore.mjs

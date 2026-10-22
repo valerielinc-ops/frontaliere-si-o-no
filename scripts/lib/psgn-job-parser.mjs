@@ -38,6 +38,7 @@ import {
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
 import { extractJsonLd, selectDetailStructuredRecords } from './prospector/extract.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -187,8 +188,7 @@ export function extractPsgnDetail(html, pageUrl = '', recordTitle = '') {
     if (!raw.includes('responsibilities') && !raw.includes('qualifications')) continue;
     try {
       const data = JSON.parse(raw);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
+      for (const item of extractJobPostingNodesFromJson(data)) {
         if (item && (item.responsibilities || item.qualifications || item.description)) {
           const rawUrl = String(item.url || item.sameAs || '');
           let itemUrl = rawUrl;

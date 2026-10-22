@@ -1,0 +1,20 @@
+{
+  "companyKey": "sexuelle-gesundheit-ch",
+  "companyName": "sexuelle-gesundheit",
+  "companyHost": "sante-sexuelle.ch",
+  "platform": "sante-sexuelle.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.sante-sexuelle.ch/nos-activites/jobs"
+  ],
+  "detailTemplate": "/nos-activites/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Conseiller ou Conseillère en santé sexuelle",
+    "Collaborateur/trice scientifique"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-10-21T00:10:10.290Z"
+}

@@ -40,7 +40,7 @@ vi.mock('@/services/rewardedApplicationAccess', () => ({
   REWARDED_APPLICATION_ACCESS_TTL_HOURS: 1,
 }));
 vi.mock('@/services/assistedApplicationExperiment', () => ({
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 99,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
 }));
 vi.mock('@/services/offerwallClickGate', () => ({

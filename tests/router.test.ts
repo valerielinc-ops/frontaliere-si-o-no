@@ -52,6 +52,24 @@ const ALL_LOCALES = ['it', 'en', 'de', 'fr'] as const;
 /* ─────────── buildPath — valid paths ─────────── */
 
 describe('Router — buildPath', () => {
+  it.each([
+    ['it', '/traffico-dogane/'],
+    ['en', '/en/border-wait/'],
+    ['de', '/de/wartezeit-grenze/'],
+    ['fr', '/fr/temps-attente-douane/'],
+  ] as const)('emits the canonical %s border traffic route', (locale, expected) => {
+    expect(buildPath({ activeTab: 'guida', guidaSubTab: 'border' }, locale)).toBe(expected);
+  });
+
+  it.each([
+    ['it', '/traffico-dogane/ponte-tresa/oggi/'],
+    ['en', '/en/border-wait/ponte-tresa/today/'],
+    ['de', '/de/wartezeit-grenze/ponte-tresa/heute/'],
+    ['fr', '/fr/temps-attente-douane/ponte-tresa/aujourd-hui/'],
+  ] as const)('emits the canonical %s border crossing route', (locale, expected) => {
+    expect(buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: 'ponte-tresa' }, locale)).toBe(expected);
+  });
+
   describe('Calcolatore subtabs produce valid paths', () => {
     for (const locale of ALL_LOCALES) {
       for (const sub of CALCOLATORE_SUBS) {
@@ -477,6 +495,23 @@ describe('Router — CHF/EUR exchange SSG vertical (epic #4452)', () => {
 /* ─────────── Health-facilities hub (/strutture-sanitarie/{slug}/) ─────────── */
 
 describe('Router — health-facilities hub (epic #4455)', () => {
+  const rootCases: ReadonlyArray<{ path: string; locale: string }> = [
+    { path: '/strutture-sanitarie/', locale: 'it' },
+    { path: '/en/healthcare-facilities/', locale: 'en' },
+    { path: '/de/gesundheitseinrichtungen/', locale: 'de' },
+    { path: '/fr/etablissements-sante/', locale: 'fr' },
+  ];
+
+  for (const { path, locale } of rootCases) {
+    it(`parsePath resolves ${path} to the emitted staticOverlay section hub`, () => {
+      const { route, locale: parsedLocale, notFoundPath } = parsePath(path);
+      expect(route.activeTab).toBe('job-board');
+      expect(route.staticOverlay).toBe(true);
+      expect(parsedLocale).toBe(locale);
+      expect(notFoundPath).toBeUndefined();
+    });
+  }
+
   // Regression: parsePath never had a branch for facility detail pages —
   // same failure mode as the exchange-vertical bug above.
   const cases: ReadonlyArray<{ path: string; locale: string }> = [

@@ -8,14 +8,20 @@ import {
   rowsFromPublicApiRelay,
 } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 import { EXPANDED_ECARI_SOURCES, fetchExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { fetchSgPlateAuctions, SG_AUCTION_URL, SG_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { fetchTiPlateAuctions, TI_AUCTION_URL } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { SZ_PUBLIC_API_RELAY_URL } from '../scripts/plate-auctions/connectors/sz.mjs';
+import { fetchTgPlateAuctions, TG_AUCTION_URL } from '../scripts/plate-auctions/connectors/tg.mjs';
+import { fetchZhPlateAuctions, ZH_AUCTION_URL } from '../scripts/plate-auctions/connectors/zh.mjs';
+import { fetchUrFixedPrice } from '../scripts/plate-auctions/connectors/fixed-price.mjs';
+import { FIXED_PRICE_SOURCE_CONFIGS } from '../functions/src/plateAuctionsCore.js';
 
 /**
- * Relay condiviso da SZ, FR e TI (2026-09-25). FR e TI sono geo-fenced su IP
- * svizzeri: dal runner GitHub FR va in timeout su 443 e TI risponde 200 con la
- * pagina F5 «Pagina non disponibile», quindi le loro righe arrivano solo dal
- * relay della Cloud Function di Zurigo. Nessuna rete: `fetch` è finto.
+ * Relay condiviso da SZ, FR, SG e TI (2026-09-25). FR e TI sono geo-fenced su
+ * IP svizzeri: dal runner GitHub FR va in timeout su 443 e TI risponde 200 con
+ * la pagina F5 «Pagina non disponibile»; SG può rifiutare l'egress CI. Le righe
+ * arrivano dal relay della Cloud Function di Zurigo quando la fetch ufficiale
+ * fallisce. Nessuna rete: `fetch` è finto.
  */
 const NOW = new Date('2026-09-25T12:00:00.000Z');
 const FRESH = new Date(NOW.getTime() - 60 * 60 * 1000).toISOString();
@@ -143,6 +149,7 @@ describe('fetchWithPublicApiRelay', () => {
 
   it('shares one relay URL with the SZ connector', () => {
     expect(SZ_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
+    expect(SG_PUBLIC_API_RELAY_URL).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
   });
 
   it('never calls the relay when the direct fetch succeeds', async () => {
@@ -204,7 +211,7 @@ describe('fetchWithPublicApiRelay', () => {
   });
 });
 
-describe('FR and TI connectors read the relay when the direct fetch is geo-blocked', () => {
+describe('connectors read the relay when the direct fetch is unavailable', () => {
   it('FR: a TCP timeout on appls.ocn.ch falls back to the relay rows', async () => {
     serveRelay(relayPayload({ fr: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('FR', 'fr-1768')]));
     const fetchPage = vi.fn(async () => { throw new Error(`Timeout fetching ${FR_URL}`); });
@@ -224,6 +231,68 @@ describe('FR and TI connectors read the relay when the direct fetch is geo-block
       .rejects.toThrow('did not serve an eCari catalogue (no tabContent1)');
   });
 
+  it('SG: a direct eCari fetch failure uses a fresh relay snapshot', async () => {
+    serveRelay(relayPayload({ sg: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } }, [row('SG', 'sg-1532')]));
+    const fetcher = vi.fn(async () => { throw new Error(`fetch failed ${SG_AUCTION_URL}`); });
+    const rows = await fetchSgPlateAuctions({ fetcher, now: NOW });
+    expect(rows).toEqual([expect.objectContaining({ id: 'sg-1532', sourceKey: 'SG', officialAuctionUrl: SG_AUCTION_URL })]);
+    expect(fetcher).toHaveBeenCalledWith({
+      canton: 'San Gallo',
+      plateCode: 'SG',
+      officialAuctionUrl: SG_AUCTION_URL,
+    });
+  });
+
+  it('TG: a card-platform 404 uses a fresh relay snapshot', async () => {
+    const relay = relayPayload(
+      { tg: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } },
+      [row('TG', 'tg-109715')],
+    );
+    relayCalls = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string | URL) => {
+      relayCalls.push(String(url));
+      if (String(url) === TG_AUCTION_URL) {
+        const error = new Error(`HTTP 404 from ${TG_AUCTION_URL}`) as Error & { retryable?: boolean };
+        error.retryable = false;
+        throw error;
+      }
+      return new Response(JSON.stringify(relay), { status: 200 });
+    }));
+
+    const rows = await fetchTgPlateAuctions({ now: NOW });
+    expect(rows).toEqual([expect.objectContaining({
+      id: 'tg-109715',
+      sourceKey: 'TG',
+      officialAuctionUrl: TG_AUCTION_URL,
+    })]);
+    expect(relayCalls).toEqual([TG_AUCTION_URL, PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
+  });
+
+  it('ZH: the special card connector also uses a fresh relay snapshot after a 404', async () => {
+    const relay = relayPayload(
+      { zh: { status: 'active', rowCount: 1, lastSuccessAt: FRESH } },
+      [row('ZH', 'zh-43423')],
+    );
+    relayCalls = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string | URL) => {
+      relayCalls.push(String(url));
+      if (String(url) === ZH_AUCTION_URL) {
+        const error = new Error(`HTTP 404 from ${ZH_AUCTION_URL}`) as Error & { retryable?: boolean };
+        error.retryable = false;
+        throw error;
+      }
+      return new Response(JSON.stringify(relay), { status: 200 });
+    }));
+
+    const rows = await fetchZhPlateAuctions({ now: NOW });
+    expect(rows).toEqual([expect.objectContaining({
+      id: 'zh-43423',
+      sourceKey: 'ZH',
+      officialAuctionUrl: ZH_AUCTION_URL,
+    })]);
+    expect(relayCalls).toEqual([ZH_AUCTION_URL, PLATE_AUCTION_PUBLIC_API_RELAY_URL]);
+  });
+
   it('TI: a served eCari catalogue is parsed directly and the relay is never read', async () => {
     serveRelay(relayPayload({}, []));
     const page = `<div id="tabContent1"><table><tbody><tr class="L">
@@ -233,5 +302,46 @@ describe('FR and TI connectors read the relay when the direct fetch is geo-block
     const rows = await fetchTiPlateAuctions({ fetchPage: async () => page, now: NOW });
     expect(rows).toEqual([expect.objectContaining({ id: 'ti-1532', normalizedPlate: 'TI13457', currentBidChf: 650 })]);
     expect(relayCalls).toEqual([]);
+  });
+});
+
+describe('fixed-price connectors read the relay after a direct source failure', () => {
+  it('UR uses a fresh healthy relay snapshot instead of publishing degraded output', async () => {
+    const urSource = FIXED_PRICE_SOURCE_CONFIGS.ur;
+    const urRow = {
+      id: 'ur-2374',
+      sourceKey: 'UR',
+      normalizedPlate: 'UR2374',
+      listingType: 'fixed-price',
+      vehicleType: 'car',
+      startingPriceChf: 1000,
+      officialAuctionUrl: urSource.officialUrl,
+      sourceFetchedAt: FRESH,
+      lastVerifiedAt: FRESH,
+    };
+    const relay = relayPayload({
+      ur: { status: 'active', rowCount: 1, lastSuccessAt: FRESH },
+    }, [urRow]);
+    const calls: string[] = [];
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn(async (url: string | URL) => {
+      calls.push(String(url));
+      if (String(url) === PLATE_AUCTION_PUBLIC_API_RELAY_URL) {
+        return new Response(JSON.stringify(relay), { status: 200 });
+      }
+      throw new TypeError('fetch failed');
+    }) as typeof fetch;
+
+    try {
+      const rows = await fetchUrFixedPrice({ now: NOW });
+      expect(rows).toEqual([expect.objectContaining({
+        id: 'ur-2374',
+        sourceKey: 'UR',
+        officialAuctionUrl: urSource.officialUrl,
+      })]);
+      expect(calls.at(-1)).toBe(PLATE_AUCTION_PUBLIC_API_RELAY_URL);
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
   });
 });

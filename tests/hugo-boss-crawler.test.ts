@@ -7,7 +7,7 @@
 import fs from 'node:fs';
 import { describe, it, expect, vi } from 'vitest';
 
-import { fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
+import { enrichWithDetails, fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 import {
@@ -502,12 +502,56 @@ describe('parseDetailPage', () => {
   it('extracts a description body', () => {
     const result = parseDetailPage(FIXTURE_DETAIL_PAGE);
     expect(result.body.length).toBeGreaterThan(0);
+    expect(result.sourceBodyLength).toBeGreaterThan(MIN_DESC_LENGTH);
+    expect(result.body).toContain('Design and develop seasonal collections');
+  });
+
+  it('reads a complete JobPosting from graph and type-array JSON-LD', () => {
+    const completeDescription = 'The detail page contains the responsibilities and profile for this role. '.repeat(12);
+    const html = `<h1>Assistant Store Manager</h1>
+      <script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [{
+          '@type': ['JobPosting'],
+          title: 'Assistant Store Manager',
+          description: completeDescription,
+        }],
+      })}</script>
+      <script>phApp.ddo = ${JSON.stringify({
+        jobDetail: { data: { job: { title: 'Assistant Store Manager', description: 'Short teaser' } } },
+      })}; phApp.experimentData = {};</script>`;
+
+    const result = parseDetailPage(html);
+
+    expect(result.body).toContain('responsibilities and profile');
+    expect(result.body).not.toBe('Short teaser');
+    expect(result.sourceBodyLength).toBeGreaterThan(MIN_DESC_LENGTH);
   });
 
   it('returns empty for empty input', () => {
     const result = parseDetailPage('');
     expect(result.title).toBe('');
     expect(result.body).toBe('');
+  });
+});
+
+describe('enrichWithDetails', () => {
+  it('replaces a listing teaser with the complete structured detail body', async () => {
+    const jobs = [{
+      url: 'https://careers.hugoboss.com/global/en/job/HUBO/detail',
+      title: 'Designer Bodywear',
+      description: 'Short listing teaser',
+      descriptionByLocale: { en: 'Short listing teaser' },
+      sourceLang: 'en',
+    }];
+
+    const enriched = await enrichWithDetails(jobs, {
+      fetchHtml: vi.fn(async () => FIXTURE_DETAIL_PAGE),
+    });
+
+    expect(enriched[0].description.length).toBeGreaterThan(MIN_DESC_LENGTH);
+    expect(enriched[0].description).toContain('Design and develop seasonal collections');
+    expect(enriched[0].descriptionByLocale.en).toContain('Your Responsibilities');
   });
 });
 

@@ -19,14 +19,49 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCandidates, reopenRejectedCandidate, saveCandidates, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
-import { runSpec } from './lib/prospector/synthesize.mjs';
+import {
+  loadCandidates,
+  reopenRejectedCandidate,
+  requeuePromotedCandidate,
+  saveCandidates,
+  setStatus,
+  statusCounts,
+  candidateForKey,
+  startLedgerPhase,
+  finishLedgerPhase,
+} from './lib/prospector/candidate-store.mjs';
+import { observeSpecInProduction } from './lib/prospector/spec-crawler.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
-import { sourceCrawlerAdapterFor } from './lib/prospector/source-adapters.mjs';
+import {
+  applyValidationRuntimeState,
+  isValidationRetryDue,
+  needsProductionQualityAudit,
+  parseValidationLimit,
+  prioritizeProductionAuditSpecs,
+  prioritizeValidationSpecs,
+} from './lib/prospector/validation-schedule.mjs';
+import { adaptiveValidationSampleSize } from './lib/prospector/validation-sample.mjs';
+import {
+  productionRuntimeOptionsFor,
+  sourceCrawlerAdapterFor,
+  sourceAdapterRuntimeObservationFor,
+} from './lib/prospector/source-adapters.mjs';
+import { matchExistingCrawlerForCompleteSnapshot } from './lib/prospector/runtime-duplicate.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
-import { PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
-import { loadSourceHostOwnership, matchExistingCrawler } from './lib/crawler-source-hosts.mjs';
+import { DATA_ROOT, PROSPECTOR_DIR, VALIDATION_PATH, ROOT } from './lib/prospector/config.mjs';
+import {
+  createValidationSnapshot,
+  comparePublicationSnapshots,
+  validationSnapshotAfterGradeFailure,
+  validationSnapshotMetadataFor,
+} from './lib/prospector/snapshot-comparison.mjs';
+import {
+  candidateStatusAfterValidation,
+  GATE_DEFAULTS,
+} from './lib/prospector/promotion-gate.mjs';
+import { loadSourceHostOwnership } from './lib/crawler-source-hosts.mjs';
 import { tenantHostOwner } from './lib/prospector/coverage.mjs';
+import { alignCandidateQualityContractVersion, qualityContractVersionOf } from './lib/prospector/quality-contract.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
@@ -36,10 +71,14 @@ assertKnownFlags(argv, { booleans: ['dry-run'], valued: ['key', 'limit', 'sample
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
-const limit = Number(arg('limit', 40));
+const limit = parseValidationLimit(arg('limit', 40));
 const onlyKey = arg('key', '');
 const sampleSize = Number(arg('sample', 4));
+if (!Number.isSafeInteger(sampleSize) || sampleSize < 1 || sampleSize > 8) {
+  throw new Error('--sample must be an integer between 1 and 8');
+}
 const dryRun = flag('dry-run');
+startLedgerPhase('validate', { dryRun });
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 const store = loadCandidates();
@@ -48,9 +87,138 @@ const byCrawlerKey = new Map();
 for (const c of Object.values(store.candidates)) if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
 
 function candidateForSpec(spec) {
-  return (spec.candidateKey && store.candidates[spec.candidateKey])
+  return (spec.candidateKey && candidateForKey(store, spec.candidateKey))
     || byCrawlerKey.get(spec.companyKey)
     || null;
+}
+
+function validationScheduleEntry(report) {
+  const at = String(report?.at || report?.validationStartedAt || '');
+  if (!report?.companyKey || !Number.isFinite(Date.parse(at))
+    || typeof report.runtimeSnapshotComplete !== 'boolean') return null;
+  return {
+    at,
+    qualityContractVersion: report.qualityContractVersion ?? null,
+    sourceAdapterVersion: report.sourceAdapterVersion ?? null,
+    verdict: report.verdict || null,
+    runtimeSnapshotComplete: report.runtimeSnapshotComplete,
+    retryAfterAt: report.retryAfterAt || null,
+  };
+}
+
+function loadValidationScheduleState() {
+  const state = new Map();
+  let previous;
+  try {
+    previous = JSON.parse(fs.readFileSync(VALIDATION_PATH, 'utf8'));
+  } catch (error) {
+    if (error?.code !== 'ENOENT') {
+      console.warn(`stato retry VALIDATE non leggibile: ${String(error?.message || error).slice(0, 200)}`);
+    }
+    return state;
+  }
+
+  const schedule = previous?.validationSchedule;
+  if (schedule && typeof schedule === 'object' && !Array.isArray(schedule)) {
+    for (const [companyKey, saved] of Object.entries(schedule)) {
+      const entry = validationScheduleEntry({ companyKey, ...saved });
+      if (entry) state.set(companyKey, entry);
+    }
+  }
+  for (const report of Array.isArray(previous?.reports) ? previous.reports : []) {
+    const entry = validationScheduleEntry(report);
+    if (!entry) continue;
+    const key = String(report.companyKey);
+    const currentAt = Date.parse(state.get(key)?.at || '');
+    if (!state.has(key) || Date.parse(entry.at) >= currentAt) state.set(key, entry);
+  }
+  return state;
+}
+
+const validationScheduleState = loadValidationScheduleState();
+const previousValidationForSpec = (spec) => validationScheduleState.get(String(spec.companyKey || '')) || null;
+
+function validationRetryStateForSpec(spec) {
+  const candidate = candidateForSpec(spec);
+  const history = Array.isArray(candidate?.validationHistory) ? candidate.validationHistory.slice() : [];
+  const previous = previousValidationForSpec(spec);
+  if (previous && !history.some((entry) => String(entry?.at || '') === previous.at)) history.push(previous);
+  history.sort((a, b) => String(a?.at || '').localeCompare(String(b?.at || '')));
+  if (!candidate && !history.length) return null;
+  return { ...(candidate || {}), validationHistory: history };
+}
+
+function failedRuntimeObservation(error) {
+  const partialListingCount = Number.isInteger(error?.specDiscoveredCount)
+    ? error.specDiscoveredCount
+    : null;
+  return {
+    algorithmVersion: 'spec-production-output-v1',
+    listingCount: null,
+    partialListingCount,
+    publishableCount: 0,
+    runtimeOutputCount: 0,
+    snapshotAccepted: false,
+    productionSnapshotAccepted: false,
+    promotionObservationComplete: false,
+    qualityDropDenominator: null,
+    exactListingCount: false,
+    listingPopulationComplete: false,
+    expectedFilterCount: 0,
+    expectedFilters: {},
+    dropCounts: { listing_or_runtime_observation_failed: 1 },
+    sourceBackedLocationCount: 0,
+    sourceBackedLocationDenominator: null,
+    sourceBackedLocationRate: null,
+    complete: false,
+    detailDrop: error?.specDetailDrop || null,
+    failure: String(error?.message || error || 'runtime observation failed').slice(0, 500),
+  };
+}
+
+function failedQualityReport(spec, vacancies, error) {
+  return {
+    companyKey: spec.companyKey,
+    vacancyCount: vacancies.length,
+    sampled: 0,
+    reachableRate: 0,
+    titleMatchRate: 0,
+    contentfulRate: 0,
+    locationSourceRate: 0,
+    distinctRate: 0,
+    detailDistinctRate: 0,
+    jobLikeRate: null,
+    jobLikeEvidenceRate: 0,
+    jobLikeEvidenceMeasured: 0,
+    jobLikeEvidenceUnmeasured: 0,
+    employerIdentityRate: 0,
+    employerIdentityMismatchCount: 0,
+    employerIdentityUnknownCount: 0,
+    score: 0,
+    verdict: 'weak',
+    problems: [`validazione non completata: ${String(error?.message || error).slice(0, 300)}`],
+    sampleSelection: null,
+    samples: [],
+  };
+}
+
+function readPublishedSlice(crawlerKey) {
+  const key = String(crawlerKey || '').trim();
+  if (!key || path.basename(key) !== key || !/^[a-z0-9_-]+$/i.test(key)) return { malformed: true };
+  const file = path.join(DATA_ROOT, 'jobs', 'by-crawler', `${key}.json`);
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return parsed && typeof parsed === 'object' && Array.isArray(parsed.jobs) ? parsed : { malformed: true };
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    return { malformed: true };
+  }
+}
+
+function tallyVerdicts(reports, field) {
+  const result = { good: 0, weak: 0, bad: 0, insufficient: 0 };
+  for (const report of reports) if (Object.hasOwn(result, report[field])) result[report[field]]++;
+  return result;
 }
 
 function canRevalidateRejectedCandidate(spec, candidate) {
@@ -74,52 +242,80 @@ try {
 }
 if (onlyKey) specs = specs.filter((s) => s.companyKey === onlyKey);
 
-// Il budget giornaliero e' fisso (`limit`, 40 nel workflow) e la selezione e'
-// l'ordine alfabetico di `readdir`: senza questo filtro i candidati gia'
-// `production`/`promoting` (che non possono piu' avanzare: `setStatus` e'
-// forward-only, vedi candidate-store.mjs) e i `rejected`/`dead` (terminali)
-// restano nel file indefinitamente e occupano ogni giorno gli slot
+// Il budget giornaliero e' fisso (`limit`, 40 nel workflow). Senza questo
+// filtro i candidati gia'
+// `promoting` (che aspetta la riconciliazione della PR) e i `rejected`/`dead`
+// (terminali) restano nel file indefinitamente e occupano ogni giorno gli slot
 // alfabeticamente precoci — misurato su #6303: nel run del 2026-08-29,
 // 24 dei 40 slot andavano a candidati che non potevano piu' beneficiare di
 // una rivalidazione, mentre 43 spec restavano fuori dal giro per sempre,
 // alcuni bloccati per giorni a "1 giorno su 2" di stabilita' o senza
 // logo/jobLike mai misurati. Chi non puo' piu' avanzare non deve competere
 // per lo slot con chi puo'.
-const DONE_STATUSES = new Set(['production', 'promoting', 'rejected', 'dead']);
+const DONE_STATUSES = new Set(['awaiting_first_crawl', 'promoting', 'rejected', 'dead']);
+// ALIGN before status filtering so a promoted or production candidate cannot
+// reuse history from an older quality contract. Production rows with missing
+// current-contract proof are selected for a separate audit below.
 specs = specs.filter((s) => {
   const c = candidateForSpec(s);
+  alignCandidateQualityContractVersion(c, s);
   return !c || !DONE_STATUSES.has(c.status) || canRevalidateRejectedCandidate(s, c);
 });
 
-// Il filtro qui sopra toglie chi non puo' piu' avanzare, ma fra chi resta
-// l'ordine e' ancora quello di `readdir`: con 64 spec in gara e 40 slot, le
-// stesse 24 di coda alfabetica (`recruitingapp-2861` … `walo`, misurate il
-// 2026-09-05) non vengono rivalidate MAI. Ogni check aggiunto al gate dopo la
-// loro ultima validazione resta percio' «mai misurato» per sempre, che il gate
-// tratta — giustamente — come bloccante: 14 delle 34 candidate `promoted`
-// erano ferme li', con l'ultima validazione al 2026-08-21. Ordina per
-// validazione piu' vecchia: chi non e' mai stato validato passa per primo,
-// l'alfabeto resta solo come spareggio a parita' di data.
-specs.sort((a, b) => {
-  const lastAt = (spec) => {
-    const history = candidateForSpec(spec)?.validationHistory;
-    return Array.isArray(history) && history.length ? String(history[history.length - 1].at || '') : '';
-  };
-  return lastAt(a).localeCompare(lastAt(b)) || String(a.companyKey).localeCompare(String(b.companyKey));
-});
-
-specs = specs.slice(0, limit);
+// Mantieni slot prevedibili per chi ha gia' una validazione buona e deve
+// raccogliere la seconda su un giorno UTC distinto. Gli slot rimanenti restano
+// oldest-first fra nuovi candidati e retry, evitando che la coda non validata
+// monopolizzi l'intero budget.
+const scheduledAt = new Date();
+const PRODUCTION_AUDIT_LIMIT = 5;
+const ownership = loadSourceHostOwnership(ROOT, { urls: true });
+const productionAuditCandidates = [];
+const regularSpecs = [];
+for (const spec of specs) {
+  const candidate = candidateForSpec(spec);
+  if (candidate?.status === 'production') {
+    const owner = tenantHostOwner(candidate, ownership.byHost);
+    const otherOwner = owner && owner !== spec.companyKey;
+    if (!otherOwner
+      && needsProductionQualityAudit(spec, candidate, {
+        date: scheduledAt,
+        adapterVersionFor: (item) => sourceCrawlerAdapterFor(item)?.version || null,
+        previousValidationForSpec,
+      })) productionAuditCandidates.push(spec);
+    continue;
+  }
+  if (!candidate || !DONE_STATUSES.has(candidate.status) || canRevalidateRejectedCandidate(spec, candidate)) {
+    regularSpecs.push(spec);
+  }
+}
+const productionAuditSpecs = prioritizeProductionAuditSpecs(productionAuditCandidates, candidateForSpec, {
+  adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
+  previousValidationForSpec,
+}).slice(0, PRODUCTION_AUDIT_LIMIT);
+const deferredForBackoff = specs.filter((spec) => {
+  const retryState = validationRetryStateForSpec(spec);
+  const adapterVersion = sourceCrawlerAdapterFor(spec)?.version || undefined;
+  return retryState && !isValidationRetryDue(retryState, scheduledAt, {
+    qualityContractVersion: qualityContractVersionOf(spec),
+    ...(adapterVersion ? { sourceAdapterVersion: adapterVersion } : {}),
+  });
+}).length;
+specs = [
+  ...productionAuditSpecs,
+  ...prioritizeValidationSpecs(regularSpecs, candidateForSpec, {
+  limit,
+  date: scheduledAt,
+  adapterVersionFor: (spec) => sourceCrawlerAdapterFor(spec)?.version || null,
+  previousValidationForSpec,
+  }),
+];
 
 console.log('═══ Prospector · VALIDATE ═══');
-console.log(`spec da validare: ${specs.length}   campione per spec: ${sampleSize} annunci\n`);
+console.log(`spec da validare: ${specs.length}   audit produzione: ${productionAuditSpecs.length}/${PRODUCTION_AUDIT_LIMIT}   campione base: ${sampleSize} (adattivo fino a 8) · rinviate per backoff: ${deferredForBackoff}\n`);
 
 const reports = [];
 const tally = { good: 0, weak: 0, bad: 0, insufficient: 0 };
 let duplicates = 0;
-
-// What we already crawl, keyed by the individual vacancy URL. Read once: the
-// slices are large and the answer cannot change during a run.
-const ownership = loadSourceHostOwnership(ROOT, { urls: true });
 
 for (const spec of specs) {
   const adapter = sourceCrawlerAdapterFor(spec);
@@ -130,35 +326,77 @@ for (const spec of specs) {
   // `good` for weeks on a tenant `bethesda-spital` had been crawling since May
   // (issue 5253). Asked before `runSpec`, so a known duplicate costs no fetch.
   const candidate = candidateForSpec(spec);
+  const productionAudit = candidate?.status === 'production';
+  const validationStartedAt = new Date().toISOString();
   const tenantOwner = tenantHostOwner(candidate, ownership.byHost);
   if (tenantOwner) {
-    duplicates++;
-    console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${tenantOwner} — tenant ${candidate.tenantHost} gia' letto`);
-    setStatus(store, candidate.key, 'rejected', {
-      qualityVerdict: 'duplicate',
-      qualityProblems: [`duplica ${tenantOwner}: il tenant ${candidate.tenantHost} e' gia' la fonte di data/jobs/by-crawler/${tenantOwner}.json`],
-      duplicateOf: tenantOwner,
-    }, dryRun ? null : undefined);
-    continue;
+    if (productionAudit && tenantOwner === spec.companyKey) {
+      // Its current production slice is the expected owner; auditing it must
+      // not turn its own source identity into a duplicate rejection.
+    } else if (productionAudit) {
+      console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} audit produzione saltato: tenant già letto da ${tenantOwner}`);
+      continue;
+    } else {
+      duplicates++;
+      console.log(`  ⊘ ${String(spec.companyName).slice(0, 30).padEnd(32)} duplicato di ${tenantOwner} — tenant ${candidate.tenantHost} gia' letto`);
+      setStatus(store, candidate.key, 'rejected', {
+        qualityVerdict: 'duplicate',
+        qualityProblems: [`duplica ${tenantOwner}: il tenant ${candidate.tenantHost} e' gia' la fonte di data/jobs/by-crawler/${tenantOwner}.json`],
+        duplicateOf: tenantOwner,
+      }, dryRun ? null : undefined);
+      continue;
+    }
   }
 
   // Stessa ragione dello stadio di sintesi: qui si rende di nuovo il DOM di
   // siti arbitrari, e perdere il giudizio di tutte le spec per colpa di una
   // significherebbe anche non far avanzare lo STORICO su cui il gate di
   // promozione decide — cioe' rimandare ogni promozione di un giorno.
-  let vacancies;
-  let errors;
+  let vacancies = [];
+  let errors = [];
+  let runtimeObservation;
+  let observedDetailsByUrl;
+  let titleEvidenceByUrl;
+  let runtimeFailure = null;
   try {
     if (adapter) {
-      vacancies = await adapter.fetchJobs();
-      errors = vacancies?.fetchErrors || [];
+      const adapterRows = await adapter.fetchJobs({ retainDetailPages: true });
+      if (!Array.isArray(adapterRows)) throw new Error('source adapter returned a non-array output');
+      vacancies = adapterRows;
+      const adapterErrors = adapterRows.fetchErrors;
+      errors = Array.isArray(adapterErrors)
+        ? adapterErrors
+        : (adapterErrors ? [String(adapterErrors)] : []);
+      runtimeObservation = sourceAdapterRuntimeObservationFor(adapterRows, {
+        companyKey: spec.companyKey,
+        adapter,
+        errors,
+        requireObservedDetails: true,
+      });
+      observedDetailsByUrl = adapterRows.observedDetailsByUrl;
+      titleEvidenceByUrl = adapterRows.titleEvidenceByUrl;
     } else {
-      ({ vacancies, errors } = await runSpec(spec));
+      const observed = await observeSpecInProduction(spec, productionRuntimeOptionsFor(spec) || {});
+      vacancies = observed.vacancies;
+      runtimeObservation = observed.observation;
+      observedDetailsByUrl = observed.detailPagesByUrl;
+      titleEvidenceByUrl = observed.titleEvidenceByUrl;
     }
   } catch (err) {
-    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore in esecuzione: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
-    continue;
+    runtimeFailure = err;
+    errors = [String(err instanceof Error ? err.message : err)];
+    runtimeObservation = err?.specRuntimeObservation || failedRuntimeObservation(err);
+    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} osservazione runtime incompleta: ${(err instanceof Error ? err.message : String(err)).slice(0, 100)}`);
   }
+  let validationSnapshotMetadata = validationSnapshotMetadataFor(runtimeObservation, Boolean(runtimeFailure));
+  let validationSnapshot = createValidationSnapshot(
+    vacancies,
+    new Date().toISOString(),
+    process.env.GITHUB_RUN_ID || null,
+    validationSnapshotMetadata,
+  );
+  let validationSnapshotSummary = { ...validationSnapshot };
+  delete validationSnapshotSummary.ids;
   // Does this "new employer" simply re-publish vacancies we already carry?
   // Grading cannot tell: a duplicate tenant parses beautifully and scores
   // `good`, which is precisely how `eoc-candidati-posizioni` was promoted
@@ -168,10 +406,11 @@ for (const spec of specs) {
   // `exclude` is not optional here: this stage re-grades candidates that are
   // already `promoted`/`production`, and a live crawler matches its OWN slice at
   // 100% — without it, every established crawler would reject itself.
-  const twin = matchExistingCrawler(
+  const twin = productionAudit ? null : matchExistingCrawlerForCompleteSnapshot(
     (vacancies || []).map((v) => v?.url || ''),
     ownership,
     { exclude: spec.companyKey },
+    runtimeObservation,
   );
   if (twin) {
     duplicates++;
@@ -189,19 +428,55 @@ for (const spec of specs) {
   let report;
   try {
     report = await gradeExtraction(spec, vacancies, {
-      sampleSize,
+      sampleSize: adaptiveValidationSampleSize({
+        baseSampleSize: sampleSize,
+        populationCount: vacancies.length,
+        candidate,
+      }),
+      anomalyIds: candidate?.validationAnomalyIds || [],
+      expectedIdentity: {
+        name: candidate?.name || spec.companyName,
+        secoName: candidate?.secoEmployerName,
+        domain: candidate?.domain || spec.companyHost,
+        tenantHost: candidate?.tenantHost || spec.tenantHost,
+        careersUrl: candidate?.careersUrl || spec.seedUrls?.[0],
+      },
       detailExtractor: adapter?.detailExtractor,
+      observedDetailsByUrl,
+      requireObservedDetails: Boolean(adapter),
+      titleEvidenceByUrl,
+      runtimeObservation,
     });
   } catch (err) {
-    console.log(`  ! ${String(spec.companyName).slice(0, 30).padEnd(32)} errore nel giudizio: ${(err instanceof Error ? err.message : String(err)).slice(0, 60)}`);
-    continue;
+    runtimeFailure ||= err;
+    const failedSnapshot = validationSnapshotAfterGradeFailure(
+      vacancies,
+      validationSnapshot.observedAt,
+      process.env.GITHUB_RUN_ID || null,
+      runtimeObservation || failedRuntimeObservation(err),
+      err,
+    );
+    runtimeObservation = failedSnapshot.runtimeObservation;
+    validationSnapshotMetadata = failedSnapshot.metadata;
+    validationSnapshot = failedSnapshot.snapshot;
+    validationSnapshotSummary = { ...validationSnapshot };
+    delete validationSnapshotSummary.ids;
+    report = failedQualityReport(spec, vacancies, err);
   }
   report.companyName = spec.companyName;
+  report.qualityContractVersion = qualityContractVersionOf(spec);
   report.companyHost = spec.companyHost;
   report.platform = spec.platform || null;
   report.mode = spec.mode;
   report.sourceAdapterVersion = adapter?.version || null;
   report.runErrors = errors;
+  report.runtimeObservation = runtimeObservation;
+  report.validationStartedAt = validationStartedAt;
+  report.validationSnapshot = validationSnapshotSummary;
+  report.snapshotComparison = comparePublicationSnapshots(validationSnapshot, readPublishedSlice(spec.companyKey));
+  report.prioritizedAnomalyIds = (candidate?.validationAnomalyIds || []).slice(0, 50);
+  report.measuredVerdict = report.measuredVerdict || report.verdict;
+  applyValidationRuntimeState(report, validationSnapshotMetadata.runtimeSnapshotComplete);
 
   // Logo obbligatorio quanto jobLike: un candidato la cui azienda non ha un
   // logo verificabile non entra in produzione (vedi promotion-gate.mjs). La
@@ -209,28 +484,85 @@ for (const spec of specs) {
   // `logoFound: false`, che il gate tratta come "non ancora dimostrato" e che
   // si autoripara alla prossima validazione (stessa filosofia del resto del
   // gate: nessuna misura non fatta vale come "passata").
-  const logo = await probeCompanyLogo(spec.companyHost).catch(() => ({ found: false, reason: 'errore probe' }));
-  report.logoFound = logo.found;
+  const logo = runtimeFailure
+    ? null
+    : await probeCompanyLogo(spec.companyHost).catch(() => ({ found: false, reason: 'errore probe' }));
+  report.logoFound = logo?.found ?? null;
 
   reports.push(report);
   tally[report.verdict]++;
 
   const mark = { good: '✓', weak: '~', bad: '✗', insufficient: '?' }[report.verdict];
-  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  localita' ${(report.locationSourceRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
+  const runtimeCount = runtimeObservation?.exactListingCount
+    ? `${runtimeObservation.runtimeOutputCount}/${runtimeObservation.listingCount} accepted runtime output/listing; ${runtimeObservation.publishableCount} publishable rows`
+    : `${runtimeObservation?.runtimeOutputCount ?? vacancies.length} accepted runtime output; listing count unavailable; ${runtimeObservation?.publishableCount ?? vacancies.length} publishable rows`;
+  if (runtimeObservation?.exactListingCount) {
+    const dropSummary = Object.entries(runtimeObservation.dropCounts || {})
+      .filter(([, count]) => Number(count) > 0)
+      .map(([reason, count]) => `${reason}=${count}/${runtimeObservation.listingCount}`)
+      .join(', ');
+    console.log(`    runtime drops: ${dropSummary || '0'}; expected filters ${runtimeObservation.expectedFilterCount || 0}/${runtimeObservation.listingCount}; quality denominator ${runtimeObservation.qualityDropDenominator ?? 'unavailable'}`);
+  } else if (runtimeObservation?.complete === false) {
+    console.log(`    runtime observation incomplete; partial listing candidates ${runtimeObservation.partialListingCount ?? 'unknown'}; total denominator unavailable`);
+  }
+  const sampleCount = report.sampleSelection
+    ? `${report.sampleSelection.sampleCount}/${report.sampleSelection.populationCount} sampled/publishable (${report.sampleSelection.day})`
+    : 'sample non eseguito';
+  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${runtimeCount}  ${sampleCount}  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  localita' ${(report.locationSourceRate * 100).toFixed(0)}%  logo ${logo?.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
+  if (report.sampleSelection?.selected?.length) {
+    const identities = report.sampleSelection.selected
+      .map(({ index, stratum, id }) => `s${stratum}@${index}:${String(id).slice(0, 90)}`)
+      .join(' | ');
+    console.log(`    sample ${report.sampleSelection.algorithmVersion}: ${identities}`);
+  }
 
   if (candidate) {
     const rejectedRevalidation = canRevalidateRejectedCandidate(spec, candidate);
-    const next = report.verdict === 'good' ? 'promoted' : (report.verdict === 'bad' ? 'rejected' : 'validated');
+    const next = productionAudit ? 'production' : candidateStatusAfterValidation(report);
+    const qualityProblems = [...report.problems];
+    let sourceBackedLocationProblem = '';
+    // `good` is the extraction-quality verdict, not a waiver for PROMOTE's
+    // source-backed geography predicate. Keep an unproven candidate retryable;
+    // do not invent a fallback location or turn missing evidence into a
+    // terminal rejection.
+    if (report.verdict === 'good' && next !== 'promoted') {
+      const measuredRate = Number(report.locationSourceRate);
+      const measuredLabel = Number.isFinite(measuredRate)
+        ? `${Math.round(measuredRate * 100)}%`
+        : 'non misurata';
+      sourceBackedLocationProblem = `localita' source-backed ${measuredLabel} sotto la soglia PROMOTE ${Math.round(GATE_DEFAULTS.minLocationSourceRate * 100)}%`;
+      qualityProblems.push(sourceBackedLocationProblem);
+    }
     // Keep a short grading history. A single good grade proves the page parsed
     // ONCE; autonomous promotion needs proof it parses the same way on a
     // different day, because the dominant failure of a synthesised crawler is a
     // listing that renders differently between visits (A/B markup, a cookie
     // wall, an empty week). The promotion gate reads this, nothing else does.
     const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+    const sampledIds = new Set((report.samples || []).map((sample) => String(sample.sampleId || '')).filter(Boolean));
+    const unresolvedAnomalies = (candidate.validationAnomalyIds || [])
+      .filter((id) => !sampledIds.has(String(id)));
+    for (const sample of report.samples || []) {
+      const failedEvidence = sample.reachable !== true
+        || Number(sample.titleMatch) < 0.8
+        || sample.contentful !== true
+        || sample.jobLikeEvidence !== true
+        || sample.employerIdentityStatus !== 'match';
+      if (failedEvidence && sample.sampleId) unresolvedAnomalies.push(String(sample.sampleId));
+    }
+    candidate.validationAnomalyIds = [...new Set(unresolvedAnomalies)].slice(0, 50);
     history.push({
-      at: new Date().toISOString(),
+      at: validationStartedAt,
+      qualityContractVersion: report.qualityContractVersion,
       score: report.score,
       verdict: report.verdict,
+      measuredVerdict: report.measuredVerdict,
+      runtimeSnapshotComplete: report.runtimeSnapshotComplete,
+      runtimeFailureCategory: report.runtimeFailureCategory,
+      retryAfterAt: report.retryAfterAt,
+      runtimeObservation: report.runtimeObservation,
+      sampleSelection: report.sampleSelection,
+      snapshotComparison: report.snapshotComparison,
       vacancyCount: report.vacancyCount,
       sampled: report.sampled,
       reachableRate: report.reachableRate,
@@ -245,7 +577,16 @@ for (const spec of specs) {
       // measured" (blocking) while `null` means "measured, unreadable bytes"
       // (not blocking) — so it must be written on every entry, including null.
       jobLikeRate: report.jobLikeRate ?? null,
-      logoFound: report.logoFound,
+      jobLikeEvidenceRate: report.jobLikeEvidenceRate ?? 0,
+      jobLikeEvidenceMeasured: report.jobLikeEvidenceMeasured ?? 0,
+      jobLikeEvidenceUnmeasured: report.jobLikeEvidenceUnmeasured ?? report.sampled,
+      jobLikeEvidenceModes: report.jobLikeEvidenceModes || {},
+      employerIdentityRate: report.employerIdentityRate ?? 0,
+      employerIdentityMatchCount: report.employerIdentityMatchCount ?? 0,
+      employerIdentityMismatchCount: report.employerIdentityMismatchCount ?? 0,
+      employerIdentityUnknownCount: report.employerIdentityUnknownCount ?? 0,
+      validationAnomalyCount: candidate.validationAnomalyIds.length,
+      ...(logo ? { logoFound: report.logoFound } : {}),
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
     });
     if (rejectedRevalidation) {
@@ -260,33 +601,96 @@ for (const spec of specs) {
         continue;
       }
     }
-    setStatus(store, candidate.key, next, {
+    const statusPatch = {
       crawlerKey: spec.companyKey,
       domain: candidate.domain || spec.companyHost,
       careersUrl: candidate.careersUrl || spec.seedUrls?.[0] || null,
+      ...(sourceBackedLocationProblem ? { reason: sourceBackedLocationProblem } : {}),
       ...(rejectedRevalidation && next === 'rejected'
-        ? { reason: report.problems[0] || 'rivalutazione source adapter respinta' }
+        ? { reason: qualityProblems[0] || 'rivalutazione source adapter respinta' }
         : {}),
       detailEnrichment: spec.detailEnrichment === true,
+      qualityContractVersion: report.qualityContractVersion,
       qualityScore: report.score,
       qualityVerdict: report.verdict,
-      qualityProblems: report.problems,
+      qualityProblems,
       vacancyCount: report.vacancyCount,
       validationHistory: history.slice(-8),
+      validationAnomalyIds: candidate.validationAnomalyIds,
       ...(adapter ? { sourceAdapterVersion: adapter.version } : {}),
-    }, dryRun ? null : undefined);
+    };
+    if (productionAudit) {
+      setStatus(store, candidate.key, 'production', statusPatch, dryRun ? null : undefined);
+    } else if (candidate.status === 'promoted' && next === 'validated') {
+      requeuePromotedCandidate(
+        store,
+        candidate.key,
+        statusPatch,
+        dryRun ? null : undefined,
+      );
+    } else {
+      setStatus(store, candidate.key, next, statusPatch, dryRun ? null : undefined);
+    }
   }
 }
 
-const promotedVacancies = reports.filter((r) => r.verdict === 'good').reduce((a, r) => a + r.vacancyCount, 0);
-console.log(`\nesito: ${tally.good} promossi · ${tally.weak} deboli · ${tally.bad} respinti · ${tally.insufficient} campione insufficiente · ${duplicates} duplicati di crawler esistenti`);
-console.log(`annunci coperti dai crawler promossi: ${promotedVacancies}`);
+const goodVerdictVacancies = reports.filter((r) => r.verdict === 'good').reduce((a, r) => a + r.vacancyCount, 0);
+const measuredTally = tallyVerdicts(reports, 'measuredVerdict');
+const runtimeSnapshotTally = {
+  complete: reports.filter((r) => r.runtimeSnapshotComplete).length,
+  incomplete: reports.filter((r) => !r.runtimeSnapshotComplete).length,
+};
+const qualityContractTally = {};
+const runtimeFailureCategoryTally = {};
+for (const report of reports) {
+  const version = String(report.qualityContractVersion || 'unknown');
+  const summary = qualityContractTally[version] ||= {
+    count: 0,
+    measured: { good: 0, weak: 0, bad: 0, insufficient: 0 },
+    conservative: { good: 0, weak: 0, bad: 0, insufficient: 0 },
+    runtimeSnapshot: { complete: 0, incomplete: 0 },
+  };
+  summary.count++;
+  if (Object.hasOwn(summary.measured, report.measuredVerdict)) summary.measured[report.measuredVerdict]++;
+  if (Object.hasOwn(summary.conservative, report.verdict)) summary.conservative[report.verdict]++;
+  summary.runtimeSnapshot[report.runtimeSnapshotComplete ? 'complete' : 'incomplete']++;
+  if (report.runtimeFailureCategory) {
+    runtimeFailureCategoryTally[report.runtimeFailureCategory] = (runtimeFailureCategoryTally[report.runtimeFailureCategory] || 0) + 1;
+  }
+}
+console.log(`\nverdetto conservativo: ${tally.good} buoni · ${tally.weak} deboli · ${tally.bad} respinti · ${tally.insufficient} campione insufficiente · ${duplicates} duplicati`);
+console.log(`verdetto misurato: ${JSON.stringify(measuredTally)} · snapshot completi ${runtimeSnapshotTally.complete}, incompleti ${runtimeSnapshotTally.incomplete}`);
+console.log(`annunci nei crawler con verdict good: ${goodVerdictVacancies}`);
 console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 
 if (dryRun) { console.log('\n--dry-run: niente scritto.'); }
 else {
   fs.mkdirSync(path.dirname(VALIDATION_PATH), { recursive: true });
-  fs.writeFileSync(VALIDATION_PATH, `${JSON.stringify({ generatedAt: new Date().toISOString(), tally, promotedVacancies, reports }, null, 2)}\n`);
+  const nextValidationSchedule = new Map(validationScheduleState);
+  for (const report of reports) {
+    const entry = validationScheduleEntry(report);
+    if (!entry) continue;
+    const key = String(report.companyKey);
+    const currentAt = Date.parse(nextValidationSchedule.get(key)?.at || '');
+    if (!nextValidationSchedule.has(key) || Date.parse(entry.at) >= currentAt) nextValidationSchedule.set(key, entry);
+  }
+  fs.writeFileSync(VALIDATION_PATH, `${JSON.stringify({
+    generatedAt: new Date().toISOString(),
+    qualityContractVersion: 3,
+    validationSchedule: Object.fromEntries([...nextValidationSchedule.entries()].sort(([a], [b]) => a.localeCompare(b))),
+    tally,
+    measuredTally,
+    runtimeSnapshotTally,
+    qualityContractTally,
+    runtimeFailureCategoryTally,
+    goodVerdictVacancies,
+    reports,
+  }, null, 2)}\n`);
   saveCandidates(store);
   console.log(`\nreport in ${path.relative(process.cwd(), VALIDATION_PATH)}`);
 }
+finishLedgerPhase(dryRun ? 'dry_run' : 'complete', {
+  inputCount: reports.length,
+  successCount: reports.filter((report) => report.runtimeSnapshotComplete).length,
+  retryCount: reports.filter((report) => !report.runtimeSnapshotComplete).length,
+});

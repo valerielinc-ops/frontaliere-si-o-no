@@ -125,6 +125,9 @@ jobs:
           fi
           if git cat-file -e "refs/remotes/origin/${branch}:${history_path}" 2>/dev/null; then
             git show "refs/remotes/origin/${branch}:${history_path}" > "${history_path}"
+            node scripts/ci/validate-workflow-data.mjs \
+              --kind telegram-member-count-history \
+              --file data/telegram-member-count-history.jsonl
             echo "Loaded append-only history from ${branch}."
           fi
 
@@ -149,6 +152,9 @@ jobs:
             echo "No member count history to publish."
             exit 0
           fi
+          node scripts/ci/validate-workflow-data.mjs \
+            --kind telegram-member-count-history \
+            --file data/telegram-member-count-history.jsonl
           DATE=$(date -u +%Y-%m-%d)
           body="$RUNNER_TEMP/telegram-member-count-refresh-pr-body.md"
           cat > "$body" <<EOF

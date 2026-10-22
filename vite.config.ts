@@ -16,6 +16,7 @@ import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { assetIntegrityManifestPlugin } from './build-plugins/shared/assetIntegrity';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { minifyCriticalIndexCssPlugin } from './build-plugins/minifyCriticalIndexCss';
+import { minifySeoStaticCssPlugin } from './build-plugins/minifySeoStaticCss';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
@@ -112,6 +113,7 @@ import { professionCantonLandingsLinksPlugin } from './build-plugins/professionC
 import { salaryProfessionCantonLinksPlugin } from './build-plugins/salaryProfessionCantonLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { sectorHubLinksPlugin } from './build-plugins/sectorHubLinksPlugin';
+import { autoSectorHubPagesPlugin } from './build-plugins/autoSectorHubPagesPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
 import { costOfLivingLandingsPlugin } from './build-plugins/costOfLivingLandingsPlugin';
@@ -225,6 +227,7 @@ export default defineConfig(({ mode }) => {
  ...(process.env.SKIP_JOB_OG_IMAGES !== '1' ? [jobOgImagesPlugin()] : []),
  jobRecencyPagesPlugin(__dirname),
  jobSectorPagesPlugin(__dirname),
+ autoSectorHubPagesPlugin(__dirname),
  fuelDailyPagesPlugin(__dirname),
  weatherCityPagesPlugin(__dirname),
  weatherAlertPagesPlugin(__dirname),
@@ -654,6 +657,9 @@ export default defineConfig(({ mode }) => {
  // troverebbe il registry vuoto (e lo dice, invece di non fare nulla in
  // silenzio).
  withPhaseTiming(seoHeroCardsPlugin(__dirname)),
+ // Vite copies this public asset without optimizing it. Compress the final
+ // output after all page emitters and before the write registry is reported.
+ withPhaseTiming(minifySeoStaticCssPlugin()),
  // Prints the collision summary and writes dist/.write-collisions.json after
  // every other plugin's closeBundle has flushed. enforce/order makes it the
  // last hook in the chain.

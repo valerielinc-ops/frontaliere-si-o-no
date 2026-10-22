@@ -178,6 +178,39 @@ async function readJsonSafe(filePath) {
   }
 }
 
+/** Missing monitor state is a first run; corrupt state must never reset streaks. */
+export async function readHealthState(filePath) {
+  let raw;
+  try {
+    raw = await fs.readFile(filePath, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return null;
+    throw new Error(`Cannot read crawler health state at ${filePath}`, { cause: error });
+  }
+  let state;
+  try {
+    state = JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Malformed crawler health state at ${filePath}`, { cause: error });
+  }
+  const counterFields = [
+    'lastNonZeroJobs',
+    'consecutiveEmptyRuns',
+    'consecutiveEmptyOkRuns',
+    '_lastObservedJobs',
+  ];
+  const validCrawlerRecord = (crawler) => crawler && typeof crawler === 'object' && !Array.isArray(crawler)
+    && counterFields.every((field) => crawler[field] === undefined
+      || (Number.isSafeInteger(crawler[field]) && crawler[field] >= 0));
+  if (!state || typeof state !== 'object' || Array.isArray(state)
+    || !state.crawlers || typeof state.crawlers !== 'object' || Array.isArray(state.crawlers)
+    || !Object.entries(state.crawlers).every(([slug, crawler]) => slug.trim()
+      && validCrawlerRecord(crawler))) {
+    throw new Error(`Invalid crawler health state shape at ${filePath}`);
+  }
+  return state;
+}
+
 /** List `*.json` slugs in a dir (best-effort; empty array on read failure). */
 async function listJsonSlugs(dir) {
   try {
@@ -985,13 +1018,22 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // Same evidence as the #5945 filtered-empty counts, stated directly instead
   // of derived: the run fetched and parsed fine, its own filter kept nothing.
   const filteredEmptyOutcome = fetchOutcome === 'filtered_empty' && lastObservedJobs === 0;
+  // A non-transport early exit never observed a publishable source result. The
+  // crawler template keeps the historical `selector_miss` outcome on this
+  // receipt for compatibility, but that label is not evidence of a fetch-
+  // boundary selector miss. Keep the receipt on the corroborated abort path;
+  // otherwise one fail-closed detail/listing extraction abort immediately
+  // marks a healthy crawler broken while its previous slice is still valid.
+  const unobservedNonTransportAbort =
+    abortedRun && abortKind !== 'connection-level-fetch';
   // A PROVEN break, on the run's own report. Waiting three days to say "0 jobs"
   // adds nothing here: the cause is already known and named. A soft transport
   // abort is intentionally excluded and uses the ordinary empty-streak gate.
   const fetchFailed =
     (CRAWLER_FETCH_FAILURE_OUTCOMES.has(fetchOutcome) || abortKind === 'connection-level-fetch') &&
     lastObservedJobs === 0 &&
-    !transientTransportAbort;
+    !transientTransportAbort &&
+    !unobservedNonTransportAbort;
 
   // A fetch failure, process-exit receipt, or parser-positive zero-output
   // receipt cancels every empty-ok signal, including a manual
@@ -1282,7 +1324,7 @@ async function main() {
     console.warn('[health] No crawler files found; nothing to check.');
   }
 
-  const prevState = (await readJsonSafe(HEALTH_STATE_PATH)) ?? {
+  const prevState = (await readHealthState(HEALTH_STATE_PATH)) ?? {
     _lastCheckedAt: null,
     crawlers: {},
   };

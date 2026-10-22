@@ -264,15 +264,19 @@ export function evaluateWebcamResult(result, minBytes = MIN_WEBCAM_BYTES) {
 }
 
 /**
- * Collect the unique webcam image URLs (with the crossings each serves) from the
- * borderCrossings registry. Pure: takes the array, returns a dedup map.
- * @param {Array<{name?: string, webcams?: Array<{imageUrl?: string, label?: string, minBytes?: number}>}>} crossings
+ * Collect the unique embeddable webcam image URLs (with the crossings each
+ * serves) from the borderCrossings registry. Link-only sources deliberately do
+ * not enter the image health check: their public page remains user-facing, but
+ * their frame URL is not a contract for embedding or monitoring.
+ * Pure: takes the array, returns a dedup map.
+ * @param {Array<{name?: string, webcams?: Array<{imageUrl?: string, label?: string, minBytes?: number, embedAllowed?: boolean}>}>} crossings
  * @returns {Map<string, {url: string, crossings: string[], label: string|null, minBytes: number|undefined}>}
  */
 export function collectWebcamUrls(crossings) {
   const map = new Map();
   for (const c of crossings || []) {
     for (const w of c?.webcams || []) {
+      if (w?.embedAllowed === false) continue;
       const url = w?.imageUrl;
       if (!url) continue;
       if (!map.has(url)) map.set(url, { url, crossings: [], label: w?.label ?? null, minBytes: w?.minBytes });

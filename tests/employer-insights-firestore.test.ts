@@ -92,7 +92,108 @@ function ad(index: number) {
   };
 }
 
+type TestAd = ReturnType<typeof ad>;
+
+function snapshotWithAds(companyKey: string, ads: TestAd[] = [], windows: Record<string, TestAd[]> = {}) {
+  const windowAds = new Map(
+    Object.entries(windows).map(([windowKey, values]) => [
+      employerInsightsWindowAdsSubcollection(windowKey),
+      new Map(values.map((value) => [employerInsightsAdId(value), value])),
+    ]),
+  );
+  return {
+    roots: new Map(),
+    ads: new Map([[companyKey, new Map(ads.map((value) => [employerInsightsAdId(value), value]))]]),
+    windowAds: new Map([[companyKey, windowAds]]),
+  };
+}
+
 describe('employer insights Firestore storage', () => {
+  it('skips an unchanged primary ad shard but always writes the root', async () => {
+    const db = makeFakeFirestore();
+    const desired = { ...ad(1), metrics: { first: 1, second: 2 } };
+    const current = { metrics: { second: 2, first: 1 }, ...ad(1), ignored: undefined };
+    const adPath = `employer_insights/acme/ads/${employerInsightsAdId(desired)}`;
+    db.values.set(adPath, current);
+
+    const result = await writeEmployerInsightsDocuments(db as never, [{
+      companyKey: 'acme', companyName: 'Acme', ads: [desired],
+    }], { before: snapshotWithAds('acme', [current]) });
+
+    expect(result).toEqual({ documentsWritten: 1, operationsCommitted: 1 });
+    expect(db.values.get(adPath)).toBe(current);
+    expect(db.values.get('employer_insights/acme')).toMatchObject({
+      adsStorage: { type: 'subcollection', count: 1 },
+    });
+  });
+
+  it('rewrites a primary ad shard when a field changes', async () => {
+    const db = makeFakeFirestore();
+    const desired = ad(1);
+    const current = { ...desired, views: desired.views + 1 };
+    const adPath = `employer_insights/acme/ads/${employerInsightsAdId(desired)}`;
+    db.values.set(adPath, current);
+
+    const result = await writeEmployerInsightsDocuments(db as never, [{
+      companyKey: 'acme', ads: [desired],
+    }], { before: snapshotWithAds('acme', [current]) });
+
+    expect(result).toEqual({ documentsWritten: 1, operationsCommitted: 2 });
+    expect(db.values.get(adPath)).toBe(desired);
+  });
+
+  it('writes a new primary ad shard', async () => {
+    const db = makeFakeFirestore();
+    const desired = ad(1);
+    const adPath = `employer_insights/acme/ads/${employerInsightsAdId(desired)}`;
+
+    const result = await writeEmployerInsightsDocuments(db as never, [{
+      companyKey: 'acme', ads: [desired],
+    }], { before: snapshotWithAds('acme') });
+
+    expect(result).toEqual({ documentsWritten: 1, operationsCommitted: 2 });
+    expect(db.values.get(adPath)).toBe(desired);
+  });
+
+  it('rewrites a primary ad shard when the current value is not plain JSON', async () => {
+    const db = makeFakeFirestore();
+    const desired = { ...ad(1), publishedAt: '2026-09-11T00:00:00.000Z' };
+    const current = { ...ad(1), publishedAt: new Date('2026-09-11T00:00:00.000Z') };
+    const adPath = `employer_insights/acme/ads/${employerInsightsAdId(desired)}`;
+    db.values.set(adPath, current);
+
+    const result = await writeEmployerInsightsDocuments(db as never, [{
+      companyKey: 'acme', ads: [desired],
+    }], { before: snapshotWithAds('acme', [current]) });
+
+    expect(result).toEqual({ documentsWritten: 1, operationsCommitted: 2 });
+    expect(db.values.get(adPath)).toBe(desired);
+  });
+
+  it('applies the same skip-and-rewrite logic to additional-window shards', async () => {
+    const db = makeFakeFirestore();
+    const unchangedDesired = { ...ad(1), metrics: { first: 1, second: 2 } };
+    const unchangedCurrent = { metrics: { second: 2, first: 1 }, ...ad(1), ignored: undefined };
+    const changedDesired = ad(2);
+    const changedCurrent = { ...changedDesired, views: changedDesired.views + 1 };
+    const unchangedPath = `employer_insights/acme/ads_90d/${employerInsightsAdId(unchangedDesired)}`;
+    const changedPath = `employer_insights/acme/ads_90d/${employerInsightsAdId(changedDesired)}`;
+    db.values.set(unchangedPath, unchangedCurrent);
+    db.values.set(changedPath, changedCurrent);
+
+    const result = await writeEmployerInsightsDocuments(db as never, [{
+      companyKey: 'acme', ads: [], additionalWindows: {
+        '90d': { ads: [unchangedDesired, changedDesired] },
+      },
+    }], {
+      before: snapshotWithAds('acme', [], { '90d': [unchangedCurrent, changedCurrent] }),
+    });
+
+    expect(result).toEqual({ documentsWritten: 1, operationsCommitted: 2 });
+    expect(db.values.get(unchangedPath)).toBe(unchangedCurrent);
+    expect(db.values.get(changedPath)).toBe(changedDesired);
+  });
+
   it('keeps large ad arrays below the root document limit using stable shards', async () => {
     const db = makeFakeFirestore();
     const document = {

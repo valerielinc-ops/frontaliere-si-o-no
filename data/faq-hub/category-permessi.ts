@@ -159,6 +159,7 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
       fr: 'Dois-je m\'inscrire à l\'AIRE si je détiens un permis G ?',
     },
     titleShort: {
+      it: 'Permesso G e iscrizione AIRE',
       de: 'Muss ich mich mit G-Bewilligung beim AIRE registrieren?',
     },
     answer: {
@@ -172,7 +173,7 @@ export const FAQ_permessi: ReadonlyArray<FaqHubEntry> = [
         "Non. L'AIRE (registre des Italiens résidant à l'étranger) concerne les Italiens qui transfèrent leur résidence hors d'Italie pour plus de 12 mois [source : MAE italien, décret 470/1988]. Le frontalier avec permis G garde sa résidence en Italie, donc NE s'inscrit PAS à l'AIRE. En revanche, le transfert du domicile en Suisse (permis B ou C) impose l'inscription à l'AIRE dans les 90 jours via le consulat de Lugano (portail FAST IT) et la désinscription de la commune italienne. L'AIRE modifie les obligations fiscales (taxation mondiale en Suisse), sanitaires (LAMal) et politiques (vote par correspondance).",
     },
     sources: [
-      'https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/aire_2/',
+      'https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/aire_0/',
     ],
   },
   {

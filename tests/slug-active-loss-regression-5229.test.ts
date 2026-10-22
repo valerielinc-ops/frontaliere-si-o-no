@@ -37,7 +37,7 @@
 // Both halves are invisible to tests/slug-write-encapsulation.test.ts: its AST
 // walk only parses scripts/** .ts|.mjs|.js, and half of this lives in a .sh.
 
-import { describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -46,6 +46,7 @@ import {
   preserveSlugHistory,
   GUARD_PER_LOCALE_CAP,
   GUARD_LEGACY_CAP,
+  _resetGscIndexedSlugsCache,
 } from '../scripts/lib/slug-preservation-guard.mjs';
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -54,6 +55,20 @@ import {
 
 describe('slug-preservation-guard — cap must not swallow proven history (#5229)', () => {
   const SLICE = '/repo/data/jobs/by-crawler/coop-ticino.json';
+  let emptyGscRoot = '';
+
+  beforeAll(() => {
+    emptyGscRoot = mkdtempSync(join(tmpdir(), 'slug-guard-empty-gsc-'));
+    const dataDir = join(emptyGscRoot, 'data');
+    mkdirSync(dataDir, { recursive: true });
+    writeFileSync(join(dataDir, 'gsc-job-urls.json'), '[]');
+    writeFileSync(join(dataDir, 'gsc-orphan-job-slugs.json'), '[]');
+  });
+
+  afterAll(() => {
+    if (emptyGscRoot) rmSync(emptyGscRoot, { recursive: true, force: true });
+    _resetGscIndexedSlugsCache();
+  });
 
   /** A job whose `it` bucket holds `n` historical slugs, well under cap. */
   const jobWithHistory = (n: number) => ({
@@ -83,7 +98,7 @@ describe('slug-preservation-guard — cap must not swallow proven history (#5229
       }],
     };
 
-    const res = preserveSlugHistory(SLICE, next, { previousValue: before, denylist: new Set() });
+    const res = preserveSlugHistory(SLICE, next, { previousValue: before, denylist: new Set(), root: emptyGscRoot });
 
     const bucket = next.jobs[0].previousSlugsByLocale.it;
     // Pre-fix: recapture() prepended each rescued slug and capSlugArray kept
@@ -101,9 +116,9 @@ describe('slug-preservation-guard — cap must not swallow proven history (#5229
   });
 
   it('still treats eviction from an ALREADY-full bucket as a legitimate cap-trim', () => {
-    // The bucket was at cap BEFORE the write: routine LRU, and exactly what
-    // scan-prev-slug-losses.mjs's classifyCapTrim() excuses. The guard must
-    // agree with the scanner here too, or it would fight normal operation.
+    // The bucket was at cap BEFORE the write and the test snapshot is complete
+    // but empty: routine LRU, and what classifyCapTrim() excuses without GSC
+    // evidence. The guard must agree with the scanner here too.
     const full = Array.from({ length: GUARD_PER_LOCALE_CAP }, (_, i) => `storico-${i}`);
     const before = {
       jobs: [{
@@ -120,7 +135,7 @@ describe('slug-preservation-guard — cap must not swallow proven history (#5229
       }],
     };
 
-    const res = preserveSlugHistory(SLICE, next, { previousValue: before, denylist: new Set() });
+    const res = preserveSlugHistory(SLICE, next, { previousValue: before, denylist: new Set(), root: emptyGscRoot });
     expect(res.capTrimmed).toBeGreaterThan(0);
     expect(next.jobs[0].previousSlugsByLocale.it.length).toBe(GUARD_PER_LOCALE_CAP);
   });

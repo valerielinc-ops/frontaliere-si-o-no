@@ -51,6 +51,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -246,20 +247,7 @@ async function collectAllJobUrls() {
  * detail page.
  */
 function parseJobPostingJsonLd(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-  let match;
-  while ((match = re.exec(html)) !== null) {
-    try {
-      const payload = JSON.parse(match[1]);
-      const candidates = Array.isArray(payload) ? payload : [payload];
-      for (const candidate of candidates) {
-        if (candidate && candidate['@type'] === 'JobPosting') return candidate;
-      }
-    } catch {
-      // Malformed JSON-LD block — try the next <script> tag, if any.
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /* ── Main Fetcher ─────────────────────────────────────────── */

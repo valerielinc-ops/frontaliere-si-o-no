@@ -1,0 +1,19 @@
+{
+  "companyKey": "lesaco-ch",
+  "companyName": "lesaco",
+  "companyHost": "lesaco.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.lesaco.ch/stellenangebote/detail/a249226-luz-english-version"
+  ],
+  "detailTemplate": "/stellenangebote/detail/a249226-luz-english-version",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Housekeeper / All-rounder wanted in the canton of Lucerne"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T06:25:37.441Z"
+}

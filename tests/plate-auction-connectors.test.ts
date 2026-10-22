@@ -14,10 +14,10 @@ import {
   parseLuFixedPricePdfText,
   parseUrFixedPricePdfText,
 } from '../functions/src/plateAuctionsCore.js';
-import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
-import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
+import { parseShAuctionRows, SH_AUCTION_URL } from '../scripts/plate-auctions/connectors/sh.mjs';
 import {
   fetchSzPlateAuctions,
   parseSzAuctionRows,
@@ -27,7 +27,7 @@ import {
 import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
 import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
 import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
-import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { fetchExpandedCard, parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { validatePlateAuction } from '../services/plateAuctions/types';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -52,6 +52,15 @@ const ZH_SAMPLE = `
   <div class="auction-ends-at-text">Endet am:</div><div>16.09.2026, 19:00:00</div></div>
 </a>`;
 
+const ZH_EMPTY_SAMPLE = `
+<div class="auction-grid">
+  <div class="auctions">
+    <h2>Herzlich willkommen</h2>
+    <label>Kontrollschild</label><button>Suchen</button>
+    <p>Keine Ergebnisse für Ihre Suche.</p>
+  </div>
+</div>`;
+
 const TI_SAMPLE = `
 <div id="tabContent1"><table><tbody><tr class="L">
   <td><a onclick="openDetails(1532)" href="#"><div class="number">13457</div></a></td>
@@ -75,6 +84,7 @@ const CARD_SAMPLE = `
 const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ecari-auction-sample.html'), 'utf8');
 const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
 const EXPANDED_CARD_EMPTY_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-empty-sample.html'), 'utf8');
+const EXPANDED_CARD_NO_RESULTS_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-no-results-sample.html'), 'utf8');
 // NW/OW between two rounds: eCari's own empty state in every tab.
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction.html'), 'utf8');
 // Stesso stato vuoto in fr_ch (FR, VS) e it_CH (TI), catturato il 2026-09-25.
@@ -82,6 +92,10 @@ const ECARI_NO_RUNNING_AUCTION_FR = readFileSync(join(__dirname, 'fixtures/ecari
 const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
+  it('uses the live localized SH auction catalogue endpoint', () => {
+    expect(SH_AUCTION_URL).toBe('https://www.auktion-stva.sh.ch/de/');
+  });
+
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
     const html = '<a href="/cars.pdf">Cars</a><a href="/motorcycles.pdf">Motorcycles</a>';
     expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source', pattern: /trailer\.pdf/i })).toBeUndefined();
@@ -122,19 +136,33 @@ describe('expanded plate-auction connectors', () => {
     }
   });
 
+  it('retries a transient 404 from an official catalogue before degrading it', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response('temporary not found', { status: 404 }))
+      .mockResolvedValueOnce(new Response('<html>ok</html>', { status: 200 }));
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('parses the GR eCari full-width row and never exposes bidder text', () => {
     const [row] = parseGrAuctionRows(GR_SAMPLE, { fetchedAt: '2026-09-13T08:00:00.000Z' });
     expect(row).toMatchObject({
       id: 'gr-2230', sourceKey: 'GR', normalizedPlate: 'GR12219', startingPriceChf: 500,
       minimumIncrementChf: 50, currentBidChf: 900, bidCount: 4, endsAt: '2026-09-13T18:00:00.000Z',
       officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
-      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_ch',
+      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_CH',
     });
     expect(JSON.stringify(row)).not.toContain('hidden-bidder');
     expect(validatePlateAuction(row)).toEqual([]);
   });
 
   it('fetches GR from the stable eCari catalogue path', async () => {
+    expect(GR_ECARI_CATALOGUE_URL).toBe('https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_CH');
     const fetchMock = vi.spyOn(globalThis, 'fetch')
       .mockResolvedValue(new Response(GR_SAMPLE, { status: 200 }));
 
@@ -154,6 +182,28 @@ describe('expanded plate-auction connectors', () => {
       endsAt: '2026-09-16T17:00:00.000Z',
     });
     expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('accepts only the complete ZH no-results shell as an explicit empty catalogue', () => {
+    const empty = parseZhAuctions(ZH_EMPTY_SAMPLE, { fetchedAt: '2026-10-15T01:20:18.887Z' });
+    expect(empty).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(empty)).toBe(true);
+
+    const noLegacyContainers = `<form><label>Kontrollschildtyp</label><button>Suchen</button></form>
+      <p>Keine Ergebnisse f\u00fcr Ihre Suche.</p>`;
+    const emptyWithoutLegacyShell = parseZhAuctions(noLegacyContainers);
+    expect(emptyWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(emptyWithoutLegacyShell)).toBe(true);
+
+    const unparsedCard = parseZhAuctions(`${ZH_EMPTY_SAMPLE}
+      <a class="auction-element-link" href="/de/auction/99999">changed card markup</a>`);
+    expect(unparsedCard).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(unparsedCard)).toBe(false);
+
+    const unparsedCardWithoutLegacyShell = parseZhAuctions(`${noLegacyContainers}
+      <a class="auction-element-link" href="/de/auction/99998">changed card markup</a>`);
+    expect(unparsedCardWithoutLegacyShell).toHaveLength(0);
+    expect(isExplicitlyEmptyCatalogue(unparsedCardWithoutLegacyShell)).toBe(false);
   });
 
   it('keeps direct-sale and wanted tabs public even when price/deadline cells are absent', () => {
@@ -298,20 +348,91 @@ describe('expanded plate-auction connectors', () => {
 
   it('reuses the card contract for AG, BE and VD after the portal migrations', () => {
     for (const sourceKey of ['ag', 'be', 'vd']) {
-      const [row] = parseExpandedCard(sourceKey, EXPANDED_CARD_SAMPLE.replaceAll('AG', sourceKey.toUpperCase()), { fetchedAt: '2026-09-15T08:00:00.000Z' });
+      const sample = EXPANDED_CARD_SAMPLE
+        .replaceAll('AG', sourceKey.toUpperCase())
+        .replace(sourceKey === 'vd' ? '/de/auction/' : '__no_match__', sourceKey === 'vd' ? '/fr/auction/' : '__no_match__');
+      const [row] = parseExpandedCard(sourceKey, sample, { fetchedAt: '2026-09-15T08:00:00.000Z' });
       expect(row, sourceKey).toMatchObject({
         id: `${sourceKey}-1768`,
         sourceKey: sourceKey.toUpperCase(),
         normalizedPlate: `${sourceKey.toUpperCase()}691`,
         currentBidChf: 950,
-        officialDetailUrl: 'https://www.' + (sourceKey === 'vd' ? 'encheres-vd.ch' : sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
+        officialAuctionUrl: sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch/fr/'
+          : sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch/de/',
+        officialDetailUrl: sourceKey === 'vd'
+          ? 'https://www.encheres-vd.ch/fr/auction/1768'
+          : (sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch'
+            : 'https://auktion-be.ch') + '/de/auction/1768',
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }
   });
 
+  it('tries the alternate official BE host before using the public relay', async () => {
+    const calls: string[] = [];
+    const fetchPage = vi.fn(async (url: string) => {
+      calls.push(url);
+      if (url === BE_AUCTION_URLS[0]) throw new Error('HTTP 404');
+      return CARD_SAMPLE.replaceAll('TG', 'BE');
+    });
+
+    const [row] = await fetchExpandedCard('be', {
+      now: new Date('2026-09-20T12:00:00.000Z'),
+      fetchPage,
+    });
+
+    expect(calls).toEqual(BE_AUCTION_URLS);
+    expect(row).toMatchObject({
+      officialAuctionUrl: BE_AUCTION_URLS[0],
+      officialDetailUrl: `${new URL(BE_AUCTION_URLS[1]).origin}/de/auction/109715`,
+    });
+  });
+
   it('recognizes the complete card-platform shell after a round closes', () => {
     const rows = parseExpandedCard('vd', EXPANDED_CARD_EMPTY_SAMPLE, { fetchedAt: '2026-10-04T21:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+  });
+
+  it('recognizes the card-platform no-results shell for BE after a round closes', () => {
+    const beNoResultsSample = `<div class="auction-grid"><div class="auctions">
+      <h1>Herzlich willkommen</h1>
+      <div class="auction-filters"><span>Kontrollschildtyp</span><button>Suchen</button></div>
+      <p>Keine Ergebnisse f&uuml;r Ihre Suche.</p>
+    </div></div>`;
+    const rows = parseExpandedCard('be', beNoResultsSample, { fetchedAt: '2026-10-14T21:30:00.000Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+
+    const parserDrift = `${beNoResultsSample}
+      <a href="/de/auction/231118" class="auction-element-link">changed card markup</a>`;
+    const driftRows = parseExpandedCard('be', parserDrift);
+    expect(driftRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
+  });
+
+  it('recognizes the current French no-results shell for VD after the locale migration', () => {
+    const vdNoResultsSample = `<div class="auction-page">
+      <div class="auction-filters"><span>Type de plaques</span><button>Rechercher</button></div>
+      <p>Votre recherche n'a donné aucun résultat</p>
+    </div>`;
+    const rows = parseExpandedCard('vd', vdNoResultsSample, { fetchedAt: '2026-10-21T17:12:57.888Z' });
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+
+    const parserDrift = `${vdNoResultsSample}
+      <a href="/fr/auction/120554" class="auction-element-link">changed card markup</a>`;
+    const driftRows = parseExpandedCard('vd', parserDrift);
+    expect(driftRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(driftRows)).toBe(false);
+  });
+
+  it('recognizes the official no-results page between SH auction rounds', () => {
+    const rows = parseShAuctionRows(EXPANDED_CARD_NO_RESULTS_SAMPLE, { fetchedAt: '2026-10-14T22:30:00.000Z' });
     expect(rows).toEqual([]);
     expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
   });

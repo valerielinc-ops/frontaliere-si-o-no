@@ -54,6 +54,7 @@ function buildIssueBody(report) {
   const rows = top.map((company) => {
     const example = company.examples.broken
       || company.examples.pendingDeploy
+      || company.examples.external
       || company.examples.missing
       || company.examples.lowQuality
       || company.examples.qualityUnverified
@@ -79,12 +80,13 @@ ${acquisitionNote}
 | missing | ${report.missing} | ${report.missingJobCount} |
 | broken | ${report.broken} | ${report.brokenJobCount} |
 | pending-deploy | ${report.pendingDeploy || 0} | ${report.pendingDeployJobCount || 0} |
+| external | ${report.external || 0} | ${report.externalJobCount || 0} |
 | partial | ${report.partial} | ${report.partialJobCount} |
 | low-quality | ${report.lowQuality} | ${report.lowQualityJobCount} |
 | quality-unverified | ${report.qualityUnverified} | ${report.qualityUnverifiedJobCount} |
 | unverified | ${report.unverified} | ${report.unverifiedJobCount} |
 
-\`pending-deploy\` significa che il riferimento locale esiste nel checkout ma il CDN non lo espone ancora: non conta come copertura valida e non viene nascosto come un \`broken\`.
+\`external\` significa che la sorgente risponde ma è ancora fuori dal CDN: viene acquisita e validata come asset locale prima di essere considerata copertura. \`pending-deploy\` significa che il riferimento locale esiste nel checkout ma il CDN non lo espone ancora: non conta come copertura valida e non viene nascosto come un \`broken\`.
 
 Il report completo è \`data/company-logos-missing.json\`; viene rigenerato dal workflow ogni domenica.
 
@@ -98,7 +100,7 @@ ${restCount ? `\n_...e altre ${restCount} aziende nell'elenco completo._\n` : ''
 ## Come risolvere
 
 1. Assemblare il dataset e provare l'acquisizione guidata: \`node scripts/download-missing-company-logos.mjs --from-audit --dry-run\`, poi ripetere senza \`--dry-run\` dopo aver controllato i domini proposti.
-2. Sostituire ogni URL esterno con stato \`broken\` con un asset locale verificato e ogni raster \`low-quality\` con una sorgente di almeno ${MIN_LOGO_QUALITY_DIMENSION_PX} px sul lato maggiore; non usare favicon generici o Clearbit come sorgente runtime.
+2. Portare ogni sorgente \`external\` o URL \`broken\` in \`public/images/brands/\` tramite l'acquisizione verificata e ogni raster \`low-quality\` a una sorgente di almeno ${MIN_LOGO_QUALITY_DIMENSION_PX} px sul lato maggiore; non usare favicon generici o Clearbit come sorgente runtime.
 3. Rilanciare l'audit e controllare anche le pagine pubblicate dopo il deploy.
 
 ## Non implementato (ancora)
@@ -177,6 +179,7 @@ async function main() {
     `[audit-missing-company-logos] ${payload.source.jobCount} annunci, ${payload.companiesTotal} aziende —`,
     `missing: ${payload.missing} (${payload.missingJobCount}),`,
     `broken: ${payload.broken} (${payload.brokenJobCount}),`,
+    `external: ${payload.external || 0} (${payload.externalJobCount || 0}),`,
     `partial: ${payload.partial} (${payload.partialJobCount}),`,
     `pending-deploy: ${payload.pendingDeploy} (${payload.pendingDeployJobCount}),`,
     `low-quality: ${payload.lowQuality} (${payload.lowQualityJobCount}),`,

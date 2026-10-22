@@ -13,6 +13,13 @@ export const FUEL_SECTION_SLUG = Object.freeze({
   fr: Object.freeze({ diesel: 'prix-gasoil-suisse', benzina: 'prix-essence-suisse' }),
 });
 
+export const FUEL_TODAY_SLUG = Object.freeze({
+  it: 'oggi',
+  en: 'today',
+  de: 'heute',
+  fr: 'aujourd-hui',
+});
+
 export const FUEL_ZONES = Object.freeze(/** @type {const} */ ([
   'chiasso', 'mendrisio', 'lugano', 'bellinzona', 'locarno',
 ]));

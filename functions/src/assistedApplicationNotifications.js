@@ -1,5 +1,5 @@
 /**
- * Email concierge for the one-off assisted-application service (0,99 €).
+ * Email concierge for the one-off assisted-application service (1,99 €).
  *
  * The product is email-first: the moment Stripe confirms the payment, the
  * customer receives a personal email FROM valerie@frontaliereticino.ch that
@@ -19,15 +19,24 @@
  */
 
 import { FieldValue } from 'firebase-admin/firestore';
-import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
+import { createHash } from 'node:crypto';
+import {
+  bridgeEmailCascadeCredentialsToEnv,
+  getAutologinPolicyConfig,
+  getNewsletterSecrets,
+} from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
 import {
   ASSISTED_APPLICATIONS_COLLECTION,
+  ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
 } from './assistedApplicationConstants.js';
 import { checkAssistedApplicationCv } from './assistedApplicationCvCheck.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
+import { mintAutologinCode, resolveAutologinPolicy } from './lib/autologinCode.js';
+import { makeAuthenticatedUrl } from './lib/newsletterUrls.js';
+import { enrichAssistedApplicationOrders } from './assistedApplicationJobCard.js';
 import { flowRefFor, isAutomationEnabledFor } from './assistedApplicationAutomation.js';
 import { REVIEW_TOKEN_TTL_MS, getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { retentionPurgeDueAt, talentPoolConsentActive } from './assistedApplicationRetention.js';
@@ -39,6 +48,8 @@ import {
   brandInfoCard,
   brandJobCard,
   brandLink,
+  brandFormatSalary,
+  brandNormalizeContract,
   brandParagraph,
   brandSectionLabel,
   brandSignature,
@@ -78,6 +89,7 @@ export const MATERIALS_REMINDER_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
 export const NOTIFICATION_KEYS = Object.freeze({
   customerIntro: 'customer_intro',
   ownerNewOrder: 'owner_new_order',
+  customerPaymentRecovery: 'customer_payment_recovery',
   customerReminder: 'customer_materials_reminder',
   customerMaterialsReceived: 'customer_materials_received',
   ownerMaterialsUploaded: 'owner_materials_uploaded',
@@ -86,6 +98,7 @@ export const NOTIFICATION_KEYS = Object.freeze({
 
 const CUSTOMER_KEYS = new Set([
   NOTIFICATION_KEYS.customerIntro,
+  NOTIFICATION_KEYS.customerPaymentRecovery,
   NOTIFICATION_KEYS.customerReminder,
   NOTIFICATION_KEYS.customerMaterialsReceived,
   NOTIFICATION_KEYS.customerSubmitted,
@@ -186,6 +199,55 @@ export function buildOrderPageUrl(order, orderId, locale = resolveOrderLocale(or
 }
 
 /**
+ * Add the same recipient session signal used by job-alert links to an order
+ * page. The page is intentionally opted into the session-gated perimeter: it
+ * contains the candidate's payment/order data and cannot be treated as a
+ * public job-board destination.
+ */
+export function buildAuthenticatedOrderPageUrl(order, orderId, locale, autologin = null) {
+  const pageUrl = buildOrderPageUrl(order, orderId, locale);
+  if (!autologin?.email || !autologin?.autologinCode) return pageUrl;
+  return makeAuthenticatedUrl(pageUrl, autologin.email, {
+    autologinCode: autologin.autologinCode,
+    sessionGated: 'assisted application order page requires the recipient session',
+    utmSource: 'assisted_application',
+    utmMedium: 'email',
+    utmCampaign: 'customer_payment_recovery',
+  });
+}
+
+/** Mint one recipient-scoped code for all internal links in one email. */
+async function resolveCustomerAutologin(email) {
+  const normalizedEmail = String(email || '').trim().toLowerCase();
+  if (!normalizedEmail) return null;
+  // Keep older test/runtime doubles and staged rollbacks on the historical
+  // unsigned-link behavior until both Remote Config helpers are deployed.
+  if (typeof getNewsletterSecrets !== 'function' || typeof getAutologinPolicyConfig !== 'function') return null;
+  try {
+    const [{ newsletterSecret }, policyConfig] = await Promise.all([
+      getNewsletterSecrets(),
+      getAutologinPolicyConfig(),
+    ]);
+    if (!newsletterSecret) return null;
+    const policy = resolveAutologinPolicy(policyConfig);
+    const autologinCode = mintAutologinCode(normalizedEmail, {
+      secret: newsletterSecret,
+      scheme: policy.mintScheme,
+    });
+    return autologinCode ? { email: normalizedEmail, autologinCode } : null;
+  } catch (error) {
+    // Autologin is an enhancement of the transactional mail, not a reason to
+    // suppress a due payment reminder. The unsigned URL remains the safe
+    // fallback and the error is deliberately redacted.
+    console.warn(
+      '[assistedApplicationNotifications] autologin unavailable:',
+      error instanceof Error ? error.message : String(error),
+    );
+    return null;
+  }
+}
+
+/**
  * Review page of the automated flow: same trusted base as the order page,
  * with the signed review token (assistedApplicationReviewToken.js) instead of
  * the order id.
@@ -241,7 +303,7 @@ export function customerEmailFor(order) {
   return '';
 }
 
-/** The price is in EUR: format it the euro-area way ("0,99 €"), not the Swiss one. */
+/** The price is in EUR: format it the euro-area way ("1,99 €"), not the Swiss one. */
 const INTL_LOCALE = { it: 'it-IT', fr: 'fr-FR', de: 'de-DE', en: 'en-IE' };
 
 function formatPrice(order, locale) {
@@ -578,6 +640,97 @@ const COPY = {
   },
 };
 
+// Copy for the operational payment-recovery digest. It is intentionally
+// separate from the post-payment concierge copy above: this message is about
+// an unfinished checkout, never about newsletter engagement or a completed
+// service. Placeholders: {job}, {count}, {price}.
+const PAYMENT_RECOVERY_COPY = {
+  it: {
+    singleSubject: 'Completa il pagamento per la tua candidatura a {job}',
+    multipleSubject: 'Hai candidature assistite da completare',
+    leadSingle: 'hai iniziato una candidatura assistita per {job}, ma il pagamento di {price} è ancora in sospeso. Se vuoi completarla, riprendi da qui: bastano pochi secondi.',
+    leadMultiple: 'hai {count} candidature assistite che aspettano solo il pagamento. Le ho raccolte in questa email, così puoi completare soltanto quelle che ti interessano.',
+    followupSingle: 'ti lascio un ultimo promemoria per la candidatura a {job}: il pagamento di {price} non risulta ancora completato.',
+    followupMultiple: 'ti lascio un ultimo promemoria: {count} candidature assistite risultano ancora in attesa del pagamento.',
+    heroSingle: 'Completiamo l’ultimo passaggio',
+    heroMultiple: 'Le tue candidature aspettano il pagamento',
+    followupHeroSingle: 'Resta solo il pagamento',
+    followupHeroMultiple: 'Resta solo un passaggio',
+    preheaderSingle: 'Il pagamento è ancora in sospeso: puoi riprendere da qui.',
+    preheaderMultiple: 'Una sola email per ritrovare tutte le candidature in sospeso.',
+    orderLabel: 'Candidatura assistita',
+    orderLabelPlural: 'Candidature assistite',
+    paymentLabel: 'Pagamento da completare: {price}',
+    sessionRefreshed: 'La sessione precedente era scaduta: ne ho preparata una nuova.',
+    cta: 'Completa il pagamento',
+    alreadyPaid: 'Se hai già pagato, non pagare una seconda volta: apri la pagina dell’ordine e attendi che si aggiorni, oppure rispondi a questa email.',
+    noLonger: 'Se hai cambiato idea, puoi semplicemente ignorare questa email o rispondere per chiedere aiuto.',
+  },
+  en: {
+    singleSubject: 'Complete payment for your {job} application',
+    multipleSubject: 'You have assisted applications to complete',
+    leadSingle: 'you started an assisted application for {job}, but the {price} payment is still pending. If you would like to complete it, you can pick it up here in a few seconds.',
+    leadMultiple: 'you have {count} assisted applications waiting for payment. I have collected them in this email, so you can complete only the ones you still want.',
+    followupSingle: 'one last reminder for your application to {job}: the {price} payment still does not appear to be complete.',
+    followupMultiple: 'one last reminder: {count} assisted applications are still waiting for payment.',
+    heroSingle: 'Let’s complete the last step',
+    heroMultiple: 'Your applications are waiting for payment',
+    followupHeroSingle: 'Only payment is left',
+    followupHeroMultiple: 'Only one step is left',
+    preheaderSingle: 'Your payment is still pending: pick up where you left off.',
+    preheaderMultiple: 'One email to find all your pending applications.',
+    orderLabel: 'Assisted application',
+    orderLabelPlural: 'Assisted applications',
+    paymentLabel: 'Payment to complete: {price}',
+    sessionRefreshed: 'The previous session expired, so I prepared a new one.',
+    cta: 'Complete payment',
+    alreadyPaid: 'If you have already paid, do not pay again: open your order page and wait for it to update, or reply to this email.',
+    noLonger: 'If you have changed your mind, you can ignore this email or reply if you need help.',
+  },
+  fr: {
+    singleSubject: 'Complétez le paiement pour votre candidature à {job}',
+    multipleSubject: 'Vous avez des candidatures assistées à compléter',
+    leadSingle: 'vous avez commencé une candidature assistée pour {job}, mais le paiement de {price} est encore en attente. Si vous souhaitez la terminer, reprenez ici : quelques secondes suffisent.',
+    leadMultiple: 'vous avez {count} candidatures assistées en attente de paiement. Je les ai regroupées dans cet e-mail pour que vous puissiez terminer uniquement celles qui vous intéressent encore.',
+    followupSingle: 'un dernier rappel pour votre candidature à {job} : le paiement de {price} ne semble toujours pas terminé.',
+    followupMultiple: 'un dernier rappel : {count} candidatures assistées sont toujours en attente de paiement.',
+    heroSingle: 'Terminons la dernière étape',
+    heroMultiple: 'Vos candidatures attendent le paiement',
+    followupHeroSingle: 'Il ne reste que le paiement',
+    followupHeroMultiple: 'Il ne reste qu’une étape',
+    preheaderSingle: 'Votre paiement est encore en attente : reprenez ici.',
+    preheaderMultiple: 'Un seul e-mail pour retrouver toutes vos candidatures en attente.',
+    orderLabel: 'Candidature assistée',
+    orderLabelPlural: 'Candidatures assistées',
+    paymentLabel: 'Paiement à compléter : {price}',
+    sessionRefreshed: 'La session précédente a expiré : j’en ai préparé une nouvelle.',
+    cta: 'Compléter le paiement',
+    alreadyPaid: 'Si vous avez déjà payé, ne payez pas une deuxième fois : ouvrez la page de la commande et attendez sa mise à jour, ou répondez à cet e-mail.',
+    noLonger: 'Si vous avez changé d’avis, vous pouvez ignorer cet e-mail ou répondre si vous avez besoin d’aide.',
+  },
+  de: {
+    singleSubject: 'Schliesse die Zahlung für deine Bewerbung auf {job} ab',
+    multipleSubject: 'Du hast begleitete Bewerbungen abzuschliessen',
+    leadSingle: 'du hast eine begleitete Bewerbung für {job} begonnen, aber die Zahlung von {price} ist noch offen. Wenn du sie abschliessen möchtest, kannst du hier in wenigen Sekunden weitermachen.',
+    leadMultiple: 'du hast {count} begleitete Bewerbungen, die noch auf die Zahlung warten. Ich habe sie in dieser E-Mail gesammelt, damit du nur die abschliesst, die dich noch interessieren.',
+    followupSingle: 'eine letzte Erinnerung an deine Bewerbung auf {job}: Die Zahlung von {price} scheint noch nicht abgeschlossen zu sein.',
+    followupMultiple: 'eine letzte Erinnerung: {count} begleitete Bewerbungen warten noch auf die Zahlung.',
+    heroSingle: 'Schliessen wir den letzten Schritt ab',
+    heroMultiple: 'Deine Bewerbungen warten auf die Zahlung',
+    followupHeroSingle: 'Nur die Zahlung fehlt noch',
+    followupHeroMultiple: 'Nur ein Schritt fehlt noch',
+    preheaderSingle: 'Deine Zahlung ist noch offen: Hier kannst du weitermachen.',
+    preheaderMultiple: 'Eine E-Mail für alle deine offenen Bewerbungen.',
+    orderLabel: 'Begleitete Bewerbung',
+    orderLabelPlural: 'Begleitete Bewerbungen',
+    paymentLabel: 'Zahlung abzuschliessen: {price}',
+    sessionRefreshed: 'Die vorherige Sitzung ist abgelaufen: Ich habe eine neue vorbereitet.',
+    cta: 'Zahlung abschliessen',
+    alreadyPaid: 'Wenn du bereits bezahlt hast, zahle nicht noch einmal: Öffne deine Bestellseite und warte auf die Aktualisierung oder antworte auf diese E-Mail.',
+    noLonger: 'Wenn du es dir anders überlegt hast, kannst du diese E-Mail ignorieren oder bei Fragen antworten.',
+  },
+};
+
 function fill(template, vars) {
   return String(template).replace(/\{(\w+)\}/g, (_, key) => (vars[key] ?? ''));
 }
@@ -593,9 +746,15 @@ function paragraph(html) {
 }
 
 function orderVars(order, orderId, locale, nowMs) {
+  const salary = brandFormatSalary(order, locale) || '';
+  const contract = order?.contract ? brandNormalizeContract(order.contract, locale) : '';
   return {
     job: clean(order?.jobTitle, 200) || '—',
     company: clean(order?.companyName, 200) || '—',
+    location: clean(order?.location || order?.addressLocality || order?.canton, 160),
+    logoUrl: safeHttpsUrl(order?.companyLogo || order?.companyLogoUrl || order?.logoUrl),
+    salary,
+    contract,
     price: formatPrice(order, locale),
     date: formatDate(timestampMillis(order?.submittedAt) || nowMs, locale),
     orderId: String(orderId),
@@ -604,8 +763,25 @@ function orderVars(order, orderId, locale, nowMs) {
 
 function jobBlock(order, copy, vars) {
   const jobUrl = safeHttpsUrl(order?.jobUrl);
-  const html = brandJobCard({ title: vars.job, company: vars.company, url: jobUrl, linkLabel: copy.jobLink });
-  const text = `${vars.job}\n${vars.company}${jobUrl ? `\n${copy.jobLink}: ${jobUrl}` : ''}`;
+  const html = brandJobCard({
+    title: vars.job,
+    company: vars.company,
+    location: vars.location,
+    logoUrl: vars.logoUrl,
+    contract: order?.contract || '',
+    salaryMin: order?.salaryMin,
+    salaryMax: order?.salaryMax,
+    salaryCurrency: order?.salaryCurrency,
+    baseSalary: order?.baseSalary,
+    firstSeenAt: order?.firstSeenAt,
+    postedDate: order?.postedDate,
+    sector: order?.sector,
+    category: order?.category,
+    locale: resolveOrderLocale(order),
+    url: jobUrl,
+    linkLabel: copy.jobLink,
+  });
+  const text = `${vars.job}\n${vars.company}${vars.location ? `\n${vars.location}` : ''}${vars.salary ? `\n${vars.salary}` : ''}${vars.contract ? `\n${vars.contract}` : ''}${jobUrl ? `\n${copy.jobLink}: ${jobUrl}` : ''}`;
   return { html, text };
 }
 
@@ -622,16 +798,21 @@ const WHATSAPP_CV_STEP = 2;
 /**
  * Build a customer-facing message.
  * @param {'intro'|'recovery'|'reminder'|'received'|'submitted'} kind
- * @param {{nowMs?:number, automation?:boolean, reviewUrl?:string}} [options] reviewUrl: the review page of an
+ * @param {{nowMs?:number, automation?:boolean, reviewUrl?:string, autologin?:object}} [options] reviewUrl: the review page of an
  *   automated order («inviata» only, submittedReviewUrl), where the candidate keeps the documents
  * @returns {{subject:string, html:string, text:string, locale:string}}
  */
-export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), automation = false, reviewUrl = '' } = {}) {
+export function buildCustomerEmail(kind, order, orderId, {
+  nowMs = Date.now(),
+  automation = false,
+  reviewUrl = '',
+  autologin = null,
+} = {}) {
   const locale = resolveOrderLocale(order);
   const copy = COPY[locale] || COPY.it;
   const vars = orderVars(order, orderId, locale, nowMs);
   const greeting = copy.greeting(clean(order?.applicantName, 80).split(' ')[0] || '');
-  const pageUrl = buildOrderPageUrl(order, orderId, locale);
+  const pageUrl = buildAuthenticatedOrderPageUrl(order, orderId, locale, autologin);
   const job = jobBlock(order, copy, vars);
   const foot = footer(copy, vars);
   const htmlParts = [paragraph(esc(greeting))];
@@ -730,6 +911,96 @@ export function buildCustomerEmail(kind, order, orderId, { nowMs = Date.now(), a
       heroSubtitle: `${vars.job} — ${vars.company}`,
       bodyHtml: htmlParts.join(''),
       footerLines: foot.footerLines,
+    }),
+    text: textParts.join('\n\n'),
+    locale,
+  };
+}
+
+/**
+ * Build one operational email for every pending assisted application of one
+ * user. The links return to the order page, where the server can re-check the
+ * provider before opening a checkout; the email never embeds a provider URL.
+ * @param {Array<object>} orders
+ * @param {{nowMs?:number, reminderStage?:1|2, orderPageUrlFor?:(order:object, orderId:string, locale:string)=>string}} [options]
+ */
+export function buildPendingPaymentDigestEmail(orders, {
+  nowMs = Date.now(),
+  reminderStage = 1,
+  orderPageUrlFor = buildOrderPageUrl,
+} = {}) {
+  const list = (Array.isArray(orders) ? orders : [])
+    .filter((order) => order && (order.orderId || order.id))
+    .map((order) => ({ ...order, orderId: String(order.orderId || order.id) }));
+  if (list.length === 0) throw new Error('pending_payment_digest_without_orders');
+
+  const primary = [...list].sort((left, right) => (
+    (timestampMillis(right.createdAt) || 0) - (timestampMillis(left.createdAt) || 0)
+  ))[0];
+  const locale = resolveOrderLocale(primary);
+  const copy = PAYMENT_RECOVERY_COPY[locale] || PAYMENT_RECOVERY_COPY.it;
+  const baseCopy = COPY[locale] || COPY.it;
+  const multiple = list.length > 1;
+  const primaryVars = orderVars(primary, primary.orderId, locale, nowMs);
+  const firstName = clean(primary?.applicantName, 80).split(' ')[0] || '';
+  const greeting = baseCopy.greeting(firstName);
+  const leadTemplate = reminderStage >= 2
+    ? (multiple ? copy.followupMultiple : copy.followupSingle)
+    : (multiple ? copy.leadMultiple : copy.leadSingle);
+  const lead = fill(leadTemplate, { ...primaryVars, count: String(list.length) });
+  const htmlParts = [paragraph(esc(greeting)), paragraph(fillHtml(leadTemplate, { ...primaryVars, count: String(list.length) }))];
+  const textParts = [greeting, lead];
+
+  for (const order of list) {
+    const vars = orderVars(order, order.orderId, locale, nowMs);
+    const job = jobBlock(order, baseCopy, vars);
+    const pageUrl = orderPageUrlFor(order, order.orderId, locale);
+    const paymentLabel = fill(copy.paymentLabel, vars);
+    htmlParts.push(
+      brandSectionLabel(copy.orderLabel),
+      job.html,
+      paragraph(`<strong>${esc(paymentLabel)}</strong>`),
+      ...(order.paymentRecoverySessionRefreshed ? [brandFinePrint(esc(copy.sessionRefreshed))] : []),
+      brandButton(pageUrl, copy.cta),
+    );
+    textParts.push(
+      `${copy.orderLabel}: ${vars.job}\n${vars.company}`,
+      paymentLabel,
+      ...(order.paymentRecoverySessionRefreshed ? [copy.sessionRefreshed] : []),
+      `${copy.cta}: ${pageUrl}`,
+    );
+  }
+
+  htmlParts.push(
+    brandCallout(esc(copy.alreadyPaid)),
+    paragraph(esc(copy.noLonger)),
+    brandSignature(baseCopy.signature, baseCopy.signatureRole),
+  );
+  textParts.push(copy.alreadyPaid, copy.noLonger, baseCopy.signature);
+
+  const orderReferences = list.map((order) => order.orderId).join(', ');
+  const footerLines = [
+    `${baseCopy.orderRef}: ${orderReferences}`,
+    baseCopy.privacy,
+  ];
+  textParts.push(`--\nFrontaliere Ticino · ${SITE_ORIGIN}/\n${footerLines.join('\n')}`);
+
+  const heroTitle = reminderStage >= 2
+    ? (multiple ? copy.followupHeroMultiple : copy.followupHeroSingle)
+    : (multiple ? copy.heroMultiple : copy.heroSingle);
+  const subject = multiple
+    ? copy.multipleSubject
+    : fill(copy.singleSubject, primaryVars);
+  return {
+    subject: clean(subject, 180),
+    html: renderBrandedEmail({
+      locale,
+      preheader: multiple ? copy.preheaderMultiple : copy.preheaderSingle,
+      badge: baseCopy.badge,
+      heroTitle,
+      heroSubtitle: multiple ? `${list.length} ${copy.orderLabelPlural}` : `${primaryVars.job} — ${primaryVars.company}`,
+      bodyHtml: htmlParts.join(''),
+      footerLines,
     }),
     text: textParts.join('\n\n'),
     locale,
@@ -849,7 +1120,7 @@ async function ensureEmailProviders() {
  * @param {FirebaseFirestore.Firestore} args.db
  * @param {string} args.orderId
  * @param {string} args.key  one of NOTIFICATION_KEYS
- * @param {(order: object) => {subject:string, html:string, text:string}} args.build
+ * @param {(order: object, options?: {autologin?: object|null}) => {subject:string, html:string, text:string}} args.build
  * @param {string} [args.recipientOverride] send to this address instead (test mode:
  *   nothing is recorded on the order, so the real send stays possible)
  * @param {object} [args.meta] extra fields recorded next to the send (e.g. variant)
@@ -889,9 +1160,10 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
     return { ok: false, key, reason: 'no_email_provider_configured' };
   }
 
-  const message = build(order);
   const isCustomer = isCustomerAudience(key, audience);
   const customerEmail = customerEmailFor(order);
+  const autologin = isCustomer && !testMode ? await resolveCustomerAutologin(to) : null;
+  const message = build(order, { autologin });
   const payload = {
     from: isCustomer ? ASSISTED_APPLICATION_SENDER : INTERNAL_SENDER,
     to: [to],
@@ -941,6 +1213,81 @@ export async function sendOrderNotification({ db, orderId, key, build, recipient
   return { ok: true, key, to, provider: outcome.provider || null };
 }
 
+/** Stable campaign id for one user's order-set and reminder stage. */
+export function paymentRecoveryDigestId(userId, orderIds, reminderStage) {
+  const fingerprint = [...new Set((Array.isArray(orderIds) ? orderIds : []).map(String))].sort().join('|');
+  const hash = createHash('sha256')
+    .update(`${String(userId || '')}|${fingerprint}|${Number(reminderStage) || 1}`)
+    .digest('hex')
+    // Keep `aa--{orderId}--{key}` within the 64-character provider-tag
+    // contract even with the longer recovery notification key.
+    .slice(0, 24);
+  return `digest-${hash}`;
+}
+
+/** Send the already-claimed grouped payment-recovery message. */
+export async function sendPendingPaymentDigest({
+  db,
+  orders,
+  to,
+  userId,
+  digestId,
+  reminderStage = 1,
+  nowMs = Date.now(),
+  fetchImpl = fetch,
+} = {}) {
+  const recipient = String(to || '').trim().toLowerCase();
+  if (!recipient) return { ok: false, reason: 'no_recipient' };
+  if (!(await ensureEmailProviders())) return { ok: false, reason: 'no_email_provider_configured' };
+  const orderIds = (Array.isArray(orders) ? orders : []).map((order) => String(order?.orderId || '')).filter(Boolean);
+  if (!digestId || orderIds.length === 0) return { ok: false, reason: 'invalid_digest' };
+
+  const key = NOTIFICATION_KEYS.customerPaymentRecovery;
+  const autologin = await resolveCustomerAutologin(recipient);
+  const enrichedOrders = await enrichAssistedApplicationOrders(orders, { fetchImpl });
+  const message = buildPendingPaymentDigestEmail(enrichedOrders, {
+    nowMs,
+    reminderStage,
+    orderPageUrlFor: (order, orderId, locale) => buildAuthenticatedOrderPageUrl(order, orderId, locale, autologin),
+  });
+  const digestRef = db.collection(ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION).doc(String(digestId));
+  await digestRef.set({
+    kind: 'payment_recovery_digest',
+    userId: String(userId || ''),
+    email: recipient,
+    orderIds,
+    reminderStage,
+    updatedAt: new Date(nowMs),
+  }, { merge: true });
+
+  const payload = {
+    from: ASSISTED_APPLICATION_SENDER,
+    to: [recipient],
+    subject: message.subject,
+    html: message.html,
+    text: message.text,
+    ...assistedEmailTracking(digestId, key),
+  };
+  const { failed, ambiguous, sent } = await sendEmailCascade(
+    [{ payload, recipient: { email: recipient }, meta: { orderId: digestId, key } }],
+    { delayMs: 0, onSent: makeMailerooRefOnSent(async () => db, { isJobAlert: false }) },
+  );
+  if (failed.length > 0) {
+    return {
+      ok: false,
+      ambiguous: Boolean(failed[0].ambiguousDelivery),
+      reason: `send_failed:${failed[0].error || 'unknown'}`,
+    };
+  }
+  return {
+    ok: true,
+    ambiguous: ambiguous.length > 0,
+    provider: sent[0]?.provider || null,
+    messageId: sent[0]?.messageId || null,
+    to: recipient,
+  };
+}
+
 // ── Lifecycle wiring ─────────────────────────────────────────────────────
 
 /** Never delivered, failed, or claimed by a process that died mid-send. */
@@ -970,7 +1317,7 @@ export async function sendPaidOrderNotifications(
     db,
     orderId,
     key: NOTIFICATION_KEYS.customerIntro,
-    build: (order) => buildCustomerEmail(variant, view(order), orderId, { nowMs, automation: automationOn }),
+    build: (order, { autologin } = {}) => buildCustomerEmail(variant, view(order), orderId, { nowMs, automation: automationOn, autologin }),
     recipientOverride,
     meta: { variant },
     nowMs,
@@ -1032,7 +1379,7 @@ export async function handleAssistedApplicationOrderWritten(
         db,
         orderId,
         key: NOTIFICATION_KEYS.customerMaterialsReceived,
-        build: (order) => buildCustomerEmail('received', order, orderId, { nowMs, automation: receivedAutomation }),
+        build: (order, { autologin } = {}) => buildCustomerEmail('received', order, orderId, { nowMs, automation: receivedAutomation, autologin }),
         nowMs,
       }));
       results.push(await sendOrderNotification({
@@ -1050,7 +1397,7 @@ export async function handleAssistedApplicationOrderWritten(
         db,
         orderId,
         key: NOTIFICATION_KEYS.customerSubmitted,
-        build: (order) => buildCustomerEmail('submitted', order, orderId, { nowMs, reviewUrl }),
+        build: (order, { autologin } = {}) => buildCustomerEmail('submitted', order, orderId, { nowMs, reviewUrl, autologin }),
         nowMs,
       }));
     }
@@ -1115,7 +1462,7 @@ export async function runAssistedApplicationNotificationSweep({ db, nowMs = Date
         db,
         orderId: doc.id,
         key: NOTIFICATION_KEYS.customerReminder,
-        build: (current) => buildCustomerEmail('reminder', current, doc.id, { nowMs }),
+        build: (current, { autologin } = {}) => buildCustomerEmail('reminder', current, doc.id, { nowMs, autologin }),
         nowMs,
       });
       if (result.ok) summary.reminders += 1;

@@ -401,7 +401,7 @@ function _doLog(eventName: string, params?: Record<string, any>) {
  }
 }
 
-function _doSetProps(properties: Record<string, string>) {
+function _doSetProps(properties: Record<string, string | null>) {
  try {
  if (_analytics && _setUserProperties) {
  _setUserProperties(_analytics, properties);
@@ -605,7 +605,7 @@ const sendGatedDecisionMoment = createDecisionMomentEmitter({
 const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> =>
  sendGatedDecisionMoment(eventName, enrichEventParams(eventName, params));
 
-const setProps = (properties: Record<string, string>) => {
+const setProps = (properties: Record<string, string | null>) => {
  if (_firebaseReady) {
  _doSetProps(properties);
  } else {

@@ -23,6 +23,7 @@ const BOUNDED_COMMAND_WRAPPER = 'scripts/lib/run-bounded-command.mjs';
 const PIPELINE_TIMING_HELPER = 'scripts/lib/pipeline-phase-timing.mjs';
 const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
+const bashSupportsAssociativeArrays = spawnSync(BASH_BIN, ['-c', 'declare -A probe=()']).status === 0;
 const NETWORK_TEST_TIMEOUT_SECONDS = '1';
 // The shim below stalls a push for 30 seconds. The script under test must
 // finish well inside that: a run that waited for the stall is cut here and
@@ -457,7 +458,11 @@ describe('main writer network bounds', () => {
 
   it('requires every network command in git-push-with-retry.sh to use run_bounded', () => {
     const source = readFileSync(PUSH_WITH_RETRY_SCRIPT, 'utf8');
+    // The main push lives inside main-push-guard.mjs, whose one deadline spans
+    // inspection and publication. This shell still owns the bounded fetch.
     expect(networkVerbs(source)).toEqual(['push', 'fetch']);
+    expect(source).toContain('run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS"');
+    expect(source).toContain('--push');
     const violations = unboundedNetworkCommands(source);
     expect(violations, violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ')).toEqual([]);
   });
@@ -551,7 +556,7 @@ describe('main writer network bounds', () => {
     expect(source).not.toContain('git fetch --unshallow');
   });
 
-  it('retries a timed-out git-commit-data push and fails after the final timeout', () => {
+  it.skipIf(!bashSupportsAssociativeArrays)('retries a timed-out git-commit-data push and fails after the final timeout', () => {
     const scenario = setupScenario('main-writer-commit-data-timeout-');
     try {
       prepareUncommittedChange(scenario);
@@ -560,8 +565,8 @@ describe('main writer network bounds', () => {
 
       expect(result.status, result.output).toBe(1);
       expect(pushAttempts(scenario)).toBe(2);
-      expect(result.output).toContain(
-        'git push --no-thin origin <commit>:refs/heads/main timed out after 1 second',
+      expect(result.output).toMatch(
+        /git push --no-thin origin <commit>:refs\/heads\/main timed out after 1 second|main push deadline exceeded/u,
       );
       expect(result.output).toContain('Push failed after 2 attempts and the LAST failure is NOT a ref rejection/race');
     } finally {
@@ -569,7 +574,7 @@ describe('main writer network bounds', () => {
     }
   });
 
-  it('publishes after the first git-commit-data push timeout', () => {
+  it.skipIf(!bashSupportsAssociativeArrays)('publishes after the first git-commit-data push timeout', () => {
     const scenario = setupScenario('main-writer-commit-data-retry-');
     try {
       prepareUncommittedChange(scenario);
@@ -595,7 +600,9 @@ describe('main writer network bounds', () => {
 
       expect(result.status, result.output).toBe(1);
       expect(pushAttempts(scenario)).toBe(2);
-      expect(result.output).toContain('git push --no-thin origin HEAD:main timed out after 1 second');
+      expect(result.output).toMatch(
+        /guarded git push --no-thin origin <commit>:refs\/heads\/main timed out after 1 second|main push deadline exceeded/u,
+      );
       expect(result.output).toContain('Failed to push after 2 attempts');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });

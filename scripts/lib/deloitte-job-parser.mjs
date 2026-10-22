@@ -46,6 +46,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -319,24 +320,7 @@ function extractJobDescriptionHtml(html) {
  * on this ATS — no address) from a detail page.
  */
 function extractJsonLd(html) {
-  const scripts = html.match(
-    /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
-  );
-  if (!scripts) return null;
-  for (const script of scripts) {
-    const inner = script.replace(/^[\s\S]*?>/, '').replace(/<\/script>$/i, '').trim();
-    let data;
-    try {
-      data = JSON.parse(inner);
-    } catch {
-      continue;
-    }
-    const candidates = Array.isArray(data) ? data : [data];
-    for (const c of candidates) {
-      if (c && c['@type'] === 'JobPosting') return c;
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**

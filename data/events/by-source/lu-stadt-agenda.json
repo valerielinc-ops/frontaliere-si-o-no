@@ -3,7 +3,7 @@
   "sourceKey": "lu-stadt-agenda",
   "sourceName": "Stadt Luzern — Termine",
   "canton": "LU",
-  "assembledAt": "2026-10-14T11:13:11.956Z",
+  "assembledAt": "2026-10-21T11:11:43.006Z",
   "events": [
     {
       "id": "lu-stadt-agenda:6840391",
@@ -148,7 +148,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7688353",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-15T10:58:17.696Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -171,7 +171,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7694293",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-16T10:43:42.362Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -194,7 +194,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7463707",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-16T10:43:42.362Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -217,7 +217,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7626901",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -227,7 +227,7 @@
         "@type": "Organization",
         "name": "Stadt Luzern — Termine"
       },
-      "sourceDescriptionHash": "1e518560a2fe0849763c1236c27ac9be042edd9030dc3fae456221bd20f779a7"
+      "sourceDescriptionHash": "cac4979fcee407a7ded4389ac094a1a7a72123afa67ffbc122a44adf847d42e6"
     },
     {
       "id": "lu-stadt-agenda:7626880",
@@ -240,7 +240,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7626880",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-17T10:15:06.812Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -263,7 +263,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7686649",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-18T10:26:53.977Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -284,7 +284,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7648405",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-19T11:51:16.914Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -307,7 +307,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7694107",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-20T11:01:21.846Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -330,7 +330,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/6840403",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -353,7 +353,7 @@
       "url": "https://www.stadtluzern.ch/_rte/anlass/7729408",
       "sourceKey": "lu-stadt-agenda",
       "sourceName": "Stadt Luzern — Termine",
-      "crawledAt": "2026-10-14T11:13:11.956Z",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
       "organizer": {
         "@type": "Organization",
         "name": "Stadt Luzern — Termine",
@@ -364,6 +364,163 @@
         "name": "Stadt Luzern — Termine"
       },
       "sourceDescriptionHash": "f15a553ff8383b69508bfde50330dfa0e09056c4b8e2669b3e04d92278a7a34d"
+    },
+    {
+      "id": "lu-stadt-agenda:7694296",
+      "title": "Winter Qi Gong Waldfriedhof Staffeln",
+      "startDate": "2026-10-23",
+      "startTime": "08:30",
+      "comune": "Sursee",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7694296",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "b6133a698317df676e7b25bd0ae9f00cf9a7aef222171fe5566253d8165837f0"
+    },
+    {
+      "id": "lu-stadt-agenda:7649788",
+      "title": "Wissen am Mittag",
+      "startDate": "2026-10-23",
+      "startTime": "12:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7649788",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "ad136bfc159fa091fc7f6efc1d528b50d00ed6c0124b7bac2ef4f0123d01d98a"
+    },
+    {
+      "id": "lu-stadt-agenda:7463710",
+      "title": "Salonkonzert",
+      "startDate": "2026-10-23",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7463710",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "6342342145998e3da80dfd082a7d93229513e86aded4e001031ce242eef2e42b"
+    },
+    {
+      "id": "lu-stadt-agenda:7626904",
+      "title": "Flechten und Moose in Luzern",
+      "startDate": "2026-10-24",
+      "startTime": "13:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7626904",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "6a3c14a82bc4f297e39b26c8b4719864ee6372f60b656681bf2ed162f2793003"
+    },
+    {
+      "id": "lu-stadt-agenda:7463668",
+      "title": "Öffentliche Führung",
+      "startDate": "2026-10-25",
+      "startTime": "15:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7463668",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "cf94f0cc2d16e462ea5399eaf4662b3bf7ade3c8d0f3225df902ea3b05ee79f3"
+    },
+    {
+      "id": "lu-stadt-agenda:7648408",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-10-26",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7648408",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7253945",
+      "title": "Energie Apéro Luzern: Regenerative Baumaterialien – eine Wiederentdeckung",
+      "startDate": "2026-10-26",
+      "startTime": "17:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7253945",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-21T11:11:43.006Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "228bda093dc532d49d6311c507f10e581471c0a532c74bab662206d864d983cb"
     }
   ]
 }

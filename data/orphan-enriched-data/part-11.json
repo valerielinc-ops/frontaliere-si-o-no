@@ -14772,9 +14772,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
-        "en": "chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
-        "de": "chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
-        "fr": "chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee"
+        "en": "chauffeuse-chauffeur-cat-ce-pallets-trailer-train-m-f-d-traveco-transporte-ag-herzogenbuchsee",
+        "de": "chauffeuse-chauffeur-kat-ce-paletten-anhangerzug-w-m-d-traveco-transporte-ag-herzogenbuchsee",
+        "fr": "chauffeuse-chauffeur-cat-ce-palettes-train-remorque-h-f-d-traveco-transporte-ag-herzogenbuchsee"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/chauffeuse-chauffeur-cat-ce-pallets-treno-ferroviario-m-f-d-traveco-transporte-ag-herzogenbuchsee",
@@ -14788,6 +14788,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -16679,6 +16680,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-valais/collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-valais/collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes/"
+      },
+      "queries": [
+        {
+          "query": "emploi riddes",
+          "clicks": 0,
+          "impressions": 10
+        }
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "topQuery": "emploi riddes",
+      "title": "Collaborateur specialise gestion des eaux h aproz sources minerales sa riddes",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes",
+        "en": "collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes",
+        "de": "collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes",
+        "fr": "collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes",
+        "en": "/en/find-jobs-valais/collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes",
+        "de": "/de/jobs-im-wallis/collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes",
+        "fr": "/fr/trouver-emploi-valais/collaborateur-specialise-gestion-des-eaux-h-f-d-aproz-sources-minerales-sa-riddes"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -70564,10 +70622,10 @@
         "fr": "c-est-pas-vrai-lettres-de-livraison-et-colis-du-chef-d-equipe-die-schweizerische-post-thusis"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/stv-teamleader-zustellung-briefe-und-pakete-post",
-        "en": "/en/find-jobs-lucerne/stv-teamleader-zustellung-briefe-und-pakete-post",
+        "it": "/cerca-lavoro-grigioni/stv-teamleader-zustellung-briefe-und-pakete-post",
+        "en": "/en/find-jobs-graubunden/stv-teamleader-zustellung-briefe-und-pakete-post",
         "de": "/de/jobs-im-graubunden/stv-teamleader-zustellung-briefe-und-pakete-post",
-        "fr": "/fr/trouver-emploi-lucerne/stv-teamleader-zustellung-briefe-und-pakete-post"
+        "fr": "/fr/trouver-emploi-grisons/stv-teamleader-zustellung-briefe-und-pakete-post"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80825,10 +80883,10 @@
         "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-richterswil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil",
-        "en": "/en/find-jobs-basel/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil",
-        "de": "/de/jobs-in-basel/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil",
-        "fr": "/fr/trouver-emploi-bale/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil",
+        "en": "/en/find-jobs-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil",
+        "de": "/de/jobs-in-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-frischprodukte-coop-genossenschaft-richterswil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

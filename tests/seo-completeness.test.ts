@@ -215,12 +215,11 @@ function getBorderWaitBridgeTarget(route: AppRoute, locale: SitemapLocale): stri
 // consumed by that emitter; post-build sitemap tests validate the physical XML.
 const BORDER_WAIT_CANONICAL_SITEMAP_PATHS = new Set(BORDER_WAIT_ROUTES);
 
-/** Border crossing leaves are emitted by borderWaitPagesPlugin into its own sitemap. */
+/** Border-wait hubs and leaves are emitted by borderWaitPagesPlugin into its own sitemap. */
 function isGeneratedBorderWaitRoute(route: AppRoute): boolean {
-  const candidate = route as AppRoute & { guidaSubTab?: string; borderCrossing?: string };
+  const candidate = route as AppRoute & { guidaSubTab?: string };
   return candidate.activeTab === 'guida'
-    && candidate.guidaSubTab === 'border'
-    && typeof candidate.borderCrossing === 'string';
+    && candidate.guidaSubTab === 'border';
 }
 // sitemap.xml is now a sitemap index — read all sub-sitemaps for URL checking
 const sitemapContent = ['public/sitemap-pages.xml', 'public/sitemap-blog.xml', 'public/sitemap-blog-ch.xml', 'public/sitemap-glossario.xml']
@@ -548,6 +547,7 @@ describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
@@ -633,6 +633,7 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     const activeTab = (route as { activeTab: string }).activeTab;
     if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
     if (isShadowedArticleRoute(route)) continue; // #3010 item 1: intentionally dropped from sitemap (both sections)
+    if (isGeneratedBorderWaitRoute(route)) continue; // emitted into sitemap-border-wait.xml at build time
     if (getBorderWaitBridgeTarget(route, 'it')) continue;
 
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
@@ -693,14 +694,24 @@ describe('Sitemap URLs match router buildPath for all locales', () => {
       const bridgeTarget = getBorderWaitBridgeTarget(route, locale);
       if (isGeneratedBorderWaitRoute(route)) {
         it(`${label} [${locale}] → uses the data-driven border-wait path`, () => {
-          expect(bridgeTarget, `${label} [${locale}] is missing from the legacy bridge registry`).toBeTruthy();
-          expect(bridgeTarget).toBe(
-            buildOggiPath(locale, (route as { borderCrossing: string }).borderCrossing as BorderCrossingSlug),
-          );
-          expect(bridgeTarget)
-            .toMatch(locale === 'it'
-              ? /^\/traffico-dogane\/.+\/oggi\/$/
-              : new RegExp(`^\\/${locale}\\/[^/]+\\/.+\\/$`));
+          const generatedPath = buildPath(route, locale);
+          const crossing = (route as { borderCrossing?: string }).borderCrossing;
+          expect(
+            BORDER_WAIT_CANONICAL_SITEMAP_PATHS.has(generatedPath),
+            `${label} [${locale}] is missing from the data-driven border-wait sitemap route set`,
+          ).toBe(true);
+          if (crossing) {
+            expect(generatedPath).toBe(buildOggiPath(locale, crossing as BorderCrossingSlug));
+            expect(generatedPath)
+              .toMatch(locale === 'it'
+                ? /^\/traffico-dogane\/.+\/oggi\/$/
+                : new RegExp(`^\\/${locale}\\/[^/]+\\/.+\\/$`));
+          } else {
+            expect(generatedPath)
+              .toMatch(locale === 'it'
+                ? /^\/traffico-dogane\/$/
+                : new RegExp(`^\\/${locale}\\/[^/]+\\/$`));
+          }
         });
         continue;
       }

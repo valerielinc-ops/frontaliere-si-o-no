@@ -27,6 +27,9 @@
  *      of an indexable page MUST link back to the source page (reciprocal
  *      return-link invariant). Explicit noindex bridge pages are excluded:
  *      they intentionally copy the destination cluster's alternates.
+ *      The reassembled mixed-vintage post-deploy corpus measures this one
+ *      invariant against its recorded issue rate; source/local validation and
+ *      every other hreflang invariant remain strict.
  *
  * Pages without ANY hreflang tags are skipped — many utility pages (404.html,
  * bridge redirects, etc.) legitimately have none. Missing-hreflang checks
@@ -53,15 +56,15 @@
  *   2. It read every file in full (`readFileSync`) to regex a handful of
  *      `<link rel=alternate>` tags that are only ever valid inside `<head>`.
  *      Reads now stop at the first `</head>` (scripts/lib/readHead.mjs).
- *   3. The target closure used to retain every parsed `<head>` and then clone
- *      the target pages into a second index. On the 4 GiB post-deploy runner
- *      that made the larger live corpus OOM before the report was written.
- *      Keep only parsed metadata, flatten regex captures so they release the
- *      source head, and reuse the closure Map as the reciprocity index.
+ *   3. The target closure retained metadata for nearly the entire corpus even
+ *      on a sampled run. Run 38689309946 reached the 4 GiB V8 heap ceiling on
+ *      5.5 M files after the earlier duplicate-index fix. Check each sampled
+ *      source immediately and keep only a bounded LRU of target metadata.
  *
- * Both are pure I/O eliminations: the same files are inspected and the same
- * verdicts are produced. On top of that the file walk and the per-file reads
- * now run concurrently instead of sequentially.
+ * The first two avoid redundant I/O; the third bounds retained memory. Every
+ * sampled source still gets its reciprocal check, and rotating buckets retain
+ * full source coverage over the configured sampling window. The file walk and
+ * per-file reads run concurrently instead of sequentially.
  *
  * Sampling: this gate additionally honours `AUDIT_SAMPLE_RATE` /
  * `AUDIT_SAMPLE_SALT` (the same rotating-bucket mechanism `audit:all` uses —
@@ -83,20 +86,32 @@ import { walkHtmlFiles, sampleFiles, resolveSamplingEnv } from './lib/audit-runn
 import { readHeadOrAll } from './lib/readHead.mjs';
 import { isExternallyServedUrl } from './lib/externally-served-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
-import { findHreflangReciprocityFailures, normalizeHreflangUrl } from './lib/hreflang-reciprocity.mjs';
+import {
+  createBoundedHreflangTargetResolver,
+  findHreflangReciprocityFailuresForPage,
+} from './lib/hreflang-reciprocity.mjs';
 import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-alternates.mjs';
+import {
+  evaluateHistoricalCorpusRate,
+  readHistoricalCorpusLedgerOrNull,
+  HISTORICAL_CORPUS_LEDGER,
+} from './lib/historicalCorpusRate.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const PREFIXED_LOCALES = ['en', 'de', 'fr'];
+const HISTORICAL_CORPUS = process.env.AUDIT_REASSEMBLED_CORPUS === '1';
+const HISTORICAL_LEDGER = HISTORICAL_CORPUS ? readHistoricalCorpusLedgerOrNull() : null;
+const skipReciprocityTarget = (href) => !href.startsWith(BASE_URL) || isExternallyServedUrl(href);
 
 // A noindex relocation/compat page can survive in a reassembled shard even
 // after the source emitter that produced it has changed. Its copied hreflang
 // block may therefore point at a target no longer present in the current
-// corpus. Keep the historical exception narrow: only a missing target on an
-// explicit noindex page is advisory; partial sets, invalid locale/host pairs,
-// and every defect on an indexable page remain blocking.
+// corpus. Keep this exception narrow: only a missing target on an explicit
+// noindex page is advisory. Partial sets and invalid locale/host pairs remain
+// blocking; historical missingReturn findings use the separate rate gate
+// below, which is disabled for source/local validation.
 const NOINDEX_META_RE = /<meta\b(?=[^>]*\bname\s*=\s*["']?(?:robots|googlebot)(?![a-z0-9_-])["']?)(?=[^>]*\bcontent\s*=\s*["']?[^"'>]*\bnoindex\b)/i;
 const HEAD_RE = /<head\b[^>]*>([\s\S]*?)(?:<\/head>|$)/i;
 const META_TAG_RE = /<meta\b[^>]*>/gi;
@@ -135,41 +150,7 @@ export function isHistoricalMissingTarget(html, failureKind) {
 // far below the 65535 fd ulimit, high enough that Linux readahead stays
 // saturated.
 const IN_FLIGHT = 64;
-
-/** Keep only the parsed state needed after a target head has been inspected. */
-export function summarizeReciprocityTarget(target, html) {
-  target.noindex = isNoindexPage(html);
-  target.alternates = extractAlternates(html);
-}
-
-/**
- * Put a parsed source page in the reciprocity index, reusing its target entry
- * when both URLs resolve to the same file. Production clusters make nearly
- * every sampled source an alternate target too; keeping a second page object
- * and alternate Map for those pages doubled the dominant per-page state.
- */
-export function indexReciprocitySource(targets, source) {
-  const key = normalizeHreflangUrl(source.url, BASE_URL);
-  if (!key) return source;
-
-  const indexed = targets.get(key);
-  if (!indexed) {
-    source.isTarget = false;
-    targets.set(key, source);
-    return source;
-  }
-
-  // A target URL can resolve through a different file than a duplicate
-  // canonical source. Share metadata only when the physical page is the same;
-  // otherwise retain both records so the target is still read independently.
-  if (!indexed.alternates && indexed.file === source.file) {
-    const isTarget = indexed.isTarget === true;
-    Object.assign(indexed, source, { isTarget });
-    return indexed;
-  }
-
-  return source;
-}
+const RECIPROCITY_TARGET_CACHE_SIZE = 4096;
 
 /** Map an absolute canonical URL to the file that would serve it in dist/. */
 function urlToDistFile(url) {
@@ -321,8 +302,18 @@ async function main() {
   const historicalPagesWithFailure = new Set();
   let scanned = 0;
   let withHreflang = 0;
-  const reciprocitySources = [];
-  const reciprocityTargets = new Map();
+  const resolveReciprocityTarget = createBoundedHreflangTargetResolver(async (href) => {
+    const file = targetFileFor(href, distFiles);
+    if (!file) return null;
+    const html = await readHeadOrAll(file);
+    if (html === null || isNoindexPage(html)) return null;
+    return {
+      href,
+      relPath: path.relative(DIST, file),
+      file,
+      alternates: extractAlternates(html),
+    };
+  }, { baseUrl: BASE_URL, maxEntries: RECIPROCITY_TARGET_CACHE_SIZE });
 
   // Bounded-concurrency scan. Each lane pulls the next file off a shared
   // cursor; the per-file body below is byte-for-byte the previous sequential
@@ -354,26 +345,17 @@ async function main() {
           file,
           alternates,
         };
-        reciprocitySources.push(indexReciprocitySource(reciprocityTargets, source));
-        for (const href of alternates.values()) {
-          if (!href.startsWith(BASE_URL) || isExternallyServedUrl(href)) continue;
-          const targetFile = targetFileFor(href, distFiles);
-          if (!targetFile) continue;
-          const key = normalizeHreflangUrl(href, BASE_URL);
-          if (!key) continue;
-          const target = reciprocityTargets.get(key);
-          if (target) {
-            if (!target.isTarget && target.file !== targetFile) {
-              // A source may share a canonical URL with a different physical
-              // file. Preserve the old target-path resolution in that case.
-              reciprocityTargets.set(key, { href, file: targetFile, isTarget: true });
-            } else {
-              target.isTarget = true;
-              if (!target.file) target.file = targetFile;
-            }
-          } else {
-            reciprocityTargets.set(key, { href, file: targetFile, isTarget: true });
-          }
+        const sourceTargetFile = targetFileFor(source.url, distFiles);
+        if (sourceTargetFile === file) resolveReciprocityTarget.remember(source.url, source);
+        for (const issue of await findHreflangReciprocityFailuresForPage(source, {
+          baseUrl: BASE_URL,
+          skipTarget: skipReciprocityTarget,
+          resolveTargetPage: resolveReciprocityTarget.resolve,
+          getPagePath: (page) => page.file ? path.relative(DIST, page.file) : undefined,
+        })) {
+          failures.missingReturn.push(
+            flatString(`${issue.sourcePath}: hreflang="${issue.hreflang}" target ${issue.target} has no reciprocal link back to ${issue.source}`),
+          );
         }
       }
 
@@ -424,62 +406,30 @@ async function main() {
     Array.from({ length: Math.min(IN_FLIGHT, sampled.length) }, () => lane()),
   );
 
-  // Read the target closure of the sampled source pages before checking the
-  // return-link invariant. This keeps sampled runs bounded while still
-  // checking both sides of every alternate edge they inspect; a full run
-  // naturally closes over the entire local graph.
-  const targetEntries = reciprocityTargets.values();
-  const targetLane = async () => {
-    while (true) {
-      const next = targetEntries.next();
-      if (next.done) return;
-      const target = next.value;
-      // Source pages already carry the exact alternates Map parsed in the
-      // first pass. Re-reading them into a second Map recreates the OOM shape.
-      if (target.alternates) continue;
-      const html = await readHeadOrAll(target.file);
-      if (html === null) continue;
-      summarizeReciprocityTarget(target, html);
-    }
-  };
-  await Promise.all(
-    Array.from({ length: Math.min(IN_FLIGHT, reciprocityTargets.size) }, () => targetLane()),
-  );
-
-  // Preserve the prior page set: noindex bridges and unreadable targets are
-  // not reciprocity pages. Delete them before using this Map as the index.
-  for (const [key, target] of reciprocityTargets) {
-    if (!target.alternates || target.noindex) reciprocityTargets.delete(key);
-  }
-
-  function* reciprocityPages() {
-    yield* reciprocitySources;
-    for (const target of reciprocityTargets.values()) {
-      if (target.isTarget && target.file) yield target;
-    }
-  }
-
-  for (const issue of findHreflangReciprocityFailures(reciprocityPages(), {
-    baseUrl: BASE_URL,
-    skipTarget: isExternallyServedUrl,
-    pageIndex: reciprocityTargets,
-    getPagePath: (page) => page.file ? path.relative(DIST, page.file) : undefined,
-  })) {
-    failures.missingReturn.push(
-      flatString(`${issue.sourcePath}: hreflang="${issue.hreflang}" target ${issue.target} has no reciprocal link back to ${issue.source}`),
-    );
-  }
-
   // Lanes complete out of order, so sort each bucket to keep the CI log (and
   // the audit report) stable between runs over identical input.
   for (const list of Object.values(failures)) list.sort();
 
+  const historicalReciprocity = evaluateHistoricalCorpusRate({
+    check: 'audit:hreflang',
+    offenders: failures.missingReturn.length,
+    filesScanned: scanned,
+    historicalCorpus: HISTORICAL_CORPUS,
+    ledger: HISTORICAL_LEDGER,
+  });
+  const missingReturnRatePct = (failures.missingReturn.length / Math.max(scanned, 1)) * 100;
+  const historicalGateUnavailable = HISTORICAL_CORPUS && !historicalReciprocity.measured;
+  const blockingMissingReturnCount = historicalReciprocity.passed
+    ? 0
+    : failures.missingReturn.length;
+  const historicalGateFailureCount = historicalGateUnavailable ? 1 : 0;
   const totalFailures =
     failures.tooFew.length +
     failures.invalidPair.length +
     failures.xDefaultMismatch.length +
     failures.missingTarget.length +
-    failures.missingReturn.length;
+    blockingMissingReturnCount +
+    historicalGateFailureCount;
   const totalHistoricalFailures = historicalFailures.missingTarget.length;
   const historicalFailureRate = historicalPagesWithFailure.size / Math.max(withHreflang, 1);
   const historicalCorpusRate = historicalPagesWithFailure.size / Math.max(scanned, 1);
@@ -491,7 +441,52 @@ async function main() {
     rateOfPagesWithHreflang: historicalFailureRate,
     rateOfScannedCorpus: historicalCorpusRate,
     byFeature: { missingTarget: totalHistoricalFailures },
+    missingReturnIssues: failures.missingReturn.length,
+    missingReturnRatePct: Number(missingReturnRatePct.toFixed(7)),
+    missingReturnCeilingRatePct: historicalReciprocity.ceilingRatePct ?? null,
+    missingReturnHistoricalGate: {
+      enabled: HISTORICAL_CORPUS,
+      measured: historicalReciprocity.measured,
+      passed: historicalReciprocity.passed,
+      reason: historicalReciprocity.reason ?? null,
+    },
   };
+
+  const rateComparison = !HISTORICAL_CORPUS
+    ? 'strict zero-tolerance mode'
+    : !historicalReciprocity.measured
+      ? 'historical measurement unavailable; failing closed (' + historicalReciprocity.reason + ')'
+      : (historicalReciprocity.passed ? 'within historical ceiling ' : 'REGRESSION over historical ceiling ') +
+        Number(historicalReciprocity.ceilingRatePct).toFixed(6) + '%';
+  console.log(
+    'audit-hreflang: ' + (HISTORICAL_CORPUS ? 'HISTORICAL' : 'STRICT') +
+    ' missingReturn rate — ' + failures.missingReturn.length + ' issue(s) / ' + scanned +
+    ' sampled HTML page(s) = ' + missingReturnRatePct.toFixed(6) + '% — ' + rateComparison + '.',
+  );
+  if (historicalGateUnavailable) {
+    console.error(
+      'audit-hreflang: historical missingReturn measurement unavailable; failing closed (' +
+      historicalReciprocity.reason + ').',
+    );
+  }
+
+  if (
+    HISTORICAL_CORPUS &&
+    historicalReciprocity.measured &&
+    historicalReciprocity.passed &&
+    failures.missingReturn.length > 0
+  ) {
+    console.warn(
+      '[missingReturn] ADVISORY — ' + failures.missingReturn.length +
+      ' reciprocal-link issue(s) in the reassembled historical corpus; rate is within the measured ceiling.',
+    );
+    for (const msg of failures.missingReturn.slice(0, 20)) {
+      console.warn('  - ' + msg);
+    }
+    if (failures.missingReturn.length > 20) {
+      console.warn('  ... and ' + (failures.missingReturn.length - 20) + ' more');
+    }
+  }
 
   if (totalHistoricalFailures > 0) {
     console.warn(
@@ -527,19 +522,47 @@ async function main() {
       });
     }
   }
+  if (historicalGateUnavailable) {
+    _structuredOffenders.push({
+      path: '<historical-ledger>',
+      feature: 'missingReturnBaseline',
+      metric: 1,
+      ratio: null,
+      message: `historical missingReturn measurement unavailable (${historicalReciprocity.reason})`,
+    });
+    _byFeature.missingReturnBaseline = 1;
+  }
 
   const coverage = sampling
     ? ` [sampled bucket ${activeBucket + 1}/${totalBuckets} of ${htmlFiles.length} files on disk]`
     : '';
 
+  const reportThreshold = HISTORICAL_CORPUS && historicalReciprocity.measured
+    ? {
+        metric: 'blocking issues; missingReturn rate %',
+        value: Number(historicalReciprocity.ceilingRatePct),
+        comparator: '<=',
+      }
+    : { metric: 'count', value: 0, comparator: '<=' };
+  const baselineDelta = HISTORICAL_CORPUS && historicalReciprocity.measured
+    ? {
+        before: historicalReciprocity.expectedOffenders,
+        after: failures.missingReturn.length,
+        regression: Math.max(0, failures.missingReturn.length - historicalReciprocity.expectedOffenders),
+      }
+    : null;
+
   if (totalFailures === 0) {
     console.log(
-      `audit-hreflang: OK — scanned ${scanned} HTML files (${withHreflang} with hreflang), no issues.${coverage}`,
+      'audit-hreflang: OK — scanned ' + scanned + ' HTML files (' + withHreflang +
+      ' with hreflang); no blocking issues.' + coverage,
     );
     await writeAuditReport({
       audit: 'hreflang',
       passed: true,
-      threshold: { metric: 'count', value: 0, comparator: '<=' },
+      threshold: reportThreshold,
+      baselineFile: HISTORICAL_CORPUS ? HISTORICAL_CORPUS_LEDGER : null,
+      baselineDelta,
       offenders: _structuredOffenders,
       byFeature: _byFeature,
       extra: { sampling, historical },
@@ -548,11 +571,13 @@ async function main() {
   }
 
   console.error(
-    `audit-hreflang: FAILED — ${totalFailures} issue(s) across ${withHreflang} pages with hreflang${coverage}`,
+    'audit-hreflang: FAILED — ' + totalFailures + ' blocking issue(s) across ' +
+    withHreflang + ' pages with hreflang' + coverage,
   );
   const MAX = 50;
   for (const [kind, list] of Object.entries(failures)) {
     if (list.length === 0) continue;
+    if (kind === 'missingReturn' && HISTORICAL_CORPUS && historicalReciprocity.passed) continue;
     console.error(`\n[${kind}] ${list.length} issue(s):`);
     for (const msg of list.slice(0, MAX)) {
       console.error(`  - ${msg}`);
@@ -564,7 +589,9 @@ async function main() {
   await writeAuditReport({
     audit: 'hreflang',
     passed: false,
-    threshold: { metric: 'count', value: 0, comparator: '<=' },
+    threshold: reportThreshold,
+    baselineFile: HISTORICAL_CORPUS ? HISTORICAL_CORPUS_LEDGER : null,
+    baselineDelta,
     offenders: _structuredOffenders,
     byFeature: _byFeature,
     extra: { sampling, historical },

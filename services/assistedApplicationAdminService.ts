@@ -171,6 +171,8 @@ export interface AssistedApplicationAdminOrder {
   companyId: string;
   companyName: string;
   jobTitle: string;
+  billingMode?: string | null;
+  parentServiceId?: string | null;
   experimentVariant: AssistedApplicationVariant | string;
   copyVariant?: string;
   paymentStatus: string;
@@ -267,6 +269,7 @@ function errorMessage(error: unknown, status: number): string {
     not_admin: 'Accesso negato: questo account non è autorizzato alla coda candidature.',
     invalid_input: 'Dati non validi.',
     invalid_status: 'Stato non valido.',
+    invalid_billing_mode: 'Tipo di ordine non valido.',
     order_not_found: 'Ordine candidatura non trovato.',
     invalid_transition: 'Transizione di stato non consentita.',
     blocked_reason_required: 'Inserisci una motivazione per bloccare la candidatura.',
@@ -328,6 +331,16 @@ export async function fetchAssistedApplicationAdminData(
     orders: Array.isArray(data.orders) ? data.orders as AssistedApplicationAdminOrder[] : [],
     pdfRenderer: data.pdfRenderer && typeof data.pdfRenderer === 'object' ? data.pdfRenderer as AssistedApplicationPdfRendererCheck : null,
   };
+}
+
+/** Reads paid concierge orders through the owner endpoint, separate from the one-off queue. */
+export async function fetchApplicationConciergeAssistedOrders(
+  user: AuthLike | null | undefined,
+): Promise<AssistedApplicationAdminOrder[]> {
+  const url = new URL(ASSISTED_APPLICATION_ADMIN_ENDPOINT);
+  url.searchParams.set('billingMode', 'application_concierge');
+  const data = await requestAdmin(user, { method: 'GET', url: url.toString() });
+  return Array.isArray(data.orders) ? data.orders as AssistedApplicationAdminOrder[] : [];
 }
 
 /** Fetches all visible queue statuses, newest orders first. */

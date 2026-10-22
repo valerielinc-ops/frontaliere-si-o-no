@@ -38,7 +38,7 @@ const COLLECT_JS =
   `var path=ls('${READER_NOADS_ACTIVE_KEY}')==='true'?'noads_entitlement':isBot()?'bot_gated':consent==='none'?'waiting_consent':'loaded';` +
   `var a=w.adsbygoogle,g=w.googlefc,o=w.__ftOfferwallGate,s=o?o.state:undefined;` +
   `var gate=(s==='held'&&typeof o.release==='function')||s==='released'||s==='suppressed'||s==='off_board'?s:s==='idle'?'off_board':'absent';` +
-  `var ins=d.querySelectorAll('ins.adsbygoogle'),tot=0,fil=0,unf=0,col=0;` +
+  `var ins=d.querySelectorAll('ins[data-ad-slot]'),tot=0,fil=0,unf=0,col=0;` +
   `for(var i=0;i<ins.length;i++){var el=ins[i];if(!man(el))continue;tot++;var st=el.getAttribute('data-ad-status');if(st==='filled')fil++;else if(st==='unfilled')unf++;if(el.hasAttribute('data-ft-static-ad-collapsed')||el.closest('[${AD_BANNER_STATE_ATTR}="collapsed"]'))col++;}` +
   `var an=d.querySelector('ins[data-anchor-status]');` +
   `return{page_template:(${AD_PAGE_TEMPLATE_INLINE_FN})(h.path,d),consent_state:consent,ad_path:path,` +

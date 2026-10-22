@@ -9,6 +9,7 @@
  */
 
 import { draftRefFor, flowRefFor } from './assistedApplicationAutomation.js';
+import { rememberCandidateQuestionAnswers } from './assistedApplicationCandidateEdits.js';
 import { documentFileId } from './assistedApplicationExtraDocuments.js';
 import { rebuildTailoredCvPdf, supersededPhotoPdf, tailoredCvChanges } from './assistedApplicationTailoredCvPdf.js';
 
@@ -109,17 +110,24 @@ export async function rebuildCvToCommit({ created = [], ...input }) {
  * @returns {Promise<{rebuilt:boolean}>}
  */
 export async function saveAnswersWithCv({ db, bucket, orderId, order, flow, draft, answers, nowMs }) {
-  const nextFlow = { ...flow, answers: { ...(flow.answers || {}), ...answers } };
+  const mergedAnswers = { ...(flow.answers || {}), ...answers };
+  const questionAnswers = rememberCandidateQuestionAnswers({
+    questions: draft?.questions || [],
+    answers: mergedAnswers,
+    previous: flow.questionAnswers || {},
+    changed: answers,
+  });
+  const nextFlow = { ...flow, answers: mergedAnswers, questionAnswers };
   const live = Boolean(draft) && Number(draft.round) === Number(flow.round || 1) && !['submitted', 'failed'].includes(flow.state);
   if (!live || !tailoredCvChanges({ order, draft, flow, nextFlow })) {
-    await flowRefFor(db, orderId).set({ answers, updatedAt: nowMs }, { merge: true });
+    await flowRefFor(db, orderId).set({ answers, questionAnswers, updatedAt: nowMs }, { merge: true });
     return { rebuilt: false };
   }
   if (!bucket) throw new CvCommitError('storage_unavailable', 503);
   const rebuilt = await rebuildCvToCommit({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   await commitRebuild({
     db, bucket, orderId, flow, draft, state: flow.state, nowMs, created: [rebuilt.pdfKey],
-    flowPatch: { answers },
+    flowPatch: { answers, questionAnswers },
     draftPatch: { tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: rebuilt.photo } },
   });
   await deleteStored(bucket, orderId, [supersededPhotoPdf(draft)]);

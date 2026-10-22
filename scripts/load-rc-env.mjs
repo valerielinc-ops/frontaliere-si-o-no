@@ -127,6 +127,10 @@ export const RC_TO_ENV = {
   // AES-256-GCM key (base64, 32 bytes) of the assisted-application agent's
   // encrypted evidence (scripts/assisted-application/lib/secure-run.mjs).
   ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
+  // Stable key for the short-lived encrypted event-description artifact. It
+  // must not be CODEX_AUTH_JSON: that login is rotated independently of the
+  // crawl/rewrite hand-off.
+  EVENT_DESCRIPTION_ARTIFACT_KEY:  ['EVENT_DESCRIPTION_ARTIFACT_KEY'],
   // "legacy" switches the assisted application's PDFs back to the standard-font writer (default: typst).
   ASSISTED_APPLICATION_PDF_RENDERER: ['ASSISTED_APPLICATION_PDF_RENDERER'],
   // Off on purpose: the verified sources do not support one PDF as the default (docs/assisted-application/decisioni.md §5); the posting's own instruction wins either way (lib/dossier.mjs).
@@ -549,11 +553,31 @@ export function shouldMaskRcValue(value, rcKey) {
  * 429 and 5xx are transient — the exact failure mode behind issues #45, #54
  * and #171 ("Agent loop down: GITHUB_PAT failed to load"), all three of which
  * turned out NOT to be a real credential problem but a single unretried 429
- * or 503 from this endpoint. A 4xx other than 429 (bad JWT, wrong project)
- * will not resolve itself on retry.
+ * or 503 from this endpoint. Google also returns quota exhaustion as a 403;
+ * only the documented quota reasons are retryable, while a bad JWT or wrong
+ * project remains terminal.
  */
-export function isRetryableRcFetchStatus(status) {
-  return status === 429 || status >= 500;
+const QUOTA_RC_FETCH_REASONS = new Set([
+  'rateLimitExceeded',
+  'userRateLimitExceeded',
+  'dailyLimitExceeded',
+  'dailyLimitExceededUnreg',
+  'quotaExceeded',
+  'RESOURCE_EXHAUSTED',
+]);
+
+export function isRetryableRcFetchStatus(status, reason = null) {
+  return status === 429 || status >= 500 || (status === 403 && QUOTA_RC_FETCH_REASONS.has(reason));
+}
+
+/** Extract the Google API quota reason from a non-2xx response body. */
+export function extractGoogleErrorReason(bodyText) {
+  try {
+    const body = JSON.parse(bodyText);
+    return body?.error?.errors?.[0]?.reason ?? body?.error?.status ?? null;
+  } catch {
+    return null;
+  }
 }
 
 /** Exponential backoff in ms for retry attempt N (1-based), same shape as
@@ -629,16 +653,19 @@ async function fetchTemplateViaRest() {
       // AbortSignal.timeout() rejects the fetch instead of resolving a status,
       // so without this catch a slow-but-never-erroring endpoint would fail on
       // the FIRST timeout instead of spending the RC_FETCH_ATTEMPTS/~63s budget.
-      if (err?.name !== 'AbortError' && err?.name !== 'TimeoutError') throw err;
-      lastErr = new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`);
+      lastErr = err?.name === 'AbortError' || err?.name === 'TimeoutError'
+        ? new Error(`Remote Config REST fetch timed out after ${RC_FETCH_TIMEOUT_MS}ms`)
+        : err;
       if (attempt < RC_FETCH_ATTEMPTS) {
         await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
       }
       continue;
     }
     if (rcRes.ok) return rcRes.json();
-    lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}`);
-    if (!isRetryableRcFetchStatus(rcRes.status)) throw lastErr;
+    const bodyText = await rcRes.text().catch(() => '');
+    const reason = extractGoogleErrorReason(bodyText);
+    lastErr = new Error(`Remote Config REST fetch failed: ${rcRes.status}${reason ? ` (${reason})` : ''}`);
+    if (!isRetryableRcFetchStatus(rcRes.status, reason)) throw lastErr;
     if (attempt < RC_FETCH_ATTEMPTS) {
       await new Promise((r) => setTimeout(r, rcFetchBackoffMs(attempt)));
     }

@@ -86,7 +86,7 @@ export function stableTitleToken(value: string): string {
  * descriptions in `packages/articles/content/seo/**` end on a dangling
  * function word (1 844 of them on the literal tail "Dati aggiornati 2026 per"),
  * plus 11 `services/seo/seo-pages.ts` entries that only acquire the dangling
- * tail downstream, when {@link clampMetaDescription} cuts them to the 160-char
+ * tail downstream, when {@link clampMetaDescription} cuts them to the 150-char
  * budget.
  *
  * Single source of truth for the peel: {@link truncateHeadline} (→
@@ -321,12 +321,12 @@ export function truncateTitleAtClauseBoundary(s: string, maxLen: number): string
 }
 
 /**
- * SERP meta-description budget. Google truncates the snippet at ~155-160 char
- * on desktop; past this the tail (often the CTA/long-tail keywords) is dropped
- * from the displayed snippet, costing CTR. Generators should aim under this;
- * the render-layer clamp ({@link clampMetaDescription}) is the safety net.
+ * SERP meta-description budget. The audit flags descriptions near Google's
+ * ~155-160 char desktop display limit, so keep a 10-char buffer to reduce
+ * truncation. Generators should aim under this; the render-layer clamp
+ * ({@link clampMetaDescription}) is the safety net.
  */
-export const META_DESCRIPTION_MAX_CHARS = 160;
+export const META_DESCRIPTION_MAX_CHARS = 150;
 
 /**
  * Minimum useful description length used by the full-tree Bing-compatible

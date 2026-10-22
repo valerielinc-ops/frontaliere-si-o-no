@@ -112,7 +112,13 @@ function fakeCodex() {
       return {
         headline: 'Infermiera', summary: 'Infermiera con esperienza in reparto.', competencies: ['triage', 'astrofisica'],
         experience: [{ index: 0, bullets: ['Reparto da 24 letti.'] }], skills: ['triage'],
-        sectionTitles: { summary: 'Profilo', competencies: 'Competenze', experience: 'Esperienza', education: 'Formazione', certifications: 'Certificazioni', skills: 'Competenze tecniche', languages: 'Lingue' },
+        localized: {
+          headline: 'Infermiera', location: 'Como',
+          experience: [{ index: 0, role: 'Infermiera', location: 'Lugano', highlights: ['Reparto da 24 letti.'] }],
+          education: [], recognitions: [], certifications: [], aptitudeTests: [], projects: [],
+          languages: [{ index: 0, language: 'italiano', level: 'madrelingua' }, { index: 1, language: 'tedesco', level: 'B1' }],
+          interests: [], references: [], drivingLicence: '',
+        },
       };
     }
     throw new Error('unexpected schema');
@@ -152,10 +158,9 @@ describe('draft mode', () => {
     // Evidence the CV does not contain is not kept as evidence.
     expect(draft.matches.find((item: any) => item.index === 0)).toMatchObject({ evidence: '', evidenceUnverified: true });
     // The posting asks for a salary expectation: the question is added even though the model forgot it.
+    // The unambiguous Italian first name already fills the form of address, so it is not asked again.
     expect(draft.questions).toEqual([
       expect.objectContaining({ id: 'salary_expectation', required: true, source: 'rule' }),
-      // The application leaves through a portal's form (Lever): the form of address is asked now, optional.
-      expect.objectContaining({ id: 'salutation', required: false, type: 'choice', options: ['Signor', 'Signora', 'Altro'], source: 'rule' }),
     ]);
     // "7 anni" is not in the CV: flagged for the operator.
     expect(draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
@@ -569,6 +574,26 @@ describe('submit mode', () => {
     expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
+  it('passes the selected posting URL alongside a SuccessFactors apply URL', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const applyUrl = 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US';
+    const postingUrl = 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418433/';
+    const portalDraft = {
+      ...baseDraft,
+      job: { title: 'Senior IT Manager - CIO Office', applyUrl },
+      channel: { type: 'successfactors', applyUrl, host: 'jobs.six-group.com', requiresAccount: false },
+    };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    await submitApplication({
+      order: { ...order, jobUrl: postingUrl }, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+
+    expect(runner).toHaveBeenCalledWith(expect.objectContaining({ applyUrl, postingUrl }));
+  });
+
   it('resolves a required portal age question from the CV before the submit gate', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
@@ -586,7 +611,7 @@ describe('submit mode', () => {
     });
     expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     const [[ctx]] = runner.mock.calls as any;
-    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì' }]);
+    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì', source: 'answers' }]);
   });
 
   it('defers a stale portal question to the live runner so it can recover field context', async () => {
@@ -1034,6 +1059,26 @@ describe('submit mode', () => {
 
   it('never sends with an open required question, and hands portals over to the candidate', async () => {
     expect(openRequiredQuestions(baseDraft, {})).toHaveLength(1);
+    const legacyCvFacts = {
+      ...baseDraft,
+      profile: { languages: [
+        { language: 'English', level: 'C1' },
+        { language: 'Italian', level: 'C2' },
+        { language: 'French', level: 'B2' },
+        { language: 'Spanish', level: 'C1' },
+      ] },
+      factSources: { text: 'Languages\nEnglish C1\nItalian C2\nFrench B2\nSpanish C1' },
+      questions: [{ id: 'german_level', question: 'Do you speak German? If so, how would you describe your proficiency level?', required: true }],
+    };
+    expect(openRequiredQuestions(legacyCvFacts, {})).toEqual([]);
+    const duplicateLanguageQuestions = {
+      profile: { languages: [] },
+      questions: [
+        { id: 'german_level', question: 'Qual è il tuo livello di tedesco?', type: 'choice', options: ['A1', 'B1'], required: true },
+        { id: 'german_proficiency', question: 'Do you speak German? If so, how would you describe your proficiency level?', type: 'choice', options: ['A1', 'B1'], required: true },
+      ],
+    };
+    expect(openRequiredQuestions(duplicateLanguageQuestions, { german_level: 'B1' })).toEqual([]);
     const blocked = await submitApplication({
       order, orderId: ORDER_ID, flow: { answers: {} }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket: fakeBucket(), runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,

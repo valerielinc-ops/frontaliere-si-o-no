@@ -27,14 +27,18 @@ import {
   selectDetailStructuredRecords,
 } from './lib/prospector/extract.mjs';
 import { decodeEntities as decodeScrapedHtmlEntities } from './lib/prospector/entities.mjs';
-import { resolveSourceBackedSwissGeography } from './lib/prospector/location-evidence.mjs';
-import { readAttr } from './lib/html-attr.mjs';
+import {
+  JOB_LOCATION_CLASS_TOKENS,
+  resolveSourceBackedSwissGeography,
+} from './lib/prospector/location-evidence.mjs';
+import { readAttr, readVacancySummaryLocation } from './lib/html-attr.mjs';
 import {
   canonicalSwissCityName,
   findSwissCityInText,
   isCantonOnlyLabel,
   isKnownSwissMunicipality,
   normalizeCantonCode,
+  normalizeSwissCantonCode,
   swissMunicipalityCantons,
 } from './lib/target-swiss-locations.mjs';
 import { isLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
@@ -415,6 +419,12 @@ function canonicalLocationTokens(value) {
   return tokens.filter((token, index) => index === 0 || token !== tokens[index - 1]);
 }
 
+function cantonLabelCode(value) {
+  const tokens = canonicalLocationTokens(value);
+  if (tokens.length !== 1 || /\d/.test(normalizePlace(value))) return '';
+  return normalizeSwissCantonCode(value) || normalizeSwissCantonCode(tokens[0]);
+}
+
 function tokensEqual(left, right) {
   return left.length === right.length && left.every((token, index) => token === right[index]);
 }
@@ -585,10 +595,12 @@ export function sourceLocationMatches(published, source) {
   const right = canonicalLocationTokens(source);
   if (!left.length || !right.length) return false;
   if (tokensEqual(left, right)) return true;
+  const publishedCanton = cantonLabelCode(published);
+  const sourceCanton = cantonLabelCode(source);
+  if (publishedCanton && publishedCanton === sourceCanton) return true;
 
   const publishedCandidates = plainText(published).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
   const sourceCandidates = plainText(source).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
-  const publishedMunicipality = municipalityKeyWithDescriptor(published);
   for (const publishedCandidate of publishedCandidates) {
     const publishedTokens = canonicalLocationTokens(publishedCandidate);
     if (!publishedTokens.length) continue;
@@ -599,6 +611,13 @@ export function sourceLocationMatches(published, source) {
       const publishedHasPostalCode = /\b\d{4,5}\b/.test(publishedCandidate);
       const candidateHasPostalCode = /\b\d{4,5}\b/.test(rawSourceCandidate);
       const sourceMunicipality = municipalityKeyWithDescriptor(rawSourceCandidate);
+      // A slash-separated value such as `Biel / Solothurn / Mittelland` is a
+      // multi-site region, not one municipality whose embedded token can match
+      // a rendered single-site field. Keep the component-level comparisons
+      // below, but do not let the gazetteer pick one token from the aggregate.
+      const publishedMunicipality = /\//.test(publishedCandidate)
+        ? ''
+        : municipalityKeyWithDescriptor(publishedCandidate);
       const trailingRegion = sourceIndex > 0 && !candidateHasPostalCode
         && precededByOtherLocality(sourceCandidates, sourceIndex, sourceMunicipality);
       // In structured `city, canton` values, a published city must not pass only
@@ -623,12 +642,6 @@ export function sourceLocationMatches(published, source) {
 }
 
 const VOID_HTML_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
-const JOB_LOCATION_CLASS_TOKENS = new Set([
-  'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
-  'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
-  'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
-  'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
-]);
 const JOB_DETAIL_SCOPE_CLASS_TOKENS = new Set([
   'job-detail', 'job_detail', 'job-details', 'job_details', 'job-posting', 'job_posting',
   'vacancy-detail', 'vacancy_detail', 'vacancy-details', 'vacancy_details',
@@ -725,15 +738,6 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
   const structured = structuredCandidates.find((candidate) => (
     resolveSourceBackedSwissGeography(candidate)
   )) || structuredCandidates.at(0);
-  if (structured) {
-    return withLocationEvidenceCounts(
-      { location: structured.location, evidence: 'jsonld' },
-      structuredBeforeGate,
-      structuredAfterGate,
-      includeDiagnostics,
-    );
-  }
-
   // A shared listing/detail response may contain authoritative markup for more
   // than one vacancy. Once the requested row cannot be matched, the remaining
   // DOM is page-wide evidence and must not be attributed to that row.
@@ -742,6 +746,34 @@ export function extractSourceLocationObservation(html = '', pageUrl = '', {
       { location: '', evidence: 'generic' },
       { jsonld: Number(rawStructuredCandidates.length > 0), 'strong-markup': 0 },
       { jsonld: 0, 'strong-markup': 0 },
+      includeDiagnostics,
+    );
+  }
+
+  // SBB's vacancy-specific social summary carries the workplace, while its
+  // JobPosting JSON-LD can repeat the company's Bern headquarters. Accept the
+  // summary only on the canonical detail host and only in its date/workload
+  // shape; generic page descriptions remain non-authoritative.
+  let sbbSummaryLocation = '';
+  try {
+    if (new URL(pageUrl).hostname.toLowerCase() === 'jobs.sbb.ch') {
+      sbbSummaryLocation = plainText(readVacancySummaryLocation(html));
+    }
+  } catch {}
+  if (sbbSummaryLocation && isUsableSourceLocation(sbbSummaryLocation)) {
+    return withLocationEvidenceCounts(
+      { location: sbbSummaryLocation, evidence: 'job-summary' },
+      structuredBeforeGate,
+      structuredAfterGate,
+      includeDiagnostics,
+    );
+  }
+
+  if (structured) {
+    return withLocationEvidenceCounts(
+      { location: structured.location, evidence: 'jsonld' },
+      structuredBeforeGate,
+      structuredAfterGate,
       includeDiagnostics,
     );
   }
@@ -985,16 +1017,29 @@ function visibleFieldMatchesLocation(field, location) {
   const targetTokens = canonicalLocationTokens(location);
   if (!value || !targetTokens.length) return false;
   if (sourceLocationMatches(location, value)) return true;
+  const locationCanton = cantonLabelCode(location);
+  const valueCanton = cantonLabelCode(value);
+  if (locationCanton && locationCanton === valueCanton) return true;
   const haystack = ` ${aliasedPlaceTokens(value).join(' ')} `;
   return haystack.includes(` ${targetTokens.join(' ')} `);
 }
 
 function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLocation, locationEvidence) {
-  if (!['jsonld', 'strong-markup'].includes(locationEvidence)
+  if (!['jsonld', 'strong-markup', 'job-summary'].includes(locationEvidence)
     || !isUsableSourceLocation(sourceLocation)
     || !publishedLocation) return false;
+  const renderedJobLocationFields = Array.isArray(detail?.renderedJobLocationFields)
+    ? detail.renderedJobLocationFields
+    : [];
   const visibleFields = [
     ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
+    // A rendered job-location field is independent corroboration only when
+    // JSON-LD supplied the source observation. With strong markup, multiple
+    // fields are themselves the source's competing workplace declarations and
+    // are handled explicitly below.
+    ...(locationEvidence === 'jsonld'
+      ? renderedJobLocationFields
+      : []),
     ...(Array.isArray(detail?.headingSublineFields) ? detail.headingSublineFields : []),
     ...(Array.isArray(detail?.headingIntroFields) ? detail.headingIntroFields : []),
     detail?.title,
@@ -1009,6 +1054,12 @@ function sourceHasInternalLocationConflict(detail, publishedLocation, sourceLoca
   if (nationwideHeadings.length > 0) {
     return !nationwideHeadings.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
   }
+  const strongMarkupDeclaresBothLocations = locationEvidence === 'strong-markup'
+    && !sourceLocationMatches(publishedLocation, sourceLocation)
+    && renderedJobLocationFields.length > 1
+    && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, publishedLocation))
+    && renderedJobLocationFields.some((field) => visibleFieldMatchesLocation(field, sourceLocation));
+  if (strongMarkupDeclaresBothLocations) return true;
   const visibleMatchesPublished = visibleFields.some((field) => (
     visibleFieldMatchesLocation(field, publishedLocation)
   ));

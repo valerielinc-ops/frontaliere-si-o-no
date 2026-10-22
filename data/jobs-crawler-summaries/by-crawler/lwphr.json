@@ -1,21 +1,56 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-14T21:19:09.879Z",
-  "total": 16,
+  "generatedAt": "2026-10-21T09:17:31.422Z",
+  "total": 17,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 4372,
-  "avgDurationMs": 4372,
+  "durationMs": 6147,
+  "avgDurationMs": 6147,
   "durationHistory": [
-    4372
+    6147
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Mansioni principali:",
+      "slug": "mansioni-principali-lwp-ledermann-wieting-partners-switzerland",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/production_shift_leader.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-1e0e2eaa71b7",
+      "firstSeenAt": "2026-10-19T21:15:35.245Z",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 13
+      }
+    },
     {
       "title": "​RELATIONSHIP MANAGERS O PRIVATE BANKERS",
       "slug": "relationship-managers-o-private-bankers-lwp-ledermann-wieting-partners-ticino",
@@ -582,5 +617,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

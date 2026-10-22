@@ -12,7 +12,12 @@ import {
   isExplicitlyForeign,
   resolveSourceBackedSwissGeography,
 } from './prospector/location-evidence.mjs';
-import { inferAnyCanton, isCantonOnlyLabel, normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isCantonOnlyLabel,
+  isKnownSwissCity,
+  normalizeSwissTargetLocationText,
+} from './target-swiss-locations.mjs';
 import { SWISS_CANTONS } from './crawler-location-config.mjs';
 import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
 import { cantonNamedByLocation, preferLocationEncodedCanton } from './job-location-display.mjs';
@@ -905,10 +910,14 @@ export function resolveCoopJsonLdGeography(candidate) {
   // "Zürcher Unterland/Limmattal"). With an explicit Swiss country, retry
   // solely from the structured locality; unknown/foreign localities still
   // fail the shared resolver instead of falling back to an employer HQ.
-  if (/^(?:ch|che|schweiz|switzerland|suisse|svizzera|svizra)$/i.test(candidate.addressCountry)) {
+  if (isExplicitSwissCountry(candidate.addressCountry)) {
     return resolveSourceBackedSwissGeography({ ...candidate, addressRegion: '' });
   }
   return null;
+}
+
+function isExplicitSwissCountry(value = '') {
+  return /^(?:ch|che|schweiz|switzerland|suisse|svizzera|svizra)$/i.test(normalizeSpace(value));
 }
 
 /**
@@ -936,7 +945,29 @@ function listingAddressEvidence(job) {
     streetAddress: normalizeSpace(job?.streetAddress || ''),
   };
   const geography = resolveCoopJsonLdGeography(candidate);
-  return geography ? { candidate, geography } : null;
+  if (geography) return { candidate, geography };
+
+  // Some real Coop-family workplaces are source-declared branch labels rather
+  // than BFS municipalities (for example Heerbrugg and Rapperswil SG). Keep
+  // those only when the listing itself repeats the exact locality in both
+  // workplace fields and supplies explicit Swiss country + canton evidence.
+  // This is not a name lookup: preserve the source locality and never attach
+  // the JSON-LD employer address or infer a missing canton/country.
+  const listingLocation = normalizeSpace(job?.location || '');
+  const canton = normalizeSpace(job?.canton || job?.addressRegion || '').toUpperCase();
+  if (!listingLocation
+    || normalizeSwissTargetLocationText(listingLocation) !== normalizeSwissTargetLocationText(addressLocality)
+    || !isExplicitSwissCountry(candidate.addressCountry)
+    || isExplicitSwissCountry(addressLocality)
+    || isCantonOnlyLabel(addressLocality)
+    || isExplicitlyForeign(addressLocality, candidate.addressCountry)
+    || !isSwissCantonCode(canton)) return null;
+  const localityCanton = inferAnyCanton(addressLocality);
+  if (localityCanton && localityCanton !== canton) return null;
+  return {
+    candidate,
+    geography: { location: addressLocality, canton, addressCountry: candidate.addressCountry },
+  };
 }
 
 function isSwissCantonCode(value = '') {
@@ -966,10 +997,21 @@ function pageWorkplaceEvidence(job, page) {
   const listingLocality = normalizeSpace(job?.addressLocality || '');
   const sameAsListing = Boolean(listingLocality)
     && normalizeSwissTargetLocationText(listingLocality) === normalizeSwissTargetLocationText(workplace);
+  const encodedCanton = inferAnyCanton(workplace);
+  // The shared resolver now accepts official Swiss Post localities when a
+  // structured canton accompanies them. That is valid for a page label only
+  // when the listing corroborates the label (or the label carries its own
+  // canton); otherwise a non-municipality branch name such as Heerbrugg would
+  // become evidence merely because the listing has an unrelated canton.
+  const canUseListingCanton = isKnownSwissCity(workplace, listingCanton)
+    || (Boolean(listingLocality)
+      && isKnownSwissCity(workplace, listingCanton, { allowOfficialLocality: true }))
+    || sameAsListing
+    || Boolean(encodedCanton && encodedCanton === listingCanton);
   const candidate = {
     location: workplace,
     addressLocality: workplace,
-    addressRegion: listingCanton,
+    addressRegion: canUseListingCanton ? listingCanton : '',
     addressCountry: 'CH',
     postalCode: sameAsListing ? normalizeSpace(job?.postalCode || '') : '',
     streetAddress: sameAsListing ? normalizeSpace(job?.streetAddress || '') : '',
@@ -978,7 +1020,6 @@ function pageWorkplaceEvidence(job, page) {
     || resolveCoopJsonLdGeography({ ...candidate, addressRegion: '' });
   if (geography) return { candidate, geography };
   if (!isSwissCantonCode(listingCanton)) return null;
-  const encodedCanton = inferAnyCanton(workplace);
   if (!sameAsListing && encodedCanton !== listingCanton) return null;
   if (encodedCanton && encodedCanton !== listingCanton) return null;
   return {

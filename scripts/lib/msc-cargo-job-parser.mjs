@@ -25,7 +25,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
-import { extractJobPostingField } from './jobposting-jsonld.mjs';
+import { extractJobPostingField, extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -182,26 +182,8 @@ function htmlBodyToBulletedText(rawHtml = '') {
  */
 function extractDetailDescription(html = '') {
   if (!html) return '';
-  const re = /<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    let data;
-    try {
-      data = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const blocks = Array.isArray(data) ? data : [data];
-    for (const block of blocks) {
-      const type = block?.['@type'];
-      const isJobPosting = type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
-      if (!isJobPosting) continue;
-      const desc = block?.description || '';
-      if (!desc) continue;
-      return htmlBodyToBulletedText(desc);
-    }
-  }
-  return '';
+  const desc = extractJobPostingNodes(html).find((posting) => posting?.description)?.description || '';
+  return desc ? htmlBodyToBulletedText(desc) : '';
 }
 
 /* ── Phenom embedded-JSON extraction ───────────────────────── */

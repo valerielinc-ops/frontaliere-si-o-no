@@ -16,6 +16,7 @@
 
 import { getLocale, type Locale } from './i18n';
 import { STABIO_DOSSO_PETITION_PATHS } from './petitionRoute';
+import { EVENTS_ARCHIVE_SEGMENT } from './eventsArchivePaths';
 import { SLUG_TABLES, type SlugTable } from './routeSlugs.data';
 import { cdnDataUrl } from './cdnDataBase';
 import { buildJobSlugRecord, jobSlugShardKey, jobSlugShardPath } from './jobSlugShards';
@@ -52,12 +53,14 @@ import { getJobIntentLandingSlug } from '../build-plugins/jobIntentLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/shared/healthPremiumsPaths';
+import { parseAutoSectorHubPath } from '../build-plugins/shared/autoSectorHubPaths';
+import sectorHubPublicationRegistry from '../data/sector-hub-publications.json';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
 import { isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salaryStatsData';
 import { isExchangeSsgPath, parseExchangeSsgPath } from './exchangeSsgPaths';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, buildCompanyCityCurrentPath, parseCompanyCityPath, parseWeeklyEmployersPath, parseWeeklyEmployersTopHubPath } from '../build-plugins/weeklyEmployersData';
-import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
+import { BORDER_WAIT_ROUTES, buildOggiPath, buildRootHubPath, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } from '../build-plugins/careerLandingsData';
 import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
@@ -65,7 +68,11 @@ import { FRONTALIERE_PILLAR_ROUTES, isFrontalierePillarPath, parseFrontalierePil
 import { isProfessionCantonPath, parseProfessionCantonPath } from '../build-plugins/professionCantonData';
 import { isSalaryProfessionCantonPath, parseSalaryProfessionCantonPath } from '../build-plugins/salaryProfessionCantonData';
 import { isProfessionCityPath, parseProfessionCityPath } from '../build-plugins/professionCityData';
-import { isHealthFacilityPath, parseHealthFacilityPath } from '../build-plugins/healthFacilitiesData';
+import {
+  isHealthFacilityPath,
+  parseHealthFacilityPath,
+  parseHealthFacilitySectionPath,
+} from '../build-plugins/healthFacilitiesData';
 import { isChCantonSnapshotPath, parseChCantonSnapshotPath } from '../build-plugins/jobMarketSnapshotChCantonPathsData';
 import { parseChCantonEmployersPath } from '../build-plugins/weeklyEmployersChCantonPathsData';
 import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectionPagesPathsData';
@@ -156,6 +163,20 @@ export {
   getAggregatorJobBoardSlug,
   parseJobBoardSlug,
 };
+
+const AUTO_SECTOR_HUB_LOCALES = new Map<string, Set<Locale>>();
+for (const hub of (sectorHubPublicationRegistry as {
+  hubs?: Array<{ slug?: unknown; routeKind?: unknown; labelByLocale?: Partial<Record<Locale, unknown>> }>;
+}).hubs || []) {
+  const slug = typeof hub.slug === 'string' ? hub.slug : '';
+  if (!slug || hub.routeKind === 'static-category') continue;
+  const locales = new Set<Locale>();
+  for (const candidateLocale of ['it', 'en', 'de', 'fr'] as const) {
+    const label = hub.labelByLocale?.[candidateLocale];
+    if (typeof label === 'string' && label.trim()) locales.add(candidateLocale);
+  }
+  AUTO_SECTOR_HUB_LOCALES.set(slug, locales);
+}
 
 // ── Workstream C SemRush landings ────────────────────────────
 // Five static-HTML-only long-tail SEO pages (Workstream C of the SemRush
@@ -1092,6 +1113,12 @@ const EVENTS_PATH_PATTERN: Record<Locale, RegExp> = {
  de: /^\/de\/veranstaltungen\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
  fr: /^\/fr\/evenements\/([a-z0-9-]+)((?:\/[a-z0-9-]+){0,2})\/?$/,
 };
+const EVENTS_ARCHIVE_PAGE_SUFFIX: Record<Locale, RegExp> = {
+ it: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.it}/page-[1-9][0-9]*/?$`),
+ en: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.en}/page-[1-9][0-9]*/?$`),
+ de: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.de}/page-[1-9][0-9]*/?$`),
+ fr: new RegExp(`/${EVENTS_ARCHIVE_SEGMENT.fr}/page-[1-9][0-9]*/?$`),
+};
 
 /**
  * Match a pathname against every locale's events URL shape and validate the
@@ -1106,6 +1133,13 @@ function matchEventsCantonLocale(pathname: string): Locale | null {
  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
   const m = EVENTS_PATH_PATTERN[locale].exec(pathname);
   if (m && EVENTS_CANTON_SLUGS[locale].has(m[1])) return locale;
+  // Municipal archive pagination has one more segment than an event detail.
+  // Strip only its localized, positive-page suffix, not arbitrary deep routes.
+  const base = pathname.replace(EVENTS_ARCHIVE_PAGE_SUFFIX[locale], '');
+  if (base !== pathname) {
+   const municipal = EVENTS_PATH_PATTERN[locale].exec(base);
+   if (municipal && /^\/[a-z0-9-]+$/.test(municipal[2]) && EVENTS_CANTON_SLUGS[locale].has(municipal[1])) return locale;
+  }
  }
  return null;
 }
@@ -2119,6 +2153,15 @@ export function parsePath(pathname: string): ParseResult {
  const allParts = path.split('/').filter(Boolean);
  const [locale, parts] = detectLocaleFromPath(allParts);
 
+ // Dynamic sector hubs live in a reserved, locale-aware path segment. The
+ // slug list comes from the same compact registry that the weekly job writes;
+ // this keeps unknown URLs on the normal not-found route while retaining
+ // noindex retirement pages for already-published hubs.
+ const autoSectorSlug = parseAutoSectorHubPath(parts, locale);
+ if (autoSectorSlug && AUTO_SECTOR_HUB_LOCALES.get(autoSectorSlug)?.has(locale)) {
+   return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
+
  // The clean service landing is a real SPA page, not the generic job-board
  // listing. Returning the job-board tab keeps the existing shell and lazy
  // loading behaviour while App.tsx mounts the concierge entry surface.
@@ -2877,11 +2920,14 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
- // Health-facilities hub (/strutture-sanitarie/{slug}/ + locale variants,
- // epic #4455). This branch was missing entirely — same failure mode as the
- // exchange-vertical bug (notFoundPath fallback + URL rewritten to '/').
- // Static HTML emitted by healthFacilitiesPlugin; staticOverlay hydrates to
- // the job board so the SPA doesn't replace the facility content.
+ // Health-facilities hub (section root + /{slug}/ detail pages, epic #4455).
+ // Both the localised collection roots and detail pages are emitted by
+ // healthFacilitiesPlugin; staticOverlay hydrates to the job board so the SPA
+ // does not replace the static content or fall through to notFoundPath.
+ const healthFacilitySection = parseHealthFacilitySectionPath(pathname);
+ if (healthFacilitySection) {
+   return { route: { activeTab: 'job-board', staticOverlay: true }, locale: healthFacilitySection.locale as Locale };
+ }
  if (isHealthFacilityPath(pathname)) {
    const parsed = parseHealthFacilityPath(pathname);
    if (parsed) {
@@ -3741,12 +3787,15 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  case 'guida': {
  const sub = route.guidaSubTab || 'first-day';
  const slugKey = GUIDA_SUB_TO_SLUG[sub];
+ if (sub === 'border') {
+ const path = route.borderCrossing
+ ? buildOggiPath(lang, route.borderCrossing)
+ : buildRootHubPath(lang);
+ return finish(path + hashSuffix);
+ }
  const base = (sub === 'first-day'
  ? `${prefix}/${table.guida}`
  : `${prefix}/${table.guida}/${table[slugKey]}`);
- if (sub === 'border' && route.borderCrossing) {
- return finish(`${base}/${route.borderCrossing}${hashSuffix}`);
- }
  return finish(`${base}${hashSuffix}`);
  }
  case 'vita': {

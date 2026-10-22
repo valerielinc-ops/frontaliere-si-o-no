@@ -23,13 +23,14 @@ import {
  type CantonLocale,
 } from './shared/cantonSection';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { loadArticleRedirects, assertNoCrossSourceChains, assertNoInternalChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
+import { loadArticleRedirects, loadArticleCanonicalOverrides, assertNoCanonicalOverrideRedirectTargets, assertNoCrossSourceChains, assertNoInternalChains, ARTICLE_REDIRECTS_FILE } from './shared/articleRedirects.mjs';
 import { loadJobsJson } from './shared/loadJobsJson';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { BORDER_WAIT_LEGACY_REDIRECTS } from './shared/borderWaitLegacyRedirects';
 import { isSafeDistPath } from './shared/distPathSafety';
+import { shouldEmitPath } from './shared/localeEmitFilter';
 
 // These legacy URLs are intercepted by the apex Worker with a real 301. Keep
 // their static fallback free of a second, weaker redirect mechanism: the
@@ -37,6 +38,8 @@ import { isSafeDistPath } from './shared/distPathSafety';
 // meta-refresh for a route whose HTTP contract is already server-side.
 const EDGE_HTTP_REDIRECT_PATHS = new Set([
  '/cookie/',
+ '/nav:health/',
+ '/nav:pension/',
  '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/',
  '/job-board/',
  '/calcola-stipendio/confronta-permesso-g-vs-b/',
@@ -275,6 +278,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
  '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
  '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
+ '/de/schweiz-artikel/autostrada-riapertura-ticino/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
  '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/': '/fr/articles-frontalier/autoroute-a2-mezzovico-interpellation/',
  '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/': '/articoli-frontaliere/fallimenti-aziende-svizzera-1994/',
  '/en/swiss-articles/domino-effect-failed-companies-switzerland/': '/en/cross-border-articles/business-bankruptcies-switzerland-1994/',
@@ -332,6 +336,21 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/en/swiss-articles/news-not-relevant/': '/en/swiss-articles/',
  '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': '/de/schweiz-artikel/',
  '/fr/articles-suisse/information-non-pertinente/': '/fr/articles-suisse/',
+ // ── GSC 404 retirement decisions (2026-10-21) ───────────────────────────
+ // Search Console reported these old article URLs as not found. Each was
+ // checked against the current site/corpus slug registries and the live apex
+ // (404 on 2026-10-21). Six have no surviving article with the same subject or
+ // safe one-hop substitute; the one documented equivalent is kept as a direct
+ // 301. The other section-root targets are retirement declarations only and
+ // EDGE_RETIRED_PATHS derives them as 410 rather than sending Google to a
+ // soft-404 hub.
+ '/articoli-frontaliere/lombardia-sport-ticino/': '/articoli-frontaliere/',
+ '/fr/articles-frontalier/tesin-lombardie-manufacture/': '/fr/articles-frontalier/',
+ '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/': '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
+ '/de/grenzgaenger-artikel/rekorde-schneefall-bosco-gurin-2026/': '/de/grenzgaenger-artikel/',
+ '/de/grenzgaenger-artikel/transport-agency-como-renewed/': '/de/grenzgaenger-artikel/',
+ '/fr/articles-frontalier/suisse-service-public-frais-tv/': '/fr/articles-frontalier/',
+ '/en/cross-border-articles/varese-drunk-accident/': '/en/cross-border-articles/',
  // ── Bing blocked URLs (2026-03-27) — old slugs → current canonical ──
  // IT: category or slug renames
  '/compara-servizi/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',
@@ -496,6 +515,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/privacy-policy/': '/en/privacy/',
  // Historical Italian cookie-policy entry; the notice lives in the privacy page.
  '/cookie/': '/privacy/',
+ // Exact legacy internal markers, using the same destinations as the apex Worker.
+ '/nav:health/': '/compara-servizi/confronta-casse-malati/',
+ '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
  '/en/cross-border-faq/': '/en/frequently-asked-questions/',
  '/de/grenzgaenger-faq/': '/de/haeufige-fragen/',
  '/fr/faq-frontaliers/': '/fr/questions-frequentes/',
@@ -660,6 +682,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  redirects[from] = to;
  articleRenameCount++;
  }
+ assertNoCanonicalOverrideRedirectTargets(redirects, loadArticleCanonicalOverrides(rootDir));
  }
 
  const getHreflangHtml = (targetPath: string): string => {
@@ -694,6 +717,11 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // slash path such as `/foo/.env.bak/` would otherwise create the forbidden
  // `dist/foo/.env.bak.html` flat twin (and a hidden directory beside it).
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+
+ // A foreign locale's missing HTML is expected on a shard, not a vacancy.
+ // Do not create a noindex bridge that the shared sitemap would mistake for
+ // the owning shard's real page. Gate both the directory and flat twin.
+ if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
 
  // Do not emit a bridge onto a prefix this build cannot ship: the file
  // would be written, deleted by the shard rehydrate, and never served.
@@ -788,6 +816,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  for (const compatPathRaw of compatPaths) {
  const from = normalize(String(compatPathRaw || ''));
  if (!isSafeDistPath(from)) { skippedUnsafeDistPaths++; continue; }
+ // Apply the same ownership guard before any target-existence/fallback probe.
+ if (!shouldEmitPath(path.join(distDir, from.slice(1)), distDir)) continue;
  const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
  if (!resolution) continue;
  // Target-existence gap-fill (PR #4252 review): a self-mapped target is not always

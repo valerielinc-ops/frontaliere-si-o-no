@@ -1,7 +1,7 @@
 {
   "key": "molecular-partners",
   "label": "Molecular Partners",
-  "generatedAt": "2026-10-14T21:22:08.596Z",
+  "generatedAt": "2026-10-21T09:28:50.976Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4651,
-  "avgDurationMs": 4651,
+  "durationMs": 4497,
+  "avgDurationMs": 4497,
   "durationHistory": [
-    4651
+    4497
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:21:55.224Z",
+      "crawledAt": "2026-10-21T09:28:37.357Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,8 +52,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://molecularpartners-career.talent-soft.com/job/job-executive-assistant-80-7-month-fixed-term-assignment-_180.aspx",
-      "firstSeenAt": "2026-09-23T19:50:29.070Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T19:50:29.070Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
@@ -80,7 +80,7 @@
       "url": "https://molecularpartners-career.talent-soft.com/job/job-senior-accounting-manager_179.aspx",
       "source": "Molecular Partners Dedicated Parser (Talentsoft)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:21:55.757Z",
+      "crawledAt": "2026-10-21T09:28:37.898Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -111,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

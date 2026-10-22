@@ -304,82 +304,86 @@ export async function fetchAllConstelliumJobs() {
   console.log(`  📋 Swiss job listings found: ${listings.length}`);
 
   const jobs = [];
-  for (const listing of listings) {
+  for (let index = 0; index < listings.length; index++) {
+    const listing = listings[index];
     if (!listing.href) continue;
 
-    console.log(`  📄 Fetching detail: ${listing.title}`);
-    const detail = await fetchJobDetail(listing.href);
-    if (!detail) continue;
+    try {
+      console.log(`  📄 Fetching detail: ${listing.title}`);
+      const detail = await fetchJobDetail(listing.href);
+      if (!detail) continue;
 
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) {
-      console.log(`  ⏭️  Skipped — empty title`);
-      continue;
+      const title = normalizeSpace(listing.title || '');
+      if (!title || title.length < 3) {
+        console.log(`  ⏭️  Skipped — empty title`);
+        continue;
+      }
+
+      // listSwissJobs() already scoped this listing to Switzerland; a
+      // free-text location that failed to parse doesn't mean it's foreign —
+      // give it the same second-chance anchor as assemble-jobs-dataset.mjs's
+      // canton rescue: a real Swiss city named in the description, falling
+      // back to Constellium's documented main Swiss site (Sierre) rather
+      // than dropping a listing the API itself already confirmed is Swiss.
+      const cityFromSource = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '');
+      const cityFromVacancyText = cityFromSource
+        ? '' : rescueSwissCityFromText(stripHtml(detail.descriptionHtml || ''));
+      const city = cityFromSource || cityFromVacancyText || 'Sierre';
+
+      const canton = inferCanton(`${city} ${detail.addressRegion || ''}`);
+      // Detail-page description can also be j2w page chrome (same widget bleed
+      // as the title); sanitize before it can fall through to the fallback text.
+      const descriptionText = sanitizeSuccessFactorsField(stripHtml(detail.descriptionHtml || ''));
+      const publicUrl = detail.url;
+
+      const descText = descriptionText
+        ? `${descriptionText}\n\nConstellium Valais SA is a global leader in aluminium products and solutions, with a major rolling and recycling facility in Sierre (Valais), Switzerland. The company serves aerospace, automotive, packaging, and defence markets.`.trim()
+        : `${title} position at Constellium Valais in ${city}, Switzerland.\n\nConstellium Valais SA is a global leader in aluminium products and solutions, with a major rolling and recycling facility in Sierre (Valais), Switzerland. The company serves aerospace, automotive, packaging, and defence markets.`.trim();
+
+      const sourceLang = detectLang(descriptionText || title, 'fr');
+      const jobSlug = slugify(`${title} constellium ch`);
+      const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+      const employmentType = detectEmploymentType(title);
+
+      const job = {
+        id: `constellium-${urlHash}`,
+        slug: jobSlug,
+        slugByLocale: { [sourceLang]: jobSlug },
+        company: CONSTELLIUM_COMPANY_NAME,
+        companyKey: CONSTELLIUM_KEY,
+        companyDomain: CONSTELLIUM_COMPANY_DOMAIN,
+        title,
+        titleByLocale: { [sourceLang]: title },
+        description: descText,
+        descriptionByLocale: { [sourceLang]: descText },
+        requirements: [],
+        requirementsByLocale: { [sourceLang]: [] },
+        location: city,
+        canton,
+        addressLocality: city,
+        postalCode: detail.postalCode || '',
+        addressCountry: 'CH',
+        country: 'CH',
+        category: detectCategory(title),
+        contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+        employmentType,
+        experienceLevel: detectExperienceLevel(title),
+        sector: 'Metallurgia / Alluminio',
+        currency: 'CHF',
+        featured: false,
+        ...mergeSourcePostingDates({}, detail),
+        url: publicUrl,
+        applyUrl: publicUrl,
+        source: 'Constellium Valais Dedicated Parser (Jobs2Web)',
+        sourceLang,
+        crawledAt: new Date().toISOString(),
+      };
+
+      if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
+      jobs.push(job);
+    } finally {
+      if (index < listings.length - 1) await new Promise((r) => setTimeout(r, 300));
     }
-
-    // listSwissJobs() already scoped this listing to Switzerland; a
-    // free-text location that failed to parse doesn't mean it's foreign —
-    // give it the same second-chance anchor as assemble-jobs-dataset.mjs's
-    // canton rescue: a real Swiss city named in the description, falling
-    // back to Constellium's documented main Swiss site (Sierre) rather
-    // than dropping a listing the API itself already confirmed is Swiss.
-    const cityFromSource = normalizeSpace(detail.addressLocality || parseWorkdayLocation(listing.locationText) || '');
-    const cityFromVacancyText = cityFromSource
-      ? '' : rescueSwissCityFromText(stripHtml(detail.descriptionHtml || ''));
-    const city = cityFromSource || cityFromVacancyText || 'Sierre';
-
-    const canton = inferCanton(`${city} ${detail.addressRegion || ''}`);
-    // Detail-page description can also be j2w page chrome (same widget bleed
-    // as the title); sanitize before it can fall through to the fallback text.
-    const descriptionText = sanitizeSuccessFactorsField(stripHtml(detail.descriptionHtml || ''));
-    const publicUrl = detail.url;
-
-    const descText = descriptionText
-      ? `${descriptionText}\n\nConstellium Valais SA is a global leader in aluminium products and solutions, with a major rolling and recycling facility in Sierre (Valais), Switzerland. The company serves aerospace, automotive, packaging, and defence markets.`.trim()
-      : `${title} position at Constellium Valais in ${city}, Switzerland.\n\nConstellium Valais SA is a global leader in aluminium products and solutions, with a major rolling and recycling facility in Sierre (Valais), Switzerland. The company serves aerospace, automotive, packaging, and defence markets.`.trim();
-
-    const sourceLang = detectLang(descriptionText || title, 'fr');
-    const jobSlug = slugify(`${title} constellium ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(title);
-
-    const job = {
-      id: `constellium-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { [sourceLang]: jobSlug },
-      company: CONSTELLIUM_COMPANY_NAME,
-      companyKey: CONSTELLIUM_KEY,
-      companyDomain: CONSTELLIUM_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descText,
-      descriptionByLocale: { [sourceLang]: descText },
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
-      location: city,
-      canton,
-      addressLocality: city,
-      postalCode: detail.postalCode || '',
-      addressCountry: 'CH',
-      country: 'CH',
-      category: detectCategory(title),
-      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType,
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Metallurgia / Alluminio',
-      currency: 'CHF',
-      featured: false,
-      ...mergeSourcePostingDates({}, detail),
-      url: publicUrl,
-      applyUrl: publicUrl,
-      source: 'Constellium Valais Dedicated Parser (Jobs2Web)',
-      sourceLang,
-      crawledAt: new Date().toISOString(),
-    };
-
-    if (cityFromVacancyText) markLocationDerivedFromVacancyText(job);
-    jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300));
   }
 
   console.log(`\n📋 Total unique Constellium Valais jobs discovered: ${jobs.length}`);

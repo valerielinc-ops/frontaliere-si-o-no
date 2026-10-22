@@ -73,6 +73,7 @@ describe('multilingual content matching', () => {
      .toBe('A [Swiss net salary calculator](/en/guide/) helps.');
    const unsafe = createContentKeywordMatcher([{ id: 'unsafe', target: 'javascript:alert(1)', aliases: { en: ['unsafe'] } }]);
    expect(linkContentKeywords('unsafe', 'en', { matcher: unsafe })).toBe('unsafe');
+   expect(linkContentKeywords('unsafe', 'en', { matcher: unsafe, isEnabled: () => false })).toBe('unsafe');
  });
 
 

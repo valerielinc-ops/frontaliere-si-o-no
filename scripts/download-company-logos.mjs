@@ -21,9 +21,9 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fetchVerifiedLogo } from './lib/company-logo-audit.mjs';
+import { loadLogoRegistry } from './lib/company-logo-registry.mjs';
 
 const ROOT = path.resolve(process.cwd());
-const SOURCE_TS = path.join(ROOT, 'services', 'jobDataNormalization.ts');
 const OUT_DIR = path.join(ROOT, 'public', 'images', 'brands');
 const MANIFEST = path.join(ROOT, 'data', 'company-logos-manifest.json');
 // Local-only dev audit page. NEVER under public/ — Vite would copy it
@@ -34,55 +34,6 @@ const AUDIT_PAGE = path.join(AUDIT_DIR, 'logos-audit.html');
 
 const FETCH_TIMEOUT_MS = 12_000;
 const CONCURRENCY = 8;
-
-async function parseLogos() {
-  const ts = await readFile(SOURCE_TS, 'utf8');
-  const m = ts.match(/CRAWLED_COMPANY_LOGOS:\s*Record<string,\s*string>\s*=\s*\{([\s\S]*?)\n\};/);
-  if (!m) throw new Error('Cannot find CRAWLED_COMPANY_LOGOS in jobDataNormalization.ts');
-  const block = m[1];
-  const entries = [];
-  const lineRe = /['"]([a-z0-9-]+)['"]\s*:\s*([^,\n]+),?/g;
-  let lm;
-  while ((lm = lineRe.exec(block))) {
-    const slug = lm[1];
-    const raw = lm[2].trim().replace(/,$/, '').trim();
-    let url = null;
-    let domain = null;
-    let kind = 'unknown';
-
-    const cMatch = raw.match(/^cLogo\(['"]([^'"]+)['"]\)$/);
-    const gMatch = raw.match(/^gFavicon\(['"]([^'"]+)['"]\)$/);
-    const localMatch = raw.match(/^['"](\/[^'"]+)['"]$/);
-    const httpMatch = raw.match(/^['"](https?:\/\/[^'"]+)['"]$/);
-
-    if (cMatch) {
-      domain = cMatch[1];
-      url = `https://logo.clearbit.com/${domain}`;
-      kind = 'clearbit';
-    } else if (gMatch) {
-      domain = gMatch[1];
-      url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
-      kind = 'google-favicon';
-    } else if (localMatch) {
-      url = null;
-      kind = 'local-existing';
-      entries.push({ slug, kind, localExisting: localMatch[1] });
-      continue;
-    } else if (httpMatch) {
-      url = httpMatch[1];
-      try {
-        domain = new URL(url).hostname.replace(/^www\./, '');
-      } catch {
-        domain = null;
-      }
-      kind = 'direct-url';
-    } else {
-      continue;
-    }
-    entries.push({ slug, kind, url, domain });
-  }
-  return entries;
-}
 
 async function tryFetchAndSave(entry, url, sourceLabel) {
   const result = await fetchVerifiedLogo(url, { timeoutMs: FETCH_TIMEOUT_MS });
@@ -286,7 +237,7 @@ async function readManifestFromDisk() {
 async function main() {
   const opts = parseArgs(process.argv.slice(2));
   await mkdir(OUT_DIR, { recursive: true });
-  let entries = await parseLogos();
+  let entries = await loadLogoRegistry(ROOT);
   console.log(`[download-company-logos] Parsed ${entries.length} entries from CRAWLED_COMPANY_LOGOS`);
 
   if (opts.slug) {

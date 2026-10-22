@@ -35,7 +35,7 @@ import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
 import { resolveResidenceAddress } from './residence-address.mjs';
-import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseChooserFiles, documentPaths, findButton, locatorFor, uploadReceipt } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -156,6 +156,62 @@ const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
 
+function isSuccessFactorsPostingEntry({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    const applyId = /^\/talentcommunity\/apply\/([^/]+)\/?$/i.exec(apply.pathname)?.[1];
+    const postingId = /^\/job\/[^/]+\/([^/]+)\/?$/i.exec(posting.pathname)?.[1];
+    return apply.origin === posting.origin && Boolean(applyId) && postingId === applyId;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Employer-hosted job apply routes can redirect to a generic application page
+ * when opened cold. Enter through the matching job detail page first so its
+ * normal Apply link establishes the portal session. Match both origin and the
+ * complete job route: a stale or unrelated posting URL must never change
+ * which application the runner opens.
+ */
+function isDirectJobApplyEntry({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    const applyRoute = /^(.*\/jobs\/)([^/]+)\/apply\/?$/i.exec(apply.pathname);
+    const postingRoute = /^(.*\/jobs\/)([^/]+)\/?$/i.exec(posting.pathname);
+    return apply.origin === posting.origin
+      && Boolean(applyRoute && postingRoute)
+      && applyRoute[1] === postingRoute[1]
+      && applyRoute[2] === postingRoute[2];
+  } catch {
+    return false;
+  }
+}
+
+export function portalEntryUrl({ applyUrl, postingUrl } = {}) {
+  const directUrl = String(applyUrl || '');
+  try {
+    const apply = new URL(directUrl);
+    const posting = new URL(String(postingUrl || ''));
+    if (isSuccessFactorsPostingEntry({ applyUrl: apply.href, postingUrl: posting.href })
+      || isDirectJobApplyEntry({ applyUrl: apply.href, postingUrl: posting.href })) return posting.href;
+  } catch {
+    // Keep the given application URL when either address is absent or invalid.
+  }
+  return directUrl;
+}
+
+function portalChannelType(ctx = {}) {
+  if (ctx.channelType === 'successfactors') return ctx.channelType;
+  // A branded SuccessFactors tenant has an employer hostname, so the draft's
+  // hostname classifier can call it `employer_site`. The exact same-origin,
+  // same-requisition Jobs2Web route proves which ATS rules apply.
+  if (isSuccessFactorsPostingEntry(ctx)) return 'successfactors';
+  return ctx.channelType || '';
+}
+
 /**
  * The browser's own user agent without "Headless", on the machine's real
  * system: some ATS turn away a browser that calls itself HeadlessChrome
@@ -236,7 +292,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
-  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers);
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers, draft.portalAnswers?.answers);
   // Older drafts may predate the profile enrichment done during draft mode;
   // resolve once more at the browser boundary without an external geocoder.
   const address = resolveResidenceAddress(profile.address, profile.location);
@@ -261,6 +317,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       experience: (profile.experience || []).slice(0, 8)
         .map(({ role = '', employer = '', location = '', start = '', end = '' }) => ({ role, employer, location, start, end })),
       languages: profile.languages || [],
+      languagesExplicitList: profile.languagesExplicitList === true,
       // The detected language of the candidate's CV is evidence for the
       // planner's conservative native-language rule; it is not a nationality
       // or a replacement for explicitly stated language levels.
@@ -315,23 +372,50 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
 /**
  * Keep portal answers usable when an ATS changes a question's wording or
  * regenerates its field id between account creation and the application form.
- * Exact ids win; a canonical topic is only used for the small set of fields
- * whose meaning is unambiguous (address, nationality, permit, birth date and
- * current school).
+ * Current answers win; canonical topics also reuse an unambiguous answer from
+ * the previous portal run when an ATS regenerates its field id.
  */
-function portalAnswersForQuestions(questions, answers) {
-  const items = questions.map((question) => ({ question, answer: String(answers[question.id] ?? '').trim() }))
-    .filter((item) => item.answer);
+function portalAnswersForQuestions(questions, answers, previousAnswers = []) {
+  const items = questions.map((question) => ({
+    question: question.question,
+    context: question.context || '',
+    section: question.section || '',
+    autocomplete: question.autocomplete || '',
+    answer: String(answers[question.id] ?? '').trim(),
+    source: 'answers',
+    current: true,
+  })).filter((item) => item.answer);
+  const keyFor = (item) => portalQuestionKey(item) || portalQuestionId(item);
+  const currentKeys = new Set(questions
+    // An empty value under a regenerated field id is not an answer; keep the
+    // previous semantic answer eligible for that same question.
+    .filter((question) => question?.id && String(answers[question.id] ?? '').trim())
+    .map((question) => keyFor({ question: question.question, context: question.context || '', section: question.section || '', autocomplete: question.autocomplete || '' })));
+  const priorGroups = new Map();
+  for (const item of Array.isArray(previousAnswers) ? previousAnswers : []) {
+    const question = String(item?.question || '').trim();
+    const answer = String(item?.answer || '').trim();
+    if (!question || !answer) continue;
+    const prior = { question, context: String(item?.context || ''), section: String(item?.section || ''), autocomplete: String(item?.autocomplete || ''), answer, source: String(item?.source || 'answers') };
+    const key = keyFor(prior);
+    if (currentKeys.has(key)) continue;
+    const group = priorGroups.get(key) || [];
+    group.push(prior);
+    priorGroups.set(key, group);
+  }
+  for (const group of priorGroups.values()) {
+    const values = new Set(group.map((item) => item.answer.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim().toLowerCase()));
+    if (values.size === 1) items.unshift(group[0]);
+  }
   const seen = new Map();
   for (const item of items) {
-    const key = portalQuestionKey(item.question.question, item.question.context);
+    const key = keyFor(item);
     const previous = seen.get(key);
-    // Prefer an answer stored under this exact question id over an alias found
-    // only by semantic topic.
-    const exact = String(answers[item.question.id] ?? '').trim();
-    if (!previous || exact || !String(answers[previous.question.id] ?? '').trim()) seen.set(key, item);
+    if (!previous || item.current) seen.set(key, item);
   }
-  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer, ...(question.context ? { context: question.context } : {}) }));
+  return [...seen.values()].map(({ question, answer, context, section, autocomplete, source }) => ({
+    question, answer, source, ...(context ? { context: context.slice(0, 240) } : {}), ...(section ? { section: section.slice(0, 240) } : {}), ...(autocomplete ? { autocomplete: autocomplete.slice(0, 100) } : {}),
+  }));
 }
 
 /** Resolve required portal questions from the candidate data before the submit gate. */
@@ -347,6 +431,8 @@ export function autoAnswersForPortalQuestions({ questions = [], candidate, answe
       kind: options.length || ['choice', 'yes_no'].includes(question.type) ? 'select' : 'text',
       label: question.question,
       context: question.context || '',
+      section: question.section || '',
+      autocomplete: question.autocomplete || '',
       required: true,
       options,
     };
@@ -368,6 +454,20 @@ function hasApplicationForm(snapshot) {
   const textish = snapshot.fields.filter((field) => field.kind === 'text' || field.kind === 'textarea').length;
   const email = snapshot.fields.some((field) => field.inputType === 'email' || /e-?mail/i.test(field.label));
   return kinds.includes('file') || (textish >= 3 && email);
+}
+
+/**
+ * A page with only the employer site's header/footer controls is not an
+ * application form. Keeping this separate from hasApplicationForm matters:
+ * custom application widgets may have no native fields yet, but their own
+ * buttons are still actionable and must reach the agentic fallback.
+ */
+export function hasApplicationSurface(snapshot) {
+  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome));
+}
+
+export function needsPortalOptionRead(snapshot = {}) {
+  return snapshot.fields?.some((field) => field.kind === 'listbox' || field.selectLike) || false;
 }
 
 /** A SuccessFactors page resumed between account creation and OTP submission. */
@@ -732,13 +832,76 @@ export function formPostingMatch(formText, job = {}, { postingMatched = false } 
 // «Bewerbung absenden», «Invia candidatura», «Envoyer ma candidature».
 const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
 
+// A file field for a cover letter or another document must not hide the fact
+// that a SuccessFactors CV input is still in its upload dialog. Keep this
+// narrower than the complete document vocabulary used by the requirements
+// planner: only a CV/resume label counts as the CV being present.
+const CV_DOCUMENT_TERMS = 'cv|resume|résumé|lebenslauf|curriculum(?:\\s+vitae)?';
+const COVER_LETTER_DOCUMENT_TERMS = 'cover\\s+letter|motivation(?:s|al)?\\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\\s+de\\s+motivation|lettera\\s+di\\s+(?:motivazione|presentazione)';
+const documentContextRe = (terms) => new RegExp(
+  `(?<![\\p{L}\\p{N}\\p{M}])(?:${terms})(?![\\p{L}\\p{N}\\p{M}])`,
+  'iu',
+);
+const CV_DOCUMENT_CONTEXT_RE = documentContextRe(CV_DOCUMENT_TERMS);
+const COVER_LETTER_DOCUMENT_CONTEXT_RE = documentContextRe(COVER_LETTER_DOCUMENT_TERMS);
+const CV_FILE_FIELD_RE = CV_DOCUMENT_CONTEXT_RE;
+const uploadedPortalFieldKey = (url, field) => `${url}|${field?.label || field?.id || ''}`;
+
+const isFileField = (field) => field?.kind === 'file' || field?.inputType === 'file';
+const isCvFileField = (field) => {
+  if (!isFileField(field)) return false;
+  const label = String(field.label || '');
+  if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(label)) return false;
+  if (CV_FILE_FIELD_RE.test(label)) return true;
+  const metadata = `${field.name || ''} ${field.id || ''}`;
+  if (COVER_LETTER_DOCUMENT_CONTEXT_RE.test(metadata)) return false;
+  if (CV_FILE_FIELD_RE.test(metadata)) return true;
+  const context = String(field.context || '');
+  return CV_FILE_FIELD_RE.test(context) && !COVER_LETTER_DOCUMENT_CONTEXT_RE.test(context);
+};
+
+// SuccessFactors can render the CV input only after its icon-only upload
+// control is pressed. The visible page still has application questions (and
+// «Apply») alongside the account password fields, so the CV is not the only
+// reliable marker of an application-owned account form.
+const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
+  `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
+  'iu',
+);
+const SUCCESS_FACTORS_HOST_SUFFIXES = [
+  'successfactors.eu',
+  'successfactors.com',
+  'sapsf.eu',
+  'sapsf.com',
+  'successfactors.localhost',
+];
+
+const isSuccessFactorsUrl = (url) => {
+  try {
+    const hostname = new URL(url).hostname.toLowerCase();
+    return hostname === 'jobs.sap.com'
+      || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => hostname === suffix || hostname.endsWith(`.${suffix}`));
+  } catch {
+    return false;
+  }
+};
+
 /**
  * The application form asks for its account's password itself (account.mjs)
- * and its button sends an application: the form, not a login page. A bare
- * «Submit» or «Konto erstellen» under a password stays a registration.
+ * and its button sends an application: the form, not a login page. Some
+ * SuccessFactors tenants keep the CV input in an upload dialog until its
+ * icon is pressed; their other application fields are enough to identify the
+ * same mixed form before that dialog is opened. A bare «Submit» or «Konto
+ * erstellen» under a password stays a registration.
  */
-export function ownAccountForm(snapshot) {
-  return Boolean(snapshot.passwordVisible) && inlineAccountForm(snapshot) && sendsApplication(snapshot);
+export function ownAccountForm(snapshot, channelType = '') {
+  const labels = (snapshot.fields || []).map((field) => `${field.label || ''} ${field.context || ''}`).join(' ');
+  const hasCvFileField = (snapshot.fields || []).some(isCvFileField);
+  const mixedApplication = (channelType === 'successfactors' || isSuccessFactorsUrl(snapshot.url))
+    && !hasCvFileField
+    && sendsApplication(snapshot)
+    && APPLICATION_ACCOUNT_FIELD_RE.test(labels);
+  return Boolean(snapshot.passwordVisible) && sendsApplication(snapshot) && (inlineAccountForm(snapshot) || mixedApplication);
 }
 
 /** The page's button sends an application («Submit final application»), whatever else the page asks. */
@@ -751,11 +914,11 @@ function questionsFrom(missingRequired) {
   const questions = [];
   const seen = new Set();
   for (const item of missingRequired) {
-    const id = portalQuestionId(item.question, item.context);
-    const key = portalQuestionKey(item.question, item.context);
+    const id = portalQuestionId(item);
+    const key = portalQuestionKey(item);
     if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
     seen.add(key);
-    questions.push({ id, question: item.question, ...(item.context ? { context: String(item.context).slice(0, 240) } : {}), why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
+    questions.push({ id, question: item.question, ...(item.context ? { context: String(item.context).slice(0, 240) } : {}), ...(item.section ? { section: String(item.section).slice(0, 240) } : {}), ...(item.autocomplete ? { autocomplete: String(item.autocomplete).slice(0, 100) } : {}), why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
   }
   return questions;
 }
@@ -770,7 +933,7 @@ export function dedupePortalQuestions(questions = []) {
   const seen = new Set();
   return (Array.isArray(questions) ? questions : []).filter((question) => {
     if (question?.source !== 'portal') return true;
-    const key = portalQuestionKey(question.question, question.context) || question.id;
+    const key = portalQuestionKey(question) || question.id;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
@@ -1011,44 +1174,276 @@ export async function acceptPrivacyStatement(page, snapshot) {
 // pressed on it only meets the portal's validation. Its CV goes in through
 // «Lebenslauf hochladen», a dialog whose file input exists only once open.
 export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
-export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
-export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
+export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
+export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|attach(?:ed)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|attach(?:ed)?|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(a |an |the |your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
+const ICON_ONLY_BUTTON_RE = /^[^\p{L}\p{N}]{1,12}$/u;
+const FILE_PICKER_ACTION_RE = /^(?:browse(?:\s+files?)?|choose(?:\s+(?:a\s+)?file)?|select(?:\s+(?:a\s+)?file)?|upload(?:\s+(?:a\s+)?file)?|attach(?:\s+(?:a\s+)?file)?|durchsuchen|datei\s+(?:auswählen|hochladen)|parcourir|choisir(?:\s+un)?\s+fichier|sélectionner(?:\s+un)?\s+fichier|sfoglia(?:\s+file)?|scegli(?:\s+(?:un\s+)?file)?|seleziona(?:re)?\s+file|carica(?:re)?\s+file|joindre|importer)\s*[.…]*$/i;
+// JavaScript's `\b` is ASCII-only and treats `_` as a word character. Document
+// labels can contain accents and filenames commonly use underscores, so only
+// Unicode letters, numbers and combining marks are token characters here.
+const SUCCESS_FACTORS_UPLOAD_MARKER_RE = /(?:upload|hochladen|carica(?:re)?|charger|télécharger|joindre|importer)/i;
+
+const successFactorsButtonAssociation = (button) => [
+  button.domId,
+  button.id,
+  button.name,
+  button.label,
+  button.title,
+  button.ariaLabel,
+  button.dataAutomationId,
+  button.section,
+  button.context,
+  button.fileContext,
+].filter(Boolean).join(' ');
+
+const successFactorsDocumentPattern = (kind) => kind === 'cv'
+  ? CV_DOCUMENT_CONTEXT_RE
+  : kind === 'cover_letter'
+    ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : null;
+const successFactorsDocumentAssociationMatches = (association, kind) => {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  const otherPattern = kind === 'cv' ? COVER_LETTER_DOCUMENT_CONTEXT_RE
+    : kind === 'cover_letter' ? CV_DOCUMENT_CONTEXT_RE : null;
+  return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
+};
+
+/**
+ * Find a document upload control without guessing from an unlabelled icon.
+ * SuccessFactors uses a private-use glyph ("") for the CV button on some
+ * account/application pages, so the document name must still be present in
+ * the control's DOM context and the candidate must be unique.
+ */
+export function uploadButtonFor(snapshot, kind) {
+  const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
+  const contextPattern = kind === 'cv' ? CV_DOCUMENT_CONTEXT_RE : kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : null;
+  if (!pattern || !contextPattern) return null;
+  const buttons = snapshot?.buttons || [];
+  const named = findButton(buttons, pattern);
+  if (named) return named;
+  const candidates = buttons.filter((button) => {
+    if (button.disabled || button.chrome) return false;
+    const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
+    const hasDocumentContext = contextPattern.test(context);
+    return hasDocumentContext && (ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())
+      || FILE_PICKER_ACTION_RE.test(String(button.text || '').trim()));
+  });
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function successFactorsIconButtonFor(snapshot, kind) {
+  const documentPattern = successFactorsDocumentPattern(kind);
+  if (!documentPattern) return null;
+  const candidates = (snapshot?.buttons || []).filter((button) => {
+    if (button.disabled || button.chrome || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return false;
+    const association = successFactorsButtonAssociation(button);
+    return SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+      && successFactorsDocumentAssociationMatches(association, kind);
+  });
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function isSuccessFactorsPage(page, channelType = '') {
+  // Branded SuccessFactors career sites use their own host, so the ATS
+  // classifier from the application draft is stronger than a vendor-host list.
+  return channelType === 'successfactors' || isSuccessFactorsUrl(page.url());
+}
+
+function iconUploadAllowedForPage(page, button, kind = 'cv', snapshot = null, channelType = '') {
+  if (!button || !ICON_ONLY_BUTTON_RE.test(String(button.text || '').trim())) return true;
+  const contextPattern = kind === 'cover_letter' ? COVER_LETTER_DOCUMENT_CONTEXT_RE : CV_DOCUMENT_CONTEXT_RE;
+  const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
+  if (contextPattern.test(context)) return true;
+  const association = successFactorsButtonAssociation(button);
+  const application = snapshot || {};
+  return isSuccessFactorsPage(page, channelType)
+    && (ownAccountForm(application, channelType) || sendsApplication(application) || hasApplicationForm(application))
+    && SUCCESS_FACTORS_UPLOAD_MARKER_RE.test(association)
+    && successFactorsDocumentAssociationMatches(association, kind);
+}
 
 // Tries per page and action in one run: a click a portal drops is tried again
 // at once, a page that never opens does not hold the run (review of #11022).
 const MAX_SECTION_TRIES = 3;
 
-/** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
-async function uploadThroughDialog(page, trigger, file) {
+const DIALOG_FILE_INPUT_SELECTOR = [
+  '[role="dialog"]:visible input[type="file"]',
+  '[aria-modal="true"]:visible input[type="file"]',
+  'dialog[open]:visible input[type="file"]',
+].join(', ');
+
+function orderedUploadFrames(page, preferredFrame) {
+  const frames = page.frames();
+  const preferred = preferredFrame && frames.includes(preferredFrame)
+    ? preferredFrame
+    : page.mainFrame();
+  return [preferred, ...frames.filter((frame) => frame !== preferred)];
+}
+
+async function dialogFileInputCount(frame) {
   try {
-    await trigger.click({ timeout: 6_000 });
+    const input = frame.locator(DIALOG_FILE_INPUT_SELECTOR);
+    if (typeof input.count !== 'function') return null;
+    return await input.count();
   } catch {
-    return 'unavailable';
+    return null;
   }
-  const input = page.locator('[role="dialog"] input[type="file"], [aria-modal="true"] input[type="file"]').first();
+}
+
+/** Finds one newly opened, visible upload dialog across the page's current frames. */
+async function dialogFileInput(page, preferredFrame, beforeCounts, timeoutMs = 8_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const candidates = [];
+    let ambiguous = false;
+    let supportedFrames = 0;
+    for (const frame of orderedUploadFrames(page, preferredFrame)) {
+      const count = await dialogFileInputCount(frame);
+      if (count === null) continue;
+      supportedFrames += 1;
+      const previousCount = beforeCounts.get(frame) || 0;
+      const added = count - previousCount;
+      if (added > 1) ambiguous = true;
+      else if (added === 1) candidates.push(frame.locator(DIALOG_FILE_INPUT_SELECTOR).nth(previousCount));
+    }
+    // Playwright frames expose locator.count(). The fallback exists only for
+    // lightweight legacy mocks that expose the prior page.locator() surface.
+    if (supportedFrames === 0) {
+      const legacyInput = page.locator(DIALOG_FILE_INPUT_SELECTOR).first();
+      return legacyInput || null;
+    }
+    if (!ambiguous && candidates.length === 1) return candidates[0];
+    await page.waitForTimeout(150);
+  }
+  return null;
+}
+
+/** Watch before the click: a SuccessFactors upload control may open the browser file chooser instead of a DOM dialog. */
+function fileChooserAfterClick(page) {
+  if (typeof page.waitForEvent !== 'function') return Promise.resolve(null);
   try {
-    await input.waitFor({ state: 'attached', timeout: 8_000 });
+    return Promise.resolve(page.waitForEvent('filechooser', { timeout: 8_000 })).catch(() => null);
+  } catch {
+    return Promise.resolve(null);
+  }
+}
+
+/** The CV through the dialog the trigger opens: 'unavailable' when nothing went in. */
+async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace = null) {
+  const finish = (status) => {
+    if (trace) trace.status = status;
+    return status;
+  };
+  const framesBeforeClick = page.frames();
+  const preferredFrame = framesBeforeClick[triggerFrame] || page.mainFrame();
+  const beforeCounts = new Map();
+  for (const frame of framesBeforeClick) {
+    const count = await dialogFileInputCount(frame);
+    if (count !== null) beforeCounts.set(frame, count);
+  }
+  // An already-open picker is unrelated to this trigger; fail closed instead
+  // of risking an upload into a stale dialog or a different document field.
+  const preexistingDialog = [...beforeCounts.values()].some((count) => count > 0);
+  if (trace) trace.preexistingDialog = preexistingDialog;
+  if (preexistingDialog) {
+    if (trace) trace.failure = 'preexisting_dialog';
+    return finish('unavailable');
+  }
+  const chooserPromise = fileChooserAfterClick(page);
+  try {
+    if (trigger.snapshot) await clickButton(page, trigger.snapshot);
+    else await trigger.click({ timeout: 6_000 });
+    if (trace) trace.click = 'succeeded';
+  } catch {
+    // The control may open its picker and then detach while the click is
+    // settling. Still inspect both upload paths before treating that click as
+    // a failure.
+    if (trace) trace.click = 'failed';
+  }
+  const chooserTarget = chooserPromise.then((chooser) => chooser ? { chooser } : null);
+  const dialogTarget = dialogFileInput(page, preferredFrame, beforeCounts)
+    .then((input) => input ? { input } : null, () => null);
+  const firstTarget = await Promise.race([
+    chooserTarget.then((target) => ({ source: 'chooser', target })),
+    dialogTarget.then((target) => ({ source: 'dialog', target })),
+  ]);
+  // A timeout from one strategy is not evidence that the other failed. In
+  // particular, the chooser watcher starts before the click, so it can time
+  // out while the dialog watcher is still in its post-click window.
+  const target = firstTarget.target || await (firstTarget.source === 'chooser' ? dialogTarget : chooserTarget);
+  if (target?.chooser) {
+    if (trace) trace.target = 'chooser';
+    try {
+      const chooser = target.chooser;
+      // SuccessFactors can replace the file input while handling the native
+      // chooser's change event. Capture the triggering element before the
+      // selection so the receipt check still has a stable reference when the
+      // post-selection `chooser.element()` points at no node.
+      const initialInput = await chooser.element().catch(() => null);
+      if (trace) trace.chooserElementBeforeSelection = Boolean(initialInput);
+      const receipt = await chooseChooserFiles(page, chooser, file);
+      if (trace) trace.chooserResponse = receipt.accepted ? 'accepted' : 'not_confirmed';
+      if (receipt.accepted) return finish('uploaded');
+      const refreshedInput = await chooser.element().catch(() => null);
+      const inputs = [...new Set([initialInput, refreshedInput].filter(Boolean))];
+      if (trace) trace.chooserElement = inputs.length > 0;
+      let received = false;
+      for (const input of inputs) {
+        if (await uploadReceipt(page, input, [file], { acceptedResponse: receipt.accepted })) {
+          received = true;
+          break;
+        }
+      }
+      if (trace) trace.portalReceipt = received;
+      return finish(received ? 'uploaded' : 'uploaded_unconfirmed');
+    } catch (error) {
+      if (trace) trace.failure = error?.message === 'upload_http_failed' ? 'upload_http_failed' : 'chooser_selection_failed';
+      return finish('unavailable');
+    }
+  }
+  // Some SuccessFactors tenants keep the attachment control and its modal in
+  // an application iframe. `page.locator()` only queries the main frame, so
+  // searching there can report a failed upload even after the dialog opened.
+  // The dialog must be visible and contain a newly attached file input; this
+  // prevents selecting a stale or unrelated document picker.
+  const input = target?.input;
+  if (!input) {
+    if (trace) {
+      trace.target = 'none';
+      trace.failure = 'no_upload_target';
+    }
+    await page.keyboard.press('Escape').catch(() => {});
+    return finish('unavailable');
+  }
+  if (trace) trace.target = 'dialog';
+  try {
     await input.setInputFiles(file);
   } catch {
+    if (trace) trace.failure = 'dialog_selection_failed';
     await page.keyboard.press('Escape').catch(() => {});
-    return 'unavailable';
+    return finish('unavailable');
   }
   // The dialog closes once the portal holds the file (SuccessFactors reads it first).
   const closed = await input.waitFor({ state: 'detached', timeout: 60_000 }).then(() => true, () => false);
+  if (trace) {
+    trace.dialogSelection = 'completed';
+    trace.dialogClosed = closed;
+  }
   await settle(page);
-  return closed ? 'uploaded' : 'uploaded_unconfirmed';
+  return finish(closed ? 'uploaded' : 'uploaded_unconfirmed');
 }
 
 /**
- * Before a page is planned: its closed sections opened, and the CV put in a
- * dialog's file input when the page has no file field of its own. A page is
+ * Before a page is planned: its closed sections opened, and the CV attached
+ * through an upload control when the portal exposes no file field. A page is
  * done only once the action is seen to work (more fields in sight, the file
  * in); a failed try is tried again, at most MAX_SECTION_TRIES per page.
- * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable'}>}
+ * @returns {Promise<{snapshot: object, cv?: 'uploaded'|'uploaded_unconfirmed'|'unavailable', cvFieldKey?: string}>}
  */
-export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map() } = {}) {
+export async function openFormSections(page, snapshot, { files = {}, done = new Set(), tries = new Map(), channelType = '' } = {}) {
   let current = snapshot;
   const where = anonymizePath(page.url());
+  const cvUploadDiagnostics = [];
   const attempt = (key) => {
     const count = (tries.get(key) || 0) + 1;
     tries.set(key, count);
@@ -1094,11 +1489,42 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const cvFile = Array.isArray(files.cv) ? files.cv[0] : files.cv;
   const cvKey = `cv|${where}`;
   let cv;
-  while (cvFile && !done.has(cvKey) && !current.fields.some((field) => field.kind === 'file')) {
-    const trigger = page.getByRole('button', { name: CV_UPLOAD_RE }).first();
-    if (!await trigger.isVisible().catch(() => false) || !attempt(cvKey)) break;
-    cv = await uploadThroughDialog(page, trigger, cvFile);
+  let cvFieldKey;
+  // A discovered file field stays in the normal planning path. That path
+  // removes an earlier upload before replacing it and records the receipt and
+  // failure in the same evidence as other planned uploads.
+  while (cvFile && !done.has(cvKey) && !current.fields.some(isCvFileField)) {
+    if (!attempt(cvKey)) break;
+    const namedTriggerButton = uploadButtonFor(current, 'cv');
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
+      && (sendsApplication(current) || hasApplicationForm(current))
+      ? successFactorsIconButtonFor(current, 'cv')
+      : null;
+    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cv', current, channelType)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
+    const attemptNumber = tries.get(cvKey);
+    if (!triggerButton) {
+      cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_found' });
+      break;
+    }
+    if (!trigger) {
+      cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_allowed' });
+      break;
+    }
+    const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
+    if (!visible) {
+      cvUploadDiagnostics.push({ attempt: attemptNumber, failure: 'trigger_not_visible' });
+      break;
+    }
+    const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
+    cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
     current = await extractFields(page);
+    const uploadedCvField = current.fields.find(isCvFileField);
+    trace.portalFileFieldObserved = Boolean(uploadedCvField);
+    cvUploadDiagnostics.push(trace);
+    if (cv !== 'unavailable' && uploadedCvField) cvFieldKey = uploadedPortalFieldKey(page.url(), uploadedCvField);
     // A file that went in, confirmed or not, never goes in twice.
     if (cv !== 'unavailable') done.add(cvKey);
   }
@@ -1106,15 +1532,26 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
   const coverLetterKey = `cover-letter|${where}`;
   let coverLetter;
   while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
-    const trigger = page.getByRole('button', { name: COVER_LETTER_UPLOAD_RE }).first();
-    if (!await trigger.isVisible().catch(() => false)) break;
-    coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
+    const namedTriggerButton = uploadButtonFor(current, 'cover_letter');
+    const iconTriggerButton = !namedTriggerButton && isSuccessFactorsPage(page, channelType)
+      && (sendsApplication(current) || hasApplicationForm(current))
+      ? successFactorsIconButtonFor(current, 'cover_letter')
+      : null;
+    const triggerButton = namedTriggerButton || iconTriggerButton;
+    const trigger = triggerButton && iconUploadAllowedForPage(page, triggerButton, 'cover_letter', current, channelType)
+      ? iconTriggerButton && !namedTriggerButton ? { snapshot: triggerButton } : locatorFor(page, triggerButton)
+      : null;
+    const visible = trigger?.snapshot ? true : await trigger?.isVisible().catch(() => false);
+    if (!trigger || !visible) break;
+    coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile, triggerButton.frame || 0);
     current = await extractFields(page);
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);
   }
   return {
     snapshot: current,
     ...(cv ? { cv } : {}),
+    ...(cvUploadDiagnostics.length ? { cvUploadDiagnostics } : {}),
+    ...(cvFieldKey ? { cvFieldKey } : {}),
     ...(coverLetter ? { coverLetter } : {}),
   };
 }
@@ -1226,7 +1663,17 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       }
       current = await extractFields(page);
       const currentRows = current.fields.filter((field) => rowFields.some((row) => row.id === field.id));
-      if (rowFields.some((field) => field.required && !holdsValue(currentRows.find((item) => item.id === field.id) || field))) {
+      if (rowFields.some((field) => {
+        if (!field.required) return false;
+        const filled = currentRows.find((item) => item.id === field.id) || field;
+        if (holdsValue(filled)) return false;
+        // Work history dates are periods: a plain-text portal input may accept
+        // the exact month precision in the CV even though a full calendar date
+        // would invent a day. Calendar controls still need a valid full date.
+        const dateLabel = /^(?:start|end) date\s*[＊*]?$/i.test(String(field.label || '').trim());
+        const source = profileEntryAnswer(entry, kind, field)?.value;
+        return !(dateLabel && field.inputType === 'text' && source && String(filled.value || '').trim() === source);
+      })) {
         if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_row_incomplete' };
         skipped += 1;
         continue;
@@ -1279,13 +1726,20 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
  * @param {'create'|'sign_in'} before the page the click was made on
  * @param {string[]} [shown] the messages on the page right before the click
  */
-async function awaitAuthOutcome(page, before, shown = []) {
+const authFieldValidity = (fields) => JSON.stringify((fields || [])
+  .map((field) => [String(field.id), Boolean(field.invalid)])
+  .sort(([left], [right]) => left.localeCompare(right)));
+
+async function awaitAuthOutcome(page, before, shown = [], shownFields = []) {
   await settle(page);
   // A page that is reloading cannot be read yet. Read without opening its listboxes while waiting (the form
   // behind a sign-in has several, and each reading would open and close them all); in full once it is there.
   const read = () => extractFields(page, NAVIGATION).catch(() => null);
   const told = JSON.stringify(shown || []);
-  const unanswered = (after) => !after || (authPageKind(after) === before && JSON.stringify(after.errors || []) === told);
+  const toldFieldValidity = authFieldValidity(shownFields);
+  const unanswered = (after) => !after || (authPageKind(after) === before
+    && JSON.stringify(after.errors || []) === told
+    && authFieldValidity(after.fields) === toldFieldValidity);
   const started = Date.now();
   const deadline = started + AUTH_OUTCOME_TIMEOUT_MS;
   let after = await read();
@@ -1304,7 +1758,7 @@ async function awaitAuthOutcome(page, before, shown = []) {
 }
 
 /** What tells one account page from another, and a page from the same one read a moment later. */
-const authViewSignature = (view) => `${authPageKind(view)}|${view.fields.map((field) => field.label).join('|')}|${(view.errors || []).join('|')}`;
+const authViewSignature = (view) => `${authPageKind(view)}|${view.fields.map((field) => field.label).join('|')}|${(view.errors || []).join('|')}|${authFieldValidity(view.fields)}`;
 
 /**
  * The other account page, once the link to it has drawn it. Such a link changes the page in place: read at
@@ -1380,7 +1834,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     diagnostics?.beforeClick('account');
     const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
     if (!pressed) return { handoff: 'account' };
-    const after = await awaitAuthOutcome(page, 'sign_in', shown);
+    const after = await awaitAuthOutcome(page, 'sign_in', shown, form.fields);
     diagnostics?.afterClick();
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
       return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
@@ -1427,39 +1881,95 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     // Stored (encrypted) before the click: a run that dies afterwards still knows it.
     await ctx.accounts.save(host, { email: candidate.identity.email, password });
   }
-  const passwordActions = snapshot.fields.filter((field) => field.inputType === 'password')
-    .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
-  await applyActions(page, snapshot.fields, [...plan.actions, ...passwordActions], ctx.files);
-  // After the fields: SuccessFactors opens its statement only for a chosen country.
-  const privacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
+  let registrationSnapshot = snapshot;
+  let registrationPlan = plan;
+  let privacy = 'none';
+  let repairAttempts = 0;
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
-  const filled = await extractFields(page, NAVIGATION);
-  diagnostics?.beforeClick('account');
-  if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
-    // A retry is still the same unverified account: keep its encrypted
-    // password so the owner can retry after the portal exposes its button.
-    if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
-    return noted({ handoff: 'account' });
-  }
-  const after = await awaitAuthOutcome(page, 'create', filled.errors);
-  diagnostics?.afterClick();
-  const outcome = registrationOutcome(after);
-  if (outcome === 'refused') {
-    if (retryingUnverifiedAccount) return noted({ handoff: 'account_verification_retry_refused' });
-    if (JSON.stringify(after.errors || []) === JSON.stringify(filled.errors || [])) {
+  while (true) {
+    const passwordActions = registrationSnapshot.fields.filter((field) => field.inputType === 'password')
+      .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
+    await applyActions(page, registrationSnapshot.fields, [...registrationPlan.actions, ...passwordActions], ctx.files);
+    // After the fields: SuccessFactors opens its statement only for a chosen country.
+    const acceptedPrivacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
+    if (acceptedPrivacy !== 'none') privacy = acceptedPrivacy;
+    const filled = await extractFields(page, NAVIGATION);
+    diagnostics?.beforeClick('account');
+    if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
+      // A retry is still the same unverified account: keep its encrypted
+      // password so the owner can retry after the portal exposes its button.
+      if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
+      return noted({ handoff: 'account' });
+    }
+    const after = await awaitAuthOutcome(page, 'create', filled.errors, filled.fields);
+    diagnostics?.afterClick();
+    const outcome = registrationOutcome(after);
+    if (outcome !== 'refused') {
+      await ctx.accounts.mark(host, { status: 'created' });
+      if (outcome === 'verify') return noted(await verifyAccount({ page, host, sinceMs, ctx, snapshot: after }));
+      return noted({ snapshot: after, reopen: !after.passwordVisible });
+    }
+    if (JSON.stringify(after.errors || []) === JSON.stringify(filled.errors || [])
+      && authFieldValidity(after.fields) === authFieldValidity(filled.fields)) {
       // Still the form, and no word from the portal: it did not answer in time. The registration may have
       // gone through, so the password stays; the next run signs in with it, and creates the account again
       // only if that sign-in fails.
       await ctx.accounts.mark(host, { status: 'unanswered' });
       return noted({ handoff: 'account_create_unanswered' });
     }
-    // The portal said no: no account exists, the next run creates it again instead of signing in.
-    await ctx.accounts.discard(host, 'registration_refused');
-    return noted({ handoff: 'account_create_refused' });
+
+    // A form-level validation response can expose fields the first plan did
+    // not recognize. Replan against that response before treating it as a
+    // permanent refusal; the planner receives the invalid fields and messages.
+    const repairSnapshot = { ...after, fields: after.fields.filter((field) => field.inputType !== 'password') };
+    const repairPlan = await planPage({ snapshot: repairSnapshot, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    if (repairPlan.missingRequired.length) {
+      const questions = questionsFrom(repairPlan.missingRequired);
+      if (questions.length) {
+        // Keep the credential for this order: a candidate's answer resumes this
+        // registration, while a generic account flow can recreate it if absent.
+        await ctx.accounts.mark(host, { status: 'unanswered' });
+        return noted({ questions });
+      }
+    }
+
+    const retryableFields = after.fields.filter((field) => field.invalid || (field.required && !holdsValue(field)));
+    const retryableIds = new Set(retryableFields.map((field) => field.id));
+    const repairActions = repairPlan.actions.filter((action) => retryableIds.has(action.fieldId)
+      && !['skip', 'uncheck'].includes(action.action));
+    const openFields = retryableFields.filter((field) => field.inputType !== 'password'
+      && !repairActions.some((action) => action.fieldId === field.id));
+    if (openFields.length) {
+      const why = ({ it: 'Il portale ha rifiutato questo dato. Controllalo o correggilo.', de: 'Das Portal hat diese Angabe abgelehnt. Bitte prüfe oder korrigiere sie.', fr: 'Le portail a refusé cette réponse. Veuillez la vérifier ou la corriger.', en: 'The portal rejected this entry. Please check or correct it.' })[ctx.candidateLocale] || 'Il portale ha rifiutato questo dato. Controllalo o correggilo.';
+      const questions = questionsFrom(openFields.filter((field) => String(field.label || '').trim()).map((field) => ({
+        fieldId: field.id,
+        question: String(field.label).trim(),
+        ...(field.context ? { context: field.context } : {}),
+        ...(field.section ? { section: field.section } : {}),
+        ...(field.autocomplete ? { autocomplete: field.autocomplete } : {}),
+        why,
+        type: field.options?.length ? 'choice' : field.kind === 'date' || field.inputType === 'date' ? 'date' : field.inputType === 'number' ? 'number' : 'text',
+        options: (field.options || []).map((option) => option.label).filter(Boolean),
+      })));
+      if (questions.length) {
+        await ctx.accounts.mark(host, { status: 'unanswered' });
+        return noted({ questions });
+      }
+    }
+
+    const passwordNeedsRefill = retryableFields.some((field) => field.inputType === 'password');
+    if (repairAttempts >= 2 || (!repairActions.length && !passwordNeedsRefill)) {
+      if (retryingUnverifiedAccount) return noted({ handoff: 'account_verification_retry_refused' });
+      // No candidate answer or concrete correction remains: do not keep
+      // credentials for an account the portal explicitly rejected.
+      await ctx.accounts.discard(host, 'registration_refused');
+      return noted({ handoff: 'account_create_refused' });
+    }
+
+    repairAttempts += 1;
+    registrationSnapshot = after;
+    registrationPlan = { ...repairPlan, actions: repairActions };
   }
-  await ctx.accounts.mark(host, { status: 'created' });
-  if (outcome === 'verify') return noted(await verifyAccount({ page, host, sinceMs, ctx, snapshot: after }));
-  return noted({ snapshot: after, reopen: !after.passwordVisible });
 }
 
 /**
@@ -1491,11 +2001,16 @@ async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
  */
-async function requiredLeftEmpty(page) {
-  for (const field of (await extractFields(page, NAVIGATION)).fields) {
+async function requiredLeftEmpty(page, uploaded = new Set()) {
+  const url = page.url();
+  const snapshot = await extractFields(page, NAVIGATION);
+  const fields = snapshot.fields || [];
+  for (const field of fields) {
     if (!field.required) continue;
-    const filled = field.kind === 'file'
-      ? await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
+    const uploadedKey = uploadedPortalFieldKey(url, field);
+    const filled = field.kind === 'file' || field.inputType === 'file'
+      ? uploaded.has(uploadedKey)
+        || await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
       : holdsValue(field);
     if (!filled) return true;
   }
@@ -1648,7 +2163,7 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
       // run's agent reads it from the live page instead.
       // The CV and cover-letter fields are already supplied by the runner, so
       // they are neither candidate questions nor extra document requirements.
-      if (!field || (field.kind !== 'file' && field.inputType !== 'file')) readable.push(item);
+      if (!field || (field.kind !== 'file' && field.inputType !== 'file')) readable.push({ ...item, ...(item.section || !field?.section ? {} : { section: field.section }), ...(item.autocomplete || !field?.autocomplete ? {} : { autocomplete: field.autocomplete }) });
       continue;
     }
     if (!documents.some((candidate) => candidate.id === document.id)) documents.push(document);
@@ -1665,7 +2180,15 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
  * @returns {Promise<{questions:Array<object>,documents:Array<object>}>} requirements for the review page
  */
 export async function readPortalRequirements(ctx) {
-  if (!PREREAD_CHANNELS.has(ctx.channelType) || !ctx.applyUrl || !ctx.codex) return { questions: [], documents: [] };
+  const entryUrl = portalEntryUrl(ctx);
+  // Some employer sites expose a Jobs2Web application URL without using a
+  // SuccessFactors hostname. Only pre-read those when the validated same-ID
+  // posting route above proves that this is the matching application flow.
+  const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
+    && entryUrl !== String(ctx.applyUrl || '');
+  if ((!PREREAD_CHANNELS.has(ctx.channelType) && !verifiedJobs2WebEntry) || !ctx.applyUrl || !ctx.codex) {
+    return { questions: [], documents: [] };
+  }
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   let browser = null;
   try {
@@ -1678,7 +2201,7 @@ export async function readPortalRequirements(ctx) {
       acceptDownloads: false,
     });
     let page = await context.newPage();
-    await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot;
     ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
@@ -1718,6 +2241,7 @@ export async function readPortalQuestions(ctx) {
  */
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
+  const channelType = portalChannelType(ctx);
   const extensionPath = !ctx.launch && process.env.NOPECHA_EXTENSION_PATH;
   const log = ctx.log || (() => {});
   // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
@@ -1772,7 +2296,8 @@ export async function submitViaPortal(ctx) {
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
     evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
-    const response = await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const entryUrl = portalEntryUrl(ctx);
+    const response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
     snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
@@ -1780,7 +2305,7 @@ export async function submitViaPortal(ctx) {
     // fetch before the run sees only the empty shell of a JavaScript portal.
     const rendered = classifyLiveness({
       status: response?.status() || 0,
-      requestedUrl: ctx.applyUrl,
+      requestedUrl: entryUrl,
       finalUrl: page.url(),
       bodyText: await pageText(page),
       applyControls: snapshot.buttons.map((button) => button.text || button.label || ''),
@@ -1798,7 +2323,7 @@ export async function submitViaPortal(ctx) {
     const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }) === 'match';
     const postingNamed = postingMatch(postingSeen, ctx.job) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
-    if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
+    if (needsPortalOptionRead(snapshot)) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
@@ -1822,13 +2347,18 @@ export async function submitViaPortal(ctx) {
     };
     const match = await formMatch();
     evidence.postingMatch = match;
+    // A generic careers landing page can mention the employer and therefore
+    // pass postingMatch, while exposing only the site's Menu/Search controls.
+    // Do not send that chrome to the agent as if it were an unanswered
+    // candidate question; it is not the application form for this posting.
+    if (!hasApplicationSurface(snapshot) && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
     let postingCheckPending = match === 'mismatch'
       && (snapshot.passwordVisible || initialOtpAccount)
-      && !ownAccountForm(snapshot)
+      && !ownAccountForm(snapshot, channelType)
       && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
@@ -1837,6 +2367,7 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    const privacyAcceptedPages = new Set();
     // How often a page was planned again because a choice redrew it, by address.
     const redraws = new Map();
     // How often a page was loaded again because the portal asked for it, by address.
@@ -1860,12 +2391,48 @@ export async function submitViaPortal(ctx) {
     // What went into the form's file fields, for the record of what left (submit.mjs `sent`): slots and counts only.
     evidence.uploads = [];
     const noteUpload = (document, files = 1) => {
-      if (document) evidence.uploads.push({ document: String(document), files: Number(files) || 1 });
+      if (!document) return;
+      const name = String(document);
+      evidence.uploads.push({ document: name, files: Number(files) || 1 });
     };
-    const record = (question, answer, source) => {
+    const record = (question, answer, source, context = '', section = '', autocomplete = '') => {
       if (!question || !String(answer ?? '').trim()) return;
-      given.set(question, { question: String(question).slice(0, 200), answer: String(answer).slice(0, 2000), source: source || '' });
+      const label = String(question).slice(0, 200);
+      const surrounding = String(context || '').slice(0, 240);
+      const heading = String(section || '').slice(0, 240);
+      const fieldAutocomplete = String(autocomplete || '').slice(0, 100);
+      const item = { question: label, context: surrounding, section: heading, autocomplete: fieldAutocomplete };
+      const key = portalQuestionKey(item) || portalQuestionId(item) || label;
+      given.set(key, {
+        question: label,
+        answer: String(answer).slice(0, 2000),
+        source: source || '',
+        ...(surrounding ? { context: surrounding } : {}),
+        ...(heading ? { section: heading } : {}),
+        ...(fieldAutocomplete ? { autocomplete: fieldAutocomplete } : {}),
+      });
       evidence.answers = [...given.values()].slice(0, 80);
+    };
+    const candidateWithRecordedAnswers = (candidate, current) => {
+      const answerKey = (item) => portalQuestionKey(item) || portalQuestionId(item);
+      const recorded = [...given.values()];
+      const recordedKeys = new Set(recorded.map(answerKey));
+      const visibleAnswers = (current?.fields || [])
+        .filter((field) => field.inputType !== 'password' && field.kind !== 'file' && field.inputType !== 'file' && holdsValue(field))
+        .map((field) => ({
+          question: String(field.label || field.name || field.id || '').slice(0, 200),
+          answer: field.kind === 'checkbox' ? (field.checked ? 'Yes' : '') : String(field.value ?? '').trim(),
+          context: String(field.context || '').slice(0, 240),
+          section: String(field.section || '').slice(0, 240),
+          autocomplete: String(field.autocomplete || '').slice(0, 100),
+          source: 'answers',
+        }))
+        .filter((item) => item.question && item.answer && !recordedKeys.has(answerKey(item)));
+      const currentAnswers = [...visibleAnswers, ...recorded];
+      const currentKeys = new Set(currentAnswers.map(answerKey));
+      const previous = (candidate?.portalQuestionsAnswered || [])
+        .filter((item) => !currentKeys.has(answerKey(item)));
+      return { ...candidate, portalQuestionsAnswered: [...previous, ...currentAnswers] };
     };
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
@@ -1880,7 +2447,7 @@ export async function submitViaPortal(ctx) {
           page,
           hint,
           errors: current.errors || [],
-          candidate: ctx.candidate,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, current),
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
@@ -1894,7 +2461,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
-      for (const item of agent.answers || []) record(item.question, item.answer, item.source);
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source, item.context);
       for (const item of (agent.evidence?.rounds || []).flatMap((round) => round.actions || [])) {
         if (item.action === 'upload' && item.ok) noteUpload(item.document, item.files);
       }
@@ -1945,7 +2512,7 @@ export async function submitViaPortal(ctx) {
         if (auth.handoff) return await handoff(auth.handoff);
         snapshot = auth.snapshot;
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
-          await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
           snapshot = await extractFields(page);
@@ -1955,14 +2522,17 @@ export async function submitViaPortal(ctx) {
       }
       // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
       const openSections = async () => {
-        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
+        const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries, channelType });
         snapshot = opened.snapshot;
+        if (opened.cvUploadDiagnostics?.length) evidence.steps.at(-1).cvUploadDiagnostics = opened.cvUploadDiagnostics;
         if (opened.cv) {
           evidence.steps.at(-1).cv = opened.cv;
-          if (opened.cv !== 'unavailable') {
+          if (opened.cv === 'uploaded') {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
           }
+          if (opened.cv !== 'unavailable' && opened.cvFieldKey) uploaded.add(opened.cvFieldKey);
+          if (opened.cv !== 'uploaded') return await handoff('cv_upload_failed');
         }
         if (opened.coverLetter) {
           evidence.steps.at(-1).coverLetter = opened.coverLetter;
@@ -1973,17 +2543,18 @@ export async function submitViaPortal(ctx) {
       // sections still closed, the CV field inside one (review of #11033): it is the
       // form's page, so the posting is checked and the sections are opened BEFORE it
       // is taken for a login page.
-      if (snapshot.passwordVisible && !ownAccountForm(snapshot) && sendsApplication(snapshot)) {
+      if (snapshot.passwordVisible && !ownAccountForm(snapshot, channelType) && sendsApplication(snapshot)) {
         if (postingCheckPending) {
           postingCheckPending = false;
           evidence.postingMatch = await formMatch();
           if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
         }
-        await openSections();
+        const sectionsResult = await openSections();
+        if (sectionsResult) return sectionsResult;
       }
       // The form asks for its account's password itself (umantis): no login
       // page to get through, the password is typed with the rest of the form.
-      let ownAccount = ownAccountForm(snapshot);
+      let ownAccount = ownAccountForm(snapshot, channelType);
       if (ownAccount && !ctx.accounts) return await handoff('account');
       if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
@@ -2028,7 +2599,7 @@ export async function submitViaPortal(ctx) {
         // After a sign-in or a verification link the portal may land on its
         // home page: back to the posting and its form.
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
-          await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
           ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
           snapshot = await extractFields(page);
@@ -2041,7 +2612,8 @@ export async function submitViaPortal(ctx) {
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
       }
-      await openSections();
+      const sectionsResult = await openSections();
+      if (sectionsResult) return sectionsResult;
       const profile = await fillProfileSections(page, snapshot, {
         candidate: ctx.candidate,
         candidateLocale: ctx.candidateLocale,
@@ -2053,7 +2625,7 @@ export async function submitViaPortal(ctx) {
       if (profile.counts.length) evidence.steps.at(-1).profileSections = profile.counts;
       if (profile.handoff) return await handoff(profile.handoff);
       // A section just opened may hold the form’s own password field.
-      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot);
+      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot, channelType);
       // Inside the form, any page with a field is planned: a step with one
       // question and its Next disabled until it is answered (JOIN's work
       // authorization) is not a dead end. Nothing to fill and nowhere to go is.
@@ -2105,17 +2677,47 @@ export async function submitViaPortal(ctx) {
       if (workable(snapshot)) {
         // The planner never sees a password field, nor what a retry finds typed in it.
         const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
-        const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        const plan = await planPage({
+          snapshot: planned,
+          candidate: candidateWithRecordedAnswers(ctx.candidate, planned),
+          candidateLocale: ctx.candidateLocale,
+          codex: ctx.codex,
+        });
+        const cvField = snapshot.fields.find(isCvFileField);
+        // This synthetic action is executed by applyActions below, which resolves
+        // the extracted fieldId through data-aa-id; agent.mjs aria-ref actions
+        // are a separate path and are not used for this deterministic upload.
+        const automaticCvUpload = cvField && documentPaths(ctx.files, 'cv').length
+          ? {
+              fieldId: cvField.id,
+              ref: cvField.ref,
+              action: 'upload',
+              value: '',
+              document: 'cv',
+              source: 'documents',
+              evidence: '',
+            }
+          : null;
+        const plannedActions = [...plan.actions];
+        if (automaticCvUpload && !plannedActions.some((action) => action.fieldId === cvField.id
+          && action.action === 'upload' && action.document === 'cv')) {
+          const skipIndex = plannedActions.findIndex((action) => action.fieldId === cvField.id && action.action === 'skip');
+          if (skipIndex >= 0) plannedActions.splice(skipIndex, 1);
+          plannedActions.push(automaticCvUpload);
+        }
+        const missingRequired = plan.missingRequired.filter((item) => !(automaticCvUpload && item.fieldId === cvField.id));
         // A required field with no readable label is no question for the
         // candidate ("select-input-_r_p_"): the agent finds its question on the page.
-        const unclear = plan.missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
-        if (plan.missingRequired.length && !unclear) return askCandidate(plan.missingRequired);
-        if (unclear) unclearQuestions = plan.missingRequired;
+        const unclear = missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
+        if (missingRequired.length && !unclear) return askCandidate(missingRequired);
+        if (unclear) unclearQuestions = missingRequired;
         if (unclear) agentHint = 'unclear_fields';
         // A file already uploaded on this page is not uploaded again when the
         // page is planned a second time (Personio empties the input after the upload).
-        const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
-        const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+        const uploadKey = (fieldId) => uploadedPortalFieldKey(
+          page.url(), snapshot.fields.find((field) => field.id === fieldId) || { id: fieldId },
+        );
+        const actions = plannedActions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
         const plannedUrl = page.url();
         // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
         // country), and what was typed before into fields that are no more is lost without a word (dry run of
@@ -2169,7 +2771,7 @@ export async function submitViaPortal(ctx) {
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
           const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
-          record(field.label || field.name || field.id, answer, action.source);
+          record(field.label || field.name || field.id, answer, action.source, field.context, field.section, field.autocomplete);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
@@ -2254,7 +2856,32 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            if (!await requiredLeftEmpty(page)) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page, uploaded)) finalByAgent = await submitLocator(page, agent.submitRef);
+          }
+        }
+      }
+      // SuccessFactors' required data privacy statement is a link to a dialog,
+      // not an ordinary checkbox. Accept only the application-specific notice,
+      // and do it before either Next or the final submission.
+      const privacyPage = page.url();
+      if (!privacyAcceptedPages.has(privacyPage)) {
+        const privacy = await acceptPrivacyStatement(page, after);
+        if (privacy === 'unavailable') {
+          evidence.steps.at(-1).privacy = 'unavailable';
+          return await handoff('privacy_not_accepted');
+        }
+        if (privacy === 'accepted') {
+          evidence.steps.at(-1).privacy = 'accepted';
+          privacyAcceptedPages.add(privacyPage);
+          privacyAcceptedPages.add(page.url());
+          after = await extractFields(page, NAVIGATION);
+          ({ submit, next } = pageControls(after.buttons, known, page.url()));
+          advance = null;
+          finalByAgent = null;
+          if (!submit && !next) {
+            snapshot = after;
+            step -= 1;
+            continue;
           }
         }
       }
@@ -2287,7 +2914,7 @@ export async function submitViaPortal(ctx) {
         continue;
       }
       // The final button: a usual or learned name (the runner's), or the one the agent named.
-      const final = submit
+      let final = submit
         ? { label: submit.text, by: 'runner', click: () => clickButton(page, submit) }
         : finalByAgent && { label: finalByAgent.name, by: 'agent', click: () => clickSubmitButton(page, finalByAgent) };
       if (!final) {
@@ -2297,6 +2924,38 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         return await handoff('portal_needs_candidate');
+      }
+      // A normal send button is not evidence that the portal form is complete.
+      // Let the agent repair any required fields the deterministic fill missed;
+      // never click Send while a required answer or upload is still empty.
+      if (await requiredLeftEmpty(page, uploaded)) {
+        evidence.steps.at(-1).requiredFieldsUnfilled = true;
+        const repairUrl = page.url();
+        const repair = await runAgent(after, 'required_fields_unfilled');
+        if (repair?.status === 'needs_candidate') return askCandidate(repair.questions);
+        if (repair?.status !== 'done') return await handoff('portal_required_fields_unfilled');
+        if (repair.moved || page.url() !== repairUrl) {
+          snapshot = await awaitFields(page, await extractFields(page));
+          step -= 1;
+          continue;
+        }
+        after = await extractFields(page, NAVIGATION);
+        if (await requiredLeftEmpty(page, uploaded)) return await handoff('portal_required_fields_unfilled');
+        const repairedControls = pageControls(after.buttons, known, page.url());
+        if (repairedControls.next && !repairedControls.submit) {
+          snapshot = after;
+          step -= 1;
+          continue;
+        }
+        if (repairedControls.submit) {
+          final = { label: repairedControls.submit.text, by: 'runner', click: () => clickButton(page, repairedControls.submit) };
+        } else if (repair.submitRef) {
+          const repairedSubmit = await submitLocator(page, repair.submitRef);
+          if (!repairedSubmit) return await handoff('portal_required_fields_unfilled');
+          final = { label: repairedSubmit.name || String(repair.submitRef), by: 'agent', click: () => clickSubmitButton(page, repairedSubmit) };
+        } else {
+          return await handoff('portal_required_fields_unfilled');
+        }
       }
       if (ctx.dryRun) {
         evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
@@ -2331,6 +2990,11 @@ export async function submitViaPortal(ctx) {
       if (outcome === 'captcha') return await handoff('captcha');
       if (outcome === 'validation' && validationRetries < 1) {
         validationRetries += 1;
+        // A server-side validation response can clear a required agreement
+        // that was accepted in the same URL (SIX resets its data privacy
+        // agreement after rejecting another field). Re-open required notices
+        // on the fresh page before retrying the submission.
+        privacyAcceptedPages.clear();
         snapshot = await extractFields(page);
         continue;
       }

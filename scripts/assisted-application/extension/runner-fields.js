@@ -88,6 +88,77 @@
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
     return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
   };
+  const hasRequiredMarker = (element, labelText) => {
+    const labels = new Set();
+    for (const label of element.labels || []) labels.add(label);
+    const direct = element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`);
+    if (direct) labels.add(direct);
+    const wrapping = element.closest('label');
+    if (wrapping) labels.add(wrapping);
+    for (const id of (element.getAttribute('aria-labelledby') || '').split(/\s+/).filter(Boolean)) {
+      const node = document.getElementById(id);
+      if (node) labels.add(node);
+    }
+    const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
+    const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
+    if (groupLabel && !groupLabel.contains(element)
+      && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
+    const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i;
+    const marker = (node, adjacent = false) => {
+      const text = clean(node.innerText || node.textContent);
+      const className = String(node.className?.baseVal || node.className || '');
+      const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
+      let pseudo = '';
+      try {
+        pseudo = `${window.getComputedStyle(node, '::before').content} ${window.getComputedStyle(node, '::after').content}`;
+      } catch {
+        // Some portal-owned nodes do not expose computed styles.
+      }
+      return (adjacent ? inline && REQUIRED_MARKER_ONLY.test(text) : REQUIRED_LABEL.test(text))
+        || (inline || !adjacent) && /required|mandatory|pflichtfeld/i.test(className)
+        || (inline || !adjacent) && /\*/.test(pseudo.replace(/["']/g, ''));
+    };
+    if ([...labels].some(marker)) return true;
+    return [...labels].some((label) => ['previousSibling', 'nextSibling'].some((direction) => {
+      let sibling = label[direction];
+      while (sibling?.nodeType === 3 && !clean(sibling.textContent)) sibling = sibling[direction];
+      return Boolean(sibling && marker(sibling, true));
+    }));
+  };
+  const SITE_SEARCH_TEXT_RE = /\b(?:search|suche|suchen|find(?:en)?|recherche|rechercher|cerca|buscar|busca|query)\b/i;
+  const hasSiteSearchIdentity = (element) => [
+    element.getAttribute('type'),
+    element.getAttribute('name'),
+    element.id,
+    element.getAttribute('aria-label'),
+    element.getAttribute('placeholder'),
+    labelFor(element),
+  ].some((value) => /^(?:q|as_q)$/i.test(clean(value)) || SITE_SEARCH_TEXT_RE.test(String(value || '')));
+  const isSiteSearchForm = (form) => {
+    if (!form) return false;
+    if (form.getAttribute('role') === 'search' || form.closest('[role="search"]')) return true;
+    return [...form.querySelectorAll('input')].some((element) => {
+      const name = element.getAttribute('name') || '';
+      const id = element.id || '';
+      return element.getAttribute('type')?.toLowerCase() === 'search'
+        || /^(?:q|as_q|search|query)$/i.test(name)
+        || /(?:global|site)[-_]?(?:query|search)|(?:^|[-_])search(?:[-_]|$)/i.test(id);
+    });
+  };
+  const isApplicationOwnedControl = (element) => {
+    if (element.required || element.getAttribute('aria-required') === 'true') return true;
+    const form = element.form || element.closest('form');
+    if (form && !isSiteSearchForm(form)) return true;
+    return element.matches('button[type="submit"], input[type="submit"]') && !isSiteSearchForm(form);
+  };
+  const isSiteChromeControl = (element) => inSiteChrome(element) && !isApplicationOwnedControl(element);
+  const isSiteGlobalSearchField = (element) => {
+    if (element.getAttribute('data-uxi-widget-type') === 'selectinput') return false;
+    const inSearchLandmark = Boolean(element.closest('[role="search"]'));
+    return (inSiteChrome(element) || inSearchLandmark)
+      && hasSiteSearchIdentity(element)
+      && !isApplicationOwnedControl(element);
+  };
   // Classic portals sometimes put the checkbox name in the input's label
   // position and leave the human sentence as an adjacent text node (for
   // example: <input name="agbs_check"> Accetto ...). Keep that sentence in
@@ -256,9 +327,9 @@
     const tag = element.tagName.toLowerCase();
     const type = tag === 'input' ? (element.getAttribute('type') || 'text').toLowerCase() : tag;
     if (['hidden', 'submit', 'button', 'reset', 'image'].includes(type)) continue;
-    // The site's own search box is not part of the application; Workday's
-    // "selectinput" (a search box that picks an option) is.
-    if (type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput') continue;
+    // Only omit a search control identified as site-global. An application
+    // can place required fields inside the employer's header or footer.
+    if (isSiteGlobalSearchField(element)) continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
@@ -270,7 +341,8 @@
       const question = groupQuestion(element);
       const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), context: sectionContext(element), section: headingBefore(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
-      entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
+      entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question))
+        || hasRequiredMarker(element, question || labelFor(element));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
       // The chosen option, so a page planned again does not choose it again.
       if (element.checked) entry.value = labelFor(element);
@@ -293,7 +365,7 @@
       label,
       context: sectionContext(element),
       section: headingBefore(element),
-      required: required || REQUIRED_LABEL.test(label),
+      required: required || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
       maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
@@ -333,7 +405,7 @@
       name: '',
       label,
       context: sectionContext(element),
-      required: element.hasAttribute('required') || REQUIRED_LABEL.test(label),
+      required: element.hasAttribute('required') || REQUIRED_LABEL.test(label) || hasRequiredMarker(element, label),
       value: clean(element.value || element.getAttribute('value') || ''),
       search: false,
       maxLength: null,
@@ -369,7 +441,7 @@
     let entry = ariaGroups.get(container);
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
-      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, context: sectionContext(element), required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question) || hasRequiredMarker(container, question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -383,16 +455,17 @@
     const label = labelFor(element);
     // The site's own language menu is not part of the application, nor any other menu of its header,
     // navigation or footer (Workday's «settingsSelectorButton», read as a field of every page of the form).
-    if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || inSiteChrome(element)) continue;
+    if (/language.?selector|sprachauswahl/i.test(`${label} ${element.getAttribute('data-automation-id') || ''}`) || isSiteChromeControl(element)) continue;
+    const fieldLabel = label === clean(element.innerText) ? groupQuestion(element) || label : label;
     fields.push({
       id: idFor(element),
       kind: 'listbox',
       ...dialogMeta(element),
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
-      label: label === clean(element.innerText) ? groupQuestion(element) || label : label,
+      label: fieldLabel,
       context: sectionContext(element),
-      required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(label),
+      required: element.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: clean(element.innerText || element.textContent),
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
@@ -407,7 +480,26 @@
   const BUTTONS = 'button, input[type="submit"], a[role="button"], a[href], [role="button"]';
   const actionLink = (element) => element.tagName === 'A' && Boolean(element.closest('.css_button'));
   const actionControl = (element) => element.tagName !== 'A' || element.getAttribute('role') === 'button' || actionLink(element);
-  const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || element.textContent || element.getAttribute('title') || '');
+  const buttonName = (element) => [
+    // `innerText` is the rendered label in a browser. JSDOM does not expose
+    // it, so inspect text content before accessibility attributes; normalize
+    // each candidate first so whitespace does not hide a later useful value.
+    element.innerText,
+    element.textContent,
+    element.value,
+    element.getAttribute('aria-label'),
+    element.getAttribute('title'),
+    // SuccessFactors attachment controls can have no visible glyph text; their
+    // accessible name points to visually hidden text through `aria-labelledby`.
+    (element.getAttribute('aria-labelledby') || '').split(/\s+/).map(textOf).filter(Boolean).join(' '),
+  ].map(clean).find(Boolean) || '';
+  const buttonAccessibleLabel = (element) => {
+    const labelledBy = (element.getAttribute('aria-labelledby') || '').split(/\s+/)
+      .map(textOf)
+      .filter(Boolean)
+      .join(' ');
+    return clean(labelledBy || element.getAttribute('aria-label') || element.getAttribute('title') || '');
+  };
   const fileContext = (element) => {
     for (let node = element.parentElement, depth = 0; node && depth < 6; node = node.parentElement, depth += 1) {
       const text = clean(node.innerText || node.textContent);
@@ -429,13 +521,23 @@
       && actionControl(element))
     .map((element) => ({
       id: idFor(element),
+      domId: clean(element.getAttribute('id') || ''),
+      name: clean(element.getAttribute('name') || ''),
+      label: buttonAccessibleLabel(element),
+      title: clean(element.getAttribute('title') || ''),
+      ariaLabel: clean(element.getAttribute('aria-label') || ''),
+      dataAutomationId: clean(element.getAttribute('data-automation-id') || ''),
       ...dialogMeta(element),
       text: buttonName(element),
       section: headingBefore(element),
+      // SuccessFactors can render the CV trigger as an icon-only button. Keep
+      // the nearby label/section text so the runner can select it only when
+      // the document context is explicit.
+      context: clean([...new Set([sectionContext(element), zoneText(element), buttonAccessibleLabel(element)].filter(Boolean))].join(' · ')),
       fileContext: fileContext(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
-      ...(inSiteChrome(element) ? { chrome: true } : {}),
+      ...(isSiteChromeControl(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
     .slice(0, 60);

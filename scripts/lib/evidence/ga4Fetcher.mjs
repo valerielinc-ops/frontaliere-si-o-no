@@ -1,6 +1,6 @@
 // GA4 fetcher for the evidence layer — runReport on `pagePath`, returns
-// per-page sessions and engagement time. Resilient: never throws, returns
-// `{ pages, error? }`.
+// per-page sessions, views and engagement time. Resilient: never throws,
+// returns `{ pages, coverage?, error? }`.
 //
 // Auth: same Firebase SA as GSC; verifies the SA has GA4 viewer access.
 // On 403 we return a clear actionable error string.
@@ -13,6 +13,7 @@
 import { GA4_MIN_SESSIONS } from './constants.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
 import { GA4_READONLY_SCOPE, getServiceAccountToken, paginateGa4Report } from '../ga4-service-account.mjs';
+import { parseStaticArticleTranslationSource } from '../../../packages/articles/engine/shared/articleStaticSource.mjs';
 
 function normalizePropertyId(raw) {
   if (!raw) return null;
@@ -38,29 +39,26 @@ function attachClusterFromPath(pagePath, blogMetaIt) {
 }
 
 /**
- * Best-effort: load the Italian blog-meta map so we can attach cluster + headline.
- * Returns `{}` on any error (cluster attribution then falls back to 'generic').
+ * Load the Italian blog-meta map so we can attach cluster + headline.
+ * A missing file returns `{}`; a malformed present module is surfaced through
+ * fetchGa4Pages' existing `{ pages: {}, error }` result shape.
  */
-async function loadBlogMetaIt() {
-  try {
-    const url = new URL('../../../services/locales/blog-meta-it.ts', import.meta.url);
-    const fs = await import('node:fs');
-    if (!fs.existsSync(url)) return {};
-    const text = fs.readFileSync(url, 'utf8');
-    // Extract `'<key>': '<value>'` pairs with simple regex; values may contain
-    // escaped apostrophes. We don't need values for cluster lookup — just keys
-    // mapped to title strings. The TS source uses single-quoted string
-    // literals exclusively.
-    const entries = {};
-    const re = /'(blog\.article\.[a-z0-9-]+\.title)': '((?:\\'|[^'])*)'/g;
-    let match;
-    while ((match = re.exec(text)) !== null) {
-      entries[match[1]] = match[2].replace(/\\'/g, "'");
-    }
-    return entries;
-  } catch {
-    return {};
+export function parseGa4BlogMetaItSource(text, sourcePath = 'blog-meta-it.ts') {
+  const translations = parseStaticArticleTranslationSource(text, sourcePath);
+  const entries = Object.create(null);
+  for (const [slug, fields] of translations) {
+    const title = fields.get('title');
+    if (title !== undefined) entries[`blog.article.${slug}.title`] = title;
   }
+  return entries;
+}
+
+async function loadBlogMetaIt() {
+  const url = new URL('../../../services/locales/blog-meta-it.ts', import.meta.url);
+  const fs = await import('node:fs');
+  if (!fs.existsSync(url)) return {};
+  const text = fs.readFileSync(url, 'utf8');
+  return parseGa4BlogMetaItSource(text, url.pathname);
 }
 
 /**
@@ -89,20 +87,26 @@ async function loadPublishedDates() {
 }
 
 /**
- * Fetch per-page sessions + engagement, last `startDate..endDate` window.
+ * Fetch per-page sessions, views and engagement, last `startDate..endDate` window.
  * Excludes newsletter-sourced sessions; direct, paid and referral traffic remain included.
  * @param {object} options
  * @param {string} options.propertyId - GA4 property id (with or without `properties/` prefix)
  * @param {string} options.startDate - YYYY-MM-DD
  * @param {string} options.endDate - YYYY-MM-DD
+ * @param {number} [options.minSessions=GA4_MIN_SESSIONS] - Minimum sessions retained per page.
  * @param {Function} [options.fetchImpl=fetch]
  * @param {Function} [options.getTokenImpl=getServiceAccountToken]
- * @returns {Promise<{pages: object, error?: string}>}
+ * @returns {Promise<{
+ *   pages: Record<string, {sessions: number, pageviews: number, engageTime: number, publishedAt: string|null, cluster: string}>,
+ *   coverage?: {complete: boolean, returnedRows: number, reportedRows: number|null},
+ *   error?: string
+ * }>}
  */
 export async function fetchGa4Pages({
   propertyId,
   startDate,
   endDate,
+  minSessions = GA4_MIN_SESSIONS,
   fetchImpl = fetch,
   getTokenImpl = () => getServiceAccountToken([GA4_READONLY_SCOPE]),
 } = {}) {
@@ -167,8 +171,9 @@ export async function fetchGa4Pages({
       const path = r.dimensionValues?.[0]?.value || '';
       if (!path) continue;
       const sessions = Number(r.metricValues?.[0]?.value || 0);
-      if (sessions < GA4_MIN_SESSIONS) continue;
+      if (sessions < minSessions) continue;
       const engageDur = Number(r.metricValues?.[1]?.value || 0);
+      const pageviews = Number(r.metricValues?.[2]?.value || 0);
       const engageTime = sessions > 0 ? Number((engageDur / sessions).toFixed(2)) : 0;
       const cluster = attachClusterFromPath(path, blogMetaIt);
       const slugMatch = path.match(/\/articoli-frontaliere\/([^/?#]+)/);
@@ -176,6 +181,7 @@ export async function fetchGa4Pages({
       const publishedAt = slug && publishedDates.has(slug) ? publishedDates.get(slug) : null;
       pages[path] = {
         sessions,
+        pageviews,
         engageTime,
         publishedAt,
         cluster,

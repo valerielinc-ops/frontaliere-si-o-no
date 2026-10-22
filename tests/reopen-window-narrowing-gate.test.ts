@@ -7,7 +7,11 @@ import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 // apra qualcosa. `execFileSync` e' neutralizzato perche' il reporter interroga
 // la jobs API per l'estratto dello step fallito.
 const { createGithubIssueSpy, resolveGithubIssueSpy } = vi.hoisted(() => ({
-  createGithubIssueSpy: vi.fn(async () => ({ number: 1, title: 't', url: 'u' })),
+  createGithubIssueSpy: vi.fn<(options: Record<string, unknown>) => Promise<{
+    number: number;
+    title: string;
+    url: string;
+  }>>(async () => ({ number: 1, title: 't', url: 'u' })),
   resolveGithubIssueSpy: vi.fn(async () => null),
 }));
 vi.mock('../scripts/lib/github-issue-creator.mjs', () => ({

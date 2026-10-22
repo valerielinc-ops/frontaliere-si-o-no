@@ -22,10 +22,10 @@ import {
 } from '../scripts/lib/experiment-monitor.mjs';
 import { buildExperimentReadout } from '../scripts/lib/experiment-stats.mjs';
 import { JOBGATE_PLAN } from '../scripts/experiments/jobgate-plan.mjs';
-import { ISSUE_TITLES, mayPublishPromotion, rcStateFromValues, resolvePlan, runMonitor } from '../scripts/experiments/jobgate-monitor.mjs';
+import { assertSafePromotionInputs, ISSUE_TITLES, mayPublishPromotion, rcStateFromValues, resolvePlan, runMonitor } from '../scripts/experiments/jobgate-monitor.mjs';
 
 const PLAN = JOBGATE_PLAN;
-const WEIGHTS = { control: 25, navy_panel: 25, spotlight: 25, actions_first: 25 };
+const WEIGHTS = { spotlight: 25, spotlight_quiet: 25, spotlight_tinted: 25, spotlight_outline: 25 };
 const ARMS_JSON = JSON.stringify(WEIGHTS);
 const RC_ON = { enabled: true, force: '' };
 
@@ -49,13 +49,13 @@ function payload(days: number, arms: Record<string, ArmSpec>, { coverage = 1, we
   const until = addDaysIso(PLAN.analysisStart, days - 1);
   return {
     mode: 'experiment',
-    experimentId: 'jobgate-v4',
+    experimentId: 'jobgate-v5',
     since: PLAN.analysisStart,
     until,
     windowDays: days,
     weights,
-    readout: buildExperimentReadout({ arms: Object.keys(arms), control: 'control', ga, subs, weights, relativeMde: PLAN.relativeMde, windowDays: days }),
-    excluded: { applied: true, signatures: [{ id: 'automation-1280x1200', label: 'robot', assigned: { control: 3 }, gateView: { control: 5, actions_first: 4 } }] },
+    readout: buildExperimentReadout({ arms: Object.keys(arms), control: PLAN.control, ga, subs, weights, relativeMde: PLAN.relativeMde, windowDays: days }),
+    excluded: { applied: true, signatures: [{ id: 'automation-1280x1200', label: 'robot', assigned: { spotlight: 3 }, gateView: { spotlight: 5, spotlight_outline: 4 } }] },
     attribution: { tagged, untaggedFromGate: untagged, coverage: tagged + untagged ? tagged / (tagged + untagged) : null, untaggedByComponent: untagged ? { authService: untagged } : {} },
   };
 }
@@ -72,22 +72,22 @@ function decide(p: ReturnType<typeof payload> | null, rc = RC_ON) {
   return { decision, alarms, statusEval };
 }
 
-describe('piano jobgate-v4', () => {
-  it('baseline 9,95% (control v3), +20%, 3 confronti Bonferroni, 700 persone/giorno → 5.153 per braccio e 35 giorni', () => {
-    expect(planned.challengers).toEqual(['navy_panel', 'spotlight', 'actions_first']);
+describe('piano jobgate-v5', () => {
+  it('usa la baseline Spotlight e pianifica 2.807 persone/braccio con minimo di 28 giorni', () => {
+    expect(planned.challengers).toEqual(['spotlight_quiet', 'spotlight_tinted', 'spotlight_outline']);
     expect(planned.alphaPerTest).toBeCloseTo(0.05 / 3, 12);
-    expect(planned.requiredPerArm).toBe(5153);
+    expect(planned.requiredPerArm).toBe(2807);
     expect(planned.perArmDaily).toBe(175);
-    expect(planned.daysForSample).toBe(30);
-    expect(planned.minDays).toBe(35);
-    expect(planned.minWindowEnd).toBe('2026-11-10');
-    expect(planned.maxWindowEnd).toBe('2026-12-15');
+    expect(planned.daysForSample).toBe(17);
+    expect(planned.minDays).toBe(28);
+    expect(planned.minWindowEnd).toBe('2026-11-16');
+    expect(planned.maxWindowEnd).toBe('2026-12-28');
   });
 
   it('la durata minima non scende sotto quattro settimane e segue il braccio più piccolo', () => {
     expect(planExperiment({ ...PLAN, relativeMde: 0.6 }, WEIGHTS).minDays).toBe(28);
-    const uneven = planExperiment(PLAN, { control: 50, actions_first: 50, spotlight: 0 });
-    expect(uneven.challengers).toEqual(['actions_first']);
+    const uneven = planExperiment(PLAN, { spotlight: 50, spotlight_outline: 50, spotlight_tinted: 0 });
+    expect(uneven.challengers).toEqual(['spotlight_outline']);
     expect(uneven.perArmDaily).toBe(350);
     expect(uneven.alphaPerTest).toBeCloseTo(0.05, 12);
   });
@@ -109,33 +109,35 @@ describe('piano jobgate-v4', () => {
     expect(() => resolvePlan({ 'min-attribution': '-0.1' })).toThrow(/--min-attribution non valido/);
     expect(() => resolvePlan({ 'min-attribution': '0' })).toThrow(/--min-attribution non valido/);
     expect(resolvePlan({ 'min-attribution': '0.9' }).minAttributionCoverage).toBe(0.9);
-    expect(rcStateFromValues({ JOBGATE_EXPERIMENT_ENABLED: 'TRUE', JOBGATE_EXPERIMENT_ARMS: ARMS_JSON, JOBGATE_EXPERIMENT_FORCE: ' Actions_First ' }))
-      .toMatchObject({ enabled: true, force: 'actions_first', armsValid: true, weights: WEIGHTS });
-    expect(rcStateFromValues({ JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: '{bad', JOBGATE_EXPERIMENT_FORCE: 'nope' }))
-      .toMatchObject({ enabled: true, force: '', armsValid: false, weights: { control: 100 } });
+    expect(rcStateFromValues({ JOBGATE_V5_EXPERIMENT_ENABLED: 'TRUE', JOBGATE_V5_EXPERIMENT_ARMS: ARMS_JSON, JOBGATE_V5_EXPERIMENT_FORCE: ' Spotlight_Outline ' }))
+      .toMatchObject({ enabled: true, force: 'spotlight_outline', armsValid: true, weights: WEIGHTS });
+    expect(rcStateFromValues({ JOBGATE_V5_EXPERIMENT_ENABLED: 'true', JOBGATE_V5_EXPERIMENT_ARMS: '{bad', JOBGATE_V5_EXPERIMENT_FORCE: 'nope' }))
+      .toMatchObject({ enabled: true, force: '', armsValid: false, weights: { spotlight: 100 } });
+    expect(resolvePlan({}, PLAN, '2026-10-24').analysisStart).toBe('2026-10-25');
+    expect(() => resolvePlan({}, PLAN, '2026-02-30')).toThrow(/JOBGATE_V5_EXPERIMENT_STARTED_AT non valido/);
   });
 });
 
 describe('decisione di promozione (tabella di casi)', () => {
-  const N = 10000; // > 8.981 pianificate per braccio
-  const baseArms = { control: flat(N, 0.033), navy_panel: flat(N, 0.034), spotlight: flat(N, 0.032), actions_first: flat(N, 0.033) };
+  const N = 10000; // > 2.807 pianificate per braccio
+  const baseArms = { spotlight: flat(N, 0.033), spotlight_quiet: flat(N, 0.034), spotlight_tinted: flat(N, 0.032), spotlight_outline: flat(N, 0.033) };
 
   it('troppo presto: 21 giorni → raccolta dati, nessuna azione', () => {
-    const { decision } = decide(payload(21, { ...baseArms, actions_first: flat(N, 0.06) }));
+    const { decision } = decide(payload(21, { ...baseArms, spotlight_outline: flat(N, 0.06) }));
     expect(decision).toMatchObject({ phase: 'collecting', action: 'none', winner: null });
   });
 
   it('vincente chiaro: tutte le condizioni vere → promuove il vincente', () => {
-    const { decision, alarms } = decide(payload(56, { ...baseArms, actions_first: flat(N, 0.045) }));
+    const { decision, alarms } = decide(payload(56, { ...baseArms, spotlight_outline: flat(N, 0.045) }));
     expect(decision.action).toBe('promote');
-    expect(decision.winner).toBe('actions_first');
+    expect(decision.winner).toBe('spotlight_outline');
     expect(decision.checks.every((c) => c.ok)).toBe(true);
     expect(alarms).toEqual([]);
   });
 
   it('più vincenti significativi: promuove quello con la CR più alta', () => {
-    const { decision } = decide(payload(56, { ...baseArms, navy_panel: flat(N, 0.044), actions_first: flat(N, 0.048) }));
-    expect(decision.winner).toBe('actions_first');
+    const { decision } = decide(payload(56, { ...baseArms, spotlight_quiet: flat(N, 0.044), spotlight_outline: flat(N, 0.048) }));
+    expect(decision.winner).toBe('spotlight_outline');
   });
 
   it('nessun vincente: nessuna promozione', () => {
@@ -144,16 +146,16 @@ describe('decisione di promozione (tabella di casi)', () => {
     expect(decision.checks.find((c) => c.id === 'winner')?.ok).toBe(false);
   });
 
-  it('control migliore di tutti: nessuna promozione, allarme guardrail', () => {
+  it('spotlight migliore di tutti: nessuna promozione, allarme guardrail', () => {
     const { decision, alarms } = decide(payload(56, {
-      control: flat(N, 0.045), navy_panel: flat(N, 0.03), spotlight: flat(N, 0.03), actions_first: flat(N, 0.03),
+      spotlight: flat(N, 0.045), spotlight_quiet: flat(N, 0.03), spotlight_tinted: flat(N, 0.03), spotlight_outline: flat(N, 0.03),
     }));
     expect(decision.action).toBe('none');
     expect(alarms.map((a) => a.id)).toContain('guardrail');
   });
 
   it('SRM: allocazione sbilanciata blocca la promozione e allarma', () => {
-    const arms = { ...baseArms, actions_first: { ...flat(N, 0.045), assigned: N }, control: { ...flat(N, 0.033), assigned: N * 1.2 } };
+    const arms = { ...baseArms, spotlight_outline: { ...flat(N, 0.045), assigned: N }, spotlight: { ...flat(N, 0.033), assigned: N * 1.2 } };
     const { decision, alarms } = decide(payload(56, arms));
     expect(decision.action).toBe('none');
     expect(decision.checks.find((c) => c.id === 'srm')?.ok).toBe(false);
@@ -161,30 +163,30 @@ describe('decisione di promozione (tabella di casi)', () => {
   });
 
   it('campione sotto il piano: nessuna promozione anche con p piccolo', () => {
-    const n = 3000;
-    const { decision } = decide(payload(56, { control: flat(n, 0.03), navy_panel: flat(n, 0.03), spotlight: flat(n, 0.03), actions_first: flat(n, 0.07) }));
+    const n = 2500;
+    const { decision } = decide(payload(56, { spotlight: flat(n, 0.03), spotlight_quiet: flat(n, 0.03), spotlight_tinted: flat(n, 0.03), spotlight_outline: flat(n, 0.07) }));
     expect(decision.action).toBe('none');
     expect(decision.checks.find((c) => c.id === 'sample')?.ok).toBe(false);
     expect(decision.checks.find((c) => c.id === 'winner')?.ok).toBe(true);
   });
 
-  it('braccio peggiore del control: allarme, ma non blocca il vincente (la promozione lo spegne)', () => {
-    const { decision, alarms } = decide(payload(56, { ...baseArms, spotlight: flat(N, 0.02), actions_first: flat(N, 0.045) }));
-    expect(alarms.find((a) => a.id === 'guardrail')?.detail).toMatch(/spotlight/);
+  it('braccio peggiore del spotlight: allarme, ma non blocca il vincente (la promozione lo spegne)', () => {
+    const { decision, alarms } = decide(payload(56, { ...baseArms, spotlight_tinted: flat(N, 0.02), spotlight_outline: flat(N, 0.045) }));
+    expect(alarms.find((a) => a.id === 'guardrail')?.detail).toMatch(/spotlight_tinted/);
     expect(decision.action).toBe('promote');
-    expect(decision.winner).toBe('actions_first');
+    expect(decision.winner).toBe('spotlight_outline');
   });
 
   it('vincente sulla CR primaria ma peggiore su auth/gate: guardrail del vincente, niente promozione', () => {
-    const { decision, alarms } = decide(payload(56, { ...baseArms, actions_first: { ...flat(N, 0.045), auth: Math.round(N * 0.1) } }));
+    const { decision, alarms } = decide(payload(56, { ...baseArms, spotlight_outline: { ...flat(N, 0.045), auth: Math.round(N * 0.1) } }));
     expect(decision.checks.find((c) => c.id === 'winner')?.ok).toBe(true);
     expect(decision.checks.find((c) => c.id === 'guardrail')?.ok).toBe(false);
     expect(decision.action).toBe('none');
-    expect(alarms.find((a) => a.id === 'guardrail')?.detail).toMatch(/`actions_first` auth\/gate −?-?\d/);
+    expect(alarms.find((a) => a.id === 'guardrail')?.detail).toMatch(/`spotlight_outline` auth\/gate −?-?\d/);
   });
 
   it('attribuzione degli iscritti sotto soglia: niente promozione e allarme', () => {
-    const { decision, alarms } = decide(payload(56, { ...baseArms, actions_first: flat(N, 0.045) }, { coverage: 0.4 }));
+    const { decision, alarms } = decide(payload(56, { ...baseArms, spotlight_outline: flat(N, 0.045) }, { coverage: 0.4 }));
     expect(decision.action).toBe('none');
     expect(decision.checks.find((c) => c.id === 'attribution')?.ok).toBe(false);
     expect(alarms.map((a) => a.id)).toContain('attribution');
@@ -196,33 +198,33 @@ describe('decisione di promozione (tabella di casi)', () => {
   });
 
   it('dopo la durata massima un vincente tardivo non promuove: decide il proprietario', () => {
-    const atMax = decide(payload(70, { ...baseArms, actions_first: flat(N, 0.045) })).decision;
-    expect(atMax).toMatchObject({ action: 'promote', winner: 'actions_first' });
-    const late = decide(payload(77, { ...baseArms, actions_first: flat(N, 0.045) })).decision;
+    const atMax = decide(payload(70, { ...baseArms, spotlight_outline: flat(N, 0.045) })).decision;
+    expect(atMax).toMatchObject({ action: 'promote', winner: 'spotlight_outline' });
+    const late = decide(payload(77, { ...baseArms, spotlight_outline: flat(N, 0.045) })).decision;
     expect(late).toMatchObject({ phase: 'max-duration', action: 'ask-owner', winner: null });
     expect(late.checks.every((c) => c.ok)).toBe(true);
   });
 
   it('FORCE già impostato: nessuna azione e nessun allarme (idempotente dopo la promozione)', () => {
-    const { decision, alarms } = decide(payload(56, { ...baseArms, actions_first: flat(N, 0.045) }), { enabled: true, force: 'actions_first' });
-    expect(decision).toMatchObject({ phase: 'forced', action: 'none', winner: 'actions_first' });
+    const { decision, alarms } = decide(payload(56, { ...baseArms, spotlight_outline: flat(N, 0.045) }), { enabled: true, force: 'spotlight_outline' });
+    expect(decision).toMatchObject({ phase: 'forced', action: 'none', winner: 'spotlight_outline' });
     expect(alarms).toEqual([]);
   });
 
   it('kill switch spento: nessuna azione', () => {
-    const { decision } = decide(payload(56, { ...baseArms, actions_first: flat(N, 0.045) }), { enabled: false, force: '' });
+    const { decision } = decide(payload(56, { ...baseArms, spotlight_outline: flat(N, 0.045) }), { enabled: false, force: '' });
     expect(decision).toMatchObject({ phase: 'disabled', action: 'none' });
   });
 
   it('un braccio pianificato senza dati conta zero persone', () => {
-    const { control, navy_panel, spotlight } = baseArms;
-    const e = evaluateWindow(payload(56, { control, navy_panel, spotlight }), PLAN, planned);
-    expect(e.persons.actions_first).toBe(0);
+    const { spotlight, spotlight_quiet, spotlight_tinted } = baseArms;
+    const e = evaluateWindow(payload(56, { spotlight, spotlight_quiet, spotlight_tinted }), PLAN, planned);
+    expect(e.persons.spotlight_outline).toBe(0);
     expect(e.minPersons).toBe(0);
   });
 
   it('allarme attribuzione solo con un campione minimo di iscritti', () => {
-    const tiny = evaluateWindow(payload(7, { control: { n: 100, x: 1 }, navy_panel: { n: 100, x: 1 }, spotlight: { n: 100, x: 1 }, actions_first: { n: 100, x: 1 } }, { coverage: 0.3 }), PLAN, planned);
+    const tiny = evaluateWindow(payload(7, { spotlight: { n: 100, x: 1 }, spotlight_quiet: { n: 100, x: 1 }, spotlight_tinted: { n: 100, x: 1 }, spotlight_outline: { n: 100, x: 1 } }, { coverage: 0.3 }), PLAN, planned);
     expect(tiny.attribution.total).toBeLessThan(20);
     expect(collectAlarms(tiny, PLAN).map((a) => a.id)).not.toContain('attribution');
   });
@@ -240,7 +242,7 @@ describe('stato persistito e report', () => {
   });
 
   it('report con giorni, bracci, SRM, potenza, data prevista e marker', () => {
-    const p = payload(56, { control: flat(10000, 0.033), navy_panel: flat(10000, 0.034), spotlight: flat(10000, 0.02), actions_first: flat(10000, 0.045) });
+    const p = payload(56, { spotlight: flat(10000, 0.033), spotlight_quiet: flat(10000, 0.034), spotlight_tinted: flat(10000, 0.02), spotlight_outline: flat(10000, 0.045) });
     const statusEval = evaluateWindow(p, PLAN, planned);
     const decision = decideAction({ rc: RC_ON, decisionEval: statusEval, plan: PLAN, planned });
     const alarms = collectAlarms(statusEval, PLAN);
@@ -248,25 +250,41 @@ describe('stato persistito e report', () => {
     const state = { v: 1, phase: decision.phase, action: decision.action, winner: decision.winner, alarms: alarms.map((a) => a.id), applied: null };
     const md = renderMonitorReport({ plan: PLAN, planned, rc: { ...RC_ON, armsRaw: ARMS_JSON }, statusEval, decisionEval: statusEval, decision, alarms, estimate, statusPayload: p, state });
     expect(md).toContain('**Giorni trascorsi:** 56');
+    expect(md).toContain('JOBGATE_V5_EXPERIMENT_ENABLED');
+    expect(md).toContain('JOBGATE_V5_EXPERIMENT_FORCE');
     // fmtInt usa it-CH: il separatore delle migliaia dipende dall'ICU del runtime.
-    expect(md).toMatch(/\*\*5\D?153 persone gate_view per braccio\*\*/);
-    expect(md).toMatch(/\| `actions_first` \| 10\D?000 \|/);
+    expect(md).toMatch(/\*\*2\D?807 persone gate_view per braccio\*\*/);
+    expect(md).toMatch(/\| `spotlight_outline` \| 10\D?000 \|/);
     expect(md).toContain('Braccio peggiore del control');
     expect(md).toContain('✅ (d) vincente sulla CR primaria');
-    expect(md).toContain('Promozione di `actions_first` pronta');
+    expect(md).toContain('Promozione di `spotlight_outline` pronta');
     expect(md).toContain('servono `--apply --approve-promotion`');
     expect(md).toContain('via `workflow_dispatch`');
     expect(md).toContain('**Robot esclusi:** 9 persone');
-    expect(md).toContain('**Data prevista della decisione:** finestra fino al **2026-11-10**');
+    expect(md).toContain('**Data prevista della decisione:** finestra fino al **2026-11-16**');
+
+    const invalidConfig = renderMonitorReport({
+      plan: PLAN,
+      planned,
+      rc: { enabled: true, force: '', armsRaw: '{bad', armsValid: false },
+      statusEval: null,
+      decisionEval: null,
+      decision: { phase: 'collecting', action: 'none', winner: null, checks: [] },
+      alarms: [],
+      estimate: null,
+      statusPayload: null,
+      state: { v: 1, phase: 'collecting', action: 'none', winner: null, alarms: [], applied: null },
+    });
+    expect(invalidConfig).toContain('non valido: default `spotlight`');
     expect(readMonitorState(md)).toEqual(state);
   });
 
   it('data prevista: dal piano nella prima settimana, poi dal ritmo osservato', () => {
-    const firstDays = evaluateWindow(payload(3, { control: flat(30, 0.03), navy_panel: flat(30, 0.03), spotlight: flat(30, 0.03), actions_first: flat(30, 0.03) }), PLAN, planned);
-    expect(estimateDecisionWindowEnd(firstDays, PLAN, planned)).toMatchObject({ days: 35, provisional: true, beyondMax: false });
-    const slow = evaluateWindow(payload(14, { control: flat(700, 0.1), navy_panel: flat(700, 0.1), spotlight: flat(700, 0.1), actions_first: flat(700, 0.1) }), PLAN, planned);
-    // 50 persone/giorno per braccio → 104 giorni (5.153 / 50) → 105 (settimane intere), oltre i 70.
-    expect(estimateDecisionWindowEnd(slow, PLAN, planned)).toMatchObject({ days: 105, provisional: false, beyondMax: true, windowEnd: '2027-01-19' });
+    const firstDays = evaluateWindow(payload(3, { spotlight: flat(30, 0.03), spotlight_quiet: flat(30, 0.03), spotlight_tinted: flat(30, 0.03), spotlight_outline: flat(30, 0.03) }), PLAN, planned);
+    expect(estimateDecisionWindowEnd(firstDays, PLAN, planned)).toMatchObject({ days: 28, provisional: true, beyondMax: false });
+    const slow = evaluateWindow(payload(14, { spotlight: flat(700, 0.1), spotlight_quiet: flat(700, 0.1), spotlight_tinted: flat(700, 0.1), spotlight_outline: flat(700, 0.1) }), PLAN, planned);
+    // 50 persone/giorno per braccio → 57 giorni (2.807 / 50), arrotondati alla settimana.
+    expect(estimateDecisionWindowEnd(slow, PLAN, planned)).toMatchObject({ days: 63, provisional: false, beyondMax: false, windowEnd: '2026-12-21' });
   });
 
   it('titoli delle issue distinti nei primi 60 caratteri (chiave di dedup)', () => {
@@ -282,9 +300,20 @@ describe('stato persistito e report', () => {
     expect(mayPublishPromotion({ apply: true, approvePromotion: true, eventName: 'workflow_dispatch' })).toBe(true);
     expect(mayPublishPromotion({ apply: true, approvePromotion: true })).toBe(true);
   });
+
+  it('rifiuta una finestra diagnostica quando è autorizzata la promozione', () => {
+    expect(() => assertSafePromotionInputs({ since: '2026-10-20', apply: true, 'approve-promotion': true }))
+      .toThrow(/--since\/--until sono solo diagnostici/);
+    expect(() => assertSafePromotionInputs({ until: '2026-11-20', apply: true, 'approve-promotion': true }))
+      .toThrow(/--since\/--until sono solo diagnostici/);
+    expect(() => assertSafePromotionInputs({ since: '2026-10-20', apply: true, 'approve-promotion': false }))
+      .not.toThrow();
+    expect(() => assertSafePromotionInputs({ apply: true, 'approve-promotion': true }))
+      .not.toThrow();
+  });
 });
 
-describe('CLI jobgate-v4-monitor (fixture, nessuna rete)', () => {
+describe('CLI jobgate-v5-monitor (fixture, nessuna rete)', () => {
   const script = path.resolve(__dirname, '../scripts/experiments/jobgate-monitor.mjs');
 
   function run(files: Record<string, unknown>, extra: string[] = []) {
@@ -302,32 +331,47 @@ describe('CLI jobgate-v4-monitor (fixture, nessuna rete)', () => {
     return { res, json };
   }
 
-  const rcOn = { JOBGATE_EXPERIMENT_ENABLED: 'true', JOBGATE_EXPERIMENT_ARMS: ARMS_JSON, JOBGATE_EXPERIMENT_FORCE: '' };
-  const winning = payload(56, { control: flat(10000, 0.033), navy_panel: flat(10000, 0.034), spotlight: flat(10000, 0.032), actions_first: flat(10000, 0.045) });
+  const rcOn = {
+    JOBGATE_V5_EXPERIMENT_ENABLED: 'true',
+    JOBGATE_V5_EXPERIMENT_ARMS: ARMS_JSON,
+    JOBGATE_V5_EXPERIMENT_FORCE: '',
+    JOBGATE_V5_EXPERIMENT_STARTED_AT: '2026-10-19',
+  };
+  const winning = payload(56, { spotlight: flat(10000, 0.033), spotlight_quiet: flat(10000, 0.034), spotlight_tinted: flat(10000, 0.032), spotlight_outline: flat(10000, 0.045) });
+
+  it('refuses to guess the launch window if an enabled v5 config has no start marker', () => {
+    const { JOBGATE_V5_EXPERIMENT_STARTED_AT: _startedAt, ...misconfigured } = rcOn;
+    const { res } = run({ 'rc-json': misconfigured, 'status-json': winning });
+    expect(res.status).toBe(1);
+    expect(res.stderr).toContain('JOBGATE_V5_EXPERIMENT_STARTED_AT missing');
+  });
 
   async function runWithPublisher(extra: string[], eventName: string) {
-    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobgate-monitor-publish-test-'));
-    const rcPath = path.join(dir, 'rc.json');
-    const statusPath = path.join(dir, 'status.json');
-    fs.writeFileSync(rcPath, JSON.stringify(rcOn));
-    fs.writeFileSync(statusPath, JSON.stringify(winning));
     const publishRc = vi.fn();
-    const result = await runMonitor([
-      '--rc-json', rcPath,
-      '--status-json', statusPath,
-      ...extra,
-    ], { eventName, publishRc });
-    return { result, publishRc };
+    const previousProperty = process.env.GA4_PROPERTY_ID;
+    process.env.GA4_PROPERTY_ID = 'properties/524485296';
+    try {
+      const result = await runMonitor(extra, {
+        eventName,
+        now: new Date('2026-12-16T12:00:00Z'),
+        publishRc,
+        testInputs: { rcValues: rcOn, statusPayload: winning },
+      });
+      return { result, publishRc };
+    } finally {
+      if (previousProperty === undefined) delete process.env.GA4_PROPERTY_ID;
+      else process.env.GA4_PROPERTY_ID = previousProperty;
+    }
   }
 
   it('dry-run di default: promozione pronta, comando stampato e non eseguito', () => {
     const { res, json } = run({ 'rc-json': rcOn, 'status-json': winning });
     expect(res.status).toBe(0);
-    expect(json.state).toMatchObject({ phase: 'decision', action: 'promote', winner: 'actions_first', applied: null });
+    expect(json.state).toMatchObject({ phase: 'decision', action: 'promote', winner: 'spotlight_outline', applied: null });
     expect(res.stderr).toContain('DRY-RUN');
-    expect(res.stderr).toContain('--force-arm actions_first');
+    expect(res.stderr).toContain('--force-arm spotlight_outline');
     expect(res.stderr).toContain(`--arms '${ARMS_JSON}'`);
-    expect(res.stdout).toContain('Promozione di `actions_first` pronta');
+    expect(res.stdout).toContain('Promozione di `spotlight_outline` pronta');
   });
 
   it('non invoca Remote Config senza approvazione esplicita o da un evento schedulato', async () => {
@@ -347,15 +391,39 @@ describe('CLI jobgate-v4-monitor (fixture, nessuna rete)', () => {
     expect(approved.publishRc.mock.calls[0][0]).toContain('--apply');
   });
 
+  it('non consente che fixture iniettate raggiungano il publisher Remote Config di produzione', async () => {
+    const previousProperty = process.env.GA4_PROPERTY_ID;
+    process.env.GA4_PROPERTY_ID = 'properties/524485296';
+    try {
+      await expect(runMonitor(['--apply', '--approve-promotion'], {
+        eventName: 'workflow_dispatch',
+        now: new Date('2026-12-16T12:00:00Z'),
+        testInputs: { rcValues: rcOn, statusPayload: winning },
+      })).rejects.toThrow(/cannot use injected test inputs with the live Remote Config publisher/);
+    } finally {
+      if (previousProperty === undefined) delete process.env.GA4_PROPERTY_ID;
+      else process.env.GA4_PROPERTY_ID = previousProperty;
+    }
+  });
+
+  it('non permette a fixture JSON CLI di autorizzare una promozione', async () => {
+    await expect(runMonitor([
+      '--rc-json', 'fixture-rc.json',
+      '--status-json', 'fixture-status.json',
+      '--apply',
+      '--approve-promotion',
+    ], { eventName: 'workflow_dispatch' })).rejects.toThrow(/sono fixture/);
+  });
+
   it('FORCE già pubblicato: nessuna azione (non ripubblica)', () => {
-    const { res, json } = run({ 'rc-json': { ...rcOn, JOBGATE_EXPERIMENT_FORCE: 'actions_first' }, 'status-json': winning }, ['--apply']);
+    const { res, json } = run({ 'rc-json': { ...rcOn, JOBGATE_V5_EXPERIMENT_FORCE: 'spotlight_outline' }, 'status-json': winning }, ['--apply']);
     expect(res.status).toBe(0);
     expect(json.state).toMatchObject({ phase: 'forced', action: 'none', applied: null });
     expect(res.stderr).not.toContain('DRY-RUN');
   });
 
   it('--min-attribution negativo: errore, nessuna decisione né promozione', () => {
-    const { res, json } = run({ 'rc-json': rcOn, 'status-json': payload(56, { control: flat(10000, 0.033), navy_panel: flat(10000, 0.034), spotlight: flat(10000, 0.032), actions_first: flat(10000, 0.045) }, { coverage: 0 }) }, ['--min-attribution=-0.1', '--apply']);
+    const { res, json } = run({ 'rc-json': rcOn, 'status-json': payload(56, { spotlight: flat(10000, 0.033), spotlight_quiet: flat(10000, 0.034), spotlight_tinted: flat(10000, 0.032), spotlight_outline: flat(10000, 0.045) }, { coverage: 0 }) }, ['--min-attribution=-0.1', '--apply']);
     expect(res.status).toBe(1);
     expect(res.stderr).toContain('--min-attribution non valido');
     expect(json).toBeNull();
@@ -366,7 +434,7 @@ describe('CLI jobgate-v4-monitor (fixture, nessuna rete)', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobgate-monitor-test-'));
     const rcFile = path.join(dir, 'rc.json');
     fs.writeFileSync(rcFile, JSON.stringify(rcOn));
-    const res = spawnSync(process.execPath, [script, '--rc-json', rcFile, '--until', '2026-10-13', '--apply'], { encoding: 'utf8', env });
+    const res = spawnSync(process.execPath, [script, '--rc-json', rcFile, '--until', '2026-10-22', '--apply'], { encoding: 'utf8', env });
     expect(res.status).toBe(1);
     expect(res.stderr).toContain('GA4_PROPERTY_ID mancante');
   });

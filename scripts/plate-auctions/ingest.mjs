@@ -24,6 +24,7 @@ import { fetchExpandedCard, fetchExpandedEcari } from './connectors/expanded.mjs
 import {
   fetchAiFixedPrice,
   fetchBsFixedPrice,
+  fetchGlFixedPrice,
   fetchLuFixedPrice,
   fetchUrFixedPrice,
 } from './connectors/fixed-price.mjs';
@@ -48,9 +49,9 @@ export const FETCHERS = {
   be: () => fetchExpandedCard('be'),
   bl: () => fetchExpandedEcari('bl'),
   bs: fetchBsFixedPrice,
-  // FR e TI sono geo-fenced su IP svizzeri: dal runner la fetch diretta
-  // fallisce e le righe arrivano dal relay della Cloud Function di Zurigo
-  // (connectors/api-relay.mjs), come per SZ.
+  // FR e TI sono geo-fenced su IP svizzeri, mentre SG può rifiutare l'egress
+  // CI: le righe arrivano dal relay della Cloud Function di Zurigo quando la
+  // fetch ufficiale del runner fallisce (connectors/api-relay.mjs), come per SZ.
   fr: () => fetchExpandedEcari('fr'),
   // GE ha il connettore (connectors/ge.mjs) ma non ancora il fetcher: resta
   // `blocked` finché ge.ch non pubblica la lista d'autunno 2026. Fra due
@@ -58,6 +59,7 @@ export const FETCHERS = {
   // senza nessuna riga nello snapshot è fatale per check-health.mjs; con le
   // righe della prima sessione (poi chiuse e conservate) non lo è più.
   // Attivarla = registry `active` in entrambe le copie + una riga qui.
+  gl: fetchGlFixedPrice,
   gr: fetchGrPlateAuctions,
   lu: fetchLuFixedPrice,
   nw: () => fetchExpandedEcari('nw'),

@@ -30,6 +30,7 @@ import {
  isLocationMatch,
  isNormalizedLocationMatch,
 } from '@/services/textUtils';
+import { filterJobsNewSinceVisit } from '@/services/jobBoardNewJobs';
 
 // ─── Types ──────────────────────────────────────────────────────
 
@@ -421,10 +422,7 @@ export function computeNewJobsCount(
 ): { total: number; matching: number } {
  if (!lastVisit) return { total: 0, matching: 0 };
 
- const newJobs = jobs.filter((j) => {
- const ts = new Date(j.firstSeenAt || j.crawledAt || j.postedDate).getTime();
- return ts > lastVisit;
- });
+ const newJobs = filterJobsNewSinceVisit(jobs, lastVisit);
 
  const scorePersonal = createPersonalScorer(behavior, profile, jobMatchProfile);
  const matching = newJobs.filter((j) => scorePersonal(j).score > 0).length;
@@ -445,7 +443,7 @@ export function scheduleNewJobsCount(
  onComplete({ total: 0, matching: 0 });
  return () => {};
  }
- const newJobs = jobs.filter(job => new Date(job.firstSeenAt || job.crawledAt || job.postedDate).getTime() > lastVisit);
+ const newJobs = filterJobsNewSinceVisit(jobs, lastVisit);
  return schedulePersonalJobScores(newJobs, createPersonalScorer(behavior, profile, jobMatchProfile), scores => {
  let matching = 0;
  for (const score of scores.values()) if (score.score > 0) matching++;

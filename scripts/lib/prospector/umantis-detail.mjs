@@ -8,6 +8,7 @@
  */
 import { readAttr, readMetaContent, scanHtmlTags } from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
+import { isKnownSwissMunicipality } from '../target-swiss-locations.mjs';
 
 const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
 const POSTAL_LOCALITY_LINE_RX = /^([1-9]\d{3})\s+([\p{Lu}][\p{L}.'’\-]*(?:\s+[\p{L}.'’\-]+){0,5})\s*$/u;
@@ -156,6 +157,69 @@ function locationCandidate(value = '') {
   };
 }
 
+/**
+ * A small number of Umantis listings put alternative workplaces in the title
+ * itself (for example, "in Zürich oder Lausanne") instead of a location
+ * column. Keep that source wording as separate candidates; the ordinary
+ * source-backed geography gate still decides which candidate is publishable.
+ * Every alternative must name a Swiss municipality so an unknown or foreign
+ * choice cannot be hidden behind a Swiss one.
+ * @param {string} title
+ * @returns {{ locationCandidates: Array<NonNullable<ReturnType<typeof locationCandidate>>> }|null}
+ */
+export function extractUmantisTitleAlternativeLocationEvidence(title = '') {
+  const text = cleanLocation(title);
+  const marker = text.toLowerCase().lastIndexOf(' in ');
+  if (marker < 0) return null;
+  const alternatives = text.slice(marker + 4)
+    .split(/\s+oder\s+/i)
+    .map((part) => cleanLocation(part).replace(/[.,;:!?]+$/, ''));
+  if (alternatives.length !== 2 || alternatives.some((part) => !part || !isKnownSwissMunicipality(part))) {
+    return null;
+  }
+  const locationCandidates = alternatives
+    .map(locationCandidate)
+    .filter(Boolean)
+    .map((candidate) => ({ ...candidate, addressCountry: 'CH' }));
+  if (locationCandidates.length !== alternatives.length) return null;
+  return {
+    ...locationCandidates[0],
+    locationCandidates,
+    sourceTitleAlternatives: true,
+  };
+}
+
+/** @param {unknown} value */
+function normalizedOverrideLocality(value) {
+  return cleanLocation(String(value || ''))
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/**
+ * A small number of Umantis tenants publish a Swiss Post postcode whose
+ * locality is also registered in another canton (or use a special branch /
+ * PO-box postcode). Only a source-reviewed exact postcode + locality pair may
+ * supply the missing canton; the normal Swiss geography resolver still checks
+ * that the locality belongs to that canton before publication.
+ * @param {NonNullable<ReturnType<typeof locationCandidate>>} candidate
+ * @param {Array<{ postalCode?: string, locality?: string, canton?: string }>} overrides
+ */
+function reviewedListingCanton(candidate, overrides = []) {
+  const postalCode = String(candidate.postalCode || '').trim();
+  const locality = normalizedOverrideLocality(candidate.addressLocality);
+  if (!/^\d{4}$/.test(postalCode) || !locality || !Array.isArray(overrides)) return '';
+  const matches = overrides.filter((entry) =>
+    String(entry?.postalCode || '').trim() === postalCode
+      && normalizedOverrideLocality(entry?.locality) === locality
+      && /^[A-Z]{2}$/.test(String(entry?.canton || '').trim()));
+  const cantons = [...new Set(matches.map((entry) => String(entry.canton).trim()))];
+  return cantons.length === 1 ? cantons[0] : '';
+}
+
 /** @param {string} url */
 export function umantisVacancyIdentity(url = '') {
   try {
@@ -172,9 +236,10 @@ export function umantisVacancyIdentity(url = '') {
  * newer `column-value` metadata value are supported.
  * @param {string} html
  * @param {string} baseUrl
- * @returns {Map<string, ReturnType<typeof locationCandidate>>}
+ * @param {{ cantonOverrides?: Array<{ postalCode: string, locality: string, canton: string }> }} [options]
+ * @returns {Map<string, Record<string, any>>}
  */
-export function extractUmantisListingEvidence(html = '', baseUrl = '') {
+export function extractUmantisListingEvidence(html = '', baseUrl = '', { cantonOverrides = [] } = {}) {
   const source = String(html || '');
   const index = indexContainers(source);
   const rows = containersMatching(source, index, (tag) => tag.name === 'tr');
@@ -231,7 +296,23 @@ export function extractUmantisListingEvidence(html = '', baseUrl = '') {
       rawLocation = /(?:Standort|Arbeitsort|Lieu de travail|Location)\s*:\s*([^\n|]{2,80})/i.exec(structuredText(row))?.[1] || '';
     }
     const candidate = locationCandidate(rawLocation);
-    if (vacancyId && candidate) evidence.set(vacancyId, candidate);
+    if (candidate && !candidate.addressRegion) {
+      candidate.addressRegion = reviewedListingCanton(candidate, cantonOverrides);
+    }
+    if (vacancyId && candidate) {
+      evidence.set(vacancyId, candidate);
+      continue;
+    }
+    if (vacancyId) {
+      const anchorBound = rowIndex.bounds.get(anchor.index);
+      const anchorText = anchorBound ? structuredText(row.slice(anchor.end, anchorBound.contentEnd)) : '';
+      for (const title of [readAttr(anchor.raw, 'aria-label'), anchorText]) {
+        const titleEvidence = extractUmantisTitleAlternativeLocationEvidence(title);
+        if (!titleEvidence) continue;
+        evidence.set(vacancyId, titleEvidence);
+        break;
+      }
+    }
   }
   return evidence;
 }

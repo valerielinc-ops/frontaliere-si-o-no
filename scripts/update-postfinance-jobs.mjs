@@ -895,6 +895,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
 
     if (!detail || !detail.title) {
       console.warn(`  ⚠️ No title extracted for ${url}`);
+      await delay(400);
       continue;
     }
 
@@ -907,6 +908,7 @@ async function fetchAndParseJobDetails(urls, v2Map = new Map()) {
     const canton = detectCanton(city);
     if (!canton) {
       console.log(`     ↳ Skipping (non-CH / unresolved canton): ${detail.title} — ${city || '?'}`);
+      await delay(400);
       continue;
     }
 

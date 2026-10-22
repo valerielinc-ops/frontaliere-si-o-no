@@ -20,6 +20,10 @@ vi.mock('node:child_process', () => {
         && String(args[1]).includes('/runs?status=success&event=schedule')) {
         return JSON.stringify({ workflow_runs: [] });
       }
+      if (cmd === 'gh' && args[0] === 'api'
+        && String(args[1]).includes('/actions/runs?status=startup_failure')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
       return execFileSync(cmd, args, ...rest);
     },
   };
@@ -70,6 +74,9 @@ describe('scan-job-timeouts — annotazioni non-array', () => {
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'api') {
         const path = args[1];
+        if (path.includes('actions/runs?status=failure')) {
+          return JSON.stringify({ workflow_runs: [] });
+        }
         if (path.includes('actions/runs?status=cancelled')) return JSON.stringify({ workflow_runs: [RUN] });
         if (path.includes(`actions/runs/${RUN.id}/jobs`)) return JSON.stringify({ jobs: JOBS });
         // Il primo check-run risponde con l'oggetto d'errore, non con la lista.

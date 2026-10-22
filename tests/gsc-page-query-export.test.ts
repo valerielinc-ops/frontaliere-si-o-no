@@ -29,9 +29,10 @@ describe('GSC snippet monitoring', () => {
     expect(report.coverage).toMatchObject({ queryRowsTruncated: false, queryImpressionFraction: 0.5, completeQueryCoverage: false });
     const bodies = fetchImpl.mock.calls.map((call) => JSON.parse(call[1].body));
     expect(bodies[0]).toMatchObject({ dimensions: ['date'], dataState: 'all' });
-    expect(bodies[1]).toMatchObject({ dimensions: ['page', 'query', 'country', 'device'], dataState: 'final', type: 'web' });
-    expect(bodies[2].startRow).toBe(2);
-    expect(bodies[3].dimensions).toEqual(['page', 'country', 'device']);
+    expect(bodies[1]).toMatchObject({ dimensions: ['date'], dataState: 'final' });
+    expect(bodies[2]).toMatchObject({ dimensions: ['page', 'query', 'country', 'device'], dataState: 'final', type: 'web' });
+    expect(bodies[3].startRow).toBe(2);
+    expect(bodies[4].dimensions).toEqual(['page', 'country', 'device']);
   });
 
   it('marks capped rows truncated and does not pretend missing rows are zero', async () => {
@@ -51,9 +52,10 @@ describe('GSC snippet monitoring', () => {
 
   it('refuses a window whose last days are still being finalized or absent', async () => {
     const fetchImpl = vi.fn(async (_url, options) => JSON.parse(options.body).dimensions[0] === 'date'
-      ? response(dateRows, { first_incomplete_date: window.end }) : response([]));
+      ? response(dateRows, { firstIncompleteDate: window.end }) : response([]));
     const report = await exportPage({ page: '/prezzi-benzina/oggi/', window, token: 'test', fetchImpl });
     expect(report.settlement).toMatchObject({ complete: false, firstIncompleteDate: window.end });
+    expect(report.settlement.metadataProbe).toMatchObject({ dataState: 'all', returnedDateRows: 30 });
     expect(comparePageWindows(report, report).status).toBe('awaiting-final-data');
     const missing = await exportPage({ page: '/prezzi-benzina/oggi/', window, token: 'test', fetchImpl: async () => response([]) });
     expect(missing.settlement.complete).toBe(false);

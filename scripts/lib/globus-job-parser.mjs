@@ -15,6 +15,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -144,21 +145,7 @@ function extractDetailUrls(html = '') {
 
 /** Parse the first JobPosting JSON-LD block from a detail page's HTML. */
 function extractJobPosting(html = '') {
-  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
-  let m;
-  while ((m = re.exec(html)) !== null) {
-    let data;
-    try {
-      data = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const items = Array.isArray(data) ? data : data?.['@graph'] || [data];
-    for (const item of items) {
-      if (item?.['@type'] === 'JobPosting') return item;
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 async function fetchJobListings() {
@@ -185,11 +172,15 @@ async function fetchJobListings() {
       detailHtml = await fetchHtml(url, { headers: { 'User-Agent': UA } });
     } catch (err) {
       console.warn(`  ⚠️ Failed to fetch ${url}: ${err.message}`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
     const posting = extractJobPosting(detailHtml);
-    if (!posting?.title) continue;
+    if (!posting?.title) {
+      await new Promise((r) => setTimeout(r, 300));
+      continue;
+    }
 
     const address = posting.jobLocation?.address || {};
     const locality = address.addressLocality || '';

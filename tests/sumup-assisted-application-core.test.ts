@@ -6,6 +6,9 @@ const remoteConfig = vi.hoisted(() => vi.fn(async (key: string) => {
     SUMUP_API_KEY: 'sup_sk_test',
     SUMUP_MERCHANT_CODE: 'MC_TEST',
     SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
+    SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
+    SUMUP_SANDBOX_MERCHANT_CODE: 'MC_SANDBOX_TEST',
+    SUMUP_SANDBOX_PAYMENT_TEST_WEBHOOK_URL: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
   };
   return values[key] || '';
 }));
@@ -19,8 +22,10 @@ vi.stubGlobal('fetch', fetchMock);
 
 const {
   createSumUpAssistedApplicationCheckout,
-  createSumUpHostedCheckout,
+  createSumUpApplicationConciergeCheckout,
+  createSumUpPaymentTestCheckout,
   getAssistedApplicationPaymentProvider,
+  latestSumUpTransaction,
   refundSumUpTransaction,
   retrieveSumUpCheckout,
 } = await import('../functions/src/sumupAssistedApplicationCore.js');
@@ -33,19 +38,35 @@ beforeEach(() => {
       SUMUP_API_KEY: 'sup_sk_test',
       SUMUP_MERCHANT_CODE: 'MC_TEST',
       SUMUP_ASSISTED_APPLICATION_WEBHOOK_URL: 'https://europe-west6.example.test/sumupAssistedApplicationWebhook',
+      SUMUP_SANDBOX_API_KEY: 'sup_sk_sandbox_test',
+      SUMUP_SANDBOX_MERCHANT_CODE: 'MC_SANDBOX_TEST',
+      SUMUP_SANDBOX_PAYMENT_TEST_WEBHOOK_URL: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
     };
     return values[key] || '';
   });
   fetchMock.mockReset();
 });
 describe('SumUp assisted-application payment client', () => {
+  it('selects the newest transaction by timestamp, not array position', () => {
+    expect(latestSumUpTransaction({
+      transactions: [
+        { id: 'successful-retry', status: 'SUCCESSFUL', timestamp: '2026-10-12T12:22:48.309Z' },
+        { id: 'failed-retry', status: 'FAILED', timestamp: '2026-10-12T12:22:15.638Z' },
+        { id: 'failed-first', status: 'FAILED', timestamp: '2026-10-12T12:21:25.969Z' },
+      ],
+    })).toEqual(expect.objectContaining({
+      id: 'successful-retry',
+      status: 'SUCCESSFUL',
+    }));
+  });
+
   it('uses SumUp only when the payment-provider configuration explicitly selects it', async () => {
     expect(await getAssistedApplicationPaymentProvider()).toBe('sumup');
     remoteConfig.mockResolvedValue('');
     expect(await getAssistedApplicationPaymentProvider()).toBe('stripe');
   });
 
-  it('creates a 0.99 EUR widget checkout with a server-side status callback', async () => {
+  it('creates a 1.99 EUR widget checkout with a server-side status callback', async () => {
     fetchMock.mockResolvedValue({
       ok: true,
       json: async () => ({
@@ -69,7 +90,7 @@ describe('SumUp assisted-application payment client', () => {
       'Content-Type': 'application/json',
     });
     expect(JSON.parse(init.body)).toEqual({
-      amount: 0.99,
+      amount: 1.99,
       checkout_reference: 'order-1',
       currency: 'EUR',
       description: 'Candidatura assistita',
@@ -79,25 +100,53 @@ describe('SumUp assisted-application payment client', () => {
     });
   });
 
-  it('keeps Hosted Checkout available for the concierge flow', async () => {
+  it('creates a 39.99 EUR embedded concierge checkout without a hosted page', async () => {
     fetchMock.mockResolvedValue({
       ok: true,
       json: async () => ({
         id: 'sumup_concierge_1',
-        hosted_checkout_url: 'https://checkout.sumup.com/pay/sumup_concierge_1',
       }),
     });
 
-    await expect(createSumUpHostedCheckout({
-      checkoutReference: 'concierge-1',
+    await expect(createSumUpApplicationConciergeCheckout({
+      serviceId: 'concierge-1',
       redirectUrl: 'https://frontaliereticino.ch/concierge?order=concierge-1',
     })).resolves.toEqual({
       id: 'sumup_concierge_1',
-      url: 'https://checkout.sumup.com/pay/sumup_concierge_1',
     });
     expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual(expect.objectContaining({
-      hosted_checkout: { enabled: true },
+      amount: 39.99,
+      checkout_reference: 'concierge-1',
+      currency: 'EUR',
+      description: 'Servizio candidature assistite',
+      redirect_url: 'https://frontaliereticino.ch/concierge?order=concierge-1',
     }));
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).not.toHaveProperty('hosted_checkout');
+  });
+
+  it('creates an isolated 1.99 EUR sandbox checkout for Google Pay testing', async () => {
+    fetchMock.mockResolvedValue({
+      ok: true,
+      json: async () => ({ id: 'sumup_sandbox_checkout_1' }),
+    });
+
+    await expect(createSumUpPaymentTestCheckout({
+      testId: '11111111-1111-4111-8111-111111111111',
+      redirectUrl: 'https://frontaliere-ticino.web.app/google-pay-sumup-test.html',
+    })).resolves.toEqual({ id: 'sumup_sandbox_checkout_1' });
+
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toBe('https://api.sumup.com/v0.1/checkouts');
+    expect(init.headers.Authorization).toBe('Bearer sup_sk_sandbox_test');
+    expect(JSON.parse(init.body)).toEqual({
+      amount: 1.99,
+      checkout_reference: 'google-pay-test-11111111-1111-4111-8111-111111111111',
+      currency: 'EUR',
+      description: 'Google Pay sandbox test',
+      merchant_code: 'MC_SANDBOX_TEST',
+      redirect_url: 'https://frontaliere-ticino.web.app/google-pay-sumup-test.html',
+      return_url: 'https://europe-west6.example.test/sumupPaymentTestWebhook',
+    });
   });
 
   it('re-fetches a checkout and supports full refunds through the SumUp API', async () => {
@@ -124,7 +173,7 @@ describe('SumUp assisted-application payment client', () => {
       .mockResolvedValueOnce({ ok: false, status: 409, json: async () => ({ error_code: 'DUPLICATED_CHECKOUT' }) })
       .mockResolvedValueOnce({ ok: true, json: async () => ([{
         checkout_reference: 'order-1',
-        amount: 0.99,
+        amount: 1.99,
         currency: 'EUR',
         id: 'sumup_checkout_existing',
         status: 'PENDING',

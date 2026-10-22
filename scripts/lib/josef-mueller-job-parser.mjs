@@ -94,6 +94,7 @@ import {
   parseVacancyLinks,
 } from './jobs-ch-company-pages.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -228,21 +229,7 @@ export { parseVacancyLinks as parseJosefMuellerListing };
  */
 export function extractJosefMuellerJobPosting(html = '') {
   if (!html || typeof html !== 'string') return null;
-  const rx = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
-    let parsed;
-    try {
-      parsed = JSON.parse(m[1]);
-    } catch {
-      continue;
-    }
-    const candidates = Array.isArray(parsed) ? parsed : [parsed];
-    for (const candidate of candidates) {
-      if (candidate && candidate['@type'] === 'JobPosting') return candidate;
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
@@ -349,12 +336,14 @@ export async function fetchAllJosefMuellerJobs({ fetchPage = fetchHtml } = {}) {
       declaredSourceLang = vacancy.sourceLang;
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${publicUrl}: ${err?.message || err}`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 
     const parsed = parseJosefMuellerDetail(detailHtml);
     if (!parsed || !parsed.title) {
       console.warn(`  ⚠️ Could not parse JobPosting JSON-LD for ${publicUrl}`);
+      await new Promise((r) => setTimeout(r, 250));
       continue;
     }
 

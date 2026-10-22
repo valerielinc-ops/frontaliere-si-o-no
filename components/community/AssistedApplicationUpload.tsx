@@ -1,10 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
-import { CheckCircle2, FileText, Loader2, LockKeyhole, Shield, UploadCloud } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { CheckCircle2, CreditCard, Eye, FileText, Loader2, LockKeyhole, UploadCloud } from 'lucide-react';
+import { useLocale, useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicationConstants.js';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
+import {
+  getAssistedApplicationPaymentRecoveryErrorCode,
+  resumeAssistedApplicationPayment,
+} from '@/services/assistedApplicationPaymentRecovery';
 import {
   ASSISTED_APPLICATION_CONSENT_VERSION,
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
@@ -29,6 +34,7 @@ interface AssistedApplicationOrder {
   copyVariant?: AssistedApplicationCopyVariant;
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
+  paymentFailureReason?: string | null;
   consentVersion?: string | null;
   consentedAt?: unknown;
   cvStorageKey?: string | null;
@@ -61,6 +67,14 @@ function safeFileName(name: string): string {
   return name.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 100) || 'cv';
 }
 
+function fileNameFromStorageKey(storageKey: string | null, orderId: string): string | null {
+  const prefix = `assisted-application-uploads/${orderId}/`;
+  if (!storageKey?.startsWith(prefix)) return null;
+  const file = storageKey.slice(prefix.length);
+  const match = file.match(/^\d+-(?:[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}|[a-z0-9]{1,16})-(.+)$/i);
+  return match?.[1] || null;
+}
+
 function randomFileToken(): string {
   try {
     if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
@@ -68,6 +82,33 @@ function randomFileToken(): string {
     // Fall through for older browsers.
   }
   return Math.random().toString(36).slice(2, 14);
+}
+
+/** Open synchronously from the click so hosted Stripe Checkout is not blocked. */
+function openPaymentWindow(): Window | null {
+  if (typeof window === 'undefined' || typeof window.open !== 'function') return null;
+  try {
+    const checkoutWindow = window.open(
+      'about:blank',
+      '_blank',
+      'popup,width=480,height=760,resizable=yes,scrollbars=yes',
+    );
+    if (checkoutWindow) {
+      try { checkoutWindow.opener = null; } catch { /* browser may expose a read-only opener */ }
+    }
+    return checkoutWindow;
+  } catch {
+    return null;
+  }
+}
+
+function closePaymentWindow(checkoutWindow: Window | null): void {
+  try {
+    if (!checkoutWindow || checkoutWindow.closed) return;
+    checkoutWindow.close();
+  } catch {
+    // A browser can revoke the WindowProxy while a cross-origin checkout is opening.
+  }
 }
 
 function isValidEmail(value: string): boolean {
@@ -83,10 +124,10 @@ function variantForOrder(order: AssistedApplicationOrder | null): AssistedApplic
 }
 
 function orderEventContext(order: AssistedApplicationOrder | null) {
-  const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant) || 'control';
+  const copyVariant = normalizeAssistedApplicationCopyVariant(order?.copyVariant);
   return {
     variant: variantForOrder(order),
-    copy_variant: copyVariant,
+    ...(copyVariant ? { copy_variant: copyVariant } : {}),
     jobId: order?.jobId || 'unknown',
     companyId: order?.companyId || order?.companyName || 'unknown',
   };
@@ -99,6 +140,7 @@ export default function AssistedApplicationUpload({
   onRequireAuth,
 }: AssistedApplicationUploadProps) {
   const { t } = useTranslation();
+  const [locale] = useLocale();
   const [status, setStatus] = useState<PageStatus>('loading');
   const [order, setOrder] = useState<AssistedApplicationOrder | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -110,9 +152,15 @@ export default function AssistedApplicationUpload({
   const [consentSaving, setConsentSaving] = useState(false);
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [openingCv, setOpeningCv] = useState(false);
   const [cvStorageKey, setCvStorageKey] = useState<string | null>(null);
   const [cvFileName, setCvFileName] = useState<string | null>(null);
   const [submitBusy, setSubmitBusy] = useState(false);
+  const [paymentResumeBusy, setPaymentResumeBusy] = useState(false);
+  const [sumUpPayment, setSumUpPayment] = useState<{ checkoutId: string; orderId: string } | null>(null);
+  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
+  const [sumUpPaymentError, setSumUpPaymentError] = useState<string | null>(null);
+  const cvInputRef = useRef<HTMLInputElement>(null);
   const paymentCompletionTracked = useRef(false);
 
   const readOrder = useCallback(async (): Promise<AssistedApplicationOrder | null> => {
@@ -164,6 +212,10 @@ export default function AssistedApplicationUpload({
           });
         }
         return true;
+      }
+      if (data.paymentStatus === 'failed' && data.paymentFailureReason === 'checkout_session_expired') {
+        setStatus('pending');
+        return false;
       }
       if (data.paymentStatus === 'failed' || data.paymentStatus === 'refunded') {
         setStatus('error');
@@ -219,6 +271,94 @@ export default function AssistedApplicationUpload({
       data,
     );
   }, [orderId]);
+
+  const handleResumePayment = async () => {
+    if (paymentResumeBusy) return;
+    const checkoutWindow = openPaymentWindow();
+    setPaymentResumeBusy(true);
+    setError(null);
+    trackAssistedApplicationEvent('checkout_resumed', orderEventContext(order));
+    try {
+      const [{ getApp }, authModule] = await Promise.all([
+        import('@/services/firebase'),
+        import('firebase/auth'),
+      ]);
+      const auth = authModule.getAuth(await getApp());
+      if (typeof auth.authStateReady === 'function') await auth.authStateReady();
+      const currentUser = auth.currentUser || authUser;
+      if (!currentUser?.getIdToken) {
+        closePaymentWindow(checkoutWindow);
+        setStatus('auth_required');
+        onRequireAuth?.();
+        return;
+      }
+      const result = await resumeAssistedApplicationPayment(orderId, currentUser);
+      if (result.status === 'paid') {
+        closePaymentWindow(checkoutWindow);
+        await refreshOrder();
+        return;
+      }
+      if (result.paymentProvider === 'sumup' && result.checkoutId) {
+        closePaymentWindow(checkoutWindow);
+        setSumUpPayment({ checkoutId: result.checkoutId, orderId });
+        setSumUpPaymentError(null);
+        return;
+      }
+      if (result.url) {
+        let popupOpened = false;
+        try {
+          if (checkoutWindow && !checkoutWindow.closed) {
+            checkoutWindow.location.replace(result.url);
+            popupOpened = true;
+          }
+        } catch {
+          // Fall through to the same-tab redirect if the WindowProxy was revoked.
+        }
+        if (!popupOpened) window.location.assign(result.url);
+        return;
+      }
+      throw new Error('payment_session_unavailable');
+    } catch (resumeError) {
+      closePaymentWindow(checkoutWindow);
+      const code = getAssistedApplicationPaymentRecoveryErrorCode(resumeError);
+      const messageKey = code === 'job_unavailable'
+        ? 'jobBoard.assisted.paymentJobUnavailable'
+        : code === 'payment_processing'
+          ? 'jobBoard.assisted.paymentProcessing'
+          : 'jobBoard.assisted.paymentResumeError';
+      setError(t(messageKey));
+      trackAssistedApplicationEvent('checkout_failed', {
+        ...orderEventContext(order),
+        reason: code,
+      });
+    } finally {
+      setPaymentResumeBusy(false);
+    }
+  };
+
+  const handleSumUpResponse = (type: string) => {
+    if (type === 'success') {
+      setSumUpPaymentBusy(true);
+      setSumUpPaymentError(null);
+      // The widget callback is not the source of truth: the webhook updates
+      // Firestore, then the existing order poll renders the paid state.
+      setSumUpPayment(null);
+      setSumUpPaymentBusy(false);
+      void refreshOrder();
+      return;
+    }
+    if (type === 'fail' || type === 'error') {
+      setSumUpPaymentBusy(false);
+      setSumUpPaymentError(t('jobBoard.assisted.paymentResumeError'));
+      setError(t('jobBoard.assisted.paymentResumeError'));
+    }
+  };
+
+  const closeSumUpPayment = () => {
+    if (sumUpPaymentBusy) return;
+    setSumUpPayment(null);
+    setSumUpPaymentError(null);
+  };
 
   const handleConsentChange = (checked: boolean) => {
     if (!checked) {
@@ -334,6 +474,36 @@ export default function AssistedApplicationUpload({
     }
   };
 
+  const handleOpenCv = async () => {
+    if (!cvStorageKey || openingCv) return;
+    const previewWindow = window.open('about:blank', '_blank');
+    if (!previewWindow) {
+      setError(t('jobBoard.assisted.openCvError'));
+      return;
+    }
+    previewWindow.opener = null;
+    setOpeningCv(true);
+    setError(null);
+    try {
+      const [{ getApp }, authModule] = await Promise.all([
+        import('@/services/firebase'),
+        import('firebase/auth'),
+      ]);
+      const auth = authModule.getAuth(await getApp());
+      if (typeof auth.authStateReady === 'function') await auth.authStateReady();
+      const currentUser = auth.currentUser || authUser;
+      if (!currentUser?.getIdToken) throw new Error('assisted_application_auth_required');
+      const { getAssistedApplicationCvUrl } = await import('@/services/assistedApplicationCvUrl');
+      const url = await getAssistedApplicationCvUrl(orderId, currentUser);
+      previewWindow.location.replace(url);
+    } catch {
+      previewWindow.close();
+      setError(t('jobBoard.assisted.openCvError'));
+    } finally {
+      setOpeningCv(false);
+    }
+  };
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (!order || order.paymentStatus !== 'paid' || !consentPersisted || !cvStorageKey) return;
@@ -365,6 +535,31 @@ export default function AssistedApplicationUpload({
   };
 
   const jobTitle = order?.jobTitle || t('jobBoard.assisted.jobFallback');
+  const displayedCvFileName = cvFileName || fileNameFromStorageKey(cvStorageKey, orderId);
+  const uploadedCvCard = cvStorageKey ? (
+    <div className="rounded-xl border border-success-border bg-success-subtle p-4">
+      <div role="status" className="flex items-start gap-3">
+        <FileText className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-heading">{t('jobBoard.assisted.fileSelected')}</p>
+          <p className="mt-1 break-all text-sm font-semibold text-heading">{displayedCvFileName || t('jobBoard.assisted.fileNameUnavailable')}</p>
+          <p className="mt-2 flex items-center gap-1.5 text-xs leading-5 text-subtle">
+            <LockKeyhole className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+            {t('jobBoard.assisted.fileHint')}
+          </p>
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={() => { void handleOpenCv(); }}
+        disabled={openingCv}
+        className="mt-3 inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg border border-edge bg-surface px-4 py-2 text-sm font-semibold text-body hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-wait disabled:opacity-60"
+      >
+        {openingCv ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
+        {t(openingCv ? 'jobBoard.assisted.openingCv' : 'jobBoard.assisted.openCv')}
+      </button>
+    </div>
+  ) : null;
 
   // The order and the candidate's CV: never in a session replay.
   return (
@@ -398,9 +593,21 @@ export default function AssistedApplicationUpload({
         )}
 
         {status === 'pending' && (
-          <div className="flex items-start gap-3 rounded-xl border border-warning-border bg-warning-subtle/60 p-4" role="status">
+          <div className="flex flex-col gap-4 rounded-xl border border-warning-border bg-warning-subtle/60 p-4 sm:flex-row sm:items-start" role="status">
             <Loader2 className="mt-0.5 h-4 w-4 shrink-0 animate-spin text-warning" aria-hidden="true" />
-            <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.pending')}</p>
+            <div className="min-w-0 flex-1 space-y-3">
+              <p className="text-sm leading-relaxed text-body">{t('jobBoard.assisted.pending')}</p>
+              <button
+                type="button"
+                onClick={() => { void handleResumePayment(); }}
+                disabled={paymentResumeBusy}
+                aria-busy={paymentResumeBusy}
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-on-accent hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:cursor-wait disabled:opacity-60"
+              >
+                {paymentResumeBusy ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> : <CreditCard className="h-4 w-4" aria-hidden="true" />}
+                {t(paymentResumeBusy ? 'jobBoard.assisted.pendingStarting' : 'jobBoard.assisted.pendingCta')}
+              </button>
+            </div>
           </div>
         )}
 
@@ -412,30 +619,112 @@ export default function AssistedApplicationUpload({
             </div>
 
             {status === 'submitted' ? (
-              <div className="space-y-3" role="status">
-                <h2 className="text-lg font-bold text-heading">{t('jobBoard.assisted.submittedTitle')}</h2>
-                <p className="text-sm leading-relaxed text-subtle">{t('jobBoard.assisted.submittedBody')}</p>
-              </div>
+              <>
+                <div className="space-y-3" role="status">
+                  <h2 className="text-lg font-bold text-heading">{t('jobBoard.assisted.submittedTitle')}</h2>
+                  <p className="text-sm leading-relaxed text-subtle">{t('jobBoard.assisted.submittedBody')}</p>
+                </div>
+                {uploadedCvCard}
+              </>
             ) : (
               <form className="space-y-5" onSubmit={handleSubmit}>
-                <div className="rounded-xl border border-info-border bg-info-subtle/60 p-4 text-sm leading-relaxed text-body">
-                  <div className="flex items-start gap-2">
-                    <Shield className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
-                    <p>{t('jobBoard.assisted.privacyNotice')}</p>
-                  </div>
-                </div>
+                <details className="rounded-xl border border-info-border bg-info-subtle/60 text-sm leading-relaxed text-body">
+                  <summary className="cursor-pointer rounded-xl p-4 font-semibold text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
+                    {t('jobBoard.assisted.privacyNoticeSummary')}
+                  </summary>
+                  <p className="px-4 pb-4">{t('jobBoard.assisted.privacyNotice')}</p>
+                </details>
 
                 {consentPersisted ? (
-                  <div className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm text-body">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
-                      <div>
-                        <p className="font-semibold text-heading">{t('jobBoard.assisted.consentRecorded')}</p>
-                        <p className="mt-1 text-xs leading-5">{t('jobBoard.assisted.consentCvLabel')} {cvFileName || (cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta'))}</p>
+                  <>
+                    <div role="status" className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm text-body">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-success" aria-hidden="true" />
+                        <div>
+                          <p className="font-semibold text-heading">{t('jobBoard.assisted.consentRecorded')}</p>
+                        </div>
                       </div>
+                      <AssistedApplicationLegalLinks className="mt-3 block pl-8 text-xs text-muted" />
                     </div>
-                    <AssistedApplicationLegalLinks className="mt-3 block pl-8 text-xs text-muted" />
-                  </div>
+
+                    <section className="space-y-4" aria-labelledby="assisted-application-upload-heading">
+                      <h2 id="assisted-application-upload-heading" className="text-lg font-semibold text-heading">
+                        {t('jobBoard.assisted.uploadStepTitle')}
+                      </h2>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <label className="text-sm font-medium text-body">
+                          {t('jobBoard.assisted.name')}
+                          <input value={name} onChange={(event) => { setName(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="name" required />
+                        </label>
+                        <label className="text-sm font-medium text-body">
+                          {t('jobBoard.assisted.email')}
+                          <input type="email" value={email} onChange={(event) => { setEmail(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="email" required />
+                        </label>
+                      </div>
+                      <label className="block text-sm font-medium text-body">
+                        {t('jobBoard.assisted.phone')}
+                        <input value={phone} onChange={(event) => { setPhone(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" />
+                      </label>
+
+                      <div className="flex flex-wrap items-center gap-3">
+                        <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">
+                          {consentSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                          {t('jobBoard.assisted.saveData')}
+                        </button>
+                        {detailsSaved && <span className="inline-flex items-center gap-1 text-xs font-medium text-success"><CheckCircle2 size={14} aria-hidden="true" />{t('jobBoard.assisted.dataSaved')}</span>}
+                      </div>
+
+                      {cvStorageKey ? uploadedCvCard : (
+                        <div className="rounded-xl border border-dashed border-accent-border p-4">
+                          <>
+                            <button
+                              type="button"
+                              onClick={() => cvInputRef.current?.click()}
+                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                              aria-controls="assisted-application-cv-input"
+                              aria-describedby="assisted-application-cv-hint"
+                              className="flex min-h-[44px] w-full items-center gap-3 text-left text-sm font-semibold text-accent disabled:cursor-not-allowed disabled:text-muted"
+                            >
+                              <UploadCloud className="h-5 w-5 shrink-0" aria-hidden="true" />
+                              <span>{t('jobBoard.assisted.fileCta')}</span>
+                            </button>
+                            <input
+                              ref={cvInputRef}
+                              id="assisted-application-cv-input"
+                              type="file"
+                              accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                              aria-hidden="true"
+                              tabIndex={-1}
+                              onChange={(event) => {
+                                const file = event.target.files?.[0];
+                                event.target.value = '';
+                                void handleFileChange(file);
+                              }}
+                              className="sr-only"
+                            />
+                            <p id="assisted-application-cv-hint" className="mt-2 flex items-center gap-1.5 text-xs text-muted">
+                              <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
+                              {t('jobBoard.assisted.fileHint')}
+                            </p>
+                            {uploading && <p className="mt-2 text-xs text-accent">{t('jobBoard.assisted.uploading')}</p>}
+                          </>
+                        </div>
+                      )}
+                      <p className="text-xs leading-relaxed text-subtle" data-testid="assisted-application-email-alternative">
+                        {t('jobBoard.assisted.emailAlternative')}
+                      </p>
+
+                      <button
+                        type="submit"
+                        disabled={!consentPersisted || !cvStorageKey || consentSaving || uploading || submitBusy}
+                        className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        {submitBusy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
+                        {t('jobBoard.assisted.submit')}
+                      </button>
+                    </section>
+                  </>
                 ) : (
                   <>
                     <label className="flex items-start gap-3 rounded-xl border border-edge bg-surface-alt p-4 text-sm text-body">
@@ -460,60 +749,6 @@ export default function AssistedApplicationUpload({
                     </button>
                   </>
                 )}
-
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <label className="text-sm font-medium text-body">
-                    {t('jobBoard.assisted.name')}
-                    <input value={name} onChange={(event) => { setName(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="name" required />
-                  </label>
-                  <label className="text-sm font-medium text-body">
-                    {t('jobBoard.assisted.email')}
-                    <input type="email" value={email} onChange={(event) => { setEmail(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="email" required />
-                  </label>
-                </div>
-                <label className="block text-sm font-medium text-body">
-                  {t('jobBoard.assisted.phone')}
-                  <input value={phone} onChange={(event) => { setPhone(event.target.value); setDetailsSaved(false); }} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" />
-                </label>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">
-                    {consentSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-                    {t('jobBoard.assisted.saveData')}
-                  </button>
-                  {detailsSaved && <span className="inline-flex items-center gap-1 text-xs font-medium text-success"><CheckCircle2 size={14} aria-hidden="true" />{t('jobBoard.assisted.dataSaved')}</span>}
-                </div>
-
-                <div className="rounded-xl border border-dashed border-accent-border p-4">
-                  <label className={`flex cursor-pointer items-center gap-3 text-sm font-semibold ${consentPersisted ? 'text-accent' : 'cursor-not-allowed text-muted'}`}>
-                    <UploadCloud className="h-5 w-5 shrink-0" aria-hidden="true" />
-                    <span>{cvStorageKey ? t('jobBoard.assisted.fileSelected') : t('jobBoard.assisted.fileCta')}</span>
-                    <input
-                      type="file"
-                      accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                      disabled={!consent || Boolean(cvStorageKey) || !consentPersisted || consentSaving || uploading || submitBusy}
-                      onChange={(event) => { void handleFileChange(event.target.files?.[0]); }}
-                      className="sr-only"
-                    />
-                  </label>
-                  <p className="mt-2 flex items-center gap-1.5 text-xs text-muted">
-                    <LockKeyhole className="h-3.5 w-3.5" aria-hidden="true" />
-                    {t('jobBoard.assisted.fileHint')}
-                  </p>
-                  {uploading && <p className="mt-2 text-xs text-accent">{t('jobBoard.assisted.uploading')}</p>}
-                </div>
-                <p className="text-xs leading-relaxed text-subtle" data-testid="assisted-application-email-alternative">
-                  {t('jobBoard.assisted.emailAlternative')}
-                </p>
-
-                <button
-                  type="submit"
-                  disabled={!consentPersisted || !cvStorageKey || consentSaving || uploading || submitBusy}
-                  className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  {submitBusy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-                  {t('jobBoard.assisted.submit')}
-                </button>
               </form>
             )}
           </>
@@ -526,6 +761,22 @@ export default function AssistedApplicationUpload({
           </div>
         )}
       </section>
+      {sumUpPayment && (
+        <SumUpPaymentWidget
+          checkoutId={sumUpPayment.checkoutId}
+          locale={locale}
+          amountCents={ASSISTED_APPLICATION_PRICE_EUR_CENTS}
+          title={t('jobBoard.assisted.paymentTitle')}
+          onResponse={handleSumUpResponse}
+          onError={() => {
+            setSumUpPaymentError(t('jobBoard.assisted.paymentResumeError'));
+            setError(t('jobBoard.assisted.paymentResumeError'));
+          }}
+          onClose={closeSumUpPayment}
+          error={sumUpPaymentError}
+          busy={sumUpPaymentBusy}
+        />
+      )}
     </main>
   );
 }

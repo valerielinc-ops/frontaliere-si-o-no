@@ -74,6 +74,7 @@ import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.
 import { getCantonPostalFallback, getDefaultCantonLocationFallback } from './canton-postal-fallback.mjs';
 import { officialLocalityPostalCode } from './swiss-locality-directory.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -193,15 +194,7 @@ export function isTrustedDomain(rawUrl = '') {
  */
 export function parseMigrolinoJsonLd(html = '') {
   if (!html || typeof html !== 'string') return null;
-  const m = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i);
-  if (!m) return null;
-  try {
-    const data = JSON.parse(m[1]);
-    if (!data || data['@type'] !== 'JobPosting') return null;
-    return data;
-  } catch {
-    return null;
-  }
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**
@@ -446,12 +439,14 @@ export async function fetchAllMigrolinoJobs() {
       detailHtml = await fetchHtml(publicUrl, { timeoutMs });
     } catch (err) {
       console.warn(`  ⚠️ Detail fetch failed for ${publicUrl}: ${err?.message || err}`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
 
     const parsed = parseMigrolinoDetail(detailHtml, publicUrl);
     if (!parsed.title) {
       console.warn(`  ⚠️ Could not parse JobPosting JSON-LD for ${publicUrl} — skipping.`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
     const country = normalize(parsed.country).toUpperCase();
@@ -466,6 +461,7 @@ export async function fetchAllMigrolinoJobs() {
         ? `foreign country: ${parsed.country}`
         : 'unresolved Swiss locality';
       console.warn(`  ⏭️ Skipped ${reason} for ${publicUrl}`);
+      await new Promise((r) => setTimeout(r, 200));
       continue;
     }
 

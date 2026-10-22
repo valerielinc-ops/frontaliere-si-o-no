@@ -3,16 +3,16 @@
  *
  * Sibling of {@link professionLandingsLinksPlugin} / {@link salaryHubIndexLinkPlugin}.
  *
- * After {@link jobSectorPagesPlugin} writes the 49 sector-hub landings (×4
+ * After {@link jobSectorPagesPlugin} writes the configured sector-hub landings (×4
  * locales) and {@link staticPagesPlugin} writes the 4 job-board root hubs into
  * `dist/`, this plugin patches each root hub with a per-locale `<aside>` that
  * links the ~15 highest-demand sector hubs.
  *
  * Why this matters (2026-06 GSC/GA4 data pack):
- *   - The 3 winner sector hubs (infermieri / case-anziani / educatori) pull
- *     582 clicks/28d, but only 12 of the 49 sector hubs get ANY GSC
- *     impressions. The other ~37 are live (HTTP 200) but orphaned — the root
- *     hub links the sector INDEX once and 0 of the 49 sector-hub canonicals.
+ *   - In that 49-hub snapshot, the 3 winner sector hubs (infermieri /
+ *     case-anziani / educatori) pulled 582 clicks/28d, while only 12 hubs got
+ *     GSC impressions. Many others were live (HTTP 200) but orphaned — the
+ *     root hub linked the sector INDEX once and no sector-hub canonicals.
  *   - This single edge per hub surfaces the strongest sectors at depth 2 from
  *     the homepage's most-crawled page, spreading authority to the orphans.
  *
@@ -198,7 +198,7 @@ export function sectorHubLinksPlugin(rootDir: string): Plugin {
       if (!fs.existsSync(distDir)) return;
 
       // Wait for both producers. staticPagesFlushed guarantees the 4 root-hub
-      // HTML files are fully written; sectorPagesFlushed guarantees the 49
+      // HTML files are fully written; sectorPagesFlushed guarantees the configured
       // sector-hub landings exist so the injected anchors resolve to real
       // pages (not future-404s).
       await Promise.all([staticPagesFlushed, sectorPagesFlushed]);
@@ -226,8 +226,8 @@ export function sectorHubLinksPlugin(rootDir: string): Plugin {
       );
 
       // Hard-fail on any non-idempotent miss. A successful build MUST inject the
-      // block into every emitted hub — otherwise the ~37 orphaned sector hubs
-      // stay unreachable from the most-crawled page and keep their ~0 internal
+      // block into every emitted hub — otherwise orphaned sector hubs stay
+      // unreachable from the most-crawled page and keep their ~0 internal
       // links (no GSC impressions).
       const failures = [...missingFile, ...noAnchor];
       if (failures.length > 0) {

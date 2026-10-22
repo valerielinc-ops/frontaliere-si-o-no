@@ -39,7 +39,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
-import { truncateHeadline } from './shared/titleSuffix';
+import { META_DESCRIPTION_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
 import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
@@ -82,7 +82,8 @@ import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { hasSalaryIntent } from '../services/jobSearchIntent';
 import { buildSalaryAnswer, searchSalaryMedian } from './shared/searchSalaryAnswer';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
+import { AGGREGATE_KEY, resolveCantonSection } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
@@ -504,9 +505,9 @@ function buildEditorialDescription(query: string, locale: OrphanLandingLocale, e
     de: `${q} — `,
     fr: `${q} — `,
   };
-  // Word-aware, like the shared meta clamp: a raw `.slice(0, 155)` shipped the
-  // snippet cut mid-word (issue 11198 sibling of the cluster description fix).
-  return truncateHeadline(prefix[locale] + editorial, 155);
+  // Keep the prebuilt snippet within the same budget used by the final meta
+  // clamp, so this source does not need a second truncation during rendering.
+  return truncateHeadline(prefix[locale] + editorial, META_DESCRIPTION_MAX_CHARS);
 }
 
 async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): Promise<Record<string, string>> {
@@ -525,11 +526,9 @@ async function loadLocaleStrings(rootDir: string, locale: OrphanLandingLocale): 
 }
 
 function jobLocalizedUrl(job: OrphanCountableJob, locale: OrphanLandingLocale): string {
-  const prefix = ORPHAN_LANDING_LOCALE_PREFIX[locale];
-  const section = resolveCantonSection(locale, resolveJobCanton(job));
-  const slug = job.slugByLocale?.[locale] || job.slug || '';
-  const rel = `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
-  return `${BASE_URL}${rel}`;
+  const localizedSlug = String(job.slugByLocale?.[locale] || '').trim();
+  const slug = localizedSlug || String(job.slug || '').trim();
+  return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
 }
 
 function jobLocalizedTitle(job: OrphanCountableJob, locale: OrphanLandingLocale): string {

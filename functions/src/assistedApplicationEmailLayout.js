@@ -24,6 +24,7 @@ const ORANGE_BORDER = '#fed7aa';
 const BRAND_DARK = '#0f172a';
 const LIGHT_BG = '#f1f5f9';
 const CARD_BG = '#f8fafc';
+const DARK_CARD = '#1e293b';
 const WHITE = '#ffffff';
 const TEXT = '#1e293b';
 const MUTED = '#64748b';
@@ -58,14 +59,152 @@ export function brandLink(href, label) {
   return `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer" style="color:${ORANGE_TEXT};font-weight:600;text-decoration:underline;">${esc(label)}</a>`;
 }
 
-/** The job the order is about: title, company and the ad link. */
-export function brandJobCard({ title, company, url = '', linkLabel = '' }) {
-  return `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:4px 0 18px;">`
-    + `<tr><td style="background:${CARD_BG};border:1px solid #e2e8f0;border-left:4px solid ${BRAND_ORANGE};border-radius:10px;padding:14px 16px;">`
-    + `<div style="font-size:16px;font-weight:800;color:${BRAND_DARK};line-height:1.35;">${esc(title)}</div>`
-    + `<div style="font-size:14px;color:${MUTED};margin-top:3px;">${esc(company)}</div>`
-    + (url ? `<div style="margin-top:10px;font-size:13px;">${brandLink(url, `${linkLabel} →`)}</div>` : '')
+function safeHttpsImageUrl(value) {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' ? url.toString() : '';
+  } catch {
+    return '';
+  }
+}
+
+const CONTRACT_LABELS = {
+  it: { part: 'Part-time', intern: 'Stage', appr: 'Apprendistato', temp: 'Tempo determinato', full: 'Tempo pieno', default: 'Annuncio attivo' },
+  en: { part: 'Part-time', intern: 'Internship', appr: 'Apprenticeship', temp: 'Fixed-term', full: 'Full-time', default: 'Active listing' },
+  de: { part: 'Teilzeit', intern: 'Praktikum', appr: 'Lehrstelle', temp: 'Befristet', full: 'Vollzeit', default: 'Aktive Stelle' },
+  fr: { part: 'Temps partiel', intern: 'Stage', appr: 'Apprentissage', temp: 'Durée déterminée', full: 'Temps plein', default: 'Annonce active' },
+};
+
+const JOB_CARD_LABELS = {
+  it: { new: '✨ NUOVA', posted: 'Pubblicato il', view: 'Vedi annuncio →' },
+  en: { new: '✨ NEW', posted: 'Posted on', view: 'View listing →' },
+  de: { new: '✨ NEU', posted: 'Veröffentlicht am', view: 'Angebot ansehen →' },
+  fr: { new: '✨ NOUVELLE', posted: 'Publié le', view: "Voir l'offre →" },
+};
+
+/** Same contract labels used by the Job Alert and Saved Job renderers. */
+export function brandNormalizeContract(contract, locale = 'it') {
+  const labels = CONTRACT_LABELS[locale] || CONTRACT_LABELS.it;
+  const value = String(contract || '').toLowerCase();
+  if (value.includes('part')) return labels.part;
+  if (/\bintern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])/.test(value)) return labels.intern;
+  if (value.includes('appr')) return labels.appr;
+  if (value.includes('temp')) return labels.temp;
+  if (value.includes('full')) return labels.full;
+  return labels.default;
+}
+
+/** Same compact salary label used by the Job Alert and Saved Job renderers. */
+export function brandFormatSalary(job, locale = 'it') {
+  const min = Number(job?.salaryMin) || Number(job?.baseSalary?.value?.minValue) || 0;
+  const max = Number(job?.salaryMax) || Number(job?.baseSalary?.value?.maxValue) || 0;
+  if (!min && !max) return null;
+  // `currency` on an assisted order is the payment currency (EUR). Salary
+  // metadata uses its own field so the job chip can never say «EUR» by mistake.
+  const currency = String(job?.salaryCurrency || job?.baseSalary?.currency || '').toUpperCase() || 'CHF';
+  const unit = String(job?.baseSalary?.value?.unitText || 'YEAR').toUpperCase();
+  const periodSuffix = {
+    it: { YEAR: '/anno', MONTH: '/mese', WEEK: '/settimana', HOUR: '/ora', DAY: '/giorno' },
+    en: { YEAR: '/year', MONTH: '/month', WEEK: '/week', HOUR: '/hour', DAY: '/day' },
+    de: { YEAR: '/Jahr', MONTH: '/Monat', WEEK: '/Woche', HOUR: '/Std.', DAY: '/Tag' },
+    fr: { YEAR: '/an', MONTH: '/mois', WEEK: '/semaine', HOUR: '/heure', DAY: '/jour' },
+  };
+  const suffix = (periodSuffix[locale] || periodSuffix.it)[unit] || '';
+  const compact = (value) => {
+    if (!value) return '';
+    if (value >= 1000) {
+      const thousands = value / 1000;
+      return `${Number.isInteger(thousands) ? thousands.toFixed(0) : thousands.toFixed(1).replace(/\.0$/, '')}K`;
+    }
+    return String(value);
+  };
+  const range = min && max && min !== max
+    ? `${compact(min)}–${compact(max)}`
+    : compact(min || max);
+  return `${currency} ${range}${suffix}`;
+}
+
+/** Same pill chrome used by Job Alert and Saved Job cards. */
+export function brandEmailTagChip(label, palette = 'orange') {
+  const bg = palette === 'green' ? 'rgba(34,197,94,0.2)' : palette === 'blue' ? 'rgba(59,130,246,0.18)' : 'rgba(249,115,22,0.15)';
+  const color = palette === 'green' ? '#86efac' : palette === 'blue' ? '#93c5fd' : '#fdba74';
+  return `<span style="font-size:10px;background:${bg};color:${color};padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${label}</span>`;
+}
+
+function formatPostedDate(value, locale) {
+  const millis = Date.parse(String(value || ''));
+  if (!Number.isFinite(millis)) return '';
+  const localeTag = { it: 'it-CH', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' }[locale] || 'it-CH';
+  try {
+    return new Date(millis).toLocaleDateString(localeTag, { day: 'numeric', month: 'short', year: 'numeric' });
+  } catch {
+    return '';
+  }
+}
+
+/** The job the order is about: the same logo/meta/badge treatment used by job alerts. */
+export function brandJobCard({
+  title,
+  company,
+  location = '',
+  canton = '',
+  logoUrl = '',
+  contract = '',
+  salaryMin,
+  salaryMax,
+  salaryCurrency = '',
+  baseSalary = null,
+  firstSeenAt = '',
+  postedDate = '',
+  sector = '',
+  category = '',
+  locale = 'it',
+  newLabel = '',
+  postedLabel = '',
+  url = '',
+  linkLabel = '',
+}) {
+  const safeLogoUrl = safeHttpsImageUrl(logoUrl);
+  const companyName = String(company || '').trim();
+  const initial = companyName.charAt(0).toUpperCase() || '?';
+  const avatar = safeLogoUrl
+    ? `<img src="${esc(safeLogoUrl)}" alt="${esc(companyName)}" width="44" height="44" style="display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;">`
+    : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${esc(initial)}</div>`;
+  const locationLabel = String(location || canton || '').trim();
+  const meta = `${companyName}${locationLabel ? ` · ${locationLabel}` : ''}`;
+  const tags = [];
+  const cardLabels = JOB_CARD_LABELS[locale] || JOB_CARD_LABELS.it;
+  const firstSeen = Date.parse(String(firstSeenAt || ''));
+  if (Number.isFinite(firstSeen) && Date.now() - firstSeen < 48 * 60 * 60 * 1000) {
+    tags.push(brandEmailTagChip(newLabel || cardLabels.new, 'green'));
+  }
+  const salaryLabel = brandFormatSalary({ salaryMin, salaryMax, salaryCurrency, baseSalary }, locale);
+  if (salaryLabel) tags.push(brandEmailTagChip(esc(salaryLabel), 'blue'));
+  if (contract) tags.push(brandEmailTagChip(esc(brandNormalizeContract(contract, locale))));
+  if (locationLabel) tags.push(brandEmailTagChip(esc(locationLabel)));
+  const badgesHtml = tags.length ? `<div style="margin-top:6px;">${tags.join(' ')}</div>` : '';
+  const dateLabel = formatPostedDate(postedDate, locale);
+  const detailParts = [];
+  if (dateLabel) detailParts.push(`${esc(postedLabel || cardLabels.posted)} ${esc(dateLabel)}`);
+  const sectorLabel = String(sector || category || '').trim();
+  if (sectorLabel) detailParts.push(esc(sectorLabel));
+  const detailHtml = detailParts.length
+    ? `<div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:6px;">${detailParts.join(' &middot; ')}</div>`
+    : '';
+  const viewLabel = String(linkLabel || cardLabels.view || 'Vedi annuncio →').trim();
+  const displayLinkLabel = /→$/.test(viewLabel) ? viewLabel : `${viewLabel} →`;
+  const card = `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="background:${DARK_CARD};border-radius:12px;">`
+    + '<tr>'
+    + `<td width="58" style="padding:16px 0 16px 18px;vertical-align:top;">${avatar}</td>`
+    + `<td style="padding:16px 18px 16px 14px;vertical-align:top;">`
+    + `<div style="font-size:15px;font-weight:700;color:#f1f5f9;">${esc(title)}</div>`
+    + `<div style="font-size:13px;color:${MUTED_ON_DARK};margin-top:2px;">${esc(meta)}</div>`
+    + badgesHtml
+    + detailHtml
+    + (url ? `<div style="margin-top:8px;font-size:13px;color:${BRAND_ORANGE};font-weight:600;"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer" style="color:${BRAND_ORANGE};text-decoration:none;font-weight:600;">${esc(displayLinkLabel)}</a></div>` : '')
     + '</td></tr></table>';
+  return `<table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="margin:4px 0 18px;">`
+    + `<tr><td style="padding:0 0 10px;">${card}</td></tr></table>`;
 }
 
 /** Numbered checklist with orange-tinted counters (email-safe table layout). */

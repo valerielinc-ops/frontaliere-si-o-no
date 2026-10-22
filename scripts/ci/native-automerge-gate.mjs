@@ -979,6 +979,44 @@ function loadInJobRun(repo, head, checkRuns) {
 const DISABLE_AUTO_MERGE_MUTATION =
   'mutation($pullRequestId:ID!){disablePullRequestAutoMerge(input:{pullRequestId:$pullRequestId}){pullRequest{number autoMergeRequest{enabledAt}}}}';
 
+function nativeAutoMergeRevocationSatisfied(pr) {
+  if (!pr || !['OPEN', 'CLOSED', 'MERGED'].includes(pr.state)) return false;
+  if (pr.state !== 'OPEN') return true;
+  return Object.hasOwn(pr, 'autoMergeRequest') && pr.autoMergeRequest === null;
+}
+
+/**
+ * Revoke an existing opt-in without turning a concurrent merge/disable into a
+ * failed workflow. A failed mutation is considered complete only after a
+ * fresh read proves the PR is closed/merged or has no native request; an open
+ * PR with an active or unverifiable request remains fail-closed.
+ */
+export function revokeNativeAutoMergeSafely({ readPullRequest, disableAutoMerge } = {}) {
+  if (typeof readPullRequest !== 'function' || typeof disableAutoMerge !== 'function') {
+    throw new TypeError('lettura PR e revoca auto-merge devono essere funzioni');
+  }
+
+  const current = readPullRequest();
+  if (nativeAutoMergeRevocationSatisfied(current)) return 'already-satisfied';
+
+  try {
+    disableAutoMerge(current);
+    return 'revoked';
+  } catch (error) {
+    let after;
+    try {
+      after = readPullRequest();
+    } catch (verificationError) {
+      throw new Error(
+        `revoca auto-merge non confermata; stato PR non verificabile dopo l'errore: ${String(verificationError).slice(0, 180)}`,
+        { cause: error },
+      );
+    }
+    if (nativeAutoMergeRevocationSatisfied(after)) return 'already-satisfied';
+    throw error;
+  }
+}
+
 function disableNativeAutoMerge(repo, pr) {
   if (!pr?.id) throw new Error('node ID della PR mancante');
   const response = ghJsonOnce([
@@ -997,8 +1035,17 @@ function disableNativeAutoMerge(repo, pr) {
 
 function revokeExistingAutoMerge(repo, pr, reason) {
   try {
-    disableNativeAutoMerge(repo, pr);
-    console.log(`Native auto-merge guard: opt-in revocato per PR #${pr.number} — ${reason}`);
+    const outcome = revokeNativeAutoMergeSafely({
+      readPullRequest: () => ghJson([
+        'pr', 'view', pr.number, '--repo', repo, '--json',
+        'number,id,state,autoMergeRequest',
+      ]),
+      disableAutoMerge: (current) => disableNativeAutoMerge(repo, current),
+    });
+    const message = outcome === 'revoked'
+      ? 'opt-in revocato'
+      : 'revoca già soddisfatta (PR chiusa o auto-merge assente)';
+    console.log(`Native auto-merge guard: ${message} per PR #${pr.number} — ${reason}`);
   } catch (error) {
     console.error(`::error::native auto-merge guard: revoca opt-in fallita per PR #${pr.number}: ${String(error).slice(0, 240)}`);
     process.exitCode = 1;
@@ -1338,6 +1385,94 @@ function concurrentOptInSucceeded(repo, prNumber, expectedHead, expectedBodyRevi
 }
 
 /**
+ * Classify the read immediately after the native mutation. GitHub can expose
+ * the merged state before the source head or the comment-backed lease has
+ * reached every read replica; only that incomplete identity is retryable.
+ * An open PR with a visible native auto-merge request is the normal successful
+ * result of `gh pr merge --auto`. A changed review epoch, released lease, or
+ * different head remains a hard failure because the mutation cannot be undone
+ * safely.
+ */
+export function postMutationStateDecision({
+  observed,
+  observedRevision,
+  expectedHead,
+  expectedBodyRevision,
+  expectedLeaseId,
+  barrier,
+  lease,
+} = {}) {
+  const sameHead = observed?.headRefOid === expectedHead;
+  const headUnavailable = typeof observed?.headRefOid !== 'string'
+    || observed.headRefOid.length === 0;
+  const sameRevision = observedRevision === expectedBodyRevision;
+  const leaseMatches = lease?.allow === true && lease.leaseId === expectedLeaseId;
+  const autoMergeEnabled = observed?.autoMergeRequest !== null
+    && typeof observed?.autoMergeRequest === 'object'
+    && !Array.isArray(observed.autoMergeRequest);
+
+  if (observed?.state === 'MERGED'
+      && sameHead
+      && sameRevision
+      && leaseMatches) {
+    return { allow: true, retryable: false, reason: 'PR merged con body/HEAD/lease CAS verificati' };
+  }
+
+  // The mutation may complete the merge before the head ref or the newly
+  // written lease is visible to the next API read. Retry only an absent
+  // identity/lease; a different identity is evidence of a real race.
+  const leaseIsNotVisible = lease?.reason === 'lease native auto-merge assente'
+    && lease.status === null
+    && lease.leaseId === null;
+  if (observed?.state === 'MERGED'
+      && sameRevision
+      && (headUnavailable || sameHead)
+      && (headUnavailable || leaseIsNotVisible)) {
+    return {
+      allow: false,
+      retryable: true,
+      reason: 'stato MERGED osservato prima della propagazione di HEAD/lease',
+    };
+  }
+
+  if (observed?.state === 'OPEN'
+      && observed.isDraft === false
+      && observed.baseRefName === 'main'
+      && sameHead
+      && sameRevision
+      && autoMergeEnabled
+      && barrier?.allow === true
+      && leaseMatches) {
+    return {
+      allow: true,
+      retryable: false,
+      reason: 'native auto-merge request attivo sulla HEAD corrente',
+    };
+  }
+
+  if (observed?.state === 'OPEN'
+      && observed.isDraft === false
+      && observed.baseRefName === 'main'
+      && sameHead
+      && sameRevision
+      && observed.autoMergeRequest === null
+      && barrier?.allow === true
+      && leaseMatches) {
+    return {
+      allow: false,
+      retryable: true,
+      reason: 'opt-in non ancora visibile dopo la mutation',
+    };
+  }
+
+  return {
+    allow: false,
+    retryable: false,
+    reason: 'body/HEAD/lease diversa dal CAS finale',
+  };
+}
+
+/**
  * Close the post-mutation TOCTOU window. `--match-head-commit` binds only the
  * commit; a body edit can race the mutation and revoke the review epoch while
  * GitHub is accepting the native request. Re-read the body/barrier and revoke
@@ -1347,39 +1482,44 @@ function concurrentOptInSucceeded(repo, prNumber, expectedHead, expectedBodyRevi
 function verifyPostMutationState(repo, prNumber, expectedHead, expectedBodyRevision, expectedLeaseId) {
   let observed;
   try {
-    observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
-      'number,id,body,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
-    const observedRevision = reviewInputRevisionFromBody(observed.body);
-    const lease = loadNativeAutoMergeLease(repo, prNumber, observed.headRefOid, observedRevision);
-    if (observed.state === 'MERGED') {
-      const safe = observed.headRefOid === expectedHead
-        && observedRevision === expectedBodyRevision
-        && lease.allow
-        && lease.leaseId === expectedLeaseId;
-      if (!safe) {
-        console.error('::error::native auto-merge guard: PR merged ma body/HEAD/lease diversa dal CAS finale');
-        process.exitCode = 1;
-      }
-      return safe;
-    }
-    const barrier = loadBodyRecoveryBarrier(
-      repo,
-      prNumber,
-      observed.headRefOid,
-      observedRevision,
-    );
-    const safe = observed.state === 'OPEN'
-      && observed.isDraft === false
-      && observed.baseRefName === 'main'
-      && observed.headRefOid === expectedHead
-      && observedRevision === expectedBodyRevision
-      && observed.autoMergeRequest !== null
-      && barrier.allow
-      && lease.allow
-      && lease.leaseId === expectedLeaseId;
-    if (safe) return true;
-    if (observed.autoMergeRequest !== null) {
-      revokeExistingAutoMerge(repo, observed, `body/HEAD/barrier/lease cambiati dopo la mutation: ${barrier.reason}; ${lease.reason}`);
+    const snapshot = withTransientGithubReadRetry(() => {
+      observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+        'number,id,body,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+      const observedRevision = reviewInputRevisionFromBody(observed.body);
+      const lease = loadNativeAutoMergeLease(repo, prNumber, observed.headRefOid, observedRevision);
+      const barrier = observed.state === 'MERGED'
+        ? null
+        : loadBodyRecoveryBarrier(
+          repo,
+          prNumber,
+          observed.headRefOid,
+          observedRevision,
+        );
+      const decision = postMutationStateDecision({
+        observed,
+        observedRevision,
+        expectedHead,
+        expectedBodyRevision,
+        expectedLeaseId,
+        barrier,
+        lease,
+      });
+      return { observed, decision, barrier, lease };
+    }, {
+      delaysMs: NATIVE_AUTO_MERGE_MUTATION_RETRY_DELAYS_MS,
+      shouldRetryResult: (result) => result?.decision?.retryable === true,
+    });
+    const { decision, barrier, lease } = snapshot;
+    if (decision.allow) return true;
+    const hasAutoMergeRequest = observed?.autoMergeRequest !== null
+      && observed?.autoMergeRequest !== undefined
+      && observed?.state !== 'MERGED';
+    if (hasAutoMergeRequest) {
+      revokeExistingAutoMerge(
+        repo,
+        observed,
+        `body/HEAD/barrier/lease cambiati dopo la mutation: ${barrier?.reason || 'non applicabile'}; ${lease?.reason || decision.reason}`,
+      );
     }
     console.error('::error::native auto-merge guard: opt-in post-mutation non più verificabile');
     process.exitCode = 1;

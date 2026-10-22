@@ -1129,6 +1129,62 @@ function codexActionStep(name: string): ActionStep {
   return step;
 }
 
+describe('handoff del response artifact Codex', () => {
+  const script = codexActionStep('Run Codex primary (bounded capacity retry)').run!;
+  const runtimeRootBinding = script.match(/^[ \t]*codex_primary_runtime_root="\$\{CODEX_RUNTIME_SNAPSHOT:\?Codex primary runtime snapshot unavailable\}"$/m)?.[0];
+  const responseExport = script.match(/^[ \t]*"\$node_realpath" "\$codex_primary_runtime_root\/action\/response-artifact\.mjs" export "\$CODEX_RESPONSE_ARTIFACT" "\$runner_temp" "\$scratch_dir" \|\| codex_status=1$/m)?.[0];
+
+  it('lega il runtime snapshot trusted prima di esportare la risposta dal sandbox', () => {
+    expect(runtimeRootBinding).toBeDefined();
+    expect(responseExport).toBeDefined();
+    expect(script.indexOf(runtimeRootBinding!)).toBeLessThan(script.indexOf(responseExport!));
+
+    const root = mkdtempSync(join(tmpdir(), 'codex-response-handoff-'));
+    const runtimeRoot = join(root, 'runtime');
+    const runnerTemp = join(root, 'runner-temp');
+    const scratchDir = join(root, 'scratch');
+    const helperDir = join(runtimeRoot, 'action');
+    mkdirSync(helperDir, { recursive: true });
+    mkdirSync(runnerTemp);
+    mkdirSync(scratchDir);
+    copyFileSync(
+      resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'response-artifact.mjs'),
+      join(helperDir, 'response-artifact.mjs'),
+    );
+    const response = 'Il fixer ha prodotto una diagnosi terminale verificabile.';
+    writeFileSync(join(scratchDir, 'redcheck-response.md'), response);
+
+    try {
+      const shell = [
+        'set -euo pipefail',
+        'node_realpath="${TRUSTED_NODE:?}"',
+        'runner_temp="${RUNNER_TEMP:?}"',
+        'scratch_dir="${SCRATCH_DIR:?}"',
+        'codex_status=0',
+        runtimeRootBinding!.trim(),
+        responseExport!.trim(),
+        'exit "$codex_status"',
+      ].join('\n');
+      const result = spawnSync('/bin/bash', ['-c', shell], {
+        encoding: 'utf8',
+        env: {
+          PATH: process.env.PATH || '/usr/bin:/bin',
+          TRUSTED_NODE: process.execPath,
+          RUNNER_TEMP: runnerTemp,
+          SCRATCH_DIR: scratchDir,
+          CODEX_RUNTIME_SNAPSHOT: runtimeRoot,
+          CODEX_RESPONSE_ARTIFACT: 'redcheck-response.md',
+        },
+      });
+
+      expect(result.status, result.stderr).toBe(0);
+      expect(readFileSync(join(runnerTemp, 'redcheck-response.md'), 'utf8')).toBe(response);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+});
+
 describe('watchdog Codex per caller', () => {
   it('ha default 15 minuti e accetta solo minuti interi 1-300', () => {
     expect(codexActionDefinition().inputs.exec_timeout_minutes?.default).toBe('15');

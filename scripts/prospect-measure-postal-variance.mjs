@@ -120,7 +120,10 @@ function hasSourceBackedGeography(detail = {}, listing = {}) {
 
 function detailTruth(spec, page, listing = {}) {
   try {
-    const detail = extractRuntimeDetailFields(spec, page.body || '', page.url || '');
+    const detail = extractRuntimeDetailFields(spec, page.body || '', page.url || '', {
+      recordUrl: listing.url,
+      recordTitle: listing.title,
+    });
     const reference = detailReferenceTruth(detail);
     return {
       ...reference,

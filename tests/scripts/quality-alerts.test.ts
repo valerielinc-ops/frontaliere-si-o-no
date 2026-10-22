@@ -12,7 +12,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import { run } from '../../scripts/quality-alerts.mjs';
+import { countBlogMetaItArticles, run } from '../../scripts/quality-alerts.mjs';
 
 const NOW = Date.parse('2026-05-08T00:00:00Z');
 const HOUR = 3600 * 1000;
@@ -34,6 +34,37 @@ const config = {
   cluster_stats_min_n: 10,
   all_low_score_consecutive: 5,
 };
+
+describe('countBlogMetaItArticles', () => {
+  it('counts static title fields in a complete metadata module', () => {
+    const file = join(tmpDir, 'blog-meta-it.ts');
+    writeFileSync(file, [
+      'const meta: Record<string, string> = {',
+      "  'blog.article.alpha.title': 'Alpha',",
+      "  'blog.article.alpha.excerpt': 'Intro',",
+      "  'blog.article.beta.excerpt': 'No title',",
+      '};',
+      'export default meta;',
+    ].join('\n'));
+    try {
+      expect(countBlogMetaItArticles(file)).toBe(1);
+    } finally {
+      rmSync(file, { force: true });
+    }
+  });
+
+  it('returns null when the file is absent and throws for malformed present metadata', () => {
+    const missing = join(tmpDir, 'missing-blog-meta-it.ts');
+    expect(countBlogMetaItArticles(missing)).toBeNull();
+    const malformed = join(tmpDir, 'malformed-blog-meta-it.ts');
+    writeFileSync(malformed, 'const meta = {');
+    try {
+      expect(() => countBlogMetaItArticles(malformed)).toThrow(/TypeScript syntax error/u);
+    } finally {
+      rmSync(malformed, { force: true });
+    }
+  });
+});
 
 beforeEach(() => {
   tmpDir = mkdtempSync(join(tmpdir(), 'quality-alerts-'));

@@ -1,0 +1,24 @@
+{
+  "companyKey": "vonmoos-luzern-ch",
+  "companyName": "Von Moos Hobby und Sport",
+  "companyHost": "vonmoos-luzern.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.vonmoos-luzern.ch/unternehmen/jobs"
+  ],
+  "detailTemplate": "/unternehmen/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "mehr",
+    "mehr",
+    "mehr",
+    "mehr",
+    "mehr"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T11:22:02.283Z"
+}

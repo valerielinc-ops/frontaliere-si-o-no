@@ -28,6 +28,7 @@
  */
 
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
+import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 
 export const OWNER_REVIEW_MS = 60 * 60 * 1000;
 export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
@@ -39,6 +40,10 @@ export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
 // 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
 export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
 export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
+// The portal-stop issue fixer usually lands within hours. Retry only this
+// unsupported-page stop after time for a fix; CAPTCHA/account/answer stops are
+// not recoverable by blindly running the same portal flow again.
+export const PORTAL_AUTO_RETRY_DELAYS_MS = Object.freeze([6 * 60 * 60 * 1000, 24 * 60 * 60 * 1000]);
 export const MAX_REVIEW_ROUNDS = 3;
 // A draft or submit run that failed on a transient error is dispatched again
 // up to this many runs in all; the owner hears about it only after the last.
@@ -92,7 +97,7 @@ export const FLOW_STATES = Object.freeze([
 
 export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']);
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
-const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted']);
+const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff', 'owner_submitted', 'portal_auto_retry']);
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
 const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
@@ -129,7 +134,7 @@ export function factCheckAcknowledged(draft, factCheck = draft?.factCheck) {
  * @param {object} draft the AI draft (ai_drafts/current)
  * @param {Record<string,string>} answers candidate answers by question id
  */
-export function evaluateRedFlags(draft, answers = {}, documents = {}) {
+export function evaluateRedFlags(draft, answers = {}, documents = {}, questionAnswers = {}) {
   const owner = [];
   // A flag the owner explicitly acknowledged in the queue no longer holds.
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
@@ -143,8 +148,9 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   if ((!draft?.channel || draft.channel.type === 'unknown') && !acknowledged('channel_unknown')) owner.push('channel_unknown');
   // career-ops Block G "Suspicious": the owner looks at the posting first.
   if (draft?.legitimacy?.tier === 'suspicious' && !acknowledged('legitimacy')) owner.push('legitimacy');
-  const candidate = (draft?.questions || [])
-    .filter((question) => question.required && !String(answers?.[question.id] ?? '').trim())
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
+  const candidate = questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers)
+    .filter((question) => question.required && !String(candidateAnswers?.[question.id] ?? '').trim())
     .map((question) => question.id);
   // A required document (school reports, a test result…) the candidate has not given yet.
   return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
@@ -194,6 +200,8 @@ function base(flow) {
     // during one: see the end of transition, and the tick.
     lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
     postingExpiredAt: Number(flow?.postingExpiredAt) || null,
+    portalAutoRetryAt: Number(flow?.portalAutoRetryAt) || null,
+    portalAutoRetryCount: Number(flow?.portalAutoRetryCount) || 0,
   };
 }
 
@@ -314,7 +322,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
-  const flags = evaluateRedFlags(draft, answers, documents);
+  const flags = evaluateRedFlags(draft, answers, documents, flow?.questionAnswers);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
   if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
 
@@ -397,6 +405,18 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         }
         break;
       }
+      // A legacy question can become answerable from a complete CV list after
+      // the draft was shown. Release that review on its next scheduled tick;
+      // the original review link remains valid and no duplicate email is sent.
+      if (
+        state === 'candidate_review'
+        && current.heldBy.length > 0
+        && current.heldBy.every((held) => /^(question|document):/.test(String(held)))
+        && candidateHolds(flags).length === 0
+      ) {
+        effects = enterCandidateReview(next, flags, nowMs, { resend: false });
+        break;
+      }
       if (waitsForCandidate(current) && reminder && nowMs >= reminder) {
         const since = current.heldSince || nowMs;
         const nudge = current.heldNudges + 1;
@@ -449,15 +469,22 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       return ignore('nothing_due');
     }
     case 'submit_handoff':
-      // Owner decision 2026-10-01: the candidate paid not to apply by hand. A
-      // portal step the robot did not finish (a CAPTCHA, an account, a page it
-      // could not fill) goes to Valerie, who completes it, retries it, or by
-      // her own choice hands it to the candidate (owner_handoff).
+      // CAPTCHA, account verification and candidate-only steps stay with
+      // Valerie. A generic unsupported page gets two delayed retries so the
+      // portal-stop fixer can teach the runner before the order stays held.
       if (state !== 'submitting') return ignore('not_submitting');
       next.state = 'owner_takeover';
       next.deadlineAt = null;
       next.reminderAt = null;
       next.heldBy = [`portal:${String(event.reason || 'portal_needs_candidate').slice(0, 60)}`];
+      {
+        const reason = String(event.reason || 'portal_needs_candidate');
+        const attempts = Number(current.portalAutoRetryCount) || 0;
+        next.portalAutoRetryCount = attempts;
+        next.portalAutoRetryAt = reason === 'portal_needs_candidate' && PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+          ? nowMs + PORTAL_AUTO_RETRY_DELAYS_MS[attempts]
+          : null;
+      }
       effects = [{ type: 'email', kind: 'owner_takeover', reason: `portal:${event.reason || 'portal_needs_candidate'}`, stage: 'submit', attempts: Number(flow?.dispatch?.attempts) || 1 }];
       break;
     case 'owner_retry_submit':
@@ -469,8 +496,22 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // The robot sends only what the candidate approved. A real order of 2026-10-07 was taken over while
       // in the owner's review, and «retry» sent its draft to the portal, never seen by the candidate.
       if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      next.portalAutoRetryAt = null;
       effects = enterSubmitting(next, 'owner_retry');
       break;
+    case 'portal_auto_retry': {
+      if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (!(current.heldBy || []).includes('portal:portal_needs_candidate')) return ignore('not_auto_retryable');
+      if (!Number(current.portalAutoRetryAt) || Number(current.portalAutoRetryAt) > nowMs) return ignore('portal_retry_not_due');
+      if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      if (!roundWasSent(flow, current.round)) return ignore('not_approved');
+      const attempts = Number(current.portalAutoRetryCount) || 0;
+      if (attempts >= PORTAL_AUTO_RETRY_DELAYS_MS.length) return ignore('portal_retry_limit');
+      next.portalAutoRetryCount = attempts + 1;
+      next.portalAutoRetryAt = null;
+      effects = enterSubmitting(next, 'portal_auto_retry');
+      break;
+    }
     case 'owner_handoff':
       // Valerie's choice, for a step only the candidate can do (an SMS to their phone).
       if (state !== 'owner_takeover') return ignore('not_taken_over');
@@ -579,17 +620,67 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       next.heldBy = [];
       effects = [{ type: 'mark_submitted' }];
       break;
-    case 'submit_needs_candidate':
+    case 'submit_needs_candidate': {
       if (state !== 'submitting') return ignore('not_submitting');
+      // Portal adapters return question IDs as strings; submit.mjs returns
+      // objects with an `id`. Normalize both shapes before persisting the hold.
+      const questionIds = [...new Set((Array.isArray(event.questions) ? event.questions : []).map((question) => {
+        const id = typeof question === 'string' ? question : question?.id;
+        return typeof id === 'string' || typeof id === 'number' ? String(id).trim() : '';
+      }).filter(Boolean))];
+      const eventDocuments = Array.isArray(event.documents) ? event.documents : [];
+      const attempts = Number(flow?.dispatch?.attempts) || 1;
+      // An unidentifiable question gives the candidate nothing they can act
+      // on. Treat it as an unsupported portal stop so the owner can retry
+      // after the runner or portal changes, instead of sending a blank request.
+      if (questionIds.length === 0 && eventDocuments.length === 0) {
+        next.state = 'owner_takeover';
+        next.deadlineAt = null;
+        next.reminderAt = null;
+        next.heldBy = ['portal_needs_candidate'];
+        next.heldSince = null;
+        effects = [{
+          type: 'email',
+          kind: 'owner_takeover',
+          reason: 'portal:portal_needs_candidate',
+          stage: 'submit',
+          attempts,
+        }];
+        break;
+      }
+      const answersAlreadyExist = questionIds.length > 0 && questionIds.every((id) => {
+        if (!Object.prototype.hasOwnProperty.call(answers || {}, id)) return false;
+        const answer = answers?.[id];
+        return typeof answer === 'boolean'
+          || (typeof answer === 'number' && Number.isFinite(answer))
+          || (typeof answer === 'string' && answer.trim().length > 0)
+          || (Array.isArray(answer) && answer.some((value) => String(value ?? '').trim().length > 0));
+      });
+      // A portal can report a validation step as a candidate question even
+      // after the runner filled it from an answer already saved in the flow.
+      // Retry once without sending an unnecessary candidate-action notice;
+      // if the portal still asks, hand it to the candidate as usual.
+      if (
+        answersAlreadyExist
+        && eventDocuments.length === 0
+        && candidateHolds(flags).length === 0
+        && roundWasSent(flow, current.round)
+        && attempts < 2
+      ) {
+        effects = enterSubmitting(next, 'existing_candidate_answers');
+        effects[0].attempts = attempts + 1;
+        break;
+      }
       next.state = 'needs_candidate_action';
       next.heldBy = [
-        ...(event.questions || []).map((question) => `question:${question.id}`),
-        ...(event.documents || []).map((id) => `document:${id}`),
+        ...questionIds.map((id) => `question:${id}`),
+        ...eventDocuments.map((id) => `document:${id}`),
       ];
       next.heldSince = null;
-      if (next.heldBy.length) waitForCandidate(next, nowMs);
+      waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
       break;
+    }
     case 'submit_failed': {
       if (state !== 'submitting') return ignore('not_submitting');
       // Safe to run again: the submission guard (scripts/assisted-application/

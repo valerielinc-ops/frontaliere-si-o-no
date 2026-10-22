@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { sourceCompactOffsetPostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
-import { extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
+import { extractJobPostingAddress, extractJobPostingDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
@@ -176,6 +176,35 @@ function pickRealLocationText(raw) {
 }
 
 /**
+ * Resolve the published location against the strongest source evidence.
+ * A structured detail-page address outranks the Phenom listing widget. When
+ * the detail explicitly identifies a foreign or ambiguous place, return null
+ * instead of publishing the widget's Swiss fallback (for example Vernier for
+ * a role whose canonical page says Ashford).
+ */
+export function resolveGivaudanSourceGeography({
+  listingLocation = '',
+  listingPostalCode = '',
+  listingAddress = '',
+  detailAddress = null,
+} = {}) {
+  if (detailAddress) {
+    return resolveSourceBackedSwissGeography({
+      location: detailAddress.locality,
+      addressLocality: detailAddress.locality,
+      addressCountry: detailAddress.addressCountry,
+      postalCode: detailAddress.postalCode,
+      streetAddress: detailAddress.streetAddress,
+    });
+  }
+  return resolveSourceBackedSwissGeography({
+    location: listingLocation,
+    postalCode: listingPostalCode,
+    streetAddress: listingAddress,
+  });
+}
+
+/**
  * Fetch all Swiss listings from the Phenom widgets endpoint, paginating via
  * `from`/`size` until `from >= totalHits`. Returns normalized raw listings.
  */
@@ -257,12 +286,20 @@ async function fetchJobListings() {
  * Failure leaves the body empty and publication unknown; the caller keeps listing evidence.
  */
 async function fetchGivaudanDetail(url) {
-  const empty = { description: '', ...sourceCompactOffsetPostingDateFields('') };
+  const empty = {
+    description: '',
+    detailAddress: null,
+    ...sourceCompactOffsetPostingDateFields(''),
+  };
   if (!url || !/^https?:\/\//.test(url)) return empty;
   try {
     const html = await fetchHtml(url, { timeoutMs: 15000 });
     const { markdown } = htmlToMarkdown(extractJobPostingDescription(html || ''));
-    return { description: markdown || '', ...sourceCompactOffsetPostingDateFields(extractJobPostingField(html || '', 'datePosted')) };
+    return {
+      description: markdown || '',
+      detailAddress: extractJobPostingAddress(html || ''),
+      ...sourceCompactOffsetPostingDateFields(extractJobPostingField(html || '', 'datePosted')),
+    };
   } catch { return empty; }
 }
 
@@ -291,15 +328,6 @@ export async function fetchAllGivaudanJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
-    const geography = resolveSourceBackedSwissGeography(sourceLocation);
-    if (!geography) {
-      console.warn(`  ⚠️ Givaudan: skipping unresolvable location "${sourceLocation}" (${title})`);
-      continue;
-    }
-    const { location, canton } = geography;
-    // Locality = leading city token of the "City, Switzerland" string.
-    const addressLocality = normalizeSpace(location.split(',')[0]);
     const publicUrl = listing.url || CAREER_URL;
     const applyUrl = listing.applyUrl || publicUrl;
 
@@ -309,6 +337,20 @@ export async function fetchAllGivaudanJobs() {
     // Prefer the FULL structured detail-page description (markdown with bullets)
     // over the flat listing teaser. Falls back to the teaser on any fetch failure.
     const detail = await fetchGivaudanDetail(publicUrl);
+    const sourceLocation = normalizeSpace(listing.rawLocation || listing.location || '');
+    const geography = resolveGivaudanSourceGeography({
+      listingLocation: sourceLocation,
+      listingPostalCode: listing.postalCode,
+      listingAddress: listing.address,
+      detailAddress: detail.detailAddress,
+    });
+    if (!geography) {
+      console.warn(`  ⚠️ Givaudan: detail/listing location is not a verified Swiss place "${sourceLocation}" (${title})`);
+      continue;
+    }
+    const { location, canton } = geography;
+    // Locality = leading city token of the "City, Switzerland" string.
+    const addressLocality = normalizeSpace(location.split(',')[0]);
     const detailMarkdown = detail.description;
     const descriptionText = detailMarkdown || stripHtml(listing.description || '');
 
@@ -340,7 +382,8 @@ export async function fetchAllGivaudanJobs() {
 
       // ── Recommended fields ──
       addressLocality,
-      postalCode: listing.postalCode || (addressLocality === HQ.city ? HQ.postalCode : ''),
+      postalCode: geography.postalCode || listing.postalCode || (addressLocality === HQ.city ? HQ.postalCode : ''),
+      streetAddress: geography.streetAddress || listing.address || '',
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',

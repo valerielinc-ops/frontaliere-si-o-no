@@ -1,28 +1,73 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-10-14T21:23:18.132Z",
-  "total": 1,
+  "generatedAt": "2026-10-20T21:26:38.484Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3016,
-  "avgDurationMs": 3016,
+  "durationMs": 4310,
+  "avgDurationMs": 4310,
   "durationHistory": [
-    3016
+    4310
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "cham-swiss-properties-d88b4f4e5756",
+      "slug": "specialista-in-finanza-e-contabilita-cham-swiss-properties-cham",
+      "company": "Cham Swiss Properties",
+      "companyKey": "cham-swiss-properties",
+      "companyDomain": "champroperties.ch",
+      "title": "Fachperson Finanz- und Rechnungswesen 100%",
+      "needsRetranslation": true,
+      "location": "Cham",
+      "canton": "ZG",
+      "url": "https://jobs.dualoo.com/portal/6j9quii0/cb080274-0231-4bf2-abc2-934feddea06d/detail?lang=DE",
+      "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-20T21:26:21.469Z",
+      "addressLocality": "Cham",
+      "addressRegion": "ZG",
+      "streetAddress": "Fabrikstrasse 5",
+      "postalCode": "6330",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Immobiliare / Project Management",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-19T11:18:27Z",
+      "postedDate": "2026-10-19T11:18:27Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.dualoo.com/portal/6j9quii0/cb080274-0231-4bf2-abc2-934feddea06d/detail?lang=DE",
+      "hiringOrganizationName": "Cham Swiss Properties AG",
+      "firstSeenAt": "2026-10-19T21:25:49.221Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -38,7 +83,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:23:02.831Z",
+      "crawledAt": "2026-10-20T21:26:21.994Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -70,5 +115,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "5d413b0550f3391711b8d8bf8b472520011f35e5"
 }

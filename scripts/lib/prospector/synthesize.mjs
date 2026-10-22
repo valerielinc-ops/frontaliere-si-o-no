@@ -16,12 +16,61 @@
  */
 import { politeFetch } from './polite-fetch.mjs';
 import { extractVacancies, isSufficientVacancyDescription, textOf } from './extract.mjs';
-import { extractLinks } from './careers-trail.mjs';
+import { extractLinks, isRetryableTraceStatus } from './careers-trail.mjs';
 import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
 import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 import { extractUmantisListingEvidence, umantisVacancyIdentity } from './umantis-detail.mjs';
 import { listingEvidenceFields } from './detail-extract.mjs';
+
+const MAX_SYNTHESIS_FETCHES = 5;
+const CAREER_LINK_RX = /(?:^|[\/_-])(?:jobs?|careers?|vacancies|karriere|stellen(?:angebote)?|offene-stellen|emplois?|carrieres?|offres-d-emploi|lavora|carriere|posizioni-aperte|offerte-di-lavoro|posti-vacanti)(?:[/?#._-]|$)/i;
+const CAREER_LINK_TEXT_RX = /\b(jobs?|careers?|vacancies|karriere|stellen|emplois?|carri[eè]re|lavora|posizioni|offerte di lavoro|posti vacanti)\b/i;
+
+function normalizedHttpUrl(value) {
+  if (!value) return '';
+  try {
+    const url = new URL(String(value));
+    if (!/^https?:$/.test(url.protocol)) return '';
+    url.hash = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+function synthesisSeeds(candidate) {
+  const careerSeeds = [candidate.careersUrl, ...(Array.isArray(candidate.careersUrls) ? candidate.careersUrls : [])]
+    .map(normalizedHttpUrl)
+    .filter(Boolean);
+  const tenantHost = normalizeHost(candidate.tenantHost || '');
+  const employerHost = normalizeHost(candidate.domain || '');
+  const seen = new Set();
+  const uniqueSeeds = (values) => {
+    const seeds = [];
+    for (const value of values) {
+      const normalized = normalizedHttpUrl(value);
+      if (!normalized || seen.has(normalized)) continue;
+      seen.add(normalized);
+      seeds.push(normalized);
+    }
+    return seeds;
+  };
+  const priority = uniqueSeeds([
+    careerSeeds[0],
+    tenantHost ? `https://${tenantHost}/` : null,
+    employerHost ? `https://${employerHost}/` : null,
+  ]);
+  const alternates = uniqueSeeds(careerSeeds.slice(1));
+  return { priority, alternates };
+}
+
+function careerLinksFromPage(body, baseUrl) {
+  return extractLinks(body, baseUrl)
+    .filter((link) => CAREER_LINK_RX.test(new URL(link.url).pathname)
+      || CAREER_LINK_TEXT_RX.test(link.text || ''))
+    .map((link) => link.url);
+}
 
 /**
  * @typedef {Object} CrawlerSpec
@@ -33,6 +82,7 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  * @property {string[]} seedUrls
  * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
  * @property {string | string[]} [detailTemplate]    URL template(s) shared by the vacancy links
+ * @property {string} [detailLocationLabel] Exact detail-page heading whose following paragraph names the vacancy workplace
  * @property {string} [listingCandidateText]         Normalised text required in a listing candidate
  * @property {string} [detailCandidateText]          Normalised text required in an enriched detail record
  * @property {{ nativeMarker: string, expectedText?: string, listingExpectedText?: string, foreignLocationOutOfScope?: boolean, listingMarker?: { tag?: string, class: string, containerTag?: string, containerClass: string } }} [tenantScope]
@@ -42,16 +92,28 @@ import { listingEvidenceFields } from './detail-extract.mjs';
  *   before enrichment. Neither a missing detail marker nor absent target text
  *   is a positive mismatch.
  * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {Array<{ postalCode: string, locality: string, canton: string }>} [umantisListingCantonOverrides]
+ *   Reviewed exact Umantis listing postcode/locality pairs used only to
+ *   disambiguate the canton; the shared Swiss geography resolver still validates them.
  * @property {boolean} [rescueOnEmptyListing] Retry a zero-candidate seed through the clean-IP rescue
- * @property {'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
+ * @property {'ok'|'filtered_empty'|'anti_bot_block'|'selector_miss'|'connection_error'} [emptyListingOutcome]
  *   Outcome to attach when the spec has no accepted listing after its configured rescue path
  * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
- * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[], selfNextIsTerminal?: boolean }} [pagination]
+ * @property {'expected-filter'} [detailNotFoundPolicy] Treat definitive detail HTTP 404s as stale listing filters after enough valid detail rows prove the source
+ * @property {number} [detailNotFoundMinimumPublished] Minimum valid detail rows required before 404s can be classified as expected filters
+ * @property {number} [qualityContractVersion] Version of the quality evidence rules; bump to require fresh validations
+ * @property {{ maxPages?: number, minCoverage?: number, declaredTotalPattern?: string, pageStateParams?: string[], selfNextIsTerminal?: boolean, countDuplicateRowsForCoverage?: boolean }} [pagination]
  *   Follow the seed's `rel="next"` pages; with `declaredTotalPattern` the walk must
  *   collect `minCoverage` of the count the source declares, or the run fails closed;
  *   `pageStateParams` are stripped from detail URLs found on later pages;
  *   `selfNextIsTerminal` is a source-specific declaration that a self-link on
  *   the final page is an end marker rather than an incomplete listing
+ * @property {{ url: string, method?: 'GET', params?: Record<string, string|number|boolean>, pageParam?: string, maxPages?: number, responseFormat?: 'json'|'jsonp', responseHtmlField?: string, responseMaxPagesField?: string, responseMaxNumPages?: number }} [listingEndpoint]
+ *   Fetch a source-owned JSON/JSONP listing endpoint instead of assuming the
+ *   seed HTML contains the rendered vacancy cards. The endpoint response must
+ *   expose the source's listing HTML and either `max_num_pages` or the
+ *   explicitly reviewed `responseMaxNumPages` bound so pagination remains
+ *   fail-closed.
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
  * @property {string} [canton]
@@ -192,23 +254,138 @@ export function isExpectedSynthesisError(err) {
  * Learn a spec by crawling the candidate's careers page for real.
  *
  * @param {Record<string, any>} candidate
- * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, vacancies: any[] }>}
+ * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, reasonCode?: string, vacancies: any[], retryable?: boolean, diagnostics?: Record<string, any> }>}
  */
 export async function synthesizeSpec(candidate, runtime = {}) {
-  const seed = candidate.careersUrl || (candidate.tenantHost ? `https://${candidate.tenantHost}/` : null)
-    || (candidate.domain ? `https://${candidate.domain}/` : null);
-  if (!seed) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
+  const { priority, alternates } = synthesisSeeds(candidate);
+  if (!priority.length && !alternates.length) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
 
-  const res = await politeFetch(seed, {
-    fetchImpl: runtime.fetchImpl,
-    lookupImpl: runtime.lookupImpl,
-    sleepImpl: runtime.sleepImpl,
-  });
-  if (!res.ok) return { spec: null, reason: `seed irraggiungibile (${res.status})`, vacancies: [] };
+  const pendingPriority = [...priority];
+  const pendingInitial = [...alternates];
+  const pendingDiscovered = [];
+  const queued = new Set([...pendingPriority, ...pendingInitial]);
+  const attempted = new Set();
+  const failures = [];
+  let reachablePages = 0;
+  let malformedResponses = 0;
+  let extracted = null;
+  let suppliedSeedsAttempted = 0;
+  while ((pendingPriority.length || pendingInitial.length || pendingDiscovered.length)
+    && attempted.size < MAX_SYNTHESIS_FETCHES) {
+    let seed;
+    if (pendingPriority.length) {
+      seed = pendingPriority.shift();
+      suppliedSeedsAttempted++;
+    } else if (pendingDiscovered.length) {
+      seed = pendingDiscovered.shift();
+    } else if (pendingInitial.length && suppliedSeedsAttempted < MAX_SYNTHESIS_FETCHES - 1) {
+      seed = pendingInitial.shift();
+      suppliedSeedsAttempted++;
+    } else if (pendingInitial.length) {
+      // Use the fifth slot for another supplied seed only when no discovered
+      // careers link is waiting to be followed.
+      seed = pendingInitial.shift();
+      suppliedSeedsAttempted++;
+    } else {
+      break;
+    }
+    if (attempted.has(seed)) continue;
+    attempted.add(seed);
+    let response;
+    try {
+      response = await politeFetch(seed, {
+        fetchImpl: runtime.fetchImpl,
+        lookupImpl: runtime.lookupImpl,
+        sleepImpl: runtime.sleepImpl,
+      });
+    } catch (error) {
+      failures.push({
+        ok: false,
+        status: 0,
+        url: seed,
+        transportError: error instanceof Error ? error.message : 'fetch_failed',
+      });
+      continue;
+    }
+    if (!response || typeof response !== 'object' || typeof response.ok !== 'boolean') {
+      malformedResponses++;
+      failures.push({
+        ok: false,
+        status: Number(response?.status) || 0,
+        url: typeof response?.url === 'string' ? response.url : seed,
+        transportError: response?.transportError || 'missing_or_invalid_fetch_response',
+        malformedResponse: true,
+      });
+      continue;
+    }
+    if (response.ok && typeof response.body !== 'string') {
+      malformedResponses++;
+      failures.push({
+        ok: false,
+        status: Number(response.status) || 0,
+        url: typeof response.url === 'string' && response.url ? response.url : seed,
+        transportError: 'missing_response_body',
+        malformedResponse: true,
+      });
+      continue;
+    }
+    const res = {
+      ...response,
+      url: typeof response.url === 'string' && response.url ? response.url : seed,
+      body: response.body,
+    };
+    if (!res.ok) {
+      failures.push(res);
+      continue;
+    }
+    reachablePages++;
+    const links = extractLinks(res.body, res.url);
+    const result = extractVacancies(res.body, res.url, links);
+    if (result.vacancies.length) {
+      extracted = { res, vacancies: result.vacancies, via: result.via };
+      break;
+    }
+    // A homepage often points to the real career listing. Follow only links
+    // whose path or authored label signals recruitment, and extractLinks
+    // already limits these links to the page's own origin.
+    for (const link of careerLinksFromPage(res.body, res.url)) {
+      const normalizedLink = normalizedHttpUrl(link);
+      if (!normalizedLink || queued.has(normalizedLink) || attempted.has(normalizedLink)) continue;
+      queued.add(normalizedLink);
+      pendingDiscovered.push(normalizedLink);
+    }
+  }
+  if (!extracted) {
+    if (reachablePages > 0 && malformedResponses === 0) {
+      return {
+        spec: null,
+        reason: 'nessun annuncio estratto dal seed',
+        reasonCode: 'no_verified_vacancies',
+        retryable: true,
+        vacancies: [],
+        diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
+      };
+    }
+    const isRetryableFetchFailure = (attempt) => {
+      if (attempt.blockedByRobots || attempt.policyBlocked) return false;
+      if (attempt.malformedResponse) return true;
+      const status = Number(attempt.status) || 0;
+      return status > 0 ? isRetryableTraceStatus(status) : Boolean(attempt.transportError);
+    };
+    const retryableFailures = failures.filter(isRetryableFetchFailure);
+    const failure = retryableFailures.at(-1) || failures.at(-1) || {};
+    const blocked = failure.blockedByRobots || failure.policyBlocked;
+    return {
+      spec: null,
+      reason: `seed irraggiungibile (${failure.status || 0})`,
+      reasonCode: retryableFailures.length ? 'transient_seed_failure' : (blocked ? 'policy_blocked' : 'seed_unreachable'),
+      vacancies: [],
+      retryable: retryableFailures.length > 0,
+      diagnostics: { attemptedUrls: attempted.size, reachablePages, malformedResponses },
+    };
+  }
 
-  const links = extractLinks(res.body, res.url);
-  const { vacancies, via } = extractVacancies(res.body, res.url, links);
-  if (!vacancies.length) return { spec: null, reason: 'nessun annuncio estratto dal seed', vacancies: [] };
+  const { res, vacancies, via } = extracted;
 
   // A synthesised spec must not silently learn an unreviewed ATS/CDN origin.
   // Existing promoted specs may name `allowedDetailOrigins` explicitly, but
@@ -228,6 +405,11 @@ export async function synthesizeSpec(candidate, runtime = {}) {
   }
 
   const host = normalizeHost(new URL(res.url).hostname);
+  const hostDomain = registrableDomain(host);
+  const employerDomain = registrableDomain(candidate.domain || '');
+  const inferredPlatform = candidate.selfHosted === undefined
+    ? (hostDomain === employerDomain ? '' : hostDomain)
+    : (candidate.selfHosted === false && hostDomain !== employerDomain ? hostDomain : '');
   const listingNeedsDetail = vacancies.some(
     (vacancy) => !resolveDetailOrListingSwissGeography({}, vacancy).geography
       || !isSufficientVacancyDescription(vacancy.description),
@@ -237,7 +419,7 @@ export async function synthesizeSpec(candidate, runtime = {}) {
     companyKey: crawlerKeyFor(candidate),
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
-    platform: candidate.platform || (registrableDomain(host) === registrableDomain(candidate.domain || '') ? '' : registrableDomain(host)),
+    platform: candidate.platform || inferredPlatform,
     mode: /** @type {'jsonld'|'microdata'|'template'} */ (via),
     seedUrls: [res.url],
     detailTemplate: commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
@@ -281,7 +463,9 @@ export async function runSpec(spec, runtime = {}) {
       // recruitingapp-2924, che pubblica 6 annunci con geografia Rheinfelden AG
       // mentre la validazione ne misurava 0%.
       const listingEvidence = spec.platform === 'umantis.com'
-        ? extractUmantisListingEvidence(res.body, res.url)
+        ? extractUmantisListingEvidence(res.body, res.url, {
+          cantonOverrides: spec.umantisListingCantonOverrides,
+        })
         : new Map();
       const links = extractLinks(res.body, res.url);
       const { vacancies } = extractVacancies(res.body, res.url, links);

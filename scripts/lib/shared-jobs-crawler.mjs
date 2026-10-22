@@ -148,6 +148,7 @@ import {
   isGrigioniRelevant,
   isKnownSwissCity,
   normalizeCantonCode,
+  swissCityFromLocationField,
   swissMunicipalityCantons,
   TEXT_RESCUE_AMBIGUOUS_TOKENS,
 } from './target-swiss-locations.mjs';
@@ -2083,6 +2084,32 @@ function extractWorkdayApplyUrl(html, baseUrl) {
 // extractMigrosStructuredData, extractMigrosSectionItems, extractMigrosBenefitItems
 // are imported from ./migros-job-parser.mjs at the top of this file.
 
+const SWISS_CANTON_SUFFIX_RE = /\b(AG|AI|AR|BE|BL|BS|FR|GE|GL|GR|JU|LU|NE|NW|OW|SG|SH|SO|SZ|TG|TI|UR|VD|VS|ZG|ZH)\s*$/i;
+
+/**
+ * Prefer Migros' visible workplace card over stale JobPosting geography.
+ *
+ * The portal can move a vacancy while leaving its JSON-LD `jobLocation`
+ * behind.  Only act when the visible card itself ends in an explicit Swiss
+ * canton code: that source-backed marker lets us update all four geography
+ * fields together without guessing from an employer or street name.
+ */
+function applyMigrosVisibleWorkplaceGeography(job, migrosData) {
+  if (!job || !Array.isArray(migrosData?.workplaces)) return false;
+  for (const workplace of migrosData.workplaces) {
+    const canton = normalizeCantonCode(String(workplace || '').match(SWISS_CANTON_SUFFIX_RE)?.[1] || '');
+    if (!canton) continue;
+    const location = swissCityFromLocationField(workplace, canton);
+    if (!location) continue;
+    job.location = location;
+    job.canton = canton;
+    job.addressLocality = location;
+    job.addressRegion = canton;
+    return true;
+  }
+  return false;
+}
+
 function extractSwissTimingJobDescription(html = '') {
   const blocks = [];
   for (const className of ['description', 'profile', 'requirements', 'language_requirements']) {
@@ -2133,6 +2160,18 @@ function extractRichJobDescription(html) {
   }
   const migrosJoined = cleanDescription(migrosChunks.join('\n\n'));
   if (migrosJoined.length >= 300) return migrosJoined;
+
+  // NCore Platform detail pages keep the vacancy in `.singlePosition .pTesto`
+  // and render the application/privacy UI beside it. Read the balanced body
+  // element so the generic HTML fallback receives the employer's posting, not
+  // the page shell or GDPR modal. Dedicated NCore runners use the same source
+  // container, so this also covers adapter-provided detail seeds.
+  const ncorePosition = readClosedElement(html, 'class=[^>]*\\bsinglePosition\\b');
+  if (ncorePosition) {
+    const ncoreBody = readClosedElement(ncorePosition, 'class=[^>]*\\bpTesto\\b') || ncorePosition;
+    const ncoreText = htmlToStructuredText(ncoreBody);
+    if (ncoreText.length >= 180) return cleanDescription(ncoreText);
+  }
 
   // Rexx Systems ATS (concorsi.ti.ch) — job content in <div class="emp_nr_innerframe">
   // Contains structured sections (Compiti, Requisiti, Condizioni, Scadenza) with
@@ -3421,7 +3460,11 @@ function extractJobPostingNodes(node) {
       return;
     }
     if (typeof n !== 'object') return;
-    if (n['@type'] === 'JobPosting') out.push(n);
+    const type = n['@type'];
+    const isJobPosting = Array.isArray(type)
+      ? type.some((item) => String(item).includes('JobPosting'))
+      : String(type || '').includes('JobPosting');
+    if (isJobPosting) out.push(n);
     if (Array.isArray(n['@graph'])) n['@graph'].forEach(walk);
     for (const value of Object.values(n)) {
       if (value && typeof value === 'object') walk(value);
@@ -5711,6 +5754,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
                   parsed.job._migrosResponsibilities = migrosData.responsibilities;
                   parsed.job._migrosBenefits = migrosData.benefits;
                   parsed.job._migrosWorkPercentage = migrosData.workPercentage;
+                  applyMigrosVisibleWorkplaceGeography(parsed.job, migrosData);
                 }
               }
               maybeAcceptCandidate(parsed.job, 'jsonld');

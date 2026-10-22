@@ -1,6 +1,7 @@
 {
   "crawlerKey": "apply",
-  "assembledAt": "2026-10-14T21:25:25.132Z",
+  "assembledAt": "2026-10-21T09:28:20.699Z",
+  "runId": "39575040467",
   "jobs": [
     {
       "id": "apply-fa0e71e72c9b",
@@ -33,11 +34,13 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-14T21:25:19.082Z",
+      "crawledAt": "2026-10-21T09:28:15.426Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
+      "postalCode": "3004",
+      "streetAddress": "Länggasstrasse 21",
       "category": "Tecnica",
       "contract": "full-time",
       "employmentType": "OTHER",
@@ -84,8 +87,7 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "3004"
+      }
     }
   ]
 }

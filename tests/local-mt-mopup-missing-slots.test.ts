@@ -79,6 +79,60 @@ describe('local-mt-mopup missingSlots()', () => {
 
     expect(missingSlots(job)).toEqual([]);
   });
+
+  it('flags a whitespace-only description copy from the source locale even when the legacy source differs', () => {
+    const source = 'Als Fachperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Qualitätssicherung unserer täglichen Aufgaben im Team. '.repeat(3);
+    const wrapped = source.replace(/ /g, '\n  ');
+    const job = {
+      sourceLang: 'de',
+      description: 'A stale legacy source representation that is not the source-locale slot.',
+      descriptionByLocale: {
+        de: source,
+        it: wrapped,
+        en: 'This is a translated English description with enough operational detail for the job posting. '.repeat(3),
+        fr: 'Voici une description française traduite avec suffisamment de détails opérationnels pour le poste. '.repeat(3),
+      },
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'description' });
+  });
+
+  it('rejects a provider echo of the source-locale description before writing it', () => {
+    const source = 'Als Fachperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Qualitätssicherung unserer täglichen Aufgaben im Team. '.repeat(3);
+    const job = {
+      sourceLang: 'de',
+      description: 'A stale legacy source representation that is not the source-locale slot.',
+      descriptionByLocale: { de: source, it: '' },
+    };
+    const result = classifyMopupStructure({
+      job,
+      locale: 'it',
+      field: 'description',
+      rawText: source.replace(/ /g, '\n  '),
+    });
+
+    expect(result.decision).toBe('skip:source-copy');
+  });
+
+  it('falls back to a long legacy source when the source-locale slot is below the floor', () => {
+    const source = 'The authoritative legacy description contains enough detail for translation and quality checks in this posting. '.repeat(3);
+    const job = {
+      sourceLang: 'en',
+      description: source,
+      descriptionByLocale: {
+        en: 'Short source slot.',
+        it: source.replace(/ /g, '\n  '),
+      },
+    };
+
+    expect(missingSlots(job)).toContainEqual({ locale: 'it', field: 'description' });
+    expect(classifyMopupStructure({
+      job,
+      locale: 'it',
+      field: 'description',
+      rawText: source.replace(/ /g, '\n  '),
+    }).decision).toBe('skip:source-copy');
+  });
 });
 
 function auditTitleTarget({ id, sourceLang, locale, sourceText, existing, company }) {

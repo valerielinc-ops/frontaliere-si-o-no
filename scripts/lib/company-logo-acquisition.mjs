@@ -91,6 +91,24 @@ export const DOMAIN_OVERRIDES = {
   'farmacia-internazionale-dr-merloni': ['internationalpharmacy.swiss'],
   'mueller-steinmaur': ['mueller-steinmaur.ch'],
   'protectas-sa': ['protectas.com'],
+  // Recurrence measured on 2026-10-18. Keep these domains explicit: audit
+  // mode must never turn a company key or an ATS URL into a logo source.
+  'opus-personal': ['opus-personal.ch'],
+  agat: ['agat-job.com'],
+  'elite-interim': ['eliteinterim.ch'],
+  physioswiss: ['physioswiss.ch'],
+  'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
+  'swiss-timing-swatch-group': ['swisstiming.com'],
+  'deillon-delley-architectes': ['deillondelley.ch'],
+  'project-interim': ['projectinterim.ch'],
+  'technic-emplois': ['technic-emplois.ch'],
+  'fondation-domus': ['fondation-domus.ch'],
+  gipo: ['gipo.ch'],
+  'hugo-boss': ['hugoboss.com'],
+  my: ['teojakob.ch'],
+  pianorm: ['pianorm.ch'],
+  wokin: ['wokin.ch'],
+  'zaugg-ag': ['zaugg.swiss'],
 };
 
 export function normalizeDomain(value) {
@@ -184,6 +202,7 @@ export function domainCandidates(key, metadata = {}, options = {}) {
 const AUDIT_STATUS_REASONS = {
   missing: 'nessun dominio ufficiale dichiarato',
   broken: 'sorgente ufficiale irraggiungibile o riferimento rotto',
+  external: 'sorgente esterna da rendere stabile sul CDN',
   partial: 'copertura parziale',
   'pending-deploy': 'asset presente nel checkout, in attesa del deploy CDN',
   'low-quality': 'qualità insufficiente',
@@ -198,6 +217,8 @@ const ACQUISITION_REASON_LABELS = {
 export function selectAuditCandidates(entries = []) {
   return entries.filter((entry) => (
     (entry?.status === 'missing'
+      || entry?.status === 'external'
+      || Number(entry?.externalJobCount || 0) > 0
       || entry?.status === 'low-quality'
       || Number(entry?.lowQualityJobCount || 0) > 0)
     && String(entry?.companyKey || '').trim()
@@ -239,6 +260,8 @@ export function buildResidualReport(report, acquisition = {}) {
     brokenJobCount: countJobs('brokenJobCount', 'broken'),
     pendingDeploy: residual.filter((company) => Number(company.pendingDeployJobCount || 0) > 0).length,
     pendingDeployJobCount: countJobs('pendingDeployJobCount'),
+    external: residual.filter((company) => Number(company.externalJobCount || 0) > 0).length,
+    externalJobCount: countJobs('externalJobCount'),
     partial: countCompanies('partial'),
     partialJobCount: countJobs('affectedJobCount', 'partial'),
     lowQuality: residual.filter((company) => Number(company.lowQualityJobCount || 0) > 0).length,

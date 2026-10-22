@@ -342,6 +342,7 @@ export async function fetchAllRolexJobs() {
     // reports a non-CH country, drop it (belt-and-suspenders per recon).
     if (detail && detail.country && detail.country.toUpperCase() !== 'CH') {
       console.log(`   ⏭️ skipping non-CH job: ${title} (${detail.country})`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 

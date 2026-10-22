@@ -282,6 +282,21 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
     expect(result.quarantine).toMatchObject({ job: { applyUrl: '' } });
   });
 
+  it('uses the explicit Yousty widget URL as the application handoff', async () => {
+    const variants = apprenticeship('12692304', 'Rue de Bourg 8', '1003');
+    const profileUrl = `${variants[0].textblocks.profilelink}?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d`;
+    variants[0] = { ...variants[0], textblocks: { ...variants[0].textblocks, profilelink: profileUrl } };
+    const profileHtml = `<noscript><h2>Lehrstellenbeschreibung</h2><div>${YOUSTY_TEXT}</div></noscript>`;
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(profileHtml, { status: 200, headers: { 'content-type': 'text/html' } })));
+
+    const youstyEnrichment = await enrichFromYoustyProfile(variants, 1000);
+    const result = buildGalenicaJob(variants, { youstyEnrichment });
+
+    expect(youstyEnrichment).toMatchObject({ applyUrl: profileUrl, sourceObserved: true });
+    expect(result.job.applyUrl).toBe(profileUrl);
+    expect(result.quarantine).toBeUndefined();
+  });
+
   it('does not treat a failed Yousty profile fetch as proof that the handoff is missing', () => {
     const result = buildGalenicaJob(apprenticeship('12692303', 'Rue de Bourg 8', '1003'), {
       youstyEnrichment: { applyUrl: '', sourceObserved: false },
@@ -328,6 +343,57 @@ describe('Galenica Solique content (flat 243/249: the blurb replaced the posting
 });
 
 describe('Galenica run partition and merge', () => {
+  it('does not grace-retain a previous record whose location is now empty', () => {
+    const valid = withYousty(apprenticeship('12692307', 'Rue de Bourg 8', '1003')).job;
+    const staleWithoutLocation = {
+      ...valid,
+      location: '',
+      addressLocality: '',
+    };
+
+    const { jobs, stats } = mergeGalenicaRecords([staleWithoutLocation], { jobs: [] });
+
+    expect(jobs).toEqual([]);
+    expect(stats.removed).toBe(1);
+  });
+
+  it('recovers history when a malformed stored row matches a valid fresh row', () => {
+    const fresh = withYousty(apprenticeship('12692308', 'Rue de Bourg 8', '1003')).job;
+    const staleWithoutLocation = {
+      ...fresh,
+      location: '',
+      addressLocality: '',
+      slug: 'galenica-legacy-slug',
+      slugByLocale: { it: 'galenica-legacy-slug' },
+    };
+
+    const { jobs } = mergeGalenicaRecords([staleWithoutLocation], { jobs: [fresh] });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe(fresh.location);
+    expect(JSON.stringify(jobs[0].previousSlugsByLocale || jobs[0].previousSlugs || {}))
+      .toContain('galenica-legacy-slug');
+  });
+
+  it('recovers source text when a malformed stored row matches a no-source row', () => {
+    const fresh = withYousty(apprenticeship('12692309', 'Rue de Bourg 8', '1003')).job;
+    const staleWithoutLocation = {
+      ...fresh,
+      location: '',
+      addressLocality: '',
+      description: YOUSTY_TEXT,
+      sourceLang: 'fr',
+      descriptionByLocale: { fr: YOUSTY_TEXT },
+    };
+    const noSource = { ...fresh, description: '', descriptionByLocale: {}, sourceLang: '' };
+
+    const { jobs } = mergeGalenicaRecords([staleWithoutLocation], { noSource: [noSource] });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe(fresh.location);
+    expect(jobs[0].description).toBe(YOUSTY_TEXT);
+  });
+
   it('removes a previously published vacancy only when the official source observed it without HTTPS handoff', () => {
     const candidate = buildGalenicaJob([{
       ...SOLIQUE_VACANCY,

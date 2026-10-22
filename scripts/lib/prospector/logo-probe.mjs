@@ -10,9 +10,9 @@
  * against a known domain, not a multi-domain guess: no candidate-domain
  * generation needed here.
  *
- * Same acquisition technique as `download-missing-company-logos.mjs`: Google's
- * favicon endpoint, with the same "grey globe" detection (Google's generic
- * fallback icon for a domain it can't resolve a real favicon for). Clearbit is
+ * The probe reads only favicon paths served by the candidate's own domain. A
+ * proxy or third-party favicon CDN would make a positive result unrelated to
+ * the asset source that can later be mirrored to our stable CDN. Clearbit is
  * NOT used — its logo CDN is defunct (see the guard comment in
  * `services/jobDataNormalization.ts`), so a probe against it would always
  * read as "no logo" regardless of the real answer.
@@ -21,24 +21,32 @@ import { validateLogoReference } from '../company-logo-audit.mjs';
 
 const FETCH_TIMEOUT_MS = 10_000;
 
+function officialFaviconUrls(domain) {
+  const urls = [`https://${domain}/favicon.ico`];
+  if (!/^www\./i.test(domain)) urls.push(`https://www.${domain}/favicon.ico`);
+  return urls;
+}
+
 /**
  * @param {string} host bare hostname, e.g. `'lonza.com'`
- * @returns {Promise<{ found: boolean, domain?: string, size?: number, reason?: string }>}
+ * @returns {Promise<{ found: boolean, domain?: string, size?: number, source?: string, reason?: string }>}
  */
 export async function probeCompanyLogo(host) {
   const domain = String(host || '').trim();
   if (!domain) return { found: false, reason: 'nessun dominio' };
 
-  const url = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
-  const result = await validateLogoReference(
-    { kind: 'external', reference: url },
-    { timeoutMs: FETCH_TIMEOUT_MS },
-  );
-  if (result.status !== 'valid') {
-    const reason = result.reason === 'grey-globe'
+  let lastReason = 'logo non verificato';
+  for (const url of officialFaviconUrls(domain)) {
+    const result = await validateLogoReference(
+      { kind: 'external', reference: url },
+      { timeoutMs: FETCH_TIMEOUT_MS },
+    );
+    if (result.status === 'valid') {
+      return { found: true, domain, size: result.bytes, source: url };
+    }
+    lastReason = result.reason === 'grey-globe'
       ? 'grey-globe (dominio senza favicon)'
-      : result.reason || 'logo non verificato';
-    return { found: false, domain, reason };
+      : result.reason || lastReason;
   }
-  return { found: true, domain, size: result.bytes };
+  return { found: false, domain, reason: lastReason };
 }

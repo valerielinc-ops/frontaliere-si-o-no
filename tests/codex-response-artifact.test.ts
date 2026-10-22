@@ -39,15 +39,17 @@ describe('declared Codex response handoff', () => {
     const response = '`source:L1` — disputed: current source proves the finding is obsolete.\n';
     writeFileSync(join(f.scratchRoot, f.filename), response);
     const codex = stepScript(step => step.id === 'codex');
+    const runtimeSnapshotBinding = codex.match(/^[ \t]*codex_primary_runtime_root="\$\{CODEX_RUNTIME_SNAPSHOT:\?Codex primary runtime snapshot unavailable\}"$/m)?.[0];
+    expect(runtimeSnapshotBinding).toBeDefined();
     const exportBlock = codex.match(/if \[ -n "\$CODEX_RESPONSE_ARTIFACT" \]; then\n[\s\S]*?\nfi/g)
       ?.find(block => block.includes(' export '));
     expect(exportBlock).toBeDefined();
     expect(codex.indexOf(exportBlock!)).toBeGreaterThan(codex.indexOf('\nstop_bridge\n'));
     const cleanup = stepScript(step => step.name === 'Cleanup ephemeral Codex subscription auth');
-    const output = execFileSync('/bin/bash', ['-c', `${exportBlock}\nprintf 'model_status=%s\\n' "$codex_status"\n${cleanup}`], {
+    const output = execFileSync('/bin/bash', ['-c', `${runtimeSnapshotBinding}\n${exportBlock}\nprintf 'model_status=%s\\n' "$codex_status"\n${cleanup}`], {
       env: { ...process.env, CODEX_RESPONSE_ARTIFACT: f.filename, runner_temp: f.runnerTemp, scratch_dir: f.scratchRoot,
         runtime_root: runtime, node_realpath: process.execPath, codex_status: String(status),
-        CODEX_HOME: f.home, RUNNER_TEMP: f.runnerTemp, TRUSTED_NODE: process.execPath }, encoding: 'utf8',
+        CODEX_HOME: f.home, CODEX_RUNTIME_SNAPSHOT: runtime, RUNNER_TEMP: f.runnerTemp, TRUSTED_NODE: process.execPath }, encoding: 'utf8',
     });
     expect(output).toContain(`model_status=${status}`);
     expect(readFileSync(join(f.runnerTemp, f.filename), 'utf8')).toBe(response);

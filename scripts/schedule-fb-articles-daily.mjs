@@ -21,11 +21,11 @@ import { realpathSync } from 'node:fs';
  * `FB_ARTICLE_VOLUME` (default 4) caps posts per run, so even the very first
  * run can't flood the Page. Old articles are intentionally never back-filled.
  *
- * Metadata is parsed from the persisted source-of-truth files (no TS compile):
+ * Metadata is read from the persisted source-of-truth files (no TS evaluation):
  *   - id / category / date  → data/{blog,swiss}-articles-data.ts registries
  *   - IT URL slug           → services/router{Blog,Swiss}Data.ts
- *   - og title / excerpt    → services/locales/blog-meta{,-ch}-it.ts
- * (the same regex-extraction approach generate-article.yml already uses).
+ *   - og title / excerpt    → services/locales/blog-meta{,-ch}-it.ts via the
+ *     shared static TypeScript translation reader.
  *
  * Usage:
  *   FB_PAGE_ID=… FB_PAGE_ACCESS_TOKEN=… node scripts/schedule-fb-articles-daily.mjs
@@ -56,6 +56,7 @@ import {
 } from './lib/social-post-utils.mjs';
 import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore.mjs';
 import { facebookUrl, FACEBOOK_CAMPAIGN_ARTICLE } from './lib/facebook-links.mjs';
+import { parseStaticArticleTranslationSource } from '../packages/articles/engine/shared/articleStaticSource.mjs';
 
 export { buildArticleUrl, buildArticleCaption } from './lib/social-post-utils.mjs';
 
@@ -111,6 +112,11 @@ function readFileOrEmpty(file) {
   }
 }
 
+function readOptionalSource(file) {
+  if (!existsSync(file)) return null;
+  return readFileSync(file, 'utf-8');
+}
+
 /**
  * Parse `{ id, category, date }` from an article registry TS module
  * (`RAW_ARTICLES` / `RAW_SWISS_ARTICLES`). Object-block scan (split on `}`),
@@ -161,14 +167,14 @@ export function parseSlugMap(src) {
  * @returns {Record<string, { title?: string, excerpt?: string }>}
  */
 export function parseMetaMap(src) {
-  if (!src || typeof src !== 'string') return {};
-  const map = {};
-  const re = /'blog\.article\.([^']+?)\.(title|excerpt)':\s*'((?:[^'\\]|\\.)*)'/g;
-  for (const m of src.matchAll(re)) {
-    const [, id, field, rawValue] = m;
-    const value = rawValue.replace(/\\(['"\\])/g, '$1');
-    if (!map[id]) map[id] = {};
-    map[id][field] = value;
+  const translations = parseStaticArticleTranslationSource(src, 'blog-meta-it.ts');
+  const map = Object.create(null);
+  for (const [id, fields] of translations) {
+    for (const field of ['title', 'excerpt']) {
+      const value = fields.get(field);
+      if (value === undefined) continue;
+      (map[id] ??= Object.create(null))[field] = value;
+    }
   }
   return map;
 }
@@ -187,7 +193,9 @@ export function loadArticles(repoRoot, log = () => {}) {
   for (const cfg of SECTIONS) {
     const registry = parseArticleRegistry(readFileOrEmpty(resolve(repoRoot, cfg.registry)));
     const slugMap = parseSlugMap(readFileOrEmpty(resolve(repoRoot, cfg.slugFile)));
-    const metaMap = parseMetaMap(readFileOrEmpty(resolve(repoRoot, cfg.metaFile)));
+    const metaPath = resolve(repoRoot, cfg.metaFile);
+    const metaSource = readOptionalSource(metaPath);
+    const metaMap = metaSource === null ? Object.create(null) : parseMetaMap(metaSource);
     let kept = 0;
     for (const entry of registry) {
       const slugIt = slugMap[entry.id];

@@ -11,37 +11,42 @@
  * red → main red → drain frozen (observed 2026-06-02: bot commit froze the
  * autonomous loop ~83min, no PR accountable).
  *
- * Run this BEFORE committing the store in those workflows: it drops the
- * non-resolving paths so the commit is always test-clean (main stays green) and
- * the resolving paths still ship. Idempotent; exits 0 even with nothing to do.
+ * Run this BEFORE committing the store in those workflows: it drops
+ * non-resolving paths while preserving resolving paths. It fails closed on
+ * large global losses, when a multi-URL route family disappears, and when a
+ * family of at least 20 URLs loses over 25%. Partial pruning in smaller
+ * families is allowed; singleton families may be pruned automatically. After
+ * reviewing an intentional cleanup, opt in with
+ * PRUNE_404_ALLOW_LARGE_PRUNE=1. Idempotent; exits 0 when nothing changes.
  */
-import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  assertCompatPruneFamilySafety,
+  assertCompatPruneSafety,
+  compatPathFamily,
+} from './lib/compat-paths-floor-guard.mjs';
 
 // Sharded accumulator (issue #2988): the logical {paths} set lives across
 // data/seo-404-compat/part-*.json. Read/write only via the store helpers.
 const ROOT = process.cwd();
 
-// Strict (fail-closed) mode. The graceful default below self-skips (exit 0)
-// when the resolver/dataset isn't available, which is correct for general
-// data-refresh workflows that prune BEFORE pushing. But the in-rebase JSON
-// 3-way merge in git-commit-data.sh runs AFTER that gate and re-introduces
-// upstream paths; if the resolver were unavailable there, a silent skip would
-// let a non-resolving path survive into the committed merge → main red (the
-// exact outage this guard prevents). Callers in that path set
-// PRUNE_404_STRICT=1 so unavailability becomes a hard failure (exit 1, abort
-// the push) instead of a silent no-op. Reuses the single resolvability source
-// rather than duplicating resolver wiring.
-const STRICT = process.env.PRUNE_404_STRICT === '1';
+// Fail closed by default so a future caller cannot silently skip validation.
+// Publishing workflows keep PRUNE_404_STRICT=1 as an explicit contract; only a
+// caller that will not publish this snapshot may opt out with PRUNE_404_STRICT=0.
+// This also protects the in-rebase JSON 3-way merge in git-commit-data.sh, which
+// can re-introduce upstream paths after an earlier prune. Reuses the single
+// resolvability source rather than duplicating resolver wiring.
+const STRICT = process.env.PRUNE_404_STRICT !== '0';
+const ALLOW_LARGE_PRUNE = process.env.PRUNE_404_ALLOW_LARGE_PRUNE === '1';
 
 async function main(): Promise<void> {
   // Dynamic import, kept defensive: the resolver now only statically imports the
   // committed data/canton-url-slugs.json (since #2041 it no longer pulls in the
   // CI-assembled data/jobs.json — per-canton job paths canonicalize to the canton
   // in the URL, not via the slug→canton index). If the import fails for any
-  // reason we CANNOT validate resolvability — skip gracefully (exit 0) rather than
-  // crash, so the step is safe to add to any data-refresh workflow. In STRICT
-  // mode the same unavailability is fatal (the caller cannot tolerate an
-  // unvalidated file).
+  // reason we CANNOT validate resolvability. By default this is fatal; the
+  // relaxed skip requires an explicit opt-out and is only safe for callers that
+  // will not publish an unvalidated snapshot.
   let resolveSearchConsoleCompatTarget: (p: string) => unknown | null;
   try {
     ({ resolveSearchConsoleCompatTarget } = await import('../build-plugins/searchConsoleCompat'));
@@ -60,7 +65,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const data = readCompatPaths(ROOT) as { paths?: unknown; [k: string]: unknown };
+  const data = readCompatPathsStrict(ROOT) as { paths?: unknown; [k: string]: unknown };
   if (!Array.isArray(data.paths)) {
     console.log('[prune-404-compat] no `paths` — nothing to do.');
     return;
@@ -70,11 +75,19 @@ async function main(): Promise<void> {
   const seen = new Set<string>();
   const kept: string[] = [];
   const dropped: string[] = [];
+  const familyTotals = new Map<string, number>();
+  const familyDropped = new Map<string, number>();
   for (const p of before) {
     if (seen.has(p)) continue; // also de-dup (raw appends can repeat)
     seen.add(p);
-    if (resolveSearchConsoleCompatTarget(p) !== null) kept.push(p);
-    else dropped.push(p);
+    const family = compatPathFamily(p);
+    familyTotals.set(family, (familyTotals.get(family) ?? 0) + 1);
+    if (resolveSearchConsoleCompatTarget(p) !== null) {
+      kept.push(p);
+    } else {
+      dropped.push(p);
+      familyDropped.set(family, (familyDropped.get(family) ?? 0) + 1);
+    }
   }
 
   const removed = before.length - kept.length;
@@ -82,6 +95,22 @@ async function main(): Promise<void> {
     console.log(`[prune-404-compat] ${kept.length} paths, all resolve — no change.`);
     return;
   }
+
+  // A resolver regression can make a large cohort look non-resolving while
+  // leaving the accumulator above its historical floor. The strict read,
+  // global limits, and per-route-family guard prevent partial-input writes and
+  // localized false deletions that are small in the global total.
+  if (ALLOW_LARGE_PRUNE) {
+    console.warn('[prune-404-compat] PRUNE_404_ALLOW_LARGE_PRUNE=1 — prune safety guards are explicitly bypassed.');
+  }
+  assertCompatPruneSafety(before.length, kept.length, {
+    label: 'seo-404-compat prune',
+    allowLargePrune: ALLOW_LARGE_PRUNE,
+  });
+  assertCompatPruneFamilySafety(familyTotals, familyDropped, {
+    label: 'seo-404-compat prune',
+    allowLargePrune: ALLOW_LARGE_PRUNE,
+  });
 
   writeCompatPaths({ ...data, paths: kept }, ROOT);
   console.log(

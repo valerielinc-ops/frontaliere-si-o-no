@@ -529,6 +529,11 @@ describe('CLI end-to-end (gh finto)', () => {
       }
     });
 
+    it('può rimuovere il routing senza riaggiungere maybe-resolved dopo un’obiezione', () => {
+      expect(bucketLabelEditArgs(['follow-up', 'agent:fix-queued'], { openRemaining: false, addVerifyLabel: false }))
+        .toEqual(['--remove-label', 'agent:fix-queued']);
+    });
+
     it('unico item aperto → `blocked`, `maybe-resolved` aggiunta, nessuna coda', () => {
       const body = bucketBody(item(FIRST, 'open'), item(SECOND, 'done'));
       const { calls } = runCli([comment(alreadyFixedBody())], undefined, body, {

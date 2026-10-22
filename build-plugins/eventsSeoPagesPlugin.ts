@@ -44,6 +44,8 @@
 
 import fs from 'node:fs';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
+import { eventArchivePath } from '../services/eventsArchivePaths';
+import { replaceEmittedEventArchivePaths } from './shared/eventArchiveCompat';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
@@ -226,9 +228,31 @@ function hasLicensedSourceEventImage(event: SiteEvent): boolean {
   );
 }
 
+/**
+ * Keep outbound licence links on their canonical URL. Creative Commons
+ * licence pages without the trailing slash redirect, which is avoidable in
+ * both visible image credits and Event JSON-LD.
+ */
+function canonicalEventExternalUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !/^https:\/\//i.test(value.trim())) return undefined;
+  const raw = value.trim();
+  try {
+    const url = new URL(raw);
+    const isCreativeCommons = /^(?:www\.)?creativecommons\.org$/i.test(url.hostname);
+    if (!isCreativeCommons) return raw;
+    if (!url.pathname.endsWith('/')) url.pathname += '/';
+    return url.href;
+  } catch {
+    return raw;
+  }
+}
+
 function eventImageLicenseUrl(event: SiteEvent): string | undefined {
-  if (typeof event.imageLicenseUrl === 'string' && /^https:\/\//i.test(event.imageLicenseUrl)) return event.imageLicenseUrl;
-  return event.sourceKey === 'openagenda' ? EVENT_IMAGE_LICENSES.openagenda.termsUrl : undefined;
+  const sourceLicense = canonicalEventExternalUrl(event.imageLicenseUrl);
+  if (sourceLicense) return sourceLicense;
+  return event.sourceKey === 'openagenda'
+    ? canonicalEventExternalUrl(EVENT_IMAGE_LICENSES.openagenda.termsUrl)
+    : undefined;
 }
 
 function eventImageMimeType(imageUrl: string): string {
@@ -287,11 +311,15 @@ function hasPublishedEventImage(event: SiteEvent): boolean {
 
 function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): string {
   if (!isLicensedEventLibraryPhoto(event)) return '';
+  const licenseUrl = eventImageLicenseUrl(event);
   const author = event.imageAuthor?.name || event.imageCredit || '';
   const authorLink = event.imageSourcePageUrl
-    ? `<a href="${esc(event.imageSourcePageUrl)}" rel="nofollow noopener" target="_blank">${esc(author)}</a>`
+    ? `<a href="${esc(event.imageSourcePageUrl)}" rel="noopener" target="_blank">${esc(author)}</a>`
     : esc(author);
-  const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license nofollow noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
+  const licenseLabel = esc(event.imageLicense!);
+  const licenseLink = licenseUrl
+    ? `<a href="${esc(licenseUrl)}" rel="license noopener" target="_blank">${licenseLabel}</a>`
+    : licenseLabel;
   const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
     ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
     : '';
@@ -308,6 +336,24 @@ export function materializeEventImageLibrary(events: SiteEvent[], registry = loa
 /** Attribution record of an event's source (public registry, then private). */
 function eventSourceRecord(sourceKey: string): { key: string; label: string; homepage: string } {
   return EVENT_SOURCES[sourceKey] || (PRIVATE_EVENT_SOURCES as Record<string, { key: string; label: string; homepage: string }>)[sourceKey] || SOURCE;
+}
+
+/** Resolve the current official landing pages for the source links rendered
+ * in event attribution. The old Guidle root and Stadt Luzern Termine URL both
+ * redirect or return an invalid-address page; link directly to their live
+ * canonical destinations. */
+function canonicalEventSourceHomepage(homepage: string): string {
+  try {
+    const url = new URL(homepage);
+    const host = url.hostname.toLowerCase();
+    if (host === 'www.guidle.com' && url.pathname === '/') return 'https://www.guidle.com/de';
+    if (host === 'www.stadtluzern.ch' && url.pathname === '/aktuelles/termine') {
+      return 'https://www.stadtluzern.ch/aktuelles/terminliste';
+    }
+  } catch {
+    // Keep the declared source URL when it is not a parseable absolute URL.
+  }
+  return homepage;
 }
 
 /**
@@ -386,7 +432,7 @@ export function renderOpenAgendaAttribution(event: SiteEvent, locale: Locale): s
   }).format(updated);
   const label = `OpenAgenda — ${event.sourceAgenda}`;
   const link = event.url
-    ? `<a class="ev-lnk" href="${esc(event.url)}" rel="nofollow noopener" target="_blank">${esc(label)}</a>`
+    ? `<a class="ev-lnk" href="${esc(event.url)}" rel="noopener" target="_blank">${esc(label)}</a>`
     : esc(label);
   const credit = isEventImageSourceAllowed(event.sourceKey) && event.imageCredit && event.imageUrl?.startsWith('/')
     ? ` · ${esc(copy.image)}: ${esc(event.imageCredit)}`
@@ -590,7 +636,7 @@ interface Copy {
 
 const COPY: Record<Locale, Copy> = {
   it: {
-    hubTitle: 'Eventi in Ticino: agenda per comune aggiornata',
+    hubTitle: 'Eventi in Ticino: agenda aggiornata',
     hubH1: 'Eventi in Ticino, comune per comune',
     hubLede: 'Concerti, mostre, feste e appuntamenti in Ticino raccolti dalle agende ufficiali e raggruppati per comune.',
     comuneTitle: (c) => composePlaceTitle([
@@ -947,6 +993,7 @@ interface NationalCopy {
   faqA2: string;
   methodologyTitle: string;
   methodology: string;
+  otherLanguages: string;
   // Pill label on every per-canton hub linking back up to this index page.
   allCantonsLabel: string;
 }
@@ -974,6 +1021,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Come raccogliamo gli eventi',
     methodology:
       "Gli eventi sono raccolti automaticamente dalle agende pubbliche di ogni cantone e aggiornati ogni giorno. Ogni evento è attribuito a un cantone e, quando possibile, a un comune preciso. Verifica sempre data, orario e luogo sulla pagina originale dell'organizzatore prima di spostarti: orari e disponibilità possono cambiare.",
+    otherLanguages: 'Altre lingue:',
     allCantonsLabel: 'Tutta la Svizzera',
   },
   en: {
@@ -998,6 +1046,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'How we collect events',
     methodology:
       "Events are collected automatically from each canton's public agendas and refreshed every day. Every event is attributed to a canton and, where possible, to a specific municipality. Always check date, time and venue on the organiser's original page before travelling: times and availability can change.",
+    otherLanguages: 'Other languages:',
     allCantonsLabel: 'All of Switzerland',
   },
   de: {
@@ -1022,6 +1071,7 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Wie wir Veranstaltungen sammeln',
     methodology:
       'Die Veranstaltungen werden automatisch aus den öffentlichen Agenden jedes Kantons gesammelt und täglich aktualisiert. Jeder Anlass wird einem Kanton und, wenn möglich, einer genauen Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters, bevor du losfährst: Zeiten und Verfügbarkeit können sich ändern.',
+    otherLanguages: 'Weitere Sprachen:',
     allCantonsLabel: 'Ganze Schweiz',
   },
   fr: {
@@ -1046,13 +1096,90 @@ const NATIONAL_COPY: Record<Locale, NationalCopy> = {
     methodologyTitle: 'Comment nous recueillons les événements',
     methodology:
       "Les événements sont recueillis automatiquement dans les agendas publics de chaque canton et actualisés chaque jour. Chaque événement est attribué à un canton et, si possible, à une commune précise. Vérifiez toujours la date, l'horaire et le lieu sur la page d'origine de l'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.",
+    otherLanguages: 'Autres langues :',
     allCantonsLabel: 'Toute la Suisse',
   },
 };
 
+const EVENT_LOCALE_LABEL: Record<Locale, string> = {
+  it: 'Italiano',
+  en: 'English',
+  de: 'Deutsch',
+  fr: 'Français',
+};
+
+function renderEventsIndexLocaleLinks(locale: Locale, copy: NationalCopy): string {
+  const links = LOCALES.filter((target) => target !== locale)
+    .map(
+      (target) =>
+        `<a class="rounded-full border border-edge bg-surface px-3 py-1 text-xs font-semibold text-link hover:border-accent-border" href="${nationalIndexPath(target)}" hreflang="${target}" lang="${target}">${EVENT_LOCALE_LABEL[target]}</a>`,
+    )
+    .join('');
+
+  return `<nav class="mb-4 flex flex-wrap items-center gap-2" aria-label="${esc(copy.otherLanguages)}"><span class="mr-1 text-xs font-semibold text-muted">${esc(copy.otherLanguages)}</span>${links}</nav>`;
+}
+
 /** Canonical path for the Swiss-wide index hub (`EVENTS_INDEX_PATH` + trailing slash). */
 function nationalIndexPath(locale: Locale): string {
   return `${EVENTS_INDEX_PATH[locale]}/`;
+}
+
+const HISTORICAL_ARCHIVE_COPY: Record<Locale, {
+  title: string;
+  description: string;
+  intro: string;
+  pageLabel: string;
+  navLabel: string;
+}> = {
+  it: {
+    title: 'Archivio degli eventi passati',
+    description: 'Archivio degli eventi passati in Ticino e in Svizzera, con collegamenti alle schede e alle informazioni pubblicate dagli organizzatori.',
+    intro: 'Questo archivio raccoglie le schede degli eventi che si sono già svolti e ne conserva date, luoghi e informazioni utili. Consulta una scheda per i dettagli pubblicati dall’organizzatore; i programmi passati restano disponibili come riferimento e possono non essere più attuali. L’elenco è ordinato per data e diviso in pagine. Per gli appuntamenti futuri, visita l’agenda aggiornata del Ticino e degli altri cantoni.',
+    pageLabel: 'Pagina',
+    navLabel: 'Pagine dell’archivio eventi',
+  },
+  en: {
+    title: 'Past events archive',
+    description: 'Past event archive for Ticino and Switzerland, with links to event pages and information published by organizers.',
+    intro: 'This archive collects pages for events that have already taken place and keeps their dates, venues, and published details available. Open an entry to review the information supplied by its organizer; past programs remain as a reference and may no longer be current. Entries are ordered by event date and split across pages. For upcoming events, return to the updated Ticino and Swiss cantons agenda.',
+    pageLabel: 'Page',
+    navLabel: 'Past events archive pages',
+  },
+  de: {
+    title: 'Archiv vergangener Veranstaltungen',
+    description: 'Archiv vergangener Veranstaltungen im Tessin und in der Schweiz, mit Links zu Veranstaltungsseiten und Angaben der Veranstalter.',
+    intro: 'Dieses Archiv sammelt Seiten zu bereits stattgefundenen Veranstaltungen und bewahrt Datum, Ort und veröffentlichte Informationen. Öffnen Sie einen Eintrag, um die Angaben des Veranstalters nachzulesen; vergangene Programme dienen als Referenz und können inzwischen überholt sein. Die Einträge sind nach Veranstaltungsdatum sortiert und auf mehrere Seiten verteilt. Aktuelle Termine finden Sie in der laufend aktualisierten Agenda für das Tessin und die übrigen Kantone.',
+    pageLabel: 'Seite',
+    navLabel: 'Seiten des Veranstaltungsarchivs',
+  },
+  fr: {
+    title: 'Archives des événements passés',
+    description: 'Archives des événements passés au Tessin et en Suisse, avec des liens vers les fiches et les informations publiées par les organisateurs.',
+    intro: 'Ces archives rassemblent les fiches des événements qui ont déjà eu lieu et conservent leurs dates, leurs lieux et les informations publiées. Consultez une fiche pour retrouver les détails fournis par l’organisateur; les programmes passés restent disponibles comme référence et peuvent ne plus être à jour. La liste suit la date des événements et se répartit sur plusieurs pages. Pour les prochains rendez-vous, consultez l’agenda actualisé du Tessin et des autres cantons.',
+    pageLabel: 'Page',
+    navLabel: 'Pages des archives d’événements',
+  },
+};
+
+const MUNICIPAL_ARCHIVE_COPY: Record<Locale, { intro: string; shortTitle: string }> = {
+  it: { intro: 'Date e programmi passati pubblicati dagli organizzatori. Non è un calendario di appuntamenti futuri.', shortTitle: 'Archivio eventi' },
+  en: { intro: 'Past dates and programmes published by organisers. This is not a calendar of upcoming events.', shortTitle: 'Event archive' },
+  de: { intro: 'Vergangene Termine und Programme laut Veranstalter. Dies ist kein Kalender für kommende Veranstaltungen.', shortTitle: 'Veranstaltungsarchiv' },
+  fr: { intro: 'Dates et programmes passés publiés par les organisateurs. Ceci n’est pas un agenda de prochains événements.', shortTitle: 'Archives des événements' },
+};
+
+export function historicalEventsArchivePath(locale: Locale, page = 1): string {
+  return eventArchivePath(pathFor(locale, 'TI'), locale, page);
+}
+
+export function historicalComuneArchivePath(locale: Locale, canton: string, comune: string, page = 1): string {
+  return eventArchivePath(pathFor(locale, canton, comune), locale, page);
+}
+
+function historicalEventsArchiveAlternates(page: number): string {
+  return LOCALES.map((locale) => `  <link rel="alternate" hreflang="${locale}" href="${BASE_URL}${historicalEventsArchivePath(locale, page)}">`)
+    .concat(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${historicalEventsArchivePath('it', page)}">`)
+    .join('\n');
 }
 
 function buildNationalAlternates(): string {
@@ -1358,9 +1485,13 @@ function distinctEventSources(events: SiteEvent[]): Array<{ key: string; label: 
   const seen = new Map<string, { key: string; label: string; homepage: string }>();
   for (const e of events) {
     const src = eventSourceRecord(e.sourceKey);
-    if (!seen.has(src.key)) seen.set(src.key, { key: src.key, label: src.label, homepage: src.homepage });
+    if (!seen.has(src.key)) {
+      seen.set(src.key, { key: src.key, label: src.label, homepage: canonicalEventSourceHomepage(src.homepage) });
+    }
   }
-  if (seen.size === 0) seen.set(SOURCE.key, { key: SOURCE.key, label: SOURCE.label, homepage: SOURCE.homepage });
+  if (seen.size === 0) {
+    seen.set(SOURCE.key, { key: SOURCE.key, label: SOURCE.label, homepage: canonicalEventSourceHomepage(SOURCE.homepage) });
+  }
   return [...seen.values()];
 }
 
@@ -1368,7 +1499,7 @@ function renderSourceAttribution(events: SiteEvent[], copy: Copy, dateStamp: str
   const links = distinctEventSources(events)
     .map(
       (s) =>
-        `<a class="text-link hover:text-link-hover" href="${esc(s.homepage)}" rel="nofollow noopener" target="_blank">${esc(s.label)}</a>`,
+        `<a class="text-link hover:text-link-hover" href="${esc(s.homepage)}" rel="noopener" target="_blank">${esc(s.label)}</a>`,
     )
     .join(', ');
   return `${esc(copy.updated)}: <time datetime="${dateStamp}">${dateStamp}</time> · ${esc(copy.source)}: ${links}`;
@@ -1715,6 +1846,7 @@ const CARD_EXCERPT_CHARS = 160;
  * event past the cap is still linked, just as a text row.
  */
 const EVENT_CARD_CAP = 80;
+const HISTORICAL_ARCHIVE_PAGE_SIZE = 100;
 
 /**
  * The same budget for the comune-less `altri-eventi` sentinel bucket, which is
@@ -1784,8 +1916,8 @@ function cardExcerpt(event: SiteEvent, locale: Locale): string {
 
 /**
  * One event card. When `detailHref` is provided the title links to OUR internal
- * event detail page (indexable, no nofollow); otherwise it falls back to the
- * external source URL (nofollow) — used for events without a comune that have no
+ * event detail page (indexable); otherwise it falls back to the external
+ * event URL — used for events without a comune that have no
  * detail page.
  */
 function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string | null): string {
@@ -1803,7 +1935,7 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
   // positioning context.
   const titleLink = detailHref
     ? `<a class="ev-a" href="${esc(detailHref)}">${esc(cardTitle)}</a>`
-    : `<a class="ev-a" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(cardTitle)}</a>`;
+    : `<a class="ev-a" href="${esc(eventReferralUrl(event.url, event))}" rel="noopener" target="_blank">${esc(cardTitle)}</a>`;
   // `imageUrl` only ever holds a mirrored site-relative path (see
   // `mirrorEventImage()`); a raw third-party URL is never rendered here
   // (defense-in-depth, mirrors the same guard in `mirroredEventImageObject`).
@@ -1842,6 +1974,14 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
 
 /** `detailHref` maps an event to its internal detail-page URL (or null → external). */
 type DetailHref = (event: SiteEvent) => string | null;
+
+type HistoricalDetailEntry = {
+  event: SiteEvent;
+  canton: string;
+  comune: string;
+  slug: string;
+  imageUrl?: string;
+};
 
 /**
  * Aggregate pages link each `ListItem` to the event URL without embedding a
@@ -1983,8 +2123,8 @@ const OVERFLOW_INDEX_COPY: Record<
  * prevent.
  *
  * Only events WITH a detail page are listed: `detailHref` returns null for an
- * event that has none, and linking its external source URL instead would add a
- * `nofollow` outbound without making our page reachable.
+ * event that has none, and linking its external source URL instead would add
+ * an external destination without making our own event detail discoverable.
  */
 type OverflowRow = { event: SiteEvent; href: string };
 
@@ -2526,6 +2666,7 @@ export function renderHubPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: copy.hubTitle,
     description: copy.hubDesc,
@@ -2590,6 +2731,8 @@ export function renderEventsIndexPage(params: {
       <span class="mx-2">/</span>
       <span>${esc(copy.breadcrumbLabel)}</span>
     </nav>
+
+    ${renderEventsIndexLocaleLinks(locale, copy)}
 
     <header class="ev-in relative overflow-hidden rounded-lg border border-edge bg-gradient-to-br from-accent-subtle via-surface to-info-subtle p-5 shadow-stripe-sm sm:p-8" data-speakable>
       <div class="pointer-events-none absolute -right-4 -top-4 select-none text-8xl opacity-20 sm:text-9xl" aria-hidden="true">🇨🇭</div>
@@ -2658,6 +2801,7 @@ export function renderEventsIndexPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: copy.metaTitle,
     description: copy.metaDesc,
@@ -2673,6 +2817,115 @@ export function renderEventsIndexPage(params: {
   return { urlPath: canonicalPath, html, wordCount };
 }
 
+export function renderHistoricalEventsArchivePage(params: {
+  locale: Locale;
+  entries: readonly HistoricalDetailEntry[];
+  page: number;
+  pageCount: number;
+  distDir: string;
+  municipality?: { canton: string; comune: string };
+  municipalHub?: boolean;
+}): { urlPath: string; html: string; wordCount: number } {
+  const { locale, entries, page, pageCount, distDir, municipality, municipalHub = false } = params;
+  const copy = HISTORICAL_ARCHIVE_COPY[locale];
+  const archivePath = (loc: Locale, number = page): string => municipality
+    ? historicalComuneArchivePath(loc, municipality.canton, municipality.comune, number)
+    : historicalEventsArchivePath(loc, number);
+  const canonicalFor = (loc: Locale): string => municipality && municipalHub && page === 1
+    ? pathFor(loc, municipality.canton, municipality.comune) : archivePath(loc);
+  const canonicalPath = canonicalFor(locale);
+  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const pageEntries = entries.slice(
+    (page - 1) * HISTORICAL_ARCHIVE_PAGE_SIZE,
+    page * HISTORICAL_ARCHIVE_PAGE_SIZE,
+  );
+  const scopedTitle = municipality
+    ? `${copy.title} — ${municipality.comune} (${cantonDisplayLabel(municipality.canton, locale)})`
+    : copy.title;
+  const pageTitle = pageCount > 1 ? `${scopedTitle} — ${copy.pageLabel} ${page}` : scopedTitle;
+  const metaTitle = municipality ? composePlaceTitle([
+    pageTitle,
+    `${MUNICIPAL_ARCHIVE_COPY[locale].shortTitle} — ${municipality.comune} — ${copy.pageLabel} ${page}`,
+  ], TITLE_MAX_CHARS, (s) => esc(s).length) : pageTitle;
+  const intro = municipality ? MUNICIPAL_ARCHIVE_COPY[locale].intro : copy.intro;
+  const parentPath = municipality ? nationalIndexPath(locale) : pathFor(locale, 'TI');
+  const parentLabel = municipality ? NATIONAL_COPY[locale].breadcrumbLabel : COPY[locale].hubLabel;
+  const historicalEntryHref = ({ canton, comune, slug }: HistoricalDetailEntry): string =>
+    pathForEventDetail(locale, comune, slug, canton);
+  const pageNumbers = municipality
+    ? [...new Set([1, pageCount, page - 2, page - 1, page, page + 1, page + 2])].filter((n) => n >= 1 && n <= pageCount).sort((a, b) => a - b)
+    : Array.from({ length: pageCount }, (_, index) => index + 1);
+  const pageNav = pageCount > 1
+    ? `<nav class="mt-6 flex flex-wrap gap-2" aria-label="${esc(copy.navLabel)}">${pageNumbers
+      .map((number) => number === page
+        ? `<span aria-current="page" class="rounded-full border border-accent-border bg-accent-subtle px-3 py-1 text-xs font-semibold text-heading">${esc(copy.pageLabel)} ${number}</span>`
+        : `<a class="${municipality ? 'inline-flex min-h-11 items-center ' : ''}rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading" href="${archivePath(locale, number)}">${esc(copy.pageLabel)} ${number}</a>`)
+      .join('')}</nav>`
+    : '';
+  const eventLinks = pageEntries
+    .map((entry) => `<li class="border-b border-edge py-3"><a class="${municipality ? 'inline-block min-h-11 max-w-full break-words py-2 leading-7 align-middle ' : ''}font-semibold text-link hover:text-link-hover" href="${historicalEntryHref(entry)}">${esc(localizedTitle(entry.event, locale))}</a> <time class="ml-2 text-sm text-muted" datetime="${esc(entry.event.startDate)}">${esc(entry.event.startDate)}</time></li>`)
+    .join('');
+  const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8" data-events-page="historical_archive" data-events-path="${esc(canonicalPath)}"${municipality ? ' data-events-lifecycle="past"' : ''}>
+    <nav class="mb-4 text-sm text-muted" aria-label="Breadcrumb">
+      <a class="text-link hover:text-link-hover" href="/">${esc(HOME_LABEL[locale])}</a>
+      <span class="mx-2">/</span>
+      <a class="text-link hover:text-link-hover" href="${parentPath}">${esc(parentLabel)}</a>
+      <span class="mx-2">/</span>
+      <span>${esc(copy.title)}</span>
+    </nav>
+    <header class="rounded-lg border border-edge bg-surface p-5 shadow-stripe-sm sm:p-8">
+      <h1 class="font-display text-3xl font-bold leading-tight text-heading">${esc(pageTitle)}</h1>
+      <p class="mt-3 max-w-3xl text-base leading-7 text-body">${esc(intro)}</p>
+    </header>
+    ${municipality ? '' : pageNav}
+    <ol class="mt-6 divide-y divide-edge">${eventLinks}</ol>
+    ${pageNav}
+    <p class="mt-6 text-sm"><a class="${municipality ? 'inline-flex min-h-11 items-center ' : ''}font-semibold text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)}</a></p>
+  </div>`;
+  const wordCount = countHtmlBodyWords(body);
+  // Municipal navigation archives are historical, not current availability;
+  // keep them out of search and sitemaps, even when a large listing clears floor.
+  const indexable = !municipality && isIndexableWordCount(wordCount);
+  const bodyHtml = `${body}${endOfContentMultiplexHtml({ indexable, contentHtml: body })}`;
+  const itemListLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: scopedTitle,
+    numberOfItems: pageEntries.length,
+    itemListElement: pageEntries.map((entry, index) => eventListItemLd(
+      entry.event,
+      locale,
+      index + 1,
+      () => historicalEntryHref(entry),
+    )),
+  });
+  const breadcrumbLd = inlineScriptJson({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: HOME_LABEL[locale], item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: parentLabel, item: `${BASE_URL}${parentPath}` },
+      { '@type': 'ListItem', position: 3, name: scopedTitle, item: canonicalUrl },
+    ],
+  });
+  const html = buildSeoPageHtml({
+    includeTwitterCard: true,
+    locale,
+    title: metaTitle,
+    description: municipality ? `${municipality.comune}: ${intro}` : copy.description,
+    canonicalUrl,
+    hreflangHtml: municipality ? LOCALES.map((loc) => `  <link rel="alternate" hreflang="${loc}" href="${BASE_URL}${canonicalFor(loc)}">`)
+      .concat(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}${canonicalFor('it')}">`).join('\n') : historicalEventsArchiveAlternates(page),
+    robots: indexable ? 'index,follow' : 'noindex,follow',
+    ogLocale: LOCALE_OG[locale],
+    bodyHtml,
+    jsonLdScripts: [itemListLd, breadcrumbLd],
+    hubChrome: { hubKey: 'vita', activeSubTab: 'places' },
+    distDir,
+  });
+  return { urlPath: canonicalPath, html, wordCount };
+}
+
 export function renderComunePage(params: {
   locale: Locale;
   canton: string;
@@ -2682,6 +2935,7 @@ export function renderComunePage(params: {
   weekendDays: Set<string>;
   distDir: string;
   detailHref?: DetailHref;
+  archivePath?: string;
 }): { urlPath: string; html: string; wordCount: number } {
   const { locale, canton, comune, events, dateStamp, weekendDays, distDir, detailHref } = params;
   const copy = copyFor(canton, locale);
@@ -2729,6 +2983,7 @@ export function renderComunePage(params: {
     </section>
 
     ${renderOverflowIndex(events, EVENT_CARD_CAP, locale, detailHref, { canton, comune })}
+    ${params.archivePath ? `<p class="mt-6"><a class="inline-flex min-h-11 items-center font-semibold text-link hover:text-link-hover" href="${params.archivePath}">${esc(HISTORICAL_ARCHIVE_COPY[locale].title)}</a></p>` : ''}
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
@@ -2783,6 +3038,7 @@ export function renderComunePage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: copy.comuneTitle(comune),
     description: copy.comuneDesc(comune),
@@ -3045,6 +3301,7 @@ export function renderOtherEventsPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: oeCopy.metaTitle,
     description: oeCopy.metaDesc,
@@ -3169,6 +3426,7 @@ export function renderOverflowLadderPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: ladderTitle,
     description: oCopy.ladderDesc(label, page, pageCount),
@@ -3240,10 +3498,11 @@ interface DetailCopy {
  * suffix. 12 mirrors `composeSerpJobTitle`'s "meaningful role fragment"
  * floor (`roleBudget >= 12`, build-plugins/shared/titleSuffix.ts) — below
  * it the title collapses to a useless `…`/2-3 word stub while 20+ chars of
- * region boilerplate squat in the SERP. 12 also exactly preserves the
- * pre-#3799 output for every previously-healthy combo: the worst full-suffix
- * case that shipped correctly (fr/AR + "Herisau", 54-char suffix) leaves
- * precisely 12.
+ * region boilerplate squat in the SERP. Under the tighter 60-char event cap,
+ * if its first meaningful suffix leaves only the minimum title fragment, a
+ * shorter suffix may preserve the full title. Otherwise it keeps the most
+ * descriptive meaningful suffix and truncates the title. Date, region and
+ * brand remain optional under budget pressure.
  */
 const MIN_DETAIL_TITLE_BUDGET = 12;
 
@@ -3264,7 +3523,7 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * the `measureLength` pattern in {@link buildTitleWithBrand} /
  * {@link composeSerpJobTitle} (`titleSuffix.ts`). A raw `&`/`<`/`>`/`"` in a
  * crawled title (e.g. "Rock & Blues Night") expands on escape, so a title
- * that looks in-budget pre-escape can still overflow the 66-char cap
+ * that looks in-budget pre-escape can still overflow the 60-char event cap
  * post-escape. `truncateHeadline` itself truncates on RAW code units, so an
  * already-in-raw-budget title can still escape-overflow (a retained `&`
  * survives truncation) — shrink the raw ceiling and retry until the escaped
@@ -3282,68 +3541,105 @@ const MIN_DETAIL_TITLE_BUDGET = 12;
  * comune+canton combo (worst dataset case: the comune-less "other events"
  * bucket, where the comune IS the canton display label — fr/AR ` — Appenzell
  * Rhodes-Extérieures (Appenzell Rhodes-Extérieures) | Événements` is 75
- * chars, 9 past the cap on its own) previously clamped the budget to 1 and
- * emitted `'…' + suffix`, silently past TITLE_MAX_CHARS. Now the first
- * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} escaped chars
- * for the event title wins: region and brand are boilerplate (brand is
+ * chars, 15 past the new event cap on its own) previously clamped the budget
+ * to 1 and emitted `'…' + suffix`, pushing the output beyond the old
+ * 66-character cap. A candidate that preserves the complete event title wins
+ * when the best meaningful suffix leaves only the minimum title fragment and
+ * the locale allows that candidate's brand status. Otherwise, the first candidate
+ * leaving at least {@link MIN_DETAIL_TITLE_BUDGET} escaped chars is the
+ * fallback. Region and brand are boilerplate (brand is
  * droppable per the `buildTitleWithBrand` policy, region is recoverable from
  * breadcrumb/H1/JSON-LD), the comune is the local-SEO signal and is always
  * kept. The final whole-string shrink loop is a last-resort cap guarantee
  * (mirrors `composePlaceTitle`'s `truncateHeadline` fallback) for a
  * pathological place name that overflows the cap even bare — the emitted
- * <title> can never exceed TITLE_MAX_CHARS.
+ * <title> can never exceed the event-detail cap, which is deliberately tighter
+ * than the site-wide character cap so these date-and-place suffixes fit the
+ * audit's narrower SERP pixel budget.
  */
+const EVENT_DETAIL_META_TITLE_MAX_CHARS = 60;
+
+interface EventDetailTitleSuffixCandidate {
+  suffix: string;
+  brandless?: string;
+}
+
+const EVENT_TITLE_LANGUAGE_QUALIFIER = /(\s+[—–-]\s+(?:en anglais|in english|auf englisch|en allemand|in german|auf deutsch|en français|in french|auf französisch|in italiano|in italian|auf italienisch))$/iu;
+
+function splitEventTitleLanguageQualifier(rawTitle: string): { title: string; qualifier: string } {
+  const title = String(rawTitle || '');
+  const match = EVENT_TITLE_LANGUAGE_QUALIFIER.exec(title);
+  if (!match || match.index === undefined) return { title, qualifier: '' };
+  return { title: title.slice(0, match.index).trimEnd(), qualifier: match[1] };
+}
+
 function eventDetailMetaTitle(
   rawTitle: string,
   suffixes: readonly string[],
   dateToken = '',
   preferBrandSuffix = false,
 ): string {
-  const datedSuffixes = dateToken
-    ? suffixes.flatMap((suffix) => {
-      const candidates = [`${suffix} · ${dateToken}`];
+  const { title: completeTitle, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const qualifiedSuffixes = suffixes.map((suffix) => `${qualifier}${suffix}`);
+  const suffixCandidates: EventDetailTitleSuffixCandidate[] = dateToken
+    ? qualifiedSuffixes.flatMap((suffix) => {
+      const candidates: Array<{ suffix: string; brandless?: string }> = [
+        { suffix: `${suffix} · ${dateToken}` },
+      ];
       // Once the scheduled date is present, the brand label is less useful
       // than the place/canton token. Keep the latter as a separate candidate
       // so long canton names do not force the event title down to a stub.
       const brandless = suffix.replace(/\s+\|\s+[^|]+$/, '');
-      if (brandless !== suffix) candidates.push(`${brandless} · ${dateToken}`);
+      if (brandless !== suffix) {
+        candidates[0].brandless = `${brandless} · ${dateToken}`;
+        candidates.push({ suffix: `${brandless} · ${dateToken}` });
+      }
+      // Preserve the full comune/canton before dropping it to keep the date.
+      // A location can itself use almost the entire title budget, so its
+      // undated form is a better fallback than a truncated place name.
+      candidates.push({ suffix, brandless: brandless !== suffix ? brandless : undefined });
+      if (brandless !== suffix) candidates.push({ suffix: brandless });
       return candidates;
     })
-    : suffixes;
-  // First suffix candidate that leaves a meaningful title budget wins; when
-  // even the bare-comune candidate is squeezed, still use it (the shortest).
-  // Prefer a complete event title whenever one of the useful place candidates
-  // can accommodate it; otherwise retain the most descriptive candidate that
-  // still leaves a meaningful title fragment. This prevents the date token
-  // from truncating a 25-character event title merely to keep a brand label.
-  const rawTitleBudget = esc(rawTitle).length;
-  const firstMeaningfulIndex = datedSuffixes.findIndex(
-    (s) => TITLE_MAX_CHARS - esc(s).length >= MIN_DETAIL_TITLE_BUDGET,
+    : qualifiedSuffixes.map((suffix) => ({ suffix }));
+  // Keep the most descriptive suffix unless it leaves only the minimum
+  // title fragment. In that near-zero case, prefer a later candidate that fits the
+  // complete event title; the cascade reaches a place-only fallback first.
+  const rawTitleBudget = esc(completeTitle).length;
+  const firstMeaningful = suffixCandidates.find(
+    ({ suffix }) => EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= MIN_DETAIL_TITLE_BUDGET,
   );
-  let suffix = firstMeaningfulIndex >= 0
-    ? datedSuffixes[firstMeaningfulIndex]
-    : datedSuffixes[datedSuffixes.length - 1] ?? '';
-  // The first pair is the same place/canton with and without its brand label.
-  // If the full candidate is meaningful but just too long for the raw event
-  // title, use its paired brandless form when that preserves the title. Do not
-  // scan into the next comune-only candidate: a long canton token is a better
-  // disambiguator than a complete but location-poor title.
-  if (!preferBrandSuffix && dateToken && firstMeaningfulIndex >= 0 && firstMeaningfulIndex % 2 === 0) {
-    const brandless = datedSuffixes[firstMeaningfulIndex + 1];
-    if (brandless && TITLE_MAX_CHARS - esc(brandless).length >= rawTitleBudget) suffix = brandless;
+  const firstMeaningfulBudget = firstMeaningful
+    ? EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(firstMeaningful.suffix).length
+    : 0;
+  const completeTitleCandidate = suffixCandidates.find(
+    ({ suffix }) => (!preferBrandSuffix || /\s\|\s/.test(suffix))
+      && EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length >= rawTitleBudget,
+  );
+  const preserveCompleteTitle = !firstMeaningful || firstMeaningfulBudget <= MIN_DETAIL_TITLE_BUDGET;
+  let suffix = (preserveCompleteTitle ? completeTitleCandidate?.suffix : undefined)
+    ?? firstMeaningful?.suffix
+    ?? suffixCandidates[suffixCandidates.length - 1]?.suffix
+    ?? '';
+  // If a brand-bearing candidate is meaningful but crowds out the complete
+  // event title, use its brandless form when that preserves the title.
+  if (!preferBrandSuffix && firstMeaningful?.brandless) {
+    if (EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(firstMeaningful.brandless).length >= rawTitleBudget) {
+      suffix = firstMeaningful.brandless;
+    }
   }
-  const budget = Math.max(1, TITLE_MAX_CHARS - esc(suffix).length);
-  let title = rawTitle;
+  const budget = Math.max(1, EVENT_DETAIL_META_TITLE_MAX_CHARS - esc(suffix).length);
+  let title = completeTitle;
   for (let max = budget; esc(title).length > budget && max > 0; max -= 1) {
-    title = truncateHeadline(rawTitle, max);
+    title = truncateHeadline(completeTitle, max);
   }
   const composed = `${title}${suffix}`;
-  if (esc(composed).length <= TITLE_MAX_CHARS) return composed;
+  if (esc(composed).length <= EVENT_DETAIL_META_TITLE_MAX_CHARS) return composed;
   // Unreachable for gazetteer/canton-label comuni (the bare ` — ${comune}`
   // candidate always leaves budget); guards pathological place names so the
   // deploy-blocking audit:title-length gate can never trip on this page type.
   let out = composed;
-  for (let max = TITLE_MAX_CHARS; esc(out).length > TITLE_MAX_CHARS && max > 0; max -= 1) {
+  for (let max = EVENT_DETAIL_META_TITLE_MAX_CHARS; esc(out).length > EVENT_DETAIL_META_TITLE_MAX_CHARS && max > 0; max -= 1) {
     out = truncateHeadline(composed, max);
   }
   return out;
@@ -3363,16 +3659,17 @@ function eventDateToken(startDate: string, endDate: string | undefined, locale: 
   }) || normalizedStart;
 }
 
-const EVENT_H1_MAX_CHARS = 120;
+const EVENT_H1_MAX_CHARS = 70;
 
 /** The visible heading carries the two facts that distinguish same-titled
- * events in the crawl: scheduled date and municipality. Keep the source title
- * intact unless the combined heading would become an unusable wall of text. */
+ * events in the crawl: scheduled date and municipality. Keep both within the
+ * audit's 70-character H1 budget, shortening the source title when needed. */
 function eventDetailHeading(rawTitle: string, dateToken: string, comune: string): string {
   const suffix = ` — ${comune}${dateToken ? ` · ${dateToken}` : ''}`;
-  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length);
-  const visibleTitle = rawTitle.length > titleBudget ? truncateHeadline(rawTitle, titleBudget) : rawTitle;
-  return `${visibleTitle}${suffix}`;
+  const { title, qualifier } = splitEventTitleLanguageQualifier(rawTitle);
+  const titleBudget = Math.max(1, EVENT_H1_MAX_CHARS - suffix.length - qualifier.length);
+  const visibleTitle = title.length > titleBudget ? truncateHeadline(title, titleBudget) : title;
+  return `${visibleTitle}${qualifier}${suffix}`;
 }
 
 /** Per-locale event-detail `<title>` suffix templates (comune + region +
@@ -3383,14 +3680,16 @@ function eventDetailHeading(rawTitle: string, dateToken: string, comune: string)
  * string `eventDetailMetaTitle` returned (assuming TI's short
  * "Ticino"/"Tessin"), with no re-check — a long canton display name (e.g.
  * "Appenzell Rhodes-Extérieures", 28 chars vs "Tessin"'s 6) silently pushed
- * the final `<title>` past TITLE_MAX_CHARS for every affected event-detail
- * page.
+ * the final `<title>` past the old 66-character cap for every affected
+ * event-detail page.
  *
  * #3799: each locale now returns a candidate CASCADE, longest first —
  * full (comune + region + brand) → drop the region parenthetical → bare
- * comune — consumed by {@link eventDetailMetaTitle}, which picks the first
- * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} chars for the
- * event title. Every candidate embeds the comune (the never-dropped
+ * comune — consumed by {@link eventDetailMetaTitle}, which prefers the first
+ * candidate that preserves the complete event title if its first meaningful
+ * option leaves only the minimum title fragment, then falls back to the first
+ * candidate leaving at least {@link MIN_DETAIL_TITLE_BUDGET} chars. Every
+ * candidate embeds the comune (the never-dropped
  * local-SEO token), mirroring the `composePlaceTitle` candidate contract. */
 const DETAIL_TITLE_SUFFIXES: Record<Locale, (comune: string) => string[]> = {
   it: (c) => [` — ${c} (Ticino) | Eventi`, ` — ${c} | Eventi`, ` — ${c}`],
@@ -3561,8 +3860,8 @@ function detailCopyFor(canton: string, locale: Locale): DetailCopy {
 
 /** Plain OpenStreetMap link — precise pin when the event has coordinates,
  * else a text search fallback from address/venue/comune. No embed script, no
- * third-party tracker/iframe: a `nofollow` outbound link, same policy as the
- * official-site CTA and the source attribution links. */
+ * third-party tracker/iframe: a plain link to OpenStreetMap, the established
+ * map source used for the event location. */
 function osmLink(event: SiteEvent, comune: string): { href: string; place: string } {
   const venue = eventVenue(event);
   const street = cleanRenderableEventText(event.address?.street);
@@ -3612,7 +3911,7 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
     <div class="p-5">
       <h2 class="ev-loc-h"><span aria-hidden="true">📍</span> ${esc(dc.whereLabel)}</h2>
       <p class="ev-p-sm">${esc(venueOrComune)}${addressText ? ` · ${esc(addressText)}` : ''}</p>
-      <a class="ev-btn" href="${esc(map.href)}" rel="nofollow noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
+      <a class="ev-btn" href="${esc(map.href)}" rel="noopener" target="_blank" aria-label="${esc(dc.mapLinkLabel(map.place))}">${esc(dc.mapLinkLabel(map.place))} →</a>
     </div>
   </section>`;
 }
@@ -3738,11 +4037,11 @@ export function renderEventDetailPage(params: {
     ${renderLocationCard(event, displayComune, dc, map)}
 
     <section class="ev-cta">
-      <a class="${CTA_PRIMARY_CLASS}" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(dc.officialSite)} →</a>
+      <a class="${CTA_PRIMARY_CLASS}" href="${esc(eventReferralUrl(event.url, event))}" rel="noopener" target="_blank">${esc(dc.officialSite)} →</a>
       <a class="ev-btn2" href="${comunePath}">${esc(dc.allInComune(displayComune))} →</a>
     </section>
     ${renderOpenAgendaAttribution(event, locale)}
-    ${isEphemeralEvent(event) ? `<p class="ev-p-sm">${esc(copy.source)}: <a class="ev-lnk" href="${esc(eventReferralUrl(event.url, event))}" rel="nofollow noopener" target="_blank">${esc(eventSourceRecord(event.sourceKey).label)}</a></p>` : ''}
+    ${isEphemeralEvent(event) ? `<p class="ev-p-sm">${esc(copy.source)}: <a class="ev-lnk" href="${esc(eventReferralUrl(event.url, event))}" rel="noopener" target="_blank">${esc(eventSourceRecord(event.sourceKey).label)}</a></p>` : ''}
 
     <section class="ev-copy">
       <h2 class="ev-h2b">${esc(dc.aboutTitle)}</h2>
@@ -3819,6 +4118,7 @@ export function renderEventDetailPage(params: {
   const bodyWithAds = body.replace(inlineAdMarker, inlineAd);
   const bodyHtml = `${bodyWithAds}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyWithAds })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: dc.metaTitle(title, displayComune, dateToken),
     description: dc.metaDesc(title, displayComune, when),
@@ -4071,6 +4371,7 @@ export function renderDigestPage(params: {
   const contentHtml = injectEventListingAd(body, locale, indexable);
   const bodyHtml = `${contentHtml}${endOfContentMultiplexHtml({ indexable, contentHtml })}`;
   const html = buildSeoPageHtml({
+    includeTwitterCard: true,
     locale,
     title: dc.title,
     description: dc.desc,
@@ -4121,6 +4422,7 @@ export function buildSitemap(
   }>,
   dateStamp: string,
   detailEntries: Array<{ canton: string; comune: string; slug: string; imageUrl?: string }> = [],
+  historicalArchivePageCount = 0,
 ): string {
   // National index hub (issue #3645, F3) — always included: this function
   // only runs when the plugin's own `all.length === 0` early-return in
@@ -4142,11 +4444,23 @@ export function buildSitemap(
       for (const page of pages) entries.push(ladderSitemapUrl(canton, comune, page, dateStamp));
     }
   }
+  for (let page = 1; page <= historicalArchivePageCount; page += 1) {
+    entries.push(historicalEventsArchiveSitemapUrl(page));
+  }
   // Per-event detail pages, including the indexable historical archive.
   for (const e of detailEntries) entries.push(eventDetailSitemapUrl(e.canton, e.comune, e.slug, dateStamp, e.imageUrl));
   // #3516: half-canton merges (BS/BL → /eventi/basilea/) can push the same
   // hub <loc> twice within this one file — dedupe keep-first at assembly.
   return dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${entries.join('\n')}\n</urlset>\n`);
+}
+
+function historicalEventsArchiveSitemapUrl(page: number): string {
+  const alternates = LOCALES.map(
+    (locale) => `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${historicalEventsArchivePath(locale, page)}" />`,
+  )
+    .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${historicalEventsArchivePath('it', page)}" />`)
+    .join('\n');
+  return `  <url>\n    <loc>${BASE_URL}${historicalEventsArchivePath('it', page)}</loc>\n${alternates}\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`;
 }
 
 function eventDetailSitemapUrl(canton: string, comune: string, slug: string, dateStamp: string, imageUrl?: string): string {
@@ -4221,6 +4535,7 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
     <h2 class="text-2xl font-bold text-heading">${esc(copy.hubH1)}</h2>
     <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.hubLede)}</p>
     <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, 'TI')}">${esc(copy.allEvents)} →</a>
+    <a class="mt-3 ml-4 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${nationalIndexPath(locale)}">${esc(NATIONAL_COPY[locale].breadcrumbLabel)} →</a>
   </section>`;
   if (html.includes('</main>')) {
     html = html.replace('</main>', `${block}</main>`);
@@ -4230,6 +4545,48 @@ function patchInboundLink(distDir: string, relIndex: string, locale: Locale): bo
     return false;
   }
   fs.writeFileSync(file, html, 'utf-8');
+  return true;
+}
+
+/** Add a direct, localized entry to the historical event archive on an
+ * already reachable section hub. The archive pages then link directly to
+ * historical details, keeping those details within four BFS hops of `/`. */
+export function patchHistoricalEventsArchiveLink(
+  distDir: string,
+  relIndex: string,
+  locale: Locale,
+  archivePath: string | null,
+): boolean {
+  const file = path.join(distDir, relIndex);
+  if (!fs.existsSync(file)) return false;
+  const original = fs.readFileSync(file, 'utf-8');
+  const marker = 'data-events-history-archive-link="1"';
+  const archiveBlockRe = /<section\b[^>]*data-events-history-archive-link="1"[\s\S]*?<\/section>/g;
+  if (!archivePath) {
+    const withoutArchive = original.replace(archiveBlockRe, '');
+    if (withoutArchive === original) return false;
+    fs.writeFileSync(file, withoutArchive, 'utf-8');
+    return true;
+  }
+  const existingBlock = original.match(archiveBlockRe)?.[0];
+  if (existingBlock?.includes(`href="${archivePath}"`)) return true;
+
+  const copy = HISTORICAL_ARCHIVE_COPY[locale];
+  const block = `<section data-events-history-archive-link="1" class="my-8 rounded-md border border-edge bg-surface p-5">
+    <h2 class="text-xl font-bold text-heading">${esc(copy.title)}</h2>
+    <p class="mt-2 max-w-3xl text-sm leading-6 text-body">${esc(copy.description)}</p>
+    <a class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${archivePath}">${esc(copy.title)} →</a>
+  </section>`;
+  const withoutOldArchive = original.replace(archiveBlockRe, '');
+  let updated: string;
+  if (withoutOldArchive.includes('</main>')) {
+    updated = withoutOldArchive.replace('</main>', `${block}</main>`);
+  } else if (withoutOldArchive.includes('</article>')) {
+    updated = withoutOldArchive.replace('</article>', `${block}</article>`);
+  } else {
+    return false;
+  }
+  fs.writeFileSync(file, updated, 'utf-8');
   return true;
 }
 
@@ -4450,6 +4807,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
     // LATE) without fixing anything. Verified via an isolated reproduction against
     // the installed rollup package. Left as a plain closeBundle.
     async closeBundle() {
+      replaceEmittedEventArchivePaths([]);
       if (process.env.SKIP_EVENTS_PAGES === '1') {
         console.log('\x1b[36m[events-pages]\x1b[0m skipped (SKIP_EVENTS_PAGES=1)');
         return;
@@ -4479,6 +4837,19 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         log: (msg: string) => console.log(`\x1b[36m[events-pages]\x1b[0m ${msg}`),
       }) as SiteEvent[];
       const { all, pastEvents } = partitionEventsForBuild(dataset.events as SiteEvent[], ephemeralEvents, dateStamp);
+      const pastEventsByCanton = new Map<string, SiteEvent[]>();
+      const pastComuniByCanton = new Map<string, Set<string>>();
+      for (const ev of pastEvents) {
+        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
+        const cantonEvents = pastEventsByCanton.get(canton) ?? [];
+        cantonEvents.push(ev);
+        pastEventsByCanton.set(canton, cantonEvents);
+        if (ev.comune) {
+          const comuni = pastComuniByCanton.get(canton) ?? new Set<string>();
+          comuni.add(ev.comune);
+          pastComuniByCanton.set(canton, comuni);
+        }
+      }
 
       if (all.length === 0 && pastEvents.length === 0) {
         console.log('\x1b[36m[events-pages]\x1b[0m no retained events in data/events.json — skipped (run scripts/crawl-tio-agenda.mjs)');
@@ -4568,9 +4939,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       let skippedLocaleRenders = 0;
       const canonicalDetailPaths = new Set<string>();
       for (const entry of detailSlugs.values()) for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, entry.comune, entry.slug, entry.canton));
-      const eventById = new Map(dataset.events.map((event) => [event.id, event]));
+      const eventById = new Map<string, SiteEvent>(
+        (dataset.events as SiteEvent[]).map((event): [string, SiteEvent] => [event.id, event]),
+      );
       const emittedSlugRedirects = new Set<string>();
       const expectedSlugRedirectPaths = new Set<string>();
+      const municipalArchivePaths = new Set<string>();
 
       const emit = (rendered: { urlPath: string; html: string; wordCount: number }) => {
         if (rendered.wordCount < MIN_INDEXABLE_WORDS) thinPages += 1;
@@ -4702,7 +5076,9 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           emit(renderHubPage({ locale, canton, events, byComune, dateStamp, weekendDays, distDir, detailHref, otherCantons, otherEvents, ladders }));
           for (const comune of comuni) {
             const list = byComune.get(comune)!;
-            emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref }));
+            const archivePath = pastComuniByCanton.get(canton)?.has(comune)
+              ? historicalComuneArchivePath(locale, canton, comune) : undefined;
+            emit(renderComunePage({ locale, canton, comune, events: list, dateStamp, weekendDays, distDir, detailHref, archivePath }));
             // Overflow index past page 1 (issue #7329) — same rows, bounded
             // pages. Sitemapped alongside the bucket (see `perCantonSitemap`
             // below): the ladder is the only inbound of the rows it carries.
@@ -4791,22 +5167,10 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // this permanent archive pass the URL would 404 on a later rebuild.
       // These pages use their own slug namespace and comune grouping, kept
       // separate from `detailSlugs`/`cantonStats`; their routes are added to the
-      // sitemap below, while their stale Event JSON-LD remains omitted. Outbound
-      // links from the page itself (to whatever is currently live in the same
-      // comune) are still fine.
-      const historicalDetailEntries: Array<{ canton: string; comune: string; slug: string; imageUrl?: string }> = [];
-      const pastEventsByCanton = new Map<string, SiteEvent[]>();
-      for (const ev of pastEvents) {
-        // #3715: same group-key resolution as the live `byCanton` pass above
-        // — keeps this bridge-page grouping keyed identically to
-        // `byCantonComune` (used just below for `liveSameComune`), otherwise
-        // a half-canton pair's past events would fail to look up their live
-        // siblings entirely.
-        // #3739: an unresolved canton must route to the canton-neutral
-        // bucket, not silently mislabel the event as Ticino.
-        const canton = ev.canton ? resolveCantonUrlKey(ev.canton) : UNRESOLVED_CANTON_KEY;
-        pastEventsByCanton.set(canton, [...(pastEventsByCanton.get(canton) ?? []), ev]);
-      }
+      // sitemap and historical archive index below, while their stale Event
+      // JSON-LD remains omitted. The archive index supplies the inbound links
+      // that the live listings cannot provide after these events expire.
+      const historicalDetailEntries: HistoricalDetailEntry[] = [];
       for (const [canton, events] of pastEventsByCanton) {
         const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
         const otherEvents = events.filter((event) => !event.comune);
@@ -4830,9 +5194,12 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
           // ephemeral event whose slug equals a public one, past included).
           const reservedBaseSlugs = reserveLiveSiblingSlugs(liveSameComune.filter((ev) => !isEphemeralEvent(ev)), detailSlugs);
           const pastSlugFor = assignEventSlugs(list, reservedBaseSlugs);
+          const municipalEntries: HistoricalDetailEntry[] = [];
           for (const ev of list) {
             const slug = pastSlugFor.get(ev.id)!;
-            historicalDetailEntries.push({ canton, comune, slug, imageUrl: ev.imageUrl });
+            const entry = { event: ev, canton, comune, slug, imageUrl: ev.imageUrl };
+            historicalDetailEntries.push(entry);
+            municipalEntries.push(entry);
             for (const locale of LOCALES) canonicalDetailPaths.add(pathForEventDetail(locale, comune, slug, canton));
           }
           const pastSlugMigrations = changedEventSlugMigrations(list, canton, comune, pastSlugFor, reservedBaseSlugs);
@@ -4843,6 +5210,17 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
             const detailHref = detailHrefFor(locale);
             for (const migration of pastSlugMigrations) emitSlugRedirect(locale, migration);
             for (const migration of pastHistoricalMigrations) emitSlugRedirect(locale, migration);
+            if (comune !== OTHER_EVENTS_COMUNE_KEY) {
+              const pageCount = Math.ceil(municipalEntries.length / HISTORICAL_ARCHIVE_PAGE_SIZE);
+              const emitArchive = (page: number, municipalHub = false) => {
+                const rendered = renderHistoricalEventsArchivePage({ locale, entries: municipalEntries, page, pageCount,
+                  distDir, municipality: { canton, comune }, municipalHub });
+                emit(rendered);
+                municipalArchivePaths.add(rendered.urlPath);
+              };
+              for (let page = 1; page <= pageCount; page += 1) emitArchive(page);
+              if (liveSameComune.length === 0) emitArchive(1, true);
+            }
             for (const ev of list) {
               emit(
                 renderEventDetailPage({
@@ -4874,8 +5252,25 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
         emit(renderEventsIndexPage({ locale, cantonStats, events: all, dateStamp, weekendDays, distDir, detailHref }));
       }
 
+      const historicalArchivePageCount = Math.ceil(historicalDetailEntries.length / HISTORICAL_ARCHIVE_PAGE_SIZE);
+      for (const locale of LOCALES) {
+        if (!shouldEmitLocale(locale)) {
+          skippedLocaleRenders += historicalArchivePageCount;
+          continue;
+        }
+        for (let page = 1; page <= historicalArchivePageCount; page += 1) {
+          emit(renderHistoricalEventsArchivePage({
+            locale,
+            entries: historicalDetailEntries,
+            page,
+            pageCount: historicalArchivePageCount,
+            distDir,
+          }));
+        }
+      }
+
       const detailEntries = [...detailSlugs.values(), ...historicalDetailEntries];
-      const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries);
+      const sitemapXml = buildSitemap(perCantonSitemap, dateStamp, detailEntries, historicalArchivePageCount);
       fs.mkdirSync(distDir, { recursive: true });
       fs.writeFileSync(path.join(distDir, SITEMAP_NAME), sitemapXml, 'utf-8');
 
@@ -4886,6 +5281,7 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
 
       const t0 = Date.now();
       const flushed = await collector.flush();
+      replaceEmittedEventArchivePaths(municipalArchivePaths);
 
       // Inbound BFS links must be injected AFTER staticPagesPlugin has emitted
       // the hub index.html files (enforce:'post' + this await). Patch every
@@ -4893,7 +5289,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       // not only via sitemap/hreflang.
       await staticPagesFlushed;
       const reached: Locale[] = [];
+      const archiveReached: Locale[] = [];
       for (const locale of LOCALES) {
+        const archivePath = historicalArchivePageCount > 0 ? historicalEventsArchivePath(locale) : null;
+        const archiveOk = INBOUND_HUBS[locale]
+          .map((rel) => patchHistoricalEventsArchiveLink(distDir, rel, locale, archivePath))
+          .some(Boolean);
+        if (archiveOk && archivePath) archiveReached.push(locale);
         const ok = INBOUND_HUBS[locale].map((rel) => patchInboundLink(distDir, rel, locale)).some(Boolean);
         if (ok) reached.push(locale);
       }
@@ -4901,9 +5303,13 @@ export function eventsSeoPagesPlugin(rootDir: string): Plugin {
       if (missing.length) {
         console.log(`\x1b[33m[events-pages]\x1b[0m WARNING: no inbound hub link injected for locale(s) ${missing.join(',')} — events hub reachable only via sitemap`);
       }
+      const missingArchive = historicalArchivePageCount > 0 ? LOCALES.filter((locale) => !archiveReached.includes(locale)) : [];
+      if (missingArchive.length) {
+        console.log(`\x1b[33m[events-pages]\x1b[0m WARNING: no historical archive link injected for locale(s) ${missingArchive.join(',')} — historical details may be unreachable`);
+      }
 
       console.log(
-        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${totalComuni} comuni × ${cantons.length} canton(s) × ${LOCALES.length} locales + hubs) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''} — inbound link locales: ${reached.join(',') || 'none'}${EMIT_ALL_LOCALES ? '' : `, ${skippedLocaleRenders} non-owned-locale renders skipped`}`,
+        `\x1b[36m[events-pages]\x1b[0m Generated ${pagesWritten} pages (${totalComuni} comuni × ${cantons.length} canton(s) × ${LOCALES.length} locales + hubs, ${historicalArchivePageCount} historical archive page(s)) from ${all.length} events — flushed ${flushed} files in ${((Date.now() - t0) / 1000).toFixed(1)}s${thinPages ? ` (${thinPages} thin → noindex)` : ''} — inbound link locales: ${reached.join(',') || 'none'}${historicalArchivePageCount ? `, historical archive link locales: ${archiveReached.join(',') || 'none'}` : ''}${EMIT_ALL_LOCALES ? '' : `, ${skippedLocaleRenders} non-owned-locale renders skipped`}`,
       );
     },
   };

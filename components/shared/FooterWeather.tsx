@@ -5,9 +5,11 @@
  * Reuses the same localStorage cache as MorningDashboard (30-min TTL).
  */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useState, useRef } from 'react';
 import { Cloud, CloudRain, CloudSnow, Sun, CloudDrizzle, CloudFog, CloudLightning, MapPin, Navigation } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { useAuth } from '@/services/authService';
+import { loadStoredUserProfile, userLocationCacheKey, userWeatherCacheKey } from '@/services/userProfileStorage';
 
 interface MiniWeather {
  temp: number;
@@ -16,9 +18,7 @@ interface MiniWeather {
  city?: string;
 }
 
-const WEATHER_CACHE_KEY = 'morning_weather_cache';
 const WEATHER_CACHE_TTL = 30 * 60 * 1000;
-const USER_LOCATION_CACHE_KEY = 'user_location_cache';
 const USER_LOCATION_CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
 function getWeatherEmoji(code: number, isDay: boolean): string {
@@ -78,27 +78,22 @@ interface UserLocation {
  city: string;
 }
 
-const PROFILE_STORAGE_KEY = 'frontaliere_user_profile';
-
-async function getUserLocation(): Promise<UserLocation | null> {
+async function getUserLocation(uid?: string | null): Promise<UserLocation | null> {
  // 1. First, check user profile for municipality (most reliable, user-set)
  try {
- const profileStr = localStorage.getItem(PROFILE_STORAGE_KEY);
- if (profileStr) {
- const profile = JSON.parse(profileStr);
- if (profile.municipality) {
+ const profile = loadStoredUserProfile(uid);
+ if (typeof profile?.municipality === 'string') {
  const { findMunicipality } = await import('@/data/municipalities');
  const mun = findMunicipality(profile.municipality);
  if (mun && mun.lat && mun.lng) {
  return { lat: mun.lat, lng: mun.lng, city: mun.name };
  }
  }
- }
  } catch { /* ignore */ }
 
  // 2. Check cache for IP-based location
  try {
- const cached = localStorage.getItem(USER_LOCATION_CACHE_KEY);
+ const cached = localStorage.getItem(userLocationCacheKey(uid));
  if (cached) {
  const { data, timestamp } = JSON.parse(cached);
  if (Date.now() - timestamp < USER_LOCATION_CACHE_TTL) {
@@ -144,12 +139,20 @@ const WeatherPill: React.FC<{ weather: MiniWeather; label: string; flag?: string
 
 const FooterWeather: React.FC = () => {
  const { t } = useTranslation();
+ const { user } = useAuth();
  const [lugano, setLugano] = useState<MiniWeather | null>(null);
  const [como, setComo] = useState<MiniWeather | null>(null);
  const [userWeather, setUserWeather] = useState<MiniWeather | null>(null);
  const [userCity, setUserCity] = useState<string | null>(null);
  const [isVisible, setIsVisible] = useState(false);
  const containerRef = useRef<HTMLDivElement>(null);
+ const userWeatherUidRef = useRef(user?.uid ?? null);
+
+ useLayoutEffect(() => {
+  userWeatherUidRef.current = user?.uid ?? null;
+  setUserWeather(null);
+  setUserCity(null);
+ }, [user?.uid]);
 
  // Observe when the footer enters the viewport (with 200px margin)
  useEffect(() => {
@@ -176,11 +179,13 @@ const FooterWeather: React.FC = () => {
  useEffect(() => {
  if (!isVisible) return;
  let mounted = true;
+ const activeUid = user?.uid ?? null;
+ const weatherCacheKey = userWeatherCacheKey(user?.uid);
 
  // Try to get Lugano/Como data from MorningDashboard's cache first
  let usedCache = false;
  try {
- const cached = localStorage.getItem(WEATHER_CACHE_KEY);
+ const cached = localStorage.getItem(weatherCacheKey);
  if (cached) {
  const { data, timestamp } = JSON.parse(cached);
  if (Date.now() - timestamp < WEATHER_CACHE_TTL) {
@@ -209,22 +214,22 @@ const FooterWeather: React.FC = () => {
  }
 
  // Fetch user location weather in background
- getUserLocation().then(async (loc) => {
- if (!mounted || !loc) return;
+ getUserLocation(activeUid).then(async (loc) => {
+ if (!mounted || userWeatherUidRef.current !== activeUid || !loc) return;
  // Don't show user pill if they're already near Lugano or Como
  const isNearLugano = Math.abs(loc.lat - 46.0037) < 0.15 && Math.abs(loc.lng - 8.9511) < 0.15;
  const isNearComo = Math.abs(loc.lat - 45.8081) < 0.15 && Math.abs(loc.lng - 9.0852) < 0.15;
  if (isNearLugano || isNearComo) return;
 
  const weather = await fetchMini(loc.lat, loc.lng);
- if (mounted && weather) {
+ if (mounted && userWeatherUidRef.current === activeUid && weather) {
  setUserWeather(weather);
  setUserCity(loc.city);
  }
  }).catch(() => {});
 
  return () => { mounted = false; };
- }, [isVisible]);
+ }, [isVisible, user?.uid]);
 
  // Show a placeholder div even before data loads so IntersectionObserver has a target
  if (!lugano && !como && !userWeather) return <div ref={containerRef} />;

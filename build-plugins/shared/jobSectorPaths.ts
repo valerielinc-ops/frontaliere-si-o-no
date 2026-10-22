@@ -40,6 +40,7 @@ export type SectorHubKey =
   | 'data-scientist'
   | 'cybersecurity'
   | 'project-manager'
+  | 'informatica'
   | 'contabili'
   | 'banca'
   | 'assicurazioni'
@@ -91,6 +92,8 @@ export const SECTOR_HUB_KEYS: readonly SectorHubKey[] = [
   'data-scientist',
   'cybersecurity',
   'project-manager',
+  // The IT umbrella follows specialist hubs because first-match consumers use this order.
+  'informatica',
   'contabili',
   'banca',
   'assicurazioni',
@@ -155,7 +158,7 @@ export function buildSectorHubPath(locale: JobBoardLocale, sector: SectorHubKey)
   return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
 }
 
-/** Return all 12 hub paths (3 sectors × 4 locales). */
+/** Return all configured hub paths (each sector × 4 locales). */
 export function allSectorHubPaths(): SectorHubPath[] {
   const out: SectorHubPath[] = [];
   for (const locale of ['it', 'en', 'de', 'fr'] as JobBoardLocale[]) {

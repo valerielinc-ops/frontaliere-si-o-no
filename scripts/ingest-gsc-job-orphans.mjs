@@ -24,13 +24,22 @@
  *
  * Reads every `Tabella.csv` under `download/frontaliereticino.ch-Coverage-*`
  * + `data/jobs.json` + `data/expired-jobs.json` (optional, may be missing).
- * Idempotent.
+ * Additive and idempotent: GSC exports are limited samples, so URLs absent
+ * from a later export are retained rather than treated as resolved.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
+import { urlToOrphan } from './lib/gsc-job-orphans.mjs';
+import {
+  assertGscOrphanSnapshot,
+  gscOrphanRouteKey,
+  isAllowedGscOrphanUrl,
+  mergeGscOrphanRecords,
+} from './lib/gsc-orphan-snapshot.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -72,24 +81,10 @@ function loadJobSectionSlugs() {
 
 const JOB_SECTION_SLUGS = loadJobSectionSlugs();
 
-/** Reserved hub prefixes — slugs starting with these are NOT job-details. */
-const HUB_PREFIXES = [
-  /^(ricerca|search|suche|recherche)-/,
-  /^(azienda|company|localita|location|standort|ort|stadt|unternehmen|firma|entreprise|societe|ville|lieu|localite)-/,
-  /^(categoria|category|kategorie|categorie)-/,
-  /^(pagina|page|seite)-\d+$/,
-];
-
-const HUB_EXACT_SLUGS = new Set([
-  'tutti', 'all', 'alle', 'tous',
-  'settori', 'sectors', 'branchen', 'secteurs',
-  'aziende', 'companies', 'unternehmen', 'entreprises',
-]);
-
 function findCsvFiles() {
   if (!fs.existsSync(DOWNLOADS_DIR)) return [];
   const out = [];
-  for (const entry of fs.readdirSync(DOWNLOADS_DIR)) {
+  for (const entry of fs.readdirSync(DOWNLOADS_DIR).sort()) {
     if (!entry.startsWith('frontaliereticino.ch-Coverage-')) continue;
     const csv = path.join(DOWNLOADS_DIR, entry, 'Tabella.csv');
     if (fs.existsSync(csv)) out.push({ file: csv, basename: entry });
@@ -100,25 +95,6 @@ function findCsvFiles() {
 function parseCsvUrls(file) {
   const text = fs.readFileSync(file, 'utf-8');
   return text.split(/\r?\n/).slice(1).filter(Boolean).map((l) => l.split(',')[0]).filter(Boolean);
-}
-
-function urlToOrphan(url) {
-  let pathname;
-  try { pathname = new URL(url).pathname; } catch { return null; }
-  const segments = pathname.split('/').filter(Boolean);
-  let locale = 'it';
-  let cursor = 0;
-  if (['en', 'de', 'fr'].includes(segments[0])) {
-    locale = segments[0];
-    cursor = 1;
-  }
-  const section = segments[cursor];
-  const slug = segments[cursor + 1];
-  if (!section || !slug || segments.length !== cursor + 2) return null;
-  if (!JOB_SECTION_SLUGS[locale]?.has(section)) return null;
-  if (HUB_EXACT_SLUGS.has(slug)) return null;
-  if (HUB_PREFIXES.some((rx) => rx.test(slug))) return null;
-  return { locale, slug, url };
 }
 
 /**
@@ -195,9 +171,7 @@ function extractCompanyHint(slug) {
   return tokens.slice(-Math.min(4, Math.max(2, Math.floor(tokens.length / 2)))).join('-');
 }
 
-function classifyOrphan(orphan, jobs, expiredIdx, csvBasename) {
-  const slugIndex = buildSlugIndex(jobs);
-
+function classifyOrphan(orphan, jobs, slugIndex, jobsById, expiredIdx, csvBasename) {
   // Match against current jobs (any locale's current/previous slug)
   for (const loc of ['it', 'en', 'de', 'fr']) {
     const hit = slugIndex.idx.get(`${loc}::${orphan.slug}`);
@@ -214,6 +188,25 @@ function classifyOrphan(orphan, jobs, expiredIdx, csvBasename) {
         };
       }
     }
+  }
+
+  // Keep a previous job-id association when a job's slug changed enough that
+  // the old route no longer matches by exact, prefix, or reslug heuristics.
+  const previouslyMatchedJob = orphan.kind === 'matched' && orphan.jobId
+    ? jobsById.get(orphan.jobId)
+    : null;
+  const previousLocalizedSlug = previouslyMatchedJob?.slugByLocale?.[orphan.locale]
+    || previouslyMatchedJob?.slug
+    || '';
+  if (previouslyMatchedJob && previousLocalizedSlug) {
+    return {
+      ...orphan,
+      kind: 'matched',
+      jobId: previouslyMatchedJob.id,
+      currentSlug: previousLocalizedSlug,
+      matchType: 'previous-job-id',
+      csvOrigin: csvBasename,
+    };
   }
 
   // Prefix match (90-char truncation case)
@@ -281,13 +274,15 @@ function buildExpiredIndex(expiredArr) {
 function main() {
   if (!fs.existsSync(JOBS_PATH)) {
     console.error(`✗ ${JOBS_PATH} not found.`);
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
   const csvFiles = findCsvFiles();
   if (csvFiles.length === 0) {
     console.error('No GSC CSV exports found under download/frontaliereticino.ch-Coverage-*');
-    process.exit(1);
+    process.exitCode = 1;
+    return;
   }
 
   const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
@@ -295,27 +290,60 @@ function main() {
     ? (() => { const e = JSON.parse(fs.readFileSync(EXPIRED_PATH, 'utf-8')); return Array.isArray(e) ? e : (e.jobs || e.entries || []); })()
     : [];
   const expiredIdx = buildExpiredIndex(expiredArr);
+  const slugIndex = buildSlugIndex(jobs);
+  const jobsById = new Map(jobs.map((job) => [job.id, job]));
 
   console.log(`Loaded ${jobs.length} jobs, ${expiredArr.length} expired-job records.`);
 
-  const seen = new Set();
-  const orphans = [];
+  const importedByUrl = new Map();
 
   for (const { file, basename } of csvFiles) {
     const urls = parseCsvUrls(file);
     for (const url of urls) {
-      const o = urlToOrphan(url);
+      if (!isAllowedGscOrphanUrl(url)) continue;
+      const o = urlToOrphan(url, JOB_SECTION_SLUGS);
       if (!o) continue;
-      const key = `${o.locale}::${o.slug}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      orphans.push(classifyOrphan(o, jobs, expiredIdx, basename));
+      const classified = classifyOrphan(o, jobs, slugIndex, jobsById, expiredIdx, basename);
+      importedByUrl.set(gscOrphanRouteKey(classified), classified);
     }
   }
 
+  let existingFile = { sources: [], orphans: [] };
+  if (fs.existsSync(OUT_PATH)) {
+    existingFile = JSON.parse(fs.readFileSync(OUT_PATH, 'utf-8'));
+    assertGscOrphanSnapshot(existingFile, {
+      file: path.relative(ROOT, OUT_PATH),
+      recordsKey: 'orphans',
+      identityField: 'slug',
+      kinds: ['matched', 'expired-tracked', 'expired'],
+      validateRoute: (entry) => {
+        const parsed = urlToOrphan(entry.url, JOB_SECTION_SLUGS);
+        return parsed?.locale === entry.locale && parsed?.slug === entry.slug;
+      },
+      validateRecord: (entry) => entry.kind === 'matched'
+        ? typeof entry.jobId === 'string' && entry.jobId.length > 0
+        : entry.jobId === undefined,
+    });
+  }
+  const imported = [...importedByUrl.values()];
+  // GSC's export is a capped sample: disappearance from a later sample is not
+  // evidence that the source URL resolved, so prior routes are retained.
+  const refreshedExisting = existingFile.orphans.map((old) => classifyOrphan(
+    { locale: old.locale, slug: old.slug, url: old.url, kind: old.kind, jobId: old.jobId },
+    jobs,
+    slugIndex,
+    jobsById,
+    expiredIdx,
+    old.csvOrigin,
+  ));
+  const orphans = mergeGscOrphanRecords(refreshedExisting, imported);
+  const retained = Math.max(0, orphans.length - imported.length);
+
   // Summary
   const counts = orphans.reduce((acc, o) => { acc[o.kind] = (acc[o.kind] || 0) + 1; return acc; }, {});
-  console.log(`\nTotal job-orphans: ${orphans.length}`);
+  console.log(`\nImported job-orphans: ${imported.length}`);
+  console.log(`Retained from prior imports (not present in this sample): ${retained}`);
+  console.log(`Total tracked job-orphans: ${orphans.length}`);
   console.log('By kind:');
   for (const [k, n] of Object.entries(counts)) console.log(`  ${k}: ${n}`);
 
@@ -331,12 +359,18 @@ function main() {
 
   const out = {
     generatedAt: new Date().toISOString(),
-    sources: csvFiles.map((c) => c.basename),
+    sources: [...new Set([...(existingFile.sources || []), ...csvFiles.map((c) => c.basename)])],
     counts,
     orphans,
   };
-  fs.writeFileSync(OUT_PATH, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  const tempPath = `${OUT_PATH}.${process.pid}.tmp`;
+  fs.writeFileSync(tempPath, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  fs.renameSync(tempPath, OUT_PATH);
   console.log(`\nWrote ${orphans.length} job-orphan records to ${path.relative(ROOT, OUT_PATH)}`);
 }
 
-main();
+const lock = withSingleFlightLock(`${OUT_PATH}.lock`, main);
+if (!lock.acquired) {
+  console.error(`✗ ${path.relative(ROOT, OUT_PATH)} is already being updated; retry after it completes.`);
+  process.exitCode = 1;
+}

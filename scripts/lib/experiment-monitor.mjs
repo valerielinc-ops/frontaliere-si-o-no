@@ -26,6 +26,7 @@
 
 import { countInclusiveUtcDays, fmtUtcDate } from './analytics-settled-window.mjs';
 import { achievedPower, fmtCi, fmtInt, fmtP, fmtPct, sampleSizePerArm } from './experiment-stats.mjs';
+import { JOBGATE_RC_KEYS } from '../../services/jobGateExperimentCore.mjs';
 
 /**
  * Piano di un esperimento (forma di JOBGATE_PLAN, con valori sostituibili).
@@ -336,14 +337,15 @@ function fmtUplift(u) {
  */
 export function renderMonitorReport({ plan, planned, rc, statusEval, decisionEval, decision, alarms, estimate, statusPayload, state, runUrl = null, applied = null }) {
   const L = [];
+  const launchedAt = plan.launchedAt ? plan.launchedAt.slice(0, 10) : addDaysIso(plan.analysisStart, -1);
   L.push(`# Monitor esperimento \`${plan.experimentId}\``);
   L.push('');
   L.push(`Aggiornato automaticamente ogni giorno da \`jobgate-experiment-monitor\`${runUrl ? ` ([run](${runUrl}))` : ''}. Solo lettura, salvo la promozione alle condizioni sotto.`);
   L.push('');
   L.push(`- **Fase:** ${PHASE_LABEL[decision.phase] || decision.phase}`);
-  L.push(`- **Remote Config:** ENABLED=\`${rc.enabled}\`, FORCE=${rc.force ? `\`${rc.force}\`` : '(vuoto)'}, ARMS=${rc.armsRaw ? `\`${rc.armsRaw}\`` : '(assente)'}${rc.armsValid === false ? ' — **non valido: tutti in control**' : ''}`);
+  L.push(`- **Remote Config:** ${JOBGATE_RC_KEYS.enabled}=\`${rc.enabled}\`, ${JOBGATE_RC_KEYS.force}=${rc.force ? `\`${rc.force}\`` : '(vuoto)'}, ${JOBGATE_RC_KEYS.arms}=${rc.armsRaw ? `\`${rc.armsRaw}\`` : '(assente)'}${rc.armsValid === false ? ` — **non valido: default \`${plan.control}\`**` : ''}`);
   if (statusEval) {
-    L.push(`- **Giorni trascorsi:** ${statusEval.days} (finestra ${statusEval.since} → ${statusEval.until}, giorni assestati Europe/Zurich; dal ${plan.analysisStart}, lancio ${plan.launchedAt.slice(0, 10)})`);
+    L.push(`- **Giorni trascorsi:** ${statusEval.days} (finestra ${statusEval.since} → ${statusEval.until}, giorni assestati Europe/Zurich; dal ${plan.analysisStart}, lancio ${launchedAt})`);
   }
   L.push(`- **Piano:** baseline ${fmtPct(plan.baselineRate)} (${plan.baselineWindow}), effetto minimo +${Math.round(plan.relativeMde * 100)}%, potenza ${Math.round(plan.power * 100)}%, α ${String(plan.alpha).replace('.', ',')} (per confronto ${planned.alphaPerTest.toFixed(4).replace('.', ',')}) → **${fmtInt(planned.requiredPerArm)} persone gate_view per braccio**; durata minima **${planned.minDays} giorni** (finestra fino al ${planned.minWindowEnd}), massima ${plan.maxDays} (fino al ${planned.maxWindowEnd}); decisioni solo su settimane intere.`);
   if (estimate) {
@@ -410,12 +412,12 @@ const CHECK_LABEL = {
 
 function actionSentence(decision, applied) {
   if (decision.action === 'promote') {
-    if (applied === true) return `**Promosso \`${decision.winner}\`**: Remote Config \`JOBGATE_EXPERIMENT_FORCE=${decision.winner}\` pubblicato (etag, senza force).`;
+    if (applied === true) return `**Promosso \`${decision.winner}\`**: Remote Config \`${JOBGATE_RC_KEYS.force}=${decision.winner}\` pubblicato (etag, senza force).`;
     if (applied === false) return `**Promozione di \`${decision.winner}\` pronta** — pubblicazione fallita; Remote Config non modificato.`;
     return `**Promozione di \`${decision.winner}\` pronta** — nessuna pubblicazione senza approvazione manuale via \`workflow_dispatch\` (servono \`--apply --approve-promotion\`).`;
   }
   if (decision.action === 'ask-owner') return 'Nessun cambio automatico: durata massima raggiunta senza un vincente promuovibile. Decisione richiesta al proprietario.';
-  if (decision.phase === 'forced') return `Nessuna azione: \`JOBGATE_EXPERIMENT_FORCE=${decision.winner}\` è già impostato (promozione fatta o QA in corso).`;
-  if (decision.phase === 'disabled') return 'Nessuna azione: `JOBGATE_EXPERIMENT_ENABLED` non è `true`.';
+  if (decision.phase === 'forced') return `Nessuna azione: \`${JOBGATE_RC_KEYS.force}=${decision.winner}\` è già impostato (promozione fatta o QA in corso).`;
+  if (decision.phase === 'disabled') return `Nessuna azione: \`${JOBGATE_RC_KEYS.enabled}\` non è \`true\`.`;
   return 'Nessuna azione.';
 }

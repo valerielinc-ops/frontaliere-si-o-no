@@ -19,6 +19,7 @@ import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locatio
 import { readAttr } from './html-attr.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { FeedEndpointUnavailableError } from './feed-endpoint-guard.mjs';
+import { extractJobPostingNodesFromJson } from './jobposting-jsonld.mjs';
 import {
   filterJobupCardsByEmployer,
   parseJobupSearchCards,
@@ -400,9 +401,8 @@ async function fetchJobUpDescription(jobUpUrl, title) {
         const jsonStr = block.replace(/<\/?script[^>]*>/gi, '').trim();
         try {
           const raw = JSON.parse(jsonStr);
-          const items = Array.isArray(raw) ? raw : [raw];
-          for (const ld of items) {
-            if (ld['@type'] === 'JobPosting' && ld.description) {
+          for (const ld of extractJobPostingNodesFromJson(raw)) {
+            if (ld.description) {
               let sameUrl = !ld.url;
               if (ld.url) {
                 try { sameUrl = new URL(ld.url, jobUpUrl).href === new URL(jobUpUrl).href; }

@@ -56,6 +56,7 @@ import {
   TAILORED_CV_SCHEMA,
   buildTailoredCvPdf,
   checkTailoredCvFacts,
+  checkTailoredCvLanguage,
   sanitizeTailoredCv,
   tailoredCvPlainText,
   tailoredCvSystemPrompt,
@@ -83,8 +84,10 @@ const MAX_REPAIR_FINDINGS = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 
 /** What the fact gate did not find, as the model is told it for the one repair. */
-function findingsOf(facts) {
-  return (facts?.unsupported || []).slice(0, MAX_REPAIR_FINDINGS).map(({ field, kind, token, context }) => ({ field, kind, token, context }));
+function findingsOf(...results) {
+  return results.flatMap((result) => (result?.unsupported || result?.issues || []))
+    .slice(0, MAX_REPAIR_FINDINGS)
+    .map(({ field, kind, token, context }) => ({ field, kind, token, context }));
 }
 
 export class DraftAbort extends Error {
@@ -149,7 +152,7 @@ export async function buildDraft(ctx) {
   let requirements;
   if (reuse) {
     // Capped and defaulted as a fresh read.
-    profile = sanitizeProfile(previousDraft.profile);
+    profile = sanitizeProfile(previousDraft.profile, { legacy: true, cvText });
     requirements = previousDraft.requirementsRaw;
     log('reusing profile and requirements of the previous round');
   } else {
@@ -168,7 +171,7 @@ export async function buildDraft(ctx) {
         timeoutMs: CODEX_TIMEOUT_MS,
       }),
     ]);
-    profile = sanitizeProfile(profileRaw);
+    profile = sanitizeProfile(profileRaw, { cvText });
     requirements = verifyQuotes(sanitizeRequirements(requirementsRaw), postingText);
   }
   // The CV may state a locality and province without spelling out the CAP or
@@ -341,6 +344,7 @@ export async function buildDraft(ctx) {
     const portalResult = await readPortal({
       channelType: channel.type,
       applyUrl: channel.applyUrl,
+      postingUrl: order.jobUrl || '',
       language,
       candidateLocale: locale,
       candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } }, language, personal }),
@@ -356,10 +360,14 @@ export async function buildDraft(ctx) {
     // question. Re-run this filter after the portal has contributed its own
     // document labels.
     questions = questions.filter(notAnsweredByUpload);
-    const known = new Set(questions.map((question) => portalQuestionKey(question.question, question.context) || question.id));
-    questions.push(...(Array.isArray(portal.questions) ? portal.questions : [])
-      .filter((question) => !known.has(portalQuestionKey(question.question, question.context) || question.id))
-      .filter(notAnsweredByUpload));
+    const known = new Set(questions.map((question) => portalQuestionKey(question) || question.id));
+    for (const question of Array.isArray(portal.questions) ? portal.questions : []) {
+      if (!notAnsweredByUpload(question)) continue;
+      const key = portalQuestionKey(question) || question.id;
+      if (known.has(key)) continue;
+      known.add(key);
+      questions.push(question);
+    }
     log('portal pre-read', channel.type, `${portal.questions?.length || 0} questions`, `${portal.documents?.length || 0} documents`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
@@ -472,18 +480,22 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
         timeoutMs,
       });
       const written = sanitizeTailoredCv(raw, { profile, cvText, language, type: kind.type, sector: kind.sector, title });
-      return { cv: written, facts: checkTailoredCvFacts(written, { cvText, profile, answers: { ...answers, notes: candidateNotes } }) };
+      return {
+        cv: written,
+        facts: checkTailoredCvFacts(written, { cvText, profile, answers: { ...answers, notes: candidateNotes } }),
+        languageCheck: checkTailoredCvLanguage(written, { profile, language, type: kind.type }),
+      };
     };
-    let { cv, facts } = await write();
+    let { cv, facts, languageCheck } = await write();
     // Self-repair (2026-10-07): one warning dropped the whole tailored CV for the original one (a real
     // draft: the summary named the posting's company). It is written once more, the model told what the
     // gate did not find; only a repair the gate passes is kept.
     let repaired = false;
-    if (!facts.ok) {
-      log('tailored cv: fact gate failed, one repair');
-      const again = await write(findingsOf(facts), REPAIR_TIMEOUT_MS).catch(() => null);
-      if (again?.facts.ok) {
-        ({ cv, facts } = again);
+    if (!facts.ok || !languageCheck.ok) {
+      log(`tailored cv: ${facts.ok ? 'language' : 'fact'} gate failed, one repair`);
+      const again = await write(findingsOf(facts, languageCheck), REPAIR_TIMEOUT_MS).catch(() => null);
+      if (again?.facts.ok && again?.languageCheck.ok) {
+        ({ cv, facts, languageCheck } = again);
         repaired = true;
       }
     }
@@ -491,6 +503,10 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     if (!facts.ok) {
       log('tailored cv: fact gate failed, the original CV will be sent');
       return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
+    }
+    if (!languageCheck.ok) {
+      log('tailored cv: language gate failed, the original CV will be sent');
+      return { record: { status: 'language_check_failed', languageIssues: languageCheck.issues.slice(0, 10), dropped: cv.dropped, language }, text };
     }
     const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
     // The photo the candidate gave on an earlier round stays on the new tailored CV.

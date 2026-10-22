@@ -294,22 +294,36 @@ export function parseListingPage(html) {
       ? parseItalianDate(normalizeSpace(closeDateMatch[1]))
       : '';
 
-    // PDF link: /downloadJobPosition?uuid=UUID
-    const pdfMatch = block.match(
-      /href="(\/downloadJobPosition\?uuid=[a-f0-9-]+)"/i
+    // AIL used to expose PDFs through /downloadJobPosition?uuid=UUID. The
+    // current page serves direct /dam/jcr:...pdf links instead, while the
+    // application id lives on the separate candidature link. Resolve both
+    // forms from the source page so a markup change cannot silently publish a
+    // job without its official PDF or application URL.
+    const links = [...block.matchAll(
+      /<a\b[^>]*\bhref\s*=\s*(["'])([^"']+)\1[^>]*>/gi,
+    )].map((match) => {
+      try {
+        const url = new URL(decodeHtmlEntities(match[2]), BASE_URL);
+        return isTrustedDomain(url.href) ? url : null;
+      } catch {
+        return null;
+      }
+    }).filter(Boolean);
+    const pdfUrlObject = links.find((url) =>
+      /\.pdf$/i.test(url.pathname) ||
+      (/\/downloadJobPosition$/i.test(url.pathname) && url.searchParams.has('uuid')),
     );
-    const pdfUrl = pdfMatch
-      ? `${BASE_URL}${decodeHtmlEntities(pdfMatch[1])}`
-      : '';
+    const pdfUrl = pdfUrlObject?.href || '';
 
-    // UUID extraction
-    const uuidMatch = (pdfUrl || '').match(/uuid=([a-f0-9-]+)/i);
-    const uuid = uuidMatch ? uuidMatch[1] : '';
-
-    // Apply URL
-    const applyUrl = uuid
-      ? `${BASE_URL}/AIL/risorse-umane/concorsi.html?applicationId=${uuid}`
-      : CAREERS_URL;
+    const applyUrlObject = links.find((url) =>
+      /\/AIL\/risorse-umane\/concorsi\.html$/i.test(url.pathname) &&
+      url.searchParams.has('applicationId'),
+    );
+    const uuid = pdfUrlObject?.searchParams.get('uuid') ||
+      applyUrlObject?.searchParams.get('applicationId') || '';
+    const applyUrl = applyUrlObject?.href || (uuid
+      ? `${BASE_URL}/AIL/risorse-umane/concorsi.html?applicationId=${encodeURIComponent(uuid)}`
+      : CAREERS_URL);
 
     jobs.push({
       title,

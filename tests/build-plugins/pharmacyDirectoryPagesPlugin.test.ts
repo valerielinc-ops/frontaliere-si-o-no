@@ -208,21 +208,28 @@ describe('pharmacy directory page matrix', () => {
     // cron farmacie riscrive (VB e' `best-effort` e puo' tornare disponibile,
     // CO/VA possono perdere copertura): l'attesa si legge dallo stesso modello
     // che il plugin rende, non da una fotografia del dato (#9743).
-    const italy = buildDutyCoverageMatrix({ locale, duties: dutiesJson as unknown as PharmacyDutiesDataset, now }).italy;
+    const matrix = buildDutyCoverageMatrix({ locale, duties: dutiesJson as unknown as PharmacyDutiesDataset, now });
+    const italy = matrix.italy;
     const publishedProvinces = italy.provinces.filter((province) => province.publishable);
 
     expect(page.indexable).toBe(true);
     // cron-count-ok: le cinque regioni ticinesi sono DUTY_WEEK_REGIONS, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"ticino-region"|ticino-region)/g) || []).toHaveLength(5);
-    // cron-count-ok: BS, GE, JU, SO e ZH sono operativi quando i rispettivi release sono freschi; gli altri 20 restano source-only.
-    expect(page.html.match(/data-coverage-kind=(?:"swiss-canton"|swiss-canton)/g) || []).toHaveLength(5);
-    // cron-count-ok: i 26 cantoni meno TI, BS, GE, JU, SO e ZH restano source-only.
-    expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(20);
+    // Freshness alone does not publish an operational canton: the selected
+    // week must still contain verified (not expired) duty rows. Pin the exact
+    // emitted partition, not a live-data count that changes on expiry.
+    expect(page.html.match(/data-coverage-kind=(?:"swiss-canton"|swiss-canton)/g) || []).toHaveLength(matrix.operationalCantons.length);
+    expect(page.html.match(/data-coverage-kind=(?:"source-only-canton"|source-only-canton)/g) || []).toHaveLength(matrix.sourceOnlyCantons.length);
+    for (const canton of matrix.operationalCantons) {
+      expect(page.html).toMatch(new RegExp(`data-coverage-kind=(?:"swiss-canton"|swiss-canton) data-canton-code=(?:"${canton.code}"|${canton.code})`));
+    }
+    for (const canton of matrix.sourceOnlyCantons) {
+      expect(page.html).toMatch(new RegExp(`data-coverage-kind=(?:"source-only-canton"|source-only-canton) data-canton-code=(?:"${canton.code}"|${canton.code})`));
+    }
     // Main may promote a source-only canton to a valid non-unverified state.
     // The matrix contract requires one status attribute per source-only
     // canton, not that every source remains `unverified` forever.
-    // cron-count-ok: un attributo di stato per ciascuno dei 20 cantoni solo-fonte, costante del codice.
-    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(20);
+    expect(page.html.match(/data-source-status=(?:"(?:unverified|degraded|active|blocked|unavailable)"|(?:unverified|degraded|active|blocked|unavailable))/g) || []).toHaveLength(matrix.sourceOnlyCantons.length);
     expect(page.html).toMatch(/data-release-ready=(?:"true"|true)/);
     // cron-count-ok: le tre province ITALY_DUTY_PROVINCES, costante del codice.
     expect(page.html.match(/data-coverage-kind=(?:"italy-province"|italy-province)/g) || []).toHaveLength(3);

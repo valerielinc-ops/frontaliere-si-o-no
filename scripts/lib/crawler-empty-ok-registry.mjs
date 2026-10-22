@@ -33,10 +33,6 @@ export const EMPTY_OK_CRAWLERS = new Set([
   // (Lugano/Locarno/Biasca). Manor has effectively withdrawn from TI hiring
   // for now; parser is healthy and will re-arm when TI listings reappear.
   'manor',
-  // Zambon Cadempino (TI) production site: the ncoreplat careers API
-  // (https://www.zambon.com/it/api/careers-api) returns jobs across
-  // BR/DE/IT/FR/ES/CO but currently 0 CH listings. Parser is healthy.
-  'zambon',
   // AIL Lugano: the AJAX endpoint
   // (https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true)
   // currently returns HTTP 200 with "Al momento non ci sono posizioni aperte".
@@ -65,16 +61,6 @@ export const EMPTY_OK_CRAWLERS = new Set([
   // cooperative bank legitimately has no openings for weeks at a time; the
   // crawler completes cleanly and re-arms when a vacancy is published.
   'banca-raiffeisen-vedeggio-cassarate',
-  // Clinique CIC (Saxon VS & Clarens VD): the jobup.ch company mask
-  // (https://www.jobup.ch/masks/clinique-cic/list_clinique-cic.asp) returns
-  // HTTP 200 with its unchanged structure but currently only the two
-  // "Offres spontanées" placeholder rows (one per clinic), which the parser
-  // correctly drops as non-openings. A small two-site private surgical group
-  // legitimately has 0 real vacancies for stretches (had 2 on 2026-06-16); the
-  // listing parser is healthy and re-arms when a real opening reappears. Same
-  // legitimately-empty small-employer case as linnea and
-  // banca-raiffeisen-vedeggio-cassarate.
-  'clinique-cic',
   // Giorgio Armani S.p.A. (SuccessFactors SPA, company=3397177P): the dedicated
   // crawler renders the hydrated listing (~34 jobs) correctly and is scoped to
   // Switzerland-based roles only (TI/GR). The Italian luxury house posts almost

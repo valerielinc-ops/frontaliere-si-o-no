@@ -154,8 +154,10 @@ import {
 // `check-workflows-scope.mjs` (Mode 1) terminerebbe `issue-fix.yml` a zero token.
 // Il nome di uno step arriva dal `name:` scritto a mano nel workflow e può
 // contenerlo (`Run .github/workflows/foo.yml`), quindi la redazione è applicata
-// al body INTERO — stessa regola e stessa funzione di `report-workflow-failure.mjs`.
-import { redactWorkflowPaths } from './report-validate-dist-failure.mjs';
+// al body INTERO. Il matcher è condiviso col guard e vive in un gemello
+// `identical`, non nel reporter dist `adapted`: così questo file resta
+// trasportabile e runnable da solo su entrambi i repo.
+import { redactWorkflowPaths } from '../lib/workflow-scope-detect.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -389,6 +391,43 @@ function ghJson(path, { allowFailure = true } = {}) {
   }
 }
 
+/**
+ * `actions/runs` exposes `name` as the evaluated run name, not necessarily the
+ * workflow's declared `name:`. A workflow with `run-name:` therefore returns
+ * a per-dispatch value (for example the loop-clock marker), which cannot be
+ * passed to `gh run list -w` for recovery. The workflow id is the stable link
+ * back to the declared workflow identity.
+ */
+function workflowNameFromRun(run) {
+  const direct = run?.workflow_name ?? run?.workflowName;
+  if (typeof direct === 'string' && direct.trim()) return direct.trim();
+  const name = run?.name;
+  return typeof name === 'string' ? name.trim() : '';
+}
+
+function workflowNameForRun(run, cache) {
+  const workflowId = String(run?.workflow_id ?? '').trim();
+  if (!workflowId) return workflowNameFromRun(run) || null;
+  if (cache.has(workflowId)) return cache.get(workflowId);
+
+  const workflow = ghJson(repoPath(`actions/workflows/${encodeURIComponent(workflowId)}`));
+  const canonical = typeof workflow?.name === 'string' ? workflow.name.trim() : '';
+  if (canonical) {
+    cache.set(workflowId, canonical);
+    return canonical;
+  }
+
+  // Falling back to a run-name here would mint an issue that the recovery
+  // path cannot query. Skip this occurrence and let the next scan retry once
+  // the Actions metadata is readable instead.
+  console.warn(
+    `::warning::[scan-job-timeouts] workflow identity unreadable for run ${run?.id ?? '?'} `
+      + `(workflow_id=${workflowId}); timeout not reported`,
+  );
+  cache.set(workflowId, null);
+  return null;
+}
+
 /** The workflow file running this scan, from GITHUB_WORKFLOW_REF. */
 export function monitorWorkflowFile(env = process.env) {
   const match = /\.github\/workflows\/([^@/]+)@/.exec(String(env.GITHUB_WORKFLOW_REF || ''));
@@ -519,20 +558,29 @@ function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
     const pagePath = (page) => repoPath(
       `actions/runs?status=${status}&created=${created}&per_page=${perPage}&page=${page}`,
     );
-    const first = ghJson(pagePath(1));
-    if (!first) return;
+    const fetchRunsPage = (page) => {
+      const data = ghJson(pagePath(page));
+      if (!data || typeof data !== 'object' || Array.isArray(data)
+        || !Array.isArray(data.workflow_runs)) {
+        throw new Error(`[scan-job-timeouts] risposta runs ${status} non leggibile (page=${page})`);
+      }
+      return data;
+    };
+    const first = fetchRunsPage(1);
 
-    const totalCount = Number(first.total_count);
+    if (first.total_count !== undefined
+      && (!Number.isSafeInteger(first.total_count) || first.total_count < 0)) {
+      throw new Error(`[scan-job-timeouts] total_count non valido per runs ${status}`);
+    }
+    const totalCount = first.total_count;
     if (Number.isFinite(totalCount) && totalCount > RUN_SEARCH_RESULT_CAP) {
       const midpoint = Math.floor((startMs + endMs) / 2);
       if (depth >= RUN_SEARCH_MAX_SPLIT_DEPTH || midpoint < startMs || midpoint >= endMs) {
-        console.warn(
-          `::warning::[scan-job-timeouts] search ${status} ancora oltre il limite API `
-            + `(${totalCount} > ${RUN_SEARCH_RESULT_CAP}) dopo ${depth} split — `
-            + `possibile troncamento tra ${new Date(startMs).toISOString()} e ${new Date(endMs).toISOString()}.`,
+        throw new Error(
+          `[scan-job-timeouts] search ${status} oltre il limite API (${totalCount} > ${RUN_SEARCH_RESULT_CAP}) `
+            + `dopo ${depth} split; risultati incompleti tra ${new Date(startMs).toISOString()} `
+            + `e ${new Date(endMs).toISOString()}`,
         );
-        observe(first.workflow_runs || []);
-        return;
       }
       // Intervalli disgiunti al millisecondo: nessun buco, nessun doppio
       // conteggio sul confine (runsById resta comunque l'ultima difesa).
@@ -541,26 +589,62 @@ function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
       return;
     }
 
-    const expectedPages = Number.isFinite(totalCount)
+    const expectedPages = Number.isSafeInteger(totalCount)
       ? Math.ceil(totalCount / perPage)
       : null;
+    // `total_count` is reported by a live Actions collection, not by an
+    // immutable snapshot. A run can enter or leave this conclusion between
+    // page requests, so the count is useful for the 1,000-result split but is
+    // not an exact per-page row contract.
     let page = 1;
     let data = first;
-    while (data) {
-      const batch = data.workflow_runs || [];
-      if (batch.length === 0) break;
-      observe(batch);
-      if (batch.length < perPage) break;
-      if (expectedPages !== null && page >= expectedPages) break;
-      if (expectedPages === null && page >= RUN_SEARCH_RESULT_CAP / perPage) {
-        console.warn(
-          `::warning::[scan-job-timeouts] search ${status} ha raggiunto il limite API `
-            + `senza total_count — possibile troncamento nella slice created.`,
-        );
+    let previousPageWasShort = false;
+    while (true) {
+      const batch = data.workflow_runs;
+      if (batch.length === 0) {
+        // A short page is terminal evidence even when the earlier count said
+        // that more rows existed. Probe the next page in that case: if it is
+        // also empty, the count was stale but the listing is complete. An
+        // empty page after a full page that the count still requires remains
+        // an incomplete read and fails closed.
+        if (expectedPages !== null && page <= expectedPages && !previousPageWasShort) {
+          throw new Error(`[scan-job-timeouts] pagina ${page}/${expectedPages} vuota per runs ${status}`);
+        }
         break;
       }
+      if (batch.length > perPage) {
+        throw new Error(
+          `[scan-job-timeouts] pagina ${page} oltre il per_page=${perPage} per runs ${status}`,
+        );
+      }
+      if (expectedPages !== null) {
+        const expectedRows = Math.min(perPage, Math.max(0, totalCount - ((page - 1) * perPage)));
+        if (batch.length !== expectedRows) {
+          console.warn(
+            `::warning::[scan-job-timeouts] total_count live per runs ${status}: `
+              + `pagina ${page}/${expectedPages} attesa ${expectedRows}, ricevuta ${batch.length}; `
+              + 'si verifica la terminazione dalla paginazione effettiva.',
+          );
+        }
+      }
+      observe(batch);
+      previousPageWasShort = batch.length < perPage;
+      if (expectedPages !== null && page > expectedPages
+        && page >= RUN_SEARCH_RESULT_CAP / perPage && !previousPageWasShort) {
+        throw new Error(
+          `[scan-job-timeouts] search ${status} oltre il cap di ${RUN_SEARCH_RESULT_CAP} `
+            + 'dopo un total_count live non stabile; risultati incompleti',
+        );
+      }
+      if (previousPageWasShort && (expectedPages === null || page >= expectedPages)) break;
+      if (expectedPages === null && page >= RUN_SEARCH_RESULT_CAP / perPage) {
+        throw new Error(
+          `[scan-job-timeouts] search ${status} ha raggiunto ${RUN_SEARCH_RESULT_CAP} risultati senza total_count; `
+            + 'risultati incompleti nella slice created',
+        );
+      }
       page += 1;
-      data = ghJson(pagePath(page));
+      data = fetchRunsPage(page);
     }
   };
 
@@ -630,8 +714,9 @@ export const JOB_TIMEOUT_REPORT_SIGNATURE = 'scripts/ci/scan-job-timeouts.mjs';
  * `close-recovered-failure-issues.mjs` on purpose. See the module docstring.
  */
 export function scopedTitle(run) {
-  if (run?.head_branch === RECURRENCE_GATE_BRANCH) return `CI Failure: ${run.name}`;
-  return `CI Failure (${run?.event || UNKNOWN_EVENT}): ${run.name}`;
+  const workflow = workflowNameFromRun(run);
+  if (run?.head_branch === RECURRENCE_GATE_BRANCH) return `CI Failure: ${workflow}`;
+  return `CI Failure (${run?.event || UNKNOWN_EVENT}): ${workflow}`;
 }
 
 /** `{ event, workflow }` per un titolo della famiglia, altrimenti `null`. */
@@ -1006,10 +1091,20 @@ export async function main() {
   let startupFailureReports = 0;
   let zeroJobFailureReports = 0;
   let failedUnreadable = 0;
+  let workflowIdentityUnreadable = 0;
   const jobsCache = new Map();
   const jobsForRun = (run) => {
     if (!jobsCache.has(run.id)) jobsCache.set(run.id, listJobsSnapshot(run.id));
     return jobsCache.get(run.id);
+  };
+  const workflowNames = new Map();
+  const reportableRun = (run) => {
+    const workflow = workflowNameForRun(run, workflowNames);
+    if (!workflow) {
+      workflowIdentityUnreadable += 1;
+      return null;
+    }
+    return { ...run, workflow_name: workflow };
   };
 
   // title → issue ref already opened/matched during THIS scan. See the DEDUP note
@@ -1127,6 +1222,8 @@ export async function main() {
     }
     timeoutRuns += 1;
     timeoutJobs += hits.length;
+    const reportRun = reportableRun(run);
+    if (!reportRun) continue;
     for (const { job } of hits) {
       console.log(`[scan-job-timeouts] TIMEOUT: ${run.name} / ${job.name} (run ${run.id})`);
     }
@@ -1150,10 +1247,10 @@ export async function main() {
     // vedi la nota sull'import: nessun path `.github/workflows/**` nel body.
     const description = redactWorkflowPaths(rawDescription);
     await emit({
-      title: scopedTitle(run),
+      title: scopedTitle(reportRun),
       description,
       labels: ['Bug', 'ci-timeout'],
-      workflow: run.name,
+      workflow: reportRun.workflow_name,
       runUrl: run.html_url,
       jobCount: hits.length,
       occurredAt: run.created_at,
@@ -1173,6 +1270,8 @@ export async function main() {
       continue;
     }
     startupFailureReports += 1;
+    const reportRun = reportableRun(run);
+    if (!reportRun) continue;
     const rawDescription = [
       '## Workflow failure prima della creazione dei job',
       '',
@@ -1193,10 +1292,10 @@ export async function main() {
       'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
     ].join('\n');
     await emit({
-      title: scopedTitle(run),
+      title: scopedTitle(reportRun),
       description: redactWorkflowPaths(rawDescription),
       labels: ['Bug', 'ci-startup-failure'],
-      workflow: run.name,
+      workflow: reportRun.workflow_name,
       runUrl: run.html_url,
       jobCount: 1,
       occurredAt: run.created_at,
@@ -1213,6 +1312,8 @@ export async function main() {
     }
     if (jobsData.jobs.length === 0 && Number(jobsData.total_count) === 0) {
       zeroJobFailureReports += 1;
+      const reportRun = reportableRun(run);
+      if (!reportRun) continue;
       const rawDescription = [
         '## Workflow failure senza job',
         '',
@@ -1233,10 +1334,10 @@ export async function main() {
         'Rilevato da `scripts/ci/scan-job-timeouts.mjs` (scan periodico esterno ai job).',
       ].join('\n');
       await emit({
-        title: scopedTitle(run),
+        title: scopedTitle(reportRun),
         description: redactWorkflowPaths(rawDescription),
         labels: ['Bug', 'ci-startup-failure'],
-        workflow: run.name,
+        workflow: reportRun.workflow_name,
         runUrl: run.html_url,
         jobCount: 1,
         occurredAt: run.created_at,
@@ -1248,6 +1349,8 @@ export async function main() {
       .filter(({ kill }) => kill)
       .sort((a, b) => String(a.job?.name || '').localeCompare(String(b.job?.name || '')));
     if (kills.length === 0) continue;
+    const reportRun = reportableRun(run);
+    if (!reportRun) continue;
     for (const { job } of kills) {
       console.log(`[scan-job-timeouts] HOST-KILL: ${run.name} / ${job.name} (run ${run.id})`);
     }
@@ -1287,10 +1390,10 @@ export async function main() {
     // vedi la nota sull'import: nessun path `.github/workflows/**` nel body.
     const description = redactWorkflowPaths(rawDescription);
     await emit({
-      title: scopedTitle(run),
+      title: scopedTitle(reportRun),
       description,
       labels: ['Bug', 'ci-host-kill'],
-      workflow: run.name,
+      workflow: reportRun.workflow_name,
       runUrl: run.html_url,
       jobCount: kills.length,
       occurredAt: run.created_at,
@@ -1305,7 +1408,7 @@ export async function main() {
   console.log(
     `[scan-job-timeouts] startup summary — ${startupFailureReports} startup_failure + `
       + `${zeroJobFailureReports} failure senza job segnalate `
-      + `(${failedUnreadable} failure illeggibili).`,
+      + `(${failedUnreadable} failure illeggibili, ${workflowIdentityUnreadable} identità workflow illeggibili).`,
   );
   console.log(`[scan-job-timeouts] done — ${reported} dead job(s) reported (dry-run=${DRY_RUN}).`);
 }

@@ -5,10 +5,10 @@
  * and the router recognising the 2-segment detail URL.
  */
 import { describe, it, expect, vi } from 'vitest';
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
+import { slugifyEvent, slugifyLegacyEvent, disambiguateEventSlug, EVENTS_INDEX_PATH, OTHER_EVENTS_COMUNE_KEY, UNRESOLVED_CANTON_KEY, RESERVED_EVENTS_SEGMENT_RE, EVENT_SLUG_MAX_LENGTH } from '../scripts/lib/events-utils.mjs';
 import {
   renderEventsIndexPage,
   eventLd,
@@ -20,6 +20,9 @@ import {
   renderDigestPage,
   renderOtherEventsPage,
   renderOverflowLadderPage,
+  renderHistoricalEventsArchivePage,
+  historicalEventsArchivePath,
+  patchHistoricalEventsArchiveLink,
   buildSitemap,
   DIGESTS,
   assignEventSlugs,
@@ -233,7 +236,7 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.organizer).toEqual({
       '@type': 'Organization',
       name: 'Guidle',
-      url: 'https://www.guidle.com/',
+      url: 'https://www.guidle.com/de',
     });
     expect(ld.performer).toEqual({ '@type': 'Organization', name: EVENT.venue });
   });
@@ -404,6 +407,64 @@ describe('renderEventDetailPage', () => {
     dateStamp: '2026-06-30',
     distDir,
     detailHref: detailHref as never,
+  });
+
+  it('keeps event-detail titles and headings concise while retaining the place and date', () => {
+    const longEvent = {
+      ...EVENT,
+      title: 'Sing & Jam Session Zusammen Singen und Musizieren für alle Generationen',
+      startDate: '2026-10-18',
+      comune: 'Lugano',
+    };
+    const rendered = renderEventDetailPage({
+      locale: 'it',
+      event: longEvent as never,
+      comune: 'Lugano',
+      eventSlug: slugifyEvent(longEvent),
+      sameComuneEvents: [longEvent] as never,
+      dateStamp: '2026-10-17',
+      distDir,
+      detailHref: (() => null) as never,
+    });
+    const titleTag = /<title>([^<]*)<\/title>/.exec(rendered.html)?.[1] ?? '';
+    const h1Html = /<h1[^>]*>(.*?)<\/h1>/.exec(rendered.html)?.[1] ?? '';
+    const h1 = h1Html.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"');
+
+    expect(titleTag.length).toBeGreaterThan(0);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
+    expect(titleTag).toContain('Lugano');
+    expect(h1.length).toBeLessThanOrEqual(70);
+    expect(h1).toContain('Lugano');
+    expect(h1).toContain('2026-10-18');
+  });
+
+  it('preserves a trailing language qualifier when truncating event titles', () => {
+    const title = 'Les secrets du monde fongique : à la découverte des champignons du Jardin Botanique de Genève';
+    const variants = [
+      { ...EVENT, id: 'myswitzerland:fungi-fr', title, startDate: '2026-10-21', comune: 'Genève' },
+      { ...EVENT, id: 'myswitzerland:fungi-en', title: `${title} - En anglais`, startDate: '2026-10-21', comune: 'Genève' },
+    ];
+    const pages = variants.map((event) => renderEventDetailPage({
+      locale: 'it',
+      event: event as never,
+      comune: 'Genève',
+      eventSlug: slugifyEvent(event),
+      sameComuneEvents: [event] as never,
+      dateStamp: '2026-10-20',
+      distDir,
+      detailHref: (() => null) as never,
+    }));
+    const titles = pages.map((page) => /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '');
+    const headings = pages.map((page) => /<h1[^>]*>(.*?)<\/h1>/.exec(page.html)?.[1] ?? '');
+
+    expect(titles[0]).not.toBe(titles[1]);
+    expect(headings[0]).not.toBe(headings[1]);
+    expect(titles[1]).toContain('En anglais');
+    expect(headings[1]).toContain('En anglais');
+    expect(titles[0].length).toBeLessThanOrEqual(60);
+    expect(titles[1].length).toBeLessThanOrEqual(60);
+    expect(headings[0].length).toBeLessThanOrEqual(70);
+    expect(headings[1].length).toBeLessThanOrEqual(70);
   });
 
   it('uses a source-provided multi-day range in metadata, Event description and FAQ without changing the start-date URL', () => {
@@ -595,7 +656,7 @@ describe('renderEventDetailPage', () => {
       imageUrl: '/images/events/library/event-lago-laghi-primavera-v02.webp',
       imageAssetId: 'event-lago-laghi-primavera-v02',
       imageLicense: 'CC BY-SA 4.0',
-      imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      imageLicenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0',
       imageCredit: 'Ada Wikimedia · CC BY-SA 4.0',
       imageProvider: 'wikimedia',
       imageAuthor: { name: 'Ada Wikimedia', url: 'https://commons.wikimedia.org/wiki/User:Ada' },
@@ -606,7 +667,7 @@ describe('renderEventDetailPage', () => {
     };
     const ld = eventLd(photoEvent as never, 'it') as Record<string, any>;
     expect(ld.image.creditText).toBe(`${photoEvent.imageCredit} · cropped, resized and converted to WebP`);
-    expect(ld.image.license).toBe(photoEvent.imageLicenseUrl);
+    expect(ld.image.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
     expect(ld.image.copyrightNotice).toBe(photoEvent.imageCopyrightNotice);
     expect(ld.image.acquireLicensePage).toBe(photoEvent.imageAcquireLicensePage);
     expect(ld.image.creator).toMatchObject({ '@type': 'Person', name: 'Ada Wikimedia' });
@@ -728,9 +789,11 @@ describe('renderEventDetailPage', () => {
     expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}`));
     expect(pastPage.html).toMatch(new RegExp(`data-ad-slot=["']?${AD_SLOTS.SSG_END_MULTIPLEX.slot}`));
   });
-  it('links the source as a nofollow official-site CTA and lists other events in the comune', () => {
+  it('links the verified event source as a follow official-site CTA and lists other events in the comune', () => {
     expect(page.html).toContain(EVENT.url);
-    expect(page.html).toMatch(/rel="nofollow noopener"/);
+    expect(page.html).toMatch(/rel=(?:"noopener"|noopener)/);
+    expect(page.html).not.toMatch(/rel="nofollow noopener"/);
+    expect(page.html).toContain('name=twitter:card content=summary_large_image');
     expect(page.html).toContain('Mostra fotografica'); // the other comune event
   });
   it('emits hreflang for all four locales', () => {
@@ -773,7 +836,7 @@ describe('renderEventDetailPage', () => {
     expect(laterH1).toContain('2026-07-11');
   });
 
-  it('truncates an overlong crawled event title (word-aware) so <title> stays within the 66-char SERP cap, keeping the comune suffix (audit:title-length regression: eventi 707>340 offenders)', () => {
+  it('truncates an overlong crawled event title (word-aware) so <title> stays within the 60-char event cap, keeping the comune suffix', () => {
     const longTitle =
       'Concerto sinfonico straordinario di beneficenza con orchestra e coro per la giornata mondiale della musica al LAC';
     const longEvent = { ...EVENT, id: 'tio-agenda:99', title: longTitle };
@@ -788,20 +851,19 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(longPage.html)?.[1] ?? '';
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('…');
     expect(titleTag).toContain('Lugano (Ticino) | Eventi');
     // Never a naive hard cut mid-word or a dangling separator before the ellipsis.
     expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
   });
 
-  it('budgets/truncates the crawled title on the ESCAPED length so an `&`/`<`/`>`/`"` in the title cannot push <title> past the 66-char cap post-escape (#3589 item 1: audit:title-length false-green)', () => {
-    // 39 raw chars (fits the pre-fix raw-length budget untruncated) + the
-    // 27-char it-locale "Lugano" suffix = 66 raw chars — but the one `&`
+  it('budgets/truncates the crawled title on the ESCAPED length so an `&`/`<`/`>`/`"` cannot push it past the 60-char event cap', () => {
+    // The raw title plus its place/date suffix exceeds the event cap; the `&`
     // expands to `&amp;` on escape, which is what both `htmlTemplate.ts`
     // (`<title>${esc(title)}</title>`) and `audit-title-length.mjs` (raw
-    // HTML source) actually measure. Pre-fix this produced a 70-char
-    // escaped <title>, re-tripping the very gate PR #3581 fixed.
+    // HTML source) actually measure. The emitted title must stay in budget
+    // after that expansion.
     const ampTitle = 'Rock & Blues Night Festival Estivo 2026';
     expect(ampTitle.length).toBe(39);
     const ampEvent = { ...EVENT, id: 'tio-agenda:100', title: ampTitle };
@@ -816,7 +878,7 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(ampPage.html)?.[1] ?? '';
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('Lugano (Ticino) | Eventi');
     expect(titleTag).not.toMatch(/[\s—–\-·|,;:&(]…/);
   });
@@ -841,7 +903,7 @@ describe('renderEventDetailPage', () => {
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(longComunePage.html)?.[1] ?? '';
     expect(titleTag.length).toBeGreaterThan(0);
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('…');
     expect(titleTag).not.toContain(EVENT.title);
     // Comune preserved; region/brand boilerplate sacrificed under pressure.
@@ -849,7 +911,7 @@ describe('renderEventDetailPage', () => {
     expect(titleTag).not.toContain('(Ticino)');
   });
 
-  it('keeps <title> within the 66-char cap on the degenerate comune-less "other events" bucket, where the comune IS the canton display label (#3799: fr/AI+AR suffix alone was 75 chars, 9 past the cap)', () => {
+  it('keeps <title> within the 60-char event cap on the degenerate comune-less "other events" bucket', () => {
     // `renderEventDetailPage` maps `comune === OTHER_EVENTS_COMUNE_KEY` to
     // `displayComune = cantonDisplayLabel(canton, locale)`, so the suffix
     // doubles the canton name: ` — Appenzell Rhodes-Extérieures (Appenzell
@@ -870,7 +932,7 @@ describe('renderEventDetailPage', () => {
       });
       const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
       expect(titleTag.length).toBeGreaterThan(0);
-      expect(titleTag.length).toBeLessThanOrEqual(66);
+      expect(titleTag.length).toBeLessThanOrEqual(60);
       // The place label (canton display name) is the local-SEO token and
       // must survive the degradation.
       expect(titleTag).toContain('Appenzell');
@@ -895,12 +957,12 @@ describe('renderEventDetailPage', () => {
       detailHref: (() => null) as never,
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain(EVENT.title); // 25 chars — fits once the region is dropped
     expect(titleTag).toContain('— Schlatt-Haslen');
   });
 
-  it('keeps <title> within the 66-char cap for a non-TI canton with a long display name (regression: issue #3772 recurrence — validate-dist still failing on `eventi` after PR #3786)', () => {
+  it('keeps <title> within the 60-char event cap for a non-TI canton with a long display name', () => {
     // The old `detailCopyFor.metaTitle` substituted the real canton name
     // into the string `eventDetailMetaTitle` had ALREADY budgeted/truncated
     // assuming the short "Ticino"/"Tessin" placeholder — with no re-check.
@@ -920,7 +982,7 @@ describe('renderEventDetailPage', () => {
     });
     const titleTag = /<title>([^<]*)<\/title>/.exec(page.html)?.[1] ?? '';
     expect(titleTag.length).toBeGreaterThan(0);
-    expect(titleTag.length).toBeLessThanOrEqual(66);
+    expect(titleTag.length).toBeLessThanOrEqual(60);
     expect(titleTag).toContain('Appenzell Rhodes-Extérieures');
   });
 });
@@ -935,6 +997,125 @@ describe('buildSitemap historical detail entries', () => {
     expect(xml).toContain('hreflang="de" href="https://frontaliereticino.ch/de/veranstaltungen/tessin/lugano/evento-storico/"');
     expect(xml).toContain('hreflang="fr" href="https://frontaliereticino.ch/fr/evenements/tessin/lugano/evento-storico/"');
   });
+
+  it('includes the paginated historical archive pages and localized alternates', () => {
+    const dateStamp = new Date().toISOString().slice(0, 10);
+    const xml = buildSitemap([], dateStamp, [], 2);
+
+    expect(xml).toContain('<loc>https://frontaliereticino.ch/eventi/ticino/archivio/</loc>');
+    expect(xml).toContain('<loc>https://frontaliereticino.ch/eventi/ticino/archivio/page-2/</loc>');
+    expect(xml).toContain('hreflang="en" href="https://frontaliereticino.ch/en/events/ticino/archive/page-2/"');
+    expect(xml).toContain('hreflang="de" href="https://frontaliereticino.ch/de/veranstaltungen/tessin/archiv/page-2/"');
+    expect(xml).toContain('hreflang="fr" href="https://frontaliereticino.ch/fr/evenements/tessin/archives/page-2/"');
+  });
+});
+
+describe('historical event archive reachability', () => {
+  it('lists each historical detail from an indexable, paginated archive page', () => {
+    const entries = Array.from({ length: 101 }, (_, index) => ({
+      event: { ...EVENT, id: `historical:${index}`, title: `Evento passato ${index}` } as never,
+      canton: 'TI',
+      comune: 'Lugano',
+      slug: `evento-passato-${index}`,
+    }));
+    const first = renderHistoricalEventsArchivePage({
+      locale: 'it',
+      entries,
+      page: 1,
+      pageCount: 2,
+      distDir: '/tmp/frontaliere-historical-events-archive-test',
+    });
+    const second = renderHistoricalEventsArchivePage({
+      locale: 'it',
+      entries,
+      page: 2,
+      pageCount: 2,
+      distDir: '/tmp/frontaliere-historical-events-archive-test',
+    });
+
+    expect(first.urlPath).toBe('/eventi/ticino/archivio/');
+    expect(first.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(first.html).toContain('"@type":"BreadcrumbList"');
+    expect(first.html).toContain('href="/eventi/ticino/lugano/evento-passato-0/"');
+    expect(first.html).not.toContain('href="/eventi/ticino/lugano/evento-passato-100/"');
+    expect(first.html).toContain(`href="${historicalEventsArchivePath('it', 2)}"`);
+    expect(second.urlPath).toBe(historicalEventsArchivePath('it', 2));
+    expect(second.wordCount).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+    expect(second.html).toContain('"@type":"BreadcrumbList"');
+    expect(second.html).toContain('href="/eventi/ticino/lugano/evento-passato-100/"');
+    expect(second.html).not.toContain('href="/eventi/ticino/lugano/evento-passato-0/"');
+  });
+
+  it('emits an ItemList whose event URL matches the rendered archive detail link', () => {
+    const page = renderHistoricalEventsArchivePage({
+      locale: 'it',
+      entries: [{
+        event: { ...EVENT, id: 'historical:item-list', title: 'Evento passato' } as never,
+        canton: 'TI',
+        comune: 'Lugano',
+        slug: 'evento-passato',
+      }],
+      page: 1,
+      pageCount: 1,
+      distDir: path.join(os.tmpdir(), 'frontaliere-historical-events-archive-item-list-test'),
+    });
+
+    const itemList = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]) as { '@type'?: string; itemListElement?: Array<{ item?: string }> })
+      .find((script) => script['@type'] === 'ItemList');
+
+    expect(itemList?.itemListElement).toEqual([{
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Evento passato',
+      item: 'https://frontaliereticino.ch/eventi/ticino/lugano/evento-passato/',
+    }]);
+    expect(page.html).toContain('href="/eventi/ticino/lugano/evento-passato/"');
+  });
+
+  it('keeps every localized archive page indexable and self-canonical', () => {
+    const entries = [{
+      event: { ...EVENT, id: 'historical:localized', title: 'Evento passato' } as never,
+      canton: 'TI',
+      comune: 'Lugano',
+      slug: 'evento-passato',
+    }];
+
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const page = renderHistoricalEventsArchivePage({
+        locale,
+        entries,
+        page: 1,
+        pageCount: 1,
+        distDir: path.join(os.tmpdir(), 'frontaliere-historical-events-archive-test'),
+      });
+      expect(page.wordCount, locale).toBeGreaterThanOrEqual(MIN_INDEXABLE_WORDS);
+      const canonicalTag = page.html.match(/<link\b[^>]*\brel=(?:"canonical"|canonical)[^>]*>/)?.[0];
+      const canonicalUrlMatch = canonicalTag?.match(/\bhref=(?:"([^"]+)"|'([^']+)'|([^\s>]+))/);
+      const canonicalUrl = canonicalUrlMatch?.[1] ?? canonicalUrlMatch?.[2] ?? canonicalUrlMatch?.[3];
+      expect(canonicalUrl, locale).toBe(`https://frontaliereticino.ch${historicalEventsArchivePath(locale)}`);
+    }
+  });
+
+  it('patches an inbound archive link idempotently and removes it when no archive remains', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'events-history-archive-link-'));
+    try {
+      const hubPath = path.join(root, 'vivere-in-ticino', 'index.html');
+      mkdirSync(path.dirname(hubPath), { recursive: true });
+      writeFileSync(hubPath, '<html><body><main><p>Hub</p></main></body></html>');
+
+      expect(patchHistoricalEventsArchiveLink(root, 'vivere-in-ticino/index.html', 'it', '/eventi/ticino/archivio/')).toBe(true);
+      expect(patchHistoricalEventsArchiveLink(root, 'vivere-in-ticino/index.html', 'it', '/eventi/ticino/archivio/')).toBe(true);
+      const withArchive = readFileSync(hubPath, 'utf8');
+      expect(withArchive.match(/data-events-history-archive-link="1"/g)).toHaveLength(1);
+      expect(withArchive).toContain('href="/eventi/ticino/archivio/"');
+
+      expect(patchHistoricalEventsArchiveLink(root, 'vivere-in-ticino/index.html', 'it', null)).toBe(true);
+      expect(readFileSync(hubPath, 'utf8')).not.toContain('data-events-history-archive-link="1"');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('router recognises per-event detail URLs (staticOverlay)', () => {
@@ -943,6 +1124,10 @@ describe('router recognises per-event detail URLs (staticOverlay)', () => {
     '/en/events/ticino/lugano/concerto-sinfonico-al-lac-2026-07-04/',
     '/de/veranstaltungen/tessin/lugano/x-2026-07-04/',
     '/fr/evenements/tessin/lugano/x-2026-07-04/',
+    '/eventi/ticino/archivio/',
+    '/en/events/ticino/archive/page-2/',
+    '/de/veranstaltungen/tessin/archiv/page-2/',
+    '/fr/evenements/tessin/archives/page-2/',
   ]) {
     it(`maps ${url} to the vita/places static overlay`, () => {
       const parsed = parsePath(url);
@@ -1022,7 +1207,7 @@ describe('renderEventDetailPage nationwide fields (#3125 Task C)', () => {
   it('renders a plain OpenStreetMap link (no Google Maps, no tracker script), accessible', () => {
     // esc() HTML-escapes the "&" in the href attribute (&amp;).
     expect(page.html).toContain('openstreetmap.org/?mlat=46.005&amp;mlon=8.951');
-    expect(page.html).toContain('rel="nofollow noopener"');
+    expect(page.html).toMatch(/rel=(?:"noopener"|noopener)/);
     expect(page.html).not.toMatch(/google\.com\/maps/i);
     // Accessible name on the map link (not just an icon).
     expect(page.html).toMatch(/aria-label="Apri [^"]+ su OpenStreetMap"/);
@@ -1102,7 +1287,7 @@ describe('multi-source attribution (#3125 Task B)', () => {
     expect(page.html).toContain('https://www.tio.ch/agenda');
     expect(page.html).toContain('https://www.guidle.com');
     expect(page.html).toContain('https://www.myswitzerland.com');
-    expect(page.html).toMatch(/rel="nofollow noopener"/);
+    expect(page.html).toMatch(/rel=(?:"noopener"|noopener)/);
   });
 
   it('comune page lists every distinct source among the shown events', () => {
@@ -1729,6 +1914,28 @@ describe('assignEventSlugs (issue #3700 — past-bridge slug collision)', () => 
     }
   });
 
+  it('canonicalizes the recovered Geneva cycling tour to its verified 11 July 2026 date', () => {
+    const eventId = 'ge-agenda:tournee-estivale-communes-samedis-velo-11-juillet';
+    const readEvents = (file: string) =>
+      JSON.parse(readFileSync(new URL(`../data/${file}`, import.meta.url), 'utf8')).events;
+    const current = readEvents('events.json').find((event: { id: string }) => event.id === eventId);
+    const archived = readEvents('events-recovery-archive.json').find((event: { id: string }) => event.id === eventId);
+    expect(current).toBeDefined();
+    expect(archived).toBeDefined();
+    for (const event of [current, archived]) {
+      expect(event).toMatchObject({ startDate: '2026-07-11', endDate: '2026-07-11' });
+    }
+
+    const assigned = assignEventSlugs([current] as never);
+    const migration = historicalEventSlugMigrations([current] as never, 'GE', 'Lancy', assigned)
+      .find((route) => route.fromSlug === 'tournee-estivale-des-communes-samedis-du-velo-11-juillet-2027-07-04');
+    expect(migration).toMatchObject({ fromCanton: 'GE', fromComune: 'Genève' });
+    expect(migration?.toSlug).toMatch(/-2026-07-11$/);
+    const target = pathForEventDetail('fr', 'Lancy', migration!.toSlug, 'GE');
+    const bridge = renderEventSlugRedirectPage('fr', target, current);
+    expect(bridge).toContain('Date : 2026-07-11');
+  });
+
   it('keeps every localized old-event bridge above the indexable content floor', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       const html = renderEventSlugRedirectPage(locale, '/eventi/ticino/lugano/nuovo-slug/');
@@ -1858,5 +2065,16 @@ describe('event navigation uses localized destinations', () => {
     expect(html).toContain(`href="${calculator}"`);
     expect(html).not.toContain(`href="/${locale}/articoli-frontaliere/"`);
     expect(html).not.toContain(`href="/${locale}/calcola-stipendio/"`);
+  });
+
+  it.each(['it', 'en', 'de', 'fr'] as const)('links the %s events index to its sibling locale indexes', (locale) => {
+    const { html } = renderEventsIndexPage({
+      locale, cantonStats: [], events: [], dateStamp: new Date().toISOString().slice(0, 10),
+      weekendDays: new Set(), distDir: os.tmpdir(),
+    });
+    for (const target of ['it', 'en', 'de', 'fr'] as const) {
+      if (target === locale) continue;
+      expect(html).toContain(`href="${EVENTS_INDEX_PATH[target]}/"`);
+    }
   });
 });

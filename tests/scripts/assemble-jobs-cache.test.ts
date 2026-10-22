@@ -225,6 +225,25 @@ describe('computeAssembleInputFingerprint — non-slice inputs', () => {
     expect(fp3).toEqual(fp0);
   });
 
+  it('changes when GSC slug evidence changes, appears or disappears', () => {
+    const fixtures = [
+      ['data/gsc-job-urls.json', '["https://frontaliereticino.ch/lavoro/indexed-job/"]'],
+      ['data/gsc-orphan-job-slugs.json', '["indexed-job"]'],
+    ];
+    for (const [rel, updated] of fixtures) {
+      const fp0 = computeAssembleInputFingerprint();
+      writeSlice(rel, '[]');
+      const fp1 = computeAssembleInputFingerprint();
+      writeSlice(rel, updated);
+      const fp2 = computeAssembleInputFingerprint();
+      rmSync(path.join(tmpRoot, rel));
+      const fp3 = computeAssembleInputFingerprint();
+
+      expect(new Set([fp0, fp1, fp2]).size).toBe(3);
+      expect(fp3).toEqual(fp0);
+    }
+  });
+
   it('changes when a file inside an aux data DIRECTORY changes', () => {
     writeSlice('data/orphan-enriched-data/part-00.json', '[]');
     const fpBefore = computeAssembleInputFingerprint();

@@ -16,10 +16,19 @@ import {
   KNOWN_CANTON_CODES,
   cantonNamedByLocation,
   formatJobLocation,
+  isSlashSeparatedMultiLocation,
   jobLocationRedundancy,
   preferLocationEncodedCanton,
   splitJobLocation,
 } from '../scripts/lib/job-location-display.mjs';
+
+describe('isSlashSeparatedMultiLocation', () => {
+  it('recognizes a spaced source list without treating bilingual aliases as lists', () => {
+    expect(isSlashSeparatedMultiLocation('Biel / Solothurn / Mittelland')).toBe(true);
+    expect(isSlashSeparatedMultiLocation('Biel/Bienne')).toBe(false);
+    expect(isSlashSeparatedMultiLocation('https://example.com/jobs')).toBe(false);
+  });
+});
 
 describe('formatJobLocation', () => {
   it('does not repeat a canton the location already spells in parentheses', () => {

@@ -47,6 +47,13 @@ const ACCESSIBLE_LABEL_WITH_ICON = (...words) => new RegExp(`^\\s*(${words.join(
 const escapeRegExp = (text) => String(text).replace(/[.*+?^${}()|[\\]\\]/g, '\\$&');
 const EXACT_TEXT_ONE_OF = (...words) => new RegExp(`^\\s*(?:${words.map(escapeRegExp).join('|')})\\s*$`, 'i');
 
+const INSTAGRAM_IMAGE_ACCEPT_RE = /(?:^|[,\s])(?:image\/(?:[a-z0-9][a-z0-9!#$%&'*+.^_`|~-]*|\*)|\.(?:jpe?g|png|heic))(?:[,\s]|$)/i;
+
+export function acceptsInstagramImageUpload(accept) {
+  const value = String(accept ?? '');
+  return !value || INSTAGRAM_IMAGE_ACCEPT_RE.test(value);
+}
+
 export const RX = Object.freeze({
   igCreate: ANY_OF('New post', 'Create', 'Crea', 'Nuovo post', 'Neuer Beitrag', 'Erstellen', 'Créer', 'Nouvelle publication'),
   // Instagram repeats the item label in the accessible name when its icon has
@@ -169,17 +176,24 @@ function addDiagnosticMetadata(page, metadata) {
  * The first candidate locator that is visible (or attached), polling until
  * `timeout`. `guard` runs at every poll and may throw — that is how a login
  * wall or a challenge interrupts a wait at once instead of after the timeout.
+ * Check every match of a candidate: React surfaces can leave an old hidden
+ * toast/alert before the current visible one, and checking only `.first()`
+ * would turn a visible confirmation into a false missing-confirmation error.
  */
-export async function findFirst(candidates, { timeout = DEFAULT_TIMEOUTS.ui, state = 'visible', guard = null, interval = 250 } = {}) {
+export async function findFirst(candidates, { timeout = DEFAULT_TIMEOUTS.ui, state = 'visible', guard = null, interval = 250, unique = false } = {}) {
   const deadline = Date.now() + timeout;
   for (;;) {
     if (guard) await guard();
     for (const candidate of candidates) {
-      const loc = candidate.first();
-      try {
-        if (state === 'attached' ? (await loc.count()) > 0 : await loc.isVisible()) return loc;
-      } catch {
-        // detached while polling: try the next one
+      const count = await candidate.count().catch(() => 0);
+      if (unique && count !== 1) continue;
+      for (let index = 0; index < count; index += 1) {
+        const loc = candidate.nth(index);
+        try {
+          if (state === 'attached' ? (await loc.count()) > 0 : await loc.isVisible()) return loc;
+        } catch {
+          // detached while polling: try the next match
+        }
       }
     }
     if (Date.now() >= deadline) return null;
@@ -227,12 +241,12 @@ export async function hasVisibleDialogLoading(dialog) {
   return hasVisibleLoading(dialog);
 }
 
-export async function waitForDialogControl(page, candidates, { timeout = DEFAULT_TIMEOUTS.dialogLoading, state = 'visible', guard, step, name, dialog = null } = {}) {
+export async function waitForDialogControl(page, candidates, { timeout = DEFAULT_TIMEOUTS.dialogLoading, state = 'visible', guard, step, name, dialog = null, unique = false } = {}) {
   const deadline = Date.now() + timeout;
   const composer = dialog || activeInstagramComposerDialog(page);
   for (;;) {
     if (guard) await guard();
-    const control = await findFirst(candidates, { timeout: 0, state });
+    const control = await findFirst(candidates, { timeout: 0, state, unique });
     if (control) return control;
     const loading = await hasVisibleDialogLoading(composer);
     if (Date.now() >= deadline) {
@@ -1092,6 +1106,7 @@ async function required(step, name, candidates, opts = {}) {
       step: name,
       name,
       dialog: waitForDialog.dialog,
+      unique: findOpts.unique,
     });
     if (early) return early;
   }
@@ -1236,16 +1251,16 @@ async function instagramReelFlow({ page, files, caption, dryRun, human, snap, st
   }
 
   const input = await required(step, 'reel-upload', [
-    page.locator('div[role="dialog"] input[type="file"][accept*="video"]'),
-    page.locator('form[enctype="multipart/form-data"] input[type="file"][accept*="video"]'),
-    page.locator('input[type="file"][accept*="video"]'),
+    page.locator('div[role="dialog"] input[type="file"][accept*="video" i]'),
+    page.locator('form[enctype="multipart/form-data"] input[type="file"][accept*="video" i]'),
+    page.locator('input[type="file"][accept*="video" i]'),
     page.locator('div[role="dialog"] input[type="file"]'),
     // Some current desktop builds omit both the dialog wrapper and accept
     // attribute from the shared media input. The upload dialog is already
     // scoped by the preceding Create click, so this final fallback remains
     // bounded to the one visible file control.
     page.locator('input[type="file"]'),
-  ], { guard, timeout: t.ui, state: 'attached', waitForDialog: dialogWait });
+  ], { guard, timeout: t.ui, state: 'attached', unique: true, waitForDialog: dialogWait });
   const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
   if (accept && !/video(?:\/|,|\s|$)/i.test(accept)) {
     throw new RobotError('upload-unsupported', `Instagram Reel upload field does not accept video/*: "${accept}"`, { step: 'reel-upload' });
@@ -1349,8 +1364,17 @@ async function instagramPostFlow({ page, files, caption, dryRun, human, snap, st
   const input = await required(step, 'upload', [
     page.locator('div[role="dialog"] input[type="file"]'),
     page.locator('form[enctype="multipart/form-data"] input[type="file"]'),
-    page.locator('input[type="file"][accept*="image"]'),
-  ], { guard, timeout: t.ui, state: 'attached', waitForDialog: dialogWait });
+    page.locator('input[type="file"][accept*="image" i]'),
+    // Some current desktop builds omit both the dialog wrapper and the
+    // accept attribute from the shared media input. The preceding Create
+    // action bounds this fallback to the upload step; validate the input's
+    // accept value below before handing it the queued images.
+    page.locator('input[type="file"]'),
+  ], { guard, timeout: t.ui, state: 'attached', unique: true, waitForDialog: dialogWait });
+  const accept = String((await input.getAttribute('accept').catch(() => '')) || '');
+  if (!acceptsInstagramImageUpload(accept)) {
+    throw new RobotError('upload-unsupported', `Instagram post upload field does not accept image/*: "${accept}"`, { step: 'upload' });
+  }
   await dismissKnownInterstitials({ page, platform: 'instagram', step, snap, timeout: 0 });
   await input.setInputFiles(files);
   await human.pause();

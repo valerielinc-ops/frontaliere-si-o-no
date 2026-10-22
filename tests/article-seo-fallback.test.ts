@@ -101,6 +101,14 @@ describe('article SEO fallback builder', () => {
     expect(normalizeArticleMarkdown(source)).toBe(source);
   });
 
+  it('normalizes Unicode line separators into Markdown line breaks', () => {
+    const source = `## En bref${String.fromCharCode(0x2028)}- point vérifié${String.fromCharCode(0x2029)}## Faits clés`;
+    const normalized = normalizeArticleMarkdown(source);
+
+    expect(normalized).toBe('## En bref\n- point vérifié\n## Faits clés');
+    expect(normalized).not.toMatch(/[\u2028\u2029]/);
+  });
+
   it('clamps a skipped heading level under the article section wrapper', () => {
     const html = renderArticleDerivedSectionsHtml([
       { heading: 'Contesto', html: '<h4>Analisi</h4><p>Testo.</p>' },

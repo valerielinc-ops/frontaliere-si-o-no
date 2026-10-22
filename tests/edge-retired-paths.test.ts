@@ -370,20 +370,22 @@ describe('EDGE_RETIRED_PATHS covers every retirement the build declares', () => 
     ).toEqual([]);
   });
 
-  it('pins the measured shape of the 2026-08-14 repair', () => {
+  it('pins the measured retirements and the later GSC-verified alias', () => {
     const gone = actualKeys.filter((k) => RETIRED_TABLE[k] === null);
     const moved = actualKeys.filter((k) => RETIRED_TABLE[k] !== null);
-    // 4 retired-with-no-substitute + 20 alias orphans; 34 declared redirects
-    // under the eight prefixes + 3 from data/article-redirects.json + 12 for
-    // the nanako#356 cross-section duplicate retirements (bridge in
-    // legacyRedirectsPlugin.ts, same day) + 8 for the nanako#915 / nanako#943
+    // 4 retired-with-no-substitute + 20 alias orphans; 36 declared redirects
+    // under the eight prefixes + 7 unique from data/article-redirects.json
+    // (including the GSC-verified DE alias) + 13 for
+    // nanako#356 (the original 12 cross-section paths plus its previously
+    // observed DE alias) + 8 for the nanako#915 / nanako#943
     // same-section duplicate retirements of 2026-09-05 + 1 for the historical
     // unsuffixed FR transit-fee URL bridged by #8730 (Bing closed loop) + 12
-    // upstream-aborted article URLs from the 2026-10-07 corpus sync.
+    // upstream-aborted article URLs from the 2026-10-07 corpus sync + 7 GSC
+    // 404 decisions checked on 2026-10-21 (one moved, six gone).
     expect({ total: actualKeys.length, gone: gone.length, moved: moved.length }).toEqual({
-      total: 94,
-      gone: 36,
-      moved: 58,
+      total: 108,
+      gone: 42,
+      moved: 66,
     });
   });
 });
@@ -440,6 +442,48 @@ describe('the 16 retired-article URLs of 2026-08-06', () => {
   });
 });
 
+describe('the seven GSC 404 article retirements of 2026-10-21', () => {
+  const GSC_404_RETIREMENTS = [
+    '/articoli-frontaliere/lombardia-sport-ticino/',
+    '/fr/articles-frontalier/tesin-lombardie-manufacture/',
+    '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/',
+    '/de/grenzgaenger-artikel/rekorde-schneefall-bosco-gurin-2026/',
+    '/de/grenzgaenger-artikel/transport-agency-como-renewed/',
+    '/fr/articles-frontalier/suisse-service-public-frais-tv/',
+    '/en/cross-border-articles/varese-drunk-accident/',
+  ];
+
+  it('keeps the inventory pinned to the seven reviewed URLs', () => {
+    expect(GSC_404_RETIREMENTS).toHaveLength(7);
+    expect(GSC_404_RETIREMENTS.filter((path) => RETIRED_TABLE[path] === null)).toHaveLength(6);
+    expect(RETIRED_TABLE['/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/']).toBe(
+      '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
+    );
+  });
+
+  for (const path of GSC_404_RETIREMENTS) {
+    if (path === '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/') continue;
+    it(`${path} answers 410 and noindex`, async () => {
+      const response = retiredEdgeResponse(new URL(APEX + path)) as Response | null;
+      expect(response).not.toBeNull();
+      expect(response!.status).toBe(410);
+      expect(response!.headers.get('X-Robots-Tag')).toContain('noindex');
+      expect(await response!.text()).toMatch(/<meta name="robots" content="noindex[^"]*">/);
+    });
+  }
+
+  it('redirects the encoded French equivalent to the current article', () => {
+    const response = retiredEdgeResponse(
+      new URL(`${APEX}/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/`),
+    ) as Response | null;
+    expect(response).not.toBeNull();
+    expect(response!.status).toBe(301);
+    expect(response!.headers.get('Location')).toBe(
+      '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
+    );
+  });
+});
+
 describe('the alias orphans stop being soft-404s', () => {
   const orphans = declaredAliasOrphans().filter((p) => !liveCorpusSlugs().has(lastSegment(p)));
 
@@ -462,6 +506,15 @@ describe('the alias orphans stop being soft-404s', () => {
 });
 
 describe('retiredEdgeResponse behaviour', () => {
+  it('301s the GSC-observed German site-inspection alias to the live article', () => {
+    const from = '/de/grenzgaenger-artikel/sette-cantieri-mendrisio-slug-de/';
+    const resp = retiredEdgeResponse(new URL(`${APEX}${from}`)) as Response;
+    expect(resp.status).toBe(301);
+    expect(resp.headers.get('Location')).toBe(
+      '/de/grenzgaenger-artikel/kontrolle-baustellen-mendrisiotto/',
+    );
+  });
+
   it('301s carry the declared target, the query and the hash', () => {
     const from = '/articoli-frontaliere/caldo-torrido-lavoro-ticino/';
     const resp = retiredEdgeResponse(new URL(`${APEX}${from}?utm_source=gsc`)) as Response;
@@ -638,6 +691,28 @@ describe('retiredEdgeResponse behaviour', () => {
       expect(redirects.get(retiredPath), `${retiredPath} build target`).toBe(target);
       expect(RETIRED_TABLE[retiredPath], `${retiredPath} Worker target`).toBe(target);
     }
+  });
+
+  it('keeps the observed German A2 alias aligned with its current locale slug', () => {
+    const source = fs.readFileSync(path.join(REPO, REGISTRY_BY_SECTION.frontaliere.file), 'utf-8');
+    const registry = parseSlugRegistry(source, 'BLOG_SLUGS') as Record<
+      string,
+      Record<'it' | 'en' | 'de' | 'fr', string>
+    >;
+    const article = Object.values(registry).find(
+      (slugs) => slugs.it === 'autostrada-a2-mezzovico-interrogazione',
+    );
+    expect(article, 'current A2 article missing from BLOG_SLUGS').toBeDefined();
+    if (!article) throw new Error('current A2 article missing from BLOG_SLUGS');
+
+    const from = '/de/schweiz-artikel/autostrada-riapertura-ticino/';
+    const target = `/de/grenzgaenger-artikel/${article.de}/`;
+    expect(declaredRedirects().get(from), `${from} build target`).toBe(target);
+    expect(RETIRED_TABLE[from], `${from} Worker target`).toBe(target);
+
+    const response = retiredEdgeResponse(new URL(`${APEX}${from}?utm_source=gsc`)) as Response | null;
+    expect(response?.status).toBe(301);
+    expect(response?.headers.get('Location')).toBe(`${target}?utm_source=gsc`);
   });
 });
 

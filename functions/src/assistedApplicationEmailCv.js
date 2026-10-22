@@ -122,6 +122,7 @@ export async function handleAssistedApplicationEmailCv(req, deps) {
     const timestamp = FieldValue.serverTimestamp();
     transaction.set(orderRef, {
       cvStorageKey: key,
+      cvFileName: `${fileStem(attachment.filename)}.${attachment.type}`,
       cvUploadedAt: Timestamp.fromMillis(nowMs),
       cvUploadedBy: 'email_reply',
       updatedAt: timestamp,

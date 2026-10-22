@@ -24,20 +24,21 @@ import {
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
 import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 import { fitNoticeOf, fitNoticeWording } from './assistedApplicationFitNotice.js';
+import { candidateWithEdits, questionsForCandidate } from './assistedApplicationCandidateEdits.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
 
 function formatPrice(order, locale) {
   const amount = Number(order?.amountTotal);
-  const cents = Number.isFinite(amount) ? amount : 99;
+  const cents = Number.isFinite(amount) ? amount : 199;
   try {
     return new Intl.NumberFormat({ it: 'it-IT', de: 'de-DE', fr: 'fr-FR', en: 'en-IE' }[locale] || 'it-IT', {
       style: 'currency',
       currency: String(order?.currency || 'eur').toUpperCase(),
     }).format(cents / 100);
   } catch {
-    return '0,99 €';
+    return '1,99 €';
   }
 }
 
@@ -46,15 +47,21 @@ async function reviewUrlFor(order, orderId, round, locale, deps) {
   return buildReviewPageUrl(order, mintReviewToken({ secret, orderId, round }), locale);
 }
 
-/** Notification key: one message per kind, round and (for reasons) cause. */
+/** Notification key: one message per kind, round and cause; portal retries also key by dispatch. */
 export function automationEmailKey(effect, flow) {
   const round = Number(flow?.round) || 1;
   if (effect.kind === 'owner_review') return `auto_owner_review_r${round}${effect.held ? '_held' : ''}`;
   if (effect.kind === 'owner_takeover') {
     // A known code names the message; a raw runner error only its step.
     const reason = String(effect.reason || 'x');
-    const code = /^[a-z_]{1,40}$/.test(reason) ? reason : `${effect.stage || 'run'}_error`;
-    return `auto_owner_takeover_${code}_r${round}`;
+    const retryablePortalStop = reason === 'portal:portal_needs_candidate';
+    const code = retryablePortalStop
+      ? 'portal_needs_candidate'
+      : (/^[a-z_]{1,40}$/.test(reason) ? reason : `${effect.stage || 'run'}_error`);
+    // This portal stop may recur after an automatic or owner-requested retry.
+    // Key that notice to the dispatch so later stops are not hidden by deduplication.
+    const dispatchAt = retryablePortalStop ? Number(flow?.dispatch?.requestedAt) || 0 : 0;
+    return `auto_owner_takeover_${code}_r${round}${retryablePortalStop ? `_d${dispatchAt}` : ''}`;
   }
   if (effect.kind === 'candidate_action_needed') return `auto_candidate_action_${(flow?.history || []).length}`;
   // One per wait for the candidate's answers (a wait may come back in the same round, at the portal).
@@ -71,6 +78,8 @@ export function automationEmailKey(effect, flow) {
 async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const draftSnapshot = await draftRefFor(db, orderId).get();
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
+  const { profile, answers } = candidateWithEdits({ order: {}, draft, flow });
+  const candidateQuestions = questionsForCandidate(draft.questions, profile, answers, flow?.questionAnswers);
   const key = automationEmailKey(effect, flow);
   const isOwner = effect.kind.startsWith('owner_');
   // Build inside sendOrderNotification's claim (it hands us the fresh order).
@@ -81,12 +90,12 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
     reviewUrl = await reviewUrlFor(order, orderId, flow.round || 1, resolveOrderLocale(order), deps);
   }
   // Open questions and the required documents still missing (school reports, test results…).
-  const openQuestions = (draft.questions || []).filter((question) => question.required
-    && !String(flow.answers?.[question.id] ?? '').trim()).length
+  const openQuestions = candidateQuestions.filter((question) => question.required
+    && !String(answers?.[question.id] ?? '').trim()).length
     + openRequiredDocuments(draft, flow.documents || {}).length;
   // The profile is not a full match: said in the review e-mail too, worded as the page words it
   // (no list without gaps, no answers without questions).
-  const fit = effect.kind === 'candidate_review' ? fitNoticeWording(fitNoticeOf(draft), { questions: (draft.questions || []).length > 0 }) : null;
+  const fit = effect.kind === 'candidate_review' ? fitNoticeWording(fitNoticeOf(draft), { questions: candidateQuestions.length > 0 }) : null;
   const build = (order) => {
     const locale = resolveOrderLocale(order);
     const common = {
@@ -102,6 +111,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         reason: effect.reason,
         stage: effect.stage,
         attempts: effect.attempts,
+        portalAutoRetryAt: flow.portalAutoRetryAt,
+        portalAutoRetryCount: flow.portalAutoRetryCount,
         verdict: VERDICT_LABELS[draft.verdict] || draft.verdict,
         summary: draft.summaryIt,
         channel: draft.channel?.label,

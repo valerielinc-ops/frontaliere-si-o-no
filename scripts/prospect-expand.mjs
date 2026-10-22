@@ -24,8 +24,15 @@
  *   node scripts/prospect-expand.mjs --platform=example.com
  *   node scripts/prospect-expand.mjs --platforms=2 --max-probe=200
  */
-import { loadRegistry, saveRegistry, enumerablePlatforms, recordExpansionAttempt } from './lib/prospector/platform-registry.mjs';
-import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import {
+  loadRegistry,
+  saveRegistry,
+  enumerablePlatforms,
+  enumerablePathTenantPlatforms,
+  recordExpansionAttempt,
+  recordExpansionResult,
+} from './lib/prospector/platform-registry.mjs';
+import { loadCandidates, saveCandidates, upsertCandidate, setStatus, statusCounts, startLedgerPhase, finishLedgerPhase } from './lib/prospector/candidate-store.mjs';
 import { enumerateTenants } from './lib/prospector/tenant-enum.mjs';
 import { loadCoverage, isCovered } from './lib/prospector/coverage.mjs';
 import { registrableDomain, tenantLabel } from './lib/prospector/registrable.mjs';
@@ -36,15 +43,17 @@ const argv = process.argv.slice(2);
 // e' un flag diverso, e' nessun flag, e la corsa scrive davvero.
 assertKnownFlags(argv, {
   booleans: ['dry-run'],
-  valued: ['platform', 'platforms', 'max-probe'],
+  valued: ['platform', 'platforms', 'shared-platforms', 'max-probe'],
 });
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
 const flag = (n) => argv.includes(`--${n}`);
 
 const onlyPlatform = arg('platform', '');
 const maxPlatforms = Number(arg('platforms', 3));
+const maxSharedPlatforms = Number(arg('shared-platforms', 1));
 const maxProbe = Number(arg('max-probe', 250));
 const dryRun = flag('dry-run');
+startLedgerPhase('expand', { dryRun });
 
 const registry = loadRegistry();
 const store = loadCandidates();
@@ -52,10 +61,14 @@ const coverage = loadCoverage();
 
 const targets = onlyPlatform
   ? [registry.platforms[registrableDomain(onlyPlatform)]].filter(Boolean)
-  : enumerablePlatforms(registry).slice(0, maxPlatforms);
+  : [
+    ...enumerablePlatforms(registry).slice(0, maxPlatforms),
+    ...enumerablePathTenantPlatforms(registry).slice(0, maxSharedPlatforms),
+  ].filter((platform, index, all) => all.findIndex((item) => item.domain === platform.domain) === index);
 
 if (!targets.length) {
   console.log('Nessuna piattaforma confermata da espandere. Serve prima uno stadio TRACE.');
+  finishLedgerPhase(dryRun ? 'dry_run' : 'no_targets', { inputCount: 0, successCount: 0 });
   process.exit(0);
 }
 
@@ -71,6 +84,7 @@ console.log(`semi per la sonda slug: ${seeds.length} nomi di datori non ancora c
 
 let filed = 0;
 let covered = 0;
+let unidentified = 0;
 
 for (const platform of targets) {
   // Una piattaforma che esplode non deve costare le altre, ne' il lavoro gia'
@@ -79,17 +93,25 @@ for (const platform of targets) {
   // vogliono.
   // Mark the attempt before any network call. An empty or failing vendor must
   // still yield the next run's budget to the rest of the confirmed registry.
-  recordExpansionAttempt(platform);
+  const expansionAt = new Date().toISOString();
+  recordExpansionAttempt(platform, expansionAt);
   let res;
   try {
-    res = await enumerateTenants(platform, { nameSeeds: seeds, maxProbe });
+    res = await enumerateTenants(platform, {
+      nameSeeds: seeds,
+      maxProbe,
+      probeOffset: platform.expansionProbeOffset || 0,
+      retryHosts: platform.expansionRetryHosts || [],
+    });
   } catch (err) {
+    recordExpansionResult(platform, { outcome: 'unavailable' }, expansionAt);
     console.log(`${platform.domain}: enumerazione fallita — ${(err instanceof Error ? err.message : String(err)).slice(0, 120)}`);
     continue;
   }
+  recordExpansionResult(platform, res, expansionAt);
   const live = res.live;
   platform.tenantCount = Math.max(platform.tenantCount || 0, live.length);
-  console.log(`${platform.domain}: ${res.discovered.length} host candidati (${JSON.stringify(res.byMethod)}) → ${live.length} tenant VIVI`);
+  console.log(`${platform.domain}: ${res.discovered.length} host candidati (${JSON.stringify(res.byMethod)}) → ${live.length} tenant VIVI; esito=${res.outcome}, fonti=${JSON.stringify(res.sourceOutcomes)}`);
 
   for (const t of live) {
     const label = tenantLabel(t.host);
@@ -111,9 +133,29 @@ for (const platform of targets) {
     // time as "EOC candiDati Posizioni", the tenant's own page title, alongside
     // the EOC crawler that had been reading that exact host for months.
     if (isCovered(coverage, { name: cand.name, key: label, sourceHost: cand.tenantHost }).covered) { covered++; continue; }
-    const { key, created } = upsertCandidate(store, { ...cand, key: `${label}@${platform.domain}` }, `tenant:${platform.domain}`);
+    const upsert = upsertCandidate(store, { ...cand, key: `${label}@${platform.domain}` }, `tenant:${platform.domain}`);
+    if (upsert.rejected || !upsert.key) {
+      unidentified++;
+      console.log(`    - identità non verificata: ${String(t.company || label).slice(0, 40).padEnd(42)} ${t.host}`);
+      continue;
+    }
+    const { key, created } = upsert;
+    // A tombstone may intentionally prevent recreating a candidate. Do not
+    // issue a status update unless the upsert left a live record to update.
+    if (!store.candidates[key]) continue;
     // Tenants arrive already traced — the platform handed us the careers URL.
-    setStatus(store, key, 'traced', cand);
+    // upsertCandidate stores the identity-filtered data. Refresh only the safe
+    // probe fields here: the raw name can be a generic path-host label such as
+    // "jobs", and must not overwrite a path-based fallback identity.
+    const probePatch = {
+      careersUrl: cand.careersUrl,
+      tenantHost: cand.tenantHost,
+      platform: cand.platform,
+      vacancyCount: cand.vacancyCount,
+      vacancySignals: cand.vacancySignals,
+      country: cand.country,
+    };
+    setStatus(store, key, 'traced', probePatch);
     if (created) {
       filed++;
       console.log(`    + ${String(t.company || label).slice(0, 40).padEnd(42)} ${t.host.padEnd(38)} ${t.vacancyCount} annunci`);
@@ -122,7 +164,12 @@ for (const platform of targets) {
   if (live.length && platform.status === 'candidate') platform.status = 'confirmed';
 }
 
-console.log(`\nnuovi datori dai tenant: ${filed}   già coperti: ${covered}`);
+console.log(`\nnuovi datori dai tenant: ${filed}   già coperti: ${covered}   identità non verificate: ${unidentified}`);
 console.log(`coda: ${JSON.stringify(statusCounts(store))}`);
 if (dryRun) console.log('\n--dry-run: niente scritto.');
 else { saveCandidates(store); saveRegistry(registry); console.log('\nstato salvato.'); }
+finishLedgerPhase(dryRun ? 'dry_run' : 'complete', {
+  inputCount: targets.length,
+  successCount: filed,
+  retryCount: covered,
+});

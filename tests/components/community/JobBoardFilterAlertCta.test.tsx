@@ -15,6 +15,7 @@ import { render, screen, fireEvent, cleanup, act, waitFor } from '@testing-libra
 import JobBoardFilterAlertCta from '@/components/community/JobBoardFilterAlertCta';
 import type { JobAlert, JobAlertOneTapFilters, subscribeJobAlertOneTap } from '@/services/jobAlertService';
 import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
+import { clearPendingJobAlert, consumePendingJobAlert } from '@/services/pendingJobAlert';
 import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 
 vi.mock('@/services/i18n', () => ({
@@ -85,6 +86,7 @@ describe('JobBoardFilterAlertCta', () => {
   afterEach(() => {
     cleanup();
     consumeJobAlertOpen();
+    clearPendingJobAlert();
     vi.restoreAllMocks();
   });
 
@@ -203,10 +205,53 @@ describe('JobBoardFilterAlertCta', () => {
     expect(subscribe).not.toHaveBeenCalled();
     expect(onAccepted).not.toHaveBeenCalled();
     expect(consumeJobAlertOpen()).toEqual({ keyword: 'Tecnologia' });
+    expect(consumePendingJobAlert()).toBeNull();
     expect(dispatchSpy.mock.calls.some(([event]) => {
       return event.type === 'openJobAlert'
         && (event as CustomEvent<{ keyword?: string }>).detail?.keyword === 'Tecnologia';
     })).toBe(true);
+  });
+
+  it('parks an anonymous one-tap intent before requiring auth', () => {
+    const onAnonymousAuthRequired = vi.fn();
+    const onAnonymousOpen = vi.fn();
+    const filters = {
+      locations: ['lugano'],
+      contractTypes: ['part-time'],
+      sectors: ['healthcare'],
+    };
+    render(
+      <JobBoardFilterAlertCta
+        userId={null}
+        email={null}
+        locale="it"
+        context="search"
+        keywordLabel="Tecnologia"
+        cantonCode="TI"
+        filters={filters}
+        formOrigin="job_board_filters"
+        onAnonymousOpen={onAnonymousOpen}
+        onAnonymousAuthRequired={onAnonymousAuthRequired}
+      />,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Avvisami per questa ricerca' }));
+
+    expect(onAnonymousOpen).toHaveBeenCalledTimes(1);
+    expect(onAnonymousAuthRequired).toHaveBeenCalledTimes(1);
+    expect(consumeJobAlertOpen()).toBeNull();
+    expect(consumePendingJobAlert()).toEqual({
+      origin: 'job_board_filters',
+      config: {
+        keywords: ['Tecnologia'],
+        locations: ['lugano'],
+        contractTypes: ['part-time'],
+        sectors: ['healthcare'],
+        cantonFilter: ['TI'],
+        frequency: 'weekly',
+        locale: 'it',
+      },
+    });
   });
 
   it('preserves the allowlisted board-filter origin for the form handoff', () => {

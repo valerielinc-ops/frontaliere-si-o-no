@@ -11,6 +11,7 @@ import {
   loadCanonicalJobs,
   readImageDimensions,
 } from '../scripts/lib/company-logo-audit.mjs';
+import { directLogoSources, loadLogoRegistry } from '../scripts/lib/company-logo-registry.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -136,6 +137,30 @@ describe('company-logo-audit', () => {
     ]);
   });
 
+  it('does not count a reachable external URL as stable CDN coverage', async () => {
+    const jobUrl = 'https://external.test/job/1';
+    const report = await auditCompanyLogos([
+      { companyKey: 'external', company: 'External AG', url: jobUrl },
+    ], {
+      resolveLogo: () => 'https://external.test/logo.png',
+      fetchImpl: async () => imageResponse(),
+    });
+
+    expect(report.withLogo).toBe(0);
+    expect(report.external).toBe(1);
+    expect(report.externalJobCount).toBe(1);
+    expect(report.affectedCompanies[0]).toMatchObject({
+      companyKey: 'external',
+      status: 'external',
+      externalJobCount: 1,
+      examples: { external: jobUrl },
+    });
+    expect(report.references[0]).toEqual(expect.objectContaining({
+      kind: 'external',
+      status: 'valid',
+    }));
+  });
+
   it('rejects a successful HTTP response that is not an image', async () => {
     const report = await auditCompanyLogos([
       { companyKey: 'html', company: 'HTML AG', url: 'https://html.test/1' },
@@ -251,6 +276,19 @@ describe('company-logo-audit', () => {
         existsSync(path.join(REPO_ROOT, 'public', publicPath.slice(1))),
         `${companyKey} points to a missing local asset: ${publicPath}`,
       ).toBe(true);
+    }
+  });
+
+  it('keeps every directly declared registry source mapped to a stable CDN asset', async () => {
+    const manifest = JSON.parse(readFileSync(
+      path.join(REPO_ROOT, 'data/company-logos-manifest.json'),
+      'utf8',
+    ));
+    const directSources = directLogoSources(await loadLogoRegistry(REPO_ROOT));
+
+    expect(directSources.length).toBeGreaterThan(0);
+    for (const { slug } of directSources) {
+      expect(manifest[slug], `${slug} has no stable manifest entry`).toMatch(/^\/images\//);
     }
   });
 

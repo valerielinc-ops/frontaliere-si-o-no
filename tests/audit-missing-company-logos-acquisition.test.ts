@@ -36,6 +36,25 @@ const ACQUIRED_ASSET_KEYS = [
   'schweizerhof-flims', 'yellowshark',
 ];
 
+const CURRENT_RESIDUAL_DOMAIN_OVERRIDES = {
+  'opus-personal': ['opus-personal.ch'],
+  agat: ['agat-job.com'],
+  'elite-interim': ['eliteinterim.ch'],
+  physioswiss: ['physioswiss.ch'],
+  'rehaklinik-seewis': ['vitrea-gesundheit.ch'],
+  'swiss-timing-swatch-group': ['swisstiming.com'],
+  'deillon-delley-architectes': ['deillondelley.ch'],
+  'project-interim': ['projectinterim.ch'],
+  'technic-emplois': ['technic-emplois.ch'],
+  'fondation-domus': ['fondation-domus.ch'],
+  gipo: ['gipo.ch'],
+  'hugo-boss': ['hugoboss.com'],
+  my: ['teojakob.ch'],
+  pianorm: ['pianorm.ch'],
+  wokin: ['wokin.ch'],
+  'zaugg-ag': ['zaugg.swiss'],
+};
+
 describe('missing company-logo acquisition', () => {
   it('does not probe a guessed domain for a future audit key', async () => {
     const auditInput = { companyKey: 'acme', status: 'missing' };
@@ -69,6 +88,16 @@ describe('missing company-logo acquisition', () => {
     expect(domainCandidates('acme')).toEqual(['acme.ch', 'acme.com']);
   });
 
+  it('declares an official domain for every company in the current #6504 residual', () => {
+    for (const [key, domains] of Object.entries(CURRENT_RESIDUAL_DOMAIN_OVERRIDES)) {
+      expect(DOMAIN_OVERRIDES[key]).toEqual(domains);
+      expect(domainCandidates(key, {
+        companyDomains: new Set(['jobs.ch']),
+        urlHosts: new Set(['jobalino.ch']),
+      }, { fromAudit: true })).toEqual(domains);
+    }
+  });
+
   it('selects missing and quality-deficient audit entries, preserving official-source candidates', () => {
     const entries = [
       { companyKey: 'yellowshark', status: 'missing', companyName: 'yellowshark AG' },
@@ -77,6 +106,17 @@ describe('missing company-logo acquisition', () => {
     ];
 
     expect(selectAuditCandidates(entries)).toEqual([entries[0], entries[2]]);
+  });
+
+  it('selects external references for stable CDN mirroring', () => {
+    const entry = {
+      companyKey: 'imerys',
+      status: 'external',
+      externalJobCount: 4,
+      companyName: 'Imerys',
+    };
+
+    expect(selectAuditCandidates([entry])).toEqual([entry]);
   });
 
   it('extracts structured employer logo declarations from official pages', () => {
@@ -118,6 +158,33 @@ describe('missing company-logo acquisition', () => {
         width: 513,
         height: 117,
       }));
+    } finally {
+      globalThis.fetch = originalFetch;
+    }
+  });
+
+  it('uses a declared external logo source before domain probing', async () => {
+    const sourceUrl = 'https://assets.example.test/imerys.png';
+    const originalFetch = globalThis.fetch;
+    let probes = 0;
+    globalThis.fetch = async (url) => {
+      if (url === sourceUrl) return new Response(pngBytes(512, 256), {
+        headers: { 'content-type': 'image/png' },
+      });
+      probes += 1;
+      throw new Error(`unexpected probe ${url}`);
+    };
+
+    try {
+      const result = await downloadForKey('imerys', {
+        declaredLogoUrls: new Set([sourceUrl]),
+      }, { fromAudit: true });
+      expect(result).toEqual(expect.objectContaining({
+        accepted: true,
+        source: 'declared-logo-source',
+        sourceDomain: 'assets.example.test',
+      }));
+      expect(probes).toBe(0);
     } finally {
       globalThis.fetch = originalFetch;
     }
@@ -236,6 +303,26 @@ describe('missing company-logo acquisition', () => {
     expect(residual.pendingDeploy).toBeGreaterThan(0);
     expect(residual.pendingDeployJobCount).toBeGreaterThan(0);
     expect(residual.affectedCompanies[0]?.reason).toBe('asset presente nel checkout, in attesa del deploy CDN');
+  });
+
+  it('keeps external sources visible until the stable asset is verified', () => {
+    const residual = buildResidualReport(
+      {
+        affectedCompanies: [
+          {
+            companyKey: 'imerys',
+            status: 'external',
+            externalJobCount: 3,
+            affectedJobCount: 3,
+          },
+        ],
+      },
+      { targets: [], acquired: 0, failed: 0, qualityRejected: 0 },
+    );
+
+    expect(residual.external).toBe(1);
+    expect(residual.externalJobCount).toBe(3);
+    expect(residual.affectedCompanies[0]?.reason).toBe('sorgente esterna da rendere stabile sul CDN');
   });
 
   it('keeps every acquired PR asset covered by an explicit override', () => {

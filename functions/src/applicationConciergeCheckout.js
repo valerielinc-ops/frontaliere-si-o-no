@@ -18,7 +18,7 @@ import {
   APPLICATION_CONCIERGE_SERVICES_COLLECTION,
 } from './applicationConciergeConstants.js';
 import {
-  createSumUpHostedCheckout,
+  createSumUpApplicationConciergeCheckout,
   getAssistedApplicationPaymentProvider,
   SUMUP_PAYMENT_PROVIDER,
 } from './sumupAssistedApplicationCore.js';
@@ -178,7 +178,9 @@ export async function handleCreateApplicationConciergeCheckout(req) {
           resumePaidServiceId = existingRecord.serviceId;
           return;
         }
-        if (isResumeableService(existingService) && existingRecord.checkoutUrl) {
+        const canResumeSumUpCheckout = existingRecord.paymentProvider === SUMUP_PAYMENT_PROVIDER
+          && boundedString(existingRecord.sumupCheckoutId, 200);
+        if (isResumeableService(existingService) && (existingRecord.checkoutUrl || canResumeSumUpCheckout)) {
           requestRecord = existingRecord;
           serviceRef = existingServiceRef;
           checkoutAttempt = Number(existingRecord.checkoutAttempt) || 1;
@@ -224,6 +226,24 @@ export async function handleCreateApplicationConciergeCheckout(req) {
       body: { ok: true, url: appendServiceId(successUrl, resumePaidServiceId), serviceId: resumePaidServiceId },
     };
   }
+  if (
+    requestRecord?.paymentProvider === SUMUP_PAYMENT_PROVIDER
+    && requestRecord.sumupCheckoutId
+    && isResumeableService({
+      paymentStatus: 'pending',
+      checkoutSessionStatus: requestRecord.checkoutSessionStatus,
+    })
+  ) {
+    return {
+      status: 200,
+      body: {
+        ok: true,
+        paymentProvider: SUMUP_PAYMENT_PROVIDER,
+        checkoutId: requestRecord.sumupCheckoutId,
+        serviceId: requestRecord.serviceId,
+      },
+    };
+  }
   if (requestRecord?.checkoutUrl && isResumeableService({
     paymentStatus: 'pending',
     checkoutSessionStatus: requestRecord.checkoutSessionStatus,
@@ -237,13 +257,10 @@ export async function handleCreateApplicationConciergeCheckout(req) {
   const successRedirect = appendServiceId(successUrl, serviceId);
   let checkoutUrl;
   if (paymentProvider === SUMUP_PAYMENT_PROVIDER) {
-    const checkout = await createSumUpHostedCheckout({
-      checkoutReference: serviceId,
+    const checkout = await createSumUpApplicationConciergeCheckout({
+      serviceId,
       redirectUrl: successRedirect,
-      amountCents: APPLICATION_CONCIERGE_PRICE_EUR_CENTS,
-      description: 'Servizio candidature assistite',
     });
-    checkoutUrl = checkout.url;
     await serviceRef.set({
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
@@ -253,10 +270,18 @@ export async function handleCreateApplicationConciergeCheckout(req) {
     await requestRef.set({
       paymentProvider: SUMUP_PAYMENT_PROVIDER,
       sumupCheckoutId: checkout.id,
-      checkoutUrl,
       checkoutSessionStatus: 'open',
       updatedAt: FieldValue.serverTimestamp(),
     }, { merge: true });
+    return {
+      status: 200,
+      body: {
+        ok: true,
+        paymentProvider: SUMUP_PAYMENT_PROVIDER,
+        checkoutId: checkout.id,
+        serviceId,
+      },
+    };
   } else {
     const stripe = await getStripe();
     const metadata = metadataForService(serviceId, userId, locale, 'stripe');
@@ -312,7 +337,9 @@ function shouldIgnoreWebhook(service, sessionId, paymentProvider) {
     200,
   );
   if (currentId && sessionId && currentId !== sessionId) return true;
-  return ['paid', 'failed', 'refunded'].includes(String(service.paymentStatus || ''));
+  // A hosted checkout can contain multiple attempts. Keep paid/refunded
+  // terminal, but allow a later successful retry to upgrade a failed attempt.
+  return ['paid', 'refunded'].includes(String(service.paymentStatus || ''));
 }
 
 /** Signed Stripe or verified SumUp payment transition for this product. */
@@ -387,6 +414,7 @@ export async function handleApplicationConciergeWebhookEvent(
     updatedAt: ts,
     ...(paymentStatus === 'paid' ? {
       paidAt,
+      paymentFailureReason: null,
       expiresAt: Timestamp.fromMillis(paidAt.toMillis() + APPLICATION_CONCIERGE_DURATION_DAYS * 24 * 60 * 60 * 1000),
     } : {}),
     ...(failureReason ? { paymentFailureReason: failureReason } : {}),

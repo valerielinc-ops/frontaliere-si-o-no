@@ -913,7 +913,10 @@ export async function subscribeCompanyAlert(
   const subscriberRef = doc(db, 'newsletter_subscribers', normalizeEmail(email));
   const subscriberSnap = await getDoc(subscriberRef);
   if (subscriberSnap.exists()) {
-    await updateDoc(subscriberRef, { company_follow_followup_pending: false });
+    const subscriber = subscriberSnap.data() as { company_follow_followup_pending?: unknown } | undefined;
+    if (subscriber?.company_follow_followup_pending !== false) {
+      await updateDoc(subscriberRef, { company_follow_followup_pending: false });
+    }
   }
   return alert;
 }

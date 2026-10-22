@@ -34,7 +34,9 @@ const REPLAY_PUBLISHING_STEPS = [
 const INVOKED_SCRIPT_RE = /scripts\/[\w./-]+\.(?:mjs|cjs|js|ts|sh)/g;
 const LOCAL_IMPORT_RE =
   /(?:import|export)\s[^'"`;]*?from\s*['"](\.{1,2}\/[^'"]+)['"]|import\s*['"](\.{1,2}\/[^'"]+)['"]|import\(\s*['"](\.{1,2}\/[^'"]+)['"]\s*\)/g;
-const SOURCED_SHELL_FILE_RE = /^[ \t]*(?:source|\.)[ \t]+\S/m;
+const SOURCED_SHELL_FILE_RE = /^[ \t]*(?:source|\.)[ \t]+(?:"([^"]+)"|'([^']+)'|([^\s;]+))/gm;
+const SCRIPT_DIR_PATH_ASSIGNMENT_RE = /^[ \t]*([A-Za-z_][A-Za-z0-9_]*)=["']?\$script_dir\/([^"'\s;]+)["']?[ \t]*$/gm;
+const NODE_SHELL_SCRIPT_RE = /\bnode[ \t]+["']?\$([A-Za-z_][A-Za-z0-9_]*)["']?(?=[ \t]|$)/g;
 
 // Code the replay reaches without it deciding a single written byte. The walk
 // below stops at each entry, has to reach every one of them, and each carries
@@ -76,13 +78,42 @@ function codeOnly(source: string): string {
 /** Local modules a file imports, plus the scripts its code names (child processes). */
 function reachedFrom(relativePath: string): string[] {
   const code = codeOnly(fs.readFileSync(path.join(ROOT_DIR, relativePath), 'utf8'));
-  // A sourced shell file would be code this walk cannot follow.
-  if (relativePath.endsWith('.sh')) expect(code, relativePath).not.toMatch(SOURCED_SHELL_FILE_RE);
   const reached = new Set<string>();
   for (const match of code.matchAll(LOCAL_IMPORT_RE)) {
     const specifier = match[1] ?? match[2] ?? match[3];
     const absolute = path.resolve(ROOT_DIR, path.dirname(relativePath), specifier);
     reached.add(path.relative(ROOT_DIR, absolute).split(path.sep).join('/'));
+  }
+  if (relativePath.endsWith('.sh')) {
+    const scriptDirPaths = new Map<string, string>();
+    for (const match of code.matchAll(SCRIPT_DIR_PATH_ASSIGNMENT_RE)) {
+      scriptDirPaths.set(match[1], match[2]);
+    }
+    for (const match of code.matchAll(NODE_SHELL_SCRIPT_RE)) {
+      const scriptRelativePath = scriptDirPaths.get(match[1]);
+      expect(
+        scriptRelativePath,
+        `${relativePath} invokes an untracked Node script variable: ${match[1]}`,
+      ).toBeTruthy();
+      reached.add(path.relative(
+        ROOT_DIR,
+        path.resolve(ROOT_DIR, path.dirname(relativePath), scriptRelativePath as string),
+      ).split(path.sep).join('/'));
+    }
+    for (const match of code.matchAll(SOURCED_SHELL_FILE_RE)) {
+      const source = match[1] ?? match[2] ?? match[3];
+      const variable = source.match(/^\$([A-Za-z_][A-Za-z0-9_]*)$/)?.[1];
+      const scriptRelativePath = source.startsWith('$script_dir/')
+        ? source.slice('$script_dir/'.length)
+        : variable ? scriptDirPaths.get(variable) : undefined;
+      const relativeSource = scriptRelativePath
+        ?? (source.startsWith('./') || source.startsWith('../') ? source : undefined);
+      expect(relativeSource, `${relativePath} sources an untracked shell path: ${source}`).toBeTruthy();
+      reached.add(path.relative(
+        ROOT_DIR,
+        path.resolve(ROOT_DIR, path.dirname(relativePath), relativeSource as string),
+      ).split(path.sep).join('/'));
+    }
   }
   for (const match of code.matchAll(INVOKED_SCRIPT_RE)) reached.add(match[0]);
   reached.delete(relativePath);

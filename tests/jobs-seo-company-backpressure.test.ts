@@ -8,7 +8,7 @@ function readSource(relativePath: string): string {
 }
 
 describe('jobsSeoPages company-landing backpressure', () => {
-  it('caps retained company HTML at 15,000 entries (down from 35,000)', () => {
+  it('flushes hub HTML before the generic collector threshold', () => {
     const pluginSource = readSource('build-plugins/jobsSeoPagesPlugin.ts');
     const collectorSource = readSource('build-plugins/batchWrite.ts');
     const phaseStart = pluginSource.indexOf('let companyPagesCount = 0;');
@@ -20,13 +20,22 @@ describe('jobsSeoPages company-landing backpressure', () => {
     const inFlightLimit = Number(
       companyPhase.match(/await collector\.awaitDrainSlot\((\d+)\);/)?.[1],
     );
+    const hubFlushThreshold = Number(
+      pluginSource.match(/const HUB_PAGE_WRITE_FLUSH_THRESHOLD = ([\d_]+);/)?.[1]?.replaceAll('_', ''),
+    );
 
     expect(phaseStart).toBeGreaterThan(-1);
     expect(phaseEnd).toBeGreaterThan(phaseStart);
     expect(threshold).toBe(5_000);
     expect(inFlightLimit).toBe(2);
-    // One active collector map plus at most two flush batches. This metric is
-    // deterministic and does not require the unsafe full local SEO build.
-    expect((inFlightLimit + 1) * threshold).toBe(15_000);
+    // A single-locale shard can finish the whole company phase below 1,024
+    // writes; 128 forces at least one intermediate drain on that path.
+    expect(hubFlushThreshold).toBe(128);
+    expect(hubFlushThreshold).toBeLessThan(threshold);
+    expect(companyPhase).toContain('await flushHubPageWritesIfNeeded();');
+    expect(companyPhase).toContain('await collector.flush();');
+    // The active map is drained before the generic 5,000-entry auto-flush can
+    // create another large batch; this is the memory bound the old
+    // awaitDrainSlot-only guard did not provide.
   });
 });

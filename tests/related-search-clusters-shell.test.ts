@@ -2,9 +2,15 @@ import { mkdtempSync, rmSync, writeFileSync, mkdirSync, readFileSync } from 'nod
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
-import { renderClusterPage, isClusterBelowFloor, selectRelatedClusterLinks } from '../build-plugins/relatedSearchClustersPlugin';
+import {
+  renderClusterPage,
+  isClusterBelowFloor,
+  selectRelatedClusterLinks,
+  stripHreflangForClusterMirror,
+} from '../build-plugins/relatedSearchClustersPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { buildFlatBridgeFromSibling } from '../build-plugins/flatHtmlRedirectPlugin';
+import { countHreflangLinks } from '../build-plugins/shared/headLinkPatterns';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
 import { AD_SLOTS } from '../services/adsenseSlots';
 
@@ -68,6 +74,53 @@ describe('canton-aware cluster URL emission', () => {
     expect(page.urlPath).toBe('/cerca-lavoro-svizzera/ricerca-offerte-lavoro-addetto-a-cucina/');
     expect(page.loc).toBe('https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-offerte-lavoro-addetto-a-cucina/');
     expect(page.html).toMatch(/<link rel=canonical href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-svizzera\/ricerca-offerte-lavoro-addetto-a-cucina\/"/);
+  });
+
+  it('keeps hreflang on the aggregate page and strips it from canonical mirrors', () => {
+    const distDir = makeDist();
+    const slug = 'ricerca-offerte-lavoro-addetto-a-cucina';
+    const slugCore = slug.replace(/^ricerca-/, '');
+    const page = renderClusterPage({
+      distDir,
+      dateStamp: '2026-05-28',
+      ctx: {
+        candidate: {
+          slug,
+          locale: 'it',
+          jobCount: 3,
+          matchingJobCount: 3,
+          sampleTerms: ['offerte lavoro Addetto a cucina'],
+          editorialCollision: null,
+        },
+        keyword: 'addetto a cucina',
+        city: null,
+        matchingJobs: [
+          { id: 'job-it', title: 'Cuoco', company: 'KSGR', location: 'Chur', canton: 'GR', slug: 'cuoco-chur' },
+          { id: 'job-en', title: 'Cook', company: 'KSGR', location: 'Chur', canton: 'GR', slug: 'cook-chur' },
+          { id: 'job-de', title: 'Koch', company: 'KSGR', location: 'Chur', canton: 'GR', slug: 'koch-chur' },
+        ],
+        topCompanies: ['KSGR'],
+        cantonGroup: '_AGGREGATE_',
+        legacyCantonGroup: 'GR',
+      },
+      enriched: undefined,
+      hreflang: [
+        { locale: 'it', url: `https://frontaliereticino.ch/cerca-lavoro-svizzera/${slug}/` },
+        { locale: 'en', url: `https://frontaliereticino.ch/en/find-jobs-switzerland/search-${slugCore}/` },
+        { locale: 'de', url: `https://frontaliereticino.ch/de/jobs-in-schweiz/suche-${slugCore}/` },
+        { locale: 'fr', url: `https://frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-${slugCore}/` },
+      ],
+      related: [],
+    });
+
+    const mirrorHtml = stripHreflangForClusterMirror(page.html);
+    const pageHeadEnd = page.html.indexOf('</head>');
+    const mirrorHeadEnd = mirrorHtml.indexOf('</head>');
+
+    expect(countHreflangLinks(page.html)).toBe(5);
+    expect(countHreflangLinks(mirrorHtml)).toBe(0);
+    expect(mirrorHtml).toContain(`<link rel=canonical href="${page.loc}"`);
+    expect(mirrorHtml.slice(mirrorHeadEnd)).toBe(page.html.slice(pageHeadEnd));
   });
 
   it('pins a Liestal-only cluster under /cerca-lavoro-basilea/ via cantonGroup', () => {
@@ -536,5 +589,17 @@ describe('flat redirect bridge payload', () => {
     expect(src).toContain('collector.add(flatPath, buildFlatBridgeFromSibling(out.html, out.loc));');
     expect(src).not.toContain('renderLeanFlatBridge');
     expect(src).not.toContain('collector.add(flatPath, out.html);');
+  });
+
+  it('writes hreflang only on self-canonical cluster pages, not their mirrors', () => {
+    const src = readFileSync(
+      join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+
+    expect(src).toContain('const __clMirrorHtml = __clMirrorPaths.size > 0');
+    expect(src).toContain('stripHreflangForClusterMirror(__clHtml)');
+    expect(src).toContain('collector.add(indexPath, __clHtml);');
+    expect(src).toContain('collector.add(mirrorIndexPath, __clMirrorHtml);');
   });
 });

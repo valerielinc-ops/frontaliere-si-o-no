@@ -52,6 +52,7 @@ import {
   findGhostExpiredReconciliationMatch,
   writeHousekeepingProofFile,
 } from './lib/crawler-slice-integrity.mjs';
+import { decontaminateJobs, decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1441,6 +1442,25 @@ if (isDirectRun) {
   console.log(`📈 Orphan reconciliation: ${orphanResult.mergedCount} merged, ${orphanResult.skippedCount} skipped`);
   console.log('');
 
+  // The assembled snapshot can contain a bridge added by a preceding
+  // reconciliation pass. Before this writer copies it back to per-crawler
+  // slices, re-run the fleet ownership ratchet so the copy cannot preserve a
+  // confirmed foreign hash-tailed alias on the claimant.
+  const activeOwnership = decontaminateJobs(activeJobs);
+  if (activeOwnership.moved > 0 || activeOwnership.emptyLocaleBucketsPruned > 0) {
+    console.log(
+      `🧭 Previous-slug ownership: redirected ${activeOwnership.moved} route(s), `
+      + `pruned ${activeOwnership.emptyLocaleBucketsPruned} empty locale bucket(s)`,
+    );
+  }
+  const sliceOwnership = decontaminateSliceDirectory(DATA_SLICES_DIR, { apply: !dryRun });
+  if (sliceOwnership.moved > 0 || sliceOwnership.emptyLocaleBucketsPruned > 0) {
+    console.log(
+      `🧭 Slice ownership ${dryRun ? '(dry-run)' : ''}: redirected ${sliceOwnership.moved} route(s), `
+      + `pruned ${sliceOwnership.emptyLocaleBucketsPruned} empty locale bucket(s)`,
+    );
+  }
+
   // ── Write results ──
   if (!dryRun) {
     const allUpdatedJobs = new Map([
@@ -1450,8 +1470,13 @@ if (isDirectRun) {
 
     const hasExpiredCleanup = expiredResult.reconciledIds?.size > 0;
 
-    if (allUpdatedJobs.size > 0 || hasExpiredCleanup) {
-      if (allUpdatedJobs.size > 0) {
+    const hasOwnershipCleanup = activeOwnership.moved > 0
+      || activeOwnership.emptyLocaleBucketsPruned > 0
+      || sliceOwnership.moved > 0
+      || sliceOwnership.emptyLocaleBucketsPruned > 0;
+
+    if (allUpdatedJobs.size > 0 || hasExpiredCleanup || hasOwnershipCleanup) {
+      if (allUpdatedJobs.size > 0 || activeOwnership.moved > 0 || activeOwnership.emptyLocaleBucketsPruned > 0) {
         // Write active jobs (only if previousSlugs changed)
         writeJson(DATA_JOBS, activeJobs);
         writeJson(PUBLIC_JOBS, activeJobs);

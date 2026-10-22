@@ -34,6 +34,15 @@ export const BORDER_WAIT_TODAY_BY_LOCALE = Object.freeze({
   fr: 'aujourd-hui',
 });
 
+/** Canonical live crossing path, shared by SSG producers and the edge Worker.
+ * @param {keyof typeof BORDER_WAIT_SECTION_BY_LOCALE} locale
+ * @param {string} crossing
+ */
+export function buildBorderWaitTodayPath(locale, crossing) {
+  return '/' + [locale === 'it' ? '' : locale, BORDER_WAIT_SECTION_BY_LOCALE[locale], crossing, BORDER_WAIT_TODAY_BY_LOCALE[locale]]
+    .map(part => String(part).replace(/^\/+|\/+$/g, '')).filter(Boolean).join('/') + '/';
+}
+
 /** Canonical section roots paired with their locale. */
 export const BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE = Object.freeze({
   it: BORDER_WAIT_SECTION_BY_LOCALE.it,

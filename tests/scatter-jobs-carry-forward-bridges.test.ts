@@ -377,7 +377,12 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       [null, base.slugByLocale.fr],
       [null, 'some-flat-old-slug'],
     ];
-    for (const [locale, slug] of candidates) {
+    // Keep tuple access explicit: TypeScript 5.8's declaration-visibility
+    // checker crashes on this union when the binding is destructured in a
+    // `for...of` declaration, so it never reaches the real diagnostics.
+    for (const candidate of candidates) {
+      const locale = candidate[0];
+      const slug = candidate[1];
       const job = arxadaSlice();
       job.previousSlugs = [slug];
       job.previousSlugsByLocale = locale ? { [locale]: [slug] } : {};
@@ -732,6 +737,34 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled);
     expect(changed).toBe(true);
     expect(job.previousSlugsByLocale.en).toContain('legacy-en-bridge');
+  });
+
+  it('carries forward an assembled retranslation mark when locale fields are unchanged', () => {
+    const sliceJob = baseSlice();
+    const assembled = {
+      ...baseSlice(),
+      needsRetranslation: true,
+    };
+
+    const first = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(first.changed).toBe(true);
+    expect(first.job.needsRetranslation).toBe(true);
+    expect(sliceJob.needsRetranslation).toBeUndefined();
+
+    // The projection is idempotent once the committed slice carries the mark.
+    expect(applyAssembledToSliceJob(first.job, assembled).changed).toBe(false);
+  });
+
+  it('never clears a retranslation mark already present on the slice', () => {
+    const sliceJob = {
+      ...baseSlice(),
+      needsRetranslation: true,
+    };
+    const assembled = baseSlice();
+
+    const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(changed).toBe(false);
+    expect(job.needsRetranslation).toBe(true);
   });
 
   it('is a no-op when the slice already holds every assembled bridge', () => {

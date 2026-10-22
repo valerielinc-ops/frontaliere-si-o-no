@@ -75,9 +75,11 @@
 //   node scripts/prune-merged-worktrees.mjs --apply    # esegue le rimozioni safe
 //   node scripts/prune-merged-worktrees.mjs --expiry-days 5
 //   PRUNE_WORKTREE_EXPIRY_DAYS=5 node scripts/prune-merged-worktrees.mjs
-//   node scripts/prune-merged-worktrees.mjs --only <testo>  # solo worktree,
-//        branch e directory il cui path o nome contiene <testo> (diagnosi)
+//   node scripts/prune-merged-worktrees.mjs --only <branch-o-path>  # solo il
+//        branch col nome esatto o worktree/directory col path completo
 //
+// Le opzioni sono fail-closed: argomenti sconosciuti, invalidi o incompatibili
+// terminano prima di qualsiasi accesso a Git, così un refuso non allarga lo scope.
 // `--orphans-only` è volutamente più prudente: considera solo branch
 // `worktree-agent-*` senza worktree, richiede una lista completa delle PR aperte
 // e non rimuove un branch ahead>0 finché il tag non è verificato sul remoto.
@@ -134,51 +136,104 @@ import {
   isDanglingGitPointer, makeContentProver, makeGitRunner, nodeModulesLinks, removeTreeNoFollow, workingBlob,
 } from './lib/merged-content-proof.mjs';
 
-import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
+import { acquireSingleFlightLockHandle, withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
-import {
-  defaultTempRoot,
-  sweepStaleTempDirs,
-  STALE_TEMP_DIR_AGE_MS,
-} from './lib/stale-temp-dir-sweep.mjs';
-import { sweepStaleDeviceArtifacts } from './lib/stale-device-artifact-sweep.mjs';
-import { sweepStaleWorkspaceArtifacts } from './lib/stale-workspace-artifact-sweep.mjs';
+
+// Nessuna pulizia globale di home/tmp/workspace: l'età non è una prova di
+// contenuto ricostruibile e non può aggirare --only o una decisione report-only.
 
 const STARTED_AT = Date.now();
-const APPLY = process.argv.includes('--apply');
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_EXPIRY_DAYS = 3;
-
-function optionNumber(name, envNames, fallback) {
-  const eq = process.argv.find((a) => a.startsWith(`${name}=`));
-  const index = process.argv.indexOf(name);
-  const raw = eq ? eq.slice(name.length + 1) : (index >= 0 ? process.argv[index + 1] : undefined);
-  const envRaw = envNames.map((key) => process.env[key]).find((value) => value !== undefined);
-  const value = raw ?? envRaw;
-  if (value === undefined || value === '') return fallback;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? Math.max(1, parsed) : fallback;
-}
 
 // La scadenza è intenzionalmente separata da IDLE_WORKTREE_MS: un checkout
 // vuoto può essere raccolto dopo un giorno, ma un branch con commit propri
 // deve avere sia l'ultimo commit sia l'ultimo segnale HEAD/index più vecchi di
 // questa soglia. `--orphans-only` usa la stessa soglia, con guardie ancora più
 // strette perché non ha un worktree da ispezionare.
-const EXPIRY_DAYS = optionNumber('--expiry-days', ['PRUNE_WORKTREE_EXPIRY_DAYS', 'PRUNE_EXPIRY_DAYS'], DEFAULT_EXPIRY_DAYS);
+// Valida l'intera CLI prima di leggere o modificare lo stato Git: un refuso non
+// deve mai trasformare un prune mirato in uno sweep completo.
+function parseOptions(args, env) {
+  const values = { apply: false, only: null, orphansOnly: false, expiryDays: undefined };
+  const seen = new Set();
+  const markSeen = (name) => {
+    if (seen.has(name)) throw new Error(`${name} può essere specificato una sola volta`);
+    seen.add(name);
+  };
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+
+    if (arg === '--apply') {
+      markSeen(arg);
+      values.apply = true;
+    } else if (arg === '--orphans-only') {
+      markSeen(arg);
+      values.orphansOnly = true;
+    } else if (arg === '--only') {
+      markSeen(arg);
+      const value = args[i + 1];
+      if (!value || value.startsWith('--')) {
+        throw new Error('--only richiede un nome di branch o il path completo di un worktree/directory');
+      }
+      values.only = value;
+      i++;
+    } else if (arg.startsWith('--only=')) {
+      const value = arg.slice('--only='.length);
+      if (!value) throw new Error('--only richiede un nome di branch o il path completo di un worktree/directory');
+      markSeen('--only');
+      values.only = value;
+    } else if (arg === '--expiry-days' || arg.startsWith('--expiry-days=')) {
+      markSeen('--expiry-days');
+      const value = arg === '--expiry-days' ? args[i + 1] : arg.slice('--expiry-days='.length);
+      if (value === undefined || value === '' || value.startsWith('--') || !Number.isFinite(Number(value))) {
+        throw new Error('--expiry-days richiede un numero');
+      }
+      values.expiryDays = Number(value);
+      if (arg === '--expiry-days') i++;
+    } else {
+      throw new Error(`opzione o argomento non riconosciuto: ${arg}`);
+    }
+  }
+
+  if (values.only && values.orphansOnly) {
+    throw new Error('--only e --orphans-only non possono essere usati insieme');
+  }
+
+  const envExpiry = env.PRUNE_WORKTREE_EXPIRY_DAYS ?? env.PRUNE_EXPIRY_DAYS;
+  const rawExpiryDays = values.expiryDays ?? (envExpiry === '' ? undefined : envExpiry);
+  const expiryDays = rawExpiryDays === undefined ? DEFAULT_EXPIRY_DAYS : Number(rawExpiryDays);
+  if (!Number.isFinite(expiryDays)) {
+    throw new Error('PRUNE_WORKTREE_EXPIRY_DAYS / PRUNE_EXPIRY_DAYS deve essere un numero');
+  }
+  return {
+    apply: values.apply,
+    only: values.only,
+    orphansOnly: values.orphansOnly,
+    expiryDays: Math.max(1, expiryDays),
+  };
+}
+
+let OPTIONS;
+try {
+  OPTIONS = parseOptions(process.argv.slice(2), process.env);
+} catch (error) {
+  console.error(`✖ ${error.message}`);
+  process.exit(2);
+}
+const APPLY = OPTIONS.apply;
+const ONLY = OPTIONS.only;
+const EXPIRY_DAYS = OPTIONS.expiryDays;
 const EXPIRY_MS = EXPIRY_DAYS * DAY_MS;
-// --only <testo>: limita lo sweep ai worktree/branch/directory che lo contengono.
-const ONLY = (() => {
-  const eq = process.argv.find((a) => a.startsWith('--only='));
-  if (eq) return eq.slice('--only='.length) || null;
-  const i = process.argv.indexOf('--only');
-  return i > 0 ? process.argv[i + 1] || null : null;
-})();
-const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n.includes(ONLY));
+const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n === ONLY);
 // --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
 // `worktree-agent-<id>` 0-ahead orfani (dir worktree già auto-rimossa da
 // EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
-const ORPHANS_ONLY = process.argv.includes('--orphans-only');
+const ORPHANS_ONLY = OPTIONS.orphansOnly;
+// Le pulizie di repository non legate a un candidato sono ammesse solo nello
+// sweep completo applicato. Dry-run e --only possono aggiornare la base per le
+// prove, ma non devono potare ref, pack o metadati di worktree estranei.
+const GLOBAL_PRUNE_ENABLED = APPLY && !ONLY;
 
 // Costo dello sweep, stampato in coda: le chiamate gh sono la risorsa scarsa
 // (quota condivisa col resto del workspace), le prove il tempo in più.
@@ -250,6 +305,19 @@ const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD
   .replace(/^origin\//, '') || 'main';
 const mainRef = `origin/${mainBranch}`;
 const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
+const pruneRunLock = join(realpathSync(resolve(gitDir)), 'frontaliere-prune-run.lock');
+let releasePruneRunLock;
+try {
+  releasePruneRunLock = acquireSingleFlightLockHandle(pruneRunLock, { stalePolicy: 'owner-dead-only' });
+} catch (error) {
+  console.log(`ℹ️  sweep saltata: lock interprocesso non verificabile (${error?.message || 'errore sconosciuto'}).`);
+  process.exit(0);
+}
+if (!releasePruneRunLock) {
+  console.log(`ℹ️  sweep saltata: un'altra istanza è attiva o il lock ${pruneRunLock} non è recuperabile con certezza.`);
+  process.exit(0);
+}
+process.once('exit', releasePruneRunLock);
 const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
 const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 const SNAPSHOT_HOST = (hostname() || 'unknown-host').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/\.{2,}/g, '.');
@@ -467,12 +535,6 @@ if (ORPHANS_ONLY) {
 // residui che git non pota da sé. Fetch mancato = origin/<main> leggermente
 // stale, caso già tollerato dallo script (degrada a report-only, mai a una
 // cancellazione a torto).
-const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
-const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
-const tempSweepLock = join(gitDir, 'frontaliere-prune-tmp.lock');
-const deviceSweepLock = join(gitDir, 'frontaliere-prune-device.lock');
-const workspaceSweepLock = join(gitDir, 'frontaliere-prune-workspace.lock');
-
 // Il timeout è un guard anti-APPESO, non un tetto al lavoro legittimo: a
 // impedire il pile-up ci pensa il lock, non il timeout. Va quindi tenuto SOPRA
 // il fetch di catch-up più lento misurato (~20 min per 24'309 commit di
@@ -496,7 +558,10 @@ const fetchRun = withSingleFlightLock(fetchLock, () => {
   // uccidono una `gh api` senza stato su disco, questo uccide un trasferimento
   // che sta scrivendo un pack multi-GB.
   try {
-    execFileSync('git', ['fetch', 'origin', mainBranch, '--prune', '-q'], {
+    const fetchArgs = ['fetch', 'origin', mainBranch];
+    if (GLOBAL_PRUNE_ENABLED) fetchArgs.push('--prune');
+    fetchArgs.push('-q');
+    execFileSync('git', fetchArgs, {
       stdio: 'ignore',
       timeout: FETCH_TIMEOUT_MS,
       killSignal: 'SIGTERM',
@@ -504,11 +569,15 @@ const fetchRun = withSingleFlightLock(fetchLock, () => {
   } catch {
     /* fetch fallito/scaduto: si prosegue con l'origin/<main> locale (vedi sopra) */
   }
-  return sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'));
+  return GLOBAL_PRUNE_ENABLED
+    ? sweepStaleFetchPacks(join(gitDir, 'objects', 'pack'))
+    : { removed: 0, bytes: 0, candidates: 0 };
 });
 
 if (!fetchRun.acquired) {
   console.log(`ℹ️  fetch saltato: un'altra istanza tiene ${fetchLock} — uso origin/${mainBranch} locale.`);
+} else if (!GLOBAL_PRUNE_ENABLED) {
+  console.log(`ℹ️  pulizie globali del repository saltate: ${APPLY ? '--only attivo' : 'dry-run'}.`);
 } else if (fetchRun.value?.removed) {
   const mb = Math.round(fetchRun.value.bytes / 1048576);
   console.log(`🧹 potati ${fetchRun.value.removed} pack temporanei di fetch abortiti (${mb} MB).`);
@@ -722,7 +791,7 @@ function commitIsAncestorOfPrHead(localTip, pr) {
   // taking too long to generate» appena i due commit sono lontani (misurato il
   // 2026-10-02 su #8862, #8849, #10025, #10051, #10417): la prova remota da
   // sola lasciava report-only proprio i branch di risoluzione più vecchi.
-  if (gitOk(['cat-file', '-e', `${prHead}^{commit}`]) || ensurePrHead({ number: pr?.number, headRefOid: prHead })) {
+  if (prover.hasCommit(prHead) || ensurePrHead({ number: pr?.number, headRefOid: prHead })) {
     const provenLocally = gitOk(['merge-base', '--is-ancestor', localTip, prHead]);
     ancestryProofCache.set(key, provenLocally);
     return provenLocally;
@@ -1105,7 +1174,7 @@ function ensurePrHead(pr) {
       } catch { /* PR assente o rete giù: niente prova */ }
     });
   } catch { return false; }
-  return run?.acquired === true && prover.hasCommit(oid);
+  return run?.acquired === true && prover.hasCommit(oid, { refresh: true });
 }
 
 // PR MERGED su main in cui cercare il contenuto, in ordine di plausibilità.
@@ -2171,34 +2240,12 @@ for (const o of orphanRemove) {
     console.log(`⚠️  FALLITA rimozione directory ${o.path} — saltata`);
   }
 }
-sh('git worktree prune', { allowFail: true });
-
-// Pulizia cross-device degli artefatti temporanei: una sola istanza può
-// scansionare/cancellare il root per evitare N walk ricorsive concorrenti.
-const tmpRoot = defaultTempRoot();
-const tmpRun = withSingleFlightLock(tempSweepLock, () => sweepStaleTempDirs(tmpRoot, { apply: APPLY }));
-if (tmpRun.acquired) {
-  const tmpMb = Math.round((tmpRun.value?.bytes ?? 0) / 1048576);
-  console.log(`🧹 tmp ${tmpRoot}: ${tmpRun.value?.removed ?? 0}/${tmpRun.value?.candidates ?? 0} directory stale rimosse (${tmpMb} MB; soglia ${STALE_TEMP_DIR_AGE_MS / 86400000} giorni).`);
+if (GLOBAL_PRUNE_ENABLED) {
+  sh('git worktree prune', { allowFail: true });
 } else {
-  console.log(`ℹ️  tmp cleanup saltato: un'altra istanza tiene ${tempSweepLock}.`);
+  console.log(`ℹ️  git worktree prune saltato: ${APPLY ? '--only attivo' : 'dry-run'}.`);
 }
 
-const deviceRun = withSingleFlightLock(deviceSweepLock, () => sweepStaleDeviceArtifacts({ apply: APPLY }));
-if (deviceRun.acquired) {
-  const mb = Math.round((deviceRun.value?.bytes ?? 0) / 1048576);
-  console.log(`🧹 device cache/session cleanup: ${deviceRun.value?.removed ?? 0}/${deviceRun.value?.candidates?.length ?? 0} stale items (${mb} MB).`);
-} else {
-  console.log(`ℹ️  device cleanup saltato: un'altra istanza tiene ${deviceSweepLock}.`);
-}
-
-const workspaceRun = withSingleFlightLock(workspaceSweepLock, () => sweepStaleWorkspaceArtifacts({ apply: APPLY }));
-if (workspaceRun.acquired) {
-  const mb = Math.round((workspaceRun.value?.bytes ?? 0) / 1048576);
-  console.log(`🧹 workspace artifact cleanup: ${workspaceRun.value?.removed ?? 0}/${workspaceRun.value?.candidates?.length ?? 0} stale directories (${mb} MB).`);
-} else {
-  console.log(`ℹ️  workspace cleanup saltato: un'altra istanza tiene ${workspaceSweepLock}.`);
-}
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
 console.log(`riassunto: snapshot creati ${snapshotsCreated.length}; worktree rimossi ${removedWorktrees}; branch rimossi ${removedBranches}; spazio liberato ${formatBytes(spaceFreedBytes)}; saltati per motivo: ${skippedSummary()}${skippedSnapshotFailures ? `; snapshot falliti=${skippedSnapshotFailures}` : ''}.`);

@@ -1,0 +1,23 @@
+{
+  "companyKey": "michaelpage-ch",
+  "companyName": "michaelpage",
+  "companyHost": "pageexecutive.com",
+  "platform": "pageexecutive.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.pageexecutive.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 12,
+  "sampleTitles": [
+    "Operational / General Management",
+    "Business & Support Services",
+    "Professional Services & Consultancy",
+    "Public Sector & Not-For-Profit",
+    "Technology Media & Telecoms"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-20T06:24:23.450Z"
+}

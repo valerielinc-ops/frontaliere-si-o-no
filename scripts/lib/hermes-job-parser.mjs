@@ -36,7 +36,19 @@ const ORC_PAGE_SIZE = 200;
 const ORC_MAX_PAGES = 12; // safety cap (~2400 reqs); current global total ~956
 
 // Public job-detail URL host (talents.hermes.com) — what we publish/apply to.
-const JOB_DETAIL_BASE = 'https://talents.hermes.com/en/sites/CX/jobs';
+const JOB_DETAIL_BASE = 'https://talents.hermes.com/en/sites/CX/job';
+
+export function buildHermesJobDetailUrl(jobReqId) {
+  return `${JOB_DETAIL_BASE}/${encodeURIComponent(String(jobReqId).trim())}`;
+}
+
+export function buildHermesJobId(jobReqId) {
+  // Preserve ids historically derived from `/jobs/{id}/` while correcting the
+  // published detail link to `/job/{id}`.
+  const historicalDetailUrl = `${CAREER_URL}/${encodeURIComponent(String(jobReqId).trim())}/`;
+  const urlHash = createHash('sha1').update(historicalDetailUrl).digest('hex').slice(0, 12);
+  return `hermes-${urlHash}`;
+}
 
 const DESKTOP_UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
@@ -223,7 +235,7 @@ async function fetchJobListings() {
         jobReqId: id,
         title,
         location: normalizeSpace(req.PrimaryLocation || ''),
-        url: `${JOB_DETAIL_BASE}/${id}/`,
+        url: buildHermesJobDetailUrl(id),
         postedAt: req.PostedDate || req.PostingStartDate || '',
         description: '',
       });
@@ -304,11 +316,9 @@ export async function fetchAllHermesJobs() {
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} hermes ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
     const job = {
       // ── Required fields ──
-      id: `hermes-${urlHash}`,
+      id: buildHermesJobId(listing.jobReqId),
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
       company: HERMES_COMPANY_NAME,

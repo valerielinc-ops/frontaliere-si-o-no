@@ -19,6 +19,7 @@ import {
   isLegitJobCanonicalConsolidation,
 } from './lib/canonicalExemptions.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -72,8 +73,13 @@ function findHtmlFile(url) {
 // Extract canonical URL from HTML content.
 // Quote-flexible — PR #478 baked removeAttributeQuotes upstream.
 function extractCanonical(content) {
-  const match = content.match(/<link\s+rel=["']?canonical["']?\s+href=["']?([^"'\s>]+)["']?/);
-  return match ? match[1] : null;
+  for (const { raw } of scanMarkupStartTags(content, 'link')) {
+    const rel = readAttr(raw, 'rel');
+    if (!rel.split(/\s+/).some((token) => token.toLowerCase() === 'canonical')) continue;
+    const href = readAttr(raw, 'href').trim();
+    if (href) return href;
+  }
+  return null;
 }
 
 // Thin "Versione canonica" stub, full-content previousSlug bridge, legacy root

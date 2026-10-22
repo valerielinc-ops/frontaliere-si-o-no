@@ -15,15 +15,17 @@ import type { Plugin } from 'vite';
 import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
+import { loadArticleRouteRedirects, resolveArticleRouteHref } from './shared/articleRouteOwnership.mjs';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
-import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
+import { normalizeArticleExcerptPlain, stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
 import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { hasArticleBodyPromptPlaceholder } from './shared/articleBodyQuality';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
-import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
+import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
+export { parseStaticBlogBodySource };
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
 import { createImageCreditReader, imageObjectCreditFields, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
@@ -445,6 +447,26 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fs,
  SECTION.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
  );
+ const articleLinkCanonicalOverrides: Record<string, string> = {};
+ for (const descriptor of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
+  Object.assign(
+   articleLinkCanonicalOverrides,
+   loadSwissArticleCanonicalOverrides(
+    fs,
+    descriptor.canonicalOverrides.map((p) => np.resolve(rootDir, p)),
+   ),
+  );
+ }
+ const articleRedirects = loadArticleRouteRedirects(
+  fs,
+  np.resolve(rootDir, 'data/article-redirects.json'),
+  np.resolve(rootDir, 'build-plugins/legacyRedirectsPlugin.ts'),
+ );
+ const articleRouteMaps = {
+  redirects: articleRedirects,
+  canonicalOverrides: articleLinkCanonicalOverrides,
+ };
+ const resolveArticleHref = (href: string): string => resolveArticleRouteHref(href, articleRouteMaps);
 
  // Issue #6337: articleId -> reviewerAuthorSlug map for the `reviewedBy`
  // JSON-LD signal (E-E-A-T on fiscal/legal YMYL content). Section-agnostic,
@@ -868,21 +890,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // corpus) and reads its slugs from the core entry the descriptor carries.
  const blogIndexSlug: Record<string, string> = SHELL_INDEX_SLUGS_BY_KIND[SECTION.kind](shell, SECTION);
 
- // Both were chains of .replace() until 2026-08-11, which cannot decode
- // escapes: each pass re-reads the previous pass's output, and `\\` — the
- // escape that protects every other one — was resolved LAST. The source text
- // `\\t` (a JSON tab escape, correctly spelled for a single-quoted TS
- // literal) came out as `\` + a space, and for `faq` that lone backslash made
- // JSON.parse throw, dropping the article's FAQPage schema and its visible
- // accordion without a word. See shared/tsStringEscapes.ts for the full
- // measurement; the two decoders now differ ONLY in what `\n` becomes.
- const unescapeTsString = (value: string): string =>
- decodeTsStringEscapes(value, { newlineAs: ' ' });
-
- // Preserves \n as actual newlines (needed for body markdown structure: headings/lists/FAQ).
- const unescapeTsStringRaw = (value: string): string =>
- decodeTsStringEscapes(value, { newlineAs: '\n' });
-
+ // Meta fields flatten line breaks to spaces; body/FAQ literals keep them for
+ // Markdown and JSON structure. Values from the AST are already decoded, so
+ // flatten only the presentation whitespace without unescaping a second time.
+ const flattenMetaValue = (value: string): string => value.replace(/[\r\n]+/gu, ' ');
  const parseBlogMetaLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
@@ -893,14 +904,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (isMissingPathError(err)) return out;
  throw err;
  }
- const rx = /'blog\.article\.([^']+)\.(title|excerpt|imageAlt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
- let m: RegExpExecArray | null;
- while ((m = rx.exec(src)) !== null) {
- const articleId = m[1];
- const field = m[2] as 'title' | 'excerpt' | 'imageAlt';
- const value = unescapeTsString(m[3]);
- if (!out[articleId]) out[articleId] = {};
- out[articleId][field] = value;
+ const translations = parseStaticArticleTranslationSource(src, p);
+ for (const [articleId, fields] of translations) {
+  const meta: { title?: string; excerpt?: string; imageAlt?: string } = {};
+  for (const field of ['title', 'excerpt', 'imageAlt'] as const) {
+   const value = fields.get(field);
+   if (value !== undefined) meta[field] = flattenMetaValue(value);
+  }
+  out[articleId] = meta;
  }
  return out;
  };
@@ -936,11 +947,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  throw err;
  }
  }
- // Body and FAQ values are emitted both as ordinary quoted strings and as
- // template literals. The latter are valid corpus output (and are used by
- // recent articles); ignoring them silently removes the visible body and
- // prevents the corresponding FAQPage schema from being rendered.
- const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*(?:'((?:[^'\\]|\\.)*)'|`((?:[^`\\]|\\.)*)`)/g;
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
  let src = '';
@@ -950,17 +956,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (isMissingPathError(err)) continue;
  throw err;
  }
- let m: RegExpExecArray | null;
- while ((m = rx.exec(src)) !== null) {
- const articleId = m[1];
- const field = m[2];
- // `faq` is JSON and keeps its escapes verbatim for JSON.parse; body text
- // is markdown, where a leftover literal `\n` is legacy corpus damage that
- // renders as a visible backslash. See repairLegacyDoubleEscapedBreaks.
- const decoded = unescapeTsStringRaw(m[3] ?? m[4]);
- const value = field === 'faq' ? decoded : repairLegacyDoubleEscapedBreaks(decoded);
- if (!out[articleId]) out[articleId] = {};
- out[articleId][field] = value;
+  const parsed = parseStaticBlogBodySource(src, np.join(dir, file));
+  for (const [articleId, fields] of Object.entries(parsed)) {
+   out[articleId] = { ...out[articleId], ...fields };
  }
  }
  return out;
@@ -1193,7 +1191,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const items = hubItem + picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
- const href = `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`;
+ const href = resolveArticleRouteHref(
+  `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`,
+  articleRouteMaps,
+ );
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
@@ -1270,6 +1271,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // text fields, so carrying that syntax into the lede makes it visible rather
  // than rendered; strip it before every surface receives the value.
  const localizedDesc = repairSerpSnippet(stripLiteralMarkdown(localizedMeta?.excerpt || en.ogD));
+ // The visible lede follows the editorial excerpt for the page locale. SEO metadata
+ // remains on localizedDesc above; Italian ogDescription can intentionally differ.
+ // Match the SPA's plain editorial excerpt normalization. Keep this separate from
+ // localizedDesc: an editorial excerpt may be empty or end in a word (including
+ // a preposition) that the SEO snippet repair correctly changes for search.
+ const localizedVisibleExcerpt = normalizeArticleExcerptPlain(
+  blogMetaByLocale[articleLocale][en.articleId]?.excerpt ?? localizedDesc,
+ );
  // Hero alt text. The corpus already carries a per-locale `imageAlt` (parsed
  // out of the blog-meta chunks alongside title/excerpt) and nothing consumed
  // it — og:image:alt fell back to the headline. Prefer the real alt, keep the
@@ -1278,13 +1287,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // alt="" would tell Discover this image is not about the article.
  const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
  const heroAlt = localizedMeta?.imageAlt || socialTitle;
- // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
+ // Pad short descriptions to the active shell budget for Bing (locale variant excerpts are often shorter).
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
  en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
  de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
  fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
  };
- const metaDescPadded = (localeForMeta && localizedDesc.length < 150)
+ const metaDescPadded = (localeForMeta && localizedDesc.length < shell.metaDescriptionMaxChars)
  ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
  : localizedDesc;
  // SERP-CTR lever (issue #4300 plan item 2): title/h1/headline are locked by
@@ -1295,16 +1304,16 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const metaDescRaw = boostDescriptionForCtr(
  metaDescPadded,
  (localeForMeta ?? 'it') as 'it' | 'en' | 'de' | 'fr',
- { maxLength: 155 },
+ { maxLength: shell.metaDescriptionMaxChars },
  );
- // Truncate to ≤155 chars for Bing/Google snippet display.
+ // Truncate to the active shell budget for Bing/Google snippet display.
  // truncateHeadline, NOT truncateCodeUnits: the raw code-unit slice cut mid
  // WORD and shipped snippets like "…impatto su perme…" (live offender
  // /articoli-frontaliere/calendario-festivi-ticino-2026/). truncateHeadline
  // cuts on a word boundary and peels the dangling clause tail, so the snippet
  // always ends on a content word — same helper every other template family
  // already reaches through clampMetaDescription.
- const metaDesc = truncateHeadline(metaDescRaw, 155);
+ const metaDesc = truncateHeadline(metaDescRaw, shell.metaDescriptionMaxChars);
  // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
  // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
  // tanks CTR (see /calcola-stipendio/ regression doc). We only force a
@@ -1362,7 +1371,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const nb = parseInt(b.replace('body', ''), 10);
  return na - nb;
  }) : [];
- const bodySections = cleanupArticleBodySections(allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })));
+ const bodySections = cleanupArticleBodySections(
+  allBodyKeys.map(k => ({ key: k, text: localizedBody?.[k] })),
+  { resolveHref: resolveArticleHref },
+ );
  const canonicalPath = withTrailingSlash(urlPath);
  const full = `${BASE_URL}${canonicalPath}`;
  // Issue #3010 item 1: shadowed near-duplicate variants (see
@@ -1734,7 +1746,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  : 'Domande frequenti';
  visibleFaqHtml = `<details class="s-lfB4Bo"><summary class="s-qAjSfB">${faqLabel}</summary><dl class="s-4vhLHi">` +
  useFaqPairs.slice(0, 10).map(pair =>
- `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer)}</dd>`
+ `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer, { resolveHref: resolveArticleHref })}</dd>`
  ).join('') +
  `</dl></details>`;
  }
@@ -1861,7 +1873,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1885,7 +1897,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedVisibleExcerpt)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };

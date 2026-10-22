@@ -6,7 +6,7 @@ import {
 } from '../build-plugins/shared/titleSuffix';
 
 describe('buildJobMetaDescription', () => {
- it('keeps source context inside the 120–160 character contract', () => {
+ it('keeps source context inside the 120–150 character contract', () => {
   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
    const description = buildJobMetaDescription({
     locale,
@@ -40,7 +40,7 @@ describe('buildJobMetaDescription', () => {
    title: 'Senior technician',
    company: 'A &amp; B',
    location: 'Lugano',
-   cleanDescription: `${'x'.repeat(110)}&amp;quality`,
+   cleanDescription: `${'x'.repeat(100)} &amp;quality overflow`,
   });
 
   expect(description).not.toContain('&amp');

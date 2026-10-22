@@ -220,12 +220,18 @@ export async function fetchAllCantonTicinoOscJobs() {
       detailHtml = await fetchHtml(detailUrl, { timeoutMs });
     } catch (err) {
       console.warn(`  ⚠️  yid=${cand.yid} detail fetch failed: ${err?.message || err}`);
+      if (requestDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, requestDelayMs));
+      }
       continue;
     }
 
     const detail = parseConcorsiDetail(detailHtml);
     if (!detail) {
       console.warn(`  ⚠️  yid=${cand.yid} no structured detail`);
+      if (requestDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, requestDelayMs));
+      }
       continue;
     }
 
@@ -234,6 +240,9 @@ export async function fetchAllCantonTicinoOscJobs() {
     const haystack = `${detail.dept} ${detail.title} ${detail.text}`;
     if (!isCantonTicinoOscPosting(detail)) {
       console.log(`  ⏭  yid=${cand.yid} skipped (not OSC: ${detail.dept || 'no dept'})`);
+      if (requestDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, requestDelayMs));
+      }
       continue;
     }
 

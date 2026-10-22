@@ -43,6 +43,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { truncateToClause } from '../../build-plugins/shared/clauseTail.mjs';
+import { readStaticMetaFieldEntries } from '../lib/meta-field-regex.mjs';
 import { unescapeTsString } from '../lib/unescape-ts-string.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..', '..');
@@ -119,10 +120,8 @@ function readMetaTitles() {
   for (const file of [META_FILE, META_CH_FILE]) {
     if (!fs.existsSync(file)) continue;
     const src = fs.readFileSync(file, 'utf-8');
-    const rx = /'blog\.article\.([^']+)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
-    let m;
-    while ((m = rx.exec(src)) !== null) {
-      if (!map.has(m[1])) map.set(m[1], unescapeSingle(m[2]));
+    for (const entry of readStaticMetaFieldEntries({ source: src, sourcePath: file }, 'title')) {
+      if (!map.has(entry.id)) map.set(entry.id, entry.value);
     }
   }
   return map;

@@ -67,6 +67,7 @@ import {
   LINK_ACCENT_STYLE,
 } from './shared/seoContentTokens';
 import { SECTION_LEGACY_TI_PATH, SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
+import { MARKET_REPORT_SLUG, reportHref } from './shared/reportRoutes';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -74,19 +75,7 @@ type Locale = 'it' | 'en' | 'de' | 'fr';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'] as const;
 
-const LOCALE_PREFIX: Record<Locale, string> = {
-  it: '',
-  en: '/en',
-  de: '/de',
-  fr: '/fr',
-};
-
-const REPORT_SLUG: Record<Locale, string> = {
-  it: 'reports/mercato-lavoro-frontalieri-ticino-2026',
-  en: 'reports/ticino-cross-border-job-market-2026',
-  de: 'reports/tessiner-grenzgaenger-arbeitsmarkt-2026',
-  fr: 'reports/marche-emploi-frontaliers-tessin-2026',
-};
+export const REPORT_SLUG = MARKET_REPORT_SLUG;
 
 const OG_LOCALE: Record<Locale, string> = {
   it: 'it_CH',
@@ -488,14 +477,12 @@ function renderReport(opts: {
   const copy = COPY[locale];
   const dataUpdatedAt = sourceDateIso(stats?.generatedAt);
   const dataUpdatedLabel = formatSourceDate(stats?.generatedAt, locale) ?? copy.unknownDateLabel;
-  const prefix = LOCALE_PREFIX[locale];
-  const slug = REPORT_SLUG[locale];
-  const urlPath = `${prefix}/${slug}/`.replace(/\/+/g, '/');
+  const urlPath = reportHref(REPORT_SLUG[locale]);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
   // Build hreflang for all 4 locales + x-default via the shared helper.
   const hreflangPaths = LOCALES.reduce<Record<Locale, string>>((acc, alt) => {
-    acc[alt] = `${LOCALE_PREFIX[alt]}/${REPORT_SLUG[alt]}/`.replace(/\/+/g, '/');
+    acc[alt] = reportHref(REPORT_SLUG[alt]);
     return acc;
   }, { it: '', en: '', de: '', fr: '' });
   const alternates = renderHreflangTags(hreflangPaths as HreflangPaths);

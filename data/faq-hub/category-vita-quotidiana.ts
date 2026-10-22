@@ -32,7 +32,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/costo-della-vita/',
+        href: '/compara-servizi/costo-della-vita/',
         label: {
           it: 'Costo della vita CH vs IT',
           en: 'Cost of living CH vs IT',
@@ -66,7 +66,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/comparatori/cambio-valuta/',
+        href: '/compara-servizi/cambio-franco-euro/',
         label: {
           it: 'Comparatore cambio valuta',
           en: 'Currency exchange comparator',
@@ -261,6 +261,9 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
       en: 'How do I pay Swiss traffic fines from Italy?',
       de: 'Wie bezahle ich Schweizer Bussen aus Italien?',
       fr: 'Comment payer les amendes suisses depuis l\'Italie ?',
+    },
+    titleShort: {
+      it: 'Multe svizzere: pagare dall’Italia',
     },
     answer: {
       it:

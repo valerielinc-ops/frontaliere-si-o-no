@@ -1,0 +1,21 @@
+{
+  "companyKey": "agrola-ch",
+  "companyName": "Agrola",
+  "companyHost": "fenaco.com",
+  "platform": "fenaco.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.fenaco.com/medien/mediendownloads/themenfotos-energie"
+  ],
+  "detailTemplate": "/karriere/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Deine Karrierechancen",
+    "Dein Kontakt für Fragen"
+  ],
+  "canton": "JU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T06:24:29.381Z"
+}

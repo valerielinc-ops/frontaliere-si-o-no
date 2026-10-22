@@ -269,4 +269,21 @@ describe('AIL crawler listing classification', () => {
       authoritativeEmptySnapshot: false,
     });
   });
+
+  it('keeps direct AIL PDFs and the separate application id link', () => {
+    const html = [
+      '<article class="job-position">',
+      '<h4>Impiegata/o amministrativa/o</h4>',
+      '<p><a href="https://www.ail.ch/dam/jcr:abc/Amministrativo%2016.10.pdf">Bando di concorso</a></p>',
+      '<a href="/AIL/risorse-umane/concorsi.html?applicationId=972d6f71-cb83-44f6-817b-a9b9617e00c2">Vai alla candidatura</a>',
+      '</article>',
+    ].join('');
+
+    expect(parseListingPage(html)).toMatchObject([{
+      title: 'Impiegata/o amministrativa/o',
+      pdfUrl: 'https://www.ail.ch/dam/jcr:abc/Amministrativo%2016.10.pdf',
+      applyUrl: 'https://www.ail.ch/AIL/risorse-umane/concorsi.html?applicationId=972d6f71-cb83-44f6-817b-a9b9617e00c2',
+      uuid: '972d6f71-cb83-44f6-817b-a9b9617e00c2',
+    }]);
+  });
 });

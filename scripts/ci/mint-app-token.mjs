@@ -58,6 +58,11 @@ import { realpathSync } from 'node:fs';
  * UNSET var also sees something other than `'true'`. There is no way to arrive at
  * "capability granted" without the API having said so.
  *
+ * `APP_TOKEN_REQUEST_DEPLOYMENTS_READ=true` asks for the least-privilege token used by
+ * the Pages reconciler (`contents: read`, `actions: write`, `deployments: read`). The
+ * returned permission map is still authoritative: requesting a permission cannot grant
+ * one that the installation has not approved.
+ *
  * Env: APP_ID, APP_PRIVATE_KEY (PEM), GITHUB_REPOSITORY (owner/repo).
  * Usage: node scripts/ci/mint-app-token.mjs
  */
@@ -143,6 +148,25 @@ function setActionsCapability(granted) {
 }
 
 /**
+ * Does this installation token grant the read capability required by the Deployments API?
+ * A write grant also satisfies a read request; absent/read-only/malformed values fail
+ * closed. The Pages reconciler uses the token itself for this API call, so the
+ * workflow's GITHUB_TOKEN permission is not an equivalent substitute.
+ *
+ * @param {Record<string, string>|null|undefined} permissions `tok.body.permissions`
+ * @returns {boolean}
+ */
+export function hasDeploymentsRead(permissions) {
+  return permissions?.deployments === 'read' || permissions?.deployments === 'write';
+}
+
+/** `APP_TOKEN_DEPLOYMENTS_READ=true|false`, written on every exit path. */
+function setDeploymentsCapability(granted) {
+  const out = process.env.GITHUB_ENV;
+  if (out) appendFileSync(out, `APP_TOKEN_DEPLOYMENTS_READ=${granted ? 'true' : 'false'}\n`);
+}
+
+/**
  * Does this installation token have the two permissions required by the shared
  * open-data refresh PR publisher? A token that can write contents but cannot
  * create/update pull requests must not win over the long-lived PAT fallback.
@@ -164,8 +188,18 @@ function warnExit(msg) {
   console.log(`::warning::mint-app-token: ${msg} — APP_TOKEN not set; callers must fail closed or use an explicitly declared PAT.`);
   setWorkflowsCapability(false);
   setActionsCapability(false);
+  setDeploymentsCapability(false);
   setDataRefreshCapability(false);
   process.exit(0);
+}
+
+function requestedPermissions() {
+  if (process.env.APP_TOKEN_REQUEST_DEPLOYMENTS_READ !== 'true') return undefined;
+  return {
+    contents: 'read',
+    actions: 'write',
+    deployments: 'read',
+  };
 }
 
 async function main() {
@@ -190,10 +224,14 @@ async function main() {
   }
 
   // Token scoped to THIS repo only (least privilege).
+  const permissions = requestedPermissions();
   const tok = await ghJson(`/app/installations/${inst.body.id}/access_tokens`, {
     token: jwt,
     method: 'POST',
-    body: { repositories: [name] },
+    body: {
+      repositories: [name],
+      ...(permissions ? { permissions } : {}),
+    },
   });
   if (tok.status !== 201 || !tok.body?.token) {
     warnExit(`token mint failed (status ${tok.status})`);
@@ -211,6 +249,8 @@ async function main() {
   setWorkflowsCapability(workflowsWrite);
   const actionsWrite = hasActionsWrite(tok.body.permissions);
   setActionsCapability(actionsWrite);
+  const deploymentsRead = hasDeploymentsRead(tok.body.permissions);
+  setDeploymentsCapability(deploymentsRead);
   const dataRefreshWrite = hasDataRefreshWrite(tok.body.permissions);
   setDataRefreshCapability(dataRefreshWrite);
   if (!workflowsWrite) {
@@ -229,10 +269,16 @@ async function main() {
         'when available (APP_TOKEN_DATA_REFRESH=false).',
     );
   }
+  if (!deploymentsRead) {
+    console.log(
+      '::warning::mint-app-token: the installation token does NOT carry `deployments: read`; ' +
+        'Pages reconciliation will remain fail-closed (APP_TOKEN_DEPLOYMENTS_READ=false).',
+    );
+  }
   console.log(
     `mint-app-token: minted installation token for ${repo} (expires ${tok.body.expires_at}; ` +
       `workflows=${workflowsWrite ? 'write' : 'not granted'}; actions=${actionsWrite ? 'write' : 'not granted'}; ` +
-      `data-refresh=${dataRefreshWrite ? 'write' : 'not granted'}).`,
+      `deployments=${deploymentsRead ? 'read' : 'not granted'}; data-refresh=${dataRefreshWrite ? 'write' : 'not granted'}).`,
   );
 }
 

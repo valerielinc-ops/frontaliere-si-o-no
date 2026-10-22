@@ -1,19 +1,100 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-14T21:13:02.316Z",
+  "generatedAt": "2026-10-21T09:16:43.338Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 20247,
-  "avgDurationMs": 20247,
+  "newCount": 1,
+  "updatedCount": 4,
+  "removedCount": 1,
+  "unchangedCount": 3,
+  "durationMs": 19418,
+  "avgDurationMs": 19418,
   "durationHistory": [
-    20247
+    19418
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Internship - Global Product Management REF297536H",
+      "slug": "internship-global-product-management-ref297536h-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF297536H-internship-global-product-management-ref297536h",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152931867-internship-global-product-management-ref297536h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-01",
+      "postedDate": "2026-10-01",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-db542d6b4bd1",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-10-21T09:16:32.736Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [
+    {
+      "title": "Praktikum im Sales und Marketing (w/m/d) REF298875D",
+      "slug": "stage-nelle-vendite-e-nel-marketing-m-f-d-ref298875d-bosch-thermotechnik-ag-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF298875D-praktikum-im-sales-und-marketing-w-m-d-ref298875d",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000156247699-praktikum-im-sales-und-marketing-w-m-d-ref298875d?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-19",
+      "postedDate": "2026-10-19",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-d6115e75e5c5",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "reported",
+      "postalCode": "8500",
+      "firstSeenAt": "2026-10-19T09:17:07.837Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "title": "PreMaster Programm - Social Media Marketing (w/m/div.)",
       "slug": "premaster-programm-social-media-marketing-w-m-div-bosch-solothurn-zuchwil",
@@ -135,8 +216,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Sachbearbeiter Verkauf Innendienst 80 - 100% (w/m/div.) REF298291X",
       "slug": "impiegato-a-commerciale-vendite-interne-80-100-f-m-div-ref298291x-bosch-thermotechnik-ag-spreitenbach",
@@ -175,7 +255,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Collaborateur Service après-vente (f/m/div.) REF298012H",
       "slug": "servizio-post-vendita-e-m-div-ref298012h-bosch-thermotechnik-ag-crissier",
@@ -292,46 +374,7 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "title": "Internship - Global Product Management REF297536H",
-      "slug": "internship-global-product-management-ref297536h-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF297536H-internship-global-product-management-ref297536h",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152931867-internship-global-product-management-ref297536h?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-10-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-db542d6b4bd1",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported",
-      "postalCode": "4500",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

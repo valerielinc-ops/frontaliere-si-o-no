@@ -15,6 +15,7 @@ import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractLinks } from './prospector/careers-trail.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
@@ -25,6 +26,39 @@ export const STA_COMPANY_NAME = 'STA Personal AG';
 export const STA_COMPANY_DOMAIN = 'sta.jobs';
 
 const CAREER_URL = 'https://www.sta.jobs/stellen/';
+
+/**
+ * STA's listing cards can carry a stale JobPosting JSON-LD URL while their
+ * visible detail link points at the current vacancy. The generic prospector
+ * prefers structured records by design, but that preference makes the detail
+ * fetch follow the stale `Dauerstelle` URLs seen in the October 2026 source
+ * snapshot. The source's own one-segment `/stellen/<detail>/` links are the
+ * authoritative identity for this listing page; pagination and navigation
+ * routes have a different path shape and are excluded here.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @returns {Array<{ title: string, url: string, via: 'sta-detail-link' }>}
+ */
+export function extractStaListingCandidates(html = '', pageUrl = CAREER_URL) {
+  const seen = new Set();
+  const candidates = [];
+  for (const link of extractLinks(html, pageUrl)) {
+    let parsed;
+    try { parsed = new URL(link.url); } catch { continue; }
+    const segments = parsed.pathname.split('/').filter(Boolean);
+    if (segments.length !== 2 || segments[0].toLowerCase() !== 'stellen') continue;
+    const title = String(link.text || '').replace(/\s+/g, ' ').trim();
+    if (title.length <= 3 || seen.has(parsed.href)) continue;
+    seen.add(parsed.href);
+    candidates.push({
+      title: title.slice(0, 180),
+      url: parsed.href,
+      via: 'sta-detail-link',
+    });
+  }
+  return candidates;
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -111,7 +145,9 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(STA_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    listingExtractor: extractStaListingCandidates,
+  });
 }
 
 /**

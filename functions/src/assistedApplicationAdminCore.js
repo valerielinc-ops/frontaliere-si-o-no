@@ -208,6 +208,8 @@ function serializeOrder(doc, cvUrl) {
     companyId: boundedString(data.companyId || data.companyName, 200),
     companyName: boundedString(data.companyName, 200),
     jobTitle: boundedString(data.jobTitle, 300),
+    billingMode: boundedString(data.billingMode, 80) || null,
+    parentServiceId: boundedString(data.parentServiceId, 200) || null,
     experimentVariant: boundedString(data.experimentVariant, 80),
     copyVariant: boundedString(data.copyVariant, 80) || 'control',
     paymentStatus: boundedString(data.paymentStatus, 40),
@@ -304,12 +306,25 @@ function requestedStatus(req) {
   return normalized;
 }
 
-/** GET → the operational queue, optionally narrowed to one visible status. */
-export async function handleListAssistedApplications(db, status = null) {
+function requestedBillingMode(req) {
+  const raw = req.query?.billingMode;
+  const billingMode = Array.isArray(raw) ? raw[0] : raw;
+  if (billingMode === undefined || billingMode === null || String(billingMode).trim() === '') return null;
+  const normalized = boundedString(billingMode, 80);
+  if (normalized !== 'application_concierge') {
+    throw new AssistedApplicationAdminError('invalid_billing_mode', 400);
+  }
+  return normalized;
+}
+
+/** GET → the operational queue, optionally narrowed by status and billing mode. */
+export async function handleListAssistedApplications(db, status = null, billingMode = null) {
   const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION).get();
   const docs = (snapshot.docs || []).filter((doc) => {
     const data = doc.data() || {};
-    if (data.billingMode === 'application_concierge') return false;
+    if (billingMode === 'application_concierge') {
+      if (data.billingMode !== billingMode) return false;
+    } else if (data.billingMode === 'application_concierge') return false;
     const submissionStatus = statusFor(data);
     const isPaidOrder = data.paymentStatus === 'paid';
     const isRefundedOrder = submissionStatus === 'refunded' && data.paymentStatus === 'refunded';
@@ -927,7 +942,7 @@ export async function handleAssistedApplicationAdmin(req) {
 
   const db = getAdminDb();
   try {
-    if (method === 'GET') return await handleListAssistedApplications(db, requestedStatus(req));
+    if (method === 'GET') return await handleListAssistedApplications(db, requestedStatus(req), requestedBillingMode(req));
     return await handleMutate(db, req, auth.adminEmail);
   } catch (error) {
     return transitionErrorResponse(error);

@@ -227,17 +227,38 @@ export function buildReport(rootDir = ROOT) {
 export function appendHistory(row, rootDir = ROOT) {
   const file = path.resolve(rootDir, HISTORY_FILE);
   let doc = { version: 1, generatedAt: row.at, entries: [] };
+  let text;
   try {
-    const prev = JSON.parse(fs.readFileSync(file, 'utf-8'));
-    if (Array.isArray(prev?.entries)) doc = { ...prev, entries: prev.entries };
-  } catch {
-    /* first run — start the series */
+    text = fs.readFileSync(file, 'utf-8');
+  } catch (error) {
+    if (error?.code !== 'ENOENT') throw new Error(`Cannot read orphan reconciliation history at ${file}`, { cause: error });
+  }
+  if (text !== undefined) {
+    let prev;
+    try {
+      prev = JSON.parse(text);
+    } catch (error) {
+      throw new Error(`Malformed orphan reconciliation history at ${file}`, { cause: error });
+    }
+    if (!prev || typeof prev !== 'object' || Array.isArray(prev) || prev.version !== 1
+      || typeof prev.generatedAt !== 'string' || !Array.isArray(prev.entries)
+      || !prev.entries.every((entry) => entry && typeof entry === 'object' && !Array.isArray(entry)
+        && typeof entry.at === 'string' && entry.at.trim())) {
+      throw new Error(`Invalid orphan reconciliation history shape at ${file}`);
+    }
+    doc = { ...prev, entries: prev.entries };
   }
   doc.version = 1;
   doc.generatedAt = row.at;
   doc.entries = [...doc.entries, row].slice(-HISTORY_MAX_ROWS);
   fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, `${JSON.stringify(doc, null, 2)}\n`, 'utf-8');
+  const temporary = `${file}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporary, `${JSON.stringify(doc, null, 2)}\n`, 'utf-8');
+    fs.renameSync(temporary, file);
+  } finally {
+    fs.rmSync(temporary, { force: true });
+  }
   return doc;
 }
 

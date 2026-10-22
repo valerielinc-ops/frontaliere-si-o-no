@@ -25,17 +25,28 @@ function portalQuestionHash(question, context) {
 }
 
 /** A stable answer id that keeps same-label fields in different fieldsets independent. */
-export function portalQuestionId(question, context = '') {
+export function portalQuestionId(question, context = '', section = '', autocomplete = '') {
   const label = typeof question === 'object' ? question?.question : question;
   const surrounding = typeof question === 'object' ? question?.context : context;
+  const heading = typeof question === 'object' ? question?.section : section;
+  const fieldAutocomplete = typeof question === 'object' ? question?.autocomplete : autocomplete;
   const base = `portal_${slugId(label)}`;
-  return normalizedPortalContext(surrounding) ? `${base}_${portalQuestionHash(label, surrounding)}` : base;
+  const metadata = [surrounding, heading, fieldAutocomplete].map(normalizedPortalContext).filter(Boolean).join('\u0000');
+  return metadata ? `${base}_${portalQuestionHash(label, metadata)}` : base;
 }
 
-/** Dedupe reworded questions only when both their semantic topic and context match. */
-export function portalQuestionKey(question, context = '') {
+/** Dedupe reworded questions by a proven candidate fact; keep context when it selects which fact is meant. */
+export function portalQuestionKey(question, context = '', section = '', autocomplete = '') {
   const label = typeof question === 'object' ? question?.question : question;
   const surrounding = typeof question === 'object' ? question?.context : context;
-  const topic = questionTopic(label, surrounding);
-  return topic ? `${topic}|${normalizedPortalContext(surrounding)}` : portalQuestionId(label, surrounding);
+  const heading = typeof question === 'object' ? question?.section : section;
+  const fieldAutocomplete = typeof question === 'object' ? question?.autocomplete : autocomplete;
+  const topic = questionTopic(label, surrounding, { section: heading, autocomplete: fieldAutocomplete });
+  if (!topic) return portalQuestionId(label, surrounding, heading, fieldAutocomplete);
+  const contextSensitive = /^(?:address|address_street|address_house_number|residence_|current_school$|start_date_contextual$)/.test(topic);
+  const normalizedContext = normalizedPortalContext(surrounding);
+  const normalizedSection = normalizedPortalContext(heading);
+  if (topic === 'start_date_contextual' && !normalizedContext) return portalQuestionId(label, surrounding, heading, fieldAutocomplete);
+  const contextKey = [normalizedContext, normalizedSection].filter(Boolean).join('|');
+  return contextSensitive && contextKey ? `${topic}|${contextKey}` : topic;
 }

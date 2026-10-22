@@ -166,6 +166,10 @@ function isProtectedBlockLine(line: string): boolean {
 export function normalizeArticleMarkdown(text: string): string {
  const lines = text
   .replace(/\r\n?/g, '\n')
+  // Some translated corpus writers emit Unicode line separators instead of
+  // the escaped LF used by the normal TS literal writer. They are content
+  // line breaks, not paragraph text, and must reach the same block parser.
+  .replace(/[\u2028\u2029]/g, '\n')
   .split('\n');
  const normalized: string[] = [];
  let fence: MarkdownFence | null = null;

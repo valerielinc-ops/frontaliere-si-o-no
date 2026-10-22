@@ -1,56 +1,6 @@
 {
   "days": [
     {
-      "date": "2026-08-15",
-      "windowHours": 168,
-      "counts": {
-        "autologin_code": 0,
-        "email_token": 39,
-        "missing": 122
-      },
-      "graded": 39,
-      "fallbackRate": 0,
-      "findings": []
-    },
-    {
-      "date": "2026-08-16",
-      "windowHours": 168,
-      "counts": {
-        "autologin_code": 1,
-        "email_token": 53,
-        "missing": 106
-      },
-      "graded": 54,
-      "fallbackRate": 0.018518518518518517,
-      "findings": [
-        "first_fallback_after_zero_baseline"
-      ]
-    },
-    {
-      "date": "2026-08-17",
-      "windowHours": 168,
-      "counts": {
-        "autologin_code": 1,
-        "email_token": 59,
-        "missing": 97
-      },
-      "graded": 60,
-      "fallbackRate": 0.016666666666666666,
-      "findings": []
-    },
-    {
-      "date": "2026-08-18",
-      "windowHours": 168,
-      "counts": {
-        "autologin_code": 1,
-        "email_token": 98,
-        "missing": 61
-      },
-      "graded": 99,
-      "fallbackRate": 0.010101010101010102,
-      "findings": []
-    },
-    {
       "date": "2026-08-20",
       "windowHours": 168,
       "counts": {
@@ -938,6 +888,132 @@
         "unknown": 0
       },
       "graded": 215,
+      "fallbackRate": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-15",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 201,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 201,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 201,
+      "fallbackRate": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-16",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 201,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 201,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 201,
+      "fallbackRate": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-17",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 217,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 217,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 217,
+      "fallbackRate": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-18",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 239,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 239,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 239,
+      "fallbackRate": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-19",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 260,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 260,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 260,
+      "fallbackRate": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-20",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 260,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 260,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 260,
+      "fallbackRate": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-21",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 284,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 284,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 284,
       "fallbackRate": 0,
       "findings": []
     }

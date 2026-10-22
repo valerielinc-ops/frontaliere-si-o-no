@@ -13,25 +13,19 @@
  * gave neither AI extractors nor crawlers the same definition surface as
  * the TI hub.
  *
- * **TI parity contract.** When called with `{canton: 'TI', display:
- * 'Ticino', locale: 'it', ...}`, this helper emits the same set of strings
- * that `staticPagesPlugin.ts` previously inlined for its TI `isJobsIndex`
- * branch — same order, same array length — with ONE deliberate deviation
- * (2026-06): the hardcoded "oltre 1.500 offerte" claim now interpolates the
- * live `jobsCount` (it contradicted the real count surfaced in the page
- * title), falling back to the legacy fixed claim when `jobsCount <= 0`.
- * `cathedral-canton-hub-parity.test.ts` pins this behaviour. The TI canton
- * navigator (`<details>` listing every other canton) is intentionally NOT
- * part of this helper because it is unique to the TI hub; it stays inline
- * in `staticPagesPlugin.ts`.
+ * **TI Italian structure.** The established heading, archive navigator,
+ * prose order and FAQ remain, while claims about active vacancies, employer
+ * totals, update cadence, permit eligibility and salary estimates have been
+ * removed. `cathedral-canton-hub-parity.test.ts` protects the structure and
+ * source-derived count, not the retired claims. Other locale/canton variants
+ * use localized copy and the same reusable archive navigator.
  *
  * **Per-canton commuter prose** (Como → Brogeda etc.) is NOT emitted by
  * this helper. The legacy TI prose mentions Lugano, Bellinzona, Locarno,
  * Mendrisio and the Como/Varese border crossings — content that makes
- * no sense on `/cerca-lavoro-zurigo/`. For non-TI cantons the helper
- * emits a canton-agnostic parametric variant that name-drops `display`
- * instead of TI-specific cities; per-canton commuter copy is a Phase 9
- * follow-up.
+ * no sense on `/cerca-lavoro-zurigo/`. Non-Ticino pages use neutral guidance
+ * to verify the original listing, its location and explicit language
+ * requirements instead of applying Italian-specific tax or permit claims.
  */
 
 import {
@@ -46,9 +40,8 @@ import type { HubLocale as ArchiveHubLocale } from '../seoHubsData';
 import { cantonFaqMedianAnnual } from './cantonSalaryIndex';
 
 // ── Real-data block (issue #4303 item 1) ──────────────────────────────
-// Adds a sourced-data section for the enriched cathedral canton hubs
-// (Zurigo, Berna, Basilea, + the national Svizzera aggregate). All figures
-// come from real, already-vetted build-time sources — nothing here is
+// Adds a sourced-data section for canton hubs except those whose localized
+// regional guidance replaces it. Figures come from build-time sources — nothing here is
 // invented: sector medians are computed from live `data/jobs.json`
 // baseSalary fields (BFS LSE has no per-profession breakdown, only the
 // 7-Grossregion wage level already used by `cantonSalaryIndex.ts`),
@@ -81,11 +74,113 @@ export interface CantonHubEditorialOpts {
   archiveNavigablePages?: number;
 }
 
+type CantonHubArchiveNavigationOpts = Pick<
+  CantonHubEditorialOpts,
+  'locale' | 'totalPages' | 'archiveBaseHref' | 'archiveNavigablePages'
+>;
+
 // Local escape helper. Matches the staticPagesPlugin / jobsSeoPages
 // implementations so a shared move stays byte-identical.
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/** Build the archive page navigator independently from long-form copy. */
+export function buildCantonHubArchiveNavigation(opts: CantonHubArchiveNavigationOpts): string {
+  const navigablePages = Math.max(1, Math.floor(opts.archiveNavigablePages ?? opts.totalPages));
+  if (navigablePages <= 1) return '';
+
+  const { locale, archiveBaseHref } = opts;
+  const jobsNavLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio offerte per pagina'
+    : locale === 'en' ? 'Browse the full job archive by page'
+    : locale === 'de' ? 'Vollständiges Stellenarchiv nach Seite durchsuchen'
+    : 'Parcourir toutes les offres par page';
+  const jobsPageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
+  const jobsPagesWord = { it: 'pagine', en: 'pages', de: 'Seiten', fr: 'pages' }[locale];
+  const anchorFor = (p: number): string => {
+    const href = paginatedPath(archiveBaseHref, p);
+    return `<a class="s-040ZNE" href="${href}">${jobsPageWord}&nbsp;${p}</a>`;
+  };
+  const jobsAnchors: string[] = [];
+  if (navigablePages <= PAGINATION_INDEX_THRESHOLD) {
+    for (let p = 1; p <= navigablePages; p++) jobsAnchors.push(anchorFor(p));
+  } else {
+    jobsAnchors.push(anchorFor(1));
+    for (let indexPage = 1; indexPage <= paginationIndexCount(navigablePages); indexPage++) {
+      const range = paginationIndexRange(navigablePages, indexPage);
+      jobsAnchors.push(
+        `<a class="s-040ZNE" href="${paginationIndexPath(archiveBaseHref, indexPage)}">${esc(paginationIndexLabel(locale, range.start, range.end))}</a>`,
+      );
+    }
+  }
+  return `<details class="s-01GpQM"><summary class="s-hQKogV">${esc(jobsNavLabel)} (${navigablePages} ${jobsPagesWord})</summary><nav class="s-SMVope" aria-label="${esc(jobsNavLabel)}">${jobsAnchors.join('')}</nav></details>`;
+}
+
+function buildLocalizedCantonHubEditorial(opts: CantonHubEditorialOpts): string[] {
+  const count = Math.max(0, Math.floor(opts.jobsCount));
+  const countLabel = count.toLocaleString(`${opts.locale}-CH`);
+  const name = esc(opts.display);
+  const isAggregate = ['Svizzera', 'Switzerland', 'Schweiz', 'Suisse'].includes(opts.display);
+  const copy = {
+    it: {
+      heading: isAggregate ? 'Offerte di lavoro in Svizzera' : `Offerte di lavoro nel Canton ${name}`,
+      intro: `L’archivio ${isAggregate ? 'in Svizzera' : `del Canton ${name}`} raccoglie ${countLabel} annunci. Il numero descrive i contenuti raccolti dal sito e non è un censimento completo dei posti vacanti. Apri l’annuncio originale per verificare disponibilità, requisiti e modalità di candidatura.`,
+      summary: 'Domande frequenti sulla ricerca di lavoro',
+      questions: [
+        ['Gli annunci sono ancora disponibili?', 'La disponibilità può cambiare: controlla la pagina originale prima di candidarti.'],
+        ['Come valutare la sede e il tragitto?', 'Parti dall’indirizzo riportato nell’annuncio e confrontalo con gli orari effettivi del lavoro e dei trasporti.'],
+        ['La lingua della pagina indica le lingue richieste?', 'No. La lingua della pagina o della traduzione non prova quali lingue richieda il ruolo. Controlla i requisiti espliciti nell’annuncio originale o chiedi conferma al datore di lavoro.'],
+      ],
+    },
+    en: {
+      heading: isAggregate ? 'Job listings in Switzerland' : `Job listings in the canton of ${name}`,
+      intro: `The archive ${isAggregate ? 'for Switzerland' : `for the canton of ${name}`} contains ${countLabel} collected listings. This number describes content gathered by the site and is not a complete count of vacancies. Open the original listing to check availability, requirements and application instructions.`,
+      summary: 'Frequently asked questions about job search',
+      questions: [
+        ['Are the listings still available?', 'Availability can change, so check the original page before applying.'],
+        ['How should I assess the work location and commute?', 'Start with the address in the listing and compare it with the actual work schedule and transport times.'],
+        ['Does the page language show which languages the job requires?', 'No. The page language or a translation does not establish the role’s language requirements. Check the explicit requirements in the original listing or ask the employer.'],
+      ],
+    },
+    de: {
+      heading: isAggregate ? 'Stellenangebote in der Schweiz' : `Stellenangebote im Kanton ${name}`,
+      intro: `Das Archiv ${isAggregate ? 'der Schweiz' : `für den Kanton ${name}`} enthält ${countLabel} gesammelte Einträge. Diese Zahl beschreibt die von der Website gesammelten Inhalte und ist keine vollständige Erhebung offener Stellen. Prüfen Sie Verfügbarkeit, Anforderungen und Bewerbungshinweise in der ursprünglichen Ausschreibung.`,
+      summary: 'Häufige Fragen zur Stellensuche',
+      questions: [
+        ['Sind die Einträge noch verfügbar?', 'Angebote können sich ändern; prüfen Sie deshalb die ursprüngliche Ausschreibung vor einer Bewerbung.'],
+        ['Wie lassen sich Arbeitsort und Arbeitsweg beurteilen?', 'Orientieren Sie sich an der Adresse in der Ausschreibung und vergleichen Sie diese mit den tatsächlichen Arbeitszeiten und Verbindungen.'],
+        ['Zeigt die Seitensprache, welche Sprachen verlangt werden?', 'Nein. Die Seitensprache oder eine Übersetzung belegt keine Sprachanforderungen der Stelle. Prüfen Sie die ausdrücklichen Anforderungen in der ursprünglichen Ausschreibung oder fragen Sie beim Arbeitgeber nach.'],
+      ],
+    },
+    fr: {
+      heading: isAggregate ? 'Offres d’emploi en Suisse' : `Offres d’emploi dans le canton de ${name}`,
+      intro: `L’archive ${isAggregate ? 'de la Suisse' : `du canton de ${name}`} regroupe ${countLabel} annonces recueillies. Ce nombre décrit les contenus recueillis par le site et ne constitue pas un recensement complet des postes vacants. Ouvrez l’annonce d’origine pour vérifier sa disponibilité, les exigences et les modalités de candidature.`,
+      summary: 'Questions fréquentes sur la recherche d’emploi',
+      questions: [
+        ['Les annonces sont-elles encore disponibles ?', 'Les offres peuvent évoluer : consultez la page d’origine avant de postuler.'],
+        ['Comment évaluer le lieu de travail et le trajet ?', 'Partez de l’adresse indiquée dans l’annonce et comparez-la aux horaires réels du poste et des transports.'],
+        ['La langue de la page indique-t-elle les langues demandées ?', 'Non. La langue de la page ou d’une traduction ne prouve pas les exigences linguistiques du poste. Consultez les exigences explicites dans l’annonce d’origine ou demandez confirmation à l’employeur.'],
+      ],
+    },
+  }[opts.locale];
+  const nav = buildCantonHubArchiveNavigation(opts);
+  const faq = copy.questions
+    .map(([question, answer]) => `<p class="s-F2hp6o"><strong>${esc(question)}</strong> ${esc(answer)}</p>`)
+    .join('');
+  const heading = `<h2 class="s-o3IET6">${copy.heading}</h2>`;
+  const intro = `<p class="s-6g7z41">${copy.intro}</p>`;
+  const generalGuidance = opts.locale === 'it'
+    ? '<h3 class="s-8S_vke">Confrontare le offerte con la propria situazione</h3><p class="s-L9sOKI">Controlla sede, orari, mansioni e requisiti direttamente nella fonte originale. La traduzione facilita la lettura, ma non sostituisce le informazioni del datore di lavoro.</p>'
+    : opts.locale === 'en'
+      ? '<h3 class="s-8S_vke">Compare listings with your situation</h3><p class="s-L9sOKI">Check the location, schedule, duties and requirements in the original source. A translation can help with reading, but it does not replace information from the employer.</p>'
+      : opts.locale === 'de'
+        ? '<h3 class="s-8S_vke">Stellen mit der eigenen Situation vergleichen</h3><p class="s-L9sOKI">Prüfen Sie Arbeitsort, Arbeitszeiten, Aufgaben und Anforderungen in der ursprünglichen Quelle. Eine Übersetzung erleichtert das Lesen, ersetzt aber keine Angaben des Arbeitgebers.</p>'
+        : '<h3 class="s-8S_vke">Comparer les offres avec sa situation</h3><p class="s-L9sOKI">Vérifiez le lieu, les horaires, les tâches et les exigences dans la source d’origine. Une traduction peut faciliter la lecture, mais elle ne remplace pas les informations de l’employeur.</p>';
+  const faqHtml = `<details class="s-01GpQM"><summary class="s-qAjSfB">${esc(copy.summary)}</summary><div class="s-4vhLHi">${faq}</div></details>`;
+  return [
+    `<section class="s-IE_H9o" data-canton-context-prose data-canton-editorial>${heading}${intro}${nav}${generalGuidance}${faqHtml}</section>`,
+  ];
+}
 
 /**
  * Build the canton-hub editorial blocks. Returns an array of HTML strings
@@ -98,6 +193,12 @@ const esc = (s: string) =>
  * leaves them untouched.
  */
 export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] {
+  // Keep the long-running Ticino/Italian page shape for its dedicated owner;
+  // every other locale/canton receives localized, inventory-bound copy.
+  if (opts.canton !== 'TI' || opts.locale !== 'it') {
+    return buildLocalizedCantonHubEditorial(opts);
+  }
+
   const {
     canton,
     locale,
@@ -113,16 +214,14 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
 
   // Zero is a measured empty inventory, never a reason to invent vacancies.
   const tiJobsClaim = `<strong>${jobsCount.toLocaleString('de-CH')}</strong>`;
-  const tiFaqJobsClaim = jobsCount.toLocaleString('de-CH');
 
   // ── 1. H2 + intro paragraph (definition block for AI extraction) ────────
   if (isTi) {
-    // Legacy TI strings (Italian). Other locales served the same Italian
-    // filler historically — preserved even though it is not idiomatic for
-    // EN/DE/FR pages. The job count is the only live interpolation.
+    // Keep the established TI heading while describing only what this
+    // archive actually guarantees: a collected listing and a source link.
     out.push(
       `<h2 class="s-o3IET6">Offerte di Lavoro in Ticino — Bacheca Lavoro per Frontalieri</h2>`,
-      `<p class="s-6g7z41">Cerchi <strong>lavoro in Ticino</strong>? Questa bacheca raccoglie ${tiJobsClaim} <strong>offerte di lavoro</strong> attive da più di 100 aziende del Canton Ticino, aggiornate ogni 12 ore. Le posizioni coprono tutti i principali settori — banca, pharma, IT, edilizia, sanità, logistica — e sono disponibili in italiano, inglese, tedesco e francese. Ogni annuncio è collegato direttamente al sito ufficiale dell’azienda per la candidatura.</p>`,
+      `<p class="s-6g7z41">Cerchi <strong>lavoro in Ticino</strong>? Questa bacheca raccoglie ${tiJobsClaim} <strong>annunci</strong>. Il numero descrive i contenuti raccolti dal sito e non è un censimento completo dei posti vacanti. Apri l’annuncio originale per verificare disponibilità, requisiti e modalità di candidatura.</p>`,
     );
   } else {
     // Canton-agnostic intro. Uses `display` so it reads naturally for
@@ -146,45 +245,16 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   // sqrt-sized range of archive pages. This keeps the parent → index → page
   // graph shallow enough for job leaves while making the page-1 payload
   // O(sqrt(totalPages)). Small archives retain the direct ladder.
-  if (navigablePages > 1) {
-    const jobsNavLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio offerte per pagina'
-      : locale === 'en' ? 'Browse the full job archive by page'
-      : locale === 'de' ? 'Vollständiges Stellenarchiv nach Seite durchsuchen'
-      : 'Parcourir toutes les offres par page';
-    const jobsPageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
-    const jobsPagesWord = { it: 'pagine', en: 'pages', de: 'Seiten', fr: 'pages' }[locale];
-    const anchorFor = (p: number): string => {
-      const href = paginatedPath(archiveBaseHref, p);
-      return `<a class="s-040ZNE" href="${href}">${jobsPageWord}&nbsp;${p}</a>`;
-    };
-    const jobsAnchors: string[] = [];
-    if (navigablePages <= PAGINATION_INDEX_THRESHOLD) {
-      for (let p = 1; p <= navigablePages; p++) jobsAnchors.push(anchorFor(p));
-    } else {
-      jobsAnchors.push(anchorFor(1));
-      for (let indexPage = 1; indexPage <= paginationIndexCount(navigablePages); indexPage++) {
-        const range = paginationIndexRange(navigablePages, indexPage);
-        jobsAnchors.push(
-          `<a class="s-040ZNE" href="${paginationIndexPath(archiveBaseHref, indexPage)}">${esc(paginationIndexLabel(locale, range.start, range.end))}</a>`,
-        );
-      }
-    }
-    out.push(
-      `<details class="s-01GpQM"><summary class="s-hQKogV">${esc(jobsNavLabel)} (${navigablePages} ${jobsPagesWord})</summary><nav class="s-SMVope" aria-label="${esc(jobsNavLabel)}">${jobsAnchors.join('')}</nav></details>`,
-    );
-  }
+  const archiveNav = buildCantonHubArchiveNavigation(opts);
+  if (archiveNav) out.push(archiveNav);
 
-  // ── 3. Frontaliere context prose (4 paragraphs) + sources line ────────
-  // TODO: per-canton commuter prose (Phase 9). The TI variant references
-  // Lugano/Bellinzona/Locarno/Mendrisio and the Como/Varese crossings;
-  // non-TI cantons get a canton-agnostic variant that name-drops `display`
-  // and otherwise sticks to generic G-permit + filter-tool messaging.
+  // ── 3. TI context prose + official source ─────────────────────────────
   if (isTi) {
     out.push(
-      `La sezione <strong>offerte lavoro Ticino</strong> raccoglie annunci pubblicati su fonti aziendali ufficiali, con normalizzazione dei dati principali per facilitare il confronto tra ruolo, sede, contratto e coerenza con il proprio profilo professionale. Gli annunci provengono da oltre 100 aziende ticinesi monitorate quotidianamente da crawler dedicati.`,
-      `Per ogni posizione vengono mantenuti metadati utili alla valutazione: data di pubblicazione, azienda, località, requisiti richiesti e collegamento diretto alla candidatura sul sito originale del datore di lavoro. Le offerte sono filtrate per il Canton Ticino e vengono aggiornate ogni 12 ore.`,
-      `I frontalieri con permesso G hanno diritto a candidarsi a posizioni in tutta la Svizzera; la guida inclusa nella sezione lavoro spiega la procedura per richiedere un permesso di lavoro, i settori con maggiore domanda e i salari mediani per categoria professionale nel mercato del lavoro ticinese.`,
-      `Il motore di ricerca integrato permette di filtrare per settore, tipo di contratto (tempo indeterminato, determinato, part-time), località e data di pubblicazione. La funzione di allerta e-mail notifica automaticamente le nuove offerte che corrispondono ai criteri salvati, così non si perde nessuna opportunità.`,
+      `La sezione <strong>offerte lavoro Ticino</strong> raccoglie annunci con informazioni sul ruolo e sulla sede, quando presenti nella fonte. Apri la pagina originale per leggere le condizioni pubblicate dal datore di lavoro e controllare se l’annuncio è ancora disponibile.`,
+      `I dettagli mostrati possono includere data di pubblicazione, azienda, località e requisiti. La completezza dipende dalla fonte: verifica sulla pagina originale le informazioni necessarie per valutare e inviare la candidatura.`,
+      `Le condizioni per lavorare in Svizzera dipendono dalla situazione personale. Per verificare autorizzazioni, requisiti e procedura applicabili, consulta le informazioni ufficiali della <a class="s-676LjN" href="https://www.sem.admin.ch/sem/it/home/themen/aufenthalt.html" rel="noopener noreferrer">Segreteria di Stato della migrazione (SEM)</a>; questa pagina non determina quale autorizzazione si applichi.`,
+      `Puoi usare la ricerca e i filtri disponibili per esplorare gli annunci. La lingua della pagina o di una traduzione non indica le lingue richieste dal datore: controlla i requisiti espliciti nella fonte originale o chiedi conferma all’azienda.`,
       `<p class="s-M4r-xq">Fonte: <a class="s-676LjN" href="https://www.seco.admin.ch" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
     );
   } else {
@@ -203,12 +273,12 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   if (isTi) {
     out.push(
       `<details class="s-01GpQM"><summary class="s-qAjSfB">Domande frequenti sulla ricerca lavoro in Ticino</summary><div class="s-4vhLHi">` +
-      `<p class="s-F2hp6o"><strong>Quante offerte di lavoro sono disponibili?</strong> La sezione lavoro Ticino raccoglie ${tiFaqJobsClaim} offerte attive da più di 100 aziende ticinesi, aggiornate ogni 12 ore tramite crawler automatici che monitorano i siti ufficiali delle aziende.</p>` +
-      `<p class="s-F2hp6o"><strong>Come posso cercare lavoro in Ticino come frontaliere?</strong> Usa il motore di ricerca integrato per filtrare le posizioni per settore (banca, pharma, IT, edilizia, sanità), tipo di contratto (tempo indeterminato, determinato, part-time), località (Lugano, Bellinzona, Locarno, Mendrisio) e data di pubblicazione. Ogni annuncio include il collegamento diretto alla candidatura sul sito aziendale.</p>` +
-      `<p class="s-F2hp6o"><strong>Serve il permesso G per candidarsi?</strong> I frontalieri con permesso G (Grenzgängerbewilligung) possono candidarsi a qualsiasi posizione in Svizzera. Il permesso viene richiesto dal datore di lavoro dopo l'assunzione. Per i dettagli, consulta la <a class="s-676LjN" href="/guida-frontaliere/permessi-di-lavoro/">guida permessi di lavoro</a>.</p>` +
-      `<p class="s-F2hp6o"><strong>Quali sono i settori con più domanda in Ticino?</strong> I settori con maggiore domanda per frontalieri nel 2026 sono: servizi finanziari e bancari, farmaceutico e chimico, IT e software, edilizia e impiantistica, sanità e assistenza, ristorazione e turismo, logistica e trasporti.</p>` +
-      `<p class="s-F2hp6o"><strong>Qual è lo stipendio medio per un frontaliere in Ticino?</strong> Lo stipendio mediano lordo in Canton Ticino è di circa CHF 62.000-68.000 annui, variabile per settore: IT/Software CHF 95.000, Banca/Finanza CHF 110.000, Pharma CHF 105.000, Commercio CHF 55.000. Usa il <a class="s-676LjN" href="/calcola-stipendio/">simulatore fiscale</a> per calcolare il netto.</p>` +
-      `<p class="s-F2hp6o"><strong>Come attivare le notifiche per nuove offerte?</strong> Imposta i tuoi criteri di ricerca (settore, località, parole chiave) e attiva le allerte e-mail: riceverai una notifica automatica quando vengono pubblicate nuove posizioni corrispondenti.</p>` +
+      `<p class="s-F2hp6o"><strong>Gli annunci raccolti sono ancora disponibili?</strong> La disponibilità può cambiare: controlla la pagina originale prima di candidarti.</p>` +
+      `<p class="s-F2hp6o"><strong>Come posso confrontare gli annunci in Ticino?</strong> Esamina mansioni, sede, orari e requisiti riportati nella fonte originale. Le informazioni disponibili possono variare da un annuncio all’altro.</p>` +
+      `<p class="s-F2hp6o"><strong>Dove verifico le autorizzazioni per lavorare in Svizzera?</strong> Dipendono dalla situazione personale. Consulta le informazioni ufficiali della <a class="s-676LjN" href="https://www.sem.admin.ch/sem/it/home/themen/aufenthalt.html" rel="noopener noreferrer">SEM</a> per verificare requisiti e procedura; questa pagina non stabilisce quale autorizzazione si applichi.</p>` +
+      `<p class="s-F2hp6o"><strong>La lingua dell’annuncio tradotto indica le lingue richieste?</strong> No. Controlla i requisiti linguistici espliciti nell’annuncio originale o chiedi conferma al datore di lavoro.</p>` +
+      `<p class="s-F2hp6o"><strong>Come verifico la retribuzione?</strong> Consulta gli importi e le condizioni indicati dal datore nella fonte originale. Questa pagina non stima il salario del ruolo.</p>` +
+      `<p class="s-F2hp6o"><strong>Come ritrovare gli annunci che mi interessano?</strong> Usa gli strumenti di ricerca disponibili e verifica sempre i dettagli e la disponibilità sulla pagina originale.</p>` +
       `<p class="s-fb-foD">Fonte: <a class="s-676LjN" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-676LjN" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
       `</div></details>`,
     );
@@ -280,10 +350,10 @@ const REAL_DATA_H2: Record<ArchiveHubLocale, (display: string) => string> = {
 };
 
 const REAL_DATA_SUBHEAD: Record<ArchiveHubLocale, { salary: string; cost: string; permit: string; employers: string }> = {
-  it: { salary: 'Salari mediani per professione', cost: 'Costo della vita vs Ticino', permit: 'Permesso G e zona di confine', employers: 'Aziende che assumono' },
-  en: { salary: 'Median salary by profession', cost: 'Cost of living vs Ticino', permit: 'G permit and border zone', employers: 'Companies hiring' },
-  de: { salary: 'Medianlohn nach Beruf', cost: 'Lebenshaltungskosten vs. Tessin', permit: 'G-Bewilligung und Grenzzone', employers: 'Unternehmen, die einstellen' },
-  fr: { salary: 'Salaire médian par profession', cost: 'Coût de la vie vs Tessin', permit: 'Permis G et zone frontalière', employers: 'Entreprises qui recrutent' },
+  it: { salary: 'Salari mediani per professione', cost: 'Costo della vita vs Ticino', permit: 'Informazioni sulle autorizzazioni di lavoro', employers: 'Aziende che assumono' },
+  en: { salary: 'Median salary by profession', cost: 'Cost of living vs Ticino', permit: 'Work authorization information', employers: 'Companies hiring' },
+  de: { salary: 'Medianlohn nach Beruf', cost: 'Lebenshaltungskosten vs. Tessin', permit: 'Informationen zu Arbeitsbewilligungen', employers: 'Unternehmen, die einstellen' },
+  fr: { salary: 'Salaire médian par profession', cost: 'Coût de la vie vs Tessin', permit: 'Informations sur les autorisations de travail', employers: 'Entreprises qui recrutent' },
 };
 
 const REAL_DATA_JOBS_WORD: Record<ArchiveHubLocale, (n: number) => string> = {
@@ -334,32 +404,36 @@ function costOfLivingParagraph(
   }
 }
 
-/** G-permit / border-zone paragraph. Deliberately does NOT reuse the existing generic 20km-Italy prose (that already runs on every non-TI canton hub, see buildCantonContextProse) — this adds canton-specific context instead. No fabricated km figures for non-Italy borders: only the real BORDER_CANTONS classification already used elsewhere in cantonSalaryIndex.ts. */
-function gPermitParagraph(locale: ArchiveHubLocale, display: string, isAggregate: boolean, isBorderCanton: boolean): string {
-  const copy: Record<ArchiveHubLocale, { aggregate: string; border: string; interior: string }> = {
+/** Link to official information without inferring a permit from a canton or residence country. */
+function workAuthorizationParagraph(locale: ArchiveHubLocale): string {
+  const copy: Record<ArchiveHubLocale, { before: string; link: string; after: string; href: string }> = {
     it: {
-      aggregate: `Il permesso G per frontalieri è riservato a chi risiede in un Comune di confine di un Paese limitrofo alla Svizzera e rientra quotidianamente al domicilio: per i residenti in Italia questo vale soprattutto per Ticino, Grigioni e Vallese. Per le offerte in cantoni più lontani dal confine italiano — come quelle di questo elenco — la soluzione più comune è un permesso B (dimorante) o il trasferimento della residenza in Svizzera.`,
-      border: `${display} confina con Germania e Francia, non con l'Italia: il permesso G frontaliere qui è tipicamente rilasciato a residenti tedeschi o francesi delle zone di confine. Chi vive in Italia e valuta un'offerta a ${display} normalmente opta per un permesso B (dimorante) piuttosto che lo status di frontaliere, riservato a chi risiede in un Comune di confine del Paese limitrofo.`,
-      interior: `Il permesso G per frontalieri richiede la residenza in un Comune di confine di un Paese limitrofo alla Svizzera e il rientro quotidiano al domicilio. ${display} non confina con l'Italia: chi vive in Italia e valuta un'offerta qui affronta un tragitto quotidiano molto più lungo rispetto al Ticino e in pratica opta per un permesso B (dimorante) o il trasferimento della residenza in Svizzera, non lo status di frontaliere.`,
+      before: 'Per informazioni ufficiali sul permesso G per cittadini UE/AELS, consulta la ',
+      link: 'Segreteria di Stato della migrazione (SEM)',
+      after: '. Per il tuo caso, verifica requisiti e procedura presso l’autorità competente.',
+      href: 'https://www.sem.admin.ch/sem/it/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html',
     },
     en: {
-      aggregate: `The G cross-border permit is reserved for residents of a border municipality in a country neighbouring Switzerland who return home daily: for Italian residents that mainly means Ticino, Graubünden and Valais. For roles in cantons farther from the Italian border — like the ones listed here — the common path is a B residence permit or relocating to Switzerland.`,
-      border: `${display} borders Germany and France, not Italy: the G permit here is typically issued to German or French residents of the border zone. Italian residents considering a role in ${display} usually apply for a B residence permit instead of cross-border-commuter status, which is reserved for residents of a border municipality in the neighbouring country.`,
-      interior: `The G cross-border permit requires residency in a border municipality of a country neighbouring Switzerland and a daily return home. ${display} does not border Italy: Italian residents considering a role here face a much longer commute than in Ticino and in practice opt for a B residence permit or relocation to Switzerland, not cross-border-commuter status.`,
+      before: 'For official information about the G permit for EU/EFTA nationals, consult the ',
+      link: 'State Secretariat for Migration (SEM)',
+      after: '. Check the applicable requirements and process with the competent authority for your situation.',
+      href: 'https://www.sem.admin.ch/sem/en/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html',
     },
     de: {
-      aggregate: `Die G-Grenzgängerbewilligung ist Bewohnern einer Grenzgemeinde eines Nachbarlands vorbehalten, die täglich heimkehren: für Personen aus Italien betrifft das vor allem Tessin, Graubünden und Wallis. Für Stellen in weiter von der italienischen Grenze entfernten Kantonen — wie in dieser Liste — ist eine B-Bewilligung oder der Wohnsitzwechsel in die Schweiz der übliche Weg.`,
-      border: `${display} grenzt an Deutschland und Frankreich, nicht an Italien: Die G-Bewilligung wird hier meist an deutsche oder französische Bewohner der Grenzzone vergeben. Wer in Italien wohnt und eine Stelle in ${display} prüft, beantragt üblicherweise eine B-Bewilligung statt des Grenzgängerstatus, der Bewohnern einer Grenzgemeinde im Nachbarland vorbehalten ist.`,
-      interior: `Die G-Grenzgängerbewilligung setzt Wohnsitz in einer Grenzgemeinde eines Nachbarlands der Schweiz sowie tägliche Heimkehr voraus. ${display} grenzt nicht an Italien: Wer in Italien wohnt und eine Stelle hier prüft, hat einen deutlich längeren Arbeitsweg als im Tessin und wählt in der Praxis eine B-Bewilligung oder den Wohnsitzwechsel in die Schweiz statt des Grenzgängerstatus.`,
+      before: 'Offizielle Informationen zur G-Bewilligung für EU/EFTA-Staatsangehörige bietet das ',
+      link: 'Staatssekretariat für Migration (SEM)',
+      after: '. Prüfen Sie die für Ihre Situation geltenden Anforderungen und das Verfahren bei der zuständigen Behörde.',
+      href: 'https://www.sem.admin.ch/sem/de/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html',
     },
     fr: {
-      aggregate: `Le permis frontalier G est réservé aux résidents d'une commune frontalière d'un pays voisin qui rentrent chaque jour: pour les résidents italiens, cela concerne surtout le Tessin, les Grisons et le Valais. Pour les postes dans des cantons plus éloignés de la frontière italienne — comme ceux listés ici — la voie courante est un permis B ou un transfert de domicile en Suisse.`,
-      border: `${display} touche l'Allemagne et la France, pas l'Italie: le permis G y est généralement délivré à des résidents allemands ou français de la zone frontalière. Qui réside en Italie et envisage un poste à ${display} opte en général pour un permis B plutôt que le statut de frontalier, réservé aux résidents d'une commune frontalière du pays voisin.`,
-      interior: `Le permis frontalier G exige une résidence dans une commune frontalière d'un pays voisin de la Suisse et un retour quotidien au domicile. ${display} ne touche pas l'Italie: qui réside en Italie et envisage un poste ici affronte un trajet bien plus long qu'au Tessin et opte en pratique pour un permis B (séjour) ou un transfert de domicile en Suisse, pas le statut de frontalier.`,
+      before: 'Pour des informations officielles sur le permis G des ressortissants UE/AELE, consultez le ',
+      link: 'Secrétariat d’État aux migrations (SEM)',
+      after: '. Vérifiez les exigences et la procédure applicables à votre situation auprès de l’autorité compétente.',
+      href: 'https://www.sem.admin.ch/sem/fr/home/themen/aufenthalt/eu_efta/ausweis_g_eu_efta.html',
     },
   };
-  const t = copy[locale] || copy.it;
-  return isAggregate ? t.aggregate : isBorderCanton ? t.border : t.interior;
+  const text = copy[locale];
+  return `${text.before}<a href="${text.href}" rel="noopener noreferrer">${text.link}</a>${text.after}`;
 }
 
 /**
@@ -371,7 +445,7 @@ function gPermitParagraph(locale: ArchiveHubLocale, display: string, isAggregate
  * per-axis source rationale.
  */
 export function buildCantonRealDataBlock(opts: CantonRealDataBlockOpts): string {
-  const { locale, display, isAggregate, sectorRows, wageFactorVsTicino, lamalMonthlyChf, lamalMonthlyTicinoChf, isBorderCanton, employers } = opts;
+  const { locale, display, sectorRows, wageFactorVsTicino, lamalMonthlyChf, lamalMonthlyTicinoChf, employers } = opts;
   const sub = REAL_DATA_SUBHEAD[locale] || REAL_DATA_SUBHEAD.it;
   const jobsWord = REAL_DATA_JOBS_WORD[locale] || REAL_DATA_JOBS_WORD.it;
   const perYear = REAL_DATA_PER_YEAR[locale] || REAL_DATA_PER_YEAR.it;
@@ -399,7 +473,7 @@ export function buildCantonRealDataBlock(opts: CantonRealDataBlockOpts): string 
   parts.push(`<p class="s-L9sOKI">${costOfLivingParagraph(locale, display, wageFactorVsTicino, lamalMonthlyChf, lamalMonthlyTicinoChf)}</p>`);
 
   parts.push(`<h3 class="s-8S_vke">${esc(sub.permit)}</h3>`);
-  parts.push(`<p class="s-L9sOKI">${gPermitParagraph(locale, display, isAggregate, isBorderCanton)}</p>`);
+  parts.push(`<p class="s-L9sOKI">${workAuthorizationParagraph(locale)}</p>`);
 
   if (employers.length > 0) {
     parts.push(`<h3 class="s-8S_vke">${esc(sub.employers)}</h3>`);

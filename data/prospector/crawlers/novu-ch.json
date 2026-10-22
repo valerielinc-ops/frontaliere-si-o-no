@@ -1,0 +1,23 @@
+{
+  "companyKey": "novu-ch",
+  "companyName": "novu",
+  "companyHost": "landenhof-web.cherry.novu.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://landenhof-web.cherry.novu.ch/jobs-und-karriere/offene-stellen"
+  ],
+  "detailTemplate": "/jobs-und-karriere/offene-stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Job anzeigen: Psychomotoriktherapeut:in",
+    "Job anzeigen: Logopäde/Logopädin",
+    "Job anzeigen: Fachperson Betreuung, Fachrichtung Kinder: Miterzieher:in (60-80%)",
+    "Job anzeigen: Betriebselektriker:in / Mitarbeiter:in Technischer Dienst (80-100%)",
+    "Job anzeigen: Praktikantinnen und Praktikanten Sozialpädagogik"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-10-21T00:09:14.479Z"
+}

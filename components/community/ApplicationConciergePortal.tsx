@@ -2,22 +2,27 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
 import { ArrowRight, BriefcaseBusiness, CheckCircle2, Clock3, FileText, Loader2, ShieldCheck, Sparkles, Target, UploadCloud, XCircle } from 'lucide-react';
 import { useLocale, useTranslation } from '@/services/i18n';
+import { normalizeExternalJobDetailUrl } from '@/services/jobApplicationDestination';
 import { Analytics } from '@/services/analyticsProxy';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { ensureAssistedApplicationAuth } from '@/services/assistedApplicationCheckout';
+import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { createApplicationConciergeCheckout } from '@/services/applicationConciergeCheckout';
+import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import {
   acceptApplicationConciergeProposal,
   declineApplicationConciergeProposal,
   recordApplicationConciergeConsent,
   fetchApplicationConciergeService,
+  getCandidateVisibleApplicationConciergeProposals,
   saveApplicationConciergeProfile,
   type ApplicationConciergeProposal,
   type ApplicationConciergeService,
 } from '@/services/applicationConciergeService';
 
 const MAX_CV_BYTES = 5 * 1024 * 1024;
+const APPLICATION_CONCIERGE_PRICE_EUR_CENTS = 3999;
 const POLL_MS = 3500;
 const MATCHING_STATES = new Set(['queued', 'processing', 'running']);
 
@@ -51,6 +56,27 @@ function randomToken(): string {
   return Math.random().toString(36).slice(2, 14);
 }
 
+function requestKeyForUser(userId: string): string {
+  const storageKey = `application-concierge-checkout:${userId}`;
+  try {
+    const stored = window.sessionStorage.getItem(storageKey);
+    if (stored && /^concierge-[A-Za-z0-9_-]{8,128}$/.test(stored)) return stored;
+    const created = `concierge-${randomToken()}`;
+    window.sessionStorage.setItem(storageKey, created);
+    return created;
+  } catch {
+    return `concierge-${randomToken()}`;
+  }
+}
+
+function clearRequestKeyForUser(userId: string): void {
+  try {
+    window.sessionStorage.removeItem(`application-concierge-checkout:${userId}`);
+  } catch {
+    // The request key is only a resume convenience; payment handling is server-side.
+  }
+}
+
 function errorKey(error: unknown): string {
   const value = error instanceof Error ? error.message : '';
   return /^[a-z][a-z0-9_.:/-]{0,63}$/.test(value) ? value : 'generic';
@@ -70,18 +96,28 @@ export default function ApplicationConciergePortal({
   const { t } = useTranslation();
   const [locale] = useLocale();
   const formattedPrice = useMemo(
-    () => new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(39.99),
+    () => new Intl.NumberFormat(locale, { style: 'currency', currency: 'EUR' }).format(APPLICATION_CONCIERGE_PRICE_EUR_CENTS / 100),
     [locale],
   );
   const [service, setService] = useState<ApplicationConciergeService | null>(null);
   const [currentUser, setCurrentUser] = useState<any | null>(authUser);
   const [loading, setLoading] = useState(Boolean(serviceId));
   const [busy, setBusy] = useState<string | null>(null);
+  const [sumUpPayment, setSumUpPayment] = useState<{
+    checkoutId: string;
+    serviceId: string;
+    userId: string;
+    successUrl: string;
+  } | null>(null);
+  const [sumUpPaymentOpen, setSumUpPaymentOpen] = useState(false);
+  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
+  const [sumUpPaymentError, setSumUpPaymentError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
+  const [location, setLocation] = useState('');
   const [consent, setConsent] = useState(false);
   const conciergeViewTracked = useRef(false);
 
@@ -97,6 +133,12 @@ export default function ApplicationConciergePortal({
     setName((value) => value || String(authUser.displayName || ''));
     setEmail((value) => value || String(authUser.email || ''));
   }, [authUser]);
+
+  useEffect(() => {
+    if (service?.paymentStatus === 'paid' && currentUser?.uid) {
+      clearRequestKeyForUser(String(currentUser.uid));
+    }
+  }, [currentUser?.uid, service?.paymentStatus]);
 
   const ensureUser = useCallback(async () => {
     if (currentUser?.getIdToken) return currentUser;
@@ -115,6 +157,7 @@ export default function ApplicationConciergePortal({
     setName((value) => value || loaded.applicantName || user.displayName || '');
     setEmail((value) => value || loaded.applicantEmail || loaded.customerEmail || user.email || '');
     setPhone((value) => value || loaded.applicantPhone || '');
+    setLocation((value) => value || loaded.applicantLocation || '');
     setConsent(loaded.hasConsent);
     return loaded;
   }, [ensureUser, serviceId]);
@@ -124,13 +167,20 @@ export default function ApplicationConciergePortal({
     let cancelled = false;
     setLoading(true);
     setError(null);
-    void loadService().catch((loadError) => {
+    void (async () => {
+      const loaded = await loadService();
+      if (cancelled || !loaded || loaded.applicantLocation) return;
+      const profileEmail = String(authUser?.email || loaded.applicantEmail || loaded.customerEmail || '').trim();
+      if (!profileEmail) return;
+      const profile = await loadEnrichmentProfileFields(profileEmail);
+      if (!cancelled && profile.municipality) setLocation((value) => value || profile.municipality.trim());
+    })().catch((loadError) => {
       if (!cancelled) setError(errorKey(loadError));
     }).finally(() => {
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
-  }, [authLoading, loadService, serviceId]);
+  }, [authLoading, authUser, loadService, serviceId]);
 
   useEffect(() => {
     if (!serviceId || !service || (!isPending(service) && !MATCHING_STATES.has(String(service.matchingStatus || '')))) return undefined;
@@ -163,16 +213,64 @@ export default function ApplicationConciergePortal({
     setBusy('checkout');
     setError(null);
     try {
+      const user = await ensureUser();
+      if (!user?.getIdToken) {
+        onRequireAuth?.();
+        throw new Error('auth_required');
+      }
+      if (sumUpPayment?.userId === user.uid) {
+        setSumUpPaymentError(null);
+        setSumUpPaymentOpen(true);
+        return;
+      }
+
       const base = new URL(window.location.href);
       base.searchParams.delete('application_concierge');
       base.searchParams.delete('application_concierge_service_id');
-      const result = await createApplicationConciergeCheckout({ successUrl: base.toString(), cancelUrl: base.toString(), locale }, currentUser);
+      const result = await createApplicationConciergeCheckout({
+        successUrl: base.toString(),
+        cancelUrl: base.toString(),
+        locale,
+        requestKey: requestKeyForUser(String(user.uid)),
+      }, user);
+      if (result.paymentProvider === 'sumup') {
+        const returnUrl = new URL(base.toString());
+        returnUrl.searchParams.set('application_concierge_service_id', result.serviceId);
+        setSumUpPayment({
+          checkoutId: result.checkoutId,
+          serviceId: result.serviceId,
+          userId: String(user.uid),
+          successUrl: returnUrl.toString(),
+        });
+        setSumUpPaymentError(null);
+        setSumUpPaymentOpen(true);
+        return;
+      }
       window.location.assign(result.url);
     } catch (checkoutError) {
       setError(errorKey(checkoutError));
     } finally {
       setBusy(null);
     }
+  };
+
+  const handleSumUpResponse = (type: string) => {
+    if (!sumUpPayment) return;
+    if (type === 'success') {
+      setSumUpPaymentBusy(true);
+      // This callback only signals navigation; the verified webhook activates the service.
+      window.location.assign(sumUpPayment.successUrl);
+      return;
+    }
+    if (type === 'fail' || type === 'error') {
+      setSumUpPaymentBusy(false);
+      setSumUpPaymentError(t('jobBoard.concierge.paymentError'));
+    }
+  };
+
+  const closeSumUpPayment = () => {
+    if (sumUpPaymentBusy) return;
+    setSumUpPaymentOpen(false);
   };
 
   const saveProfile = async (options: { cvStorageKey?: string; cvFileName?: string } = {}) => {
@@ -186,6 +284,7 @@ export default function ApplicationConciergePortal({
       applicantName: name.trim(),
       applicantEmail: email.trim().toLowerCase(),
       applicantPhone: phone.trim(),
+      applicantLocation: location.trim(),
       ...(options.cvStorageKey ? { cvStorageKey: options.cvStorageKey } : {}),
       ...(options.cvFileName ? { cvFileName: options.cvFileName } : {}),
     });
@@ -209,6 +308,7 @@ export default function ApplicationConciergePortal({
         applicantName: name.trim(),
         applicantEmail: email.trim().toLowerCase(),
         applicantPhone: phone.trim(),
+        applicantLocation: location.trim(),
       });
       setService(updated);
       setConsent(updated.hasConsent);
@@ -317,7 +417,7 @@ export default function ApplicationConciergePortal({
                     data-testid="application-concierge-start"
                   >
                     {busy === 'checkout' && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}
-                    {t('jobBoard.concierge.start')}
+                    {t(sumUpPayment ? 'jobBoard.concierge.resumePayment' : 'jobBoard.concierge.start')}
                     <ArrowRight size={17} aria-hidden="true" />
                   </button>
                   <span className="text-sm font-semibold text-body">{formattedPrice} · {t('jobBoard.concierge.priceNote')}</span>
@@ -405,12 +505,25 @@ export default function ApplicationConciergePortal({
                 className="inline-flex min-h-[52px] shrink-0 items-center justify-center gap-2 rounded-xl bg-surface px-5 py-3 text-sm font-bold text-accent transition-colors hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-surface focus-visible:ring-offset-2 focus-visible:ring-offset-accent disabled:cursor-wait disabled:opacity-60"
               >
                 {busy === 'checkout' && <Loader2 size={17} className="animate-spin" aria-hidden="true" />}
-                {t('jobBoard.concierge.start')} · {formattedPrice}
+                {t(sumUpPayment ? 'jobBoard.concierge.resumePayment' : 'jobBoard.concierge.start')} · {formattedPrice}
                 <ArrowRight size={17} aria-hidden="true" />
               </button>
             </div>
           </section>
         </div>
+      {sumUpPayment && sumUpPaymentOpen && (
+        <SumUpPaymentWidget
+          checkoutId={sumUpPayment.checkoutId}
+          locale={locale}
+          amountCents={APPLICATION_CONCIERGE_PRICE_EUR_CENTS}
+          title={t('jobBoard.concierge.paymentTitle')}
+          onResponse={handleSumUpResponse}
+          onError={() => setSumUpPaymentError(t('jobBoard.concierge.paymentError'))}
+          onClose={closeSumUpPayment}
+          error={sumUpPaymentError}
+          busy={sumUpPaymentBusy}
+        />
+      )}
       </main>
     );
   }
@@ -420,6 +533,7 @@ export default function ApplicationConciergePortal({
 
   const pending = isPending(service);
   const expired = service.serviceStatus === 'expired' || (service.expiresAt ? new Date(service.expiresAt).getTime() <= Date.now() : false);
+  const visibleProposals = getCandidateVisibleApplicationConciergeProposals(service.proposals);
 
   const matchingStatus = String(service.matchingStatus || '');
   const matchingActive = MATCHING_STATES.has(matchingStatus);
@@ -459,6 +573,8 @@ export default function ApplicationConciergePortal({
                     <label className="text-sm font-medium text-body">{t('jobBoard.concierge.email')}<input value={email} onChange={(event) => setEmail(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" type="email" autoComplete="email" /></label>
                   </div>
                   <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.phone')}<input value={phone} onChange={(event) => setPhone(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="tel" /></label>
+                  <label className="block text-sm font-medium text-body">{t('jobBoard.concierge.location')}<input value={location} onChange={(event) => setLocation(event.target.value)} className="mt-1 w-full rounded-xl border border-edge bg-surface px-3 py-2.5 text-sm text-heading" autoComplete="address-level2" maxLength={120} /></label>
+                  <p className="-mt-2 text-xs leading-5 text-subtle">{t('jobBoard.concierge.locationHint')}</p>
                   <button type="submit" disabled={busy !== null || expired} className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl border border-edge px-4 py-2 text-sm font-semibold text-body transition-colors hover:border-accent hover:text-accent disabled:opacity-60">{busy === 'profile' && <Loader2 size={15} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.saveData')}</button>
                 </form>
 
@@ -494,8 +610,8 @@ export default function ApplicationConciergePortal({
                 {matchingNeedsReview && <div className="mt-5"><Notice icon={<FileText size={17} />} tone="warning" text={t('jobBoard.concierge.matchingNeedsReview')} /></div>}
                 {matchingFailed && <div className="mt-5"><Notice icon={<XCircle size={17} />} tone="danger" text={t('jobBoard.concierge.matchingFailed')} /></div>}
                 <div className="mt-5 space-y-3">
-                  {service.proposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
-                  {service.proposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
+                  {visibleProposals.length === 0 && !matchingActive && !matchingNeedsReview && !matchingFailed && <p className="rounded-xl bg-surface-raised p-4 text-sm leading-6 text-subtle">{t('jobBoard.concierge.noProposals')}</p>}
+                  {visibleProposals.map((proposal) => <ProposalCard key={proposal.proposalId} proposal={proposal} disabled={expired || busy !== null} canAccept={service.hasCv && service.hasConsent} busy={busy} onDecision={decide} t={t} />)}
                 </div>
               </section>
             </div>
@@ -552,5 +668,5 @@ function Notice({ icon, text, tone = 'info' }: { icon: ReactNode; text: string; 
 
 function ProposalCard({ proposal, disabled, canAccept, busy, onDecision, t }: { proposal: ApplicationConciergeProposal; disabled: boolean; canAccept: boolean; busy: string | null; onDecision: (proposal: ApplicationConciergeProposal, decision: 'accept' | 'decline') => void; t: (key: string, params?: Record<string, string>) => string }) {
   const proposed = proposal.status === 'proposed';
-  return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border"><div className="flex items-start gap-3"><div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div><div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>{proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div><span className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-bold ${proposed ? 'bg-warning-subtle text-warning' : proposal.status === 'accepted' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span></div>{proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map((reason) => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}{proposed && <div className="mt-4 flex flex-wrap items-center gap-2"><a href={proposal.jobUrl} target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a><button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button><button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{busy === `decline:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.decline')}</button></div>}{proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}</article>;
+  return <article className="rounded-xl border border-edge p-4 transition-colors hover:border-accent-border"><div className="flex items-start gap-3"><div className="mt-0.5 rounded-lg bg-accent-subtle p-2 text-accent"><FileText size={17} aria-hidden="true" /></div><div className="min-w-0 flex-1"><h3 className="font-bold text-heading">{proposal.jobTitle}</h3><p className="text-sm text-subtle">{proposal.companyName}{proposal.location ? ` · ${proposal.location}` : ''}</p>{proposal.matchScore && <p className="mt-2 text-xs font-semibold text-accent">{t('jobBoard.concierge.matchScore')}: {proposal.matchScore}%</p>}</div><span className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-bold ${proposed ? 'bg-warning-subtle text-warning' : proposal.status === 'accepted' ? 'bg-success-subtle text-success' : 'bg-surface-raised text-muted'}`}>{t(`jobBoard.concierge.proposalStatus.${proposal.status}`)}</span></div>{proposal.matchReasons?.length ? <ul className="mt-3 space-y-1 text-xs leading-5 text-subtle">{proposal.matchReasons.slice(0, 3).map((reason) => <li key={reason} className="flex gap-2"><CheckCircle2 size={13} className="mt-0.5 shrink-0 text-success" aria-hidden="true" />{reason}</li>)}</ul> : null}{proposed && <div className="mt-4 flex flex-wrap items-center gap-2"><a href={normalizeExternalJobDetailUrl(proposal.jobUrl)} target="_blank" rel="noreferrer" className="text-sm font-semibold text-accent hover:underline">{t('jobBoard.concierge.openJob')}</a><button type="button" disabled={disabled || !canAccept} onClick={() => onDecision(proposal, 'accept')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg bg-accent px-3 py-2 text-xs font-bold text-on-accent disabled:cursor-not-allowed disabled:opacity-50">{busy === `accept:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.accept')}</button><button type="button" disabled={disabled} onClick={() => onDecision(proposal, 'decline')} className="inline-flex min-h-[40px] items-center gap-2 rounded-lg border border-edge px-3 py-2 text-xs font-semibold text-subtle hover:text-body disabled:opacity-50">{busy === `decline:${proposal.proposalId}` && <Loader2 size={14} className="animate-spin" aria-hidden="true" />}{t('jobBoard.concierge.decline')}</button></div>}{proposed && !canAccept && <p className="mt-2 text-xs text-subtle">{t('jobBoard.concierge.acceptHint')}</p>}</article>;
 }

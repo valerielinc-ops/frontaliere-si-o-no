@@ -15,8 +15,14 @@ vi.mock('@/services/i18n', () => ({
 }));
 
 vi.mock('@/services/assistedApplicationExperiment', () => ({
-  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 99,
+  ASSISTED_APPLICATION_PRICE_EUR_CENTS: 199,
 }));
+
+const firebaseMocks = vi.hoisted(() => ({
+  getConfigValue: vi.fn(),
+}));
+
+vi.mock('@/services/firebase', () => firebaseMocks);
 
 import SumUpPaymentWidget from '@/components/community/SumUpPaymentWidget';
 
@@ -36,12 +42,14 @@ const renderWidget = (overrides: Partial<ComponentProps<typeof SumUpPaymentWidge
 };
 
 beforeEach(() => {
+  firebaseMocks.getConfigValue.mockResolvedValue('');
   (window as unknown as { SumUpCard: { mount: typeof mount } }).SumUpCard = { mount };
 });
 
 afterEach(() => {
   cleanup();
   vi.clearAllMocks();
+  firebaseMocks.getConfigValue.mockReset();
   delete (window as unknown as { SumUpCard?: unknown }).SumUpCard;
   document.body.style.overflow = '';
 });
@@ -52,7 +60,7 @@ describe('SumUpPaymentWidget', () => {
 
     expect(screen.getByRole('dialog')).toHaveAttribute('aria-busy', 'true');
     expect(screen.getByText('Pagamento unico · nessun abbonamento')).toBeInTheDocument();
-    expect(screen.getByText(/0,99/)).toBeInTheDocument();
+    expect(screen.getByText(/1,99/)).toBeInTheDocument();
     expect(screen.getByTestId('sumup-payment-widget-close')).toHaveAccessibleName('Chiudi');
 
     await act(async () => {});
@@ -60,8 +68,37 @@ describe('SumUpPaymentWidget', () => {
     expect(screen.getByRole('dialog')).toHaveAttribute('aria-busy', 'false');
     expect(mount).toHaveBeenCalledWith(expect.objectContaining({
       checkoutId: 'checkout-1',
-      amount: '0.99',
+      amount: '1.99',
       currency: 'EUR',
+    }));
+  });
+
+  it('supports a different checkout amount and title for the concierge service', async () => {
+    renderWidget({
+      amountCents: 3999,
+      title: 'Completa il pagamento',
+    });
+
+    expect(screen.getByRole('heading', { name: 'Completa il pagamento' })).toBeInTheDocument();
+    expect(screen.getByText(/39,99/)).toBeInTheDocument();
+
+    await act(async () => {});
+
+    expect(mount).toHaveBeenCalledWith(expect.objectContaining({ amount: '39.99' }));
+  });
+
+  it('passes the Google Pay merchant configuration when Remote Config provides it', async () => {
+    firebaseMocks.getConfigValue.mockResolvedValue('merchant-123');
+
+    renderWidget();
+
+    await act(async () => {});
+
+    expect(mount).toHaveBeenCalledWith(expect.objectContaining({
+      googlePay: {
+        merchantId: 'merchant-123',
+        merchantName: 'Frontaliere Ticino',
+      },
     }));
   });
 

@@ -4,8 +4,11 @@ import { afterEach, describe, expect, it } from 'vitest';
 
 import {
   JOBGATE_ARMS,
+  JOBGATE_DEFAULT_ARMS_JSON,
   JOBGATE_EXPERIMENT_ID,
+  JOBGATE_LEGACY_FORCE_KEY,
   JOBGATE_RC_KEYS,
+  JOBGATE_STARTED_AT_KEY,
   getJobGateSubscriberVariant,
   getJobGateTelemetryParams,
   isJobGateNewsletterCta,
@@ -35,13 +38,16 @@ function shareByArm(ids: string[], weights: Record<string, number>): Record<stri
 
 describe('jobgate contract constants', () => {
   it('uses the experiment id and the three Remote Config keys agreed with the readout', () => {
-    expect(JOBGATE_EXPERIMENT_ID).toBe('jobgate-v4');
+    expect(JOBGATE_EXPERIMENT_ID).toBe('jobgate-v5');
     expect(JOBGATE_RC_KEYS).toEqual({
-      enabled: 'JOBGATE_EXPERIMENT_ENABLED',
-      arms: 'JOBGATE_EXPERIMENT_ARMS',
-      force: 'JOBGATE_EXPERIMENT_FORCE',
+      enabled: 'JOBGATE_V5_EXPERIMENT_ENABLED',
+      arms: 'JOBGATE_V5_EXPERIMENT_ARMS',
+      force: 'JOBGATE_V5_EXPERIMENT_FORCE',
     });
-    expect(JOBGATE_ARMS[0]).toBe('control');
+    expect(JOBGATE_LEGACY_FORCE_KEY).toBe('JOBGATE_EXPERIMENT_FORCE');
+    expect(JOBGATE_STARTED_AT_KEY).toBe('JOBGATE_V5_EXPERIMENT_STARTED_AT');
+    expect(JOBGATE_ARMS[0]).toBe('spotlight');
+    expect(JOBGATE_DEFAULT_ARMS_JSON).toBe('{"spotlight":100}');
   });
 
   it('exposes the three keys to the browser through the public-config allowlist', () => {
@@ -51,14 +57,16 @@ describe('jobgate contract constants', () => {
   it('ships safe browser defaults: disabled, all control, nothing forced', () => {
     const src = read('services/firebase.ts');
     const defaults = src.slice(src.indexOf('const REMOTE_CONFIG_DEFAULTS'), src.indexOf('};', src.indexOf('const REMOTE_CONFIG_DEFAULTS')));
-    expect(defaults).toContain("JOBGATE_EXPERIMENT_ENABLED: 'false',");
-    expect(defaults).toContain(`JOBGATE_EXPERIMENT_ARMS: '{"control":100}',`);
+    expect(defaults).toContain("JOBGATE_V5_EXPERIMENT_ENABLED: 'false',");
+    expect(defaults).toContain(`JOBGATE_V5_EXPERIMENT_ARMS: '{"spotlight":100}',`);
+    expect(defaults).toContain("JOBGATE_V5_EXPERIMENT_FORCE: '',");
     expect(defaults).toContain("JOBGATE_EXPERIMENT_FORCE: '',");
+    expect(PUBLIC_CONFIG_KEYS).not.toContain(JOBGATE_STARTED_AT_KEY);
   });
 });
 
 describe('deterministic assignment', () => {
-  const weights = { control: 25, navy_panel: 25, spotlight: 25, actions_first: 25 };
+  const weights = { spotlight: 25, spotlight_quiet: 25, spotlight_tinted: 25, spotlight_outline: 25 };
 
   it('gives the same visitor the same arm every time', () => {
     for (const id of syntheticIds(200)) {
@@ -67,13 +75,13 @@ describe('deterministic assignment', () => {
   });
 
   it('does not depend on the key order of the weights JSON', () => {
-    const reordered = { actions_first: 25, spotlight: 25, navy_panel: 25, control: 25 };
+    const reordered = { spotlight_outline: 25, spotlight_tinted: 25, spotlight_quiet: 25, spotlight: 25 };
     for (const id of syntheticIds(500)) expect(pickJobGateArm(id, reordered)).toBe(pickJobGateArm(id, weights));
   });
 
   it('salts the hash with the experiment id (independent of other splits)', () => {
     const ids = syntheticIds(2000);
-    const same = ids.filter((id) => pickJobGateArm(id, weights, 'jobgate-v4') === pickJobGateArm(id, weights, 'other-exp')).length;
+    const same = ids.filter((id) => pickJobGateArm(id, weights, 'jobgate-v5') === pickJobGateArm(id, weights, 'other-exp')).length;
     // Independent 4-way splits agree ~25% of the time, not ~100%.
     expect(same / ids.length).toBeGreaterThan(0.2);
     expect(same / ids.length).toBeLessThan(0.3);
@@ -85,11 +93,11 @@ describe('deterministic assignment', () => {
   });
 
   it('splits 10k synthetic visitors within ±2pp of uneven weights 50/30/20/0', () => {
-    const share = shareByArm(syntheticIds(10000), { control: 50, navy_panel: 30, spotlight: 20, actions_first: 0 });
-    expect(Math.abs(share.control - 0.5)).toBeLessThan(0.02);
-    expect(Math.abs(share.navy_panel - 0.3)).toBeLessThan(0.02);
-    expect(Math.abs(share.spotlight - 0.2)).toBeLessThan(0.02);
-    expect(share.actions_first ?? 0).toBe(0);
+    const share = shareByArm(syntheticIds(10000), { spotlight: 50, spotlight_quiet: 30, spotlight_tinted: 20, spotlight_outline: 0 });
+    expect(Math.abs(share.spotlight - 0.5)).toBeLessThan(0.02);
+    expect(Math.abs(share.spotlight_quiet - 0.3)).toBeLessThan(0.02);
+    expect(Math.abs(share.spotlight_tinted - 0.2)).toBeLessThan(0.02);
+    expect(share.spotlight_outline ?? 0).toBe(0);
   });
 
   it('also stays within ±2pp on uuid-shaped ids (the production id format)', () => {
@@ -105,51 +113,51 @@ describe('deterministic assignment', () => {
 describe('weights parsing', () => {
   it.each([
     ['empty', ''],
-    ['not JSON', '{control:50'],
+    ['not JSON', '{spotlight:50'],
     ['an array', '[25,25]'],
     ['null', 'null'],
     ['a number', '100'],
-    ['a negative weight', '{"control":50,"spotlight":-5}'],
-    ['a fractional weight', '{"control":50.5,"spotlight":49.5}'],
-    ['a string weight', '{"control":"50","spotlight":50}'],
-    ['an unknown arm', '{"control":50,"apply_now":50}'],
-    ['all zero', '{"control":0,"spotlight":0}'],
-    ['an absurd weight', '{"control":1000000}'],
-  ])('falls back to all-control on %s', (_label, raw) => {
+    ['a negative weight', '{"spotlight":50,"spotlight_quiet":-5}'],
+    ['a fractional weight', '{"spotlight":50.5,"spotlight_quiet":49.5}'],
+    ['a string weight', '{"spotlight":"50","spotlight_quiet":50}'],
+    ['an unknown arm', '{"spotlight":50,"apply_now":50}'],
+    ['all zero', '{"spotlight":0,"spotlight_quiet":0}'],
+    ['an absurd weight', '{"spotlight":1000000}'],
+  ])('falls back to the promoted Spotlight on %s', (_label, raw) => {
     const result = validateJobGateWeights(raw);
     expect(result.valid).toBe(false);
     expect(result.problems.length).toBeGreaterThan(0);
-    expect(parseJobGateWeights(raw)).toEqual({ control: 100 });
+    expect(parseJobGateWeights(raw)).toEqual({ spotlight: 100 });
   });
 
   it('accepts a valid weights object', () => {
-    expect(validateJobGateWeights('{"control":25,"navy_panel":25,"spotlight":25,"actions_first":25}')).toEqual({
+    expect(validateJobGateWeights('{"spotlight":25,"spotlight_quiet":25,"spotlight_tinted":25,"spotlight_outline":25}')).toEqual({
       valid: true,
       problems: [],
-      weights: { control: 25, navy_panel: 25, spotlight: 25, actions_first: 25 },
+      weights: { spotlight: 25, spotlight_quiet: 25, spotlight_tinted: 25, spotlight_outline: 25 },
     });
   });
 
-  it('puts every visitor in control when the weights are invalid but the experiment is on', () => {
+  it('puts every visitor in the promoted Spotlight when weights are invalid but v5 is on', () => {
     for (const id of syntheticIds(300)) {
       expect(resolveJobGateAssignment({ enabled: 'true', arms: '{"nope":1}', force: '', visitorId: id })).toEqual({
         ready: true,
         enrolled: true,
-        arm: 'control',
+        arm: 'spotlight',
       });
     }
   });
 });
 
 describe('kill switch, force and fallbacks', () => {
-  const arms = '{"control":25,"navy_panel":25,"spotlight":25,"actions_first":25}';
+  const arms = '{"spotlight":25,"spotlight_quiet":25,"spotlight_tinted":25,"spotlight_outline":25}';
 
   it.each(['false', '', 'FALSE', '0', 'yes', undefined])('keeps everybody out when ENABLED=%s', (enabled) => {
     for (const id of syntheticIds(100)) {
       expect(resolveJobGateAssignment({ enabled, arms, force: 'spotlight', visitorId: id })).toEqual({
         ready: true,
         enrolled: false,
-        arm: 'control',
+        arm: 'spotlight',
       });
     }
   });
@@ -160,10 +168,10 @@ describe('kill switch, force and fallbacks', () => {
 
   it('forces a valid arm for every visitor, even without a visitor id', () => {
     for (const id of [...syntheticIds(100), null, '']) {
-      expect(resolveJobGateAssignment({ enabled: 'true', arms, force: ' Actions_First ', visitorId: id })).toEqual({
+      expect(resolveJobGateAssignment({ enabled: 'true', arms, force: ' Spotlight_Outline ', visitorId: id })).toEqual({
         ready: true,
         enrolled: true,
-        arm: 'actions_first',
+        arm: 'spotlight_outline',
       });
     }
   });
@@ -178,7 +186,7 @@ describe('kill switch, force and fallbacks', () => {
     expect(resolveJobGateAssignment({ enabled: 'true', arms, force: '', visitorId: null })).toEqual({
       ready: true,
       enrolled: false,
-      arm: 'control',
+      arm: 'spotlight',
     });
   });
 });
@@ -187,17 +195,21 @@ describe('telemetry and subscriber tags', () => {
   afterEach(() => setActiveJobGateAssignment(null));
 
   it('tags nothing while no visitor is enrolled', () => {
-    setActiveJobGateAssignment({ ready: true, enrolled: false, arm: 'control' });
+    setActiveJobGateAssignment({ ready: true, enrolled: false, arm: 'spotlight' });
+    expect(getJobGateTelemetryParams()).toBeNull();
+    expect(getJobGateSubscriberVariant()).toBeNull();
+    expect(jobGateNewsletterTags('job_gate_google_unlock')).toEqual({});
+    setActiveJobGateAssignment({ ready: false, enrolled: false, arm: 'spotlight' });
     expect(getJobGateTelemetryParams()).toBeNull();
     expect(getJobGateSubscriberVariant()).toBeNull();
     expect(jobGateNewsletterTags('job_gate_google_unlock')).toEqual({});
   });
 
   it('tags the gate subscribe event and the subscriber document for an enrolled visitor', () => {
-    setActiveJobGateAssignment({ ready: true, enrolled: true, arm: 'navy_panel' });
-    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v4', variant: 'navy_panel' });
-    expect(getJobGateSubscriberVariant()).toBe('jobgate-v4:navy_panel');
-    expect(jobGateNewsletterTags('job_board_email_unlock')).toEqual({ experiment_id: 'jobgate-v4', variant: 'navy_panel' });
+    setActiveJobGateAssignment({ ready: true, enrolled: true, arm: 'spotlight_quiet' });
+    expect(getJobGateTelemetryParams()).toEqual({ experiment_id: 'jobgate-v5', variant: 'spotlight_quiet' });
+    expect(getJobGateSubscriberVariant()).toBe('jobgate-v5:spotlight_quiet');
+    expect(jobGateNewsletterTags('job_board_email_unlock')).toEqual({ experiment_id: 'jobgate-v5', variant: 'spotlight_quiet' });
     // Other job_gate-channel surfaces do not render the experiment UI.
     for (const cta of ['job_expired_email_unlock', 'job_orphan_email_unlock', 'job_bridge_email_unlock', 'saved_jobs_alert_nudge']) {
       expect(jobGateNewsletterTags(cta)).toEqual({});
@@ -251,20 +263,20 @@ describe('telemetry and subscriber tags', () => {
   });
 });
 
-describe('jobgate-v4 arms: visual treatment only', () => {
-  it('runs the four arms of round 4, control first', () => {
-    expect(JOBGATE_ARMS).toEqual(['control', 'navy_panel', 'spotlight', 'actions_first']);
+describe('jobgate-v5 arms: Spotlight contrast/accent only', () => {
+  it('runs the promoted baseline and three focused visual challengers', () => {
+    expect(JOBGATE_ARMS).toEqual(['spotlight', 'spotlight_quiet', 'spotlight_tinted', 'spotlight_outline']);
   });
 
-  it('keeps control on the exact classes and order the gate shipped with', () => {
-    const control = jobGateSkin('control');
-    expect(control.container).toBe('relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6');
-    expect(control.headerBand).toBeNull();
-    expect(control.actionsFirst).toBe(false);
-    expect(control.previewFade).toBe(false);
-    expect(control.emailSubmitDisabledWhenEmpty).toBe(true);
-    expect(control.consentNotice).toBeNull();
-    expect(control.linkedInButton).toContain('bg-brand-linkedin');
+  it('keeps the promoted Spotlight as the safe default and retains its action hierarchy', () => {
+    const spotlight = jobGateSkin('spotlight');
+    expect(spotlight.container).toContain('bg-surface');
+    expect(spotlight.previewFade).toBe(true);
+    expect(spotlight.emailSubmitDisabledWhenEmpty).toBe(false);
+    expect(spotlight.linkedInButton).not.toContain('bg-brand-linkedin');
+    expect(spotlight.linkedInIcon).toBe('text-brand-linkedin');
+    expect(spotlight.headerBand).toBeNull();
+    expect(spotlight.actionsFirst).toBe(false);
   });
 
   it('gives every challenger its own container and keeps the gate a single region', () => {
@@ -273,42 +285,21 @@ describe('jobgate-v4 arms: visual treatment only', () => {
     for (const c of containers) expect(c).toContain('scroll-mt-20');
   });
 
-  it('changes one lever per challenger: panel colour, colour hierarchy, block order', () => {
-    const navy = jobGateSkin('navy_panel');
-    expect(navy.container).toContain('bg-navy-900');
-    expect(navy.actionsFirst).toBe(false);
-    expect(navy.emailSubmitDisabledWhenEmpty).toBe(true);
-    // On the dark panel secondary text and the notice link are white-tinted, never grey or teal.
-    expect(navy.subtitle).toContain('text-on-accent');
-    expect(navy.consentNotice).toContain('[&_a]:text-on-accent');
-    expect(navy.authError).toContain('text-on-accent');
-
-    const spot = jobGateSkin('spotlight');
-    expect(spot.container).toContain('bg-surface');
-    expect(spot.previewFade).toBe(true);
-    expect(spot.emailSubmitDisabledWhenEmpty).toBe(false);
-    expect(spot.linkedInButton).not.toContain('bg-brand-linkedin');
-    expect(spot.linkedInIcon).toBe('text-brand-linkedin');
-    expect(spot.actionsFirst).toBe(false);
-
-    const first = jobGateSkin('actions_first');
-    expect(first.headerBand).toContain('bg-stripe-700');
-    expect(first.heading).toContain('text-on-accent');
-    expect(first.actionsFirst).toBe(true);
-    expect(first.emailSubmitDisabledWhenEmpty).toBe(true);
+  it('gives each challenger a distinct frame/surface treatment without changing the hierarchy', () => {
+    const containers = JOBGATE_ARMS.map((arm) => jobGateSkin(arm).container);
+    expect(new Set(containers).size).toBe(JOBGATE_ARMS.length);
+    expect(jobGateSkin('spotlight_quiet').container).toContain('border-edge');
+    expect(jobGateSkin('spotlight_tinted').container).toContain('bg-accent-subtle');
+    expect(jobGateSkin('spotlight_outline').container).toContain('ring-2');
+    for (const arm of JOBGATE_ARMS) {
+      expect(jobGateSkin(arm).headerBand, arm).toBeNull();
+      expect(jobGateSkin(arm).actionsFirst, arm).toBe(false);
+      expect(jobGateSkin(arm).emailSubmitDisabledWhenEmpty, arm).toBe(false);
+    }
   });
 
-  // A gate painted while Remote Config loads starts as control and switches to
-  // its arm: the height must not change, or the AdSense slot below it jumps.
-  // Measured in a browser at 390px and 1280px when the arms were built; this
-  // pins the box-model inputs that measurement depends on.
-  it('keeps every arm at the control height (no layout shift when the arm resolves)', () => {
-    const px = (cls: string, re: RegExp) => {
-      const scale: Record<string, number> = { '2': 8, '3': 12, '4': 16, '6': 24 };
-      const m = cls.match(re);
-      return m ? scale[m[1]] : 0;
-    };
-    const control = jobGateSkin('control');
+  it('keeps every arm at the Spotlight height (no layout shift when assignment settles)', () => {
+    const spotlight = jobGateSkin('spotlight');
     for (const arm of JOBGATE_ARMS) {
       const skin = jobGateSkin(arm);
       // Same border width, same control sizes, same type scale.
@@ -320,22 +311,10 @@ describe('jobgate-v4 arms: visual treatment only', () => {
       }
       for (const key of ['heading', 'trustList', 'socialProof', 'emailInput'] as const) {
         const size = (c: string) => c.split(' ').filter((t) => /^(sm:)?text-(xs|sm|base|lg|xl)$/.test(t) || /^(mt|py|px|space-y)-/.test(t)).sort().join(' ');
-        expect(size(skin[key]), `${arm}.${key}`).toBe(size(control[key]));
+        expect(size(skin[key]), `${arm}.${key}`).toBe(size(spotlight[key]));
       }
-      if (!skin.headerBand) {
-        expect(skin.container, arm).toContain('p-4 sm:p-6');
-        expect(skin.subtitle, arm).toContain('mt-2');
-        continue;
-      }
-      // Banded layout: control is 2P + 60 (gaps 8+12+12+12+16). Here the gaps
-      // are 12+12+12+12 = 48 and the bottom padding is P, so band + body top
-      // must be P + 12, at both breakpoints.
-      expect(skin.subtitle, arm).toContain('mt-3');
-      expect(skin.body, arm).toContain('pb-4');
-      expect(skin.body, arm).toContain('sm:pb-6');
-      const bodyTop = px(skin.body, /(?:^|\s)pt-(\d)/);
-      expect(2 * px(skin.headerBand, /(?:^|\s)py-(\d)/) + bodyTop, arm).toBe(16 + 12);
-      expect(2 * px(skin.headerBand, /sm:py-(\d)/) + bodyTop, arm).toBe(24 + 12);
+      expect(skin.container, arm).toContain('p-4 sm:p-6');
+      expect(skin.subtitle, arm).toContain('mt-2');
     }
   });
 
@@ -349,13 +328,14 @@ describe('jobgate-v4 arms: visual treatment only', () => {
     }
   });
 
-  it('JobBoard renders the gate through the skin and keeps the notice next to the buttons in actions_first', () => {
+  it('JobBoard renders every v5 skin through the same gate markup', () => {
     const src = read('components/community/JobBoard.tsx');
     expect(src).toContain('const gateSkin = jobGateSkin(jobGate.arm);');
     expect(src).toMatch(/className=\{gateSkin\.container\}/);
-    const band = src.slice(src.indexOf('{gateSkin.headerBand ? ('), src.indexOf(') : (', src.indexOf('{gateSkin.headerBand ? (')));
-    expect(band.indexOf('{gateActions}')).toBeLessThan(band.indexOf('{gateConsent}'));
-    expect(band.indexOf('{gateConsent}')).toBeLessThan(band.indexOf('{gateExplanation}'));
+    const regular = src.slice(src.indexOf('{gateHeading}'), src.indexOf('{gateExplanation}', src.indexOf('{gateHeading}')));
+    expect(regular.length).toBeGreaterThan(0);
+    expect(src).toContain('{gateActions}');
+    expect(src).toContain('{gateConsent}');
   });
 
   it('does not re-test the longer teaser already dropped as authgate-model-v1', () => {
@@ -363,7 +343,7 @@ describe('jobgate-v4 arms: visual treatment only', () => {
     expect(JOBGATE_ARMS).not.toContain('value_first');
   });
 
-  it('drops the round-3 copy keys from all four locales (v4 changes no copy)', () => {
+  it('drops the round-3 copy keys from all four locales (v5 changes no copy)', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       expect(read(`services/locales/${locale}-core.ts`), locale).not.toContain("'jobBoard.gate.v3.");
     }
@@ -375,42 +355,58 @@ describe('scripts/experiments/jobgate-rc.mjs (pure parts, no network)', () => {
     const { parseArgs, buildJobGateValues, JOBGATE_LAUNCH_ARMS } = await import('../scripts/experiments/jobgate-rc.mjs');
     const opts = parseArgs([]);
     expect(opts.apply).toBe(false);
-    expect(buildJobGateValues(opts)).toEqual({
-      JOBGATE_EXPERIMENT_ENABLED: 'true',
-      JOBGATE_EXPERIMENT_ARMS: JSON.stringify(JSON.parse(JOBGATE_LAUNCH_ARMS)),
-      JOBGATE_EXPERIMENT_FORCE: '',
+    expect(buildJobGateValues(opts, { now: new Date('2026-10-19T12:00:00Z') })).toEqual({
+      JOBGATE_V5_EXPERIMENT_ENABLED: 'true',
+      JOBGATE_V5_EXPERIMENT_ARMS: JSON.stringify(JSON.parse(JOBGATE_LAUNCH_ARMS)),
+      JOBGATE_V5_EXPERIMENT_FORCE: '',
+      JOBGATE_V5_EXPERIMENT_STARTED_AT: '2026-10-19',
+      JOBGATE_EXPERIMENT_FORCE: 'spotlight',
     });
   });
 
-  it('refuses weights the browser would read as all-control, and unknown forced arms', async () => {
+  it('refuses invalid weights/force arms and preserves the launch date', async () => {
     const { parseArgs, buildJobGateValues } = await import('../scripts/experiments/jobgate-rc.mjs');
-    expect(() => buildJobGateValues(parseArgs(['--arms', '{"control":50,"apply_now":50}']))).toThrow(/unknown arm/);
+    expect(() => buildJobGateValues(parseArgs(['--arms', '{"spotlight":50,"apply_now":50}']))).toThrow(/unknown arm/);
     expect(() => buildJobGateValues(parseArgs(['--force-arm', 'apply_now']))).toThrow(/not a known arm/);
     expect(() => buildJobGateValues(parseArgs(['--enabled', 'maybe']))).toThrow(/true\|false/);
-    expect(buildJobGateValues(parseArgs(['--kill'])).JOBGATE_EXPERIMENT_ENABLED).toBe('false');
+    expect(() => buildJobGateValues(parseArgs(['--started-at', '2026-02-30']))).toThrow(/real YYYY-MM-DD/);
+    expect(buildJobGateValues(parseArgs(['--kill']), { existingStartedAt: '2026-10-21' }).JOBGATE_V5_EXPERIMENT_STARTED_AT).toBe('2026-10-21');
+    expect(buildJobGateValues(parseArgs(['--kill'])).JOBGATE_V5_EXPERIMENT_ENABLED).toBe('false');
   });
 
-  it('stages only the three jobgate keys and keeps their conditional values', async () => {
+  it('stages v5, its server-only date marker and the legacy Spotlight pin', async () => {
     const { buildJobGateValues, parseArgs, stageJobGateValues } = await import('../scripts/experiments/jobgate-rc.mjs');
     const template = {
       parameters: {
         OTHER_KEY: { defaultValue: { value: 'untouched' } },
-        JOBGATE_EXPERIMENT_ENABLED: { defaultValue: { value: 'false' }, conditionalValues: { qa: { value: 'true' } } },
+        JOBGATE_V5_EXPERIMENT_ENABLED: { defaultValue: { value: 'false' }, conditionalValues: { qa: { value: 'true' } } },
+        JOBGATE_V5_EXPERIMENT_FORCE: { defaultValue: { value: '' } },
         JOBGATE_EXPERIMENT_FORCE: { defaultValue: { value: '' } },
       },
     };
-    const diff = stageJobGateValues(template, buildJobGateValues(parseArgs([])));
+    const diff = stageJobGateValues(template, buildJobGateValues(parseArgs([]), { now: new Date('2026-10-19T12:00:00Z') }));
     expect(diff.map((d: { key: string; changed: boolean }) => [d.key, d.changed])).toEqual([
-      ['JOBGATE_EXPERIMENT_ENABLED', true],
-      ['JOBGATE_EXPERIMENT_ARMS', true],
-      ['JOBGATE_EXPERIMENT_FORCE', false],
+      ['JOBGATE_V5_EXPERIMENT_ENABLED', true],
+      ['JOBGATE_V5_EXPERIMENT_ARMS', true],
+      ['JOBGATE_V5_EXPERIMENT_FORCE', false],
+      ['JOBGATE_V5_EXPERIMENT_STARTED_AT', true],
+      ['JOBGATE_EXPERIMENT_FORCE', true],
     ]);
     expect(template.parameters.OTHER_KEY).toEqual({ defaultValue: { value: 'untouched' } });
-    expect(template.parameters.JOBGATE_EXPERIMENT_ENABLED).toMatchObject({
+    expect(template.parameters.JOBGATE_V5_EXPERIMENT_ENABLED).toMatchObject({
       defaultValue: { value: 'true' },
       conditionalValues: { qa: { value: 'true' } },
       valueType: 'STRING',
     });
+    expect(template.parameters[JOBGATE_STARTED_AT_KEY]).toMatchObject({ defaultValue: { value: '2026-10-19' }, valueType: 'STRING' });
+    expect(template.parameters[JOBGATE_LEGACY_FORCE_KEY].defaultValue.value).toBe('spotlight');
+
+    const repeatedValues = buildJobGateValues(parseArgs([]), {
+      existingStartedAt: template.parameters[JOBGATE_STARTED_AT_KEY].defaultValue.value,
+      now: new Date('2026-10-20T12:00:00Z'),
+    });
+    expect(repeatedValues[JOBGATE_STARTED_AT_KEY]).toBe('2026-10-19');
+    expect(stageJobGateValues(template, repeatedValues).every((entry: { changed: boolean }) => !entry.changed)).toBe(true);
   });
 
   it('publishes without force (etag-guarded) and only behind --apply', () => {

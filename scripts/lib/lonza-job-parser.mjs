@@ -330,6 +330,7 @@ export async function fetchAllLonzaJobs() {
     const title = normalizeSpace(info.title || listing.title || '');
     if (!title || title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 
@@ -349,6 +350,7 @@ export async function fetchAllLonzaJobs() {
  const primaryLocationText = lonzaPrimaryLocationText(info);
  if (isLocationExplicitlyForeign(primaryLocationText)) {
   console.log(`  ⏭️  Skipped foreign primary location: ${primaryLocationText} — ${title}`);
+  await new Promise((r) => setTimeout(r, 300));
   continue;
  }
 
@@ -366,6 +368,7 @@ export async function fetchAllLonzaJobs() {
   || (recovered ? { city: recovered.location, canton: recovered.canton } : null);
  if (!resolvedLocation) {
   console.log(`  ⏭️  Skipped (no Swiss primary location): ${primaryLocationText || '(empty)'} — ${title}`);
+  await new Promise((r) => setTimeout(r, 300));
   continue;
  }
  const { city, canton } = resolvedLocation;
@@ -382,6 +385,7 @@ export async function fetchAllLonzaJobs() {
     if (!meetsSourceBodyFloor(descEn)) {
       console.log(`  ⏭️  Skipped — no vacancy text in the Workday detail: ${title}`);
       withoutBody += 1;
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
 

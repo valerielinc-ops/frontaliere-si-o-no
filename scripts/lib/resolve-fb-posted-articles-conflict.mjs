@@ -14,7 +14,7 @@
  * Resolution semantics: UNION the `posted` arrays by `id`, dedup on collision
  * keeping the locally-staged entry (freshest ts + fbPostId — those are
  * authoritative because they came from our Graph API call). The schemaVersion
- * is taken from local; if missing falls back to upstream's, then 1.
+ * is normalized to 1 by the shared ledger parser.
  *
  * Same shape as the per-channel `resolve-fb-posted-jobs-conflict.mjs` /
  * `resolve-reddit-posted-jobs-conflict.mjs` — runs INSIDE the rebase, leaves
@@ -24,6 +24,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { gitShowStage } from './git-show-stage.mjs';
+import { parseLedger } from './social-publish-queue.mjs';
 
 const TARGET = 'data/fb-posted-articles.json';
 const TRIM_LIMIT = 1000;
@@ -35,21 +36,11 @@ function readStage(stage) {
   return gitShowStage(stage, TARGET);
 }
 
-function parseOrEmpty(label, raw) {
+function parseStage(label, raw) {
   try {
-    const parsed = JSON.parse(raw);
-    if (parsed && typeof parsed === 'object' && Array.isArray(parsed.posted)) {
-      return parsed;
-    }
-    process.stderr.write(
-      `[resolve-fb-posted-articles] ${label} version is not a valid ledger object; treating as empty\n`,
-    );
-    return { schemaVersion: 1, posted: [] };
-  } catch (err) {
-    process.stderr.write(
-      `[resolve-fb-posted-articles] ${label} JSON parse failed: ${err.message}\n`,
-    );
-    return { schemaVersion: 1, posted: [] };
+    return parseLedger(raw);
+  } catch (error) {
+    throw new Error(`[resolve-fb-posted-articles] ${label} version is not a valid ledger`, { cause: error });
   }
 }
 
@@ -72,8 +63,8 @@ if (conflicted.length > 1) {
   process.exit(1);
 }
 
-const upstream = parseOrEmpty('upstream', readStage(2));
-const local = parseOrEmpty('local', readStage(3));
+const upstream = parseStage('upstream', readStage(2));
+const local = parseStage('local', readStage(3));
 
 // Union by `id`. Local wins on collision (it carries the fresh fbPostId + ts
 // that we just got from the Graph API).
@@ -103,7 +94,7 @@ for (const entry of local.posted) {
 const trimmed = merged.slice(-TRIM_LIMIT);
 
 const out = {
-  schemaVersion: local.schemaVersion ?? upstream.schemaVersion ?? 1,
+  schemaVersion: 1,
   posted: trimmed,
 };
 

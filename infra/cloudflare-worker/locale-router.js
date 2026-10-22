@@ -62,7 +62,9 @@
  *   their versioned release key comes from edge/sections/registry.json.
  */
 
+import { PHARMACY_DUTY_CITY_REDIRECTS } from '../../scripts/lib/pharmacySections.mjs';
 import { legacyTicinoTreeBucket, ticinoTreeBucket } from './ticino-tree-bucket.js';
+import { WEATHER_BORDER_LEGACY_REDIRECTS } from '../../scripts/lib/weather-border-links.mjs';
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
 // Workers runtime only ever uses the default export, but scripts/lib/cf-worker-routes.mjs
@@ -823,6 +825,16 @@ const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 // Worker) and write (that script) sides of the same key family.
 export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
+// Apple Pay domain verification is deliberately a fallback-only edge copy.
+// The Pages origin remains authoritative whenever the repository file is
+// deployed; R2 only covers the propagation window (or a missing origin file).
+export const APPLE_PAY_DOMAIN_VERIFICATION_PATH =
+  '/.well-known/apple-developer-merchantid-domain-association';
+export const APPLE_PAY_DOMAIN_VERIFICATION_CDN_KEY =
+  `/edge${APPLE_PAY_DOMAIN_VERIFICATION_PATH}`;
+export const APPLE_PAY_DOMAIN_VERIFICATION_CONTENT_TYPE = 'text/plain; charset=utf-8';
+export const APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL = 300;
+
 // GSC also discovers article ids and other languages' slugs under a localized
 // section. Resolve only an exact, unambiguous identity in the publisher's
 // registry, and verify the same-language page before sending a permanent 301.
@@ -831,41 +843,85 @@ const ARTICLE_SLUG_REGISTRY_URL = 'https://nanakokyobashi-rgb.github.io/frontali
 function articleAliasRows(route, registry) {
   const group = route?.section === 'articolifrontaliere' ? 'blog'
     : route?.section === 'articolisvizzera' ? 'swiss' : null;
-  if (!group) return null;
-  const rows = registry?.[group];
+  const rows = group ? registry?.[group]
+    : Object.prototype.hasOwnProperty.call(CORPUS_CANTON_SECTION_SLUGS, route?.section)
+      ? registry?.cantons?.[route.section] : null;
   return isPlainObject(rows) ? rows : null;
 }
 
-export function articleAliasTarget(pathname, registry) {
-  const route = matchSection(pathname);
-  const rows = articleAliasRows(route, registry);
-  if (!rows) return null;
-  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)\/?$/);
-  if (!leaf) return null;
-  const slug = lowerSegment(leaf[1]);
-  const group = route.section === 'articolifrontaliere' ? 'blog' : 'swiss';
+function articleAliasIds(slug, rows, group, registry) {
   const own = (obj, key) => obj && Object.prototype.hasOwnProperty.call(obj, key);
   const ids = new Set();
   if (own(rows, slug)) ids.add(slug);
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    const reverse = registry?.[`${group}Reverse`]?.[locale];
-    if (own(reverse, slug) && typeof reverse[slug] === 'string') ids.add(reverse[slug]);
+  if (group) {
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const reverse = registry?.[`${group}Reverse`]?.[locale];
+      if (own(reverse, slug) && typeof reverse[slug] === 'string') ids.add(reverse[slug]);
+    }
+  } else {
+    // Canton registries have no reverse map; keep identity lookup inside the
+    // requested section and reject collisions instead of taking the first row.
+    for (const [id, slugs] of Object.entries(rows)) {
+      if (['it', 'en', 'de', 'fr'].some((locale) => slugs?.[locale] === slug)) ids.add(id);
+    }
+  }
+  return ids;
+}
+
+export function articleAliasTarget(pathname, registry) {
+  let route = matchSection(pathname) || matchCorpusSection(pathname);
+  let rows = articleAliasRows(route, registry);
+  if (!rows) return null;
+  const leaf = pathname.slice(route.prefix.length).match(/^\/([^/]+)(\/.+)?\/?$/);
+  if (!leaf) return null;
+  const slug = lowerSegment(leaf[1]);
+  const hasNestedSuffix = Boolean(leaf[2]);
+  let group = route.section === 'articolifrontaliere' ? 'blog'
+    : route.section === 'articolisvizzera' ? 'swiss' : null;
+  let ids = articleAliasIds(slug, rows, group, registry);
+  if (group && ids.size === 0) {
+    // The old national namespace also linked articles now owned by a canton.
+    // Relocate only when neither national registry owns this exact identity
+    // and exactly one known canton does. Never guess another canton from one.
+    const other = group === 'blog' ? 'swiss' : 'blog';
+    if (!isPlainObject(registry?.[other]) || articleAliasIds(slug, registry[other], other, registry).size) return null;
+    const matches = [];
+    for (const candidate of CORPUS_SECTION_ROUTES) {
+      if (candidate.locale !== route.locale) continue;
+      const candidateRows = articleAliasRows(candidate, registry);
+      if (!candidateRows) continue;
+      const candidateIds = articleAliasIds(slug, candidateRows, null, registry);
+      if (candidateIds.size) matches.push({ route: candidate, rows: candidateRows, ids: candidateIds });
+    }
+    if (matches.length !== 1) return null;
+    ({ route, rows, ids } = matches[0]);
+    group = null;
   }
   if (ids.size !== 1) return null;
   const id = [...ids][0];
-  const canonicalSlug = own(rows, id) && rows[id]?.[route.locale];
+  const canonicalSlug = Object.prototype.hasOwnProperty.call(rows, id) && rows[id]?.[route.locale];
   if (typeof canonicalSlug !== 'string' || !canonicalSlug || /[\s/\\?#%]/u.test(canonicalSlug)) return null;
+  // A malformed relative link can append a path to a live article URL. Drop
+  // that suffix only when the first segment is already this locale's current
+  // canonical slug; aliases, unknown slugs and cross-locale guesses still 404.
+  if (hasNestedSuffix && (!group || canonicalSlug !== slug)) return null;
   const target = `${route.prefix}/${canonicalSlug}/`;
+  if (!group && corpusSectionCanonicalDir(target, route) !== target) return null;
   if (normaliseRetiredPath(target) === normaliseRetiredPath(pathname.replace(/\/+$/, '') + '/')) return null;
   // A withdrawn canonical must not become a new target through a stale API.
   if (lookupRetired(target) !== undefined) return null;
   return target;
 }
 
-async function recoverArticleAlias(url, origin) {
-  const route = matchSection(url.pathname);
-  if (!['articolifrontaliere', 'articolisvizzera'].includes(route?.section)) return null;
-  if (!/^\/[^/]+\/?$/.test(url.pathname.slice(route.prefix.length))) return null;
+async function recoverArticleAlias(url, origin, corpusEntry = null) {
+  const route = corpusEntry ? matchCorpusSection(url.pathname) : matchSection(url.pathname);
+  if (corpusEntry ? corpusEntry.status !== 'live'
+    : !['articolifrontaliere', 'articolisvizzera'].includes(route?.section)) return null;
+  if (!route) return null;
+  const articlePath = url.pathname.slice(route.prefix.length);
+  const nationalArticleSection = ['articolifrontaliere', 'articolisvizzera'].includes(route.section);
+  if (!/^\/[^/]+\/?$/.test(articlePath)
+    && !(nationalArticleSection && /^\/[^/]+\/.+\/?$/.test(articlePath))) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 5000);
   let target;
@@ -885,7 +941,17 @@ async function recoverArticleAlias(url, origin) {
     clearTimeout(timer);
   }
   if (!target) return null;
-  const availability = await redirectTargetAvailability(target, origin);
+  const targetRoute = matchCorpusSection(target);
+  let targetEntry = corpusEntry;
+  if (targetRoute && !targetEntry) {
+    const sections = await loadCorpusSectionRegistry();
+    if (!sections) return aliasVerificationUnavailable();
+    targetEntry = sections.sections[targetRoute.section];
+    if (!targetEntry || targetEntry.status !== 'live') return null;
+  }
+  if (targetEntry && (targetEntry.gone.has(target) || targetEntry.redirects.has(target))) return null;
+  const availability = await redirectTargetAvailability(targetRoute ? corpusSectionCdnKey(target) : target,
+    targetRoute ? new URL(CDN_BASE).hostname : origin);
   if (availability === 'unavailable') return aliasVerificationUnavailable();
   if (availability !== 'live') return null;
   return new Response(null, {
@@ -1316,6 +1382,64 @@ async function servePushedEdgeFile(pathname) {
   }
 }
 
+// Serve the Apple Pay verification file with repository-first precedence.
+// Unlike the freshness-oriented EDGE_PUSHED_FILES table above, this copy must
+// never shadow a file that has reached GitHub Pages: SumUp/Apple validate the
+// exact bytes published by the repository. R2 is consulted only after the
+// origin explicitly says the file is absent (404/410), or after an origin
+// network failure where the already-uploaded verification copy is the safer
+// answer than an outage.
+async function serveApplePayDomainVerificationFile(request, url) {
+  if (url.pathname !== APPLE_PAY_DOMAIN_VERIFICATION_PATH) return null;
+  if (request.method !== 'GET' && request.method !== 'HEAD') return null;
+
+  let originResponse = null;
+  try {
+    originResponse = await fetchOriginWithRetry(url, request);
+  } catch {
+    // If Pages is temporarily unreachable, try the Cloudflare copy below.
+  }
+
+  if (originResponse && originResponse.status !== 404 && originResponse.status !== 410) {
+    if (originResponse.status !== 200) return originResponse;
+    const body = request.method === 'HEAD' ? null : await originResponse.arrayBuffer();
+    return new Response(body, {
+      status: 200,
+      headers: {
+        'Content-Type': APPLE_PAY_DOMAIN_VERIFICATION_CONTENT_TYPE,
+        'Cache-Control': `public, max-age=${APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL}`,
+        'X-Apple-Pay-Source': 'repo',
+      },
+    });
+  }
+
+  try {
+    const cdnUrl = new URL(APPLE_PAY_DOMAIN_VERIFICATION_CDN_KEY, CDN_BASE);
+    const edgeResponse = await fetch(cdnUrl.toString(), {
+      cf: publicOriginCacheOptions(APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL),
+    });
+    if (edgeResponse.ok) {
+      const body = request.method === 'HEAD' ? null : await edgeResponse.arrayBuffer();
+      return new Response(body, {
+        status: 200,
+        headers: {
+          'Content-Type': APPLE_PAY_DOMAIN_VERIFICATION_CONTENT_TYPE,
+          'Cache-Control': `public, max-age=${APPLE_PAY_DOMAIN_VERIFICATION_CACHE_TTL}`,
+          'X-Apple-Pay-Source': 'cloudflare-fallback',
+        },
+      });
+    }
+  } catch {
+    // Return the origin's definitive 404/410 below when both copies miss.
+  }
+
+  if (originResponse) return originResponse;
+  return new Response('Apple Pay domain verification unavailable', {
+    status: 503,
+    headers: { 'Retry-After': '30' },
+  });
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // RETIRED PATHS, SERVED AT THE EDGE (issue #5369 §4)
 // ────────────────────────────────────────────────────────────────────────────
@@ -1398,8 +1522,9 @@ async function servePushedEdgeFile(pathname) {
 // here, or an entry here for a slug the corpus still publishes. That test is the
 // mechanism: the next retired article cannot reach main still indexable.
 export const EDGE_RETIRED_PATHS = {
-  // ── 301 — slug consolidations already declared by legacyRedirectsPlugin (23 URLs).
+  // ── 301 — slug consolidations already declared by legacyRedirectsPlugin (24 URLs).
   '/articoli-frontaliere/naspi-disoccupazione-frontalieri/': '/articoli-frontaliere/naspi-ex-frontalieri-2026/',
+  '/fr/articles-frontalier/naspi-disoccupazione-frontalieri/': '/fr/articles-frontalier/naspi-anciens-frontaliers-2026/',
   '/articoli-frontaliere/elezioni-comunali-ticino-2026/': '/articoli-frontaliere/elezioni-comunali-ticino/',
   '/en/cross-border-articles/ticino-elections-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
   '/de/grenzgaenger-artikel/gemeindewahlen-tessin-2026/': '/de/grenzgaenger-artikel/gemeindewahlen-tessin/',
@@ -1438,16 +1563,18 @@ export const EDGE_RETIRED_PATHS = {
   '/de/grenzgaenger-artikel/in-maslianico-wohnen-arbeiten-tessin-grenzganger/': '/de/leben-im-tessin/grenzgemeinden/maslianico/',
   '/fr/articles-frontalier/vivre-maslianico-travailler-tessin-frontalier/': '/fr/vivre-au-tessin/communes-frontiere/maslianico/',
 
-  // ── 301 — prompt-leak slug renames declared in data/article-redirects.json
-  // (3 URLs). Not retirements: the article is fine, the URL carried the prompt's
-  // own `slug-` placeholder. Both ends are live 200 `index, follow` self-canonical
-  // today, i.e. a duplicate pair, because push-article-shard-incremental.sh only
-  // ever ADDS. The 301 is the half that was missing. It does NOT touch the four
-  // `kebab-case-*` slugs tests/scripts/create-article-prompt-leak-slug.test.ts
-  // deliberately leaves live — those are excluded by the live-slug rule below.
+  // ── 301 — article aliases declared in data/article-redirects.json.
+  // These include prompt-leak slug renames and the GSC-reported DE slug for the
+  // seven Mendrisiotto site inspections; its live target reports the same 66
+  // workers and no irregularities. The redirect is exact, not to a section hub.
   '/en/cross-border-articles/slug-gaggiolo-traffic/': '/en/cross-border-articles/gaggiolo-traffic/',
   '/de/grenzgaenger-artikel/slug-gaggiolo-verkehr/': '/de/grenzgaenger-artikel/gaggiolo-verkehr/',
+  '/de/grenzgaenger-artikel/sette-cantieri-mendrisio-slug-de/': '/de/grenzgaenger-artikel/kontrolle-baustellen-mendrisiotto/',
   '/fr/articles-frontalier/slug-gaggiolo-traffic/': '/fr/articles-frontalier/gaggiolo-traffic/',
+  '/fr/articles-frontalier/appels-shock-arrestations/': '/fr/articles-frontalier/appels-chocs-arrestations-locarnese-2024/',
+  '/en/swiss-articles/slug-terzo-pilastro-3a-vantaggi-2026-basel/': '/en/swiss-articles/terzo-pilastro-3a-vantaggi-2026-basel/',
+  '/de/schweiz-artikel/slug-terzo-pilastro-3a-vantaggi-2026-basel/': '/de/schweiz-artikel/terzo-pilastro-3a-vantaggi-2026-basel/',
+  '/fr/articles-suisse/slug-terzo-pilastro-3a-vantaggi-2026-bale/': '/fr/articles-suisse/terzo-pilastro-3a-vantaggi-2026-bale/',
 
   // ── 410 — retired article with NO substitute (4 URLs).
   '/articoli-frontaliere/prezzi-proprieta-svizzera-aumentano/': null,
@@ -1468,6 +1595,23 @@ export const EDGE_RETIRED_PATHS = {
   '/en/swiss-articles/news-not-relevant/': null,
   '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': null,
   '/fr/articles-suisse/information-non-pertinente/': null,
+
+  // ── GSC 404 decisions checked 2026-10-21 (6 gone, 1 moved). ────────────
+  // These six old article URLs have no current corpus owner or equivalent
+  // document. The build declares each section-root target so this edge
+  // layer can answer 410 instead of allowing the append-only shard to drift
+  // into a soft-404 if an old byte is ever present there again. The seventh
+  // URL, with a documented equivalent, remains a direct 301 below.
+  '/articoli-frontaliere/lombardia-sport-ticino/': null,
+  '/fr/articles-frontalier/tesin-lombardie-manufacture/': null,
+  '/de/grenzgaenger-artikel/rekorde-schneefall-bosco-gurin-2026/': null,
+  '/de/grenzgaenger-artikel/transport-agency-como-renewed/': null,
+  '/fr/articles-frontalier/suisse-service-public-frais-tv/': null,
+  '/en/cross-border-articles/varese-drunk-accident/': null,
+
+  // ── 301 — GSC 404 equivalent checked 2026-10-21. ───────────────────────
+  '/fr/articles-frontalier/s%C3%A9jours-irr%C3%A9guliers-2026-mendrisio/':
+    '/fr/articles-frontalier/baisse-sejours-irreguliers-juillet/',
 
   // ── 410 — alias orphans (20 URLs).
   '/de/grenzgaenger-artikel/banken-gewerkschaften-plattform-vereinbarung/': null,
@@ -1491,7 +1635,7 @@ export const EDGE_RETIRED_PATHS = {
   '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte/': null,
   '/articoli-frontaliere/accesso-libero-alle-rive/': null,
 
-  // ── 301 — cross-section duplicate retirements, nanako#356 (12 URLs). Three
+  // ── 301 — cross-section duplicate retirements, nanako#356 (13 URLs). Three
   // svizzera articles withdrawn in favour of a frontaliere-section winner
   // chosen on GA4 (the retired side was 0/0/0 pageviews/sessions/users in all
   // three). Bridge declared in build-plugins/legacyRedirectsPlugin.ts. Slugs
@@ -1502,6 +1646,7 @@ export const EDGE_RETIRED_PATHS = {
   '/articoli-svizzera/autostrada-riapertura-ticino/': '/articoli-frontaliere/autostrada-a2-mezzovico-interrogazione/',
   '/en/swiss-articles/a2-highway-riopening-ticino/': '/en/cross-border-articles/a2-motorway-mezzovico-interpellation/',
   '/de/schweiz-artikel/a2-autobahn-wiedereroffnung-tessin/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
+  '/de/schweiz-artikel/autostrada-riapertura-ticino/': '/de/grenzgaenger-artikel/autobahn-a2-mezzovico-anfrage/',
   '/fr/articles-suisse/autoroute-a2-ouverture-again-tessin/': '/fr/articles-frontalier/autoroute-a2-mezzovico-interpellation/',
   '/articoli-svizzera/effetto-domino-fallite-aziende-svizzera/': '/articoli-frontaliere/fallimenti-aziende-svizzera-1994/',
   '/en/swiss-articles/domino-effect-failed-companies-switzerland/': '/en/cross-border-articles/business-bankruptcies-switzerland-1994/',
@@ -1595,12 +1740,25 @@ export function normaliseRetiredPath(pathname) {
 
 export function lookupRetired(pathname) {
   const own = (key) => Object.prototype.hasOwnProperty.call(EDGE_RETIRED_PATHS, key);
+  const valueFor = (key) => {
+    if (own(key)) return EDGE_RETIRED_PATHS[key];
+    // Keep source-of-truth keys URL-shaped for non-ASCII slugs. URL.pathname
+    // is percent-encoded at the request boundary, while normaliseRetiredPath()
+    // decodes segments so case and encoding variants share one lookup.
+    const encoded = encodeURI(key);
+    return encoded !== key && own(encoded) ? EDGE_RETIRED_PATHS[encoded] : undefined;
+  };
   const path = normaliseRetiredPath(pathname);
-  if (own(path)) return EDGE_RETIRED_PATHS[path];
-  if (!path.endsWith('/') && own(`${path}/`)) return EDGE_RETIRED_PATHS[`${path}/`];
+  const direct = valueFor(path);
+  if (direct !== undefined) return direct;
+  if (!path.endsWith('/')) {
+    const directory = valueFor(`${path}/`);
+    if (directory !== undefined) return directory;
+  }
   if (path.endsWith('/index.html')) {
     const dir = path.slice(0, -'index.html'.length);
-    if (own(dir)) return EDGE_RETIRED_PATHS[dir];
+    const directory = valueFor(dir);
+    if (directory !== undefined) return directory;
   }
   return undefined;
 }
@@ -1700,6 +1858,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/grenzgaenger-artikel/': '/de/grenzgaenger-artikel/',
   '/trouver-emploi-tessin/': '/fr/trouver-emploi-tessin/', // cathedral-allow: legacy SEO redirect
   '/nav:pension/': '/tasse-e-pensione/calcola-previdenza/',
+  // Observed malformed internal marker; NAV_ACTION_ROUTES.health owns this tool.
+  '/nav:health/': '/compara-servizi/confronta-casse-malati/',
   // These two legacy SPA bridges were 200/noindex pages. Keep the same
   // destinations as legacyRedirectsPlugin, but expose the migration as a
   // real HTTP redirect so crawlers do not retain a noindex warning URL.
@@ -1715,8 +1875,8 @@ export const EDGE_LEGACY_REDIRECTS = Object.freeze({
   '/guida-frontaliere/comuni-di-frontiera/': '/vivere-in-ticino/comuni-di-frontiera/',
   '/vivere-in-ticino/vivere-in-svizzera/': '/vivere-in-ticino/',
   '/statistiche/traffico-dogane/': '/traffico-dogane/',
-  // Exact mixed-language URL observed in GSC; same crossing and live-day page.
-  '/en/border-traffic/gaggiolo/oggi/': '/en/border-wait/gaggiolo/today/',
+  // All exact legacy URLs emitted by the weather producer; same crossing/day.
+  ...WEATHER_BORDER_LEGACY_REDIRECTS,
   // Same attested event ID: its former TI fallback is now explicitly GR.
   '/eventi/ticino/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/eventi/grigioni/altri-eventi/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
   '/en/events/ticino/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/': '/en/events/graubunden/other-events/kino-tschlin-syngue-sabour-stein-der-geduld-2026-10-14/',
@@ -1761,7 +1921,9 @@ function lookupLegacyTable(pathname, table) {
  * makes the HTTP contract testable without relying on a live Cloudflare zone.
  */
 export function apexLegacyResponse(url) {
-  const redirect = lookupLegacyTable(url.pathname, EDGE_LEGACY_REDIRECTS);
+  // Domain-owned regional-duty aliases retain their own exact inventory.
+  const redirect = lookupLegacyTable(url.pathname, PHARMACY_DUTY_CITY_REDIRECTS)
+    ?? lookupLegacyTable(url.pathname, EDGE_LEGACY_REDIRECTS);
   if (redirect !== undefined) {
     return new Response(null, {
       status: 301,
@@ -2215,7 +2377,8 @@ function corpusMoved(url, target) {
  *
  * live    → registry redirect (301) / gone (410) first, then the canonical
  *           directory form (301 from `/x`, `/x.html`, `/x/index.html`), then
- *           the R2 object: 200, or a real 404 + noindex with a short TTL.
+ *           the R2 object: 200, a verified same-article alias (301), or a real
+ *           404 + noindex with a short TTL.
  * retired → registry redirect if one is declared, 410 Gone otherwise.
  */
 export async function serveCorpusSection(request, url, ctx) {
@@ -2264,7 +2427,10 @@ export async function serveCorpusSection(request, url, ctx) {
       headers: { 'Retry-After': '30', 'Cache-Control': 'no-store' },
     });
   }
-  if (!resp.ok) return corpusNotFound(request, route);
+  if (!resp.ok) {
+    const alias = await recoverArticleAlias(url, new URL(CDN_BASE).hostname, entry);
+    return alias || corpusNotFound(request, route);
+  }
 
   const body = await resp.arrayBuffer();
   const headers = {
@@ -2670,6 +2836,15 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (stale) return stale;
   }
 
+  // Healthy HEAD aliases must resolve before returning the origin response.
+  // Origin 404s share the GET/HEAD recovery chain below.
+  if (request.method === 'HEAD' && resp.status === 200) {
+    const queryRedirect = await recoverOrphanQueryAlias(url, origin, resp.status === 200);
+    if (queryRedirect) return queryRedirect;
+    const employerRedirect = await recoverEmployerProfileAlias(url, origin);
+    if (employerRedirect) return employerRedirect;
+  }
+
   // Stamp Cache-Control on successful GETs, and store an APEX-KEYED copy in the
   // colo cache for the over-cap/stale-if-error fail-open path. Body buffered ONCE
   // via arrayBuffer and reused — no clone()/stream tee (the #1791/#1814 deadlock
@@ -2747,16 +2922,23 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     }
   }
 
+  // Article identity and destination verification use GET subrequests for
+  // both methods, so a HEAD must advertise the same permanent redirect.
+  if ((request.method === 'GET' || request.method === 'HEAD') && (resp.status === 404 || resp.status === 410)) {
+    const articleRedirect = await recoverArticleAlias(url, origin);
+    if (articleRedirect) return articleRedirect;
+  }
+
   // Canton-drift recovery: upgrade a job-detail orphan 404 with a known slug to a
   // real HTTP 301 (full link-equity transfer) instead of the soft-404+JS path.
-  // Unknown slugs fall through to the soft 404 below.
-  if (request.method === 'GET' && resp.status === 404) {
+  // HEAD uses the same registry and GET destination probes as GET: otherwise
+  // the exact same legacy URL advertises a 301 to users but a 404 to HEAD clients.
+  // Unknown slugs still fall through to the soft 404 below.
+  if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
     const queryRedirect = await recoverOrphanQueryAlias(url, origin);
     if (queryRedirect) return queryRedirect;
     const employerRedirect = await recoverEmployerProfileAlias(url, origin);
     if (employerRedirect) return employerRedirect;
-    const articleRedirect = await recoverArticleAlias(url, origin);
-    if (articleRedirect) return articleRedirect;
     const redirect = await recoverCantonDriftOrphan(url, recoveryLocale);
     if (redirect) return redirect;
     const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
@@ -2778,7 +2960,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
 
   // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are
   // absorbed by the edge instead of re-invoking the Worker.
-  if (request.method === 'GET' && resp.status === 404) {
+  if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
     const headers = new Headers(resp.headers);
     headers.set('Cache-Control', NOT_FOUND_CACHE_CONTROL);
     return new Response(resp.body, { status: 404, statusText: resp.statusText, headers });
@@ -2903,6 +3085,12 @@ const router = {
       }
     }
 
+    // Apple Pay verification — repository-first, Cloudflare fallback. This
+    // path is intentionally outside EDGE_PUSHED_FILES: that table prefers R2
+    // for freshness, while Apple Pay must prefer the committed repository file.
+    const applePayResponse = await serveApplePayDomainVerificationFile(request, url);
+    if (applePayResponse) return applePayResponse;
+
     // Pushable-origin edge files (issue #4881 Fase 3) — exact apex paths, not
     // locale/section prefixed, so (like the unsub proxy above) must be
     // checked before the locale/section dispatch or they'd fall through
@@ -2985,7 +3173,7 @@ const router = {
       // cf caching opts: this passthrough must respect the zone's cache rules.
       try {
         const response = await fetchOriginWithRetry(url, request);
-        if (request.method === 'GET' && (response.status === 404 || response.status === 200)) {
+        if ((request.method === 'GET' || request.method === 'HEAD') && (response.status === 404 || response.status === 200)) {
           const redirect = await recoverOrphanQueryAlias(url, url.hostname, response.status === 200);
           if (redirect) return redirect;
           const employerRedirect = await recoverEmployerProfileAlias(url, url.hostname);

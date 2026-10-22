@@ -24,7 +24,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvToSend } from '../../../functions/src/assistedApplicationDocxInPlace.js';
-import { candidateWithEdits, factSourcesNow, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateWithEdits, factSourcesNow, formAnswersWithEdits, questionsForCandidate } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
@@ -55,10 +55,11 @@ export function portalNeedsPlanner(draft) {
 }
 
 /** Open required questions block the submission, whatever the channel. */
-export function openRequiredQuestions(draft, answers = {}, { deferPortal = false } = {}) {
-  return (draft?.questions || []).filter((question) => question.required
+export function openRequiredQuestions(draft, answers = {}, { deferPortal = false, questionAnswers = {} } = {}) {
+  const { profile, answers: candidateAnswers } = candidateWithEdits({ order: {}, draft, flow: { answers, questionAnswers } });
+  return questionsForCandidate(draft?.questions, profile, candidateAnswers, questionAnswers).filter((question) => question.required
     && !(deferPortal && question.source === 'portal')
-    && !String(answers?.[question.id] ?? '').trim());
+    && !String(candidateAnswers?.[question.id] ?? '').trim());
 }
 
 /**
@@ -228,7 +229,7 @@ export async function submitApplication(ctx) {
   // stopped before the live field context was available. Let the runner read
   // the current form and apply its structural safety checks; if the question
   // is still unanswered, the runner hands it back with its context preserved.
-  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft) });
+  const open = openRequiredQuestions(draft, answers, { deferPortal: portalNeedsPlanner(draft), questionAnswers: submitFlow?.questionAnswers });
   const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {});
   if (open.length || missingDocuments.length) {
     return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };
@@ -438,6 +439,8 @@ export async function submitApplication(ctx) {
       };
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
+        postingUrl: order.jobUrl || channel.postingUrl || '',
+        channelType,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
         job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' },

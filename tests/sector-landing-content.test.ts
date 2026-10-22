@@ -1,8 +1,8 @@
 /**
  * Phase 3B — Semrush issue 112/117 gate for sector landing pages.
  *
- * Asserts that every emitted sector hub HTML page (3 sectors × 4 locales =
- * 12 pages) contains a `<section class="sector-intro">` block whose
+ * Asserts that every emitted sector hub HTML page contains a
+ * `<section class="sector-intro">` block whose
  * plain-text body has at least 200 words. The block is sourced from
  * `data/sector-descriptions.json` (or a generic fallback) and lives
  * directly above the job list.

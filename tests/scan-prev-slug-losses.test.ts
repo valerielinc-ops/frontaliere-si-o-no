@@ -22,8 +22,28 @@ import {
   formatJsonLines,
   isHistoricalOnlyLoss,
   isProvenCurrentCrossJobOwner,
+  parseSliceSnapshot,
 } from '../scripts/scan-prev-slug-losses.mjs';
 import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+
+describe('parseSliceSnapshot', () => {
+  it('accepts a jobs snapshot and rejects malformed or incomplete history', () => {
+    expect(parseSliceSnapshot('{"jobs":[]}')).toEqual({ jobs: [] });
+    expect(() => parseSliceSnapshot('{broken', 'history.json')).toThrow(/malformed JSON in history.json/);
+    expect(() => parseSliceSnapshot('{"items":[]}', 'history.json')).toThrow(/invalid jobs snapshot in history.json/);
+  });
+
+  it('normalizes the bare array shape used by expired crawler archives', () => {
+    const expired = [{ slug: 'expired-job', expiredAt: '2026-10-20T00:00:00.000Z' }];
+    expect(parseSliceSnapshot(JSON.stringify(expired), 'data/jobs/expired/by-crawler/example.json'))
+      .toEqual({ jobs: expired });
+  });
+
+  it('rejects a bare array in an active crawler slice', () => {
+    expect(() => parseSliceSnapshot('[]', 'data/jobs/by-crawler/example.json'))
+      .toThrow(/invalid jobs snapshot/);
+  });
+});
 
 describe('diffJobSlices', () => {
   it('detects a lost slug for a normal job with .id present', () => {
@@ -174,6 +194,48 @@ describe('diffJobSlices cap-trim awareness', () => {
     ];
     const result = diffJobSlices(prev, cur, { perLocaleCap: 2, locales: ['it'] });
     expect(result).toHaveLength(0);
+  });
+
+  it('flags a cap-shaped removal when current GSC evidence still contains the slug', () => {
+    const prev = [
+      {
+        id: 'company-gsc',
+        slug: 'job-current',
+        previousSlugsByLocale: { it: ['indexed-old', 'job-older'] },
+      },
+    ];
+    const cur = [
+      {
+        id: 'company-gsc',
+        slug: 'job-current',
+        previousSlugsByLocale: { it: ['job-older', 'job-new'] },
+      },
+    ];
+
+    const result = diffJobSlices(prev, cur, {
+      perLocaleCap: 2,
+      locales: ['it'],
+      gscEvidence: { slugs: new Set(['indexed-old']), complete: true },
+    });
+
+    expect(result).toEqual([{ jobKey: 'company-gsc', lost: ['indexed-old'] }]);
+  });
+
+  it('does not exempt cap removals when the GSC evidence snapshot is incomplete', () => {
+    const prev = [
+      { id: 'company-incomplete-gsc', previousSlugsByLocale: { it: ['possibly-indexed', 'job-b'] } },
+    ];
+    const cur = [
+      { id: 'company-incomplete-gsc', previousSlugsByLocale: { it: ['job-b', 'job-new'] } },
+    ];
+
+    const result = diffJobSlices(prev, cur, {
+      perLocaleCap: 2,
+      locales: ['it'],
+      gscEvidence: { slugs: new Set(), complete: false },
+    });
+
+    expect(result).toEqual([{ jobKey: 'company-incomplete-gsc', lost: ['possibly-indexed'] }]);
   });
 
   it('still flags losses beyond what the cap can explain', () => {

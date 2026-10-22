@@ -4,8 +4,8 @@
  * Non-blocking toast, same visual language as `JobDetailAlertPrompt`. Asks
  * exactly ONE field (picked upstream by `profileEnrichmentGating.pickNextQuestion`)
  * and writes the answer straight to Firestore — `savePartialProfile` for
- * profile fields (shared `newsletter_subscribers/{email}` doc), `updateAlert`
- * for alert fields. The caller owns gating state (`recordAnswer`/`recordSkip`)
+ * private profile fields, `updateAlert` for alert fields. The caller owns
+ * gating state (`recordAnswer`/`recordSkip`)
  * via `onAnswered`/`onSkipped`.
  */
 

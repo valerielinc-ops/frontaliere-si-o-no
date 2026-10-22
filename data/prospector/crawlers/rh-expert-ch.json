@@ -10,11 +10,10 @@
     "https://rh-expert.ch/fr/offres-demploi"
   ],
   "detailTemplate": "/fr/offres-demploi/*",
-  "listingCandidateText": "commis de salle",
   "detailEnrichment": true,
   "detailFetchWorkers": 1,
-  "sampleVacancyCount": 1,
-  "sampleTitles": ["Commis de salle"],
+  "sampleVacancyCount": 16,
+  "sampleTitles": ["Pâtissier", "Commis de cuisine", "Commis de salle", "Maîtres d'hôtel", "Femme de chambre"],
   "canton": "GE",
   "sourceLang": "fr",
   "learnedAt": "2026-10-01T11:41:49.013Z"

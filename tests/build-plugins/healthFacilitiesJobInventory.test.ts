@@ -6,8 +6,13 @@ import {
   aggregateHealthFacilityJobs,
   _resetHealthFacilityJobsAggregateCache,
 } from '../../build-plugins/healthFacilitiesJobsAggregate';
-import { getHealthFacility } from '../../build-plugins/healthFacilitiesData';
-import { renderFacilityPage } from '../../build-plugins/healthFacilitiesPlugin';
+import {
+  buildHealthFacilityPath,
+  buildHealthFacilitySectionPath,
+  getHealthFacility,
+  HEALTH_FACILITY_LOCALES,
+} from '../../build-plugins/healthFacilitiesData';
+import { emitHealthFacilityPages, renderFacilityPage } from '../../build-plugins/healthFacilitiesPlugin';
 
 const tempRoots: string[] = [];
 
@@ -38,6 +43,27 @@ afterEach(() => {
 });
 
 describe('health-facility visible inventory', () => {
+  it('emits every localised section root and lists it in the health sitemap', async () => {
+    const root = fixtureRoot(8);
+    const distDir = path.join(root, 'dist');
+    fs.mkdirSync(distDir, { recursive: true });
+
+    const result = await emitHealthFacilityPages({ rootDir: root, distDir });
+    expect(result.hubPagesWritten).toBe(HEALTH_FACILITY_LOCALES.length);
+
+    const sitemap = fs.readFileSync(path.join(distDir, 'sitemap-health-facilities.xml'), 'utf8');
+    for (const locale of HEALTH_FACILITY_LOCALES) {
+      const rootPath = buildHealthFacilitySectionPath(locale);
+      const rootFile = path.join(distDir, rootPath.replace(/^\/+/, ''), 'index.html');
+      expect(fs.existsSync(rootFile), rootPath).toBe(true);
+      const html = fs.readFileSync(rootFile, 'utf8');
+      expect(html).toContain(`data-health-facility-directory`);
+      expect(html).toContain(buildHealthFacilityPath(locale, 'usz'));
+      expect(html).toContain(`href="https://frontaliereticino.ch${rootPath}"`);
+      expect(sitemap).toContain(`<loc>https://frontaliereticino.ch${rootPath}</loc>`);
+    }
+  });
+
   it('keeps all valid live jobs while bounding only the schema projection', () => {
     const root = fixtureRoot(8);
     const snapshot = aggregateHealthFacilityJobs(root, Date.parse('2026-09-14T00:00:00.000Z')).get('usz');

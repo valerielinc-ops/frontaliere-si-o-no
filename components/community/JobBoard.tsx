@@ -25,6 +25,7 @@ const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
+const JobViewersActivityPrompt = lazyRetry(() => import('@/components/community/JobViewersActivityPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
 // The inline action arrives with the detail; its registration modal loads on click.
 import CompanyFollowCta, { CompanyFollowPopup } from '@/components/community/CompanyFollowCta';
@@ -108,13 +109,17 @@ import {
  type PersonalScore,
  reuseIfSameOrder,
  NO_PERSONAL_SCORE,
- scheduleNewJobsCount,
  getTrendingByLocation,
  computeTrendingBoost,
  SURVEY_SECTOR_TO_CATEGORY,
 } from '@/services/personalizationScoring';
 import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
+import { isJobBoardNewSinceVisit, hasJobBoardAlertOpenRequest } from '@/services/jobBoardNewJobs';
+import {
+ createJobBoardReturnVisitSnapshotStore,
+ readOrCaptureJobBoardReturnVisitSnapshot,
+} from '@/services/jobBoardReturnVisitSnapshot';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
@@ -318,6 +323,16 @@ import {
 const DEFAULT_CANTON = 'TI';
 const DEFAULT_CANTON_DISPLAY = 'Ticino';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
+const jobBoardReturnVisitSnapshotStore = createJobBoardReturnVisitSnapshotStore();
+
+function getJobBoardReturnVisitStorage(): Storage | null {
+ if (typeof window === 'undefined') return null;
+ try {
+ return window.sessionStorage;
+ } catch {
+ return null;
+ }
+}
 
 // Search-broaden floor: when a canton-scoped search yields FEWER than this many
 // in-canton results, the cross-canton tier is merged in (appended) so the page
@@ -814,6 +829,18 @@ function companyLogoUrl(job: Pick<JobListing, 'company' | 'companyKey' | 'compan
  return generateInitialsLogo(job.company);
  }
  return null;
+}
+
+/** Only persist fetchable HTTPS logos on an assisted order; initials data URIs stay client-side. */
+function assistedApplicationCompanyLogo(job: JobListing): string | null {
+ const logo = companyLogoUrl(job);
+ if (!logo) return null;
+ try {
+  const parsed = new URL(logo, typeof window !== 'undefined' ? window.location.origin : PUBLIC_SITE_URL);
+  return parsed.protocol === 'https:' ? parsed.toString() : null;
+ } catch {
+  return null;
+ }
 }
 
 export function normalizeIncomingJob(raw: any): JobListing {
@@ -2389,7 +2416,7 @@ function useInterruptibleDerivation<TItem, TAccumulator, TResult>({
 
 /**
  * The gate's unified subscriber write. An enrolled jobgate visitor also gets
- * `variant: 'jobgate-v4:<arm>'` on the document (the readout's join key); the
+ * `variant: 'jobgate-v5:<arm>'` on the document (the readout's join key); the
  * consent fields still come from `unifiedEmailConsentInput`, unchanged. Not
  * enrolled (kill switch, timeout, bot bypass) → exactly `upsertUnifiedEmailSubscriber`.
  */
@@ -2471,7 +2498,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const assistedApplicationJobContext = (job: JobListing, variant: AssistedApplicationVariant) => (
   buildAssistedApplicationJobContext(job, variant, assistedApplicationCopyVariant)
  );
- // Paid 0,99 € offer as the fallback of an Offerwall that could not load
+ // Paid 1,99 € offer as the fallback of an Offerwall that could not load
  // (owner decision 2026-09-29), only on the rewarded job-board surface.
  const offerwallPaidFallbackEnabled = useOfferwallPaidFallback(
   alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
@@ -2634,6 +2661,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
  // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
  const [enableJobAlerts, setEnableJobAlerts] = useState(false);
+ const returnVisitAlertRequestHandledRef = useRef(false);
  useEffect(() => {
  resilientImport(() => import('@/services/firebase'), (m) => typeof m.getConfigValue === 'function').then(({ getConfigValue }) =>
  getConfigValue('ENABLE_JOB_ALERTS').then((v) => setEnableJobAlerts(v === 'true'))
@@ -2697,6 +2725,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   checkoutId: string;
   orderId: string;
   successUrl: string;
+  eventContext: ReturnType<typeof buildAssistedApplicationJobContext>;
  } | null>(null);
  const [sumUpPaymentBusy, setSumUpPaymentBusy] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -2763,6 +2792,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const deferredSelectedLocation = useDeferredValue(selectedLocation);
  const deferredSelectedSector = useDeferredValue(selectedSector);
  const deferredShowNewOnly = useDeferredValue(showNewOnly);
+ const [showSinceLastVisitOnly, setShowSinceLastVisitOnly] = useState(false);
+ const deferredShowSinceLastVisitOnly = useDeferredValue(showSinceLastVisitOnly);
  // ── Saved jobs (#4466) + alert nudge (#4467) ──
  // localStorage-first list; loaded in a post-mount effect (same INP pattern
  // as behaviorData below) and kept in sync across surfaces via the
@@ -2791,10 +2822,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
- const visitCapturedRef = useRef(false);
  const applicationIntentExposureRef = useRef(false);
  const applicationIntentSyncRef = useRef<{ jobId: string; promise: Promise<boolean> } | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
+ const jobNewnessCache = useMemo(() => new WeakMap<JobListing, boolean>(), [enablePersonalization, jobs, lastVisitTimestamp]);
+ const isNewSincePreviousVisit = useCallback((job: JobListing): boolean => {
+  const cached = jobNewnessCache.get(job);
+  if (cached !== undefined) return cached;
+  const isNew = enablePersonalization && isJobBoardNewSinceVisit(job, lastVisitTimestamp);
+  jobNewnessCache.set(job, isNew);
+  return isNew;
+ }, [enablePersonalization, jobNewnessCache, lastVisitTimestamp]);
  const [jobMatchProfile, setJobMatchProfile] = useState<JobMatchProfileData | null>(null);
  // INP: behaviorData/jobMatchProfile land via a post-mount effect (localStorage
  // read), not a user interaction — but every memo below that consumes them
@@ -2850,19 +2888,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return () => { cancelled = true; clearTimeout(timer); };
  }, [enablePersonalization]);
 
- // Capture the previous visit before writing the current one. The timestamp
- // stays in React state for this board session, so later SPA updates to
- // behaviorData cannot make the counter compare against "now".
+ // Keep one previous-visit boundary stable across board remounts in this tab.
+ // The snapshot expires 30 minutes after the last board mount. The existing
+ // behavior tracker remains responsible for consent and for marking visits.
  useEffect(() => {
  if (!enablePersonalization && !enableApplicationIntentRanking) return;
- if (enablePersonalization && !visitCapturedRef.current) {
-  visitCapturedRef.current = true;
-  const { data, previousLastVisit } = readBehaviorAndMarkVisit();
-  setBehaviorData(data);
-  setLastVisitTimestamp(previousLastVisit);
- } else {
+ if (!enablePersonalization) {
   setBehaviorData(getBehaviorData());
+ return;
  }
+ const result = readOrCaptureJobBoardReturnVisitSnapshot({
+  store: jobBoardReturnVisitSnapshotStore,
+  storage: getJobBoardReturnVisitStorage(),
+  now: Date.now(),
+  startVisit: readBehaviorAndMarkVisit,
+ });
+ setBehaviorData(result.visit?.data ?? getBehaviorData());
+ setLastVisitTimestamp(result.snapshot.previousLastVisit);
  }, [enablePersonalization, enableApplicationIntentRanking, behaviorHydrationRevision]);
 
  // Preference changes happen in the profile surface, which can remain mounted
@@ -3030,19 +3072,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setBehaviorData(getBehaviorData());
  }, [enablePersonalization, deferredSearchQuery]);
 
- // New jobs counter
- // The badge can score the entire corpus for a returning visitor too.
- // Time-slice it just like the ranking path below, cancelling stale queries.
- const [newJobsInfo, setNewJobsInfo] = useState({ total: 0, matching: 0 });
- useEffect(() => {
- if (!enablePersonalization || !deferredBehaviorData) {
- setNewJobsInfo({ total: 0, matching: 0 });
- return;
- }
- return scheduleNewJobsCount(jobs, lastVisitTimestamp, deferredBehaviorData, deferredUserProfile ?? null, deferredJobMatchProfile,
- count => startTransition(() => setNewJobsInfo(count)));
- }, [enablePersonalization, deferredBehaviorData, jobs, lastVisitTimestamp, deferredUserProfile, deferredJobMatchProfile]);
-
  // Trending jobs for user's location
  const userLocation = userProfile?.municipality ?? null;
  const trendingJobs = useMemo(() => {
@@ -3116,12 +3145,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  }, [enablePersonalization, isPersonalizationActive, behaviorData, matchedJobCount]);
 
- // Analytics: track new jobs banner shown
- useEffect(() => {
- if (!enablePersonalization || newJobsDismissed || newJobsInfo.total <= 0) return;
- Analytics.trackSelectContent('new_jobs_banner_shown', `total:${newJobsInfo.total}_matching:${newJobsInfo.matching}`);
- }, [enablePersonalization, newJobsInfo.total, newJobsInfo.matching, newJobsDismissed]);
-
  // Apply filter params from SiteSearch navigation (location, search query)
  useEffect(() => {
  if (!initialFilterParams) return;
@@ -3182,9 +3205,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (selectedLocation !== 'all') count++;
  if (selectedSector !== 'all') count++;
  if (showNewOnly) count++;
+ if (showSinceLastVisitOnly) count++;
  if (showSavedOnly) count++;
  return count;
- }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, showSavedOnly]);
+ }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, showSinceLastVisitOnly, showSavedOnly]);
 
  const resetAllFilters = useCallback(() => {
  applySearchQuery('');
@@ -3195,6 +3219,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setSelectedLocation('all');
  setSelectedSector('all');
  setShowNewOnly(false);
+ setShowSinceLastVisitOnly(false);
  setShowSavedOnly(false);
  }, []);
  const [page, setPage] = useState(() => readPageFromUrl());
@@ -3682,6 +3707,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // record), closing the timing race that intermittently showed the orphan banner.
  return unscopedJobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
  }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+
+ // Profession landing links use `?alert=1`; query state is reliable even if
+ // SPA boot has already discarded the URL hash. Queue the open request before
+ // the lazy form mounts, then remove the one-shot parameter from the URL.
+ useEffect(() => {
+  if (returnVisitAlertRequestHandledRef.current || !enableJobAlerts || initialJobSlug || selectedJob) return;
+  if (typeof window === 'undefined' || !hasJobBoardAlertOpenRequest(window.location.search)) return;
+  returnVisitAlertRequestHandledRef.current = true;
+  openJobAlertForm(searchQuery.trim() || undefined);
+  syncQueryParamsToUrl({ alert: null });
+ }, [enableJobAlerts, initialJobSlug, selectedJob, searchQuery]);
 
  // Cross-canton bridge resolution: when a bridge URL (e.g.
  // /cerca-lavoro-ticino/<old-slug>/) points to a job that now lives in a
@@ -5313,7 +5349,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // replacing it: in-canton matches first, then the city-aware broadened tail,
  // deduped by id. crossCantonFallbackJobs is itself empty once in-canton fills
  // (>= BROADEN_BELOW), so the merge is a no-op on healthy pages.
- const filteredJobs = useMemo<JobListing[]>(() => {
+ const preReturnVisitFilteredJobs = useMemo<JobListing[]>(() => {
  // Sponsored ads matching the query surface above organic results, even when
  // they arrive via a fallback tier (e.g. a sponsored ad from another canton
  // appended after in-canton matches). Stable partition — relative order
@@ -5362,11 +5398,62 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
  strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
+ // INP: this corpus can contain the full loaded board. A synchronous filter
+ // here runs again for every render (including a card/detail transition), so
+ // the interaction pays the whole scan before React can paint. Keep the
+ // return-visit result on the same frame-budgeted path as the other board
+ // derivations; only publish a complete current-revision result.
+ const emptyReturnVisitNewJobs = useMemo<JobListing[]>(() => [], []);
+ const createReturnVisitNewJobsAccumulator = useCallback((): JobListing[] => [], []);
+ const visitReturnVisitNewJob = useCallback((matches: JobListing[], job: JobListing) => {
+  if (isNewSincePreviousVisit(job)) matches.push(job);
+ }, [isNewSincePreviousVisit]);
+ const finishReturnVisitNewJobs = useCallback((matches: JobListing[]) => matches, []);
+ const returnVisitNewJobsDerivation = useInterruptibleDerivation({
+  items: preReturnVisitFilteredJobs,
+  enabled: enablePersonalization,
+  emptyValue: emptyReturnVisitNewJobs,
+  createAccumulator: createReturnVisitNewJobsAccumulator,
+  visit: visitReturnVisitNewJob,
+ finish: finishReturnVisitNewJobs,
+ });
+ const returnVisitNewJobs = returnVisitNewJobsDerivation.value;
+ const returnVisitResultsPending = deferredShowSinceLastVisitOnly && returnVisitNewJobsDerivation.pending;
+ const filteredJobs = useMemo(
+  () => deferredShowSinceLastVisitOnly ? returnVisitNewJobs : preReturnVisitFilteredJobs,
+  [deferredShowSinceLastVisitOnly, preReturnVisitFilteredJobs, returnVisitNewJobs],
+ );
+
+ // Count only the pre-return-filter result set, so the action's number and its
+ // resulting list always describe the same profession and board filters.
+ const returnVisitNewJobsCount = returnVisitNewJobs.length;
+ useEffect(() => {
+  if (!enablePersonalization || newJobsDismissed || returnVisitNewJobsCount <= 0) return;
+  Analytics.trackSelectContent('new_jobs_banner_shown', `total:${returnVisitNewJobsCount}`);
+ }, [enablePersonalization, returnVisitNewJobsCount, newJobsDismissed]);
+
+ const toggleReturnVisitNewJobs = useCallback(() => {
+  const shouldShowOnlyNewJobs = !showSinceLastVisitOnly;
+  setShowSinceLastVisitOnly(shouldShowOnlyNewJobs);
+  if (shouldShowOnlyNewJobs) setNewJobsDismissed(false);
+  Analytics.trackEvent('return_visit_new_jobs_action', {
+   surface: 'job_board',
+   action: shouldShowOnlyNewJobs ? 'show_new' : 'show_all',
+   result_count: returnVisitNewJobsCount,
+  });
+  if (shouldShowOnlyNewJobs) {
+   Analytics.trackEvent('return_visit_filter_applied', {
+    filter: 'since_previous_visit',
+    result_count: returnVisitNewJobsCount,
+   });
+  }
+ }, [returnVisitNewJobsCount, showSinceLastVisitOnly]);
+
  // The loaded result set is authoritative for the root hub's metadata too.
  useEffect(() => {
-  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending) return;
+  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending || resultDerivationPending || returnVisitResultsPending) return;
   updateJobBoardListingMetadata(locale, initialFilterCanton || 'TI', filteredJobs.length);
- }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, filteredJobs.length]);
+ }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, resultDerivationPending, returnVisitResultsPending, filteredJobs.length]);
 
  // Resolve the hub identity from the same company-route candidates that drive
  // the visible filter. A display-name collision is intentionally not guessed:
@@ -5515,8 +5602,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  || fallbackSearchIndexPending
  ))
  );
- const resultsResolving = (resultDerivationPending || fallbackResultsResolving)
- && !clusterSeedApplies;
+ const resultsResolving = (
+  (jobsLoading || resultDerivationPending || fallbackResultsResolving) && !clusterSeedApplies
+ ) || returnVisitResultsPending;
+
+ // The canonical unfiltered listing has a deterministic first viewport: the
+ // first page is `pageSize` cards when that footprint is available. During a
+ // short/empty resolution, only the currently known result count is safe to
+ // reserve; otherwise the loader would mount a full page and then collapse it
+ // into a short list or empty state, recreating the CLS this branch fixes.
+ // Filtered and editorial views keep their existing six-card loader because
+ // their final result count is unknown.
+ const isUnfilteredListing = activeFilterCount === 0
+  && salaryRangeFilter.min === null
+  && !searchSlugFilter
+  && !companySlugFilter
+  && !locationSlugFilter
+  && !editorialLandingDescriptor
+  && !clusterSeedApplies;
+ const loadingCardCount = isUnfilteredListing
+  ? Math.min(pageSize, filteredJobs.length)
+  : 6;
 
  // True when the result set is the in-canton OR-fallback (Tier 2). Keeps
  // the existing "No exact match for «…»" banner triggered.
@@ -5871,7 +5977,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setPage(1);
  setMobileJobLimit(10);
  syncQueryParamsToUrl({ page: null });
- }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSavedOnly]);
+ }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, showSinceLastVisitOnly, showSavedOnly]);
 
  // Sync search query to URL (?q=) and track in GA4
  useEffect(() => {
@@ -6834,6 +6940,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  };
 
+ const loadingInfeedAdSlots = resultsResolving && isUnfilteredListing && loadingCardCount > 0
+  ? Array.from({ length: loadingCardCount }, (_, index) => index + 1)
+   .filter((position) => position < loadingCardCount)
+   .filter((position) => shouldPlaceInfeedAd(position, {
+    canton: initialFilterCanton,
+    adExperimentActive,
+   }))
+   .map((afterCard) => ({
+    afterCard,
+    minHeight: (isMobile ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP).placeholderMinHeight,
+   }))
+  : [];
+
  // Interleave one in-feed ad after every Nth job card (shared `shouldPlaceInfeedAd`
  // cadence), never after the last card. Used by the editorial-landing sections;
  // the canonical main list inlines the same logic at its `displayJobs.map`.
@@ -7556,6 +7675,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobUrl: String(job.url || job.applyUrl || ''),
     companyName: String(job.company || ''),
     jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+    companyLogo: assistedApplicationCompanyLogo(job),
+    companyKey: String(job.companyKey || '').trim() || null,
+    location: String(job.location || job.addressLocality || '').trim() || null,
+    canton: String(job.canton || '').trim() || null,
+    contract: String(job.contract || '').trim() || null,
+    salaryMin: Number.isFinite(Number(job.salaryMin)) ? Number(job.salaryMin) : null,
+    salaryMax: Number.isFinite(Number(job.salaryMax)) ? Number(job.salaryMax) : null,
+    salarySource: job.salarySource || null,
+    salaryCurrency: String(job.currency || job.baseSalary?.currency || '').trim() || null,
+    baseSalary: job.baseSalary || null,
+    postedDate: String(job.postedDate || job.datePosted || '').trim() || null,
+    firstSeenAt: String(job.firstSeenAt || '').trim() || null,
+    sector: String(job.sector || '').trim() || null,
+    category: String(job.category || '').trim() || null,
     experimentVariant: assistedApplicationVariant === 'assisted_application' ? 'assisted_application' : 'offerwall_fallback',
     copyVariant: assistedApplicationCopyVariant,
     successUrl: currentPath,
@@ -7568,6 +7701,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
      checkoutId: result.checkoutId,
      orderId: result.orderId,
      successUrl: currentPath,
+     eventContext: assistedApplicationJobContext(job, assistedApplicationVariant),
     });
     return;
    }
@@ -7617,6 +7751,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    setSumUpPaymentBusy(false);
    setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
    trackAssistedApplicationEvent('checkout_failed', {
+    ...sumUpPayment.eventContext,
     payment_provider: 'sumup',
     reason: type === 'fail' ? 'payment_failed' : 'payment_error',
    });
@@ -7626,12 +7761,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleSumUpWidgetError = useCallback((error: unknown) => {
   setSumUpPaymentBusy(false);
   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
-  trackAssistedApplicationEvent('checkout_failed', {
-   payment_provider: 'sumup',
-   reason: 'widget_load_failed',
-   error_code: getAssistedApplicationCheckoutErrorCode(error),
-  });
- }, [t]);
+  if (sumUpPayment) {
+   trackAssistedApplicationEvent('checkout_failed', {
+    ...sumUpPayment.eventContext,
+    payment_provider: 'sumup',
+    reason: 'widget_load_failed',
+    error_code: getAssistedApplicationCheckoutErrorCode(error),
+   });
+  }
+ }, [sumUpPayment, t]);
 
  // A treatment click can happen on a list card while auth is still resolving.
  // Keep the selected job queued and route it as soon as the detail host is
@@ -8059,6 +8197,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ const jobViewersActivityPromptJsx = (
+  isJobDetailView
+  && selectedJob
+  && authResolved
+  && (!authUser?.uid || authUser.isAnonymous === true)
+  && !isCrawlerVisitor
+  && !isLikelyBotVisitor
+ ) ? (
+  <Suspense fallback={null}>
+   <JobViewersActivityPrompt key={String(selectedJob.id)} jobId={String(selectedJob.id)} />
+  </Suspense>
+ ) : null;
+
  // Anonymous job-detail visitors have the strongest intent signal before the
  // apply click, but the authenticated prompt above cannot serve them. Keep a
  // visible, category-based alert CTA in the detail header and hand anonymous
@@ -8076,6 +8227,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     keywordLabel={detailAlertCategoryLabel}
     cantonCode={selectedJob.canton ?? null}
     formOrigin="job_detail_anonymous"
+    onAnonymousAuthRequired={onRequireAuth}
     onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_anonymous', detailAlertCategoryLabel)}
     onAnonymousOpen={() => {
      Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
@@ -8452,6 +8604,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  if (assistedApplicationOrderId) {
+  if (newsletterAutologinInFlight) {
+   return <div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle" role="status">{t('jobBoard.assisted.loading')}</div>;
+  }
   return (
    <Suspense fallback={<div className="mx-auto max-w-2xl px-4 py-12 text-center text-sm text-subtle">{t('jobBoard.assisted.loading')}</div>}>
     <AssistedApplicationUpload
@@ -8494,37 +8649,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (initialJobSlug && !companySlugFilter && !locationSlugFilter && !searchSlugFilter && !seeded) {
  return <SkeletonJobDetail />;
  }
- // Listing / search / location loading: paint the real hero (the LCP element,
- // #2350) on first mount, above a list skeleton, instead of waiting for the
- // full job-index fetch. Mirrors the loaded layout (hero → search → 10 cards)
- // so the hero reconciles in place and the footer stays below the fold (CLS).
- // Company-brand pages keep the generic skeleton — their loaded hero is the
- // richer EmployerBrandHub, not this text hero.
- if (!companySlugFilter) {
+ // Listing/search/location pages must keep the final rail shell mounted while
+ // the async job index resolves. The previous early return rendered only the
+ // hero and a short placeholder, then inserted the banner/rails and full
+ // filter footprint when the index arrived — a deterministic CLS on the
+ // field-sensitive job-board landing. `resultsResolving` keeps the content
+ // area in its loading state while this shell remains structurally stable.
+ if (companySlugFilter) {
  return (
- <div className="space-y-6 min-h-[80vh]">
- {listingHero}
- <div className="h-14 rounded-2xl bg-surface-raised animate-pulse" />
- {/* Animated, accessible loader (#2968): rotating reassurance + shimmer
- cards sized to the real JobCard so results reconcile in place (CLS). */}
- <JobBoardResultsLoader cards={8} />
- </div>
- );
- }
- return (
- // Reserve realistic page height during the async job fetch. Search/filter
- // URLs (e.g. /cerca-lavoro-ticino/concorsi-…, ricerca-*) render this
- // JobBoard WITHOUT staticOverlay, so App.tsx display:none's the full-height
- // static SEO body on hydration. The previous centered spinner reserved only
- // 80vh: the footer sat just inside the viewport during the fetch, then got
- // pushed below the fold when the ~10-card list resolved → 0.064 CLS on
- // every landing (field p75 0.58 on /cerca-lavoro-ticino/). The skeleton
- // list approximates the final list height (header + search bar + 10×112px
- // cards, min-h-[80vh] floor inside SkeletonJobBoard) so the footer never
- // enters the viewport mid-load.
+ // Company-brand pages keep a layout-matching skeleton because their loaded
+ // hero is the richer EmployerBrandHub, not the listing hero.
+ <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <SkeletonJobBoard />
+ </JobBoardRailShell>
  );
  }
+ }
+ // Close the outer jobsLoading guard after the nested loading branches.
  }
 
  const authPendingNoticeJsx = authNotice?.kind === 'pending' ? (
@@ -9526,8 +9667,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const descriptionPreview = jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
- // jobgate-v4: colour, elevation and block order of the gate per arm; the
- // control arm keeps the exact classes and order the gate shipped with.
+ // jobgate-v5: contrast/accent treatment per arm; Spotlight is also the
+ // fail-safe product default. Copy and order stay fixed in every arm.
  const gateSkin = jobGateSkin(jobGate.arm);
  const inlineEmailForm = (
  <form
@@ -9756,8 +9897,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </section>
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed).
-     jobgate-v4 arms restyle it through `gateSkin` (components/community/jobGateSkin.ts);
-     `actions_first` also moves the sign-in buttons right under the title. */}
+     jobgate-v5 arms change only contrast/accent through `gateSkin`
+     (components/community/jobGateSkin.ts). */}
  {(() => {
  const gateHeading = (
  <h2 className={gateSkin.heading}>
@@ -10520,6 +10661,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </article>
  {detailAlertCtaJsx}
  {jobDetailPromptJsx}
+ {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
  </div>
@@ -11043,6 +11185,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  </nav>
  {jobDetailPromptJsx}
+ {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
  </div>
@@ -11069,6 +11212,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sectors: selectedSector === 'all' ? [] : [selectedSector],
  }}
  formOrigin="job_board_filters"
+ onAnonymousAuthRequired={onRequireAuth}
  onAccepted={() => Analytics.trackJobAlertCtaClick('job_board_filters', 'accept', boardFilterAlertKeywordLabel)}
  onAnonymousOpen={() => {
  Analytics.trackJobAlertCtaClick('job_board_filters', 'open', boardFilterAlertKeywordLabel);
@@ -11605,12 +11749,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
 
  {/* ── Personalization notices (no empty wrapper when the flag resolves) ── */}
- {enablePersonalization && ((!newJobsDismissed && newJobsInfo.total > 0) || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
+ {enablePersonalization && ((!newJobsDismissed && returnVisitNewJobsCount > 0) || showSinceLastVisitOnly || isPersonalizationActive || (jobMatchAlertVisible && userId && userEmail)) && (
  <div className="space-y-3">
- {!newJobsDismissed && newJobsInfo.total > 0 && (
+ {(!newJobsDismissed || showSinceLastVisitOnly) && (returnVisitNewJobsCount > 0 || showSinceLastVisitOnly) && (
  <NewJobsCounter
- newJobsCount={newJobsInfo.total}
- matchingCount={newJobsInfo.matching}
+ newJobsCount={returnVisitNewJobsCount}
+ isActive={showSinceLastVisitOnly}
+ onToggle={toggleReturnVisitNewJobs}
  onDismiss={() => setNewJobsDismissed(true)}
  />
  )}
@@ -11819,7 +11964,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sized to the loaded layout so the count + cards reconcile in place (no
  CLS) and the user never sees a bare "0 risultati" mid-fetch (#2968). */}
  {resultsResolving && (
- <JobBoardResultsLoader cards={6} />
+ <JobBoardResultsLoader
+  cards={loadingCardCount}
+  infeedAdSlots={loadingInfeedAdSlots}
+ />
  )}
 
  {filteredJobs.length === 0 && !resultsResolving && showSavedOnly && (
@@ -11891,7 +12039,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
 
  {/* AdSense — end-of-list multiplex */}
- {filteredJobs.length > 0 && (
+ {(filteredJobs.length > 0 || (resultsResolving && isUnfilteredListing)) && (
  <React.Fragment key={`endlist-${adRefreshKey}`}>
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
@@ -11922,6 +12070,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {jobDetailPromptJsx}
+ {jobViewersActivityPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
 

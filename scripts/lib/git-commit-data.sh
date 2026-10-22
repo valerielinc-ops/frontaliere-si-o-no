@@ -57,10 +57,20 @@
 #        queue stayed occupied. Grouped callers return this to the generated
 #        workflow as a retryable systemic outcome; sequential callers stop
 #        cleanly without pretending that data was committed.
+#   45 — GLOBAL_DATA_PIPELINE_LEASE_TRANSIENT_ERROR: the lease service produced
+#        the bounded number of consecutive transient errors. This is a real
+#        coordination-service failure, not a queue outcome: callers must keep
+#        the workflow red and must not retry the same generation.
+#   46 — CRAWLER_GENERATION_RECEIPT_FAILURE: a grouped batch published or
+#        confirmed its data tree but could not write the delivery receipts.
+#        The generated group workflow retries the same generation token; if the
+#        bounded retry is exhausted, the workflow stays red rather than
+#        reporting a green generation with missing delivery evidence.
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+MAIN_PUSH_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/main-push-guard.mjs"
 
 # The fetch ceiling is supported by issue 12175's 61.6, 62.6, 83.0 and
 # 95.1-second commit-graph measurements. The pull ceiling has no direct
@@ -77,6 +87,10 @@ GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS:-
 GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_HISTORY_LOOKUP_TIMEOUT_SECONDS:-60}"
 GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS:-300}"
 GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS:-180}"
+# Candidate inspection is a bounded safety operation of its own. Keep its
+# ceiling independent from the network-push ceiling: a slow tree/ancestry
+# proof must not consume the entire push budget before the guarded write starts.
+GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS:-180}"
 # The ownership archive used to run inside the cross-repository lease. Real
 # grouped-isolated attempts measured 66.8–169.0 s fetching 56–612 missing
 # slice blobs on demand (2026-10-09). Prepare it before the lease, then bound
@@ -87,6 +101,33 @@ run_bounded() {
   local seconds="$1" label="$2"
   shift 2
   node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
+main_push_guard_check() {
+  local base_sha="$1" candidate_sha="$2" timeout_seconds="$3"
+  node "$MAIN_PUSH_GUARD_SCRIPT" \
+    --repo "$PWD" \
+    --base "$base_sha" \
+    --candidate "$candidate_sha" \
+    --branch main \
+    --timeout-seconds "$timeout_seconds" \
+    --check-only
+}
+
+guarded_push_deadline() {
+  # Bash SECONDS is process-relative and monotonic; wall-clock date can jump
+  # backwards while a guarded write is spending its end-to-end budget.
+  printf '%s\n' "$(( SECONDS + GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS ))"
+}
+
+guarded_push_remaining_seconds() {
+  local deadline="$1"
+  local remaining=$(( deadline - SECONDS ))
+  if [ "$remaining" -le 0 ]; then
+    echo "❌ main push guard: end-to-end deadline expired before the guarded push" >&2
+    return 1
+  fi
+  printf '%s\n' "$remaining"
 }
 
 # Register the seo-404 compat-shard merge driver (.gitattributes
@@ -158,6 +199,7 @@ EXTRA_ONLY=false
 # one working copy across ~25 concurrent sibling crawlers and therefore must
 # never mutate the shared worktree/index while committing.
 GROUPED_ISOLATED=false
+CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT=46
 if [ "${1:-}" = "--extra-only" ]; then
   EXTRA_ONLY=true
   SLICE_ONLY=true
@@ -340,6 +382,7 @@ declare -A _BATCH_SNAPSHOT_STATE=()
 declare -A _BATCH_SNAPSHOT_MODE=()
 declare -A _BATCH_SNAPSHOT_BASE_BLOB=()
 declare -A _BATCH_SNAPSHOT_BLOB=()
+BATCH_HAS_CHANGES=false
 # Per-file result of the isolated-commit loop, reused by the NEXT push attempt
 # when the inputs of that file are unchanged (see commit_isolated_from_worktree).
 declare -A _ISOLATED_RESULT_KEY=()
@@ -574,6 +617,7 @@ if [ "$GROUP_BATCH" = true ]; then
     _BATCH_SNAPSHOT_MODE["$path_item"]="$snapshot_mode"
     _BATCH_SNAPSHOT_BASE_BLOB["$path_item"]="$snapshot_base_blob"
     _BATCH_SNAPSHOT_BLOB["$path_item"]="$snapshot_blob"
+    [ "$snapshot_operation" = "unchanged" ] || BATCH_HAS_CHANGES=true
   done < "$_batch_snapshots_file"
   # Observability for #7060: report, per path class, how many descriptors in
   # THIS run reached each non-"unchanged" snapshot operation. "unchanged" is
@@ -604,27 +648,40 @@ if [ "$GROUP_BATCH" = true ]; then
   fi
 fi
 
-# Optional shadow-only generation receipt. Disabled callers execute only the
-# empty-env guard below; enabled callers receive a best-effort observation of
-# the exact private-index tree. Receipt failure must never change this helper's
-# push, stdout contract or exit code: the group finalizer treats a missing or
-# corrupt receipt as invalid instead.
+# Generation receipt for the exact private-index tree. Standalone callers keep
+# the historical shadow-only behavior, but a grouped batch makes the receipt a
+# delivery contract: a successful data publication without its receipts is not
+# a successful generation. The generated workflow retries exit 46 in the same
+# token, and a retry is idempotent because the already-published tree becomes
+# the batch's noop candidate.
 emit_crawler_generation_receipt() {
   local outcome="${1:-}"
   local commit_sha="${2:-}"
   local remote_base_sha="${3:-}"
+  local receipt_status=0
+  if [ "$GROUP_BATCH" = true ] && [ -z "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ]; then
+    echo "::error::crawler group batch cannot publish delivery receipts: CRAWLER_GENERATION_RECEIPT_DIR is empty"
+    return "$CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT"
+  fi
   [ -n "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ] || return 0
 
   local receipt_args=("${RESOLVED_FILES[@]}")
   if [ "$GROUP_BATCH" = true ]; then
     receipt_args=(--batch-receipts)
   fi
-  if ! CRAWLER_GENERATION_RECEIPT_OUTCOME="$outcome" \
+  if CRAWLER_GENERATION_RECEIPT_OUTCOME="$outcome" \
     CRAWLER_GENERATION_RECEIPT_COMMIT="$commit_sha" \
     CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$remote_base_sha" \
     node "$(dirname "$0")/crawler-generation-receipt.mjs" "${receipt_args[@]}"; then
-    echo "::warning::crawler generation receipt failed (shadow only); push outcome remains unchanged"
+    return 0
+  else
+    receipt_status=$?
   fi
+  if [ "$GROUP_BATCH" = true ]; then
+    echo "::error::crawler group batch delivery receipt failed (exit ${receipt_status}); retrying the same generation"
+    return "$CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT"
+  fi
+  echo "::warning::crawler generation receipt failed (shadow only); push outcome remains unchanged"
   return 0
 }
 
@@ -823,9 +880,10 @@ const path = require('path');
 
 const [basePath, remotePath, localPath, outPath, keyField, label] = process.argv.slice(2);
 
-// The decontamination denylist is keyed by slice basename + slug. A stale
-// merge input must not reintroduce one of those intentionally removed routes
-// merely because the append-only archive branch sees it as a new value.
+// The historical denylist covers intentional removals known before this merge.
+// New cross-job removals are filtered by crawler-commit-ownership.mjs from the
+// complete remote ownership view before this append-only merge runs. A stale
+// merge input must not reintroduce either class of intentionally removed route.
 const restoreDenylistPath = process.env.PREV_SLUG_RESTORE_DENYLIST_PATH
   || path.resolve('data/prev-slug-restore-denylist.json');
 const restoreDenylist = new Set();
@@ -1011,12 +1069,14 @@ function countMap(items) {
 // idempotent and commutative, so no ordering of concurrent writers can
 // fabricate a removal.
 //
-// Deliberate trade-off: a genuine removal (cleanPreviousSlugsPerLocale
-// dropping an entry equal to the active slug, decontaminate-prev-slugs)
-// that races a concurrent writer survives one extra cycle before the next
-// writer drops it again. Resurrect-then-redrop is convergent and free;
-// deleting a live historical slug is permanent SEO loss. Same asymmetry the
-// `merge=union` drivers in .gitattributes are documented to accept.
+// Deliberate trade-off: an unknown genuine removal (cleanPreviousSlugsPerLocale
+// dropping an entry equal to the active slug, or a decontamination whose target
+// is not present in the complete ownership view) that races a concurrent writer
+// survives one extra cycle before the next writer drops it again. Proven
+// cross-job decontaminations are removed before this function by the ownership
+// guard, so the conservative union is retained only when no positive owner
+// proof exists. Resurrect-then-redrop is convergent; deleting an indexed
+// historical slug without proof is permanent SEO loss.
 //
 // Bounds: each writer caps its own output through capSlugArray() before this
 // runs, so the union is bounded by 2x the cap and the next write re-caps it.
@@ -1930,6 +1990,9 @@ global_data_pipeline_lease_acquire() {
   if [ "$lease_status" -eq 44 ]; then
     echo "::warning::global data pipeline lease remained busy after the bounded wait; this writer staged nothing and will retry on the next scheduled run"
   fi
+  if [ "$lease_status" -eq 45 ]; then
+    echo "::error::global data pipeline lease stopped after consecutive transient Firestore errors; this writer staged nothing and will not retry this generation"
+  fi
   return "$lease_status"
 }
 
@@ -2348,15 +2411,11 @@ _ISOLATED_SLOWEST_FILE_MS=0
 # The parts of the per-file loop that run a subprocess over whole slices.
 _ISOLATED_FILE_PHASES=(retirement-history ownership merge integrity)
 
-# isolated_mark <variable>: milliseconds since the epoch, without a fork.
+# isolated_mark <variable>: monotonic elapsed milliseconds since this shell
+# started, without a fork. The timing is observational; second resolution is
+# sufficient for the multi-second phases measured here.
 isolated_mark() {
-  local micros
-  if [ -n "${EPOCHREALTIME:-}" ]; then
-    micros="${EPOCHREALTIME/[.,]/}"
-    printf -v "$1" '%s' "$(( micros / 1000 ))"
-  else
-    printf -v "$1" '%s' "$(( $(date +%s) * 1000 ))"
-  fi
+  printf -v "$1" '%s' "$(( SECONDS * 1000 ))"
 }
 
 isolated_phase_reset() {
@@ -2439,11 +2498,12 @@ commit_isolated_from_worktree() {
   local tmp_index merge_dir
   local f local_blob remote_blob base_blob history_blob history_status blob_to_stage key_hint mode_to_stage local_merge_path candidate_path conflict_scan_path
   local snapshot_operation snapshot_state registry_status
-  local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
+  local ownership_root ownership_base_path ownership_remote_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
   local -a effective_files
   local skipped_identical
   local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
+  local guarded_deadline guard_timeout push_timeout
   local phase_started file_phase_started ownership_changed_count
 
   base_sha="$(git rev-parse HEAD)"
@@ -2838,6 +2898,15 @@ commit_isolated_from_worktree() {
             return 1
           fi
         fi
+        ownership_remote_path="-"
+        if [ -n "$remote_blob" ]; then
+          ownership_remote_path="$merge_dir/ownership-remote/$f"
+          mkdir -p "$(dirname "$ownership_remote_path")"
+          if ! git cat-file blob "$remote_blob" > "$ownership_remote_path"; then
+            echo "❌ grouped-isolated: could not read remote slice for ownership guard: $f"
+            return 1
+          fi
+        fi
         ownership_output_path="$merge_dir/ownership-filtered/$f"
         mkdir -p "$(dirname "$ownership_output_path")"
         rm -f "$merge_dir/ownership-verdict"
@@ -2848,7 +2917,8 @@ commit_isolated_from_worktree() {
           "$local_merge_path" \
           "$ownership_root" \
           "$ownership_output_path" \
-          "$merge_dir/ownership-verdict")"; then
+          "$merge_dir/ownership-verdict" \
+          "$ownership_remote_path")"; then
           echo "❌ grouped-isolated: crawler ownership guard failed for $f"
           return 1
         fi
@@ -2863,7 +2933,7 @@ commit_isolated_from_worktree() {
         rm -f -- "$ownership_root/$f"
         cp "$ownership_output_path" "$ownership_root/$f"
         if [ "$ownership_result" != '{"dropped":[]}' ]; then
-          echo "⚠️ grouped-isolated: ownership guard filtered new claims from $f: $ownership_result"
+          echo "⚠️ grouped-isolated: ownership guard filtered claims from $f: $ownership_result"
         fi
       fi
 
@@ -3019,9 +3089,19 @@ commit_isolated_from_worktree() {
     isolated_phase_add tree "$phase_started"
     if [ "$new_tree" = "$remote_tree" ]; then
       isolated_phase_report "$push_attempt"
-      emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
-      echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
-      [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+      emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha" || return $?
+      if [ "$GROUP_BATCH" = true ] && [ "$BATCH_HAS_CHANGES" = true ]; then
+        # A receipt retry reaches this branch after the first attempt already
+        # published the exact candidate tree. Keep the publication visible to
+        # downstream deploy steps; only a descriptor set with no changed
+        # snapshots is a genuine no-op.
+        echo "✅ Crawler group batch tree already published at ${remote_sha}; receipt delivery repaired"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$remote_sha" >> "$GITHUB_OUTPUT"
+      else
+        echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
+        [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+      fi
       return 0
     fi
 
@@ -3034,22 +3114,33 @@ commit_isolated_from_worktree() {
       return 1
     fi
 
-    ensure_git_auth
-    # `push` is the network round trip alone: building the commit object and
-    # refreshing the credentials are charged to their own phase.
+    guard_timeout="$GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS"
+    if ! main_push_guard_check "$remote_sha" "$new_commit" "$guard_timeout"; then
+      emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
+      echo "❌ Main push guard rejected grouped-isolated commit ${new_commit}; refusing to publish a collapsed tree"
+      return 1
+    fi
+    # `push` is the network round trip alone: building the commit object,
+    # refreshing credentials and the guard's safety proof have separate
+    # bounded ceilings, so the push keeps its full configured budget.
     isolated_phase_add commit "$phase_started"
     isolated_mark phase_started
     # Capture the push output (echoed below either way, so the step log stays
     # complete) so exhaustion can be classified on the LAST attempt: only a
     # genuine rejection/race may become exit 42.
     push_out=""
-    if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
+    ensure_git_auth
+    guarded_deadline="$(guarded_push_deadline)"
+    push_timeout="$(guarded_push_remaining_seconds "$guarded_deadline")" || return 1
+    if push_out="$(run_bounded "$push_timeout" \
       "git push --no-thin origin <commit>:refs/heads/main" \
-      git -c pack.window=0 -c pack.threads=1 push --no-thin origin "${new_commit}:refs/heads/main" 2>&1)"; then
+      git -c pack.window=0 -c pack.threads=1 push --no-thin \
+        "--force-with-lease=refs/heads/main:${remote_sha}" \
+        origin "${new_commit}:refs/heads/main" 2>&1)"; then
       isolated_phase_add push "$phase_started"
       printf '%s\n' "$push_out"
       isolated_phase_report "$push_attempt"
-      emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha"
+      emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha" || return $?
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$new_commit" >> "$GITHUB_OUTPUT"
@@ -3344,14 +3435,33 @@ fi
 
 # Push — if rejected, undo commit and re-run sync from step 3
 push_attempt=$((push_attempt + 1))
-ensure_git_auth
+PUSH_BASE_SHA=""
+if ! PUSH_BASE_SHA="$(git rev-parse --verify refs/remotes/origin/main^{commit})"; then
+  echo "❌ main push guard: cannot resolve refs/remotes/origin/main for the push lease"
+  exit 1
+fi
+PUSH_CANDIDATE_SHA=""
+if ! PUSH_CANDIDATE_SHA="$(git rev-parse --verify HEAD^{commit})"; then
+  echo "❌ main push guard: cannot resolve HEAD for the guarded candidate"
+  exit 1
+fi
+GUARD_TIMEOUT="$GIT_COMMIT_DATA_PUSH_GUARD_TIMEOUT_SECONDS"
+if ! main_push_guard_check "$PUSH_BASE_SHA" "$PUSH_CANDIDATE_SHA" "$GUARD_TIMEOUT"; then
+  echo "❌ Main push guard rejected the candidate; refusing to publish a collapsed tree"
+  exit 1
+fi
 # Capture the push output (echoed below either way, so the step log stays
 # complete) so exhaustion can be classified on the LAST attempt: only a
 # genuine rejection/race may become exit 42.
 push_out=""
-if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
-  "git push --no-thin origin main" \
-  git -c pack.window=0 -c pack.threads=1 push --no-thin origin main 2>&1)"; then
+ensure_git_auth
+GUARDED_PUSH_DEADLINE="$(guarded_push_deadline)"
+PUSH_TIMEOUT="$(guarded_push_remaining_seconds "$GUARDED_PUSH_DEADLINE")" || exit 1
+if push_out="$(run_bounded "$PUSH_TIMEOUT" \
+  "git push --no-thin origin <commit>:refs/heads/main" \
+  git -c pack.window=0 -c pack.threads=1 push --no-thin \
+    "--force-with-lease=refs/heads/main:${PUSH_BASE_SHA}" \
+    origin "${PUSH_CANDIDATE_SHA}:refs/heads/main" 2>&1)"; then
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 

@@ -18,6 +18,11 @@ const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const OBJECT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const CRAWLER_ID_RE = /^[a-z0-9][a-z0-9._-]{0,127}$/;
 const MAX_FILES = 128;
+// The grouped commit helper returns this when the data tree is already
+// published but the delivery receipt could not be written. The generated
+// workflow retries the same generation token so a transient receipt failure
+// cannot leave a green group with an undelivered member.
+export const CRAWLER_GENERATION_RECEIPT_FAILURE_EXIT = 46;
 // Linux MAX_ARG_STRLEN is 128 KiB including the terminating NUL. Keep the
 // exported payload cap one byte below it because git receives the assembled
 // message as one argv element.

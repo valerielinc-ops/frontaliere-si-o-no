@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
-import { resolveReportedPostingDate } from './lib/job-posting-date.mjs';
+import { resolveRolloutSchemaPostingDate } from './lib/job-posting-date-rollout.mjs';
+import { extractJobPostingNodesFromJson } from './lib/jobposting-jsonld.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const ROOT = process.cwd();
@@ -73,6 +74,23 @@ function extractAlternateHrefLangs(html = '') {
   return byLocale;
 }
 
+function extractCanonicalUrl(html = '') {
+  const linkRe = /<link\b[^>]*>/gi;
+  let match;
+  while ((match = linkRe.exec(html)) !== null) {
+    const attrs = parseHtmlAttributes(match[0] || '');
+    if (String(attrs.rel || '').toLowerCase() !== 'canonical') continue;
+    const href = String(attrs.href || '').trim();
+    if (!href) return null;
+    try {
+      return new URL(href, BASE_URL).toString();
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
 function hrefToDistFile(href = '') {
   if (typeof href !== 'string' || href.length === 0) return null;
   if (!href.startsWith(BASE_URL)) return null;
@@ -99,11 +117,8 @@ function extractJsonLdBlocks(html) {
 function getJobPosting(ldBlocks) {
   for (const block of ldBlocks) {
     if (block?.__parseError) continue;
-    if (block?.['@type'] === 'JobPosting') return block;
-    if (Array.isArray(block?.['@graph'])) {
-      const found = block['@graph'].find((x) => x?.['@type'] === 'JobPosting');
-      if (found) return found;
-    }
+    const posting = extractJobPostingNodesFromJson(block)[0];
+    if (posting) return posting;
   }
   return null;
 }
@@ -248,6 +263,7 @@ function main() {
     filesMissing: 0,
     jobPostingMissing: 0,
     jobPostingWithheldUnverifiedDate: 0,
+    jobPostingSafeDefaultDate: 0,
     publicationDateUnverified: 0,
     eligibleLocaleChecks: 0,
     parseErrors: 0,
@@ -284,8 +300,12 @@ function main() {
         continue;
       }
       const jobPosting = getJobPosting(blocks);
-      const reportedDate = resolveReportedPostingDate(job);
-      if (!reportedDate) {
+      const schemaDate = resolveRolloutSchemaPostingDate(
+        job,
+        undefined,
+        extractCanonicalUrl(html),
+      );
+      if (!schemaDate) {
         report.publicationDateUnverified += 1;
         if (jobPosting || job?.postingDateSource === 'reported') {
           report.errors += 1;
@@ -303,6 +323,10 @@ function main() {
         }
         continue;
       }
+      if (schemaDate.provenance === 'safe-default') {
+        report.publicationDateUnverified += 1;
+        report.jobPostingSafeDefaultDate += 1;
+      }
       report.eligibleLocaleChecks += 1;
 
       if (!jobPosting) {
@@ -312,9 +336,16 @@ function main() {
         continue;
       }
 
-      if (jobPosting.datePosted !== reportedDate) {
+      if (jobPosting.datePosted !== schemaDate.value) {
         report.errors += 1;
-        report.details.push({ slug: job.slug, locale: loc.code, level: 'error', issue: 'datePosted:source_mismatch' });
+        report.details.push({
+          slug: job.slug,
+          locale: loc.code,
+          level: 'error',
+          issue: schemaDate.provenance === 'reported'
+            ? 'datePosted:source_mismatch'
+            : 'datePosted:safe_default_mismatch',
+        });
       }
       const { errors, warnings } = validateJobPosting(jobPosting, html, job, loc.code);
       for (const e of errors) {
@@ -340,8 +371,9 @@ function main() {
   console.log(`Errors: ${report.errors} | Warnings: ${report.warnings}`);
   console.log(`Missing files: ${report.filesMissing}`);
   console.log(`Eligible locale checks: ${report.eligibleLocaleChecks}`);
-  console.log(`Publication date unverified (JobPosting must be absent): ${report.publicationDateUnverified}`);
+  console.log(`Publication date unverified (JobPosting must be absent or scoped safe default): ${report.publicationDateUnverified}`);
   console.log(`JobPosting withheld (unverified publication): ${report.jobPostingWithheldUnverifiedDate}`);
+  console.log(`JobPosting safe-default dates: ${report.jobPostingSafeDefaultDate}`);
   console.log(`Missing eligible JobPosting: ${report.jobPostingMissing}`);
   console.log(`JSON-LD parse errors: ${report.parseErrors}`);
 

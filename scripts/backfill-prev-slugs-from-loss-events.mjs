@@ -80,20 +80,33 @@ export function denylistKey(file, slug) {
  * ksa slug across three different jobs exactly that way. jobId in the file
  * is provenance only.
  *
- * A missing file yields an empty set (guard off — e.g. fresh checkouts of
- * forks); a present-but-unparsable file throws so the guard can never be
- * silently disabled by a corrupt commit.
+ * The committed file is required: a missing or invalid denylist throws so the
+ * recovery guard can never be silently disabled by a broken checkout/commit.
  *
  * @param {string} [file]
  * @returns {Set<string>}
  */
 export function loadRestoreDenylist(file = DENYLIST_PATH) {
-  if (!fs.existsSync(file)) return new Set();
-  const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
-  const set = new Set();
-  for (const e of (parsed.entries || [])) {
-    if (e && e.file && e.slug) set.add(denylistKey(e.file, e.slug));
+  let text;
+  try {
+    text = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    throw new Error(`Cannot read previous-slug restore denylist at ${file}`, { cause: error });
   }
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (error) {
+    throw new Error(`Malformed previous-slug restore denylist at ${file}`, { cause: error });
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed) || !Array.isArray(parsed.entries)
+    || !parsed.entries.every((entry) => entry && typeof entry === 'object' && !Array.isArray(entry)
+      && typeof entry.file === 'string' && entry.file.trim()
+      && typeof entry.jobId === 'string' && entry.jobId.trim()
+      && typeof entry.slug === 'string' && entry.slug.trim())) {
+    throw new Error(`Invalid previous-slug restore denylist shape at ${file}`);
+  }
+  const set = new Set(parsed.entries.map((entry) => denylistKey(entry.file, entry.slug)));
   return set;
 }
 

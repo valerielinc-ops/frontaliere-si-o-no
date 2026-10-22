@@ -102,18 +102,37 @@ describe('cablaggio: capacità letta e identità che pusha non possono divergere
     expect(promote).not.toContain("git('push', 'origin', baseBranch)");
   });
 
+  it('usa spawnSync per il bridge gh e resta bounded', () => {
+    expect(promote).toContain("spawnSync('gh'");
+    expect(promote).toContain('maxBuffer: GH_EXEC_MAX_BUFFER');
+    expect(promote).not.toContain("execFileSync('gh'");
+  });
+
   it('persiste la riconciliazione anche senza una nuova PR di promozione', () => {
     const promote = read('scripts/prospect-promote.mjs');
-    const start = promote.indexOf('const reconciled = reconcileOpenPromotions(store);');
+    const start = promote.indexOf('const reconciled = await reconcileOpenPromotions(store, (number) => JSON.parse(');
     const nextStage = promote.indexOf('const { promotable, blocked, capped } = selectForPromotion(');
     expect(start).toBeGreaterThanOrEqual(0);
     expect(nextStage).toBeGreaterThan(start);
     const reconciliationPath = promote.slice(start, nextStage);
-    expect(reconciliationPath).toContain('persistReconciledPromotionState(store, reconciled)');
+    expect(reconciliationPath).toContain('), dryRun ? null : undefined);');
+    expect(reconciliationPath).toContain('persistReconciledPromotionState(store, reconciled, { dryRun })');
     expect(reconciliationPath).toContain('process.exit(1)');
     expect(promote).toContain('prospector: riconcilia');
     expect(promote).toContain('restorePromotionAppRemote();');
     expect(promote).toContain('WORKFLOWS_PUSH_IDENTITY');
     expect(promote).toContain("identity !== 'app'");
+  });
+
+  it('stampa la diagnosi locale prima del probe delle PR aperte', () => {
+    const diagnosis = promote.indexOf('printPromotionDiagnosis({');
+    const githubProbe = promote.indexOf('const inFlight = openPromotionPr();');
+    expect(diagnosis).toBeGreaterThanOrEqual(0);
+    expect(githubProbe).toBeGreaterThan(diagnosis);
+  });
+
+  it('non persiste la riconciliazione durante il dry-run', () => {
+    expect(promote).toContain('persistReconciledPromotionState(store, reconciled, { dryRun })');
+    expect(promote).toContain('if (dryRun) {');
   });
 });

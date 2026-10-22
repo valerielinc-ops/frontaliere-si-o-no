@@ -39,6 +39,17 @@ export function isRetryableTraceStatus(status) {
     || code === 425 || code === 429 || code >= 500;
 }
 
+function isRetryableTraceResponse(response) {
+  return !response?.policyBlocked
+    && !response?.blockedByRobots
+    && isRetryableTraceStatus(response?.status);
+}
+
+function recordTraceResponse(result, response) {
+  result.failureStatuses.push(Number(response?.status) || 0);
+  if (isRetryableTraceResponse(response)) result.retryable = true;
+}
+
 /**
  * Detect a JavaScript-only career surface before the vacancy extractor gives
  * it a zero score. These pages intentionally contain no server-rendered job
@@ -123,6 +134,39 @@ export function joinAnchorParts(text = '', attr = '') {
 }
 
 /**
+ * Return balanced list-item scopes so overlay headings cannot leak across
+ * cards when the source contains an empty, aria-hidden anchor.
+ * @param {string} html
+ * @returns {{ start: number, end: number }[]}
+ */
+function balancedListItemScopes(html = '') {
+  const scopes = [];
+  const stack = [];
+  const rx = /<\/?li\b[^>]*>/gi;
+  let match;
+  while ((match = rx.exec(String(html || '')))) {
+    if (match[0].startsWith('</')) {
+      const start = stack.pop();
+      if (start !== undefined) scopes.push({ start, end: match.index + match[0].length });
+    } else {
+      stack.push(match.index);
+    }
+  }
+  return scopes;
+}
+
+function containingListItem(scopes, anchorStart, anchorEnd) {
+  let closest = null;
+  for (const scope of scopes) {
+    if (scope.start < anchorStart && scope.end >= anchorEnd
+      && (!closest || scope.start > closest.start)) {
+      closest = scope;
+    }
+  }
+  return closest;
+}
+
+/**
  * Absolute same-host links in an HTML document, with their anchor text.
  * Cross-origin links are available only when a caller explicitly opts in;
  * careers-trail discovery does that for the separate ATS hop, while the
@@ -147,17 +191,42 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
   let baseHost = '';
   try { baseHost = new URL(baseUrl).host; } catch { /* absolute hrefs may still be usable */ }
   const sameOriginOnly = options.sameOriginOnly ?? true;
-  const rx = /<a\b([^>]*)>/gi;
-  let m;
-  while ((m = rx.exec(html))) {
+  const anchors = [...String(html || '').matchAll(/<a\b([^>]*)>/gi)];
+  const listItemScopes = balancedListItemScopes(html);
+  for (let anchorIndex = 0; anchorIndex < anchors.length; anchorIndex += 1) {
+    const m = anchors[anchorIndex];
     const attrs = m[1];
+    const anchorContentStart = m.index + m[0].length;
+    const nextAnchorStart = anchors[anchorIndex + 1]?.index ?? html.length;
+    const textWindowEnd = Math.min(html.length, nextAnchorStart, anchorContentStart + 4000);
+    const closeOffset = html.slice(anchorContentStart, textWindowEnd).search(/<\/a>/i);
+    const anchorClose = closeOffset >= 0 ? anchorContentStart + closeOffset : -1;
     const href = readAttr(attrs, 'href');
     if (!href) continue;
     if (/^(#|mailto:|tel:|javascript:|data:)/i.test(href.trim())) continue;
     // Anchor text = the markup up to the next </a>, tags stripped.
-    const rest = html.slice(rx.lastIndex, rx.lastIndex + 400);
-    const text = rest.split(/<\/a>/i)[0].replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    const rest = html.slice(
+      anchorContentStart,
+      anchorClose >= 0 ? anchorClose : Math.min(html.length, anchorContentStart + 400),
+    );
+    const text = rest.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
     const aria = readAttr(attrs, ['aria-label', 'title']);
+    // Some card templates use an empty, aria-hidden overlay anchor as the
+    // click target and render the authored title in a sibling heading. Keep
+    // that heading as link evidence when the source explicitly marks the
+    // anchor as hidden; this avoids guessing from arbitrary nearby prose.
+    let overlayHeading = '';
+    if (!text && /^true$/i.test(String(readAttr(attrs, 'aria-hidden') || '').trim())) {
+      const anchorEnd = anchorClose >= 0 ? anchorClose + 4 : anchorContentStart;
+      const item = containingListItem(listItemScopes, m.index, anchorEnd);
+      if (item && item.end > anchorEnd) {
+        const scope = html.slice(anchorEnd, item.end);
+        overlayHeading = scope.match(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/i)?.[1]
+          ?.replace(/<[^>]*>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim() || '';
+      }
+    }
     let parsed;
     try { parsed = new URL(href, baseUrl); } catch { continue; }
     if (!/^https?:$/i.test(parsed.protocol)) continue;
@@ -166,7 +235,11 @@ export function extractLinks(html = '', baseUrl = '', options = {}) {
     const key = abs.split('#')[0];
     if (seen.has(key)) continue;
     seen.add(key);
-    out.push({ url: abs, text: cleanAnchorText(joinAnchorParts(text, aria)), host: normalizeHost(parsed.hostname) });
+    out.push({
+      url: abs,
+      text: cleanAnchorText(joinAnchorParts(text || overlayHeading, aria)),
+      host: normalizeHost(parsed.hostname),
+    });
   }
   return out;
 }
@@ -209,17 +282,44 @@ function hasCareerToken(value = '') {
  * level deep, which is where most WordPress/Wix sites keep the page sitemap.
  *
  * @param {string} origin
+ * @param {{ onFailure?: (outcome: { status: number, retryable: boolean, blockedByRobots: boolean, policyBlocked: boolean }) => void }} [opts]
  * @returns {Promise<string[]>}
  */
-export async function careersFromSitemap(origin) {
+export async function careersFromSitemap(origin, { onFailure } = {}) {
   const found = [];
   const seen = new Set();
   /** @param {string} url @param {number} depth */
   const read = async (url, depth) => {
     if (depth > 1 || seen.has(url) || found.length >= 8) return;
     seen.add(url);
-    const res = await politeFetch(url, { accept: 'application/xml,text/xml,*/*' });
-    if (!res.ok || !res.body.includes('<')) return;
+    let res;
+    try {
+      res = await politeFetch(url, { accept: 'application/xml,text/xml,*/*' });
+    } catch {
+      onFailure?.({ status: 0, retryable: true, blockedByRobots: false, policyBlocked: false });
+      return;
+    }
+    if (!res?.ok) {
+      const status = Number(res?.status) || 0;
+      const blockedByRobots = Boolean(res?.blockedByRobots);
+      const policyBlocked = Boolean(res?.policyBlocked);
+      onFailure?.({
+        status,
+        blockedByRobots,
+        policyBlocked,
+        retryable: !blockedByRobots && !policyBlocked && isRetryableTraceStatus(status),
+      });
+      return;
+    }
+    if (typeof res.body !== 'string' || !/<(?:urlset|sitemapindex)\b/i.test(res.body)) {
+      onFailure?.({
+        status: Number(res.status) || 0,
+        retryable: true,
+        blockedByRobots: false,
+        policyBlocked: false,
+      });
+      return;
+    }
     const locs = [...res.body.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map((m) => m[1]);
     const isIndex = /<sitemapindex/i.test(res.body);
     for (const loc of locs) {
@@ -350,7 +450,7 @@ export function isDistinctCareerSurface(homeHtml = '', pageHtml = '', pageUrl = 
  *
  * @param {{ host: string, url: string, text: string }} candidate
  * @param {number} [minScore]
- * @returns {Promise<{ host: string, url: string, text: string, score: number, signals: string[], vacancyCount: number, aggregator?: boolean, distinctCompanies?: number, verified: boolean }>}
+ * @returns {Promise<{ host: string, url: string, text: string, score: number, signals: string[], vacancyCount: number, aggregator?: boolean, distinctCompanies?: number, verified: boolean, retryable?: boolean, failureStatus?: number, blockedByRobots?: boolean, policyBlocked?: boolean }>}
  */
 export async function verifyAtsHost(candidate, minScore = 3) {
   const res = await politeFetch(candidate.url);
@@ -361,7 +461,17 @@ export async function verifyAtsHost(candidate, minScore = 3) {
   // unreachable page.
   const jsSurface = res.ok && isJavascriptCareerSurface(res.body);
   if (!res.ok || (res.body.length < 200 && !jsSurface)) {
-    return { ...candidate, score: 0, signals: ['unreachable'], vacancyCount: 0, verified: false };
+    return {
+      ...candidate,
+      score: 0,
+      signals: ['unreachable'],
+      vacancyCount: 0,
+      verified: false,
+      retryable: isRetryableTraceResponse(res),
+      failureStatus: Number(res?.status) || 0,
+      blockedByRobots: Boolean(res?.blockedByRobots),
+      policyBlocked: Boolean(res?.policyBlocked),
+    };
   }
   const links = extractLinks(res.body, res.url);
   const scored = scoreVacancyPage(res.body, res.url, links);
@@ -386,6 +496,14 @@ export async function verifyAtsHost(candidate, minScore = 3) {
   };
 }
 
+function recordAtsVerificationFailures(result, checks) {
+  for (const check of checks) {
+    if (!check.retryable) continue;
+    result.retryable = true;
+    result.failureStatuses.push(Number(check.failureStatus) || 0);
+  }
+}
+
 /**
  * Trace starting from a careers page we ALREADY know.
  *
@@ -395,8 +513,8 @@ export async function verifyAtsHost(candidate, minScore = 3) {
  * the index saw and a plain fetch does not.
  *
  * @param {string} careersUrl
- * @param {string} employerDomain
- * @returns {Promise<Awaited<ReturnType<typeof traceCareers>>>}
+ * @param {string|null} employerDomain
+ * @returns {Promise<Omit<Awaited<ReturnType<typeof traceCareers>>, 'domain'> & { domain: string|null }>}
  */
 export async function traceFromCareersUrl(careersUrl, employerDomain) {
   const result = {
@@ -411,7 +529,7 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
     via: ['known-careers-url'],
   };
   const page = await politeFetch(careersUrl);
-  result.failureStatuses.push(Number(page.status) || 0);
+  recordTraceResponse(result, page);
   const jsSurface = page.ok && isJavascriptCareerSurface(page.body);
   if (!page.ok || (page.body.length < 300 && !jsSurface)) {
     // A short body is not itself a transient verdict: a small 404 page is a
@@ -419,7 +537,6 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
     // 200 ATS shell is a third case: it is a valid careers surface even when
     // hydration has left the server response under the byte threshold. Carry
     // the HTTP classification explicitly so TRACE cannot revive the former.
-    result.retryable = isRetryableTraceStatus(page.status);
     return result;
   }
   result.reachable = true;
@@ -433,10 +550,21 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   for (const cand of externalAtsLinks(links, pageHost, { relaxed: true }).slice(0, 6)) {
     checked.push(await verifyAtsHost(cand));
   }
+  recordAtsVerificationFailures(result, checked);
   result.externalHosts = checked.filter((c) => c.verified);
-  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
-  result.retryable = result.failureStatuses.some(isRetryableTraceStatus);
-  result.selfHosted = result.externalHosts.length === 0;
+  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({
+    host: c.host,
+    score: c.score,
+    aggregator: c.aggregator || false,
+    retryable: Boolean(c.retryable),
+    failureStatus: c.failureStatus,
+    blockedByRobots: Boolean(c.blockedByRobots),
+    policyBlocked: Boolean(c.policyBlocked),
+  }));
+  const blockedAts = checked.some((c) => c.blockedByRobots || c.policyBlocked);
+  result.selfHosted = result.externalHosts.length === 0
+    ? blockedAts ? null : !checked.some((c) => c.retryable)
+    : false;
   return result;
 }
 
@@ -448,8 +576,8 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
  * @returns {Promise<{
  *   domain: string, reachable: boolean, careersUrls: string[],
  *   externalHosts: { host: string, url: string, text: string, score: number, vacancyCount: number }[],
- *   rejectedHosts?: { host: string, score: number }[], failureStatuses: number[],
- *   retryable: boolean, selfHosted: boolean, via: string[]
+ *   rejectedHosts?: { host: string, score: number, aggregator?: boolean, retryable?: boolean, failureStatus?: number, blockedByRobots?: boolean, policyBlocked?: boolean }[], failureStatuses: number[],
+ *   retryable: boolean, selfHosted: boolean|null, via: string[]
  * }>}
  */
 export async function traceCareers(domain, opts = {}) {
@@ -466,13 +594,12 @@ export async function traceCareers(domain, opts = {}) {
   };
 
   let home = await politeFetch(`https://${domain}/`);
-  result.failureStatuses.push(Number(home.status) || 0);
+  recordTraceResponse(result, home);
   if (!home.ok) {
     home = await politeFetch(`https://www.${domain}/`);
-    result.failureStatuses.push(Number(home.status) || 0);
+    recordTraceResponse(result, home);
   }
   if (!home.ok || home.body.length < 300) {
-    result.retryable = result.failureStatuses.some(isRetryableTraceStatus);
     return result;
   }
   result.reachable = true;
@@ -505,10 +632,9 @@ export async function traceCareers(domain, opts = {}) {
     .map((link) => link.url))];
   for (const url of relatedCareerUrls.slice(0, maxCareerPages)) {
     const page = await politeFetch(url);
-    result.failureStatuses.push(Number(page.status) || 0);
+    recordTraceResponse(result, page);
     const jsSurface = page.ok && isJavascriptCareerSurface(page.body);
     if (!page.ok || (page.body.length < 300 && !jsSurface)) {
-      if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }
     result.careersUrls.push(page.url);
@@ -528,12 +654,18 @@ export async function traceCareers(domain, opts = {}) {
   }
   if (candidates.length) result.via.push('homepage-link');
   if (!candidates.length) {
-    const sm = await careersFromSitemap(origin);
+    const sm = await careersFromSitemap(origin, {
+      onFailure: ({ status, retryable }) => {
+        result.failureStatuses.push(status);
+        if (retryable) result.retryable = true;
+      },
+    });
     if (sm.length) { candidates.push(...sm); result.via.push('sitemap'); }
   }
   if (!candidates.length) {
     for (const hint of CAREER_PATH_HINTS) {
       const probe = await politeFetch(`${origin}${hint}`);
+      if (isRetryableTraceResponse(probe)) recordTraceResponse(result, probe);
       if (
         probe.ok
         && probe.body.length > 500
@@ -560,11 +692,10 @@ export async function traceCareers(domain, opts = {}) {
     if (seen.has(key)) continue;
     seen.add(key);
     const page = await politeFetch(url);
-    result.failureStatuses.push(Number(page.status) || 0);
+    recordTraceResponse(result, page);
     if (!page.ok) continue;
     const jsSurface = isJavascriptCareerSurface(page.body);
     if (page.body.length < 300 && !jsSurface) {
-      if (isRetryableTraceStatus(page.status)) result.retryable = true;
       continue;
     }
     if (!isDistinctCareerSurface(home.body, page.body, page.url, home.url)) continue;
@@ -582,12 +713,22 @@ export async function traceCareers(domain, opts = {}) {
   for (const cand of result.externalHosts.slice(0, 6)) {
     checked.push(await verifyAtsHost(cand));
   }
+  recordAtsVerificationFailures(result, checked);
   result.externalHosts = checked.filter((c) => c.verified);
-  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({ host: c.host, score: c.score, aggregator: c.aggregator || false }));
-  result.retryable = result.retryable || result.failureStatuses.some(isRetryableTraceStatus);
-
+  result.rejectedHosts = checked.filter((c) => !c.verified).map((c) => ({
+    host: c.host,
+    score: c.score,
+    aggregator: c.aggregator || false,
+    retryable: Boolean(c.retryable),
+    failureStatus: c.failureStatus,
+    blockedByRobots: Boolean(c.blockedByRobots),
+    policyBlocked: Boolean(c.policyBlocked),
+  }));
   // No third-party host anywhere, but a careers page exists -> the employer
   // publishes on its own site and needs a bespoke crawler rather than a family one.
-  result.selfHosted = result.careersUrls.length > 0 && result.externalHosts.length === 0;
+  const blockedAts = checked.some((c) => c.blockedByRobots || c.policyBlocked);
+  result.selfHosted = result.careersUrls.length > 0 && result.externalHosts.length === 0
+    ? blockedAts ? null : !checked.some((c) => c.retryable)
+    : false;
   return result;
 }

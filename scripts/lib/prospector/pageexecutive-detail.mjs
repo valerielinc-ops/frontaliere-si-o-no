@@ -102,10 +102,11 @@ function pageExecutiveLocationCandidate(value = '') {
  *
  * @param {string} html
  * @param {string} pageUrl
+ * @param {{ recordUrl?: string, recordTitle?: string }} [opts]
  */
-export function extractPageExecutiveDetailFields(html = '', pageUrl = '') {
+export function extractPageExecutiveDetailFields(html = '', pageUrl = '', opts = {}) {
   const source = String(html || '');
-  const base = extractDetailFields(source, pageUrl);
+  const base = extractDetailFields(source, pageUrl, opts);
   if (!source) return base;
   const index = indexContainers(source);
 

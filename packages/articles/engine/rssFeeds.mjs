@@ -36,6 +36,7 @@ import {
   SITE_RENDERED_ARTICLE_SECTIONS,
 } from './shared/articleSectionCore.mjs';
 import { parseArticleUrlSlugs } from './shared/articleReaderSource.mjs';
+import { parseStaticArticleTranslationSource, parseStaticBlogBodySource } from './shared/articleStaticSource.mjs';
 import { findAllSeoEntryMatches } from './shared/seo-entry.mjs';
 import { createImageCreditReader, mediaRssCreditXml, renderImageCreditHtml } from './shared/imageCredits.mjs';
 import { articleSectionEntry } from './shared/articleSectionCore.mjs';
@@ -224,13 +225,17 @@ function resolveSlugFile(path, slugFile, slugDir) {
  * article actually says, so `dell\'Italia` reads `dell'Italia`.
  *
  * @param {string | undefined} value
- * @param {'"' | "'"} quote
+ * @param {'"' | "'" | '`'} quote
  * @returns {string | undefined}
  */
 function unescapeQuoted(value, quote) {
   if (value === undefined) return undefined;
   return value.split('\\\\').join('\u0000')
     .split(`\\${quote}`).join(quote)
+    // The article writer escapes apostrophes even when the enclosing literal
+    // uses backticks, so decode that writer escape independently of the
+    // literal delimiter.
+    .split("\\'").join("'")
     .split('\\n').join('\n')
     .split('\u0000').join('\\');
 }
@@ -316,23 +321,20 @@ function parseBlogSlugs(fs, path, rootDir, slugFile, slugConst) {
   return new Map(Object.entries(parseArticleUrlSlugs(src, slugConst)));
 }
 
-function parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, field) {
+function parseLocalizedFields(fs, path, rootDir, localesDir, metaFileName) {
   const filePath = path.join(rootDir, localesDir, metaFileName);
-  if (!fs.existsSync(filePath)) return new Map();
+  const titles = new Map();
+  const excerpts = new Map();
+  if (!fs.existsSync(filePath)) return { titles, excerpts };
   const src = fs.readFileSync(filePath, 'utf-8');
 
-  const out = new Map(); // articleId → value
-  // Handle escaped single quotes (e.g. dell\'Italia) by matching \\' as part of the value
-  const re = new RegExp(`'blog\\.article\\.([^']+)\\.${field}':\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'g');
-  let match;
-  while ((match = re.exec(src)) !== null) {
-    // The shared helper, not a lone `\\'` replace: the writer also escapes
-    // backslashes and newlines, so a partial unescape leaves literal `\\n` in
-    // 16 excerpts. This is the field that WINS over article.excerpt in
-    // renderFeed, so it is the primary path, not the fallback.
-    out.set(match[1], unescapeQuoted(match[2], "'"));
+  for (const [articleId, fields] of parseStaticArticleTranslationSource(src, filePath)) {
+    const title = fields.get('title');
+    if (title !== undefined) titles.set(articleId, title);
+    const excerpt = fields.get('excerpt');
+    if (excerpt !== undefined) excerpts.set(articleId, excerpt);
   }
-  return out;
+  return { titles, excerpts };
 }
 
 /** Concatenate the per-locale body chunks of every article in a body dir. */
@@ -341,36 +343,19 @@ function parseBlogBodies(fs, path, rootDir, localesDir, bodyDir, locale) {
   const dir = path.join(rootDir, localesDir, bodyDir, locale);
   if (!fs.existsSync(dir)) return bodies;
 
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith('.ts'));
-  // Match: 'blog.article.{id}.bodyN': `...` or '...'
-  const rx = /['"]blog\.article\.([^'"]+)\.(body\d+)['"]\s*:\s*[`']((?:[^`'\\]|\\.)*)(?:[`'])/g;
-
+  const files = fs.readdirSync(dir).filter((file) => file.endsWith('.ts'));
   for (const file of files) {
-    const src = fs.readFileSync(path.join(dir, file), 'utf-8');
-    const articleParts = new Map(); // articleId → { body1: '...', body2: '...' }
-    let m;
-    rx.lastIndex = 0;
-    while ((m = rx.exec(src)) !== null) {
-      const [, id, part, text] = m;
-      if (!articleParts.has(id)) articleParts.set(id, new Map());
-      // Unescape here, not at render: this text goes straight into
-      // <content:encoded>, and it is the one parsed field that actually
-      // reaches the served bytes — the title/description paths are masked by
-      // the locale-meta lookup winning in renderFeed, this one is not.
-      // Both quote styles appear in the corpus (backtick and single), and
-      // escapeForSingleQuoteTS escapes the same way for either.
-      articleParts.get(id).set(part, unescapeQuoted(text, "'"));
-    }
+    const filePath = path.join(dir, file);
+    const src = fs.readFileSync(filePath, 'utf-8');
+    const parsed = parseStaticBlogBodySource(src, filePath);
 
-    for (const [id, parts] of articleParts) {
-      // Sort body1, body2, body3... and concatenate
-      const sorted = [...parts.entries()]
+    for (const [id, fields] of Object.entries(parsed)) {
+      const body = Object.entries(fields)
+        .filter(([field]) => /^body\d+$/.test(field))
         .sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([, v]) => v)
+        .map(([, value]) => value)
         .join('\n');
-      if (sorted.length > 50) {
-        bodies.set(id, sorted);
-      }
+      if (body.length > 50) bodies.set(id, body);
     }
   }
 
@@ -616,8 +601,7 @@ export function buildSectionFeeds({ fs, path, rootDir, section, registry = [], l
   const feeds = [];
   for (const locale of RSS_LOCALES) {
     const metaFileName = section.metaFile(locale);
-    const titles = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'title');
-    const excerpts = parseLocalizedField(fs, path, rootDir, localesDir, metaFileName, 'excerpt');
+    const { titles, excerpts } = parseLocalizedFields(fs, path, rootDir, localesDir, metaFileName);
     const bodies = parseBlogBodies(fs, path, rootDir, localesDir, section.bodyDir, locale);
 
     const xml = renderFeed(section, locale, feedArticles, slugs, titles, excerpts, bodies, images, credits, repairSerpSnippet);

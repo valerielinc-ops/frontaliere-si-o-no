@@ -2,7 +2,7 @@
 /**
  * Prospector stage 6 — PROMOTE. The stage that closes the loop.
  *
- * Ships graded crawlers into the production set with no human in the path. That
+ * Submits graded crawlers through the production review cycle. That
  * is only defensible because the decision is not "the score is high": it is the
  * conjunction in `promotion-gate.mjs`, whose binding condition — two good
  * gradings on two different days — cannot be met by a single run however good
@@ -33,10 +33,12 @@
  */
 import fs, { realpathSync } from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { GH_EXEC_MAX_BUFFER } from './lib/gh-exec-buffer.mjs';
 import { pathToFileURL } from 'node:url';
-import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prospector/candidate-store.mjs';
+import { loadCandidates, saveCandidates, setStatus, byStatus, startLedgerPhase } from './lib/prospector/candidate-store.mjs';
+import { reconcileOpenPromotions } from './lib/prospector/promotion-reconciliation.mjs';
+import { reconcileAwaitingFirstCrawls } from './lib/prospector/production-output.mjs';
 import {
   selectForPromotion,
   summarizePromotionBlocks,
@@ -47,6 +49,7 @@ import {
 } from './lib/prospector/promotion-gate.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
+import { qualityContractVersionOf } from './lib/prospector/quality-contract.mjs';
 import { validatePrBodyFile } from './ci/pr-body-check-gate.mjs';
 // Sì, per due righe di logica si importa un file di ~2.870 righe: nit del
 // reviewer su PR #7276, valutato e NON preso, di proposito.
@@ -112,6 +115,7 @@ const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); ret
 const flag = (n) => argv.includes(`--${n}`);
 
 const dryRun = flag('dry-run');
+startLedgerPhase('promote', { dryRun });
 const openPr = flag('open-pr');
 const maxPerRun = Number(arg('max', GATE_DEFAULTS.maxPerRun));
 
@@ -147,6 +151,65 @@ const coverage = loadCoverage();
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 /**
+ * Esegue una lettura `gh` con stdout catturato.
+ *
+ * Il runtime gestito del fixer rifiuta `execFileSync` per i client bridge, pur
+ * consentendo lo stesso comando via `spawnSync`. Il wrapper `gh` inoltra poi
+ * l'output su un descriptor ereditato, non sulla pipe Node: catturarlo in un
+ * file temporaneo mantiene il body gate attivo anche per `pr create`.
+ * Mantenere qui il controllo bounded e fail-closed evita di trasformare un
+ * errore di auth in una PR duplicata o in una promozione non verificata.
+ *
+ * @param {string[]} args
+ * @returns {string}
+ */
+function runGhForOutput(args) {
+  const tempRoot = process.env.RUNNER_TEMP || ROOT;
+  const tempDir = fs.mkdtempSync(path.join(tempRoot, 'prospect-promote-gh-'));
+  const stdoutPath = path.join(tempDir, 'stdout');
+  const stderrPath = path.join(tempDir, 'stderr');
+  let stdoutFd;
+  let stderrFd;
+  try {
+    stdoutFd = fs.openSync(stdoutPath, 'w');
+    stderrFd = fs.openSync(stderrPath, 'w');
+    const result = spawnSync('gh', args, {
+      cwd: ROOT,
+      maxBuffer: GH_EXEC_MAX_BUFFER,
+      stdio: ['ignore', stdoutFd, stderrFd],
+      timeout: 60_000,
+    });
+    fs.closeSync(stdoutFd);
+    stdoutFd = undefined;
+    fs.closeSync(stderrFd);
+    stderrFd = undefined;
+    const stdout = fs.readFileSync(stdoutPath, 'utf8');
+    const stderr = fs.readFileSync(stderrPath, 'utf8');
+    if (Buffer.byteLength(stdout) > GH_EXEC_MAX_BUFFER) {
+      const error = new Error(`gh output exceeds ${GH_EXEC_MAX_BUFFER} bytes`);
+      error.status = null;
+      error.stderr = stderr;
+      throw error;
+    }
+    if (result.error) {
+      result.error.stderr = stderr;
+      throw result.error;
+    }
+    if (result.status !== 0) {
+      const error = new Error(`gh exit ${result.status ?? 'unknown'}`);
+      error.status = result.status;
+      error.stderr = stderr;
+      throw error;
+    }
+    return stdout;
+  } finally {
+    if (stdoutFd !== undefined) fs.closeSync(stdoutFd);
+    if (stderrFd !== undefined) fs.closeSync(stderrFd);
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  }
+}
+
+/**
  * Porta a termine le promozioni gia' aperte, leggendo l'esito della loro PR.
  *
  * `promoting` e' uno stato di transito e vive SOLO su main, perche' scriverlo
@@ -154,7 +217,8 @@ const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
  * candidates.json e la PR non sarebbe piu' mergiabile in automatico. Quindi il
  * passaggio finale non puo' che avvenire qui, in un giro successivo:
  *
- *   PR MERGED  -> `production`: il crawler e' in produzione davvero.
+ *   PR MERGED  -> `awaiting_first_crawl`: codice e schedule sono mergiati;
+ *                 serve una slice `jobs` fresca e non vuota per confermare output.
  *   PR CLOSED  -> `promoted`: senza questo il candidato resterebbe bloccato per
  *                 sempre, escluso dal gate e non rimesso in gioco da nessuno.
  *   PR OPEN    -> non si tocca: e' ancora in volo.
@@ -162,28 +226,6 @@ const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
  * @param {ReturnType<typeof loadCandidates>} store
  * @returns {{ landed: number, reopened: number }}
  */
-function reconcileOpenPromotions(store) {
-  let landed = 0;
-  let reopened = 0;
-  for (const c of byStatus(store, 'promoting')) {
-    if (!c.promotionPr) continue;
-    let state = '';
-    try {
-      state = execFileSync('gh', ['pr', 'view', String(c.promotionPr), '--json', 'state', '-q', '.state'], {
-        cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'],
-      }).toString().trim();
-    } catch { continue; } // gh non disponibile o PR non leggibile: non toccare nulla
-    if (state === 'MERGED') {
-      setStatus(store, c.key, 'production', { promotedAt: new Date().toISOString() });
-      landed++;
-    } else if (state === 'CLOSED') {
-      setStatus(store, c.key, 'promoted', { reason: `PR ${c.promotionPr} chiusa senza merge, ricandidato` });
-      reopened++;
-    }
-  }
-  return { landed, reopened };
-}
-
 /**
  * Il push data-only passa deliberatamente dal PAT, ma una successiva PR può
  * dover aggiornare `.github/workflows/**` e richiede quindi il token App.
@@ -220,11 +262,18 @@ function restorePromotionAppRemote() {
  * facile da perdere quando il promotion gate restituisce zero candidati.
  *
  * @param {ReturnType<typeof loadCandidates>} store
- * @param {{ landed: number, reopened: number }} reconciled
+ * @param {{ landed: number, reopened: number, firstCrawl?: { verified: number, pending: number, escalated: number, changed: number } }} reconciled
+ * @param {{ dryRun?: boolean }} [opts]
  * @returns {boolean}
  */
-function persistReconciledPromotionState(store, reconciled) {
-  if (!reconciled.landed && !reconciled.reopened) return true;
+function persistReconciledPromotionState(store, reconciled, { dryRun = false } = {}) {
+  const firstCrawl = reconciled.firstCrawl || { verified: 0, pending: 0, escalated: 0, changed: 0 };
+  const totalChanged = reconciled.landed + reconciled.reopened + firstCrawl.changed;
+  if (!totalChanged) return true;
+  if (dryRun) {
+    console.log(`--dry-run: stato riconciliato non scritto (${reconciled.landed} merge, ${reconciled.reopened} ricandidati, ${firstCrawl.verified} primi crawl verificati).`);
+    return true;
+  }
   const baseBranch = process.env.GITHUB_REF_NAME || execFileSync(
     'git', ['rev-parse', '--abbrev-ref', 'HEAD'],
     { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] },
@@ -234,7 +283,7 @@ function persistReconciledPromotionState(store, reconciled) {
     execFileSync('git', ['add', 'data/prospector'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
     execFileSync('git', [
       'commit', '-m',
-      `prospector: riconcilia ${reconciled.landed + reconciled.reopened} stati di promozione`,
+      `prospector: riconcilia ${totalChanged} stati di promozione`,
     ], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
     // Il remote può ancora portare l'identità App usata per la PR: il retry
     // helper ripristina l'autenticazione PAT per il commit data-only su main.
@@ -243,7 +292,7 @@ function persistReconciledPromotionState(store, reconciled) {
       stdio: ['ignore', 'pipe', 'pipe'],
     });
     restorePromotionAppRemote();
-    console.log(`stato riconciliato scritto su ${baseBranch}: ${reconciled.landed} production, ${reconciled.reopened} ricandidati.`);
+    console.log(`stato riconciliato scritto su ${baseBranch}: ${reconciled.landed} merge, ${reconciled.reopened} ricandidati, ${firstCrawl.verified} primi crawl verificati.`);
     return true;
   } catch (err) {
     console.error(`❌ stato riconciliato non persistito su ${baseBranch}: ${String(err.stderr || err.message).slice(0, 240)}`);
@@ -287,14 +336,14 @@ function persistReconciledPromotionState(store, reconciled) {
  * prefisso `prospector/promote-` (es. un test manuale) bloccherebbe il loop
  * indefinitamente, scambiato per una promozione reale (follow-up #6305 item 3).
  *
- * @returns {{ number: string, createdAt: string, title: string, ghUnavailable?: boolean }|null}
+ * @returns {{ number: string, createdAt: string, title: string, url?: string, ghUnavailable?: boolean }|null>
  */
 function openPromotionPr() {
   try {
-    const out = execFileSync('gh', [
+    const out = runGhForOutput([
       'pr', 'list', '--state', 'open', '--search', 'sort:created-desc', '--limit', '300',
-      '--json', 'number,createdAt,title,headRefName,author',
-    ], { cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+      '--json', 'number,createdAt,title,url,headRefName,author',
+    ]);
     return findOpenPromotionPr(JSON.parse(out));
   } catch {
     // `gh` assente o non autorizzato: non si puo' sapere. Meglio NON promuovere
@@ -303,10 +352,61 @@ function openPromotionPr() {
   }
 }
 
-const reconciled = reconcileOpenPromotions(store);
-if (reconciled.landed) console.log(`promozioni atterrate in produzione: ${reconciled.landed}`);
+/**
+ * Stampa la diagnosi del gate prima di interrogare GitHub.
+ *
+ * La selezione e' una decisione locale e completa: se il controllo delle PR
+ * aperte fallisce, il run deve comunque lasciare l'audit trail che spiega
+ * perche' ogni candidato e' rimasto fuori. Senza questo ordine un problema di
+ * auth maschera proprio la diagnosi che dovrebbe aiutare a risolverlo.
+ */
+function printPromotionDiagnosis({ promotable, blocked, capped, blockedSummary }) {
+  console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
+  console.log(`passano il gate di produzione: ${promotable.length}${capped ? ` (+${capped} oltre il tetto di ${maxPerRun}, rinviati)` : ''}`);
+  console.log(`fermati dal gate: ${blocked.length} (${blockedSummary.stabilityOnly} solo stabilita'; ${blockedSummary.other} altre condizioni)`);
+
+  // Attribuzione per predicato dei blocchi `other` (#9680): conta per nome del
+  // check, stabile fra le run, invece che per testo della ragione.
+  const blockedDiagnosis = diagnosePromotionBlocks(blocked);
+  console.log(`diagnosi gate: stabilityOnly=${blockedDiagnosis.stabilityOnly} other=${blockedDiagnosis.other} failedChecks=${JSON.stringify(blockedDiagnosis.failedChecks)} unattributed=${blockedDiagnosis.unattributed.length}`);
+  console.log('predicati falliti per candidato:');
+  for (const item of blockedDiagnosis.candidateFailures) {
+    console.log(`  ${item.key}: ${item.failedChecks.join(', ') || '(nessun predicato fallito)'}`);
+  }
+  if (blockedDiagnosis.unattributed.length) {
+    console.log(`::warning::${blockedDiagnosis.unattributed.length} blocchi del gate senza check fallito o senza ragione: ${blockedDiagnosis.unattributed.slice(0, 20).join(', ')}`);
+  }
+  console.log('');
+
+  // Why each one was held back. With nobody watching, this IS the review.
+  const reasonTally = {};
+  for (const b of blocked) for (const r of b.reasons) reasonTally[r] = (reasonTally[r] || 0) + 1;
+  for (const [reason, n] of Object.entries(reasonTally).sort((a, b) => b[1] - a[1]).slice(0, 10)) {
+    console.log(`  ${String(n).padStart(4)} × ${reason}`);
+  }
+}
+
+const reconciled = await reconcileOpenPromotions(store, (number) => JSON.parse(
+  runGhForOutput([
+    'pr', 'view', number,
+    '--json', 'number,state,mergedAt,closedAt,url',
+    '-q', '.',
+  ]),
+), dryRun ? null : undefined);
+const firstCrawl = reconcileAwaitingFirstCrawls(store, { ledgerFile: dryRun ? null : undefined });
+reconciled.firstCrawl = firstCrawl;
+if (reconciled.landed) console.log(`PR di promozione mergiate, in attesa del primo output: ${reconciled.landed}`);
 if (reconciled.reopened) console.log(`ricandidati dopo PR chiuse senza merge: ${reconciled.reopened}`);
-if (!persistReconciledPromotionState(store, reconciled)) process.exit(1);
+if (firstCrawl.verified) console.log(`primo output non vuoto e aggiornato verificato: ${firstCrawl.verified}`);
+if (firstCrawl.pending) console.log(`crawler senza primo output valido: ${firstCrawl.pending} in attesa`);
+if (firstCrawl.escalated) {
+  const keys = byStatus(store, 'awaiting_first_crawl')
+    .filter((candidate) => candidate.firstCrawlerOutputAttention)
+    .map((candidate) => candidate.crawlerKey).slice(0, 20);
+  const message = `Prospector: ${firstCrawl.escalated} crawler ancora senza primo output pubblicato dopo 48h. Verificare schedule e artifact: ${keys.join(', ') || 'candidate keys unavailable'}.`;
+  console.log(`::warning title=Prospector first crawl overdue::${message}`);
+}
+if (!persistReconciledPromotionState(store, reconciled, { dryRun })) process.exit(1);
 
 const { promotable, blocked, capped } = selectForPromotion(
   byStatus(store, 'promoted'),
@@ -314,9 +414,12 @@ const { promotable, blocked, capped } = selectForPromotion(
   { maxPerRun, minDistinctDays: minDays, minRuns },
 );
 
+const blockedSummary = summarizePromotionBlocks(blocked);
+console.log('═══ Prospector · PROMOTE ═══');
+printPromotionDiagnosis({ promotable, blocked, capped, blockedSummary });
+
 const inFlight = openPromotionPr();
 if (inFlight) {
-  console.log('═══ Prospector · PROMOTE ═══');
   if (inFlight.ghUnavailable) {
     // Guasto separato dal caso "PR trovata": non sappiamo se una promozione e'
     // gia' in volo, quindi saltiamo per sicurezza — ma un problema di
@@ -328,42 +431,24 @@ if (inFlight) {
     console.log('e\' un guasto di auth/token del runner CI da investigare separatamente.');
     process.exit(0);
   }
-  const ageH = inFlight.createdAt
-    ? Math.round((Date.now() - Date.parse(inFlight.createdAt)) / 3600000)
-    : null;
+  const ageMs = inFlight.createdAt ? Date.now() - Date.parse(inFlight.createdAt) : NaN;
+  const ageH = Number.isFinite(ageMs) ? Math.round(ageMs / 3600000) : null;
   console.log(`\nUna PR di promozione e' gia' aperta: #${inFlight.number}${ageH !== null ? ` (da ${ageH}h)` : ''}`);
   console.log(`  ${inFlight.title}`);
   console.log('\nNon ne apro una seconda: ogni promozione rigenera tutti i gruppi di');
   console.log('workflow, quindi due PR aperte si bloccherebbero a vicenda sugli stessi file.');
   console.log('I candidati restano in coda e il giro dopo il merge li riprende da solo.');
-  if (ageH !== null && ageH > 48) {
-    console.log(`\n⚠️  Quella PR e' ferma da ${ageH}h: finche' non mergia, il loop non promuove piu' nessuno.`);
+  if (Number.isFinite(ageMs) && ageMs > 48 * 3600000) {
+    const repository = String(process.env.GITHUB_REPOSITORY || '').trim();
+    const owner = repository.split('/')[0] || 'repository owner';
+    const url = inFlight.url || (repository ? `https://github.com/${repository}/pull/${inFlight.number}` : `PR #${inFlight.number}`);
+    const escalation = `PR #${inFlight.number} è aperta da ${ageH}h e blocca nuove promozioni. Owner: @${owner}. Prossima azione: rivedere o risolvere la PR ${url}.`;
+    console.log(`::warning title=Prospector promotion PR overdue::${escalation}`);
+    if (process.env.GITHUB_STEP_SUMMARY) {
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `\n## PROMOTE: PR oltre 48 ore\n\n- ${escalation}\n`);
+    }
   }
   process.exit(0);
-}
-
-console.log('═══ Prospector · PROMOTE ═══');
-console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
-console.log(`passano il gate di produzione: ${promotable.length}${capped ? ` (+${capped} oltre il tetto di ${maxPerRun}, rinviati)` : ''}`);
-const blockedSummary = summarizePromotionBlocks(blocked);
-console.log(`fermati dal gate: ${blocked.length} (${blockedSummary.stabilityOnly} solo stabilita'; ${blockedSummary.other} altre condizioni)`);
-
-// Attribuzione per predicato dei blocchi `other` (#9680): conta per nome del
-// check, stabile fra le run, invece che per testo della ragione.
-const blockedDiagnosis = diagnosePromotionBlocks(blocked);
-const checkTally = Object.entries(blockedDiagnosis.failedChecks).map(([name, n]) => `${name} ${n}`).join(', ');
-if (checkTally) console.log(`predicati falliti nelle altre condizioni: ${checkTally}`);
-console.log(`altre condizioni senza causa concreta: ${blockedDiagnosis.unattributed.length}`);
-if (blockedDiagnosis.unattributed.length) {
-  console.log(`::warning::${blockedDiagnosis.unattributed.length} blocchi del gate senza check fallito o senza ragione: ${blockedDiagnosis.unattributed.slice(0, 20).join(', ')}`);
-}
-console.log('');
-
-// Why each one was held back. With nobody watching, this IS the review.
-const reasonTally = {};
-for (const b of blocked) for (const r of b.reasons) reasonTally[r] = (reasonTally[r] || 0) + 1;
-for (const [reason, n] of Object.entries(reasonTally).sort((a, b) => b[1] - a[1]).slice(0, 10)) {
-  console.log(`  ${String(n).padStart(4)} × ${reason}`);
 }
 
 if (!promotable.length) {
@@ -427,8 +512,8 @@ for (const c of promotable) {
   // contrario di un loop che si chiude da solo.
   //
   // L'evidenza della promozione, sul branch, sono i file scaffoldati e la voce
-  // di manifest. Lo stato lo scrive solo main: `promoting` adesso, `production`
-  // quando un giro successivo vede che la PR e' stata mergiata.
+  // di manifest. Lo stato lo scrive solo main: `promoting` adesso,
+  // `awaiting_first_crawl` dopo il merge e `production` dopo una slice fresca e non vuota.
   shipped.push({ ...c, spec });
   console.log(`  ✓ ${spec.companyKey.padEnd(28)} ${String(c.vacancyCount).padStart(3)} annunci  qualita' ${Number(c.qualityScore).toFixed(2)}`);
 }
@@ -658,18 +743,18 @@ try {
   git('push', '-u', 'origin', branch);
   let url;
   try {
-    url = execFileSync('gh', [
+    url = runGhForOutput([
       'pr', 'create', '--base', 'main', '--head', branch,
       '--title', `${relaxed ? '[gate ridotto] ' : ''}Prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`,
       '--body-file', bodyFile,
-    ], { cwd: ROOT, maxBuffer: GH_EXEC_MAX_BUFFER, stdio: ['ignore', 'pipe', 'pipe'] }).toString().trim();
+    ]).trim();
   } catch {
     console.error('::warning::gh pr create non ha risposto; il branch del prospector e\' gia\' pushato, nessun body PR scritto.');
     process.exit(0);
   }
   console.log(`\nPR aperta: ${url}`);
 
-  // Il passaggio a `production` vive sul branch della PR, quindi su main questi
+  // Il passaggio a `awaiting_first_crawl` vive sul branch della PR, quindi su main questi
   // candidati resterebbero `promoted` finche' la PR non merge — e il giro
   // successivo, che riparte da main fresco, li riscaffolderebbe aprendo una
   // seconda PR con gli stessi file. Quindi si torna sul branch base e ci si
@@ -729,7 +814,11 @@ export function buildPromotionPrBody({
   workflowPaths = [],
 }) {
   const bullets = shipped.map((s) => {
-    const h = (s.validationHistory || []).filter((v) => v.verdict === 'good');
+    const contractVersion = qualityContractVersionOf(s);
+    const adapterVersion = String(s.sourceAdapterVersion || '').trim();
+    const h = (s.validationHistory || []).filter((v) => v.verdict === 'good'
+      && qualityContractVersionOf(v) === contractVersion
+      && (!adapterVersion || v.sourceAdapterVersion === adapterVersion));
     const days = new Set(h.map((v) => String(v.at).slice(0, 10))).size;
     return `- **in questa PR** — \`${s.spec.companyKey}\` · ${s.spec.companyName} · ${s.vacancyCount} annunci · qualita' ${Number(s.qualityScore).toFixed(2)} su ${days} giorni distinti · estrazione \`${s.spec.mode}\` · ${s.spec.companyHost}`;
   }).join('\n');
@@ -754,7 +843,7 @@ export function buildPromotionPrBody({
 
   return `## Implementato
 
-- **in questa PR** — ${shipped.length} crawler promossi dal prospector, per **${totalVacancies} annunci** di datori che non coprivamo. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore} contro la pagina ufficiale del datore, su almeno ${GATE_DEFAULTS.minSampled} pagine di dettaglio, con **${stabilityRequirement}**${stabilityClaim} — e con almeno il ${Math.round(GATE_DEFAULTS.minJobLike * 100)}% delle pagine di dettaglio che **legge come un annuncio di lavoro** e non come contenuto promozionale o editoriale.
+- **in questa PR** — ${shipped.length} crawler validati aggiunti ai manifest e alle schedule, con **${totalVacancies} annunci osservati** durante VALIDATE. Ognuno ha superato il gate di \`scripts/lib/prospector/promotion-gate.mjs\`: qualita' >= ${GATE_DEFAULTS.minScore}, con **${stabilityRequirement}**${stabilityClaim}, semantica provata su almeno il ${Math.round(GATE_DEFAULTS.minJobLikeEvidence * 100)}% del campione e identita' del datore confermata. Main segna il merge come \`awaiting_first_crawl\`; \`production\` richiede una slice \`jobs\` fresca e non vuota.
 ${bullets}${relaxedNote}
 - **in questa PR** — voci nel manifest${groupsRegenerated ? ' e gruppi di workflow rigenerati, quindi i crawler entrano nella schedulazione esistente' : ''}.${workflowNote}${companiesNote}
 

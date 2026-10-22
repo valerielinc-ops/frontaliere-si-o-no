@@ -372,7 +372,11 @@ async function ensureUserProfileDoc(
         locale: meta?.locale ?? 'it',
       }, { merge: true });
     } else if (meta) {
-      await f.setDoc(ref, { email: meta.email, locale: meta.locale }, { merge: true });
+      const current = existing.data?.() as { email?: string | null; locale?: string } | undefined;
+      const next = { email: meta.email, locale: meta.locale };
+      if (current?.email !== next.email || current?.locale !== next.locale) {
+        await f.setDoc(ref, next, { merge: true });
+      }
     }
   } catch (error) {
     if (isIndexedDbError(error)) resetFirestoreConnection();

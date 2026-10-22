@@ -6,7 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
 import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
-import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
@@ -18,6 +18,19 @@ const GR_PARTIAL_FEED = `
     <td class="amount">500</td><td class="amount">50</td><td class="amount">900</td>
     <td class="closingTime">2026/09/14 20:00:00</td><td>4</td>
   </tr></tbody></table></div>`;
+
+const BE_CARD_SAMPLE = `
+  <div class="auction-grid"><div class="auctions">
+    <div>Auktionsende am 23.09.2026</div>
+    <a href="/de/auction/109715" class="auction-element-link">
+      <figure title="BE 13926"><figcaption>BE 13926</figcaption></figure>
+      <div class="auction-element-title"><img src="/bundles/auction/icons/car.svg" alt="Icon eines Autos"/></div>
+      <div class="auction-current-bid">CHF&nbsp;600</div>
+      <div class="auction-element-text"><div class="auction-number-bids">1 Gebot</div>
+        <div class="auction-ends-at-text">Endet am:</div><div>19:00:00</div>
+      </div>
+    </a>
+  </div></div>`;
 
 function fakeFirestore(previousRows: Record<string, unknown>[]) {
   const deletes: string[] = [];
@@ -61,6 +74,47 @@ function fakeFirestore(previousRows: Record<string, unknown>[]) {
     writes,
   };
 }
+
+describe('Glarus Cloud Function collector', () => {
+  it('collects the same verified public JSON source as the static builder', async () => {
+    const store = fakeFirestore([]);
+    const now = new Date();
+    const payload = { status: true, data: [{ id: 1585, number: 3100, price: 150, typeid: 3, platetype: 'motorcycle_plate', available: 1, deleted: 0, registered: 0, reservationid: null }] };
+    const request = {
+      db: store.db as never, now,
+      fetcher: async (url: string) => url === 'https://eschild.gl.ch/api/v1/plate' ? payload : '',
+    };
+    const result = await refreshPlateAuctions(request);
+    expect(result.summaries.gl).toMatchObject({ status: 'active' });
+    expect(store.writes.some(write => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'gl-1585' && write.value.normalizedPlate === 'GL3100' && write.value.vehicleType === 'motorcycle' && write.value.startingPriceChf === 150)).toBe(true);
+    expect(store.sourceSets.find(source => source.id === 'gl')?.value).toMatchObject({ status: 'active', rowCount: 1 });
+  });
+});
+
+describe('Berne Cloud Function collector', () => {
+  it('tries the alternate official host before degrading the source', async () => {
+    const firestore = fakeFirestore([]);
+    const calls: string[] = [];
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string) => {
+        calls.push(url);
+        if (url === BE_AUCTION_URLS[0]) throw new Error('HTTP 404');
+        if (url === BE_AUCTION_URLS[1]) return BE_CARD_SAMPLE;
+        return '';
+      },
+      now: new Date('2026-09-20T12:00:00.000Z'),
+    });
+
+    expect(calls).toContain(BE_AUCTION_URLS[0]);
+    expect(calls).toContain(BE_AUCTION_URLS[1]);
+    expect(result.summaries.be).toMatchObject({ status: 'active', rowCount: 1 });
+    expect(firestore.writes.find((write) => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'be-109715')?.value).toMatchObject({
+      officialAuctionUrl: BE_AUCTION_URLS[0],
+      officialDetailUrl: `${new URL(BE_AUCTION_URLS[1]).origin}/de/auction/109715`,
+    });
+  });
+});
 
 describe('plate-auction Cloud Function schedule', () => {
   // From 2026-09-15 every run was cut off at BS (60 s / 256 MiB defaults) and
@@ -183,7 +237,7 @@ describe('plate-auction Firestore batching', () => {
     expect(calls).not.toContain('https://eauktion.gr.ch/');
     expect(firestore.writes.find((write) => write.collection === PLATE_AUCTION_COLLECTION && write.id === 'gr-2230')?.value).toMatchObject({
       officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
-      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_ch',
+      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_CH',
     });
     expect(firestore.deletes).not.toContain('gr-old');
     expect(firestore.sourceSets.find((entry) => entry.id === 'gr')).toMatchObject({
@@ -498,7 +552,7 @@ describe('plate-auction Cloud Function: card catalogue between auction rounds', 
     const firestore = statefulFirestore([{
       id: 'vd-1768', sourceKey: 'VD', canton: 'Vaud', platePrefix: 'VD', plateNumber: '691', normalizedPlate: 'VD691',
       listingType: 'auction', auctionStatus: 'active', currentBidChf: 950, endsAt: '2026-10-04T20:00:00.000Z',
-      officialAuctionUrl: 'https://www.encheres-vd.ch/de/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
+      officialAuctionUrl: 'https://www.encheres-vd.ch/fr/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
       lastVerifiedAt: '2026-10-04T12:25:00.000Z', dataConfidence: 'partial', firstSeenAt: '2026-10-04T12:25:00.000Z',
     }]);
     const result = await refreshPlateAuctions({

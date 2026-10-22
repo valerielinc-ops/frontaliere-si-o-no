@@ -66,6 +66,8 @@ export interface RenderArticleHubCardsArgs {
    * makes the card fall back to a de-slugified id, exactly as before.
    */
   readonly resolveMeta: (id: string, articlePath: string) => HubCardMeta | null;
+  /** Resolve the final owned route for the emitted card href, when available. */
+  readonly resolveHref?: (href: string) => string;
   /** Cards to render. 100 on both call sites — see the page-weight note below. */
   readonly limit?: number;
 }
@@ -126,7 +128,7 @@ function stripHubMarkdown(value: string): string {
  * and the svizzera hub projected at 91.9 KB.
  */
 export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
-  const { articles, locale, sectionSlug, localePrefix, resolveSlug, resolveMeta } = args;
+  const { articles, locale, sectionSlug, localePrefix, resolveSlug, resolveMeta, resolveHref } = args;
   const limit = args.limit ?? 100;
 
   return articles.slice(0, limit).map((art, idx) => {
@@ -141,6 +143,7 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
       ? `/${localePrefix}/${sectionSlug}/${artSlug}/`
       : `/${sectionSlug}/${artSlug}/`;
     const meta = resolveMeta(art.id, artPath);
+    const href = resolveHref ? resolveHref(artPath) : artPath;
     const title = meta
       ? esc(stripHubMarkdown(meta.title))
       : art.id.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
@@ -174,7 +177,7 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
     // title-only aria-label would override that text as the accessible name
     // and fail WCAG 2.5.3 (Label in Name). Let visible descendants provide
     // the anchor's name instead.
-    return `<a href="${artPath}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span>${dateHtml}<h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
+    return `<a href="${href}" class="ssg-art-card"><img src="${art.image}" alt="${title}" width="400" height="200" class="ssg-art-img"${imgLoadingAttrs}><div class="ssg-art-body"><span class="ssg-art-cat" style="${catColor}">${esc(catLabel)}</span>${dateHtml}<h3 class="ssg-art-title">${title}</h3>${desc ? `<p class="ssg-art-desc">${desc}</p>` : ''}</div></a>`;
   }).join('');
 }
 

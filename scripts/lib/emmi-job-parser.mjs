@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { sourcePostingDateFields } from './source-posting-date.mjs';
-import { createHash } from 'node:crypto';
+import { assignProspectiveListingIds, assignReferenceJobIds, prospectiveStableRef } from './prospective-reference-ids.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
@@ -230,7 +230,13 @@ async function fetchEmmiVacancyHtml(url) {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllEmmiJobs() {
+/** See lib/prospective-reference-ids.mjs: kept for this parser's callers and tests. */
+export const emmiStableRef = prospectiveStableRef;
+export function assignEmmiJobIds(entries = [], options = {}) {
+  return assignReferenceJobIds(entries, 'emmi', options);
+}
+
+export async function fetchAllEmmiJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching Emmi jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
@@ -259,8 +265,10 @@ export async function fetchAllEmmiJobs() {
 
   const jobs = [];
   const seen = new Set();
+  // A reference code shared by distinct postings gets one id per posting.
+  const idByListing = assignProspectiveListingIds(listings, 'emmi', CAREER_URL, { existingJobs });
 
-  for (const listing of listings) {
+  for (const [listingIndex, listing] of listings.entries()) {
     const szas = listing.szas || {};
 
     // Switzerland-only guard (board is CH-only; defensive check anyway).
@@ -292,13 +300,9 @@ export async function fetchAllEmmiJobs() {
     const descriptionHtml = vacancyHtml || [tasksHtml, reqsHtml].filter(Boolean).join('\n');
     const descriptionText = stripHtml(descriptionHtml) || stripHtml(tasksHtml);
 
-    // Stable reference: prefer prospective viewkey/reference, fallback URL hash.
-    const stableRef =
-      String(szas.sza_reference_code || listing.viewkey || listing.id || '').trim();
-    const urlHash = stableRef
-      ? createHash('sha1').update(`emmi:${stableRef}`).digest('hex').slice(0, 12)
-      : createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const id = `emmi-${urlHash}`;
+    // Stable reference: prefer prospective viewkey/reference, fallback URL
+    // hash; a reference shared by distinct postings is resolved up front.
+    const id = idByListing[listingIndex];
     if (seen.has(id)) continue;
     seen.add(id);
 

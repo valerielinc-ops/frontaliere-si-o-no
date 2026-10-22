@@ -1,7 +1,7 @@
 {
   "key": "octapharma",
   "label": "Octapharma",
-  "generatedAt": "2026-10-14T21:23:32.974Z",
+  "generatedAt": "2026-10-21T09:24:06.183Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5395,
-  "avgDurationMs": 5395,
+  "unchangedCount": 3,
+  "durationMs": 6631,
+  "avgDurationMs": 6631,
   "durationHistory": [
-    5395
+    6631
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "octapharma-db4e170aa042",
       "slug": "digital-marketing-manager-business-unit-internazionali-octapharma-lachen",
@@ -35,7 +37,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Digital-Marketing-Manager-International-Business-Units/1442919833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:23:14.315Z",
+      "crawledAt": "2026-10-21T09:23:48.066Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -63,10 +65,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "octapharma-5241de0c4928",
       "slug": "applicazioni-di-qualita-del-responsabile-senior-di-gruppo-octapharma-lachen",
@@ -74,13 +73,13 @@
       "companyKey": "octapharma",
       "companyDomain": "octapharma.com",
       "title": "Group Senior Manager Quality Applications",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lachen",
       "canton": "SZ",
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-Quality-Applications/1410853533/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:23:15.452Z",
+      "crawledAt": "2026-10-21T09:23:47.523Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -116,13 +115,13 @@
       "companyKey": "octapharma",
       "companyDomain": "octapharma.com",
       "title": "Expert Clinical Trial Documentation - Clinical Trial Associate (CTA)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Lachen",
       "canton": "SZ",
       "url": "https://careers.octapharma.com/job/Lachen-Expert-Clinical-Trial-Documentation-Clinical-Trial-Associate-%28CTA%29/1425186833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:23:14.824Z",
+      "crawledAt": "2026-10-21T09:23:46.967Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -152,5 +151,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

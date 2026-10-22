@@ -141,16 +141,20 @@ describe('Elite Interim electrician:NE crawler', () => {
       distinctRate: 1,
       detailDistinctRate: 1,
       jobLikeRate: 1,
+      jobLikeEvidenceRate: 1,
+      employerIdentityRate: 1,
+      employerIdentityMismatchCount: 0,
       logoFound: true,
     };
     const gate = evaluatePromotion({
       status: 'promoted',
+      qualityContractVersion: 3,
       crawlerKey: ELITE_INTERIM_KEY,
       tenantHost: 'eliteinterim.ch',
       aggregator: false,
       validationHistory: [
-        { ...observed, at: new Date(Date.now() - 86_400_000).toISOString() },
-        { ...observed, at: new Date().toISOString() },
+        { ...observed, qualityContractVersion: 3, at: new Date(Date.now() - 86_400_000).toISOString() },
+        { ...observed, qualityContractVersion: 3, at: new Date().toISOString() },
       ],
     }, { existingKeys: new Set(), hostOwners: new Map() });
     expect(gate.passed, gate.reasons.join('\n')).toBe(true);

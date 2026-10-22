@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { assertDetailFetchComplete } from '../scripts/lib/detail-fetch-cap.mjs';
 import { parseAmagListingPage } from '../scripts/lib/amag-job-parser.mjs';
 
@@ -12,7 +12,12 @@ vi.mock('../scripts/lib/crawler-template.mjs', () => ({
   normalizeDescriptionSpace: (value: string = '') => String(value || '').replace(/\s+/g, ' ').trim(),
 }));
 
-import { fetchAllListings } from '../scripts/update-amag-jobs.mjs';
+import { enrichWithDetails, fetchAllListings } from '../scripts/update-amag-jobs.mjs';
+
+afterEach(() => {
+  vi.useRealTimers();
+  fetchHtmlMock.mockReset();
+});
 
 const DETAIL_CRAWLERS = [
   'amag', 'afry', 'axa', 'convit', 'engelvoelkers',
@@ -74,5 +79,27 @@ describe('AMAG listing completeness', () => {
       .mockResolvedValueOnce(germanHtml);
 
     await expect(fetchAllListings()).rejects.toThrow(/German listing fetch failed/i);
+  });
+});
+
+describe('AMAG detail fetch pacing', () => {
+  it('waits between every detail fetch when a non-Swiss detail is skipped', async () => {
+    vi.useFakeTimers();
+    const detailFetchStarts: number[] = [];
+    fetchHtmlMock.mockImplementation(async () => {
+      detailFetchStarts.push(Date.now());
+      return '';
+    });
+
+    const resultPromise = enrichWithDetails([
+      { detailUrl: 'https://jobs.amag-group.ch/it/role-de.html', title: 'Foreign', location: 'Berlin' },
+      { detailUrl: 'https://jobs.amag-group.ch/it/role-ti.html', title: 'Swiss', location: 'Lugano' },
+    ]);
+    await vi.runAllTimersAsync();
+    const result = await resultPromise;
+
+    expect(result).toHaveLength(1);
+    expect(detailFetchStarts).toHaveLength(2);
+    expect(detailFetchStarts[1] - detailFetchStarts[0]).toBeGreaterThanOrEqual(800);
   });
 });

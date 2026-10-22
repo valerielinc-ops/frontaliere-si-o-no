@@ -61,6 +61,8 @@ on:
 concurrency:
   group: sync-articles-sitemaps
   cancel-in-progress: false
+  # GitHub keeps one pending run per group by default; a newer dispatch
+  # replaces that pending run while the active sync finishes.
 
 permissions:
   contents: write
@@ -76,6 +78,40 @@ jobs:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
+      # A refresh PR is a moving branch: updating it restarts its required test
+      # and review run. When one is already open, hold this dispatch briefly so
+      # the stable concurrency group can coalesce newer events into its single
+      # pending run, which will pull the newest published snapshot.
+      - name: Coalesce refreshes while the stable PR is open
+        if: >-
+          github.event_name == 'repository_dispatch' ||
+          github.event_name == 'schedule' ||
+          (github.event_name == 'workflow_dispatch' && inputs.dry_run == false)
+        timeout-minutes: 15
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          should_wait=false
+          if ! pr_number="$(gh api -X GET "repos/$GITHUB_REPOSITORY/pulls" \
+            -f state=open \
+            -f "head=$GITHUB_REPOSITORY_OWNER:chore/sync-articles-sitemaps" \
+            -f base=main \
+            -F per_page=1 \
+            --jq '.[0].number // empty')"; then
+            echo '::warning::Could not check for the stable article refresh PR; delaying conservatively.'
+            should_wait=true
+          elif [ -n "$pr_number" ]; then
+            echo "Article refresh PR #$pr_number is open; coalescing dispatches for 12 minutes."
+            should_wait=true
+          else
+            echo 'No stable article refresh PR is open; syncing immediately.'
+          fi
+
+          if [ "$should_wait" = true ]; then
+            sleep 720
+          fi
+
       - uses: actions/checkout@v7
         with:
           # The refresh is published through an authenticated stable PR branch;
@@ -475,6 +511,10 @@ jobs:
       # fail-closed licence gate reject every subsequent corpus refresh.
       - name: Synchronize newly published covers into the ledger
         if: steps.gate.outputs.skipped != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          # The verifier runs before this working-tree change is committed;
+          # HEAD is the immutable pre-sync baseline for the writer.
+          BLOG_COVER_LEDGER_BASE_REF: HEAD
         run: |
           node scripts/audit/sync-published-blog-covers.mjs
           node scripts/ci/verify-blog-cover-ledger.mjs
@@ -572,6 +612,7 @@ jobs:
             public/news-ticker-live.json
             public/sitemap-news.xml
             public/sitemap.xml
+            public/canton-articles.json
             public/images/blog
             public/images/generated
             data/blog-cover-ledger.json
@@ -615,6 +656,7 @@ jobs:
           ## Non implementato (ancora)
           - Nessun residuo in questa PR: gli artefatti sincronizzati vengono validati prima della pubblicazione.
           EOF
+          # Keep the stable refresh branch mergeable when main advances while its PR is open.
           GH_TOKEN="${GITHUB_PAT:-}" bash scripts/lib/open-data-refresh-pr.sh \
             --path packages/articles/content \
             --path public/sitemap-blog.xml \
@@ -633,6 +675,7 @@ jobs:
             --path public/news-ticker-live.json \
             --path public/sitemap-news.xml \
             --path public/sitemap.xml \
+            --path public/canton-articles.json \
             --path public/images/blog \
             --optional-path public/images/generated \
             --path data/blog-cover-ledger.json \
@@ -641,6 +684,8 @@ jobs:
             --path data/blog-generated-image-registry.json \
             --path data/published-blog-generated-image-evidence.json \
             --path data/blog-cover-corpus-baseline.json \
+            --reconcile-main \
+            --reconcile-refresh-paths \
             --branch chore/sync-articles-sitemaps \
             --commit-message "🗺️ Sync article sitemaps, feeds and ticker from the articles API" \
             --title "chore(data): sync article corpus and public feeds" \

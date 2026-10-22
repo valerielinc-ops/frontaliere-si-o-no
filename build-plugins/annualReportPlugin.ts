@@ -72,6 +72,7 @@ import { buildTitleWithBrand } from './shared/titleSuffix';
 import { guardArticleJsonLdDescription } from './shared/safeTruncate';
 import { jobSalaryMidpoint } from './shared/realSalaryMedian';
 import { isReportSalaryJob, loadReportJobPanel, type ReportJob } from './shared/reportJobPanel';
+import { ANNUAL_REPORT_SLUG } from './shared/reportRoutes';
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -88,12 +89,7 @@ const LOCALE_PREFIX: Record<Locale, string> = {
 
 const REPORT_YEAR = 2026;
 
-const REPORT_SLUG: Record<Locale, string> = {
-  it: `report/frontalieri-${REPORT_YEAR}`,
-  en: `en/report/cross-border-workers-${REPORT_YEAR}`,
-  de: `de/report/grenzgaenger-${REPORT_YEAR}`,
-  fr: `fr/report/frontaliers-${REPORT_YEAR}`,
-};
+export const REPORT_SLUG = ANNUAL_REPORT_SLUG;
 
 const OG_LOCALE: Record<Locale, string> = {
   it: 'it_CH',
@@ -633,6 +629,7 @@ function renderReport(opts: {
 }): RenderedReport {
   const { locale, agg, distDir } = opts;
   const copy = COPY[locale];
+  const bfsHomeUrl = `https://www.bfs.admin.ch/bfs/${locale}/home.html`;
 
   // Build canonical URL. REPORT_SLUG for non-IT locales already includes the
   // locale prefix (e.g. "en/report/..."), so we normalise on a leading "/".
@@ -846,7 +843,7 @@ function renderReport(opts: {
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.methodologyH2)}</h2>
       <p style="${BODY_STYLE}">${esc(copy.methodologyP)}</p>
-      <p style="${BODY_STYLE}">${esc(copy.methodologySourcesLabel)} <a href="https://www.bfs.admin.ch/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">BFS/UST</a> · <a href="https://www.istat.it/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">ISTAT</a></p>
+      <p style="${BODY_STYLE}">${esc(copy.methodologySourcesLabel)} <a href="${bfsHomeUrl}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">BFS/UST</a> · <a href="https://www.istat.it/" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline;text-underline-offset:2px">ISTAT</a></p>
     </section>
     <section class="s-ixDYj7">
       <h2 style="${H2_STYLE}">${esc(copy.relatedH2)}</h2>

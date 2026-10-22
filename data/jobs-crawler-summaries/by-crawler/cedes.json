@@ -1,60 +1,19 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-10-14T21:11:39.767Z",
-  "total": 4,
+  "generatedAt": "2026-10-21T09:18:41.145Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4155,
-  "avgDurationMs": 4155,
+  "durationMs": 4385,
+  "avgDurationMs": 4385,
   "durationHistory": [
-    4155
+    4385
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "cedes-33d85e05de4e",
-      "slug": "operator-in-smd-assembly-cedes-ag-landquart",
-      "company": "CEDES AG",
-      "companyKey": "cedes-ag",
-      "companyDomain": "cedes.com",
-      "title": "Operator in SMD Assembly",
-      "location": "Landquart",
-      "canton": "GR",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "postalCode": "7302",
-      "addressCountry": "CH",
-      "category": "technology",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
-      "source": "CEDES Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-14T09:16:26.145Z",
-      "firstSeenAt": "2026-10-03T09:12:24.879Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/hr-intern-60-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:11:26.301Z",
+      "crawledAt": "2026-10-21T09:18:31.334Z",
       "firstSeenAt": "2026-10-09T09:13:37.313Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
@@ -119,7 +78,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:11:26.004Z",
+      "crawledAt": "2026-10-21T09:18:31.027Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -157,7 +116,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-14T21:11:25.706Z",
+      "crawledAt": "2026-10-21T09:18:30.729Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -172,5 +131,5 @@
       }
     }
   ],
-  "codeCommit": "26efe26c0c708d5d4cce9699a5066cea025467d9"
+  "codeCommit": "7ef0c2e7214cb0d592e0cf7b34e4fb2cc5cdf06e"
 }

@@ -170,7 +170,7 @@ export type NewsletterUpsertInput = {
  status?: NewsletterSubscriberStatus;
  metadata?: Record<string, any> | null;
  /**
-  * Experiment arm of the capture (`jobgate-v4:<arm>`). Stored only when this
+  * Experiment arm of the capture (`jobgate-v5:<arm>`). Stored only when this
   * write creates the relationship; an existing value is never replaced.
   */
  variant?: string | null;
@@ -1661,7 +1661,7 @@ export async function captureNewsletterSubscriber(
  status: preserveExistingConfirmedConsent
  ? (existingData?.status ?? subscriptionState.status)
  : subscriptionState.status,
- // The experiment arm that PRODUCED the relationship (`jobgate-v4:<arm>`, the
+ // The experiment arm that PRODUCED the relationship (`jobgate-v5:<arm>`, the
  // readout's join key for a new subscriber). Written with the creation stamp
  // and never rewritten: a later capture from another arm, or a login from the
  // gate on an address that already had a relationship, is not a conversion of
@@ -2479,12 +2479,18 @@ export async function confirmNewsletterSubscription(
 export async function exchangeNewsletterAuthCode(
  email: string,
  code: string,
+ assistedApplicationOrderId?: string | null,
 ): Promise<{ success: boolean; authToken?: string; error?: string; optOutEligible?: boolean }> {
  try {
  const normalizedEmail = email.toLowerCase().trim();
  // The single biggest contributor to #5746: 2.720 of the 3.131 logged
  // address+credential pairs in the measured week were this call.
- const resp = await postManageSubscription('exchange_auth_code', { email: normalizedEmail, token: code });
+ const orderId = String(assistedApplicationOrderId || '').trim();
+ const resp = await postManageSubscription('exchange_auth_code', {
+  email: normalizedEmail,
+  token: code,
+  ...(orderId ? { assisted_application_order_id: orderId } : {}),
+ });
  const data = await resp.json();
  if (resp.ok && data.success && data.authToken) {
  return { success: true, authToken: data.authToken };

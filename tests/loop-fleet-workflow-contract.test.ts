@@ -67,6 +67,10 @@ function workflowJobs(name: string): Array<[string, WorkflowStep[]]> {
     .map(([job, definition]) => [job, definition.steps ?? []]);
 }
 
+function workflowSteps(name: string): WorkflowStep[] {
+  return workflowJobs(name).flatMap(([, steps]) => steps);
+}
+
 /**
  * Whether a non-cone sparse-checkout pattern list keeps `file`: gitignore
  * syntax, every pattern here is anchored with a leading `/`, a trailing `/`
@@ -158,6 +162,66 @@ function runL6ExportStep({ committed, produced }: { committed?: string; produced
     ledger,
     producedPath,
     ledgerText: fs.existsSync(ledgerFile) ? fs.readFileSync(ledgerFile, 'utf8') : null,
+  };
+}
+
+function runDurableLedgerOverlayScenarios() {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'durable-ledger-overlay-'));
+  tempDirs.push(dir);
+  const gitCalls = path.join(dir, 'git-calls.txt');
+  const timeoutCalls = path.join(dir, 'timeout-calls.txt');
+  const githubOutput = path.join(dir, 'github-output.txt');
+  const caseResults = path.join(dir, 'case-results.txt');
+  const harness = path.join(dir, 'overlay-harness.sh');
+  fs.writeFileSync(harness, [
+    'source "$OVERLAY_SCRIPT"',
+    'timeout() {',
+    '  local limit',
+    '  while [[ "${1:-}" == --* ]]; do shift; done',
+    '  limit="$1"',
+    '  shift',
+    '  printf "%s|%s|%s\\n" "$CASE_NAME" "$limit" "$*" >> "$TIMEOUT_CALLS"',
+    '  "$@"',
+    '}',
+    'git() {',
+    '  printf "%s|%s\\n" "$CASE_NAME" "$*" >> "$GIT_CALLS"',
+    '  case "$1" in',
+    '    ls-remote) return "${REMOTE_STATUS:-0}" ;;',
+    '    fetch) return "${FETCH_STATUS:-0}" ;;',
+    '    checkout) return "${CHECKOUT_STATUS:-0}" ;;',
+    '    *) return 90 ;;',
+    '  esac',
+    '}',
+    'run_case() {',
+    '  CASE_NAME="$1" profile="$2" REMOTE_STATUS="$3" FETCH_STATUS="$4" CHECKOUT_STATUS="$5"',
+    '  : > "$GITHUB_OUTPUT"',
+    '  if overlay_durable_loop_fleet_ledger "$profile"; then status=0; else status=$?; fi',
+    '  output_status="$(<"$GITHUB_OUTPUT")"',
+    "  printf '%s|%s|%s\\n' \"$CASE_NAME\" \"$status\" \"$output_status\" >> \"$CASE_RESULTS\"",
+    '}',
+    'run_case success l10 0 0 0',
+    'run_case branch-absent l10 2 0 0',
+    'run_case probe-failure l10 128 0 0',
+    'run_case fetch-failure l10 0 1 0',
+    'run_case checkout-failure l10 0 0 1',
+    '',
+  ].join('\n'));
+  execFileSync('bash', ['--noprofile', '--norc', harness], {
+    cwd: dir,
+    stdio: 'pipe',
+    env: {
+      ...process.env,
+      OVERLAY_SCRIPT: path.resolve('scripts/ci/overlay-durable-loop-fleet-ledger.sh'),
+      GIT_CALLS: gitCalls,
+      TIMEOUT_CALLS: timeoutCalls,
+      GITHUB_OUTPUT: githubOutput,
+      CASE_RESULTS: caseResults,
+    },
+  });
+  return {
+    cases: fs.readFileSync(caseResults, 'utf8').trim().split('\n').map((line) => line.split('|')),
+    gitCalls: fs.readFileSync(gitCalls, 'utf8').trim().split('\n'),
+    timeoutCalls: fs.readFileSync(timeoutCalls, 'utf8').trim().split('\n'),
   };
 }
 
@@ -313,10 +377,10 @@ describe('loop fleet workflow contract', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l10-fleet-control.yml'), 'utf8');
     const pushBlock = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
     const pullRequestBlock = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
-    const healthLedger = 'data/loop-fleet/ledger/loop-health-history.jsonl';
+    const healthLedgerShardGlob = 'data/loop-fleet/ledger/loop-health-history*.jsonl';
     expect(pushBlock).toContain('data/loop-fleet/loop-registry.json');
-    expect(pushBlock).not.toContain(healthLedger);
-    expect(pullRequestBlock).toContain(healthLedger);
+    expect(pushBlock).not.toContain('data/loop-fleet/ledger/loop-health-history');
+    expect(pullRequestBlock).toContain(healthLedgerShardGlob);
   });
 
   it('gates repaired loops on a runner-local fail-closed outcome export', () => {
@@ -356,20 +420,32 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
-  it('refreshes L5 and L7 evidence from PostHog without committing source exports', () => {
-    const contracts = [
-      ['loop-l5-decision-moments.yml', 'scripts/ci/export-loop-outcomes.mjs', 'Export fresh L5 outcomes', '$RUNNER_TEMP/decision-moment-outcomes.json'],
-      ['loop-l7-experiment-allocator.yml', 'scripts/ci/export-l7-experiment-outcomes.mjs', 'Export fresh L7 outcomes', '$RUNNER_TEMP/experiment-outcomes.json'],
-    ];
-    for (const [name, exporter, step, outputPath] of contracts) {
-      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      expect(source, name).toContain(exporter);
-      expect(source, name).toContain('scripts/lib/posthog-client.mjs');
-      expect(source, name).toContain(step);
-      expect(source, name).toContain(outputPath);
-      expect(source, name).toContain('outcomes_path=');
-      expect(source, name).toContain("if: github.event_name != 'pull_request'");
-    }
+  it('refreshes L5 evidence from PostHog without committing source exports', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l5-decision-moments.yml'), 'utf8');
+    expect(source).toContain('scripts/ci/export-loop-outcomes.mjs');
+    expect(source).toContain('scripts/lib/posthog-client.mjs');
+    expect(source).toContain('Export fresh L5 outcomes');
+    expect(source).toContain('$RUNNER_TEMP/decision-moment-outcomes.json');
+    expect(source).toContain('outcomes_path=');
+    expect(source).toContain("if: github.event_name != 'pull_request'");
+  });
+
+  it('exports L7 idle or unavailable state without querying telemetry', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l7-experiment-allocator.yml'), 'utf8');
+    expect(source).toContain('scripts/ci/export-l7-experiment-outcomes.mjs');
+    expect(source).toContain('Export fresh L7 outcomes');
+    expect(source).toContain('$RUNNER_TEMP/experiment-outcomes.json');
+    expect(source).toContain('data/experiments/active-experiments.json');
+    expect(source).toContain('outcomes_path=');
+    expect(source).toContain("if: always() && github.event_name != 'pull_request'");
+    expect(source).not.toContain('scripts/lib/posthog-client.mjs');
+    expect(source).not.toContain('FIREBASE_SERVICE_ACCOUNT_JSON');
+  });
+
+  it('does not use Firebase credential outages to turn a valid L7 idle declaration into unavailable', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l7-experiment-allocator.yml'), 'utf8');
+    expect(source).not.toContain('LOOP_FLEET_L7_EXPORT_UNAVAILABLE=1');
+    expect(source).toContain('node scripts/ci/export-l7-experiment-outcomes.mjs --json');
   });
 
   it('creates the L5 exporter log directory before teeing live evidence', () => {
@@ -387,7 +463,6 @@ describe('loop fleet workflow contract', () => {
       ['loop-l3-job-quality.yml', 'LOOP_FLEET_L3_EXPORT_UNAVAILABLE=1', '--loop L3 --unavailable'],
       ['loop-l4-alert-return.yml', 'LOOP_FLEET_L4_EXPORT_UNAVAILABLE=1', '--loop L4 --unavailable'],
       ['loop-l5-decision-moments.yml', 'LOOP_FLEET_L5_EXPORT_UNAVAILABLE=1', '--loop L5 --unavailable'],
-      ['loop-l7-experiment-allocator.yml', 'LOOP_FLEET_L7_EXPORT_UNAVAILABLE=1', 'export-l7-experiment-outcomes.mjs --unavailable'],
     ];
     for (const [name, unavailableFlag, fallbackCommand] of contracts) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
@@ -440,23 +515,118 @@ describe('loop fleet workflow contract', () => {
     expect(stdoutPipe).toBeGreaterThan(directorySetup);
   });
 
-  it('overlays the durable ledger branch after each ledger consumer checkout', () => {
+  it('overlays only each durable-ledger consumer’s required files with bounded profiles', () => {
     const workflows = [
-      'loop-l10-fleet-control.yml',
-      'technical-operations-supervisor.yml',
-      'loop-fleet-status.yml',
-      'loop-fleet-ledger-audit.yml',
-      'loop-fleet-ledger-reconcile.yml',
+      {
+        name: 'loop-l10-fleet-control.yml',
+        profile: 'l10',
+        paths: ['loop-health-history*.jsonl'],
+        consumers: [
+          'Collect independent GitHub run oracle',
+          'Audit loop operations',
+          'Validate runner-local L10 outcome export',
+          'Record canonical L10 evidence',
+        ],
+      },
+      {
+        name: 'loop-fleet-status.yml',
+        profile: 'status',
+        paths: ['loop-health-history*.jsonl', 'lifecycle-events*.jsonl'],
+        consumers: ['Build read-only fleet status'],
+      },
+      {
+        name: 'loop-fleet-lifecycle-observer.yml',
+        profile: 'lifecycle',
+        paths: ['lifecycle-events*.jsonl'],
+        consumers: ['Observe PR, Actions and post-merge evidence'],
+      },
+      {
+        name: 'loop-fleet-ledger-audit.yml',
+        profile: 'full',
+        paths: ['loop-observations*.jsonl', 'loop-decisions*.jsonl', 'loop-health-history*.jsonl', 'lifecycle-events*.jsonl'],
+        consumers: ['Build read-only coverage report'],
+      },
+      {
+        name: 'loop-fleet-ledger-reconcile.yml',
+        profile: 'full',
+        paths: ['loop-observations*.jsonl', 'loop-decisions*.jsonl', 'loop-health-history*.jsonl', 'lifecycle-events*.jsonl'],
+        consumers: ['Reconcile missing immutable evidence'],
+      },
     ];
-    for (const name of workflows) {
+    for (const { name, profile, paths, consumers } of workflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const steps = workflowSteps(name);
       const checkoutIndex = source.indexOf('uses: actions/checkout@v7');
-      const overlayIndex = source.indexOf('- name: Overlay durable ledger branch');
+      const overlayIndex = source.indexOf('- name: Overlay bounded');
+      const overlay = steps.find((step) => step.id === 'overlay_durable_ledger');
       expect(checkoutIndex, name).toBeGreaterThanOrEqual(0);
+      expect(overlay?.run, `${name} overlay step`).toContain(
+        `bash scripts/ci/overlay-durable-loop-fleet-ledger.sh ${profile}`,
+      );
       expect(source, name).toContain('LEDGER_BRANCH: ledger/loop-fleet');
-      expect(source, name).toContain('git checkout FETCH_HEAD -- data/loop-fleet/ledger');
+      expect(source, name).toContain('/scripts/ci/overlay-durable-loop-fleet-ledger.sh');
       expect(overlayIndex, name).toBeGreaterThan(checkoutIndex);
+      for (const ledgerPath of paths) {
+        expect(source, `${name} sparse checkout ${ledgerPath}`).toContain(`/data/loop-fleet/ledger/${ledgerPath}`);
+      }
+      for (const consumer of consumers) {
+        const step = steps.find((candidate) => candidate.name === consumer);
+        expect(step?.if, `${name}: ${consumer} overlay gate`).toContain(
+          "steps.overlay_durable_ledger.outputs.overlay_status == 'ready'",
+        );
+      }
     }
+
+    const supervisor = fs.readFileSync(path.join(workflowDir, 'technical-operations-supervisor.yml'), 'utf8');
+    expect(supervisor).not.toContain('Overlay durable ledger branch');
+    expect(supervisor).not.toContain('LEDGER_BRANCH: ledger/loop-fleet');
+    expect(supervisor).toContain('--report-dir "$REPORT_DIR"');
+    expect(supervisor).not.toContain('LOOP_FLEET_LEDGER_DIR');
+    expect(supervisor).toContain("'scripts/ci/overlay-durable-loop-fleet-ledger.sh'");
+    for (const name of ['loop-l10-fleet-control.yml', 'loop-fleet-status.yml', 'loop-fleet-ledger-audit.yml']) {
+      expect(fs.readFileSync(path.join(workflowDir, name), 'utf8'), name)
+        .toContain("'scripts/ci/overlay-durable-loop-fleet-ledger.sh'");
+    }
+  });
+
+  it('bounds overlay probe, fetch and checkout, and fails closed on remote errors', () => {
+    const script = fs.readFileSync('scripts/ci/overlay-durable-loop-fleet-ledger.sh', 'utf8');
+    expect(script).toContain('checkout_timeout=120');
+    expect(script).toContain('checkout_timeout=240');
+    expect(script).toContain('checkout_timeout=360');
+    for (const ledgerPath of [
+      'loop-observations*.jsonl',
+      'loop-decisions*.jsonl',
+      'loop-health-history*.jsonl',
+      'lifecycle-events*.jsonl',
+    ]) expect(script).toContain(ledgerPath);
+
+    const overlay = runDurableLedgerOverlayScenarios();
+    const cases = Object.fromEntries(overlay.cases.map(([name, status, output]) => [name, { status, output }]));
+    expect(cases.success).toEqual({ status: '0', output: 'overlay_status=ready' });
+    expect(cases['branch-absent']).toEqual({ status: '0', output: 'overlay_status=ready' });
+    expect(cases['probe-failure']).toEqual({ status: '128', output: 'overlay_status=failed' });
+    expect(cases['fetch-failure']).toEqual({ status: '1', output: 'overlay_status=failed' });
+    expect(cases['checkout-failure']).toEqual({ status: '1', output: 'overlay_status=failed' });
+
+    const callsFor = (calls: string[], scenario: string) => calls
+      .filter((call) => call.startsWith(`${scenario}|`))
+      .map((call) => call.slice(scenario.length + 1));
+    const successGitCalls = callsFor(overlay.gitCalls, 'success');
+    expect(successGitCalls).toHaveLength(3);
+    expect(successGitCalls[0]).toContain('ls-remote --exit-code --heads origin refs/heads/ledger/loop-fleet');
+    expect(successGitCalls[1]).toBe('fetch --depth 1 --filter=blob:limit=1g origin ledger/loop-fleet');
+    expect(successGitCalls[2]).toContain('checkout FETCH_HEAD --');
+    expect(successGitCalls[2]).toContain('loop-health-history*.jsonl');
+    expect(callsFor(overlay.gitCalls, 'branch-absent')).toHaveLength(1);
+    expect(callsFor(overlay.gitCalls, 'probe-failure')).toHaveLength(1);
+    expect(callsFor(overlay.gitCalls, 'fetch-failure')).toHaveLength(2);
+    expect(callsFor(overlay.gitCalls, 'checkout-failure')).toHaveLength(3);
+
+    const successTimeouts = callsFor(overlay.timeoutCalls, 'success');
+    expect(successTimeouts[0]).toContain('15s|git ls-remote');
+    expect(successTimeouts[1]).toContain('180s|git fetch');
+    expect(successTimeouts[2]).toContain('120s|git checkout');
   });
 
   it('keeps the detached typecheck PID alive until its status is published', () => {
@@ -483,10 +653,29 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain('git -C "$ledger_worktree" ls-tree -r --name-only HEAD');
     expect(source).toContain('--ledger-dir "$ledger_dir"');
     expect(source).toContain('Validate source run provenance');
+    expect(source).toContain('--json event,headBranch,headSha,status,conclusion');
     expect(source).toContain('source_branch');
+    expect(source).toContain("source_status=$(jq -r '.status // \"\"' <<<\"$source_run\")");
+    expect(source).toContain('[ "$source_status" != \'completed\' ]');
     expect(source).toContain("!= 'main'");
     expect(source).not.toMatch(/contents:\s*write/u);
     expect(source).not.toContain('pull-requests: read');
+  });
+
+  it('publishes trusted before-after ledger benchmark metrics without changing the writer contract', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    expect(source).toContain('/scripts/ci/benchmark-loop-fleet-ledger.mjs');
+    expect(source).toContain('Initialize trusted ledger benchmark');
+    expect(source).toContain('canonical_rewrite_count');
+    expect(source).toContain('Aggregate trusted before-after ledger benchmark');
+    expect(source).toContain('--history-dir "$history_dir"');
+    expect(source).toContain('post_change_append_p95_ms');
+    expect(source).toContain('Upload trusted ledger benchmark');
+    expect(source).toContain('retention-days: 90');
+    expect(source).toContain('actions: read');
+    expect(source).not.toMatch(/contents:\\s*write/u);
+    expect(source).toContain('for attempt in 1 2 3 4 5 6 7 8 9 10');
+    expect(source).toContain('bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin');
   });
 
   it('keeps code and registry on main while retrying the data-only branch', () => {
@@ -501,6 +690,7 @@ describe('loop fleet workflow contract', () => {
       const retryBlockStart = source.indexOf('for attempt in 1 2 3 4 5 6 7 8 9 10');
       const retryBlockEnd = source.indexOf('\n          done', retryBlockStart);
       const retryBlock = source.slice(retryBlockStart, retryBlockEnd);
+      const filteredLedgerFetch = 'bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"';
       const codeCalls = [...source.matchAll(/^\s+(?:run:\s*)?node(?:\s|$)[^\n]*/gmu)]
         .map(({ index }) => index ?? -1);
       expect(mainCheckout, name).toBeGreaterThanOrEqual(0);
@@ -508,7 +698,10 @@ describe('loop fleet workflow contract', () => {
       expect(codeCalls.length, name).toBeGreaterThan(0);
       for (const codeCall of codeCalls) expect(codeCall, name).toBeGreaterThan(mainCheckout);
       expect(retryBlock, name).toContain(`node scripts/ci/${validator}`);
-      expect(retryBlock, name).toContain('bounded_remote git fetch origin "$ledger_branch"');
+      expect(retryBlock, name).toContain(filteredLedgerFetch);
+      expect(source.indexOf(filteredLedgerFetch), name).toBeGreaterThan(mainCheckout);
+      expect(source.indexOf(filteredLedgerFetch), name).toBeLessThan(retryBlockStart);
+      expect(source.split(filteredLedgerFetch).length - 1, name).toBe(2);
       expect(retryBlock, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
       expect(retryBlock, name).toContain('git -C "$ledger_worktree" read-tree --empty');
       expect(source, name).toContain('idempotent by recordId');
@@ -517,11 +710,14 @@ describe('loop fleet workflow contract', () => {
     }
 
     const observer = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
-    const overlay = observer.indexOf('git checkout FETCH_HEAD -- data/loop-fleet/ledger/');
+    const overlay = observer.indexOf('bash scripts/ci/overlay-durable-loop-fleet-ledger.sh lifecycle');
     const observeCall = observer.indexOf('node scripts/ci/observe-loop-fleet-lifecycle.mjs');
     expect(overlay).toBeGreaterThanOrEqual(0);
     expect(observeCall).toBeGreaterThan(overlay);
+    expect(observer).toContain('/data/loop-fleet/ledger/lifecycle-events*.jsonl');
+    expect(observer).toContain("steps.overlay_durable_ledger.outputs.overlay_status == 'ready'");
     expect(observer).toContain('git checkout origin/main -- data/loop-fleet/ledger/');
+    expect(observer).toContain('bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"');
   });
 
   it('preserves a separate bridge concurrency group for each immutable source run', () => {
@@ -611,7 +807,7 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
       expect(source, name).toContain('bounded_remote git fetch origin main');
       expect(source, name).toContain('bounded_remote git ls-remote --exit-code --heads origin');
-      expect(source, name).toContain('bounded_remote git fetch origin "$ledger_branch"');
+      expect(source, name).toContain('bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"');
       expect(source, name).toContain('export GIT_TERMINAL_PROMPT=0');
 
       const wrapperStart = source.indexOf('bounded_remote() {');

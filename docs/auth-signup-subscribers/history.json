@@ -281,6 +281,110 @@
       },
       "subscribedWithoutCreatedAt": 0,
       "findings": []
+    },
+    {
+      "date": "2026-10-15",
+      "windowHours": 24,
+      "subscribersCreated": 88,
+      "authSubscribers": 27,
+      "accountsTotal": 88,
+      "accountClasses": {
+        "subscribed": 88,
+        "stub": 0,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-16",
+      "windowHours": 24,
+      "subscribersCreated": 71,
+      "authSubscribers": 29,
+      "accountsTotal": 86,
+      "accountClasses": {
+        "subscribed": 71,
+        "stub": 15,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-17",
+      "windowHours": 24,
+      "subscribersCreated": 51,
+      "authSubscribers": 26,
+      "accountsTotal": 66,
+      "accountClasses": {
+        "subscribed": 51,
+        "stub": 15,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": [
+        "auth_accounts_without_subscription"
+      ]
+    },
+    {
+      "date": "2026-10-18",
+      "windowHours": 24,
+      "subscribersCreated": 53,
+      "authSubscribers": 26,
+      "accountsTotal": 53,
+      "accountsExcluded": 1,
+      "accountClasses": {
+        "subscribed": 53,
+        "stub": 0,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-19",
+      "windowHours": 24,
+      "subscribersCreated": 99,
+      "authSubscribers": 44,
+      "accountsTotal": 100,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 99,
+        "stub": 0,
+        "missing": 1
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-20",
+      "windowHours": 24,
+      "subscribersCreated": 112,
+      "authSubscribers": 36,
+      "accountsTotal": 111,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 111,
+        "stub": 0,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-10-21",
+      "windowHours": 24,
+      "subscribersCreated": 113,
+      "authSubscribers": 89,
+      "accountsTotal": 115,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 114,
+        "stub": 0,
+        "missing": 1
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
     }
   ]
 }

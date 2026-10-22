@@ -184,8 +184,18 @@ export function gitMainReader({ repoDir, exec = execFileSync, log = console }) {
     }
   };
   return {
-    readQueue: (channel) => parseQueue(show(`data/${channel}-queue.json`) ?? ''),
-    readLedger: (channel) => parseLedger(show(`data/${channel}-posted.json`) ?? ''),
+    readQueue: (channel) => {
+      const rel = `data/${channel}-queue.json`;
+      const raw = show(rel);
+      if (raw === null) throw new Error(`Cannot read required queue from origin/main: ${rel}`);
+      return parseQueue(raw);
+    },
+    readLedger: (channel) => {
+      const rel = `data/${channel}-posted.json`;
+      const raw = show(rel);
+      if (raw === null) throw new Error(`Cannot read required posted ledger from origin/main: ${rel}`);
+      return parseLedger(raw);
+    },
     readInsights: () => {
       const raw = show('data/instagram-insights.json');
       if (!raw) return null;
@@ -230,6 +240,7 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
  * @param {{ readQueue: Function, readLedger: Function }} deps.reader
  * @param {{ load: Function, save: Function }} deps.journalStore
  * @param {(entry: object) => Promise<string[]>} deps.fetchImages
+ * @param {(args: { channel: string, entry: object }) => Promise<void>|void} [deps.cleanupFiles]
  * @param {(channel: string, entry: object, files: string[], opts: { dryRun: boolean, human: object, diagnosticsDir: string, video?: object }) => Promise<{status: string, evidence?: string}>} deps.publishWith
  * @param {(args: object) => Promise<{ok: boolean, reason?: string}>} deps.dispatchConfirm
  * @param {(args: { title: string, description: string, labels: string[] }) => Promise<unknown>} deps.reportIssue
@@ -252,6 +263,7 @@ export async function runRobot(deps) {
     reader,
     journalStore,
     fetchImages,
+    cleanupFiles = () => {},
     publishWith,
     dispatchConfirm,
     reportIssue,
@@ -455,6 +467,12 @@ export async function runRobot(deps) {
         }
         results.push({ channel, outcome, errorClass: error.errorClass, queueId: entry.id });
         break;
+      } finally {
+        try {
+          await cleanupFiles({ channel, entry });
+        } catch (cleanupError) {
+          log.warn(`⚠️  could not clean ${channel} download artifacts: ${cleanupError.message}`);
+        }
       }
     }
   }

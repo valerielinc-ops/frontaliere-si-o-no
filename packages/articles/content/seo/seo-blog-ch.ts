@@ -98,16 +98,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-iniziative-casse-malati-2026': {
-    title: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
+    title: 'Casse malati Ticino 2026: iniziative e tempi | Frontaliere Ticino',
     description: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
     keywords: 'frontalieri, ticino, svizzera, italia, iniziative, casse, malati, governo',
-    ogTitle: 'Iniziative casse malati 2026: il governo non può bloccare l\'entrata in vigore',
+    ogTitle: 'Casse malati Ticino 2026: iniziative e tempi',
     ogDescription: 'Il Consiglio di Stato non può bloccare l\'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l\'impatto e le',
     canonicalPath: '/articoli-svizzera/iniziative-casse-malati-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Iniziative casse malati 2026: il governo non può bloccare l'entrata in vigore",
+      "headline": "Casse malati Ticino 2026: iniziative e tempi",
       "description": "Il Consiglio di Stato non può bloccare l'entrata in vigore delle iniziative sulle casse malati approvate dal popolo il 28 settembre. Scopri l'impatto e le",
       "image": {
         "@type": "ImageObject",
@@ -546,16 +546,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-festivita-ticino-2026': {
-    title: 'Festività in Ticino 2026 | Frontaliere Ticino',
+    title: 'Festività in Ticino 2026: calendario | Frontaliere Ticino',
     description: 'Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, festività, scopri, principali, previste',
-    ogTitle: 'Festività in Ticino 2026',
+    ogTitle: 'Festività in Ticino 2026: calendario',
     ogDescription: 'Tutte le informazioni sulle festività in Ticino nel 2026.',
     canonicalPath: '/articoli-svizzera/festivita-ticino-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Festività in Ticino 2026",
+      "headline": "Festività in Ticino 2026: calendario",
       "description": "Scopri le principali festività previste in Ticino nel 2026 e come influenzeranno la vita quotidiana dei residenti e dei frontalieri. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -658,16 +658,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-svizzera': {
-    title: 'Frontalieri in Svizzera | Frontaliere Ticino',
+    title: 'Frontalieri in Svizzera: lavoro e permessi | Frontaliere Ticino',
     description: 'Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, informazioni, pratiche, frontalieri-svizzera',
-    ogTitle: 'Frontalieri in Svizzera',
+    ogTitle: 'Frontalieri in Svizzera: lavoro e permessi',
     ogDescription: 'Informazioni pratiche per frontalieri in Svizzera',
     canonicalPath: '/articoli-svizzera/frontalieri-svizzera/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontalieri in Svizzera",
+      "headline": "Frontalieri in Svizzera: lavoro e permessi",
       "description": "Informazioni pratiche per frontalieri in Svizzera. Scopri le implicazioni pratiche e come affrontare le sfide della vita da frontaliere. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -1389,16 +1389,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-premi-di-cassa-malati-ticino': {
-    title: 'Parlamento spacchetta premi di cassa malati | Frontaliere Ticino',
+    title: 'Premi di cassa malati in Ticino: cosa cambia | Frontaliere Ticino',
     description: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, parlamento, spacchetta, premi, cassa',
-    ogTitle: 'Il Parlamento spacchetta le iniziative sui premi di cassa malati: ecco le tempistiche',
+    ogTitle: 'Premi di cassa malati in Ticino: cosa cambia',
     ogDescription: 'Il Parlamento ticinese ha deciso di dividere l\'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre.',
     canonicalPath: '/articoli-svizzera/premi-di-cassa-malati-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Parlamento spacchetta premi di cassa malati",
+      "headline": "Premi di cassa malati in Ticino: cosa cambia",
       "description": "Il Parlamento ticinese ha deciso di dividere l'applicazione delle due misure promosse da Lega e PS e votate dal popolo lo scorso settembre. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -1506,16 +1506,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-givaudan-licenziamenti': {
-    title: 'Givaudan licenza dipendenti | Frontaliere Ticino',
+    title: 'Givaudan licenzia dipendenti a Vernier (Ginevra)',
     description: 'Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta. Dati aggiornati 2026 per frontalieri in',
     keywords: 'frontalieri, ticino, svizzera, italia, givaudan, licenza, dipendenti, leader',
-    ogTitle: 'Givaudan licenza dipendenti',
+    ogTitle: 'Givaudan licenzia dipendenti a Vernier (Ginevra)',
     ogDescription: 'Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta.',
     canonicalPath: '/articoli-svizzera/givaudan-licenziamenti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Givaudan licenza dipendenti",
+      "headline": "Givaudan licenzia dipendenti a Vernier (Ginevra)",
       "description": "Givaudan, leader mondiale negli aromi e profumi, licenzia dipendenti per furto di essenze. Denuncia penale sporta. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
@@ -1662,16 +1662,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-pensione-avs-inps-2026-famiglia-con-figli': {
-    title: 'Pensione frontaliere 2026: coordinamento AVS/INPS e totalizzazione senza esempi personali',
+    title: 'Pensione frontalieri 2026: AVS, INPS e totalizzazione | Frontaliere Ticino',
     description: 'La pensione frontaliere 2026 prevede un coordinamento tra AVS e INPS. Scopri come funziona e come pianificare la tua pensione. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, pensione, coordinamento, inps, totalizzazione',
-    ogTitle: 'Pensione frontaliere 2026: come funziona il coordinamento AVS/INPS',
+    ogTitle: 'Pensione frontalieri 2026: AVS, INPS e totalizzazione',
     ogDescription: 'La pensione frontaliere 2026 prevede un coordinamento tra AVS e INPS. Scopri come funziona e come pianificare la tua pensione.',
     canonicalPath: '/articoli-svizzera/pensione-avs-inps-2026-famiglia-con-figli/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Pensione frontaliere 2026: coordinamento AVS/INPS e totalizzazione senza esempi personali",
+      "headline": "Pensione frontalieri 2026: AVS, INPS e totalizzazione",
       "description": "La pensione frontaliere 2026 prevede un coordinamento tra AVS e INPS. Scopri come funziona e come pianificare la tua pensione. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -101345,6 +101345,6981 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-soglia-salariale-controlli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assistenza-uri-requisiti-domanda': {
+    title: 'Assistenza sociale Canton Uri: requisiti e domanda',
+    description: 'Nel Cantone di Uri conta la condizione di bisogno La gestione è affidata in genere a Cantoni e Comuni La domanda va all\'ufficio comunale o cantonale competente',
+    keywords: 'frontalieri, ticino, svizzera, italia, assistenza, sociale, canton, requisiti',
+    ogTitle: 'Assistenza sociale Canton Uri: requisiti e domanda',
+    ogDescription: 'Nel Cantone di Uri conta la condizione di bisogno La gestione è affidata in genere a Cantoni e Comuni La domanda va all\'ufficio comunale o cantonale competente',
+    canonicalPath: '/articoli-svizzera/assistenza-uri-requisiti-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assistenza sociale Canton Uri: requisiti e domanda",
+      "description": "Nel Cantone di Uri conta la condizione di bisogno La gestione è affidata in genere a Cantoni e Comuni La domanda va all'ufficio comunale o cantonale competente",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-assistenza-uri-requisiti-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-10T09:05:08+00:00",
+      "dateModified": "2026-10-10T09:05:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assistenza-uri-requisiti-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naters-francobolli-falsi-aliexpress': {
+    title: 'Francobolli falsi su AliExpress: donna condannata a Naters',
+    description: 'Donna di Naters condannata per francobolli contraffatti 100 francobolli ordinati su AliExpress a 48,59 franchi Valore di listino dell\'ordine: 120 franchi Multa',
+    keywords: 'frontalieri, ticino, svizzera, italia, francobolli, falsi, aliexpress, donna',
+    ogTitle: 'Francobolli falsi su AliExpress: donna condannata a Naters',
+    ogDescription: 'Donna di Naters condannata per francobolli contraffatti 100 francobolli ordinati su AliExpress a 48,59 franchi Valore di listino dell\'ordine: 120 franchi Multa',
+    canonicalPath: '/articoli-svizzera/naters-francobolli-falsi-aliexpress/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Francobolli falsi su AliExpress: donna condannata a Naters",
+      "description": "Donna di Naters condannata per francobolli contraffatti 100 francobolli ordinati su AliExpress a 48,59 franchi Valore di listino dell'ordine: 120 franchi Multa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-naters-francobolli-falsi-aliexpress.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Francobolli svizzeri su un tavolo"
+      },
+      "datePublished": "2026-10-10T09:59:40+00:00",
+      "dateModified": "2026-10-10T09:59:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naters-francobolli-falsi-aliexpress/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-veicoli-uri-calcolo': {
+    title: 'Imposta sugli autoveicoli Uri: calcolo e pagamento',
+    description: 'Imposta sugli autoveicoli nel Cantone di Uri: criteri di calcolo, scadenze, ufficio della circolazione, cambio veicolo e indirizzo. Guida pratica al pagamento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, sugli, autoveicoli, calcolo',
+    ogTitle: 'Imposta autoveicoli Uri: calcolo, scadenze e pagamento',
+    ogDescription: 'Il calcolo dell\'imposta sugli autoveicoli a Uri dipende dalle regole cantonali. La guida chiarisce come verificare criteri, termini e importi, quale ufficio seguire e cosa controllare dopo un cambio di veicolo o di indirizzo.',
+    canonicalPath: '/articoli-svizzera/imposta-veicoli-uri-calcolo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta sugli autoveicoli Uri: calcolo e pagamento",
+      "description": "Imposta sugli autoveicoli nel Cantone di Uri: criteri di calcolo, scadenze, ufficio della circolazione, cambio veicolo e indirizzo. Guida pratica al pagamento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://www.pexels.com/photo/scenic-mountain-landscape-in-unterschachen-switzerland-37425453/",
+        "copyrightNotice": "© Christopher Politano",
+        "license": "https://www.pexels.com/license/",
+        "creator": {"@type":"Person","@id":"https://www.pexels.com/@christopher-politano-978995","name":"Christopher Politano","url":"https://www.pexels.com/@christopher-politano-978995"},
+        "creditText": "Christopher Politano / Pexels",
+        "isBasedOn": "https://www.pexels.com/photo/scenic-mountain-landscape-in-unterschachen-switzerland-37425453/",
+        "description": "Resized derivative of the licensed source.",
+        "url": `${BASE_URL}/images/blog/article-imposta-veicoli-uri-calcolo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-10T12:04:45+00:00",
+      "dateModified": "2026-10-10T12:04:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-veicoli-uri-calcolo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-amsa-bus-elettrici-mendrisiotto': {
+    title: 'AMSA inaugura i primi bus elettrici a Balerna | Frontaliere Ticino',
+    description: 'Quattro bus elettrici inaugurati a Balerna Marchesi al primo discorso da Consigliere di Stato Linee coinvolte: 2, 3 e 4 Transizione AMSA prevista fino al 2032',
+    keywords: 'frontalieri, ticino, svizzera, italia, amsa, inaugura, primi, elettrici',
+    ogTitle: 'AMSA inaugura i primi bus elettrici nel Mendrisiotto',
+    ogDescription: 'Quattro bus elettrici inaugurati a Balerna Marchesi al primo discorso da Consigliere di Stato Linee coinvolte: 2, 3 e 4 Transizione AMSA prevista fino al 2032',
+    canonicalPath: '/articoli-svizzera/amsa-bus-elettrici-mendrisiotto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AMSA inaugura i primi bus elettrici a Balerna",
+      "description": "Quattro bus elettrici inaugurati a Balerna Marchesi al primo discorso da Consigliere di Stato Linee coinvolte: 2, 3 e 4 Transizione AMSA prevista fino al 2032",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-amsa-bus-elettrici-mendrisiotto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-10T13:00:29+00:00",
+      "dateModified": "2026-10-10T13:00:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amsa-bus-elettrici-mendrisiotto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disagi-treni-vaud-eclepens': {
+    title: 'Ferrovia: ancora disagi tra Yverdon e Losanna | Frontaliere Ticino',
+    description: 'La linea Yverdon-les-Bains-Losanna resta interrotta Due treni a lunga percorrenza all\'ora, con rallentamenti Regionali e aeroporto di Ginevra: autobus Problemi',
+    keywords: 'frontalieri, ticino, svizzera, italia, ferrovia, ancora, disagi, yverdon',
+    ogTitle: 'Ferrovia: ancora disagi tra Yverdon e Losanna',
+    ogDescription: 'La linea Yverdon-les-Bains-Losanna resta interrotta Due treni a lunga percorrenza all\'ora, con rallentamenti Regionali e aeroporto di Ginevra: autobus Problemi',
+    canonicalPath: '/articoli-svizzera/disagi-treni-vaud-eclepens/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ferrovia: ancora disagi tra Yverdon e Losanna",
+      "description": "La linea Yverdon-les-Bains-Losanna resta interrotta Due treni a lunga percorrenza all'ora, con rallentamenti Regionali e aeroporto di Ginevra: autobus Problemi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-disagi-treni-vaud-eclepens.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Binari ferroviari svizzeri con un autobus sostitutivo vicino a una stazione."
+      },
+      "datePublished": "2026-10-10T13:48:28+00:00",
+      "dateModified": "2026-10-10T13:48:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/disagi-treni-vaud-eclepens/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tirocinio-uri-guida-pratica': {
+    title: 'Apprendistato e formazione professionale Canton Uri',
+    description: 'Guida all\'apprendistato nel Cantone di Uri: come cercare un tirocinio, leggere il contratto, valutare salario, contributi e maturità professionale in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
+    ogTitle: 'Apprendistato e formazione professionale Uri',
+    ogDescription: 'Dal posto di tirocinio al contratto: la guida spiega come leggere la retribuzione di un apprendista in Svizzera, distinguere contributi, imposte e premi LAMal e orientarsi sulla maturità professionale nel Cantone di Uri.',
+    canonicalPath: '/articoli-svizzera/tirocinio-uri-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale Canton Uri",
+      "description": "Guida all'apprendistato nel Cantone di Uri: come cercare un tirocinio, leggere il contratto, valutare salario, contributi e maturità professionale in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tirocinio-uri-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-10T15:20:37+00:00",
+      "dateModified": "2026-10-10T15:20:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tirocinio-uri-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-treni-vd-ritorno-normale': {
+    title: 'Ferrovia Yverdon-Losanna: ritorno alle 05.40 | Frontaliere Ticino',
+    description: 'Tra Yverdon-les-Bains e Losanna si torna alla normalità alle 05.40 Oggi due treni a lunga percorrenza l\'ora, con forti rallentamenti Il traffico regionale è',
+    keywords: 'frontalieri, ticino, svizzera, italia, ferrovia, yverdon-losanna, ritorno, alle',
+    ogTitle: 'Tratta Yverdon-Losanna: servizio normale',
+    ogDescription: 'Tra Yverdon-les-Bains e Losanna si torna alla normalità alle 05.40 Oggi due treni a lunga percorrenza l\'ora, con forti rallentamenti Il traffico regionale è',
+    canonicalPath: '/articoli-svizzera/treni-vd-ritorno-normale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ferrovia Yverdon-Losanna: ritorno alle 05.40",
+      "description": "Tra Yverdon-les-Bains e Losanna si torna alla normalità alle 05.40 Oggi due treni a lunga percorrenza l'ora, con forti rallentamenti Il traffico regionale è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-treni-vd-ritorno-normale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno svizzero su una linea ferroviaria del Canton Vaud"
+      },
+      "datePublished": "2026-10-10T17:52:43+00:00",
+      "dateModified": "2026-10-10T17:52:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/treni-vd-ritorno-normale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tox-info-chiamate-intelligenza-artificiale': {
+    title: 'Tox Info: aumento chiamate all’intelligenza artificiale',
+    description: 'Il 145 ha gestito quasi 45\'000 consulenze Le chiamate sono cresciute del 4,6% Medicinali 36%; pulizia domestica 23% Finanziamento sicuro entro fine 2027 Numero',
+    keywords: 'frontalieri, ticino, svizzera, italia, info, aumento, chiamate, intelligenza',
+    ogTitle: 'Tox Info: aumento chiamate grazie all’intelligenza artificiale',
+    ogDescription: 'Il 145 ha gestito quasi 45\'000 consulenze Le chiamate sono cresciute del 4,6% Medicinali 36%; pulizia domestica 23% Finanziamento sicuro entro fine 2027 Numero',
+    canonicalPath: '/articoli-svizzera/tox-info-chiamate-intelligenza-artificiale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tox Info: aumento chiamate all’intelligenza artificiale",
+      "description": "Il 145 ha gestito quasi 45'000 consulenze Le chiamate sono cresciute del 4,6% Medicinali 36%; pulizia domestica 23% Finanziamento sicuro entro fine 2027 Numero",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tox-info-chiamate-intelligenza-artificiale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-10T21:15:04+00:00",
+      "dateModified": "2026-10-10T21:15:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tox-info-chiamate-intelligenza-artificiale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-accordo-ue-sovranita-fiscale': {
+    title: 'Accordo con l’UE: addio anche alla sovranità fiscale?',
+    description: 'La NZZ ha lanciato l\'allarme il 6 ottobre Hongler e Imstepf indicano un rischio sulle regole fiscali UE Nel 2024 la Corte UE impose ad Apple 13 miliardi',
+    keywords: 'frontalieri, ticino, svizzera, italia, accordo, addio, anche, alla',
+    ogTitle: 'Accordo UE e sovranità fiscale: rischi per la Svizzera',
+    ogDescription: 'La NZZ ha lanciato l\'allarme il 6 ottobre Hongler e Imstepf indicano un rischio sulle regole fiscali UE Nel 2024 la Corte UE impose ad Apple 13 miliardi',
+    canonicalPath: '/articoli-svizzera/accordo-ue-sovranita-fiscale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accordo con l’UE: addio anche alla sovranità fiscale?",
+      "description": "La NZZ ha lanciato l'allarme il 6 ottobre Hongler e Imstepf indicano un rischio sulle regole fiscali UE Nel 2024 la Corte UE impose ad Apple 13 miliardi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-accordo-ue-sovranita-fiscale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio federale a Berna in primo piano"
+      },
+      "datePublished": "2026-10-11T07:00:07+00:00",
+      "dateModified": "2026-10-11T07:00:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accordo-ue-sovranita-fiscale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-riqualificazione-uri-domanda': {
+    title: 'Incentivi energetici in Uri: requisiti e domanda',
+    description: 'Incentivi energetici nel Cantone di Uri: programmi per edifici e impianti, requisiti tecnici, domanda prima dei lavori e verifica presso l\'ufficio cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incentivi, energetici, requisiti, domanda',
+    ogTitle: 'Incentivi energetici in Uri: requisiti e domanda',
+    ogDescription: 'Per chi programma un intervento energetico a Uri, la sequenza conta: leggere i requisiti tecnici, individuare l\'ufficio cantonale, controllare termini e importi sulla fonte ufficiale e presentare la domanda prima dell\'avvio dei lavori.',
+    canonicalPath: '/articoli-svizzera/riqualificazione-uri-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incentivi energetici in Uri: requisiti e domanda",
+      "description": "Incentivi energetici nel Cantone di Uri: programmi per edifici e impianti, requisiti tecnici, domanda prima dei lavori e verifica presso l'ufficio cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-riqualificazione-uri-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-11T09:19:00+00:00",
+      "dateModified": "2026-10-11T09:19:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riqualificazione-uri-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-edilizio-uri': {
+    title: 'Autorizzazione edilizia canton Uri: requisiti e procedura',
+    description: 'Autorizzazione edilizia nel Cantone di Uri: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autorizzazione, edilizia, canton, requisiti',
+    ogTitle: 'Autorizzazione edilizia canton Uri: requisiti e procedura',
+    ogDescription: 'Nel Cantone di Uri la procedura edilizia richiede una verifica puntuale di requisiti, documenti, uffici, termini e importi. Comune e cantone hanno un ruolo nel percorso; eventuali opposizioni o ricorsi vanno considerati prima di iniziare i lavori.',
+    canonicalPath: '/articoli-svizzera/permesso-edilizio-uri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autorizzazione edilizia canton Uri: requisiti e procedura",
+      "description": "Autorizzazione edilizia nel Cantone di Uri: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-permesso-edilizio-uri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piani edilizi e documenti per un'autorizzazione nel Cantone di Uri"
+      },
+      "datePublished": "2026-10-11T11:17:28+00:00",
+      "dateModified": "2026-10-11T11:17:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-edilizio-uri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finanziamenti-start-up-ticino': {
+    title: 'Finanziamenti per start-up in Ticino: la proposta',
+    description: 'Tresoldi propone di studiare un sostegno alle start-up in Ticino. Senza capitale iniziale, anche un buon progetto può restare sulla carta. La selezione dovrebbe',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanziamenti, start-up, proposta, tresoldi',
+    ogTitle: 'Finanziamenti start-up in Ticino: la proposta di Christian Tresoldi',
+    ogDescription: 'Tresoldi propone di studiare un sostegno alle start-up in Ticino.',
+    canonicalPath: '/articoli-svizzera/finanziamenti-start-up-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanziamenti per start-up in Ticino: la proposta",
+      "description": "Tresoldi propone di studiare un sostegno alle start-up in Ticino. Senza capitale iniziale, anche un buon progetto può restare sulla carta. La selezione dovrebbe",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-finanziamenti-start-up-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incontro economico a Lugano sul finanziamento delle start-up"
+      },
+      "datePublished": "2026-10-11T11:40:47+00:00",
+      "dateModified": "2026-10-11T11:40:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanziamenti-start-up-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-linea-yverdon-losanna-riaperta': {
+    title: 'Traffico Yverdon-Losanna: treni di nuovo regolari',
+    description: 'Traffico normale tra Yverdon e Losanna dalle 05:40 Incendio doloso scoperto venerdì verso le 03:00 Interrotta la circolazione tra Cossonay-Penthalaz e Chavornay',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, yverdon-losanna, treni, nuovo',
+    ogTitle: 'Traffico Yverdon-Losanna: treni di nuovo regolari',
+    ogDescription: 'Traffico normale tra Yverdon e Losanna dalle 05:40 Incendio doloso scoperto venerdì verso le 03:00 Interrotta la circolazione tra Cossonay-Penthalaz e Chavornay',
+    canonicalPath: '/articoli-svizzera/linea-yverdon-losanna-riaperta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico Yverdon-Losanna: treni di nuovo regolari",
+      "description": "Traffico normale tra Yverdon e Losanna dalle 05:40 Incendio doloso scoperto venerdì verso le 03:00 Interrotta la circolazione tra Cossonay-Penthalaz e Chavornay",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-linea-yverdon-losanna-riaperta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-11T13:01:23+00:00",
+      "dateModified": "2026-10-11T13:01:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/linea-yverdon-losanna-riaperta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giorni-festivi-canton-zurigo-guida': {
+    title: 'Giorni festivi Cantone Zurigo: guida a calendario e regole',
+    description: 'Guida pratica sui giorni festivi nel Cantone di Zurigo: come consultare il calendario ufficiale, distinguere le festività federali e verificare le chiusure.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giorni, festivi, cantone, zurigo',
+    ogTitle: 'Giorni festivi Cantone Zurigo: guida a calendario e regole',
+    ogDescription: 'Hai dubbi sulle festività nel Cantone di Zurigo? Scopri come leggere correttamente il calendario ufficiale, confrontare le date federali e verificare le chiusure di uffici e servizi.',
+    canonicalPath: '/articoli-svizzera/giorni-festivi-canton-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giorni festivi Cantone Zurigo: guida a calendario e regole",
+      "description": "Guida pratica sui giorni festivi nel Cantone di Zurigo: come consultare il calendario ufficiale, distinguere le festività federali e verificare le chiusure.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-giorni-festivi-canton-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio governativo nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-12T00:26:51+00:00",
+      "dateModified": "2026-10-12T00:26:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giorni-festivi-canton-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-orari-negozi-zurigo-guida': {
+    title: 'Orari negozi Cantone Zurigo: guida a domeniche e festivi',
+    description: 'Le regole degli orari commerciali sono cantonali. Domeniche e festivi richiedono una verifica dedicata. Le eccezioni passano da autorizzazioni speciali',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, negozi, cantone, zurigo',
+    ogTitle: 'Orari negozi Cantone Zurigo: guida a domeniche e festivi',
+    ogDescription: 'Le regole degli orari commerciali sono cantonali.',
+    canonicalPath: '/articoli-svizzera/orari-negozi-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orari negozi Cantone Zurigo: guida a domeniche e festivi",
+      "description": "Le regole degli orari commerciali sono cantonali. Domeniche e festivi richiedono una verifica dedicata. Le eccezioni passano da autorizzazioni speciali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-orari-negozi-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Negozi in una via commerciale di Zurigo"
+      },
+      "datePublished": "2026-10-12T02:54:35+00:00",
+      "dateModified": "2026-10-12T02:54:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orari-negozi-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-regole-orari-negozi-zurigo': {
+    title: 'Orari negozi Canton Zurigo: guida a domeniche e festivi',
+    description: 'Guida pratica agli orari di apertura dei negozi nel Canton Zurigo: come verificare regole per domeniche, festivi e autorizzazioni speciali presso gli enti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, negozi, canton, zurigo',
+    ogTitle: 'Orari negozi Canton Zurigo: guida a domeniche e festivi',
+    ogDescription: 'Scopri come consultare correttamente le regole sugli orari di apertura dei negozi nel Canton Zurigo. Una guida per gestire domeniche, giorni festivi e autorizzazioni speciali.',
+    canonicalPath: '/articoli-svizzera/regole-orari-negozi-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orari negozi Canton Zurigo: guida a domeniche e festivi",
+      "description": "Guida pratica agli orari di apertura dei negozi nel Canton Zurigo: come verificare regole per domeniche, festivi e autorizzazioni speciali presso gli enti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-regole-orari-negozi-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di negozi in una via commerciale svizzera."
+      },
+      "datePublished": "2026-10-12T07:39:52+00:00",
+      "dateModified": "2026-10-12T07:39:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regole-orari-negozi-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-cani-zurigo-guida': {
+    title: 'Imposta sui cani a Zurigo: guida alla registrazione',
+    description: 'Nel Cantone di Zurigo l\'imposta sui cani segue regole cantonali e comunali. L\'obbligo può essere eventuale e va verificato per il caso applicabile',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, cani, zurigo, alla',
+    ogTitle: 'Imposta sui cani a Zurigo: guida alla registrazione',
+    ogDescription: 'Nel Cantone di Zurigo l\'imposta sui cani segue regole cantonali e comunali.',
+    canonicalPath: '/articoli-svizzera/imposta-cani-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta sui cani a Zurigo: guida alla registrazione",
+      "description": "Nel Cantone di Zurigo l'imposta sui cani segue regole cantonali e comunali. L'obbligo può essere eventuale e va verificato per il caso applicabile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposta-cani-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di un cane con collare davanti a un ufficio comunale zurighese"
+      },
+      "datePublished": "2026-10-12T08:03:47+00:00",
+      "dateModified": "2026-10-12T08:03:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-cani-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ust-formazione-svizzera-2035': {
+    title: 'Crescita universitaria e calo scolastico: UST 2026-2035',
+    description: 'Gli universitari cresceranno di oltre il 20% nei prossimi nove anni Primarie: picco tra il 2027 e il 2028, poi -8% entro il 2035 Secondario II: +10%',
+    keywords: 'frontalieri, ticino, svizzera, italia, crescita, universitaria, calo, scolastico',
+    ogTitle: 'Crescita universitaria e calo scolastico: scenari UST 2026‑2035',
+    ogDescription: 'Gli universitari cresceranno di oltre il 20% nei prossimi nove anni Primarie: picco tra il 2027 e il 2028, poi -8% entro il 2035 Secondario II: +10%',
+    canonicalPath: '/articoli-svizzera/ust-formazione-svizzera-2035/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crescita universitaria e calo scolastico: UST 2026-2035",
+      "description": "Gli universitari cresceranno di oltre il 20% nei prossimi nove anni Primarie: picco tra il 2027 e il 2028, poi -8% entro il 2035 Secondario II: +10%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ust-formazione-svizzera-2035.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-12T10:17:38+00:00",
+      "dateModified": "2026-10-12T10:17:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ust-formazione-svizzera-2035/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-valutazioni-immobiliari-trasparenza-casa': {
+    title: 'Valutazioni immobiliari: differenze fino al 13%',
+    description: 'Valutazioni divergono in media dall\'11 al 13% Solo il 30-35% delle transazioni ha dati verificati Il 3% su 50\'000 franchi vale 1\'500 franchi A Ginevra l\'accesso',
+    keywords: 'frontalieri, ticino, svizzera, italia, valutazioni, immobiliari, differenze, fino',
+    ogTitle: 'Valutazioni immobiliari divergenti e scarsa trasparenza',
+    ogDescription: 'Valutazioni divergono in media dall\'11 al 13% Solo il 30-35% delle transazioni ha dati verificati Il 3% su 50\'000 franchi vale 1\'500 franchi A Ginevra l\'accesso',
+    canonicalPath: '/articoli-svizzera/valutazioni-immobiliari-trasparenza-casa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Valutazioni immobiliari: differenze fino al 13%",
+      "description": "Valutazioni divergono in media dall'11 al 13% Solo il 30-35% delle transazioni ha dati verificati Il 3% su 50'000 franchi vale 1'500 franchi A Ginevra l'accesso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-valutazioni-immobiliari-trasparenza-casa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-12T11:08:59+00:00",
+      "dateModified": "2026-10-12T11:08:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/valutazioni-immobiliari-trasparenza-casa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rincaro-whey-galaxus': {
+    title: 'Proteine in polvere, prezzi quasi a 55 franchi al chilo',
+    description: 'A settembre il Whey costa quasi 55 franchi al chilo La media del 2025 era di 46 franchi al chilo Domanda e costi di produzione spingono i prezzi Caseina',
+    keywords: 'frontalieri, ticino, svizzera, italia, proteine, polvere, prezzi, quasi',
+    ogTitle: 'Whey quasi a 55 franchi al chilo a settembre',
+    ogDescription: 'A settembre il Whey costa quasi 55 franchi al chilo La media del 2025 era di 46 franchi al chilo Domanda e costi di produzione spingono i prezzi Caseina',
+    canonicalPath: '/articoli-svizzera/rincaro-whey-galaxus/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Proteine in polvere, prezzi quasi a 55 franchi al chilo",
+      "description": "A settembre il Whey costa quasi 55 franchi al chilo La media del 2025 era di 46 franchi al chilo Domanda e costi di produzione spingono i prezzi Caseina",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rincaro-whey-galaxus.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-12T12:10:33+00:00",
+      "dateModified": "2026-10-12T12:10:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rincaro-whey-galaxus/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-piogge-siccita-rischio-incendi': {
+    title: 'Siccità in Svizzera: la pioggia non basta | Frontaliere Ticino',
+    description: 'Le piogge recenti hanno attenuato solo temporaneamente la siccità Negli ultimi 30 giorni le precipitazioni sono state sotto il 50% Il Reno tra Lago di Costanza',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, pioggia, basta, piogge',
+    ogTitle: 'Siccità svizzera: la pioggia non basta',
+    ogDescription: 'Le piogge recenti hanno attenuato solo temporaneamente la siccità Negli ultimi 30 giorni le precipitazioni sono state sotto il 50% Il Reno tra Lago di Costanza',
+    canonicalPath: '/articoli-svizzera/piogge-siccita-rischio-incendi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità in Svizzera: la pioggia non basta",
+      "description": "Le piogge recenti hanno attenuato solo temporaneamente la siccità Negli ultimi 30 giorni le precipitazioni sono state sotto il 50% Il Reno tra Lago di Costanza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-piogge-siccita-rischio-incendi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago svizzero con livelli d'acqua bassi durante una fase di siccità"
+      },
+      "datePublished": "2026-10-12T12:29:08+00:00",
+      "dateModified": "2026-10-12T12:29:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/piogge-siccita-rischio-incendi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-camion-pesanti-uno-su-quattro-e-elettrico-nel-2026': {
+    title: 'Camion pesanti: uno su quattro è elettrico nel 2026',
+    description: '28\'431 veicoli commerciali immatricolati nei primi nove mesi del 2026 847 camion elettrici: quota del 27,4% oltre 16 tonnellate Nel segmento 3,5-16 tonnellate',
+    keywords: 'frontalieri, ticino, svizzera, italia, camion, pesanti, quattro, elettrico',
+    ogTitle: 'Camion pesanti: uno su quattro è elettrico nel 2026',
+    ogDescription: '28\'431 veicoli commerciali immatricolati nei primi nove mesi del 2026 847 camion elettrici: quota del 27,4% oltre 16 tonnellate Nel segmento 3,5-16 tonnellate',
+    canonicalPath: '/articoli-svizzera/camion-pesanti-uno-su-quattro-e-elettrico-nel-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camion pesanti: uno su quattro è elettrico nel 2026",
+      "description": "28'431 veicoli commerciali immatricolati nei primi nove mesi del 2026 847 camion elettrici: quota del 27,4% oltre 16 tonnellate Nel segmento 3,5-16 tonnellate",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-camion-pesanti-uno-su-quattro-e-elettrico-nel-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Camion pesanti: uno su quattro è elettrico nel 2026"
+      },
+      "datePublished": "2026-10-12T14:36:01+00:00",
+      "dateModified": "2026-10-12T14:36:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/camion-pesanti-uno-su-quattro-e-elettrico-nel-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carburanti-dopo-record-settembre': {
+    title: 'Carburanti in Svizzera: benzina e diesel calano',
+    description: 'I rilevamenti del TCS indicano benzina 95 a 2,11 franchi al litro, benzina 98 a 2,22 e diesel a 2,40: il carburante cala dopo i record di settembre in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, benzina, diesel, calano',
+    ogTitle: 'Carburanti in calo dopo i record di settembre',
+    ogDescription: 'Dopo i massimi di settembre, il Touring Club Svizzero rileva prezzi medi più bassi: la benzina senza piombo 95 e 98 arretra di 3 centesimi, mentre il diesel scende di 6, fino a 2,40 franchi al litro.',
+    canonicalPath: '/articoli-svizzera/carburanti-dopo-record-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburanti in Svizzera: benzina e diesel calano",
+      "description": "I rilevamenti del TCS indicano benzina 95 a 2,11 franchi al litro, benzina 98 a 2,22 e diesel a 2,40: il carburante cala dopo i record di settembre in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-carburanti-dopo-record-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-12T16:48:08+00:00",
+      "dateModified": "2026-10-12T16:48:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carburanti-dopo-record-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-mirino-007-stranieri': {
+    title: 'La Svizzera nel mirino degli 007 stranieri | Frontaliere Ticino',
+    description: 'John Kiriakou giudica di prim\'ordine l\'intelligence svizzera August Hanning ha ricoperto incarichi nei consigli a Lucerna In Svizzera operano società private',
+    keywords: 'frontalieri, ticino, svizzera, italia, mirino, stranieri, john, kiriakou',
+    ogTitle: 'La Svizzera nel mirino degli 007 stranieri',
+    ogDescription: 'John Kiriakou giudica di prim\'ordine l\'intelligence svizzera August Hanning ha ricoperto incarichi nei consigli a Lucerna In Svizzera operano società private',
+    canonicalPath: '/articoli-svizzera/svizzera-mirino-007-stranieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera nel mirino degli 007 stranieri",
+      "description": "John Kiriakou giudica di prim'ordine l'intelligence svizzera August Hanning ha ricoperto incarichi nei consigli a Lucerna In Svizzera operano società private",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-mirino-007-stranieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista realistica di Lugano con lago e Alpi, figura discreta con taccuino che suggerisce attività di intelligence"
+      },
+      "datePublished": "2026-10-12T19:26:23+00:00",
+      "dateModified": "2026-10-12T19:26:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-mirino-007-stranieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-benu-rete-santanna-sanita': {
+    title: 'Swiss medical network e phoenix pharma: alleanza in Ticino',
+    description: 'Swiss Medical Network alleata con Phoenix Pharma Switzerland Benu entrerà nella Rete Sant\'Anna in Ticino Con Viva si potrà rivolgersi a Benu per quattro servizi',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, medical, network, phoenix',
+    ogTitle: 'Benu e Rete Sant\'Anna: novità per il Ticino',
+    ogDescription: 'Swiss Medical Network alleata con Phoenix Pharma Switzerland Benu entrerà nella Rete Sant\'Anna in Ticino Con Viva si potrà rivolgersi a Benu per quattro servizi',
+    canonicalPath: '/articoli-svizzera/benu-rete-santanna-sanita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss medical network e phoenix pharma: alleanza in Ticino",
+      "description": "Swiss Medical Network alleata con Phoenix Pharma Switzerland Benu entrerà nella Rete Sant'Anna in Ticino Con Viva si potrà rivolgersi a Benu per quattro servizi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-benu-rete-santanna-sanita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-12T21:32:17+00:00",
+      "dateModified": "2026-10-12T21:32:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benu-rete-santanna-sanita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ia-pubblica-amministrazione-ticino': {
+    title: 'IA nella PA ticinese: innovazione o problemi digitalizzati?',
+    description: 'Il Ticino unisce ricerca avanzata e burocrazia lenta USI e SUPSI sono riferimenti per il Cantone I talenti ticinesi guardano ai Politecnici federali L\'IA',
+    keywords: 'frontalieri, ticino, svizzera, italia, nella, ticinese, innovazione, problemi',
+    ogTitle: 'IA nella PA ticinese: innovazione o problemi digitalizzati?',
+    ogDescription: 'Il Ticino unisce ricerca avanzata e burocrazia lenta USI e SUPSI sono riferimenti per il Cantone I talenti ticinesi guardano ai Politecnici federali L\'IA',
+    canonicalPath: '/articoli-svizzera/ia-pubblica-amministrazione-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA nella PA ticinese: innovazione o problemi digitalizzati?",
+      "description": "Il Ticino unisce ricerca avanzata e burocrazia lenta USI e SUPSI sono riferimenti per il Cantone I talenti ticinesi guardano ai Politecnici federali L'IA",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ia-pubblica-amministrazione-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del governo a Bellinzona con elementi digitali che simboleggiano l'IA nella PA"
+      },
+      "datePublished": "2026-10-12T22:15:36+00:00",
+      "dateModified": "2026-10-12T22:15:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-pubblica-amministrazione-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cdf-procedure-fitosanitari': {
+    title: 'CDF: omologazione dei prodotti fitosanitari complessa',
+    description: 'Il 12 ottobre 2026 è stata pubblicata la verifica del CDF Cinque uffici federali esaminano i prodotti fitosanitari Strutture e processi sono troppo complessi',
+    keywords: 'frontalieri, ticino, svizzera, italia, omologazione, prodotti, fitosanitari, complessa',
+    ogTitle: 'Prodotti fitosanitari, la verifica del CDF',
+    ogDescription: 'Il 12 ottobre 2026 è stata pubblicata la verifica del CDF Cinque uffici federali esaminano i prodotti fitosanitari Strutture e processi sono troppo complessi',
+    canonicalPath: '/articoli-svizzera/cdf-procedure-fitosanitari/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CDF: omologazione dei prodotti fitosanitari complessa",
+      "description": "Il 12 ottobre 2026 è stata pubblicata la verifica del CDF Cinque uffici federali esaminano i prodotti fitosanitari Strutture e processi sono troppo complessi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cdf-procedure-fitosanitari.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici federali svizzeri e dossier per l'omologazione di prodotti fitosanitari"
+      },
+      "datePublished": "2026-10-12T23:17:07+00:00",
+      "dateModified": "2026-10-12T23:17:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cdf-procedure-fitosanitari/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-proiezioni-scuola-universita-2035': {
+    title: 'Scuole e università: le proiezioni UST al 2035',
+    description: 'Il picco della primaria è atteso tra il 2027 e il 2028. Dal 2029 gli iscritti alle elementari inizieranno a diminuire. Nel 2035 le università potrebbero',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuole, università, proiezioni, picco',
+    ogTitle: 'Proiezioni UST: calo elementari, boom università',
+    ogDescription: 'Il picco della primaria è atteso tra il 2027 e il 2028.',
+    canonicalPath: '/articoli-svizzera/proiezioni-scuola-universita-2035/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuole e università: le proiezioni UST al 2035",
+      "description": "Il picco della primaria è atteso tra il 2027 e il 2028. Dal 2029 gli iscritti alle elementari inizieranno a diminuire. Nel 2035 le università potrebbero",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-proiezioni-scuola-universita-2035.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studenti universitari camminano in un campus svizzero durante l'autunno"
+      },
+      "datePublished": "2026-10-13T00:48:50+00:00",
+      "dateModified": "2026-10-13T00:48:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/proiezioni-scuola-universita-2035/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ust-scenari-formazione-2035': {
+    title: 'UST: scenari formazione 2035, +21% università | Frontaliere Ticino',
+    description: 'UST: scuole universitarie a +21% tra il 2026 e il 2035 Elementare: riduzione dell\'8% nello stesso periodo 305 000 studenti bachelor e master nel 2035 Tre',
+    keywords: 'frontalieri, ticino, svizzera, italia, scenari, formazione, università, scuole',
+    ogTitle: 'UST: scenari formazione 2035, +21% università',
+    ogDescription: 'UST: scuole universitarie a +21% tra il 2026 e il 2035 Elementare: riduzione dell\'8% nello stesso periodo 305 000 studenti bachelor e master nel 2035 Tre',
+    canonicalPath: '/articoli-svizzera/ust-scenari-formazione-2035/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UST: scenari formazione 2035, +21% università",
+      "description": "UST: scuole universitarie a +21% tra il 2026 e il 2035 Elementare: riduzione dell'8% nello stesso periodo 305 000 studenti bachelor e master nel 2035 Tre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ust-scenari-formazione-2035.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T02:24:13+00:00",
+      "dateModified": "2026-10-13T02:24:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ust-scenari-formazione-2035/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ascend-evonext-quotazione': {
+    title: 'Ascend Sport Technology verso la borsa svizzera',
+    description: 'Ascend Sport Technology punta alla borsa svizzera Fusione con Evonext, già quotata Valutazione: 500 milioni di franchi Chiusura prevista entro fine anno Società',
+    keywords: 'frontalieri, ticino, svizzera, italia, ascend, sport, technology, verso',
+    ogTitle: 'Ascend Sport Technology, fusione con Evonext',
+    ogDescription: 'Ascend Sport Technology punta alla borsa svizzera Fusione con Evonext, già quotata Valutazione: 500 milioni di franchi Chiusura prevista entro fine anno Società',
+    canonicalPath: '/articoli-svizzera/ascend-evonext-quotazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ascend Sport Technology verso la borsa svizzera",
+      "description": "Ascend Sport Technology punta alla borsa svizzera Fusione con Evonext, già quotata Valutazione: 500 milioni di franchi Chiusura prevista entro fine anno Società",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ascend-evonext-quotazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ascend Sport Technology, impresa lucernese, verso la borsa svizzera"
+      },
+      "datePublished": "2026-10-13T03:04:34+00:00",
+      "dateModified": "2026-10-13T03:04:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ascend-evonext-quotazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-case-svizzera-rialzo-trimestre': {
+    title: 'Prezzi delle case in Svizzera: +2% in tre mesi',
+    description: 'Case unifamiliari: prezzi +2% in tre mesi Appartamenti: prezzi +1,7% in tre mesi Su base annua: +3,6% case, +5,9% appartamenti Svizzera meridionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, case, mesi, unifamiliari',
+    ogTitle: 'Case in Svizzera: +2% in tre mesi',
+    ogDescription: 'Case unifamiliari: prezzi +2% in tre mesi Appartamenti: prezzi +1,7% in tre mesi Su base annua: +3,6% case, +5,9% appartamenti Svizzera meridionale',
+    canonicalPath: '/articoli-svizzera/case-svizzera-rialzo-trimestre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi delle case in Svizzera: +2% in tre mesi",
+      "description": "Case unifamiliari: prezzi +2% in tre mesi Appartamenti: prezzi +1,7% in tre mesi Su base annua: +3,6% case, +5,9% appartamenti Svizzera meridionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-case-svizzera-rialzo-trimestre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Case e appartamenti in Svizzera, con i prezzi immobiliari in rialzo."
+      },
+      "datePublished": "2026-10-13T03:27:03+00:00",
+      "dateModified": "2026-10-13T03:27:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/case-svizzera-rialzo-trimestre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-kof-nobel-svizzera': {
+    title: 'KOF: Nobel dell\'economia importante per la Svizzera',
+    description: 'Robert Hall e Michael Woodford ricevono il Nobel dell\'economia. Le aspettative sul futuro incidono sulle decisioni attuali. La rilevanza svizzera riguarda BNS',
+    keywords: 'frontalieri, ticino, svizzera, italia, nobel, dell, economia, importante',
+    ogTitle: 'KOF: Nobel dell\'economia, rilievo per la Svizzera',
+    ogDescription: 'Robert Hall e Michael Woodford ricevono il Nobel dell\'economia.',
+    canonicalPath: '/articoli-svizzera/kof-nobel-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "KOF: Nobel dell'economia importante per la Svizzera",
+      "description": "Robert Hall e Michael Woodford ricevono il Nobel dell'economia. Le aspettative sul futuro incidono sulle decisioni attuali. La rilevanza svizzera riguarda BNS",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-kof-nobel-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta urbana svizzera associata all'analisi della politica monetaria"
+      },
+      "datePublished": "2026-10-13T04:15:39+00:00",
+      "dateModified": "2026-10-13T04:15:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/kof-nobel-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-wagner-chiude-waldstatt-69-licenziamenti': {
+    title: 'Wagner chiude a Waldstatt: 69 posti persi | Frontaliere Ticino',
+    description: 'Wagner chiude a Waldstatt, nel cantone di Appenzello Esterno La chiusura riguarda 69 posti di lavoro Le attività passano gradualmente a partner esterni',
+    keywords: 'frontalieri, ticino, svizzera, italia, wagner, chiude, waldstatt, posti',
+    ogTitle: 'Wagner chiude a Waldstatt: 69 posti di lavoro persi',
+    ogDescription: 'Wagner chiude a Waldstatt, nel cantone di Appenzello Esterno La chiusura riguarda 69 posti di lavoro Le attività passano gradualmente a partner esterni',
+    canonicalPath: '/articoli-svizzera/wagner-chiude-waldstatt-69-licenziamenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Wagner chiude a Waldstatt: 69 posti persi",
+      "description": "Wagner chiude a Waldstatt, nel cantone di Appenzello Esterno La chiusura riguarda 69 posti di lavoro Le attività passano gradualmente a partner esterni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-wagner-chiude-waldstatt-69-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento industriale chiuso a Waldstatt, Appenzello Esterno"
+      },
+      "datePublished": "2026-10-13T04:32:01+00:00",
+      "dateModified": "2026-10-13T04:32:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/wagner-chiude-waldstatt-69-licenziamenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guerra-medio-oriente-benzina-svizzera': {
+    title: 'Stangata benzina in Svizzera: quanto costa la guerra',
+    description: 'Da febbraio la benzina è salita a 2,11 franchi al litro 15\'000 km annui e 6 l/100 km: 423 franchi in più Il cherosene costa il doppio rispetto allo scorso anno',
+    keywords: 'frontalieri, ticino, svizzera, italia, stangata, benzina, quanto, costa',
+    ogTitle: 'Stangata benzina in Svizzera: quanto costa la guerra',
+    ogDescription: 'Da febbraio la benzina è salita a 2,11 franchi al litro 15\'000 km annui e 6 l/100 km: 423 franchi in più Il cherosene costa il doppio rispetto allo scorso anno',
+    canonicalPath: '/articoli-svizzera/guerra-medio-oriente-benzina-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stangata benzina in Svizzera: quanto costa la guerra",
+      "description": "Da febbraio la benzina è salita a 2,11 franchi al litro 15'000 km annui e 6 l/100 km: 423 franchi in più Il cherosene costa il doppio rispetto allo scorso anno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-guerra-medio-oriente-benzina-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T05:33:34+00:00",
+      "dateModified": "2026-10-13T05:33:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guerra-medio-oriente-benzina-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tunnel-gran-san-bernardo-fotovoltaico': {
+    title: 'Tunnel Gran San Bernardo: 1000 pannelli solari coprono metà fabbisogno',
+    description: '1000 pannelli sul versante svizzero del Gran San Bernardo 7000 m² di superficie fotovoltaica prevista 450 MWh annui: metà del fabbisogno della galleria',
+    keywords: 'frontalieri, ticino, svizzera, italia, tunnel, gran, bernardo, 1000',
+    ogTitle: 'Tunnel Gran San Bernardo: 1000 pannelli solari per metà del fabbisogno',
+    ogDescription: '1000 pannelli sul versante svizzero del Gran San Bernardo 7000 m² di superficie fotovoltaica prevista 450 MWh annui: metà del fabbisogno della galleria',
+    canonicalPath: '/articoli-svizzera/tunnel-gran-san-bernardo-fotovoltaico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tunnel Gran San Bernardo: 1000 pannelli solari coprono metà fabbisogno",
+      "description": "1000 pannelli sul versante svizzero del Gran San Bernardo 7000 m² di superficie fotovoltaica prevista 450 MWh annui: metà del fabbisogno della galleria",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tunnel-gran-san-bernardo-fotovoltaico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pannelli fotovoltaici sulla galleria del Tunnel Gran San Bernardo a Bourg-Saint-Pierre"
+      },
+      "datePublished": "2026-10-13T05:54:57+00:00",
+      "dateModified": "2026-10-13T05:54:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tunnel-gran-san-bernardo-fotovoltaico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aumento-tassi-ipotecari-q3': {
+    title: 'Aumento dei tassi ipotecari nel terzo trimestre 2024',
+    description: 'Il costo delle ipoteche è salito nel terzo trimestre. Il fisso decennale era al 2,07% a fine settembre. Il quinquennale era all\'1,9%; il triennale all\'1,75%',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, tassi, ipotecari, terzo',
+    ogTitle: 'Aumento tassi ipotecari terzo trimestre 2024 Svizzera',
+    ogDescription: 'Il costo delle ipoteche è salito nel terzo trimestre.',
+    canonicalPath: '/articoli-svizzera/aumento-tassi-ipotecari-q3/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento dei tassi ipotecari nel terzo trimestre 2024",
+      "description": "Il costo delle ipoteche è salito nel terzo trimestre. Il fisso decennale era al 2,07% a fine settembre. Il quinquennale era all'1,9%; il triennale all'1,75%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-aumento-tassi-ipotecari-q3.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa svizzera con documento di mutuo sul tavolo e Alpi sullo sfondo"
+      },
+      "datePublished": "2026-10-13T07:05:24+00:00",
+      "dateModified": "2026-10-13T07:05:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aumento-tassi-ipotecari-q3/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-suva-fatture-controlli-risparmio': {
+    title: 'Suva: 123 milioni risparmiati sulle fatture | Frontaliere Ticino',
+    description: 'Suva ha risparmiato 123 milioni nel 2025 Controllate circa 2,9 milioni di fatture 297\'000 fatture avevano errori o imprecisioni Senza i controlli, premi medi',
+    keywords: 'frontalieri, ticino, svizzera, italia, suva, milioni, risparmiati, sulle',
+    ogTitle: 'Suva: controlli sulle fatture e risparmio nel 2025',
+    ogDescription: 'Suva ha risparmiato 123 milioni nel 2025 Controllate circa 2,9 milioni di fatture 297\'000 fatture avevano errori o imprecisioni Senza i controlli, premi medi',
+    canonicalPath: '/articoli-svizzera/suva-fatture-controlli-risparmio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Suva: 123 milioni risparmiati sulle fatture",
+      "description": "Suva ha risparmiato 123 milioni nel 2025 Controllate circa 2,9 milioni di fatture 297'000 fatture avevano errori o imprecisioni Senza i controlli, premi medi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-suva-fatture-controlli-risparmio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T07:33:06+00:00",
+      "dateModified": "2026-10-13T07:33:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/suva-fatture-controlli-risparmio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-100-848-firme-contro-il-controprogetto-sulle-pigioni': {
+    title: '100\'848 firme contro il controprogetto sulle pigioni',
+    description: 'L\'ASI ha consegnato 100\'848 firme alla Cancelleria federale L\'appello chiede di ritirare il controprogetto Il progetto riguarda il riesame delle pigioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, firme, contro, controprogetto, sulle',
+    ogTitle: '100\'848 firme contro il controprogetto sulle pigioni',
+    ogDescription: 'L\'ASI ha consegnato 100\'848 firme alla Cancelleria federale L\'appello chiede di ritirare il controprogetto Il progetto riguarda il riesame delle pigioni',
+    canonicalPath: '/articoli-svizzera/100-848-firme-contro-il-controprogetto-sulle-pigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "100'848 firme contro il controprogetto sulle pigioni",
+      "description": "L'ASI ha consegnato 100'848 firme alla Cancelleria federale L'appello chiede di ritirare il controprogetto Il progetto riguarda il riesame delle pigioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-100-848-firme-contro-il-controprogetto-sulle-pigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: 100'848 firme contro il controprogetto sulle pigioni"
+      },
+      "datePublished": "2026-10-13T09:06:11+00:00",
+      "dateModified": "2026-10-13T09:06:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/100-848-firme-contro-il-controprogetto-sulle-pigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franco-euro-rafforzamento-stucki': {
+    title: 'Franco si rafforza sull\'euro: le previsioni di Stucki',
+    description: 'Stucki vede il franco più forte sull\'euro entro fine anno Il cambio è sceso da 95 a 93 centesimi Il deficit francese è circa il 5% del PIL La BNS non dovrebbe',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, rafforza, sull, euro',
+    ogTitle: 'Franco si rafforza sull\'euro: previsioni esperto',
+    ogDescription: 'Stucki vede il franco più forte sull\'euro entro fine anno Il cambio è sceso da 95 a 93 centesimi Il deficit francese è circa il 5% del PIL La BNS non dovrebbe',
+    canonicalPath: '/articoli-svizzera/franco-euro-rafforzamento-stucki/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco si rafforza sull'euro: le previsioni di Stucki",
+      "description": "Stucki vede il franco più forte sull'euro entro fine anno Il cambio è sceso da 95 a 93 centesimi Il deficit francese è circa il 5% del PIL La BNS non dovrebbe",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-franco-euro-rafforzamento-stucki.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con il lago e le montagne, simbolo di stabilità economica in Svizzera."
+      },
+      "datePublished": "2026-10-13T10:44:35+00:00",
+      "dateModified": "2026-10-13T10:44:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-euro-rafforzamento-stucki/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-divario-reddito-donne-uomini-scende-al-14': {
+    title: 'Divario reddito donne-uomini: scende al 14% | Frontaliere Ticino',
+    description: 'Il divario di reddito scende dal 55% al 14% tra generazioni. Nel 2025, titolo terziario: 54% donne contro 48% uomini. Le ore lavorate passano da 17 a meno',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, reddito, donne-uomini, scende',
+    ogTitle: 'Divario reddito donne-uomini: scende al 14%',
+    ogDescription: 'Il divario di reddito scende dal 55% al 14% tra generazioni.',
+    canonicalPath: '/articoli-svizzera/divario-reddito-donne-uomini-scende-al-14/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario reddito donne-uomini: scende al 14%",
+      "description": "Il divario di reddito scende dal 55% al 14% tra generazioni. Nel 2025, titolo terziario: 54% donne contro 48% uomini. Le ore lavorate passano da 17 a meno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-divario-reddito-donne-uomini-scende-al-14.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Divario reddito donne-uomini: scende al 14%"
+      },
+      "datePublished": "2026-10-13T10:59:34+00:00",
+      "dateModified": "2026-10-13T10:59:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divario-reddito-donne-uomini-scende-al-14/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vaccinazioni-autunnali-2026-influenza-covid-19-e-rsv': {
+    title: 'Vaccinazioni autunnali 2026: influenza, COVID-19 e RSV',
+    description: 'Comunicato pubblicato il 13 ottobre 2026. Influenza: raccomandata alle persone ad alto rischio. Settimane nazionali: dal 2 al 7 e dal 23 al 28 novembre 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaccinazioni, autunnali, influenza, covid-19',
+    ogTitle: 'Vaccinazioni autunnali 2026: influenza, COVID-19 e RSV',
+    ogDescription: 'Comunicato pubblicato il 13 ottobre 2026.',
+    canonicalPath: '/articoli-svizzera/vaccinazioni-autunnali-2026-influenza-covid-19-e-rsv/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaccinazioni autunnali 2026: influenza, COVID-19 e RSV",
+      "description": "Comunicato pubblicato il 13 ottobre 2026. Influenza: raccomandata alle persone ad alto rischio. Settimane nazionali: dal 2 al 7 e dal 23 al 28 novembre 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vaccinazioni-autunnali-2026-influenza-covid-19-e-rsv.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T11:54:19+00:00",
+      "dateModified": "2026-10-13T11:54:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vaccinazioni-autunnali-2026-influenza-covid-19-e-rsv/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-formulario-averi-iran-ottobre': {
+    title: 'Iran: DEFR aggiorna il formulario per trasferimenti di averi',
+    description: 'Il DEFR ha adattato il formulario il 13 ottobre 2026 Riguarda trasferimenti di averi ai sensi dell\'art.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iran, defr, aggiorna, formulario',
+    ogTitle: 'Iran: DEFR aggiorna il formulario per trasferimenti di averi',
+    ogDescription: 'Il DEFR ha adattato il formulario il 13 ottobre 2026 Riguarda trasferimenti di averi ai sensi dell\'art.',
+    canonicalPath: '/articoli-svizzera/formulario-averi-iran-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iran: DEFR aggiorna il formulario per trasferimenti di averi",
+      "description": "Il DEFR ha adattato il formulario il 13 ottobre 2026 Riguarda trasferimenti di averi ai sensi dell'art.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-formulario-averi-iran-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formulario aggiornato per trasferimenti di averi secondo l'ordinanza sull'Iran"
+      },
+      "datePublished": "2026-10-13T12:41:14+00:00",
+      "dateModified": "2026-10-13T12:41:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/formulario-averi-iran-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-voto-matrimonio-tassazione-coppie': {
+    title: 'Matrimonio, il Governo contro l\'iniziativa del Centro',
+    description: 'Il Consiglio federale e il Parlamento chiedono di respingere il testo Il voto sull\'iniziativa è fissato al 29 novembre Il testo riguarda l\'imposta federale',
+    keywords: 'frontalieri, ticino, svizzera, italia, matrimonio, governo, contro, iniziativa',
+    ogTitle: 'Iniziativa matrimonio, il Governo raccomanda il no',
+    ogDescription: 'Il Consiglio federale e il Parlamento chiedono di respingere il testo Il voto sull\'iniziativa è fissato al 29 novembre Il testo riguarda l\'imposta federale',
+    canonicalPath: '/articoli-svizzera/voto-matrimonio-tassazione-coppie/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Matrimonio, il Governo contro l'iniziativa del Centro",
+      "description": "Il Consiglio federale e il Parlamento chiedono di respingere il testo Il voto sull'iniziativa è fissato al 29 novembre Il testo riguarda l'imposta federale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-voto-matrimonio-tassazione-coppie.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T14:05:29+00:00",
+      "dateModified": "2026-10-13T14:05:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-matrimonio-tassazione-coppie/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-mercosur-firme-berna': {
+    title: 'Mercosur, lanciata la raccolta firme per il referendum',
+    description: 'Un\'ampia alleanza ha lanciato la raccolta firme per il referendum Gli oppositori hanno parlato martedì pomeriggio a Berna Foresta amazzonica, diritti umani',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercosur, lanciata, raccolta, firme',
+    ogTitle: 'Mercosur, parte la raccolta firme per il referendum',
+    ogDescription: 'Un\'ampia alleanza ha lanciato la raccolta firme per il referendum Gli oppositori hanno parlato martedì pomeriggio a Berna Foresta amazzonica, diritti umani',
+    canonicalPath: '/articoli-svizzera/referendum-mercosur-firme-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercosur, lanciata la raccolta firme per il referendum",
+      "description": "Un'ampia alleanza ha lanciato la raccolta firme per il referendum Gli oppositori hanno parlato martedì pomeriggio a Berna Foresta amazzonica, diritti umani",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-mercosur-firme-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Raccolta firme in Svizzera contro l'accordo di libero scambio con il Mercosur"
+      },
+      "datePublished": "2026-10-13T14:23:33+00:00",
+      "dateModified": "2026-10-13T14:23:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-mercosur-firme-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-limitazione-fuochi-artificio': {
+    title: 'Fuochi d\'artificio: iniziativa per limitarne l\'uso',
+    description: 'Il voto federale è previsto il 29 novembre Lo slogan è «Non tutti festeggiano» In Svizzera: 1\'300 tonnellate di rifiuti annui La Suva registra 260 infortuni',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuochi, artificio, iniziativa, limitarne',
+    ogTitle: 'Fuochi d\'artificio: iniziativa per limitarne l\'uso',
+    ogDescription: 'Il voto federale è previsto il 29 novembre Lo slogan è «Non tutti festeggiano» In Svizzera: 1\'300 tonnellate di rifiuti annui La Suva registra 260 infortuni',
+    canonicalPath: '/articoli-svizzera/iniziativa-limitazione-fuochi-artificio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuochi d'artificio: iniziativa per limitarne l'uso",
+      "description": "Il voto federale è previsto il 29 novembre Lo slogan è «Non tutti festeggiano» In Svizzera: 1'300 tonnellate di rifiuti annui La Suva registra 260 infortuni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-iniziativa-limitazione-fuochi-artificio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T15:24:22+00:00",
+      "dateModified": "2026-10-13T15:24:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-limitazione-fuochi-artificio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-diritto-lavoro-telelavoro-cet-s': {
+    title: 'Lavoro da casa: la CET-S propone regole più flessibili',
+    description: 'La CET-S sostiene regole meno rigide per il lavoro da casa La disconnessione esplicita verrebbe stralciata Il lavoro domenicale resterebbe soggetto',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, casa, cet-s, propone',
+    ogTitle: 'Telelavoro in Svizzera: flessibilità sì, disconnessione no',
+    ogDescription: 'La CET-S sostiene regole meno rigide per il lavoro da casa La disconnessione esplicita verrebbe stralciata Il lavoro domenicale resterebbe soggetto',
+    canonicalPath: '/articoli-svizzera/diritto-lavoro-telelavoro-cet-s/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro da casa: la CET-S propone regole più flessibili",
+      "description": "La CET-S sostiene regole meno rigide per il lavoro da casa La disconnessione esplicita verrebbe stralciata Il lavoro domenicale resterebbe soggetto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-diritto-lavoro-telelavoro-cet-s.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Postazione di lavoro da casa in Svizzera con vista paesaggistica"
+      },
+      "datePublished": "2026-10-13T18:20:51+00:00",
+      "dateModified": "2026-10-13T18:20:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritto-lavoro-telelavoro-cet-s/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ruppen-valuta-candidatura': {
+    title: 'Franz Ruppen valuta la candidatura al Consiglio federale',
+    description: 'Franz Ruppen riflette sulla successione di Guy Parmelin Esther Friedli ha citato il suo nome domenica sera La risposta è attesa alla fine della prossima',
+    keywords: 'frontalieri, ticino, svizzera, italia, franz, ruppen, valuta, candidatura',
+    ogTitle: 'Franz Ruppen valuta la candidatura al Consiglio federale',
+    ogDescription: 'Franz Ruppen riflette sulla successione di Guy Parmelin Esther Friedli ha citato il suo nome domenica sera La risposta è attesa alla fine della prossima',
+    canonicalPath: '/articoli-svizzera/ruppen-valuta-candidatura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franz Ruppen valuta la candidatura al Consiglio federale",
+      "description": "Franz Ruppen riflette sulla successione di Guy Parmelin Esther Friedli ha citato il suo nome domenica sera La risposta è attesa alla fine della prossima",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ruppen-valuta-candidatura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena istituzionale svizzera con bandiere rossocrociate."
+      },
+      "datePublished": "2026-10-13T19:03:54+00:00",
+      "dateModified": "2026-10-13T19:03:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruppen-valuta-candidatura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-swisscom-fibra-multa-taf': {
+    title: 'Swisscom vince il ricorso TAF: multa 18 milioni annullata',
+    description: 'TAF annulla la multa Swisscom da 18 milioni La Comco aveva imposto condizioni e sanzione La sentenza riguarda l\'ampliamento in fibra ottica Il ricorso',
+    keywords: 'frontalieri, ticino, svizzera, italia, swisscom, vince, ricorso, multa',
+    ogTitle: 'Swisscom vince il ricorso TAF: multa 18 milioni annullata',
+    ogDescription: 'TAF annulla la multa Swisscom da 18 milioni La Comco aveva imposto condizioni e sanzione La sentenza riguarda l\'ampliamento in fibra ottica Il ricorso',
+    canonicalPath: '/articoli-svizzera/swisscom-fibra-multa-taf/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swisscom vince il ricorso TAF: multa 18 milioni annullata",
+      "description": "TAF annulla la multa Swisscom da 18 milioni La Comco aveva imposto condizioni e sanzione La sentenza riguarda l'ampliamento in fibra ottica Il ricorso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-swisscom-fibra-multa-taf.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T19:28:14+00:00",
+      "dateModified": "2026-10-13T19:28:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swisscom-fibra-multa-taf/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-keller-sutter-imposizione-coniugi': {
+    title: 'Keller-Sutter lancia la campagna del No sull\'imposizione dei coniugi',
+    description: 'Keller-Sutter apre a Berna la campagna per il No. Il voto su popolo e Cantoni è fissato al 29 novembre. L\'8 marzo 2026 il 54,2% ha approvato la tassazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, keller-sutter, lancia, campagna, sull',
+    ogTitle: 'Keller-Sutter lancia la campagna del No sull\'imposizione dei coniugi',
+    ogDescription: 'Keller-Sutter apre a Berna la campagna per il No.',
+    canonicalPath: '/articoli-svizzera/iniziativa-keller-sutter-imposizione-coniugi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Keller-Sutter lancia la campagna del No sull'imposizione dei coniugi",
+      "description": "Keller-Sutter apre a Berna la campagna per il No. Il voto su popolo e Cantoni è fissato al 29 novembre. L'8 marzo 2026 il 54,2% ha approvato la tassazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-iniziativa-keller-sutter-imposizione-coniugi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio del DFF a Berna con bandiere svizzere e documento fiscale in primo piano"
+      },
+      "datePublished": "2026-10-13T19:48:49+00:00",
+      "dateModified": "2026-10-13T19:48:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-keller-sutter-imposizione-coniugi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hacker-casse-pensioni-svizzera': {
+    title: 'Hacker e casse pensioni: il rischio della concentrazione',
+    description: 'FAR: circa 20\'000 beneficiari avvisati dopo un attacco Publica: circa 112\'000 persone potenzialmente coinvolte Un fornitore software può esporre più casse',
+    keywords: 'frontalieri, ticino, svizzera, italia, hacker, casse, pensioni, rischio',
+    ogTitle: 'Hacker e casse pensioni: il rischio della concentrazione',
+    ogDescription: 'FAR: circa 20\'000 beneficiari avvisati dopo un attacco Publica: circa 112\'000 persone potenzialmente coinvolte Un fornitore software può esporre più casse',
+    canonicalPath: '/articoli-svizzera/hacker-casse-pensioni-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hacker e casse pensioni: il rischio della concentrazione",
+      "description": "FAR: circa 20'000 beneficiari avvisati dopo un attacco Publica: circa 112'000 persone potenzialmente coinvolte Un fornitore software può esporre più casse",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-hacker-casse-pensioni-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio di una cassa pensioni in Svizzera con protezione digitale"
+      },
+      "datePublished": "2026-10-13T20:26:15+00:00",
+      "dateModified": "2026-10-13T20:26:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hacker-casse-pensioni-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-migros-ecublens-57-posti': {
+    title: 'Migros valuta la chiusura a Écublens: 57 posti',
+    description: 'Migros valuta la chiusura della Centrale Traiteur A rischio 57 impieghi a Écublens La consultazione con il personale è in corso Nessuna decisione finale è stata',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, valuta, chiusura, écublens',
+    ogTitle: 'Migros a Écublens: 57 impieghi a rischio',
+    ogDescription: 'Migros valuta la chiusura della Centrale Traiteur A rischio 57 impieghi a Écublens La consultazione con il personale è in corso Nessuna decisione finale è stata',
+    canonicalPath: '/articoli-svizzera/migros-ecublens-57-posti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros valuta la chiusura a Écublens: 57 posti",
+      "description": "Migros valuta la chiusura della Centrale Traiteur A rischio 57 impieghi a Écublens La consultazione con il personale è in corso Nessuna decisione finale è stata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-migros-ecublens-57-posti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento alimentare di Migros a Écublens, nel canton Vaud."
+      },
+      "datePublished": "2026-10-13T21:00:56+00:00",
+      "dateModified": "2026-10-13T21:00:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-ecublens-57-posti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-attacco-frigoriferi-svizzera-rischio': {
+    title: 'Hacker mandano in tilt i frigoriferi: «Può succedere anche in Svizzera»',
+    description: 'Attacco a circa 150 supermercati in Francia Frigoriferi fino a 50 gradi e tonnellate di alimenti buttate Danfoss: vulnerabilità nei sistemi collegati a Internet',
+    keywords: 'frontalieri, ticino, svizzera, italia, hacker, mandano, tilt, frigoriferi',
+    ogTitle: 'Hacker mandano in tilt i frigoriferi: «Può succedere anche in Svizzera»',
+    ogDescription: 'Attacco a circa 150 supermercati in Francia Frigoriferi fino a 50 gradi e tonnellate di alimenti buttate Danfoss: vulnerabilità nei sistemi collegati a Internet',
+    canonicalPath: '/articoli-svizzera/attacco-frigoriferi-svizzera-rischio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hacker mandano in tilt i frigoriferi: «Può succedere anche in Svizzera»",
+      "description": "Attacco a circa 150 supermercati in Francia Frigoriferi fino a 50 gradi e tonnellate di alimenti buttate Danfoss: vulnerabilità nei sistemi collegati a Internet",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-attacco-frigoriferi-svizzera-rischio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T21:39:06+00:00",
+      "dateModified": "2026-10-13T21:39:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-frigoriferi-svizzera-rischio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-parlamento-svizzero-portale-guida': {
+    title: 'Il portale del Parlamento svizzero: struttura e percorsi di ricerca',
+    description: 'Scopri come navigare parlament.ch: Camere, commissioni, delegazioni, votazioni, Curia Vista e archivio storico per seguire l\'attività legislativa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, portale, parlamento, svizzero, struttura',
+    ogTitle: 'Il portale del Parlamento svizzero: struttura e percorsi',
+    ogDescription: 'Una guida pratica per orientarsi su parlament.ch: dalle due Camere alle commissioni, dalle delegazioni internazionali all\'archivio storico, fino agli strumenti per votazioni e finanze federali.',
+    canonicalPath: '/articoli-svizzera/parlamento-svizzero-portale-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il portale del Parlamento svizzero: struttura e percorsi di ricerca",
+      "description": "Scopri come navigare parlament.ch: Camere, commissioni, delegazioni, votazioni, Curia Vista e archivio storico per seguire l'attività legislativa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-parlamento-svizzero-portale-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-13T22:27:40+00:00",
+      "dateModified": "2026-10-13T22:27:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parlamento-svizzero-portale-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bcg-consiglio-mueller': {
+    title: 'Banca cantonale grigione: Reto Müller nel Consiglio',
+    description: 'Il Governo retico nomina Müller nel Consiglio di banca BCG Mandato: 1° luglio 2027',
+    keywords: 'frontalieri, ticino, svizzera, italia, banca, cantonale, grigione, reto',
+    ogTitle: 'Reto Müller nel Consiglio della BCG',
+    ogDescription: 'Il Governo retico nomina Müller nel Consiglio di banca BCG Mandato: 1° luglio 2027',
+    canonicalPath: '/articoli-svizzera/bcg-consiglio-mueller/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banca cantonale grigione: Reto Müller nel Consiglio",
+      "description": "Il Governo retico nomina Müller nel Consiglio di banca BCG Mandato: 1° luglio 2027",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bcg-consiglio-mueller.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rinnovo del Consiglio di banca della Banca cantonale grigione"
+      },
+      "datePublished": "2026-10-13T22:56:26+00:00",
+      "dateModified": "2026-10-13T22:56:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bcg-consiglio-mueller/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-offerte-formazione-federale': {
+    title: 'Amministrazione federale: lavoro, praticantati e formazione',
+    description: 'L\'Amministrazione federale propone un lavoro significativo Gli studenti neolaureati hanno un\'ampia gamma di praticantati Sono disponibili 50 formazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, amministrazione, federale, lavoro, praticantati',
+    ogTitle: 'Amministrazione federale: lavoro e formazione',
+    ogDescription: 'L\'Amministrazione federale propone un lavoro significativo Gli studenti neolaureati hanno un\'ampia gamma di praticantati Sono disponibili 50 formazioni',
+    canonicalPath: '/articoli-svizzera/offerte-formazione-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Amministrazione federale: lavoro, praticantati e formazione",
+      "description": "L'Amministrazione federale propone un lavoro significativo Gli studenti neolaureati hanno un'ampia gamma di praticantati Sono disponibili 50 formazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona, immagine svizzera per il lavoro federale"
+      },
+      "datePublished": "2026-10-13T23:44:58+00:00",
+      "dateModified": "2026-10-13T23:44:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/offerte-formazione-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-divario-reddito-giovani-svizzera': {
+    title: 'Divario salariale giovani Svizzera: cala il gap di reddito',
+    description: 'Tra i nati nel 1995, il divario di reddito è del 14% Tra i nati nel 1965, il divario era del 55% Nel 2025, il titolo terziario riguarda il 54% delle giovani',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, salariale, giovani, cala',
+    ogTitle: 'Divario salariale giovani Svizzera: cala il gap di reddito',
+    ogDescription: 'Tra i nati nel 1995, il divario di reddito è del 14% Tra i nati nel 1965, il divario era del 55% Nel 2025, il titolo terziario riguarda il 54% delle giovani',
+    canonicalPath: '/articoli-svizzera/divario-reddito-giovani-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario salariale giovani Svizzera: cala il gap di reddito",
+      "description": "Tra i nati nel 1995, il divario di reddito è del 14% Tra i nati nel 1965, il divario era del 55% Nel 2025, il titolo terziario riguarda il 54% delle giovani",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-divario-reddito-giovani-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con giovani professionisti"
+      },
+      "datePublished": "2026-10-14T00:12:26+00:00",
+      "dateModified": "2026-10-14T00:12:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divario-reddito-giovani-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-decisioni-avs-ue-voto': {
+    title: 'Consiglio federale: AVS, UE e voto 2026 | Frontaliere Ticino',
+    description: 'Guy Parmelin lascerà il Consiglio federale il 31.12.2026 Le rendite AVS/AI aumenteranno di circa 1,6% Il pacchetto Svizzera-UE è al Parlamento dal 13 marzo 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, voto, parmelin',
+    ogTitle: 'Consiglio federale: AVS, UE e voto 2026',
+    ogDescription: 'Guy Parmelin lascerà il Consiglio federale il 31.12.2026 Le rendite AVS/AI aumenteranno di circa 1,6% Il pacchetto Svizzera-UE è al Parlamento dal 13 marzo 2026',
+    canonicalPath: '/articoli-svizzera/decisioni-avs-ue-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: AVS, UE e voto 2026",
+      "description": "Guy Parmelin lascerà il Consiglio federale il 31.12.2026 Le rendite AVS/AI aumenteranno di circa 1,6% Il pacchetto Svizzera-UE è al Parlamento dal 13 marzo 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-decisioni-avs-ue-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande in una scena editoriale sulle decisioni federali"
+      },
+      "datePublished": "2026-10-14T00:54:06+00:00",
+      "dateModified": "2026-10-14T00:54:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/decisioni-avs-ue-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pfister-risorse-difesa-federale': {
+    title: 'Pfister: risorse insufficienti per l\'esercito svizzero',
+    description: 'Al LAC di Lugano Martin Pfister segnala risorse insufficienti per l\'esercito svizzero e sostiene nuovi investimenti legati a un aumento temporaneo dell\'IVA.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pfister, risorse, insufficienti, esercito',
+    ogTitle: 'Esercito svizzero: l\'allarme di Pfister',
+    ogDescription: 'Al LAC di Lugano, Pfister ha indicato droni, sabotaggi e ciberattacchi tra le minacce moderne. La risposta passa da nuovi investimenti, cooperazione con i Paesi europei e revisione delle norme sull\'esportazione di materiale bellico.',
+    canonicalPath: '/articoli-svizzera/pfister-risorse-difesa-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pfister: risorse insufficienti per l'esercito svizzero",
+      "description": "Al LAC di Lugano Martin Pfister segnala risorse insufficienti per l'esercito svizzero e sostiene nuovi investimenti legati a un aumento temporaneo dell'IVA.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pfister-risorse-difesa-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il LAC di Lugano, dove Martin Pfister ha parlato delle risorse dell'esercito svizzero."
+      },
+      "datePublished": "2026-10-14T01:19:47+00:00",
+      "dateModified": "2026-10-14T01:19:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pfister-risorse-difesa-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-licenza-caccia-zurigo-requisiti': {
+    title: 'Licenza di caccia a Zurigo: requisiti e domanda',
+    description: 'Informazioni su requisiti, esami, scadenze e importi per la licenza di caccia nel Cantone di Zurigo. Verifica la fonte ufficiale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenza, caccia, zurigo, requisiti',
+    ogTitle: 'Licenza di caccia a Zurigo: requisiti e domanda',
+    ogDescription: 'Scopri come procedere per la licenza di caccia nel Cantone di Zurigo. Guida pratica su requisiti, esami, scadenze, importi e uffici competenti da verificare nella fonte ufficiale cantonale.',
+    canonicalPath: '/articoli-svizzera/licenza-caccia-zurigo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenza di caccia a Zurigo: requisiti e domanda",
+      "description": "Informazioni su requisiti, esami, scadenze e importi per la licenza di caccia nel Cantone di Zurigo. Verifica la fonte ufficiale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-licenza-caccia-zurigo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T01:47:38+00:00",
+      "dateModified": "2026-10-14T01:47:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/licenza-caccia-zurigo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zurigo-targhe-immatricolazione-guida': {
+    title: 'Zurigo: guida a targhe e immatricolazione | Frontaliere Ticino',
+    description: 'Guida pratico a targhe e immatricolazione a Zurigo: registro, documenti, cambio proprietario e costi. Verifica presso l\'ufficio della circolazione competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, zurigo, targhe, immatricolazione, procedura',
+    ogTitle: 'Zurigo: guida a targhe e immatricolazione',
+    ogDescription: 'Scopri la procedura per targhe e immatricolazione a Zurigo. Guida completa su registrazione, documenti, cambio proprietario e imposta sugli autoveicoli. Verifica i costi ufficiali.',
+    canonicalPath: '/articoli-svizzera/zurigo-targhe-immatricolazione-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Zurigo: guida a targhe e immatricolazione",
+      "description": "Guida pratico a targhe e immatricolazione a Zurigo: registro, documenti, cambio proprietario e costi. Verifica presso l'ufficio della circolazione competente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-zurigo-targhe-immatricolazione-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T02:15:21+00:00",
+      "dateModified": "2026-10-14T02:15:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zurigo-targhe-immatricolazione-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-grandine-svizzera-danni-swiss-re': {
+    title: 'Grandine agosto: Swiss Re stima 1,7 mld danni | Frontaliere Ticino',
+    description: 'Swiss Re stima 1,7 miliardi di franchi di danni assicurati Circa 800 milioni di franchi riguardano i veicoli Il temporale del 28 agosto 2026 ha colpito cinque',
+    keywords: 'frontalieri, ticino, svizzera, italia, grandine, agosto, swiss, stima',
+    ogTitle: 'Grandine agosto: Swiss Re stima 1,7 mld danni',
+    ogDescription: 'Swiss Re stima 1,7 miliardi di franchi di danni assicurati Circa 800 milioni di franchi riguardano i veicoli Il temporale del 28 agosto 2026 ha colpito cinque',
+    canonicalPath: '/articoli-svizzera/grandine-svizzera-danni-swiss-re/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grandine agosto: Swiss Re stima 1,7 mld danni",
+      "description": "Swiss Re stima 1,7 miliardi di franchi di danni assicurati Circa 800 milioni di franchi riguardano i veicoli Il temporale del 28 agosto 2026 ha colpito cinque",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-grandine-svizzera-danni-swiss-re.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Grossi chicchi di grandine su un'asfalto bagnato in Svizzera"
+      },
+      "datePublished": "2026-10-14T02:27:16+00:00",
+      "dateModified": "2026-10-14T02:27:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grandine-svizzera-danni-swiss-re/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-collaudo-veicoli-canton-zurigo': {
+    title: 'Collaudo veicoli Canton Zurigo: convocazione e requisiti',
+    description: 'A Zurigo il collaudo segue il livello cantonale La pratica comprende convocazione, documenti e requisiti tecnici I controlli periodici fanno parte dell\'iter',
+    keywords: 'frontalieri, ticino, svizzera, italia, collaudo, veicoli, canton, zurigo',
+    ogTitle: 'Collaudo veicoli Canton Zurigo: convocazione e requisiti',
+    ogDescription: 'A Zurigo il collaudo segue il livello cantonale La pratica comprende convocazione, documenti e requisiti tecnici I controlli periodici fanno parte dell\'iter',
+    canonicalPath: '/articoli-svizzera/collaudo-veicoli-canton-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Collaudo veicoli Canton Zurigo: convocazione e requisiti",
+      "description": "A Zurigo il collaudo segue il livello cantonale La pratica comprende convocazione, documenti e requisiti tecnici I controlli periodici fanno parte dell'iter",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-collaudo-veicoli-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T03:22:14+00:00",
+      "dateModified": "2026-10-14T03:22:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/collaudo-veicoli-canton-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-licenza-pubblico-zurigo-requisiti': {
+    title: 'Licenza esercizio pubblico Zurigo: requisiti e domanda',
+    description: 'Scopri come richiedere la licenza per esercizi pubblici a Zurigo. Regole, autorità competenti, requisiti, fisco svizzero e gestione del personale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenza, esercizio, pubblico, zurigo',
+    ogTitle: 'Licenza esercizio pubblico Zurigo: requisiti e domanda',
+    ogDescription: 'Guida completa per la licenza di esercizi pubblici nel Cantone di Zurigo: autorità competenti, requisiti, scadenze, tassazione e regole per il personale.',
+    canonicalPath: '/articoli-svizzera/licenza-pubblico-zurigo-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenza esercizio pubblico Zurigo: requisiti e domanda",
+      "description": "Scopri come richiedere la licenza per esercizi pubblici a Zurigo. Regole, autorità competenti, requisiti, fisco svizzero e gestione del personale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-licenza-pubblico-zurigo-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Licenza per esercizio pubblico nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-14T03:42:26+00:00",
+      "dateModified": "2026-10-14T03:42:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/licenza-pubblico-zurigo-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tasse-universitarie-zurigo-guida': {
+    title: 'Tasse universitarie Canton Zurigo: guida e iscrizione',
+    description: 'Guida pratica alle tasse universitarie nel Cantone di Zurigo: istituzioni, categorie di studenti, procedure di iscrizione, esenzioni e contributi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, universitarie, canton, zurigo',
+    ogTitle: 'Tasse universitarie Canton Zurigo: guida a iscrizione e contributi',
+    ogDescription: 'Tutto quello che serve sapere sulle tasse universitarie nel Cantone di Zurigo: come verificare le istituzioni, le categorie di studenti, le procedure di iscrizione, le esenzioni e i contributi ufficiali.',
+    canonicalPath: '/articoli-svizzera/tasse-universitarie-zurigo-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse universitarie Canton Zurigo: guida e iscrizione",
+      "description": "Guida pratica alle tasse universitarie nel Cantone di Zurigo: istituzioni, categorie di studenti, procedure di iscrizione, esenzioni e contributi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tasse-universitarie-zurigo-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio universitario e studenti nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-14T04:09:09+00:00",
+      "dateModified": "2026-10-14T04:09:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tasse-universitarie-zurigo-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-zurigo-corsi-lingua-integrazione': {
+    title: 'Corsi di lingua a Zurigo: integrazione e contributi',
+    description: 'Scopri come accedere ai corsi di lingua e programmi di integrazione nel Cantone di Zurigo. Requisiti, scadenze, permessi SEM e uffici competenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, corsi, lingua, zurigo, integrazione',
+    ogTitle: 'Corsi di lingua a Zurigo: integrazione e contributi',
+    ogDescription: 'Guida pratica per i corsi di lingua e programmi di integrazione nel Cantone di Zurigo. Scopri le autorità competenti, i permessi SEM, le scadenze e i requisiti per i contributi.',
+    canonicalPath: '/articoli-svizzera/zurigo-corsi-lingua-integrazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Corsi di lingua a Zurigo: integrazione e contributi",
+      "description": "Scopri come accedere ai corsi di lingua e programmi di integrazione nel Cantone di Zurigo. Requisiti, scadenze, permessi SEM e uffici competenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-zurigo-corsi-lingua-integrazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo a Zurigo per corsi di lingua e integrazione"
+      },
+      "datePublished": "2026-10-14T04:35:31+00:00",
+      "dateModified": "2026-10-14T04:35:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/zurigo-corsi-lingua-integrazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-festivi-berna-calendario-guida': {
+    title: 'Giorni festivi Cantone di Berna: calendario e regole',
+    description: 'Guida ufficiale ai giorni festivi del Cantone di Berna. Scopri come verificare il calendario, le chiusure degli uffici e i rapporti con il livello federale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giorni, festivi, cantone, berna',
+    ogTitle: 'Giorni festivi Cantone di Berna: calendario e regole',
+    ogDescription: 'Guida completa e pratica per verificare il calendario dei giorni festivi nel Cantone di Berna, distinguendo tra livello cantonale, comunale e federale.',
+    canonicalPath: '/articoli-svizzera/festivi-berna-calendario-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giorni festivi Cantone di Berna: calendario e regole",
+      "description": "Guida ufficiale ai giorni festivi del Cantone di Berna. Scopri come verificare il calendario, le chiusure degli uffici e i rapporti con il livello federale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-festivi-berna-calendario-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Calendario dei giorni festivi e guida amministrativa del Cantone di Berna"
+      },
+      "datePublished": "2026-10-14T04:59:00+00:00",
+      "dateModified": "2026-10-14T04:59:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/festivi-berna-calendario-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-negozi-berna-orari-festivi-regole': {
+    title: 'Orari negozi Cantone di Berna: guida a festivi e regole',
+    description: 'Scopri la guida ufficiale per orari commerciali, giorni festivi, autorizzazioni e limite di 45 ore settimanali nel Cantone di Berna.',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, negozi, cantone, berna',
+    ogTitle: 'Orari negozi Cantone di Berna: guida a festivi e regole',
+    ogDescription: 'Guida pratica agli orari commerciali, giorni festivi, eccezioni e turni di lavoro nel Cantone di Berna per esercenti e dipendenti.',
+    canonicalPath: '/articoli-svizzera/negozi-berna-orari-festivi-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orari negozi Cantone di Berna: guida a festivi e regole",
+      "description": "Scopri la guida ufficiale per orari commerciali, giorni festivi, autorizzazioni e limite di 45 ore settimanali nel Cantone di Berna.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-negozi-berna-orari-festivi-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Orari e regole commerciali dei negozi nel Cantone di Berna"
+      },
+      "datePublished": "2026-10-14T05:28:35+00:00",
+      "dateModified": "2026-10-14T05:28:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/negozi-berna-orari-festivi-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-cani-berna-guida': {
+    title: 'Imposta sui cani nel Cantone di Berna: guida a importi e regole',
+    description: 'Scopri la guida completa sull\'imposta sui cani nel Cantone di Berna: obbligo eventuale, registrazione, esenzioni, autorità e modalità di pagamento ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, cani, cantone, berna',
+    ogTitle: 'Guida all\'imposta sui cani nel Cantone di Berna',
+    ogDescription: 'Tutto quello che c\'è da sapere sull\'imposta sui cani nel Cantone di Berna: obbligo eventuale, registrazione dell\'animale, esenzioni e regole di pagamento comunali e cantonali.',
+    canonicalPath: '/articoli-svizzera/imposta-cani-berna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta sui cani nel Cantone di Berna: guida a importi e regole",
+      "description": "Scopri la guida completa sull'imposta sui cani nel Cantone di Berna: obbligo eventuale, registrazione, esenzioni, autorità e modalità di pagamento ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposta-cani-berna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imposta sui cani nel Cantone di Berna: regole e registrazione"
+      },
+      "datePublished": "2026-10-14T06:31:49+00:00",
+      "dateModified": "2026-10-14T06:31:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-cani-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-licenza-caccia-berna-requisiti': {
+    title: 'Licenza di caccia canton Berna requisiti e domanda',
+    description: 'Guida alla licenza di caccia nel Cantone di Berna: requisiti, esami, periodi, specie cacciabili, documenti, scadenze e importi ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenza, caccia, canton, berna',
+    ogTitle: 'Licenza di caccia canton Berna requisiti e domanda',
+    ogDescription: 'Scopri la procedura ufficiale per la licenza di caccia nel Cantone di Berna: verifica competenza, requisiti, esami, specie cacciabili, documenti, scadenze e importi.',
+    canonicalPath: '/articoli-svizzera/licenza-caccia-berna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenza di caccia canton Berna requisiti e domanda",
+      "description": "Guida alla licenza di caccia nel Cantone di Berna: requisiti, esami, periodi, specie cacciabili, documenti, scadenze e importi ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-licenza-caccia-berna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del Cantone di Berna in Svizzera"
+      },
+      "datePublished": "2026-10-14T07:05:00+00:00",
+      "dateModified": "2026-10-14T07:05:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/licenza-caccia-berna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-investimenti-illiquidi-pensione-2026': {
+    title: 'Casse pensioni: investimenti illiquidi al 36% del patrimonio',
+    description: 'Il 36% del patrimonio è in attività non immediatamente negoziabili La quota è cresciuta negli ultimi 15 anni Immobili, ipoteche e alternativi offrono stabilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, casse, pensioni, investimenti, illiquidi',
+    ogTitle: 'Casse pensioni: investimenti illiquidi al 36% del patrimonio',
+    ogDescription: 'Il 36% del patrimonio è in attività non immediatamente negoziabili La quota è cresciuta negli ultimi 15 anni Immobili, ipoteche e alternativi offrono stabilità',
+    canonicalPath: '/articoli-svizzera/investimenti-illiquidi-pensione-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casse pensioni: investimenti illiquidi al 36% del patrimonio",
+      "description": "Il 36% del patrimonio è in attività non immediatamente negoziabili La quota è cresciuta negli ultimi 15 anni Immobili, ipoteche e alternativi offrono stabilità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-investimenti-illiquidi-pensione-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T11:35:59+00:00",
+      "dateModified": "2026-10-14T11:35:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/investimenti-illiquidi-pensione-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fallimenti-aziendali-svizzera-aumento': {
+    title: 'Fallimenti aziendali in netto aumento, record nel 2025-2026',
+    description: '11’063 aziende insolventi tra gennaio e settembre Fallimenti di ditte a 13’660, +38,4% annuo Nuove iscrizioni al registro: 41’706 Privati: 8’003 fallimenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, fallimenti, aziendali, netto, aumento',
+    ogTitle: 'Fallimenti aziendali in netto aumento, record nel 2025-2026',
+    ogDescription: '11’063 aziende insolventi tra gennaio e settembre Fallimenti di ditte a 13’660, +38,4% annuo Nuove iscrizioni al registro: 41’706 Privati: 8’003 fallimenti',
+    canonicalPath: '/articoli-svizzera/fallimenti-aziendali-svizzera-aumento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fallimenti aziendali in netto aumento, record nel 2025-2026",
+      "description": "11’063 aziende insolventi tra gennaio e settembre Fallimenti di ditte a 13’660, +38,4% annuo Nuove iscrizioni al registro: 41’706 Privati: 8’003 fallimenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fallimenti-aziendali-svizzera-aumento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con edifici uffici e acqua calma, giorno sereno"
+      },
+      "datePublished": "2026-10-14T13:06:00+00:00",
+      "dateModified": "2026-10-14T13:06:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fallimenti-aziendali-svizzera-aumento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prezzi-auto-nuove-usate-calo': {
+    title: 'Prezzi auto nuove e usate in calo grazie ai marchi cinesi',
+    description: 'Nel terzo trimestre calano i prezzi medi delle auto nuove. Anche l\'usato scende, con un\'offerta in aumento. I marchi cinesi aumentano la pressione sui prezzi',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, auto, nuove, usate',
+    ogTitle: 'Prezzi auto nuove e usate in calo grazie ai marchi cinesi',
+    ogDescription: 'Nel terzo trimestre calano i prezzi medi delle auto nuove.',
+    canonicalPath: '/articoli-svizzera/prezzi-auto-nuove-usate-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi auto nuove e usate in calo grazie ai marchi cinesi",
+      "description": "Nel terzo trimestre calano i prezzi medi delle auto nuove. Anche l'usato scende, con un'offerta in aumento. I marchi cinesi aumentano la pressione sui prezzi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-prezzi-auto-nuove-usate-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lot di automobili nuove e usate in una concessionaria svizzera con prezzi visibili"
+      },
+      "datePublished": "2026-10-14T13:53:50+00:00",
+      "dateModified": "2026-10-14T13:53:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-auto-nuove-usate-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-diritti-politici-disabilita': {
+    title: 'Disabili intellettivi, consultazione sui diritti politici',
+    description: 'Il Consiglio federale avvia la consultazione il 14 ottobre 2026 Scadenza della consultazione: 28 gennaio In proposta voto federale e firma di iniziative',
+    keywords: 'frontalieri, ticino, svizzera, italia, disabili, intellettivi, consultazione, diritti',
+    ogTitle: 'Disabili intellettivi, consultazione sui diritti politici',
+    ogDescription: 'Il Consiglio federale avvia la consultazione il 14 ottobre 2026 Scadenza della consultazione: 28 gennaio In proposta voto federale e firma di iniziative',
+    canonicalPath: '/articoli-svizzera/diritti-politici-disabilita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disabili intellettivi, consultazione sui diritti politici",
+      "description": "Il Consiglio federale avvia la consultazione il 14 ottobre 2026 Scadenza della consultazione: 28 gennaio In proposta voto federale e firma di iniziative",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-diritti-politici-disabilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio civico svizzero, simbolo della partecipazione politica inclusiva"
+      },
+      "datePublished": "2026-10-14T15:17:53+00:00",
+      "dateModified": "2026-10-14T15:17:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/diritti-politici-disabilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rapporto-riciclaggio-denaro-svizzera': {
+    title: 'Riciclaggio in Svizzera: servono più risorse e sanzioni',
+    description: 'I rischi restano elevati in Svizzera Il Consiglio federale prende nota del terzo rapporto Il GCRF formula otto raccomandazioni Servono più risorse e sanzioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, riciclaggio, servono, risorse, sanzioni',
+    ogTitle: 'Riciclaggio in Svizzera: rischi elevati e nuove misure',
+    ogDescription: 'I rischi restano elevati in Svizzera Il Consiglio federale prende nota del terzo rapporto Il GCRF formula otto raccomandazioni Servono più risorse e sanzioni',
+    canonicalPath: '/articoli-svizzera/rapporto-riciclaggio-denaro-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riciclaggio in Svizzera: servono più risorse e sanzioni",
+      "description": "I rischi restano elevati in Svizzera Il Consiglio federale prende nota del terzo rapporto Il GCRF formula otto raccomandazioni Servono più risorse e sanzioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rapporto-riciclaggio-denaro-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T16:21:05+00:00",
+      "dateModified": "2026-10-14T16:21:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rapporto-riciclaggio-denaro-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nuovo-accordo-commercio-elettronico': {
+    title: 'Nuovo accordo per il commercio elettronico | Frontaliere Ticino',
+    description: 'Il Consiglio federale avvia la consultazione sull\'ACE. L\'accordo riunisce 67 membri dell\'OMC. La consultazione termina il 28 gennaio 2027. L\'ACE vieta i dazi',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, accordo, commercio, elettronico',
+    ogTitle: 'Nuovo accordo per il commercio elettronico',
+    ogDescription: 'Il Consiglio federale avvia la consultazione sull\'ACE.',
+    canonicalPath: '/articoli-svizzera/nuovo-accordo-commercio-elettronico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo accordo per il commercio elettronico",
+      "description": "Il Consiglio federale avvia la consultazione sull'ACE. L'accordo riunisce 67 membri dell'OMC. La consultazione termina il 28 gennaio 2027. L'ACE vieta i dazi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-nuovo-accordo-commercio-elettronico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laptop con grafico del commercio digitale davanti al lago Lugano"
+      },
+      "datePublished": "2026-10-14T17:04:53+00:00",
+      "dateModified": "2026-10-14T17:04:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nuovo-accordo-commercio-elettronico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assunzioni-svizzera-cautela-2026': {
+    title: 'Assunzioni in Svizzera: aziende caute nonostante il PIL',
+    description: 'NEO svizzero a +21% per ottobre-dicembre 2026 NEO globale +29%; media europea +20% Pil elvetico in crescita dell\'1,5% nel secondo trimestre 2026 Junior: 35% più',
+    keywords: 'frontalieri, ticino, svizzera, italia, assunzioni, aziende, caute, nonostante',
+    ogTitle: 'Assunzioni Svizzera 2026: Prudenza nonostante il PIL',
+    ogDescription: 'NEO svizzero a +21% per ottobre-dicembre 2026 NEO globale +29%; media europea +20% Pil elvetico in crescita dell\'1,5% nel secondo trimestre 2026 Junior: 35% più',
+    canonicalPath: '/articoli-svizzera/assunzioni-svizzera-cautela-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assunzioni in Svizzera: aziende caute nonostante il PIL",
+      "description": "NEO svizzero a +21% per ottobre-dicembre 2026 NEO globale +29%; media europea +20% Pil elvetico in crescita dell'1,5% nel secondo trimestre 2026 Junior: 35% più",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-assunzioni-svizzera-cautela-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T17:31:30+00:00",
+      "dateModified": "2026-10-14T17:31:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assunzioni-svizzera-cautela-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-legge-piattaforme-tutela-giovani': {
+    title: 'Consiglio federale rafforza tutela giovani sulle piattaforme',
+    description: 'Il Consiglio federale decide il 14 ottobre 2026. Il DATEC preparerà il messaggio entro giugno 2027. La segnalazione riguarderà tutti i contenuti presumibilmente',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, rafforza, tutela',
+    ogTitle: 'Consiglio federale rafforza tutela giovani sulle piattaforme',
+    ogDescription: 'Il Consiglio federale decide il 14 ottobre 2026.',
+    canonicalPath: '/articoli-svizzera/legge-piattaforme-tutela-giovani/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale rafforza tutela giovani sulle piattaforme",
+      "description": "Il Consiglio federale decide il 14 ottobre 2026. Il DATEC preparerà il messaggio entro giugno 2027. La segnalazione riguarderà tutti i contenuti presumibilmente",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-legge-piattaforme-tutela-giovani.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T17:57:03+00:00",
+      "dateModified": "2026-10-14T17:57:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/legge-piattaforme-tutela-giovani/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-partecipa-fmi-bangkok-2026': {
+    title: 'Svizzera partecipa a FMI e Banca mondiale a Bangkok 2026',
+    description: 'Vertice FMI e Banca mondiale a Bangkok dal 15 al 17 ottobre 2026 Parmelin, Keller-Sutter e Schlegel nella delegazione svizzera Nuovo accordo di partenariato',
+    keywords: 'frontalieri, ticino, svizzera, italia, partecipa, banca, mondiale, bangkok',
+    ogTitle: 'Svizzera partecipa a FMI e Banca mondiale a Bangkok 2026',
+    ogDescription: 'Vertice FMI e Banca mondiale a Bangkok dal 15 al 17 ottobre 2026 Parmelin, Keller-Sutter e Schlegel nella delegazione svizzera Nuovo accordo di partenariato',
+    canonicalPath: '/articoli-svizzera/svizzera-partecipa-fmi-bangkok-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera partecipa a FMI e Banca mondiale a Bangkok 2026",
+      "description": "Vertice FMI e Banca mondiale a Bangkok dal 15 al 17 ottobre 2026 Parmelin, Keller-Sutter e Schlegel nella delegazione svizzera Nuovo accordo di partenariato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-partecipa-fmi-bangkok-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con la bandiera svizzera, simbolo dell'impegno svizzero nella finanza globale"
+      },
+      "datePublished": "2026-10-14T18:22:18+00:00",
+      "dateModified": "2026-10-14T18:22:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-partecipa-fmi-bangkok-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comco-sentenza-fibra-ottica': {
+    title: 'Multa Swisscom annullata: COMCO valuta il ricorso',
+    description: 'Il TAF annulla la multa di 18,4 milioni a Swisscom. La COMCO analizzerà la sentenza e deciderà se ricorrere al Tribunale federale per la fibra ottica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, multa, swisscom, annullata, comco',
+    ogTitle: 'Swisscom, multa annullata: COMCO valuta il ricorso',
+    ogDescription: 'La sentenza del Tribunale amministrativo federale annulla la sanzione inflitta a Swisscom nel dicembre 2023. Ora la Commissione della concorrenza deve scegliere se accettare il giudizio o presentare ricorso sulla fibra ottica.',
+    canonicalPath: '/articoli-svizzera/comco-sentenza-fibra-ottica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Multa Swisscom annullata: COMCO valuta il ricorso",
+      "description": "Il TAF annulla la multa di 18,4 milioni a Swisscom. La COMCO analizzerà la sentenza e deciderà se ricorrere al Tribunale federale per la fibra ottica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-comco-sentenza-fibra-ottica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cabinetto in fibra ottica accanto a un moderno edificio urbano svizzero"
+      },
+      "datePublished": "2026-10-14T19:07:30+00:00",
+      "dateModified": "2026-10-14T19:07:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comco-sentenza-fibra-ottica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-alliance-care-fallimento-procedura': {
+    title: 'Alliance Care chiude dopo poco più di un anno: avviata la procedura di fallimento',
+    description: 'Alliance Care chiude e avvia il fallimento La decisione è stata presa a Berna 17 licenziamenti su 91 dipendenti L\'ASI aveva concesso prestiti Organizzazione →',
+    keywords: 'frontalieri, ticino, svizzera, italia, alliance, care, chiude, dopo',
+    ogTitle: 'Alliance Care chiude: avviata la procedura di fallimento',
+    ogDescription: 'Alliance Care chiude e avvia il fallimento La decisione è stata presa a Berna 17 licenziamenti su 91 dipendenti L\'ASI aveva concesso prestiti Organizzazione →',
+    canonicalPath: '/articoli-svizzera/alliance-care-fallimento-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alliance Care chiude dopo poco più di un anno: avviata la procedura di fallimento",
+      "description": "Alliance Care chiude e avvia il fallimento La decisione è stata presa a Berna 17 licenziamenti su 91 dipendenti L'ASI aveva concesso prestiti Organizzazione →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-alliance-care-fallimento-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T20:03:54+00:00",
+      "dateModified": "2026-10-14T20:03:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/alliance-care-fallimento-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-federale-doganal-consultazione': {
+    title: 'Consiglio federale avvia consultazione ordinanze doganali',
+    description: 'Il Consiglio federale avvia la consultazione il 14 ottobre 2026 Il progetto riguarda la revisione totale del diritto doganale Il termine della consultazione è',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, avvia, consultazione',
+    ogTitle: 'Consultazione ordinanze doganali avviata',
+    ogDescription: 'Il Consiglio federale avvia la consultazione il 14 ottobre 2026 Il progetto riguarda la revisione totale del diritto doganale Il termine della consultazione è',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-doganal-consultazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale avvia consultazione ordinanze doganali",
+      "description": "Il Consiglio federale avvia la consultazione il 14 ottobre 2026 Il progetto riguarda la revisione totale del diritto doganale Il termine della consultazione è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-consiglio-federale-doganal-consultazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale svizzero a Berna con funzionari doganali al confine"
+      },
+      "datePublished": "2026-10-14T20:22:35+00:00",
+      "dateModified": "2026-10-14T20:22:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-doganal-consultazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consultazione-omc-commercio-digitale': {
+    title: 'Svizzera, consultazione sull\'accordo OMC per l\'e-commerce',
+    description: 'Accordo plurilaterale sul commercio elettronico all\'OMC 67 membri, tra cui la Svizzera, scelgono l\'attuazione provvisoria Consultazione dal 14 ottobre 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, consultazione, sull, accordo, e-commerce',
+    ogTitle: 'Accordo OMC digitale: consultazione in Svizzera',
+    ogDescription: 'Accordo plurilaterale sul commercio elettronico all\'OMC 67 membri, tra cui la Svizzera, scelgono l\'attuazione provvisoria Consultazione dal 14 ottobre 2026',
+    canonicalPath: '/articoli-svizzera/consultazione-omc-commercio-digitale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera, consultazione sull'accordo OMC per l'e-commerce",
+      "description": "Accordo plurilaterale sul commercio elettronico all'OMC 67 membri, tra cui la Svizzera, scelgono l'attuazione provvisoria Consultazione dal 14 ottobre 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-consultazione-omc-commercio-digitale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, immagine simbolica della Svizzera e del commercio digitale."
+      },
+      "datePublished": "2026-10-14T21:29:46+00:00",
+      "dateModified": "2026-10-14T21:29:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consultazione-omc-commercio-digitale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-liberta-fondo-pene-sostitutive': {
+    title: 'Multe non pagate? Ecco chi può salvarvi dal carcere',
+    description: 'Il Freiheitsfonds ha raccolto quasi 100\'000 franchi. 47 persone hanno evitato complessivamente 451 giorni di carcere. Nel 2024 ci sono stati 3\'935 ingressi',
+    keywords: 'frontalieri, ticino, svizzera, italia, multe, pagate, ecco, salvarvi',
+    ogTitle: 'Multe non pagate? Ecco chi può salvarvi dal carcere',
+    ogDescription: 'Il Freiheitsfonds ha raccolto quasi 100\'000 franchi.',
+    canonicalPath: '/articoli-svizzera/liberta-fondo-pene-sostitutive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Multe non pagate? Ecco chi può salvarvi dal carcere",
+      "description": "Il Freiheitsfonds ha raccolto quasi 100'000 franchi. 47 persone hanno evitato complessivamente 451 giorni di carcere. Nel 2024 ci sono stati 3'935 ingressi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-liberta-fondo-pene-sostitutive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-14T21:58:02+00:00",
+      "dateModified": "2026-10-14T21:58:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/liberta-fondo-pene-sostitutive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ordinanza-animali-compagnia-ue': {
+    title: 'Animali da compagnia: modificata l\'ordinanza 2026',
+    description: 'Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano',
+    keywords: 'frontalieri, ticino, svizzera, italia, animali, compagnia, modificata, ordinanza',
+    ogTitle: 'Animali da compagnia: modificata l\'ordinanza 2026',
+    ogDescription: 'Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano',
+    canonicalPath: '/articoli-svizzera/ordinanza-animali-compagnia-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Animali da compagnia: modificata l'ordinanza 2026",
+      "description": "Il Consiglio federale ha adottato la modifica il 14 ottobre 2026 La revisione riguarda importazione, transito ed esportazione Le disposizioni si adeguano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ordinanza-animali-compagnia-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cane accanto a un documento svizzero sull'ordinanza per gli animali da compagnia"
+      },
+      "datePublished": "2026-10-14T22:26:00+00:00",
+      "dateModified": "2026-10-14T22:26:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ordinanza-animali-compagnia-ue/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-grigioni-preventivo-contributi-terzi': {
+    title: 'GR: settori pesano sempre più sul preventivo | Frontaliere Ticino',
+    description: 'Disavanzo previsto: quasi 100 milioni di franchi Contributi a terzi: +24,8% in quattro anni Voce di bilancio: +34,5% tra 2023 e 2027 EFAS: quasi 20 milioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, settori, pesano, sempre, preventivo',
+    ogTitle: 'GR: settori pesano sempre più sul preventivo',
+    ogDescription: 'Disavanzo previsto: quasi 100 milioni di franchi Contributi a terzi: +24,8% in quattro anni Voce di bilancio: +34,5% tra 2023 e 2027 EFAS: quasi 20 milioni',
+    canonicalPath: '/articoli-svizzera/grigioni-preventivo-contributi-terzi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "GR: settori pesano sempre più sul preventivo",
+      "description": "Disavanzo previsto: quasi 100 milioni di franchi Contributi a terzi: +24,8% in quattro anni Voce di bilancio: +34,5% tra 2023 e 2027 EFAS: quasi 20 milioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-grigioni-preventivo-contributi-terzi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del palazzo del Cantone dei Grigioni con grafici finanziari sullo sfondo"
+      },
+      "datePublished": "2026-10-14T22:47:30+00:00",
+      "dateModified": "2026-10-14T22:47:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/grigioni-preventivo-contributi-terzi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-federale-knifefish-adesione': {
+    title: 'Consiglio federale approva adesione a Knifefish per attacco elettronico',
+    description: 'Il 14 ottobre 2026 il Consiglio federale approva Knifefish La Svizzera modernizza i mezzi per la guerra elettronica Knifefish favorisce acquisti e scambi',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, approva, adesione',
+    ogTitle: 'Consiglio federale approva adesione a Knifefish per attacco elettronico',
+    ogDescription: 'Il 14 ottobre 2026 il Consiglio federale approva Knifefish La Svizzera modernizza i mezzi per la guerra elettronica Knifefish favorisce acquisti e scambi',
+    canonicalPath: '/articoli-svizzera/consiglio-federale-knifefish-adesione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale approva adesione a Knifefish per attacco elettronico",
+      "description": "Il 14 ottobre 2026 il Consiglio federale approva Knifefish La Svizzera modernizza i mezzi per la guerra elettronica Knifefish favorisce acquisti e scambi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-consiglio-federale-knifefish-adesione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con equipaggiamento militare moderno per guerra elettronica"
+      },
+      "datePublished": "2026-10-14T23:04:44+00:00",
+      "dateModified": "2026-10-14T23:04:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-federale-knifefish-adesione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hacker-frigoriferi-connessi': {
+    title: 'Hacker manipolano la refrigerazione: rischio per le case',
+    description: 'Attacco a centinaia di supermercati francesi Refrigerazione manipolata a distanza Danni per milioni di euro Coop e Migros: nessun attacco simile registrato',
+    keywords: 'frontalieri, ticino, svizzera, italia, hacker, manipolano, refrigerazione, rischio',
+    ogTitle: 'Hacker manipolano la refrigerazione: rischio per le case',
+    ogDescription: 'Attacco a centinaia di supermercati francesi Refrigerazione manipolata a distanza Danni per milioni di euro Coop e Migros: nessun attacco simile registrato',
+    canonicalPath: '/articoli-svizzera/hacker-frigoriferi-connessi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hacker manipolano la refrigerazione: rischio per le case",
+      "description": "Attacco a centinaia di supermercati francesi Refrigerazione manipolata a distanza Danni per milioni di euro Coop e Migros: nessun attacco simile registrato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-hacker-frigoriferi-connessi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sistemi di refrigerazione e dispositivi connessi al centro dell'allarme informatico"
+      },
+      "datePublished": "2026-10-14T23:24:39+00:00",
+      "dateModified": "2026-10-14T23:24:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/hacker-frigoriferi-connessi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-orologio-lingotto-trump-seco': {
+    title: 'Orologio e lingotto d’oro a Trump, Seco: «Erano per il popolo americano»',
+    description: 'I regali a Donald Trump valevano circa 100\'000 franchi La consegna risale al novembre 2025 I dazi Usa sono passati dal 39% al 15% Un rapporto sulle autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, orologio, lingotto, trump, seco',
+    ogTitle: 'Orologio e lingotto d’oro a Trump: Seco spiega il gesto',
+    ogDescription: 'I regali a Donald Trump valevano circa 100\'000 franchi La consegna risale al novembre 2025 I dazi Usa sono passati dal 39% al 15% Un rapporto sulle autorità',
+    canonicalPath: '/articoli-svizzera/orologio-lingotto-trump-seco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orologio e lingotto d’oro a Trump, Seco: «Erano per il popolo americano»",
+      "description": "I regali a Donald Trump valevano circa 100'000 franchi La consegna risale al novembre 2025 I dazi Usa sono passati dal 39% al 15% Un rapporto sulle autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-orologio-lingotto-trump-seco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Orologio Rolex e lingotto d'oro su tessuto svizzero rosso, simbolo del dono agli USA"
+      },
+      "datePublished": "2026-10-14T23:41:41+00:00",
+      "dateModified": "2026-10-14T23:41:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologio-lingotto-trump-seco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ordinanza-dispositivi-vitali': {
+    title: 'Dispositivi medici vitali: il DEFR apre una consultazione',
+    description: 'Il DEFR apre una consultazione sui dispositivi medici vitali Il progetto punta a monitorare l\'approvvigionamento Inizio: 14 ottobre 2026 Termine: 28 gennaio',
+    keywords: 'frontalieri, ticino, svizzera, italia, dispositivi, medici, vitali, defr',
+    ogTitle: 'DEFR, consultazione sui dispositivi medici vitali',
+    ogDescription: 'Il DEFR apre una consultazione sui dispositivi medici vitali Il progetto punta a monitorare l\'approvvigionamento Inizio: 14 ottobre 2026 Termine: 28 gennaio',
+    canonicalPath: '/articoli-svizzera/ordinanza-dispositivi-vitali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dispositivi medici vitali: il DEFR apre una consultazione",
+      "description": "Il DEFR apre una consultazione sui dispositivi medici vitali Il progetto punta a monitorare l'approvvigionamento Inizio: 14 ottobre 2026 Termine: 28 gennaio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ordinanza-dispositivi-vitali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Berna e dispositivi medici in un'illustrazione sulla consultazione del DEFR"
+      },
+      "datePublished": "2026-10-14T23:53:34+00:00",
+      "dateModified": "2026-10-14T23:53:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ordinanza-dispositivi-vitali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tasse-universitarie-berna-guida': {
+    title: 'Tasse universitarie Berna: guida iscrizione | Frontaliere Ticino',
+    description: 'Guida alle tasse universitarie nel Cantone di Berna: come verificare requisiti, scadenze e importi distinguendo tra enti, categorie e fonti ufficiali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasse, universitarie, berna, iscrizione',
+    ogTitle: 'Tasse universitarie Berna: guida iscrizione',
+    ogDescription: 'Scopri come verificare correttamente le tasse universitarie nel Cantone di Berna. Guida pratica per identificare l\'ente competente, le categorie di studenti e le scadenze ufficiali per l\'iscrizione.',
+    canonicalPath: '/articoli-svizzera/tasse-universitarie-berna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasse universitarie Berna: guida iscrizione",
+      "description": "Guida alle tasse universitarie nel Cantone di Berna: come verificare requisiti, scadenze e importi distinguendo tra enti, categorie e fonti ufficiali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tasse-universitarie-berna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T00:26:22+00:00",
+      "dateModified": "2026-10-15T00:26:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tasse-universitarie-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-opportunita-impiego-federale': {
+    title: 'Lavorare per l\'Amministrazione federale: 50 formazioni',
+    description: 'L\'Amministrazione federale offre praticantati agli studenti neolaureati Sono disponibili 50 formazioni professionali Le formazioni prevedono 7 settimane',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, amministrazione, federale, formazioni',
+    ogTitle: 'Lavorare nell\'Amministrazione federale: 50 formazioni',
+    ogDescription: 'L\'Amministrazione federale offre praticantati agli studenti neolaureati Sono disponibili 50 formazioni professionali Le formazioni prevedono 7 settimane',
+    canonicalPath: '/articoli-svizzera/opportunita-impiego-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare per l'Amministrazione federale: 50 formazioni",
+      "description": "L'Amministrazione federale offre praticantati agli studenti neolaureati Sono disponibili 50 formazioni professionali Le formazioni prevedono 7 settimane",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Opportunità di lavoro nell'Amministrazione federale in Svizzera"
+      },
+      "datePublished": "2026-10-15T01:49:05+00:00",
+      "dateModified": "2026-10-15T01:49:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/opportunita-impiego-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-segreteria-economia-nazionale': {
+    title: 'SECO: la fonte indica la Segreteria di Stato dell\'economia',
+    description: 'Il materiale disponibile identifica la Segreteria di Stato dell\'economia come SECO, ma non riporta misure, cifre, date, norme o procedure economiche concrete.',
+    keywords: 'frontalieri, ticino, svizzera, italia, seco, fonte, indica, segreteria',
+    ogTitle: 'SECO: il nome e i dati presenti nella fonte',
+    ogDescription: 'Il link alla fonte presenta la Segreteria di Stato dell\'economia e la sigla SECO. Il materiale disponibile non contiene però una decisione, una statistica, un importo o una scadenza: l\'analisi resta limitata agli elementi verificabili.',
+    canonicalPath: '/articoli-svizzera/segreteria-economia-nazionale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SECO: la fonte indica la Segreteria di Stato dell'economia",
+      "description": "Il materiale disponibile identifica la Segreteria di Stato dell'economia come SECO, ma non riporta misure, cifre, date, norme o procedure economiche concrete.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-segreteria-economia-nazionale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento con la sigla SECO su una scrivania in un ufficio economico svizzero."
+      },
+      "datePublished": "2026-10-15T02:06:39+00:00",
+      "dateModified": "2026-10-15T02:06:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/segreteria-economia-nazionale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-pesca-canton-berna-guida': {
+    title: 'Permesso di pesca nel Cantone di Berna: requisiti e stagioni',
+    description: 'Guida pratica al permesso di pesca nel Cantone di Berna: come verificare licenze, corsi, periodi, acque autorizzate e autorità competenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, pesca, cantone, berna',
+    ogTitle: 'Permesso di pesca nel Cantone di Berna: requisiti e stagioni',
+    ogDescription: 'Gestire la pesca nel Cantone di Berna richiede una verifica attenta di licenze, corsi, periodi e autorità. Ecco come procedere correttamente secondo le norme.',
+    canonicalPath: '/articoli-svizzera/permesso-pesca-canton-berna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso di pesca nel Cantone di Berna: requisiti e stagioni",
+      "description": "Guida pratica al permesso di pesca nel Cantone di Berna: come verificare licenze, corsi, periodi, acque autorizzate e autorità competenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-permesso-pesca-canton-berna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago nel Cantone di Berna adatto alla pesca"
+      },
+      "datePublished": "2026-10-15T02:27:21+00:00",
+      "dateModified": "2026-10-15T02:27:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-pesca-canton-berna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-berna-veicoli-procedura-guida': {
+    title: 'Targhe e immatricolazione Cantone Berna: guida alle procedure',
+    description: 'Guida pratica per targhe, immatricolazione, collaudo e cambio di proprietario a Berna. Verifica requisiti, scadenze e costi presso l\'autorità competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, targhe, immatricolazione, cantone, berna',
+    ogTitle: 'Targhe e immatricolazione Cantone Berna: guida ufficiale',
+    ogDescription: 'Scopri come gestire correttamente le pratiche automobilistiche nel Cantone di Berna. Dalla verifica dei requisiti all\'individuazione dell\'autorità competente, segui il metodo corretto per targhe, collaudo e immatricolazione.',
+    canonicalPath: '/articoli-svizzera/berna-veicoli-procedura-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Targhe e immatricolazione Cantone Berna: guida alle procedure",
+      "description": "Guida pratica per targhe, immatricolazione, collaudo e cambio di proprietario a Berna. Verifica requisiti, scadenze e costi presso l'autorità competente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-berna-veicoli-procedura-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T02:50:14+00:00",
+      "dateModified": "2026-10-15T02:50:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-veicoli-procedura-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lucerna-festivi-calendario-verifica': {
+    title: 'Giorni festivi a Lucerna: guida al calendario e verifica',
+    description: 'Guida ai giorni festivi del Cantone di Lucerna: distinzione tra calendario cantonale, regole comunali e orari degli uffici. Verifica annuale necessaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giorni, festivi, lucerna, calendario',
+    ogTitle: 'Giorni festivi Lucerna: guida calendario e verifiche',
+    ogDescription: 'Scopri come verificare i giorni festivi nel Cantone di Lucerna. Guida pratica per distinguere il calendario cantonale dalle regole comunali e istituzionali per uffici e negozi.',
+    canonicalPath: '/articoli-svizzera/lucerna-festivi-calendario-verifica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giorni festivi a Lucerna: guida al calendario e verifica",
+      "description": "Guida ai giorni festivi del Cantone di Lucerna: distinzione tra calendario cantonale, regole comunali e orari degli uffici. Verifica annuale necessaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lucerna-festivi-calendario-verifica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T03:21:39+00:00",
+      "dateModified": "2026-10-15T03:21:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-festivi-calendario-verifica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-collaudo-veicoli-berna-procedura': {
+    title: 'Collaudo veicoli a Berna: convocazione e requisiti',
+    description: 'Scopri come gestire la convocazione per il collaudo veicoli a Berna. Verifica requisiti, scadenze e importi sulla fonte ufficiale del Cantone.',
+    keywords: 'frontalieri, ticino, svizzera, italia, collaudo, veicoli, berna, convocazione',
+    ogTitle: 'Collaudo veicoli a Berna: requisiti e procedura',
+    ogDescription: 'Guida operativa per il collaudo dei veicoli nel Cantone di Berna. Impara a distinguere tra quadro generale e istruzioni locali per verificare correttamente requisiti, scadenze e importi presso la fonte ufficiale competente.',
+    canonicalPath: '/articoli-svizzera/collaudo-veicoli-berna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Collaudo veicoli a Berna: convocazione e requisiti",
+      "description": "Scopri come gestire la convocazione per il collaudo veicoli a Berna. Verifica requisiti, scadenze e importi sulla fonte ufficiale del Cantone.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-collaudo-veicoli-berna-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T03:43:23+00:00",
+      "dateModified": "2026-10-15T03:43:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/collaudo-veicoli-berna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-licenza-pubblico-berna-requisiti': {
+    title: 'Licenza esercizio pubblico Berna: requisiti e domanda',
+    description: 'Nel Cantone di Berna la licenza riguarda ristoranti e locali. Il requisito può riguardare formazione o responsabilità. Domanda e competenza si verificano',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenza, esercizio, pubblico, berna',
+    ogTitle: 'Licenza esercizio pubblico Berna: requisiti e domanda',
+    ogDescription: 'Nel Cantone di Berna la licenza riguarda ristoranti e locali.',
+    canonicalPath: '/articoli-svizzera/licenza-pubblico-berna-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Licenza esercizio pubblico Berna: requisiti e domanda",
+      "description": "Nel Cantone di Berna la licenza riguarda ristoranti e locali. Il requisito può riguardare formazione o responsabilità. Domanda e competenza si verificano",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-licenza-pubblico-berna-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti ufficiali e penna su un tavolo davanti a un edificio amministrativo svizzero"
+      },
+      "datePublished": "2026-10-15T04:03:35+00:00",
+      "dateModified": "2026-10-15T04:03:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/licenza-pubblico-berna-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-integrazione-lingua-berna-contributi': {
+    title: 'Corsi lingua Berna: integrazione, contributi e requisiti',
+    description: 'Scopri come verificare livello competente, requisiti, scadenze e importi per corsi di lingua e contributi alla formazione continua nel Cantone di Berna',
+    keywords: 'frontalieri, ticino, svizzera, italia, corsi, lingua, berna, integrazione',
+    ogTitle: 'Corsi lingua Berna: integrazione, contributi e requisiti',
+    ogDescription: 'Guida pratica per chi cerca un corso di lingua o un contributo alla formazione continua nel Cantone di Berna: spiegazione del percorso per individuare il livello competente (cantone, comune, istituzione), dove trovare i requisiti ufficiali',
+    canonicalPath: '/articoli-svizzera/integrazione-lingua-berna-contributi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Corsi lingua Berna: integrazione, contributi e requisiti",
+      "description": "Scopri come verificare livello competente, requisiti, scadenze e importi per corsi di lingua e contributi alla formazione continua nel Cantone di Berna",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/",
+        "copyrightNotice": "© Beat Bieri",
+        "license": "https://www.pexels.com/license/",
+        "creator": {"@type":"Person","@id":"https://www.pexels.com/@beat-bieri-2159265755","name":"Beat Bieri","url":"https://www.pexels.com/@beat-bieri-2159265755"},
+        "creditText": "Beat Bieri / Pexels",
+        "isBasedOn": "https://www.pexels.com/photo/scenic-view-of-bern-s-historical-cityscape-36550236/",
+        "description": "Resized derivative of the licensed source.",
+        "url": `${BASE_URL}/images/blog/article-integrazione-lingua-berna-contributi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T04:28:18+00:00",
+      "dateModified": "2026-10-15T04:28:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/integrazione-lingua-berna-contributi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-regole-orari-negozi-lucerna': {
+    title: 'Orari negozi Cantone Lucerna: guida a domeniche e festivi',
+    description: 'Scopri come funzionano gli orari dei negozi nel Cantone di Lucerna: regole, aperture domenicali, festivi ed eccezioni per residenti ed esercenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, negozi, cantone, lucerna',
+    ogTitle: 'Orari negozi Lucerna: guida a domeniche e festivi',
+    ogDescription: 'Una guida pratica per orientarsi tra le regole cantonali, le aperture domenicali e le eccezioni previste per i negozi nel Cantone di Lucerna. Informazioni utili per clienti e commercianti.',
+    canonicalPath: '/articoli-svizzera/regole-orari-negozi-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orari negozi Cantone Lucerna: guida a domeniche e festivi",
+      "description": "Scopri come funzionano gli orari dei negozi nel Cantone di Lucerna: regole, aperture domenicali, festivi ed eccezioni per residenti ed esercenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-regole-orari-negozi-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T04:50:01+00:00",
+      "dateModified": "2026-10-15T04:50:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/regole-orari-negozi-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rotte-greggio-kurdistan-lugano': {
+    title: 'Petrolio: dal Kurdistan a Israele passando per Lugano',
+    description: 'Quinto viaggio nel Ticino delle materie prime: dal Kurdistan a Israele, passando per Lugano, sulle tracce del commercio di greggio e via Nassa nel racconto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, petrolio, kurdistan, israele, passando',
+    ogTitle: 'Kurdistan, Lugano e Israele: il commercio di greggio',
+    ogDescription: 'Il quinto viaggio nel Ticino delle materie prime segue una rotta narrativa dal Kurdistan a Israele, passando per Lugano. Il commercio di greggio è al centro del percorso, mentre il titolo richiama le tortuose strade del petrolio e via Nassa.',
+    canonicalPath: '/articoli-svizzera/rotte-greggio-kurdistan-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petrolio: dal Kurdistan a Israele passando per Lugano",
+      "description": "Quinto viaggio nel Ticino delle materie prime: dal Kurdistan a Israele, passando per Lugano, sulle tracce del commercio di greggio e via Nassa nel racconto.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rotte-greggio-kurdistan-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano e via Nassa nel racconto delle rotte del commercio di greggio"
+      },
+      "datePublished": "2026-10-15T05:08:36+00:00",
+      "dateModified": "2026-10-15T05:08:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rotte-greggio-kurdistan-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-orari-apertura-lucerna-festivi': {
+    title: 'orari apertura negozi Lucerna domeniche festivi',
+    description: 'Guida pratica sugli orari di apertura dei negozi nel Canton Lucerna: come distinguere disciplina ordinaria da aperture in deroga, quali livelli competenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, orari, apertura, negozi, lucerna',
+    ogTitle: 'orari apertura negozi Lucerna domeniche festivi',
+    ogDescription: 'Nel Canton Lucerna gli orari di apertura dei negozi variano a seconda del livello competente (cantonale, comunale o istituzionale). Domeniche e festivi rientrano negli orari commerciali, mentre le aperture in deroga richiedono autorizzazioni',
+    canonicalPath: '/articoli-svizzera/orari-apertura-lucerna-festivi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "orari apertura negozi Lucerna domeniche festivi",
+      "description": "Guida pratica sugli orari di apertura dei negozi nel Canton Lucerna: come distinguere disciplina ordinaria da aperture in deroga, quali livelli competenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-orari-apertura-lucerna-festivi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T05:37:40+00:00",
+      "dateModified": "2026-10-15T05:37:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orari-apertura-lucerna-festivi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ubs-scenari-trasferimento-sede': {
+    title: 'UBS valuta tre scenari per lo spostamento della sede',
+    description: 'UBS valuta tre scenari per la sede fuori dalla Svizzera Il Consiglio degli Stati sostiene il 100% di capitale CET1 Il requisito attuale per le filiali estere è',
+    keywords: 'frontalieri, ticino, svizzera, italia, valuta, scenari, spostamento, sede',
+    ogTitle: 'UBS valuta tre scenari per lo spostamento della sede',
+    ogDescription: 'UBS valuta tre scenari per la sede fuori dalla Svizzera Il Consiglio degli Stati sostiene il 100% di capitale CET1 Il requisito attuale per le filiali estere è',
+    canonicalPath: '/articoli-svizzera/ubs-scenari-trasferimento-sede/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS valuta tre scenari per lo spostamento della sede",
+      "description": "UBS valuta tre scenari per la sede fuori dalla Svizzera Il Consiglio degli Stati sostiene il 100% di capitale CET1 Il requisito attuale per le filiali estere è",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ubs-scenari-trasferimento-sede.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede bancaria in Svizzera"
+      },
+      "datePublished": "2026-10-15T06:00:40+00:00",
+      "dateModified": "2026-10-15T06:00:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-scenari-trasferimento-sede/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premio-economia-stabilizzazione': {
+    title: 'Nobel economia 2026: premiati Hall e Woodford | Frontaliere Ticino',
+    description: 'Robert E. Hall e Michael Woodford vincono il Nobel 2026 I due insegnano a Stanford e alla Columbia University Gli studi riguardano la stabilizzazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, nobel, economia, premiati, hall',
+    ogTitle: 'Nobel economia 2026: premiati Hall e Woodford',
+    ogDescription: 'Robert E. Hall e Michael Woodford vincono il Nobel 2026 I due insegnano a Stanford e alla Columbia University Gli studi riguardano la stabilizzazione',
+    canonicalPath: '/articoli-svizzera/premio-economia-stabilizzazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nobel economia 2026: premiati Hall e Woodford",
+      "description": "Robert E. Hall e Michael Woodford vincono il Nobel 2026 I due insegnano a Stanford e alla Columbia University Gli studi riguardano la stabilizzazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-premio-economia-stabilizzazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nobel economia 2026, stabilizzazione macroeconomica e inflazione"
+      },
+      "datePublished": "2026-10-15T06:25:40+00:00",
+      "dateModified": "2026-10-15T06:25:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premio-economia-stabilizzazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-migros-nuovo-contratto-lavoro-2027': {
+    title: 'Migros: nuovo contratto con 41 ore e sconti del 10%',
+    description: 'Nuovo L-GAV Migros per il periodo 2027-2031 Da 43 a 41 ore con salario invariato per molti dipendenti 10% di sconto sugli acquisti dal 1 gennaio 2027 Altri',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, nuovo, contratto, sconti',
+    ogTitle: 'Migros: 41 ore settimanali e sconti 10% dal 2027',
+    ogDescription: 'Nuovo L-GAV Migros per il periodo 2027-2031 Da 43 a 41 ore con salario invariato per molti dipendenti 10% di sconto sugli acquisti dal 1 gennaio 2027 Altri',
+    canonicalPath: '/articoli-svizzera/migros-nuovo-contratto-lavoro-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros: nuovo contratto con 41 ore e sconti del 10%",
+      "description": "Nuovo L-GAV Migros per il periodo 2027-2031 Da 43 a 41 ore con salario invariato per molti dipendenti 10% di sconto sugli acquisti dal 1 gennaio 2027 Altri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-migros-nuovo-contratto-lavoro-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T06:55:41+00:00",
+      "dateModified": "2026-10-15T06:55:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-nuovo-contratto-lavoro-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassi-conti-3a-ottobre-2024': {
+    title: 'Conti 3a: tassi medi allo 0,21% e forti divari tra banche',
+    description: 'Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d\'Epargne d\'Aubonne offre l\'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30',
+    keywords: 'frontalieri, ticino, svizzera, italia, conti, tassi, medi, allo',
+    ogTitle: 'Conti 3a: tassi in calo allo 0,21%, ecco chi paga di più',
+    ogDescription: 'Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d\'Epargne d\'Aubonne offre l\'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30',
+    canonicalPath: '/articoli-svizzera/tassi-conti-3a-ottobre-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conti 3a: tassi medi allo 0,21% e forti divari tra banche",
+      "description": "Il tasso medio 3a è sceso allo 0,21% a ottobre Caisse d'Epargne d'Aubonne offre l'1% 68 istituti su 93 pagano al massimo lo 0,2% 500 franchi al mese per 30",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tassi-conti-3a-ottobre-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario moderno in Svizzera"
+      },
+      "datePublished": "2026-10-15T08:51:22+00:00",
+      "dateModified": "2026-10-15T08:51:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassi-conti-3a-ottobre-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-amaudruz-candidatura-federale': {
+    title: 'Céline Amaudruz si candida al Consiglio federale',
+    description: 'Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L\'elezione è fissata il 9 dicembre Scadenza: 23 ottobre',
+    keywords: 'frontalieri, ticino, svizzera, italia, céline, amaudruz, candida, consiglio',
+    ogTitle: 'Amaudruz candidata al Consiglio federale',
+    ogDescription: 'Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L\'elezione è fissata il 9 dicembre Scadenza: 23 ottobre',
+    canonicalPath: '/articoli-svizzera/amaudruz-candidatura-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Céline Amaudruz si candida al Consiglio federale",
+      "description": "Amaudruz annuncia la candidatura a Ginevra È la prima candidata confermata per succedere a Parmelin L'elezione è fissata il 9 dicembre Scadenza: 23 ottobre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-amaudruz-candidatura-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale svizzero in una scena editoriale sulla candidatura al Consiglio federale"
+      },
+      "datePublished": "2026-10-15T09:20:43+00:00",
+      "dateModified": "2026-10-15T09:20:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/amaudruz-candidatura-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prezzi-produzione-importazione-settembre': {
+    title: 'Prezzi produzione e importazione salgono a settembre',
+    description: 'In settembre l\'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull\'anno Inflazione di settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, produzione, importazione, salgono',
+    ogTitle: 'Prezzi produzione e importazione salgono a settembre',
+    ogDescription: 'In settembre l\'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull\'anno Inflazione di settembre',
+    canonicalPath: '/articoli-svizzera/prezzi-produzione-importazione-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi produzione e importazione salgono a settembre",
+      "description": "In settembre l'indice sale dello 0,3% su agosto La flessione annua resta dello 0,2% Importazioni: +0,9% nel mese e +2,1% sull'anno Inflazione di settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-prezzi-produzione-importazione-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un'area industriale e logistica in Svizzera"
+      },
+      "datePublished": "2026-10-15T10:59:13+00:00",
+      "dateModified": "2026-10-15T10:59:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-produzione-importazione-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vaccino-hpv-ticino-2027': {
+    title: 'Vaccino HPV in Ticino: nuovo sistema dal 1° gennaio 2027',
+    description: 'Dal primo gennaio 2027 cambia l\'accesso al vaccino HPV La copertura passa all\'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaccino, nuovo, sistema, gennaio',
+    ogTitle: 'Vaccino HPV Ticino: nuovo sistema dal 2027',
+    ogDescription: 'Dal primo gennaio 2027 cambia l\'accesso al vaccino HPV La copertura passa all\'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico',
+    canonicalPath: '/articoli-svizzera/vaccino-hpv-ticino-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaccino HPV in Ticino: nuovo sistema dal 1° gennaio 2027",
+      "description": "Dal primo gennaio 2027 cambia l'accesso al vaccino HPV La copertura passa all'assicurazione malattia obbligatoria Per gli 11-26 anni accesso diretto a un medico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-vaccino-hpv-ticino-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Consultorio medico a Bellinzona per vaccinazioni"
+      },
+      "datePublished": "2026-10-15T12:21:39+00:00",
+      "dateModified": "2026-10-15T12:21:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vaccino-hpv-ticino-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scambio-informazioni-conti-finanziari-2026': {
+    title: 'Scambio di informazioni con 113 Stati su 4 milioni di conti',
+    description: 'AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio',
+    keywords: 'frontalieri, ticino, svizzera, italia, scambio, informazioni, stati, milioni',
+    ogTitle: 'Scambio informazioni conti finanziari 2026',
+    ogDescription: 'AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio',
+    canonicalPath: '/articoli-svizzera/scambio-informazioni-conti-finanziari-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scambio di informazioni con 113 Stati su 4 milioni di conti",
+      "description": "AFC: informazioni scambiate con 113 Stati nel 2026 Circa 4 milioni di conti inviati e ricevuti Georgia, Moldavia e Ucraina si sono aggiunte Nessuno scambio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-scambio-informazioni-conti-finanziari-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio dell'Amministrazione federale a Berna"
+      },
+      "datePublished": "2026-10-15T12:42:46+00:00",
+      "dateModified": "2026-10-15T12:42:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scambio-informazioni-conti-finanziari-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-cambiamento-climatico-svizzera-2060': {
+    title: 'Cambiamento climatico: miliardi di costi per la Svizzera entro il 2060',
+    description: 'I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l\'anno L\'idroelettrico',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambiamento, climatico, miliardi, costi',
+    ogTitle: 'Cambiamento climatico: miliardi di costi per la Svizzera',
+    ogDescription: 'I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l\'anno L\'idroelettrico',
+    canonicalPath: '/articoli-svizzera/costi-cambiamento-climatico-svizzera-2060/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambiamento climatico: miliardi di costi per la Svizzera entro il 2060",
+      "description": "I danni climatici sono calcolati fino al 2060 Il confronto comprende tre scenari climatici Il turismo invernale perderà oltre 2 miliardi l'anno L'idroelettrico",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-costi-cambiamento-climatico-svizzera-2060.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio delle Alpi svizzere con cime innevate"
+      },
+      "datePublished": "2026-10-15T13:53:49+00:00",
+      "dateModified": "2026-10-15T13:53:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-cambiamento-climatico-svizzera-2060/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-aels-malaysia': {
+    title: 'Referendum AELS-Malaysia riuscito: 59 866 firme valide',
+    description: 'Il referendum AELS-Malaysia è formalmente riuscito. 60 347 firme sono state presentate il 5 ottobre 2026. La Cancelleria federale ne ha constatato valide 59',
+    keywords: 'frontalieri, ticino, svizzera, italia, referendum, aels-malaysia, riuscito, firme',
+    ogTitle: 'Referendum AELS-Malaysia: 59 866 firme valide',
+    ogDescription: 'Il referendum AELS-Malaysia è formalmente riuscito.',
+    canonicalPath: '/articoli-svizzera/referendum-aels-malaysia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Referendum AELS-Malaysia riuscito: 59 866 firme valide",
+      "description": "Il referendum AELS-Malaysia è formalmente riuscito. 60 347 firme sono state presentate il 5 ottobre 2026. La Cancelleria federale ne ha constatato valide 59",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-aels-malaysia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio federale a Berna associato al referendum sull'accordo AELS-Malaysia"
+      },
+      "datePublished": "2026-10-15T14:12:52+00:00",
+      "dateModified": "2026-10-15T14:12:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-aels-malaysia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-physioswiss-tariffe-fisioterapia-ticino': {
+    title: 'Physioswiss chiede aumento del 30% per tariffe fisioterapia',
+    description: 'Physioswiss consegna 4\'000 firme in Ticino Richiesta: almeno il 30% in più sui valori di punto La mobilitazione coinvolge tutti i 26 Cantoni Consegna',
+    keywords: 'frontalieri, ticino, svizzera, italia, physioswiss, chiede, aumento, tariffe',
+    ogTitle: 'Fisioterapia Ticino: Physioswiss chiede tariffe più eque',
+    ogDescription: 'Physioswiss consegna 4\'000 firme in Ticino Richiesta: almeno il 30% in più sui valori di punto La mobilitazione coinvolge tutti i 26 Cantoni Consegna',
+    canonicalPath: '/articoli-svizzera/physioswiss-tariffe-fisioterapia-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Physioswiss chiede aumento del 30% per tariffe fisioterapia",
+      "description": "Physioswiss consegna 4'000 firme in Ticino Richiesta: almeno il 30% in più sui valori di punto La mobilitazione coinvolge tutti i 26 Cantoni Consegna",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-physioswiss-tariffe-fisioterapia-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cancelleria dello Stato a Bellinzona, sede della consegna della petizione di Physioswiss"
+      },
+      "datePublished": "2026-10-15T15:29:02+00:00",
+      "dateModified": "2026-10-15T15:29:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/physioswiss-tariffe-fisioterapia-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-niederscherli-posti-letto': {
+    title: 'SEM riapre la struttura di Niederscherli: 120 posti letto',
+    description: 'La SEM riapre Niederscherli (BE) a metà novembre. La struttura dispone di 120 posti letto. Le nuove domande crescono leggermente per motivi stagionali',
+    keywords: 'frontalieri, ticino, svizzera, italia, riapre, struttura, niederscherli, posti',
+    ogTitle: 'Niederscherli riapre: 120 posti letto per l\'asilo',
+    ogDescription: 'La SEM riapre Niederscherli (BE) a metà novembre.',
+    canonicalPath: '/articoli-svizzera/niederscherli-posti-letto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SEM riapre la struttura di Niederscherli: 120 posti letto",
+      "description": "La SEM riapre Niederscherli (BE) a metà novembre. La struttura dispone di 120 posti letto. Le nuove domande crescono leggermente per motivi stagionali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-niederscherli-posti-letto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Struttura svizzera di protezione civile in un'area verde"
+      },
+      "datePublished": "2026-10-15T16:30:26+00:00",
+      "dateModified": "2026-10-15T16:30:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/niederscherli-posti-letto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cormann-visita-berna': {
+    title: 'Cormann presenta il rapporto OCSE 2026 sulla Svizzera',
+    description: 'Il 10 settembre 2026 la SECO annuncia la visita di Mathias Cormann. Il 15 settembre 2026 l\'OCSE presenta il rapporto a Berna. Il rapporto esamina sanità',
+    keywords: 'frontalieri, ticino, svizzera, italia, cormann, presenta, rapporto, ocse',
+    ogTitle: 'Cormann presenta il rapporto OCSE 2026 a Berna',
+    ogDescription: 'Il 10 settembre 2026 la SECO annuncia la visita di Mathias Cormann.',
+    canonicalPath: '/articoli-svizzera/cormann-visita-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cormann presenta il rapporto OCSE 2026 sulla Svizzera",
+      "description": "Il 10 settembre 2026 la SECO annuncia la visita di Mathias Cormann. Il 15 settembre 2026 l'OCSE presenta il rapporto a Berna. Il rapporto esamina sanità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cormann-visita-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro stampa di Palazzo federale a Berna per il rapporto OCSE sulla politica economica svizzera"
+      },
+      "datePublished": "2026-10-15T17:22:40+00:00",
+      "dateModified": "2026-10-15T17:22:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cormann-visita-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fusione-palestre-puregym-nonstop': {
+    title: 'Puregym acquisisce Nonstop Gym: obiettivo 100 club entro 2026',
+    description: 'Puregym acquisisce la catena svizzera Nonstop Gym Puregym gestisce 49 palestre in Svizzera Nonstop Gym ne conta 48 Oltre 100 strutture entro fine 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, puregym, acquisisce, nonstop, obiettivo',
+    ogTitle: 'Puregym acquisisce Nonstop Gym: l\'obiettivo è il primato in Svizzera',
+    ogDescription: 'Puregym acquisisce la catena svizzera Nonstop Gym Puregym gestisce 49 palestre in Svizzera Nonstop Gym ne conta 48 Oltre 100 strutture entro fine 2026',
+    canonicalPath: '/articoli-svizzera/fusione-palestre-puregym-nonstop/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Puregym acquisisce Nonstop Gym: obiettivo 100 club entro 2026",
+      "description": "Puregym acquisisce la catena svizzera Nonstop Gym Puregym gestisce 49 palestre in Svizzera Nonstop Gym ne conta 48 Oltre 100 strutture entro fine 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fusione-palestre-puregym-nonstop.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno di una palestra moderna in Svizzera"
+      },
+      "datePublished": "2026-10-15T17:37:40+00:00",
+      "dateModified": "2026-10-15T17:37:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fusione-palestre-puregym-nonstop/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-agevolazioni-doganali-impiego': {
+    title: 'Agevolazioni doganali: novità dal 1° novembre 2026',
+    description: 'Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d\'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata',
+    keywords: 'frontalieri, ticino, svizzera, italia, agevolazioni, doganali, novità, novembre',
+    ogTitle: 'Agevolazioni doganali: novità dal 1° novembre 2026',
+    ogDescription: 'Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d\'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata',
+    canonicalPath: '/articoli-svizzera/agevolazioni-doganali-impiego/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agevolazioni doganali: novità dal 1° novembre 2026",
+      "description": "Novità doganali in vigore dal 1° novembre 2026 Agevolazioni legate allo scopo d'impiego delle merci Adeguate le osservazioni Tares e pubblicato R-17 Entrata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-agevolazioni-doganali-impiego.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T18:35:16+00:00",
+      "dateModified": "2026-10-15T18:35:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/agevolazioni-doganali-impiego/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-thailandia-aelss-visita-2026': {
+    title: 'Svizzera e Thailandia evidenziano opportunità libero scambio',
+    description: 'Parmelin incontra Charnvirakul a Bangkok il 15 ottobre 2026 Svizzera e Thailandia puntano sull\'accordo di libero scambio AELS La visita in Vietnam prosegue',
+    keywords: 'frontalieri, ticino, svizzera, italia, thailandia, evidenziano, opportunità, libero',
+    ogTitle: 'Svizzera e Thailandia evidenziano opportunità libero scambio',
+    ogDescription: 'Parmelin incontra Charnvirakul a Bangkok il 15 ottobre 2026 Svizzera e Thailandia puntano sull\'accordo di libero scambio AELS La visita in Vietnam prosegue',
+    canonicalPath: '/articoli-svizzera/svizzera-thailandia-aelss-visita-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera e Thailandia evidenziano opportunità libero scambio",
+      "description": "Parmelin incontra Charnvirakul a Bangkok il 15 ottobre 2026 Svizzera e Thailandia puntano sull'accordo di libero scambio AELS La visita in Vietnam prosegue",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-thailandia-aelss-visita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T18:53:35+00:00",
+      "dateModified": "2026-10-15T18:53:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-thailandia-aelss-visita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-referendum-armi-sicurezza-svizzera': {
+    title: 'Export armi e sicurezza Svizzera: referendum 29 novembre',
+    description: 'Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d\'acquisto Il Consiglio federale manterrebbe un veto',
+    keywords: 'frontalieri, ticino, svizzera, italia, export, armi, sicurezza, referendum',
+    ogTitle: 'Export armi e sicurezza Svizzera: referendum 29 novembre',
+    ogDescription: 'Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d\'acquisto Il Consiglio federale manterrebbe un veto',
+    canonicalPath: '/articoli-svizzera/referendum-armi-sicurezza-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Export armi e sicurezza Svizzera: referendum 29 novembre",
+      "description": "Il referendum sulla legge è previsto il 29 novembre 36 Paesi occidentali avrebbero più libertà d'acquisto Il Consiglio federale manterrebbe un veto",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-referendum-armi-sicurezza-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T19:42:08+00:00",
+      "dateModified": "2026-10-15T19:42:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/referendum-armi-sicurezza-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ruag-lockheed-accordo-f35a': {
+    title: 'RUAG e Lockheed Martin accordo per tre F-35A a Emmen',
+    description: 'RUAG MRO e Lockheed Martin proseguono il progetto RIGI Tre F-35A saranno assemblati nella sede RUAG di Emmen I primi componenti sono attesi nella prima metà',
+    keywords: 'frontalieri, ticino, svizzera, italia, ruag, lockheed, martin, accordo',
+    ogTitle: 'RUAG e Lockheed Martin accordo per tre F-35A a Emmen',
+    ogDescription: 'RUAG MRO e Lockheed Martin proseguono il progetto RIGI Tre F-35A saranno assemblati nella sede RUAG di Emmen I primi componenti sono attesi nella prima metà',
+    canonicalPath: '/articoli-svizzera/ruag-lockheed-accordo-f35a/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "RUAG e Lockheed Martin accordo per tre F-35A a Emmen",
+      "description": "RUAG MRO e Lockheed Martin proseguono il progetto RIGI Tre F-35A saranno assemblati nella sede RUAG di Emmen I primi componenti sono attesi nella prima metà",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ruag-lockheed-accordo-f35a.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Struttura RUAG all'aeroporto di Emmen con componenti F-35A in fase di assemblaggio"
+      },
+      "datePublished": "2026-10-15T20:58:18+00:00",
+      "dateModified": "2026-10-15T20:58:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruag-lockheed-accordo-f35a/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-attacco-software-pkzh': {
+    title: 'Ciberattacco, colpita la cassa pensioni di Zurigo',
+    description: 'Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L\'attacco risale alla fine di settembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, ciberattacco, colpita, cassa, pensioni',
+    ogTitle: 'Ciberattacco, colpita la cassa pensioni di Zurigo',
+    ogDescription: 'Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L\'attacco risale alla fine di settembre',
+    canonicalPath: '/articoli-svizzera/attacco-software-pkzh/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ciberattacco, colpita la cassa pensioni di Zurigo",
+      "description": "Dati personali PKZH sottratti in un attacco a un fornitore software Fondi previdenziali e rendite non sono stati toccati L'attacco risale alla fine di settembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-attacco-software-pkzh.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero in città, con un richiamo discreto alla sicurezza digitale"
+      },
+      "datePublished": "2026-10-15T23:41:40+00:00",
+      "dateModified": "2026-10-15T23:41:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/attacco-software-pkzh/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercatini-usato-svizzera': {
+    title: 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
+    description: 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercatini, usato, garanzia, marciapiede',
+    ogTitle: 'Mercatini usato: garanzia, marciapiede e falsi oltreconfine',
+    ogDescription: 'Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi',
+    canonicalPath: '/articoli-svizzera/mercatini-usato-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercatini usato: garanzia, marciapiede e falsi oltreconfine",
+      "description": "Usato: garanzia di un anno, salvo esclusione esplicita «Venduto come visto» esclude la garanzia Oggetti gratis sul suolo pubblico: spesso vietati Falsi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-mercatini-usato-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-15T23:56:58+00:00",
+      "dateModified": "2026-10-15T23:56:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercatini-usato-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-revoca-bonus-dirigenti-cs': {
+    title: 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
+    description: 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
+    keywords: 'frontalieri, ticino, svizzera, italia, dirigenti, credit, suisse, confermata',
+    ogTitle: 'Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus',
+    ogDescription: 'Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19',
+    canonicalPath: '/articoli-svizzera/revoca-bonus-dirigenti-cs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex dirigenti Credit Suisse, confermata la cancellazione dei bonus",
+      "description": "Il TF conferma la revoca dei bonus agli ex dirigenti CS Il TAF aveva accolto i ricorsi nel marzo del 2025 Tagli ai bonus: 100%, 50% e 25% per tre livelli Il 19",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-revoca-bonus-dirigenti-cs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede centrale di Credit Suisse in Svizzera"
+      },
+      "datePublished": "2026-10-16T00:42:38+00:00",
+      "dateModified": "2026-10-16T00:42:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revoca-bonus-dirigenti-cs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sistema-sanitario-zurigo-guida-2026': {
+    title: 'Sistema sanitario svizzero: guida LAMal 2026 nel canton Zurigo',
+    description: 'Guida pratica 2026 al sistema sanitario nel canton Zurigo: obblighi LAMal, scelta cassa malati, franchigie e come richiedere i sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Guida 2026: sistema sanitario e LAMal nel canton Zurigo',
+    ogDescription: 'Tutto quello che c\'è da sapere sul sistema sanitario nel canton Zurigo: obblighi, scelta della cassa, franchigie e gestione dei premi per il 2026.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-zurigo-guida-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero: guida LAMal 2026 nel canton Zurigo",
+      "description": "Guida pratica 2026 al sistema sanitario nel canton Zurigo: obblighi LAMal, scelta cassa malati, franchigie e come richiedere i sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sistema-sanitario-zurigo-guida-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di una moderna struttura sanitaria nel canton Zurigo"
+      },
+      "datePublished": "2026-10-16T01:51:47+00:00",
+      "dateModified": "2026-10-16T01:51:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-zurigo-guida-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposte-zurigo-aliquote-deduzioni': {
+    title: 'Imposte a Zurigo: aliquote e deduzioni | Frontaliere Ticino',
+    description: 'Guida alle imposte a Zurigo: struttura a tre livelli, competenze AFC e cantonali, moltiplicatore comunale e contributi sociali sulla busta paga.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, zurigo, aliquote, deduzioni',
+    ogTitle: 'Imposte Cantone Zurigo: aliquote e deduzioni',
+    ogDescription: 'Scopri come funzionano le imposte nel Cantone di Zurigo. Guida pratica su aliquote, deduzioni, moltiplicatore comunale e distinzione tra contributi sociali e tasse federali o cantonali.',
+    canonicalPath: '/articoli-svizzera/imposte-zurigo-aliquote-deduzioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte a Zurigo: aliquote e deduzioni",
+      "description": "Guida alle imposte a Zurigo: struttura a tre livelli, competenze AFC e cantonali, moltiplicatore comunale e contributi sociali sulla busta paga.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposte-zurigo-aliquote-deduzioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Zurigo sul lago con skyline cittadino sotto un cielo sereno"
+      },
+      "datePublished": "2026-10-16T02:17:44+00:00",
+      "dateModified": "2026-10-16T02:17:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-zurigo-aliquote-deduzioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dati-assicurati-casse-zurigo-posta': {
+    title: 'Attacco informatico: cassa pensioni Zurigo e Posta colpite',
+    description: 'L\'attacco al fornitore risale alla fine di settembre. PKZH indaga sui dati personali degli assicurati sottratti. Fondi e pagamenti delle rendite non sono stati',
+    keywords: 'frontalieri, ticino, svizzera, italia, attacco, informatico, cassa, pensioni',
+    ogTitle: 'Dati degli assicurati: attacco a PKZH e Posta',
+    ogDescription: 'L\'attacco al fornitore risale alla fine di settembre.',
+    canonicalPath: '/articoli-svizzera/dati-assicurati-casse-zurigo-posta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Attacco informatico: cassa pensioni Zurigo e Posta colpite",
+      "description": "L'attacco al fornitore risale alla fine di settembre. PKZH indaga sui dati personali degli assicurati sottratti. Fondi e pagamenti delle rendite non sono stati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-dati-assicurati-casse-zurigo-posta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero legato alla gestione delle casse pensioni"
+      },
+      "datePublished": "2026-10-16T04:32:58+00:00",
+      "dateModified": "2026-10-16T04:32:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dati-assicurati-casse-zurigo-posta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fisco-zurigo-tre-livelli': {
+    title: 'Fisco a Zurigo: i tre livelli e come funziona | Frontaliere Ticino',
+    description: 'Guida al sistema fiscale del Cantone di Zurigo: scopri i tre livelli (federale, cantonale, comunale), le autorità competenti e come gestire aliquote',
+    keywords: 'frontalieri, ticino, svizzera, italia, fisco, zurigo, livelli, funziona',
+    ogTitle: 'Imposte cantonali Zurigo: aliquote e deduzioni',
+    ogDescription: 'Comprendere il sistema fiscale nel Cantone di Zurigo è essenziale. L\'articolo illustra i tre livelli di imposizione (federale, cantonale e comunale), le autorità di riferimento come AFC/ESTV e le amministrazioni cantonali, e fornisce indicazioni',
+    canonicalPath: '/articoli-svizzera/fisco-zurigo-tre-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fisco a Zurigo: i tre livelli e come funziona",
+      "description": "Guida al sistema fiscale del Cantone di Zurigo: scopri i tre livelli (federale, cantonale, comunale), le autorità competenti e come gestire aliquote",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-fisco-zurigo-tre-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di un paesaggio svizzero che simboleggia la complessità del sistema fiscale a tre livelli, con riferimento a Zurigo."
+      },
+      "datePublished": "2026-10-16T05:40:12+00:00",
+      "dateModified": "2026-10-16T05:40:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fisco-zurigo-tre-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tre-milioni-lettere-digitali-posta': {
+    title: 'Tre milioni di lettere digitali in sei mesi | Frontaliere Ticino',
+    description: 'La Posta Svizzera presenta il primo bilancio intermedio della lettera digitale: sette milioni di invii e 960\'000 account aperti in sei mesi. Novità',
+    keywords: 'frontalieri, ticino, svizzera, italia, milioni, lettere, digitali, mesi',
+    ogTitle: 'Posta Svizzera: 7 milioni di invii digitali in 6 mesi',
+    ogDescription: 'La Posta ha comunicato i primi risultati della lettera digitale: sette milioni di invii complessivi e tre milioni di lettere digitali in sei mesi. Con 960\'000 account attivi, il servizio si evolve con l\'introduzione della firma elettronica',
+    canonicalPath: '/articoli-svizzera/tre-milioni-lettere-digitali-posta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tre milioni di lettere digitali in sei mesi",
+      "description": "La Posta Svizzera presenta il primo bilancio intermedio della lettera digitale: sette milioni di invii e 960'000 account aperti in sei mesi. Novità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tre-milioni-lettere-digitali-posta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama urbano svizzero con elementi digitali che simboleggiano la comunicazione moderna della Posta"
+      },
+      "datePublished": "2026-10-16T07:08:57+00:00",
+      "dateModified": "2026-10-16T07:08:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tre-milioni-lettere-digitali-posta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lupo-abbattimenti-facilitati': {
+    title: 'Lupo: abbattimenti più facili, consultazione si chiude oggi',
+    description: 'Il Consiglio federale propone abbattimenti dei lupi più facili. Gli ambientalisti chiedono di sospendere il progetto. L\'USC sostiene la revisione, ma la giudica',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, abbattimenti, facili, consultazione',
+    ogTitle: 'Lupo: abbattimenti facilitati, consultazione si chiude oggi',
+    ogDescription: 'Il Consiglio federale propone abbattimenti dei lupi più facili.',
+    canonicalPath: '/articoli-svizzera/lupo-abbattimenti-facilitati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo: abbattimenti più facili, consultazione si chiude oggi",
+      "description": "Il Consiglio federale propone abbattimenti dei lupi più facili. Gli ambientalisti chiedono di sospendere il progetto. L'USC sostiene la revisione, ma la giudica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lupo-abbattimenti-facilitati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano svizzero con pascolo sereno, sullo sfondo le vette del Monte Generoso."
+      },
+      "datePublished": "2026-10-16T08:01:09+00:00",
+      "dateModified": "2026-10-16T08:01:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lupo-abbattimenti-facilitati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carburanti-svizzera-rincaro-settimanale': {
+    title: 'Benzina e diesel in Svizzera: +5 centesimi al litro',
+    description: 'Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, centesimi, litro',
+    ogTitle: 'Carburanti in Svizzera: rincaro di 5 centesimi',
+    ogDescription: 'Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi',
+    canonicalPath: '/articoli-svizzera/carburanti-svizzera-rincaro-settimanale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel in Svizzera: +5 centesimi al litro",
+      "description": "Benzina 95 a 2,16 franchi al litro Benzina 98 a 2,27 franchi al litro Diesel a 2,45 franchi, a 1 centesimo dal massimo annuale Aumento settimanale → 5 centesimi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-carburanti-svizzera-rincaro-settimanale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante in una stazione di servizio svizzera"
+      },
+      "datePublished": "2026-10-16T10:57:56+00:00",
+      "dateModified": "2026-10-16T10:57:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carburanti-svizzera-rincaro-settimanale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-abbattimenti-lupi-2025': {
+    title: 'Lupo, abbattimenti più facili: ambientalisti contrari, contadini favorevoli',
+    description: 'Il Consiglio federale propone abbattimenti durante tutto l’anno. La consultazione sulla revisione della LCP si chiude oggi. Ambientalisti contrari anche',
+    keywords: 'frontalieri, ticino, svizzera, italia, lupo, abbattimenti, facili, ambientalisti',
+    ogTitle: 'Lupo in Svizzera: abbattimenti più facili nel 2025?',
+    ogDescription: 'Il Consiglio federale propone abbattimenti durante tutto l’anno.',
+    canonicalPath: '/articoli-svizzera/svizzera-abbattimenti-lupi-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lupo, abbattimenti più facili: ambientalisti contrari, contadini favorevoli",
+      "description": "Il Consiglio federale propone abbattimenti durante tutto l’anno. La consultazione sulla revisione della LCP si chiude oggi. Ambientalisti contrari anche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-abbattimenti-lupi-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Silhouette di un lupo che ulula alla luna sulle Alpi svizzere al tramonto"
+      },
+      "datePublished": "2026-10-16T14:12:01+00:00",
+      "dateModified": "2026-10-16T14:12:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-abbattimenti-lupi-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stadler-rail-treno-idrogeno-sardegna': {
+    title: 'Stadler Rail testa il primo treno a idrogeno a scartamento ridotto',
+    description: 'Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche',
+    keywords: 'frontalieri, ticino, svizzera, italia, stadler, rail, testa, primo',
+    ogTitle: 'Stadler Rail: primo treno a idrogeno a scartamento ridotto',
+    ogDescription: 'Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche',
+    canonicalPath: '/articoli-svizzera/stadler-rail-treno-idrogeno-sardegna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stadler Rail testa il primo treno a idrogeno a scartamento ridotto",
+      "description": "Stadler Rail testa un treno a idrogeno in Svizzera Il convoglio è destinato alla Sardegna Il tracciato Hemishofen-Ramsen misura quasi 4 km Le verifiche",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-stadler-rail-treno-idrogeno-sardegna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-16T17:07:03+00:00",
+      "dateModified": "2026-10-16T17:07:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stadler-rail-treno-idrogeno-sardegna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-crediti-bilaterali-iii-svizzera': {
+    title: 'Bilaterali III, primo via libera ai crediti da 3,48 miliardi',
+    description: '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, primo, libera, crediti',
+    ogTitle: 'Bilaterali III: approvati crediti da 3,48 miliardi',
+    ogDescription: '3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre',
+    canonicalPath: '/articoli-svizzera/crediti-bilaterali-iii-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III, primo via libera ai crediti da 3,48 miliardi",
+      "description": "3,48 miliardi di franchi per il periodo 2030-2036 La FK-N vota: 14 favorevoli, 8 contrari, 3 astensioni Il Nazionale dovrebbe esaminare il dossier a dicembre",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-crediti-bilaterali-iii-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Parlamento federale svizzero a Berna, con la bandiera svizzera in primo piano."
+      },
+      "datePublished": "2026-10-16T18:35:02+00:00",
+      "dateModified": "2026-10-16T18:35:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/crediti-bilaterali-iii-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti': {
+    title: 'Il discount blocca aumenti 2027 e raddoppia sconto dipendenti',
+    description: 'Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi',
+    keywords: 'frontalieri, ticino, svizzera, italia, discount, blocca, aumenti, raddoppia',
+    ogTitle: 'Il discount blocca aumenti 2027 e raddoppia sconto',
+    ogDescription: 'Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi',
+    canonicalPath: '/articoli-svizzera/il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il discount blocca aumenti 2027 e raddoppia sconto dipendenti",
+      "description": "Denner non prevede aumenti generali nel 2027 Lo sconto al personale passa dal 10% al 20% I contributi alla cassa pensioni salgono di 1,2 punti I salari minimi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Il discount blocca aumenti 2027 e raddoppia sconto dipendenti"
+      },
+      "datePublished": "2026-10-16T20:46:04+00:00",
+      "dateModified": "2026-10-16T20:46:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/il-discount-blocca-aumenti-2027-e-raddoppia-sconto-dipendenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ia-assistente-shopping-svizzera': {
+    title: 'IA aiuta gli svizzeri nello shopping ma frena al pagamento',
+    description: 'Quasi il 70% degli svizzeri usa l\'IA per un acquisto Il 49% dice che l\'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta',
+    keywords: 'frontalieri, ticino, svizzera, italia, aiuta, svizzeri, nello, shopping',
+    ogTitle: 'IA aiuta gli svizzeri nello shopping ma frena al pagamento',
+    ogDescription: 'Quasi il 70% degli svizzeri usa l\'IA per un acquisto Il 49% dice che l\'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta',
+    canonicalPath: '/articoli-svizzera/ia-assistente-shopping-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "IA aiuta gli svizzeri nello shopping ma frena al pagamento",
+      "description": "Quasi il 70% degli svizzeri usa l'IA per un acquisto Il 49% dice che l'IA influenza la scelta Il 67% vuole mantenere il pagamento autonomo Solo il 17% accetta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ia-assistente-shopping-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-16T21:25:25+00:00",
+      "dateModified": "2026-10-16T21:25:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-assistente-shopping-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sistema-sanitario-lamal-ginevra-2026': {
+    title: 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
+    description: 'Scopri come funziona l\'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra nel 2026. Verifica scadenze, franchigie, premi e sussidi cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra',
+    ogDescription: 'Una guida completa sull\'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra per il 2026. Scopri obblighi, franchigie, premi e sussidi cantonali.',
+    canonicalPath: '/articoli-svizzera/sistema-sanitario-lamal-ginevra-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero: guida LAMal 2026 per il Canton Ginevra",
+      "description": "Scopri come funziona l'assicurazione malattia obbligatoria (LAMal) nel Canton Ginevra nel 2026. Verifica scadenze, franchigie, premi e sussidi cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-sistema-sanitario-lamal-ginevra-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Ginevra con il Jet d'Eau, simbolo della città e del suo sistema sanitario."
+      },
+      "datePublished": "2026-10-16T22:58:51+00:00",
+      "dateModified": "2026-10-16T22:58:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sistema-sanitario-lamal-ginevra-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stesso-reddito-imposte-diverse': {
+    title: 'Stesso reddito, imposte diverse: risparmio fino al 90%',
+    description: 'A parità di reddito, il Comune cambia la fattura fiscale. Un caso arriva a oltre il 90% di risparmio. Il Comune più conveniente dipende da reddito e famiglia',
+    keywords: 'frontalieri, ticino, svizzera, italia, stesso, reddito, imposte, diverse',
+    ogTitle: 'Stesso reddito, imposte diverse: risparmio fino al 90%',
+    ogDescription: 'A parità di reddito, il Comune cambia la fattura fiscale.',
+    canonicalPath: '/articoli-svizzera/stesso-reddito-imposte-diverse/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stesso reddito, imposte diverse: risparmio fino al 90%",
+      "description": "A parità di reddito, il Comune cambia la fattura fiscale. Un caso arriva a oltre il 90% di risparmio. Il Comune più conveniente dipende da reddito e famiglia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-stesso-reddito-imposte-diverse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-17T10:06:40+00:00",
+      "dateModified": "2026-10-17T10:06:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stesso-reddito-imposte-diverse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ia-voce-truffatori-svizzera-2026': {
+    title: 'L’IA presta la voce ai truffatori: come difendersi dalle chiamate sospette',
+    description: 'Una banca italiana avrebbe perso 95 milioni di euro. Un\'azienda del canton Svitto ha perso diversi milioni di franchi. Il rapporto UFCS riguarda il primo',
+    keywords: 'frontalieri, ticino, svizzera, italia, presta, voce, truffatori, difendersi',
+    ogTitle: 'L’IA presta la voce ai truffatori: come difendersi dalle chiamate sospette',
+    ogDescription: 'Una banca italiana avrebbe perso 95 milioni di euro.',
+    canonicalPath: '/articoli-svizzera/ia-voce-truffatori-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’IA presta la voce ai truffatori: come difendersi dalle chiamate sospette",
+      "description": "Una banca italiana avrebbe perso 95 milioni di euro. Un'azienda del canton Svitto ha perso diversi milioni di franchi. Il rapporto UFCS riguarda il primo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ia-voce-truffatori-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con notifica di chiamata e onda sonora che rappresenta la clonazione vocale su scrivania svizzera"
+      },
+      "datePublished": "2026-10-17T14:18:53+00:00",
+      "dateModified": "2026-10-17T14:18:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ia-voce-truffatori-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-udc-no-iva-13esima-avs': {
+    title: 'UDC dice no all\'aumento dell\'IVA per finanziare la 13esima AVS, voto il 29 novembre',
+    description: 'No UDC all\'aumento dell\'IVA per la 13esima AVS Il popolo vota sulla proposta il 29 novembre A Bulle il no passa con 290 voti contro 3 L\'Udc dice sì',
+    keywords: 'frontalieri, ticino, svizzera, italia, dice, aumento, dell, finanziare',
+    ogTitle: 'UDC dice no all\'aumento dell\'IVA per la 13esima AVS, voto il 29 novembre',
+    ogDescription: 'No UDC all\'aumento dell\'IVA per la 13esima AVS Il popolo vota sulla proposta il 29 novembre A Bulle il no passa con 290 voti contro 3 L\'Udc dice sì',
+    canonicalPath: '/articoli-svizzera/udc-no-iva-13esima-avs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UDC dice no all'aumento dell'IVA per finanziare la 13esima AVS, voto il 29 novembre",
+      "description": "No UDC all'aumento dell'IVA per la 13esima AVS Il popolo vota sulla proposta il 29 novembre A Bulle il no passa con 290 voti contro 3 L'Udc dice sì",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-udc-no-iva-13esima-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-17T15:14:14+00:00",
+      "dateModified": "2026-10-17T15:14:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/udc-no-iva-13esima-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ps-iniziativa-violenza-genero': {
+    title: 'PS lancia iniziativa contro la violenza di genere a Thun',
+    description: 'Il PS lancia a Thun un\'iniziativa sulla violenza di genere I delegati approvano il progetto all\'unanimità Chiesti almeno 500 milioni di franchi supplementari',
+    keywords: 'frontalieri, ticino, svizzera, italia, lancia, iniziativa, contro, violenza',
+    ogTitle: 'PS lancia iniziativa contro la violenza di genere a Thun',
+    ogDescription: 'Il PS lancia a Thun un\'iniziativa sulla violenza di genere I delegati approvano il progetto all\'unanimità Chiesti almeno 500 milioni di franchi supplementari',
+    canonicalPath: '/articoli-svizzera/ps-iniziativa-violenza-genero/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PS lancia iniziativa contro la violenza di genere a Thun",
+      "description": "Il PS lancia a Thun un'iniziativa sulla violenza di genere I delegati approvano il progetto all'unanimità Chiesti almeno 500 milioni di franchi supplementari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ps-iniziativa-violenza-genero.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Iniziativa PS contro la violenza di genere a Thun, richiesta di 500 milioni di franchi supplementari all'anno."
+      },
+      "datePublished": "2026-10-17T15:49:05+00:00",
+      "dateModified": "2026-10-17T15:49:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ps-iniziativa-violenza-genero/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-big-tech-franchi-bolla-ia': {
+    title: 'Big Tech emettono obbligazioni in franchi per data center',
+    description: 'Big Tech Usa emettono obbligazioni in franchi per finanziare data center: Sergio Rossi spiega i rischi per la piazza elvetica, con titolo sulla bolla dell\'IA.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tech, emettono, obbligazioni, franchi',
+    ogTitle: 'Big Tech emettono obbligazioni in franchi per data center',
+    ogDescription: 'Le emissioni in franchi dei giganti tecnologici Usa finanziano la costruzione di data center. Sergio Rossi richiama i rischi per la piazza elvetica; il titolo apre il tema della bolla dell\'IA e del finanziamento dei data center.',
+    canonicalPath: '/articoli-svizzera/big-tech-franchi-bolla-ia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Big Tech emettono obbligazioni in franchi per data center",
+      "description": "Big Tech Usa emettono obbligazioni in franchi per finanziare data center: Sergio Rossi spiega i rischi per la piazza elvetica, con titolo sulla bolla dell'IA.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-big-tech-franchi-bolla-ia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista urbana svizzera con uffici e infrastrutture tecnologiche legate alla finanza."
+      },
+      "datePublished": "2026-10-17T16:18:34+00:00",
+      "dateModified": "2026-10-17T16:18:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/big-tech-franchi-bolla-ia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-vietnam-relazioni-2026': {
+    title: 'Svizzera e Vietnam intensificano commercio e investimenti',
+    description: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, vietnam, intensificano, commercio, investimenti',
+    ogTitle: 'Svizzera e Vietnam intensificano commercio e investimenti',
+    ogDescription: 'Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni',
+    canonicalPath: '/articoli-svizzera/svizzera-vietnam-relazioni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera e Vietnam intensificano commercio e investimenti",
+      "description": "Parmelin ricevuto ad Hanoi il 17 ottobre 2026 Accordo AELS-Vietnam previsto per il 18 ottobre Progetti su commercio e sviluppo urbano sostenibile Dichiarazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-vietnam-relazioni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le Alpi sullo sfondo, simbolo della cooperazione Svizzera-Vietnam sul commercio e gli investimenti."
+      },
+      "datePublished": "2026-10-17T19:10:25+00:00",
+      "dateModified": "2026-10-17T19:10:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-vietnam-relazioni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-microdrama-pubblicita-tiktok-instagram': {
+    title: 'Microdrama sexy promuove app a pagamento su TikTok',
+    description: 'Gli annunci IA mostrano sesso tra bizzarro e fantasy. ReelShort, DramaBox e ShortMax propongono microdrama. Il fenomeno è nato in Cina tra 2018 e 2019',
+    keywords: 'frontalieri, ticino, svizzera, italia, microdrama, sexy, promuove, pagamento',
+    ogTitle: 'Microdrama sexy promuove app a pagamento su TikTok',
+    ogDescription: 'Gli annunci IA mostrano sesso tra bizzarro e fantasy.',
+    canonicalPath: '/articoli-svizzera/microdrama-pubblicita-tiktok-instagram/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Microdrama sexy promuove app a pagamento su TikTok",
+      "description": "Gli annunci IA mostrano sesso tra bizzarro e fantasy. ReelShort, DramaBox e ShortMax propongono microdrama. Il fenomeno è nato in Cina tra 2018 e 2019",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-microdrama-pubblicita-tiktok-instagram.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Smartphone con annuncio AI di microdrama sul lago di Lugano"
+      },
+      "datePublished": "2026-10-17T21:03:31+00:00",
+      "dateModified": "2026-10-17T21:03:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/microdrama-pubblicita-tiktok-instagram/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-udc-assemblea-bulle-2026': {
+    title: 'L’UDC vuole fermare la distruzione della Svizzera',
+    description: 'L\'assemblea UDC di Bulle del 17 ottobre 2026 ha respinto la 13esima AVS finanziata con IVA e dato il sì a coniugi e materiale bellico. Scopri le cifre e la data',
+    keywords: 'frontalieri, ticino, svizzera, italia, vuole, fermare, distruzione, ottobre',
+    ogTitle: 'L’UDC vuole fermare la distruzione della Svizzera',
+    ogDescription: 'Il 17 ottobre 2026 l\'UDC si è riunita a Bulle con circa 420 delegati. Ha bocciato il finanziamento della 13esima AVS tramite aumento dell\'IVA (290 no, 3 sì) e approvato sì a coniugi (274 favorevoli) e materiale bellico (271 favorevoli). Il popolo',
+    canonicalPath: '/articoli-svizzera/udc-assemblea-bulle-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L’UDC vuole fermare la distruzione della Svizzera",
+      "description": "L'assemblea UDC di Bulle del 17 ottobre 2026 ha respinto la 13esima AVS finanziata con IVA e dato il sì a coniugi e materiale bellico. Scopri le cifre e la data",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-udc-assemblea-bulle-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Delegati UDC riuniti a Bulle per decidere le raccomandazioni di voto sul 29 novembre 2026"
+      },
+      "datePublished": "2026-10-17T21:48:14+00:00",
+      "dateModified": "2026-10-17T21:48:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/udc-assemblea-bulle-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scorte-cherosene-zurigo': {
+    title: 'Aeroporto di Zurigo: prelievi dalle scorte di cherosene',
+    description: '30\'000 m³ di scorte possono essere utilizzati Prelievi autorizzati dal 15 ottobre al 1° novembre La quota autorizzata è il 6,5% del disponibile La fornitura',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, zurigo, prelievi, dalle',
+    ogTitle: 'Aeroporto di Zurigo: scorte di cherosene autorizzate',
+    ogDescription: '30\'000 m³ di scorte possono essere utilizzati Prelievi autorizzati dal 15 ottobre al 1° novembre La quota autorizzata è il 6,5% del disponibile La fornitura',
+    canonicalPath: '/articoli-svizzera/scorte-cherosene-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto di Zurigo: prelievi dalle scorte di cherosene",
+      "description": "30'000 m³ di scorte possono essere utilizzati Prelievi autorizzati dal 15 ottobre al 1° novembre La quota autorizzata è il 6,5% del disponibile La fornitura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-scorte-cherosene-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Zurigo con rifornimento di cherosene trasportato via ferrovia"
+      },
+      "datePublished": "2026-10-17T23:24:21+00:00",
+      "dateModified": "2026-10-17T23:24:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scorte-cherosene-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-attualita-istituzioni-2026': {
+    title: 'Svizzera, istruzioni per l\'uso: politica, istituzioni e ambiente',
+    description: 'UDC quasi al 30% a un anno dalle elezioni federali Il 29 novembre si vota sulla legge sul materiale bellico Adula e Grauhorn non sono più uniti Solar Express',
+    keywords: 'frontalieri, ticino, svizzera, italia, istruzioni, politica, istituzioni, ambiente',
+    ogTitle: 'Svizzera, istruzioni per l\'uso: politica, armi e ghiacciai',
+    ogDescription: 'UDC quasi al 30% a un anno dalle elezioni federali Il 29 novembre si vota sulla legge sul materiale bellico Adula e Grauhorn non sono più uniti Solar Express',
+    canonicalPath: '/articoli-svizzera/svizzera-attualita-istituzioni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera, istruzioni per l'uso: politica, istituzioni e ambiente",
+      "description": "UDC quasi al 30% a un anno dalle elezioni federali Il 29 novembre si vota sulla legge sul materiale bellico Adula e Grauhorn non sono più uniti Solar Express",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-svizzera-attualita-istituzioni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con rappresentanza della politica svizzera"
+      },
+      "datePublished": "2026-10-18T01:29:15+00:00",
+      "dateModified": "2026-10-18T01:29:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-attualita-istituzioni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensionato-vince-contro-ffs': {
+    title: 'Pensionato la spunta contro le FFS dopo mesi di battaglia',
+    description: 'UFT: supplemento di 75 franchi dichiarato ingiustificato Ritardo di un autobus, poi un itinerario alternativo La vicenda parte dal viaggio Küsnacht-Rafz Il caso',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensionato, spunta, contro, dopo',
+    ogTitle: 'Pensionato la spunta contro le FFS dopo mesi di battaglia',
+    ogDescription: 'UFT: supplemento di 75 franchi dichiarato ingiustificato Ritardo di un autobus, poi un itinerario alternativo La vicenda parte dal viaggio Küsnacht-Rafz Il caso',
+    canonicalPath: '/articoli-svizzera/pensionato-vince-contro-ffs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensionato la spunta contro le FFS dopo mesi di battaglia",
+      "description": "UFT: supplemento di 75 franchi dichiarato ingiustificato Ritardo di un autobus, poi un itinerario alternativo La vicenda parte dal viaggio Küsnacht-Rafz Il caso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pensionato-vince-contro-ffs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione generata per questo articolo"
+      },
+      "datePublished": "2026-10-18T01:47:23+00:00",
+      "dateModified": "2026-10-18T01:47:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pensionato-vince-contro-ffs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-manager-ffs-denaro-pubblico': {
+    title: 'Ex manager FFS, Lamborghini e casa in Florida con soldi pubblici',
+    description: 'Ex dirigente FFS accusato di sottrarre circa 9 milioni Indagine federale aperta dal dicembre 2024 Processo previsto a fine ottobre Danno penalmente rilevante',
+    keywords: 'frontalieri, ticino, svizzera, italia, manager, lamborghini, casa, florida',
+    ogTitle: 'Ex manager FFS sotto inchiesta per milioni sottratti',
+    ogDescription: 'Ex dirigente FFS accusato di sottrarre circa 9 milioni Indagine federale aperta dal dicembre 2024 Processo previsto a fine ottobre Danno penalmente rilevante',
+    canonicalPath: '/articoli-svizzera/manager-ffs-denaro-pubblico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ex manager FFS, Lamborghini e casa in Florida con soldi pubblici",
+      "description": "Ex dirigente FFS accusato di sottrarre circa 9 milioni Indagine federale aperta dal dicembre 2024 Processo previsto a fine ottobre Danno penalmente rilevante",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-manager-ffs-denaro-pubblico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici istituzionali federali in Svizzera"
+      },
+      "datePublished": "2026-10-18T02:31:55+00:00",
+      "dateModified": "2026-10-18T02:31:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/manager-ffs-denaro-pubblico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lamal-guida-2026-canton-argovia': {
+    title: 'Sistema sanitario svizzero LAMal: guida 2026 Canton Argovia',
+    description: 'Chi risiede in Svizzera deve avere un\'assicurazione LAMal La polizza va stipulata entro tre mesi dall\'arrivo Per gli adulti sono previste franchigie di CHF 300',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, sanitario, svizzero, lamal',
+    ogTitle: 'Guida LAMal 2026 per residenti in Argovia: premi e franchigie',
+    ogDescription: 'Chi risiede in Svizzera deve avere un\'assicurazione LAMal La polizza va stipulata entro tre mesi dall\'arrivo Per gli adulti sono previste franchigie di CHF 300',
+    canonicalPath: '/articoli-svizzera/lamal-guida-2026-canton-argovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema sanitario svizzero LAMal: guida 2026 Canton Argovia",
+      "description": "Chi risiede in Svizzera deve avere un'assicurazione LAMal La polizza va stipulata entro tre mesi dall'arrivo Per gli adulti sono previste franchigie di CHF 300",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lamal-guida-2026-canton-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida LAMal 2026 per residenti nel canton Argovia"
+      },
+      "datePublished": "2026-10-18T02:46:20+00:00",
+      "dateModified": "2026-10-18T02:46:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lamal-guida-2026-canton-argovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ordinanza-liste-validita': {
+    title: 'ONU modifica la lista di sanzioni: SESAM aggiornato',
+    description: 'Il 16 ottobre 2026 l’ONU ha apportato una modifica a una lista di sanzioni. SESAM è stata aggiornata di conseguenza. Il 4 marzo 2016 il Consiglio federale aveva',
+    keywords: 'frontalieri, ticino, svizzera, italia, modifica, lista, sanzioni, sesam',
+    ogTitle: 'ONU modifica la lista di sanzioni: SESAM aggiornato',
+    ogDescription: 'Il 16 ottobre 2026 l’ONU ha apportato una modifica a una lista di sanzioni.',
+    canonicalPath: '/articoli-svizzera/ordinanza-liste-validita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ONU modifica la lista di sanzioni: SESAM aggiornato",
+      "description": "Il 16 ottobre 2026 l’ONU ha apportato una modifica a una lista di sanzioni. SESAM è stata aggiornata di conseguenza. Il 4 marzo 2016 il Consiglio federale aveva",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ordinanza-liste-validita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Berna, edificio istituzionale e documenti sulla modifica delle liste ONU nella banca dati SESAM."
+      },
+      "datePublished": "2026-10-18T04:35:28+00:00",
+      "dateModified": "2026-10-18T04:35:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ordinanza-liste-validita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prezzi-carburanti-rinviati-rinviati': {
+    title: 'Carburanti: perché i prezzi alla pompa restano alti',
+    description: 'Il greggio resta vicino ai 100 dollari al barile. I transiti da Hormuz sono inferiori del 30-40%. Cressier è l\'unica raffineria in Svizzera. Circa metà',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, perché, prezzi, alla',
+    ogTitle: 'Carburanti: perché i prezzi alla pompa restano alti',
+    ogDescription: 'Il greggio resta vicino ai 100 dollari al barile.',
+    canonicalPath: '/articoli-svizzera/prezzi-carburanti-rinviati-rinviati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburanti: perché i prezzi alla pompa restano alti",
+      "description": "Il greggio resta vicino ai 100 dollari al barile. I transiti da Hormuz sono inferiori del 30-40%. Cressier è l'unica raffineria in Svizzera. Circa metà",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-prezzi-carburanti-rinviati-rinviati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante in Svizzera con camion cisterna in sfondo"
+      },
+      "datePublished": "2026-10-18T06:40:53+00:00",
+      "dateModified": "2026-10-18T06:40:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-carburanti-rinviati-rinviati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dacuda-mouse-scanner': {
+    title: 'Dacuda in liquidazione: sciolta la società zurighese',
+    description: 'Dacuda entra in liquidazione dopo il voto dell\'assemblea La start-up era nata nel 2009 da uno spin-off dell\'ETH Il mouse-scanner digitalizzava documenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, dacuda, liquidazione, sciolta, società',
+    ogTitle: 'Dacuda in liquidazione: sciolta la società zurighese',
+    ogDescription: 'Dacuda entra in liquidazione dopo il voto dell\'assemblea La start-up era nata nel 2009 da uno spin-off dell\'ETH Il mouse-scanner digitalizzava documenti',
+    canonicalPath: '/articoli-svizzera/dacuda-mouse-scanner/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dacuda in liquidazione: sciolta la società zurighese",
+      "description": "Dacuda entra in liquidazione dopo il voto dell'assemblea La start-up era nata nel 2009 da uno spin-off dell'ETH Il mouse-scanner digitalizzava documenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-dacuda-mouse-scanner.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Mouse con funzione di scanner accanto a documenti in un ufficio svizzero"
+      },
+      "datePublished": "2026-10-18T06:52:25+00:00",
+      "dateModified": "2026-10-18T06:52:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dacuda-mouse-scanner/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-competitivita-svizzera-ocse-berna': {
+    title: 'OCSE Svizzera: chieste riforme per sanità e crescita',
+    description: 'Rapporto OCSE pubblicato il 15 settembre 2026 Apprezzato l’approccio economico della Svizzera Servono riforme per competitività e innovazione Seguito',
+    keywords: 'frontalieri, ticino, svizzera, italia, ocse, chieste, riforme, sanità',
+    ogTitle: 'OCSE: la Svizzera va bene ma servono riforme',
+    ogDescription: 'Rapporto OCSE pubblicato il 15 settembre 2026 Apprezzato l’approccio economico della Svizzera Servono riforme per competitività e innovazione Seguito',
+    canonicalPath: '/articoli-svizzera/competitivita-svizzera-ocse-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "OCSE Svizzera: chieste riforme per sanità e crescita",
+      "description": "Rapporto OCSE pubblicato il 15 settembre 2026 Apprezzato l’approccio economico della Svizzera Servono riforme per competitività e innovazione Seguito",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-disoccupazione-berna-settembre-2026-stabile.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede delle istituzioni svizzere"
+      },
+      "datePublished": "2026-10-18T08:25:08+00:00",
+      "dateModified": "2026-10-18T08:25:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/competitivita-svizzera-ocse-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aiuti-sociali-rifugiati-ucraini': {
+    title: 'Aiuti sociali ai rifugiati ucraini: opinioni contrastanti',
+    description: 'I Cantoni potranno fissare l\'importo dell\'aiuto sociale S L\'anno prossimo 46\'000 rifugiati potranno riceverlo Consultazione sull\'ordinanza 2 sull\'asilo fino',
+    keywords: 'frontalieri, ticino, svizzera, italia, aiuti, sociali, rifugiati, ucraini',
+    ogTitle: 'Aiuti sociali ai rifugiati ucraini: opinioni contrastanti',
+    ogDescription: 'I Cantoni potranno fissare l\'importo dell\'aiuto sociale S L\'anno prossimo 46\'000 rifugiati potranno riceverlo Consultazione sull\'ordinanza 2 sull\'asilo fino',
+    canonicalPath: '/articoli-svizzera/aiuti-sociali-rifugiati-ucraini/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aiuti sociali ai rifugiati ucraini: opinioni contrastanti",
+      "description": "I Cantoni potranno fissare l'importo dell'aiuto sociale S L'anno prossimo 46'000 rifugiati potranno riceverlo Consultazione sull'ordinanza 2 sull'asilo fino",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-aiuti-sociali-rifugiati-ucraini.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficiale cantonale che consegna aiuti sociali a rifugiati ucraini in Svizzera"
+      },
+      "datePublished": "2026-10-18T10:00:31+00:00",
+      "dateModified": "2026-10-18T10:00:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aiuti-sociali-rifugiati-ucraini/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prodex-40-anni-esericerca-spaziale': {
+    title: 'Prodex compie 40 anni: 130 progetti spaziali finanziati in Svizzera',
+    description: 'ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera',
+    keywords: 'frontalieri, ticino, svizzera, italia, prodex, compie, anni, progetti',
+    ogTitle: 'Prodex compie 40 anni: l\'impatto svizzero nella ricerca spaziale',
+    ogDescription: 'ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera',
+    canonicalPath: '/articoli-svizzera/prodex-40-anni-esericerca-spaziale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prodex compie 40 anni: 130 progetti spaziali finanziati in Svizzera",
+      "description": "ESA celebra i primi 40 anni di Prodex Delegazioni svizzera e belga hanno avviato Prodex nel 1986 Zurigo ha ospitato conferenza e cerimonia In Svizzera",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/imposta-cantonale-confronto-svizzera-2026-canton-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca svizzero con strumenti per missioni spaziali"
+      },
+      "datePublished": "2026-10-18T11:05:16+00:00",
+      "dateModified": "2026-10-18T11:05:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prodex-40-anni-esericerca-spaziale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ffs-binari-deformazioni-canicola-2024': {
+    title: 'FFS: 97 deformazioni binari per caldo, task force per estate 2026',
+    description: 'Le FFS hanno registrato 97 deformazioni e schiacciamenti. Il dato è quasi quattro volte quello dell\'anno precedente. Per l\'estate 2026 è stata istituita',
+    keywords: 'frontalieri, ticino, svizzera, italia, deformazioni, binari, caldo, task',
+    ogTitle: 'FFS: 97 deformazioni binari per ondata di calore, task force per 2026',
+    ogDescription: 'Le FFS hanno registrato 97 deformazioni e schiacciamenti.',
+    canonicalPath: '/articoli-svizzera/ffs-binari-deformazioni-canicola-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS: 97 deformazioni binari per caldo, task force per estate 2026",
+      "description": "Le FFS hanno registrato 97 deformazioni e schiacciamenti. Il dato è quasi quattro volte quello dell'anno precedente. Per l'estate 2026 è stata istituita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ffs-binari-deformazioni-canicola-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Binari ferroviari FFS sotto il sole estivo con calore visibile"
+      },
+      "datePublished": "2026-10-18T13:36:39+00:00",
+      "dateModified": "2026-10-18T13:36:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ffs-binari-deformazioni-canicola-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-covid-abusi-aziende': {
+    title: 'Indennità Covid: abusi in centinaia di aziende. Lastminute ha restituito 28,9 milioni',
+    description: '7\'200 aziende verificate su oltre 167\'000 beneficiarie La SECO ha reclamato 243,53 milioni di ILR Lastminute ha restituito 28,9 milioni in Ticino A fine',
+    keywords: 'frontalieri, ticino, svizzera, italia, indennità, covid, abusi, centinaia',
+    ogTitle: 'Indennità Covid: abusi in centinaia di aziende. Lastminute ha restituito 28,9 milioni',
+    ogDescription: '7\'200 aziende verificate su oltre 167\'000 beneficiarie La SECO ha reclamato 243,53 milioni di ILR Lastminute ha restituito 28,9 milioni in Ticino A fine',
+    canonicalPath: '/articoli-svizzera/indennita-covid-abusi-aziende/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Indennità Covid: abusi in centinaia di aziende. Lastminute ha restituito 28,9 milioni",
+      "description": "7'200 aziende verificate su oltre 167'000 beneficiarie La SECO ha reclamato 243,53 milioni di ILR Lastminute ha restituito 28,9 milioni in Ticino A fine",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio svizzero con impiegati che controllano documenti finanziari legati alle indennità Covid"
+      },
+      "datePublished": "2026-10-18T16:04:42+00:00",
+      "dateModified": "2026-10-18T16:04:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-covid-abusi-aziende/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso': {
+    title: 'PS sostiene tre iniziative e documento lavoro dignitoso',
+    description: 'A Thun il PS ha sostenuto tre iniziative popolari Baume-Schneider ha parlato del finanziamento della 13ª AVS Il PS chiede orari più brevi e salari più alti',
+    keywords: 'frontalieri, ticino, svizzera, italia, sostiene, iniziative, documento, lavoro',
+    ogTitle: 'PS sostiene tre iniziative e documento lavoro dignitoso',
+    ogDescription: 'A Thun il PS ha sostenuto tre iniziative popolari Baume-Schneider ha parlato del finanziamento della 13ª AVS Il PS chiede orari più brevi e salari più alti',
+    canonicalPath: '/articoli-svizzera/ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PS sostiene tre iniziative e documento lavoro dignitoso",
+      "description": "A Thun il PS ha sostenuto tre iniziative popolari Baume-Schneider ha parlato del finanziamento della 13ª AVS Il PS chiede orari più brevi e salari più alti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: PS sostiene tre iniziative e documento lavoro dignitoso"
+      },
+      "datePublished": "2026-10-18T17:36:19+00:00",
+      "dateModified": "2026-10-18T17:36:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ps-sostiene-tre-iniziative-e-documento-lavoro-dignitoso/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-zurigo-guida-pratica': {
+    title: 'Apprendistato a Zurigo: posto, contratto, retribuzione e maturità',
+    description: 'Guida pratica per l\'apprendistato nel Canton Zurigo: come trovare il posto, verificare il contratto, leggere la retribuzione e inquadrare la maturità',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, zurigo, posto, contratto',
+    ogTitle: 'Apprendistato a Zurigo: posto, contratto, retribuzione e maturità',
+    ogDescription: 'Una mappa pratica per orientarsi nell\'apprendistato nel Canton Zurigo: dalla ricerca del posto di tirocinio alla verifica del contratto, dalla lettura della busta paga con i contributi sociali alla maturità professionale. Scopri i passaggi chiave',
+    canonicalPath: '/articoli-svizzera/apprendistato-zurigo-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato a Zurigo: posto, contratto, retribuzione e maturità",
+      "description": "Guida pratica per l'apprendistato nel Canton Zurigo: come trovare il posto, verificare il contratto, leggere la retribuzione e inquadrare la maturità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-canton-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista in un'officina svizzera a Zurigo che esamina un contratto"
+      },
+      "datePublished": "2026-10-18T19:10:16+00:00",
+      "dateModified": "2026-10-18T19:10:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-zurigo-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-agenda-federale-voto-2026': {
+    title: 'Consiglio federale ha trasmesso il pacchetto Svizzera-UE',
+    description: 'Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell\'AVS Guy Parmelin ha annunciato',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, trasmesso, pacchetto',
+    ogTitle: 'Consiglio federale ha trasmesso il pacchetto Svizzera-UE',
+    ogDescription: 'Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell\'AVS Guy Parmelin ha annunciato',
+    canonicalPath: '/articoli-svizzera/agenda-federale-voto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale ha trasmesso il pacchetto Svizzera-UE",
+      "description": "Il pacchetto Svizzera-UE è stato trasmesso il 13 marzo 2026 Il 29 novembre 2026 si vota sul finanziamento supplementare dell'AVS Guy Parmelin ha annunciato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-agenda-federale-voto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena istituzionale svizzera legata a decisioni federali e votazioni popolari"
+      },
+      "datePublished": "2026-10-19T02:24:47+00:00",
+      "dateModified": "2026-10-19T02:24:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/agenda-federale-voto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giovani-donne-stipendi-svizzera': {
+    title: 'Le giovani svizzere guadagnano meno nonostante siano più istruite',
+    description: 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, svizzere, guadagnano, meno',
+    ogTitle: 'Le giovani svizzere guadagnano meno nonostante siano piu istruite',
+    ogDescription: 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori',
+    canonicalPath: '/articoli-svizzera/giovani-donne-stipendi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le giovani svizzere guadagnano meno nonostante siano più istruite",
+      "description": "Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-divario-reddito-giovani-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane donna lavora in un ufficio moderno in Svizzera"
+      },
+      "datePublished": "2026-10-19T03:17:11+00:00",
+      "dateModified": "2026-10-19T03:17:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/giovani-donne-stipendi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-donazione-zurigo-regole': {
+    title: 'Imposta di successione e donazione nel Cantone di Zurigo',
+    description: 'Scopri le regole per l\'imposta di successione e donazione nel Cantone di Zurigo: gradi di parentela, esenzioni per coniuge e discendenti e dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, cantone',
+    ogTitle: 'Imposta di successione e donazione nel Cantone di Zurigo',
+    ogDescription: 'Analisi completa dell\'imposta di successione e donazione nel Cantone di Zurigo. Scopri come funzionano le aliquote per grado di parentela, le esenzioni per coniuge e discendenti e gli adempimenti.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-zurigo-regole/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione nel Cantone di Zurigo",
+      "description": "Scopri le regole per l'imposta di successione e donazione nel Cantone di Zurigo: gradi di parentela, esenzioni per coniuge e discendenti e dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-imposta-successione-donazione-zurigo-regole.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imposta di successione e donazione nel Cantone di Zurigo"
+      },
+      "datePublished": "2026-10-19T05:15:43+00:00",
+      "dateModified": "2026-10-19T05:15:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-zurigo-regole/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-securitas-violazioni-lavoro': {
+    title: 'Securitas avrebbe violato migliaia di volte la legge sul lavoro',
+    description: 'Circa 20\'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas',
+    keywords: 'frontalieri, ticino, svizzera, italia, securitas, avrebbe, violato, migliaia',
+    ogTitle: 'Securitas avrebbe violato migliaia di volte la legge sul lavoro',
+    ogDescription: 'Circa 20\'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas',
+    canonicalPath: '/articoli-svizzera/securitas-violazioni-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Securitas avrebbe violato migliaia di volte la legge sul lavoro",
+      "description": "Circa 20'000 presunte violazioni tra 2023 e 2025 Circa 900 dipendenti coinvolti nella Svizzera centrale Turni troppo lunghi e recuperi troppo brevi Securitas",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-securitas-violazioni-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-19T06:33:36+00:00",
+      "dateModified": "2026-10-19T06:33:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/securitas-violazioni-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-campagna-fisco-coppie-sposate': {
+    title: 'Fisco e coppie sposate: i contrari aprono la loro campagna',
+    description: 'Il comitato contrario ha presentato le sue tesi a Berna Il voto federale sull\'iniziativa è previsto il 29 novembre L\'imposizione individuale entrerà in vigore',
+    keywords: 'frontalieri, ticino, svizzera, italia, fisco, coppie, sposate, contrari',
+    ogTitle: 'Fisco e coppie sposate: i contrari aprono la loro campagna',
+    ogDescription: 'Il comitato contrario ha presentato le sue tesi a Berna Il voto federale sull\'iniziativa è previsto il 29 novembre L\'imposizione individuale entrerà in vigore',
+    canonicalPath: '/articoli-svizzera/campagna-fisco-coppie-sposate/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fisco e coppie sposate: i contrari aprono la loro campagna",
+      "description": "Il comitato contrario ha presentato le sue tesi a Berna Il voto federale sull'iniziativa è previsto il 29 novembre L'imposizione individuale entrerà in vigore",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-campagna-fisco-coppie-sposate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Conferenza stampa a Berna sulla votazione federale e fiscale delle coppie sposate"
+      },
+      "datePublished": "2026-10-19T09:57:56+00:00",
+      "dateModified": "2026-10-19T09:57:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/campagna-fisco-coppie-sposate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-impatto-glp1-industria-alimentare': {
+    title: 'Farmaci antiobesità GLP-1: impatto sull\'industria alimentare',
+    description: 'In Svizzera, meno del 2% è in terapia GLP-1 Negli USA il budget alimentare cala fino al 5% Emmi, Danone e Nestlé adattano le gamme Givaudan stima una crescita',
+    keywords: 'frontalieri, ticino, svizzera, italia, farmaci, antiobesità, glp-1, impatto',
+    ogTitle: 'Farmaci GLP-1: l\'industria alimentare si adatta',
+    ogDescription: 'In Svizzera, meno del 2% è in terapia GLP-1 Negli USA il budget alimentare cala fino al 5% Emmi, Danone e Nestlé adattano le gamme Givaudan stima una crescita',
+    canonicalPath: '/articoli-svizzera/impatto-glp1-industria-alimentare/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmaci antiobesità GLP-1: impatto sull'industria alimentare",
+      "description": "In Svizzera, meno del 2% è in terapia GLP-1 Negli USA il budget alimentare cala fino al 5% Emmi, Danone e Nestlé adattano le gamme Givaudan stima una crescita",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-impatto-glp1-industria-alimentare.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Reparto di un supermercato svizzero con prodotti alimentari freschi"
+      },
+      "datePublished": "2026-10-19T11:07:20+00:00",
+      "dateModified": "2026-10-19T11:07:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/impatto-glp1-industria-alimentare/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lenu-referendum-firme-valide': {
+    title: 'Legge federale sull’energia nucleare: referendum riuscito',
+    description: '19 ottobre 2026: referendum formalmente riuscito 6 ottobre 2026: presentate 79 479 firme 78 922 firme sono state dichiarate valide Modifica LENu datata 19',
+    keywords: 'frontalieri, ticino, svizzera, italia, legge, federale, sull, energia',
+    ogTitle: 'Legge federale sull’energia nucleare: referendum riuscito',
+    ogDescription: '19 ottobre 2026: referendum formalmente riuscito 6 ottobre 2026: presentate 79 479 firme 78 922 firme sono state dichiarate valide Modifica LENu datata 19',
+    canonicalPath: '/articoli-svizzera/lenu-referendum-firme-valide/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Legge federale sull’energia nucleare: referendum riuscito",
+      "description": "19 ottobre 2026: referendum formalmente riuscito 6 ottobre 2026: presentate 79 479 firme 78 922 firme sono state dichiarate valide Modifica LENu datata 19",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lenu-referendum-firme-valide.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna in una scena editoriale sul referendum LENu"
+      },
+      "datePublished": "2026-10-19T12:13:26+00:00",
+      "dateModified": "2026-10-19T12:13:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lenu-referendum-firme-valide/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-water-summit-zurich-2024': {
+    title: 'EurEau Water Summit a Zurigo: 60% acqua senza trattamento',
+    description: 'Siccità e inquinamento minacciano l\'acqua potabile Il summit riunisce esperti e gestori a Zurigo In Svizzera il 60% può avere zero o semplice trattamento L\'80%',
+    keywords: 'frontalieri, ticino, svizzera, italia, eureau, water, summit, zurigo',
+    ogTitle: 'EurEau Water Summit a Zurigo: 60% acqua senza trattamento',
+    ogDescription: 'Siccità e inquinamento minacciano l\'acqua potabile Il summit riunisce esperti e gestori a Zurigo In Svizzera il 60% può avere zero o semplice trattamento L\'80%',
+    canonicalPath: '/articoli-svizzera/water-summit-zurich-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "EurEau Water Summit a Zurigo: 60% acqua senza trattamento",
+      "description": "Siccità e inquinamento minacciano l'acqua potabile Il summit riunisce esperti e gestori a Zurigo In Svizzera il 60% può avere zero o semplice trattamento L'80%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-water-summit-zurich-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-19T15:35:51+00:00",
+      "dateModified": "2026-10-19T15:35:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/water-summit-zurich-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-accordo-commercio-elettronico-omc': {
+    title: 'Commercio elettronico: Svizzera avvia consultazione per l\'ACE',
+    description: 'Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell\'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →',
+    keywords: 'frontalieri, ticino, svizzera, italia, commercio, elettronico, avvia, consultazione',
+    ogTitle: 'Commercio elettronico: Svizzera avvia consultazione per l\'ACE',
+    ogDescription: 'Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell\'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →',
+    canonicalPath: '/articoli-svizzera/accordo-commercio-elettronico-omc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commercio elettronico: Svizzera avvia consultazione per l'ACE",
+      "description": "Consultazione avviata il 14 ottobre 2026 ACE tra 67 membri dell'OMC Termine fissato al 28 gennaio 2027 Vietati i dazi sulle trasmissioni elettroniche Cosa →",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-accordo-commercio-elettronico-omc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-19T18:02:10+00:00",
+      "dateModified": "2026-10-19T18:02:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/accordo-commercio-elettronico-omc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rickli-ritiro-consiglio-federale': {
+    title: 'Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo',
+    description: 'Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin',
+    keywords: 'frontalieri, ticino, svizzera, italia, natalie, rickli, rifiuta, consiglio',
+    ogTitle: 'Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo',
+    ogDescription: 'Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin',
+    canonicalPath: '/articoli-svizzera/rickli-ritiro-consiglio-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Natalie Rickli rifiuta il Consiglio federale, resta a Zurigo",
+      "description": "Natalie Rickli rinuncia al seggio in Consiglio federale Zurigo ha bisogno di un governo cantonale stabile Il 9 dicembre sarà eletto il successore di Parmelin",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rickli-ritiro-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T03:16:01+00:00",
+      "dateModified": "2026-10-20T03:16:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rickli-ritiro-consiglio-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-circolare-221-deduzione-figli-2027': {
+    title: 'Imposta alla fonte 2027: deduzione per figlio a 264 CHF',
+    description: 'Pubblicazione: Berna, 20 ottobre 2026 Stato della circolare: 1° gennaio 2027 Deduzione per ogni figlio: 264 CHF Valore mediano dei redditi: 5\'925 CHF',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, alla, fonte, deduzione',
+    ogTitle: 'Imposta alla fonte 2027: deduzione per figlio a 264 CHF',
+    ogDescription: 'Pubblicazione: Berna, 20 ottobre 2026 Stato della circolare: 1° gennaio 2027 Deduzione per ogni figlio: 264 CHF Valore mediano dei redditi: 5\'925 CHF al mese',
+    canonicalPath: '/articoli-svizzera/circolare-221-deduzione-figli-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta alla fonte 2027: deduzione per figlio a 264 CHF",
+      "description": "Pubblicazione: Berna, 20 ottobre 2026 Stato della circolare: 1° gennaio 2027 Deduzione per ogni figlio: 264 CHF Valore mediano dei redditi: 5'925 CHF",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-circolare-221-deduzione-figli-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T17:41:42+00:00",
+      "dateModified": "2026-10-20T17:41:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/circolare-221-deduzione-figli-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7': {
+    title: 'Orologi svizzeri: export a 2,2 miliardi a settembre, +11,7%',
+    description: 'A settembre 2026 le esportazioni salgono dell\'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).',
+    keywords: 'frontalieri, ticino, svizzera, italia, orologi, svizzeri, export, miliardi',
+    ogTitle: 'Orologi svizzeri: export a 2,2 miliardi a settembre',
+    ogDescription: 'A settembre 2026 le esportazioni salgono dell\'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).',
+    canonicalPath: '/articoli-svizzera/orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orologi svizzeri: export a 2,2 miliardi a settembre, +11,7%",
+      "description": "A settembre 2026 le esportazioni salgono dell'11,7% a 2,2 miliardi di franchi; 1,4 milioni di pezzi (+19,9%).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-20T23:39:40+00:00",
+      "dateModified": "2026-10-20T23:39:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/orologi-svizzeri-export-a-2-2-miliardi-a-settembre-11-7/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-molestie-lavoro-pmi-svizzere': {
+    title: 'Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+',
+    description: 'Dal Covid aumentano le segnalazioni nelle PMI svizzere. Il 44% delle donne riferisce molestie sul lavoro. Spesso chi molesta occupa una posizione',
+    keywords: 'frontalieri, ticino, svizzera, italia, molestie, lavoro, nelle, dati',
+    ogTitle: 'Molestie sul lavoro: dati e prevenzione nelle PMI svizzere',
+    ogDescription: 'Dal Covid aumentano le segnalazioni nelle PMI svizzere.',
+    canonicalPath: '/articoli-svizzera/molestie-lavoro-pmi-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Molestie sul lavoro nelle PMI: i dati e il progetto KMU konkret+",
+      "description": "Dal Covid aumentano le segnalazioni nelle PMI svizzere. Il 44% delle donne riferisce molestie sul lavoro. Spesso chi molesta occupa una posizione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-molestie-lavoro-pmi-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T01:06:01+00:00",
+      "dateModified": "2026-10-21T01:06:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/molestie-lavoro-pmi-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finma-etf-bitcoin-primo-fondo': {
+    title: 'Finma approva il primo ETF svizzero in Bitcoin',
+    description: 'Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute',
+    keywords: 'frontalieri, ticino, svizzera, italia, finma, approva, primo, svizzero',
+    ogTitle: 'Finma approva il primo ETF svizzero in Bitcoin',
+    ogDescription: 'Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute',
+    canonicalPath: '/articoli-svizzera/finma-etf-bitcoin-primo-fondo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finma approva il primo ETF svizzero in Bitcoin",
+      "description": "Finma autorizza il primo fondo pubblico diretto in Bitcoin Il fondo è negoziato in borsa La decisione segue il crescente interesse per le criptovalute",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-finma-etf-bitcoin-primo-fondo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T03:02:49+00:00",
+      "dateModified": "2026-10-21T03:02:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finma-etf-bitcoin-primo-fondo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guasto-sistemi-skyguide-scali': {
+    title: 'Guasto ai sistemi: capacità aerea svizzera al 50%',
+    description: 'Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi',
+    keywords: 'frontalieri, ticino, svizzera, italia, guasto, sistemi, capacità, aerea',
+    ogTitle: 'Guasto Skyguide: capacità aerea al 50%',
+    ogDescription: 'Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi brevemente a Zurigo',
+    canonicalPath: '/articoli-svizzera/guasto-sistemi-skyguide-scali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guasto ai sistemi: capacità aerea svizzera al 50%",
+      "description": "Guasto tecnico ai sistemi Skyguide martedì pomeriggio Skyguide opera al 50% della capacità in via precauzionale Decolli e atterraggi sospesi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-guasto-sistemi-skyguide-scali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T05:09:46+00:00",
+      "dateModified": "2026-10-21T05:09:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guasto-sistemi-skyguide-scali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tamedia-zurigo-protesta-licenziamenti-ia': {
+    title: 'Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno',
+    description: 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamedia, oltre, piazza, zurigo',
+    ogTitle: 'Tamedia: 100+ dipendenti in piazza a Zurigo contro i tagli',
+    ogDescription: 'Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono investimenti',
+    canonicalPath: '/articoli-svizzera/tamedia-zurigo-protesta-licenziamenti-ia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamedia, oltre 100 in piazza a Zurigo contro 34 tagli a tempo pieno",
+      "description": "Oltre 100 dipendenti protestano a Zurigo Tamedia annuncia 34 posti a tempo pieno in meno I tagli riguardano 41 dipendenti I lavoratori chiedono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tamedia-zurigo-protesta-licenziamenti-ia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T07:32:04+00:00",
+      "dateModified": "2026-10-21T07:32:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tamedia-zurigo-protesta-licenziamenti-ia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pacchetto-imprese-sgravi': {
+    title: 'Pacchetto competitività: oltre il 90% attuato o in corso',
+    description: 'Oltre il 90% delle 60 misure è attuato o in attuazione. 16 misure sono in vigore e 39 in attuazione. Il pacchetto mira a ridurre gli oneri normativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pacchetto, competitività, oltre, attuato',
+    ogTitle: 'Competitività svizzera: oltre il 90% attuato o in corso',
+    ogDescription: 'Oltre il 90% delle 60 misure è attuato o in attuazione.',
+    canonicalPath: '/articoli-svizzera/pacchetto-imprese-sgravi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pacchetto competitività: oltre il 90% attuato o in corso",
+      "description": "Oltre il 90% delle 60 misure è attuato o in attuazione. 16 misure sono in vigore e 39 in attuazione. Il pacchetto mira a ridurre gli oneri normativi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-pacchetto-imprese-sgravi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T10:00:03+00:00",
+      "dateModified": "2026-10-21T10:00:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pacchetto-imprese-sgravi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-piano-berna-civilisti-cantoni': {
+    title: 'Protezione civile: Berna prevede l\'impiego dei civilisti',
+    description: 'Da gennaio i civilisti potranno operare nella protezione civile Il Consiglio federale modifica le ordinanze applicative Al 1° gennaio 2025 la PC',
+    keywords: 'frontalieri, ticino, svizzera, italia, protezione, civile, berna, prevede',
+    ogTitle: 'Protezione civile: Berna prevede l\'impiego dei civilisti',
+    ogDescription: 'Da gennaio i civilisti potranno operare nella protezione civile Il Consiglio federale modifica le ordinanze applicative Al 1° gennaio 2025 la PC contava 57\'000',
+    canonicalPath: '/articoli-svizzera/piano-berna-civilisti-cantoni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protezione civile: Berna prevede l'impiego dei civilisti",
+      "description": "Da gennaio i civilisti potranno operare nella protezione civile Il Consiglio federale modifica le ordinanze applicative Al 1° gennaio 2025 la PC",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-piano-berna-civilisti-cantoni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T11:26:40+00:00",
+      "dateModified": "2026-10-21T11:26:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/piano-berna-civilisti-cantoni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cofinanziamento-tox-info-suisse': {
+    title: 'Tox Info Suisse: cofinanziamento obbligatorio per industria',
+    description: 'Il Consiglio federale vuole imporre il cofinanziamento di Tox Info Suisse Coinvolte l\'industria chimica e quella farmaceutica Consultazione prevista',
+    keywords: 'frontalieri, ticino, svizzera, italia, info, suisse, cofinanziamento, obbligatorio',
+    ogTitle: 'Tox Info Suisse: cofinanziamento obbligatorio per l\'industria',
+    ogDescription: 'Il Consiglio federale vuole imporre il cofinanziamento di Tox Info Suisse Coinvolte l\'industria chimica e quella farmaceutica Consultazione prevista fino a metà',
+    canonicalPath: '/articoli-svizzera/cofinanziamento-tox-info-suisse/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tox Info Suisse: cofinanziamento obbligatorio per industria",
+      "description": "Il Consiglio federale vuole imporre il cofinanziamento di Tox Info Suisse Coinvolte l'industria chimica e quella farmaceutica Consultazione prevista",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-cofinanziamento-tox-info-suisse.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T15:09:03+00:00",
+      "dateModified": "2026-10-21T15:09:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cofinanziamento-tox-info-suisse/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-consiglio-poverta-prima-conferenza': {
+    title: 'Consiglio nazionale sulla povertà: si presenta il 9 novembre',
+    description: 'Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, nazionale, sulla, povertà',
+    ogTitle: 'Povertà, il Consiglio nazionale si presenta a Berna',
+    ogDescription: 'Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi ha',
+    canonicalPath: '/articoli-svizzera/consiglio-poverta-prima-conferenza/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio nazionale sulla povertà: si presenta il 9 novembre",
+      "description": "Struttura nazionale approvata dal Consiglio federale nel 2024 Prima conferenza stampa: 9 novembre 2026, ore 10.00-11.00 Il Consiglio rappresenta chi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-consiglio-poverta-prima-conferenza.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T18:30:03+00:00",
+      "dateModified": "2026-10-21T18:30:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/consiglio-poverta-prima-conferenza/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-furto-dati-publica-100mila-dipendenti': {
+    title: 'Hacker Akira rubano dati di 100.000 dipendenti federali da Publica',
+    description: 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira',
+    keywords: 'frontalieri, ticino, svizzera, italia, hacker, akira, rubano, dati',
+    ogTitle: 'Hacker Akira rubano dati 100.000 dipendenti federali Publica',
+    ogDescription: 'Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira minaccia',
+    canonicalPath: '/articoli-svizzera/furto-dati-publica-100mila-dipendenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Hacker Akira rubano dati di 100.000 dipendenti federali da Publica",
+      "description": "Oltre 100’000 dipendenti federali coinvolti Dati anche relativi a partner e figli L’attacco a un fornitore esterno risale a fine settembre Akira",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-furto-dati-publica-100mila-dipendenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-10-21T20:47:43+00:00",
+      "dateModified": "2026-10-21T20:47:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/furto-dati-publica-100mila-dipendenti/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

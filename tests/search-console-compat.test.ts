@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 import { resolveSearchConsoleCompatTarget } from '@/build-plugins/searchConsoleCompat';
@@ -6,6 +7,12 @@ import {
   FRENCH_BELOW_FLOOR,
   frenchMunicipalityPathFor,
 } from '@/build-plugins/frenchBorderMunicipalityData';
+
+const legacyFuelAliases = (
+  JSON.parse(readFileSync(new URL('../data/legacy-aliases.json', import.meta.url), 'utf8')) as {
+    aliases: Array<{ cohort: string; orphanPath: string; canonicalPath: string; locale: string }>;
+  }
+).aliases.filter((alias) => alias.cohort === 'fuelStation');
 
 describe('Search Console 404 compatibility resolver', () => {
   it('maps malformed search URLs back to the localized job-board root', () => {
@@ -134,6 +141,22 @@ describe('Search Console 404 compatibility resolver', () => {
       kind: 'expired-job',
       locale: 'it',
     });
+  });
+
+  it('self-maps emitted health-facility section roots', () => {
+    const cases = [
+      ['/strutture-sanitarie', 'it'],
+      ['/en/healthcare-facilities/', 'en'],
+      ['/de/gesundheitseinrichtungen', 'de'],
+      ['/fr/etablissements-sante/', 'fr'],
+    ] as const;
+    for (const [path, locale] of cases) {
+      expect(resolveSearchConsoleCompatTarget(path)).toEqual({
+        canonicalPath: path.endsWith('/') ? path : `${path}/`,
+        kind: 'legacy',
+        locale,
+      });
+    }
   });
 
   // Issue #3747 — per-canton sector hubs emit every (canton section × sector ×
@@ -361,32 +384,49 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
-  it('routes expired fuel-station leaves to the matching fuel landing (diesel↔diesel, benzina↔benzina)', () => {
-    // IT diesel → IT diesel today page.
+  it('routes expired fuel-station leaves to the city-specific localized daily page', () => {
+    // Preserve the city from the retired station route.
     expect(resolveSearchConsoleCompatTarget('/prezzi-diesel/lugano/stazioni/eni-strada-per-gandria')).toEqual({
-      canonicalPath: '/prezzi-diesel/oggi/',
+      canonicalPath: '/prezzi-diesel/lugano/oggi/',
       kind: 'legacy',
       locale: 'it',
     });
     // DE benzina (benzinpreis-schweiz) → DE benzina today page, NOT the diesel one.
     expect(resolveSearchConsoleCompatTarget('/de/benzinpreis-schweiz/lugano/tankstellen/socar-via-colombera')).toEqual({
-      canonicalPath: '/de/benzinpreis-schweiz/heute/',
+      canonicalPath: '/de/benzinpreis-schweiz/lugano/heute/',
       kind: 'legacy',
       locale: 'de',
     });
     // FR diesel is `prix-gasoil-suisse` (the live section); `prix-diesel` is a
     // legacy alias that 301-redirects, so it must NOT be the canonical target.
     expect(resolveSearchConsoleCompatTarget('/fr/prix-gasoil-suisse/mendrisio/stations/eni-via-bernasconi')).toEqual({
-      canonicalPath: '/fr/prix-gasoil-suisse/aujourd-hui/',
+      canonicalPath: '/fr/prix-gasoil-suisse/mendrisio/aujourd-hui/',
       kind: 'legacy',
       locale: 'fr',
     });
     // FR benzina (prix-essence-suisse) → FR benzina today page.
     expect(resolveSearchConsoleCompatTarget('/fr/prix-essence-suisse/lugano/stations/piccadilly-via-cantonale-2')).toEqual({
-      canonicalPath: '/fr/prix-essence-suisse/aujourd-hui/',
+      canonicalPath: '/fr/prix-essence-suisse/lugano/aujourd-hui/',
       kind: 'legacy',
       locale: 'fr',
     });
+    // The shared station resolver accepts case drift in the route segment.
+    expect(resolveSearchConsoleCompatTarget('/prezzi-benzina-svizzera/bellinzona/Stazioni/socar/')).toEqual({
+      canonicalPath: '/prezzi-benzina/bellinzona/oggi/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+  });
+
+  it('keeps the compat-store resolver aligned with every declared fuel-station alias', () => {
+    for (const alias of legacyFuelAliases) {
+      for (const path of [alias.orphanPath, alias.orphanPath.replace(/\/$/, '')]) {
+        expect(resolveSearchConsoleCompatTarget(path)).toMatchObject({
+          canonicalPath: alias.canonicalPath,
+          locale: alias.locale,
+        });
+      }
+    }
   });
 
   it('routes expired company-hub week leaves to the hub root, all 4 locales', () => {

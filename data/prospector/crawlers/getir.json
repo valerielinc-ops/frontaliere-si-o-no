@@ -1,0 +1,23 @@
+{
+  "companyKey": "getir",
+  "companyName": "Manatal",
+  "companyHost": "getir.careers-page.com",
+  "platform": "careers-page.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://getir.careers-page.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Franchise Controlling Executive",
+    "Category Specialist / Executive",
+    "Field Excellence Executive",
+    "Analytical Engineering",
+    "Field Operations People Development Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-10-18T09:40:33.646Z"
+}

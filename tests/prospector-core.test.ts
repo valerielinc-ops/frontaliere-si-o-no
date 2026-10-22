@@ -7,16 +7,22 @@
  * thousands of wrong candidates or drops a whole vendor's tenant base.
  */
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, expectTypeOf, it } from 'vitest';
+import { describe, expect, expectTypeOf, it, vi } from 'vitest';
 import { fetch as undiciFetch } from 'undici';
 import { registrableDomain, tenantLabel, sameOrg, normalizeHost, safeDecodePath, stripPublicSuffix } from '../scripts/lib/prospector/registrable.mjs';
 import { clearPoliteFetchStateForTests, parseRobots, robotsAllows } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
-  loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms,
-  sharedHostPlatforms, listingPathHints, recordExpansionAttempt,
+  loadRegistry, observePlatform, isPlatformEligible, enumerablePlatforms, enumerablePathTenantPlatforms,
+  sharedHostPlatforms, listingPathHints, recordExpansionAttempt, recordExpansionResult,
 } from '../scripts/lib/prospector/platform-registry.mjs';
-import { prioritizeTraceCandidates } from '../scripts/lib/prospector/trace-priority.mjs';
+import {
+  hasRecentSecoDemand,
+  parseTraceLimit,
+  prioritizeTraceCandidates,
+  TRACE_SECO_FRESHNESS_DAYS,
+} from '../scripts/lib/prospector/trace-priority.mjs';
 import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, renderedWorkplaceLabelValues, renderedPostalAddressCandidates, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
 import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
@@ -35,8 +41,11 @@ import {
   diagnosePromotionBlocks,
   clampMinDays,
   findOpenPromotionPr,
+  candidateStatusAfterValidation,
   GATE_DEFAULTS,
+  passesSourceBackedLocationRate,
 } from '../scripts/lib/prospector/promotion-gate.mjs';
+import { alignCandidateQualityContractVersion, CURRENT_QUALITY_CONTRACT_VERSION } from '../scripts/lib/prospector/quality-contract.mjs';
 import { createSpecUrlPolicy, geographyFieldsForDecision, needsDetailEnrichment, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   constantPostalLocations,
@@ -58,6 +67,8 @@ import {
 } from '../scripts/lib/prospector/subdivision-inventory.mjs';
 import { constPrefix, pascalIdentifier } from '../scripts/lib/crawler-identifier.mjs';
 import { fetchFollowingValidatedRedirects, fetchHtml } from '../scripts/lib/crawler-template.mjs';
+import { attributableTraceHosts, traceCandidate } from '../scripts/lib/prospector/trace-candidate.mjs';
+import { censusFromOwnCrawls } from '../scripts/lib/prospector/sources/known-crawlers.mjs';
 
 const emptyRegistry = () => loadRegistry('/prospector/does-not-exist.json');
 
@@ -133,6 +144,40 @@ describe('robots.txt', () => {
 });
 
 describe('platform registry', () => {
+  it('bootstraps only when the registry file is missing', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-platforms-missing-'));
+    try {
+      expect(loadRegistry(path.join(dir, 'platforms.json'))).toMatchObject({ platforms: {} });
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    ['malformed JSON', 'not json'],
+    ['invalid shape', '{"version":1}'],
+    ['non-object platforms', '{"version":1,"platforms":[]}'],
+  ])('refuses to turn %s into an empty registry that could overwrite platform history', (_label, contents) => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-platforms-invalid-'));
+    const file = path.join(dir, 'platforms.json');
+    try {
+      fs.writeFileSync(file, contents, 'utf8');
+      expect(() => loadRegistry(file)).toThrow(/Prospector platform registry/);
+      expect(fs.readFileSync(file, 'utf8')).toBe(contents);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('propagates non-missing filesystem errors instead of silently bootstrapping', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-platforms-io-'));
+    try {
+      expect(() => loadRegistry(dir)).toThrow(/Cannot read Prospector platform registry/);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('rejects social, CDN and aggregator hosts', () => {
     expect(isPlatformEligible('facebook.com')).toBe(false);
     expect(isPlatformEligible('jobs.ch')).toBe(false);
@@ -167,6 +212,67 @@ describe('platform registry', () => {
     expect(enumerablePlatforms(r).map((p) => p.domain)).toContain('ats.example');
     expect(enumerablePlatforms(r).map((p) => p.domain)).not.toContain('board.example');
     expect(sharedHostPlatforms(r).map((p) => p.domain)).toContain('board.example');
+  });
+
+  it('records verified owners and keeps unknown ownership sticky for the exact tenant host', () => {
+    const r = emptyRegistry();
+    observePlatform(r, { tenantHost: 'recruitingapp-1.vendor.example', employerDomain: 'https://www.alpha.ch/jobs' });
+    observePlatform(r, { tenantHost: 'recruitingapp-1.vendor.example', employerDomain: 'unresolved employer name' });
+    observePlatform(r, { tenantHost: 'recruitingapp-2.vendor.example', employerDomain: 'beta.ch' });
+    observePlatform(r, { tenantHost: 'recruitingapp-3.vendor.example' });
+
+    expect(r.platforms['vendor.example'].hostEmployers).toEqual({
+      'recruitingapp-1.vendor.example': ['alpha.ch'],
+      'recruitingapp-2.vendor.example': ['beta.ch'],
+    });
+    expect(r.platforms['vendor.example'].hostEmployerUnknown).toEqual({
+      'recruitingapp-1.vendor.example': true,
+      'recruitingapp-3.vendor.example': true,
+    });
+  });
+
+  it('preserves homonymous own-crawl employers by verified domain and carries unknown owners through', () => {
+    const dataRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'prospector-own-census-'));
+    fs.writeFileSync(path.join(dataRoot, 'jobs.json'), JSON.stringify([
+      { url: 'https://recruitingapp.vendor.example/jobs/1', company: 'Acme SA', companyDomain: 'alpha.ch' },
+      { url: 'https://recruitingapp.vendor.example/jobs/2', company: 'Acme SA', companyDomain: 'beta.ch' },
+      { url: 'https://recruitingapp.vendor.example/jobs/3', company: 'No Domain SA' },
+      { url: 'https://another.vendor.example/jobs/1', company: 'owner-shaped.example' },
+      { url: 'https://another.vendor.example/jobs/2', company: 'Beta AG', companyDomain: 'gamma.ch' },
+    ]));
+
+    try {
+      const census = censusFromOwnCrawls({ dataRoot });
+      const platform = census.platforms.find((item) => item.domain === 'vendor.example');
+      expect(platform?.employers).toEqual(['Acme SA', 'Acme SA', 'No Domain SA', 'owner-shaped.example', 'Beta AG']);
+      expect(platform?.employerHosts).toEqual([
+        ['Acme SA', 'recruitingapp.vendor.example', '/jobs/1', 'alpha.ch'],
+        ['Acme SA', 'recruitingapp.vendor.example', '/jobs/2', 'beta.ch'],
+        ['No Domain SA', 'recruitingapp.vendor.example', '/jobs/3', undefined],
+        ['owner-shaped.example', 'another.vendor.example', '/jobs/1', undefined],
+        ['Beta AG', 'another.vendor.example', '/jobs/2', 'gamma.ch'],
+      ]);
+
+      const r = emptyRegistry();
+      for (const [, host, jobPath, employerDomain] of platform!.employerHosts) {
+        observePlatform(r, { tenantHost: host, path: jobPath, employerDomain });
+      }
+      expect(r.platforms['vendor.example'].hostEmployers['recruitingapp.vendor.example']).toEqual(['alpha.ch', 'beta.ch']);
+      expect(r.platforms['vendor.example'].hostEmployers['another.vendor.example']).toEqual(['gamma.ch']);
+      expect(r.platforms['vendor.example'].hostEmployerUnknown['recruitingapp.vendor.example']).toBe(true);
+      expect(r.platforms['vendor.example'].hostEmployerUnknown['another.vendor.example']).toBe(true);
+    } finally {
+      fs.rmSync(dataRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('schedules only shared-host vendors with tenant ids in the path for slug probing', () => {
+    const r = emptyRegistry();
+    observePlatform(r, { tenantHost: 'apply.refline.example', employerDomain: 'alpha.ch', path: '/alpha/jobs' });
+    observePlatform(r, { tenantHost: 'apply.refline.example', employerDomain: 'beta.ch', path: '/beta/jobs' });
+
+    expect(enumerablePlatforms(r).map((platform) => platform.domain)).not.toContain('refline.example');
+    expect(enumerablePathTenantPlatforms(r).map((platform) => platform.domain)).toContain('refline.example');
   });
 
   it('learns a listing path only when several employers share it', () => {
@@ -211,24 +317,247 @@ describe('platform registry', () => {
       lastExpandedAt: '2026-09-15T03:00:00Z',
       expansionAttempts: 1,
     });
+    recordExpansionResult(r.platforms['never.example'], {
+      outcome: 'partial',
+      discovered: ['tenant-a.ats.example'],
+      live: [],
+      probeLimitReached: true,
+      nextProbeOffset: 7,
+      retryHosts: [{ host: 'tenant-retry.example', attempts: 1 }],
+      sourceOutcomes: {
+        commoncrawl: { outcome: 'complete', items: 1 },
+        certspotter: { outcome: 'unavailable', items: 0, errorCode: 'http_503' },
+      },
+    }, '2026-09-15T03:00:00Z');
+    expect(r.platforms['never.example'].lastExpansion).toEqual({
+      at: '2026-09-15T03:00:00Z',
+      outcome: 'partial',
+      discoveredHosts: 1,
+      liveTenants: 0,
+      probeLimitReached: true,
+      sources: {
+        commoncrawl: { outcome: 'complete', items: 1, errorCode: null },
+        certspotter: { outcome: 'unavailable', items: 0, errorCode: 'http_503' },
+      },
+    });
+    expect(r.platforms['never.example'].expansionProbeOffset).toBe(7);
+    expect(r.platforms['never.example'].expansionRetryHosts).toEqual([
+      { host: 'tenant-retry.example', attempts: 1 },
+    ]);
   });
 });
 
 describe('priorità della coda TRACE', () => {
-  it('porta davanti i datori con annunci attivi e conserva FIFO tra i pari', () => {
+  it('rejects malformed or excessive workflow budgets before queue selection', () => {
+    expect(parseTraceLimit('750')).toBe(750);
+    expect(parseTraceLimit('1000')).toBe(1000);
+    expect(parseTraceLimit(undefined, 40)).toBe(40);
+    for (const value of ['abc', '-1', '1201', '1.5']) {
+      expect(() => parseTraceLimit(value)).toThrow(/--limit must be an integer/);
+    }
+  });
+
+  it('ordina URL carriere, dominio e annunci SECO recenti senza riusare conteggi vecchi', () => {
+    const now = Date.now();
     const ranked = prioritizeTraceCandidates([
-      { key: 'osm-domain', domain: 'map-employer.ch', adCount: 0, firstSeenAt: '2026-08-21T00:00:00Z' },
-      { key: 'seco-new', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
-      { key: 'seco-old', adCount: 1, firstSeenAt: '2026-08-21T00:00:00Z' },
-      { key: 'seco-domain', domain: 'active-employer.ch', adCount: 1, firstSeenAt: '2026-09-14T00:00:00Z' },
-    ], 4);
+      {
+        key: 'z-stale-seco', adCount: 40,
+        sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+        firstSeenAt: new Date(now - 90 * 86_400_000).toISOString(),
+      },
+      {
+        key: 'legacy-count-only', adCount: 100,
+        firstSeenAt: new Date(now - 40 * 86_400_000).toISOString(),
+      },
+      {
+        key: 'recent-seco', adCount: 1,
+        sourceSeenAt: { seco: new Date(now - 2 * 86_400_000).toISOString() },
+        firstSeenAt: new Date(now - 20 * 86_400_000).toISOString(),
+      },
+      { key: 'known-domain', domain: 'map-employer.ch', firstSeenAt: new Date(now - 30 * 86_400_000).toISOString() },
+      { key: 'direct-careers', careersUrl: 'https://jobs.employer.ch/openings', firstSeenAt: new Date(now).toISOString() },
+    ], 5, now);
 
     expect(ranked.map((c) => c.key)).toEqual([
-      'seco-domain',
-      'seco-old',
-      'seco-new',
-      'osm-domain',
+      'direct-careers',
+      'known-domain',
+      'recent-seco',
+      'z-stale-seco',
+      'legacy-count-only',
     ]);
+  });
+
+  it('uses an explicit SECO freshness window and ignores apply hosts as employer domains', () => {
+    const now = Date.now();
+    const fresh = {
+      key: 'fresh-seco',
+      adCount: 2,
+      sourceSeenAt: { seco: new Date(now - TRACE_SECO_FRESHNESS_DAYS * 86_400_000).toISOString() },
+    };
+    const stale = {
+      key: 'stale-seco',
+      adCount: 2,
+      sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+    };
+    expect(hasRecentSecoDemand(fresh, now)).toBe(true);
+    expect(hasRecentSecoDemand(stale, now)).toBe(false);
+
+    const sameFirstSeenAt = new Date(now - 100 * 86_400_000).toISOString();
+    const ranked = prioritizeTraceCandidates([
+      { key: 'z-apply-host-only', applyHosts: ['jobs.vendor.example'], firstSeenAt: sameFirstSeenAt },
+      { key: 'a-name-only', firstSeenAt: sameFirstSeenAt },
+      fresh,
+    ], 3, now);
+    expect(ranked.map((candidate) => candidate.key)).toEqual([
+      'fresh-seco',
+      'a-name-only',
+      'z-apply-host-only',
+    ]);
+    expect(prioritizeTraceCandidates([
+      { key: 'z-apply-host-only', applyHosts: ['jobs.vendor.example'], firstSeenAt: sameFirstSeenAt },
+      { key: 'a-name-only', firstSeenAt: sameFirstSeenAt },
+      fresh,
+    ], 1, now).map((candidate) => candidate.key)).toEqual(['fresh-seco']);
+  });
+
+  it('allocates a 5/3/2/1 batch across direct careers, domains, recent SECO and fallback leads', () => {
+    const now = Date.now();
+    const direct = Array.from({ length: 7 }, (_, i) => ({
+      key: `careers-${i}`,
+      careersUrl: `https://jobs-${i}.example/openings`,
+      firstSeenAt: new Date(now - i * 60_000).toISOString(),
+    }));
+    const domains = Array.from({ length: 5 }, (_, i) => ({
+      key: `domain-${i}`,
+      domain: `employer-${i}.example`,
+      firstSeenAt: new Date(now - i * 60_000).toISOString(),
+    }));
+    const seco = Array.from({ length: 4 }, (_, i) => ({
+      key: `seco-${i}`,
+      adCount: i + 1,
+      sourceSeenAt: { seco: new Date(now - (i + 1) * 86_400_000).toISOString() },
+      firstSeenAt: new Date(now - 20 * 86_400_000).toISOString(),
+    }));
+    const fallback = [
+      {
+        key: 'stale-seco',
+        adCount: 80,
+        sourceSeenAt: { seco: new Date(now - (TRACE_SECO_FRESHNESS_DAYS + 1) * 86_400_000).toISOString() },
+      },
+      { key: 'apply-host-only', applyHosts: ['jobs.vendor.example'] },
+      { key: 'name-only' },
+    ];
+
+    const ranked = prioritizeTraceCandidates([...direct, ...domains, ...seco, ...fallback], 11, now);
+    expect(ranked.filter((candidate) => candidate.careersUrl)).toHaveLength(5);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && candidate.domain)).toHaveLength(3);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && !candidate.domain
+      && hasRecentSecoDemand(candidate, now))).toHaveLength(2);
+    expect(ranked.filter((candidate) => !candidate.careersUrl && !candidate.domain
+      && !hasRecentSecoDemand(candidate, now))).toHaveLength(1);
+    expect(ranked.filter((candidate) => candidate.key.startsWith('seco-')).map((candidate) => candidate.key))
+      .toEqual(['seco-0', 'seco-1']);
+  });
+
+  it('redistributes an empty careers bucket across domain, recent SECO and fallback buckets', () => {
+    const now = Date.now();
+    const domains = Array.from({ length: 12 }, (_, i) => ({
+      key: `domain-${i}`,
+      domain: `employer-${i}.example`,
+    }));
+    const seco = Array.from({ length: 12 }, (_, i) => ({
+      key: `seco-${i}`,
+      adCount: 1,
+      sourceSeenAt: { seco: new Date(now - (i + 1) * 86_400_000).toISOString() },
+    }));
+    const fallback = Array.from({ length: 12 }, (_, i) => ({ key: `fallback-${i}` }));
+
+    const ranked = prioritizeTraceCandidates([...domains, ...seco, ...fallback], 12, now);
+    expect(ranked.filter((candidate) => candidate.domain)).toHaveLength(6);
+    expect(ranked.filter((candidate) => !candidate.domain && hasRecentSecoDemand(candidate, now)))
+      .toHaveLength(4);
+    expect(ranked.filter((candidate) => !candidate.domain && !hasRecentSecoDemand(candidate, now)))
+      .toHaveLength(2);
+  });
+
+  it('does not synthesize or attribute a supplied careers URL without employer identity', async () => {
+    const candidate = {
+      key: 'direct-careers-only',
+      name: 'Employer without a known domain',
+      careersUrl: 'https://jobs.employer.example/openings',
+    };
+    const resolveDomain = vi.fn(async () => ({ domain: null, score: 0, evidence: [], tried: 0 }));
+    const traceCareers = vi.fn();
+    const traceFromCareersUrl = vi.fn(async (careersUrl: string, domain: string|null) => ({
+      domain,
+      reachable: true,
+      careersUrls: [careersUrl],
+      externalHosts: [{
+        host: 'tenant.ats-vendor.example',
+        url: 'https://tenant.ats-vendor.example/jobs',
+        text: 'Open positions',
+        score: 9,
+        vacancyCount: 2,
+      }],
+      failureStatuses: [200],
+      retryable: false,
+      selfHosted: false,
+      via: ['known-careers-url'],
+    }));
+
+    const result = await traceCandidate(candidate, { resolveDomain, traceCareers, traceFromCareersUrl });
+
+    expect(resolveDomain).toHaveBeenCalledWith({ name: candidate.name, city: undefined, zip: undefined });
+    expect(traceCareers).not.toHaveBeenCalled();
+    expect(traceFromCareersUrl).toHaveBeenCalledWith(candidate.careersUrl, null);
+    expect(result).toMatchObject({ verdict: 'retry', reason: 'dominio non risolto', domain: null });
+    expect(attributableTraceHosts(result)).toEqual([]);
+  });
+
+  it('keeps direct URL ownership unknown when its host differs from the resolved employer', async () => {
+    const candidate = {
+      key: 'ats-url-with-resolved-employer',
+      name: 'Employer with an ATS career URL',
+      domain: 'employer.example',
+      careersUrl: 'https://jobs.vendor.example/openings',
+    };
+    const result = await traceCandidate(candidate, {
+      traceFromCareersUrl: async (careersUrl: string, domain: string|null) => ({
+        domain,
+        reachable: true,
+        careersUrls: [careersUrl],
+        externalHosts: [],
+        failureStatuses: [200],
+        retryable: false,
+        selfHosted: true,
+        via: ['known-careers-url'],
+      }),
+    });
+
+    expect(result).toMatchObject({ verdict: 'traced', domain: 'employer.example', selfHosted: null });
+  });
+
+  it('uses the redirected careers URL when deciding whether a trail is self-hosted', async () => {
+    const candidate = {
+      key: 'redirected-careers-url',
+      name: 'Employer with a redirected career URL',
+      domain: 'employer.example',
+      careersUrl: 'https://careers.employer.example/openings',
+    };
+    const result = await traceCandidate(candidate, {
+      traceFromCareersUrl: async (careersUrl: string, domain: string|null) => ({
+        domain,
+        reachable: true,
+        careersUrls: ['https://jobs.vendor.example/openings'],
+        externalHosts: [],
+        failureStatuses: [200],
+        retryable: false,
+        selfHosted: true,
+        via: ['known-careers-url'],
+      }),
+    });
+
+    expect(result).toMatchObject({ verdict: 'traced', domain: 'employer.example', selfHosted: null });
   });
 });
 
@@ -266,6 +595,66 @@ describe('vacancy extraction', () => {
     expect(detail.description).toContain('Sie betreiben Linux-Systeme.');
     expect(detail.description).toContain('Sie bringen Erfahrung mit.');
     expect(detail.description).toContain('Wir bieten Entwicklungsmöglichkeiten.');
+  });
+
+  it('uses the listing title when a detail JobPosting title is generic chrome', () => {
+    const recordTitle = 'Dipl. Physiotherapeut/-in (40-100%)';
+    const pageUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const html = `<h1>${recordTitle}</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Header',
+      description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen.',
+      url: pageUrl,
+    })}</script>`;
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, {
+      recordUrl: pageUrl,
+      recordTitle,
+    });
+
+    expect(detail.title).toBe(recordTitle);
+  });
+
+  it('keeps rendered geography when stale structured data disagrees with the confirmed H1', () => {
+    const recordTitle = 'Dipl. Physiotherapeut/-in (40-100%)';
+    const pageUrl = 'https://physioswiss.ch/stelleninserate/157790/dipl-physiotherapeut-in-40-100/';
+    const recordUrl = pageUrl.replace(/\/$/, '');
+    const html = `<main><h1>${recordTitle}</h1><div class="job-location">9000 St. Gallen</div>`
+      + '<div class="vacancy-description"><p>Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.</p></div>'
+      + `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Header',
+        description: 'Eine vollständige Beschreibung der ausgeschriebenen Stelle mit Aufgaben, Anforderungen und Einsatzinformationen für das Team.',
+        url: pageUrl,
+      })}</script></main>`;
+
+    const detail = extractRuntimeDetailFields({}, html, pageUrl, {
+      recordUrl,
+      recordTitle,
+    });
+
+    expect(detail.location).toBe('9000 St. Gallen');
+    expect(detail.locationCandidates).toEqual([
+      expect.objectContaining({ location: '9000 St. Gallen' }),
+    ]);
+  });
+
+  it('does not use rendered geography after a detail redirect changes record identity', () => {
+    const html = '<h1>Physiotherapist</h1>'
+      + '<script type="application/ld+json">'
+      + JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Header',
+        url: 'https://example.test/jobs/other/',
+      })
+      + '</script><div class="location">Lugano</div>';
+    const detail = extractDetailFields(html, 'https://example.test/jobs/final/', {
+      recordUrl: 'https://example.test/jobs/requested/',
+      recordTitle: 'Physiotherapist',
+    });
+
+    expect(detail.location).toBe('');
+    expect(detail.locationCandidates).toEqual([]);
   });
 
   // jobs.admin.ch/agroscope (#7711). Il luogo di lavoro vero sta solo in un
@@ -445,6 +834,36 @@ describe('vacancy extraction', () => {
       location: '1219 Le Lignon', addressLocality: 'Le Lignon', postalCode: '1219',
     })).toMatchObject({ location: '1219 Le Lignon', canton: 'GE' });
     expect(resolveSourceBackedSwissGeography('Le Lignon')).toBeNull();
+  });
+
+  it('accepts an official locality when structured canton evidence disambiguates it', () => {
+    for (const [locality, canton] of [['Alt St. Johann', 'SG'], ['Niederuzwil', 'SG']]) {
+      const evidence = {
+        location: locality,
+        addressLocality: locality,
+        addressRegion: canton,
+        addressCountry: 'CH',
+      };
+      expect(resolveSourceBackedSwissGeography(evidence), locality).toMatchObject({
+        location: locality,
+        canton,
+        addressCountry: 'CH',
+      });
+      expect(resolveDetailOrListingSwissGeography({ locationCandidates: [evidence] }, {}).geography)
+        .toMatchObject({ location: locality, canton });
+    }
+    expect(resolveSourceBackedSwissGeography('Alt St. Johann')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({
+      location: 'Alt St. Johann', addressLocality: 'Alt St. Johann', addressCountry: 'CH',
+    })).toBeNull();
+    const mismatchedLocality = {
+      location: 'Niederuzwil',
+      addressLocality: 'Alt St. Johann',
+      addressRegion: 'SG',
+      addressCountry: 'CH',
+    };
+    expect(resolveSourceBackedSwissGeography(mismatchedLocality)).toBeNull();
+    expect(evaluateSourceBackedSwissGeography([mismatchedLocality]).geography).toBeNull();
   });
 
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la
@@ -686,6 +1105,27 @@ describe('vacancy extraction', () => {
       geography: null,
       explicitlyForeign: true,
     });
+  });
+
+  it('accepts colliding Swiss canton codes only when the locality corroborates them', () => {
+    const herisau = {
+      location: 'Herisau', addressLocality: 'Herisau', addressRegion: 'AR', postalCode: '9102',
+    };
+    expect(evaluateSourceBackedSwissGeography([herisau])).toMatchObject({
+      geography: { location: 'Herisau', canton: 'AR' },
+      explicitlyForeign: false,
+    });
+
+    const foreignArkansas = {
+      location: 'North Little Rock',
+      addressLocality: 'North Little Rock',
+      addressRegion: 'AR',
+      postalCode: '72116',
+    };
+    expect(resolveDetailOrListingSwissGeography(
+      { locationCandidates: [foreignArkansas] },
+      herisau,
+    )).toMatchObject({ geography: null, explicitlyForeign: true });
   });
 
   it('fails closed on a tenant-flagged locationGateRejected without falling back to listing evidence', () => {
@@ -1221,6 +1661,39 @@ describe('careers trail', () => {
     expect(isCareerLink(link)).toBe(true);
   });
 
+  it('reads a card heading for an aria-hidden overlay link', () => {
+    const html = '<li class="u-job-item"><a class="u-link-fit" href="/job/42/automaticien" aria-hidden="true"></a><div><h3>Automaticien de production</h3></div></li>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link).toMatchObject({
+      url: 'https://acme.ch/job/42/automaticien',
+      text: 'Automaticien de production',
+    });
+  });
+
+  it('does not borrow an overlay heading from outside a balanced list item', () => {
+    const html = '<li><h3>Previous card</h3></li><a href="/job/42" aria-hidden="true"></a><h3>Unrelated heading</h3>';
+    const [link] = extractLinks(html, 'https://acme.ch/');
+    expect(link.text).toBe('');
+  });
+
+  it('does not bind a later closing tag to an earlier unclosed anchor', () => {
+    const html = `<a href="/first">First ${'x'.repeat(500)}<a href="/second">Second</a>`;
+    const links = extractLinks(html, 'https://acme.ch/');
+    expect(links[0].text).not.toContain('Second');
+    expect(links[1].text).toBe('Second');
+  });
+
+  it('keeps overlay link text bounded by a case-insensitive closing tag', () => {
+    const links = extractLinks(
+      '<A href="/jobs">Jobs</A><a href="/other">Other</a>',
+      'https://acme.ch/',
+    );
+    expect(links.map(({ url, text }) => ({ url, text }))).toEqual([
+      { url: 'https://acme.ch/jobs', text: 'Jobs' },
+      { url: 'https://acme.ch/other', text: 'Other' },
+    ]);
+  });
+
   it('only accepts unlabelled third-party links in relaxed mode', () => {
     const links = [{ url: 'https://acme.ats.example/', text: '', host: 'acme.ats.example' }];
     expect(externalAtsLinks(links, 'acme.ch')).toEqual([]);
@@ -1384,8 +1857,12 @@ describe('quality grading', () => {
     clearPoliteFetchStateForTests();
     try {
       const report = await gradeExtraction(
-        { companyKey: 'acme', seedUrls: [url] },
-        [{ title: 'Software Engineer', url }],
+        { companyKey: 'acme', companyName: 'Acme', companyHost: 'employer.example', seedUrls: [url] },
+        [{
+          title: 'Software Engineer',
+          url,
+          description: 'Acme is looking for a software engineer to join the engineering team and build reliable services for Swiss customers. Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases. Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.',
+        }],
         {
           sampleSize: 4,
           fetchImpl: async (requestedUrl) => new Response(
@@ -1411,18 +1888,19 @@ describe('quality grading', () => {
       + `<p>Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases.</p>`
       + `<p>Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.</p></article></main></body></html>`;
     let extractorCalls = 0;
+    const publishableDescription = 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.';
     clearPoliteFetchStateForTests();
     try {
       const report = await gradeExtraction(
         { companyKey: 'acme', seedUrls: [url] },
-        [{ title: 'Software Engineer', url }],
+        [{ title: 'Software Engineer', url, description: publishableDescription }],
         {
           sampleSize: 1,
           detailExtractor: () => {
             extractorCalls++;
             return {
               title: 'Software Engineer',
-              description: 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.',
+              description: publishableDescription,
               locationCandidates: [{ location: 'Lugano', addressCountry: 'CH' }],
             };
           },
@@ -1510,6 +1988,7 @@ describe('promotion gate', () => {
   /** A candidate graded good on `days` distinct days. */
   const graded = (days, over = {}) => ({
     status: 'promoted',
+    qualityContractVersion: CURRENT_QUALITY_CONTRACT_VERSION,
     crawlerKey: 'acme',
     vacancyCount: 6,
     mode: 'template',
@@ -1518,6 +1997,7 @@ describe('promotion gate', () => {
     validationHistory: Array.from({ length: days }, (_, i) => ({
       at: `2026-08-${String(10 + i).padStart(2, '0')}T03:00:00Z`,
       verdict: 'good',
+      qualityContractVersion: CURRENT_QUALITY_CONTRACT_VERSION,
       score: 0.97,
       sampled: 4,
       reachableRate: 1,
@@ -1526,14 +2006,71 @@ describe('promotion gate', () => {
       locationSourceRate: 1,
       distinctRate: 1,
       jobLikeRate: 1,
+      jobLikeEvidenceRate: 1,
+      jobLikeEvidenceMeasured: 4,
+      employerIdentityRate: 1,
+      employerIdentityMatchCount: 4,
+      employerIdentityMismatchCount: 0,
+      employerIdentityUnknownCount: 0,
       logoFound: true,
       vacancyCount: 6,
     })),
     ...over,
   });
 
+  it('keeps source-backed geography fail-closed across validation and promotion', () => {
+    expect(passesSourceBackedLocationRate(undefined)).toBe(false);
+    expect(passesSourceBackedLocationRate(0.749)).toBe(false);
+    expect(passesSourceBackedLocationRate(0.75)).toBe(true);
+    expect(passesSourceBackedLocationRate(1.01)).toBe(false);
+    expect(passesSourceBackedLocationRate(true)).toBe(false);
+    expect(passesSourceBackedLocationRate('0.75')).toBe(false);
+    expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 0.5 })).toBe('validated');
+    expect(candidateStatusAfterValidation({ verdict: 'good', locationSourceRate: 1 })).toBe('promoted');
+    expect(candidateStatusAfterValidation({ verdict: 'bad', locationSourceRate: 1 })).toBe('rejected');
+  });
+
+  it('requires two distinct days under the candidate quality contract version', () => {
+    const candidate = graded(3, { qualityContractVersion: 2 });
+    candidate.validationHistory[0].qualityContractVersion = 1;
+    candidate.validationHistory[1].qualityContractVersion = 1;
+    candidate.validationHistory[2].qualityContractVersion = 2;
+
+    const firstCurrentContractRun = evaluatePromotion(candidate);
+    expect(firstCurrentContractRun.passed).toBe(false);
+    expect(firstCurrentContractRun.checks.runs).toBe(false);
+    expect(firstCurrentContractRun.checks.days).toBe(false);
+
+    candidate.validationHistory.push({
+      ...candidate.validationHistory[2],
+      at: '2026-08-13T03:00:00Z',
+    });
+    expect(evaluatePromotion(candidate).passed).toBe(true);
+  });
+
+  it('stamps a non-default spec quality contract on an in-flight candidate', () => {
+    const candidate = { status: 'promoting' };
+    expect(alignCandidateQualityContractVersion(candidate, { qualityContractVersion: 2 })).toBe(CURRENT_QUALITY_CONTRACT_VERSION);
+    expect(candidate.qualityContractVersion).toBe(CURRENT_QUALITY_CONTRACT_VERSION);
+  });
+
   it('ships a candidate proven on two distinct days', () => {
     expect(evaluatePromotion(graded(2)).passed).toBe(true);
+  });
+
+  it('requires both good days to come from the candidate source adapter', () => {
+    const mixed = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    mixed.validationHistory[1].sourceAdapterVersion = 'le-team-dedicated-v1';
+    const mixedResult = evaluatePromotion(mixed);
+    expect(mixedResult.passed).toBe(false);
+    expect(mixedResult.checks.runs).toBe(false);
+    expect(mixedResult.checks.days).toBe(false);
+
+    const dedicated = graded(2, { sourceAdapterVersion: 'le-team-dedicated-v1' });
+    dedicated.validationHistory.forEach((entry) => {
+      entry.sourceAdapterVersion = 'le-team-dedicated-v1';
+    });
+    expect(evaluatePromotion(dedicated).passed).toBe(true);
   });
 
   it('refuses a candidate proven only once, however good', () => {
@@ -1548,7 +2085,7 @@ describe('promotion gate', () => {
   // un annuncio di lavoro; questa quinta lo chiede.
   it('rifiuta un listing che estrae contenuto promozionale, per quanto coerente', () => {
     const promo = graded(2);
-    promo.validationHistory.forEach((h) => { h.jobLikeRate = 0; h.score = 0.83; });
+    promo.validationHistory.forEach((h) => { h.jobLikeRate = 0; h.jobLikeEvidenceRate = 0; h.score = 0.83; });
     const res = evaluatePromotion(promo);
     expect(res.passed).toBe(false);
     expect(res.checks.jobLike).toBe(false);
@@ -1560,7 +2097,7 @@ describe('promotion gate', () => {
     // esattamente il buco: i candidati gia' in coda sono stati graduati dal
     // gate cieco, e la prossima validazione fornisce il dato.
     const legacy = graded(2);
-    legacy.validationHistory.forEach((h) => { delete h.jobLikeRate; });
+    legacy.validationHistory.forEach((h) => { delete h.jobLikeEvidenceRate; });
     const res = evaluatePromotion(legacy);
     expect(res.passed).toBe(false);
     expect(res.checks.jobLike).toBe(false);
@@ -1852,10 +2389,24 @@ describe('promotion gate', () => {
   });
 
   it('non punisce un datore che pubblica gli annunci in PDF', () => {
-    // `null` = misurato, byte illeggibili. Diverso da assente.
+    // PDF senza testo: la descrizione è illeggibile ma una JobPosting strutturata
+    // ha già fornito la prova semantica alternativa.
     const pdf = graded(2);
-    pdf.validationHistory.forEach((h) => { h.jobLikeRate = null; });
+    pdf.validationHistory.forEach((h) => { h.jobLikeRate = null; h.jobLikeEvidenceRate = 1; });
     expect(evaluatePromotion(pdf).checks.jobLike).toBe(true);
+  });
+
+  it('blocks opaque details without semantic proof and explicit employer identity mismatches', () => {
+    const opaque = graded(2);
+    opaque.validationHistory.forEach((entry) => { entry.jobLikeEvidenceRate = 0; });
+    expect(evaluatePromotion(opaque).checks.jobLike).toBe(false);
+
+    const mismatch = graded(2);
+    mismatch.validationHistory.forEach((entry) => {
+      entry.employerIdentityRate = 0.75;
+      entry.employerIdentityMismatchCount = 1;
+    });
+    expect(evaluatePromotion(mismatch).checks.employerIdentity).toBe(false);
   });
 
   it('refuses two gradings that landed on the SAME day', () => {
@@ -2035,6 +2586,12 @@ describe('promotion gate', () => {
     // Ordine deterministico: frequenza decrescente, poi nome.
     expect(Object.keys(d.failedChecks)).toEqual(['score', 'contentful', 'days', 'logo', 'runs']);
     expect(d.unattributed).toEqual([]);
+    expect(d.candidateFailures).toEqual([
+      { key: 'low-a', failedChecks: ['score'] },
+      { key: 'low-b', failedChecks: ['score', 'logo'] },
+      { key: 'mixed', failedChecks: ['runs', 'days', 'contentful'] },
+      { key: 'waiting', failedChecks: ['runs', 'days'] },
+    ]);
     // Coerente con la partizione gia' esistente.
     expect({ stabilityOnly: d.stabilityOnly, other: d.other }).toEqual(summarizePromotionBlocks(blocked));
   });
@@ -2050,6 +2607,12 @@ describe('promotion gate', () => {
     expect(d.other).toBe(3);
     expect(d.unattributed).toEqual(['no-checks', 'no-reason']);
     expect(d.stabilityOnlyKeys).toEqual(['wait']);
+    expect(d.candidateFailures).toEqual([
+      { key: 'no-checks', failedChecks: [] },
+      { key: 'no-reason', failedChecks: ['score'] },
+      { key: 'ok', failedChecks: ['score'] },
+      { key: 'wait', failedChecks: ['runs'] },
+    ]);
   });
 
   it('ships the biggest inventory first', () => {

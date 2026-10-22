@@ -52,9 +52,11 @@ const bethesdaCandidate = (over: Record<string, unknown> = {}) => ({
   careersUrl: PUBLIC_PAGE,
   crawlerKey: 'im-bethesda-spital',
   mode: 'jsonld',
+  qualityContractVersion: 3,
   vacancyCount: 13,
   validationHistory: [15, 17].map((day) => ({
     at: `2026-09-${day}T10:00:00Z`,
+    qualityContractVersion: 3,
     verdict: 'good',
     score: 1,
     sampled: 4,
@@ -64,6 +66,9 @@ const bethesdaCandidate = (over: Record<string, unknown> = {}) => ({
     locationSourceRate: 1,
     distinctRate: 1,
     jobLikeRate: 1,
+    jobLikeEvidenceRate: 1,
+    employerIdentityRate: 1,
+    employerIdentityMismatchCount: 0,
     logoFound: true,
     vacancyCount: 13,
   })),
@@ -128,5 +133,19 @@ describe('tenant host coverage after discovery', () => {
     expect(res.passed).toBe(false);
     expect(res.checks.tenantFree).toBe(false);
     expect(res.reasons.join(' ')).toMatch(/recruitingapp-2998\.umantis\.com e' gia' letto dal crawler bethesda-spital/);
+  });
+
+  it.each([
+    ['malformed JSON', '{ not json'],
+    ['non-array root', '{"companies":[]}'],
+    ['invalid entry', '[{"key":"valid-key"}]'],
+  ])('fails closed when the crawler-company coverage source has %s', (_label, contents) => {
+    const file = path.join(root, 'data', 'crawler-companies-auto.json');
+    fs.writeFileSync(file, contents, 'utf8');
+    try {
+      expect(() => loadCoverage(root)).toThrow(/crawler-company coverage source/);
+    } finally {
+      fs.rmSync(file, { force: true });
+    }
   });
 });

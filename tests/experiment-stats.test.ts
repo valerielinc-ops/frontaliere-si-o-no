@@ -35,6 +35,7 @@ import {
   twoProportionZTest,
   wilsonInterval,
 } from '../scripts/lib/experiment-stats.mjs';
+import { resolveJobGateReadoutWindow } from '../scripts/lib/jobgate-readout-window.mjs';
 
 // Valori di riferimento da R (stats) / statsmodels, non dal codice sotto test.
 describe('normale standard', () => {
@@ -506,14 +507,40 @@ describe('attributionCoverage', () => {
   });
 });
 
-describe('readout CLI: finestra di default per l\'esperimento del piano (jobgate-v4)', () => {
+describe('readout: finestra vincolata alla data effettiva di jobgate-v5', () => {
   const script = path.resolve(__dirname, '../scripts/analytics/job-gate-experiment-readout.mjs');
   const env = { ...process.env, GOOGLE_APPLICATION_CREDENTIALS: '', FIREBASE_SERVICE_ACCOUNT_JSON: '' };
 
-  it('--since vale 2026-10-07 (giorno dopo il lancio su Remote Config)', () => {
-    const res = spawnSync(process.execPath, [script, '--until', '2026-10-06'], { encoding: 'utf8', env });
-    expect(res.status).toBe(2);
-    expect(res.stderr).toContain('--until 2026-10-06 precede --since 2026-10-07');
+  it('parte dal giorno dopo il marker Remote Config e non accetta un intervallo precedente', () => {
+    expect(resolveJobGateReadoutWindow({ until: '2026-10-22' }, {
+      experimentStart: '2026-10-19',
+    })).toEqual({ since: '2026-10-20', until: '2026-10-22' });
+    expect(() => resolveJobGateReadoutWindow({ since: '2026-10-19', until: '2026-10-22' }, {
+      experimentStart: '2026-10-19',
+    })).toThrow(/precedes the experiment analysis start 2026-10-20/);
+    expect(() => resolveJobGateReadoutWindow({ until: '2026-10-22' }, {
+      defaultSince: null,
+    })).toThrow(/serve --since/);
+  });
+
+  it('clippa --days alla data di attivazione effettiva', () => {
+    expect(resolveJobGateReadoutWindow({ days: '14' }, {
+      experimentStart: '2026-10-19',
+      now: new Date('2026-10-30T12:00:00Z'),
+    })).toEqual({ since: '2026-10-20', until: '2026-10-28' });
+  });
+
+  it('rifiuta --since e --days insieme invece di ignorare la data esplicita', () => {
+    expect(() => resolveJobGateReadoutWindow({ since: '2026-10-22', days: '14' }, {
+      experimentStart: '2026-10-19',
+    })).toThrow(/--since and --days are mutually exclusive/);
+  });
+
+  it('keeps --baseline --days independent from the experiment launch floor', () => {
+    expect(resolveJobGateReadoutWindow({ days: '14', baseline: true }, {
+      defaultSince: '2026-10-20',
+      now: new Date('2026-11-20T12:00:00Z'),
+    })).toEqual({ since: '2026-11-05', until: '2026-11-18' });
   });
 
   it('con una finestra valida arriva al controllo delle credenziali (nessuna rete)', () => {

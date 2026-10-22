@@ -1,0 +1,48 @@
+{
+  "companyKey": "seniorenzentrum-engelhof",
+  "companyName": "Seniorenzentrum Engelhof",
+  "companyHost": "seniorenzentrum-engelhof.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://seniorenzentrum-engelhof.ch/arbeiten-im-engelhof/freie-stellen"
+  ],
+  "allowedDetailOrigins": [
+    "https://www.sozjobs.ch/"
+  ],
+  "detailTemplate": "/job/*/*/partnerDetail/easypublish/widgetid/*",
+  "detailEnrichment": true,
+  "rescueOnEmptyListing": true,
+  "revalidateRejectedWithSourceAdapter": true,
+  "detailFetchWorkers": 4,
+  "listingEndpoints": [
+    {
+      "url": "https://www.sozjobs.ch/easypublish/FC0873CE-1182-45F0-B8F989A584E8271E",
+      "params": {
+        "callback": "frontaliere_callback"
+      },
+      "responseFormat": "jsonp",
+      "responseHtmlField": "HTML",
+      "responseMaxNumPages": 1,
+      "maxPages": 1
+    },
+    {
+      "url": "https://www.sozjobs.ch/easypublish/C340F41D-F9B5-4321-9E415FE28675D925",
+      "params": {
+        "callback": "frontaliere_callback"
+      },
+      "responseFormat": "jsonp",
+      "responseHtmlField": "HTML",
+      "responseMaxNumPages": 1,
+      "maxPages": 1
+    }
+  ],
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Abteilungsleiterin / Abteilungsleiter Pflege 100%",
+    "Lernende/-r Assistent/-in Gesundheit & Soziales EBA"
+  ],
+  "canton": "SZ",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T19:20:00.000Z"
+}

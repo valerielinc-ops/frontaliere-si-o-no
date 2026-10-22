@@ -1269,6 +1269,57 @@ describe('mergeAndDeduplicate — crawledAt older than 60 days leaves the active
   });
 });
 
+describe('mergeAndDeduplicate — regional source locale protects copied descriptions', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let registryOverridePath: string;
+  let previousRegistryOverride: string | undefined;
+
+  beforeEach(() => {
+    previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    registryOverridePath = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ft-regional-source-registry-')), 'slug-registry.json');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryOverridePath;
+  });
+
+  afterEach(() => {
+    if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+  });
+
+  it('keeps an existing real translation when an it-CH source copy is longer', () => {
+    const sourceMapText = 'Descrizione italiana della posizione con responsabilità e requisiti specifici. '.repeat(8);
+    const flatSourceText = 'Descrizione raccolta dal campo legacy, distinta dal testo della mappa locale. '.repeat(5);
+    const existingTranslation = 'The established English translation describes the position, the team, and its responsibilities. '.repeat(3);
+    expect(sourceMapText.length).toBeGreaterThan(existingTranslation.length);
+    expect(sourceMapText).not.toBe(flatSourceText);
+
+    const common = {
+      title: 'Tecnico di laboratorio',
+      company: 'Example Company',
+      location: 'Lugano, Ticino',
+      url: 'https://example.com/jobs/regional-source-language',
+      slug: 'tecnico-laboratorio-example-company-lugano',
+      sourceLang: 'it-CH',
+      description: flatSourceText,
+    };
+    const existing = {
+      ...common,
+      id: 'regional-source-language-job',
+      crawledAt: daysAgoIso(2),
+      descriptionByLocale: { it: sourceMapText, en: existingTranslation },
+    };
+    const incoming = {
+      ...common,
+      descriptionByLocale: { it: sourceMapText, en: sourceMapText },
+    };
+
+    const { merged } = mergeAndDeduplicate([existing], [incoming], cfg);
+
+    expect(merged).toHaveLength(1);
+    expect(merged[0].descriptionByLocale.it).toBe(sourceMapText.trim());
+    expect(merged[0].descriptionByLocale.en).toBe(existingTranslation.trim());
+  });
+});
+
 describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)', () => {
   it('isTargetSwissLocation: bare common words that collide with tiny communes are not Swiss', async () => {
     const { isTargetSwissLocation } = await import('../scripts/lib/target-swiss-locations.mjs');

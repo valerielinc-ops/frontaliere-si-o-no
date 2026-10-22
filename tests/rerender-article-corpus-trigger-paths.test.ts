@@ -58,6 +58,11 @@ const RENDER_WORKFLOWS = [
     job: 'audit',
     renderStep: /^Run the drift audit$/,
   },
+  {
+    file: HUB_WORKFLOW,
+    job: 'rerender',
+    renderStep: /^Rerender .* hubs$/,
+  },
 ];
 
 function readPushPaths(workflow = WORKFLOW): string[] {
@@ -118,6 +123,18 @@ function renderSources(rel: string): string[] {
 }
 
 describe('rerender-article-corpus.yml push filter covers the real article render path', () => {
+  it('gives the full corpus rerender a separate bounded entrypoint timeout', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf8'));
+    const steps = workflow?.jobs?.rerender?.steps;
+    const renderStep = steps?.find((step: { name?: string }) => /^Rerender and push /.test(step.name ?? ''));
+    const shellAssetsStep = steps?.find((step: { name?: string }) =>
+      step.name === 'Ensure the static shell scripts are on the CDN',
+    );
+
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('1800');
+    expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
+  });
+
   it('names only files that exist, so a rename cannot silently empty the filter', () => {
     const stale = FILTERS.filter(({ glob }) => !glob.includes('*') && !isTracked(glob)).map(({ glob }) => glob);
     expect(stale).toEqual([]);
@@ -131,6 +148,12 @@ describe('rerender-article-corpus.yml push filter covers the real article render
       .map(({ glob }) => glob);
     expect(stale).toEqual([]);
     for (const source of HUB_OVERLAY_SOURCES) expect(isHubCovered(source)).toBe(true);
+  });
+
+  it('rerenders articles and hubs when their shared ad-slot markup changes', () => {
+    const source = 'build-plugins/lib/adSlotHtml.ts';
+    expect(isCovered(source)).toBe(true);
+    expect(isHubCovered(source)).toBe(true);
   });
 
   it('covers every module the driver renders with, behind shims and symlinks', () => {
@@ -157,7 +180,8 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     expect(imports.filter((rel) => !isCovered(rel))).toEqual([]);
   });
 
-  it('installs the locked article-engine runtime dependency before each article render', () => {
+  it('installs the locked renderer runtime dependencies before each renderer entrypoint', () => {
+    const rootPackage = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
     const packageJson = JSON.parse(fs.readFileSync(path.join(ROOT, 'packages/articles/package.json'), 'utf8'));
     const packageLock = JSON.parse(fs.readFileSync(path.join(ROOT, 'package-lock.json'), 'utf8'));
     const installer = fs.readFileSync(path.join(ROOT, RUNTIME_DEPS_INSTALLER), 'utf8');
@@ -169,8 +193,9 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     // until then and has been red on main since, unseen by related-only runs.
     const NOT_LOADED_BY_THE_RENDERER = ['sharp'];
     expect(Object.keys(packageJson.dependencies ?? {}).sort()).toEqual(
-      ['html-entities', ...NOT_LOADED_BY_THE_RENDERER].sort(),
+      ['html-entities', 'typescript', ...NOT_LOADED_BY_THE_RENDERER].sort(),
     );
+    expect(rootPackage.dependencies?.['@noble/hashes']).toBeTruthy();
     const IMAGE_ENGINE = 'packages/articles/engine/shared/generatedImageEngine.mjs';
     const engineFiles = execFileSync('git', ['ls-files', '--', 'packages/articles/engine'], { cwd: ROOT, encoding: 'utf8' })
       .split('\n')
@@ -181,7 +206,13 @@ describe('rerender-article-corpus.yml push filter covers the real article render
       engineFiles.filter((rel) => rel !== IMAGE_ENGINE && engineSource(rel).includes('generatedImageEngine')),
     ).toEqual([]);
     expect(packageLock.packages?.['node_modules/html-entities']?.version).toBeTruthy();
+    expect(packageLock.packages?.['node_modules/@noble/hashes']?.version).toBeTruthy();
     expect(installer).toContain('node_modules/html-entities');
+    expect(installer).toContain('node_modules/@noble/hashes');
+    expect(installer).toContain('mktemp -d');
+    expect(installer).toContain('--prefix "$NOBLE_DEPS_DIR"');
+    expect(installer).toContain('cp -a -- "$NOBLE_DEPS_DIR/node_modules/@noble/hashes"');
+    expect(installer).not.toMatch(/npm install\s+\\\s+--prefix "\$ROOT_DIR"/);
     expect(installer).toContain('--workspaces=false');
     expect(installer).toContain('--omit=peer');
     expect(installer).toContain('--ignore-scripts');
@@ -203,5 +234,19 @@ describe('rerender-article-corpus.yml push filter covers the real article render
       expect(installIndex, `${file} must install dependencies before rendering`).toBeLessThan(renderIndex);
       expect(steps[installIndex].run).toContain(`bash ${RUNTIME_DEPS_INSTALLER}`);
     }
+  });
+});
+
+describe('rerender-article-hubs entrypoint budget', () => {
+  it('gives the side-effecting hub fan-out a bounded timeout without extending bootstrap', () => {
+    const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, HUB_WORKFLOW), 'utf8'));
+    const steps = workflow?.jobs?.rerender?.steps;
+    const renderStep = steps?.find((step: { name?: string }) => /^Rerender .* hubs$/.test(step.name ?? ''));
+    const shellAssetsStep = steps?.find((step: { name?: string }) =>
+      step.name === 'Ensure the static shell scripts are on the CDN',
+    );
+
+    expect(renderStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBe('600');
+    expect(shellAssetsStep?.env?.PINNED_TSX_ENTRYPOINT_TIMEOUT_SECONDS).toBeUndefined();
   });
 });

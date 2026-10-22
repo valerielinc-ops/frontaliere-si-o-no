@@ -54,9 +54,12 @@ describe('tests.yml: self-cancel della run superata', () => {
     expect(TESTS_YML).toMatch(/^ {2}cancel-in-progress: false$/m);
     expect(TESTS_YML.slice(0, TESTS_YML.indexOf('\njobs:'))).toMatch(/^ {2}actions: write$/m);
     expect(steps[startIdx].run).toContain('actions/runs/${RUN_ID}/cancel');
-    // Il polling passa dal protocollo git, non dal bucket REST del GITHUB_TOKEN.
+    // Git fornisce il segnale; la lettura API fidata deve confermare lo stesso
+    // SHA prima dell'unica chiamata REST che scrive (il self-cancel).
     expect(steps[startIdx].run).toContain('git ls-remote');
-    expect(steps[startIdx].run).not.toMatch(/gh (pr view|api [^-])/);
+    expect(steps[startIdx].run).toContain('"$TRUSTED_GH_BIN" pr view "$PRN" --repo "$REPO" --json headRefOid --jq .headRefOid');
+    expect(steps[startIdx].run).toContain('"$TRUSTED_GH_BIN" api -X POST');
+    expect(steps[startIdx].run).toContain('[ -e "$WATCH_DIR/stop" ] && exit 0');
   });
 });
 
@@ -121,9 +124,12 @@ let lastWatcherPid: number | undefined;
 function simulate(
   heads: string[],
   opts: {
-    stopWhen: 'polled' | 'cancelled' | 'immediately';
+    stopWhen: 'polled' | 'api-read' | 'cancelled' | 'immediately';
     intervalS?: string;
     settleMs?: number;
+    apiHead?: string;
+    apiError?: boolean;
+    stopOnApiRead?: boolean;
     // Deadline del waitFor interno: di serie 10s, riducibile SOLO per il test
     // di regressione (forza il timeout e quindi l'expect a lanciare presto).
     pollDeadlineMs?: number;
@@ -149,7 +155,22 @@ n=$(cat "${tmp}/count" 2>/dev/null || echo 0); n=$((n+1)); echo $n > "${tmp}/cou
 line=$(sed -n "\${n}p" "${tmp}/heads"); [ -n "$line" ] || line=$(tail -n1 "${tmp}/heads")
 printf '%s\\trefs/pull/42/head\\n' "$line"`,
   );
-  stub('gh', `printf '%s\\n' "$*" >> "${tmp}/gh-calls"`);
+  stub(
+    'gh',
+    `if [ "$1" = pr ] && [ "$2" = view ]; then
+  if [ "\${STOP_ON_API_READ:-false}" = true ]; then touch "$RUNNER_TEMP/head-watch/stop"; fi
+  printf '%s\\n' "$*" >> "${tmp}/gh-api-reads"
+  if [ "\${API_ERROR:-false}" = true ]; then echo 'temporary API failure' >&2; exit 1; fi
+  printf '%s\\n' "\${API_HEAD:-}"
+  exit 0
+fi
+if [ "$1" = api ] && [ "$2" = -X ] && [ "$3" = POST ]; then
+  printf '%s\\n' "$*" >> "${tmp}/cancel-calls"
+  touch "${tmp}/cancel-marker"
+  exit 0
+fi
+printf '%s\\n' "$*" >> "${tmp}/gh-other-calls"`,
+  );
   stub('setsid', 'exec "$@"');
   stub('base64', 'echo dG9rZW4=');
   const head = 'a'.repeat(40);
@@ -166,6 +187,9 @@ printf '%s\\trefs/pull/42/head\\n' "$line"`,
     PRN: '42',
     HEAD_SHA: head,
     RUN_ID: '777',
+    API_HEAD: opts.apiHead ?? head,
+    API_ERROR: opts.apiError ? 'true' : 'false',
+    STOP_ON_API_READ: opts.stopOnApiRead ? 'true' : 'false',
     WATCH_INTERVAL_S: opts.intervalS ?? '0.05',
   };
   // Tutto cio' che segue lo spawn dello step di start va in try/finally: uno
@@ -187,17 +211,24 @@ printf '%s\\trefs/pull/42/head\\n' "$line"`,
     const pollDeadlineMs = opts.pollDeadlineMs ?? 10_000;
     if (opts.stopWhen === 'polled')
       expect(waitFor(() => count() >= 3, pollDeadlineMs), 'il watcher non ha interrogato la ref').toBe(true);
-    if (opts.stopWhen === 'cancelled')
-      expect(waitFor(() => existsSync(join(tmp, 'gh-calls')), pollDeadlineMs), 'nessun cancel').toBe(true);
+    if (opts.stopWhen === 'api-read')
+      expect(waitFor(() => existsSync(join(tmp, 'gh-api-reads')), pollDeadlineMs), 'nessuna conferma API').toBe(true);
+    if (opts.stopWhen === 'cancelled') {
+      expect(waitFor(() => existsSync(join(tmp, 'cancel-marker')), pollDeadlineMs), 'nessun cancel').toBe(true);
+      expect(waitFor(() => existsSync(join(watchDir, 'superseded-by'))
+        && readFileSync(join(watchDir, 'superseded-by'), 'utf-8').trim().length > 0,
+      pollDeadlineMs), 'cancel non registrato dal watcher').toBe(true);
+    }
     const stop = spawnSync('bash', ['-c', steps[stopIdx].run], { env, encoding: 'utf-8' });
     expect(stop.status, stop.stderr).toBe(0);
     spawnSync('sleep', [String((opts.settleMs ?? 300) / 1000)]);
-    const calls = existsSync(join(tmp, 'gh-calls')) ? readFileSync(join(tmp, 'gh-calls'), 'utf-8') : '';
+    const apiReads = existsSync(join(tmp, 'gh-api-reads')) ? readFileSync(join(tmp, 'gh-api-reads'), 'utf-8') : '';
+    const cancelCalls = existsSync(join(tmp, 'cancel-calls')) ? readFileSync(join(tmp, 'cancel-calls'), 'utf-8') : '';
     const gitCwds = existsSync(join(tmp, 'git-cwd'))
       ? [...new Set(readFileSync(join(tmp, 'git-cwd'), 'utf-8').trim().split('\n'))]
       : [];
     const watchLog = existsSync(join(watchDir, 'watch.log')) ? readFileSync(join(watchDir, 'watch.log'), 'utf-8') : '';
-    return { calls, stopOut: stop.stdout, head, gitCwds, runnerTemp, watchLog, expectedWatchDir, watcherPid };
+    return { apiReads, cancelCalls, stopOut: stop.stdout, head, gitCwds, runnerTemp, watchLog, expectedWatchDir, watcherPid };
   } finally {
     // Copre sia il percorso felice (lo stop e' gia' girato, questa e' solo
     // pulizia disco) sia quello con `expect` fallito (qui lo stop non e'
@@ -209,8 +240,9 @@ printf '%s\\trefs/pull/42/head\\n' "$line"`,
 
 describe('tests.yml: watcher eseguito', () => {
   it('HEAD invariata: nessun cancel', () => {
-    const { calls } = simulate(['a'.repeat(40)], { stopWhen: 'polled' });
-    expect(calls).toBe('');
+    const { apiReads, cancelCalls } = simulate(['a'.repeat(40)], { stopWhen: 'polled' });
+    expect(apiReads).toBe('');
+    expect(cancelCalls).toBe('');
   });
 
   it('interroga la ref da RUNNER_TEMP, mai dal workspace (doppio Authorization)', () => {
@@ -224,23 +256,85 @@ describe('tests.yml: watcher eseguito', () => {
     expect(gitCwds[0]).toBe(expectedWatchDir);
   });
 
-  it('HEAD spostata: cancella SOLO questa run, una volta', () => {
-    const { calls, stopOut } = simulate(['a'.repeat(40), 'b'.repeat(40)], { stopWhen: 'cancelled' });
-    expect(calls.trim().split('\n')).toEqual(['api -X POST repos/owner/repo/actions/runs/777/cancel --silent']);
+  it('Git ref stale ma API ancora sulla HEAD della run: non cancella e continua a controllare', () => {
+    const head = 'a'.repeat(40);
+    const { apiReads, cancelCalls, watchLog } = simulate([head, 'b'.repeat(40)], {
+      stopWhen: 'polled',
+      apiHead: head,
+    });
+    expect(apiReads).toContain('pr view 42 --repo owner/repo --json headRefOid --jq .headRefOid');
+    expect(cancelCalls).toBe('');
+    expect(watchLog).toContain('API conferma la HEAD di questa run');
+  });
+
+  it.each([
+    ['head assente', ''],
+    ['head malformata', 'not-a-sha'],
+  ])('API %s: nessun cancel, diagnostica bounded', (_label, apiHead) => {
+    const { apiReads, cancelCalls, watchLog } = simulate(['a'.repeat(40), 'b'.repeat(40)], {
+      stopWhen: 'polled',
+      apiHead,
+    });
+    expect(apiReads).toContain('pr view 42 --repo owner/repo --json headRefOid --jq .headRefOid');
+    expect(cancelCalls).toBe('');
+    expect(watchLog).toContain('head API assente/non valida');
+  });
+
+  it('errore API: nessun cancel e polling continua', () => {
+    const { apiReads, cancelCalls, watchLog } = simulate(['a'.repeat(40), 'b'.repeat(40)], {
+      stopWhen: 'polled',
+      apiError: true,
+    });
+    expect(apiReads).toContain('pr view 42 --repo owner/repo --json headRefOid --jq .headRefOid');
+    expect(cancelCalls).toBe('');
+    expect(watchLog).toContain('head API non disponibile');
+  });
+
+  it('SHA API diverso sia dalla HEAD sia dalla ref Git: nessun cancel', () => {
+    const { apiReads, cancelCalls, watchLog } = simulate(['a'.repeat(40), 'b'.repeat(40)], {
+      stopWhen: 'polled',
+      apiHead: 'c'.repeat(40),
+    });
+    expect(apiReads).toContain('pr view 42 --repo owner/repo --json headRefOid --jq .headRefOid');
+    expect(cancelCalls).toBe('');
+    expect(watchLog).toContain('head Git/API discordanti');
+  });
+
+  it('HEAD cambiata e confermata da Git e API: cancella SOLO questa run, una volta', () => {
+    const changed = 'b'.repeat(40);
+    const { apiReads, cancelCalls, stopOut } = simulate(['a'.repeat(40), changed], {
+      stopWhen: 'cancelled',
+      apiHead: changed,
+    });
+    expect(apiReads.trim().split('\n')[0]).toBe('pr view 42 --repo owner/repo --json headRefOid --jq .headRefOid');
+    expect(cancelCalls.trim().split('\n')).toEqual(['api -X POST repos/owner/repo/actions/runs/777/cancel --silent']);
     expect(stopOut).toContain('run cancellata dal watcher');
   });
 
   it('ref illeggibile: nessun cancel (fail-open verso la run, non verso il cancel), ma lo dice', () => {
-    const { calls, watchLog } = simulate([''], { stopWhen: 'polled' });
-    expect(calls).toBe('');
+    const { apiReads, cancelCalls, watchLog } = simulate([''], { stopWhen: 'polled' });
+    expect(apiReads).toBe('');
+    expect(cancelCalls).toBe('');
     expect(watchLog).toContain('ls-remote fallito (1): fatal: auth');
   });
 
   it('dopo lo stop una HEAD spostata non cancella piu`', () => {
     // Lo stop arriva prima che scada il primo intervallo.
     const tmpHeads = ['b'.repeat(40)];
-    const { calls } = simulate(tmpHeads, { stopWhen: 'immediately', intervalS: '1', settleMs: 1500 });
-    expect(calls).toBe('');
+    const { apiReads, cancelCalls } = simulate(tmpHeads, { stopWhen: 'immediately', intervalS: '1', settleMs: 1500 });
+    expect(apiReads).toBe('');
+    expect(cancelCalls).toBe('');
+  });
+
+  it('stop arrivato durante la conferma API: nessun POST cancel', () => {
+    const { apiReads, cancelCalls, stopOut } = simulate(['a'.repeat(40), 'b'.repeat(40)], {
+      stopWhen: 'api-read',
+      apiHead: 'b'.repeat(40),
+      stopOnApiRead: true,
+    });
+    expect(apiReads).toContain('pr view 42 --repo owner/repo --json headRefOid --jq .headRefOid');
+    expect(cancelCalls).toBe('');
+    expect(stopOut).not.toContain('run cancellata dal watcher');
   });
 
   it('regressione: un expect fallito dentro simulate() non lascia il watcher orfano', () => {

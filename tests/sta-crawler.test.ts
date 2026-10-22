@@ -2,16 +2,57 @@ import { describe, it, expect } from 'vitest';
 import {
   STA_KEY,
   STA_COMPANY_NAME,
+  extractStaListingCandidates,
   isStaJob,
   isTrustedDomain,
 } from '../scripts/lib/sta-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  loadSpec,
+  normalizeSpecPagination,
+  readDeclaredListingTotal,
+} from '../scripts/lib/prospector/spec-crawler.mjs';
 
 describe('STA Personal AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(STA_KEY).toBe('sta');
     expect(STA_COMPANY_NAME).toBe('STA Personal AG');
+  });
+
+  it('proves the paginated source total before accepting a snapshot', () => {
+    const spec = loadSpec(STA_KEY);
+    const pagination = normalizeSpecPagination(spec);
+
+    expect(readDeclaredListingTotal('<span>1’822</span> Resultate', pagination, spec)).toBe(1822);
+  });
+
+  it('treats definitive stale detail 404s as expected filters only after the shared proof floor', () => {
+    const spec = loadSpec(STA_KEY);
+
+    expect(spec.detailNotFoundPolicy).toBe('expected-filter');
+    expect(spec.detailNotFoundMinimumPublished).toBe(10);
+  });
+
+  it('uses the current detail link when listing JSON-LD carries a stale URL', () => {
+    const staleUrl = 'https://www.sta.jobs/stellen/legacy-dauerstelle-109941/';
+    const currentUrl = 'https://www.sta.jobs/stellen/44545-stalu/';
+    const title = 'Schreinerpraktiker/in EBA für die Elementproduktion';
+    const html = `
+      <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"JobPosting","title":"${title}","url":"${staleUrl}"}
+      </script>
+      <article class="job-card">
+        <a href="${currentUrl}">${title}</a>
+      </article>
+      <nav><a href="/stellen/page/2/">2</a></nav>
+    `;
+
+    expect(extractStaListingCandidates(html)).toEqual([{
+      title,
+      url: currentUrl,
+      via: 'sta-detail-link',
+    }]);
   });
 
   // ── isCompanyJob ──

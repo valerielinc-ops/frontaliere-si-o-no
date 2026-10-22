@@ -348,7 +348,12 @@ jobs:
         with:
           urls: ${{ needs.probe.outputs.urls }}
           configPath: ${{ matrix.config }}
-          uploadArtifacts: true
+          # The action uses the fixed GitHub artifact name `lighthouse-results`.
+          # Retries run in the same workflow and upload-artifact rejects the
+          # duplicate name with HTTP 409, masking a green Lighthouse retry.
+          # Keep temporary public storage for the reports; the final regression
+          # step owns the GitHub artifact when every attempt really fails.
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
       # Second retry when BOTH prior attempts fail — #6084: the first attempt
@@ -369,7 +374,9 @@ jobs:
         with:
           urls: ${{ needs.probe.outputs.urls }}
           configPath: ${{ matrix.config }}
-          uploadArtifacts: true
+          # See the first retry: a second action upload would collide with the
+          # same fixed artifact name in this workflow run.
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
       # Combined verdict for the steps below: success if ANY attempt

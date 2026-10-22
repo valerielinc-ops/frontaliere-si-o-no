@@ -24,6 +24,7 @@
  */
 
 import { tenantHostOwner } from './coverage.mjs';
+import { qualityContractVersionOf } from './quality-contract.mjs';
 
 /** @typedef {{ passed: boolean, reasons: string[], checks: Record<string, boolean> }} GateResult */
 
@@ -45,17 +46,15 @@ export const GATE_DEFAULTS = {
    * il 2026-09-05 su anker-swiss.ch: 3 pagine su 4 nel campione, 279 annunci
    * pubblicabili con localita' vera (Rheinfelden AG, Wettingen AG, Dietikon
    * ZH) e descrizioni da ~3 KB, bloccati dalla quarta pagina. Allineata a
-   * `minContentful` e `minJobLike`: sono la stessa domanda posta su tre campi
+   * `minContentful` e `minJobLikeEvidence`: sono la stessa domanda posta su tre campi
    * diversi della stessa pagina.
    */
   minLocationSourceRate: 0.75,
   minDistinct: 0.8,
-  /**
-   * Quota delle pagine di dettaglio che devono leggere come annuncio di lavoro.
-   * Allineata a `minContentful`: sono la stessa domanda posta sul testo — uno
-   * chiede che ci sia prosa, l'altro che quella prosa sia un annuncio.
-   */
-  minJobLike: 0.75,
+  /** A structured JobPosting can supply semantic proof for opaque details. */
+  minJobLikeEvidence: 0.75,
+  /** Most sampled pages must prove the expected employer identity. */
+  minEmployerIdentityRate: 0.75,
   minVacancies: 1,
   /** Two gradings, on two distinct days. */
   minRuns: 2,
@@ -63,8 +62,50 @@ export const GATE_DEFAULTS = {
   /** A listing may shrink between runs, but not collapse. */
   minVacancyRetention: 0.5,
   /** How many may enter production in one run. */
-  maxPerRun: 10,
+  maxPerRun: 15,
 };
+
+/**
+ * A missing or malformed source-backed location measurement is a failure, not
+ * an invitation to infer a default geography. Keep this predicate shared by
+ * VALIDATE and PROMOTE so a `good` quality score cannot re-enter the promoted
+ * queue while the production gate uses a different interpretation of the same
+ * measurement.
+ *
+ * @param {unknown} rate
+ * @param {unknown} [minRate]
+ * @returns {boolean}
+ */
+export function passesSourceBackedLocationRate(rate, minRate = GATE_DEFAULTS.minLocationSourceRate) {
+  const measured = typeof rate === 'number' ? rate : NaN;
+  const threshold = Number(minRate);
+  return Number.isFinite(measured)
+    && measured >= 0
+    && measured <= 1
+    && Number.isFinite(threshold)
+    && measured >= threshold;
+}
+
+/**
+ * Select the queue state after one validation run. A quality `good` verdict is
+ * not sufficient for PROMOTE: until the source-backed geography yield is
+ * proven, keep the candidate retryable in `validated` rather than putting a
+ * known gate failure into `promoted`.
+ *
+ * @param {{ verdict?: unknown, locationSourceRate?: unknown }} [report]
+ * @returns {'validated'|'promoted'|'rejected'}
+ */
+export function candidateStatusAfterValidation(report = {}) {
+  // A failed/incomplete runtime snapshot is evidence about neither a bad
+  // employer nor an empty listing. Keep the candidate retryable and require
+  // fresh good-day observations before it can satisfy promotion stability.
+  if (report.runtimeSnapshotComplete === false) return 'validated';
+  if (report.verdict === 'bad') return 'rejected';
+  if (report.verdict === 'good' && passesSourceBackedLocationRate(report.locationSourceRate)) {
+    return 'promoted';
+  }
+  return 'validated';
+}
 
 /**
  * Normalizza la leva di verifica `--min-days`.
@@ -108,8 +149,20 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   const checks = {};
   const mark = (name, ok, why) => { checks[name] = ok; if (!ok) reasons.push(why); return ok; };
 
-  const history = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
-  const good = history.filter((h) => h.verdict === 'good');
+  const validationHistory = Array.isArray(candidate.validationHistory) ? candidate.validationHistory : [];
+  // A generic runSpec grading cannot establish stability for a candidate that
+  // now uses a dedicated source adapter. Keep both the two-day proof and the
+  // latest quality measurements on that adapter's history.
+  const qualityContractVersion = qualityContractVersionOf(candidate);
+  const compatibleHistory = validationHistory.filter((entry) =>
+    qualityContractVersionOf(entry) === qualityContractVersion);
+  const sourceAdapterVersion = String(candidate.sourceAdapterVersion || '').trim();
+  const history = sourceAdapterVersion
+    ? compatibleHistory.filter((entry) => entry.sourceAdapterVersion === sourceAdapterVersion)
+    : compatibleHistory;
+  const lastIncompleteIndex = history.findLastIndex((entry) => entry.runtimeSnapshotComplete === false);
+  const stabilityHistory = history.slice(lastIncompleteIndex + 1);
+  const good = stabilityHistory.filter((h) => h.verdict === 'good');
   const latest = history[history.length - 1] || {};
 
   // `promoting` significa che il candidato e' gia' dentro una PR di promozione
@@ -184,7 +237,7 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
 
   const locationSourceRate = latest.locationSourceRate;
   mark('sourceBackedLocation',
-    Number(locationSourceRate) >= g.minLocationSourceRate,
+    passesSourceBackedLocationRate(locationSourceRate, g.minLocationSourceRate),
     locationSourceRate === undefined
       ? 'nessuna misura della localita\' source-backed nell\'ultima validazione: serve una nuova validazione'
       : `solo il ${Math.round(Number(locationSourceRate) * 100)}% delle pagine campionate espone una localita' svizzera source-backed, serve ${Math.round(g.minLocationSourceRate * 100)}%`);
@@ -215,14 +268,21 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   //   assente -> validazione anteriore al controllo, MAI misurata: blocca, e la
   //              prossima validazione fornisce il dato. Trattare "non misurato"
   //              come "passato" e' esattamente il buco che stiamo chiudendo.
-  //   null    -> misurata ma illeggibile (annunci in PDF): non blocca.
+  //   null    -> legacy report senza prova semantica: blocca.
   //   numero  -> confronto con la soglia.
-  const jobLikeRate = latest.jobLikeRate;
+  const jobLikeEvidenceRate = latest.jobLikeEvidenceRate;
   mark('jobLike',
-    jobLikeRate === null || Number(jobLikeRate) >= g.minJobLike,
-    jobLikeRate === undefined
-      ? 'nessuna misura semantica nell\'ultima validazione: e\' anteriore al controllo jobLike, serve una nuova validazione'
-      : `solo il ${Math.round(Number(jobLikeRate) * 100)}% delle pagine di dettaglio legge come annuncio di lavoro, serve ${Math.round(g.minJobLike * 100)}%`);
+    typeof jobLikeEvidenceRate === 'number' && jobLikeEvidenceRate >= g.minJobLikeEvidence,
+    jobLikeEvidenceRate === undefined
+      ? 'nessuna prova semantica sufficiente nell\'ultima validazione: serve una nuova validazione'
+      : `solo il ${Math.round(Number(jobLikeEvidenceRate) * 100)}% dei campioni ha prova semantica sufficiente di annuncio di lavoro, serve ${Math.round(g.minJobLikeEvidence * 100)}%`);
+
+  mark('employerIdentity',
+    Number(latest.employerIdentityMismatchCount || 0) === 0
+      && Number(latest.employerIdentityRate || 0) >= g.minEmployerIdentityRate,
+    Number(latest.employerIdentityMismatchCount || 0) > 0
+      ? `${latest.employerIdentityMismatchCount} campione/i riportano un datore diverso: da riesaminare e riprovare`
+      : `identita' confermata sul ${Math.round(Number(latest.employerIdentityRate || 0) * 100)}% del campione, serve ${Math.round(g.minEmployerIdentityRate * 100)}%`);
 
   // Logo aziendale obbligatorio, stessa disciplina di jobLike qui sopra: senza
   // nessuno che guarda, un crawler che entra in produzione senza un logo
@@ -289,15 +349,15 @@ function normalizeAuthorLogin(login) {
  * non lo nota e lo chiude — vanificando l'auto-riparazione descritta sopra
  * (follow-up #6305 item 3).
  *
- * @param {{ number: number|string, createdAt?: string, title?: string, headRefName?: string, author?: { login?: string } }[]} openPrs
+ * @param {{ number: number|string, createdAt?: string, title?: string, url?: string, headRefName?: string, author?: { login?: string } }[]} openPrs
  * @param {string} [prefix]
  * @param {string} [expectedAuthor]
- * @returns {{ number: string, createdAt: string, title: string }|null}
+ * @returns {{ number: string, createdAt: string, title: string, url: string }|null}
  */
 export function findOpenPromotionPr(openPrs = [], prefix = 'prospector/promote-', expectedAuthor = PROMOTION_BOT_LOGIN) {
   const candidates = (openPrs || []).filter((r) => String(r?.headRefName || '').startsWith(prefix));
   const hit = candidates.find((r) => normalizeAuthorLogin(r?.author?.login) === expectedAuthor);
-  if (hit) return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '' };
+  if (hit) return { number: String(hit.number), createdAt: hit.createdAt || '', title: hit.title || '', url: hit.url || '' };
   const impostor = candidates[0];
   if (impostor) {
     // Stesso prefisso, autore diverso: segnala esplicitamente invece di
@@ -340,6 +400,11 @@ function failedChecksOf(item) {
   return Object.entries(item?.checks || {})
     .filter(([, passed]) => passed === false)
     .map(([name]) => name);
+}
+
+/** @param {{ candidate?: Record<string, any> }} item */
+function promotionCandidateKey(item) {
+  return String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
 }
 
 /** I soli predicati che una run successiva puo' soddisfare da se'. */
@@ -390,7 +455,7 @@ export function summarizePromotionBlocks(blocked = []) {
  * l'output e' deterministico.
  *
  * @param {{ candidate?: Record<string, any>, reasons?: string[], checks?: Record<string, boolean> }[]} blocked
- * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[] }}
+ * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[], candidateFailures: { key: string, failedChecks: string[] }[] }}
  */
 export function diagnosePromotionBlocks(blocked = []) {
   const { stabilityOnly, other } = summarizePromotionBlocks(blocked);
@@ -398,9 +463,11 @@ export function diagnosePromotionBlocks(blocked = []) {
   const tally = {};
   const stabilityOnlyKeys = [];
   const unattributed = [];
+  const candidateFailures = [];
   for (const item of blocked) {
     const failed = failedChecksOf(item);
-    const key = String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
+    const key = promotionCandidateKey(item);
+    candidateFailures.push({ key, failedChecks: failed });
     if (isStabilityOnly(failed)) {
       stabilityOnlyKeys.push(key);
       continue;
@@ -412,11 +479,14 @@ export function diagnosePromotionBlocks(blocked = []) {
   const failedChecks = Object.fromEntries(
     Object.entries(tally).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
   );
+  candidateFailures.sort((a, b) => a.key.localeCompare(b.key)
+    || a.failedChecks.join(',').localeCompare(b.failedChecks.join(',')));
   return {
     stabilityOnly,
     other,
     failedChecks,
     stabilityOnlyKeys: stabilityOnlyKeys.sort(),
     unattributed: unattributed.sort(),
+    candidateFailures,
   };
 }

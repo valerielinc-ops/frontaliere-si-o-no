@@ -39,6 +39,11 @@ const PUBLISHED_TOPICS = path.resolve(
   '../../public/evergreen-comune-topics.json',
 );
 
+// The 35 km reserve emits 466 topics with the current municipality dataset.
+// Reject the previous 30 km asset (437 topics) if it is ever deployed without
+// its generated companion; the caller then recomputes from the source data.
+export const MIN_PUBLISHED_COMUNE_TOPICS = 450;
+
 /**
  * The precomputed topics, if they have been published. Returns null when the
  * file is absent or unusable, so the caller falls back to computing them.
@@ -52,18 +57,15 @@ function readPublishedComuneTopics() {
     // A short list means the file is truncated or the datasets collapsed;
     // computing is better than reading a silently narrowed pool.
     //
-    // The floor tracks the real value or it stops being a guard. It was 50,
-    // set when the published file held 85 — about 59% of real, a sane
-    // tripwire. The commute-radius change took the file to 437, which left
-    // that same 50 covering 11%: the file could lose 89% of its content and
-    // still be accepted. Concretely, a revert of the published file to its
-    // old 85 entries — the exact starvation this is meant to catch — would
-    // have passed. 300 restores roughly the original ratio.
+    // The floor must reject the pre-reserve asset (437 topics), or a stale
+    // generated file would silently throw away the 29 candidates that keep
+    // the frontaliere pool from exhausting. Keep a small allowance for source
+    // drift while making the reserve itself part of the runtime contract.
     //
     // Keep this in step with the twin floors in
     // scripts/build-evergreen-comune-topics.mjs (which refuses to WRITE a
     // short file) and tests/evergreen-comune-topics-published.test.ts.
-    if (!Array.isArray(topics) || topics.length < 300) return null;
+    if (!Array.isArray(topics) || topics.length < MIN_PUBLISHED_COMUNE_TOPICS) return null;
     return topics;
   } catch {
     return null;
@@ -235,14 +237,16 @@ export function resolveComuneCanton(m) {
 //      40km     343       95       46       484          554
 //     no cap    343       99       64       506          576
 //
-// So this moves the structural pool 155 → 507 and the runtime pool 382 → 734,
-// well past the 537 the section had before the collapse.
+// The first widening moved the structural pool 155 → 507 and the runtime pool
+// 382 → 734. Issue #13361 measured that larger runtime pool exhausted anyway;
+// the next measured step below adds 29 distinct topics to restore headroom.
 //
-// This file is `mode: identical` and ships to both repos. The datasets it
-// reads — municipalities.ts, borderCrossings.ts — are NOT manifest-governed,
-// so they can drift without anything noticing, and they had: the site was
-// missing the #211 SO→LC province fix, and the same radius gave 446 comuni
-// there against 437 here.
+// This file is structurally transported to the corpus, but its corpus-side
+// loop-sync entry is `adapted`: the generator reads vendored copies of
+// municipalities.ts and borderCrossings.ts, and the latter receives a
+// generator-side REWIRE. The structural transport and its closure reconciler
+// own those files; pull-side identical-twin sync must not copy this module as
+// if the two dependency graphs were byte-identical.
 //
 // That gap was not cosmetic. The 25 mislabelled rows are Lecco-shore comuni
 // that `PROVINCE_CANTON` sent to Grigioni, an unreachable commute; under the
@@ -262,7 +266,10 @@ export function resolveComuneCanton(m) {
 // nothing. Spending the whole dataset at once would also leave no graduated
 // next step: keeping the tail in reserve means the table above is the
 // widening plan when this pool saturates again, one measured number at a time.
-const COMUNE_MAX_DISTANCE_KM = 30;
+// The 30 km pool exhausted the available 734 runtime candidates (#13361).
+// The next measured band adds 29 distinct, pre-flight-free topics while
+// retaining the same commute-distance quality bar for every canton.
+const COMUNE_MAX_DISTANCE_KM = 35;
 
 // NB: the 9 MB comuni (distanceKm 19-22km) now DO place in the output — under
 // the old count cap they were crowded out by the closest ~40 CO/VA/VB comuni

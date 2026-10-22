@@ -8,6 +8,7 @@ import type {
 } from './types';
 import { validatePlateAuction } from './types';
 import { parsePlateAuctionPath } from './paths';
+import { isRecoveredPlateObservation } from '../../scripts/lib/plateAuctionSections.mjs';
 export { PLATE_AUCTION_DETAIL_SEED_ID } from '../../scripts/lib/plateAuctionSections.mjs';
 
 export const PLATE_AUCTION_API_SCHEMA = 1;
@@ -261,7 +262,7 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
   return { schema: PLATE_AUCTION_API_SCHEMA, complete: true, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
 }
 
-/** Reuse only this URL's validated, closed SSR record when it aged out of the feed. */
+/** Reuse only this URL's validated historical SSR record when it left the feed. */
 export function withStaticPlateAuctionDetail(snapshot: PlateAuctionApiSnapshot, pathname: string, serialized: string | null): PlateAuctionApiSnapshot {
   if (!serialized) return snapshot;
   let seed: unknown;
@@ -269,13 +270,25 @@ export function withStaticPlateAuctionDetail(snapshot: PlateAuctionApiSnapshot, 
   if (!isRecord(seed) || seed.schema !== 1 || seed.path !== pathname.replace(/\/+$/, '') + '/') return snapshot;
   const row = sanitizePublicPlateAuction(seed.row);
   const route = parsePlateAuctionPath(pathname);
-  if (!row || row.dataConfidence === 'conflicting' || !['closed', 'sold', 'unsold'].includes(row.auctionStatus) || route?.view !== 'detail') return snapshot;
+  if (!row || row.dataConfidence === 'conflicting' || (!['closed', 'sold', 'unsold'].includes(row.auctionStatus) && !isRecoveredPlateObservation(row)) || route?.view !== 'detail') return snapshot;
   const code = row.sourceKey || row.platePrefix;
   if (route.canton !== code || route.plate?.toLowerCase() !== row.normalizedPlate.toLowerCase() || (route.vehicleType || 'car') !== row.vehicleType) return snapshot;
   if (!Object.values(snapshot.sources).some((source) => source.plateCode === code && source.status === 'active')) return snapshot;
   const samePlate = (candidate: PlateAuction) => (candidate.sourceKey || candidate.platePrefix) === code
     && candidate.normalizedPlate === row.normalizedPlate && candidate.vehicleType === row.vehicleType;
-  if ([...snapshot.auctions, ...(snapshot.history || [])].some(samePlate)) return snapshot;
+  if (snapshot.auctions.some(samePlate)) return snapshot;
+  if (isRecoveredPlateObservation(row)) {
+    const seedDate = Date.parse(row.sourceFetchedAt);
+    const newerHistory = (snapshot.history || []).some(candidate => samePlate(candidate)
+      && (Date.parse(candidate.sourceFetchedAt) > seedDate
+        || (Date.parse(candidate.sourceFetchedAt) === seedDate && !['active', 'upcoming'].includes(candidate.auctionStatus))));
+    if (newerHistory) return snapshot;
+    // An old observation labelled active described its own timestamp, not
+    // today's inventory. Keep the observations, but do not let that label
+    // hide the explicit unknown-availability detail at the same timestamp.
+    return { ...snapshot, history: [row, ...(snapshot.history || [])] };
+  }
+  if ((snapshot.history || []).some(samePlate)) return snapshot;
   return { ...snapshot, history: [...(snapshot.history || []), row] };
 }
 

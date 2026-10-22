@@ -68,6 +68,7 @@ import { dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } fro
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
+import { reconcileDuplicateIdJobs } from './reconcile-duplicate-stable-id-jobs.mjs';
 import { repairJobMojibakeInPlace } from './lib/repair-mojibake.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
@@ -86,7 +87,13 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { absoluteJobUrl } from './lib/job-url-host.mjs';
-import { archiveFilteredJobsToSlices, archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import {
+  archiveFilteredJobsToSlices,
+  archiveRemovedJobsToSlice,
+  collapseDuplicateRouteEntries,
+  normalizeExpiredAtEntries,
+  repairExpiredRoutesAgainstActive,
+} from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
@@ -904,6 +911,8 @@ export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
   'data/orphan-enriched-data.json',
   'data/orphan-enriched-data',
   'data/prev-slug-restore-denylist.json',
+  'data/gsc-job-urls.json',
+  'data/gsc-orphan-job-slugs.json',
   'data/canton-url-slugs.json',
   'data/canton-municipalities.json',
   'data/crawler-companies-auto.json',
@@ -1126,12 +1135,20 @@ export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   recordPreviousRunSlice(slicePath);
   if (fs.existsSync(slicePath)) {
     const data = readJson(slicePath);
-    const jobs = data?.jobs || (Array.isArray(data) ? data : []);
-    // First read of the run = the previous run's committed slice: the
-    // baseline writeJobsCrawlerSlice judges this run's new flags against
-    // (lib/crawler-retranslation-baseline.mjs). Later reads never replace it.
-    recordRetranslationBaseline(crawlerKey, jobs);
-    if (jobs.length > 0) return jobs;
+    // Do not turn an unreadable or wrong-shaped slice into an empty baseline:
+    // that would misclassify every retained flag as a new record. The
+    // previous-run registry has the same fail-closed distinction, and the
+    // writer will report the missing baseline explicitly below.
+    const jobs = Array.isArray(data)
+      ? data
+      : (Array.isArray(data?.jobs) ? data.jobs : null);
+    if (jobs) {
+      // First read of the run = the previous run's committed slice: the
+      // baseline writeJobsCrawlerSlice judges this run's new flags against
+      // (lib/crawler-retranslation-baseline.mjs). Later reads never replace it.
+      recordRetranslationBaseline(crawlerKey, jobs);
+      if (jobs.length > 0) return jobs;
+    }
   }
   // Fallback: data/jobs.json (gitignored, only available locally)
   if (dataJobsPath && fs.existsSync(dataJobsPath)) {
@@ -2672,6 +2689,33 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   a deliberate thin-source quarantine. Internal callers only; unproven
  *   removals remain blocked by the byte guard.
  */
+/**
+ * The description as writeJobsCrawlerSlice stores it: artifact clean-up, then
+ * line-start bullet recovery, both idempotent. One helper for the in-place
+ * normalization and for the views that judge a record before it runs.
+ */
+function writtenDescriptionText(text) {
+  return normalizeDescriptionBullets(cleanCrawlerArtifacts(text));
+}
+
+/** A copy of `job` whose descriptions read as writeJobsCrawlerSlice will store them. */
+function withWrittenDescriptions(job) {
+  if (!job || typeof job !== 'object') return job;
+  const view = { ...job };
+  if (typeof job.description === 'string' && job.description) {
+    view.description = writtenDescriptionText(job.description);
+  }
+  if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
+    view.descriptionByLocale = Object.fromEntries(
+      Object.entries(job.descriptionByLocale).map(([locale, text]) => [
+        locale,
+        typeof text === 'string' && text ? writtenDescriptionText(text) : text,
+      ]),
+    );
+  }
+  return view;
+}
+
 export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!crawlerKey || typeof crawlerKey !== 'string') {
     throw new TypeError('writeJobsCrawlerSlice: crawlerKey must be a non-empty string');
@@ -2679,6 +2723,14 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   if (!Array.isArray(jobs)) {
     throw new TypeError('writeJobsCrawlerSlice: jobs must be an array');
   }
+
+  // The writer is the final common funnel for dedicated and legacy callers.
+  // Capture the previous slice here as a safety net for callers that did not
+  // pass through readExistingCrawlerJobs/seedCrawlerSlicesFromDataJobs. The
+  // raw previous-run registry is first-write-wins, so this never reads the
+  // current run's seeded or written slice as a baseline.
+  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  recordPreviousRunSlice(slicePath);
 
   // ── Upstream normalization (write-time) ───────────────────────────────
   // Harden location + backfill safe metadata defaults BEFORE any downstream
@@ -2770,19 +2822,41 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     // The line is printed whenever this slice carries flags, not only when some
     // are dropped: on 2026-10-14 Senevita kept 91 flags on unchanged, complete
     // records and the log said nothing, so the rule that kept them was unknown.
-    const baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
+    let baseline = options.retranslationBaseline ?? getRetranslationBaseline(crawlerKey);
+    if (!baseline) {
+      // A missing slice is a valid empty previous snapshot: every incoming
+      // record is new and its flag remains kept. An invalid slice is null and
+      // must stay unknown/fail-closed instead of being guessed as new.
+      const previousJobs = previousRunSliceJobs(slicePath);
+      if (Array.isArray(previousJobs)) {
+        recordRetranslationBaseline(crawlerKey, previousJobs);
+        baseline = getRetranslationBaseline(crawlerKey);
+      }
+    }
     if (!baseline) {
       const flagged = jobs.filter((job) => job?.needsRetranslation === true).length;
       if (flagged > 0) {
-        console.log(`  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} (every flag is kept)`);
+        console.log(
+          `  🧮 Retranslation flags: ${flagged} kept, no baseline recorded for ${crawlerKey} `
+            + `(classification: baseline-unavailable=${flagged}; source changed/incomplete/already flagged/new=unknown)`,
+        );
       }
     } else {
-      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, { isIncomplete });
+      // Completeness is judged on the record as this writer will store it:
+      // the description clean-up below runs after this point. On the raw
+      // crawl, a repeated paragraph makes the description longer than its
+      // source-locale slot and isIncomplete reads a missing translation
+      // (2026-10-15, Senevita live: 192 of 207 records incomplete raw, 0 of
+      // those 192 once cleaned; the run kept 103 flags as «incomplete»).
+      const retrans = dropSpuriousRetranslationFlags(jobs, baseline, {
+        isIncomplete: (job) => isIncomplete(withWrittenDescriptions(job)),
+      });
       if (retrans.flagged > 0) {
         console.log(
           `  🧮 Retranslation flags: dropped ${retrans.dropped}/${retrans.flagged} raised on unchanged, complete records `
             + `(kept: ${retrans.keptSourceChanged} source changed, ${retrans.keptIncomplete} incomplete, `
-            + `${retrans.keptAlreadyFlagged} already flagged, ${retrans.keptNoBaseline} new)`,
+            + `${retrans.keptAlreadyFlagged} already flagged, ${retrans.keptNoBaseline} new, `
+            + `${retrans.keptUnattributed} unknown identity)`,
         );
       }
     }
@@ -2881,15 +2955,13 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // sees clean line boundaries. Both are idempotent.
   for (const job of hardened.jobs) {
     if (typeof job.description === 'string' && job.description) {
-      let normalized = cleanCrawlerArtifacts(job.description);
-      normalized = normalizeDescriptionBullets(normalized);
+      const normalized = writtenDescriptionText(job.description);
       if (normalized !== job.description) job.description = normalized;
     }
     if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
       for (const [locale, text] of Object.entries(job.descriptionByLocale)) {
         if (typeof text !== 'string' || !text) continue;
-        let normalized = cleanCrawlerArtifacts(text);
-        normalized = normalizeDescriptionBullets(normalized);
+        const normalized = writtenDescriptionText(text);
         if (normalized !== text) job.descriptionByLocale[locale] = normalized;
       }
     }
@@ -2899,7 +2971,6 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // Carry forward firstSeenAt from existing slice; fall back to crawledAt
   // (the original discovery time) for genuinely new jobs.
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
-  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
   // The slice the previous run committed. In the dedicated-runner path the
   // seed (seedCrawlerSlicesFromDataJobs) has already replaced the file on disk
@@ -3112,6 +3183,31 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     }
   }
 
+  // -- One id per posting within the slice --------------------------------
+  // Several parsers derive the id from data an employer can reuse for distinct
+  // postings (Emmi's reference code, a shared ostendis token on Vista, PwC):
+  // the slice then holds two postings under one id and translate-pending's
+  // scatter parity refuses to publish (`duplicateAssembledKeys`, runs
+  // 38854975768 and 38937686046, 2026-10-16). reconcile-duplicate-stable-id-
+  // jobs.mjs already repairs this, but only when recover-prev-slugs.yml runs
+  // it, after the duplicate has been published. The same function runs here,
+  // on every write: distinct postings keep one id each (the first seen keeps
+  // it, the others get a stable id derived from their own identity), true
+  // duplicates collapse with their slugs carried over. Unlike the guards
+  // above it is fatal: a slice it cannot reconcile is not written, so the last
+  // verified slice stays on disk instead of a duplicate id reaching the
+  // scatter parity (review of PR 13609).
+  try {
+    const reconciled = reconcileDuplicateIdJobs(finalJobs);
+    if (reconciled.groups > 0) {
+      finalJobs = reconciled.jobs;
+      console.log(`  🪪 Duplicate ids in ${crawlerKey}: ${reconciled.groups} group(s), ${reconciled.rekeyed} distinct posting(s) re-keyed, ${reconciled.collapsed} duplicate(s) collapsed`);
+      for (const line of reconciled.report.slice(0, 5)) console.log(`     ${line}`);
+    }
+  } catch (err) {
+    throw new Error(`Duplicate-id reconciliation failed for ${crawlerKey}; slice not written: ${err.message}`);
+  }
+
   // ── Soglia di ammissione agenzie (decisione del proprietario 2026-10-03) ──
   // Timbra qui, sui job che stanno davvero per essere scritti e contro lo slice
   // del run precedente, chi arriva non tradotto: resta nello slice (coda di
@@ -3147,6 +3243,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
+    runId: process.env.GITHUB_RUN_ID ? String(process.env.GITHUB_RUN_ID) : null,
     jobs: finalJobs,
   };
   writeJson(slicePath, payload, { housekeepingProof: options.housekeepingProof || null });
@@ -3944,16 +4041,66 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
 }
 
 /**
+ * Repair persisted expired routes after active assembly has established the
+ * current route owners. The caller runs this before aggregate assembly and
+ * applies the same pure repair to the in-memory aggregate for legacy entries
+ * that exist only in the old aggregate file.
+ */
+function repairExpiredArchiveSlicesAgainstActive(activeJobs) {
+  if (!Array.isArray(activeJobs) || activeJobs.length === 0) {
+    return { changed: 0, repairedRoutes: 0, details: [] };
+  }
+  let changed = 0;
+  let repairedRoutes = 0;
+  const details = [];
+  for (const slicePath of listSliceFiles(EXPIRED_SLICES_DIR)) {
+    const entries = readJson(slicePath, null);
+    if (!Array.isArray(entries)) continue;
+    const result = repairExpiredRoutesAgainstActive(entries, activeJobs);
+    if (result.changed === 0) continue;
+    writeJson(slicePath, entries);
+    changed += result.changed;
+    repairedRoutes += result.repairedRoutes;
+    if (details.length < 20) details.push(...result.details);
+  }
+  return { changed, repairedRoutes, details };
+}
+
+/**
  * Assemble all per-crawler expired job slices into data/expired-jobs.json.
  * Each slice is an array of expired job entries with slugs as unique keys.
- * Returns the assembled array, or null if no slices exist.
+ * When no slice exists, carry the legacy aggregate through the same caller
+ * path so active-route ownership repair can still run before persistence.
+ * Returns the assembled array, or null if neither slices nor a legacy
+ * aggregate exists.
+ *
+ * The path overrides are used by the isolated regression test; production
+ * callers use the repository defaults.
  */
-function assembleExpiredJobs() {
-  const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
+function relabelExpiredArchiveEntries(entries) {
+  const expiredBrandLabels = declaredBrandLabels();
+  applyDeclaredBrandRelabel(entries, expiredBrandLabels);
+  refreshDeclaredBrandSlugs(entries, expiredBrandLabels);
+}
+
+export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePath = DATA_EXPIRED } = {}) {
+  const sliceFiles = listSliceFiles(sliceDir);
 
   if (sliceFiles.length === 0) {
-    console.log('ℹ️  No per-crawler expired job slices found — data/expired-jobs.json left unchanged.');
-    return null;
+    const legacyEntries = readJson(aggregatePath, null);
+    if (!Array.isArray(legacyEntries)) {
+      console.log('ℹ️  No per-crawler expired job slices or readable legacy archive found — expired archive left unchanged.');
+      return null;
+    }
+
+    // The legacy aggregate is still a live source when slice generation is
+    // absent (for example during a partial crawler rollout). Keep it in the
+    // normal return path so the caller repairs route ownership against the
+    // active dataset and persists the repaired archive below.
+    normalizeExpiredAtEntries(legacyEntries, { source: 'assemble/legacy-aggregate' });
+    relabelExpiredArchiveEntries(legacyEntries);
+    console.log(`  📄 No per-crawler expired slices: carried ${legacyEntries.length} legacy archive entries into assembly`);
+    return legacyEntries;
   }
 
   // Keyed by companyKey+slug, not bare slug — this aggregates EVERY
@@ -4003,7 +4150,7 @@ function assembleExpiredJobs() {
   }
 
   // Also merge any existing aggregated expired-jobs.json (from deploy-time cleanup)
-  const existingAgg = readJson(DATA_EXPIRED, []);
+  const existingAgg = readJson(aggregatePath, []);
   if (Array.isArray(existingAgg)) {
     normalizeExpiredAtEntries(existingAgg, { source: 'assemble/existing-aggregate' });
     for (const entry of existingAgg) {
@@ -4034,12 +4181,19 @@ function assembleExpiredJobs() {
   // sit under the same employer brand. Reconcile them in the same pass so a
   // corrected label does not read one way on the active page and another on
   // the expired one.
-  const expiredBrandLabels = declaredBrandLabels();
-  applyDeclaredBrandRelabel(assembled, expiredBrandLabels);
-  refreshDeclaredBrandSlugs(assembled, expiredBrandLabels);
+  relabelExpiredArchiveEntries(assembled);
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
+}
+
+export function persistExpiredArchive(entries, {
+  aggregatePath = DATA_EXPIRED,
+  publicPath = PUBLIC_EXPIRED,
+} = {}) {
+  writeJson(aggregatePath, entries, { streamArray: true });
+  fs.mkdirSync(path.dirname(publicPath), { recursive: true });
+  writeJson(publicPath, entries, { streamArray: true });
 }
 
 /* ── Auto slug-history tracking ────────────────────────────────────── */
@@ -4789,20 +4943,35 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   // of that read-only consumer path; the default remains the full assembly.
   const finishExpiredTiming = startPipelinePhase('jobs-dataset', 'expired archive and orphan reconciliation');
   if (withExpired) {
+    let sliceRepair = { changed: 0, repairedRoutes: 0, details: [] };
+    if (assembled) sliceRepair = repairExpiredArchiveSlicesAgainstActive(publishedJobs);
     const expiredJobs = assembleExpiredJobs();
     if (expiredJobs !== null) {
+      let repairedExpiredJobs = expiredJobs;
+      if (assembled) {
+        const aggregateRepair = repairExpiredRoutesAgainstActive(expiredJobs, publishedJobs);
+        repairedExpiredJobs = aggregateRepair.entries;
+        const repairedRoutes = sliceRepair.repairedRoutes + aggregateRepair.repairedRoutes;
+        if (repairedRoutes > 0) {
+          console.log(
+            `  🧭 Expired route ownership: disambiguated ${repairedRoutes} routes across `
+            + `${sliceRepair.changed + aggregateRepair.changed} archive entries`,
+          );
+          if (sliceRepair.details.length > 0) {
+            console.log(`     ${sliceRepair.details.slice(0, 5).join('; ')}`);
+          }
+        }
+      }
       // --- Ghost reconciliation: remove expired entries that match active jobs ---
       if (assembled) {
-        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, expiredJobs);
+        const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(publishedJobs, repairedExpiredJobs);
         if (ghostCount > 0) {
           console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
           // Write back active jobs with merged previousSlugs
           writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
           writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
         }
-        writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
-        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
+        persistExpiredArchive(cleanedExpired);
         console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
 
         // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
@@ -4841,17 +5010,28 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
             console.log(`  🔗 Expired reconciliation: ${expResult.mergedCount} slugs merged into active jobs' previousSlugs`);
             writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
             writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
-            writeJson(DATA_EXPIRED, cleanedExpired, { streamArray: true });
-            writeJson(PUBLIC_EXPIRED, cleanedExpired, { streamArray: true });
+            persistExpiredArchive(cleanedExpired);
           }
         } catch (err) {
           console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
         }
+
+        // Ghost/orphan reconciliation runs after the first active write and
+        // can append a bridge from an archive or GSC snapshot. Re-apply the
+        // fleet ownership ratchet after every such writer so a stale snapshot
+        // cannot reintroduce a hash-tailed alias on the wrong current job.
+        const ownership = decontaminateJobs(assembled);
+        if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
+          console.log(
+            `  🧭 Final previous-slug ownership: redirected ${ownership.moved} route(s), `
+            + `pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`,
+          );
+          writeJson(DATA_JOBS, assembled, { compact: true, streamArray: true });
+          writeJson(PUBLIC_JOBS, assembled, { compact: true, streamArray: true });
+        }
       } else {
-        writeJson(DATA_EXPIRED, expiredJobs, { streamArray: true });
-        fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-        writeJson(PUBLIC_EXPIRED, expiredJobs, { streamArray: true });
-        console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
+        persistExpiredArchive(repairedExpiredJobs);
+        console.log(`✅ data/expired-jobs.json assembled: ${repairedExpiredJobs.length} expired jobs`);
       }
     }
   } else {

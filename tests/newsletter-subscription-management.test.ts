@@ -359,6 +359,40 @@ describe('handleSubscriptionManagement', () => {
     expect(markerSet?.data).toMatchObject({ company_follow_followup_pending: false });
   });
 
+  it('does not rewrite an already-cleared company-follow marker', async () => {
+    const db = createFakeDb({
+      newsletter_subscribers: {
+        [TEST_EMAIL]: {
+          status: 'confirmed',
+          isActive: true,
+          active: true,
+          confirmed_at: '2026-07-01T00:00:00.000Z',
+          company_follow_only: false,
+          company_follow_followup_pending: false,
+        },
+      },
+    });
+
+    const result = await handleSubscriptionManagement({
+      action: 'create_alert',
+      email: TEST_EMAIL,
+      token: VALID_TOKEN,
+      locale: 'it',
+      secret: TEST_SECRET,
+      method: 'POST',
+      specificCompanyKey: 'Migros Ticino',
+      frequency: 'immediate',
+      emailConsentGiven: true,
+      db: db as any,
+    });
+
+    expect(result.status).toBe(200);
+    expect(db.__sets.filter(
+      (s) => s.collection === 'newsletter_subscribers'
+        && Object.prototype.hasOwnProperty.call(s.data, 'company_follow_followup_pending'),
+    )).toHaveLength(0);
+  });
+
   it.each([
     ['toggle_autologin', { enabled: false }],
     ['revoke_autologin', {

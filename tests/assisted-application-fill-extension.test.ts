@@ -232,7 +232,7 @@ describe('fill extension: JOIN steps', () => {
   });
 
   it('picks a searched city among the options the portal lists', async () => {
-    const { F, document } = page(`<form><div role="group"><label for="_r_h_">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
+    const { F, document } = page(`<form><h2>Dati personali</h2><div role="group"><label for="_r_h_">Città</label><div data-testid="CityName"><div><div id="react-select-1-placeholder">Selezionare la città</div>
       <div><input id="city" role="combobox" type="text" value=""></div></div></div></div><div id="menu"></div>${continueButtons}</form>`);
     const input = document.getElementById('city') as HTMLInputElement;
     const box = document.querySelector('[data-testid="CityName"] > div')!;
@@ -703,8 +703,8 @@ describe('fill extension: other portals', () => {
     const identity = { ...kit.identity, address: { ...kit.identity.address, postalCode: '22100' } };
     await F.fillPage(document, { ...kit, identity, answers: [], profile: { dateOfBirth: '1986-09-12' } }, { getFile: async () => null, attempts: new WeakMap() });
     const value = (id: string) => (document.getElementById(id) as HTMLInputElement).value;
-    // German compounds count; a place of birth is no date.
-    expect(['fn', 'ln', 'last', 'company', 'tel', 'dob', 'plz', 'birthplace'].map(value)).toEqual(['Luigi', 'Prova', 'Prova', '', '3331234567', '12.09.1986', '22100', '']);
+    // German compounds count; a bare postal field has no residence provenance, and a place of birth is no date.
+    expect(['fn', 'ln', 'last', 'company', 'tel', 'dob', 'plz', 'birthplace'].map(value)).toEqual(['Luigi', 'Prova', 'Prova', '', '3331234567', '12.09.1986', '', '']);
     expect(F.parseDate('12/09/1986')).toEqual({ year: 1986, month: 9, day: 12 });
   });
 });

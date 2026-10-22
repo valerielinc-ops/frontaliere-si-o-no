@@ -375,6 +375,7 @@ describe('source-detail fidelity checks', () => {
       ['Fribourg', 'Freiburg', 'Friburgo'],
       ['Biel', 'Bienne', 'Bienne-Biel'],
       ['Chur', 'Coira', 'Cuira'],
+      ['Soletta', 'Solothurn'],
     ]) {
       for (const left of aliases) {
         for (const right of aliases) expect(sourceLocationMatches(left, right), `${left} ↔ ${right}`).toBe(true);
@@ -383,6 +384,7 @@ describe('source-detail fidelity checks', () => {
     expect(sourceLocationMatches('Fribourg', 'Freiburg im Breisgau')).toBe(false);
     expect(sourceLocationMatches('Biel', 'Biel-Benken')).toBe(false);
     expect(sourceLocationMatches('Chur', 'Churwalden')).toBe(false);
+    expect(sourceLocationMatches('Biel / Solothurn / Mittelland', 'Solothurn')).toBe(false);
   });
 
   it('distinguishes authoritative location markup from generic page chrome', () => {
@@ -457,6 +459,23 @@ describe('source-detail fidelity checks', () => {
       descriptionMismatch: false,
     });
     expect(result.sourceDescriptionLength).toBeGreaterThan(200);
+  });
+
+  it('uses SBB vacancy summary metadata instead of the generic headquarters JSON-LD', () => {
+    const html = `<html><head>
+      <meta name="twitter:description" content="Bellinzona, 01.02.2027, 60-100%">
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Tecnico industriale specializzato",
+        "jobLocation":{"address":{"addressLocality":"Bern","addressRegion":"Bern","addressCountry":"CH"}}}</script>
+      </head><body><h1>Tecnico industriale specializzato</h1></body></html>`;
+
+    expect(extractSourceLocationObservation(html, 'https://jobs.sbb.ch/v2/offene-stellen/tecnico/uuid')).toEqual({
+      location: 'Bellinzona',
+      evidence: 'job-summary',
+    });
+    expect(classifySourceLocationEvidence(html, 'https://jobs.sbb.ch/v2/offene-stellen/tecnico/uuid')).toBe('job-summary');
+    expect(sourceLocationMatches('Tessin', 'Bellinzona')).toBe(false);
+    expect(sourceLocationMatches('Bellinzona', 'Bellinzona')).toBe(true);
+    expect(extractSourceLocationObservation(html, 'https://jobs.example.test/v2/offene-stellen/tecnico/uuid').location).toBe('Bern, Bern');
   });
 
   it('does not attribute stale single-record schema to a visibly different vacancy', async () => {
@@ -622,6 +641,34 @@ describe('source-detail fidelity checks', () => {
     expect(summary.inconclusiveLocationObservations).toBe(2);
     expect(report['coop-ticino'].issues).toHaveLength(0);
     expect(report.avaloq.issues).toHaveLength(0);
+  });
+
+  it('uses a SuccessFactors CSB city field to explain a conflicting location block', async () => {
+    const description = 'Eine ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const url = 'https://karriere.zurzachcare.ch/job/Braunwald/1368019833/';
+    const html = `<main><h1>Vacancy Braunwald</h1>
+      <span data-careersite-propertyid="city">Braunwald</span>
+      <div class="job-detail-location">Basel</div>
+      <div class="job-description">${description}</div></main>`;
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'zurzach-care',
+      url,
+      job: {
+        url,
+        title: 'Vacancy Braunwald',
+        addressLocality: 'Braunwald',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true, status: 200, url: pageUrl, body: html, host: 'karriere.zurzachcare.ch',
+      }),
+    });
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
+    expect(result.locationChecked).toBe(false);
+    expect(result.locationAuthority).toBe('source-internal-conflict');
   });
 
   it('matches a structured source locality through the vacancy postal code', () => {
@@ -894,6 +941,109 @@ describe('source-detail fidelity checks', () => {
     expect(result.locationAuthority).toBe('source-internal-conflict');
     expect(result.locationChecked).toBe(false);
     expect(result.locationInconclusive).toBe(true);
+  });
+
+  it('keeps a rendered precise workplace beside a broad structured region inconclusive', async () => {
+    const description = 'Eine ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const url = 'https://medimeo.ch/job/hausarzt-hausaerztin-3612/';
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Hausarzt / Hausärztin',
+      description,
+      jobLocation: {
+        address: {
+          addressLocality: 'Biel / Solothurn / Mittelland',
+          addressCountry: 'CH',
+        },
+      },
+    })}</script><main><h1>Hausarzt / Hausärztin</h1>
+      <div class="job-location">Solothurn</div>
+      <div class="job-description">${description}</div></main>`;
+
+    expect(extractDetailFields(html, url).renderedJobLocationFields).toEqual(['Solothurn']);
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'medimeo',
+      url,
+      job: {
+        url,
+        title: 'Hausarzt / Hausärztin',
+        addressLocality: 'Soletta',
+        sourceLang: 'de',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'medimeo.ch',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      sourceLocation: 'Biel / Solothurn / Mittelland',
+      locationMismatch: false,
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'source-internal-conflict',
+    });
+  });
+
+  it('treats multiple strong workplace locations on one Holcim vacancy as an internal source conflict', async () => {
+    const description = 'Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen. '.repeat(12);
+    const url = 'https://careers.holcimgroup.com/holcim_switzerland/job/koordinator/1358872357/';
+    const html = `<main><h1>Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%</h1>
+      <div itemscope itemtype="http://schema.org/JobPosting">
+        <span itemprop="jobLocation" itemscope itemtype="http://schema.org/Place">
+          <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <meta itemprop="addressLocality" content="Mülligen">
+            <meta itemprop="addressRegion" content="AG">
+            <meta itemprop="postalCode" content="5243">
+            <meta itemprop="addressCountry" content="CH">
+          </span>
+        </span>
+      </div>
+      <p class="job-location">Mülligen, AG, CH, 5243</p>
+      <p class="job-location">Oberdorf, NW, CH, 6370</p>
+      <div class="job-description">${description}</div></main>`;
+
+    const detail = extractDetailFields(html, url, {
+      recordUrl: url,
+      recordTitle: 'Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%',
+    });
+    expect(detail.renderedJobLocationFields).toEqual([
+      'Mülligen, AG, CH, 5243',
+      'Oberdorf, NW, CH, 6370',
+    ]);
+
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'holcim',
+      url,
+      job: {
+        url,
+        title: 'Koordinator:in Arbeitssicherheit/Gesundheitsschutz Kies&Beton 80-100%',
+        addressLocality: 'Oberdorf',
+        sourceLang: 'de',
+        description,
+      },
+    }], 1, {
+      fetchPage: async (pageUrl: string) => ({
+        ok: true,
+        status: 200,
+        url: pageUrl,
+        body: html,
+        host: 'careers.holcimgroup.com',
+      }),
+    });
+
+    expect(result).toMatchObject({
+      sourceLocation: 'Mülligen',
+      locationMismatch: false,
+      locationChecked: false,
+      locationInconclusive: true,
+      locationAuthority: 'source-internal-conflict',
+    });
   });
 
   it('keeps the mismatch when the source page never names the published place', () => {

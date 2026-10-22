@@ -47,6 +47,7 @@ import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
+import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from './shared/weeklyEmployersArchiveMarker.mjs';
 import { WriteCollector } from './batchWrite';
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
@@ -2705,7 +2706,7 @@ ${faqHtml}
 </article>`;
 
   const title = buildTitleWithBrand(t.topHubTitle);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = ledeText;
@@ -3298,7 +3299,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // verbose phrasing already in COPY[] which always carries "questa settimana"
   // / "this week" / "diese Woche" / "cette semaine".
   void h1; // h1 is already differentiated from title; declared above.
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = heroSummary;
@@ -3307,8 +3308,10 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     variant === 'archive' && !indexable
       ? `<p class="s-4vckkk">${esc(copy.archiveNoindexNote)}</p>`
       : '';
+  const archiveNoindexMarker =
+    variant === 'archive' && !indexable ? WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER : '';
 
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `${archiveNoindexMarker}<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="breadcrumb">
     <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -3778,7 +3781,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // eventDetailMetaTitle (#3589).
   const compactClamped = capSearchStatsLandingTitle(compactBase, 60).replace(/[\s,—-]+$/u, '');
   const title = buildTitleWithBrand(compactClamped);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = heroSummary;

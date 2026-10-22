@@ -74,6 +74,7 @@ set -uo pipefail
 # push-section-shard.sh / push-locale-shard.sh, used by the CDN assets push
 # below instead of a second copy of the retry loop (AGENTS.md #6).
 source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/r2-image-lease-process.sh"
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
 
@@ -251,6 +252,45 @@ _publish_cdn_r2() {
   _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
   local bkt=":s3:$R2_BUCKET" ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
+  _r2_release_owned_image_namespace_lease() {
+    [ "${_image_lease_owned:-0}" = 1 ] || return 0
+    # Do not retry a release from EXIT if this request itself is interrupted.
+    _image_lease_owned=0
+    if ! node "$_lease_cli" release --context "$_image_lease_context"; then
+      echo "::error::[r2] image namespace lease release failed; refusing to mark the R2 payload complete"
+      return 1
+    fi
+    return 0
+  }
+  _r2_restore_image_lease_context() {
+    if [ "$_prior_context_set" = x ]; then
+      export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_prior_context"
+    else
+      unset FRONTALIERE_R2_IMAGE_LEASE_CONTEXT
+    fi
+  }
+  _r2_image_namespace_lease_exit_cleanup() {
+    local exit_status=$?
+    trap '' EXIT INT TERM
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ] && ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    if [ "${_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED:-1}" = 1 ]; then
+      _r2_release_owned_image_namespace_lease || {
+        [ "$exit_status" = 0 ] && exit_status=1
+      }
+    fi
+    _r2_restore_image_lease_context
+    exit "$exit_status"
+  }
+  _r2_image_namespace_lease_signal() {
+    local exit_status="$1"
+    trap '' INT TERM
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+    fi
+    exit "$exit_status"
+  }
   _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] — COPY (additive, no delete)
     [ -d "$2" ] || return 0
     local sync_status=0
@@ -259,7 +299,7 @@ _publish_cdn_r2() {
       # those at the edge (see the assets/ call below). --log-file swallows
       # rclone's stderr, so the log is echoed back to the deploy output after
       # the run — a sync error must stay visible in the job log.
-      if ! timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
+      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0 \
         -v --use-json-log --log-file="$5"; then
         ok=0
         sync_status=1
@@ -268,7 +308,7 @@ _publish_cdn_r2() {
       # case) is normal and must not alter the sync result returned below.
       if [ -s "$5" ]; then cat "$5"; fi
     else
-      if ! timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
+      if ! _r2_image_lease_wait_timeout timeout -k 15 "$1" "${RC[@]}" copy "$2" "$bkt/$3" --header-upload "Cache-Control: $4" --stats=0; then
         ok=0
         sync_status=1
       fi
@@ -278,6 +318,86 @@ _publish_cdn_r2() {
     fi
     return "$sync_status"
   }
+  _r2_with_image_namespace_leases() { # <namespace-list> <command> <argv...> — run the image batch under all present namespace leases
+    local _image_lease_namespaces="$1"
+    shift
+    local _image_lease_context _image_lease_owned=0 _command_status=0 _release_status=0
+    local _image_lease_namespace
+    local -a _image_lease_namespace_list=()
+    local _prior_context_set="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT+x}"
+    local _prior_context="${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT-}"
+    local _lease_cli="scripts/lib/r2-image-namespace-lock.mjs"
+    local _R2_IMAGE_LEASE_ACTIVE=1 _R2_IMAGE_LEASE_TIMEOUT_PID=
+    local _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=1
+    local _R2_IMAGE_LEASE_SIGNAL_HANDLER=_r2_image_namespace_lease_signal
+    local _prior_exit_trap _prior_int_trap _prior_term_trap
+
+    if [ -n "$_prior_context" ]; then
+      _image_lease_context="$_prior_context"
+      IFS=',' read -r -a _image_lease_namespace_list <<< "$_image_lease_namespaces"
+      for _image_lease_namespace in "${_image_lease_namespace_list[@]}"; do
+        if ! node "$_lease_cli" verify --namespace "$_image_lease_namespace" --context "$_image_lease_context"; then
+          echo "::error::[r2] existing image lease does not cover the requested namespaces or is no longer valid; skipping images/ sync"
+          return 1
+        fi
+      done
+    else
+      if ! _image_lease_context="$(node "$_lease_cli" acquire --namespace "$_image_lease_namespaces")" || [ -z "$_image_lease_context" ]; then
+        echo "::error::[r2] could not acquire the image namespace lease; skipping images/ sync"
+        return 1
+      fi
+      _image_lease_owned=1
+    fi
+
+    _prior_exit_trap="$(trap -p EXIT)"
+    _prior_int_trap="$(trap -p INT)"
+    _prior_term_trap="$(trap -p TERM)"
+    trap '_r2_image_namespace_lease_exit_cleanup' EXIT
+    trap '_r2_image_namespace_lease_signal 130' INT
+    trap '_r2_image_namespace_lease_signal 143' TERM
+
+    export FRONTALIERE_R2_IMAGE_LEASE_CONTEXT="$_image_lease_context"
+    if "$@"; then
+      _command_status=0
+    else
+      _command_status=$?
+    fi
+
+    if ! _r2_image_lease_stop_timeout; then
+      _IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED=0
+      _release_status=1
+    fi
+    if [ "$_IMAGE_NAMESPACE_LEASE_RELEASE_ALLOWED" = 1 ] \
+      && ! _r2_release_owned_image_namespace_lease; then
+      _release_status=1
+    fi
+    _r2_restore_image_lease_context
+    trap - EXIT INT TERM
+    [ -n "$_prior_exit_trap" ] && eval "$_prior_exit_trap"
+    [ -n "$_prior_int_trap" ] && eval "$_prior_int_trap"
+    [ -n "$_prior_term_trap" ] && eval "$_prior_term_trap"
+    [ "$_command_status" = 0 ] || return "$_command_status"
+    return "$_release_status"
+  }
+  # Publish-window handshake for the runtime watchdog. Stable asset names are
+  # overwritten one by one, so cdn-build-id.txt deliberately stays on the last
+  # complete generation until the payload is whole. Without a separate start
+  # marker, a concurrent watchdog cannot distinguish that partial origin from a
+  # missed edge purge and may spread the half-uploaded generation to the edge.
+  #
+  # The token is the upload start epoch (not DEPLOY_BUILD_ID, which is minted
+  # hours earlier at matrix setup). The matching completion marker is written
+  # only after the authoritative build marker succeeds. A killed/failed upload
+  # therefore remains explicitly incomplete instead of looking purgeable.
+  local _publish_token _publish_marker_file
+  _publish_token="$(date +%s%3N)"
+  _publish_marker_file="${RUNNER_TEMP:-/tmp}/cdn-publish-$$_${_publish_token}.txt"
+  printf '%s' "$_publish_token" > "$_publish_marker_file"
+  if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-start-id.txt" \
+       --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+    echo "::warning::R2 publish-start marker PUT failed — refusing to mutate the CDN origin without a visible upload window"
+    return 0
+  fi
   # assets/ Cache-Control — read this before changing it.
   #
   # Bundle filenames here are STABLE, never content-hashed
@@ -394,11 +514,68 @@ _publish_cdn_r2() {
     assets_sync_ok=1
   fi
   _r2_sync 300 "$stage/og"        og        "public,max-age=86400"
-  _r2_sync 120 "$stage/images"    images    "public,max-age=86400"
+  local _image_namespaces=''
+  if [ -d "$stage/images/blog" ]; then
+    _image_namespaces=blog
+  fi
+  if [ -d "$stage/images/places" ]; then
+    if [ -n "$_image_namespaces" ]; then
+      _image_namespaces="${_image_namespaces},places"
+    else
+      _image_namespaces=places
+    fi
+  fi
+  if [ -n "$_image_namespaces" ]; then
+    if ! _r2_with_image_namespace_leases "$_image_namespaces" _r2_sync 120 "$stage/images" images "public,max-age=86400"; then
+      # An unleased or partially published image generation must not receive a
+      # completion marker. Keep the other R2 prefixes additive and retryable.
+      ok=0
+    fi
+  else
+    _r2_sync 120 "$stage/images" images "public,max-age=86400"
+  fi
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600"
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
+  # A purge is safe only for a complete, self-consistent R2 generation. This
+  # is deliberately a fresh read for every purge branch: the error path below
+  # can run after assets/ was copied but before the completion marker, and the
+  # marker PUT itself can fail after the payload has been written.
+  _r2_revalidate_publish_window() {
+    local _build_file="$_pdir/purge-build-id.txt"
+    local _start_file="$_pdir/purge-start-id.txt"
+    local _complete_file="$_pdir/purge-complete-id.txt"
+    local _marker _dest _build _start _complete _markers_valid=1
+    for _marker in cdn-build-id.txt cdn-publish-start-id.txt cdn-publish-complete-id.txt; do
+      case "$_marker" in
+        cdn-build-id.txt) _dest="$_build_file" ;;
+        cdn-publish-start-id.txt) _dest="$_start_file" ;;
+        cdn-publish-complete-id.txt) _dest="$_complete_file" ;;
+      esac
+      rm -f "$_dest" 2>/dev/null || true
+      if ! timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$bkt/$_marker" "$_dest" --retries=1; then
+        echo "::warning::[r2] skipping targeted CDN purge: could not revalidate build/start/complete markers immediately before purge"
+        return 1
+      fi
+      if [ ! -s "$_dest" ]; then
+        echo "::warning::[r2] skipping targeted CDN purge: R2 marker $bkt/$_marker is missing or empty"
+        return 1
+      fi
+    done
+    _build="$(tr -d '[:space:]' < "$_build_file")"
+    _start="$(tr -d '[:space:]' < "$_start_file")"
+    _complete="$(tr -d '[:space:]' < "$_complete_file")"
+    case "$_start" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+    case "$_complete" in ''|*[!0-9]*) _markers_valid=0 ;; esac
+    if [ "$_markers_valid" != 1 ] || [ -z "${DEPLOY_BUILD_ID:-}" ] || [ "$_build" != "$DEPLOY_BUILD_ID" ] \
+      || [ "$_start" != "$_complete" ]; then
+      echo "::warning::[r2] skipping targeted CDN purge: publish window is not coherent (build=${_build:-<empty>} expected=${DEPLOY_BUILD_ID:-<empty>}, start=${_start:-<empty>}, complete=${_complete:-<empty>})"
+      return 1
+    fi
+    echo "::notice::[r2] CDN purge revalidated build/start/complete (build=$_build, publish-window=$_start)"
+    return 0
+  }
   _purge_r2_changed_assets() {
     local _prc=0
     if [ "$assets_sync_ok" = 1 ] && [ "$_ledger_state" = present ]; then
@@ -406,29 +583,33 @@ _publish_cdn_r2() {
       # exited 0 (see the script's header). The log still goes in (union).
       # The script's own budget ends 45 s before `timeout`, so it stops
       # starting batches and still writes the ledger; the kill is the backstop.
-      CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
-        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-        --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
-        --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
-      if [ "$_prc" -ne 0 ]; then
-        echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — ledger not updated, the next deploy re-diffs and retries"
-        rm -f "$_pdir/ledger-out.json" 2>/dev/null || true
-      fi
-      # Written only AFTER the purge, and only with what the script recorded:
-      # a key takes its new MD5 only if its own batch succeeded. no-store so a
-      # read of it is never an edge copy.
-      if [ -s "$_pdir/ledger-out.json" ]; then
-        timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
-          --header-upload "Content-Type: application/json; charset=utf-8" \
-          --header-upload "Cache-Control: no-store, max-age=0" \
-          || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
+      if _r2_revalidate_publish_window; then
+        CDN_PURGE_BUDGET_MS="$(( (_t_purge > 90 ? _t_purge - 45 : _t_purge / 2) * 1000 ))" \
+          timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          --stage-dir="$stage/assets" --ledger-in="$_pdir/ledger-in.json" \
+          --ledger-out="$_pdir/ledger-out.json" --build-id="${DEPLOY_BUILD_ID:-}" || _prc=$?
+        if [ "$_prc" -ne 0 ]; then
+          echo "::error::[r2] targeted CDN asset purge exited $_prc (124 = over ${_t_purge}s) — ledger not updated, the next deploy re-diffs and retries"
+          rm -f "$_pdir/ledger-out.json" 2>/dev/null || true
+        fi
+        # Written only AFTER the purge, and only with what the script recorded:
+        # a key takes its new MD5 only if its own batch succeeded. no-store so a
+        # read of it is never an edge copy.
+        if [ -s "$_pdir/ledger-out.json" ]; then
+          timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_pdir/ledger-out.json" "$bkt/$_ledger_key" \
+            --header-upload "Content-Type: application/json; charset=utf-8" \
+            --header-upload "Cache-Control: no-store, max-age=0" \
+            || echo "::error::[r2] purge ledger write failed or exceeded ${_t_obj}s — the next deploy re-diffs against the previous ledger"
+        fi
       fi
     elif [ "$assets_sync_ok" = 1 ] && [ -s "$_assets_log" ]; then
       # Fallback (stage unavailable): this run's uploads only. No budget here:
       # without a ledger, a key the budget left untried would be forgotten
       # (review of #11641); the script ignores CDN_PURGE_BUDGET_MS in this mode.
-      timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
-        || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
+      if _r2_revalidate_publish_window; then
+        timeout -k 10 "$_t_purge" node scripts/ci/purge-changed-cdn-assets.mjs "$_assets_log" assets \
+          || echo "::warning::targeted CDN asset purge failed or exceeded ${_t_purge}s — edge falls back to the 7d max-age"
+      fi
     elif [ "$assets_sync_ok" != 1 ]; then
       echo "⚠️ [r2] assets/ sync failed — no edge purge this run; with a ledger, what it did upload stays dirty for the next deploy"
     fi
@@ -443,12 +624,20 @@ _publish_cdn_r2() {
     _purge_r2_changed_assets
     return 0
   fi
-  # Marker LAST (atomicity #2569): only now is this build's full payload on R2.
+  # Generation marker last (atomicity #2569): only now is this build's full
+  # payload on R2. Then close the publish window with the exact token written
+  # before the first payload mutation; watchdog observations are authoritative
+  # only while start == complete.
   printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
   if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt" \
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
-    export_env CDN_BASE "https://cdn.frontaliereticino.ch"
-    echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}"
+    if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt" \
+         --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+      export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+      echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}; publish-window=$_publish_token"
+    else
+      echo "⚠️ R2 publish-complete marker PUT failed — offload stays unacknowledged and the full prep will retry"
+    fi
   else
     echo "⚠️ R2 marker PUT failed — offload skipped, og/data stay in dist"
   fi

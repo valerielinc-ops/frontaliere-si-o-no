@@ -614,6 +614,24 @@ describe('subscribeCompanyAlert persists the immediate cadence (#5012 phase 2)',
       { company_follow_followup_pending: false },
     );
   });
+
+  it('does not rewrite an already-cleared server follow-up marker', async () => {
+    getDocMock
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => false, data: () => undefined })
+      .mockResolvedValueOnce({ exists: () => true, data: () => ({ company_follow_followup_pending: false }) });
+
+    await subscribeCompanyAlert(
+      'user-1',
+      'foo@example.com',
+      { name: 'Already Cleared SA', companyKey: 'already-cleared' },
+      'it',
+      undefined,
+      TEST_EMAIL_CONSENT,
+    );
+
+    expect(updateDocMock).not.toHaveBeenCalled();
+  });
 });
 
 describe('company_alert template — the dedicated email the issue asks for (#5012)', () => {

@@ -15,7 +15,9 @@ on:
         type: boolean
 concurrency:
   group: fuel-prices
-  cancel-in-progress: true
+  # Keep an hourly/manual run from cancelling the daily run after it has
+  # generated the cache but before its refresh PR is opened.
+  cancel-in-progress: false
 
 permissions:
   contents: write

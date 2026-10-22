@@ -14,16 +14,74 @@
  * 0% on both. One extractor, two callers: the disagreement cannot come back.
  */
 
-import { extractDetailFields, isSufficientVacancyDescription } from './extract.mjs';
+import { extractDetailFields, isSufficientVacancyDescription, textOf } from './extract.mjs';
 import { dedupeLocationCandidates } from './location-evidence.mjs';
 import { extractPageExecutiveDetailFields } from './pageexecutive-detail.mjs';
 import { extractUmantisDetailFields, umantisDetailFallbackUrl } from './umantis-detail.mjs';
+import { normalizeSwissCantonCode } from '../target-swiss-locations.mjs';
+
+function normalizedLabel(value) {
+  return textOf(String(value || '').replace(/&nbsp;/gi, ' '))
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Read the first paragraph after an exact heading in a detail page.
+ *
+ * Some employer pages include both the vacancy's workplace and the company's
+ * head office in their structured data and footer. A spec may name the exact
+ * heading for the per-vacancy workplace, so that label can be preferred over
+ * unrelated company addresses.
+ *
+ * @param {string} html
+ * @param {string} label
+ * @returns {string}
+ */
+export function extractLabelledDetailValue(html = '', label = '') {
+  const wanted = normalizedLabel(label);
+  if (!wanted) return '';
+  const source = String(html || '');
+  const headings = /<h([1-6])\b[^>]*>([\s\S]{0,500}?)<\/h\1>/gi;
+  let heading;
+  while ((heading = headings.exec(source))) {
+    if (normalizedLabel(heading[2]) !== wanted) continue;
+    const afterHeading = source.slice(headings.lastIndex);
+    const nextHeading = /<h[1-6]\b/i.exec(afterHeading);
+    const section = afterHeading.slice(0, nextHeading ? nextHeading.index : 1500);
+    const paragraph = /<p\b[^>]*>([\s\S]{1,500}?)<\/p>/i.exec(section);
+    const value = paragraph ? textOf(paragraph[1].replace(/&nbsp;/gi, ' ')) : '';
+    if (value) return value;
+  }
+  return '';
+}
+
+function labelledLocationEvidence(value) {
+  const raw = String(value || '').replace(/\s+/g, ' ').trim();
+  // A choice of broad work areas does not identify one workplace. Refuse it
+  // explicitly so the page-wide company address cannot fall back in.
+  if (/\b(?:oder|or)\b|\s\/\s/i.test(raw)) return null;
+  const workplace = raw.replace(/\s+Einsatzgebiet\b[\s\S]*$/i, '').trim();
+  const suffix = /^(.*?)\s*\(([A-Za-z]{2,3})\)(?:\s+.*)?$/.exec(workplace);
+  const addressRegion = normalizeSwissCantonCode(suffix?.[2] || '');
+  const addressLocality = String(suffix?.[1] || '').trim();
+  if (!addressRegion || !addressLocality) return { location: raw };
+  return {
+    location: addressLocality,
+    addressLocality,
+    addressRegion,
+    addressCountry: 'CH',
+  };
+}
 
 /**
  * @param {{ platform?: string }} spec
  * @param {string} html
  * @param {string} url
- * @param {{ detailExtractor?: (html: string, url: string) => any, recordUrl?: string }} [opts]
+ * @param {{ detailExtractor?: (html: string, url: string, opts?: { recordUrl?: string, recordTitle?: string }) => any, recordUrl?: string, recordTitle?: string }} [opts]
  * @returns {any}
  */
 export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
@@ -32,7 +90,29 @@ export function extractRuntimeDetailFields(spec, html, url, opts = {}) {
     || (spec?.platform === 'pageexecutive.com'
       ? extractPageExecutiveDetailFields
       : extractDetailFields);
-  const detail = base(html, url, { recordUrl: opts.recordUrl });
+  const detail = base(html, url, {
+    recordUrl: opts.recordUrl,
+    recordTitle: opts.recordTitle,
+  });
+  const labelledLocation = extractLabelledDetailValue(html, spec?.detailLocationLabel);
+  if (labelledLocation) {
+    // The named source heading describes the vacancy's workplace. Replace the
+    // page-wide address candidates so a company address in JSON-LD/footer
+    // cannot outrank it during the shared Swiss geography resolution.
+    const evidence = labelledLocationEvidence(labelledLocation);
+    if (!evidence) {
+      detail.authoritativeLocationConflict = true;
+      return detail;
+    }
+    detail.location = evidence.location;
+    detail.locationCandidates = [evidence];
+    detail.addressLocality = evidence.addressLocality || '';
+    detail.addressRegion = evidence.addressRegion || '';
+    detail.addressCountry = evidence.addressCountry || '';
+    detail.country = evidence.addressCountry || '';
+    detail.postalCode = '';
+    detail.streetAddress = '';
+  }
   if (spec?.platform !== 'umantis.com') return detail;
   // A tenant extractor read the very same page: its output is the whole
   // verdict, EMPTY FIELDS INCLUDED. An empty location means "nothing here
@@ -105,18 +185,27 @@ export function runtimeDetailFallbackUrl(spec, status, url) {
  */
 export function listingEvidenceFields(row = {}, evidence) {
   if (!evidence) return {};
+  const rowHasConcreteLocationEvidence = Boolean(
+    row.location || row.addressLocality || row.locationCandidates?.length,
+  );
+  const projectedEvidence = evidence.sourceTitleAlternatives && rowHasConcreteLocationEvidence ? null : evidence;
+  const evidenceCandidates = projectedEvidence
+    ? Array.isArray(projectedEvidence.locationCandidates)
+      ? projectedEvidence.locationCandidates
+      : [projectedEvidence]
+    : [];
   return {
-    location: row.location || evidence.location || '',
-    addressLocality: row.addressLocality || evidence.addressLocality || '',
-    addressRegion: row.addressRegion || evidence.addressRegion || '',
-    addressCountry: row.addressCountry || evidence.addressCountry || '',
-    postalCode: row.postalCode || evidence.postalCode || '',
-    streetAddress: row.streetAddress || evidence.streetAddress || '',
+    location: row.location || projectedEvidence?.location || '',
+    addressLocality: row.addressLocality || projectedEvidence?.addressLocality || '',
+    addressRegion: row.addressRegion || projectedEvidence?.addressRegion || '',
+    addressCountry: row.addressCountry || projectedEvidence?.addressCountry || '',
+    postalCode: row.postalCode || projectedEvidence?.postalCode || '',
+    streetAddress: row.streetAddress || projectedEvidence?.streetAddress || '',
     // Folding the same evidence twice must not grow the row: the crawler and
     // the synthesiser both apply this function, and a validator run that
     // re-applies it over an already-folded row would otherwise publish the
     // same place twice as separate evidence. Identity is the address, so
     // `f(f(row, e), e)` equals `f(row, e)`.
-    locationCandidates: dedupeLocationCandidates([...(row.locationCandidates || []), evidence]),
+    locationCandidates: dedupeLocationCandidates([...(row.locationCandidates || []), ...evidenceCandidates]),
   };
 }

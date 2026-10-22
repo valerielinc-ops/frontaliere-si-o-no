@@ -2,6 +2,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { decodeHtmlEntities } from './decode-html-entities.mjs';
+import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
 import {
   isExplicitlyOutsideTarget,
   isLocationExplicitlyForeign,
@@ -59,20 +60,7 @@ function htmlFragmentToMarkdown(html = '') {
  * Try to extract a JobPosting JSON-LD block from the page HTML.
  */
 function extractJobPostingJsonLd(html = '') {
-  const re = /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
-  let match;
-  while ((match = re.exec(html)) !== null) {
-    try {
-      const data = JSON.parse(match[1]);
-      const items = Array.isArray(data) ? data : [data];
-      for (const item of items) {
-        if (item?.['@type'] === 'JobPosting') return item;
-      }
-    } catch {
-      // malformed JSON — skip
-    }
-  }
-  return null;
+  return extractJobPostingNodes(html)[0] || null;
 }
 
 /**

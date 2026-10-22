@@ -20,6 +20,7 @@
 
 import { readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
+import { readStaticMetaFields } from './lib/meta-field-regex.mjs';
 
 // Literal placeholder strings from the LLM JSON template in create-article.mjs.
 // If any of these appear in a meta or seo-blog file, the LLM returned the
@@ -154,13 +155,16 @@ const parseTitles = (filePath) => {
   const out = {};
   try {
     const src = readFileSync(filePath, 'utf-8');
-    const rx = /'blog\.article\.([^']+)\.(title|excerpt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
-    let m;
-    while ((m = rx.exec(src)) !== null) {
-      if (!out[m[1]]) out[m[1]] = {};
-      out[m[1]][m[2]] = m[3];
+    const meta = readStaticMetaFields({ source: src, sourcePath: filePath }, ['title', 'excerpt']);
+    for (const field of ['title', 'excerpt']) {
+      for (const entry of meta[field]) {
+        if (!out[entry.id]) out[entry.id] = {};
+        out[entry.id][field] = entry.value;
+      }
     }
-  } catch { /* file may not exist */ }
+  } catch (err) {
+    if (err?.code !== 'ENOENT') throw err;
+  }
   return out;
 };
 

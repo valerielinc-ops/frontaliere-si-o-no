@@ -15,7 +15,6 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
-import sharp from 'sharp';
 import {
   buildGeneratedImagePrompt,
   generatedImagePromptInput,
@@ -45,6 +44,19 @@ import {
   eventImagePhotoSearchQueries,
   EVENT_IMAGE_LIBRARY_MAX_VARIANTS,
 } from './eventImageLibrary.mjs';
+import {
+  VISION_SCHEMA,
+  imageVisionRejectionError,
+  imageVisionRejected,
+  isCompleteArticleHeroVisionVerdict,
+  structuredVisionFailure,
+} from './generatedImageVision.mjs';
+
+export {
+  imageVisionRejectionError,
+  imageVisionRejected,
+  isCompleteArticleHeroVisionVerdict,
+};
 
 export const CODEX_IMAGE_MODEL = 'gpt-image-2.5';
 export const CODEX_IMAGE_EXECUTOR_MODEL = process.env.CODEX_IMAGE_EXECUTOR_MODEL || 'gpt-5.6-luna';
@@ -106,22 +118,6 @@ function timeoutForDeadline(deadlineAt, fallbackMs) {
 }
 
 const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
-const VISION_SCHEMA = Object.freeze({
-  type: 'object',
-  additionalProperties: false,
-  properties: {
-    ok: { type: 'boolean' },
-    contains_text: { type: 'boolean' },
-    contains_logo: { type: 'boolean' },
-    contains_recognizable_face: { type: 'boolean' },
-    contains_recognizable_foreground_person: { type: 'boolean' },
-    looks_like_specific_real_event: { type: 'boolean' },
-    is_photograph: { type: 'boolean' },
-    is_topic_relevant: { type: 'boolean' },
-    notes: { type: 'string' },
-  },
-  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'contains_recognizable_foreground_person', 'looks_like_specific_real_event', 'is_photograph', 'is_topic_relevant', 'notes'],
-});
 
 function listFilesRecursively(root) {
   if (!fs.existsSync(root)) return [];
@@ -365,7 +361,11 @@ function requestCodexBroker({ prompt, imagePath = '', imageOutputPath = '', gene
     const socketTimeoutMs = Number.isFinite(deadlineAt)
       ? Math.max(1, deadlineAt - Date.now())
       : timeoutMs + 30_000;
-    const socketTimeout = setTimeout(() => finish(new Error(`Codex broker timed out after ${timeoutMs}ms`)), socketTimeoutMs);
+    const socketTimeout = setTimeout(() => {
+      const error = new Error(`Codex broker timed out after ${timeoutMs}ms`);
+      error.code = 'ETIMEDOUT';
+      finish(error);
+    }, socketTimeoutMs);
     socketTimeout.unref?.();
     client.setEncoding('utf8');
     client.on('error', (error) => finish(error));
@@ -383,7 +383,13 @@ function requestCodexBroker({ prompt, imagePath = '', imageOutputPath = '', gene
       if (!parsed?.ok) finish(new Error(`Codex broker rejected the request: ${parsed?.error || 'unknown error'}`));
       else finish(null, { text: String(parsed.result || ''), started });
     });
-    client.on('end', () => { if (!settled) finish(new Error('Codex broker closed without a response')); });
+    client.on('end', () => {
+      if (!settled) {
+        const error = new Error('Codex broker closed without a response');
+        error.code = 'ECONNRESET';
+        finish(error);
+      }
+    });
     client.on('connect', () => client.end(`${JSON.stringify(request)}\n`));
   });
 }
@@ -1168,6 +1174,67 @@ async function runPixabayPhoto(spec, destination, { timeoutMs = 45_000, usedReco
   return { imagePath: destination, model: 'Pixabay photo search', photo };
 }
 
+const VISION_PROVIDER_TRANSPORT_CODES = new Set([
+  'ECONNABORTED', 'ECONNREFUSED', 'ECONNRESET', 'EAI_AGAIN', 'EHOSTUNREACH', 'ENOTFOUND',
+  'ENETUNREACH', 'EPIPE', 'ETIMEDOUT', 'UND_ERR_ABORTED', 'UND_ERR_CONNECT_TIMEOUT',
+  'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT', 'UND_ERR_SOCKET',
+]);
+
+function errorCauseChain(error) {
+  const pending = [error];
+  const seen = new Set();
+  const chain = [];
+  while (pending.length > 0) {
+    const current = pending.pop();
+    if (typeof current === 'string' && current.trim()) {
+      chain.push({ message: current });
+      continue;
+    }
+    if (!current || (typeof current !== 'object' && typeof current !== 'function') || seen.has(current)) continue;
+    seen.add(current);
+    chain.push(current);
+    if (current.cause) pending.push(current.cause);
+    if (Array.isArray(current.errors)) pending.push(...current.errors);
+  }
+  return chain;
+}
+
+export function isVisionProviderUnavailable(error) {
+  const causes = errorCauseChain(error);
+  if (causes.length === 0 || causes.some((cause) => cause.imageCandidateFileFailure === true
+    || cause.code === 'IMAGE_VISION_VERDICT_INCOMPLETE'
+    || cause.code === 'IMAGE_VISION_REJECTED')) return false;
+  if (causes.some((cause) => {
+    const status = Number(cause.status ?? cause.statusCode);
+    return [401, 403].includes(status)
+      || /(?:HTTP|status)\s*(?:401|403)|\b(?:unauthori[sz]ed|authentication failed|invalid (?:api )?key|invalid credentials)\b/i
+        .test(String(cause.message || ''));
+  })) return false;
+  if (causes.some((cause) => cause.sharedProviderUnavailable === true)) return true;
+  return causes.some((cause) => {
+    if (VISION_PROVIDER_TRANSPORT_CODES.has(String(cause.code || ''))
+      || cause.name === 'AbortError'
+      || cause.name === 'TimeoutError'
+      || cause.code === 'ABORT_ERR') return true;
+    const status = Number(cause.status ?? cause.statusCode);
+    if ([408, 425, 429].includes(status) || (status >= 500 && status <= 599)) return true;
+    return /\b(?:provider|service|model).{0,32}\b(?:unavailable|overloaded|at capacity)\b|rate.?limit|quota.{0,24}(?:exceeded|unavailable)|too many requests|(?:HTTP|status)\s*(?:408|425|429|5\d\d)|\bCodex broker (?:timed out after|closed without a response)\b/i
+      .test(String(cause.message || ''));
+  });
+}
+
+function sharedVisionProviderUnavailableError(errors) {
+  const cause = errors.length === 1
+    ? errors[0]
+    : new AggregateError(errors, 'all shared image-vision providers are unavailable');
+  const error = new Error('shared image-vision provider is unavailable');
+  error.code = 'AI_PROVIDER_UNAVAILABLE';
+  error.retryable = true;
+  error.sharedProviderUnavailable = true;
+  error.cause = cause;
+  return error;
+}
+
 async function runGeminiVision(filePath, {
   timeoutMs = 120_000,
   kind = GENERATED_IMAGE_KIND,
@@ -1179,7 +1246,13 @@ async function runGeminiVision(filePath, {
 } = {}) {
   const apiKey = String(process.env.GEMINI_API_KEY || '').trim();
   if (!apiKey) throw new Error('GEMINI_API_KEY is not configured for the vision fallback');
-  const image = fs.readFileSync(filePath).toString('base64');
+  let image;
+  try {
+    image = fs.readFileSync(filePath).toString('base64');
+  } catch (error) {
+    error.imageCandidateFileFailure = true;
+    throw error;
+  }
   const prompt = [
     'Inspect the attached generated image for a publication safety gate.',
     'Return only one JSON object with the keys ok, contains_text, contains_logo, contains_recognizable_face, contains_recognizable_foreground_person, looks_like_specific_real_event, is_photograph, is_topic_relevant and notes.',
@@ -1218,7 +1291,9 @@ async function runGeminiVision(filePath, {
       }),
     });
     if (!response.ok) {
-      throw new Error(formatProviderHttpError('Gemini vision', response.status, await response.text()));
+      const error = new Error(formatProviderHttpError('Gemini vision', response.status, await response.text()));
+      error.status = response.status;
+      throw error;
     }
     const json = await response.json();
     const text = [
@@ -1244,6 +1319,7 @@ function xmpFor({ title, provider, model, kind = GENERATED_IMAGE_KIND, licenseUr
 }
 
 async function normalizeToWebp(rawPath, outputPath, spec, metadata) {
+  const sharp = await loadSharp();
   const format = spec.format || GENERATED_IMAGE_DEFAULT_FORMAT;
   const qualities = [82, 76, 70, 64, 58, 52, 46];
   let lastBuffer = null;
@@ -1264,6 +1340,7 @@ async function normalizeToWebp(rawPath, outputPath, spec, metadata) {
 }
 
 async function inspectWebp(filePath, expected, xmpMetadata = {}) {
+  const sharp = await loadSharp();
   const buffer = fs.readFileSync(filePath);
   const imageMetadata = await sharp(buffer).metadata();
   if (imageMetadata.format !== 'webp') throw new Error('normalized image is not WebP');
@@ -1280,6 +1357,11 @@ async function inspectWebp(filePath, expected, xmpMetadata = {}) {
   return { buffer, metadata: imageMetadata };
 }
 
+async function loadSharp() {
+  const sharpModule = await import('sharp');
+  return sharpModule.default ?? sharpModule;
+}
+
 function parseVisionResult(text) {
   const raw = String(text || '').trim();
   const candidates = [raw, ...[...raw.matchAll(/\{[\s\S]*?\}/g)].map((match) => match[0]).reverse()];
@@ -1287,20 +1369,10 @@ function parseVisionResult(text) {
     const parsed = safeJsonParse(candidate);
     if (parsed && typeof parsed === 'object' && typeof parsed.ok === 'boolean') return parsed;
   }
-  throw new Error('vision verifier returned no JSON result');
-}
-
-/** The publication verdict applies topic relevance to synthetic heroes too. */
-export function imageVisionRejected(verdict, { kind = GENERATED_IMAGE_KIND, scope } = {}) {
-  const articleHero = scope === 'article-hero';
-  if (verdict?.ok !== true) return true;
-  if (articleHero && verdict.is_topic_relevant !== true) return true;
-  if (kind === LICENSED_PHOTO_KIND) {
-    return !verdict.ok || verdict.is_photograph !== true || verdict.contains_logo || verdict.contains_recognizable_face
-      || (articleHero && verdict.contains_recognizable_foreground_person !== false)
-      || (articleHero && verdict.contains_text);
-  }
-  return verdict.contains_text !== false || verdict.contains_logo !== false || verdict.contains_recognizable_face !== false || verdict.looks_like_specific_real_event !== false;
+  const error = new Error('vision verifier returned no JSON result');
+  error.code = 'IMAGE_VISION_VERDICT_INCOMPLETE';
+  error.retryable = true;
+  throw error;
 }
 
 export async function verifyGeneratedImage(filePath, {
@@ -1346,21 +1418,38 @@ export async function verifyGeneratedImage(filePath, {
     verdict = parseVisionResult(result.text);
   } catch (codexError) {
     assertBeforeDeadline(deadlineAt, 'image vision fallback');
-    if (!String(process.env.GEMINI_API_KEY || '').trim()) throw codexError;
-    verdict = await runGeminiVision(filePath, {
-      timeoutMs: timeoutForDeadline(deadlineAt, 120_000),
-      kind,
-      scope,
-      subject,
-      topic,
-      place,
-      keywords,
-    });
+    const codexUnavailable = isVisionProviderUnavailable(codexError);
+    if (!String(process.env.GEMINI_API_KEY || '').trim()) {
+      if (codexUnavailable) throw sharedVisionProviderUnavailableError([codexError]);
+      throw codexError;
+    }
+    try {
+      verdict = await runGeminiVision(filePath, {
+        timeoutMs: timeoutForDeadline(deadlineAt, 120_000),
+        kind,
+        scope,
+        subject,
+        topic,
+        place,
+        keywords,
+      });
+    } catch (geminiError) {
+      if (codexUnavailable && isVisionProviderUnavailable(geminiError)) {
+        throw sharedVisionProviderUnavailableError([codexError, geminiError]);
+      }
+      throw geminiError;
+    }
   }
   assertBeforeDeadline(deadlineAt, 'image vision result');
+  if (scope === 'article-hero' && !isCompleteArticleHeroVisionVerdict(verdict)) {
+    const error = new Error('image vision verifier returned an incomplete article-hero verdict');
+    error.code = 'IMAGE_VISION_VERDICT_INCOMPLETE';
+    error.retryable = true;
+    throw error;
+  }
   const rejected = imageVisionRejected(verdict, { kind, scope });
   if (rejected) {
-    throw new Error(`vision gate rejected image: ${String(verdict.notes || 'forbidden content')}`);
+    throw imageVisionRejectionError(verdict);
   }
   return verdict;
 }
@@ -1404,10 +1493,12 @@ export async function generateImageFromSpec(spec, {
     : sequence.length;
   let lastError;
   const failures = [];
+  const attemptedProviders = [];
   const rejectedPhotoSources = new Set();
-  for (let attempt = 0; attempt < attemptLimit; attempt++) {
+  providerLoop: for (let attempt = 0; attempt < attemptLimit; attempt++) {
     assertBeforeDeadline(deadlineAt, 'image generation');
     const selectedProvider = sequence[attempt];
+    attemptedProviders.push(selectedProvider);
     const availability = providerConfiguration(selectedProvider);
     if (!availability.configured) {
       onProviderAttempt?.({ provider: selectedProvider, attempt: attempt + 1, assetId: finalAssetId, status: 'skipped', reason: availability.reason });
@@ -1431,7 +1522,7 @@ export async function generateImageFromSpec(spec, {
     const rawPath = path.join(destinationDir, `.${finalAssetId}.${attempt}.raw`);
     onProviderAttempt?.({ provider: selectedProvider, attempt: attempt + 1, assetId: finalAssetId, status: 'started', kind: recordKind });
     let photoCandidateAttempts = 0;
-    while (true) {
+    photoCandidateLoop: while (true) {
       let attemptedPhotoSource = '';
       try {
       const timeoutMs = timeoutForDeadline(deadlineAt, providerTimeoutMs(selectedProvider, providerTimeouts));
@@ -1575,21 +1666,50 @@ export async function generateImageFromSpec(spec, {
       return { filePath: finalPath, record, prompt };
       } catch (error) {
         lastError = error;
-        failures.push({ provider: selectedProvider, reason: summarizeProviderErrorBody(error?.message || error) });
+        failures.push({
+          provider: selectedProvider,
+          reason: summarizeProviderErrorBody(error?.message || error),
+          ...(error?.code === 'IMAGE_VISION_REJECTED' && error?.vision && typeof error.vision === 'object'
+            ? { vision: structuredVisionFailure(error.vision) }
+            : {}),
+        });
         fs.rmSync(rawPath, { force: true });
         fs.rmSync(finalPath, { force: true });
-        if (deadlineExpired(deadlineAt)) break;
+        if (errorCauseChain(error).some((cause) => cause.sharedProviderUnavailable === true)) {
+          const unavailable = new Error(`shared image-vision provider is unavailable for ${finalAssetId}`, { cause: error });
+          unavailable.code = 'AI_PROVIDER_UNAVAILABLE';
+          unavailable.retryable = true;
+          unavailable.sharedProviderUnavailable = true;
+          unavailable.failures = failures;
+          unavailable.imageProviderLedger = {
+            schema: 1,
+            complete: attemptedProviders.length === sequence.length,
+            expectedProviders: [...sequence],
+            attemptedProviders: [...attemptedProviders],
+          };
+          throw unavailable;
+        }
+        if (deadlineExpired(deadlineAt)) break providerLoop;
         if (recordKind === LICENSED_PHOTO_KIND && attemptedPhotoSource && photoCandidateAttempts < 19) {
           rejectedPhotoSources.add(attemptedPhotoSource);
           photoCandidateAttempts += 1;
-          continue;
+          continue photoCandidateLoop;
         }
-        break;
+        // A provider failure exhausts only this provider. Advance through the
+        // governed chain so terminality is possible only after every expected
+        // provider has produced structured, non-adaptable vision evidence.
+        continue providerLoop;
       }
     }
   }
   const error = new Error(`All image providers failed for ${finalAssetId}: ${failures.map((item) => `${item.provider} (${item.reason})`).join('; ') || lastError?.message || 'unknown error'}`);
   error.failures = failures;
+  error.imageProviderLedger = {
+    schema: 1,
+    complete: attemptedProviders.length === sequence.length,
+    expectedProviders: [...sequence],
+    attemptedProviders: [...attemptedProviders],
+  };
   throw error;
 }
 

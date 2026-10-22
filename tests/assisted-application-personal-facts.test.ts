@@ -10,9 +10,10 @@ import {
   isSalutation,
   personalFieldLabel,
   salutationFor,
+  salutationGenderFromName,
   salutationOptions,
 } from '../functions/src/lib/personalFacts.js';
-import { buildFormAnswers, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { buildFormAnswers, candidateIdentity, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { EDITABLE_FIELDS, candidateWithEdits, fieldView, formAnswersWithEdits, planCandidateEdits } from '../functions/src/assistedApplicationCandidateEdits.js';
 import { candidateAnswerForField, guardPlan, planSystemPrompt, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
@@ -98,6 +99,14 @@ describe('what a CV says of the person in its own words', () => {
     for (const text of ['Monsieur', 'Frau', 'Altro', 'Ms']) expect(isSalutation(text)).toBe(true);
     for (const text of ['', 'Dr', 'monsieur le directeur']) expect(isSalutation(text)).toBe(false);
   });
+
+  it('infers only a form of address from an unambiguous first name in the candidate’s locale', () => {
+    expect(salutationGenderFromName('Luca Example', 'it')).toBe('m');
+    expect(salutationGenderFromName('Maria Luisa', 'it')).toBe('f');
+    expect(salutationGenderFromName('Andrea', 'it')).toBe('m');
+    expect(salutationGenderFromName('Andrea', 'fr')).toBe('');
+    expect(salutationGenderFromName('Alex', 'en')).toBe('');
+  });
 });
 
 describe('what the CV says is not asked again', () => {
@@ -119,6 +128,30 @@ describe('what the CV says is not asked again', () => {
     expect(salutationQuestion({ channel, questions: [], answers: silent.answers, locale: 'fr' })).toMatchObject({ id: 'salutation', required: false, options: ['Monsieur', 'Madame', 'Autre'] });
     // In the candidate's language, whatever language the CV is in.
     expect(candidateWithEdits({ order: { ...order, locale: 'it' }, draft: draftOf(CV_FR), flow: {} }).personal.salutation).toBe('Signor');
+  });
+
+  it('uses an unambiguous first name for the form of address and leaves an ambiguous one unknown', () => {
+    const luca = { locale: 'it', fullName: 'Luca Example', email: 'test@example.com' };
+    const supported = candidateWithEdits({ order: luca, draft: draftOf('Luca Example'), flow: {} });
+    expect(supported.personal.salutation).toBe('Signor');
+    expect(salutationQuestion({ channel, questions: [], answers: supported.answers, locale: 'it' })).toBeNull();
+
+    const ambiguous = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
+    expect(ambiguous.personal.salutation).toBe('');
+    expect(salutationQuestion({ channel, questions: [], answers: ambiguous.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
+
+    const applicantNamedLuca = candidateWithEdits({ order: { ...luca, applicantName: luca.fullName }, draft: draftOf('Luca Example'), flow: {} });
+    expect(applicantNamedLuca.personal.salutation).toBe('Signor');
+    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedLuca.answers, locale: 'it' })).toBeNull();
+
+    const applicantNamedAlex = candidateWithEdits({ order: { ...luca, fullName: 'Alex Morgan', applicantName: 'Alex Morgan' }, draft: draftOf('Alex Morgan'), flow: {} });
+    expect(applicantNamedAlex.personal.salutation).toBe('');
+    expect(salutationQuestion({ channel, questions: [], answers: applicantNamedAlex.answers, locale: 'en' })).toMatchObject({ id: 'salutation' });
+
+    const normalizedOrder = { locale: 'it', fullName: 'Luca Example' };
+    const normalizedDraft = { profile: { fullName: '' }, factSources: { text: '' }, questions: [], formAnswers: [] };
+    expect(candidateIdentity(normalizedOrder, normalizedDraft.profile).name).toBe('Luca Example');
+    expect(candidateWithEdits({ order: normalizedOrder, draft: normalizedDraft, flow: {} }).personal.salutation).toBe('Signor');
   });
 
   it('lets the candidate’s own word win over the CV, and an emptied field stay empty', () => {

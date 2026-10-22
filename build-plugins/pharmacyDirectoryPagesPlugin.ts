@@ -1,6 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { PharmacyDutyWeekArchiveView } from '../components/pages/PharmacyDutyWeekArchive';
+import { readDutyWeekHistoryArchive } from '../scripts/lib/pharmacy-duty-week-history';
+import { dutyWeekArchiveMetaTitle, isClosedDutyWeek, type DutyWeekHistory } from '../services/pharmacies/dutyWeekHistory';
 import { BASE_URL, BUILD_DATE_STAMP, BUILD_ID, MIN_INDEXABLE_WORDS, SPA_ACTION_REDIRECT_SCRIPT, buildCanonicalBridgePage, countHtmlBodyWords } from './constants';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -20,6 +25,8 @@ import {
   pharmaciesForProvince,
 } from '../services/pharmacies/data';
 import { buildPharmacyPath, type PharmacyPageKind, type PharmacyPath } from '../services/pharmacies/paths';
+import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
+import { PHARMACY_DUTY_CITY_REDIRECTS } from '../scripts/lib/pharmacySections.mjs';
 import { publicDutiesForRegion } from '../services/pharmacies/duties';
 import { buildDutyWeekModel, currentDutyWeekStart, DUTY_WEEK_SOURCE_URL, formatDutyDateTime, type DutyWeekModel } from '../services/pharmacies/dutyWeek';
 import { buildDutyCoverageMatrix, formatDutyCoverageDate, getDutyCoverageMatrixCopy, type DutyCoverageMatrixModel } from '../services/pharmacies/dutyCoverageMatrix';
@@ -368,7 +375,18 @@ const ALIAS_COPY: Record<Locale, { title: string; description: string; body: str
   fr: { title: 'Page pharmacie mise à jour | Frontaliere Ticino', description: 'Cette page pharmacie possède une URL canonique mise à jour.', body: 'Cette page pharmacie a été mise à jour. Nous vous dirigeons vers la page canonique.', cta: 'Ouvrir la page mise à jour' },
 };
 
-export function buildPharmacyAliasBridge(descriptor: PharmacyUrlAliasDescriptor): string {
+type PharmacyAliasBridgeDescriptor = PharmacyUrlAliasDescriptor | Pick<PharmacyUrlAliasDescriptor, 'locale' | 'from' | 'to'>;
+
+/** Retained regional-duty URLs, not aliases for a different pharmacy identity. */
+export function pharmacyDutyCityAliasDescriptors(): PharmacyAliasBridgeDescriptor[] {
+  return Object.entries(PHARMACY_DUTY_CITY_REDIRECTS).map(([from, to]) => {
+    const route = parsePharmacyRoute(from);
+    if (route?.kind !== 'duty-city') throw new Error(`Invalid pharmacy duty city alias: ${from}`);
+    return { locale: route.locale, from, to };
+  });
+}
+
+export function buildPharmacyAliasBridge(descriptor: PharmacyAliasBridgeDescriptor): string {
   const copy = ALIAS_COPY[descriptor.locale];
   const targetUrl = `${BASE_URL}${descriptor.to}`;
   return buildCanonicalBridgePage({
@@ -390,7 +408,7 @@ export function buildPharmacyAliasBridge(descriptor: PharmacyUrlAliasDescriptor)
  * dist when the importer turns it into an alias; existence is not evidence
  * that the file should be preserved.
  */
-export function emitPharmacyAliasBridge(distDir: string, descriptor: PharmacyUrlAliasDescriptor): void {
+export function emitPharmacyAliasBridge(distDir: string, descriptor: PharmacyAliasBridgeDescriptor): void {
   const relativePath = descriptor.from.replace(/^\/+/, '').replace(/\/+$/, '');
   const outDir = path.join(distDir, relativePath);
   const html = buildPharmacyAliasBridge(descriptor);
@@ -712,6 +730,7 @@ function pageTitle(kind: PharmacyPageKind, locale: Locale, descriptor: PageDescr
     ? (locale === 'it' ? 'Farmacie di turno in Italia' : locale === 'en' ? 'On-duty pharmacies in Italy' : locale === 'de' ? 'Notdienst-Apotheken in Italien' : 'Pharmacies de garde en Italie')
     : copy.dutyHubTitle;
   if (kind === 'duty-city') return copy.dutyCityTitle(descriptor.cityName || '');
+  if (kind === 'duty-week' && descriptor.history) return dutyWeekArchiveMetaTitle(descriptor.weekStart || '', locale);
   if (kind === 'duty-week') return descriptor.country === 'IT'
     ? ITALY_DUTY_COPY[locale].title(descriptor.weekStart || '')
     : DUTY_WEEK_COPY[locale].title(descriptor.weekStart || '');
@@ -782,6 +801,7 @@ interface PageDescriptor {
   cityName?: string;
   pharmacy?: Pharmacy;
   weekStart?: string;
+  history?: DutyWeekHistory;
 }
 
 function descriptorPath(descriptor: PageDescriptor, locale: Locale): PharmacyPath {
@@ -881,6 +901,10 @@ function renderBody(
   emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale),
 ): string {
   const copy = COPY[locale];
+  if (descriptor.kind === 'duty-week' && descriptor.country !== 'IT' && descriptor.history) {
+    const seed = JSON.stringify(descriptor.history).replace(/</g, '\\u003c');
+    return `${renderToStaticMarkup(createElement(PharmacyDutyWeekArchiveView, { history: descriptor.history, locale }))}<script type="application/json" id="pharmacy-duty-week-history">${seed}</script>`;
+  }
   if (descriptor.kind === 'duty-week' && descriptor.country === 'IT') return renderItalyDutyWeek({ pathValue: descriptorPath(descriptor, locale), h1, now });
   if (descriptor.kind === 'duty-week') return renderDutyWeek(descriptor, locale, h1, dataset, now);
   if (descriptor.kind === 'duty-hub' && descriptor.country === 'IT') return renderItalyDutyWeek({ pathValue: descriptorPath(descriptor, locale), h1, now });
@@ -1035,7 +1059,7 @@ function jsonLd(
   }
   if (descriptor.kind === 'duty-week') {
     const model = dutyWeekModel(descriptor, dataset, now);
-    return model.indexable
+    return indexable && model.indexable
       ? [dutyWeekCollectionJsonLd(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
       : [];
   }
@@ -1077,6 +1101,8 @@ function descriptors(now: Date = pharmacyBuildNow()): PageDescriptor[] {
     { kind: 'canton', country: 'CH' },
     { kind: 'duty-hub' },
     { kind: 'duty-week', weekStart: currentDutyWeekStart(now) },
+    ...readDutyWeekHistoryArchive(path.resolve(import.meta.dirname, '../data/pharmacy-duty-week-history'), path.resolve(import.meta.dirname, '../data/pharmacy-duty-week-recovery.json'), now)
+      .map((history) => ({ kind: 'duty-week' as const, weekStart: history.weekStart, history })),
     { kind: 'italy-duty-hub', country: 'IT' },
     { kind: 'italy-duty-week', country: 'IT', weekStart: currentItalyDutyWeekStart(now) },
     { kind: 'country', country: 'IT' },
@@ -1122,7 +1148,8 @@ function buildPage(
     || (descriptor.kind === 'duty-week' && descriptor.country === 'IT')
     || descriptor.kind === 'italy-duty-hub'
     || descriptor.kind === 'italy-duty-week';
-  const indexable = descriptor.kind === 'duty-week' && descriptor.country !== 'IT'
+  const historicalWeek = descriptor.kind === 'duty-week' && descriptor.country !== 'IT' && isClosedDutyWeek(descriptor.weekStart || '', now);
+  const indexable = historicalWeek ? false : descriptor.kind === 'duty-week' && descriptor.country !== 'IT'
     ? Boolean(dutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
     : italyDutyDescriptor
       ? Boolean(italyDutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
@@ -1174,8 +1201,18 @@ export function pharmacyDirectoryPagesPlugin(rootDir: string): Plugin {
       const dateStamp = BUILD_DATE_STAMP;
       const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url) => `  <url><loc>${BASE_URL}${url}</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>\n`).join('')}</urlset>\n`;
       const written = await collector.flush();
+      // The main locale shard owns shared JSON; the exact same validated
+      // observation is embedded in SSR for a network-independent SPA handoff.
+      if (shouldEmitLocale('it')) {
+        const historyDir = path.join(distDir, 'data/pharmacy-duty-week-history');
+        for (const descriptor of allDescriptors) {
+          if (!descriptor.history) continue;
+          fs.mkdirSync(historyDir, { recursive: true });
+          fs.writeFileSync(path.join(historyDir, `${descriptor.history.weekStart}.json`), `${JSON.stringify(descriptor.history)}\n`, 'utf8');
+        }
+      }
       let aliasRedirects = 0;
-      for (const alias of pharmacyUrlAliasDescriptors()) {
+      for (const alias of [...pharmacyUrlAliasDescriptors(), ...pharmacyDutyCityAliasDescriptors()]) {
         emitPharmacyAliasBridge(distDir, alias);
         aliasRedirects += 1;
       }

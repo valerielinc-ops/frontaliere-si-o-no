@@ -256,9 +256,13 @@ function buildSectionCanonical(locale: Locale, slugHint?: string): string {
   return `${BASE_URL}${LOCALE_PREFIX[locale]}/${section}/`.replace(/(?<!:)\/+/g, '/');
 }
 
-function sectionPathFromOrphan(entry: OrphanEntry): string {
+export function sectionPathFromOrphan(entry: OrphanEntry): string {
   const orphanPath = buildOrphanPath(entry);
   const parts = orphanPath.split('/').filter(Boolean);
+  const sectionIndex = entry.locale === 'it' ? 0 : 1;
+  if (parts[sectionIndex] === 'lavoro') {
+    return `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/`.replace(/\/+/g, '/');
+  }
   const sectionParts = entry.locale === 'it' ? parts.slice(0, 1) : parts.slice(0, 2);
   if (sectionParts.length > 0) return withLeadingTrailingSlash(sectionParts.join('/'));
   return `${LOCALE_PREFIX[entry.locale]}/${SECTION_SLUG[entry.locale]}/`.replace(/\/+/g, '/');

@@ -1,21 +1,50 @@
 import { detectLanguageWithConfidence } from './detect-language.mjs';
 import { escapeRegExpLiteral } from './escape-regexp.mjs';
+import { decode as decodeHTML } from 'html-entities';
+import { detectAiReasoningLeak } from './ai-output-fidelity.mjs';
+import {
+  DEFAULT_JOB_LOCALES,
+  isTitleSourceCopy,
+  normalizeJobLocale,
+  titleContainsLlmReasoning,
+} from './job-locale-core.mjs';
 
-export const DEFAULT_JOB_LOCALES = ['it', 'en', 'de', 'fr'];
+export {
+  DEFAULT_JOB_LOCALES,
+  isTitleSourceCopy,
+  normalizeJobLocale,
+  titleContainsLlmReasoning,
+};
 
 /**
- * Normalize a stored locale without inventing a supported one.
+ * Return every available representation of a job's source text, with the
+ * locale-map slot first and the legacy flat field second.
  *
- * Crawlers occasionally persist regional spellings (`de-CH`, `it_CH`) while
- * the locale maps use the base ISO-639 code. Callers that need to accept only
- * supported locales still validate the returned value against
- * DEFAULT_JOB_LOCALES; this helper only performs the mechanical normalization.
- *
- * @param {unknown} value
- * @returns {string}
+ * The two fields can legitimately differ after a crawl cleanup. Callers that
+ * decide whether a target is a source copy must inspect all candidates; callers
+ * that translate must use sourceLocaleTextForTranslation() so they select the
+ * first candidate that clears the field's minimum-length floor.
  */
-export function normalizeJobLocale(value = '') {
-  return String(value ?? '').trim().toLowerCase().split(/[-_]/)[0];
+export function sourceLocaleTextCandidates(job = {}, field = 'description') {
+  const sourceLang = normalizeJobLocale(job?.sourceLang) || 'it';
+  const map = field === 'title' ? job?.titleByLocale : job?.descriptionByLocale;
+  const legacy = field === 'title' ? job?.title : job?.description;
+  return [...new Set(
+    [map?.[sourceLang], legacy]
+      .map((value) => String(value ?? '').trim())
+      .filter(Boolean),
+  )];
+}
+
+/** Select the source representation suitable for a translation request. */
+export function sourceLocaleTextForTranslation(job = {}, field = 'description', minLength = null) {
+  const candidates = sourceLocaleTextCandidates(job, field);
+  const floor = minLength == null ? (field === 'title' ? 3 : 120) : Number(minLength);
+  // A previous AI pass can leave a prompt echo in the source-locale map while
+  // the crawled flat field is still valid. Never feed the leaked slot back into
+  // formatting or translation, even when it is the longer representation.
+  const usable = candidates.filter((value) => !detectAiReasoningLeak(value));
+  return usable.find((value) => value.length >= floor) || usable[0] || '';
 }
 
 const TITLE_HINTS = {
@@ -574,33 +603,33 @@ function tokenOverlap(a, b) {
 }
 
 /**
- * Case- and punctuation-insensitive, but diacritic-SENSITIVE on purpose: the
- * only difference between the German "CSV Requirements Ingenieur" and its
- * correct French slot "CSV Requirements Ingénieur" is the accent, and folding
- * it away turned a real (if minimal) translation into a "source-copy".
+ * Canonical comparison key for description source-copy checks.
+ *
+ * Description slots preserve paragraph breaks for rendering, but those breaks
+ * are not evidence of a translation. HTML entities are likewise an encoding
+ * detail, not a linguistic change. Keep case-insensitivity here because a
+ * provider that only true-cases the source must not be accepted as a
+ * translation. This is deliberately separate from the title key above:
+ * description punctuation and diacritics remain meaningful to the
+ * source-copy decision.
  */
-const normalizeForCompare = (value) =>
-  String(value || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
-
-/**
- * The one source-copy predicate used by title queueing and title writers.
- * Punctuation/whitespace-only changes are still a copy; diacritics remain
- * significant so a real translation such as `Ingénieur` is not discarded.
- */
-export function isTitleSourceCopy(title, sourceTitle) {
-  const clean = String(title || '').trim();
-  const source = String(sourceTitle || '').trim();
-  return !!clean && !!source && normalizeForCompare(clean) === normalizeForCompare(source);
+export function normalizeDescriptionForCompare(value = '') {
+  return decodeHTML(String(value ?? ''))
+    .replace(/[–—]/g, '-')
+    .replace(/[‐‑‒−]/g, '-')
+    .replace(/[“”„‟]/g, '"')
+    .replace(/[‘’‚‛]/g, "'")
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
 }
 
-// A failed LLM call can return its instruction/reasoning as the title. This is
-// not a source-copy and therefore used to evade the repair queue entirely.
-// Keep the detector narrow and phrase-based: it targets meta-instructions, not
-// legitimate titles containing ordinary words such as "translation" or "AI".
-const LLM_REASONING_TITLE_RE = /\b(?:i\s+need\s+to\s+translate|translate\s+(?:this|the)\s+(?:job\s+)?title|the\s+translated\s+(?:job\s+)?title|here\s+is\s+the\s+translation|as\s+an\s+ai|target\s+language\s*:\s*|source\s+language\s*:)/iu;
-
-export function titleContainsLlmReasoning(title = '') {
-  return LLM_REASONING_TITLE_RE.test(String(title || '').trim());
+/** True when a non-empty description differs from the source only in encoding. */
+export function isDescriptionSourceCopy(description, sourceDescription) {
+  const candidate = normalizeDescriptionForCompare(description);
+  const source = normalizeDescriptionForCompare(sourceDescription);
+  return Boolean(candidate && source && candidate === source);
 }
 
 function hasGermanGenderCode(body) {

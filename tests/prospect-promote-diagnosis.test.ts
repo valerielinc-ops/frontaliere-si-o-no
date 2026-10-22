@@ -16,6 +16,7 @@ const SCRIPT = path.resolve(__dirname, '..', 'scripts', 'prospect-promote-diagno
 
 const good = (day: number, over: Record<string, unknown> = {}) => ({
   at: `2026-08-${String(10 + day).padStart(2, '0')}T03:00:00Z`,
+  qualityContractVersion: 3,
   verdict: 'good',
   score: 0.97,
   sampled: 4,
@@ -24,6 +25,9 @@ const good = (day: number, over: Record<string, unknown> = {}) => ({
   contentfulRate: 1,
   locationSourceRate: 1,
   distinctRate: 1,
+  jobLikeEvidenceRate: 1,
+  employerIdentityRate: 1,
+  employerIdentityMismatchCount: 0,
   jobLikeRate: 1,
   logoFound: true,
   vacancyCount: 6,
@@ -31,7 +35,7 @@ const good = (day: number, over: Record<string, unknown> = {}) => ({
 });
 
 const candidate = (key: string, history: Record<string, unknown>[], status = 'promoted') => ({
-  key, status, crawlerKey: key, vacancyCount: 6, validationHistory: history,
+  key, status, crawlerKey: key, vacancyCount: 6, qualityContractVersion: 3, validationHistory: history,
 });
 
 function run(args: string[]) {
@@ -68,6 +72,11 @@ describe('prospect-promote-diagnosis', () => {
     expect(out.stabilityOnlyKeys).toEqual(['waiting']);
     expect(out.failedChecks).toEqual({ sourceBackedLocation: 2, score: 1 });
     expect(out.unattributed).toEqual([]);
+    expect(out.candidateFailures).toEqual([
+      { key: 'low-score', failedChecks: ['score', 'sourceBackedLocation'] },
+      { key: 'no-location', failedChecks: ['sourceBackedLocation'] },
+      { key: 'waiting', failedChecks: ['runs', 'days'] },
+    ]);
   });
 
   it('fallisce con exit 2 se il file dei candidati manca, invece di contare zero', () => {

@@ -1,0 +1,24 @@
+{
+  "companyKey": "lu-ch",
+  "companyName": "Posten Sicherheitspolizei Stadt Luzern",
+  "companyHost": "gerichte.lu.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://gerichte.lu.ch/Stellen"
+  ],
+  "detailTemplate": "/-/media/Gerichte/Dokumente/stellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "Download",
+    "Download",
+    "Download",
+    "Download",
+    "Download"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-20T06:25:53.542Z"
+}

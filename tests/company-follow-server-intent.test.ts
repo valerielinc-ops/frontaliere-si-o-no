@@ -50,6 +50,7 @@ function createDb(seed: { subscribers?: Docs; alerts?: Record<string, any>; inte
     newsletter_subscribers: { ...(seed.subscribers || {}) },
     job_alert_subscribers: seed.jobAlertParent ? { [EMAIL]: seed.jobAlertParent } : {},
   };
+  const topWrites: Array<{ collection: string; id: string; data: Record<string, unknown> }> = [];
   const sub: Record<string, Record<string, any>> = {
     [`job_alert_subscribers/${EMAIL}/alerts`]: { ...(seed.alerts || {}) },
     [`newsletter_subscribers/${EMAIL}/company_follow_intents`]: { ...(seed.intents || {}) },
@@ -92,12 +93,15 @@ function createDb(seed: { subscribers?: Docs; alerts?: Record<string, any>; inte
     collection: (name: string) => ({
       doc: (id: string) => {
         top[name] ||= {};
-        const ref = docRef(top[name], id);
+        const ref = docRef(top[name], id, name === 'newsletter_subscribers'
+          ? (writtenId, data) => topWrites.push({ collection: name, id: writtenId, data })
+          : undefined);
         return { ...ref, collection: (child: string) => subcollection(`${name}/${id}/${child}`) };
       },
     }),
     top,
     sub,
+    topWrites,
   };
   return db;
 }
@@ -156,6 +160,18 @@ describe('one alert, identical to the browser one', () => {
     });
     expect(db.top.job_alert_subscribers[EMAIL]).toMatchObject({ userId: UID, status: 'active', active: true });
     expect(db.sub[`newsletter_subscribers/${EMAIL}/company_follow_intents`].i1).toMatchObject({ status: 'fulfilled', fulfilled_via: 'confirmation_link' });
+    expect(db.top.newsletter_subscribers[EMAIL].company_follow_followup_pending).toBe(false);
+  });
+
+  it('does not rewrite an already-cleared follow-up marker', async () => {
+    const db = createDb({
+      subscribers: { [EMAIL]: { ...confirmed, company_follow_followup_pending: false } },
+      intents: { i1: intent() },
+    });
+    const outcome = await run(db);
+
+    expect(outcome).toMatchObject({ created: 1, existing: 0, pending: 0 });
+    expect(db.topWrites).toHaveLength(0);
     expect(db.top.newsletter_subscribers[EMAIL].company_follow_followup_pending).toBe(false);
   });
 

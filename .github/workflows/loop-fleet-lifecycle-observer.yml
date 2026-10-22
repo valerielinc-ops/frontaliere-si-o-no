@@ -33,11 +33,13 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /data/loop-fleet/loop-registry.json
-            /data/loop-fleet/ledger/
+            /data/loop-fleet/ledger/lifecycle-events*.jsonl
+            /scripts/ci/overlay-durable-loop-fleet-ledger.sh
             /scripts/ci/observe-loop-fleet-lifecycle.mjs
             /scripts/ci/append-loop-fleet-lifecycle.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/loop-fleet-ledger-files.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/githubApiHeaders.mjs
             /scripts/lib/google-service-account-token.mjs
@@ -56,17 +58,14 @@ jobs:
           git fetch origin main
           git checkout --detach origin/main
 
-      - name: Overlay durable ledger data for observation
-        run: |
-          set -euo pipefail
-          ledger_branch='ledger/loop-fleet'
-          if timeout --signal=TERM --kill-after=10s 90s git fetch origin "$ledger_branch"; then
-            git checkout FETCH_HEAD -- data/loop-fleet/ledger/
-          else
-            echo '::notice::durable ledger branch is unavailable; observing the main seed data.'
-          fi
+      - name: Overlay bounded lifecycle ledger input
+        id: overlay_durable_ledger
+        env:
+          LEDGER_BRANCH: ledger/loop-fleet
+        run: bash scripts/ci/overlay-durable-loop-fleet-ledger.sh lifecycle
 
       - name: Observe PR, Actions and post-merge evidence
+        if: ${{ steps.overlay_durable_ledger.outputs.overlay_status == 'ready' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -160,7 +159,10 @@ jobs:
           ledger_worktree="${RUNNER_TEMP}/loop-fleet-ledger-worktree"
           ledger_start='origin/main'
           if bounded_remote git ls-remote --exit-code --heads origin "refs/heads/$ledger_branch" >/dev/null 2>&1; then
-            bounded_remote git fetch origin "$ledger_branch"
+            # Only the current tip/tree and one bounded blob pack are needed to
+            # append a new shard. Avoid replaying history or lazy-fetching every
+            # ledger shard one by one from the blobless Actions checkout.
+            bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"
             ledger_start="origin/$ledger_branch"
           fi
           # Keep validators and the registry from the current main checkout;
@@ -178,6 +180,7 @@ jobs:
             node scripts/ci/append-loop-fleet-lifecycle.mjs \
               --events-file "$EVENT_FILE" \
               --ledger-dir "$ledger_dir" \
+              --shard-id "observer-${GITHUB_RUN_ID}" \
               --registry data/loop-fleet/loop-registry.json
 
             if git -C "$ledger_worktree" diff --quiet -- data/loop-fleet/ledger \
@@ -196,7 +199,7 @@ jobs:
             if bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"; then
               exit 0
             fi
-            if bounded_remote git fetch origin "$ledger_branch"; then
+            if bounded_remote git fetch --no-tags --depth=1 --filter=blob:limit=1g origin "$ledger_branch"; then
               # Rebase only the isolated ledger worktree onto the fetched tip;
               # the main worktree keeps the current validator and registry.
               git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"

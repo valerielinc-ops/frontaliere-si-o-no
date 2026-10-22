@@ -1,4 +1,5 @@
 import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './shared/legacyLuganoCompetitionRedirects';
+import { isEmittedEventArchivePath } from './shared/eventArchiveCompat';
 import { resolveCantonSection, AGGREGATE_KEY, type CantonLocale } from './shared/cantonSection';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from './jobSectorLanding';
 import { BASE_URL } from './constants';
@@ -12,10 +13,11 @@ import {
  type FuelDailyLocale,
  type FuelType,
 } from './fuelDailyData';
+import { resolveFuelStation } from '../scripts/lib/fuel-station-aliases.mjs';
 import { isProfessionCantonPath } from './professionCantonData';
 import { isSalaryProfessionCantonPath } from './salaryProfessionCantonData';
 import { isProfessionCityPath } from './professionCityData';
-import { isHealthFacilityPath } from './healthFacilitiesData';
+import { isHealthFacilityPath, isHealthFacilitySectionPath } from './healthFacilitiesData';
 import { WEEKLY_EMPLOYERS_SECTION } from './weeklyEmployersData';
 import { CH_CANTON_SNAPSHOT_SEGMENT as SNAPSHOT_SEGMENT } from './jobMarketSnapshotChCantonPathsData';
 import { HUB_SLUG_BY_LOCALE } from './seoHubsData';
@@ -43,6 +45,8 @@ import { isAustrianBorderMunicipalityPath } from './austrianBorderMunicipalityDa
 import { isBorderMunicipalityPath, isBorderMunicipalityHubPath } from './borderMunicipalityData';
 import { isBorderWaitPath } from './borderWaitData';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { parseAutoSectorHubPath } from './shared/autoSectorHubPaths';
+import autoSectorHubPublicationRegistry from '../data/sector-hub-publications.json';
 
 type SupportedLocale = CantonLocale;
 
@@ -117,6 +121,29 @@ const SELF_MAPPABLE_SECTOR_HUB_SLUGS: Record<SupportedLocale, ReadonlySet<string
  const s = new Set<string>();
  for (const key of SECTOR_HUB_KEYS) s.add(SECTOR_HUB_SLUG[locale][key]);
  out[locale] = s;
+ }
+ return out;
+})();
+
+// Dynamic TI sector pages are emitted for every registered localized slug:
+// above the live-inventory floor as a full page and below it as a same-URL
+// noindex bridge. Precompute their route membership once so old Search Console
+// 404 snapshots resolve to the current page without rebuilding sets per URL.
+const SELF_MAPPABLE_AUTO_SECTOR_HUB_SLUGS: Record<SupportedLocale, ReadonlySet<string>> = (() => {
+ const data = autoSectorHubPublicationRegistry as {
+  hubs?: Array<{ slug?: unknown; routeKind?: unknown; labelByLocale?: Partial<Record<SupportedLocale, unknown>> }>;
+ };
+ const out = {} as Record<SupportedLocale, ReadonlySet<string>>;
+ const locales: SupportedLocale[] = ['it', 'en', 'de', 'fr'];
+ for (const locale of locales) {
+  const slugs = new Set<string>();
+  for (const hub of data.hubs || []) {
+   const slug = typeof hub.slug === 'string' ? hub.slug : '';
+   if (!slug || hub.routeKind === 'static-category') continue;
+   const localizedLabel = hub.labelByLocale?.[locale];
+   if (typeof localizedLabel === 'string' && localizedLabel.trim()) slugs.add(slug);
+  }
+  out[locale] = slugs;
  }
  return out;
 })();
@@ -235,11 +262,12 @@ const COMPAT_REDIRECTS: Record<string, string> = {
 };
 
 /**
- * Fuel sub-path 404s → that fuel section's localized "today" landing, derived
- * from FUEL_SECTION_SLUG (single source of truth) so the canonical can never
- * drift onto a renamed/legacy alias (e.g. FR diesel is `prix-gasoil-suisse`,
- * NOT the legacy `prix-diesel` which 301-redirects) and diesel↔diesel /
- * benzina↔benzina is preserved (a benzina 404 must not land on the diesel page).
+ * Other fuel-section sub-path 404s → that fuel section's localized "today"
+ * landing, derived from FUEL_SECTION_SLUG (single source of truth) so the
+ * canonical can never drift onto a renamed/legacy alias (e.g. FR diesel is
+ * `prix-gasoil-suisse`, NOT the legacy `prix-diesel` which 301-redirects) and
+ * diesel↔diesel / benzina↔benzina is preserved. Station details are resolved
+ * above with their city context before reaching this broader section fallback.
  */
 const FUEL_SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = (() => {
  const out: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = [];
@@ -552,7 +580,36 @@ export function resolveSearchConsoleCompatTarget(
  };
  }
 
+ // A station detail has a more useful, city-specific target than the broad
+ // fuel-section fallback below. The compat store can contain the same raw
+ // paths as legacy-aliases.json, so both producers must share this resolver.
+ if (/\/(?:stazioni|stations|tankstellen)\//i.test(path)) {
+  const station = resolveFuelStation(path);
+  if (station) {
+   return {
+    canonicalPath: station.canonicalPath,
+    kind: 'legacy',
+    locale: station.locale as SupportedLocale,
+   };
+  }
+ }
+
  const locale = inferLocale(path);
+
+ const localeParts = path.split('/').filter(Boolean);
+ if (locale !== 'it' && localeParts[0] === locale) localeParts.shift();
+ const autoSectorSlug = parseAutoSectorHubPath(localeParts, locale);
+ if (autoSectorSlug && SELF_MAPPABLE_AUTO_SECTOR_HUB_SLUGS[locale].has(autoSectorSlug)) {
+  return {
+   canonicalPath: ensureTrailingSlash(path),
+   kind: 'legacy',
+   locale,
+  };
+ }
+
+ if (isEmittedEventArchivePath(path)) {
+ return { canonicalPath: ensureTrailingSlash(path), kind: 'legacy', locale };
+ }
 
  // Profession-canton landings (professionCantonLandings.ts) emit every
  // (canton × profession) combo unconditionally — either the full page or a
@@ -598,15 +655,15 @@ export function resolveSearchConsoleCompatTarget(
  };
  }
 
- // Health-facilities hub (healthFacilitiesPlugin.ts, epic #4455): every
- // committed facility (build-plugins/healthFacilitiesData.ts) emits, on
- // EVERY build, either a full indexable page (live jobs ≥ floor) or a
- // noindex,follow below-floor bridge — always at the SAME canonical path.
- // So a URL matching an enumerated facility path always has a live target
- // today, even if GSC captured it as 404 from before the page existed.
- // isHealthFacilityPath checks a module-load-precomputed Set (PATH_INDEX),
- // so this stays O(1) per call inside the 150k+-path compat loop.
- if (isHealthFacilityPath(path)) {
+ // Health-facilities hub (healthFacilitiesPlugin.ts, epic #4455): the four
+ // localised section roots are emitted as indexable collection hubs, while
+ // every committed facility emits either a full indexable page (live jobs ≥
+ // floor) or a noindex,follow below-floor bridge — always at the SAME
+ // canonical path. So a URL matching either enumerated family always has a
+ // live target today, even if GSC captured it as 404 from before emission.
+ // Both matchers use module-load-precomputed Sets, so this stays O(1) per
+ // call inside the 150k+-path compat loop.
+ if (isHealthFacilitySectionPath(path) || isHealthFacilityPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
  kind: 'legacy',

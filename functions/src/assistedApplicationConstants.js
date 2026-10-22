@@ -5,6 +5,8 @@
  */
 
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
+/** Server-only state and engagement records for pending-payment recovery digests. */
+export const ASSISTED_APPLICATION_PAYMENT_RECOVERY_COLLECTION = 'assisted_application_payment_recovery';
 /** Portal accounts the runner creates on an order's alias: `{order}/automation/accounts` (scripts/assisted-application/lib/portal/account.mjs). */
 export const PORTAL_ACCOUNTS_DOC_ID = 'accounts';
 
@@ -17,7 +19,7 @@ export const DOCUMENT_KINDS = Object.freeze([
 export const FOLLOWUP_DOC_ID = 'followup';
 
 /** One-off price in EUR cents, shared by checkout validation and analytics. */
-export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 99;
+export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 199;
 
 // `awaiting_upload` is a paid order whose materials have not arrived yet: it
 // must stay visible, because the email-first concierge (see

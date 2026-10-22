@@ -26,7 +26,7 @@ const examplesFor = (n: number, firstPr: number) =>
 
 // Corpus dei doc che documenta entrambe le voci: l'unica differenza fra le due
 // e' la classe di escalation.
-const corpus = 'trailing slash obbligatorio. canonical e sitemap. cls e reserve space.';
+const corpus = 'trailing slash obbligatorio. canonical e sitemap. cls e reserve space. structured data mandatory fields.';
 
 describe('classificazione della TAXONOMY: regola o argomento, col motivo', () => {
   it('ogni voce dichiara una classe nota e un motivo non vuoto', () => {
@@ -37,14 +37,14 @@ describe('classificazione della TAXONOMY: regola o argomento, col motivo', () =>
     }
   });
 
-  it.each(['canonical-sitemap', 'cls-layout', 'router-nav', 'auto-ads', 'sibling-tooling'])('%s e\' argomento', (key) => {
+  it.each(['canonical-sitemap', 'cls-layout', 'router-nav', 'auto-ads', 'sibling-tooling', 'structured-data'])('%s e\' argomento', (key) => {
     expect(bucketEscalationKind('reviewer-finding', key)).toBe('topic');
     expect(isTopicOnlyBucket('reviewer-finding', key)).toBe(true);
   });
 
   it.each([
     'canonical-trailing-slash', 'adsense-thin-content', 'adsense-slot-lifecycle', 'adsense-bot-gate',
-    'adsense-loader-contract', 'structured-data-parser', 'workflow-scope-creds', 'pr-body-contract',
+    'adsense-loader-contract', 'structured-data-parser', 'structured-data-required-fields', 'workflow-scope-creds', 'pr-body-contract',
   ])('%s e\' regola', (key) => {
     expect(bucketEscalationKind('reviewer-finding', key)).toBe('rule');
     expect(isTopicOnlyBucket('reviewer-finding', key)).toBe(false);

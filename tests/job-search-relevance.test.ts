@@ -3,6 +3,7 @@ import {
   classifyJobSearchOccupation,
   getJobSearchRoleProfile,
   getJobSearchRoleTokens,
+  hasPotentialJobSearchQualifier,
   matchesJobOccupation,
   matchesJobSearchRoleProfile,
 } from '../services/jobSearchRelevance';
@@ -51,6 +52,11 @@ describe('occupational relevance for salary searches', () => {
 
 describe('profession versus qualifier intent', () => {
   const qualifiedProfile = getJobSearchRoleProfile('medico anestesista responsabile');
+
+  it('detects qualifier candidates without resolving the profession taxonomy', () => {
+    expect(hasPotentialJobSearchQualifier(getJobSearchRoleTokens('infermiere Lugano'))).toBe(false);
+    expect(hasPotentialJobSearchQualifier(getJobSearchRoleTokens('medico responsabile'))).toBe(true);
+  });
 
   it('keeps the medical profession and anaesthesia specialty in the hard core', () => {
     expect(qualifiedProfile).toMatchObject({
@@ -128,5 +134,74 @@ describe('profession versus qualifier intent', () => {
     expect(classifyJobSearchOccupation(job, 'it', qualifiedProfile).tier).toBe('semantic');
     expect(matchesJobSearchRoleProfile(job, 'it', qualifiedProfile)).toBe(false);
     expect(matchesJobSearchRoleProfile(job, 'it', qualifiedProfile, { allowSemantic: true })).toBe(true);
+  });
+
+  it('keeps strict matching title-only without poisoning later semantic classification', () => {
+    let descriptionReads = 0;
+    let localizedDescriptionReads = 0;
+    const job: { title: string; description?: string; descriptionByLocale?: Partial<Record<string, string>> } = {
+      title: 'Facharzt Anästhesiologie',
+    };
+    Object.defineProperty(job, 'description', {
+      get() {
+        descriptionReads += 1;
+        return 'Sarà responsabile della direzione del reparto e del team.';
+      },
+    });
+    Object.defineProperty(job, 'descriptionByLocale', {
+      get() {
+        localizedDescriptionReads += 1;
+        return { it: '' };
+      },
+    });
+
+    expect(matchesJobSearchRoleProfile(job, 'it', qualifiedProfile, { allowSemantic: false })).toBe(false);
+    expect(descriptionReads).toBe(0);
+    expect(localizedDescriptionReads).toBe(0);
+
+    expect(classifyJobSearchOccupation(job, 'it', qualifiedProfile).tier).toBe('semantic');
+    expect(descriptionReads).toBe(1);
+    expect(localizedDescriptionReads).toBe(1);
+
+    // Cached description evidence must not make the strict matcher semantic.
+    expect(matchesJobSearchRoleProfile(job, 'it', qualifiedProfile, { allowSemantic: false })).toBe(false);
+    expect(matchesJobSearchRoleProfile(job, 'it', qualifiedProfile, { allowSemantic: true })).toBe(true);
+    expect(descriptionReads).toBe(1);
+    expect(localizedDescriptionReads).toBe(1);
+  });
+
+  it.each([
+    {
+      name: 'a core miss',
+      job: { title: 'Lagerist' },
+      profile: qualifiedProfile,
+      tier: 'none',
+    },
+    {
+      name: 'an exact title match',
+      job: { title: 'Leitender Facharzt Anästhesiologie' },
+      profile: qualifiedProfile,
+      tier: 'exact',
+    },
+    {
+      name: 'an unqualified core match',
+      job: { title: 'Facharzt Anästhesiologie' },
+      profile: getJobSearchRoleProfile('Facharzt Anästhesiologie'),
+      tier: 'core',
+    },
+  ])('classifies $name without reading descriptions', ({ job, profile, tier }) => {
+    const jobWithUnreadableDescriptions = { ...job };
+    Object.defineProperty(jobWithUnreadableDescriptions, 'description', {
+      get() {
+        throw new Error('description should remain lazy for title-only evidence');
+      },
+    });
+    Object.defineProperty(jobWithUnreadableDescriptions, 'descriptionByLocale', {
+      get() {
+        throw new Error('localized description should remain lazy for title-only evidence');
+      },
+    });
+
+    expect(classifyJobSearchOccupation(jobWithUnreadableDescriptions, 'it', profile).tier).toBe(tier);
   });
 });

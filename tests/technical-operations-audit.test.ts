@@ -335,6 +335,39 @@ describe('technical operations audit', () => {
     ]));
   });
 
+  it('non accredita una validazione disattivata da set +e se non e\u0300 guardata', () => {
+    const warningsFor = (runLines: string[]) => {
+      const source = [
+        'name: validation-errexit',
+        'on: [workflow_dispatch]',
+        'jobs:',
+        '  persist:',
+        '    runs-on: ubuntu-latest',
+        '    steps:',
+        '      - name: persist',
+        '        run: |',
+        ...runLines.map((line) => `          ${line}`),
+        '          git add data/result.json',
+        '          git commit -m result',
+      ].join('\n');
+      return auditWorkflowText('.github/workflows/validation-errexit.yml', source, { root: '/repo' })
+        .filter((item: any) => item.rule === 'workflow.data-write-without-check');
+    };
+    const validate = 'node scripts/ci/validate-workflow-data.mjs --kind example --file data/result.json';
+
+    expect(warningsFor(['set +e', validate])).toHaveLength(1);
+    expect(warningsFor([
+      'set +e',
+      `if ! ${validate}; then`,
+      '  echo "::error::validation failed"',
+      '  exit 1',
+      'fi',
+    ])).toEqual([]);
+    expect(warningsFor(['set +e', `${validate} || exit 1`])).toEqual([]);
+    expect(warningsFor(['set +e', `${validate} || { echo "validation failed"; exit 1; }`])).toEqual([]);
+    expect(warningsFor(['set -e', validate])).toEqual([]);
+  });
+
   it('non classifica una ricetta stampata come scrittura dati reale', () => {
     const source = [
       'name: recipe',
@@ -708,6 +741,54 @@ describe('technical operations audit', () => {
       readFile: (candidate: string) => files.get(candidate) || '',
     });
     expect(findings.filter((item: any) => item.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('segue il wrapper first-party appendGitHubFile solo quando punta a GITHUB_OUTPUT', () => {
+    const files = new Map([
+      ['/repo/scripts/output-wrapper.mjs', [
+        "import fs from 'node:fs';",
+        'function appendGitHubFile(envName, line) {',
+        '  const file = process.env[envName];',
+        '  if (file) fs.appendFileSync(file, `${line}\\n`);',
+        '}',
+        'function writeOutput(name, value) {',
+        "  appendGitHubFile('GITHUB_OUTPUT', `${name}=${value}`);",
+        '}',
+        "writeOutput('skipped', 'false');",
+        "writeOutput('skip-reason', '');",
+      ].join('\n')],
+      ['/repo/scripts/env-wrapper.mjs', [
+        "import fs from 'node:fs';",
+        'function appendGitHubFile(envName, line) {',
+        '  const file = process.env[envName];',
+        '  if (file) fs.appendFileSync(file, `${line}\\n`);',
+        '}',
+        "appendGitHubFile('GITHUB_ENV', 'skipped=false');",
+      ].join('\n')],
+    ]);
+    const workflow = (script: string) => [
+      'name: github-file-wrapper',
+      'on: [push]',
+      'jobs:',
+      '  build:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: producer',
+      `        run: node ${script}`,
+      '      - name: consumer',
+      '        run: echo "${{ steps.producer.outputs.skipped }} ${{ steps.producer.outputs.skip-reason }}"',
+    ].join('\n');
+    const audit = (script: string) => auditWorkflowText('.github/workflows/github-file-wrapper.yml', workflow(script), {
+      root: '/repo',
+      exists: (candidate: string) => files.has(candidate),
+      readFile: (candidate: string) => files.get(candidate) || '',
+    }).filter((item: any) => item.rule === 'workflow.output-not-produced');
+
+    expect(audit('scripts/output-wrapper.mjs')).toEqual([]);
+    expect(audit('scripts/env-wrapper.mjs').map((item: any) => item.evidence)).toEqual([
+      'steps.producer.outputs.skipped',
+      'steps.producer.outputs.skip-reason',
+    ]);
   });
 
   it('segue il file passato con --github-output "$GITHUB_OUTPUT" a uno script delegato', () => {

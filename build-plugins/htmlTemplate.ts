@@ -530,7 +530,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_CH';
  // Clamp the <meta name="description"> / og:description to the SERP snippet
- // budget (word-aware, ≤160 char). JSON-LD `description` in jsonLdScripts is
+ // budget (word-aware, ≤150 char). JSON-LD `description` in jsonLdScripts is
  // untouched. Mirrors the runtime clamp in services/seoService.ts so the
  // static HTML and the JS-rendered DOM expose the same complete snippet.
  const metaDescription = clampMetaDescription(description, undefined, locale);

@@ -24,6 +24,7 @@ import { decodeEntities } from './entities.mjs';
 import { readAttr, scanHtmlTags } from '../html-attr.mjs';
 import {
   evaluateSourceBackedSwissGeography,
+  JOB_LOCATION_CLASS_TOKENS,
   locationEvidenceCandidates,
   schemaJobLocationCandidates,
 } from './location-evidence.mjs';
@@ -1229,7 +1230,28 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     opts.recordUrl,
     opts.recordTitle,
   );
-  const unresolvedStructuredIdentity = allStructuredRecords.length > 0 && !structuredRecords.length;
+  const requestedTitleIdentity = vacancyTitleIdentity(opts.recordTitle);
+  const renderedTitleIdentity = vacancyTitleIdentity(renderedTitle);
+  const pageIdentity = canonicalIdentityUrl(pageUrl);
+  const requestedRecordIdentity = canonicalIdentityUrl(opts.recordUrl);
+  // A stale JobPosting node must not lend its location to another vacancy.
+  // When the rendered H1 independently confirms the requested listing title,
+  // however, the rendered detail body is still source-backed evidence for that
+  // same vacancy. Physioswiss serves exactly this shape: JSON-LD says
+  // "Header", while the detail H1 and address name the selected posting. A
+  // redirect to a different detail URL cannot satisfy this fallback on title
+  // alone.
+  const renderedTitleConfirmsRequestedRecord = Boolean(
+    pageIdentity
+      && requestedRecordIdentity
+      && requestedRecordIdentity === pageIdentity
+      && requestedTitleIdentity
+      && renderedTitleIdentity
+      && renderedTitleIdentity === requestedTitleIdentity,
+  );
+  const unresolvedStructuredIdentity = allStructuredRecords.length > 0
+    && !structuredRecords.length
+    && !renderedTitleConfirmsRequestedRecord;
   const structured = structuredRecords[0] || {};
   // The first H1 can be the employer or brand while the selected JobPosting
   // carries the vacancy title. Prefer the page-scoped structured record and
@@ -1299,6 +1321,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     && structuredLocationClasses.some((entry) => entry.swiss)
     && structuredLocationClasses.some((entry) => entry.foreign);
   const location = primaryLocation.location || structured.location || renderedLocation;
+  const renderedJobLocationFields = renderedJobLocationValues(html, title);
   /** @type {BodyRange[]} */
   const bodyRanges = [];
   /** @type {Array<{start: number, end: number}>} */
@@ -1452,6 +1475,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     location,
     addressCountry: primaryLocation.addressCountry || structured.addressCountry || '',
     locationCandidates,
+    renderedJobLocationFields,
     authoritativeLocationConflict,
     description: descriptions[0] || '',
     workplaceLabels,
@@ -1480,6 +1504,55 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
  * a node pair no class name marks and no structured record carries.
  */
 const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?|lieux? de travail|luog(?:o|hi) di lavoro)\s*:?\s*/i;
+
+/**
+ * Rendered, vacancy-scoped location fields that can be more precise than a
+ * page's structured JSON-LD. A few ATS templates publish a broad region in
+ * `jobLocation` while rendering the actual workplace in a dedicated
+ * `job-location`/`job-region` element. Keep that field as independent
+ * evidence; callers still decide whether it corroborates or conflicts with
+ * the structured candidate.
+ *
+ * Generic `.location` elements are deliberately excluded: they are common in
+ * search/navigation chrome and cannot stand in for a vacancy workplace.
+ *
+ * @param {string} html
+ * @param {string} [title]
+ * @returns {string[]}
+ */
+export function renderedJobLocationValues(html = '', title = '') {
+  const source = vacancyContentRegion(html, title)
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ');
+  const index = indexHtmlTags(source);
+  const chromeRanges = vacancyChromeRanges(source, index, [title], {
+    excludeWorkplaceChrome: true,
+  });
+  const inChrome = (opening) => chromeRanges.some((range) => (
+    opening.index >= range.start && opening.index < range.end
+  ));
+  const values = [];
+  const seen = new Set();
+  for (const opening of index.openings) {
+    if (inChrome(opening) || VOID_HTML_TAGS.has(opening.name)) continue;
+    const classTokens = [readAttr(opening.raw, 'class'), readAttr(opening.raw, 'id')]
+      .flatMap((value) => value.split(/\s+/))
+      .filter(Boolean)
+      .map((token) => token.toLowerCase());
+    if (!classTokens.some((token) => JOB_LOCATION_CLASS_TOKENS.has(token))) continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    const value = bodyTextOf(source.slice(opening.end, bounds.contentEnd))
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (!value || value.length > MAX_WORKPLACE_LABEL_VALUE) continue;
+    const key = value.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    values.push(value);
+  }
+  return values;
+}
 
 /** A workplace is an address, not a paragraph: longer values are prose. */
 const MAX_WORKPLACE_LABEL_VALUE = 120;
@@ -1526,6 +1599,22 @@ export function renderedWorkplaceLabelValues(html = '', title = '') {
     opening.index >= range.start && opening.index < range.end
   ));
   const isDocumentRoot = (opening) => ['html', 'head', 'body'].includes(opening.name);
+
+  // SuccessFactors/CSB exposes the per-vacancy workplace as a dedicated
+  // `city` property. It is stronger than the generic employer/location block
+  // that can carry the publishing office, and is the same field consumed by
+  // the SuccessFactors crawler parser. Preserve it as page evidence so the
+  // source-detail audit can distinguish an internal source contradiction from
+  // a published-location mismatch.
+  for (const opening of index.openings) {
+    if (isDocumentRoot(opening) || inChrome(opening)) continue;
+    if (readAttr(opening.raw, 'data-careersite-propertyid').toLowerCase() !== 'city') continue;
+    const bounds = index.boundsByStart.get(opening.index);
+    if (!bounds) continue;
+    structuredLabelFound = true;
+    add(source.slice(opening.end, bounds.contentEnd));
+  }
+
   for (const opening of index.openings) {
     if (isDocumentRoot(opening) || inChrome(opening)) continue;
     const bounds = index.boundsByStart.get(opening.index);

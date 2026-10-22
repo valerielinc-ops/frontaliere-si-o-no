@@ -3,6 +3,7 @@ import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper, Trophy, Flame, 
 import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { buildPath, type AppRoute } from '@/services/router';
+import { buildPharmacyPath, parsePharmacyRoute } from '@/services/pharmacies/routePaths';
 import {
  ACHIEVEMENTS,
  LEVEL_TITLES,
@@ -34,6 +35,78 @@ interface Release {
 // Add new releases at the TOP of this array (newest first).
 
 export const RELEASES: Release[] = [
+  {
+    version: '3.99.6',
+    date: '2026-10-21',
+    titleKey: 'whatsNew.v3996.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3996.jobViewers.title', descKey: 'whatsNew.v3996.jobViewers.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.99.5',
+    date: '2026-10-20',
+    titleKey: 'whatsNew.v3995.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3995.fuelTrip.title', descKey: 'whatsNew.v3995.fuelTrip.desc', link: { tab: 'stats', subTab: 'fuel-prices' } },
+    ],
+  },
+  {
+    version: '3.99.4',
+    date: '2026-10-20',
+    titleKey: 'whatsNew.v3994.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3994.regionalJobs.title', descKey: 'whatsNew.v3994.regionalJobs.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.99.3',
+    date: '2026-10-20',
+    titleKey: 'whatsNew.v3993.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3993.professionJourney.title', descKey: 'whatsNew.v3993.professionJourney.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.99.2',
+    date: '2026-10-20',
+    titleKey: 'whatsNew.v3992.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3992.returnVisit.title', descKey: 'whatsNew.v3992.returnVisit.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.99.1',
+    date: '2026-10-19',
+    titleKey: 'whatsNew.v3991.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3991.conciergeProximity.title', descKey: 'whatsNew.v3991.conciergeProximity.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.99.0',
+    date: '2026-10-19',
+    titleKey: 'whatsNew.v3990.title',
+    items: [
+      { type: 'improvement', titleKey: 'whatsNew.v3990.conciergeCheckout.title', descKey: 'whatsNew.v3990.conciergeCheckout.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.98.10',
+    date: '2026-10-18',
+    titleKey: 'whatsNew.v39810.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v39810.municipalArchives.title', descKey: 'whatsNew.v39810.municipalArchives.desc' },
+    ],
+  },
+  {
+    version: '3.98.9',
+    date: '2026-10-18',
+    titleKey: 'whatsNew.v3989.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v3989.pharmacyArchive.title', descKey: 'whatsNew.v3989.pharmacyArchive.desc', href: '/farmacie-di-turno/settimana/2026-09-14/' },
+    ],
+  },
   {
     version: '3.98.8',
     date: '2026-10-14',
@@ -2946,7 +3019,8 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
  const cfg = TYPE_CONFIG[item.type];
  const Icon = cfg.icon;
  const route = item.link ? releaseLinkToRoute(item.link) : null;
- const href = item.href ? item.href : route ? buildPath(route, locale as any) : '';
+ const pharmacyPath = item.href ? parsePharmacyRoute(item.href) : null;
+ const href = pharmacyPath ? buildPharmacyPath(pharmacyPath, locale) : item.href ? item.href : route ? buildPath(route, locale as any) : '';
  const isClickable = !!item.link || !!item.href;
  const cardContent = (
  <>

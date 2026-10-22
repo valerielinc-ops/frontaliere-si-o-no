@@ -79,6 +79,90 @@ describe('buildWeekendDigestArticle with a canton', () => {
     expect(omitted.id).toBe(DIGEST_ARTICLE_ID);
     expect(omitted.slugs).toEqual(DIGEST_ARTICLE_SLUGS);
     expect(omitted.eventCount).toBe(1);
+    expect(omitted.content.it.body2).toContain('<!-- digest-event:ti1 -->');
+    expect(omitted.content.en.body2).toContain('<!-- digest-event:ti1 -->');
+  });
+
+  it('encodes hyphens in event marker payloads so HTML comments stay valid', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'venue--series',
+        title: 'Serie speciale',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+    expect(article.content.it.body2).toContain('<!-- digest-event:venue%2D%2Dseries -->');
+    expect(decodeURIComponent('venue%2D%2Dseries')).toBe('venue--series');
+  });
+
+  it('renders the current weekend date for a spanning event and cites its source record', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'agenda-series',
+        title: 'Mostra [ricorrente]',
+        comune: 'Lugano',
+        startDate: '2026-01-01',
+        endDate: '2027-01-03',
+        url: 'https://agenda.example/events/mostra-(serie)',
+        canton: 'TI',
+      }],
+      todayIso: '2027-01-01',
+    });
+    expect(article.content.it.body2).toContain('**2 gennaio**');
+    expect(article.content.it.body2).toContain('[Mostra \\[ricorrente\\]](https://agenda.example/events/mostra-%28serie%29)');
+    expect(article.content.it.body2).not.toContain('**1 gennaio** —');
+  });
+
+  it('escapes Markdown delimiters in a cited event title', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'agenda-label',
+        title: 'Mostra [estate] — bambini',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        url: 'https://agenda.example/events/mostra-(serie)',
+        canton: 'TI',
+      }],
+      todayIso: '2027-01-01',
+    });
+    expect(article.content.it.body2).toContain('[Mostra \\[estate\\] — bambini](https://agenda.example/events/mostra-%28serie%29)');
+  });
+
+  it.each([
+    'https://agenda.example/events/mostra (serie)',
+    'https://agenda.example/events/mostra\u0007serie',
+    'nota-url',
+  ])('does not turn a malformed source URL into a Markdown link: %s', (url) => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'agenda-invalid-url',
+        title: 'Mostra senza link',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        url,
+        canton: 'TI',
+      }],
+      todayIso: '2027-01-01',
+    });
+    expect(article.content.it.body2).toContain('Mostra senza link');
+    expect(article.content.it.body2).not.toContain('](https://agenda.example/');
+  });
+
+  it('keeps a lone surrogate in an event id from aborting the producer', () => {
+    const article = buildWeekendDigestArticle({
+      events: [{
+        id: 'venue\uD800series',
+        title: 'Serie con id malformato',
+        comune: 'Lugano',
+        startDate: '2027-01-02',
+        canton: 'TI',
+      }],
+      todayIso: TODAY,
+    });
+    expect(article.content.it.body2).toContain('<!-- digest-event:venue%EF%BF%BDseries -->');
   });
 
   const gr = buildWeekendDigestArticle({ events: EVENTS, todayIso: TODAY, canton: 'GR' });

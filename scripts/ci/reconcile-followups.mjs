@@ -96,7 +96,7 @@ import {
 } from './lib/followup-ci-suite-proof.mjs';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 import { issueLabelDeleteArgs, labelDeleteResponseConfirms } from './lib/issue-label-release.mjs';
-import { isTrustedAuthor } from './route-already-fixed.mjs';
+import { bucketLabelEditArgs, isTrustedAuthor } from './route-already-fixed.mjs';
 import { rebuildDailyBody } from './gate-minted-followups.mjs';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 
@@ -635,6 +635,37 @@ export function planMaybeResolvedRelease(issues) {
   return out;
 }
 
+/**
+ * Bucket sealed senza item `open`/`in-progress`: il fixer non ha piu' un
+ * target selezionabile, quindi il routing non puo' restare attivo. Il piano
+ * copre anche bucket che hanno gia' consumato il marker di richiesta verifica:
+ * `decideBucketVerifyRequest()` in quel caso restituisce `already-requested` e
+ * il vecchio ramo non tornava piu' a riparare la coda.
+ *
+ * La forma deve essere leggibile e ogni item deve avere uno stato terminale
+ * noto (`done` o `blocked`); in caso contrario si conserva tutto e il bucket
+ * resta osservabile dal relativo allarme/drainer.
+ *
+ * @returns {Array<{number: number, labelArgs: string[]}>}
+ */
+export function planBucketRoutingRelease(issues) {
+  const out = [];
+  for (const iss of Array.isArray(issues) ? issues : []) {
+    const daily = dailyBucketInfo(iss?.title || '');
+    const body = String(iss?.body || '');
+    if (!daily || bucketState(body) !== 'sealed') continue;
+    if (bucketStructuralVeto(iss)) continue;
+    const items = parseFollowupItems(body);
+    if (!items.length || items.some((item) => !['done', 'blocked'].includes(item.state))) continue;
+    const labels = (iss?.labels || []).map(labelName).filter(Boolean);
+    const hasRouting = labels.some((name) => ['agent:fix', 'agent:fix-queued'].includes(String(name).toLowerCase()));
+    if (!hasRouting) continue;
+    const labelArgs = bucketLabelEditArgs(labels, { openRemaining: false, addVerifyLabel: false });
+    if (labelArgs.length) out.push({ number: iss.number, labelArgs });
+  }
+  return out;
+}
+
 /** Il commento che accompagna la rimozione automatica di `maybe-resolved`. */
 export function maybeResolvedReleaseCommentBody({ ids }) {
   const list = (Array.isArray(ids) ? ids : []).map((id) => `\`${inertCommentText(String(id))}\``).join(', ');
@@ -980,8 +1011,9 @@ export function bucketFormatViolations(title, body, { limit = 5 } = {}) {
 
 /**
  * Coppie di label che tre script diversi scrivono senza un invariante comune.
- * Elenco chiuso; nessuna label viene tolta da qui (`maybe-resolved` con un item
- * `open` la toglie prima `planMaybeResolvedRelease`).
+ * Elenco chiuso; nessuna label viene tolta dalla diagnostica (`maybe-resolved`
+ * con un item `open` e il routing senza item runnable vengono riparati prima
+ * dal ciclo principale).
  * @param {Array<string|{name:string}>} labels
  * @param {{hasOpenItem?: boolean}} [state]
  * @returns {string[]} i conflitti, in forma leggibile (vuoto se nessuno)
@@ -1094,7 +1126,7 @@ export function bucketAlarmBody({ unparseable = [], conflicts = [], repository =
   if (!conflicts.length) lines.push('', '- Nessuna.');
   else lines.push('');
   for (const entry of conflicts) lines.push(`- #${entry.number}: ${entry.conflicts.join('; ')}`);
-  lines.push('', `Il reconciler toglie da se' \`${LABEL}\` dai bucket con un item \`open\`: se il conflitto compare qui, la rimozione di questo giro e' fallita. Il resto e' osservazione: i corpi illeggibili si rigenerano col comando indicato sopra.`);
+  lines.push('', `Il reconciler toglie da se' \`${LABEL}\` dai bucket con un item \`open\` e rimuove il routing dai bucket senza item runnable: se il conflitto compare qui, la riparazione di questo giro e' fallita. Il resto e' osservazione: i corpi illeggibili si rigenerano col comando indicato sopra.`);
   return lines.join('\n');
 }
 
@@ -1142,10 +1174,11 @@ export function reconcileSummaryLine({
   labelConflicts = 0,
   bucketAlarm = 'none',
   maybeResolvedReleased = 0,
+  routingReleased = 0,
   dryRun = false,
   noAutoclose = false,
 } = {}) {
-  return `Reconcile follow-ups: scanned ${scanned}, cache-skipped ${cacheSkipped}, cache-marked ${cacheMarked}, flagged ${flagged}, auto-closed ${autoClosed}, verify_requested=${verifyRequested}, unparseable_buckets=${unparseableBuckets}, label_conflicts=${labelConflicts}, bucket_alarm=${bucketAlarm}, maybe_resolved_released=${maybeResolvedReleased}${dryRun ? ' (dry-run)' : ''}${noAutoclose ? ' (no-autoclose)' : ''}.`;
+  return `Reconcile follow-ups: scanned ${scanned}, cache-skipped ${cacheSkipped}, cache-marked ${cacheMarked}, flagged ${flagged}, auto-closed ${autoClosed}, verify_requested=${verifyRequested}, unparseable_buckets=${unparseableBuckets}, label_conflicts=${labelConflicts}, bucket_alarm=${bucketAlarm}, maybe_resolved_released=${maybeResolvedReleased}, routing_released=${routingReleased}${dryRun ? ' (dry-run)' : ''}${noAutoclose ? ' (no-autoclose)' : ''}.`;
 }
 
 /**
@@ -1772,6 +1805,24 @@ async function main() {
     const iss = issues.find((candidate) => candidate.number === entry.number);
     if (iss) iss.labels = (iss.labels || []).filter((label) => labelName(label) !== LABEL);
   }
+  let routingReleased = 0;
+  for (const entry of planBucketRoutingRelease(issues)) {
+    if (DRY_RUN) {
+      console.log(`#${entry.number}: routing senza item runnable → verrebbe rimosso (dry-run).`);
+      continue;
+    }
+    const edited = gh(['issue', 'edit', String(entry.number), ...repoArgs, ...entry.labelArgs], { allowFail: true });
+    if (edited === null) {
+      console.log(`::warning::reconcile-followups: routing senza item runnable non rimosso da #${entry.number}; si riprova al prossimo giro`);
+      continue;
+    }
+    routingReleased += 1;
+    const iss = issues.find((candidate) => candidate.number === entry.number);
+    if (iss) {
+      iss.labels = (iss.labels || []).filter((label) => !['agent:fix', 'agent:fix-queued'].includes(String(labelName(label) || '').toLowerCase()));
+    }
+    console.log(`#${entry.number}: routing senza item runnable rimosso.`);
+  }
   // Sui corpi e sulle label COME LETTI (salvo il rilascio qui sopra), prima di
   // qualunque altra scrittura del giro: un veto strutturale ferma ogni scrittura
   // sul suo bucket, quindi la diagnosi non dipende dall'ordine.
@@ -1922,6 +1973,7 @@ async function main() {
                 number: iss.number,
                 ids: request.items.map((item) => item.id),
                 ensureLabel: shouldEnsureVerifyLabel({ comments, labelNames }),
+                labelNames,
                 body: bucketVerifyRequestBody({ items: request.items, markers: itemMarkers, bornSatisfiedIds: bornSatisfied }),
               });
             } catch (e) {
@@ -2048,10 +2100,16 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
       continue;
     }
     if (!v.ensureLabel) {
+      const labelArgs = bucketLabelEditArgs(v.labelNames, { openRemaining: false, addVerifyLabel: false });
+      if (labelArgs.length) {
+        const edited = gh(['issue', 'edit', String(v.number), ...repoArgs, ...labelArgs], { allowFail: true });
+        if (edited === null) console.log(`::warning::reconcile-followups: routing senza item runnable non rimosso da #${v.number}; si riprova al prossimo giro`);
+      }
       console.log(`#${v.number}: \`${LABEL}\` tolta dopo un flag (obiezione umana) → solo il commento, label non rimessa.`);
       continue;
     }
-    gh(['issue', 'edit', String(v.number), ...repoArgs, '--add-label', LABEL], { allowFail: true });
+    const labelArgs = bucketLabelEditArgs(v.labelNames, { openRemaining: false });
+    if (labelArgs.length) gh(['issue', 'edit', String(v.number), ...repoArgs, ...labelArgs], { allowFail: true });
   }
 
   // Allarme dei bucket illeggibili / con label contraddittorie. La chiusura
@@ -2082,6 +2140,7 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     labelConflicts: bucketAlarmPlan.conflicts.length,
     bucketAlarm: alarm.action,
     maybeResolvedReleased: released,
+    routingReleased,
     dryRun: DRY_RUN,
     noAutoclose: NO_AUTOCLOSE,
   });

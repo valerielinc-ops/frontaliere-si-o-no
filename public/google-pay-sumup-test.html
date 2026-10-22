@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Google Pay · SumUp sandbox test</title>
+    <style>
+      :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #f6f8fb; color: #182238; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; }
+      main { width: min(100%, 620px); background: white; border: 1px solid #dde4ef; border-radius: 22px; box-shadow: 0 18px 50px #15213d14; padding: 28px; box-sizing: border-box; }
+      .eyebrow { margin: 0 0 8px; color: #5a45f5; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      h1 { margin: 0; font-size: clamp(28px, 6vw, 40px); letter-spacing: -.04em; line-height: 1.05; }
+      p { color: #53627a; line-height: 1.6; }
+      .notice { margin: 20px 0; padding: 14px 16px; border-radius: 14px; background: #f0efff; color: #4437b8; font-size: 14px; line-height: 1.5; }
+      .summary { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 14px 16px; border: 1px solid #e3e8f1; border-radius: 14px; margin: 18px 0; }
+      .summary strong { font-size: 20px; }
+      button { appearance: none; border: 0; border-radius: 12px; padding: 13px 18px; background: #5a45f5; color: white; font: inherit; font-weight: 750; cursor: pointer; }
+      button:disabled { cursor: wait; opacity: .55; }
+      #sumup-card { min-height: 240px; margin-top: 18px; }
+      #status { min-height: 24px; margin-top: 18px; font-size: 14px; }
+      #status[data-kind="success"] { color: #0e7a4d; }
+      #status[data-kind="error"] { color: #b42318; }
+      code { word-break: break-word; }
+      .small { font-size: 12px; color: #78859a; }
+    </style>
+    <script src="https://gateway.sumup.com/gateway/ecom/card/v2/sdk.js" async></script>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Ambiente isolato</p>
+      <h1>Test Google Pay con SumUp</h1>
+      <p>Questa pagina usa il merchant SumUp Sandbox: nessun pagamento reale viene eseguito. Il test verifica il widget completo, il callback e la conferma server-side del webhook.</p>
+      <div class="notice"><strong>Non usare carte reali.</strong> Usa le carte di test SumUp documentate oppure il pulsante Google Pay mostrato dal widget.</div>
+      <div class="summary"><span>Candidatura assistita · test sandbox</span><strong>1,99 €</strong></div>
+      <button id="start" type="button">Avvia un nuovo test</button>
+      <div id="sumup-card" aria-live="polite"></div>
+      <div id="status" role="status" aria-live="polite"></div>
+      <p class="small">Il risultato finale viene letto dal webhook sandbox, non dal solo callback del browser.</p>
+    </main>
+    <script>
+      (() => {
+        const API = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net';
+        const statusNode = document.getElementById('status');
+        const startButton = document.getElementById('start');
+        const cardNode = document.getElementById('sumup-card');
+        let mountedCard = null;
+
+        function setStatus(message, kind = '') {
+          statusNode.textContent = message;
+          statusNode.dataset.kind = kind;
+        }
+
+        function sleep(ms) { return new Promise((resolve) => window.setTimeout(resolve, ms)); }
+
+        async function jsonFetch(url, options) {
+          const response = await fetch(url, options);
+          const body = await response.json().catch(() => ({}));
+          if (!response.ok || body.ok === false) throw new Error(body.error || `HTTP ${response.status}`);
+          return body;
+        }
+
+        async function loadSdk() {
+          if (window.SumUpCard) return;
+          for (let attempt = 0; attempt < 40; attempt += 1) {
+            await sleep(250);
+            if (window.SumUpCard) return;
+          }
+          throw new Error('sumup_sdk_load_failed');
+        }
+
+        async function waitForWebhook(testId) {
+          for (let attempt = 0; attempt < 45; attempt += 1) {
+            const result = await jsonFetch(`${API}/getSumUpPaymentTestStatus?testId=${encodeURIComponent(testId)}`);
+            if (result.paymentStatus === 'paid') {
+              setStatus('Pagamento sandbox confermato dal webhook SumUp.', 'success');
+              return;
+            }
+            if (result.paymentStatus === 'failed') {
+              throw new Error(`SumUp ha restituito ${result.checkoutStatus || 'FAILED'}`);
+            }
+            await sleep(2000);
+          }
+          throw new Error('webhook_timeout');
+        }
+
+        async function startTest() {
+          startButton.disabled = true;
+          if (mountedCard?.unmount) mountedCard.unmount();
+          mountedCard = null;
+          cardNode.replaceChildren();
+          setStatus('Creo un checkout sandbox…');
+          try {
+            const publicConfig = await jsonFetch(`${API}/getPublicConfig`);
+            const merchantId = String(publicConfig.SUMUP_GOOGLE_PAY_MERCHANT_ID || '').trim();
+            if (!merchantId) throw new Error('google_pay_merchant_id_missing');
+            const checkout = await jsonFetch(`${API}/createSumUpPaymentTestCheckout`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: '{}',
+            });
+            await loadSdk();
+            mountedCard = window.SumUpCard.mount({
+              id: 'sumup-card',
+              checkoutId: checkout.checkoutId,
+              amount: '1.99',
+              currency: 'EUR',
+              locale: 'it-CH',
+              country: 'CH',
+              showFooter: true,
+              googlePay: { merchantId, merchantName: 'Frontaliere Ticino' },
+              onLoad: () => setStatus('Widget pronto: scegli Google Pay o una carta SumUp sandbox.'),
+              onResponse: (type) => {
+                if (type === 'success') {
+                  setStatus('Provider confermato dal widget; attendo il webhook server-side…');
+                  waitForWebhook(checkout.testId).catch((error) => {
+                    setStatus(`Verifica webhook non completata: ${error.message}`, 'error');
+                  });
+                } else if (type === 'fail' || type === 'error') {
+                  setStatus(`Il provider ha restituito ${type}. Avvia un nuovo test.`, 'error');
+                }
+              },
+            });
+            setStatus('Widget pronto: scegli Google Pay o una carta SumUp sandbox.');
+          } catch (error) {
+            setStatus(`Test non avviato: ${error.message}`, 'error');
+          } finally {
+            startButton.disabled = false;
+          }
+        }
+
+        startButton.addEventListener('click', () => { void startTest(); });
+      })();
+    </script>
+  </body>
+</html>

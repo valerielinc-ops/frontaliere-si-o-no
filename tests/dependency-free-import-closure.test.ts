@@ -27,6 +27,17 @@ describe('followup-drainer dependency-free import closure (#7341)', () => {
     ]));
   });
 
+  it('keeps social post confirmation dependency-free through the publication hold', () => {
+    const { files, packageImports } = scanImportClosure({
+      entries: ['scripts/social-robot/confirm.mjs'],
+    });
+
+    expect(files).toContain('scripts/lib/translation-publication-hold.mjs');
+    expect(files).toContain('scripts/lib/job-locale-core.mjs');
+    expect(files).not.toContain('scripts/lib/job-locale-utils.mjs');
+    expect(packageImports).toEqual([]);
+  });
+
   it('runs the closure check before the zero-dependency drain entrypoint', () => {
     const document = YAML.parse(readFileSync(resolve(ROOT, WORKFLOW), 'utf8')) as any;
     const steps = Object.values(document.jobs ?? {}).flatMap((job: any) => job.steps ?? []);

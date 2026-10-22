@@ -37,11 +37,16 @@ import { registrableDomain, normalizeHost, sameOrg } from './registrable.mjs';
  * @property {string[]} hostSamples     example tenant hosts
  * @property {'subdomain'|'shared'|'mixed'|'unknown'} tenantShape
  * @property {Record<string, number>} hostHits  full host -> employers seen on it
+ * @property {Record<string, string[]>} hostEmployers full host -> verified employer domains seen on it
+ * @property {Record<string, boolean>} hostEmployerUnknown full host -> an owner could not be verified
  * @property {Record<string, number>} pathHits     first DETAIL url segment -> times seen
  * @property {string[]} listingPaths                 listing paths learned from our own adapters
  * @property {number} tenantCount
  * @property {string} [lastExpandedAt]               last enumeration attempt
  * @property {number} [expansionAttempts]            number of enumeration attempts
+ * @property {number} [expansionProbeOffset]          next position in the ranked tenant probe queue
+ * @property {{ host: string, attempts: number }[]} [expansionRetryHosts] transient tenant probes due for another attempt
+ * @property {{ at: string, outcome: string, discoveredHosts: number, liveTenants: number, probeLimitReached: boolean, sources: Record<string, { outcome: string, items: number, errorCode: string|null }> }} [lastExpansion]
  * @property {string} discoveredAt
  * @property {string} [note]
  */
@@ -53,13 +58,25 @@ const EMPTY = { version: 1, updatedAt: null, platforms: {} };
  * @returns {{ version: number, updatedAt: string|null, platforms: Record<string, Platform> }}
  */
 export function loadRegistry(file = PLATFORMS_PATH) {
+  let text;
   try {
-    const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
-    if (!raw || typeof raw !== 'object' || !raw.platforms) return structuredClone(EMPTY);
-    return raw;
-  } catch {
-    return structuredClone(EMPTY);
+    text = fs.readFileSync(file, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') return structuredClone(EMPTY);
+    throw new Error(`Cannot read Prospector platform registry at ${file}`, { cause: error });
   }
+
+  let raw;
+  try {
+    raw = JSON.parse(text);
+  } catch (error) {
+    throw new Error(`Malformed Prospector platform registry at ${file}`, { cause: error });
+  }
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)
+    || !raw.platforms || typeof raw.platforms !== 'object' || Array.isArray(raw.platforms)) {
+    throw new Error(`Invalid Prospector platform registry shape at ${file}`);
+  }
+  return raw;
 }
 
 /**
@@ -95,6 +112,30 @@ export function isPlatformEligible(host) {
 }
 
 /**
+ * Return an employer's registrable domain only when the input is domain-shaped.
+ * Crawler feeds also put company names in this field; those are useful as
+ * observations, but must never become verified tenant owners.
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export function verifiedEmployerDomain(value) {
+  const raw = String(value || '').trim();
+  if (!raw || /\s/.test(raw)) return '';
+  const host = normalizeHost(raw);
+  if (host.length > 253) return '';
+  const labels = host.split('.');
+  if (labels.length < 2 || labels.some((label) => label.length > 63
+    || !/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label))) return '';
+  const tld = labels.at(-1);
+  if (!/^(?:[a-z]{2,63}|xn--[a-z0-9-]{2,59})$/i.test(tld)) return '';
+  const domain = registrableDomain(host);
+  // Reject public suffixes such as `co.uk`, which are domain-shaped but do not
+  // identify an employer.
+  return domain.includes('.') && registrableDomain(`owner.${domain}`) === domain ? domain : '';
+}
+
+/**
  * Record that `employerDomain` publishes its vacancies on `tenantHost`.
  * Promotes candidate -> confirmed once enough UNRELATED employers agree.
  *
@@ -103,14 +144,14 @@ export function isPlatformEligible(host) {
  * not two, and `sameOrg` collapses them.
  *
  * @param {ReturnType<typeof loadRegistry>} registry
- * @param {{ tenantHost: string, employerDomain: string, markers?: string[], note?: string, path?: string }} obs
+ * @param {{ tenantHost: string, employerDomain?: string, markers?: string[], note?: string, path?: string }} obs
  * @returns {{ platform: Platform|null, promoted: boolean, created: boolean }}
  */
 export function observePlatform(registry, { tenantHost, employerDomain, markers = [], note, path }) {
   const host = normalizeHost(tenantHost);
   if (!isPlatformEligible(host)) return { platform: null, promoted: false, created: false };
   const domain = registrableDomain(host);
-  const employer = registrableDomain(employerDomain || '');
+  const employer = verifiedEmployerDomain(employerDomain);
   // The employer's own domain is never a platform, however many subdomains it has.
   if (employer && sameOrg(domain, employer)) return { platform: null, promoted: false, created: false };
 
@@ -126,6 +167,8 @@ export function observePlatform(registry, { tenantHost, employerDomain, markers 
       hostSamples: [],
       tenantShape: 'unknown',
       hostHits: {},
+      hostEmployers: {},
+      hostEmployerUnknown: {},
       pathHits: {},
       tenantCount: 0,
       discoveredAt: new Date().toISOString(),
@@ -155,6 +198,18 @@ export function observePlatform(registry, { tenantHost, employerDomain, markers 
   // nonetheless a single shared host, which an is-there-a-dot test gets wrong.
   p.hostHits = p.hostHits || {};
   p.hostHits[host] = (p.hostHits[host] || 0) + 1;
+
+  // Counts alone do not tell whether one host is shared by several employers:
+  // a single Umantis tenant can contribute many vacancy URLs. Preserve the
+  // actual employer domains per host so identity keys can rely on host-specific
+  // evidence instead of a platform-wide `mixed` classification.
+  const employerIdentity = verifiedEmployerDomain(employerDomain);
+  p.hostEmployerUnknown = p.hostEmployerUnknown || {};
+  if (!employerIdentity) p.hostEmployerUnknown[host] = true;
+  if (employerIdentity) {
+    p.hostEmployers = p.hostEmployers || {};
+    p.hostEmployers[host] = [...new Set([...(p.hostEmployers[host] || []), employerIdentity])].sort();
+  }
 
   // Learn WHERE on the host the vacancies sit. Probing a tenant's bare root is
   // not enough: an Umantis tenant root serves a login form and the listing
@@ -225,6 +280,25 @@ export function tenantIsInPath(platform) {
 }
 
 /**
+ * Shared-host vendors whose first path segment identifies the tenant. These
+ * need a separate, bounded slug-probe budget; host enumeration cannot find
+ * tenants on a single shared host.
+ */
+export function enumerablePathTenantPlatforms(registry) {
+  return sharedHostPlatforms(registry)
+    .filter((platform) => tenantIsInPath(platform))
+    .sort((a, b) => {
+      const aAt = Date.parse(a.lastExpandedAt || '');
+      const bAt = Date.parse(b.lastExpandedAt || '');
+      const aNever = !Number.isFinite(aAt);
+      const bNever = !Number.isFinite(bAt);
+      if (aNever !== bNever) return Number(bNever) - Number(aNever);
+      if (!aNever && aAt !== bAt) return aAt - bAt;
+      return (b.seenOn.length - a.seenOn.length) || a.domain.localeCompare(b.domain);
+    });
+}
+
+/**
  * The platform an arbitrary host belongs to, if the registry knows it.
  *
  * @param {ReturnType<typeof loadRegistry>} registry
@@ -249,6 +323,51 @@ export function matchPlatform(registry, host) {
 export function recordExpansionAttempt(platform, at = new Date().toISOString()) {
   platform.lastExpandedAt = at;
   platform.expansionAttempts = (Number(platform.expansionAttempts) || 0) + 1;
+  return platform;
+}
+
+/**
+ * Persist bounded outcome metadata for the latest tenant enumeration. Raw
+ * response bodies, URLs, and tenant identities stay out of this health record.
+ *
+ * @param {Platform} platform
+ * @param {{ outcome?: string, discovered?: string[], live?: any[], retryHosts?: { host: string, attempts: number }[], probeLimitReached?: boolean, nextProbeOffset?: number, sourceOutcomes?: Record<string, { outcome?: string, items?: number, errorCode?: string|null }> }} result
+ * @param {string} [at]
+ * @returns {Platform}
+ */
+export function recordExpansionResult(platform, result = {}, at = new Date().toISOString()) {
+  const allowed = new Set(['complete', 'partial', 'unavailable', 'malformed']);
+  const outcome = allowed.has(result.outcome) ? result.outcome : 'unavailable';
+  if (Number.isSafeInteger(result.nextProbeOffset) && result.nextProbeOffset >= 0) {
+    platform.expansionProbeOffset = result.nextProbeOffset;
+  }
+  if (Array.isArray(result.retryHosts)) {
+    platform.expansionRetryHosts = result.retryHosts
+      .filter((entry) => entry && typeof entry.host === 'string' && Number.isSafeInteger(entry.attempts)
+        && entry.attempts >= 1 && entry.attempts < 4)
+      .slice(0, 500)
+      .map(({ host, attempts }) => ({ host: normalizeHost(host), attempts }))
+      .filter((entry) => entry.host);
+  }
+  const sources = {};
+  for (const [name, source] of Object.entries(result.sourceOutcomes || {})) {
+    const sourceOutcome = source?.outcome;
+    if (sourceOutcome === 'skipped') continue;
+    const code = String(source?.errorCode || '');
+    sources[name] = {
+      outcome: allowed.has(sourceOutcome) ? sourceOutcome : 'unavailable',
+      items: Number.isFinite(Number(source?.items)) ? Math.max(0, Math.floor(Number(source.items))) : 0,
+      errorCode: /^[a-z0-9_.-]{1,60}$/i.test(code) ? code : null,
+    };
+  }
+  platform.lastExpansion = {
+    at,
+    outcome,
+    discoveredHosts: Array.isArray(result.discovered) ? result.discovered.length : 0,
+    liveTenants: Array.isArray(result.live) ? result.live.length : 0,
+    probeLimitReached: result.probeLimitReached === true,
+    sources,
+  };
   return platform;
 }
 

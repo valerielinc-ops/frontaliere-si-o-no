@@ -118,8 +118,9 @@ jobs:
         # resolver can't map (bot-probe junk like /wp-admin/install.php) would
         # break tests/search-console-compat.test.ts → main red. The resolver
         # uses committed static registries, so avoid assembling the ~400 MB
-        # crawler-slice corpus in this compatibility-only writer.
-        run: npx --no-install tsx scripts/prune-404-compat-paths.ts
+        # crawler-slice corpus in this compatibility-only writer. Fail closed if
+        # the resolver cannot load instead of opening a PR with an unvalidated set.
+        run: PRUNE_404_STRICT=1 npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       - name: Open pull request with 404 compatibility updates
         if: inputs.dry_run != true && inputs.dry_run != 'true'

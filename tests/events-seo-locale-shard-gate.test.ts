@@ -80,6 +80,11 @@ describe('#5130 — events-seo-pages does not render locales this shard discards
     expect(enclosing).not.toContain('shouldEmitLocale');
   });
 
+  it('links localized section hubs directly to their national events index', () => {
+    expect(CODE).toContain('href="${nationalIndexPath(locale)}"');
+    expect(CODE).toContain('${esc(NATIONAL_COPY[locale].breadcrumbLabel)}');
+  });
+
   it('reports what it skipped, so the next deploy can be compared', () => {
     expect(CODE).toContain('skippedLocaleRenders');
     expect(CODE).toContain('non-owned-locale renders skipped');

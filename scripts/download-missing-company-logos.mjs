@@ -3,16 +3,17 @@
  * download-missing-company-logos.mjs
  *
  * Mirrors verified icons for the companies reported by the canonical logo
- * audit. Acquisition may use Google's favicon proxy, but only with a domain
- * identified as the employer's official domain; the runtime never references
- * Google. A grey-globe response, an HTML page, and an HTTP error are all
- * rejected.
+ * audit. Acquisition may use a declared logo URL or Google's favicon proxy,
+ * but the latter is restricted to a domain identified as the employer's
+ * official domain; the runtime never references Google. A grey-globe response,
+ * an HTML page, and an HTTP error are all rejected.
  *
  * `--from-audit` is the only mode used by the weekly workflow and accepts
- * only explicit DOMAIN_OVERRIDES domains; it never guesses from a company
- * key or job metadata. Legacy mode (known-company-slugs.json + latest history)
- * remains available for manual recovery and retains historical guesses, but
- * the workflow must never invoke it:
+ * only explicit DOMAIN_OVERRIDES domains or declared logo URLs from the
+ * registry/canonical job data; it never guesses from a company key or job
+ * metadata. Legacy mode (known-company-slugs.json + latest history) remains
+ * available for manual recovery and retains historical guesses, but the
+ * workflow must never invoke it:
  *
  *   node scripts/download-missing-company-logos.mjs --from-audit
  *   node scripts/download-missing-company-logos.mjs --from-audit --dry-run
@@ -29,6 +30,7 @@ import {
 } from './lib/company-logo-audit.mjs';
 import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { directLogoSources, loadLogoRegistry } from './lib/company-logo-registry.mjs';
 import {
   domainCandidates,
   isAtsDomain,
@@ -88,11 +90,21 @@ function metadataFromJobs(jobs) {
       companyDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
+      declaredLogoUrls: new Set(),
     };
     const name = String(job.company || job.employer || '').trim();
     if (name) current.names.add(name);
     const companyDomain = normalizeDomain(job.companyDomain);
     if (companyDomain) current.companyDomains.add(companyDomain);
+    for (const declaredLogo of [
+      job.companyLogo,
+      job.logoUrl,
+      job.logo,
+      job.hiringOrganization?.logo,
+    ]) {
+      const value = String(declaredLogo || '').trim();
+      if (/^https:\/\/\S+$/i.test(value)) current.declaredLogoUrls.add(value);
+    }
     try {
       const sourceUrl = String(job.url || '').trim();
       const host = normalizeDomain(new URL(sourceUrl).hostname);
@@ -121,9 +133,22 @@ async function loadAuditTargets(reportPath, jobsPath) {
     else console.warn('[download-missing] Canonical jobs file not found; using report names and manual domains only.');
   }
   const metadata = metadataFromJobs(jobs);
+  const manifest = await readJson(MANIFEST_PATH, {});
+  const declaredSources = new Map(
+    directLogoSources(await loadLogoRegistry(ROOT)).map((entry) => [entry.slug, entry.url]),
+  );
   const targets = [];
   const seen = new Set();
-  for (const entry of selectAuditCandidates(entries)) {
+  const candidates = [...selectAuditCandidates(entries)];
+  for (const [key, sourceUrl] of declaredSources) {
+    if (manifest[key]) continue;
+    if (!candidates.some((entry) => String(entry?.companyKey || '').trim() === key)) {
+      candidates.push({ companyKey: key, status: 'external', companyName: key });
+    }
+    const currentMetadata = metadata.get(key);
+    if (currentMetadata) currentMetadata.declaredLogoUrls.add(sourceUrl);
+  }
+  for (const entry of candidates) {
     const key = String(entry?.companyKey || '').trim();
     if (!key || seen.has(key)) continue;
     // The report is refreshed from changing crawler data. If a stale report
@@ -136,7 +161,10 @@ async function loadAuditTargets(reportPath, jobsPath) {
       companyDomains: new Set(),
       urlHosts: new Set(),
       sourceUrls: new Set(),
+      declaredLogoUrls: new Set(),
     };
+    const registrySource = declaredSources.get(key);
+    if (registrySource) current.declaredLogoUrls.add(registrySource);
     if (entry.companyName) current.names.add(String(entry.companyName));
     targets.push({
       key,
@@ -418,6 +446,23 @@ export async function downloadForKey(key, metadata, options = {}) {
     source: null,
     sourceDomain: domains[0] || null,
   };
+
+  // A declared logo URL is an explicit acquisition input, not a guessed
+  // domain. Try it first so curated registry entries and publisher-provided
+  // logos can be converted into the same stable CDN asset as domain-based
+  // acquisitions. The URL is never written to runtime output.
+  for (const sourceUrl of metadata?.declaredLogoUrls || []) {
+    let sourceDomain;
+    try {
+      sourceDomain = normalizeDomain(new URL(sourceUrl).hostname);
+    } catch {
+      continue;
+    }
+    const declared = await readImageUrl(sourceUrl, 'declared-logo-source', sourceDomain);
+    if (declared.accepted) return declared;
+    lastFailure = declared;
+  }
+
   for (const domain of domains) {
     if (!strictAudit) {
       const google = await tryGoogleFavicon(domain);

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "fr-7272",
+      "sourceKey": "FR",
+      "sourceRecordId": "7272",
+      "canton": "Friburgo",
+      "platePrefix": "FR",
+      "plateNumber": "31303",
+      "normalizedPlate": "FR31303",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 300,
+      "startingPriceChf": 300,
+      "bidCount": 1,
+      "minimumIncrementChf": 50,
+      "endsAt": "2026-10-19T10:00:00.000Z",
+      "closedAt": "2026-10-19T10:00:00.000Z",
+      "officialAuctionUrl": "https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch",
+      "officialDetailUrl": "https://appls.ocn.ch/ecari-auction/ui/app/details/app?id=7272&locale=fr_ch",
+      "sourceFetchedAt": "2026-10-19T05:47:04.828Z",
+      "lastVerifiedAt": "2026-10-19T05:47:04.828Z",
+      "firstSeenAt": "2026-10-12T11:47:05.374Z",
+      "lastSeenAt": "2026-10-19T05:47:04.828Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "c86f2318adfc"
+    }
+  ]
+}

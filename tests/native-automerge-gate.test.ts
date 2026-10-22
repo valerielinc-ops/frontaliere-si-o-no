@@ -10,6 +10,7 @@ import {
   parseActionsJobUrl,
   requiredVitestDecision,
   revalidateNativeAutoMerge,
+  revokeNativeAutoMergeSafely,
   reviewGateEvidenceDecision,
   reviewHasLgtm,
   reviewIsApproved,
@@ -21,6 +22,7 @@ import {
   withNativeAutoMergeMutationRetry,
   bodyRecoveryBarrierDecision,
   nativeAutoMergeLeaseDecision,
+  postMutationStateDecision,
 } from '../scripts/ci/native-automerge-gate.mjs';
 import { LOOP_FLEET_LEDGER_REVIEW_MARKER, TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
 import {
@@ -807,6 +809,25 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).not.toContain('if (pr.autoMergeRequest !== null) return skip');
   });
 
+  it('treats a concurrent native auto-merge revocation as already satisfied', () => {
+    const snapshots = [
+      { state: 'OPEN', id: 'pr-node', autoMergeRequest: { enabledAt: '2026-09-13T12:00:00Z' } },
+      { state: 'OPEN', id: 'pr-node', autoMergeRequest: null },
+    ];
+    let reads = 0;
+    let disableCalls = 0;
+
+    expect(revokeNativeAutoMergeSafely({
+      readPullRequest: () => snapshots[Math.min(reads++, snapshots.length - 1)],
+      disableAutoMerge: () => {
+        disableCalls += 1;
+        throw new Error('GraphQL: auto-merge was already disabled');
+      },
+    })).toBe('already-satisfied');
+    expect(reads).toBe(2);
+    expect(disableCalls).toBe(1);
+  });
+
   it('binds the native opt-in to the exact HEAD that passed the gate', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
 
@@ -1087,6 +1108,89 @@ describe('native auto-merge gate (#8512)', () => {
       comments: [lease('held'), lease('released', HEAD, reviewInputRevisionFromBody('edited'))],
       prNumber: 1, headSha: HEAD, bodyRevision: REVIEW_REVISION,
     })).toMatchObject({ allow: false });
+  });
+
+  it('ritenta solo la propagazione post-mutation e non una race gia verificata', () => {
+    const held = { allow: true, leaseId: 'run-1:1:7', reason: 'lease held' };
+    const merged = {
+      state: 'MERGED',
+      headRefOid: HEAD,
+      body: PR_BODY,
+    };
+
+    expect(postMutationStateDecision({
+      observed: merged,
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: held,
+    })).toMatchObject({ allow: true, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: merged,
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: { allow: false, reason: 'lease native auto-merge assente', status: null, leaseId: null },
+    })).toMatchObject({ allow: false, retryable: true });
+
+    expect(postMutationStateDecision({
+      observed: merged,
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: { allow: false, reason: 'lease native auto-merge rilasciato', status: 'released', leaseId: held.leaseId },
+    })).toMatchObject({ allow: false, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: { ...merged, headRefOid: OLD_HEAD },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      lease: held,
+    })).toMatchObject({ allow: false, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: { state: 'OPEN', isDraft: false, baseRefName: 'main', headRefOid: HEAD, autoMergeRequest: null },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: false, retryable: true });
+
+    expect(postMutationStateDecision({
+      observed: {
+        state: 'OPEN',
+        isDraft: false,
+        baseRefName: 'main',
+        headRefOid: HEAD,
+        autoMergeRequest: { enabledAt: '2026-09-13T12:06:00Z' },
+      },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: true, retryable: false });
+
+    expect(postMutationStateDecision({
+      observed: {
+        state: 'OPEN', isDraft: false, baseRefName: 'main', headRefOid: HEAD,
+      },
+      observedRevision: REVIEW_REVISION,
+      expectedHead: HEAD,
+      expectedBodyRevision: REVIEW_REVISION,
+      expectedLeaseId: held.leaseId,
+      barrier: { allow: true },
+      lease: held,
+    })).toMatchObject({ allow: false, retryable: false });
   });
 
   it('fails closed when the final same-HEAD snapshot gains a check failure', () => {

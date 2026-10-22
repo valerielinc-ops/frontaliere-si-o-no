@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildFuelViewSearch, datasetFreshness, fuelRowView, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
+import { buildFuelViewSearch, datasetFreshness, fuelRowView, fuelRowViewWithExchangeRate, fuelTripPrefillPrices, italyStationObservationDate, pageForSelectedRow, parseFuelViewState, type FuelRowViewFactory, type FuelType, type FuelViewState } from '../components/pages/FuelPriceStats';
 import type { FuelPricesDataset, FuelStationItaly, FuelStationSwitzerland, MunicipalityFuelRow } from '../services/fuelPricesService';
 
 type IsAny<T> = 0 extends (1 & T) ? true : false;
@@ -44,6 +44,14 @@ function dataset(overrides: Partial<FuelPricesDataset> = {}): FuelPricesDataset 
 }
 
 describe('fuel comparison view model', () => {
+  it('uses only the selected Italian fuel observation date', () => {
+    const station = { ...IT, benzinaUpdatedAt: '2026-09-07', dieselUpdatedAt: '2026-09-08' };
+    expect(italyStationObservationDate(station, 'benzina')).toBe('2026-09-07');
+    expect(italyStationObservationDate(station, 'diesel')).toBe('2026-09-08');
+    expect(italyStationObservationDate(IT, 'benzina')).toBeNull();
+    expect(italyStationObservationDate(IT, 'diesel')).toBeNull();
+  });
+
   it('keeps the diesel projection behind the typed row-view contract', () => {
     const project: FuelRowViewFactory = fuelRowView;
     const view = project(row(), 'diesel');
@@ -55,6 +63,85 @@ describe('fuel comparison view model', () => {
     const state: FuelViewState = { fuelType: 'diesel', search: 'Como centro', province: 'CO', sortKey: 'swiss', selectedKey: 'Como|CO', homeMunicipalityKey: 'Como|CO', tankLiters: 65, costPerKmEur: 0.23, page: 3 };
     expect(parseFuelViewState(`?${buildFuelViewSearch(state)}`)).toEqual(state);
     expect(buildFuelViewSearch({ ...state, fuelType: 'benzina', search: '', province: 'ALL', sortKey: 'saving', selectedKey: null, homeMunicipalityKey: '', tankLiters: 50, costPerKmEur: 0.18, page: 1 })).toBe('');
+  });
+
+  it('uses the same trip defaults when the URL has no liters or vehicle-cost values', () => {
+    expect(parseFuelViewState('')).toMatchObject({ tankLiters: 50, costPerKmEur: 0.18 });
+    expect(parseFuelViewState('?liters=&cost=%20')).toMatchObject({ tankLiters: 50, costPerKmEur: 0.18 });
+  });
+
+  it('hydrates and serializes the existing liters and car-cost share parameters', () => {
+    expect(parseFuelViewState('?liters=80&cost=0.3')).toMatchObject({ tankLiters: 80, costPerKmEur: 0.3 });
+    expect(parseFuelViewState('?liters=0&cost=0')).toMatchObject({ tankLiters: 0, costPerKmEur: 0 });
+    expect(buildFuelViewSearch({ ...parseFuelViewState(''), tankLiters: 80, costPerKmEur: 0.3 })).toBe('liters=80&cost=0.3');
+    expect(parseFuelViewState('?liters=150&cost=1.2')).toMatchObject({ tankLiters: 150, costPerKmEur: 1.2 });
+    expect(buildFuelViewSearch({ ...parseFuelViewState(''), tankLiters: 150, costPerKmEur: 1.2 })).toBe('liters=150&cost=1.2');
+  });
+
+  it.each(['EUR', 'CHF'] as const)('round-trips the complete %s trip scenario through a share URL', (currency) => {
+    const state: FuelViewState = {
+      ...parseFuelViewState(''),
+      tankLiters: 65,
+      costPerKmEur: 0.3,
+      tripScenario: {
+        currency,
+        referencePrice: currency === 'EUR' ? '1.85' : '1.95',
+        alternativePrice: '1.7',
+        liters: '65',
+        additionalRoundTripKm: '42',
+        vehicleCostPerKm: currency === 'EUR' ? '0.3' : '0.285',
+        otherTripCosts: currency === 'EUR' ? '12' : '11.4',
+        monthlyTrips: '8',
+      },
+    };
+    const shared = buildFuelViewSearch(state);
+    const restored = parseFuelViewState(`?${shared}`);
+
+    expect(restored.tripScenario).toEqual(state.tripScenario);
+    expect(restored.tankLiters).toBe(65);
+    expect(restored.costPerKmEur).toBe(0.3);
+    expect(new URLSearchParams(shared).get('tripRoundTripKm')).toBe('42');
+    expect(new URLSearchParams(shared).get('tripMonthlyTrips')).toBe('8');
+    expect(new URLSearchParams(shared).get('tripCurrency')).toBe(currency);
+  });
+
+  it('preserves legacy EUR cost links without interpreting them as CHF scenario values', () => {
+    const legacy = parseFuelViewState('?liters=80&cost=0.3');
+    expect(legacy).toMatchObject({ tankLiters: 80, costPerKmEur: 0.3 });
+    expect(legacy.tripScenario).toBeUndefined();
+
+    const current = parseFuelViewState('?cost=0.3&tripCurrency=CHF&tripVehicleCostPerKm=&tripLiters=50');
+    expect(current.costPerKmEur).toBe(0.3);
+    expect(current.tripScenario?.currency).toBe('CHF');
+    expect(current.tripScenario?.vehicleCostPerKm).toBe('');
+    expect(current.tripScenario?.liters).toBe('50');
+  });
+
+  it('keeps blank fields and rejects negative, zero-price and nonfinite scenario parameters', () => {
+    const parsed = parseFuelViewState('?tripCurrency=CHF&tripReferencePrice=-1&tripAlternativePrice=Infinity&tripLiters=0&tripRoundTripKm=-2&tripVehicleCostPerKm=NaN&tripOtherCosts=&tripMonthlyTrips=Infinity');
+    expect(parsed.tripScenario).toEqual({
+      currency: 'CHF', referencePrice: '', alternativePrice: '', liters: '', additionalRoundTripKm: '',
+      vehicleCostPerKm: '', otherTripCosts: '', monthlyTrips: '',
+    });
+  });
+
+  it('uses the same dated-FX validated view for aggregate and detail renderers', () => {
+    const stale = fuelRowViewWithExchangeRate(row(), 'benzina', null);
+    expect(stale.swiss.minPriceEur).toBeNull();
+    expect(stale.comparison.cheaperCountry).toBe('NO_DATA');
+
+    const dated = fuelRowViewWithExchangeRate(row(), 'benzina', {
+      provider: 'ECB', sourceUrl: 'https://www.ecb.europa.eu/rates', rateDate: '2026-09-09', chfPerEur: 1, eurPerChf: 1,
+    });
+    expect(dated.swiss.minPriceEur).toBe(2.1);
+    expect(dated.comparison.cheaperCountry).toBe('IT');
+  });
+
+  it('keeps Italian reference and Swiss alternative identities stable in both currencies', () => {
+    const rate = { provider: 'ECB' as const, sourceUrl: 'https://www.ecb.europa.eu/rates', rateDate: '2026-09-09', chfPerEur: 0.95, eurPerChf: 1 / 0.95 };
+    expect(fuelTripPrefillPrices(1.9, 2.1, 'EUR', rate)).toEqual({ referencePrice: 1.9, alternativePrice: Number((2.1 / 0.95).toFixed(4)) });
+    expect(fuelTripPrefillPrices(1.9, 2.1, 'CHF', rate)).toEqual({ referencePrice: 1.805, alternativePrice: 2.1 });
+    expect(fuelTripPrefillPrices(1.9, 2.1, 'CHF', null)).toEqual({ referencePrice: null, alternativePrice: 2.1 });
   });
 
   it('moves a selected municipality onto the visible page when a shared URL is stale', () => {

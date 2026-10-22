@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-10-11T10:31:02.396Z",
+  "generatedAt": "2026-10-18T08:35:58.152Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 32108
+    "jobCount": 32431
   },
-  "checked": 581,
-  "ok": 581,
-  "qualityOk": 580,
+  "checked": 576,
+  "ok": 576,
+  "qualityOk": 575,
   "broken": 0,
   "brokenJobCount": 0,
   "pendingDeploy": 0,
   "pendingDeployJobCount": 0,
   "pendingDeployUrls": [],
-  "missing": 2,
-  "missingJobCount": 8,
+  "missing": 15,
+  "missingJobCount": 271,
   "partial": 0,
   "partialJobCount": 0,
   "unverified": 0,

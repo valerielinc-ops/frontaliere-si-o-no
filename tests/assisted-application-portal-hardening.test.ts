@@ -18,6 +18,7 @@ import {
   PREREAD_CHANNELS,
   portalRequirementsFromMissingRequired,
   portalRequiredDocumentFromField,
+  portalEntryUrl,
   readPortalQuestions,
   realisticUserAgent,
   urlConfirms,
@@ -27,6 +28,24 @@ import { interviewPrepUserText } from '../functions/src/assistedApplicationInter
 
 // career-ops comparison of 2026-10-01: what the portal runner still lacked.
 describe('portal runner hardening (career-ops apply.md)', () => {
+  it('opens a SuccessFactors application from its matching posting page', () => {
+    const applyUrl = 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US';
+    const postingUrl = 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418433/';
+
+    expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('1448418433', '1448418434') })).toBe(applyUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('jobs.six-group.com', 'www.six-group.com') })).toBe(applyUrl);
+  });
+
+  it('opens a same-job employer apply route from its matching posting page', () => {
+    const applyUrl = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/apply';
+    const postingUrl = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/';
+
+    expect(portalEntryUrl({ applyUrl, postingUrl })).toBe(postingUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('903-pipe-project-manager-it', '879-google-cloud-platform') })).toBe(applyUrl);
+    expect(portalEntryUrl({ applyUrl, postingUrl: postingUrl.replace('www.alten.ch', 'alten.ch') })).toBe(applyUrl);
+  });
+
   it('stops before filling a form that names neither the company nor the role', () => {
     const job = { company: 'Ospedale Regionale di Lugano SA', title: 'Infermiere/a diplomato/a' };
     expect(postingMatch('Ospedale Regionale di Lugano · Candidatura · Infermiera diplomata', job)).toBe('match');
@@ -193,6 +212,73 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(ownAccountForm(page('Submit final application', { passwordVisible: false }))).toBe(false);
     expect(ownAccountForm(page('Submit final application', { fields: [fields[0]] }))).toBe(false);
     expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
+  });
+
+  it('recognizes the mixed SuccessFactors account/application page before its CV dialog opens', () => {
+    const successFactors = {
+      url: 'https://career5.successfactors.eu/careers',
+      passwordVisible: true,
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'email', form: 0, label: 'Email Address: *' },
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *' },
+        { id: 'password-repeat', kind: 'text', inputType: 'password', form: 0, label: 'Retype Password: *' },
+        { id: 'permit', kind: 'combobox', form: 0, label: 'Do you hold a valid work permit for Switzerland?', required: true },
+        { id: 'salary', kind: 'textarea', form: 0, label: 'What is your salary expectation?', required: true },
+        { id: 'start', kind: 'textarea', form: 0, label: 'When would be your next possible starting date?', required: true },
+      ],
+      buttons: [{ id: 'cv-upload', text: '\uE1EF', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+    };
+    expect(sendsApplication(successFactors)).toBe(true);
+    expect(ownAccountForm(successFactors)).toBe(true);
+
+    // A separate cover-letter input must not count as the CV already being
+    // present: the CV can still be behind the SuccessFactors upload dialog.
+    expect(ownAccountForm({
+      ...successFactors,
+      fields: [...successFactors.fields, {
+        id: 'cover-letter',
+        kind: 'file',
+        inputType: 'file',
+        form: 1,
+        label: 'Cover letter',
+      }],
+    })).toBe(true);
+  });
+
+  it('recognizes a mixed form whose only application document field is a cover letter', () => {
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      passwordVisible: true,
+      fields: [
+        { id: 'password', kind: 'text', inputType: 'password', form: 0, label: 'Choose Password: *' },
+        { id: 'cover-letter', kind: 'file', inputType: 'file', form: 1, label: 'Cover letter' },
+      ],
+      buttons: [{ id: 'apply', text: 'Submit final application', disabled: false }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(true);
+  });
+
+  it('does not treat another portal with generic CV application labels as a SuccessFactors account form', () => {
+    const snapshot = {
+      url: 'https://apply.example.org/careers',
+      passwordVisible: true,
+      fields: [{ label: 'CV' }],
+      buttons: [{ text: 'Submit application' }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(false);
+  });
+
+  it('does not treat a lookalike SuccessFactors hostname as a SuccessFactors account form', () => {
+    const snapshot = {
+      url: 'https://successfactors.attacker.example/careers',
+      passwordVisible: true,
+      fields: [{ label: 'CV' }],
+      buttons: [{ text: 'Submit application' }],
+    };
+
+    expect(ownAccountForm(snapshot)).toBe(false);
   });
 
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
@@ -391,6 +477,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // page is caught and returns no requirements.
     const launch = () => { throw new Error('must not launch'); };
     expect(await readPortalQuestions({ channelType: 'employer_site', applyUrl: 'https://join.com/x', codex: async () => ({}), launch })).toEqual([]);
+    expect(await readPortalQuestions({
+      channelType: 'employer_site',
+      applyUrl: 'https://jobs.six-group.com/talentcommunity/apply/1448418433/?locale=en_US',
+      postingUrl: 'https://jobs.six-group.com/job/Zurich-Senior-IT-Manager/1448418434/',
+      codex: async () => ({}), launch,
+    })).toEqual([]);
     expect(await readPortalQuestions({ channelType: 'workday', applyUrl: 'https://x.wd3.myworkdayjobs.com/a', codex: async () => ({}), launch })).toEqual([]);
     // A browser that fails: no questions, no error.
     expect(await readPortalQuestions({ channelType: 'lever', applyUrl: 'https://jobs.lever.co/x/1/apply', codex: async () => ({}), launch })).toEqual([]);

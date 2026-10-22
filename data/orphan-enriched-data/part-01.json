@@ -4400,10 +4400,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-lichtensteig",
+        "it": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-lichtensteig",
         "en": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-lichtensteig",
-        "de": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-lichtensteig",
-        "fr": "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-lichtensteig"
+        "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-lichtensteig",
+        "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-lichtensteig"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-lichtensteig",
@@ -4417,6 +4417,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -8535,6 +8536,63 @@
       ]
     },
     {
+      "slug": "attendant-pictet-group-geneva",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-geneve/attendant-pictet-group-geneva/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/attendant-pictet-group-geneva/"
+      },
+      "queries": [
+        {
+          "query": "emploi geneve",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "emploi geneve",
+      "title": "Attendant pictet group geneva",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "attendant-pictet-group-geneva",
+        "en": "attendant-pictet-group-geneva",
+        "de": "attendant-pictet-group-geneva",
+        "fr": "attendant-pictet-group-geneva"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/attendant-pictet-group-geneva",
+        "en": "/en/find-jobs-geneva/attendant-pictet-group-geneva",
+        "de": "/de/jobs-im-genf/attendant-pictet-group-geneva",
+        "fr": "/fr/trouver-emploi-geneve/attendant-pictet-group-geneva"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-bern",
       "locale": "en",
       "path": "/en/find-jobs-zurich/audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-bern",
@@ -10180,7 +10238,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "fr": "business-analyst-h-f-x-80-100-vaudoise-ch",
-        "it": "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne"
+        "it": "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "business-analyst-h-f-x-80-100-vaudoise-ch-vyuyk3",
+        "de": "business-analyst-h-f-x-80-100-vaudoise-ch-vyuyk3"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vaud/business-analista-h-f-x-80-100-vaudoise-assurances-lausanne",
@@ -26065,12 +26125,12 @@
     {
       "slug": "fahrer",
       "locale": "de",
-      "path": "/de/jobs-im-tessin/fahrer/",
+      "path": "/de/jobs-im-aargau/fahrer/",
       "observedPaths": {
         "en": "/en/find-jobs-ticino/fahrer",
-        "de": "/de/jobs-im-tessin/fahrer",
-        "fr": "/fr/trouver-emploi-tessin/fahrer",
-        "it": "/cerca-lavoro-ticino/fahrer"
+        "de": "/de/jobs-im-aargau/fahrer",
+        "fr": "/fr/trouver-emploi-argovie/fahrer",
+        "it": "/cerca-lavoro-argovia/fahrer"
       },
       "queries": [
         {
@@ -26114,6 +26174,16 @@
           "impressions": 2
         },
         {
+          "query": "cheffahrer",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "mietwagenfahrer",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "datumstempel migros",
           "clicks": 0,
           "impressions": 1
@@ -26129,7 +26199,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 96,
+      "totalImpressions": 98,
       "totalClicks": 0,
       "topQuery": "fahrer locarno",
       "title": "Fahrer",
@@ -31138,6 +31208,68 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "herbligen",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/herbligen/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/herbligen/"
+      },
+      "queries": [
+        {
+          "query": "i am looking for healthcare jobs in bern that accept b permit holders",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "i am looking for healthcare jobs in bern that accept b permit holders",
+      "title": "Herbligen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "herbligen",
+        "en": "herbligen",
+        "de": "herbligen",
+        "fr": "herbligen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/herbligen",
+        "en": "/en/find-jobs-bern/herbligen",
+        "de": "/de/jobs-im-bern/herbligen",
+        "fr": "/fr/trouver-emploi-berne/herbligen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -38723,12 +38855,12 @@
           "impressions": 14
         },
         {
-          "query": "locarno",
+          "query": "werkstudentenjob locarno",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 11
         },
         {
-          "query": "werkstudentenjob locarno",
+          "query": "locarno",
           "clicks": 0,
           "impressions": 10
         },
@@ -38793,7 +38925,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 164,
+      "totalImpressions": 165,
       "totalClicks": 0,
       "topQuery": "jobs locarno",
       "title": "locarno",
@@ -38852,7 +38984,7 @@
         {
           "query": "locarno",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "jobs locarno",
@@ -38880,7 +39012,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 51,
+      "totalImpressions": 52,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "locarno",
@@ -38924,12 +39056,17 @@
         {
           "query": "agence pour l emploi locarno",
           "clicks": 0,
-          "impressions": 23
+          "impressions": 24
         },
         {
           "query": "locarno",
           "clicks": 0,
           "impressions": 9
+        },
+        {
+          "query": "agence d'intérim à locarno",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "job locarno",
@@ -38942,11 +39079,6 @@
           "impressions": 3
         },
         {
-          "query": "agence d'intérim à locarno",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
           "query": "cerco lavoro locarno",
           "clicks": 0,
           "impressions": 1
@@ -38955,9 +39087,14 @@
           "query": "je cherche des offres au tessin",
           "clicks": 0,
           "impressions": 1
+        },
+        {
+          "query": "offre d'emploi tessin",
+          "clicks": 0,
+          "impressions": 1
         }
       ],
-      "totalImpressions": 42,
+      "totalImpressions": 45,
       "totalClicks": 0,
       "topQuery": "agence pour l emploi locarno",
       "title": "locarno",
@@ -39001,25 +39138,25 @@
         {
           "query": "lavoro locarno",
           "clicks": 0,
-          "impressions": 22
+          "impressions": 23
         },
         {
           "query": "offerte di lavoro locarno negli ultimi 3 giorni",
-          "clicks": 0,
-          "impressions": 18
+          "clicks": 1,
+          "impressions": 20
         },
         {
           "query": "locarno",
           "clicks": 0,
-          "impressions": 15
-        },
-        {
-          "query": "cerco lavoro locarno",
-          "clicks": 0,
-          "impressions": 10
+          "impressions": 16
         },
         {
           "query": "offerte di lavoro locarno",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "cerco lavoro locarno",
           "clicks": 0,
           "impressions": 10
         },
@@ -39034,12 +39171,12 @@
           "impressions": 5
         },
         {
-          "query": "lavoro a locarno",
+          "query": "offerte lavoro locarno",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
-          "query": "offerte lavoro locarno",
+          "query": "lavoro a locarno",
           "clicks": 0,
           "impressions": 4
         },
@@ -39064,7 +39201,27 @@
           "impressions": 3
         },
         {
+          "query": "offerte di lavoro a locarno",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
           "query": "offerte di lavoro locarno svizzera",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte lavoro a locarno",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte lavoro locarnese",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "posti di lavoro locarno",
           "clicks": 0,
           "impressions": 3
         },
@@ -39074,33 +39231,13 @@
           "impressions": 2
         },
         {
-          "query": "offerte di lavoro a locarno",
+          "query": "offerte di lavoro locarnese",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "offerte lavoro a locarno",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "offerte lavoro locarnese",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "posti di lavoro locarno",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "frontaliere",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 131,
-      "totalClicks": 1,
+      "totalImpressions": 142,
+      "totalClicks": 2,
       "topQuery": "lavoro locarno",
       "title": "locarno",
       "titleByLocale": {
@@ -39502,17 +39639,17 @@
         {
           "query": "stellen lugano",
           "clicks": 0,
-          "impressions": 123
+          "impressions": 127
         },
         {
           "query": "stellenangebot lugano",
           "clicks": 0,
-          "impressions": 101
+          "impressions": 105
         },
         {
           "query": "stellenvermittlung lugano",
           "clicks": 0,
-          "impressions": 53
+          "impressions": 55
         },
         {
           "query": "taetigkeitsfelder jobs lugano",
@@ -39522,7 +39659,7 @@
         {
           "query": "jobs lugano",
           "clicks": 0,
-          "impressions": 30
+          "impressions": 32
         },
         {
           "query": "handel jobs lugano",
@@ -39532,7 +39669,7 @@
         {
           "query": "teamleiter jobs lugano",
           "clicks": 0,
-          "impressions": 21
+          "impressions": 22
         },
         {
           "query": "industriemechaniker jobs lugano",
@@ -39542,7 +39679,7 @@
         {
           "query": "lehrstellen lugano",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 20
         },
         {
           "query": "bundesverwaltung jobs lugano",
@@ -39600,7 +39737,7 @@
           "impressions": 13
         }
       ],
-      "totalImpressions": 1032,
+      "totalImpressions": 1051,
       "totalClicks": 0,
       "topQuery": "stellen lugano",
       "title": "lugano",
@@ -39644,17 +39781,17 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 165
-        },
-        {
-          "query": "stellen lugano",
-          "clicks": 0,
-          "impressions": 71
+          "impressions": 167
         },
         {
           "query": "stellenangebot lugano",
           "clicks": 0,
-          "impressions": 71
+          "impressions": 73
+        },
+        {
+          "query": "stellen lugano",
+          "clicks": 0,
+          "impressions": 72
         },
         {
           "query": "jobs lugano",
@@ -39664,7 +39801,7 @@
         {
           "query": "job offers",
           "clicks": 0,
-          "impressions": 42
+          "impressions": 45
         },
         {
           "query": "lugano jobs",
@@ -39672,24 +39809,24 @@
           "impressions": 39
         },
         {
+          "query": "emploi lugano",
+          "clicks": 0,
+          "impressions": 25
+        },
+        {
           "query": "jobs in lugano",
           "clicks": 0,
           "impressions": 24
         },
         {
-          "query": "emploi lugano",
+          "query": "offre d'emploi lugano",
           "clicks": 0,
-          "impressions": 23
+          "impressions": 18
         },
         {
           "query": "i am looking for openings in lugano.",
           "clicks": 0,
-          "impressions": 16
-        },
-        {
-          "query": "offre d'emploi lugano",
-          "clicks": 0,
-          "impressions": 16
+          "impressions": 17
         },
         {
           "query": "recrutement lugano",
@@ -39712,38 +39849,38 @@
           "impressions": 10
         },
         {
+          "query": "lugano job",
+          "clicks": 0,
+          "impressions": 10
+        },
+        {
           "query": "part time jobs near me",
           "clicks": 0,
           "impressions": 10
         },
         {
-          "query": "lugano job",
+          "query": "jobs lugano switzerland",
+          "clicks": 1,
+          "impressions": 8
+        },
+        {
+          "query": "job contact lugano",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 8
+        },
+        {
+          "query": "show me vacancies in lugano.",
+          "clicks": 0,
+          "impressions": 8
         },
         {
           "query": "i am looking for lugano sales jobs with a base salary and commission and training and italian required.",
           "clicks": 0,
           "impressions": 7
-        },
-        {
-          "query": "job contact lugano",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "jobs lugano switzerland",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "jobs near me",
-          "clicks": 0,
-          "impressions": 7
         }
       ],
-      "totalImpressions": 883,
-      "totalClicks": 4,
+      "totalImpressions": 911,
+      "totalClicks": 5,
       "topQuery": "full time jobs near me",
       "title": "lugano",
       "titleByLocale": {
@@ -39786,32 +39923,32 @@
         {
           "query": "je vise un emploi à lugano",
           "clicks": 0,
-          "impressions": 92
+          "impressions": 94
         },
         {
           "query": "recrutement lugano",
           "clicks": 0,
-          "impressions": 68
+          "impressions": 71
         },
         {
           "query": "offre d'emploi tessin",
           "clicks": 0,
-          "impressions": 31
+          "impressions": 36
         },
         {
           "query": "offre d'emploi lugano",
           "clicks": 0,
-          "impressions": 20
+          "impressions": 22
         },
         {
           "query": "agence de recrutement lugano",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 15
         },
         {
           "query": "emploi lugano",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 13
         },
         {
           "query": "je cherche des offres au tessin",
@@ -39820,6 +39957,11 @@
         },
         {
           "query": "agence interim tessin",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "agence pour l emploi lugano",
           "clicks": 0,
           "impressions": 2
         },
@@ -39854,11 +39996,6 @@
           "impressions": 1
         },
         {
-          "query": "agence pour l emploi lugano",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
           "query": "coiffeur jobs",
           "clicks": 0,
           "impressions": 1
@@ -39884,7 +40021,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 283,
+      "totalImpressions": 301,
       "totalClicks": 0,
       "topQuery": "je vise un emploi à lugano",
       "title": "lugano",
@@ -39928,7 +40065,17 @@
         {
           "query": "frontaliere ticino offerte di lavoro",
           "clicks": 0,
-          "impressions": 36
+          "impressions": 42
+        },
+        {
+          "query": "lavoro ticino",
+          "clicks": 0,
+          "impressions": 33
+        },
+        {
+          "query": "lavoro",
+          "clicks": 0,
+          "impressions": 9
         },
         {
           "query": "offerte di lavoro lugano negli ultimi 3 giorni",
@@ -39938,22 +40085,22 @@
         {
           "query": "frontalieri",
           "clicks": 0,
-          "impressions": 7
+          "impressions": 8
         },
         {
           "query": "offerte di lavoro lugano",
           "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "lavoro lugano negli ultimi 3 giorni",
+          "clicks": 1,
           "impressions": 6
         },
         {
           "query": "offerte di lavoro presso città di lugano",
           "clicks": 0,
           "impressions": 6
-        },
-        {
-          "query": "lavoro lugano negli ultimi 3 giorni",
-          "clicks": 1,
-          "impressions": 5
         },
         {
           "query": "lavoro lugano",
@@ -39967,6 +40114,11 @@
         },
         {
           "query": "lavoro lugano da ieri",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "lugano lavoro",
           "clicks": 0,
           "impressions": 4
         },
@@ -39996,11 +40148,6 @@
           "impressions": 3
         },
         {
-          "query": "lugano lavoro",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
           "query": "offerte lavoro lugano",
           "clicks": 0,
           "impressions": 3
@@ -40011,22 +40158,12 @@
           "impressions": 2
         },
         {
-          "query": "citta di lugano offerte di lavoro",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "emploi lugano",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "lavora con noi lugano",
+          "query": "cantone ticino offerte di lavoro",
           "clicks": 0,
           "impressions": 2
         }
       ],
-      "totalImpressions": 164,
+      "totalImpressions": 228,
       "totalClicks": 2,
       "topQuery": "frontaliere ticino offerte di lavoro",
       "title": "lugano",
@@ -61397,6 +61534,63 @@
       ]
     },
     {
+      "slug": "sales-manager-h-f-x-ibis-budget-ginevra-6193382c",
+      "locale": "en",
+      "path": "/en/find-jobs-geneva/sales-manager-h-f-x-ibis-budget-ginevra-6193382c/",
+      "observedPaths": {
+        "en": "/en/find-jobs-geneva/sales-manager-h-f-x-ibis-budget-ginevra-6193382c/"
+      },
+      "queries": [
+        {
+          "query": "interdiscount",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "interdiscount",
+      "title": "Sales manager h x ibis budget ginevra 6193382c",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "sales-manager-h-f-x-ibis-budget-ginevra-6193382c",
+        "en": "sales-manager-h-f-x-ibis-budget-ginevra-6193382c",
+        "de": "sales-manager-h-f-x-ibis-budget-ginevra-6193382c",
+        "fr": "sales-manager-h-f-x-ibis-budget-ginevra-6193382c"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/sales-manager-h-f-x-ibis-budget-ginevra-6193382c",
+        "en": "/en/find-jobs-geneva/sales-manager-h-f-x-ibis-budget-ginevra-6193382c",
+        "de": "/de/jobs-im-genf/sales-manager-h-f-x-ibis-budget-ginevra-6193382c",
+        "fr": "/fr/trouver-emploi-geneve/sales-manager-h-f-x-ibis-budget-ginevra-6193382c"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "sales-operations-manager-em-microelectronic-marin-ltd-ticino-7ubdtz",
       "locale": "en",
       "path": "/en/find-jobs-ticino/sales-operations-manager-em-microelectronic-marin-ltd-ticino-7ubdtz",
@@ -76450,10 +76644,10 @@
         "fr": "vendeur-denner-ibach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/vendeur-denner-ibach",
-        "en": "/en/find-jobs-bern/vendeur-denner-ibach",
-        "de": "/de/jobs-in-bern/vendeur-denner-ibach",
-        "fr": "/fr/trouver-emploi-berne/vendeur-denner-ibach"
+        "it": "/cerca-lavoro-ticino/vendeur-denner-ibach",
+        "en": "/en/find-jobs-ticino/vendeur-denner-ibach",
+        "de": "/de/jobs-im-tessin/vendeur-denner-ibach",
+        "fr": "/fr/trouver-emploi-tessin/vendeur-denner-ibach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

@@ -9,6 +9,8 @@
   ],
   "detailTemplate": "/unternehmen/karriere/jobportal/*",
   "detailEnrichment": true,
+  "detailLocationLabel": "Arbeitsort",
+  "qualityContractVersion": 2,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 10,
   "sampleTitles": [

@@ -4000,12 +4000,17 @@
           "impressions": 1
         },
         {
+          "query": "بله مایلم",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "بلی",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 7,
+      "totalImpressions": 8,
       "totalClicks": 1,
       "topQuery": "a fribourg",
       "title": "Apprenticeships",
@@ -10203,7 +10208,7 @@
         {
           "query": "jobs bellinzona",
           "clicks": 0,
-          "impressions": 47
+          "impressions": 48
         },
         {
           "query": "bestbezahlte jobs bellinzona",
@@ -10256,7 +10261,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 127,
+      "totalImpressions": 128,
       "totalClicks": 0,
       "topQuery": "jobs bellinzona",
       "title": "bellinzona",
@@ -10381,6 +10386,11 @@
           "impressions": 1
         },
         {
+          "query": "delvitech",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "dietician jobs near me",
           "clicks": 0,
           "impressions": 1
@@ -10394,14 +10404,9 @@
           "query": "jobs bellinzona",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "jobs hiring near me no experience",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 250,
+      "totalImpressions": 252,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -10530,12 +10535,12 @@
           "impressions": 16
         },
         {
-          "query": "cerco lavoro a bellinzona",
+          "query": "offerte di lavoro a bellinzona",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
-          "query": "offerte di lavoro a bellinzona",
+          "query": "cerco lavoro a bellinzona",
           "clicks": 0,
           "impressions": 9
         },
@@ -10560,17 +10565,17 @@
           "impressions": 6
         },
         {
+          "query": "posti vacanti bellinzona",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
           "query": "lavorare a bellinzona",
           "clicks": 0,
           "impressions": 5
         },
         {
           "query": "lavoro a bellinzona",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "posti vacanti bellinzona",
           "clicks": 0,
           "impressions": 5
         },
@@ -10605,7 +10610,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 208,
+      "totalImpressions": 211,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -21676,10 +21681,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "deputy-branch-manager-m-f-d-80-100-visp-lidl-svizzera-visp",
+        "it": "vice-direttore-vice-direttrice-di-filiale-m-f-d-80-100-visp-lidl-svizzera-visp",
         "en": "deputy-branch-manager-m-f-d-80-100-visp-lidl-svizzera-visp",
-        "de": "deputy-branch-manager-m-f-d-80-100-visp-lidl-svizzera-visp",
-        "fr": "deputy-branch-manager-m-f-d-80-100-visp-lidl-svizzera-visp"
+        "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-visp-su8ym1",
+        "fr": "responsable-de-filiale-adjoint-responsable-de-filiale-adjointe-h-f-d-80-100-viege-lidl-svizzera-visp"
       },
       "localePaths": {
         "it": "/cerca-lavoro-vallese/deputy-branch-manager-m-f-d-80-100-visp-lidl-svizzera-visp",
@@ -21687,12 +21692,13 @@
         "de": "/de/jobs-im-wallis/deputy-branch-manager-m-f-d-80-100-visp-lidl-svizzera-visp",
         "fr": "/fr/trouver-emploi-valais/deputy-branch-manager-m-f-d-80-100-visp-lidl-svizzera-visp"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://team.lidl.ch/de/jobs/stv.-filialleiter-stv.-filialleiterin-m-w-d-80-100-visp-612252",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -25029,6 +25035,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "ebnat-kappel",
+      "locale": "en",
+      "path": "/en/find-jobs-st-gallen/ebnat-kappel/",
+      "observedPaths": {
+        "en": "/en/find-jobs-st-gallen/ebnat-kappel/"
+      },
+      "queries": [
+        {
+          "query": "ebnat ag jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "ebnat ag jobs",
+      "title": "Ebnat kappel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "ebnat-kappel",
+        "en": "ebnat-kappel",
+        "de": "ebnat-kappel",
+        "fr": "ebnat-kappel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/ebnat-kappel",
+        "en": "/en/find-jobs-st-gallen/ebnat-kappel",
+        "de": "/de/jobs-im-st-gallen/ebnat-kappel",
+        "fr": "/fr/trouver-emploi-saint-gall/ebnat-kappel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -34754,6 +34817,64 @@
       ]
     },
     {
+      "slug": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+      "locale": "en",
+      "path": "/en/find-jobs-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn/",
+      "observedPaths": {
+        "en": "/en/find-jobs-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn/"
+      },
+      "queries": [
+        {
+          "query": "praktikum solothurn",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "praktikum solothurn",
+      "title": "Internship global product management ref297536h",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "location": "Solothurn",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "en": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "de": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "fr": "internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-soletta/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "en": "/en/find-jobs-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "de": "/de/jobs-im-solothurn/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn",
+        "fr": "/fr/trouver-emploi-soleure/internship-global-product-management-ref297536h-bosch-thermotechnik-ag-solothurn"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "internship-in-allocazione-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
       "locale": "en",
       "path": "/en/find-jobs-ticino/internship-in-allocazione-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
@@ -41303,7 +41424,7 @@
         {
           "query": "mendrisio jobs",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 10
         },
         {
           "query": "versicherungsagentur mendrisio",
@@ -41321,7 +41442,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 27,
+      "totalImpressions": 29,
       "totalClicks": 0,
       "topQuery": "lehrstellen mendrisio",
       "title": "mendrisio",
@@ -41577,12 +41698,12 @@
         {
           "query": "lavoro mendrisio",
           "clicks": 0,
-          "impressions": 43
+          "impressions": 48
         },
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 37
+          "impressions": 42
         },
         {
           "query": "offerte di lavoro mendrisio",
@@ -41602,7 +41723,7 @@
         {
           "query": "offerte di lavoro mendrisio svizzera",
           "clicks": 0,
-          "impressions": 8
+          "impressions": 9
         },
         {
           "query": "cerco lavoro mendrisio",
@@ -41645,6 +41766,11 @@
           "impressions": 5
         },
         {
+          "query": "offerte di lavoro mendrisiotto",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "cerco lavoro a mendrisio",
           "clicks": 0,
           "impressions": 4
@@ -41655,7 +41781,7 @@
           "impressions": 4
         },
         {
-          "query": "offerte di lavoro mendrisiotto",
+          "query": "lavoro mendrisio chiasso",
           "clicks": 0,
           "impressions": 4
         },
@@ -41668,14 +41794,9 @@
           "query": "cerco lavoro a mendrisio svizzera",
           "clicks": 0,
           "impressions": 3
-        },
-        {
-          "query": "lavoro mendrisio chiasso",
-          "clicks": 0,
-          "impressions": 3
         }
       ],
-      "totalImpressions": 262,
+      "totalImpressions": 279,
       "totalClicks": 5,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
@@ -48769,10 +48890,10 @@
         "fr": "gestionnaire-de-projet-ingenierie-80-100-h-f-d-hitachi-energy-turgi-switzerland"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland",
-        "en": "/en/find-jobs-zurich/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland",
-        "de": "/de/jobs-in-zurich/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland",
-        "fr": "/fr/trouver-emploi-zurich/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland"
+        "it": "/cerca-lavoro-ticino/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland",
+        "en": "/en/find-jobs-ticino/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland",
+        "de": "/de/jobs-im-tessin/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland",
+        "fr": "/fr/trouver-emploi-tessin/project-manager-engineering-80-100-f-m-d-hitachi-energy-turgi-switzerland"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59400,6 +59521,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+      "locale": "de",
+      "path": "/de/jobs-in-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil/",
+      "observedPaths": {
+        "de": "/de/jobs-in-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil/"
+      },
+      "queries": [
+        {
+          "query": "idorsia allschwil",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "idorsia allschwil",
+      "title": "Senior global medical direktor idorsia pharmaceuticals allsch",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "en": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "de": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "fr": "senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "en": "/en/find-jobs-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "de": "/de/jobs-im-basel/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil",
+        "fr": "/fr/trouver-emploi-bale/senior-global-medical-direktor-idorsia-pharmaceuticals-allschwil"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -74594,10 +74773,10 @@
         "fr": "verkaufer-in-fisch-coop-genossenschaft-emmen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-obvaldo/verkaufer-in-fisch-coop-genossenschaft-emmen",
-        "en": "/en/find-jobs-obwalden/verkaufer-in-fisch-coop-genossenschaft-emmen",
+        "it": "/cerca-lavoro-lucerna/verkaufer-in-fisch-coop-genossenschaft-emmen",
+        "en": "/en/find-jobs-lucerne/verkaufer-in-fisch-coop-genossenschaft-emmen",
         "de": "/de/jobs-im-solothurn/verkaufer-in-fisch-coop-genossenschaft-emmen",
-        "fr": "/fr/trouver-emploi-obwald/verkaufer-in-fisch-coop-genossenschaft-emmen"
+        "fr": "/fr/trouver-emploi-lucerne/verkaufer-in-fisch-coop-genossenschaft-emmen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

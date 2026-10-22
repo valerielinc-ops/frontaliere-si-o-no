@@ -57,7 +57,13 @@ describe('lighthouse runner-class observer', () => {
 
 describe('lighthouse-ci.yml wiring', () => {
   const steps = (YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/lighthouse-ci.yml'), 'utf8'))
-    .jobs.lighthouse.steps as Array<{ id?: string; name?: string; run?: string; 'continue-on-error'?: boolean }>);
+    .jobs.lighthouse.steps as Array<{
+      id?: string;
+      name?: string;
+      run?: string;
+      with?: Record<string, string | boolean>;
+      'continue-on-error'?: boolean;
+    }>);
   const indexOf = (id: string) => steps.findIndex((s) => s.id === id);
 
   it('records the runner class after the first attempt and before any retry empties .lighthouseci/', () => {
@@ -72,5 +78,13 @@ describe('lighthouse-ci.yml wiring', () => {
     const open = steps.find((s) => s.name === 'Open issue on regression');
     expect(open?.run).toContain('lighthouse-runner-class.md');
     expect(open?.run).toContain('${RUNNER_CLASS}');
+  });
+
+  it('does not let retries collide with the first attempt GitHub artifact', () => {
+    for (const id of ['lhci-retry', 'lhci-retry-2']) {
+      const retry = steps.find((step) => step.id === id);
+      expect(retry?.with?.uploadArtifacts).toBe(false);
+      expect(retry?.with?.temporaryPublicStorage).toBe(true);
+    }
   });
 });

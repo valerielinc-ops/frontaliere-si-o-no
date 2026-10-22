@@ -40,7 +40,12 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
-import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
+import {
+  detectJobTitleLocaleDetails,
+  isDescriptionSourceCopy,
+  normalizeJobLocale,
+  sourceLocaleTextCandidates,
+} from './lib/job-locale-utils.mjs';
 import { sourceChangedSinceSuppression } from './lib/source-changed-since-suppression.mjs';
 import {
   addPreviousSlugForLocale,
@@ -62,6 +67,7 @@ import { getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/fre
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { markRunStart, recordRunPhase, resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { carryForwardMarks } from './lib/job-mark-persistence.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { isModelMetaAnswer, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './lib/translation-observability-limits.mjs';
@@ -1266,6 +1272,15 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
 
     let changed = false;
 
+    // The assembled dataset may be marked by a locale-quality scan even when
+    // its locale maps are byte-for-byte unchanged. Carry the monotone marker
+    // before merging fields so the queue evidence reaches the committed
+    // per-crawler source and the existing guarded merge treats the job as
+    // eligible for repair.
+    if (carryForwardMarks(crawlerJob, assembled)) {
+      changed = true;
+    }
+
     // Snapshot slugByLocale before merge so captureLostSlugs can detect changes.
     const slugByLocaleBefore = { ...(crawlerJob.slugByLocale || {}) };
     const slugBefore = String(crawlerJob.slug || '').trim();
@@ -1301,7 +1316,7 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs, attemptedSlugs
         // but if the needsRetranslation flag was cleared before sync, those slugs
         // would be lost. The master slug is job.slug (source language), not
         // hardcoded to IT — jobs may be crawled in EN, DE, or FR.
-        const sourceLang = crawlerJob.sourceLang || 'it';
+        const sourceLang = normalizeJobLocale(crawlerJob.sourceLang) || 'it';
         const masterSlug = String(crawlerJob.slug || '').trim();
         const isUnlocalizedSlug =
           field === 'slugByLocale' &&
@@ -2271,9 +2286,14 @@ export async function runRelocalization(phase) {
     }
   }
 
-  // ── Retry pass: re-attempt companies that had partial success ──────────
-  // Rate limits often clear partway through a run. Companies processed early
-  // may have had failures that would succeed now. Only retry if we have time.
+  // ── Retry pass: re-attempt pending companies with the remaining budget ───
+  // Rate limits often clear partway through a run. A company can also have
+  // been served without producing a flag-clearing result yet: the crawler may
+  // have changed locale content that still needs another quality-gated pass.
+  // `totalFixed` is therefore not an eligibility signal. If the main pass
+  // spent less than the cap because companies were skipped or the deadline
+  // stopped it early, suppressing this pass on `totalFixed === 0` strands the
+  // remaining companies indefinitely (issue #6109/#6615).
   const retryStartReason = cascadeStopReason({
     nowMs: cascadeNow(),
     runStartMs: RUN_START_MS,
@@ -2283,15 +2303,16 @@ export async function runRelocalization(phase) {
     timeBudgetFraction: 0.85,
   });
   const retryBudget = Math.max(0, effectiveMax - budgetConsumed);
-  if (totalFixed > 0 && !retryStartReason && retryBudget > 0) {
+  if (!retryStartReason && retryBudget > 0) {
     const retryJobs = readJson(DATA_JOBS_PATH);
     const retryPending = Array.isArray(retryJobs)
       ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
       : [];
 
-    // Only retry companies that had at least one success (partial failure).
-    // Failed companies are deliberately rotated to the back of this queue so
-    // they cannot starve healthy pending work in the same run.
+    // Retry only companies that were eligible for the main pass. Companies
+    // skipped by the sterile ledger stay excluded until their normal re-entry
+    // point. Failed companies are deliberately rotated to the back of this
+    // queue so they cannot starve healthy pending work in the same run.
     const retryCompanies = new Map();
     for (const j of retryPending) {
       const k = canonicalCompanyKeyForJob(j);
@@ -2420,25 +2441,36 @@ export async function runRelocalization(phase) {
               writeJsonAtomic(DATA_JOBS_PATH, afterRetry, { compact: true });
               totalFixed += cleared;
               console.log(`   ✅ ${retryLabel} retry: ${cleared} more jobs translated`);
-              for (const companyKey of retryKeys) {
-                const companyCleared = retryClearedByCompany.get(companyKey) || 0;
-                if (companyCleared > 0) {
-                  // Il passaggio principale ha appena registrato questa azienda
-                  // come sterile; il retry lo smentisce. Senza questa riga
-                  // un'azienda che produce solo al secondo tentativo verrebbe
-                  // contata verso il salto.
-                  delete companySkipState.companies[companyKey];
-                  syncTranslationsToCrawlerFile(
-                    companyKey,
-                    afterRetry,
-                    retryAttemptedByCompany.get(companyKey),
-                  );
-                }
-                if (retryArm) {
-                  // La riga e' gia' in coda: qui si aggiorna solo l'esito.
-                  retryRowsByCompany.get(companyKey).cleared = companyCleared;
-                }
+            }
+            for (const companyKey of retryKeys) {
+              const companyCleared = retryClearedByCompany.get(companyKey) || 0;
+              if (companyCleared > 0) {
+                // Il passaggio principale ha appena registrato questa azienda
+                // come sterile; il retry lo smentisce. Senza questa riga
+                // un'azienda che produce solo al secondo tentativo verrebbe
+                // contata verso il salto.
+                delete companySkipState.companies[companyKey];
               }
+
+              // A retry can improve locale text without clearing its flag yet.
+              // Persist those attempted slugs to the per-crawler source even
+              // when `cleared === 0`, otherwise the next assembly loses the
+              // improvement and queues the same work again.
+              const syncResult = syncTranslationsToCrawlerFile(
+                companyKey,
+                afterRetry,
+                retryAttemptedByCompany.get(companyKey),
+              );
+              if (syncResult.updated > 0) {
+                console.log(`   📁 ${companyKey}: ${syncResult.updated} retry job(s) synced to per-crawler file`);
+              }
+
+              if (retryArm) {
+                // La riga e' gia' in coda: qui si aggiorna solo l'esito.
+                retryRowsByCompany.get(companyKey).cleared = companyCleared;
+              }
+            }
+            if (cleared > 0) {
               writeCompanySkipState(companySkipState);
             }
           }
@@ -2453,9 +2485,9 @@ export async function runRelocalization(phase) {
         }
       }
     }
-  } else if (totalFixed > 0 && retryStartReason) {
+  } else if (retryStartReason) {
     console.log(`\n⏰ Retry pass skipped: ${retryStartReason} reached — deferring retries to the next run`);
-  } else if (totalFixed > 0 && retryBudget <= 0) {
+  } else if (retryBudget <= 0) {
     console.log(`\n⏭️  Retry pass skipped: aggregate 2b budget exhausted (${budgetConsumed}/${effectiveMax} jobs attempted)`);
   }
 
@@ -2484,14 +2516,20 @@ export async function runRelocalization(phase) {
     const tbl = job.titleByLocale || {};
     const dbl = job.descriptionByLocale || {};
     const src = (job.title || '').trim().toLowerCase();
-    const srcDesc = (job.description || '').trim().toLowerCase();
+    const sourceLang = normalizeJobLocale(job.sourceLang) || 'it';
+    const sourceDescriptions = sourceLocaleTextCandidates({ ...job, sourceLang }, 'description');
     let categorized = false;
     for (const locale of LOCALES) {
       const t = (tbl[locale] || '').trim();
       const d = (dbl[locale] || '').trim();
       if (t.length < MIN_TITLE_CHARS || d.length < MIN_DESC_CHARS) { categories.emptyLocale++; categorized = true; break; }
-      if (d.toLowerCase() === srcDesc && locale !== (job.sourceLang || 'it')) { categories.sourceCopyDesc++; categorized = true; break; }
-      if (t.toLowerCase() === src && locale !== (job.sourceLang || 'it')) { categories.sourceCopyTitle++; categorized = true; break; }
+      if (locale !== sourceLang
+          && sourceDescriptions.some((source) => isDescriptionSourceCopy(d, source))) {
+        categories.sourceCopyDesc++;
+        categorized = true;
+        break;
+      }
+      if (t.toLowerCase() === src && locale !== sourceLang) { categories.sourceCopyTitle++; categorized = true; break; }
     }
     if (!categorized) categories.contaminated++;
   }

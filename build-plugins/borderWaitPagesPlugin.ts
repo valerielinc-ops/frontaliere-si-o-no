@@ -784,7 +784,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: 'Tempi di attesa alle dogane svizzere — live oggi',
     regionalH1: (r) => `Tempi attesa ai valichi ${r}`,
     intro: (c, s, d) =>
-      `Aggiornamento del ${d}: alla dogana ${c} l'attesa è ${s}. Il tempo di coda al valico di frontiera si aggiorna ogni 15 minuti nelle ore di punta.`,
+      `Aggiornamento del ${d}: alla dogana ${c} l'attesa è ${s}. Il tempo di coda al valico di frontiera si aggiorna ogni 15 minuti nelle ore di punta. La stima descrive il traffico stradale, non i controlli doganali né gli orari di apertura.`,
     advice: {
       eyebrow: 'Consiglio',
       ok: (bestHour) =>
@@ -894,7 +894,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: 'Swiss border wait times — live today',
     regionalH1: (r) => `${r} border crossings — live wait times`,
     intro: (c, s, d) =>
-      `Updated ${d}: the ${c} crossing currently shows a ${s} wait. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline.`,
+      `Updated ${d}: the ${c} crossing currently shows a ${s} wait. Data refreshes every 15 minutes during commuter peak hours (06:00–10:00 and 16:00–20:00 CET) from our monitoring pipeline. This estimates road traffic, not customs checks or crossing opening hours.`,
     advice: {
       eyebrow: 'Recommendation',
       ok: (bestHour) =>
@@ -1004,7 +1004,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: 'Wartezeiten an den Schweizer Grenzübergängen — live heute',
     regionalH1: (r) => `Grenzübergänge ${r} — Wartezeiten live`,
     intro: (c, s, d) =>
-      `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert.`,
+      `Aktualisiert am ${d}: Der Grenzübergang ${c} zeigt derzeit eine ${s} Wartezeit. Daten werden während der Pendler-Stosszeiten (06:00–10:00 und 16:00–20:00 MEZ) alle 15 Minuten aktualisiert. Die Schätzung beschreibt den Strassenverkehr, nicht Zollkontrollen oder Öffnungszeiten des Grenzübergangs.`,
     advice: {
       eyebrow: 'Empfehlung',
       ok: (bestHour) =>
@@ -1114,7 +1114,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     rootH1: "Temps d'attente aux douanes suisses — en direct aujourd'hui",
     regionalH1: (r) => `Douanes ${r} — temps d'attente en direct`,
     intro: (c, s, d) =>
-      `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET).`,
+      `Mis à jour le ${d} : le poste de ${c} affiche actuellement une attente ${s}. Données rafraîchies toutes les 15 minutes pendant les heures de pointe pendulaire (06:00–10:00 et 16:00–20:00 CET). Cette estimation décrit le trafic routier, pas les contrôles douaniers ni les horaires d'ouverture du passage.`,
     advice: {
       eyebrow: 'Conseil',
       ok: (bestHour) =>
@@ -1428,10 +1428,15 @@ function renderCompactCommuterContextProse(
         : locale === 'de'
           ? `Die Wartezeit bei ${crossingLabel} hängt von Pendlerverkehr, Kontrollen und Ereignissen auf der Strasse ab. Im Gebiet ${regionDisplay} waren ${bestHour} in den letzten 30 Tagen die ruhigste und ${worstHour} die stärkste Zeit. Prüfe Messwert und Webcam vor der Abfahrt: Der Grenzverkehr kann sich rasch ändern.${ticinoNote}`
           : `Le temps d'attente à ${crossingLabel} dépend du trafic pendulaire, des contrôles et des événements routiers. Dans la zone ${regionDisplay}, les 30 derniers jours indiquent ${bestHour} comme créneau le plus calme et ${worstHour} comme le plus chargé. Vérifiez la mesure live et la webcam avant de partir : le trafic frontalier peut changer rapidement.${ticinoNote}`;
-  return `<section class="s-6B_yvh">
-    <h2 style="${H2_STYLE}">${esc(headline)}</h2>
-    <p class="s-KwuhOL">${esc(paragraph)}</p>
-  </section>`;
+  const comparisonNote =
+    locale === 'it'
+      ? ` Confronta rilevazioni raccolte a orari simili e aggiungi sempre il tempo necessario per raggiungere un valico alternativo: i minuti mostrati descrivono il tratto osservato, non l'intero viaggio.`
+      : locale === 'en'
+        ? ` Compare readings collected at similar times and always add the drive needed to reach an alternative crossing: the displayed minutes describe the observed segment, not the whole journey.`
+        : locale === 'de'
+          ? ` Vergleiche Messwerte aus ähnlichen Zeitpunkten und addiere immer die Fahrt zum Alternativübergang: Die angezeigten Minuten beschreiben den beobachteten Abschnitt, nicht die gesamte Reise.`
+          : ` Comparez des mesures prises à des heures proches et ajoutez toujours le trajet vers un autre passage : les minutes affichées décrivent le tronçon observé, pas le voyage entier.`;
+  return `<p class="s-KwuhOL"><strong>${esc(headline)}.</strong> ${esc(paragraph + comparisonNote)}</p>`;
 }
 
 /**
@@ -1528,7 +1533,7 @@ function renderLeafLivePlanningProse(
   return `<section class="s-fwhUlc">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
     ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
-    <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
+    <div class="s-lGLtkq"><strong>${esc(faqLabels.title)}</strong></div>
     <details class="s-card" style="margin-bottom:8px">
       <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
       <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
@@ -1720,12 +1725,12 @@ function renderWebcamSection(
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
     >`
-        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
+        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
       return `<figure class="s-WFzTLc">
     ${mediaHtml}
     <figcaption class="s-7GN3SP">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
-      <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
+      <a href="${esc(w.sourceUrl)}" rel="noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
       ${!embeddable ? `<div class="s-DEr6hT">${esc(copy.webcamExternalNote)}</div>` : ''}
       <div class="s-DEr6hT">${esc(copy.webcamDisclaimer(w.sourceName))}</div>
@@ -2098,13 +2103,16 @@ function renderLeafPage(inp: LeafInputs): string {
     adviceTemplates,
     ` data-bw-for="${esc(crossing)}"`,
   );
-  const decisionNote = locale === 'it'
+  const compactDecisionNote = locale === 'it'
     ? `Prima di partire controlla il tempo di attesa live alla dogana ${crossingDisplay}, la webcam e la coda dei valichi vicini.`
     : locale === 'de'
       ? `Prüfe vor der Abfahrt die Live-Wartezeit bei ${crossingDisplay}, die Webcam und die Schlange an den nahegelegenen Übergängen.`
       : locale === 'fr'
         ? `Avant de partir, vérifiez le temps d'attente live à ${crossingDisplay}, la webcam et les files aux passages voisins.`
         : `Before leaving, check the live wait at ${crossingDisplay}, the webcam and queues at nearby crossings.`;
+  const decisionNote = hasToday || hasWeekly
+    ? copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour)
+    : compactDecisionNote;
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
@@ -2199,6 +2207,28 @@ function renderLeafPage(inp: LeafInputs): string {
       ).join('')}</ul>
     </section>`
     : '';
+  const comparisonCandidates = getBorderComparisonCandidates(crossing);
+  const comparisonLabels = comparisonCandidates
+    .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
+    .filter(Boolean);
+
+  // The route-specific explanation offsets the large SVG chart payload that
+  // caused #10844. Leaves without chart markup keep the concise variant.
+  const livePlanningHtml = hasToday || hasWeekly
+    ? renderLeafLivePlanningProse(
+        locale,
+        crossingDisplay,
+        region,
+        reg?.peak ?? '',
+        comparisonLabels,
+      )
+    : renderCompactLeafLivePlanningProse(
+        locale,
+        crossingDisplay,
+        region,
+        reg?.peak ?? '',
+        comparisonLabels,
+      );
 
   // Static crossing info
   const infoRows: string[] = [];
@@ -2250,7 +2280,6 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // B.3 — Real alternatives: nearest crossings in the same regional
   // corridor, using the shared nearest-neighbour calculation.
-  const comparisonCandidates = getBorderComparisonCandidates(crossing);
   const alternativeRoutesHtml = renderBorderWaitComparison({
     locale,
     currentSlug: crossing,
@@ -2418,7 +2447,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const title = buildTitleWithBrand(titleH1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  // No 180-char pre-cut: clampMetaDescription (160) always won, so this only
+  // No 180-char pre-cut: clampMetaDescription (150) always won, so this only
   // handed it a string already broken mid-word. Let it do the clause-aware cut.
   const description = intro;
 
@@ -2465,15 +2494,7 @@ function renderLeafPage(inp: LeafInputs): string {
   ${DRIVEBY_AD_SNIPPET}
   ${faqHtml}
   ${renderCompactCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
-  ${renderCompactLeafLivePlanningProse(
-    locale,
-    crossingDisplay,
-    region,
-    reg?.peak ?? '',
-    comparisonCandidates
-      .map(({ slug }) => BORDER_CROSSING_DISPLAY[slug])
-      .filter(Boolean),
-  )}
+  ${livePlanningHtml}
   <section class="s-GCEyQg" aria-label="${esc(leafFaqTitle)}">
     <p class="s-yOfiVn">${esc(decisionNote)}</p>
   </section>
@@ -2785,7 +2806,7 @@ function renderHubPage(inp: HubInputs): string {
   const title = buildTitleWithBrand(h1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  // Pre-cut removed: clampMetaDescription (160) runs downstream and is
+  // Pre-cut removed: clampMetaDescription (150) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
   const description = introLong;
@@ -3234,7 +3255,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
   const title = buildTitleWithBrand(h1);
   // Differentiate H1 from <title> after brand-strip (audit:h1-title-duplicates).
   h1 = differentiateH1FromTitle(h1, title, locale);
-  // No 180-char pre-cut: clampMetaDescription (160) always won, so this only
+  // No 180-char pre-cut: clampMetaDescription (150) always won, so this only
   // handed it a string already broken mid-word. Let it do the clause-aware cut.
   const description = intro;
 

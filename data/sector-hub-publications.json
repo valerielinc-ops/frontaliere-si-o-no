@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-20T08:22:55.192Z",
+  "sourceWeek": "2026-W43",
+  "hubs": [
+    {
+      "slug": "admin",
+      "routeKind": "dynamic",
+      "label": "admin",
+      "labelByLocale": {
+        "it": "Amministrazione",
+        "en": "Administration",
+        "de": "Verwaltung",
+        "fr": "Administration"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "admin"
+      ],
+      "firstPublishedAt": "2026-10-19T21:15:47.242Z",
+      "status": "active"
+    },
+    {
+      "slug": "finance",
+      "routeKind": "dynamic",
+      "label": "finance",
+      "labelByLocale": {
+        "it": "Finanza",
+        "en": "Finance",
+        "de": "Finanzen",
+        "fr": "Finance"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "finance"
+      ],
+      "firstPublishedAt": "2026-10-19T21:15:47.242Z",
+      "status": "active"
+    },
+    {
+      "slug": "sanita-ospedali",
+      "routeKind": "dynamic",
+      "label": "Sanità / Ospedali",
+      "labelByLocale": {
+        "it": "Sanità / Ospedali"
+      },
+      "sourceFields": [
+        "category",
+        "sector"
+      ],
+      "matchLabels": [
+        "Sanità / Ospedali"
+      ],
+      "firstPublishedAt": "2026-10-20T08:22:55.192Z",
+      "status": "active"
+    },
+    {
+      "slug": "tecnica",
+      "routeKind": "dynamic",
+      "label": "Tecnica",
+      "labelByLocale": {
+        "it": "Tecnica"
+      },
+      "sourceFields": [
+        "category"
+      ],
+      "matchLabels": [
+        "Tecnica"
+      ],
+      "firstPublishedAt": "2026-10-20T08:22:55.192Z",
+      "status": "active"
+    }
+  ]
+}

@@ -541,7 +541,7 @@ export function buildJobRecencyLandingModel(options: {
   // Build the count-prefixed title/heading deterministically.
   // F3a (2026-04-20): short <title> comes from services/seo/job-board-titles.ts
   // and meta description from services/seo/meta-descriptions.ts so all listing
-  // page types share the same 50-60 / 140-160 char CTR-optimized pattern.
+  // page types share the same 50-60 / 140-150 char CTR-optimized pattern.
   const title = buildRecencyTitle(variant, locale, count, year);
   const heading = copy.heading(count);
   const description = buildRecencyHubMeta({

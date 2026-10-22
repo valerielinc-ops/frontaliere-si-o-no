@@ -32,7 +32,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/tredicesima-svizzera/',
+        href: '/calcolo-tredicesima-frontaliere/',
         label: {
           it: 'Guida tredicesima svizzera',
           en: 'Swiss 13th-month guide',
@@ -66,7 +66,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/stipendi-frontalieri-ticino/',
+        href: '/statistiche/confronta-stipendi/',
         label: {
           it: 'Stipendi frontalieri Ticino',
           en: 'Ticino cross-border salaries',
@@ -101,7 +101,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
     },
     relatedLinks: [
       {
-        href: '/calcolatore/',
+        href: '/calcola-stipendio/',
         label: {
           it: 'Calcolatore netto',
           en: 'Net calculator',

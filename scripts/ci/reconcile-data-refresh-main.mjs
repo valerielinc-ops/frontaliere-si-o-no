@@ -5,6 +5,8 @@
 // source slices/cache and their derived dataset outputs together. The original
 // workflow checkout is used through RECONCILE_SOURCE_ROOT or GITHUB_WORKSPACE
 // to run the real assembler without expanding this isolated worktree.
+// Pass --compat when publishing the sharded 404 compatibility store; its
+// accumulator and manifest have dedicated semantic reconciliation below.
 // Set EVENTS_REFRESH_CARRIED_REF to the pending refresh the crawl restored its
 // source slices and checkpoints from: a conflict on one of those files whose
 // main version is that very state is a continuation, not a concurrent edit.
@@ -32,15 +34,35 @@ const EVENT_SOURCE_SLICE_ROOT = 'data/events/by-source';
 const EVENT_SOURCE_CHECKPOINT_ROOT = 'data/events/checkpoints';
 const EVENT_REWRITE_CACHE_PATH = 'data/events-description-rewrites.json';
 const EVENT_IMAGE_LIBRARY_PATH = 'data/event-image-library.json';
+const COMPAT_MANIFEST_PATH = 'data/seo-404-compat/manifest.json';
+const COMPAT_SHARD_ROOT = 'data/seo-404-compat';
+const COMPAT_SHARD_RE = /^data\/seo-404-compat\/part-\d+\.json$/u;
+const CF_HOT_404_PATH = 'data/cf-hot-404s.json';
 const GIT_OUTPUT_MAX_BUFFER = 256 * 1024 * 1024;
 
-const options = {};
-for (let i = 2; i < process.argv.length; i += 2) {
+const options = { compat: false, paths: [] };
+for (let i = 2; i < process.argv.length; i += 1) {
   const flag = process.argv[i];
+  if (flag === '--compat') {
+    options.compat = true;
+    continue;
+  }
+  if (flag === '--path') {
+    const refreshPath = process.argv[i + 1];
+    if (!refreshPath) throw new Error('--path requires a repository-relative path');
+    const normalizedPath = path.posix.normalize(refreshPath);
+    if (refreshPath !== normalizedPath || refreshPath.startsWith('/')) {
+      throw new Error(`Invalid refresh reconciliation path: ${refreshPath}`);
+    }
+    options.paths.push(refreshPath);
+    i += 1;
+    continue;
+  }
   if (!['--base', '--main', '--message'].includes(flag) || !process.argv[i + 1]) {
-    throw new Error('Usage: reconcile-data-refresh-main.mjs --base SHA --main SHA --message TEXT');
+    throw new Error('Usage: reconcile-data-refresh-main.mjs [--compat] [--path PATH] --base SHA --main SHA --message TEXT');
   }
   options[flag.slice(2)] = process.argv[i + 1];
+  i += 1;
 }
 if (!options.base || !options.main || !options.message) throw new Error('Missing main reconciliation arguments');
 
@@ -63,6 +85,16 @@ function treeFiles(tree, prefix) {
   return raw ? raw.split('\0').filter(Boolean) : [];
 }
 
+function compatPathsInTree(tree) {
+  const paths = new Set(
+    treeFiles(tree, COMPAT_SHARD_ROOT).filter((file) => (
+      file === COMPAT_MANIFEST_PATH || COMPAT_SHARD_RE.test(file)
+    )),
+  );
+  if (readBlob(tree, CF_HOT_404_PATH, { encoding: null }) !== null) paths.add(CF_HOT_404_PATH);
+  return paths;
+}
+
 function writeIndexBlob(file, content) {
   const oid = git(['hash-object', '-w', '--stdin'], content);
   git(['update-index', '--add', '--cacheinfo', `100644,${oid},${file}`]);
@@ -78,9 +110,97 @@ function configuredDerivedDatasetPaths() {
     : new Set();
 }
 
+function configuredCompatPaths() {
+  return options.compat ? new Set([CF_HOT_404_PATH, COMPAT_MANIFEST_PATH]) : new Set();
+}
+
+function parseCompatManifest(raw, label) {
+  if (raw === null) return {};
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`${label} is not valid JSON: ${error.message}`);
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error(`${label} is not a JSON object`);
+  }
+  return parsed;
+}
+
+function compatManifestFreshness(manifest) {
+  for (const key of ['lastUpdated', 'generatedAt', 'updatedAt']) {
+    if (typeof manifest[key] === 'string' && manifest[key]) return manifest[key];
+  }
+  return '';
+}
+
+function mergedCompatPathCount(tree) {
+  const paths = new Set();
+  for (const file of treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate))) {
+    const raw = readBlob(tree, file, { encoding: null });
+    if (raw === null) throw new Error(`Cannot read merged compatibility shard ${file}`);
+    let parsed;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (error) {
+      throw new Error(`Merged compatibility shard ${file} is not valid JSON: ${error.message}`);
+    }
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed) || !Array.isArray(parsed.paths)) {
+      throw new Error(`Merged compatibility shard ${file} must contain a paths array`);
+    }
+    for (const value of parsed.paths) {
+      if (typeof value !== 'string') throw new Error(`Merged compatibility shard ${file} contains a non-string path`);
+      paths.add(value);
+    }
+  }
+  return paths.size;
+}
+
+function mergeCompatManifest(tree, baseRaw, mainRaw, headRaw) {
+  // Resolve deletions against the merge base before dropping missing blobs.
+  // When one branch deletes the manifest and the other is unchanged, the
+  // deletion is the only change and must survive the reconciliation instead
+  // of being replaced by the unchanged base/current-refresh copy.
+  if (mainRaw === null && headRaw === null) return null;
+  const mainChanged = mainRaw !== baseRaw;
+  const headChanged = headRaw !== baseRaw;
+  if ((mainRaw === null && !headChanged) || (headRaw === null && !mainChanged)) return null;
+
+  // `head` is the current refresh and wins ties; main wins only when it has a
+  // strictly newer freshness marker. Counts are always recomputed from the
+  // merged shards, never copied from either stale manifest.
+  const candidates = [
+    ['merge base', baseRaw],
+    ['main', mainRaw],
+    ['current refresh', headRaw],
+  ].filter(([, raw]) => raw !== null)
+    .map(([label, raw]) => ({ label, manifest: parseCompatManifest(raw, `Compatibility manifest ${label}`) }));
+  if (candidates.length === 0) return null;
+  let winner = candidates[0];
+  for (const candidate of candidates.slice(1)) {
+    if (compatManifestFreshness(candidate.manifest) >= compatManifestFreshness(winner.manifest)) {
+      winner = candidate;
+    }
+  }
+  const { paths: _paths, totalPaths: _totalPaths, shardCount: _shardCount, ...metadata } = winner.manifest;
+  const shardFiles = treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate));
+  return `${JSON.stringify({
+    ...metadata,
+    shardCount: shardFiles.length,
+    totalPaths: mergedCompatPathCount(tree),
+  }, null, 2)}\n`;
+}
+
 function isEventSourceState(file) {
   return file.endsWith('.json')
     && [EVENT_SOURCE_SLICE_ROOT, EVENT_SOURCE_CHECKPOINT_ROOT].includes(path.posix.dirname(file));
+}
+
+function isRefreshPath(file) {
+  return options.paths.some((refreshPath) => (
+    file === refreshPath || file.startsWith(`${refreshPath.replace(/\/$/u, '')}/`)
+  ));
 }
 
 // The crawl restores the slices and checkpoints of the pending refresh before
@@ -196,6 +316,7 @@ async function regenerateEventDataset({ tree, head, base, main, cacheOverrides, 
 
 const head = git(['rev-parse', 'HEAD']);
 const derivedDatasetPaths = configuredDerivedDatasetPaths();
+const compatPaths = configuredCompatPaths();
 const merge = spawnSync('git', [
   'merge-tree', '--write-tree', '--name-only', '--no-messages',
   `--merge-base=${options.base}`, head, options.main,
@@ -210,12 +331,27 @@ const carried = carriedRefreshRef();
 const continuedSourceState = new Set(
   conflicts.filter((file) => continuesCarriedState(file, { carried, head, main: options.main })),
 );
+const refreshPathConflicts = conflicts.filter((file) => (
+  isRefreshPath(file)
+    && !EVENT_CACHE_PATHS.has(file)
+    && !derivedDatasetPaths.has(file)
+    && !compatPaths.has(file)
+    && !isEventSourceState(file)
+    && !continuedSourceState.has(file)
+));
 const blockers = conflicts.filter((file) =>
-  !EVENT_CACHE_PATHS.has(file) && !derivedDatasetPaths.has(file) && !continuedSourceState.has(file));
+  !EVENT_CACHE_PATHS.has(file)
+    && !derivedDatasetPaths.has(file)
+    && !compatPaths.has(file)
+    && !refreshPathConflicts.includes(file)
+    && !continuedSourceState.has(file));
 if (blockers.length > 0) {
   // Only what stops the reconciliation is named. A caller that did not opt in
   // keeps the wording its logs and tests already know.
-  const resolvable = derivedDatasetPaths.size > 0 ? 'event caches or derived datasets' : 'event caches';
+  const resolvableParts = ['event caches'];
+  if (derivedDatasetPaths.size > 0) resolvableParts.push('derived datasets');
+  if (compatPaths.size > 0) resolvableParts.push('compatibility data');
+  const resolvable = resolvableParts.join(', ').replace(/, ([^,]+)$/u, ' or $1');
   const sourceState = blockers.filter(isEventSourceState);
   const why = sourceState.length === 0
     ? ''
@@ -238,6 +374,73 @@ for (const file of conflicts) {
   writeIndexBlob(file, content);
 }
 
+for (const file of refreshPathConflicts) {
+  const content = mergeRefreshContent(
+    file,
+    readBlob(options.base, file, { encoding: null }),
+    readBlob(options.main, file, { encoding: null }),
+    readBlob(head, file, { encoding: null }),
+  );
+  if (content === null) git(['update-index', '--force-remove', '--', file]);
+  else writeIndexBlob(file, content);
+}
+
+const compatOverrides = new Map();
+const compatWorktreePaths = new Set();
+const compatWorktreeDeletions = new Set();
+const applyCompatContent = (file, content) => {
+  const treeContent = blob(tree, file);
+  if (content === null) {
+    if (treeContent !== null) compatOverrides.set(file, null);
+    compatWorktreeDeletions.add(file);
+    git(['update-index', '--force-remove', '--', file]);
+    return;
+  }
+  if (treeContent !== content) compatOverrides.set(file, content);
+  compatWorktreePaths.add(file);
+  writeIndexBlob(file, content);
+};
+if (options.compat) {
+  // Git can merge the pretty-printed accumulator cleanly while still choosing
+  // one side's complete snapshot. Always apply the semantic 3-way merge so a
+  // clean textual merge cannot discard a path added by the other refresh.
+  applyCompatContent(
+    CF_HOT_404_PATH,
+    mergeRefreshContent(
+      CF_HOT_404_PATH,
+      blob(options.base, CF_HOT_404_PATH),
+      blob(options.main, CF_HOT_404_PATH),
+      blob(head, CF_HOT_404_PATH),
+    ),
+  );
+
+  // Even when Git sees identical manifest bytes, a compat shard driver may
+  // have combined two different sets whose cardinality changes. Recompute the
+  // manifest from the merged tree every time so totalPaths cannot go stale.
+  const manifest = mergeCompatManifest(
+    tree,
+    blob(options.base, COMPAT_MANIFEST_PATH),
+    blob(options.main, COMPAT_MANIFEST_PATH),
+    blob(head, COMPAT_MANIFEST_PATH),
+  );
+  applyCompatContent(COMPAT_MANIFEST_PATH, manifest);
+
+  // `read-tree` seeds the index without touching the worktree, and the
+  // plumbing commit below updates HEAD without checking it out. Keep the
+  // compatibility files on disk aligned with the committed tree as well;
+  // callers read these generated files immediately after reconciliation.
+  for (const file of treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate))) {
+    compatWorktreePaths.add(file);
+  }
+  for (const file of compatPathsInTree(head)) {
+    if (!compatWorktreePaths.has(file)) compatWorktreeDeletions.add(file);
+  }
+  if (compatWorktreePaths.size > 0) {
+    git(['checkout-index', '--force', '--ignore-skip-worktree-bits', '--', ...[...compatWorktreePaths].sort()]);
+  }
+  for (const file of [...compatWorktreeDeletions].sort()) rmSync(file, { force: true });
+}
+
 const derivedConflicts = conflicts.filter((file) => derivedDatasetPaths.has(file));
 if (derivedConflicts.length > 0 && derivedDatasetPaths.has('data/events.json')) {
   await regenerateEventDataset({
@@ -256,10 +459,14 @@ const mergedTree = git(['write-tree', '--missing-ok']);
 const commit = git(['commit-tree', mergedTree, '-p', head, '-p', options.main, '-m', options.message]);
 git(['update-ref', 'HEAD', commit, head]);
 process.stdout.write(
-  `[reconcile-data-refresh-main] merged main; resolved ${conflicts.length - derivedConflicts.length - continuedSourceState.size} cache conflict(s)`
+  `[reconcile-data-refresh-main] merged main; resolved ${conflicts.filter((file) => EVENT_CACHE_PATHS.has(file)).length} cache conflict(s)`
+    + (refreshPathConflicts.length > 0
+      ? `; resolved ${refreshPathConflicts.length} refresh-path conflict(s)`
+      : '')
     + (continuedSourceState.size > 0
       ? `; continued ${continuedSourceState.size} source state file(s) from the carried refresh`
       : '')
+    + (compatOverrides.size > 0 ? `; resolved ${compatOverrides.size} compatibility conflict(s)` : '')
     + (derivedConflicts.length > 0 ? `; regenerated ${EVENT_DERIVED_DATASET_PATHS.join(', ')}` : '')
     + '\n',
 );

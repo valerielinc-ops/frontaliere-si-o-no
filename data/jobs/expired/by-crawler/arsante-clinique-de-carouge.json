@@ -1,5 +1,54 @@
 [
   {
+    "slug": "macchina-per-la-consegna-di-farmaci-arsante-clinique-de-carouge-arsante-chez-soi-carouge",
+    "title": "Livreur·euse de médicaments",
+    "titleByLocale": {
+      "it": "Macchina per la consegna di farmaci",
+      "en": "Drug delivery machine",
+      "de": "Drug Delivery Maschine",
+      "fr": "Livreur·euse de médicaments"
+    },
+    "company": "Arsanté (Clinique de Carouge) — Arsanté Chez-Soi",
+    "companyKey": "arsante-clinique-de-carouge",
+    "location": "Carouge",
+    "addressLocality": "Carouge",
+    "descriptionByLocale": {
+      "it": "Stiamo cercando una persona seria e motivata per la nostra farmacia a Belle Terre per garantire la consegna di farmaci alle case dei nostri clienti. La vostra missione:\n• Assicurare la consegna di medicinali alle case dei clienti, principalmente nei comuni di Trois-Chêne e la banca sinistra, con alcune consegne sulla riva destra, in particolare al Clinique de Maisonneuve di Châtelaine.\n• Fai consegne la sera, dopo le tue lezioni. Il tuo profilo:\n• Studente che desidera integrare il suo reddito.\n• Davvero, puntuale e affidabile.\n• Sorridendo, con buon contatto con i clienti.\n• Autonoma e motivata.\n• Veicolo personale indispensabile, scooter idealmente. Condizioni: I tempi di consegna e i termini devono essere discussi in base alla vostra disponibilità e pianificazione.",
+      "en": "We are looking for a serious and motivated person for our pharmacy in Belle Terre to ensure the delivery of medicines to our customers' homes. Your mission:\n• Ensure the delivery of medicines to customers' homes, mainly in the communes of Trois-Chêne and the left bank, with some deliveries on the right bank, notably at the Clinique de Maisonneuve in Châtelaine.\n• Make deliveries in the evening, after your classes. Your profile:\n• Student wishing to supplement his income.\n• Seriously, punctual and reliable.\n• Smileing, with good contact with customers.\n• Autonomous and motivated.\n• Personal vehicle indispensable, scooter ideally. Conditions : The delivery times and terms are to be discussed according to your availability and schedule.",
+      "de": "Wir suchen eine ernsthafte und motivierte Person für unsere Apotheke in Belle Terre, um die Lieferung von Medikamenten in die Häuser unserer Kunden sicherzustellen. Ihre Mission:\n• Gewährleistung der Lieferung von Arzneimitteln an die Haushalte der Kunden, vor allem in den Gemeinden Trois-Chêne und am linken Ufer, mit einigen Lieferungen am rechten Ufer, insbesondere in der Clinique de Maisonneuve in Châtelaine.\n• Machen Sie Lieferungen am Abend, nach Ihrem Unterricht. Ihr Profil:\n• Student, der sein Einkommen aufbessern möchte.\n• Ernsthaft, pünktlich und zuverlässig.\n• Lächelnd, mit gutem Kontakt zu den Kunden.\n• Autonom und motiviert.\n• Persönliches Fahrzeug unverzichtbar, Roller ideal. Bedingungen : Die Lieferzeiten und Bedingungen sind nach Ihrer Verfügbarkeit und Ihrem Zeitplan zu besprechen.",
+      "fr": "Nous recherchons pour notre pharmacie à Belle Terre une personne sérieuse et motivée pour assurer la livraison de médicaments au domicile de nos clients. Votre mission :\n• Assurer la livraison de médicaments au domicile des clients, principalement sur les communes des Trois-Chêne et de la rive gauche, avec quelques livraisons sur la rive droite, notamment à la Clinique de Maisonneuve à Châtelaine.\n• Effectuer les livraisons en soirée, après vos cours. Votre profil :\n• Étudiant souhaitant compléter ses revenus.\n• Sérieux, ponctuel et fiable.\n• Souriant, avec un bon contact avec la clientèle.\n• Autonome et motivé.\n• Véhicule personnel indispensable, scooter idéalement. Conditions : Les horaires et les modalités de livraison sont à discuter selon vos disponibilités et votre emploi du temps."
+    },
+    "slugByLocale": {
+      "it": "macchina-per-la-consegna-di-farmaci-arsante-clinique-de-carouge-arsante-chez-soi-carouge",
+      "en": "drug-delivery-machine-arsante-clinique-de-carouge-arsante-chez-soi-carouge",
+      "de": "drug-delivery-maschine-arsante-clinique-de-carouge-arsante-chez-soi-carouge",
+      "fr": "livreur-euse-de-medicaments-arsante-clinique-de-carouge-carouge"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-10-15T21:17:54.949Z",
+    "previousSlugs": [
+      "livreur-euse-de-medicaments-arsante-clinique-de-carouge-carouge"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "livreur-euse-de-medicaments-arsante-clinique-de-carouge-carouge"
+      ],
+      "en": [
+        "livreur-euse-de-medicaments-arsante-clinique-de-carouge-carouge"
+      ],
+      "de": [
+        "livreur-euse-de-medicaments-arsante-clinique-de-carouge-carouge"
+      ]
+    },
+    "postalCode": "1227",
+    "salaryMin": 86500,
+    "salaryMax": 120500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://arsante.ch/emploi/livreur-euse-de-medicaments-104",
+    "firstSeenAt": "2026-10-13T21:19:05.059Z"
+  },
+  {
     "slug": "assistente-medico-arsante-clinique-de-carouge-centre-medical-du-leman-carouge",
     "title": "Assistant·e médical·e",
     "titleByLocale": {
@@ -20,25 +69,55 @@
     },
     "slugByLocale": {
       "it": "assistente-medico-arsante-clinique-de-carouge-centre-medical-du-leman-carouge",
-      "en": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
+      "en": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-74575f9d",
       "de": "assistent-e-medical-e-arsante-clinique-de-carouge-centre-medical-du-leman-carouge",
-      "fr": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
+      "fr": "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-74575f9d"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-10-12T09:18:11.815Z",
     "previousSlugs": [
-      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
-      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ydqtln"
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-74575f9d",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ydqtln",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-9442952d",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ffda7094",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-34987db4",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-90e8f933",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-0a7e955f",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-9bb80457",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-b25a4a5c",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-8bfe7252",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-86616865",
+      "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge",
-        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ydqtln"
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-74575f9d",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ydqtln",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-9442952d",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ffda7094",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-34987db4",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-90e8f933",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-0a7e955f",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-9bb80457",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-b25a4a5c",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-8bfe7252",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-86616865",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
       ],
       "en": [
         "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ydqtln"
       ],
       "de": [
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-74575f9d",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-9442952d",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-ffda7094",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-34987db4",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-90e8f933",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-0a7e955f",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-9bb80457",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-b25a4a5c",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-8bfe7252",
+        "assistant-e-medical-e-arsante-clinique-de-carouge-carouge-86616865",
         "assistant-e-medical-e-arsante-clinique-de-carouge-carouge"
       ]
     },
@@ -592,7 +671,7 @@
     "firstSeenAt": "2026-05-19T13:47:26.513Z"
   },
   {
-    "slug": "psicologo-psicoterapeuta-diplomato-a-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
+    "slug": "psicologo-psicoterapeuta-diplomato-a-arsante-clinique-de-carouge-clinique-de-carouge-carouge-fcc910f8",
     "title": "Psychologue-psychothérapeute diplômé·e",
     "titleByLocale": {
       "it": "Psicologo-psicoterapeuta diplomato·a",
@@ -611,19 +690,19 @@
       "fr": "Pour compléter son espace entièrement dédié à la psychiatrie et psychothérapie, la Clinique de Carouge recherche un·e psychologue-psychothérapeute FSP. Nous offrons:\n• Une activité variée dans une équipe pluridisciplinaire ;\n• Un cabinet entièrement équipé avec le matériel nécessaire à votre activité ;\n• Une infrastructure moderne avec l’utilisation du dossier médical informatisé ;\n• Taux d’activité et horaires flexibles selon vos besoins ;\n• Une culture d’entreprise saine et respectueuse des valeurs professionnelles ;\n• Une collaboration interactive et la possibilité de contribuer au développement de la clinique. Située au bord de l’Arve, la Clinique de Carouge est un centre de santé interdisciplinaire qui propose des soins de qualité et de proximité dans une structure à dimension humaine et chaleureuse. Pour les équipes de la Clinique de Carouge, il est indispensable de développer des réponses qui font appel à l’expertise de tou·tes les acteur·rices de la santé et du social au niveau local. Dans un environnement sanitaire en évolution continue, la Clinique de Carouge mise sur le partage des compétences, en veillant à ce que chaque collaborateur·rice ait une place reconnue et valorisée pour offrir la meilleure prise en charge possible des patient·es. L’offre médicale est composée de:\n• Urgences médicales: 7j/7 de lundi au samedi de 7h30 à 19h30. Dimanche et jours fériés de 8h à 18h\n• Soins infirmiers pour un traitement ou un suivi médical\n• Hospitalisations de proximité\n• Médecine de famille, médecine spécialisée et médecine alternative"
     },
     "slugByLocale": {
-      "it": "psicologo-psicoterapeuta-diplomato-a-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
-      "en": "licensed-psychologist-psychotherapist-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
-      "de": "zugelassene-r-psychologe-psychotherapeut-in-arsante-clinique-de-carouge-clinique-de-carouge-carouge",
-      "fr": "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge"
+      "it": "psicologo-psicoterapeuta-diplomato-a-arsante-clinique-de-carouge-clinique-de-carouge-carouge-fcc910f8",
+      "en": "licensed-psychologist-psychotherapist-arsante-clinique-de-carouge-clinique-de-carouge-carouge-631208f9",
+      "de": "zugelassene-r-psychologe-psychotherapeut-in-arsante-clinique-de-carouge-clinique-de-carouge-carouge-5de76085",
+      "fr": "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge-85de7071"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-23T09:29:18.589Z",
     "previousSlugs": [
-      "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge"
+      "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge-85de7071"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge"
+        "psychologue-psychotherapeute-diplome-e-arsante-clinique-de-carouge-carouge-85de7071"
       ]
     },
     "postalCode": "1227",
@@ -635,7 +714,7 @@
     "firstSeenAt": "2026-05-19T13:47:27.704Z"
   },
   {
-    "slug": "medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
+    "slug": "medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-3e2b4516",
     "title": "Médecin spécialiste en diabétologie et endocrinologie",
     "titleByLocale": {
       "it": "Medico specialista in diabetologia ed endocrinologia",
@@ -654,19 +733,19 @@
       "fr": "Dans le cadre de l’agrandissement du Centre Médical Arsanté Crissier , nous recrutons un·e spécialiste en diabétologie et endocrinologie pour compléter notre équipe pluridisciplinaire. Ce projet d’extension s’inscrit dans notre volonté de renforcer l’offre de soins dans la région et de développer des prises en charge coordonnées, notamment pour les patients souffrant de pathologies chroniques. Situé au cœur de Square Santé , pôle médical du quartier Oassis à Crissier qui regroupe également la Clinique La Source et la Clinique de La Lignière, notre centre réunit des professionnels de santé dans un environnement moderne et intégré, avec radiologie, laboratoire, salles de soins et services de réadaptation. Cette implantation favorise une prise en charge coordonnée, notamment pour les patients souffrant de pathologies chroniques.\n• Plus d’information sur le projet Square Santé : https://square-sante.ch\n• Plus d’informations sur le Centre Médical Arsanté Crissier : www.cmcrissier.ch Nous offrons :\n• Un espace médical facile d’accès pour les patients avec un plateau technique complet sur place\n• La possibilité d’exercer en cabinet privé ou comme salarié(e)\n• Un taux d’activité adaptable à votre projet professionnel\n• Des conditions de travail optimales au sein d’une équipe pluridisciplinaire favorisant les échanges et la collaboration Requis : Titre FMH et autorisation de facturer à la charge de l’AOS Nous serions ravi·es d’échanger avec vous sur ce projet."
     },
     "slugByLocale": {
-      "it": "medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
-      "en": "specialist-in-diabetology-and-endocrinology-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
-      "de": "facharzt-fur-diabetologie-und-endokrinologie-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge",
-      "fr": "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge"
+      "it": "medico-specialista-in-diabetologia-ed-endocrinologia-arsante-clinique-de-carouge-centre-medical-de-crissier-3e2b4516",
+      "en": "specialist-in-diabetology-and-endocrinology-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge-ce033fec",
+      "de": "facharzt-fur-diabetologie-und-endokrinologie-arsante-clinique-de-carouge-centre-medical-de-crissier-carouge-d3fe925e",
+      "fr": "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge-14a34d7f"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-16T09:19:39.320Z",
     "previousSlugs": [
-      "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge"
+      "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge-14a34d7f"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge"
+        "medecin-specialiste-en-diabetologie-et-endocrinologie-arsante-clinique-de-carouge-carouge-14a34d7f"
       ]
     },
     "postalCode": "1227",
@@ -678,7 +757,7 @@
     "firstSeenAt": "2026-05-19T13:47:24.746Z"
   },
   {
-    "slug": "assistente-medico-arsante-clinique-de-carouge-centre-de-pediatrie-eaux-vives-gare-geneve",
+    "slug": "assistente-medico-arsante-clinique-de-carouge-centre-de-pediatrie-eaux-vives-gare-geneve-34736668",
     "title": "Assistant·e médical·e",
     "titleByLocale": {
       "it": "Assistente medico",
@@ -697,19 +776,19 @@
       "fr": "Le Centre Médical des Eaux-Vives SA, situé au 33 rue de la Gare des Eaux-Vives, recrute pour renforcer son équipe spécialisée en pédiatrie : https://www.cpeauxvives.ch/ Deux assistant·e·s médical·e·s Votre mission : Dans un environnement dynamique dédié aux soins pédiatriques, vous assurez l’accueil, l’information et le conseil aux patients et à leurs familles, avec une approche professionnelle et bienveillante. Vous garantissez la gestion efficace des rendez-vous, du secrétariat médical et du suivi administratif. Vous préparez le matériel, assistez les médecins lors des consultations et réalisez certains soins de base sous supervision. Vous veillez au bon déroulement des consultations et à la continuité des soins au sein de l’équipe. Votre profil :\n• Vous êtes titulaire d’un CFC d’assistant·e médical·e\n• Vous avez une expérience confirmée en pédiatrie\n• Vous avez l’esprit d’équipe et une attitude positive\n• Vous êtes flexible, motivé·e et à l’aise dans un rythme soutenu\n• Vous êtes organisé·e et savez gérer les priorités\n• Vous avez d’excellentes qualités relationnelles et une bonne gestion du stress Nous vous offrons :\n• Entrée en fonction : 1er trimestre 2026\n• Contrat à durée indéterminée\n• Taux d’activité : entre 50% et 100% à convenir\n• 5 semaines de vacances\n• Un environnement de travail convivial, moderne et de qualité Votre contact : Intéressé·e ? Merci d’envoyer votre dossier de candidature à : recrutement@arsante.ch Nous restons à votre disposition pour toute information complémentaire. Cordialement Petit-Lancy, décembre 2025"
     },
     "slugByLocale": {
-      "it": "assistente-medico-arsante-clinique-de-carouge-centre-de-pediatrie-eaux-vives-gare-geneve",
-      "en": "assistant-e-medical-e-arsante-clinique-de-carouge-geneve",
-      "de": "medizinische-r-assistent-in-arsante-clinique-de-carouge-centre-de-pediatrie-eaux-vives-gare-geneve",
-      "fr": "assistant-e-medical-e-arsante-clinique-de-carouge-geneve"
+      "it": "assistente-medico-arsante-clinique-de-carouge-centre-de-pediatrie-eaux-vives-gare-geneve-34736668",
+      "en": "assistant-e-medical-e-arsante-clinique-de-carouge-geneve-cf2a691b",
+      "de": "medizinische-r-assistent-in-arsante-clinique-de-carouge-centre-de-pediatrie-eaux-vives-gare-geneve-e41ec6a8",
+      "fr": "assistant-e-medical-e-arsante-clinique-de-carouge-geneve-cf2a691b"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-13T12:40:28.052Z",
     "previousSlugs": [
-      "assistant-e-medical-e-arsante-clinique-de-carouge-geneve"
+      "assistant-e-medical-e-arsante-clinique-de-carouge-geneve-cf2a691b"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistant-e-medical-e-arsante-clinique-de-carouge-geneve"
+        "assistant-e-medical-e-arsante-clinique-de-carouge-geneve-cf2a691b"
       ]
     },
     "postalCode": "1207",
@@ -764,7 +843,7 @@
     "firstSeenAt": "2026-05-19T13:47:21.637Z"
   },
   {
-    "slug": "assistente-medico-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
+    "slug": "assistente-medico-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy-ab6d0ef3",
     "title": "Assistant·e médical·e",
     "titleByLocale": {
       "it": "Assistente medico",
@@ -783,19 +862,19 @@
       "fr": "Le Centre Médical de Lancy recherche un·e assistant·e médical·e pour un remplacement congé maternité, avec possibilité de poste fixe. Vos conditions :\n• Entrée en fonction : janvier 2026 pour une durée de 6 mois\n• Taux d’activité : 80%\n• Droit aux vacances : 5 semaines au prorata de l’activité Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. Vos compétences :\n• CFC d'assistant· e médical· e\n• Vous avez votre droit de pratique sur le canton de Genève,\n• Vous avez l'esprit d'équipe,\n• Vous êtes flexible et motivé· e,\n• Vous êtes organisé· e et avez le sens des priorités,\n• Vous êtes discret· e et consciencieux-se,\n• Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout."
     },
     "slugByLocale": {
-      "it": "assistente-medico-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
-      "en": "assistant-e-medical-e-arsante-clinique-de-carouge-lancy",
-      "de": "medizinische-r-assistent-in-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
-      "fr": "assistant-e-medical-e-arsante-clinique-de-carouge-lancy"
+      "it": "assistente-medico-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy-ab6d0ef3",
+      "en": "assistant-e-medical-e-arsante-clinique-de-carouge-lancy-ee87879e",
+      "de": "medizinische-r-assistent-in-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy-4bb9184d",
+      "fr": "assistant-e-medical-e-arsante-clinique-de-carouge-lancy-ee87879e"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-13T12:40:28.051Z",
     "previousSlugs": [
-      "assistant-e-medical-e-arsante-clinique-de-carouge-lancy"
+      "assistant-e-medical-e-arsante-clinique-de-carouge-lancy-ee87879e"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistant-e-medical-e-arsante-clinique-de-carouge-lancy"
+        "assistant-e-medical-e-arsante-clinique-de-carouge-lancy-ee87879e"
       ]
     },
     "postalCode": "1212",
@@ -807,7 +886,7 @@
     "firstSeenAt": "2026-05-19T13:47:18.731Z"
   },
   {
-    "slug": "assistente-medico-o-infermiere-arsante-clinique-de-carouge-centre-medical-de-la-jonction-carouge",
+    "slug": "assistente-medico-o-infermiere-arsante-clinique-de-carouge-centre-medical-de-la-jonction-carouge-eb6eb775",
     "title": "Assistant·e médical·e ou infirmier·ère",
     "titleByLocale": {
       "it": "Assistente medico o infermiere",
@@ -826,19 +905,19 @@
       "fr": "Le Centre Médical de la Jonction recrute un·e assistant·e médical·e ou un·e infirmier·ère pour rejoindre son équipe. Vos conditions :\n• Entrée en fonction : janvier 2026\n• Contrat à durée indéterminée\n• Taux d’activité : 100%\n• Droit aux vacances : 5 semaines Votre mission : Dans le cadre de vos activités, vous aurez à accueillir et conseiller les patients dans un climat professionnel et sécurisant ainsi que gérer les rendez-vous, le secrétariat, etc. Vous devrez préparer le matériel médical, assister, si besoin, les praticiens et exécuter des soins sous la responsabilité du médecin. Vos compétences :\n• CFC d'assistant· e médical· e ou diplôme d’infirmier·ère\n• Vous avez votre droit de pratique sur le canton de Genève,\n• Vous avez l'esprit d'équipe,\n• Vous êtes flexible et motivé· e,\n• Vous êtes organisé· e et avez le sens des priorités,\n• Vous êtes discret· e et consciencieux-se,\n• Vous maîtrisez les outils informatiques usuels, la connaissance Mediway serait un atout."
     },
     "slugByLocale": {
-      "it": "assistente-medico-o-infermiere-arsante-clinique-de-carouge-centre-medical-de-la-jonction-carouge",
-      "en": "medical-assistant-or-nurse-arsante-clinique-de-carouge-centre-medical-de-la-jonction-carouge",
-      "de": "medizinische-r-assistent-in-oder-krankenschwester-krankenpfleger-arsante-clinique-de-carouge-centre-medical-de-la",
-      "fr": "assistant-e-medical-e-ou-infirmier-ere-arsante-clinique-de-carouge-carouge"
+      "it": "assistente-medico-o-infermiere-arsante-clinique-de-carouge-centre-medical-de-la-jonction-carouge-eb6eb775",
+      "en": "medical-assistant-or-nurse-arsante-clinique-de-carouge-centre-medical-de-la-jonction-carouge-00f085bd",
+      "de": "medizinische-r-assistent-in-oder-krankenschwester-krankenpfleger-arsante-clinique-de-carouge-centre-medical-de-d8309f63",
+      "fr": "assistant-e-medical-e-ou-infirmier-ere-arsante-clinique-de-carouge-carouge-bf70e891"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-13T12:40:28.051Z",
     "previousSlugs": [
-      "assistant-e-medical-e-ou-infirmier-ere-arsante-clinique-de-carouge-carouge"
+      "assistant-e-medical-e-ou-infirmier-ere-arsante-clinique-de-carouge-carouge-bf70e891"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "assistant-e-medical-e-ou-infirmier-ere-arsante-clinique-de-carouge-carouge"
+        "assistant-e-medical-e-ou-infirmier-ere-arsante-clinique-de-carouge-carouge-bf70e891"
       ]
     },
     "postalCode": "1227",
@@ -850,7 +929,7 @@
     "firstSeenAt": "2026-05-19T13:47:20.109Z"
   },
   {
-    "slug": "fisioterapista-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
+    "slug": "fisioterapista-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy-c06e06a6",
     "title": "Physiothérapeute",
     "titleByLocale": {
       "it": "Fisioterapista",
@@ -869,19 +948,19 @@
       "fr": "Le Centre Médical de Lancy recherche un·e physiothérapeute indépendant·e à 60% pour compléter son équipe dynamique au sein du service de physiothérapie générale. Pourquoi nous rejoindre ?\n• Activité stable au sein d’un centre pluridisciplinaire reconnu, accueillant médecins généralistes, gynécologues, sages-femmes, diététiciennes et autres professionnel·le·s de la santé.\n• Environnement collaboratif favorisant l’échange entre les différentes spécialités.\n• Locaux modernes, bien situés, au cœur du quartier du Petit-Lancy.\n• Entrée en fonction souhaitée : dès que possible. Votre rôle Vous prenez en charge une patientèle variée en physiothérapie générale, en assurant un suivi de qualité dans le respect des bonnes pratiques et de l’autonomie professionnelle. Profil recherché\n• Bachelor of Science en physiothérapie (ou formation équivalente reconnue en Suisse).\n• Droit de pratique sur le canton de Genève.\n• Intérêt marqué pour le travail interdisciplinaire et le lien de proximité avec les patients.\n• Statut d’indépendant·e."
     },
     "slugByLocale": {
-      "it": "fisioterapista-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
-      "en": "physiotherapist-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
-      "de": "physiotherapeut-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy",
-      "fr": "physiotherapeute-arsante-clinique-de-carouge-lancy"
+      "it": "fisioterapista-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy-c06e06a6",
+      "en": "physiotherapist-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy-919ee162",
+      "de": "physiotherapeut-arsante-clinique-de-carouge-centre-medical-de-lancy-lancy-5cfdd9d2",
+      "fr": "physiotherapeute-arsante-clinique-de-carouge-lancy-8a0988d7"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-13T12:40:28.051Z",
     "previousSlugs": [
-      "physiotherapeute-arsante-clinique-de-carouge-lancy"
+      "physiotherapeute-arsante-clinique-de-carouge-lancy-8a0988d7"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "physiotherapeute-arsante-clinique-de-carouge-lancy"
+        "physiotherapeute-arsante-clinique-de-carouge-lancy-8a0988d7"
       ]
     },
     "postalCode": "1212",
@@ -893,7 +972,7 @@
     "firstSeenAt": "2026-05-19T13:47:25.340Z"
   },
   {
-    "slug": "pediatra-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
+    "slug": "pediatra-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge-e40be34a",
     "title": "Pédiatre FMH",
     "titleByLocale": {
       "it": "Pediatra FMH",
@@ -912,19 +991,19 @@
       "fr": "Pour compléter l'offre de soins du Centre de pédiatrie de Meyrin et pour répondre aux besoins de la population, nous recherchons un médecin spécialisé·e en pédiatrie avec titre FMH. Taux d’activité à choix. Condition : Droit de pratique requis. Nous vous offrons:\n• Activité variée dans une équipe pluridisciplinaire\n• Statut: indépendant·e\n• Une culture d’entreprise saine et respectueuse des valeurs professionnelles\n• Tous les outils nécessaires pour garantir une pratique médicale de haute qualité.\n• Une collaboration interactive et la possibilité de contribuer au développement du groupe Le Centre de pédiatrie de Meyrin, situé dans le quartier de Champs-Fréchet à Meyrin, offre un cadre accueillant et rassurant pour les familles. Actuellement, notre équipe se compose de trois pédiatres et d'une sage-femme spécialisée en lactation. En raison de la demande croissante de nouveaux patients, nous souhaitons augmenter notre offre de soins. N'hésitez pas à nous contacter pour une visite du centre."
     },
     "slugByLocale": {
-      "it": "pediatra-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
-      "en": "pediatrician-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
-      "de": "padiater-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge",
-      "fr": "pediatre-fmh-arsante-clinique-de-carouge-carouge"
+      "it": "pediatra-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge-e40be34a",
+      "en": "pediatrician-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge-ce6ecbe9",
+      "de": "padiater-fmh-arsante-clinique-de-carouge-centre-medical-de-meyrin-carouge-46b14593",
+      "fr": "pediatre-fmh-arsante-clinique-de-carouge-carouge-5258bfce"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-07-13T12:40:28.051Z",
     "previousSlugs": [
-      "pediatre-fmh-arsante-clinique-de-carouge-carouge"
+      "pediatre-fmh-arsante-clinique-de-carouge-carouge-5258bfce"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "pediatre-fmh-arsante-clinique-de-carouge-carouge"
+        "pediatre-fmh-arsante-clinique-de-carouge-carouge-5258bfce"
       ]
     },
     "postalCode": "1227",

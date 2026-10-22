@@ -12,8 +12,14 @@ export const SEND_CALCULATOR_REPORT_URL = `${FUNCTIONS_BASE}/sendCalculatorRepor
 /** Stripe Checkout Session creation for /consulenza/ one-time session payments. */
 export const CREATE_CONSULTING_CHECKOUT_URL = `${FUNCTIONS_BASE}/createConsultingCheckout`;
 
-/** Stripe Checkout Session creation for the €0.99 assisted-application flow. */
+/** Stripe Checkout Session creation for the €1.99 assisted-application flow. */
 export const CREATE_ASSISTED_APPLICATION_CHECKOUT_URL = `${FUNCTIONS_BASE}/createAssistedApplicationCheckout`;
+
+/** Authenticated endpoint that re-checks and resumes an unpaid assisted application. */
+export const RESUME_ASSISTED_APPLICATION_PAYMENT_URL = `${FUNCTIONS_BASE}/resumeAssistedApplicationPayment`;
+
+/** Authenticated, candidate-safe list of paid assisted applications and their current status. */
+export const MY_ASSISTED_APPLICATIONS_URL = `${FUNCTIONS_BASE}/myAssistedApplications`;
 
 /** Stripe/SumUp Checkout for the €39.99, 30-day application concierge. */
 export const CREATE_APPLICATION_CONCIERGE_CHECKOUT_URL = `${FUNCTIONS_BASE}/createApplicationConciergeCheckout`;
@@ -26,6 +32,9 @@ export const MANAGE_APPLICATION_CONCIERGE_URL = `${FUNCTIONS_BASE}/manageApplica
 
 /** Candidate review page of the automated assisted application (signed link, no login). */
 export const ASSISTED_APPLICATION_REVIEW_URL = `${FUNCTIONS_BASE}/assistedApplicationReview`;
+
+/** Owner-authenticated endpoint for a temporary CV preview link. */
+export const GET_ASSISTED_APPLICATION_CV_URL = `${FUNCTIONS_BASE}/getAssistedApplicationCvUrl`;
 
 /** Server-side, idempotent record of the explicit job-application intent click. */
 export const RECORD_APPLICATION_INTENT_URL = `${FUNCTIONS_BASE}/recordApplicationIntent`;

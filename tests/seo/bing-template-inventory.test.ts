@@ -23,6 +23,50 @@ describe('Bing title/meta template inventory', () => {
     expect(classifyBingTemplate(`${BASE}/en/find-jobs-geneva/lugano/`).id).toBe('job-board-pages');
   });
 
+  it('maps event, pharmacy and legacy calculator routes without swallowing nearby paths', () => {
+    const positiveCases = [
+      [`${BASE}/eventi/`, 'event-pages'],
+      [`${BASE}/en/events/aargau/lugano/event-slug/`, 'event-pages'],
+      [`${BASE}/de/veranstaltungen/zurich/archiv/page-2/`, 'event-pages'],
+      [`${BASE}/fr/evenements/vaud/ce-week-end/`, 'event-pages'],
+      [`${BASE}/farmacie/italia/como/como/farmacia-esempio/`, 'pharmacy-pages'],
+      [`${BASE}/en/on-duty-pharmacies/week/2026-10-19/`, 'pharmacy-pages'],
+      [`${BASE}/de/apotheken/ticino/lugano/notdienst/`, 'pharmacy-pages'],
+      [`${BASE}/fr/pharmacies-de-garde/`, 'pharmacy-pages'],
+      [`${BASE}/en/calcola-stipendio/?reddito=65000&tipo=OLD`, 'calculator-legacy-alias-pages'],
+      [`${BASE}/de/calcola-stipendio/`, 'calculator-legacy-alias-pages'],
+      [`${BASE}/fr/calcola-stipendio/`, 'calculator-legacy-alias-pages'],
+    ] as const;
+
+    for (const [url, family] of positiveCases) {
+      expect(classifyBingTemplate(url).id, url).toBe(family);
+    }
+
+    const nearbyNonTargets = [
+      `${BASE}/blog/events/a/`,
+      `${BASE}/eventi-notizie/`,
+      `${BASE}/en/farmacie/`,
+      `${BASE}/pharmacies-old/example/`,
+      `${BASE}/en/calcola-stipendio/details/`,
+      `${BASE}/calcola-stipendio/`,
+    ];
+    for (const url of nearbyNonTargets) {
+      expect(classifyBingTemplate(url).id, url).toBe('unknown');
+    }
+  });
+
+  it('records the concrete emitters for the newly classified families', () => {
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'event-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/eventsSeoPagesPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'pharmacy-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining([
+        'build-plugins/pharmacyDirectoryPagesPlugin.ts',
+        'build-plugins/pharmacyHubPlugin.ts',
+      ]));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'calculator-legacy-alias-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/calculatorLegacyAliasPlugin.ts']));
+  });
+
   it('preserves unknown paths instead of assigning a guessed first match', () => {
     const result = classifyBingTemplate(`${BASE}/new-seo-family/example/`);
     expect(result.id).toBe('unknown');

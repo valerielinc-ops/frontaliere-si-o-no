@@ -209,9 +209,16 @@ describe('wiring — the fourteen remaining ratified #5632/#5780 sites call the 
       expect(src.includes(BUGGY_CHAIN_SIGNATURE)).toBe(false);
     });
 
-    it(`${site} imports the shared decoder`, () => {
+    it(`${site} is wired to the shared decoder`, () => {
       const src = read(site);
-      expect(src).toMatch(/unescape-ts-string\.mjs/);
+      if (site === 'build-plugins/staticPagesPlugin.ts') {
+        // The parser moved into a colocated helper so the build plugin does
+        // not duplicate the AST/escape policy. That helper imports the decoder
+        // and is covered by static-pages-blog-skip.test.ts.
+        expect(src).toMatch(/staticArticleBodyPreviews/);
+      } else {
+        expect(src).toMatch(/unescape-ts-string\.mjs/);
+      }
     });
   }
 });

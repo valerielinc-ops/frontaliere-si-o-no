@@ -8,6 +8,7 @@ import {
   mergePreviousSlugsCapped,
   capSlugArray,
   restoreExistingSlugIdentity,
+  removePreviousSlugRoutes,
   RETAINED_EVENTS_CAP,
 } from '../scripts/lib/slug-history-journal.mjs';
 import {
@@ -34,6 +35,37 @@ describe('slug-history-journal', () => {
     recordSlugMutation({ jobId: 'x' });
     recordSlugMutation({ jobId: 'x', slug: 's', action: 'invalid-action', source: 'src' });
     expect(getEvents()).toHaveLength(0);
+  });
+
+  it('removes proven transferred routes from both histories and journals every dropped entry', () => {
+    const job = {
+      id: 'job-transfer',
+      previousSlugs: ['transferred-route', 'legacy-route'],
+      previousSlugsByLocale: {
+        it: ['transferred-route', 'it-route'],
+        fr: ['transferred-route'],
+      },
+    };
+
+    const removed = removePreviousSlugRoutes(
+      job,
+      new Map([['transferred-route', 'owner-crawler']]),
+      { source: 'test/ownership-transfer' },
+    );
+
+    expect(removed).toBe(3);
+    expect(job).toEqual({
+      id: 'job-transfer',
+      previousSlugs: ['legacy-route'],
+      previousSlugsByLocale: { it: ['it-route'] },
+    });
+    expect(getEvents()).toHaveLength(3);
+    expect(getEvents()).toMatchObject([
+      { jobId: 'job-transfer', locale: 'it', slug: 'transferred-route', action: 'drop', source: 'test/ownership-transfer' },
+      { jobId: 'job-transfer', locale: 'fr', slug: 'transferred-route', action: 'drop', source: 'test/ownership-transfer' },
+      { jobId: 'job-transfer', locale: null, slug: 'transferred-route', action: 'drop', source: 'test/ownership-transfer' },
+    ]);
+    expect(summarize()).toMatchObject({ total: 3, dropped: 3, jobsAffected: 1 });
   });
 
   it('mergePreviousSlugsCapped journals cap-trim overflow instead of silently dropping (company-crawler sibling fix)', () => {

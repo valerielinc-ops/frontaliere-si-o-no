@@ -67,8 +67,8 @@ import { generateFuelDailyPages } from '../../build-plugins/fuelDailyPagesPlugin
  * exactly why no other locale failed.
  *
  * Comparing against the normalized form isolates real truncation from
- * harmless whitespace normalization. The 160-char budget itself is unchanged
- * and still asserted separately.
+ * harmless whitespace normalization. The 150-char render budget is asserted
+ * separately.
  */
 function isTruncated(description: string): boolean {
   return clampMetaDescription(description).endsWith('…');
@@ -204,7 +204,7 @@ describe('SERP snippet budgets — employer profile intro prose (#6417)', () => 
   // stretch the description longest: max canton/city breakdown (the source
   // caps both arrays at 6 — see cantonsProse/citiesProse), salary + trend +
   // contract-mix + salary-range all present, worst case for hitting the
-  // 160-char budget.
+  // 150-char render budget.
   const CANTONS = ['Ticino', 'Zurigo', 'Berna', 'Vaud', 'Ginevra', 'Basilea']
     .map((name, i) => ({ name, count: 12 - i }));
   const CITIES = ['Lugano', 'Bellinzona', 'Chiasso', 'Locarno', 'Mendrisio', 'Massagno']
@@ -270,7 +270,7 @@ describe('SERP snippet budgets — weekly-employers hero copy (#6417)', () => {
   // company×city hub) — `heroSummary`/`companyCityHeroWithDelta` feed
   // `clampMetaDescription` directly (weeklyEmployersPlugin.ts), but no test
   // ever sampled the ACTUAL sentence across locale × city / locale ×
-  // company×city. Worst case for pushing past the 160-char budget: the
+  // company×city. Worst case for pushing past the 150-char render budget: the
   // longest city display name, a long real employer legal name, and a
   // 3-digit jobs/companies count.
   const LONGEST_CITY = [...WEEKLY_EMPLOYERS_CITIES].sort(

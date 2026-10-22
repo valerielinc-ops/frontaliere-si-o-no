@@ -163,6 +163,12 @@ describe('JobBoard wiring preserves public surfaces while derivation is pending'
     expect(source).toContain('shouldPlaceInfeedAd(pos, {');
     expect(source).toContain('renderInfeedAd(`main-${idx}`');
   });
+
+  it('keeps return-visit new-job filtering off the interaction render task', () => {
+    expect(source).toContain('const returnVisitNewJobsDerivation = useInterruptibleDerivation');
+    expect(source).toContain('returnVisitNewJobsDerivation.pending');
+    expect(source).not.toContain('preReturnVisitFilteredJobs.filter(isNewSincePreviousVisit)');
+  });
 });
 
 describe('JobBoard cluster-seed handoff', () => {

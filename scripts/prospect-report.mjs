@@ -16,8 +16,9 @@ import { loadCandidates, statusCounts } from './lib/prospector/candidate-store.m
 import { loadRegistry, enumerablePlatforms, sharedHostPlatforms } from './lib/prospector/platform-registry.mjs';
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { VALIDATION_PATH } from './lib/prospector/config.mjs';
-import { loadChannelHealth } from './lib/prospector/sources/commoncrawl-careers.mjs';
+import { loadChannelHealth, loadCursor } from './lib/prospector/sources/commoncrawl-careers.mjs';
 import { isTransportLogistics } from './lib/prospector/sector-signal.mjs';
+import { loadDiscoveryHealth, DISCOVERY_SOURCE_NAMES, DISCOVERY_SOURCE_OUTCOMES } from './lib/prospector/source-health.mjs';
 
 const md = process.argv.includes('--markdown');
 const store = loadCandidates();
@@ -40,7 +41,9 @@ out.push(h('Copertura'));
 out.push(tableHead('metrica', 'valore'));
 out.push(row('crawler in produzione oggi', coverage.crawlerCount));
 out.push(row('datori in coda (tutti gli stati)', all.length));
-out.push(row('promossi dal loop', counts.promoted || 0));
+out.push(row('in coda al gate PROMOTE (non ancora live)', counts.promoted || 0));
+out.push(row('merge completato, primo crawl atteso', counts.awaiting_first_crawl || 0));
+out.push(row('in produzione verificata dal loop', counts.production || 0));
 out.push(row('in attesa di sintesi (tracciati)', counts.traced || 0));
 out.push(row('da tracciare (nuovi)', counts.new || 0));
 out.push(row('esauriti (nessuna pagina carriere)', counts.dead || 0));
@@ -48,8 +51,26 @@ out.push(row('esauriti (nessuna pagina carriere)', counts.dead || 0));
 if (validation) {
   out.push(h('Qualità dell\'estrazione'));
   out.push(tableHead('esito', 'crawler'));
-  for (const [k, v] of Object.entries(validation.tally)) out.push(row(k, v));
-  out.push(row('annunci coperti dai promossi', validation.promotedVacancies));
+  for (const [k, v] of Object.entries(validation.tally || {})) out.push(row(k, v));
+  out.push(row('annunci nei crawler con verdict good', validation.goodVerdictVacancies ?? validation.promotedVacancies ?? 0));
+  if (validation.measuredTally) out.push(row('verdetti misurati', JSON.stringify(validation.measuredTally)));
+  if (validation.runtimeSnapshotTally) {
+    out.push(row('snapshot completi / incompleti', `${validation.runtimeSnapshotTally.complete} / ${validation.runtimeSnapshotTally.incomplete}`));
+  }
+  if (validation.qualityContractTally) out.push(row('tally per contratto qualità', JSON.stringify(validation.qualityContractTally)));
+  if (validation.runtimeFailureCategoryTally && Object.keys(validation.runtimeFailureCategoryTally).length) {
+    out.push(row('cause retry runtime', JSON.stringify(validation.runtimeFailureCategoryTally)));
+  }
+  const comparisons = (validation.reports || []).reduce((sum, report) => {
+    const classification = report.snapshotComparison?.classification || 'unmeasured';
+    sum[classification] = (sum[classification] || 0) + 1;
+    return sum;
+  }, {});
+  if (Object.keys(comparisons).length) out.push(row('confronto snapshot validate/pubblicato', JSON.stringify(comparisons)));
+  for (const report of (validation.reports || []).filter((item) => item.snapshotComparison?.classification === 'different_snapshot').slice(0, 5)) {
+    const comparison = report.snapshotComparison;
+    out.push(row(`snapshot diverso · ${report.companyKey}`, `validazione ${comparison.validationCount}, pubblicato ${comparison.publishedCount}, condivisi ${comparison.shared}, delta ${comparison.deltaHours}h`));
+  }
   const weak = (validation.reports || []).filter((r) => r.verdict !== 'good');
   if (weak.length) {
     out.push(md ? '\n**Da riparare**\n' : '\n  Da riparare:');
@@ -104,6 +125,18 @@ if (promoting.length) {
     : '  (finche\' resta aperta, il loop non promuove nessun altro)');
 }
 
+const awaitingFirstCrawl = all.filter((c) => c.status === 'awaiting_first_crawl');
+if (awaitingFirstCrawl.length) {
+  const overdue = awaitingFirstCrawl.filter((c) => c.firstCrawlerOutputAttention === true);
+  out.push(h('Primo crawl dopo il merge'));
+  out.push(row('in attesa di slice jobs non vuota e aggiornata', awaitingFirstCrawl.length));
+  out.push(row('oltre 48 ore, richiedono attenzione', overdue.length));
+  for (const candidate of awaitingFirstCrawl.slice(0, 10)) {
+    out.push(row(candidate.crawlerKey || candidate.key,
+      `${candidate.firstCrawlerOutputStatus || 'pending'}${candidate.firstCrawlerOutputReason ? ` · ${candidate.firstCrawlerOutputReason}` : ''}${candidate.firstCrawlerOutputAttention ? ' · OWNER ACTION' : ''}`));
+  }
+}
+
 out.push(h('Dove il loop NON arriva'));
 const deadReasons = {};
 for (const c of all.filter((c) => c.status === 'dead')) deadReasons[c.reason || '?'] = (deadReasons[c.reason || '?'] || 0) + 1;
@@ -112,8 +145,8 @@ for (const [k, v] of Object.entries(deadReasons).sort((a, b) => b[1] - a[1])) ou
 
 const bySource = {};
 for (const c of all) for (const s of c.sources || []) bySource[s] = (bySource[s] || 0) + 1;
-out.push(h('Resa per sorgente'));
-out.push(tableHead('sorgente', 'datori'));
+out.push(h('Attribuzione per sorgente (conteggi sovrapposti)'));
+out.push(tableHead('sorgente', 'candidati attribuiti'));
 for (const [k, v] of Object.entries(bySource).sort((a, b) => b[1] - a[1])) out.push(row(k, v));
 
 // OSM's Ticino census turned up zero domain-carrying transport/logistics
@@ -132,7 +165,15 @@ if (transportLogistics.length || bySource.osm || bySource.web) {
   out.push(row('totale distinti', transportLogistics.length));
 }
 
-const webHealth = loadChannelHealth();
+let webHealth = [];
+let cursor = null;
+try {
+  webHealth = loadChannelHealth();
+  cursor = loadCursor();
+} catch (error) {
+  out.push(h('Salute Common Crawl non leggibile'));
+  out.push(row('stato', `storico/cursore preservato; report parziale (${String(error.message).slice(0, 100)})`));
+}
 if (webHealth.length) {
   // Common Crawl is a shared volunteer index and goes dark for stretches
   // (measured: a full hour of `status 0`); a single run's zero yield looks
@@ -140,13 +181,57 @@ if (webHealth.length) {
   // nothing new, so the signal that matters is the outage RATE over recent
   // runs, not any one run's number.
   const recent = webHealth.slice(-14);
-  const outages = recent.filter((r) => r.outage).length;
+  const outages = recent.filter((r) => r.outcome === 'unavailable' || r.outage === true).length;
+  const legacyUnknown = recent.filter((r) => !r.outcome).length;
   out.push(h('Salute canale web (Common Crawl)'));
   out.push(tableHead('metrica', 'valore'));
   out.push(row('run in storico', webHealth.length));
-  out.push(row(`interruzioni indice, ultimi ${recent.length} run`, outages));
+  out.push(row(`interruzioni indice, ultimi ${recent.length} run`, `${outages}${legacyUnknown ? ` · ${legacyUnknown} legacy/unknown` : ''}`));
   const last = webHealth[webHealth.length - 1];
-  out.push(row('ultimo run', `${last.pagesRead} pagine → ${last.employers} datori${last.outage ? ' (indice non raggiungibile)' : ''}`));
+  out.push(row('ultimo run', `${last.pagesRead} pagine → ${last.employers} datori · ${last.outcome || 'legacy/unknown'}${last.errorCode ? ` (${last.errorCode})` : ''}`));
+  if (Array.isArray(last.failedPages) && last.failedPages.length) {
+    out.push(row('pagine da riprovare', last.failedPages.length));
+  }
+  const swept = Array.isArray(cursor?.sweptPages) ? cursor.sweptPages.length : 0;
+  const total = Number(cursor?.totalPages) || 0;
+  if (cursor?.collection && total > 0) {
+    out.push(row('copertura collection corrente', `${cursor.collection} · ${swept}/${total} (${Math.round((swept / total) * 100)}%)`));
+  }
+  for (const previous of (cursor?.collectionHistory || []).slice(-3)) {
+    out.push(row(`collection precedente ${previous.collection}`, `${previous.sweptPages}/${previous.totalPages} (${Math.round(Number(previous.coverageRate || 0) * 100)}%)${previous.completed ? ' · completa' : ' · incompleta alla rotazione'}`));
+  }
+}
+
+let discoveryHealth = [];
+try { discoveryHealth = loadDiscoveryHealth(); } catch (error) {
+  out.push(h('Salute delle fonti discovery non leggibile'));
+  out.push(row('stato', `storico preservato; report parziale (${String(error.message).slice(0, 100)})`));
+}
+if (discoveryHealth.length) {
+  const recent = discoveryHealth.slice(-14);
+  out.push(h('Salute delle fonti di discovery'));
+  out.push(tableHead('sorgente', `ultimi ${recent.length} run · complete / partial / unavailable / malformed`));
+  for (const source of DISCOVERY_SOURCE_NAMES) {
+    const totals = Object.fromEntries(DISCOVERY_SOURCE_OUTCOMES.map((outcome) => [outcome, 0]));
+    let attempts = 0;
+    for (const run of recent) {
+      const summary = run?.sources?.[source];
+      attempts += Number(summary?.attempts) || 0;
+      for (const outcome of DISCOVERY_SOURCE_OUTCOMES) {
+        totals[outcome] += Number(summary?.outcomes?.[outcome]) || 0;
+      }
+    }
+    const last = discoveryHealth.at(-1)?.sources?.[source];
+    const distribution = DISCOVERY_SOURCE_OUTCOMES.map((outcome) => totals[outcome]).join(' / ');
+    const latest = last?.attempts
+      ? `ultimo ${last.aggregateOutcome || last.lastOutcome || 'unknown'} (${last.attempts} tentativi, ${last.recordsSeen ?? last.items ?? 0} record, ${last.newCandidatesFiled ?? 'n/d'} nuovi candidati)`
+      : 'nessun tentativo nell’ultimo run';
+    const recordsSeen = recent.reduce((sum, run) => sum + (Number(run?.sources?.[source]?.recordsSeen ?? run?.sources?.[source]?.items) || 0), 0);
+    const filed = recent.reduce((sum, run) => sum + (Number(run?.sources?.[source]?.newCandidatesFiled) || 0), 0);
+    out.push(row(source, `${attempts} tentativi · ${distribution} · ${recordsSeen} record visti / ${filed} nuovi candidati · ${latest}`));
+  }
+  const latestRun = discoveryHealth.at(-1);
+  out.push(row('ultimo run iniziato', `${latestRun?.startedAt || 'unknown'}${latestRun?.runId ? ` · run ${latestRun.runId}` : ''}`));
 }
 
 console.log(out.join('\n'));

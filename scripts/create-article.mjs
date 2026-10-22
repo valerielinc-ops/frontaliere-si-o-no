@@ -113,7 +113,7 @@ import {
   stripFabricatedExamples,
 } from './lib/article-sanitizers.mjs';
 import { decodeHtmlEntities } from './lib/decode-html-entities.mjs';
-import { readAttr } from './lib/html-attr.mjs';
+import { readAttr, scanHtmlTags } from './lib/html-attr.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
@@ -137,10 +137,12 @@ import {
   rankAndSelectHeadlines as _rankAndSelectHeadlines,
   loadEvergreenRejectedTracker as _loadEvergreenRejectedTracker,
   isEvergreenRejected as _isEvergreenRejected,
+  computeEvergreenPoolEpoch as _computeEvergreenPoolEpoch,
+  EVERGREEN_POOL_NAME as _EVERGREEN_POOL_NAME,
   appendEvergreenRejected as _appendEvergreenRejected,
   strikeEvergreenKeyword as _strikeEvergreenKeyword,
   EVERGREEN_STRIKE_LIMIT as _EVERGREEN_STRIKE_LIMIT,
-  persistEvergreenRejectedTracker as _persistEvergreenRejectedTracker,
+  persistEvergreenRejectedTrackerAtomically as _persistEvergreenRejectedTrackerAt,
 } from './lib/article-topic-selector.mjs';
 
 // ── Phase 3 — Discovery pool + quota controller ──────────────────
@@ -171,7 +173,7 @@ import { ARTICLE_SECTION_CORE } from '../build-plugins/shared/articleSectionCore
 import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 import { buildStructuralEvergreenTopics } from './lib/evergreen-topic-generator.mjs';
 import { resolveGitAddPaths } from './lib/resolve-git-add-path.mjs';
-import { metaFieldRegex, unescapeTsValue } from './lib/meta-field-regex.mjs';
+import { readStaticMetaFieldEntries as readMetaFieldEntries, readStaticMetaFields } from './lib/meta-field-regex.mjs';
 import { assertNoSlugPromptLeak, stripSlugPromptLeak, findSlugPromptLeak } from './lib/slug-prompt-leak-guard.mjs';
 import { fixMicrocopy } from './lib/it-microcopy-guard.mjs';
 import { cleanFaqPairs, sanitizePromptPlaceholders } from './lib/prompt-placeholder-guard.mjs';
@@ -1925,6 +1927,11 @@ function parseSectionArg(argv) {
 const SECTION_NAME = parseSectionArg(process.argv.slice(2));
 const SECTION = ARTICLE_SECTION_CONFIGS[SECTION_NAME];
 const IS_FRONTALIERE = SECTION_NAME === 'frontaliere';
+
+function _persistEvergreenRejectedTracker(update) {
+  return _persistEvergreenRejectedTrackerAt(update);
+}
+
 // Stamped here rather than in the RUN_REPORT literal because SECTION_NAME is
 // parsed from argv ~700 lines later than the report is declared.
 RUN_REPORT.section = SECTION_NAME;
@@ -2095,7 +2102,7 @@ function getAllArticleIds() {
 
 /** Read the active section's IT meta source (blog-meta-it | blog-meta-ch-it). */
 function readSectionMetaIt() {
-  return read(SECTION_META_IT_FILE);
+  return { source: read(SECTION_META_IT_FILE), sourcePath: SECTION_META_IT_FILE };
 }
 
 /**
@@ -2107,8 +2114,8 @@ function readSectionMetaIt() {
  * ACTIVE section's file, so cross-section near-duplicates slipped through
  * (2026-07-11: `assicurazione-vita-…-frontaliere` in svizzera vs
  * `…-frontalieri` in frontaliere, one letter apart). Both meta files use the
- * same `'blog.article.<id>.title'` key shape, so the callers' regexes work
- * unchanged over the concatenation.
+ * same `'blog.article.<id>.title'` key shape. The structured reader parses
+ * each complete module independently, then preserves this section order.
  */
 // Cached for the process lifetime: the evergreen pre-flight loop (Fase 2)
 // calls this once per candidate — up to hundreds of times per run since the
@@ -2120,11 +2127,12 @@ function readAllSectionsMetaIt() {
   if (_sectionsMetaItCache !== null) return _sectionsMetaItCache;
   const parts = [];
   for (const cfg of Object.values(ARTICLE_SECTION_CONFIGS)) {
+    const sourcePath = `services/locales/${cfg.metaPrefix}-it.ts`;
     try {
-      parts.push(read(`services/locales/${cfg.metaPrefix}-it.ts`));
+      parts.push({ source: read(sourcePath), sourcePath });
     } catch { /* missing/empty section file — skip */ }
   }
-  _sectionsMetaItCache = parts.join('\n');
+  _sectionsMetaItCache = parts;
   return _sectionsMetaItCache;
 }
 
@@ -2140,8 +2148,9 @@ function readAllSectionsMetaIt() {
 // checkForDuplicates) for every existing article with an apostrophe in its
 // title, not just the ones just added. The 5th copy (loadExistingItTitlesExcluding)
 // already had the correct escape-aware pattern; all 5 now share this one.
-// metaFieldRegex / unescapeTsValue now live in scripts/lib/meta-field-regex.mjs
-// (imported at the top) — one definition, so a test copy cannot drift from it.
+// Full metadata modules use the canonical AST-backed projection imported from
+// scripts/lib/meta-field-regex.mjs. The old scanner remains there only for
+// callers that still need its legacy source-span contract.
 
 function getIsoWeekKey(date = new Date()) {
   const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
@@ -4603,26 +4612,59 @@ function isWithinDays(date, days) {
 export function extractHeadlines(html, baseUrl) {
   const results = [];
   const htmlDateMap = extractDatesFromHtml(html, baseUrl);
-  // Match <a href="...">text</a> — capture href and inner text
-  const linkRe = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
-  let m;
-  while ((m = linkRe.exec(html)) !== null) {
-    let href = readAttr(m[1], 'href');
-    if (!href) continue;
-    const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  // Match anchors with the quote-aware scanner. A `>` inside an attribute is
+  // data, not the end of the opening tag; a malformed quote is abandoned at
+  // the next `<` so it cannot borrow the href of the following anchor.
+  const tags = scanHtmlTags(html);
+  for (let index = 0; index < tags.length; index += 1) {
+    const opening = tags[index];
+    if (opening.closing || opening.name !== 'a' || opening.selfClosing) continue;
+    let closingIndex = -1;
+    let nestedAnchor = false;
+    for (let candidateIndex = index + 1; candidateIndex < tags.length; candidateIndex += 1) {
+      const candidate = tags[candidateIndex];
+      if (candidate.name === 'a' && !candidate.closing) {
+        nestedAnchor = true;
+        break;
+      }
+      if (candidate.name === 'a' && candidate.closing) {
+        closingIndex = candidateIndex;
+        break;
+      }
+    }
+    if (nestedAnchor || closingIndex < 0) continue;
+
+    let href = readAttr(opening.raw, 'href');
+    if (!href) {
+      index = closingIndex;
+      continue;
+    }
+    const text = html.slice(opening.end, tags[closingIndex].index)
+      .replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     // Only keep links with meaningful text (likely headlines)
-    if (text.length < 15 || text.length > 300) continue;
+    if (text.length < 15 || text.length > 300) {
+      index = closingIndex;
+      continue;
+    }
     // Resolve relative URLs
-    try {
-      href = new URL(href, baseUrl).href;
-    } catch { continue; }
+    try { href = new URL(href, baseUrl).href; } catch {
+      index = closingIndex;
+      continue;
+    }
     // Skip anchor links, javascript, mailto, etc.
-    if (!href.startsWith('http')) continue;
+    if (!href.startsWith('http')) {
+      index = closingIndex;
+      continue;
+    }
     // Skip non-article links (categories, tags, pagination, login, etc.)
-    if (/\/(tag|categor|page|login|registr|cookie|privacy|contatt|archiv|abonn)/i.test(href)) continue;
+    if (/\/(tag|categor|page|login|registr|cookie|privacy|contatt|archiv|abonn)/i.test(href)) {
+      index = closingIndex;
+      continue;
+    }
     // Extract date from URL path or from nearby <time> elements
     const date = extractDateFromUrl(href) || htmlDateMap.get(href) || null;
     results.push({ url: href, headline: text, date });
+    index = closingIndex;
   }
   // Deduplicate by URL
   const seen = new Set();
@@ -5083,11 +5125,9 @@ async function selectArticle(headlines) {
 
   // Get existing article titles AND excerpts from the section meta-it for robust duplicate detection
   const blogItSrc = readSectionMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
-  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
-  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
-  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
-  const existingTitles = titleMatches.map(m => m[2]);
+  const metaMatches = readStaticMetaFields(blogItSrc, ['title', 'excerpt']);
+  const { title: titleMatches, excerpt: excerptMatches } = metaMatches;
+  const existingTitles = titleMatches.map((m) => m.value);
   // Build compact "title — excerpt" list for last 30 articles (most relevant for
   // duplicate avoidance). SENZA l'id (issue #188): il primo campo era `[${m[1]}]`,
   // cioe' l'id dell'articolo fra le stesse parentesi quadre che marcavano la
@@ -5095,8 +5135,8 @@ async function selectArticle(headlines) {
   // sceglierlo — e la sua sola presenza rendeva un riferimento leggibile in due modi.
   const recentArticles = formatPublishedDigest(
     titleMatches.slice(-30).map((m) => ({
-      title: m[2],
-      excerpt: excerptMatches.find((e) => e[1] === m[1])?.[2] ?? '',
+      title: m.value,
+      excerpt: excerptMatches.find((e) => e.id === m.id)?.value ?? '',
     })),
   );
 
@@ -7707,11 +7747,9 @@ function loadExistingItTitlesExcluding(currentArticleId) {
   if (_existingItTitlesCache === null) {
     const src = readSectionMetaIt();
     const map = new Map(); // articleId -> normalizedTitle
-    const rx = metaFieldRegex('title');
-    let m;
-    while ((m = rx.exec(src)) !== null) {
-      const articleId = m[1];
-      const rawTitle = unescapeTsValue(m[2]);
+    for (const entry of readMetaFieldEntries(src, 'title')) {
+      const articleId = entry.id;
+      const rawTitle = entry.value;
       const normalized = rawTitle
         .replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '')
         .replace(/\s+/g, ' ')
@@ -7968,15 +8006,13 @@ function loadExistingArticleSummaries() {
   // topics recur in both sections, so a sibling-section twin must be caught
   // BEFORE spending an LLM generation cycle on a duplicate.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
-  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
-  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
-  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
-  const excerptsById = new Map(excerptMatches.map((m) => [m[1], m[2]]));
+  const metaMatches = readStaticMetaFields(blogItSrc, ['title', 'excerpt']);
+  const { title: titleMatches, excerpt: excerptMatches } = metaMatches;
+  const excerptsById = new Map(excerptMatches.map((m) => [m.id, m.value]));
   _existingArticleSummariesCache = titleMatches.map((m) => ({
-    id: m[1],
-    title: m[2],
-    excerpt: excerptsById.get(m[1]) || '',
+    id: m.id,
+    title: m.value,
+    excerpt: excerptsById.get(m.id) || '',
   }));
   return _existingArticleSummariesCache;
 }
@@ -8020,13 +8056,9 @@ function preFlightEvergreenCheck(candidate) {
 //   3. ID needs ≥3 distinctive tokens after filtering to use the ID signal;
 //      otherwise fall through to title Jaccard.
 //   4. Thresholds unchanged because we're measuring on a meaningful denominator.
-function preFlightHeadlineCheck(headline) {
+function preFlightHeadlineCheck(headline, titleMatches = readMetaFieldEntries(readAllSectionsMetaIt(), 'title')) {
   // Cross-section (2026-07-11): a news headline already covered in the sibling
   // section is a duplicate too (shared id/title namespace).
-  const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
-  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
-
   const headlineWords = tokenizeIt(headline);
   if (headlineWords.length < 3) return { duplicate: false }; // too short to compare reliably
   const headlineDistinctive = filterDistinctive(headlineWords);
@@ -8053,8 +8085,8 @@ function preFlightHeadlineCheck(headline) {
   const TITLE_MIN_DISTINCTIVE = 4;
 
   for (const m of titleMatches) {
-    const existingId = m[1];
-    const existingTitle = m[2];
+    const existingId = m.id;
+    const existingTitle = m.value;
 
     const idDistinctive = filterDistinctive(tokenizeIt(existingId));
     if (idDistinctive.length >= ID_MIN_DISTINCTIVE) {
@@ -8083,15 +8115,13 @@ function checkForDuplicates(data) {
   // one-letter `…-frontaliere`/`…-frontalieri` twins, "vivere nei Grigioni",
   // etc. (2026-07-11). Same shared id/title namespace as getAllArticleIds.
   const blogItSrc = readAllSectionsMetaIt();
-  const titleMatches = [...blogItSrc.matchAll(metaFieldRegex('title'))];
-  const excerptMatches = [...blogItSrc.matchAll(metaFieldRegex('excerpt'))];
-  titleMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
-  excerptMatches.forEach((m) => { m[2] = unescapeTsValue(m[2]); });
-  const existingArticles = titleMatches.map(m => {
-    const id = m[1];
-    const title = m[2];
-    const exMatch = excerptMatches.find(e => e[1] === id);
-    return { id, title, excerpt: exMatch ? exMatch[2] : '' };
+  const metaMatches = readStaticMetaFields(blogItSrc, ['title', 'excerpt']);
+  const { title: titleMatches, excerpt: excerptMatches } = metaMatches;
+  const existingArticles = titleMatches.map((m) => {
+    const id = m.id;
+    const title = m.value;
+    const exMatch = excerptMatches.find((e) => e.id === id);
+    return { id, title, excerpt: exMatch ? exMatch.value : '' };
   });
 
   // Also check IDs for exact match (all sections — shared id/SEO/i18n namespace)
@@ -9442,6 +9472,26 @@ const LOCAL_MIN_VIABLE_MS = 11 * 60_000;
 const MIN_VIABLE_ATTEMPT_MS = 2 * 60_000;
 
 /**
+ * Turn a fail-closed verifier outage into a typed run-level error. The
+ * `unverified` result must not enter the content-remediation loop: retrying
+ * the whole article only repeats the same unavailable checker cascade.
+ */
+function createFactCheckUnavailableError(result, stage) {
+  const rawReason = Array.isArray(result?.issues) ? result.issues[0]?.reason : '';
+  const reason = String(rawReason || 'nessun verificatore ha prodotto un verdetto')
+    .replace(/\s+/g, ' ')
+    .slice(0, 300);
+  const error = new Error(`Fact-check unavailable (${stage}): ${reason}`);
+  error.factCheckUnavailable = true;
+  error.unverified = true;
+  return error;
+}
+
+function isFactCheckUnavailableError(e) {
+  return e?.factCheckUnavailable === true;
+}
+
+/**
  * True when the error is a CONTENT/QUALITY rejection (fact-check block,
  * topic-gate REGOLA #0 abort, fabrication, or a non-conformant headline that
  * survived its retry budget) rather than an infrastructure bug.
@@ -9462,6 +9512,7 @@ const MIN_VIABLE_ATTEMPT_MS = 2 * 60_000;
  */
 function isQualityRejectError(e) {
   if (!e) return false;
+  if (isFactCheckUnavailableError(e)) return false;
   if (e.qualityReject === true || e.topicGateAbort === true) return true;
   // `troppo corto` covers the whole thin-content class (too-short IT body
   // after the retry+expand ladder, too-short char count, too-short locale
@@ -9804,8 +9855,9 @@ async function main() {
       // semantic duplicates BEFORE we burn 6 LLM cycles that would hard-fail
       // at the title-collision gate in optimizeSeoMetadata.
       const beforeTopicFilter = headlines.length;
+      const existingTitleMatches = readMetaFieldEntries(readAllSectionsMetaIt(), 'title');
       headlines = headlines.filter(h => {
-        const check = preFlightHeadlineCheck(h.headline);
+        const check = preFlightHeadlineCheck(h.headline, existingTitleMatches);
         if (check.duplicate) {
           console.error(`  📰 Headline scartata (topic già coperto → ${check.existingId}, ${check.signal}=${check.sim.toFixed(2)}): ${h.headline.slice(0, 60)}…`);
           RUN_REPORT.preFilterDrops.topicAlreadyCovered += 1;
@@ -10262,6 +10314,11 @@ async function main() {
       const weekNum = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000));
       const baseIndex = weekNum % topicPool.length;
       const totalTopics = topicPool.length;
+      const evergreenLedgerContext = {
+        section: SECTION_NAME,
+        pool: _EVERGREEN_POOL_NAME,
+        poolEpoch: _computeEvergreenPoolEpoch(topicPool, SECTION_NAME),
+      };
 
       // Cross-run duplicate memory (#3138, 2026-07-02): keywords already
       // confirmed duplicate post-generation in a PREVIOUS cron run. Without
@@ -10269,6 +10326,20 @@ async function main() {
       // doomed neighborhood re-attempted every 30-min run forever, since
       // each run otherwise starts with zero memory of prior failures.
       let evergreenRejectedTracker = _loadEvergreenRejectedTracker();
+
+      // Legacy entries are revalidated by the normal duplicate preflight. A
+      // confirmed duplicate is written back with current provenance, so a
+      // changed pool epoch can reopen the keyword safely.
+      const rememberConfirmedEvergreenDuplicate = (keyword, reason = 'duplicate') => {
+        const now = Date.now();
+        evergreenRejectedTracker = _persistEvergreenRejectedTracker(
+          (tracker) => _appendEvergreenRejected(
+            tracker,
+            keyword,
+            { context: evergreenLedgerContext, now, reason },
+          ),
+        );
+      };
 
       // Pre-flight check — find first keyword that doesn't conflict with existing articles
       let selectedTopic = null;
@@ -10278,12 +10349,13 @@ async function main() {
       for (let offset = 0; offset < totalTopics; offset++) {
         const idx = (baseIndex + offset) % totalTopics;
         const candidate = topicPool[idx];
-        if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword)) {
+        if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword, evergreenLedgerContext)) {
           console.error(`   ⏭️  [${idx}] "${candidate.keyword}" → già rigettato come duplicato in run precedente — skip`);
           continue;
         }
         const check = preFlightEvergreenCheck(candidate);
         if (check.duplicate) {
+          rememberConfirmedEvergreenDuplicate(candidate.keyword);
           console.error(`   ⏭️  [${idx}] "${candidate.keyword}" → simile a "${check.existingTitle}" [${check.existingId}] (${(check.sim * 100).toFixed(0)}%) — skip`);
         } else {
           console.error(`   ✅ [${idx}] "${candidate.keyword}" → nessun conflitto — selezionato\n`);
@@ -10374,8 +10446,10 @@ async function main() {
             // Persisting avoids wasting ~60-90s per doomed attempt.
             // Quality-rejects (too-short/thin) intentionally excluded: LLM
             // variance makes them transient; blocking permanently is too aggressive.
-            evergreenRejectedTracker = _appendEvergreenRejected(evergreenRejectedTracker, selectedTopic.keyword);
-            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
+            rememberConfirmedEvergreenDuplicate(
+              selectedTopic.keyword,
+              isTopicGateAbort ? 'topic-gate' : 'duplicate',
+            );
           } else if (isQualityReject && selectedTopic) {
             // A STRIKE, not a ban — the reasoning above is right that one bad
             // draft is variance, but "never record it" was the wrong conclusion:
@@ -10385,10 +10459,21 @@ async function main() {
             // 2026-08-03. Retired only at EVERGREEN_STRIKE_LIMIT.
             // Persisted immediately, same reason as the ban path: a later
             // wall-budget break or hard kill must not lose the count.
-            evergreenRejectedTracker = _strikeEvergreenKeyword(evergreenRejectedTracker, selectedTopic.keyword);
-            const n = evergreenRejectedTracker.strikes?.[selectedTopic.keyword] || 0;
+            const now = Date.now();
+            evergreenRejectedTracker = _persistEvergreenRejectedTracker(
+              (tracker) => _strikeEvergreenKeyword(
+                tracker,
+                selectedTopic.keyword,
+                { context: evergreenLedgerContext, now },
+              ),
+            );
+            const strike = evergreenRejectedTracker.strikes
+              ?.find((entry) => entry.keyword === selectedTopic.keyword
+                && entry.section === evergreenLedgerContext.section
+                && entry.pool === evergreenLedgerContext.pool
+                && entry.poolEpoch === evergreenLedgerContext.poolEpoch);
+            const n = strike?.count || 0;
             console.error(`   ⚠️  "${selectedTopic.keyword}": strike ${n}/${_EVERGREEN_STRIKE_LIMIT} (quality reject)`);
-            try { _persistEvergreenRejectedTracker(evergreenRejectedTracker); } catch { /* ignore */ }
           }
 
           if (isTopicGateAbort) {
@@ -10406,7 +10491,7 @@ async function main() {
             if (triedOffsets.has(realOffset)) continue;
             const idx = (baseIndex + realOffset) % totalTopics;
             const candidate = topicPool[idx];
-            if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword)) {
+            if (_isEvergreenRejected(evergreenRejectedTracker, candidate.keyword, evergreenLedgerContext)) {
               triedOffsets.add(realOffset);
               continue;
             }
@@ -10418,6 +10503,7 @@ async function main() {
               console.error(`   ✅ [${idx}] "${candidate.keyword}" → prossimo tentativo\n`);
               break;
             }
+            rememberConfirmedEvergreenDuplicate(candidate.keyword);
           }
 
           if (!selectedTopic) {
@@ -10920,6 +11006,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     // Step 3a.0c: LLM fact verification — PRIMARY BLOCKING GATE
     try {
       const factResult = await llmFactCheck(data.content.it, pageContent, url);
+      if (factResult.unverified === true) {
+        throw createFactCheckUnavailableError(factResult, 'article');
+      }
       if (!factResult.passed) {
         // Ledger only. These categories never reach the defect memory and can
         // never promote anything: they are the verifier's opinion, and the
@@ -10967,6 +11056,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       // path instead (see the `🚫` log in llmFactCheck).
     } catch (fcErr) {
       // Both fact-check rejections AND all-models-failed errors retry
+      if (isFactCheckUnavailableError(fcErr)) throw fcErr;
       if (attempt < maxAttempts) {
         console.error(`  🔄 Rigenero per fact-check: ${fcErr.message.slice(0, 120)} (${attempt}/${maxAttempts})...`);
         continue;
@@ -11605,6 +11695,16 @@ if (invokedDirectly) {
   // `flushScoresBeforeExit()` e' limitato nel tempo e non lancia, quindi non
   // puo' appendere ne' dirottare l'uscita.
   await flushScoresBeforeExit();
+  // A verifier outage is not a content rejection: retrying every headline
+  // would spend the whole run on the same unavailable checker. The article
+  // remains unpublished and the next scheduled run retries the verification.
+  if (isFactCheckUnavailableError(e)) {
+    finalizeRunReport('deferred', {
+      notes: [...RUN_REPORT.notes, `Deferred (fact-check unavailable; article not published): ${e.message}`],
+    });
+    console.error(`\n⚠️  Differito: fact-check non disponibile, articolo non pubblicato. Riprovo al prossimo run. ${e.message}`);
+    process.exit(0);
+  }
   // Transient free-model pool exhaustion (every model in the fallback chain hit
   // its daily quota / rate limit) is NOT a code bug — free-tier daily limits
   // reset at 00:00 UTC, so the next scheduled run normally succeeds. Treat it as

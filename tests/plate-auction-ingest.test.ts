@@ -19,17 +19,17 @@ const previousRow = {
 describe('plate-auction ingest resilience', () => {
   it('does not carry stale rows for a blocked source into the snapshot', async () => {
     const snapshot = await collectPlateAuctions({
-      selectedCantons: ['gl'],
-      fetchers: { gl: async () => { throw new Error('blocked source must not be fetched'); } },
+      selectedCantons: ['ne'],
+      fetchers: { ne: async () => { throw new Error('blocked source must not be fetched'); } },
       previous: {
         generatedAt: '2026-09-27T12:00:00.000Z',
-        auctions: [{ id: 'gl-stale-1', sourceKey: 'GL', platePrefix: 'GL', auctionStatus: 'active' }],
+        auctions: [{ id: 'ne-stale-1', sourceKey: 'NE', platePrefix: 'NE', auctionStatus: 'active' }],
       },
       now: NOW,
     });
 
     expect(snapshot.auctions).toEqual([]);
-    expect(snapshot.sources.gl).toMatchObject({ status: 'blocked', rowCount: 0 });
+    expect(snapshot.sources.ne).toMatchObject({ status: 'blocked', rowCount: 0 });
   });
 
   it('closes an expired observation without manufacturing a final price', async () => {
@@ -201,6 +201,56 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.auctions.filter((auction) => auction.sourceKey === sourceCode)).toHaveLength(40);
     expect(snapshot.auctions.filter((auction) => auction.sourceKey === sourceCode && auction.missingSince)).toHaveLength(8);
     expect(snapshot.history.filter((auction) => auction.sourceKey === sourceCode)).toEqual([]);
+  });
+
+  it('accepts TG\'s repeated 14-card turnover at its calibrated band', async () => {
+    const endsAt = new Date(NOW.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
+    const previousCatalogue = Array.from({ length: 50 }, (_unused, index) => ({
+      ...previousRow,
+      id: `tg-${index}`,
+      sourceKey: 'TG',
+      canton: 'Turgovia',
+      platePrefix: 'TG',
+      plateNumber: String(index),
+      normalizedPlate: `TG${index}`,
+      listingType: 'auction',
+      auctionStatus: 'active',
+      endsAt,
+      sourceFetchedAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
+      lastVerifiedAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
+      lastSeenAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
+    }));
+    const stillListed = [
+      ...previousCatalogue.slice(14).map((row) => ({
+        ...row,
+        sourceFetchedAt: NOW.toISOString(),
+        lastVerifiedAt: NOW.toISOString(),
+        lastSeenAt: NOW.toISOString(),
+      })),
+      ...Array.from({ length: 14 }, (_unused, index) => ({
+        ...previousCatalogue[0],
+        id: `tg-new-${index}`,
+        plateNumber: String(50 + index),
+        normalizedPlate: `TG${50 + index}`,
+        sourceFetchedAt: NOW.toISOString(),
+        lastVerifiedAt: NOW.toISOString(),
+        lastSeenAt: NOW.toISOString(),
+      })),
+    ];
+
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: ['tg'],
+      fetchers: { tg: async () => stillListed },
+      previous: { generatedAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(), auctions: previousCatalogue },
+      now: NOW,
+    });
+
+    // The 14 missing cards remain visible alongside the 50 fetched cards, so
+    // the published row count is 64 even though the source is healthy.
+    expect(snapshot.sources.tg).toMatchObject({ status: 'active', rowCount: 64 });
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG')).toHaveLength(64);
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === 'TG' && auction.missingSince)).toHaveLength(14);
+    expect(snapshot.history.filter((auction) => auction.sourceKey === 'TG')).toEqual([]);
   });
 
   it('never reads a malformed timed-auction row as a fixed-price sale', async () => {
@@ -738,7 +788,7 @@ describe('plate-auction ingest: a card catalogue between auction rounds', () => 
     const previousRow = {
       id: 'vd-1768', sourceKey: 'VD', canton: 'Vaud', platePrefix: 'VD', plateNumber: '691', normalizedPlate: 'VD691',
       listingType: 'auction', auctionStatus: 'active', currentBidChf: 950, endsAt: '2026-10-04T20:00:00.000Z',
-      officialAuctionUrl: 'https://www.encheres-vd.ch/de/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
+      officialAuctionUrl: 'https://www.encheres-vd.ch/fr/', sourceFetchedAt: '2026-10-04T12:25:00.000Z',
       lastVerifiedAt: '2026-10-04T12:25:00.000Z', dataConfidence: 'partial', rawSnapshotHash: 'old',
     };
     const snapshot = await collectPlateAuctions({

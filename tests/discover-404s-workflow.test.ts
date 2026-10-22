@@ -58,10 +58,38 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(publisher).not.toMatch(/--depth=1 "\$PUSH_URL" \\\n\s+"refs\/heads\//);
     expect(publisher).toContain("git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'");
     expect(publisher).toContain('refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}');
+    expect(publisher).toContain(
+      'node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \\\n    --compat \\\n    --base "$merge_base" --main "$theirs" --message "$COMMIT_MESSAGE"',
+    );
     expect(publisher).toContain('reconcile_compat_ref "$COMPAT_REFRESH_BASE" "$REFRESH_COMMIT"');
     expect(publisher).toContain('reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main');
     // A real merge needs the ancestry of both sides on the runner.
     expect(publisher).not.toContain('git merge --no-edit');
+  });
+
+  it('pins the current compat reconciler and its relative imports before checking out a stale stable branch', () => {
+    const publisher = read('scripts/lib/open-data-refresh-pr.sh');
+    const reconciler = read('scripts/ci/reconcile-data-refresh-main.mjs');
+    const pinnedReconciler = publisher.indexOf(
+      'scripts/ci/reconcile-data-refresh-main.mjs" \\\n    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"',
+    );
+    const stableBranchCheckout = publisher.indexOf(
+      'git checkout -B "$BRANCH" "refs/remotes/refresh/',
+    );
+
+    expect(pinnedReconciler).toBeGreaterThanOrEqual(0);
+    expect(pinnedReconciler).toBeLessThan(stableBranchCheckout);
+    expect(publisher).toContain(
+      'git show "$' + '{REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs"',
+    );
+    expect(publisher).toContain(
+      'git show "$' + '{REFRESH_BASE}:scripts/lib/read-git-blob.mjs"',
+    );
+    expect(publisher).toContain(
+      'if [ "$RECONCILE_COMPAT" = true ] || [ "$RECONCILE_MAIN" = true ]; then',
+    );
+    expect(reconciler).toContain("if (flag === '--compat')");
+    expect(reconciler).toContain("['--base', '--main', '--message']");
   });
 
   it.each(WORKFLOWS)('$path escapes Markdown backticks in its generated body', ({ path }) => {
