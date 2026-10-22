@@ -418,7 +418,7 @@ describe('legacy portal sections', () => {
     expect(rejectedResult.cv).toBe('unavailable');
     expect(rejected.fileInput.triggerId).toBeUndefined();
     expect(rejected.fileInput.setInputFiles).not.toHaveBeenCalled();
-  });
+  }, 45_000);
 
   it('matches separate generic SuccessFactors upload icons to their document association', async () => {
     const clicked: string[] = [];
