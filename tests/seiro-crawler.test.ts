@@ -28,6 +28,10 @@ describe('SEIRO GmbH crawler parser', () => {
       expect(isSeiroJob({ url: 'https://seiro.ch/jobs/123' })).toBe(true);
     });
 
+    it('rejects lookalike hostnames', () => {
+      expect(isSeiroJob({ companyKey: 'other', company: 'Other', url: 'https://notseiro.ch/job' })).toBe(false);
+    });
+
     it('rejects unrelated jobs', () => {
       expect(isSeiroJob({ companyKey: 'other-company', company: 'Other', url: 'https://other.com/jobs' })).toBe(false);
     });
