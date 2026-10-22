@@ -411,7 +411,6 @@ describe('prospector location and identity contract', () => {
       sourceLang: 'de',
     } as any, {
       lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
-      detailRecordTitleNormalizer: normalizePhysioswissListingTitle,
     });
 
     expect(rows).toEqual([expect.objectContaining({

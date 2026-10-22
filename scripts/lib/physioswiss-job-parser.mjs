@@ -16,6 +16,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { normalizePhysioswissListingTitle } from './prospector/detail-extract.mjs';
 import {
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -28,7 +29,6 @@ export const PHYSIOSWISS_COMPANY_NAME = 'Physio swiss';
 export const PHYSIOSWISS_COMPANY_DOMAIN = 'physioswiss.ch';
 
 const CAREER_URL = 'https://physioswiss.ch/stelleninserate/';
-const PHYSIOSWISS_ACCESSIBLE_TITLE_RX = /^Stellenanzeige\s+(.+?)\s+öffnen\.?$/iu;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -40,16 +40,7 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-/**
- * Physioswiss puts the accessible action label around some vacancy links.
- * Keep the vacancy title itself as the identity sent to the detail extractor;
- * the trailing action text is UI chrome, not part of the H1 title.
- */
-export function normalizePhysioswissListingTitle(value = '') {
-  const title = normalizeSpace(value);
-  const match = PHYSIOSWISS_ACCESSIBLE_TITLE_RX.exec(title);
-  return normalizeSpace(match?.[1] || title);
-}
+export { normalizePhysioswissListingTitle };
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -126,9 +117,7 @@ function detectEmploymentType(text = '') {
  */
 async function fetchJobListings() {
   const spec = loadSpec(PHYSIOSWISS_KEY);
-  return runSpecInProduction(spec, {
-    detailRecordTitleNormalizer: normalizePhysioswissListingTitle,
-  });
+  return runSpecInProduction(spec);
 }
 
 /**
