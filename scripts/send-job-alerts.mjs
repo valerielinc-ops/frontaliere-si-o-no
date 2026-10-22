@@ -1339,7 +1339,16 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
              (#4450/#4449 "every email carries a revenue block"). Job-alert
              recipients are jobs-interested by definition. Renders only when a
              partner/sponsor is active (never an empty box). -->
-        ${renderRecommendedBlock({ locale, interest: 'jobs', acquisitionSource: alert.acquisitionSource || alert.source || null, campaign: 'jobalert' })}
+        ${renderRecommendedBlock({
+          locale,
+          interest: 'jobs',
+          acquisitionSource: alert.acquisitionSource || alert.source || null,
+          campaign: 'jobalert',
+          // The engagement suite below already owns the automation CTA. Keep
+          // this revenue slot, but rotate to an affiliate instead of showing
+          // the same first-party service twice in one job alert.
+          excludeIds: ['application-concierge'],
+        })}
 
         <!-- Closer (aligned with newsletter) -->
         <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
