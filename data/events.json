@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T16:42:39.519Z",
+  "generatedAt": "2026-10-22T17:26:21.802Z",
   "totalEvents": 14908,
   "events": [
     {
@@ -602755,7 +602755,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un campionato svizzero di curling all’aperto ad Arosa, nel Canton Grigioni. La manifestazione si tiene presso la pista di ghiaccio all’aperto Offene Kunsteisbahn Arosa.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un campionato svizzero di curling all’aperto ad Arosa, nel Canton Grigioni. La manifestazione si tiene presso la pista di ghiaccio all’aperto Offene Kunsteisbahn Arosa.",
+        "en": "This event is an open-air Swiss curling championship held in Arosa, in the canton of Graubünden. Its venue is the Offene Kunsteisbahn Arosa open-air ice rink.",
+        "de": "Die Veranstaltung ist eine Schweizermeisterschaft im Curling unter freiem Himmel in Arosa, im Kanton GR. Austragungsort ist die Offene Kunsteisbahn Arosa.",
+        "fr": "Ce rendez-vous est un championnat suisse de curling en plein air à Arosa, dans le canton des Grisons. Il se déroule à la patinoire en plein air Offene Kunsteisbahn Arosa."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:9e3dd7095b784886bfc7e9084bd62bf3",
