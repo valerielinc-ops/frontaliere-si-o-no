@@ -631,6 +631,21 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(uploadTriggerKey(cv)).not.toBe(uploadTriggerKey(coverLetter));
   });
 
+  it('disambiguates duplicate semantic upload controls with their DOM ids', () => {
+    const duplicate = (id: string) => ({
+      id,
+      frame: 0,
+      text: 'Upload a Resume',
+      label: 'Upload a Resume',
+      dataAutomationId: 'attachment-action',
+      section: 'Resume / CV',
+      disabled: false,
+    });
+    const candidates = uploadButtonCandidatesFor({ buttons: [duplicate('f1'), duplicate('f2')] }, 'cv');
+    expect(candidates).toHaveLength(2);
+    expect(uploadTriggerKey(candidates[0])).not.toBe(uploadTriggerKey(candidates[1]));
+  });
+
   it('does not skip SuccessFactors picklist options on the initial application snapshot', () => {
     const snapshot = {
       buttons: [

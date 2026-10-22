@@ -1272,15 +1272,43 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
       ? iconCandidates.length === 1 ? iconCandidates[0] : null
       : successFactorsIconButtonFor(snapshot, kind);
   add(icon);
-  return candidates;
+  // A portal can expose two controls with the same semantic label (for
+  // example a card and its duplicate icon). Keep the semantic key for a
+  // unique control, but preserve the per-control DOM id when a collision
+  // would otherwise suppress the second candidate. `data-aa-id` is attached
+  // to the element by fields.mjs and survives a reorder/redraw of the same
+  // DOM node; a replaced node is a new control and may safely be retried.
+  const semanticGroups = new Map();
+  for (const button of candidates) {
+    const key = uploadTriggerSemanticKey(button);
+    const group = semanticGroups.get(key) || [];
+    group.push(button);
+    semanticGroups.set(key, group);
+  }
+  return candidates.map((button) => {
+    const semanticKey = uploadTriggerSemanticKey(button);
+    const group = semanticGroups.get(semanticKey) || [];
+    if (group.length < 2) return button;
+    const discriminator = ['domId', 'id', 'dataAaId'].map((field) => {
+      const value = String(button?.[field] || '').trim();
+      const values = group.map((candidate) => String(candidate?.[field] || '').trim()).filter(Boolean);
+      return value && values.length === group.length && new Set(values).size === group.length
+        ? `${field}:${value}`
+        : '';
+    }).find(Boolean);
+    return discriminator
+      ? { ...button, uploadTriggerDiscriminator: discriminator }
+      : button;
+  });
 }
 
-export function uploadTriggerKey(button) {
+function uploadTriggerSemanticKey(button) {
   const normalize = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
   // `id`/`domId` can be generated again by a portal redraw. Use only the
-  // control's semantic attributes and label, which remain stable when the
-  // candidate array changes order. Shared automation ids are harmless because
-  // the visible label and document section are part of the same signature.
+  // control's semantic attributes and label for the normal case; these remain
+  // stable when the candidate array changes order. Shared automation ids are
+  // harmless because the visible label and document section are part of the
+  // same signature.
   const signature = [
     button?.text,
     button?.label,
@@ -1292,6 +1320,12 @@ export function uploadTriggerKey(button) {
     button?.href,
   ].map(normalize).filter(Boolean).join('|');
   return `${button?.frame || 0}:signature:${signature || 'anonymous'}`;
+}
+
+export function uploadTriggerKey(button) {
+  const semanticKey = uploadTriggerSemanticKey(button);
+  const discriminator = String(button?.uploadTriggerDiscriminator || '').trim().toLowerCase();
+  return discriminator ? `${semanticKey}:candidate:${discriminator}` : semanticKey;
 }
 
 export function uploadButtonFor(snapshot, kind) {
