@@ -11,6 +11,7 @@ import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsole
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import { releaseJobsJson } from '../build-plugins/shared/loadJobsJson';
+import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import {
   EMPLOYER_PROFILE_MID_AD_CONTROL_VARIANT,
   EMPLOYER_PROFILE_MID_AD_EOC_VARIANT,
@@ -309,13 +310,12 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('I conteggi riflettono gli annunci attivi al momento della compilazione');
   });
 
-  it('renders the active-job preview with the shared every-three cadence', () => {
+  it('keeps employer profile static ads ratio-safe', () => {
     const html = read('aziende/acme-corp/index.html');
     // buildSeoPageHtml minifies simple class attributes without quotes in the
     // test output; assert on the semantic class token instead of serialization.
     const cardMatches = [...html.matchAll(/<article\b[^>]*\bjc-card\b/g)];
     const cardCount = cardMatches.length;
-    const cardPositions = cardMatches.map((match) => match.index ?? -1);
     const infeedAdCount = (html.match(/\bft-infeed-ad\b/g) ?? []).length;
     const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map((m) => JSON.parse(m[1]));
@@ -323,16 +323,18 @@ describe('employerProfilePagesPlugin', () => {
 
     // Fourteen valid detail slugs are emitted; the fifteenth fixture is
     // intentionally slugless and stays excluded from both the card list and
-    // ItemList. The shared cadence places an ad after positions 3, 6, 9 and
-    // 12, but not after the final card.
+    // ItemList. Employer profiles keep the page-level multiplex only: the
+    // shared list cadence would add four ungated slots and reproduce the live
+    // low_content_to_ad_ratio:495 finding.
     expect(cardCount).toBe(14);
-    expect(infeedAdCount).toBe(4);
-    expect(html.indexOf('ft-infeed-ad')).toBeGreaterThan(cardPositions[2]);
-    expect(html.indexOf('ft-infeed-ad')).toBeLessThan(cardPositions[3]);
+    expect(infeedAdCount).toBe(0);
     expect(html).toContain('company-profile-page');
     expect(html.indexOf('company-profile-openings')).toBeLessThan(html.indexOf('data-company-follow-mount'));
     expect(itemList.numberOfItems).toBe(cardCount);
     expect(itemList.itemListElement).toHaveLength(cardCount);
+
+    const audit = auditPage('https://frontaliereticino.ch/aziende/acme-corp/', '', html);
+    expect(audit.issues.filter((issue) => issue.startsWith('low_content_to_ad_ratio:'))).toEqual([]);
   });
 
   it('adds the opt-in mid unit only to the EOC treatment profile', () => {
