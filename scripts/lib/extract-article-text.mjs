@@ -198,6 +198,7 @@ const NOSCRIPT_REGEX_PREFIX_KEYWORDS = new Set([
 const NOSCRIPT_CONTROL_FLOW_KEYWORDS = new Set(['catch', 'for', 'if', 'switch', 'while', 'with']);
 const JS_IDENTIFIER_START_RE = /[A-Za-z_$]/;
 const JS_IDENTIFIER_PART_RE = /[A-Za-z0-9_$]/;
+const isNoscriptLineTerminator = char => /[\n\r\u2028\u2029]/u.test(char);
 
 function findUnclosedNoscriptRawTextElement(markup) {
   const rawTextOpening = new RegExp(NOSCRIPT_RAW_TEXT_TOKEN_RE.source, 'gi');
@@ -257,7 +258,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     }
 
     if (state === 'line-comment') {
-      if (char === '\n' || char === '\r') {
+      if (isNoscriptLineTerminator(char)) {
         state = 'code';
         lineBreakSinceToken = true;
         if (breakContinueState === 'label') canStartRegex = true;
@@ -267,7 +268,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     }
 
     if (state === 'block-comment') {
-      if (char === '\n' || char === '\r') lineBreakSinceToken = true;
+      if (isNoscriptLineTerminator(char)) lineBreakSinceToken = true;
       if (char === '*' && next === '/') {
         state = 'code';
         index += 1;
@@ -290,7 +291,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     }
 
     if (state === 'html-comment') {
-      if (char === '\n' || char === '\r') lineBreakSinceToken = true;
+      if (isNoscriptLineTerminator(char)) lineBreakSinceToken = true;
       if (markup.startsWith('-->', index)) {
         state = 'code';
         canStartRegex = true;
@@ -306,7 +307,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
 
     const lineBreakBeforeToken = lineBreakSinceToken;
     if (/\s/u.test(char)) {
-      if (char === '\n' || char === '\r') {
+      if (isNoscriptLineTerminator(char)) {
         lineBreakSinceToken = true;
         if (breakContinueState === 'label') canStartRegex = true;
         breakContinueState = null;
