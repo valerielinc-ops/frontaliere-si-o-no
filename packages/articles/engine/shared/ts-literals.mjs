@@ -7,8 +7,10 @@
  * reach outside the mirrored subtree at runtime.
  */
 
+import { decodeTypeScriptCodePointEscape } from './tsStringEscapes.ts';
+
 const STATIC_LITERAL_QUOTES = new Set(['"', "'", '`']);
-const TS_ESCAPE_RX = /\\(u[0-9a-fA-F]{4}|\r\n|[\s\S])/g;
+const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|\r\n|[\s\S])/g;
 const REGEX_PREFIX_KEYWORDS = new Set([
   'await', 'break', 'case', 'continue', 'debugger', 'default', 'delete', 'do', 'else', 'in', 'instanceof', 'new', 'of', 'return',
   'throw', 'typeof', 'void', 'yield',
@@ -190,6 +192,9 @@ export function readStaticStringLiteral(source, startIdx, sourcePath = 'source',
 export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
   const { newlineAs } = options;
   return raw.replace(TS_ESCAPE_RX, (whole, escape) => {
+    const codePoint = decodeTypeScriptCodePointEscape(escape);
+    if (codePoint) return codePoint.value;
+
     switch (escape[0]) {
       case 'n': return '\n';
       // A backslash followed by CRLF (or the escaped `\r` form) is a source

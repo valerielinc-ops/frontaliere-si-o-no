@@ -48,8 +48,9 @@
  * which every buggy chain has, and which no single-pass decoder needs).
  */
 
-const ESCAPE_RX = /\\([\s\S])/g;
-const UNICODE_ESCAPE_RX = /\\u([\da-fA-F]{4})|\\([\s\S])/g;
+import { decodeTypeScriptCodePointEscape } from '../../packages/articles/engine/shared/tsStringEscapes.ts';
+
+const TS_ESCAPE_RX = /\\(u\{[0-9a-fA-F]+\}|u[0-9a-fA-F]{4}|x[0-9a-fA-F]{2}|[\s\S])/g;
 
 /**
  * Decode escape sequences out of raw TS string-literal source text.
@@ -62,13 +63,19 @@ const UNICODE_ESCAPE_RX = /\\u([\da-fA-F]{4})|\\([\s\S])/g;
  *   dropped — matching what every one of the three original chains already
  *   did for any escape it didn't list, and letting a caller further down
  *   the pipeline (e.g. `JSON.parse` on a `faq` field) see it.
+ *   TypeScript's `\xNN` and `\u{...}` code-point forms are decoded even when
+ *   `decodeUnicode` is false; the option additionally enables fixed-width
+ *   `\uXXXX` decoding for metadata callers.
  * @returns {string} the decoded value.
  */
 export function unescapeTsString(value, escapes, { decodeUnicode = false } = {}) {
-  const pattern = decodeUnicode ? UNICODE_ESCAPE_RX : ESCAPE_RX;
-  return value.replace(pattern, (whole, first, second) => {
-    if (decodeUnicode && first !== undefined) return String.fromCharCode(Number.parseInt(first, 16));
-    const ch = decodeUnicode ? second : first;
+  return value.replace(TS_ESCAPE_RX, (whole, escape) => {
+    const codePoint = decodeTypeScriptCodePointEscape(escape);
+    if (codePoint) return codePoint.value;
+    if (decodeUnicode && /^u[0-9a-fA-F]{4}$/u.test(escape)) {
+      return String.fromCharCode(Number.parseInt(escape.slice(1), 16));
+    }
+    const ch = escape[0];
     return Object.prototype.hasOwnProperty.call(escapes, ch) ? escapes[ch] : whole;
   });
 }

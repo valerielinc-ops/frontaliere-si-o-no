@@ -69,6 +69,16 @@ describe('unescapeTsString — the three sequences that discriminate a one-pass 
     const decoded = unescapeTsString(String.raw`he said \"hi\" and it's \'fine\'`, BODY_ESCAPES);
     expect(decoded).toBe(`he said "hi" and it's 'fine'`);
   });
+
+  it('decodes TypeScript code-point escapes while leaving JSON escapes readable', () => {
+    expect(unescapeTsString(String.raw`A=\x41 emoji=\u{1F600}`, BODY_ESCAPES)).toBe('A=A emoji=😀');
+
+    const jsonSource = String.raw`{"line":"one\\ntwo","quote":"\\"quoted\\""}`;
+    expect(JSON.parse(unescapeTsString(jsonSource, BODY_ESCAPES))).toEqual({
+      line: 'one\ntwo',
+      quote: '"quoted"',
+    });
+  });
 });
 
 describe('unescapeTsString — round-trips a JSON escape the chain could not', () => {
