@@ -18,7 +18,6 @@ import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
-import { createdFromFilter } from './lib/run-listing-window.mjs';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_ENTRIES,
@@ -126,9 +125,10 @@ function oldestClockDispatchAt(runs, markers) {
 
 const RUN_LIST_MARGIN = 50;
 const RUN_LIST_MAX = 1000;
-// GitHub Actions can briefly return an empty filtered list while a run is
-// being indexed. An empty page is meaningful only after this bounded re-read;
-// errors and malformed JSON still fail closed through the caller.
+const ACTIONS_PAGE_SIZE = 100;
+// GitHub Actions can briefly return an empty filtered collection while a run
+// is being indexed. An empty result is meaningful only after this bounded
+// re-read; malformed responses and API failures still fail closed immediately.
 export const EMPTY_RUN_LIST_RETRY_DELAYS_MS = Object.freeze([1_000, 3_000]);
 const LOOP_CLOCK_RUN_WINDOW_MINUTES = Math.max(
   ...LOOP_CLOCK_ENTRIES.map((entry) => staleThresholdMinutes(entry.everyMinutes)),
@@ -181,13 +181,61 @@ function mergeRunRows(...lists) {
   });
 }
 
+function normalizeWorkflowRun(run) {
+  return {
+    createdAt: run?.created_at ?? null,
+    databaseId: run?.id ?? null,
+    url: run?.html_url ?? null,
+    event: run?.event ?? null,
+    headBranch: run?.head_branch ?? null,
+    displayTitle: run?.display_title ?? run?.name ?? '',
+  };
+}
+
 /**
- * Read a filtered run list. The Actions index can transiently answer `[]`
- * while a just-created dispatch is becoming visible; treating that response
- * as proof of absence opens a false stale issue. Retry only that valid-but
- * suspicious shape, and preserve the existing fail-closed behavior for every
- * other read failure.
+ * Read the Actions REST collection directly instead of using `gh run list`.
+ * The branch/created filtered collection can be a valid-looking empty or
+ * stale index even while the workflow has recent runs. Ask only for the event
+ * when possible, filter branch and marker locally, and read until the oldest
+ * row crosses the observation window. If the event-filtered collection claims
+ * to be empty, corroborate it with the unfiltered workflow collection before
+ * allowing an empty result to become evidence that the clock stopped.
  */
+function readWorkflowRunPages({ repository, workflow, event, windowStart, minimumRows, ghImpl }) {
+  const encodedRepository = String(repository).split('/').map(encodeURIComponent).join('/');
+  const query = event ? `event=${encodeURIComponent(event)}&` : '';
+  const endpoint = (page) => (
+    `repos/${encodedRepository}/actions/workflows/${encodeURIComponent(workflow)}/runs`
+      + `?${query}per_page=${ACTIONS_PAGE_SIZE}&page=${page}`
+  );
+  const rows = [];
+  let totalCount = null;
+
+  for (let page = 1; rows.length < RUN_LIST_MAX; page += 1) {
+    let payload;
+    try {
+      payload = JSON.parse(ghImpl(['api', endpoint(page)]) || 'null');
+    } catch {
+      throw new Error('workflow run response invalid');
+    }
+    if (!payload || !Array.isArray(payload.workflow_runs)
+      || !Number.isSafeInteger(payload.total_count) || payload.total_count < 0) {
+      throw new Error('workflow run response invalid');
+    }
+    if (totalCount === null) totalCount = payload.total_count;
+
+    const pageRows = payload.workflow_runs.map(normalizeWorkflowRun);
+    rows.push(...pageRows);
+    const oldest = Math.min(...rows.map((run) => Date.parse(run?.createdAt ?? '')).filter(Number.isFinite));
+    const reachedWindow = Number.isFinite(oldest) && oldest <= windowStart;
+    const collectionRead = rows.length >= totalCount;
+    if (collectionRead || (rows.length >= minimumRows && reachedWindow)) return rows;
+    if (pageRows.length < ACTIONS_PAGE_SIZE) throw new Error('workflow run response incomplete');
+  }
+
+  throw new Error('workflow run response incomplete');
+}
+
 export function listDispatchRuns(
   repository,
   workflow,
@@ -195,44 +243,44 @@ export function listDispatchRuns(
   windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES,
   optionsOrEvent = {},
 ) {
-  // Keep the test seam introduced by the empty-list retry fix while allowing
-  // the observer to request an unfiltered confirmation with a fifth `null`
-  // argument. Existing callers pass the options object; the alternate read
-  // passes null so the normal gh implementation and retry policy still apply.
-  const options = optionsOrEvent && typeof optionsOrEvent === 'object'
-    ? optionsOrEvent
-    : {};
+  const options = typeof optionsOrEvent === 'function'
+    ? { ghImpl: optionsOrEvent }
+    : optionsOrEvent && typeof optionsOrEvent === 'object'
+      ? optionsOrEvent
+      : {};
   const event = optionsOrEvent && typeof optionsOrEvent === 'object'
     ? optionsOrEvent.event ?? 'workflow_dispatch'
     : optionsOrEvent === null
       ? null
       : optionsOrEvent ?? 'workflow_dispatch';
-  const {
-    ghImpl = gh,
-    sleep = sleepSync,
-    warn = console.warn,
-  } = options;
-  const args = [
-    'run', 'list', '--repo', repository, '--workflow', workflow,
-  ];
-  if (event) args.push('--event', event);
-  args.push(
-    '--branch', 'main',
-    '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
-    '--limit', String(limit),
-    '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
-  );
+  const { ghImpl = gh, sleep = sleepSync, warn = console.warn } = options;
+  const requestedLimit = Number(limit);
+  if (!Number.isInteger(requestedLimit) || requestedLimit <= 0) {
+    throw new TypeError('workflow run limit must be a positive integer');
+  }
+  const window = Number(windowMinutes);
+  if (!Number.isFinite(window) || window <= 0) throw new TypeError('workflow run window must be positive');
+  const windowStart = Date.now() - window * 60_000;
+  if (!Number.isFinite(windowStart)) throw new TypeError('workflow run window must be finite');
+  const minimumRows = Math.min(requestedLimit, RUN_LIST_MAX);
   const attempts = EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    const output = ghImpl(args);
-    const rows = JSON.parse(output || '[]');
-    if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
-    if (rows.length > 0 || attempt === attempts) return rows;
+    const eventRows = readWorkflowRunPages({ repository, workflow, event, windowStart, minimumRows, ghImpl });
+    if (eventRows.length > 0 || event === null) return eventRows;
+
+    // A zero result from the event index is the false-negative seen by the
+    // watchdog. The broader collection is a bounded second observation;
+    // selectLoopClockRun still rejects every non-dispatch/non-main row.
+    const allRows = readWorkflowRunPages({ repository, workflow, event: null, windowStart, minimumRows, ghImpl });
+    if (allRows.length > 0 || attempt === attempts) return allRows;
 
     const delayMs = EMPTY_RUN_LIST_RETRY_DELAYS_MS[attempt - 1];
-    warn(`::notice::loop-clock run listing returned no rows; retry ${attempt}/${EMPTY_RUN_LIST_RETRY_DELAYS_MS.length} after ${delayMs}ms.`);
+    warn(
+      `::notice::loop-clock run listing returned no rows; retry ${attempt}/${EMPTY_RUN_LIST_RETRY_DELAYS_MS.length} after ${delayMs}ms.`,
+    );
     sleep(delayMs);
   }
+
   throw new Error('workflow run listing retry loop exhausted unexpectedly');
 }
 
