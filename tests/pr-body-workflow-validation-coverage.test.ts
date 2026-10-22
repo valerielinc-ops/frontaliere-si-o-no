@@ -273,7 +273,7 @@ describe('every workflow PR body writer crosses the deterministic gate', () => {
     }
   });
 
-  it('creates a missing corpus PR and no-ops only when a valid open PR exists', () => {
+  it('creates a missing corpus PR and no-ops when the corpus is already synchronized', () => {
     const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-clock-transport-'));
     const bareRepo = path.join(tempRoot, 'corpus.git');
     const seedRepo = path.join(tempRoot, 'seed');
@@ -364,6 +364,13 @@ describe('every workflow PR body writer crosses the deterministic gate', () => {
       run('bash', [path.join(ROOT, 'scripts/ci/sync-loop-clock-to-corpus.sh')], ROOT, {
         ...env,
         OPEN_PR_JSON: JSON.stringify(validOpenPr),
+      });
+      expect(fs.readFileSync(ghLog, 'utf8').match(/pr create/g)).toHaveLength(1);
+
+      run('git', ['--git-dir', bareRepo, 'update-ref', 'refs/heads/main', 'refs/heads/loop-clock-contract-sync']);
+      run('bash', [path.join(ROOT, 'scripts/ci/sync-loop-clock-to-corpus.sh')], ROOT, {
+        ...env,
+        OPEN_PR_JSON: '[]',
       });
       expect(fs.readFileSync(ghLog, 'utf8').match(/pr create/g)).toHaveLength(1);
     } finally {

@@ -100,11 +100,16 @@ if [ -n "$staged" ] && [ "$staged" != "$target_path" ]; then
 fi
 
 if git diff --cached --quiet; then
-  if [ "$open_count" -gt 0 ]; then
-    echo 'Corpus issue-triage workflow already carries the loop-clock contract in its open PR.'
+  committed=$(git diff --name-only origin/main...HEAD)
+  if [ -z "$committed" ]; then
+    if [ "$open_count" -gt 0 ]; then
+      echo 'Corpus issue-triage workflow already carries the loop-clock contract in its open PR.'
+    else
+      echo 'Corpus issue-triage workflow already carries the loop-clock contract; no transport PR is needed.'
+    fi
     exit 0
   fi
-  echo 'Corpus issue-triage workflow already carries the loop-clock contract; ensuring its missing PR.'
+  echo 'Corpus issue-triage workflow contract is already committed on the transport branch; delivering its PR.'
 else
   git config user.name 'frontaliere-automation[bot]'
   git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
