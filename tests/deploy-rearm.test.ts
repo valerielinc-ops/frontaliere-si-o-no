@@ -20,6 +20,7 @@ import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
   decideBuildLocaleRecovery,
+  decideDispatchAfterFreshQueue,
   decideRearm,
   DEFAULT_MAX_BUILDS_PER_SHA,
   DEFAULT_MAX_LOCALE_RECOVERY_ATTEMPTS,
@@ -308,6 +309,28 @@ describe('decideRearm — the pipeline is still MOVING (99 of the 100 measured r
   });
 });
 
+describe('decideDispatchAfterFreshQueue — la coda cambia tra lettura e dispatch', () => {
+  it('lascia la workflow_dispatch pending e non aggiunge una seconda run', () => {
+    const initial = decideRearm({
+      headSha: HEAD,
+      runs: [selfRun()],
+      selfRunId: SELF,
+    });
+    const fresh = decideRearm({
+      headSha: HEAD,
+      runs: [selfRun(), live(123, HEAD, 'queued')],
+      selfRunId: SELF,
+    });
+
+    expect(initial.action).toBe('dispatch');
+    expect(fresh.reason).toBe('pipeline-moving');
+    expect(decideDispatchAfterFreshQueue(initial, fresh)).toMatchObject({
+      action: 'skip',
+      reason: 'pre-dispatch-pipeline-moving',
+    });
+  });
+});
+
 describe('decideRearm — recursion is bounded by a per-SHA cap, not by hope', () => {
   it('the cap counts the caller’s own run, so a re-armed chain is one retry long', () => {
     // Step 1: our run failed, no prior attempt for HEAD → retry (attempts = 1).
@@ -390,13 +413,37 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     );
   });
 
-  it('the build concurrency group is UNCHANGED — re-arm adds an edge, it does not relax the lock', () => {
-    // The tempting wrong fix is to flip cancel-in-progress or widen the group.
-    // Either would let two builds race the same CDN / shard force-push targets,
-    // which is the invariant build-locale's own comment relies on.
-    expect(doc.concurrency?.group).toBe('pages-build-run');
-    expect(doc.concurrency?.group).not.toContain('deploy-schedule-reconcile');
+  it('keeps schedule recovery out of the build pending slot', () => {
+    // A concurrency group permits one running + one pending member; a newer
+    // member replaces the pending one even with cancel-in-progress=false.
+    // The schedule must therefore observe the build queue without joining it.
+    expect(String(doc.concurrency?.group)).toContain("github.event_name == 'schedule'");
+    expect(String(doc.concurrency?.group)).toContain('deploy-schedule-reconcile');
+    expect(String(doc.concurrency?.group)).toContain('pages-build-run');
     expect(doc.concurrency?.['cancel-in-progress']).toBe(false);
+  });
+
+  it('serializza resolver e rearm con un claim durevole tenuto fino al dispatch', () => {
+    expect(doc.jobs['schedule-reconcile'].concurrency).toEqual({
+      group: 'deploy-rearm-dispatch',
+      'cancel-in-progress': false,
+    });
+    expect(doc.jobs.rearm.concurrency).toEqual({
+      group: 'deploy-rearm-dispatch',
+      'cancel-in-progress': false,
+    });
+  });
+
+  it('separa la run di recovery dalla pending manuale e mantiene il lock per locale', () => {
+    expect(String(doc.concurrency?.group)).toContain('inputs.rearm_dispatch');
+    expect(String(doc.concurrency?.group)).toContain('pages-build-rearm');
+    expect(String(doc.concurrency?.group)).toContain('pages-build-run');
+    expect(doc.jobs['build-locale'].concurrency).toEqual({
+      group: 'pages-build-locale-${{ matrix.locale }}',
+      'cancel-in-progress': false,
+    });
+    const rearm = readFileSync(resolve('scripts/ci/rearm-deploy-build.mjs'), 'utf8');
+    expect(rearm).toContain("'-F', 'inputs[rearm_dispatch]=true'");
   });
 
   it('moves recovery admission into deploy.yml and keeps the request workflow publish-only', () => {

@@ -53,6 +53,11 @@ on:
         required: false
         type: boolean
         default: false
+      rearm_dispatch:
+        description: 'Internal self-rearm admission token; keeps a recovery build in its own pending lane.'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   # The build reads the repository and publishes its Pages artifact; the final
@@ -63,13 +68,15 @@ permissions:
   issues: write     # for github-issue-creator on build/deploy failure
   actions: write    # final self-dispatch and the schedule recovery edge
 
-# Workflow-level serialisation of the BUILD block (matrix-setup → prep →
-# build-locale ×4). Exactly one build run is active at a time. The final rearm
-# job dispatches the next build on the current main tip; the ten-minute
-# schedule is only a cheap rescue for a run cancelled before its final job can
-# start. Both events share this concurrency group, so a schedule cannot race
-# the final job into a second pending build; the in-progress build is never
-# cancelled.
+# Workflow-level serialisation of the normal BUILD block (matrix-setup → prep
+# → build-locale ×4). A self-rearm uses a separate workflow lane so it cannot
+# replace a legitimate pending manual build between the resolver's final queue
+# read and its dispatch. The build-locale jobs carry the shared per-locale
+# production lock across both lanes; their four locales still run in parallel.
+# The ten-minute schedule is only a cheap rescue for a run cancelled before
+# its final job can start. Schedule reconciliation has its own group so a new
+# schedule tick cannot replace a legitimate pending build; its queue check
+# still sees the build group and skips whenever that pipeline is moving.
 #
 # Crucially, this run now ENDS at the build: deploy / validate / publish moved to
 # the separate `deploy-publish.yml` workflow. The final build step dispatches the
@@ -81,14 +88,17 @@ permissions:
 # This gives "one build at a time, next starts when the build — not the whole
 # deploy cycle — is done", without the ~1h idle a whole-run lock caused.
 #
-# Because one build runs at a time, the per-locale `build-locale` legs of a run
-# never race another run's same-locale CDN / frontaliere-<loc> force-push target,
-# so no per-job concurrency group is needed on build-locale anymore.
+# The normal lane still serialises whole runs. Recovery runs have a separate
+# workflow lane, so `build-locale` adds a per-locale lock to preserve the same
+# no-cross-run guarantee for each CDN / frontaliere-<loc> production target.
 concurrency:
-  # The lightweight schedule shares the build lock. That makes the queue check
-  # atomic with dispatch: a schedule can wait behind a real build, but it can
-  # never race the final job into a second pending workflow_dispatch run.
-  group: pages-build-run
+  # Keep the resolver out of the build group's one-pending slot. A re-arm
+  # dispatch also gets its own lane: a manual workflow_dispatch that arrives
+  # after the resolver's last queue read must remain pending, rather than being
+  # replaced by the recovery run. The build-locale jobs below share a
+  # per-locale admission lock, so the separate workflow lane cannot make two
+  # runs mutate the same production target at once.
+  group: ${{ github.event_name == 'schedule' && 'deploy-schedule-reconcile' || (inputs.rearm_dispatch == true && 'pages-build-rearm' || 'pages-build-run') }}
   cancel-in-progress: false
 
 jobs:
@@ -100,6 +110,12 @@ jobs:
   schedule-reconcile:
     name: Reconcile the current deploy tip
     if: github.event_name == 'schedule'
+    # Durable admission claim shared with the final rearm job. It is acquired
+    # before this job reads the queue and held through the pre-dispatch
+    # recheck/dispatch, so the two producers cannot race each other.
+    concurrency:
+      group: deploy-rearm-dispatch
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -382,9 +398,14 @@ jobs:
     needs: [matrix-setup, prep]
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
-    # No per-job concurrency: the workflow-level `pages-build-run` group already
-    # guarantees a single build run at a time, so this run's 4 legs never race
-    # another run's same-locale CDN / frontaliere-<loc> force-push target.
+    # Recovery runs use a separate workflow lane so a manual pending dispatch
+    # cannot be evicted by the resolver. Keep the actual production writers
+    # mutually exclusive by locale across both lanes: each leg owns its
+    # locale's CDN / frontaliere-<loc> force-push target and the IT Pages
+    # artifact. Different locales stay parallel.
+    concurrency:
+      group: pages-build-locale-${{ matrix.locale }}
+      cancel-in-progress: false
     # shard-secrets-overflow: repo-level Actions secrets hit GitHub's 100/repo
     # cap (89 section-shard deploy keys already used the quota). Environment
     # secrets are a separate 100-slot pool that GitHub merges into the same
@@ -2719,6 +2740,11 @@ jobs:
       github.event_name != 'schedule' &&
       github.ref == 'refs/heads/main' &&
       needs.validate-promotion-trigger.result == 'success'
+    # Same durable admission claim as schedule-reconcile. The final rearm
+    # keeps it until its queue recheck and any workflow_dispatch have returned.
+    concurrency:
+      group: deploy-rearm-dispatch
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

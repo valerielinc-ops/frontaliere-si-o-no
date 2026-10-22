@@ -278,6 +278,26 @@ export function decideRearm({
   };
 }
 
+/**
+ * The queue snapshot used for admission can become stale while the GitHub API
+ * request is in flight. The caller must therefore take a second snapshot
+ * while it still owns the durable `deploy-rearm-dispatch` job claim and use
+ * that snapshot as the final admission decision.
+ *
+ * @param {{action: 'dispatch'|'skip', reason: string, detail: string}} initialVerdict
+ * @param {{action: 'dispatch'|'skip', reason: string, detail: string}} freshVerdict
+ * @returns {{action: 'dispatch'|'skip', reason: string, detail: string}}
+ */
+export function decideDispatchAfterFreshQueue(initialVerdict, freshVerdict) {
+  if (initialVerdict?.action !== 'dispatch') return initialVerdict;
+  if (freshVerdict?.action === 'dispatch') return freshVerdict;
+  return {
+    action: 'skip',
+    reason: `pre-dispatch-${freshVerdict?.reason || 'queue-recheck-failed'}`,
+    detail: `pre-dispatch queue recheck blocked the dispatch: ${freshVerdict?.detail || 'fresh queue state was not admissible'}`,
+  };
+}
+
 /* c8 ignore start — I/O shell around the pure core above */
 
 const REARM_LISTING_WINDOW_DAYS = 7;
@@ -336,6 +356,51 @@ function settleWaitMs(job, nowMs) {
   const completedAt = Date.parse(job?.completed_at || '');
   if (!Number.isFinite(completedAt)) return 0;
   return Math.max(0, Math.min(HOST_KILL_SETTLE_MS, HOST_KILL_SETTLE_MS - (nowMs - completedAt)));
+}
+
+function readRearmQueueState({ repo, workflow, branch }) {
+  const headSha = gh(['api', `repos/${repo}/commits/${branch}`, '--jq', '.sha']);
+  // per_page=60 comfortably spans the busiest measured window (100 runs / 41 h
+  // ⇒ ~2.4/h); this recent branch listing is for the live queue. The `created`
+  // window makes those 60 the CURRENT ones: a `branch=` listing without it can
+  // come back frozen weeks in the past (scripts/ci/lib/run-listing-window.mjs),
+  // and here a stale listing shows no live run — i.e. it reads as
+  // `pipeline-stopped` and dispatches. The second, head_sha-filtered listing
+  // below is the durable per-SHA history used for the success and retry cap.
+  // decideRearm() does not depend on row order.
+  const raw = gh([
+    'api',
+    `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&${createdSinceQuery(REARM_LISTING_WINDOW_DAYS)}&per_page=60`,
+    '--jq',
+    RUNS_PROJECTION,
+  ]);
+  const recentRuns = JSON.parse(raw);
+  // The recent branch listing is enough to see the live queue, but its
+  // seven-day window is not enough to enforce "one retry, then idle until a
+  // new commit". The head_sha filter is the durable per-SHA ledger: it keeps
+  // old failures/successes in the decision even when the branch has been
+  // quiet for weeks. The durable query is intentionally unbounded by
+  // `created`; filter its projected head_branch locally so the full history
+  // remains branch-safe without creating a branch listing without a window.
+  // Merge by run id so a current run appearing in both responses is counted
+  // once.
+  const rawForHead = gh([
+    'api',
+    `repos/${repo}/actions/workflows/${workflow}/runs?head_sha=${encodeURIComponent(headSha)}&per_page=100`,
+    '--jq',
+    RUNS_PROJECTION,
+  ]);
+  const durableRuns = JSON.parse(rawForHead);
+  const runs = mergeRuns(
+    recentRuns,
+    Array.isArray(durableRuns) ? durableRuns.filter((run) => run?.headBranch === branch) : [],
+  );
+  const statuses = readDeployRearmStatuses({ repo, headSha });
+  const redeployRequest = resolveDeployRearmRequest({ statuses, runs, headSha });
+  if (redeployRequest.state === 'invalid') {
+    throw new Error(`could not resolve the durable redeploy request: ${redeployRequest.reason}`);
+  }
+  return { headSha, runs, redeployRequest };
 }
 
 async function inspectBuildLocaleRecovery({
@@ -469,45 +534,9 @@ async function main() {
     console.warn(`::warning::${localeRecovery.detail} — falling back to the existing whole-run re-arm decision`);
   }
 
-  let headSha = '';
-  let runs = [];
+  let queueState;
   try {
-    headSha = gh(['api', `repos/${repo}/commits/${branch}`, '--jq', '.sha']);
-    // per_page=60 comfortably spans the busiest measured window (100 runs / 41 h
-    // ⇒ ~2.4/h); this recent branch listing is for the live queue. The `created`
-    // window makes those 60 the CURRENT ones: a `branch=` listing without it can
-    // come back frozen weeks in the past (scripts/ci/lib/run-listing-window.mjs),
-    // and here a stale listing shows no live run — i.e. it reads as
-    // `pipeline-stopped` and dispatches. The second, head_sha-filtered listing
-    // below is the durable per-SHA history used for the success and retry cap.
-    // decideRearm() does not depend on row order.
-    const raw = gh([
-      'api',
-      `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&${createdSinceQuery(REARM_LISTING_WINDOW_DAYS)}&per_page=60`,
-      '--jq',
-      RUNS_PROJECTION,
-    ]);
-    const recentRuns = JSON.parse(raw);
-    // The recent branch listing is enough to see the live queue, but its
-    // seven-day window is not enough to enforce "one retry, then idle until a
-    // new commit". The head_sha filter is the durable per-SHA ledger: it keeps
-    // old failures/successes in the decision even when the branch has been
-    // quiet for weeks. The durable query is intentionally unbounded by
-    // `created`: filter its projected head_branch locally so the full history
-    // remains branch-safe without creating a branch listing without a window.
-    // Merge by run id so a current run appearing in both responses is counted
-    // once.
-    const rawForHead = gh([
-      'api',
-      `repos/${repo}/actions/workflows/${workflow}/runs?head_sha=${encodeURIComponent(headSha)}&per_page=100`,
-      '--jq',
-      RUNS_PROJECTION,
-    ]);
-    const durableRuns = JSON.parse(rawForHead);
-    runs = mergeRuns(
-      recentRuns,
-      Array.isArray(durableRuns) ? durableRuns.filter((run) => run?.headBranch === branch) : [],
-    );
+    queueState = readRearmQueueState({ repo, workflow, branch });
   } catch (err) {
     // Fail closed and LOUD-ish: an unreadable API means we cannot prove the
     // pipeline has stopped, and dispatching on a guess is how a storm starts.
@@ -515,18 +544,7 @@ async function main() {
     return 0;
   }
 
-  let redeployRequest;
-  try {
-    const statuses = readDeployRearmStatuses({ repo, headSha });
-    redeployRequest = resolveDeployRearmRequest({ statuses, runs, headSha });
-    if (redeployRequest.state === 'invalid') {
-      console.warn(`⚠️  could not resolve the durable redeploy request (${redeployRequest.reason}) — skipping re-arm`);
-      return 0;
-    }
-  } catch (err) {
-    console.warn(`⚠️  could not read the durable redeploy request (${err?.message?.split('\n')[0]}) — skipping re-arm`);
-    return 0;
-  }
+  const { headSha, runs, redeployRequest } = queueState;
 
   const verdict = decideRearm({
     headSha,
@@ -540,24 +558,73 @@ async function main() {
   console.log(`[rearm] head=${headSha} runs=${runs.length} → ${verdict.action} (${verdict.reason}): ${verdict.detail}`);
 
   const summary = process.env.GITHUB_STEP_SUMMARY;
-  if (summary) {
+  const writeSummary = async (entry) => {
+    if (!summary) return;
     const { appendFileSync } = await import('node:fs');
     appendFileSync(
       summary,
-      verdict.action === 'dispatch'
-        ? `🔁 **Deploy re-arm (#5349)**: ${verdict.detail}\n`
-        : `✅ Deploy re-arm (#5349): no action — ${verdict.reason} (${verdict.detail})\n`,
+      entry.action === 'dispatch'
+        ? `🔁 **Deploy re-arm (#5349)**: ${entry.detail}\n`
+        : `✅ Deploy re-arm (#5349): no action — ${entry.reason} (${entry.detail})\n`,
     );
-  }
+  };
 
-  if (verdict.action !== 'dispatch') return 0;
+  if (verdict.action !== 'dispatch') {
+    await writeSummary(verdict);
+    return 0;
+  }
   if (dryRun) {
     console.log('[rearm] REARM_DRY_RUN=1 — not dispatching');
+    await writeSummary(verdict);
+    return 0;
+  }
+
+  // The job-level `deploy-rearm-dispatch` concurrency group is the durable
+  // claim shared by the schedule resolver and the final rearm job. Re-read the
+  // queue while that claim is still held, immediately before dispatch. This is
+  // the safety edge for a legitimate workflow_dispatch build that appeared
+  // after the first listing: it remains in `pages-build-run` and this resolver
+  // does not add a second run that could evict it.
+  let freshQueueState;
+  try {
+    freshQueueState = readRearmQueueState({ repo, workflow, branch });
+  } catch (err) {
+    const blocked = {
+      action: 'skip',
+      reason: 'pre-dispatch-queue-unreadable',
+      detail: `could not re-read the deploy queue: ${err?.message?.split('\n')[0]}`,
+    };
+    console.warn(`⚠️  ${blocked.detail} — skipping re-arm`);
+    await writeSummary(blocked);
+    return 0;
+  }
+  const freshVerdict = decideRearm({
+    headSha: freshQueueState.headSha,
+    runs: freshQueueState.runs,
+    selfRunId,
+    selfConclusion: process.env.REARM_SELF_CONCLUSION,
+    selfHeadSha: process.env.GITHUB_SHA,
+    maxBuildsPerSha,
+    redeployRequest: freshQueueState.redeployRequest,
+  });
+  const finalVerdict = decideDispatchAfterFreshQueue(verdict, freshVerdict);
+  if (finalVerdict.action !== 'dispatch') {
+    console.log(`[rearm] ${finalVerdict.reason}: ${finalVerdict.detail}`);
+    await writeSummary(finalVerdict);
     return 0;
   }
 
   try {
-    gh(['api', '-X', 'POST', `repos/${repo}/actions/workflows/${workflow}/dispatches`, '-f', `ref=${branch}`]);
+    await writeSummary(finalVerdict);
+    // Mark this run as a recovery admission. Its workflow-level lane is
+    // intentionally separate from an independent manual dispatch, so a
+    // manual pending build cannot be evicted between the final queue read and
+    // this POST. The per-locale build jobs retain the shared production lock.
+    gh([
+      'api', '-X', 'POST', `repos/${repo}/actions/workflows/${workflow}/dispatches`,
+      '-f', `ref=${branch}`,
+      '-F', 'inputs[rearm_dispatch]=true',
+    ]);
     console.log(`[rearm] ✅ dispatched ${workflow} on ${branch} — the pipeline is moving again`);
   } catch (err) {
     // Never fail the deploy over this: the publish-lag watchdog is still the

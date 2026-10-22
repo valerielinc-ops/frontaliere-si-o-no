@@ -39,9 +39,19 @@ describe('deploy.yml — la build si riattiva da sola', () => {
   it('usa schedule solo come resolver leggero e mantiene il lock build', () => {
     expect(Object.keys(workflow.on)).toEqual(expect.arrayContaining(['schedule', 'workflow_dispatch']));
     expect(deploy).toContain("cron: '*/10 * * * *'");
-    expect(deploy).toMatch(/group:.*pages-build-run/);
+    expect(String(workflow.concurrency?.group)).toContain("github.event_name == 'schedule'");
+    expect(String(workflow.concurrency?.group)).toContain('deploy-schedule-reconcile');
+    expect(String(workflow.concurrency?.group)).toContain('pages-build-run');
     expect(deploy).toContain('cancel-in-progress: false');
     expect(workflow.jobs['schedule-reconcile'].if).toContain("github.event_name == 'schedule'");
+    expect(workflow.jobs['schedule-reconcile'].concurrency).toEqual({
+      group: 'deploy-rearm-dispatch',
+      'cancel-in-progress': false,
+    });
+    expect(workflow.jobs.rearm.concurrency).toEqual({
+      group: 'deploy-rearm-dispatch',
+      'cancel-in-progress': false,
+    });
   });
 
   it('riavvia deploy.yml dal job finale con GITHUB_TOKEN e actions:write', () => {
