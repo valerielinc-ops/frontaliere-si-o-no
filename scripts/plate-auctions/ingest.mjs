@@ -38,6 +38,7 @@ import {
   recognizeTimedCatalogueTurnover,
 } from '../../functions/src/plateAuctionQualityCore.js';
 import { isExplicitlyEmptyCatalogue } from '../../functions/src/plateAuctionsCore.js';
+import { normalizePlateAuctionRedirectUrl } from '../../functions/src/plateAuctionUrlNormalization.js';
 import { writePlateAuctionArchive } from '../lib/plate-auction-archive.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -84,6 +85,19 @@ function readPrevious(path) {
   } catch {
     return null;
   }
+}
+
+function normalizePublicRow(row) {
+  if (!row || typeof row !== 'object') return row;
+  return {
+    ...row,
+    ...(typeof row.officialAuctionUrl === 'string'
+      ? { officialAuctionUrl: normalizePlateAuctionRedirectUrl(row.officialAuctionUrl) }
+      : {}),
+    ...(typeof row.officialDetailUrl === 'string'
+      ? { officialDetailUrl: normalizePlateAuctionRedirectUrl(row.officialDetailUrl) }
+      : {}),
+  };
 }
 
 function sourceStatus(source, result) {
@@ -211,7 +225,7 @@ export async function collectPlateAuctions({
   previous = null,
   now = new Date(),
 } = {}) {
-  const previousRows = Array.isArray(previous?.auctions) ? previous.auctions : [];
+  const previousRows = Array.isArray(previous?.auctions) ? previous.auctions.map(normalizePublicRow) : [];
   const results = {};
   for (const key of selectedCantons) {
     const source = registry.sources[key];
@@ -393,7 +407,7 @@ export async function collectPlateAuctions({
     }
   }
 
-  const previousHistory = Array.isArray(previous?.history) ? previous.history : [];
+  const previousHistory = Array.isArray(previous?.history) ? previous.history.map(normalizePublicRow) : [];
   // Taken from the per-source decision rather than re-derived from the row
   // sets: one place decides what counts as a sale, and it is the place that
   // logged why.

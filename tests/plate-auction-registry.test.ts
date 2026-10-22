@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
 import registry from '../data/plate-auction-sources-registry.json';
@@ -5,6 +6,7 @@ import {
   validatePlateAuctionSourcesRegistry,
   validatePlateAuctionSourceEntry,
 } from '../services/plateAuctions/types';
+import { normalizePlateAuctionRedirectUrl } from '../functions/src/plateAuctionUrlNormalization.js';
 
 /**
  * Schema guard for `data/plate-auction-sources-registry.json` (#6355, prereq
@@ -116,6 +118,25 @@ describe('plate-auction sources registry schema', () => {
     expect(registry.sources.lu.status).toBe('active');
     expect(registry.sources.ur.status).toBe('active');
     expect(registry.sources.zg.status).toBe('no-public-auction');
+  });
+
+  it('keeps current and historical rows aligned with canonical audited sources', () => {
+    const snapshot = JSON.parse(readFileSync(new URL('../public/data/plate-auctions.json', import.meta.url), 'utf8')) as {
+      auctions: Array<Record<string, string>>;
+      history: Array<Record<string, string>>;
+    };
+    const audited = new Set(['AG', 'AI', 'GR', 'NW', 'OW', 'SO', 'VS']);
+    for (const row of [...snapshot.auctions, ...snapshot.history]) {
+      if (!audited.has(row.sourceKey)) continue;
+      const source = registry.sources[row.sourceKey.toLowerCase() as keyof typeof registry.sources];
+      expect(row.officialAuctionUrl, row.id).toBe(source.officialUrl);
+      expect(normalizePlateAuctionRedirectUrl(row.officialAuctionUrl), row.id)
+        .toBe(row.officialAuctionUrl);
+      if (row.officialDetailUrl) {
+        expect(normalizePlateAuctionRedirectUrl(row.officialDetailUrl), row.id)
+          .toBe(row.officialDetailUrl);
+      }
+    }
   });
 
   it('rejects an entry missing a required field', () => {

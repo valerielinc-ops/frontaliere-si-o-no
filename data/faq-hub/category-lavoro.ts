@@ -65,7 +65,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
         "Le CV suisse suit le modèle européen avec quelques spécificités : photo professionnelle, données personnelles essentielles (nom, date de naissance, nationalité, état civil, permis G/B), formation par ordre antichronologique, expérience avec CCT ou nom complet de l'entreprise, langues selon le cadre européen (A1-C2), références (2-3 contacts directs) [source : guide CV SECO]. Longueur idéale 2 pages, PDF. Diplôme avec titre, année et organisme (ex. « Diplôme de géomètre 2010, ITG Bellinzona »). Photo standard. Lettre de motivation en langue régionale. Joindre certificats de travail (Arbeitszeugnis) et diplômes.",
     },
     sources: [
-      'https://www.arbeit.swiss/secoalv/it/home.html',
+      'https://www.arbeit.swiss/it',
     ],
   },
   {

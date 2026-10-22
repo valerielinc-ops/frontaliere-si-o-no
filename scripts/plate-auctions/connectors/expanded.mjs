@@ -26,13 +26,13 @@ export const EXPANDED_ECARI_SOURCES = Object.freeze({
   ar: { canton: 'Appenzello Esterno', plateCode: 'AR', officialAuctionUrl: 'https://eauktion.ar.ch/ecari-auction/ui/app/init' },
   bl: { canton: 'Basilea Campagna', plateCode: 'BL', officialAuctionUrl: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' },
   fr: { canton: 'Friburgo', plateCode: 'FR', officialAuctionUrl: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' },
-  nw: { canton: 'Nidvaldo', plateCode: 'NW', officialAuctionUrl: 'https://ecarinwprod.ilz.info/ecari-auction/' },
-  ow: { canton: 'Obvaldo', plateCode: 'OW', officialAuctionUrl: 'https://ecariowprod.ilz.info/ecari-auction/' },
-  so: { canton: 'Soletta', plateCode: 'SO', officialAuctionUrl: 'https://eauktion.so.ch/ecari-auction' },
+  nw: { canton: 'Nidvaldo', plateCode: 'NW', officialAuctionUrl: 'https://ecarinwprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH' },
+  ow: { canton: 'Obvaldo', plateCode: 'OW', officialAuctionUrl: 'https://ecariowprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH' },
+  so: { canton: 'Soletta', plateCode: 'SO', officialAuctionUrl: 'https://eauktion.so.ch/ecari-auction/ui/app/init?locale=de_CH' },
 });
 
 export const EXPANDED_CARD_SOURCES = Object.freeze({
-  ag: { canton: 'Argovia', plateCode: 'AG', officialAuctionUrl: 'https://www.auktion-ag.ch', detailBaseUrl: 'https://www.auktion-ag.ch' },
+  ag: { canton: 'Argovia', plateCode: 'AG', officialAuctionUrl: 'https://www.auktion-ag.ch/de/', detailBaseUrl: 'https://www.auktion-ag.ch' },
   be: { canton: 'Berna', plateCode: 'BE', officialAuctionUrl: BE_AUCTION_URLS[0], officialAuctionUrls: BE_AUCTION_URLS.slice(1), detailBaseUrl: 'https://auktion-be.ch' },
   vd: { canton: 'Vaud', plateCode: 'VD', officialAuctionUrl: 'https://www.encheres-vd.ch/fr/', detailBaseUrl: 'https://www.encheres-vd.ch', userAgent: VD_BROWSER_USER_AGENT },
 });
