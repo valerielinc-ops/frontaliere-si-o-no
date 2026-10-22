@@ -538,6 +538,9 @@ describe('locale publish workflow wiring', () => {
     expect((tailJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Checkout durable receipt resolver')?.with?.ref)
       .toBe('refs/heads/main');
+    expect(String((tailJob.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Write durable locale shard receipt')?.run))
+      .toContain('node receipt-resolver/scripts/ci/publish-receipts.mjs');
     expect((tailJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Recheck durable locale receipt before shard side effects')?.run)
       .toContain('publish-receipts.mjs');

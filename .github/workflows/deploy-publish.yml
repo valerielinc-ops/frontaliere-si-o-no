@@ -1232,7 +1232,7 @@ jobs:
           set -euo pipefail
           test -f "$RUNNER_TEMP/shard-ok-${BUILD_LOCALE}" \
             || { echo '::error::locale push reported success without its durable shard-ok marker'; exit 1; }
-          node scripts/ci/publish-receipts.mjs \
+          node receipt-resolver/scripts/ci/publish-receipts.mjs \
             --write locale \
             --source-run-id "$SOURCE_RUN_ID" \
             --source-sha "$SOURCE_SHA" \
