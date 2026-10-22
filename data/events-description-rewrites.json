@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-22T17:24:40.078Z",
+  "generatedAt": "2026-10-22T18:28:09.383Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -6095,6 +6095,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-07T00:36:39.862Z"
+    },
+    "ge-agenda:entreprendre-terrain-lecons-parcours-entrepreneurial::bca8cd7b71be96e5a83a0a9b0abf99f13a8dfe72b47ec53d8e3f9e66d784ce0c": {
+      "id": "ge-agenda:entreprendre-terrain-lecons-parcours-entrepreneurial",
+      "sourceDescriptionHash": "bca8cd7b71be96e5a83a0a9b0abf99f13a8dfe72b47ec53d8e3f9e66d784ce0c",
+      "description": "Francesco Urso racconta il proprio percorso, dal passaggio in Procter & Gamble alla creazione e alla vendita di una propria marca. A Ginevra si parla di imprenditorialità, sviluppo di un marchio e perseveranza.",
+      "descriptionByLocale": {
+        "it": "Francesco Urso racconta il proprio percorso, dal passaggio in Procter & Gamble alla creazione e alla vendita di una propria marca. A Ginevra si parla di imprenditorialità, sviluppo di un marchio e perseveranza.",
+        "en": "Francesco Urso discusses his path from Procter & Gamble to creating and selling his own brand. The Geneva conference covers entrepreneurship, brand development and perseverance.",
+        "de": "Francesco Urso schildert seinen Weg von Procter & Gamble zur Entwicklung und zum Verkauf einer eigenen Marke. Die Konferenz in Genf behandelt Unternehmertum, Markenaufbau und Beharrlichkeit.",
+        "fr": "Francesco Urso revient sur son parcours, de Procter & Gamble à la création puis à la commercialisation de sa propre marque. Cette conférence à Genève explore l’esprit entrepreneurial, le développement d’une marque et la ténacité."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T18:22:38.329Z"
     },
     "ge-agenda:escape-game-exterieur-parc-bastions::90de77fbc950f49339d3fd0cfd4b932941f606ba357663c2cd9bd9b57f339580": {
       "id": "ge-agenda:escape-game-exterieur-parc-bastions",
@@ -26970,6 +26984,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T19:14:00.866Z"
     },
+    "guidle:AG1WqJS::b3ae9ac952425d87efdef7382ce36659e6bb2b720ac927126028e271dc532dae": {
+      "id": "guidle:AG1WqJS",
+      "sourceDescriptionHash": "b3ae9ac952425d87efdef7382ce36659e6bb2b720ac927126028e271dc532dae",
+      "description": "L’evento hip-hop presenta LO & LEDUC con KRISE ALS CHANSON al Bärensaal di Thun. L’ingresso è a pagamento e il prezzo indicato è di 55 CHF.",
+      "descriptionByLocale": {
+        "it": "L’evento hip-hop presenta LO & LEDUC con KRISE ALS CHANSON al Bärensaal di Thun. L’ingresso è a pagamento e il prezzo indicato è di 55 CHF.",
+        "en": "This hip-hop event features LO & LEDUC and KRISE ALS CHANSON at the Bärensaal in Thun. Admission costs CHF 55.",
+        "de": "Die Hip-Hop-Veranstaltung mit LO & LEDUC und KRISE ALS CHANSON findet im Bärensaal in Thun statt. Der Eintritt kostet 55 CHF.",
+        "fr": "Cet événement hip-hop réunit LO & LEDUC et KRISE ALS CHANSON au Bärensaal de Thun. Le prix d’entrée indiqué est de 55 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T18:20:54.326Z"
+    },
     "guidle:AG2HTKd::7c5122f7256810e34b11db664424a4ca10d629ea51fbc062f3f2af684483829d": {
       "id": "guidle:AG2HTKd",
       "sourceDescriptionHash": "7c5122f7256810e34b11db664424a4ca10d629ea51fbc062f3f2af684483829d",
@@ -40424,6 +40452,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T15:24:13.773Z"
     },
+    "guidle:AtkDgWr::b7b08e5eaa151de83332ac3790b03aa85614c55101c37ce973c8fa1ad2dba0af": {
+      "id": "guidle:AtkDgWr",
+      "sourceDescriptionHash": "b7b08e5eaa151de83332ac3790b03aa85614c55101c37ce973c8fa1ad2dba0af",
+      "description": "L'appuntamento celebra i 20 anni di Zion Step nell'ambito del reggae. Si svolge alla Kulturfabrik KUFA di Lyss, nel canton Berna, ed è classificato come evento di reggae/dancehall.",
+      "descriptionByLocale": {
+        "it": "L'appuntamento celebra i 20 anni di Zion Step nell'ambito del reggae. Si svolge alla Kulturfabrik KUFA di Lyss, nel canton Berna, ed è classificato come evento di reggae/dancehall.",
+        "en": "The event marks 20 years of Zion Step in reggae. It takes place at Kulturfabrik KUFA in Lyss, in the canton of Bern, and is classified as reggae/dancehall.",
+        "de": "Die Veranstaltung würdigt zwei Jahrzehnte von Zion Step im Reggae. Sie findet in der Kulturfabrik KUFA in Lyss im Kanton Bern statt und ist dem Genre Reggae/Dancehall zugeordnet.",
+        "fr": "Ce rendez-vous marque les 20 ans de Zion Step dans le domaine du reggae. Il est prévu à la Kulturfabrik KUFA, à Lyss, dans le canton de Berne, et relève de la catégorie reggae/dancehall."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T18:19:16.724Z"
+    },
     "guidle:AtkK4GW::fcca6af8c389b79d6aa179b075b591e4876ba18041e77a681a03405f4965e3b6": {
       "id": "guidle:AtkK4GW",
       "sourceDescriptionHash": "fcca6af8c389b79d6aa179b075b591e4876ba18041e77a681a03405f4965e3b6",
@@ -41837,6 +41879,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T22:26:22.600Z"
+    },
+    "guidle:AuMisxm::a6685a44ea9eecbd7c73321bead07b456b545d0cc0ce910405da19f6fe9238fb": {
+      "id": "guidle:AuMisxm",
+      "sourceDescriptionHash": "a6685a44ea9eecbd7c73321bead07b456b545d0cc0ce910405da19f6fe9238fb",
+      "description": "A Point Favre è previsto un appuntamento pop con Florent Marchet, inserito nella programmazione di Voix De Fête. L’evento si svolge a Chêne-Bourg, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "A Point Favre è previsto un appuntamento pop con Florent Marchet, inserito nella programmazione di Voix De Fête. L’evento si svolge a Chêne-Bourg, nel cantone di Ginevra.",
+        "en": "Point Favre presents a pop event with Florent Marchet as part of the Voix De Fête programme. The event is held in Chêne-Bourg, in the canton of Geneva.",
+        "de": "Im Point Favre ist ein Pop-Auftritt von Florent Marchet im Programm von Voix De Fête vorgesehen. Die Veranstaltung findet in Chêne-Bourg im Kanton Genf statt.",
+        "fr": "À Point Favre, un rendez-vous pop avec Florent Marchet figure dans la programmation de Voix De Fête. L’événement se tient à Chêne-Bourg, dans le canton de Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T18:23:20.514Z"
     },
     "guidle:AUmM6Te::6e9e4c57ae4cc934801ef5d4126b6cbff166a3cf63d18be8a8cf4b4b0ec3f063": {
       "id": "guidle:AUmM6Te",
@@ -45142,6 +45198,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-13T18:13:04.414Z"
     },
+    "guidle:Axdp8uU::ffcb58a48e0d42b2c57c8b1903f64a083d3728fef9247a6a1723f0474fd15611": {
+      "id": "guidle:Axdp8uU",
+      "sourceDescriptionHash": "ffcb58a48e0d42b2c57c8b1903f64a083d3728fef9247a6a1723f0474fd15611",
+      "description": "Shemekia Copeland è annunciata per un concerto blues alla Mühle Hunziken di Rubigen. L’artista era già tornata a Rubigen dopo una pausa di quasi vent’anni, e la sua musica è associata al blues moderno.",
+      "descriptionByLocale": {
+        "it": "Shemekia Copeland è annunciata per un concerto blues alla Mühle Hunziken di Rubigen. L’artista era già tornata a Rubigen dopo una pausa di quasi vent’anni, e la sua musica è associata al blues moderno.",
+        "en": "Shemekia Copeland is scheduled for a blues concert at Mühle Hunziken in Rubigen. She previously returned to Rubigen after a break of almost twenty years, and her music is associated with modern blues.",
+        "de": "Shemekia Copeland ist für einen Bluesauftritt in der Mühle Hunziken in Rubigen angekündigt. Zuvor kehrte sie nach einer fast zwanzigjährigen Pause nach Rubigen zurück, und ihre Musik wird dem modernen Blues zugeordnet.",
+        "fr": "Shemekia Copeland est annoncée pour un concert de blues à la Mühle Hunziken, à Rubigen. Elle était déjà revenue à Rubigen après une pause de près de vingt ans, et sa musique est associée au blues moderne."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T18:20:20.797Z"
+    },
     "guidle:AXDwi1Q::411c2639303671365b8b56d61a2870fe703c219504d576886ded0fbc89be8b5b": {
       "id": "guidle:AXDwi1Q",
       "sourceDescriptionHash": "411c2639303671365b8b56d61a2870fe703c219504d576886ded0fbc89be8b5b",
@@ -47787,6 +47857,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-16T01:36:39.275Z"
+    },
+    "guidle:AZPFxUN::be38e222c54977f168e3401f12f94264ea1484e1a8bc43d96b99d0b09e3a737d": {
+      "id": "guidle:AZPFxUN",
+      "sourceDescriptionHash": "be38e222c54977f168e3401f12f94264ea1484e1a8bc43d96b99d0b09e3a737d",
+      "description": "Il Kleines Zeughaus di Lindau ospita un appuntamento pop di Karl Die Große. In una precedente occasione, il gruppo ha condiviso il grande palco dello Stadttheater con DOTA.",
+      "descriptionByLocale": {
+        "it": "Il Kleines Zeughaus di Lindau ospita un appuntamento pop di Karl Die Große. In una precedente occasione, il gruppo ha condiviso il grande palco dello Stadttheater con DOTA.",
+        "en": "Kleines Zeughaus in Lindau hosts a pop event featuring Karl Die Große. On a previous occasion, the band shared the large stage of the Stadttheater with DOTA.",
+        "de": "Im Kleinen Zeughaus in Lindau ist ein Popauftritt von Karl Die Große angekündigt. Bei einem früheren Auftritt stand die Band gemeinsam mit DOTA auf der Bühne des Stadttheaters.",
+        "fr": "Le Kleines Zeughaus de Lindau accueille un rendez-vous pop autour de Karl Die Große. Lors d’un précédent passage, le groupe a partagé la scène du Stadttheater avec DOTA."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T18:17:25.745Z"
     },
     "guidle:AZQ9B9n::e2216ae9d48b8634bce44db1ddd6754194d9a59d2822580941f1b49c29bdbe65": {
       "id": "guidle:AZQ9B9n",
@@ -165891,15 +165975,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:entreprendre-terrain-lecons-parcours-entrepreneurial::bca8cd7b71be96e5a83a0a9b0abf99f13a8dfe72b47ec53d8e3f9e66d784ce0c": {
-      "id": "ge-agenda:entreprendre-terrain-lecons-parcours-entrepreneurial",
-      "sourceDescriptionHash": "bca8cd7b71be96e5a83a0a9b0abf99f13a8dfe72b47ec53d8e3f9e66d784ce0c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:31:35.702Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:festival-animatou-courts-metrages-internationaux-nomines-5::5d7a401e8deeec3ddf878988a940cf6f6f933dd760e249b3d822edabe4d81e74": {
       "id": "ge-agenda:festival-animatou-courts-metrages-internationaux-nomines-5",
       "sourceDescriptionHash": "5d7a401e8deeec3ddf878988a940cf6f6f933dd760e249b3d822edabe4d81e74",
@@ -166534,8 +166609,8 @@
       "id": "guidle:A55wTKi",
       "sourceDescriptionHash": "6441d2ad6f447e02163d31ef25db74b6b8b2d056cf0cba153faa3ff93fd5c66a",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:22:40.624Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:21:52.568Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -166759,8 +166834,8 @@
       "id": "guidle:AbhvECZ",
       "sourceDescriptionHash": "465166251a740b56e448f6f2eb1760ded3b87cee7d2c5a316509a018ee894dab",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:17:44.929Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:17:09.884Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -166948,8 +167023,8 @@
       "id": "guidle:AE9ZwFD",
       "sourceDescriptionHash": "ac79ce197f7229b117c70d2b1868ffeeb38efc72ccc3c2a0a4f8481d3ec24538",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:19:22.655Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:19:43.459Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167088,15 +167163,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AG1WqJS::b3ae9ac952425d87efdef7382ce36659e6bb2b720ac927126028e271dc532dae": {
-      "id": "guidle:AG1WqJS",
-      "sourceDescriptionHash": "b3ae9ac952425d87efdef7382ce36659e6bb2b720ac927126028e271dc532dae",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:26:36.630Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:AG9mP7Z::ad635a6dfab08bf0b0db8bf026bc7ed12d53346361785591ab32ae17995f1d01": {
       "id": "guidle:AG9mP7Z",
       "sourceDescriptionHash": "ad635a6dfab08bf0b0db8bf026bc7ed12d53346361785591ab32ae17995f1d01",
@@ -167110,8 +167176,8 @@
       "id": "guidle:AgAPiZZ",
       "sourceDescriptionHash": "5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:20:25.054Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:20:14.443Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167299,8 +167365,8 @@
       "id": "guidle:AJ4Hbb1",
       "sourceDescriptionHash": "d5e0f904187607508524a945a0b21d10ce5e555cfc8326761e798e175ce19d66",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:24:32.092Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:21:23.231Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168019,8 +168085,8 @@
       "id": "guidle:ASD2E6s",
       "sourceDescriptionHash": "85054d5a8ecf7927132943c8c4ead3fe2888135dc8223043486899cc86a67946",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:19:58.307Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:18:07.728Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168037,8 +168103,8 @@
       "id": "guidle:ASMwxek",
       "sourceDescriptionHash": "d1c3f5c73d75f27483a9cdbbc0923a22e9ed25bf8f88aef107b5be73880fcfeb",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:18:04.616Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:21:03.448Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168132,15 +168198,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:AtkDgWr::b7b08e5eaa151de83332ac3790b03aa85614c55101c37ce973c8fa1ad2dba0af": {
-      "id": "guidle:AtkDgWr",
-      "sourceDescriptionHash": "b7b08e5eaa151de83332ac3790b03aa85614c55101c37ce973c8fa1ad2dba0af",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:18:04.321Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ATM4WSa::f94f434b8d4683670d82de213f119c51605c46dcb4525355105538f13e3a019e": {
       "id": "guidle:ATM4WSa",
       "sourceDescriptionHash": "f94f434b8d4683670d82de213f119c51605c46dcb4525355105538f13e3a019e",
@@ -168210,15 +168267,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-16T08:26:00.887Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AuMisxm::a6685a44ea9eecbd7c73321bead07b456b545d0cc0ce910405da19f6fe9238fb": {
-      "id": "guidle:AuMisxm",
-      "sourceDescriptionHash": "a6685a44ea9eecbd7c73321bead07b456b545d0cc0ce910405da19f6fe9238fb",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:28:45.339Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168388,8 +168436,8 @@
       "id": "guidle:AWGS83Z",
       "sourceDescriptionHash": "52d0bf5247ba848709f114ce49665e906a6fb4828b968b3a47921d377205a8f5",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:20:50.394Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:18:43.539Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168543,15 +168591,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-09T20:25:54.652Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:Axdp8uU::ffcb58a48e0d42b2c57c8b1903f64a083d3728fef9247a6a1723f0474fd15611": {
-      "id": "guidle:Axdp8uU",
-      "sourceDescriptionHash": "ffcb58a48e0d42b2c57c8b1903f64a083d3728fef9247a6a1723f0474fd15611",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:25:55.436Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168723,15 +168762,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T02:24:26.180Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AZPFxUN::be38e222c54977f168e3401f12f94264ea1484e1a8bc43d96b99d0b09e3a737d": {
-      "id": "guidle:AZPFxUN",
-      "sourceDescriptionHash": "be38e222c54977f168e3401f12f94264ea1484e1a8bc43d96b99d0b09e3a737d",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:21:33.782Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170313,9 +170343,9 @@
     "myswitzerland:42dc65bb072f4e0e8f58258bb1e233b4::909ef6b943e96c3ccf0ec4d3eca2ed247e23d99c7608618c03785545a9512662": {
       "id": "myswitzerland:42dc65bb072f4e0e8f58258bb1e233b4",
       "sourceDescriptionHash": "909ef6b943e96c3ccf0ec4d3eca2ed247e23d99c7608618c03785545a9512662",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-10-22T16:25:50.680Z",
+      "code": "sentence-count",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-10-22T18:19:03.978Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
