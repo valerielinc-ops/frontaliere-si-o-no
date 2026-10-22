@@ -50,6 +50,27 @@ export interface CandidatesFile {
   candidates: CandidateEntry[];
 }
 
+/**
+ * Matching facts needed by a non-owning BUILD_LOCALE shard. The full job rows
+ * stay on the owning shard; these fields are the complete cross-locale
+ * contract used for paths, floor decisions, hub ranking and canton mirrors.
+ */
+export interface RelatedSearchClusterSummaryEntry {
+  key: string;
+  keyword: string;
+  city: string | null;
+  matchingJobCount: number;
+  legacyCantonGroup: string;
+}
+
+export interface RelatedSearchClustersSummaryFile {
+  version: 1;
+  candidateCount: number;
+  jobCount: number;
+  entries: RelatedSearchClusterSummaryEntry[];
+  skippedKeys: string[];
+}
+
 export interface EnrichedFaq {
   // Wire format produced by `scripts/enrich-related-search-clusters.mjs`
   // (and historical entries in `data/related-search-enriched.json`).
