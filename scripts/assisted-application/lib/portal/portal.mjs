@@ -1854,11 +1854,18 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
 
 /** Dequeue an upload trigger that is still allowed after a portal redraw. */
 function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tried) {
+  // `pending` contains keys, not button objects. Re-resolve every queued key
+  // against the current snapshot so a redraw cannot make us click a detached
+  // or reidentified control from the previous snapshot.
+  const discovered = uploadButtonCandidatesFor(snapshot, kind)
+    .filter((button) => iconUploadAllowedForPage(page, button, kind, snapshot, channelType));
   for (;;) {
-    let candidate = pending.shift() || null;
+    let candidate = null;
+    while (pending.length && !candidate) {
+      const key = pending.shift();
+      candidate = discovered.find((button) => uploadTriggerKey(button) === key) || null;
+    }
     if (!candidate) {
-      const discovered = uploadButtonCandidatesFor(snapshot, kind)
-        .filter((button) => iconUploadAllowedForPage(page, button, kind, snapshot, channelType));
       const nextIndex = discovered.findIndex((button) => !tried.has(uploadTriggerKey(button)));
       if (nextIndex < 0) {
         // A portal may drop the first click without redrawing the control
@@ -1871,10 +1878,11 @@ function nextAllowedUploadTrigger(page, snapshot, kind, channelType, pending, tr
         if (!candidate) return null;
       } else {
         candidate = discovered[nextIndex];
-        pending.push(...discovered.slice(nextIndex + 1));
+        pending.push(...discovered.slice(nextIndex + 1).map(uploadTriggerKey));
       }
     }
     const key = uploadTriggerKey(candidate);
+    if (tried.has(key)) continue;
     if (!iconUploadAllowedForPage(page, candidate, kind, snapshot, channelType)) {
       // It may have become invalid while a previous trigger redrew the form.
       // Mark it before continuing so a fresh snapshot cannot select it again.
@@ -1971,9 +1979,6 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     const trace = { attempt: attemptNumber, trigger: trigger.snapshot ? 'snapshot' : 'locator' };
     cv = await uploadThroughDialog(page, trigger, cvFile, triggerButton.frame || 0, trace);
     current = await extractFields(page);
-    // The dialog can redraw the form. Any queued controls came from the old
-    // snapshot and must be rediscovered from `current` before the next try.
-    pendingCvTriggers = [];
     const uploadedCvField = current.fields.find(isCvFileField);
     trace.portalFileFieldObserved = Boolean(uploadedCvField);
     cvUploadDiagnostics.push(trace);
@@ -1997,7 +2002,6 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     if (!trigger || !visible) continue;
     coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile, triggerButton.frame || 0);
     current = await extractFields(page);
-    pendingCoverLetterTriggers = [];
     if (coverLetter !== 'unavailable') done.add(coverLetterKey);
   }
   return {

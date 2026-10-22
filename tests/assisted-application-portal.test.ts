@@ -318,6 +318,91 @@ describe('legacy portal sections', () => {
     expect(trigger.click).toHaveBeenCalledOnce();
   });
 
+  it('re-resolves queued upload controls from the post-redraw snapshot', async () => {
+    const url = 'https://jobs.example.test/apply';
+    const snapshots = [
+      {
+        url,
+        fields: [{ id: 'email', kind: 'text', label: 'Email', required: true }],
+        buttons: [
+          { id: 'cv-a-old', text: 'Upload a Resume', section: 'Resume / CV', disabled: false },
+          { id: 'cv-b-old', text: 'Upload a Resume', section: 'Resume / CV', disabled: false },
+        ],
+        captcha: false,
+        passwordVisible: false,
+        errors: [],
+        text: '',
+      },
+      {
+        url,
+        fields: [{ id: 'email', kind: 'text', label: 'Email', required: true }],
+        buttons: [{ id: 'cv-b-live', text: 'Upload a Resume', section: 'Resume / CV', disabled: false }],
+        captcha: false,
+        passwordVisible: false,
+        errors: [],
+        text: '',
+      },
+    ];
+    let snapshotIndex = 0;
+    let activeTrigger = '';
+    const clicked: string[] = [];
+    const uploadedInput = {
+      evaluate: vi.fn(async () => ['candidate-cv.pdf']),
+    };
+    const chooser = {
+      element: vi.fn(async () => activeTrigger === 'cv-b-live' ? uploadedInput : null),
+      setFiles: vi.fn(async () => {
+        if (activeTrigger === 'cv-a-old') {
+          snapshotIndex = 1;
+          throw new Error('first upload trigger failed');
+        }
+      }),
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => snapshots[snapshotIndex]),
+      locator: vi.fn((selector: string) => {
+        if (selector === '[role="dialog"]:visible input[type="file"]'
+          || selector === '[aria-modal="true"]:visible input[type="file"]'
+          || selector === 'dialog[open]:visible input[type="file"]'
+          || selector === 'input[type="file"]') return {};
+        const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
+        return {
+          first: () => ({
+            click: vi.fn(async () => {
+              clicked.push(id);
+              activeTrigger = id;
+              if (id === 'cv-a-old') snapshotIndex = 1;
+            }),
+            isVisible: vi.fn(async () => true),
+          }),
+        };
+      }),
+    };
+    const page = {
+      url: () => url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForEvent: vi.fn(async () => chooser),
+      locator: vi.fn((selector: string) => selector === '[role="alert"]:visible'
+        ? { allInnerTexts: vi.fn(async () => []) }
+        : selector === '.group_head'
+          ? { count: vi.fn(async () => 0) }
+          : {}),
+      getByText: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => true) }) })),
+      on: vi.fn(),
+      off: vi.fn(),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, snapshots[0] as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(clicked).toEqual(['cv-a-old', 'cv-b-live']);
+    expect(clicked).not.toContain('cv-b-old');
+  });
+
   it('uses a newly mounted hidden file input when the upload control opens no dialog role', async () => {
     const snapshot = {
       url: 'https://career5.successfactors.eu/careers',
@@ -646,6 +731,23 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     const candidates = uploadButtonCandidatesFor({ buttons: [duplicate('f1'), duplicate('f2')] }, 'cv');
     expect(candidates).toHaveLength(2);
     expect(uploadTriggerKey(candidates[0])).not.toBe(uploadTriggerKey(candidates[1]));
+  });
+
+  it('keeps case-distinct upload identities distinct across a redraw', () => {
+    const duplicate = (id: string) => ({
+      id,
+      frame: 0,
+      text: 'Upload a Resume',
+      label: 'Upload a Resume',
+      dataAutomationId: 'attachment-action',
+      section: 'Resume / CV',
+      disabled: false,
+    });
+    const first = uploadButtonCandidatesFor({ buttons: [duplicate('A'), duplicate('a')] }, 'cv');
+    const redrawn = uploadButtonCandidatesFor({ buttons: [duplicate('a'), duplicate('A')] }, 'cv');
+    expect(uploadTriggerKey(first[0])).not.toBe(uploadTriggerKey(first[1]));
+    expect(uploadTriggerKey(first[0])).toBe(uploadTriggerKey(redrawn[1]));
+    expect(uploadTriggerKey(first[1])).toBe(uploadTriggerKey(redrawn[0]));
   });
 
   it('fails closed for duplicate upload controls without stable DOM identities', () => {
