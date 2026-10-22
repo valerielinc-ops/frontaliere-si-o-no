@@ -17,12 +17,13 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { describe, expect, it, beforeEach, afterEach } from 'vitest';
 
-import { WriteCollector } from '@/build-plugins/batchWrite';
+import { flushWrites, WriteCollector } from '@/build-plugins/batchWrite';
 import { initManifest, saveManifest } from '@/build-plugins/contentHash';
 import {
   clearPostWalkDerivedDigestCacheForTest,
   writePostWalkDerivedDigestSidecar,
 } from '@/build-plugins/shared/postWalkDerivedDigest';
+import { DistPathCollisionError } from '@/build-plugins/sharedWriteRegistry';
 import {
   hashContent,
   reset,
@@ -176,6 +177,42 @@ describe('WriteCollector collision visibility', () => {
       expect(collector.count).toBe(0);
     } finally {
       saveManifest();
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects a file plus a nested index before touching the output batch', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-path-collision-'));
+    const filePath = path.join(tmpRoot, 'guides', 'guide.pdf');
+    const nestedIndexPath = path.join(filePath, 'index.html');
+    try {
+      await expect(flushWrites([
+        { filePath, content: '%PDF-fixture' },
+        { filePath: nestedIndexPath, content: '<html>fixture</html>' },
+      ])).rejects.toBeInstanceOf(DistPathCollisionError);
+      expect(fs.existsSync(filePath)).toBe(false);
+    } finally {
+      fs.rmSync(tmpRoot, { recursive: true, force: true });
+    }
+  });
+
+  it('rejects a file/directory collision across consecutive auto-flushes', async () => {
+    const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'wc-stream-path-collision-'));
+    const filePath = path.join(tmpRoot, 'dist', 'foo');
+    const nestedIndexPath = path.join(filePath, 'index.html');
+    const collector = new WriteCollector({
+      distDir: path.join(tmpRoot, 'dist'),
+      autoFlushThreshold: 1,
+      pluginName: 'collision-fixture',
+    });
+    try {
+      collector.add(filePath, 'file');
+      expect(() => collector.add(nestedIndexPath, '<html>nested</html>'))
+        .toThrow(DistPathCollisionError);
+      await expect(collector.flush()).resolves.toBe(0);
+      expect(fs.existsSync(filePath)).toBe(false);
+      expect(fs.existsSync(nestedIndexPath)).toBe(false);
+    } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
     }
   });
