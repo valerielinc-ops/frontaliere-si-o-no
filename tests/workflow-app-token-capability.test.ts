@@ -167,13 +167,11 @@ type AllowReason = 'no-publish' | 'agent-bridge' | 'agent-lane';
 const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'campaign-goal-check.yml :: check :: Run campaign goal check': { reason: 'no-publish', why: 'legge metriche e apre/aggiorna issue' },
   'crawler-content-plausibility-audit.yml :: verify :: Verify shortlist and open issues': { reason: 'agent-bridge', why: 'corsia agente che apre issue' },
-  'deploy-request.yml :: request :: Request one build for the current main tip': { reason: 'no-publish', why: 'dispatch del deploy dopo guardia actions: write' },
   // The step guard in deploy-request.yml requires both APP_TOKEN_ACTIONS and
   // APP_TOKEN_DEPLOYMENTS_READ before it invokes request-latest-publish.mjs.
-  // That script only GETs Deployments and POSTs a workflow dispatch; it never
-  // pushes refs, opens PRs, or writes repository content.
+  // That script only GETs Deployments/statuses and POSTs a publish dispatch;
+  // it never pushes refs, opens PRs, or writes repository content.
   'deploy-request.yml :: request :: Reconcile the latest successful Pages publish': { reason: 'no-publish', why: 'legge Deployments e dispatcha il publish dopo le guardie actions:write + deployments:read' },
-  'deploy-publish.yml :: recover-legacy-publish-contract :: Dispatch a current build': { reason: 'no-publish', why: 'dispatch del deploy di recovery dopo guardia actions: write' },
   'followup-drainer.yml :: drain :: Probe capacità workflow del token di push (zero-Claude)': { reason: 'no-publish', why: 'sonda in sola lettura dello scope del token' },
   'followup-drainer.yml :: drain :: Drain follow-up queue (deterministic, no Claude)': { reason: 'no-publish', why: 'etichetta e smista issue, non pusha' },
   'generate-article.yml :: generate :: Self-trigger next run': { reason: 'no-publish', why: 'dispatch del run successivo' },
@@ -184,18 +182,13 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'issue-fix.yml :: fix :: Close the PR a conflict hand-off supersedes (zero-Claude)': { reason: 'no-publish', why: 'chiude la PR superata con un commento' },
   'issue-triage.yml :: triage :: Classify and route (deterministic, no Claude)': { reason: 'no-publish', why: 'etichetta la issue' },
   'lessons-harvester.yml :: harvest :: Draft doc-rule proposal (Codex Luna Max — only if NOVEL patterns)': { reason: 'agent-bridge', why: 'corsia agente della proposta di regola' },
-  'monitor-gsc-seo.yml :: monitor :: Run GSC Job Indexation Monitor': { reason: 'no-publish', why: 'apre issue e fa dispatch del deploy' },
   'monitor-seo-ctr-by-template.yml :: monitor :: Run SEO CTR-by-template monitor': { reason: 'no-publish', why: 'apre issue' },
   'needs-human-sweep.yml :: sweep :: Run Codex Luna Max sweep': { reason: 'agent-bridge', why: 'corsia agente dello sweep' },
   'post-merge-followup.yml :: followup :: Run Codex Luna Max follow-up triage (batch)': { reason: 'agent-bridge', why: 'corsia agente del triage' },
   'pr-collision-detector.yml :: detect :: Detect funnel-critical collisions (deterministic, no Claude)': { reason: 'no-publish', why: 'commenta ed etichetta le PR' },
-  'refresh-keyword-config.yml :: refresh :: Trigger deploy if config changed': { reason: 'no-publish', why: 'dispatch del deploy' },
-  'refresh-search-cluster-301-map.yml :: refresh :: Trigger deploy if compat store changed': { reason: 'no-publish', why: 'dispatch del deploy' },
   'retry-code-check-after-body-edit.yml :: recover :: Retry a failed body or review gate on the current head': { reason: 'no-publish', why: 'rilancia una run' },
-  'seo-health-loop.yml :: health :: Trigger deploy for live compat correction': { reason: 'no-publish', why: 'dispatch del deploy' },
   'stale-pr-rescuer.yml :: rescue :: Scan open PRs and flag stalled ones': { reason: 'no-publish', why: 'etichetta e commenta le PR ferme' },
   'stale-pr-rescuer.yml :: rescue :: Orphan PR custodian': { reason: 'no-publish', why: 'commenta ed etichetta le PR orfane' },
-  'sync-gsc-orphans.yml :: sync-orphans :: Trigger deploy if data changed': { reason: 'no-publish', why: 'dispatch del deploy' },
   'tests.yml :: vitest :: Publish bounded ledger-only automatic LGTM': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish automatic LGTM for a tests-only PR': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish carry-forward LGTM (code contribution unchanged)': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },

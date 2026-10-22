@@ -49,7 +49,6 @@
         "fr": "leiter-sgf-detailhandel-mitglied-der-geschaftsleitung-w-m-d-landi-aare-genossenschaft-konolfingen"
       },
       "crawledAt": "2026-10-22T09:12:59.910Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-196918bb3d37",
       "previousSlugsByLocale": {
         "it": [
@@ -185,7 +184,6 @@
         "fr": "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-paudex"
       },
       "crawledAt": "2026-10-22T09:12:59.910Z",
-      "needsRetranslation": true,
       "id": "volg-fenaco-ff89bea00dc4",
       "previousSlugsByLocale": {
         "it": [
@@ -6530,7 +6528,8 @@
         "venditore-venditore-volg-kandersteg-497f1d",
         "venditore-venditore-volg-kandersteg",
         "verkauferin-verkaufer-volg-kandersteg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -9956,7 +9955,8 @@
       "previousSlugs": [
         "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-frigemo-ag-lebensmittelverarbeitung-zollikofen",
         "betriebsmitarbeiterin-betriebsmitarbeiter-produktion-w-m-d-frigemo-ag-lebensmittelverarbeitung-zollikofen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Spontanbewerbung w/m/d",
@@ -17853,8 +17853,7 @@
         "depontine-deponteur-h-f-d-gourmador-frigemo-ag-zollikofen-zollikofen"
       ],
       "datePosted": "",
-      "postingDateSource": "unknown",
-      "needsRetranslation": true
+      "postingDateSource": "unknown"
     },
     {
       "title": "Stellvertretende Ladenleitung (w/m/d)",
@@ -20031,7 +20030,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-volg-bozen-ag-w-m-d-volg-boztal"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Praktikantin / Praktikant Bözen AG w/m/d",
@@ -20108,7 +20108,8 @@
       },
       "previousSlugs": [
         "praktikantin-praktikant-bozen-ag-w-m-d-volg-boztal"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Praktikantin / Praktikant Volg Kaisten AG w/m/d",
@@ -20266,8 +20267,7 @@
         "spontaneous-application-landi-zola-ag-m-f-d-landi-zola-ag-illnau-effretikon"
       ],
       "datePosted": "",
-      "postingDateSource": "unknown",
-      "needsRetranslation": true
+      "postingDateSource": "unknown"
     },
     {
       "title": "Verkäuferin / Verkäufer Volg Lufingen ZH w/m/d",
@@ -24428,7 +24428,6 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "traiteur-konditorin-traiteur-konditor-m-w-d-volg-ennetburgen"
@@ -25652,7 +25651,8 @@
       },
       "previousSlugs": [
         "verkauferin-volg-bozen-ag-60-80-w-m-d-volg-boztal"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin, Verkäufer",
@@ -25881,7 +25881,8 @@
       },
       "previousSlugs": [
         "praktikantin-praktikant-volg-nanikon-zh-w-m-d-volg-uster"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -31837,7 +31838,6 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-landi-landi-zola-ag-pfaffikon"
@@ -42286,8 +42286,7 @@
         "fr": [
           "lehrstelle-als-logistikerin-logistiker-efz-w-m-d-ab-august-2027-landi-seeland-ag-kerzers"
         ]
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Praktikumsstelle",

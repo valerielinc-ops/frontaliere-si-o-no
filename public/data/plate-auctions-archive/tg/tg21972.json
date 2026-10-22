@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109814",
+      "sourceKey": "TG",
+      "sourceRecordId": "109814",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "21972",
+      "normalizedPlate": "TG21972",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109814",
+      "sourceFetchedAt": "2026-10-21T11:49:02.461Z",
+      "lastVerifiedAt": "2026-10-21T11:49:02.461Z",
+      "firstSeenAt": "2026-10-11T22:02:27.312Z",
+      "lastSeenAt": "2026-10-21T11:49:02.461Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "064773dc03b6"
+    }
+  ]
+}

@@ -59,7 +59,7 @@ import { realpathSync } from 'node:fs';
  * "capability granted" without the API having said so.
  *
  * `APP_TOKEN_REQUEST_DEPLOYMENTS_READ=true` asks for the least-privilege token used by
- * the Pages reconciler (`contents: read`, `actions: write`, `deployments: read`). The
+ * the Pages reconciler (`contents: read`, `actions: write`, `deployments: read`, `statuses: read`). The
  * returned permission map is still authoritative: requesting a permission cannot grant
  * one that the installation has not approved.
  *
@@ -160,10 +160,27 @@ export function hasDeploymentsRead(permissions) {
   return permissions?.deployments === 'read' || permissions?.deployments === 'write';
 }
 
+/**
+ * Does this installation token grant the read capability required by the commit-status API?
+ * A write grant also satisfies a read request; absent/read-only/malformed values fail closed.
+ *
+ * @param {Record<string, string>|null|undefined} permissions `tok.body.permissions`
+ * @returns {boolean}
+ */
+export function hasStatusesRead(permissions) {
+  return permissions?.statuses === 'read' || permissions?.statuses === 'write';
+}
+
 /** `APP_TOKEN_DEPLOYMENTS_READ=true|false`, written on every exit path. */
 function setDeploymentsCapability(granted) {
   const out = process.env.GITHUB_ENV;
   if (out) appendFileSync(out, `APP_TOKEN_DEPLOYMENTS_READ=${granted ? 'true' : 'false'}\n`);
+}
+
+/** `APP_TOKEN_STATUSES_READ=true|false`, written on every exit path. */
+function setStatusesCapability(granted) {
+  const out = process.env.GITHUB_ENV;
+  if (out) appendFileSync(out, `APP_TOKEN_STATUSES_READ=${granted ? 'true' : 'false'}\n`);
 }
 
 /**
@@ -189,6 +206,7 @@ function warnExit(msg) {
   setWorkflowsCapability(false);
   setActionsCapability(false);
   setDeploymentsCapability(false);
+  setStatusesCapability(false);
   setDataRefreshCapability(false);
   process.exit(0);
 }
@@ -199,6 +217,7 @@ function requestedPermissions() {
     contents: 'read',
     actions: 'write',
     deployments: 'read',
+    statuses: 'read',
   };
 }
 
@@ -251,6 +270,8 @@ async function main() {
   setActionsCapability(actionsWrite);
   const deploymentsRead = hasDeploymentsRead(tok.body.permissions);
   setDeploymentsCapability(deploymentsRead);
+  const statusesRead = hasStatusesRead(tok.body.permissions);
+  setStatusesCapability(statusesRead);
   const dataRefreshWrite = hasDataRefreshWrite(tok.body.permissions);
   setDataRefreshCapability(dataRefreshWrite);
   if (!workflowsWrite) {
@@ -273,6 +294,12 @@ async function main() {
     console.log(
       '::warning::mint-app-token: the installation token does NOT carry `deployments: read`; ' +
         'Pages reconciliation will remain fail-closed (APP_TOKEN_DEPLOYMENTS_READ=false).',
+    );
+  }
+  if (!statusesRead) {
+    console.log(
+      '::warning::mint-app-token: the installation token does NOT carry `statuses: read`; ' +
+        'durable publish receipt inspection will remain fail-closed (APP_TOKEN_STATUSES_READ=false).',
     );
   }
   console.log(

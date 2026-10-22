@@ -7,8 +7,8 @@
  * content hasn't changed since the last build are skipped entirely.
  *
  * Streaming behavior (added 2026-04 to fix OOM at 11.6 GB / 12 GB heap):
- * - add() returns synchronously; auto-flush kicks off in the background
- *   when pending writes cross the threshold (default 5000 entries).
+ * - add() returns synchronously; crossing the threshold queues a background
+ *   flush, which starts after the next path-shape check (or explicit drain).
  * - With ~30 KB content average, peak in-memory pending writes are
  *   bounded at ~150 MB regardless of total page volume (was 6.6 GB
  *   for 220k pages × 30 KB before this change).
@@ -21,7 +21,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getManifest } from './contentHash';
-import { claim, type ClaimOutcome } from './sharedWriteRegistry';
+import {
+ assertNoFileDirectoryPathCollisions,
+ claim,
+ type ClaimOutcome,
+} from './sharedWriteRegistry';
 import { shouldEmitPath, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
 import {
  preservePostWalkDerivedOutput,
@@ -66,6 +70,11 @@ function ensureDir(dir: string) {
  * launchd default 256/1024).
  */
 export async function flushWrites(writes: PendingWrite[], concurrency = 500): Promise<number> {
+ // Check the whole batch before creating directories. This catches a file
+ // emitted together with a nested `file/index.html` in milliseconds, instead
+ // of letting mkdir/write fail after a long build or in an unrelated probe.
+ assertNoFileDirectoryPathCollisions(writes.map((write) => write.filePath));
+
  // Pre-create all unique directories first (sync, very fast)
  const dirs = new Set<string>();
  for (const w of writes) dirs.add(path.dirname(w.filePath));
@@ -86,7 +95,7 @@ export async function flushWrites(writes: PendingWrite[], concurrency = 500): Pr
 }
 
 /**
- * Default threshold above which add() kicks off a background flush.
+ * Default threshold above which add() queues a background flush.
  *
  * History:
  *   - 5000 (initial): ~150 MB peak at 30 KB avg, fine for historical mix.
@@ -162,7 +171,8 @@ export interface WriteCollectorOptions {
  * files whose content hash matches the previous build are automatically skipped.
  *
  * Streaming behavior:
- * - add() returns synchronously; auto-flush kicks off when pending crosses 5000
+ * - add() returns synchronously; auto-flush queues when pending crosses 5000
+ *   and starts after the next path-shape check or explicit drain
  * - peak in-memory pending writes ≤ 5000 entries × ~30 KB = ~150 MB
  * - flush() awaits all outstanding background flushes
  * - errors during background flush are stored and re-thrown by flush()
@@ -196,6 +206,11 @@ export class WriteCollector {
  // keeps the bookkeeping bounded by ACTUAL in-flight count instead of
  // accumulating closures of resolved promises.
  private _pendingFlushes: Set<Promise<number>> = new Set();
+ // Keep the newest auto-flush batch in a short transaction window. This lets
+ // consecutive synchronous add() calls validate their path shape together
+ // before the first batch reaches the filesystem.
+ private _deferredFlush: PendingWrite[] | null = null;
+ private _autoFlushScheduled = false;
  private _firstError: Error | null = null;
  private _writtenPaths = new Set<string>();
  private readonly _concurrency: number;
@@ -208,6 +223,64 @@ export class WriteCollector {
  this._autoFlushThreshold = opts?.autoFlushThreshold ?? DEFAULT_AUTO_FLUSH_THRESHOLD;
  this._pluginName = opts?.pluginName ?? 'unknown';
  this._postWalkDerivedKind = opts?.postWalkDerivedKind;
+ }
+
+ private startBackgroundFlush(batch: PendingWrite[]): void {
+ if (batch.length === 0) return;
+ let flushPromise: Promise<number>;
+ // eslint-disable-next-line prefer-const
+ flushPromise = flushWrites(batch, this._concurrency).then((written) => {
+  this.markWritten(batch);
+  return written;
+ }).catch((err: unknown) => {
+  if (!this._firstError) {
+  this._firstError = err instanceof Error ? err : new Error(String(err));
+  }
+  return 0;
+ }).finally(() => {
+  this._pendingFlushes.delete(flushPromise);
+ });
+ this._pendingFlushes.add(flushPromise);
+ }
+
+ private releaseDeferredFlush(): void {
+ const batch = this._deferredFlush;
+ this._deferredFlush = null;
+ this.startBackgroundFlush(batch ?? []);
+ }
+
+ private scheduleAutoFlush(): void {
+ const batch = Array.from(this.writes.values());
+
+ // Validate each complete batch once before moving it into the deferred
+ // transaction window. Per-path cross-batch checks are already performed by
+ // claim(), which keeps the hot add() path O(directory depth) instead of
+ // rebuilding this whole batch on every add().
+ try {
+  assertNoFileDirectoryPathCollisions(batch.map((write) => write.filePath));
+ } catch (error) {
+  this.abortPendingWrites();
+  throw error;
+ }
+ this.writes = new Map();
+
+ // A second threshold crossing commits the previous batch only after this
+ // add() has passed the collector-level path-shape check below. The newest
+ // batch gets the same transaction window in turn.
+ this.releaseDeferredFlush();
+ this._deferredFlush = batch;
+ if (this._autoFlushScheduled) return;
+ this._autoFlushScheduled = true;
+ queueMicrotask(() => {
+  this._autoFlushScheduled = false;
+  this.releaseDeferredFlush();
+ });
+ }
+
+ private abortPendingWrites(): void {
+ this.writes = new Map();
+ this._deferredFlush = null;
+ this._autoFlushScheduled = false;
  }
 
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
@@ -233,7 +306,18 @@ export class WriteCollector {
  // instead of a collision (zero report, zero throw). claim() throws
  // WriteCollisionError in `throw` mode and returns 'skip-write' for
  // idempotent re-claims (identical content) or declared-shared losers.
- const outcome: ClaimOutcome = claim(filePath, this._pluginName, content);
+ let outcome: ClaimOutcome;
+ try {
+  // claim() registers the path shape before this collector can queue or
+  // release it. The deferred transaction window keeps the previous batch
+  // unwritten until the next synchronous claim has passed this guard.
+  outcome = claim(filePath, this._pluginName, content);
+ } catch (error) {
+  // A structural collision aborts the not-yet-started batches as one unit;
+  // otherwise a later flush would still materialize a partial dist tree.
+  this.abortPendingWrites();
+  throw error;
+ }
  if (preservePostWalkDerivedOutput(
   this._distDir,
   filePath,
@@ -278,28 +362,11 @@ export class WriteCollector {
  }
  this.writes.set(filePath, { filePath, content });
 
- // Auto-flush in background once we cross the threshold. add() must stay
- // synchronous for callers, so we kick off the flush without awaiting.
- // Errors are captured on the collector and re-thrown by flush().
- // The Set self-prunes via the `.finally` callback so memory is bounded
- // by ACTUAL in-flight flushes (not total ever-spawned).
+ // Auto-flush in background once we cross the threshold. Keep one batch in a
+ // microtask-sized transaction window so consecutive synchronous add() calls
+ // can reject a path collision before any earlier batch is written.
  if (this.writes.size >= this._autoFlushThreshold) {
- const batch = Array.from(this.writes.values());
- this.writes = new Map();
- let flushPromise: Promise<number>;
- // eslint-disable-next-line prefer-const
- flushPromise = flushWrites(batch, this._concurrency).then((written) => {
-  this.markWritten(batch);
-  return written;
- }).catch((err: unknown) => {
-  if (!this._firstError) {
-  this._firstError = err instanceof Error ? err : new Error(String(err));
-  }
-  return 0;
- }).finally(() => {
-  this._pendingFlushes.delete(flushPromise);
- });
- this._pendingFlushes.add(flushPromise);
+ this.scheduleAutoFlush();
  }
  }
 
@@ -322,6 +389,8 @@ export class WriteCollector {
   * under the 12 GB heap cap.
   */
  async awaitDrainSlot(maxInflight = 2): Promise<void> {
+ this._autoFlushScheduled = false;
+ this.releaseDeferredFlush();
  while (this._pendingFlushes.size > maxInflight) {
  // Promise.race returns when ANY pending flush resolves; the `.finally`
  // on each flushPromise removes it from the Set so the next loop check
@@ -341,7 +410,7 @@ export class WriteCollector {
  }
 
  /** Pending in-memory writes not yet flushed (legacy semantic — same as before). */
- get count() { return this.writes.size; }
+ get count() { return this.writes.size + (this._deferredFlush?.length ?? 0); }
  get skippedByHash() { return this._skippedByHash; }
  /** Number of add() calls dropped because the path's locale is not in the
   * active BUILD_LOCALE shard set. Always 0 in the default (all-locale) build. */
@@ -382,6 +451,10 @@ export class WriteCollector {
   * writes, and re-throws the first error captured during a background flush.
   */
  async flush(concurrency = 500): Promise<number> {
+ // The explicit flush is the transaction boundary for the last deferred
+ // auto-flush batch. The queued microtask will observe an empty slot.
+ this._autoFlushScheduled = false;
+ this.releaseDeferredFlush();
  // Drain any writes still in the in-memory buffer.
  const remaining = Array.from(this.writes.values());
  this.writes = new Map();

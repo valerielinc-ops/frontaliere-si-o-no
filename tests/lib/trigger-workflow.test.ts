@@ -1,5 +1,5 @@
 // Tests for scripts/lib/trigger-workflow.sh — the shared workflow_dispatch
-// engine behind trigger-deploy.sh, trigger-self.sh and fast-publish dispatches.
+// engine behind trigger-self.sh and fast-publish dispatches.
 // All HTTP traffic is replaced by a deterministic curl stub.
 import { afterEach, describe, expect, it } from 'vitest';
 import { spawnSync } from 'node:child_process';
@@ -249,6 +249,17 @@ function expectDispatchFailure(result: ReturnType<typeof dispatch>) {
 }
 
 describe('scripts/lib/trigger-workflow.sh', () => {
+  it.each(['deploy.yml', 'deploy-publish.yml'])(
+    'rifiuta %s prima di ogni richiesta HTTP',
+    (workflow) => {
+      const result = dispatch({ workflow });
+      expect(result.status).toBe(1);
+      expect(result.postCount).toBe(0);
+      expect(result.getCount).toBe(0);
+      expect(result.dispatchSent).toContain('dispatch_sent=false');
+    },
+  );
+
   it('uses REST 2026-03-10, accepts a coherent 200 response and validates its exact run once', () => {
     const result = dispatch();
     expect(result.status).toBe(0);

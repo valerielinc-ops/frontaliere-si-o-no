@@ -165,8 +165,9 @@ jobs:
       # NOTE: the deploy.yml-style "Free disk space" toolchain cleanup was
       # removed here (2026-06-15). It cost ~260s of pure overhead per run and is
       # unnecessary for THIS workflow: article generation only commits source +
-      # generated thumbnails (a few MB) and dispatches deploy.yml — it never runs
-      # the multi-GB Vite/Pages build, so the ubuntu-latest default free space
+      # generated thumbnails (a few MB); deploy.yml observes the resulting main
+      # SHA on its self-driven schedule — this workflow never launches it. It
+      # never runs the multi-GB Vite/Pages build, so the ubuntu-latest default free space
       # (~25 GB on /) is ample. The heavy cleanup stays in deploy.yml where the
       # 9 GB+ dist actually lands. Saves ~260s × ~48 runs/day ≈ 3.5h runner/day.
       - name: Checkout
@@ -636,8 +637,8 @@ jobs:
         run: node scripts/ci/check-seo-pages-syntax.mjs
 
       # Do not run `npm run build:prod` here. This workflow commits generated
-      # article source and dispatches deploy.yml, which already assembles the
-      # jobs dataset and performs the full Vite/GitHub Pages build. Running the
+      # article source; deploy.yml observes the resulting main SHA, assembles
+      # the jobs dataset and performs the full Vite/GitHub Pages build. Running the
       # same production build inside article generation duplicates 20+ minutes
       # of CPU work and has caused runner shutdowns before the article can be
       # committed (run 26324239287, 2026-05-23).
@@ -775,10 +776,11 @@ jobs:
           echo "✅ Source checks passed for '$ARTICLE_ID'"
           echo "exists=true" >> "$GITHUB_OUTPUT"
 
-      # Trigger deploy.yml (GITHUB_TOKEN pushes don't trigger other workflows)
-      # Uses env: block to safely pass values containing quotes/special chars
-      - name: Trigger deploy workflow
-        id: trigger_deploy
+      # The deploy queue observes the committed main SHA on its own schedule.
+      # Keep the article metadata in this run's summary; no workflow dispatch
+      # is allowed from a producer workflow anymore.
+      - name: Record self-driven deploy handoff
+        id: deploy_schedule
         if: steps.commit.outputs.committed == 'true' && steps.verify_article.outputs.exists == 'true'
         env:
           DEPLOY_ARTICLE_ID: ${{ steps.generate.outputs.article_id }}
@@ -787,22 +789,19 @@ jobs:
           DEPLOY_ARTICLE_OG_DESCRIPTION: ${{ steps.generate.outputs.og_description }}
           DEPLOY_ARTICLE_OG_IMAGE: ${{ steps.generate.outputs.og_image }}
           DEPLOY_ARTICLE_CATEGORY: ${{ steps.generate.outputs.category }}
-        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
-        # fails the job, caught by "Report failure to GitHub Issues" below —
-        # that GitHub issue IS this caller's recovery net (auto-triage picks
-        # it up), so silencing the failure would just hide a real deploy gap.
         run: |
-          EXPECTED_SHA="$(git rev-parse HEAD)" \
-          bash scripts/lib/trigger-deploy.sh
+          echo "✅ Articolo committato e verificato; deploy.yml osserverà il nuovo SHA nel proprio schedule."
+          echo "article_id=${DEPLOY_ARTICLE_ID}" >> "$GITHUB_OUTPUT"
+          echo "deploy_handoff=self-driven-schedule" >> "$GITHUB_OUTPUT"
 
       # ── Trigger fast-publish workflow (issue #4837 stream C) ───────────
       # Fire-and-forget dispatch of fast-publish-article.yml: it renders +
       # pushes ONLY this article's own locale shards (skipping the full
       # site build) and pings Google Indexing API itself once it has
       # VERIFIED the 4 URLs are actually live — see that workflow for the
-      # ordering rationale. This does not replace "Trigger deploy workflow"
-      # above: the full deploy.yml/deploy-publish.yml chain still runs and
-      # remains the source of truth for sitemap/RSS/search-index
+      # ordering rationale. The full deploy.yml/deploy-publish.yml chain still
+      # runs on its self-driven schedule and remains the source of truth for
+      # sitemap/RSS/search-index
       # regeneration; fast-publish is an additive, best-effort fast path.
       # Best-effort: `|| true` because a missed fast-publish still means the
       # article goes live via the normal (slower) deploy chain.
@@ -854,7 +853,7 @@ jobs:
 
       # ── Notify Google Indexing API ─────────────────────────────────────
       # REMOVED (issue #4837 stream C): this step used to ping Google right
-      # after dispatching deploy.yml on the assumption "deploy takes ~2-3
+      # after the self-driven deploy queue on the assumption "deploy takes ~2-3
       # min" — false; the worst measured full deploy was 2h04m37s (see
       # scripts/notify-journalist-article-live.mjs's ORPHAN_THRESHOLD_MS
       # comment), so Google was routinely sent to crawl a 404. The ping is
@@ -878,16 +877,13 @@ jobs:
           HAS_CHANGES="${{ steps.changes.outputs.has_changes }}"
           COMMITTED="${{ steps.commit.outputs.committed }}"
           VERIFIED="${{ steps.verify_article.outputs.exists }}"
-          DEPLOY_DISPATCHED="${{ steps.trigger_deploy.outputs.dispatch_sent }}"
+          DEPLOY_HANDOFF="${{ steps.deploy_schedule.outputs.deploy_handoff }}"
           FAST_PUBLISH_DISPATCHED="${{ steps.trigger_fast_publish.outputs.dispatch_sent }}"
 
           # Determine final status
-          if [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" == "true" ]; then
-            STATUS="✅ Committed, verified in source, deploy triggered"
+          if [ "$VERIFIED" == "true" ] && [ "$DEPLOY_HANDOFF" == "self-driven-schedule" ]; then
+            STATUS="✅ Committed, verified in source, deploy queued by self-driven schedule"
             ICON="🟢"
-          elif [ "$VERIFIED" == "true" ] && [ "$DEPLOY_DISPATCHED" != "true" ]; then
-            STATUS="⚠️ Committed and verified in source, but deploy dispatch was not confirmed"
-            ICON="🟠"
           elif [ "$COMMITTED" == "true" ] && [ "$VERIFIED" != "true" ]; then
             STATUS="⚠️ Committed but verification FAILED — article may be broken"
             ICON="🟠"
@@ -910,7 +906,7 @@ jobs:
           echo "   Article: $ARTICLE_ID"
           echo "   URL: $ARTICLE_URL"
           echo "   Source: $SOURCE_URL"
-          echo "   committed=$COMMITTED  verified=$VERIFIED  deploy_dispatched=$DEPLOY_DISPATCHED  fast_publish_dispatched=$FAST_PUBLISH_DISPATCHED  has_changes=$HAS_CHANGES"
+          echo "   committed=$COMMITTED  verified=$VERIFIED  deploy_handoff=$DEPLOY_HANDOFF  fast_publish_dispatched=$FAST_PUBLISH_DISPATCHED  has_changes=$HAS_CHANGES"
           echo ""
 
           # Append to step summary for clear visibility
@@ -926,7 +922,7 @@ jobs:
             echo "| Changes detected | $HAS_CHANGES |"
             echo "| Committed to main | $COMMITTED |"
             echo "| Verified in source | $VERIFIED |"
-            echo "| Deploy dispatched | $DEPLOY_DISPATCHED |"
+            echo "| Deploy handoff | $DEPLOY_HANDOFF |"
             echo "| Fast-publish dispatched | $FAST_PUBLISH_DISPATCHED |"
           } >> "$GITHUB_STEP_SUMMARY"
 

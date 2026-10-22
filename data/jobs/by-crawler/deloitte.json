@@ -2718,7 +2718,8 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-15570ecca03f",
@@ -4847,7 +4848,6 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:12:46.965Z",
       "salaryMin": 79000,
       "salaryMax": 138500,
@@ -4861,7 +4861,8 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-63dddd350fde",

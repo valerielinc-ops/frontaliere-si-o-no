@@ -108,7 +108,7 @@ lines.push("");
 lines.push("### Manual rollback (if needed)");
 lines.push("");
 lines.push("```bash");
-lines.push("gh workflow run deploy.yml --ref $(node scripts/deploy-registry.mjs get-good | jq -r .sha)");
+lines.push("FRONTALIERE_OWNER_DEPLOY_DISPATCH=I_UNDERSTAND_DEPLOY_DISPATCH gh workflow run deploy.yml --ref $(node scripts/deploy-registry.mjs get-good | jq -r .sha)");
 lines.push("```");
 lines.push("");
 

@@ -224,40 +224,12 @@ jobs:
             --regenerate-cmd 'for file in data/seo-health-state.json data/seo-health/history.jsonl; do saved="/tmp/seo-health-state/$(basename "$file")"; if [ -f "$saved" ]; then mkdir -p "$(dirname "$file")"; cp "$saved" "$file"; fi; done; git add data/seo-health-state.json data/seo-health/history.jsonl'
           echo 'has_changes=true' >> "$GITHUB_OUTPUT"
 
-      - name: Re-mint App token before deploy dispatch
-        if: steps.compat.outcome == 'success' && steps.compat.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      - name: Trigger deploy for live compat correction
+      - name: Record self-driven deploy handoff for live compat correction
         id: deploy
         if: steps.compat.outcome == 'success' && steps.compat.outputs.has_changes == 'true' && steps.compat.outputs.push_exhausted == 'false' && (steps.health_commit.outcome == 'success' || steps.health_commit.outcome == 'skipped') && inputs.dry_run != true && inputs.dry_run != 'true'
-        env:
-          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        # Only the resolver-verified compat shards change the built site.
-        # Health reports/state never dispatch a production build by themselves.
         run: |
           set -euo pipefail
-          deploy_token="${GITHUB_PAT:-${GH_TOKEN:-}}"
-          if [ -z "$deploy_token" ]; then
-            echo '::error::No deploy token available; refusing to record an un-deployed compat correction.'
-            exit 1
-          fi
-          dispatch_output="$(mktemp)"
-          trap 'rm -f "$dispatch_output"' EXIT
-          GITHUB_PAT="$deploy_token" \
-            GITHUB_OUTPUT="$dispatch_output" \
-            EXPECTED_SHA="$(git rev-parse HEAD)" \
-            bash scripts/lib/trigger-deploy.sh
-          if ! grep -qx 'dispatch_sent=true' "$dispatch_output"; then
-            echo '::error::Deploy trigger returned without dispatch_sent=true; refusing a false-green correction.'
-            exit 1
-          fi
+          echo '✅ Correzione compat committata; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Upload health report
         id: health_report

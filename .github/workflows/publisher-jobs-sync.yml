@@ -174,9 +174,9 @@ jobs:
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      - name: Trigger deploy workflow
+      - name: Record self-driven deploy handoff
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh || true
+        run: echo '✅ Dati job committati; il deploy self-driven prenderà il nuovo SHA.'
 
       # Debounced alert (same pattern as refresh-thin-promotions.yml's
       # push-retry-exhausted handling, issue #5568): --soft-fail-exhausted makes

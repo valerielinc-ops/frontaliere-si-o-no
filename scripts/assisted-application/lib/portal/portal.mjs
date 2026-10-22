@@ -1610,7 +1610,7 @@ async function newlyMountedFileInput(page, preferredFrame, beforeHandles, trigge
 }
 
 /** Finds one newly opened, visible upload dialog across the page's current frames. */
-async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
+export async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandlesByFrame, timeoutMs = 8_000) {
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     // A portal can create the dialog in a child iframe after the click. Read
@@ -1637,18 +1637,29 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
         // the real dialog ambiguous. Record a readable zero-input frame as
         // its own baseline: if it mounts exactly one input on a later poll,
         // that input can be compared safely while auxiliary frames remain at
-        // zero. Keep the fail-closed behavior for an unreadable or non-empty
-        // new frame, whose pre-click baseline is unknown.
+        // zero. A frame that is already showing exactly one visible dialog
+        // input on its first observation is also a usable target: the frame
+        // itself was mounted by this click, so there cannot be a preexisting
+        // eligible input in that frame. Keep the fail-closed behavior for a
+        // frame that exposes more than one such input, whose target is
+        // ambiguous.
         const count = await dialogFileInputCount(frame);
-        if (count === null || count > 0) {
+        if (count === null) {
           ambiguous = true;
+          continue;
+        }
+        const handles = await dialogFileInputHandles(frame);
+        if (!Array.isArray(handles)) {
+          ambiguous = true;
+          continue;
+        }
+        if (count === 0) {
+          beforeCounts.set(frame, 0);
+          beforeHandlesByFrame.set(frame, handles);
+        } else if (count === 1 && handles.length === 1) {
+          candidates.push(handles[0]);
         } else {
-          const handles = await dialogFileInputHandles(frame);
-          if (!Array.isArray(handles)) ambiguous = true;
-          else {
-            beforeCounts.set(frame, 0);
-            beforeHandlesByFrame.set(frame, handles);
-          }
+          ambiguous = true;
         }
         continue;
       }

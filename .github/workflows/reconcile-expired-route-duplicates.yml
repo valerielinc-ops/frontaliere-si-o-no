@@ -138,11 +138,9 @@ jobs:
           }
           NODE
 
-      - name: Trigger deploy if data changed
+      - name: Record self-driven deploy handoff if data changed
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: echo '✅ Compatibilità committata; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Report failure to GitHub Issues
         if: failure()

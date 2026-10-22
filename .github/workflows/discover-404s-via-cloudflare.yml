@@ -77,8 +77,8 @@ jobs:
 
       # Primary identity for the PR publisher below = GitHub App installation
       # token (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and
-      # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
-      # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
+      # the self-driven deploy queue observes the resulting main SHA. Falls
+      # back to env.GITHUB_PAT for the PR publisher (#2861 item 1).
       - name: Mint App token (primary identity, PAT fallback)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
@@ -95,7 +95,7 @@ jobs:
           # Remote Config by the previous step.
           MIN_COUNT: ${{ inputs.min_count || '2' }}
         run: |
-          node scripts/discover-404s-via-cloudflare.mjs \
+          npx --no-install tsx scripts/discover-404s-via-cloudflare.mjs \
             --min-count="$MIN_COUNT" \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 

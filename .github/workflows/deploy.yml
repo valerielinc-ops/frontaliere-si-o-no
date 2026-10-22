@@ -1,11 +1,12 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Pushes are admitted by deploy-request.yml, a short control-plane workflow
-  # that coalesces requests without occupying the build lock. Keeping this
-  # workflow dispatch-only is the important invariant: a push can never enter
-  # GitHub's one-running/one-pending replacement queue and cancel a production
-  # build before its first job starts.
+  # A completed run owns its next dispatch. The schedule is only a cheap
+  # recovery edge for the one case GitHub cannot execute a final job: a run
+  # cancelled while it is still pending. It never builds in the scheduled run;
+  # it exits after checking the current queue and main tip.
+  schedule:
+    - cron: '*/10 * * * *'
   workflow_dispatch:
     inputs:
       article_id:
@@ -54,28 +55,29 @@ on:
         default: false
 
 permissions:
-  # This workflow only needs repository read access: the previous-slug winners
-  # sync moved to post-deploy-validation.yml, while the deploy itself only
-  # uploads artifacts and publishes to GitHub Pages.
+  # The build reads the repository and publishes its Pages artifact; the final
+  # job also needs actions:write for the self-driven successor dispatch.
   contents: read
   pages: write
   id-token: write
   issues: write     # for github-issue-creator on build/deploy failure
+  actions: write    # final self-dispatch and the schedule recovery edge
 
 # Workflow-level serialisation of the BUILD block (matrix-setup → prep →
-# build-locale ×4). Exactly one build run is active at a time. Normal push
-# admission happens in deploy-request.yml, which coalesces a continuous stream
-# before it reaches this expensive workflow; if multiple explicit dispatches
-# race, GitHub may still retain one pending run and replace only that pending
-# member. The in-progress build is never cancelled.
+# build-locale ×4). Exactly one build run is active at a time. The final rearm
+# job dispatches the next build on the current main tip; the ten-minute
+# schedule is only a cheap rescue for a run cancelled before its final job can
+# start. Both events share this concurrency group, so a schedule cannot race
+# the final job into a second pending build; the in-progress build is never
+# cancelled.
 #
 # Crucially, this run now ENDS at the build: deploy / validate / publish moved to
-# the separate `deploy-publish.yml` workflow. The cheap `deploy-request.yml`
-# coordinator observes this run's completion and explicitly dispatches the
-# publish tail, so the handoff cannot be evicted by a workflow_run pending slot.
-# The lock is released the moment the build finishes — the next queued build
-# starts immediately, while the prior build's deploy/validate/publish tail
-# proceeds independently in deploy-publish.yml (its own `pages-deploy` lock).
+# the separate `deploy-publish.yml` workflow. The final build step dispatches the
+# publish tail for this immutable source run; `deploy-request.yml` remains only
+# a status-aware recovery tick for old/manual source runs. The lock is released
+# the moment the build finishes — the next queued build starts immediately,
+# while the prior build's deploy/validate/publish tail proceeds independently in
+# deploy-publish.yml (its own `pages-deploy` lock).
 # This gives "one build at a time, next starts when the build — not the whole
 # deploy cycle — is done", without the ~1h idle a whole-run lock caused.
 #
@@ -83,10 +85,63 @@ permissions:
 # never race another run's same-locale CDN / frontaliere-<loc> force-push target,
 # so no per-job concurrency group is needed on build-locale anymore.
 concurrency:
+  # The lightweight schedule shares the build lock. That makes the queue check
+  # atomic with dispatch: a schedule can wait behind a real build, but it can
+  # never race the final job into a second pending workflow_dispatch run.
   group: pages-build-run
   cancel-in-progress: false
 
 jobs:
+  # Schedule runs intentionally do not enter the expensive build graph. The
+  # resolver counts queued/in-progress runs and successful builds for HEAD;
+  # only when both are absent does it dispatch one workflow_dispatch on main.
+  # It also holds a translation `pending` tree and consumes the durable
+  # canonical-regression request; no external workflow dispatches this build.
+  schedule-reconcile:
+    name: Reconcile the current deploy tip
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: write
+      statuses: read
+    steps:
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+      - name: Checkout deploy resolver
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          sparse-checkout: |
+            /scripts/ci/rearm-deploy-build.mjs
+            /scripts/ci/deploy-rearm-request.mjs
+            /scripts/ci/lib/deploy-job-failure-signature.mjs
+            /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/int-from-env.mjs
+            /scripts/lib/is-invoked-directly.mjs
+            /scripts/ci/translation-deploy-handoff.mjs
+            /data/translation-deploy-handoff.json
+          sparse-checkout-cone-mode: false
+      - name: Dispatch only when the queue is idle
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REARM_MODE: schedule
+          REARM_MAX_BUILDS_PER_SHA: '2'
+          REARM_SKIP_LOCALE_RECOVERY: '1'
+        run: node scripts/ci/rearm-deploy-build.mjs
+
   # Admit only an explicit main-branch production candidate before any build
   # leg can produce artifacts or mutate deploy targets.
   # This file is the canonical build producer for the coordinator handoff;
@@ -94,6 +149,7 @@ jobs:
   # immutable ID before any Pages or post-deploy side effect is allowed.
   validate-promotion-trigger:
     name: validate production promotion trigger
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -118,7 +174,12 @@ jobs:
         with:
           sparse-checkout: |
             /scripts/ci/production-promotion-gate.mjs
+            /scripts/ci/translation-deploy-handoff.mjs
+            /scripts/lib/is-invoked-directly.mjs
+            /data/translation-deploy-handoff.json
           sparse-checkout-cone-mode: false
+      - name: Reject an incomplete translation tree
+        run: node scripts/ci/translation-deploy-handoff.mjs
       - name: Reject non-main or unverified source
         env:
           PROMOTION_EVENT: ${{ github.event_name }}
@@ -137,6 +198,7 @@ jobs:
 
   matrix-setup:
     needs: [validate-promotion-trigger]
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.build.outputs.matrix }}
@@ -170,6 +232,7 @@ jobs:
   # monolith's Active-jobs regression check + SEO position tracking.
   prep:
     needs: matrix-setup
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
       - name: Restore runner CA trust before checkout (#9681)
@@ -308,6 +371,7 @@ jobs:
   # artifacts as the monolith; en/de/fr push to their frontaliere-<loc> shards.
   build-locale:
     needs: [matrix-setup, prep]
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     # No per-job concurrency: the workflow-level `pages-build-run` group already
     # guarantees a single build run at a time, so this run's 4 legs never race
@@ -324,6 +388,7 @@ jobs:
       pages: write
       id-token: write
       issues: write
+      statuses: write   # durable shard receipt for the successful IT push
       # #5331: the CDN ordering gate reads THIS run's job list to tell "the IT
       # leg has not published the marker YET" apart from "the IT leg is over and
       # failed, so it never will". Read-only, and the gate degrades to its old
@@ -2398,6 +2463,7 @@ jobs:
       # last-known-good shard and is explicitly reported as stale.
       - name: Write locale publish provenance
         if: always()
+        id: write-locale-provenance
         env:
           PROVENANCE_BUILD_OUTCOME: ${{ steps.build_step.outcome }}
           PROVENANCE_VALIDATE_OUTCOME: ${{ steps.validate-locale-shard.outcome }}
@@ -2414,6 +2480,26 @@ jobs:
           node scripts/ci/locale-publish-provenance.mjs \
             --output "$RUNNER_TEMP/locale-publish-provenance/${BUILD_LOCALE}.json" \
             --dist-dir dist
+
+      # The IT section shards are pushed by this build leg. Record that fact
+      # immediately after the provenance file; Pages itself is recorded later
+      # by deploy-publish, after the GitHub Pages deployment reports success.
+      - name: Write durable IT shard receipt
+        if: >-
+          ${{ always() && matrix.locale == 'it' &&
+              steps.push-section-shards-it.outcome == 'success' &&
+              steps.deploy-prep-it.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/publish-receipts.mjs \
+            --write locale \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --locale it
 
       - name: Upload locale publish provenance
         if: always()
@@ -2457,7 +2543,7 @@ jobs:
     # always(): anche con gambe fallite o una run cancellata ci sono righe da
     # salvare. Ma se build-locale e' stato saltato (run non ammessa, prep
     # fallito) non esiste nessuna riga: niente runner ne' segreti caricati.
-    if: ${{ always() && needs.build-locale.result != 'skipped' }}
+    if: ${{ github.event_name != 'schedule' && always() && needs.build-locale.result != 'skipped' }}
     runs-on: ubuntu-latest
     continue-on-error: true
     timeout-minutes: 10
@@ -2585,11 +2671,9 @@ jobs:
   #
   # THE HOLE. `pages-build-run` keeps 1 running + 1 pending and drops the
   # superseded middle. That is newest-wins and it is correct — on a linear
-  # `main` the newer build already contains what it superseded, and the
-  # paths-ignore comment in deploy-request.yml records that those
-  # cancellations start zero jobs and cost nothing. But nothing in the design
-  # restarts the pipeline when it reaches a terminal state with NOTHING queued
-  # behind it. Measured across the 100 runs from 2026-08-06T12:37Z to
+  # `main` the newer build already contains what it superseded. But nothing in
+  # the old design restarted the pipeline when it reached a terminal state with
+  # NOTHING queued behind it. Measured across the 100 runs from 2026-08-06T12:37Z to
   # 2026-08-08T05:58Z (~41 h): 82 cancelled, 10 success, 6 failure, and exactly
   # ONE such moment — a run ended `failure` at 2026-08-06T16:27:57Z and the
   # pipeline sat idle for 412 minutes until a human pushed. Same order as the
@@ -2602,27 +2686,36 @@ jobs:
   # instead, at the exact moment the information is available: the build just
   # ended, so "is anything still queued?" is answerable now.
   #
-  # WHY `if: always()` AND WHY THAT IS ENOUGH. A run cancelled while PENDING
-  # never reaches this job — and must not: a pending-cancel means a newer run
-  # took the slot, so the pipeline is by definition still moving. The state that
-  # needs re-arming is the one where a run actually RAN and did not succeed,
-  # which is precisely what reaches here.
+  # WHY `if: always()` AND THE CANCELLATION COVER. GitHub evaluates this final
+  # job after failed and cancelled dependencies when the run is still executing.
+  # A run cancelled while PENDING can be removed before this job is scheduled;
+  # the schedule-reconcile job is the explicit rescue for that documented
+  # platform edge. It exits after the same queue/HEAD check, so it cannot add a
+  # duplicate while another build is queued, running, or already green.
   #
   # RECURSION and STORM are closed in scripts/ci/rearm-deploy-build.mjs — the
   # cap is per-SHA (so each re-arm strictly consumes budget and the chain ends
   # after one retry) and the decision is taken for the current HEAD only, never
-  # once per superseded commit. See that file's header for the full argument.
+  # once per superseded commit. A canonical-regression status can override a
+  # green-build shortcut exactly once for that SHA; see the queue helper and
+  # that file's header for the full argument.
   # ───────────────────────────────────────────────────────────────────────
   rearm:
     needs: [validate-promotion-trigger, matrix-setup, prep, build-locale]
     # `always()` bypasses the implicit needs-success gate, so admission is
-    # re-asserted explicitly here against the fail-closed trigger check.
-    if: always() && github.ref == 'refs/heads/main' && needs.validate-promotion-trigger.result == 'success'
+    # evaluated here even after a failed/cancelled build. The dispatch step
+    # still re-asserts the fail-closed trigger check before it can add work.
+    if: >-
+      always() &&
+      github.event_name != 'schedule' &&
+      github.ref == 'refs/heads/main' &&
+      needs.validate-promotion-trigger.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
       contents: read
       actions: write   # read this workflow's run list + POST /dispatches
+      statuses: read   # read the durable canonical-regression queue
     steps:
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash
@@ -2642,6 +2735,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          ref: refs/heads/main
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -2667,39 +2761,52 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      # A run dispatched with GITHUB_TOKEN (actor github-actions[bot]) never
-      # fires `workflow_run` downstream, so deploy-publish.yml was never started
-      # for a re-armed build: it went green and its artifact was never deployed
-      # (e.g. runs 35896695642, 35956754182). Dispatch with the App token so the
-      # re-armed build is published like any push build. The App token is used
-      # only when its installation grants `actions: write` (APP_TOKEN_ACTIONS,
-      # read from the minted token's own permissions): a token that can mint
-      # but not dispatch would 403 here and silently leave the build unpublished.
-      - name: Mint GitHub App token (so the re-armed run triggers deploy-publish)
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
       - name: Re-arm the build pipeline if it has stopped with work outstanding
         # Never fail the deploy over this. A red job here would be a second
         # failure stacked on the one that stopped the pipeline, and
         # pages-publish-lag-watchdog.yml remains the backstop either way.
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # At most this many build attempts per commit. The caller's own run
           # counts, so the default of 2 means exactly ONE automatic retry: a
           # commit whose build is genuinely broken is retried once and then left
           # to the "CI Failure (build)" issue this workflow already files.
           REARM_MAX_BUILDS_PER_SHA: '2'
+          REARM_SELF_CONCLUSION: ${{ needs.build-locale.result == 'success' && 'success' || 'failure' }}
           # A confirmed host-loss/timeout in one matrix leg gets exactly one
           # job-level rerun. The rerun reuses this run's SHA and prepared
           # snapshot artifact; it must never fan out into a second full matrix.
           REARM_MAX_LOCALE_RECOVERY_ATTEMPTS: '1'
         run: node scripts/ci/rearm-deploy-build.mjs
+
+      # This dispatch is deliberately at the end of the build workflow. The
+      # publisher waits for this source run to become terminal before admitting
+      # its artifacts, so the direct GITHUB_TOKEN dispatch is safe even though
+      # GitHub does not emit a reliable workflow_run event for token-triggered
+      # runs. The status-based receipt in deploy-publish makes this idempotent.
+      - name: Start Pages publisher for this build
+        if: needs.build-locale.result == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ github.run_id }}
+          SOURCE_SHA: ${{ github.sha }}
+          SOURCE_EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          workflow_id=$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/deploy.yml" --jq '.id')
+          gh workflow run deploy-publish.yml \
+            --repo "$GITHUB_REPOSITORY" \
+            --ref main \
+            -f "source_run_id=$SOURCE_RUN_ID" \
+            -f "source_sha=$SOURCE_SHA" \
+            -f 'source_conclusion=success' \
+            -f 'source_branch=main' \
+            -f "source_event_name=$SOURCE_EVENT_NAME" \
+            -f 'source_workflow=Deploy to GitHub Pages' \
+            -f 'source_workflow_path=.github/workflows/deploy.yml' \
+            -f "source_workflow_id=$workflow_id"
 
   # ───────────────────────────────────────────────────────────────────────
   # resolve-build-alarm: gli allarmi di build con un titolo UNICO per tutte le
@@ -2723,7 +2830,7 @@ jobs:
   resolve-build-alarm:
     name: close the build alarm when every leg is green
     needs: [build-locale]
-    if: needs.build-locale.result == 'success'
+    if: github.event_name != 'schedule' && needs.build-locale.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     continue-on-error: true
@@ -2842,7 +2949,7 @@ jobs:
     name: in-run deploy alarm (run without workflow_run)
     needs: [validate-promotion-trigger, matrix-setup, prep, build-locale]
     if: >-
-      ${{ !cancelled() && github.ref == 'refs/heads/main' &&
+      ${{ github.event_name != 'schedule' && !cancelled() && github.ref == 'refs/heads/main' &&
           (github.actor == 'github-actions[bot]' || github.triggering_actor == 'github-actions[bot]') &&
           contains(needs.*.result, 'failure') }}
     runs-on: ubuntu-latest

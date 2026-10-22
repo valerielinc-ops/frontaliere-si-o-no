@@ -4,8 +4,8 @@ name: cathedral-noindex-flip
 # MIN_JOBS_FOR_CANTON_PAGE threshold (= 5 canonical jobs per shard) and
 # record the flip event in `data/cathedral-flip-log.json` (one-way ratchet).
 #
-# The flip-log update is committed + pushed to main. The push triggers
-# `deploy.yml`, which rebuilds with the now-eligible robots meta (the
+# The flip-log update is committed + pushed to main. The self-driven
+# `deploy.yml` schedule observes the new SHA and rebuilds with the now-eligible robots meta (the
 # build emitter already consults the live shard count for canton hubs).
 #
 # CLAUDE.md non-negotiables honored:

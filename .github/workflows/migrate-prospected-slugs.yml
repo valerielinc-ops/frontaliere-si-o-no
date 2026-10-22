@@ -168,11 +168,9 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd 'node scripts/migrate-prospected-slugs.mjs --apply && git add -- data/jobs/by-crawler/accor.json data/jobs/by-crawler/ete.json data/jobs/by-crawler/gmo.json data/jobs/by-crawler/michaelpage.json data/jobs/by-crawler/okjob.json data/jobs/by-crawler/recruitingapp-2649.json'
 
-      - name: Trigger deploy after migration
+      - name: Record self-driven deploy handoff after migration
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        run: bash scripts/lib/trigger-deploy.sh
-        env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: echo '✅ Migrazione committata; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Report workflow failure
         if: failure()

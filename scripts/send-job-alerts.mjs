@@ -98,6 +98,13 @@ import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffin
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
+import {
+  JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+  assignJobAlertSubjectVariant,
+  jobAlertSubjectPeriodId,
+  readJobAlertSubjectConfig,
+  renderJobAlertSubject,
+} from './lib/job-alert-subject-experiment.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
 import {
   DEFAULT_JOB_ALERT_LOOKBACK_MS,
@@ -129,6 +136,8 @@ const DRY_RUN = process.argv.includes('--dry-run');
 // midnight into a different answer than the one the operator saw.
 const TODAY_ISO = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
 const JOB_EMAIL_RANKING_CONFIG = readJobEmailRankingConfig();
+const JOB_ALERT_SUBJECT_CONFIG = readJobAlertSubjectConfig();
+const JOB_ALERT_SUBJECT_PERIOD_ID = jobAlertSubjectPeriodId(TODAY_ISO);
 const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
   || process.env.RUN_ID
   || `${TODAY_ISO}_${process.pid}_${Date.now()}`;
@@ -979,7 +988,13 @@ function selectHeadlineIndex(shownJobs, locale) {
   return 0;
 }
 
-function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingContext = null) {
+function buildAlertEmail(
+  alert,
+  matchedJobs,
+  autologinEnabled = true,
+  rankingContext = null,
+  subjectExperiment = null,
+) {
   const locale = nlNormLocale(alert.locale);
   const s = getStrings(locale);
   const jobBoardPath = resolveCantonSection(locale, AGGREGATE_KEY);
@@ -1132,6 +1147,20 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
     }
     subject = candidate;
   }
+  // The body/preheader stay identical across arms. Only the subject changes,
+  // and the control is the exact subject built above so the experiment can be
+  // disabled without changing production copy.
+  const renderedSubject = renderJobAlertSubject({
+    variant: subjectExperiment?.variant || 'control',
+    locale,
+    controlSubject: subject,
+    shownCount: shownJobs.length,
+    keyword,
+    locationLabel,
+    subjectLabel,
+    useNewCopy,
+  });
+  subject = renderedSubject.subject;
 
   // Brand colors (aligned with newsletter-template.mjs)
   const BRAND_ORANGE = '#f97316';
@@ -1428,7 +1457,14 @@ function buildAlertEmail(alert, matchedJobs, autologinEnabled = true, rankingCon
     dataControllerFooterLine(locale),
   ].join('\n');
 
-  return { subject, html, text, unsubscribeUrl };
+  return {
+    subject,
+    html,
+    text,
+    unsubscribeUrl,
+    subjectVariant: renderedSubject.variant,
+    subjectFreshnessQualified: renderedSubject.freshnessQualified,
+  };
 }
 
 function escHtml(s) {
@@ -1505,6 +1541,12 @@ export async function persistJobAlertDelivery(item, sendResult) {
       campaign_id: alertId || null,
       ranking_delivery_id: rankingDeliveryId,
       ranking_variant: item.meta?.rankingVariant || null,
+      subject_experiment: item.meta?.subjectExperiment || null,
+      subject_experiment_active: item.meta?.subjectExperimentActive === true,
+      subject_experiment_period: item.meta?.subjectExperimentPeriod || null,
+      subject_variant: item.meta?.subjectVariant || null,
+      subject_line: item.meta?.subject || null,
+      subject_freshness_qualified: item.meta?.subjectFreshnessQualified ?? null,
       // Lean manifest only (job_id, position, scores): the full job objects stay
       // in memory on item.meta.rankingJobs for recordJobEmailImpressions and the
       // retry queue. Storing them here cost ~200 KB per delivery document.
@@ -1581,6 +1623,8 @@ async function sendBatch(emails) {
           { name: 'alert_id', value: e.alertId },
           { name: 'ranking_delivery_id', value: e.rankingDeliveryId || '' },
           { name: 'ranking_variant', value: e.rankingVariant || 'control' },
+          { name: 'subject_experiment', value: e.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID },
+          { name: 'subject_variant', value: e.subjectVariant || 'control' },
         ],
         headers: { ...feedbackHeader, ...unsubHeaders },
         // Per-user send-time (#3798) — resolved per-recipient in main() above
@@ -1597,6 +1641,12 @@ async function sendBatch(emails) {
         rankingVariant: e.rankingVariant || 'control',
         rankingAffinityProfile: e.rankingAffinityProfile === true,
         rankingJobs: e.sentJobs || [],
+        subject: e.subject || null,
+        subjectExperiment: e.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+        subjectExperimentActive: e.subjectExperimentActive === true,
+        subjectExperimentPeriod: e.subjectExperimentPeriod || JOB_ALERT_SUBJECT_PERIOD_ID,
+        subjectVariant: e.subjectVariant || 'control',
+        subjectFreshnessQualified: e.subjectFreshnessQualified ?? null,
         sendTimeSource: e.sendTimeSource || null,
         consentProof: e.consentProof || null,
         // is_operator_verification (#3798 report accuracy): ALLOWED_EMAILS set means
@@ -1673,6 +1723,11 @@ async function enqueueFailedEmails(db, failedItems) {
           ? item.meta.rankingAffinityProfile
           : null,
         rankingJobs: item.meta?.rankingJobs || [],
+        subjectExperiment: item.meta?.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+        subjectExperimentActive: item.meta?.subjectExperimentActive === true,
+        subjectExperimentPeriod: item.meta?.subjectExperimentPeriod || JOB_ALERT_SUBJECT_PERIOD_ID,
+        subjectVariant: item.meta?.subjectVariant || 'control',
+        subjectFreshnessQualified: item.meta?.subjectFreshnessQualified ?? null,
         createdAt: FieldValue.serverTimestamp(),
         retryCount: 0,
         error: (item.error || '').slice(0, 500),
@@ -1791,7 +1846,12 @@ async function processRetryQueue(db) {
             to: [item.email],
             subject: item.data.subject,
             html: item.data.html,
-            tags: [{ name: 'type', value: 'job-alert-retry' }],
+            tags: [
+              { name: 'type', value: 'job-alert-retry' },
+              { name: 'alert_id', value: item.alertId },
+              { name: 'subject_experiment', value: item.data.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID },
+              { name: 'subject_variant', value: item.data.subjectVariant || 'control' },
+            ],
           },
           recipient: { email: item.email },
           meta: {
@@ -1804,6 +1864,12 @@ async function processRetryQueue(db) {
               ? item.data.rankingAffinityProfile
               : null,
             rankingJobs: item.data.rankingJobs || [],
+            subject: item.data.subject || null,
+            subjectExperiment: item.data.subjectExperiment || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+            subjectExperimentActive: item.data.subjectExperimentActive === true,
+            subjectExperimentPeriod: item.data.subjectExperimentPeriod || JOB_ALERT_SUBJECT_PERIOD_ID,
+            subjectVariant: item.data.subjectVariant || 'control',
+            subjectFreshnessQualified: item.data.subjectFreshnessQualified ?? null,
             consentProof,
           },
         });
@@ -2762,6 +2828,12 @@ async function main() {
       subjectId: alert.email,
       config: JOB_EMAIL_RANKING_CONFIG,
     });
+    const subjectAssignment = assignJobAlertSubjectVariant({
+      email: alert.email,
+      alertId: alert.id,
+      periodId: JOB_ALERT_SUBJECT_PERIOD_ID,
+      config: JOB_ALERT_SUBJECT_CONFIG,
+    });
     const { affinityProfile, affinityScorer } = affinityContextFor(alert.email);
     const rankingOptions = {
       variant: rankingVariant,
@@ -2774,7 +2846,14 @@ async function main() {
     const preflightRanked = plan.matched.length > 0
       ? rankEmailJobs(plan.matched, { ...rankingOptions, limit: MAX_JOB_CARDS })
       : [];
-    plans.push({ ...plan, rankingVariant, rankingAffinityProfile: affinityProfile, rankingOptions, preflightRanked });
+    plans.push({
+      ...plan,
+      rankingVariant,
+      rankingAffinityProfile: affinityProfile,
+      rankingOptions,
+      preflightRanked,
+      subjectAssignment,
+    });
     if (preflightRanked.length > 0) livenessPrefetcher.enqueue(preflightRanked, nlNormLocale(alert.locale));
     await new Promise((resolve) => setImmediate(resolve));
   }
@@ -2796,6 +2875,17 @@ async function main() {
     }
     console.log(`   🎯 Job-email ranking: ${JSON.stringify(variantCounts)} alerts; ${withProfile} with a valid affinity profile (profiles ${JSON.stringify(affinityLoadStats)})`);
   }
+  {
+    const subjectCounts = {};
+    let activeSubjectAssignments = 0;
+    for (const plan of plans) {
+      const assignment = plan.subjectAssignment;
+      const key = assignment?.variant || 'control';
+      subjectCounts[key] = (subjectCounts[key] || 0) + 1;
+      if (assignment?.inExperiment === true) activeSubjectAssignments++;
+    }
+    console.log(`   🧪 Job-alert subject test: ${JSON.stringify(subjectCounts)} planned alerts; ${activeSubjectAssignments} in experiment (enabled=${JOB_ALERT_SUBJECT_CONFIG.enabled}, rollout=${JOB_ALERT_SUBJECT_CONFIG.rollout}, variants=${JOB_ALERT_SUBJECT_CONFIG.variantIds.join(',')})`);
+  }
   const zeroMatchSummary = summarizeZeroMatchPlans(plans);
 
   // 3b. Build, in the original alert order, with the same logs and counters.
@@ -2809,6 +2899,7 @@ async function main() {
     rankingAffinityProfile,
     rankingOptions,
     preflightRanked,
+    subjectAssignment,
   } of plans) {
     if (rankedCount === 0) {
       console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
@@ -2847,12 +2938,21 @@ async function main() {
       runId: JOB_EMAIL_RANKING_RUN_ID,
     });
     const autologinEnabled = !autologinDisabledSet.has(alert.email.toLowerCase());
-    const { subject, html, text, unsubscribeUrl } = buildAlertEmail(
+    const builtEmail = buildAlertEmail(
       alert,
       rankedForEmail,
       autologinEnabled,
       { deliveryId: rankingDeliveryId, variant: rankingVariant },
+      subjectAssignment,
     );
+    const {
+      subject,
+      html,
+      text,
+      unsubscribeUrl,
+      subjectVariant,
+      subjectFreshnessQualified,
+    } = builtEmail;
 
     // Mark the jobs actually shown (the rendered cards) as sent so they rotate
     // out next run. buildAlertEmail renders up to MAX_JOB_CARDS cards.
@@ -2904,6 +3004,11 @@ async function main() {
       rankingDeliveryId,
       rankingVariant,
       rankingAffinityProfile,
+      subjectExperiment: subjectAssignment.experimentId || JOB_ALERT_SUBJECT_EXPERIMENT_ID,
+      subjectExperimentActive: subjectAssignment.inExperiment === true,
+      subjectExperimentPeriod: subjectAssignment.periodId || JOB_ALERT_SUBJECT_PERIOD_ID,
+      subjectVariant,
+      subjectFreshnessQualified,
       consentProof: alertConsentProofs.get(`${alert.email.toLowerCase()}\u0000${alert.id}`) || null,
       unsubscribeUrl,
       scheduledAt,
