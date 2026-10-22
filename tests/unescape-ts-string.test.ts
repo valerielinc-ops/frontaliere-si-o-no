@@ -149,6 +149,13 @@ describe('unescapeTsValue (scripts/lib/meta-field-regex.mjs) — narrower scope,
       `l'impatto \\ e "quotato" "cosi"`,
     );
   });
+
+  it('decodes explicit Unicode escapes without widening newline decoding', () => {
+    expect(unescapeTsValue(String.raw`prima\u2028mezzo\u2029dopo`)).toBe(
+      `prima${String.fromCharCode(0x2028)}mezzo${String.fromCharCode(0x2029)}dopo`,
+    );
+    expect(unescapeTsValue(String.raw`prima\nseconda`)).toBe(String.raw`prima\nseconda`);
+  });
 });
 
 /**
