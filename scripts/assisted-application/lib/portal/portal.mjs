@@ -1281,17 +1281,6 @@ function orderedUploadFrames(page, preferredFrame) {
   return [preferred, ...frames.filter((frame) => frame !== preferred)];
 }
 
-function frameDescendsFrom(frame, ancestor) {
-  if (frame === ancestor) return true;
-  let current = frame;
-  for (let depth = 0; depth < 32 && current; depth += 1) {
-    if (typeof current.parentFrame !== 'function') return false;
-    current = current.parentFrame();
-    if (current === ancestor) return true;
-  }
-  return false;
-}
-
 async function dialogFileInputCount(frame) {
   try {
     const input = frame.locator(DIALOG_FILE_INPUT_SELECTOR);
@@ -1407,8 +1396,8 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
   const deadline = Date.now() + timeoutMs;
   while (Date.now() < deadline) {
     // A portal can create the dialog in a child iframe after the click. Read
-    // the frame list on every pass so that new descendants of the clicked
-    // frame get the empty pre-click baseline they necessarily had.
+    // the frame list on every pass, but keep any frame absent from the
+    // pre-click baseline ambiguous and fail closed.
     const frames = orderedUploadFrames(page, preferredFrame);
     const hasCountSurface = frames.some((frame) => {
       try {
@@ -1426,9 +1415,6 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
       if (beforeCounts.has(frame) && Array.isArray(beforeHandlesByFrame.get(frame))) {
         previousCount = beforeCounts.get(frame);
         beforeHandles = beforeHandlesByFrame.get(frame);
-      } else if (!beforeCounts.has(frame) && frame !== preferredFrame && frameDescendsFrom(frame, preferredFrame)) {
-        previousCount = 0;
-        beforeHandles = [];
       } else {
         ambiguous = true;
         continue;
