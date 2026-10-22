@@ -1440,7 +1440,11 @@ export function guardPlan(plan, fields, candidate = null) {
       && !recordedAnswerForQuestion(candidate, field.label, field.context, field))
     .map((field) => [field.id, permitAnswerForStatus(field, status)])
     .filter(([, value]) => value) : []);
-  for (const [fieldId, value] of statusPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'rule', evidence: '' });
+  for (const [fieldId, value] of statusPick) {
+    const field = byId.get(fieldId);
+    const action = field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike ? 'select' : 'fill';
+    actions.push({ fieldId, action, value, document: 'none', source: 'rule', evidence: '' });
+  }
   // A yes/no field that only asks whether the candidate holds a document attached to this application: its
   // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving
   // licence?» into a question for the candidate who has just uploaded it.
