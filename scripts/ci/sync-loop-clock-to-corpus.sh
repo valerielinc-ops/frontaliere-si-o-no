@@ -100,20 +100,19 @@ if [ -n "$staged" ] && [ "$staged" != "$target_path" ]; then
 fi
 
 if git diff --cached --quiet; then
-  if [ "$open_count" -eq 1 ]; then
+  if [ "$open_count" -gt 0 ]; then
     echo 'Corpus issue-triage workflow already carries the loop-clock contract in its open PR.'
     exit 0
   fi
-  echo 'Corpus issue-triage workflow already carries the loop-clock contract; creating its missing PR.'
+  echo 'Corpus issue-triage workflow already carries the loop-clock contract; ensuring its missing PR.'
 else
   git config user.name 'frontaliere-automation[bot]'
   git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
   git commit -m 'fix(ci): identify corpus loop-clock triage dispatches'
-
-  assert_transport_delta
-  git push -u origin "HEAD:$target_branch"
 fi
 
+assert_transport_delta
+git push -u origin "HEAD:$target_branch"
 body="$work/pr-body.md"
 cat > "$body" <<'BODY'
 ## Implementato
