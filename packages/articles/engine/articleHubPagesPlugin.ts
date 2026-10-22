@@ -84,6 +84,7 @@ import {
   cantonTopicHubPath,
 } from './shared/cantonSectionCopy.mjs';
 import { CANTON_HUB_TOPIC_KEYS } from './shared/cantonArticleSectionCore.generated.mjs';
+import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 
 /** Alias kept so the extracted bodies below read exactly as they did upstream. */
 type HubLocale = ArticleLocale;
@@ -846,6 +847,12 @@ function buildHtml(args: BuildHtmlArgs): string {
   const pageTitle = baseTitle.length + brandSuffix.length <= 60 ? `${baseTitle}${brandSuffix}` : baseTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const twitterCardMeta = buildTwitterCardMetaTags({
+    title: pageTitle,
+    description,
+    image: `${BASE_URL}/og-image.png`,
+    locale,
+  });
 
   // hreflang: only emit alternates for page-1 (paginated pages share lang)
   const hreflangs = page === 1
@@ -988,6 +995,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:alt" content="${esc(pageTitle)}">
+    ${twitterCardMeta}
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
