@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-22T09:28:03.693Z",
+  "generatedAt": "2026-10-22T21:25:53.250Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10535,
-  "avgDurationMs": 10535,
+  "durationMs": 11048,
+  "avgDurationMs": 11048,
   "durationHistory": [
-    10535
+    11048
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Software Engineering - Finance Core Platform",
       "slug": "software-engineering-finance-core-platform-chiasso",
@@ -53,9 +54,7 @@
         "translation": 21,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Administrative B2B Specialist",
       "slug": "administrative-b2b-specialist-chiasso",
@@ -304,5 +303,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }

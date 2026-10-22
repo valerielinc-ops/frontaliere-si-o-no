@@ -1,7 +1,7 @@
 {
   "key": "deillon-delley-architectes",
   "label": "Deillon Delley Architectes SA",
-  "generatedAt": "2026-10-22T09:31:22.154Z",
+  "generatedAt": "2026-10-22T21:25:41.250Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4368,
-  "avgDurationMs": 4368,
+  "durationMs": 4590,
+  "avgDurationMs": 4590,
   "durationHistory": [
-    4368
+    4590
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -54,7 +54,7 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20junior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:31:12.985Z",
+      "crawledAt": "2026-10-22T21:25:24.346Z",
       "firstSeenAt": "2026-10-15T21:26:50.037Z",
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -96,7 +96,7 @@
       "applyUrl": "https://deillondelley.ch/emplois/details-emplois/#:~:text=Architecte%20d%C3%A9veloppement%20senior",
       "source": "Deillon Delley Architectes SA Dedicated Parser (official site)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:31:12.985Z",
+      "crawledAt": "2026-10-22T21:25:24.346Z",
       "firstSeenAt": "2026-10-15T21:26:50.037Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }

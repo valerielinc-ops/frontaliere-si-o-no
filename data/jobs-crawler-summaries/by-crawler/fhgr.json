@@ -1,7 +1,7 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-10-22T09:28:26.124Z",
+  "generatedAt": "2026-10-22T21:27:34.569Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -14,61 +14,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5462,
-  "avgDurationMs": 5462,
+  "durationMs": 5692,
+  "avgDurationMs": 5692,
   "durationHistory": [
-    5462
+    5692
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "fhgr-086c063dedcd",
-      "slug": "assistenza-organizzativa-assistenza-diretta-fachhochschule-graubunden-chur",
-      "company": "Fachhochschule Graubünden",
-      "companyKey": "fhgr",
-      "companyDomain": "fhgr.ch",
-      "title": "Organisationsassistenz (Direktionsassistenz)",
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.fhgr.ch/Vacancies/814/Description/1",
-      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T09:26:42.758Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Formazione / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.fhgr.ch/Vacancies/814/Application/CheckLogin/1",
-      "department": "Administration",
-      "contractDuration": "permanent",
-      "firstSeenAt": "2026-09-29T09:26:08.665Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "fhgr-b96495651fa4",
@@ -82,7 +37,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:28:17.002Z",
+      "crawledAt": "2026-10-22T21:27:18.276Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -114,5 +69,5 @@
       }
     }
   ],
-  "codeCommit": "70f867ec63195877fff0e97fa8e772bd1d156efb"
+  "codeCommit": "61053b98445fc5e6027dbff9dce662856d0be7c0"
 }
