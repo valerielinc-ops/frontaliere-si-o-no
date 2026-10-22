@@ -526,6 +526,25 @@ describe('loop clock observer', () => {
     expect(secondCall[1]).toContain('page=2');
   });
 
+  it('defaults to workflow_dispatch when the gh implementation is passed directly', () => {
+    const entry = customEntry('direct-gh-seam');
+    const createdAt = minutesAgo(1);
+    const run = {
+      id: 1,
+      created_at: createdAt,
+      html_url: 'https://example.invalid/runs/1',
+      event: 'workflow_dispatch',
+      head_branch: 'main',
+      display_title: `Workflow ${LOOP_CLOCK_RUN_MARKER_PREFIX}${loopClockInputValue(entry, createdAt)}]`,
+    };
+    const ghImpl = vi.fn(() => JSON.stringify({ total_count: 1, workflow_runs: [run] }));
+
+    const rows = listDispatchRuns('owner/site', entry.workflow, 10, 720, ghImpl);
+
+    expect(rows).toHaveLength(1);
+    expect((ghImpl.mock.calls[0][0] as string[])[1]).toContain('event=workflow_dispatch');
+  });
+
   it('uses unfiltered rows only after bounded retries of an empty event index', () => {
     const entry = customEntry('api-fallback');
     const unrelatedRun = {

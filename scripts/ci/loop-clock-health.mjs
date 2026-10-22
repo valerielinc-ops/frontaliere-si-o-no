@@ -262,7 +262,9 @@ export function listDispatchRuns(
     ? optionsOrEvent.event ?? 'workflow_dispatch'
     : optionsOrEvent === null
       ? null
-      : optionsOrEvent ?? 'workflow_dispatch';
+      : typeof optionsOrEvent === 'function'
+        ? 'workflow_dispatch'
+        : optionsOrEvent ?? 'workflow_dispatch';
   const { ghImpl = gh, sleep = sleepSync, warn = console.warn } = options;
   const requestedLimit = Number(limit);
   if (!Number.isInteger(requestedLimit) || requestedLimit <= 0) {
