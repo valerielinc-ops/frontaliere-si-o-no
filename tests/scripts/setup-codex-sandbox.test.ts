@@ -8,11 +8,12 @@ const action = (name: string) => YAML.parse(readFileSync(new URL(`../../.github/
 describe('Codex sandbox prerequisites on Ubuntu', () => {
   it('loads the distro AppArmor profile and probes network namespaces without disabling isolation', () => {
     const run = action('setup-codex-sandbox').runs.steps[0].run;
-    expect(run).toContain('apt-get install -y -qq bubblewrap apparmor-profiles apparmor-utils');
+    expect(run).toContain('install -y bubblewrap apparmor-profiles apparmor-utils');
     expect(run).toContain('/usr/sbin/apparmor_parser -r /etc/apparmor.d/bwrap-userns-restrict');
     expect(run).toContain('/usr/bin/bwrap --unshare-user --unshare-net');
     expect(run).not.toContain('sysctl');
     expect(run).not.toContain('danger-full-access');
+    expect(run).toContain("run_retried 'apt-get install' 120");
   });
 
   // Smoke-test-ai-models run 35995800618: l'hook apt di needrestart riavviava
