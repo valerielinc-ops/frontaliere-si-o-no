@@ -91,9 +91,10 @@ const profilePath = (locale: Locale, slug: string): string => buildEmployerProfi
 
 /**
  * Max active jobs rendered as cards and ItemList entries per profile page.
- * Derive the boundary from the shared in-feed cadence: the trailing card keeps
- * the slot after the last eligible position renderable, while the full active
- * count remains visible in the stat tile and heading.
+ * Keep the preview bounded at the shared job-list payload limit. Employer
+ * profiles deliberately opt out of the shared in-feed cadence below: their
+ * page-level multiplex is the only manual unit, so every emitted static slot
+ * remains covered by the shared content/slot-ratio gate.
  */
 const MAX_JOBS_LISTED = JOBLIST_AD_EVERY_N * JOBLIST_AD_MAX_PER_LIST + 1;
 
@@ -913,8 +914,8 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
         const rendered = LOCALES.map((locale) => {
           // Probe without manual ad markup; noindex/thin pages must not carry
           // manual slots. Employer profiles keep the page-level multiplex as
-          // their control unit; the opt-in EOC test and shared every-three-jobs
-          // cadence are added only to the indexable final render below.
+          // their control unit; the opt-in EOC test is added only to the
+          // indexable final render below.
           const bodyHtml = renderProfileBody(liveProfile, listed, locale, group, {
             interleaveInfeedAds: false,
           });
@@ -922,7 +923,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const indexable = meetsFloor && countHtmlBodyWords(bodyHtml) >= MIN_INDEXABLE_WORDS;
           const renderedBodyHtml = indexable
             ? renderProfileBody(liveProfile, listed, locale, group, {
-                interleaveInfeedAds: true,
+                interleaveInfeedAds: false,
                 includeEmployerProfileMidAd: true,
                 employerProfileMidAdVariant,
               })
@@ -983,8 +984,10 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
 
           if (!indexable) thinDowngraded++;
 
-          // End-of-content multiplex — gated on `indexable`, so below-floor /
-          // thin profiles (noindex) never carry a manual slot (MFA-safety).
+          // Employer profiles keep only the page-level multiplex. The shared
+          // job-list in-feed cadence is for list surfaces; leaving it enabled
+          // here would add four ungated static slots before this helper can
+          // enforce the content/slot ratio on the final multiplex.
           const bodyWithAd = `${bodyHtml}${endOfContentMultiplexHtml({ indexable, contentHtml: bodyHtml })}`;
 
           // Budget-aware cascade — see employerTitleCandidates() and the
