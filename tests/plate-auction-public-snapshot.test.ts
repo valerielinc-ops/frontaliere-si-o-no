@@ -6,6 +6,7 @@ import {
   PLATE_AUCTION_SNAPSHOT_OBJECT,
   publishPublicPlateAuctionSnapshot,
   getCachedPublicPlateAuctionSnapshotBody,
+  getPublicPlateAuctionSourceSnapshot,
   getPublicPlateAuctionSnapshot,
   PLATE_AUCTION_SNAPSHOT_CACHE_MS,
   resetPublicPlateAuctionSnapshotCache,
@@ -20,10 +21,10 @@ function makeDb({ auctions = [], sources = [], history = [] } = {}) {
           : name === "plate_auction_sources"
             ? sources
             : history;
-      return {
+      const query = (values: typeof rows) => ({
         limit: () => ({
           get: async () => ({
-            docs: rows.map((value) => ({
+            docs: values.map((value) => ({
               id: String(value.id),
               data: () => value,
             })),
@@ -32,14 +33,19 @@ function makeDb({ auctions = [], sources = [], history = [] } = {}) {
         orderBy: () => ({
           limit: () => ({
             get: async () => ({
-              docs: rows.map((value) => ({
+              docs: values.map((value) => ({
                 id: String(value.id),
                 data: () => value,
               })),
             }),
           }),
         }),
-      };
+        where: (field: string, operator: string, expected: unknown) => {
+          if (operator !== "==") throw new Error(`Unsupported test operator: ${operator}`);
+          return query(values.filter((value) => value[field] === expected));
+        },
+      });
+      return query(rows);
     },
   };
 }
@@ -107,6 +113,31 @@ describe("public plate-auction snapshot source gating", () => {
       rowCount: 0,
     });
     expect(snapshot.sources.ne).not.toHaveProperty("errorCode");
+  });
+
+  it("builds a source-scoped relay snapshot without reading the full catalogue", async () => {
+    const snapshot = await getPublicPlateAuctionSourceSnapshot({
+      db: makeDb({
+        auctions: [
+          row({ id: "fr-1", sourceKey: "FR", platePrefix: "FR", canton: "Friburgo" }),
+          row({ id: "ti-1", sourceKey: "TI", platePrefix: "TI", canton: "Ticino" }),
+        ],
+        sources: [{
+          id: "fr",
+          canton: "Friburgo",
+          plateCode: "FR",
+          officialUrl: "https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch",
+          status: "active",
+          rowCount: 1,
+          lastSuccessAt: "2026-09-14T12:00:00.000Z",
+        }],
+      }) as never,
+      sourceKey: "fr",
+    });
+
+    expect(snapshot.sources).toHaveProperty("fr");
+    expect(snapshot.auctions.map((auction) => auction.sourceKey)).toEqual(["FR"]);
+    expect(snapshot.auctions).toHaveLength(1);
   });
 });
 
@@ -236,4 +267,3 @@ describe("published plate-auction snapshot (Cloud Storage)", () => {
     expect(result).toMatchObject({ auctions: 1, bytes: saved[0].data.length, generatedAt: decoded.generatedAt });
   });
 });
-

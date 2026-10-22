@@ -50,6 +50,13 @@ function canonicalPlateCode(value) {
   return String(value || '').trim().toUpperCase();
 }
 
+export function resolvePublicPlateAuctionSourceKey(value) {
+  if (Array.isArray(value) || typeof value !== 'string') return null;
+  const sourceKey = value.trim().toLowerCase();
+  const source = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[sourceKey];
+  return source?.status === 'active' ? sourceKey : null;
+}
+
 function makeEcariConnector({ canton, plateCode, url, parserVersion = '2.0.0' }) {
   return {
     canton,
@@ -600,6 +607,50 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
 }
 
 /**
+ * Build only the source requested by the static relay. The full endpoint is
+ * intentionally retained for browser/corpus consumers, but a relay fallback
+ * must not rebuild the 17k-row catalogue just to recover FR, TI or SZ after a
+ * cold start or a missing published object.
+ */
+export async function getPublicPlateAuctionSourceSnapshot({ db = getAdminDb(), sourceKey } = {}) {
+  const normalizedSourceKey = resolvePublicPlateAuctionSourceKey(sourceKey);
+  if (!normalizedSourceKey) throw new Error(`Unknown active plate-auction source: ${String(sourceKey || '')}`);
+  const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[normalizedSourceKey];
+  const sourceCode = canonicalPlateCode(registrySource.plateCode);
+  const [auctionRows, sourceRows] = await Promise.all([
+    readSourceRows(db, sourceCode),
+    readCollection(db, PLATE_AUCTION_SOURCE_COLLECTION, { pageSize: 50, maxRows: 50 }),
+  ]);
+  const sourceDocument = sourceRows.find((source) => String(source.id || '').toLowerCase() === normalizedSourceKey);
+  const source = publicSource(sourceDocument) || { ...registrySource, rowCount: 0 };
+  const now = new Date();
+  const auctions = sourceDocument && source.status === 'active'
+    ? auctionRows.map((doc) => ({ id: doc.id, ...doc.data() })).map(publicAuction).filter(Boolean).map((auction) => {
+      const closed = closeExpiredObservation(auction, now);
+      return closed ? publicAuction(closed) : auction;
+    }).filter(Boolean)
+    : [];
+  return {
+    schema: PLATE_AUCTION_API_SCHEMA,
+    complete: true,
+    generatedAt: now.toISOString(),
+    sources: { [normalizedSourceKey]: source },
+    auctions,
+    history: [],
+    counts: {
+      active: auctions.filter((auction) => auction.auctionStatus === 'active').length,
+      upcoming: auctions.filter((auction) => auction.auctionStatus === 'upcoming').length,
+      closed: auctions.filter((auction) => ['closed', 'sold', 'unsold'].includes(auction.auctionStatus)).length,
+      finalsVerified: auctions.filter((auction) => ['closed', 'sold', 'unsold'].includes(auction.auctionStatus)
+        && auction.dataConfidence === 'verified'
+        && typeof auction.finalPriceChf === 'number'
+        && typeof auction.finalPriceVerifiedAt === 'string').length,
+      cantonsWithData: auctions.length > 0 ? 1 : 0,
+    },
+  };
+}
+
+/**
  * How long one instance reuses a built snapshot: the same 5 minutes the
  * response already declares in `Cache-Control: max-age=300`.
  *
@@ -620,6 +671,8 @@ const gzipAsync = promisify(gzip);
 const gunzipAsync = promisify(gunzip);
 let cachedSnapshotBody = null;
 let pendingSnapshotBody = null;
+const cachedSourceBodies = new Map();
+const pendingSourceBodies = new Map();
 
 /**
  * Where refreshPlateAuctions publishes the built public snapshot, gzip-
@@ -731,6 +784,28 @@ export function acceptsGzip(acceptEncoding) {
 export function resetPublicPlateAuctionSnapshotCache() {
   cachedSnapshotBody = null;
   pendingSnapshotBody = null;
+  cachedSourceBodies.clear();
+  pendingSourceBodies.clear();
+}
+
+export function getCachedPublicPlateAuctionSourceBody({ sourceKey, db, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
+  const normalizedSourceKey = resolvePublicPlateAuctionSourceKey(sourceKey);
+  if (!normalizedSourceKey) return Promise.reject(new Error(`Unknown active plate-auction source: ${String(sourceKey || '')}`));
+  const cached = cachedSourceBodies.get(normalizedSourceKey);
+  if (cached && cached.expiresAt > now()) return Promise.resolve(cached.bodies);
+  if (!pendingSourceBodies.has(normalizedSourceKey)) {
+    const pending = (async () => {
+      const snapshot = await getPublicPlateAuctionSourceSnapshot({ db, sourceKey: normalizedSourceKey });
+      const body = Buffer.from(JSON.stringify(snapshot));
+      const bodies = { body, gzip: await gzipAsync(body) };
+      cachedSourceBodies.set(normalizedSourceKey, { bodies, expiresAt: now() + ttlMs });
+      return bodies;
+    })().finally(() => {
+      pendingSourceBodies.delete(normalizedSourceKey);
+    });
+    pendingSourceBodies.set(normalizedSourceKey, pending);
+  }
+  return pendingSourceBodies.get(normalizedSourceKey);
 }
 
 function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
