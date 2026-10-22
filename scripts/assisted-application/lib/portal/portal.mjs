@@ -1220,6 +1220,22 @@ const buttonMatchesDocumentContext = (button, contextPattern) => {
   return !context || contextPattern.test(context);
 };
 
+const uploadTriggerDiscriminatorByButton = new WeakMap();
+const uploadTriggerDiscriminatorCounters = new Map();
+
+function stableUploadTriggerDiscriminator(button, semanticKey) {
+  if (!button || typeof button !== 'object') return '';
+  const provided = String(button.uploadTriggerDiscriminator || '').trim();
+  if (provided) return provided;
+  const existing = uploadTriggerDiscriminatorByButton.get(button);
+  if (existing) return existing;
+  const next = (uploadTriggerDiscriminatorCounters.get(semanticKey) || 0) + 1;
+  const discriminator = 'stable:' + next;
+  uploadTriggerDiscriminatorCounters.set(semanticKey, next);
+  uploadTriggerDiscriminatorByButton.set(button, discriminator);
+  return discriminator;
+}
+
 /**
  * Find a document upload control without guessing from an unlabelled icon.
  * SuccessFactors uses a private-use glyph ("") for the CV button on some
@@ -1238,7 +1254,9 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     if (!button || button.disabled || button.chrome) return;
     // Preserve two distinct text-only controls as ambiguous candidates. IDs
     // deduplicate the same control when it is found by both scans.
-    const identity = button.id || button.domId || button.dataAaId || button.dataAutomationId || button.name || '';
+    // Automation ids and names are often shared by separate controls. Only
+    // extractor-assigned DOM ids can deduplicate the same control here.
+    const identity = button.id || button.domId || button.dataAaId || '';
     const key = identity ? `${button.frame || 0}:${identity}` : '';
     if (candidates.includes(button) || (key && candidateKeys.has(key))) return;
     if (key) candidateKeys.add(key);
@@ -1295,7 +1313,7 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
       return value && values.length === group.length && new Set(values).size === group.length
         ? `${field}:${value}`
         : '';
-    }).find(Boolean);
+    }).find(Boolean) || stableUploadTriggerDiscriminator(button, semanticKey);
     return discriminator
       ? { ...button, uploadTriggerDiscriminator: discriminator }
       : button;
