@@ -4700,8 +4700,8 @@
       "slug": "logistica-specialista-biolog-80-100-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "logistica-specialista-biolog-80-100-m-w-d-lonza-ch",
-        "en": "logistics-specialist-biolog-80-100-m-w-d-lonza-ch",
-        "de": "logistics-specialist-biolog-80-100-m-w-d-lonza-ch",
+        "en": "logistics-specialist-biolog-80-100-m-w-d-lonza-ch-lodsxr",
+        "de": "logistics-specialist-biolog-80-100-m-w-d-lonza-ch-lodsxr",
         "fr": "logistique-specialiste-biolog-80-100-m-w-d-lonza-ch"
       },
       "company": "Lonza",
@@ -4754,6 +4754,12 @@
           "specialista-della-logistica-80-100-m-w-d-lonza-ch"
         ],
         "fr": [
+          "logistics-specialist-biolog-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "logistics-specialist-biolog-80-100-m-w-d-lonza-ch"
+        ],
+        "de": [
           "logistics-specialist-biolog-80-100-m-w-d-lonza-ch"
         ]
       },
@@ -14288,7 +14294,6 @@
       "crawledAt": "2026-10-22T09:18:29.983Z",
       "jobReqId": "R80282",
       "firstSeenAt": "2026-10-20T21:17:06.179Z",
-      "needsRetranslation": true,
       "salaryMin": 127000,
       "salaryMax": 211500,
       "salarySource": "estimated",
@@ -14369,7 +14374,6 @@
         ]
       },
       "firstSeenAt": "2026-10-20T21:17:06.821Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",

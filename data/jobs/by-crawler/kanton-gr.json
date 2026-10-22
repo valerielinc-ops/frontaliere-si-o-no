@@ -1057,7 +1057,6 @@
       "pensumMin": 50,
       "pensumMax": 60,
       "pensum": "50-60%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-quellensteuer-kanton-gr-ch"
@@ -1219,7 +1218,6 @@
       "pensumMin": 40,
       "pensumMax": 50,
       "pensum": "40-50%",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1292,7 +1290,6 @@
       "pensumMin": 75,
       "pensumMax": 75,
       "pensum": "75%",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1313,7 +1310,7 @@
       "id": "kanton-gr-60815c55f316",
       "slug": "wildhuter-in-kanton-gr-ch-2",
       "slugByLocale": {
-        "de": "wildhuter-in-kanton-gr-ch",
+        "de": "wildhuter-in-kanton-gr-ch-1dyq6y",
         "it": "wildhuter-in-kanton-gr-ch-2",
         "en": "wildhuter-in-kanton-gr-ch-2",
         "fr": "wildhuter-in-kanton-gr-ch-2"
@@ -1365,7 +1362,6 @@
       "pensumMin": 75,
       "pensumMax": 75,
       "pensum": "75%",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1383,6 +1379,9 @@
       "firstSeenAt": "2026-10-22T09:10:59.926Z",
       "previousSlugsByLocale": {
         "it": [
+          "wildhuter-in-kanton-gr-ch"
+        ],
+        "de": [
           "wildhuter-in-kanton-gr-ch"
         ]
       },
