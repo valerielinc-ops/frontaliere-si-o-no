@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T16:08:04.461Z",
+  "updatedAt": "2026-10-22T17:08:51.010Z",
   "perCrossing": {
     "anieres": {
       "waitTimeMinutes": 0,
@@ -7,7 +7,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "au-lustenau": {
       "waitTimeMinutes": 0,
@@ -15,7 +15,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "bad-sackingen-stein-ag": {
       "waitTimeMinutes": 0,
@@ -23,15 +23,19 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "bardonnex": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 1,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
+      "totalCrossingMinutes": 1,
+      "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "officialSources": "fr-atmb-bulletin",
+      "officialLastUpdate": "2026-10-22T17:03:54.971Z",
+      "officialQueueKm": 12,
+      "dataQuality": "live+official",
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "bargen-sh-tengen": {
       "waitTimeMinutes": 0,
@@ -39,7 +43,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "basel-weil-am-rhein-autostrada-a2-a5": {
       "waitTimeMinutes": 0,
@@ -47,7 +51,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "basel-weil-am-rhein-freiburgerstrasse": {
       "waitTimeMinutes": 0,
@@ -55,7 +59,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "basel-weil-am-rhein-hiltalingerstrasse": {
       "waitTimeMinutes": 0,
@@ -63,7 +67,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "biaufond": {
       "waitTimeMinutes": 0,
@@ -71,7 +75,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "biegno-indemini": {
       "waitTimeMinutes": 0,
@@ -79,7 +83,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "bizzarone-novazzano": {
       "waitTimeMinutes": 0,
@@ -87,7 +91,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "blumberg-bargen-sh-alte-bargener-strasse": {
       "waitTimeMinutes": 0,
@@ -95,7 +99,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "blumberg-bargen-sh-autostrasse-h4": {
       "waitTimeMinutes": 0,
@@ -103,7 +107,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "blumberg-beggingen": {
       "waitTimeMinutes": 0,
@@ -111,7 +115,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "boncourt-delle": {
       "waitTimeMinutes": 0,
@@ -119,7 +123,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "buchs-schaan": {
       "waitTimeMinutes": 0,
@@ -127,7 +131,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-dorflingen-busingerstrasse": {
       "waitTimeMinutes": 0,
@@ -135,7 +139,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-dorflingen-l202": {
       "waitTimeMinutes": 0,
@@ -143,7 +147,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-dorflingen-siedlerstrasse": {
       "waitTimeMinutes": 0,
@@ -151,7 +155,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-schaffhausen-felsgasse": {
       "waitTimeMinutes": 0,
@@ -159,7 +163,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-schaffhausen-gennersbrunnerstrasse": {
       "waitTimeMinutes": 0,
@@ -167,7 +171,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse": {
       "waitTimeMinutes": 0,
@@ -175,7 +179,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-schaffhausen-stemmer": {
       "waitTimeMinutes": 0,
@@ -183,7 +187,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "busingen-am-hochrhein-schaffhausen-vogelingasschen": {
       "waitTimeMinutes": 0,
@@ -191,7 +195,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "camedo": {
       "waitTimeMinutes": 0,
@@ -199,7 +203,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "campione-d-italia-bissone": {
       "waitTimeMinutes": 0,
@@ -207,7 +211,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "campocologno-tirano": {
       "waitTimeMinutes": 0,
@@ -215,7 +219,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "castasegna-villa-di-chiavenna": {
       "waitTimeMinutes": 0,
@@ -223,7 +227,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "chavannes-de-bogis-divonne": {
       "waitTimeMinutes": 0,
@@ -231,7 +235,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "chiasso-brogeda": {
       "waitTimeMinutes": 0,
@@ -239,7 +243,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "chiasso-centro": {
       "waitTimeMinutes": 0,
@@ -247,10 +251,9 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "officialSources": "it-autostrade-a9,it-cciss",
-      "officialLastUpdate": "2026-10-22T16:03:15.038Z",
+      "officialSources": "it-autostrade-a9",
       "dataQuality": "live+official",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "chiasso-strada": {
       "waitTimeMinutes": 0,
@@ -258,7 +261,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 0,
@@ -266,7 +269,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "col-des-roches": {
       "waitTimeMinutes": 0,
@@ -274,7 +277,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "crassier-divonne": {
       "waitTimeMinutes": 0,
@@ -282,7 +285,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "cremenaga-ponte-cremenaga": {
       "waitTimeMinutes": 0,
@@ -290,7 +293,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "crociale-dei-mulini": {
       "waitTimeMinutes": 0,
@@ -298,7 +301,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "dettighofen-rafz": {
       "waitTimeMinutes": 0,
@@ -306,7 +309,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "dettighofen-wil-zh": {
       "waitTimeMinutes": 0,
@@ -314,7 +317,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "diepoldsau-hohenems": {
       "waitTimeMinutes": 0,
@@ -322,7 +325,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "diessenhofen-gailingen-am-hochrhein": {
       "waitTimeMinutes": 0,
@@ -330,7 +333,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "dorflingen-gailingen-am-hochrhein-hinterdorf": {
       "waitTimeMinutes": 0,
@@ -338,7 +341,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "dorflingen-gottmadingen-randegg": {
       "waitTimeMinutes": 0,
@@ -346,15 +349,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "drezzo-pedrinate": {
       "waitTimeMinutes": 0,
       "approachMinutes": 0,
       "totalCrossingMinutes": 0,
       "status": "green",
-      "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "source": "traffic-mesh",
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "dumenza-cassinone": {
       "waitTimeMinutes": 0,
@@ -362,7 +365,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "eggingen-hallau": {
       "waitTimeMinutes": 0,
@@ -370,7 +373,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "fahy-abbevillers": {
       "waitTimeMinutes": 0,
@@ -378,15 +381,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "ferney-voltaire-grand-saconnex": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 0,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
+      "totalCrossingMinutes": 0,
+      "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "forcola-di-livigno": {
       "waitTimeMinutes": 0,
@@ -394,7 +397,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gaggiolo": {
       "waitTimeMinutes": 0,
@@ -402,7 +405,10 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "officialSources": "it-cciss",
+      "officialLastUpdate": "2026-10-22T17:03:56.815Z",
+      "dataQuality": "live+official",
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gailingen-am-hochrhein-dorflingen": {
       "waitTimeMinutes": 0,
@@ -410,7 +416,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gailingen-am-hochrhein-ramsen-sh": {
       "waitTimeMinutes": 0,
@@ -418,7 +424,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "giogo-di-santa-maria": {
       "waitTimeMinutes": 0,
@@ -426,7 +432,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gottmadingen-buch-blindenhausen-sh": {
       "waitTimeMinutes": 0,
@@ -434,7 +440,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gottmadingen-buch-sh": {
       "waitTimeMinutes": 0,
@@ -442,7 +448,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gottmadingen-ramsen-hofenacker": {
       "waitTimeMinutes": 0,
@@ -450,7 +456,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gottmadingen-thayngen-autostrada-a81-a4": {
       "waitTimeMinutes": 0,
@@ -458,7 +464,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "gottmadingen-thayngen-ebringerstrasse": {
       "waitTimeMinutes": 0,
@@ -466,7 +472,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "goumois": {
       "waitTimeMinutes": 0,
@@ -474,7 +480,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "grenzach-wyhlen-riehen": {
       "waitTimeMinutes": 0,
@@ -482,7 +488,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "haag-bendern": {
       "waitTimeMinutes": 0,
@@ -490,7 +496,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "hermance": {
       "waitTimeMinutes": 0,
@@ -498,7 +504,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "hilzingen-thayngen-barzheimer-strasse": {
       "waitTimeMinutes": 0,
@@ -506,7 +512,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "hilzingen-thayngen-schlattergasse": {
       "waitTimeMinutes": 0,
@@ -514,7 +520,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "hohentengen-am-hochrhein-kaiserstuhl-ag": {
       "waitTimeMinutes": 0,
@@ -522,7 +528,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "hohentengen-am-hochrhein-wasterkingen": {
       "waitTimeMinutes": 0,
@@ -530,7 +536,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "inzlingen-riehen": {
       "waitTimeMinutes": 0,
@@ -538,7 +544,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "jestetten-laufen-uhwiesen-dorfstrasse": {
       "waitTimeMinutes": 0,
@@ -546,7 +552,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "jestetten-laufen-uhwiesen-grenzstrasse": {
       "waitTimeMinutes": 0,
@@ -554,7 +560,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "jestetten-neuhausen-am-rheinfall-buchweg": {
       "waitTimeMinutes": 0,
@@ -562,7 +568,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "jestetten-neuhausen-am-rheinfall-zollstrasse": {
       "waitTimeMinutes": 0,
@@ -570,7 +576,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "jestetten-rheinau": {
       "waitTimeMinutes": 0,
@@ -578,7 +584,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "jestetten-wilchingen": {
       "waitTimeMinutes": 0,
@@ -586,7 +592,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "klettgau-trasadingen": {
       "waitTimeMinutes": 0,
@@ -594,7 +600,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "klettgau-wil-zh": {
       "waitTimeMinutes": 0,
@@ -602,7 +608,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "klettgau-wilchingen": {
       "waitTimeMinutes": 0,
@@ -610,7 +616,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "konstanz-kreuzlingen": {
       "waitTimeMinutes": 0,
@@ -618,7 +624,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "konstanz-tagerwilen-autostrada-b33n-a7": {
       "waitTimeMinutes": 0,
@@ -626,7 +632,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "konstanz-tagerwilen-gottlieber-strasse": {
       "waitTimeMinutes": 0,
@@ -634,7 +640,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "kriessern-mader": {
       "waitTimeMinutes": 0,
@@ -642,15 +648,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "kussaberg-bad-zurzach-ag": {
       "waitTimeMinutes": 0,
       "approachMinutes": 0,
       "totalCrossingMinutes": 0,
       "status": "green",
-      "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "source": "traffic-mesh",
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "l-auberson-les-fourgs": {
       "waitTimeMinutes": 0,
@@ -658,7 +664,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "la-cure-les-rousses": {
       "waitTimeMinutes": 0,
@@ -666,7 +672,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "landecy": {
       "waitTimeMinutes": 0,
@@ -674,7 +680,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "lanzo-d-intelvi-arogno": {
       "waitTimeMinutes": 0,
@@ -682,7 +688,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "laufenburg-laufenburg-ag": {
       "waitTimeMinutes": 0,
@@ -690,7 +696,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "le-brassus-bois-d-amont": {
       "waitTimeMinutes": 0,
@@ -698,7 +704,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "le-chatelard-vallorcine": {
       "waitTimeMinutes": 0,
@@ -706,7 +712,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "les-verrieres": {
       "waitTimeMinutes": 0,
@@ -714,7 +720,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "lottstetten-nack": {
       "waitTimeMinutes": 0,
@@ -722,7 +728,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "lottstetten-rafz-landstrasse": {
       "waitTimeMinutes": 0,
@@ -730,7 +736,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "lottstetten-rafz-schaffhausener-strasse": {
       "waitTimeMinutes": 0,
@@ -738,7 +744,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "lottstetten-rudlingen": {
       "waitTimeMinutes": 0,
@@ -746,7 +752,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "luino-fornasette": {
       "waitTimeMinutes": 0,
@@ -754,7 +760,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "martina-nauders": {
       "waitTimeMinutes": 0,
@@ -762,7 +768,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "maslianico-pizzamiglio": {
       "waitTimeMinutes": 0,
@@ -770,7 +776,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "merishausen-tengen": {
       "waitTimeMinutes": 0,
@@ -778,7 +784,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "meyrin-cern": {
       "waitTimeMinutes": 0,
@@ -786,7 +792,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "moillesulaz": {
       "waitTimeMinutes": 0,
@@ -794,7 +800,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "montlingen-koblach": {
       "waitTimeMinutes": 0,
@@ -802,7 +808,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "morgins-chatel": {
       "waitTimeMinutes": 0,
@@ -810,7 +816,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "ohningen-stein-am-rhein": {
       "waitTimeMinutes": 0,
@@ -818,7 +824,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "opfertshofen-tengen": {
       "waitTimeMinutes": 0,
@@ -826,7 +832,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "oria-gandria": {
       "waitTimeMinutes": 0,
@@ -834,7 +840,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "passo-dello-spluga": {
       "waitTimeMinutes": 0,
@@ -842,15 +848,15 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "perly": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 0,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
+      "totalCrossingMinutes": 0,
+      "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "piaggio-valmara": {
       "waitTimeMinutes": 0,
@@ -858,7 +864,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "ponte-tresa": {
       "waitTimeMinutes": 0,
@@ -866,7 +872,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "porto-ceresio-brusino": {
       "waitTimeMinutes": 0,
@@ -874,7 +880,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "ramsen-moskau-rielasingen-worblingen": {
       "waitTimeMinutes": 0,
@@ -882,7 +888,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "rheineck-gai-au": {
       "waitTimeMinutes": 0,
@@ -890,7 +896,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "rheinfelden-rheinfelden-ag-alte-rheinbrucke": {
       "waitTimeMinutes": 0,
@@ -898,7 +904,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
       "waitTimeMinutes": 0,
@@ -906,7 +912,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "riehen-lorrach-stetten": {
       "waitTimeMinutes": 0,
@@ -914,7 +920,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "riehen-weil-am-rhein": {
       "waitTimeMinutes": 0,
@@ -922,7 +928,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "rielasingen-worblingen-ramsen-hofenacker": {
       "waitTimeMinutes": 0,
@@ -930,7 +936,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "ronago-novazzano": {
       "waitTimeMinutes": 0,
@@ -938,7 +944,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "ruthi-meiningen": {
       "waitTimeMinutes": 0,
@@ -946,7 +952,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "saint-gingolph": {
       "waitTimeMinutes": 0,
@@ -954,7 +960,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "salez-ruggell": {
       "waitTimeMinutes": 0,
@@ -962,7 +968,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "saltrio-arzo": {
       "waitTimeMinutes": 0,
@@ -970,7 +976,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "samnaun-spiss": {
       "waitTimeMinutes": 0,
@@ -978,7 +984,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "san-pietro": {
       "waitTimeMinutes": 0,
@@ -986,7 +992,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "sauverny": {
       "waitTimeMinutes": 0,
@@ -994,7 +1000,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "sempione": {
       "waitTimeMinutes": 0,
@@ -1002,7 +1008,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "sevelen-vaduz": {
       "waitTimeMinutes": 0,
@@ -1010,7 +1016,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "st-luzisteig": {
       "waitTimeMinutes": 0,
@@ -1018,7 +1024,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "st-margrethen-hochst": {
       "waitTimeMinutes": 0,
@@ -1026,7 +1032,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "stuhlingen-hallau": {
       "waitTimeMinutes": 0,
@@ -1034,7 +1040,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "stuhlingen-schleitheim": {
       "waitTimeMinutes": 0,
@@ -1042,7 +1048,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "tengen-thayngen-l188": {
       "waitTimeMinutes": 0,
@@ -1050,7 +1056,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "tengen-thayngen-wiechserstrasse": {
       "waitTimeMinutes": 0,
@@ -1058,7 +1064,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "thonex-vallard": {
       "waitTimeMinutes": 0,
@@ -1066,7 +1072,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "traforo-del-gran-san-bernardo": {
       "waitTimeMinutes": 0,
@@ -1074,7 +1080,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "trubbach-balzers": {
       "waitTimeMinutes": 0,
@@ -1082,7 +1088,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "tunnel-munt-la-schera": {
       "waitTimeMinutes": 0,
@@ -1090,7 +1096,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "vallorbe-jougne": {
       "waitTimeMinutes": 0,
@@ -1098,7 +1104,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "waldshut-tiengen-koblenz-ag": {
       "waitTimeMinutes": 0,
@@ -1106,7 +1112,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "widnau-lustenau": {
       "waitTimeMinutes": 0,
@@ -1114,7 +1120,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "widnau-lustenau-schmitterbrucke": {
       "waitTimeMinutes": 0,
@@ -1122,7 +1128,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "geoapify",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     },
     "zenna-dirinella": {
       "waitTimeMinutes": 0,
@@ -1130,7 +1136,7 @@
       "totalCrossingMinutes": 0,
       "status": "green",
       "source": "graphhopper",
-      "lastUpdate": "2026-10-22T16:08:04.461Z"
+      "lastUpdate": "2026-10-22T17:08:51.010Z"
     }
   }
 }
