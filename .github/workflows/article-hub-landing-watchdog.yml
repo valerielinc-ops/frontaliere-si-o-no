@@ -41,22 +41,40 @@ on:
     # archives.
     - cron: '40 6,18 * * *'
   workflow_dispatch: {}
+  # A scheduled probe can run before the six-hour rerender window catches a
+  # newly published article. Re-run the same probe after that writer finishes:
+  # a transient stale page gets repaired and verified without opening a false
+  # recurrence issue.
+  workflow_run:
+    workflows: ["Rerender Article Hubs"]
+    types: [completed]
 
 permissions:
+  actions: write
   contents: read
   issues: write
 
-concurrency:
-  # The watchdog reads the same served pages that rerender-article-hubs writes.
-  # Sharing the group makes a probe wait for an in-flight rerender instead of
-  # opening a transient stale-page issue while the repair is still publishing.
-  group: article-hub-surfaces
-  cancel-in-progress: false
-
 jobs:
   watchdog:
+    # `workflow_run` cannot filter on the completed run's display title in the
+    # trigger declaration. Keep the trigger broad for delivery, but only run a
+    # probe for the exact recovery-shaped dispatch that this watchdog creates;
+    # unrelated manual, parity, and parallel rerenders stay dormant.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.event == 'workflow_dispatch' &&
+       startsWith(github.event.workflow_run.display_title, 'Rerender Article Hubs [watchdog-'))
     runs-on: ubuntu-latest
+    # The probe reads the same served surfaces that rerender-article-hubs writes.
+    # This lock belongs only to the probe job. The recovery orchestrator below
+    # must be able to wait for the child without holding the writer's lock.
+    concurrency:
+      group: article-hub-surfaces
+      cancel-in-progress: false
     timeout-minutes: 10
+    outputs:
+      health_outcome: ${{ steps.health.outcome }}
+      health_summary: ${{ steps.health.outputs.summary }}
 
     steps:
       - name: Checkout
@@ -91,6 +109,33 @@ jobs:
         with:
           node-version: '22'
 
+      # The job-level filter above rejects unrelated workflow_run events. Fetch
+      # the event's run once more before probing so the accepted event is also
+      # authoritative about the exact completed workflow, dispatch event, and
+      # correlation title that woke this job.
+      - name: Validate completed recovery run
+        if: github.event_name == 'workflow_run'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TRIGGER_RUN_ID: ${{ github.event.workflow_run.id }}
+          TRIGGER_TITLE: ${{ github.event.workflow_run.display_title }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$TRIGGER_TITLE" =~ ^Rerender\ Article\ Hubs\ \[(watchdog-[1-9][0-9]*-[1-9][0-9]*)\]$ ]]; then
+            echo "::error::workflow_run title is not a watchdog recovery: $TRIGGER_TITLE"
+            exit 1
+          fi
+          run_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$TRIGGER_RUN_ID")"
+          jq -e \
+            --arg expected_id "$TRIGGER_RUN_ID" \
+            --arg expected_title "$TRIGGER_TITLE" \
+            '(.id | tostring) == $expected_id
+             and .event == "workflow_dispatch"
+             and .status == "completed"
+             and .display_title == $expected_title' \
+            <<<"$run_json" >/dev/null
+
       # No `npm ci`: the probe imports four first-party ESM modules and uses
       # global fetch, nothing else. Installing 1.4 GB of node_modules to make
       # twenty-one HTTP requests would be the slowest part of the run by an
@@ -107,13 +152,23 @@ jobs:
       # which is the only comparison that can see one of them go stale.
       - name: Probe the article-hub landings
         id: health
+        # Keep the measured failure available to the recovery job. The final
+        # verdict below restores a red workflow_run job after its post-rerender
+        # probe, while scheduled/manual failures enter bounded recovery first.
+        continue-on-error: true
         run: node scripts/check-article-hub-landings.mjs
 
       # Degraded → open (or comment on) the canonical issue. The helper dedups
       # on the first 60 chars of the STABLE title, so consecutive degraded runs
-      # comment on the same issue instead of spawning duplicates.
+      # comment on the same issue instead of spawning duplicates. A scheduled
+      # failure that dispatched recovery waits for the workflow_run probe; if
+      # dispatch fails, or the post-rerender probe still fails, this opens it.
       - name: Open / dedup degraded issue
-        if: failure() && steps.health.conclusion == 'failure'
+        if: >-
+          always() &&
+          github.event_name == 'workflow_run' &&
+          steps.health.outcome == 'failure' &&
+          github.event.workflow_run.event == 'workflow_dispatch'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEALTH_SUMMARY: ${{ steps.health.outputs.summary }}
@@ -177,7 +232,7 @@ jobs:
       # The body above PROMISED an auto-resolve that did not exist (#5437: the
       # dangerous class — a title nobody could ever close).
       - name: Resolve degraded issue on green
-        if: steps.health.conclusion == 'success'
+        if: steps.health.outcome == 'success'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -186,3 +241,113 @@ jobs:
             --title "Article hub landing degraded: missing grid or stale article set" \
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # A workflow_run probe is the post-rerender verification. Keep its job
+      # fail-closed so a completed writer cannot hide a still-degraded surface.
+      - name: Set post-rerender verdict
+        if: always() && github.event_name == 'workflow_run'
+        run: |
+          set -euo pipefail
+          [ "${{ steps.health.outcome }}" = 'success' ]
+
+  recovery:
+    needs: watchdog
+    if: >-
+      always() &&
+      needs.watchdog.result == 'success' &&
+      needs.watchdog.outputs.health_outcome == 'failure' &&
+      github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    # The rerender child has a 30-minute timeout; leave bounded room for API
+    # discovery and the terminal status poll without holding the probe lock.
+    timeout-minutes: 40
+    steps:
+      # This job deliberately has no `article-hub-surfaces` concurrency group:
+      # the probe job released that group before this waiter started. Holding it
+      # here would queue the child rerender behind the waiter forever.
+      - name: Request and await exact hub rerender recovery
+        id: recovery
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          RECOVERY_REQUEST_ID: watchdog-${{ github.run_id }}-${{ github.run_attempt }}
+          RECOVERY_TIMEOUT_SECONDS: '2100'
+        run: |
+          set -euo pipefail
+          dispatch_started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          gh api --method POST \
+            "repos/$GITHUB_REPOSITORY/actions/workflows/rerender-article-hubs.yml/dispatches" \
+            -f ref=main \
+            -f 'inputs[section]=all' \
+            -f 'inputs[dry_run]=false' \
+            -f "inputs[recovery_request_id]=$RECOVERY_REQUEST_ID"
+
+          deadline=$(( $(date +%s) + RECOVERY_TIMEOUT_SECONDS ))
+          recovery_run_id=''
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            runs_json="$(gh api --method GET \
+              "repos/$GITHUB_REPOSITORY/actions/workflows/rerender-article-hubs.yml/runs" \
+              -f event=workflow_dispatch -f per_page=100)"
+            recovery_run_id="$(jq -r --arg request "$RECOVERY_REQUEST_ID" --arg started "$dispatch_started_at" '
+              [.workflow_runs[]
+                | select(.event == "workflow_dispatch")
+                | select(.display_title == ("Rerender Article Hubs [" + $request + "]"))
+                | select(.created_at >= $started)]
+              | sort_by(.created_at)
+              | .[0].id // empty
+            ' <<<"$runs_json")"
+            [ -n "$recovery_run_id" ] && break
+            sleep 10
+          done
+          if [ -z "$recovery_run_id" ]; then
+            echo "::error::exact rerender recovery run was not observed within ${RECOVERY_TIMEOUT_SECONDS}s"
+            exit 1
+          fi
+          echo "recovery_run_id=$recovery_run_id" >> "$GITHUB_OUTPUT"
+
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            run_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$recovery_run_id")"
+            status="$(jq -r '.status // empty' <<<"$run_json")"
+            conclusion="$(jq -r '.conclusion // empty' <<<"$run_json")"
+            if [ "$status" = 'completed' ]; then
+              if [ "$conclusion" = 'success' ]; then
+                echo "exact rerender recovery $recovery_run_id completed successfully"
+                exit 0
+              fi
+              echo "::error::exact rerender recovery $recovery_run_id completed with conclusion=$conclusion"
+              exit 1
+            fi
+            sleep 15
+          done
+          echo "::error::exact rerender recovery $recovery_run_id did not complete within ${RECOVERY_TIMEOUT_SECONDS}s"
+          exit 1
+
+      - name: Set recovery verdict
+        if: always()
+        run: |
+          set -euo pipefail
+          [ "${{ steps.recovery.outcome }}" = 'success' ]
+
+      - name: Open / dedup degraded issue when recovery is not verified
+        if: always() && steps.recovery.outcome != 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEALTH_SUMMARY: ${{ needs.watchdog.outputs.health_summary }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Article hub landing degraded: missing grid or stale article set" \
+            --description "The article-hub watchdog found degraded served pages, but did not observe its exact recovery rerender complete successfully. An unrelated or manually completed rerender is not accepted as recovery.
+
+          ### Probe report
+          \`\`\`
+          ${HEALTH_SUMMARY}
+          \`\`\`
+
+          **Watchdog run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          Check the recovery dispatch and the rerender workflow before treating another completed rerender as proof of repair." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
