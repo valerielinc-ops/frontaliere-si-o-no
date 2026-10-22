@@ -981,7 +981,7 @@ jobs:
           key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
 
       # ── Phase 4: Validate + deploy handoff ─────────────────────────────
-      - name: Record self-driven deploy handoff
+      - name: Record durable translation completeness handoff
         if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
@@ -991,6 +991,7 @@ jobs:
           else
             echo "⏳ Some translations still incomplete — skipping deploy handoff"
             echo "   The next cron run will retry once all jobs are translated."
+            exit 0
           fi
 
       - name: Report failure to GitHub Issues

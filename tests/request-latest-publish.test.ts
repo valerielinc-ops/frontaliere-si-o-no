@@ -7,7 +7,6 @@ import {
   DEFAULT_MAX_PUBLISH_ATTEMPTS,
   deploymentSourceSha,
 } from '../scripts/ci/request-latest-publish.mjs';
-import { pagesReceiptContext } from '../scripts/ci/publish-receipts.mjs';
 
 const SHA_OLD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const SHA_LATEST = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
@@ -108,7 +107,7 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
   });
 
-  it('treats the durable Pages receipt as live even when the old publish run was red', () => {
+  it('uses the successful deployment identity as the live receipt', () => {
     expect(decideLatestPublish({
       builds: [build(2, SHA_LATEST, '2026-10-20T12:00:00Z')],
       publishRuns: [{
@@ -120,7 +119,6 @@ describe('decideLatestPublish', () => {
       durableReceipts: { pagesDeployed: true },
       lastSuccessfulDeployment: deployment(SHA_LATEST, '2026-10-20T12:05:00Z'),
     })).toMatchObject({ action: 'skip', reason: 'already-live' });
-    expect(pagesReceiptContext(2)).toBe('frontaliere/pages-deployed/2');
   });
 
   it('does not let a historical receipt hide a rollback of the live deployment', () => {

@@ -48,26 +48,13 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      # Primary identity for the auto-redeploy trigger below = GitHub App
-      # installation token (`frontaliere-automation[bot]`): auto-mints, no expiry
-      # babysit. Falls back to env.GITHUB_PAT (#2861 item 1).
-      - name: Mint App token (primary identity, PAT fallback)
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
       - name: Run GSC Job Indexation Monitor
-        # monitor-gsc-job-indexation.mjs reads process.env.GITHUB_PAT — override with
-        # the App token when minted (primary identity), PAT otherwise (#2861 item 1).
-        # GITHUB_PAT itself è caricato in $GITHUB_ENV da "Load secrets from Remote
-        # Config" (Firebase RC, non un Actions secret — `secrets.GITHUB_PAT` non
-        # esiste). NON shadoware con secrets.* o il monitor gira con token vuoto
-        # (cfr. #878).
+        # GITHUB_PAT itself is loaded in $GITHUB_ENV by "Load secrets from Remote
+        # Config" (Firebase RC, not an Actions secret). The durable re-arm helper
+        # uses GH_TOKEN/GITHUB_TOKEN for the repository status and run-list APIs;
+        # GITHUB_PAT remains the fallback for monitor-specific APIs.
         env:
-          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
           # gh CLI (used by scripts/lib/github-issue-creator.mjs for issue creation)
           # only honors GH_TOKEN/GITHUB_TOKEN, never GITHUB_PAT — without this the
           # monitor's issue-creation path was always a silent no-op (PR #3322 review).
