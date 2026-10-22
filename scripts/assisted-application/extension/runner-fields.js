@@ -11,38 +11,35 @@
   const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
   const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
   const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
-  const SUCCESS_FACTORS_CONTEXT_RE = /(?:success[\s._-]?factors|\bsapsf\b|jobs\.sap\.com)/i;
-  const SUCCESS_FACTORS_DOM_SELECTOR = [
-    '[class*="successfactors" i]',
-    '[class*="paginatedselect" i]',
-    '[data-automation-id*="successfactors" i]',
-    '[data-automation-id*="paginatedselect" i]',
-    '[data-ats*="successfactors" i]',
-    '[data-ats*="sapsf" i]',
-    '[data-channel*="successfactors" i]',
-    '[data-portal*="successfactors" i]',
-    'ui5-date-picker',
-    '[ui5-date-picker]',
-    'script[src*="successfactors" i]',
-    'link[href*="successfactors" i]',
-    'meta[content*="successfactors" i]',
+  const SUCCESS_FACTORS_CHANNEL_RE = /^(?:success[\s._-]?factors|sapsf)$/i;
+  const SUCCESS_FACTORS_CHANNEL_MARKER_SELECTOR = [
+    '[data-aa-portal-channel~="successfactors" i]',
+    '[data-aa-portal-channel~="sapsf" i]',
+    '[data-ats~="successfactors" i]',
+    '[data-ats~="sapsf" i]',
+    '[data-channel~="successfactors" i]',
+    '[data-channel~="sapsf" i]',
+    '[data-portal~="successfactors" i]',
+    '[data-portal~="sapsf" i]',
   ].join(', ');
   const isSuccessFactorsPage = () => {
     const location = window.location;
     const hostname = String(location?.hostname || '');
     const path = [location?.pathname, location?.search, location?.hash].filter(Boolean).join(' ');
-    const context = [
+    const channelMarker = [
       window.__frontalierePortalChannelType,
       document.documentElement?.getAttribute('data-aa-portal-channel'),
       document.documentElement?.getAttribute('data-ats'),
       document.body?.getAttribute('data-ats'),
-    ].filter(Boolean).join(' ');
+      document.body?.getAttribute('data-channel'),
+      document.body?.getAttribute('data-portal'),
+    ].some((value) => String(value || '').split(/[\s,;|]+/).some((token) => SUCCESS_FACTORS_CHANNEL_RE.test(token)));
     return String(channelType).toLowerCase() === 'successfactors'
       || SUCCESS_FACTORS_HOST_RE.test(hostname)
       || SUCCESS_FACTORS_ROUTE_RE.test(path)
       || SUCCESS_FACTORS_URL_MARKER_RE.test(path)
-      || SUCCESS_FACTORS_CONTEXT_RE.test(context)
-      || Boolean(document.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
+      || channelMarker
+      || Boolean(document.querySelector(SUCCESS_FACTORS_CHANNEL_MARKER_SELECTOR));
   };
   const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
   const ownedListFor = (element) => {

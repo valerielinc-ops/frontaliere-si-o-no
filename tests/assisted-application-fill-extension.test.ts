@@ -489,7 +489,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
   it('types into a required non-SuccessFactors ARIA autocomplete', async () => {
     const { F, document, read } = runnerPage(`<form>
       <label for="city">City</label>
-      <div><div><input id="city" type="text" role="combobox" aria-controls="city-options" aria-required="true"></div></div>
+      <div><div><input id="city" type="text" role="combobox" class="rcmpaginatedselectinput" aria-controls="city-options" aria-required="true"></div></div>
       <ul id="city-options" role="listbox"></ul>
     </form>`, 'https://jobs.example.ch/apply');
     const field = read().fields.find((item: any) => item.label === 'City');

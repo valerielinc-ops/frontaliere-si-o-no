@@ -374,7 +374,7 @@ describe('portal field extraction', () => {
     const page = extract(`
       <form>
         <label for="city">City</label>
-        <input id="city" type="text" role="combobox" aria-controls="city-options" aria-required="true">
+        <input id="city" type="text" role="combobox" class="rcmpaginatedselectinput" aria-controls="city-options" aria-required="true">
         <ul id="city-options" role="listbox"></ul>
       </form>`, 'https://jobs.example.ch/apply');
 
