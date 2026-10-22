@@ -1313,6 +1313,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // (rather than allowing the separate head and JSON-LD source branches to
  // drift); JSON-LD below intentionally keeps the full source description.
  const metaDescription = clampMetaDescription(metaDescRaw, shell.metaDescriptionMaxChars, articleLocale);
+ // Keep Open Graph on the repaired source description. The CTR freshness
+ // marker belongs to the SERP meta description and must not rewrite the
+ // article's separate social-description contract.
+ const ogDescription = clampMetaDescription(localizedDesc, shell.metaDescriptionMaxChars, articleLocale);
  // <title>: a dated article is a NewsArticle and keeps its source headline
  // verbatim so <title>, H1 and NewsArticle.headline remain one identity. Bing's
  // crawler has an explicit exemption for that exact invariant. Evergreen
@@ -1769,7 +1773,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:title" content="${esc(socialTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleLocale))}">
+ <meta property="og:description" content="${esc(ogDescription)}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">
