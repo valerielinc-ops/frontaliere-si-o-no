@@ -16,8 +16,11 @@ const DRIFT = `${BASE}/fr/articles-frontalier/canonical-drift-article/`;
 const BRIDGE = `${BASE}/it/articoli-frontalieri/previous-article-slug/`;
 const MISSING = `${BASE}/fr/articles-frontalier/foreign-shard-article/`;
 const STATIC_NOINDEX = `${BASE}/about/legacy-noindex/`;
+const STATIC_DOT_DIRECTORY = `${BASE}/about/legacy.page/`;
 const STATIC_DRIFT = `${BASE}/contact/legacy-canonical-drift/`;
 const STATIC_BRIDGE = `${BASE}/privacy-policy/legacy-alias/`;
+const STATIC_PDF = `${BASE}/guides/guida-completa-frontaliere-2026.pdf?download=1`;
+const STATIC_FLAT_REDIRECT = `${BASE}/about/legacy-flat.html`;
 
 const urlset = (locs: string[]) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
@@ -82,20 +85,58 @@ describe('reconcileArticleSitemapsWithDist', () => {
 
   it('applies the same final-dist predicate to an unowned static sitemap family', async () => {
     const file = path.join(dist, 'sitemap-pages.xml');
-    fs.writeFileSync(file, urlset([STATIC_NOINDEX, STATIC_DRIFT, STATIC_BRIDGE]), 'utf8');
+    fs.writeFileSync(
+      file,
+      urlset([
+        STATIC_NOINDEX,
+        STATIC_DOT_DIRECTORY,
+        STATIC_DRIFT,
+        STATIC_BRIDGE,
+        STATIC_PDF,
+        STATIC_FLAT_REDIRECT,
+      ]),
+      'utf8',
+    );
     writePage(
       STATIC_NOINDEX,
       `<meta name="robots" content="noindex,follow"><link rel="canonical" href="${STATIC_NOINDEX}">`,
+    );
+    writePage(
+      STATIC_DOT_DIRECTORY,
+      `<meta name="robots" content="noindex,follow"><link rel="canonical" href="${STATIC_DOT_DIRECTORY}">`,
     );
     writePage(STATIC_DRIFT, `<link rel="canonical" href="${HEALTHY}">`);
     writePage(
       STATIC_BRIDGE,
       `<link rel="canonical" href="${HEALTHY}"><!-- __BRIDGE_TARGET_SLUG__ -->`,
     );
+    const pdfPath = path.join(dist, 'guides/guida-completa-frontaliere-2026.pdf');
+    fs.mkdirSync(path.dirname(pdfPath), { recursive: true });
+    fs.writeFileSync(pdfPath, '%PDF-1.7');
+    const flatRedirectPath = path.join(dist, 'about/legacy-flat.html');
+    fs.mkdirSync(path.dirname(flatRedirectPath), { recursive: true });
+    fs.writeFileSync(
+      flatRedirectPath,
+      `<meta name="robots" content="noindex,follow"><link rel="canonical" href="${STATIC_NOINDEX}">`,
+    );
+    const readFile = vi.spyOn(fs.promises, 'readFile');
 
     await reconcileFinalSitemapsWithDist(dist, []);
 
-    expect(extractSitemapLocs(fs.readFileSync(file, 'utf8'))).toEqual([STATIC_BRIDGE]);
+    expect(extractSitemapLocs(fs.readFileSync(file, 'utf8'))).toEqual([STATIC_BRIDGE, STATIC_PDF]);
+    expect(readFile).not.toHaveBeenCalledWith(
+      path.join(dist, 'guides/guida-completa-frontaliere-2026.pdf', 'index.html'),
+      'utf-8',
+    );
+    expect(readFile).toHaveBeenCalledWith(
+      path.join(dist, 'about/legacy-noindex', 'index.html'),
+      'utf-8',
+    );
+    expect(readFile).toHaveBeenCalledWith(
+      path.join(dist, 'about/legacy.page', 'index.html'),
+      'utf-8',
+    );
+    expect(readFile).toHaveBeenCalledWith(flatRedirectPath, 'utf-8');
   });
 
   it('propagates a non-ENOENT candidate read error', async () => {

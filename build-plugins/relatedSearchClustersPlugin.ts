@@ -4074,6 +4074,11 @@ function normalizeLocForCanonicalCmp(u: string): string {
     return u.trim();
   }
 }
+
+function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
+  return error instanceof Error && 'code' in error && typeof error.code === 'string';
+}
+
 /**
  * Async parallel variant. Replaced the sync version (180k `fs.readFileSync`
  * + 360k `fs.existsSync` per build, ~41s under `sitemap-write` in run
@@ -4147,33 +4152,62 @@ export async function dropOverwrittenLocs(
       // keep it so the it/main shard's sitemap stays complete. Skipped entirely
       // in the default build (EMIT_ALL_LOCALES) so behaviour is byte-identical.
       const foreignLocale = !EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''));
+      const routePath = path.join(distDir, urlPath);
       const indexPath = path.join(distDir, urlPath, 'index.html');
       const flatPath = path.join(distDir, urlPath + '.html');
       let html: string | null = null;
-      try {
-        html = await fs.promises.readFile(indexPath, 'utf-8');
-      } catch (error: any) {
-        // A sitemap loc can name a file (for example a PDF), so probing
-        // `<loc>/index.html` may hit ENOTDIR instead of ENOENT. In either case
-        // there is no page HTML at that probe; apply the existing flat/missing
-        // policy below.
-        if (error?.code !== 'ENOENT' && error?.code !== 'ENOTDIR') throw error;
+      // A sitemap can advertise a static file URL such as a PDF. Do not try
+      // to open `<file>/index.html`: on POSIX that read fails with ENOTDIR.
+      // Only stat paths with an extension; a directory may also contain a dot,
+      // so verify its type before keeping the existing directory-index check.
+      // A direct `.html` URL is itself a page (often a flat redirect bridge),
+      // so inspect that file's HTML with the same canonical/noindex predicate.
+      if (path.extname(urlPath)) {
         try {
-          html = await fs.promises.readFile(flatPath, 'utf-8');
-        } catch (flatError: any) {
-          if (flatError?.code !== 'ENOENT' && flatError?.code !== 'ENOTDIR') throw flatError;
-          // A foreign-locale URL is normally absent from this shard by
-          // design. Job sitemaps opt into checking a foreign file when it is
-          // present (typically a bridge written by a direct-fs emitter), but
-          // still retain a genuinely absent URL for the locale shard that
-          // owns its HTML. This keeps the shared IT sitemap complete without
-          // allowing an on-disk noindex/canonical bridge to leak through.
-          if (foreignLocale || options.keepMissing) {
-            flags[i] = KEEP;
+          const routeStat = await fs.promises.stat(routePath);
+          if (routeStat.isFile()) {
+            if (path.extname(urlPath).toLowerCase() === '.html') {
+              html = await fs.promises.readFile(routePath, 'utf-8');
+            } else {
+              flags[i] = foreignLocale || options.keepMissing ? KEEP : DROP_MISSING;
+              continue;
+            }
+          }
+        } catch (error: unknown) {
+          if (!isNodeErrnoException(error)) throw error;
+          if (error.code === 'ENOTDIR') {
+            flags[i] = foreignLocale || options.keepMissing ? KEEP : DROP_MISSING;
             continue;
           }
-          flags[i] = DROP_MISSING;
-          continue;
+          if (error.code !== 'ENOENT') throw error;
+        }
+      }
+      if (html === null) {
+        try {
+          html = await fs.promises.readFile(indexPath, 'utf-8');
+        } catch (error: any) {
+          // A sitemap loc can name a file (for example a PDF), so probing
+          // `<loc>/index.html` may hit ENOTDIR instead of ENOENT. In either case
+          // there is no page HTML at that probe; apply the existing flat/missing
+          // policy below.
+          if (error?.code !== 'ENOENT' && error?.code !== 'ENOTDIR') throw error;
+          try {
+            html = await fs.promises.readFile(flatPath, 'utf-8');
+          } catch (flatError: any) {
+            if (flatError?.code !== 'ENOENT' && flatError?.code !== 'ENOTDIR') throw flatError;
+            // A foreign-locale URL is normally absent from this shard by
+            // design. Job sitemaps opt into checking a foreign file when it is
+            // present (typically a bridge written by a direct-fs emitter), but
+            // still retain a genuinely absent URL for the locale shard that
+            // owns its HTML. This keeps the shared IT sitemap complete without
+            // allowing an on-disk noindex/canonical bridge to leak through.
+            if (foreignLocale || options.keepMissing) {
+              flags[i] = KEEP;
+              continue;
+            }
+            flags[i] = DROP_MISSING;
+            continue;
+          }
         }
       }
       if (foreignLocale && !options.inspectForeignPresent) {
