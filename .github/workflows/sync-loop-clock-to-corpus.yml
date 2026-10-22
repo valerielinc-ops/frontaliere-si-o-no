@@ -32,6 +32,14 @@ jobs:
           sparse-checkout: |
             /scripts/ci/patch-corpus-loop-clock-workflow.mjs
             /scripts/ci/sync-loop-clock-to-corpus.sh
+            /scripts/ci/pr-body-check-gate.mjs
+            /scripts/ci/lib/false-positive-declaration.mjs
+            /scripts/ci/lib/hook-command-parser.mjs
+            /scripts/ci/lib/hook-exit-codes.mjs
+            /scripts/ci/lib/hook-stdin.mjs
+            /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/pr-body-closes-check.mjs
+            /scripts/lib/pr-body-sections-check.mjs
           sparse-checkout-cone-mode: false
 
       - name: Deliver loop-clock workflow contract through a corpus PR

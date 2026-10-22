@@ -124,6 +124,18 @@ cat > "$body" <<'BODY'
 Nessuno
 BODY
 
+set +e
+node "$site_root/scripts/ci/pr-body-check-gate.mjs" --body-file "$body"
+gate_status=$?
+set -e
+if [ "$gate_status" -eq 2 ]; then
+  echo '::error::loop-clock transport body PR non conforme; scrittura bloccata'
+  exit 2
+elif [ "$gate_status" -ne 0 ]; then
+  echo "::error::loop-clock transport body PR non verificabile (gate exit $gate_status); branch gia' pushato, nessuna PR scritta"
+  exit "$gate_status"
+fi
+
 if [ "$open_count" -eq 0 ]; then
   gh pr create --repo "$target_repo" --base main --head "$target_branch" \
     --title 'fix(ci): identify corpus loop-clock triage dispatches' --body-file "$body"
