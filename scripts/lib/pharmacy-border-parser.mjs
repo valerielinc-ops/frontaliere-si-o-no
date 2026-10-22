@@ -434,7 +434,7 @@ function availability(pharmacy, officialFieldsNotPublished = false) {
   };
 }
 
-function uniqueSlug(base, used) {
+export function uniqueSlug(base, used) {
   const safe = base || 'farmacia';
   let slug = safe;
   let suffix = 2;
