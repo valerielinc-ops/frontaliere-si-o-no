@@ -868,19 +868,18 @@ const APPLICATION_ACCOUNT_FIELD_RE = new RegExp(
   `(?<![\\p{L}\\p{N}\\p{M}])(?:work\\s+permit|permit\\s+for|salary|workload|starting\\s+date|notice\\s+period|criminal\\s+record|proficiency\\s+level|how\\s+did\\s+you\\s+hear|region\\s+of\\s+residence|${CV_DOCUMENT_TERMS}|${COVER_LETTER_DOCUMENT_TERMS}|candidatur|bewerbung)(?![\\p{L}\\p{N}\\p{M}])`,
   'iu',
 );
-const SUCCESS_FACTORS_HOST_SUFFIXES = [
-  'successfactors.eu',
-  'successfactors.com',
-  'sapsf.eu',
-  'sapsf.com',
-  'successfactors.localhost',
-];
+const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
+const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
+const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
 
 const isSuccessFactorsUrl = (url) => {
   try {
-    const hostname = new URL(url).hostname.toLowerCase();
-    return hostname === 'jobs.sap.com'
-      || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => hostname === suffix || hostname.endsWith(`.${suffix}`));
+    const parsed = new URL(url);
+    const hostname = parsed.hostname.toLowerCase();
+    const path = [parsed.pathname, parsed.search, parsed.hash].join(' ');
+    return SUCCESS_FACTORS_HOST_RE.test(hostname)
+      || SUCCESS_FACTORS_ROUTE_RE.test(path)
+      || SUCCESS_FACTORS_URL_MARKER_RE.test(path);
   } catch {
     return false;
   }
@@ -2717,12 +2716,13 @@ export function portalRequirementsFromMissingRequired(fields, missingRequired) {
  */
 export async function readPortalRequirements(ctx) {
   const entryUrl = portalEntryUrl(ctx);
+  const channelType = portalChannelType(ctx);
   // Some employer sites expose a Jobs2Web application URL without using a
   // SuccessFactors hostname. Only pre-read those when the validated same-ID
   // posting route above proves that this is the matching application flow.
   const verifiedJobs2WebEntry = ctx.channelType === 'employer_site'
     && entryUrl !== String(ctx.applyUrl || '');
-  if ((!PREREAD_CHANNELS.has(ctx.channelType) && !verifiedJobs2WebEntry) || !ctx.applyUrl || !ctx.codex) {
+  if ((!PREREAD_CHANNELS.has(channelType) && !verifiedJobs2WebEntry) || !ctx.applyUrl || !ctx.codex) {
     return { questions: [], documents: [] };
   }
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));

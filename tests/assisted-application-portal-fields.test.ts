@@ -323,19 +323,28 @@ describe('portal field extraction', () => {
     ]));
   });
 
-  it('recognizes a branded SuccessFactors tenant from its validated ATS context', () => {
+  it('recognizes a branded SuccessFactors tenant from its application route', () => {
     const page = extract(`
       <form>
-        <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
+        <label for="permit">Do you hold a valid work permit for Switzerland? (erforderlich)</label>
         <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
         <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
-      </form>`, 'https://careers.example.ch/careers', { channelType: 'successfactors' });
+        <label for="optional">Optional source</label>
+        <input id="optional" type="text" role="combobox" aria-controls="optional-list">
+        <ul id="optional-list" role="listbox"></ul>
+      </form>`, 'https://careers.example.ch/talentcommunity/apply/1448418433/?locale=en_US');
 
-    expect(page.fields.find((field: any) => field.label === 'Do you hold a valid work permit for Switzerland?')).toMatchObject({
+    expect(page.fields.find((field: any) => /^Do you hold a valid work permit for Switzerland\?/.test(field.label))).toMatchObject({
       kind: 'combobox',
       required: true,
       selectLike: true,
       ownedList: 'permit-list',
+    });
+    expect(page.fields.find((field: any) => field.label === 'Optional source')).toMatchObject({
+      kind: 'combobox',
+      required: false,
+      selectLike: false,
+      ownedList: 'optional-list',
     });
   });
 

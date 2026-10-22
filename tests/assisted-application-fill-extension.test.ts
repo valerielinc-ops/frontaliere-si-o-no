@@ -427,7 +427,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
       <div id="permit-popup"></div>
       <ul id="permit-list" role="listbox"></ul>
     </form>`, 'https://career5.successfactors.eu/careers');
-    const field = read().fields.find((item: any) => item.label === 'Do you hold a valid work permit for Switzerland?');
+    const field = read().fields.find((item: any) => /^Do you hold a valid work permit for Switzerland\?/.test(item.label));
     expect(field).toMatchObject({
       kind: 'combobox',
       required: true,
@@ -453,17 +453,21 @@ describe('fill extension: the runner’s reading on any portal', () => {
 
   it('recognizes a branded SuccessFactors lazy picklist with marker-only requiredness', async () => {
     const { F, document, read } = runnerPage(`<form>
-      <label for="permit" data-required>Do you hold a valid work permit for Switzerland?</label>
+      <label for="permit">Do you hold a valid work permit for Switzerland? (erforderlich)</label>
       <input id="permit" type="text" role="combobox" aria-controls="popup permit-list" aria-owns="permit-list">
-      <div id="popup"></div><ul id="permit-list" role="listbox"></ul>
-    </form>`, 'https://careers.example.ch/careers');
-    const field = read({ channelType: 'successfactors' }).fields.find((item: any) => item.label === 'Do you hold a valid work permit for Switzerland?');
+      <div id="popup"><li role="option">Wrong popup</li></div><ul id="permit-list" role="listbox"></ul>
+      <label for="optional">Optional source</label>
+      <input id="optional" type="text" role="combobox" aria-controls="optional-list">
+      <ul id="optional-list" role="listbox"></ul>
+    </form>`, 'https://careers.example.ch/talentcommunity/apply/1448418433/?locale=en_US');
+    const field = read().fields.find((item: any) => /^Do you hold a valid work permit for Switzerland\?/.test(item.label));
     expect(field).toMatchObject({
       kind: 'combobox',
       required: true,
       selectLike: true,
       ownedList: 'permit-list',
     });
+    expect(read().fields.find((item: any) => item.label === 'Optional source')).toMatchObject({ selectLike: false, required: false });
     const input = document.getElementById('permit') as HTMLInputElement;
     const list = document.getElementById('permit-list')!;
     input.addEventListener('click', () => {

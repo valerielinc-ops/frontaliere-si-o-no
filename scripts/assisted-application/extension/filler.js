@@ -67,7 +67,10 @@
   const NON_CANDIDATE_ADDRESS_CONTEXT_RE = /\b(employer|company|organization|work history|employment|professional experience|reference|school|university|emergency contact|billing|shipping|delivery|recipient|supplier|customer|client|datore di lavoro|esperienza professionale|fatturazione|spedizione|fornitore|cliente|riferimento|scuola|universita|arbeitgeber|unternehmen|berufserfahrung|rechnungsadresse|lieferadresse|notfallkontakt|referenz|schule|arbeitgeberadresse|adresse de facturation|adresse de livraison|employeur|experience professionnelle|reference|ecole|universite|contact d urgence)\b/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
-  const REQUIRED_RE = /(\*|\brequired\b|\bobbligator[ioa]\b|\bobligatoire\b|\bpflicht(?:ig)?\b|\bobligatorisch\b)/i;
+  // Keep the same required-marker vocabulary as the portal snapshot. A
+  // SuccessFactors label may carry only “(erforderlich)” while the input has
+  // neither native nor ARIA requiredness.
+  const REQUIRED_RE = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
   const CV_RE = /\b(cv|curriculum|lebenslauf|resume)\b/;
   const LETTER_RE = /\b(lettera|cover letter|anschreiben|motivation|motivazione|lettre)\b/;
   // A generic attachments field: it takes the requested documents (kit.documents.extra).
@@ -226,7 +229,11 @@
   }
   const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
 
-  function hasRequiredMarker(element) {
+  function markerText(node) {
+    return String(node?.innerText || node?.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  }
+
+  function hasRequiredMarker(element, labelText = '') {
     if (element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required')) return true;
     const doc = element.ownerDocument;
     const labels = new Set(element.labels || []);
@@ -242,10 +249,10 @@
     }
     const group = element.closest('fieldset, [role="group"], [role="radiogroup"], .field, .form-group, .application-question, li');
     const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
-    if (groupLabel && !groupLabel.contains(element)) labels.add(groupLabel);
+    if (groupLabel && !groupLabel.contains(element) && markerText(groupLabel) === labelText) labels.add(groupLabel);
     const marker = (node, adjacent = false) => {
       if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
-      const text = String(node.textContent || '').replace(/\s+/g, ' ').trim();
+      const text = markerText(node);
       const className = String(node.className?.baseVal || node.className || '');
       const inline = node.nodeType === 3 || /^(abbr|b|em|i|small|span|strong|sup)$/i.test(node.tagName || '');
       let pseudo = '';
@@ -254,7 +261,8 @@
       } catch {
         // Some portal-owned nodes do not expose computed styles.
       }
-      return (adjacent ? inline && /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i.test(text) : REQUIRED_RE.test(text))
+      return (adjacent && inline && /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i.test(text))
+        || (!adjacent && REQUIRED_RE.test(text))
         || (inline || !adjacent) && /required|mandatory|pflichtfeld/i.test(className)
         || (inline || !adjacent) && /\*/.test(pseudo.replace(/["']/g, ''));
     };
@@ -269,7 +277,7 @@
     return false;
   }
 
-  const isRequiredControl = (element) => hasRequiredMarker(element);
+  const isRequiredControl = (element, labelText = '') => hasRequiredMarker(element, labelText || labelOf(element));
 
   /** The heading a control sits under (JOIN asks one question per step, in an h2). */
   function questionOf(element) {
@@ -577,14 +585,19 @@
 
   function ownedListFor(input) {
     const doc = input.ownerDocument;
-    const refs = [...new Set([
-      ...(input.getAttribute('aria-owns') || '').trim().split(/\s+/).filter(Boolean),
-      ...(input.getAttribute('aria-controls') || '').trim().split(/\s+/).filter(Boolean),
-    ])];
+    const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
+    const owns = idRefs(input.getAttribute('aria-owns'));
+    const controls = idRefs(input.getAttribute('aria-controls'));
+    // Resolve both ARIA IDREF attributes once. SuccessFactors may expose a
+    // popup plus the real listbox in aria-controls and repeat only the latter
+    // in aria-owns; the role identifies the target both for classification and
+    // for option reads.
+    const shared = controls.filter((id) => owns.includes(id));
+    const refs = [...new Set([...shared, ...controls, ...owns])];
     const nodes = refs.map((id) => doc.getElementById(id)).filter(Boolean);
     const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
     const element = listbox || nodes[0] || null;
-    return { id: element?.id || refs[0] || '', element };
+    return { id: element?.id || refs[0] || '', element, listbox: Boolean(listbox) };
   }
 
   function optionsNear(input) {
@@ -600,41 +613,54 @@
   // French form uses «Aucune sélection», which must remain an empty select
   // rather than being treated as text already filled by the candidate.
   const SELECT_PROMPT_RE = /^(bitte (aus)?w(ä|a)hlen|please select|select|seleziona(re)?|s(é|e)lectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
-  const SUCCESS_FACTORS_URL_RE = /success[\s._-]?factors/i;
+  // Keep this page contract aligned with fields.mjs and the portal's
+  // classifier: branded tenants are identified by their ATS route/context,
+  // not only by a vendor hostname.
+  const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
+  const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
+  const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
+  const SUCCESS_FACTORS_CONTEXT_RE = /(?:success[\s._-]?factors|\bsapsf\b|jobs\.sap\.com)/i;
   const SUCCESS_FACTORS_DOM_SELECTOR = [
     '[class*="successfactors" i]',
     '[class*="paginatedselect" i]',
     '[data-automation-id*="successfactors" i]',
     '[data-automation-id*="paginatedselect" i]',
+    '[data-ats*="successfactors" i]',
+    '[data-ats*="sapsf" i]',
+    '[data-channel*="successfactors" i]',
+    '[data-portal*="successfactors" i]',
     'ui5-date-picker',
     '[ui5-date-picker]',
     'script[src*="successfactors" i]',
     'link[href*="successfactors" i]',
     'meta[content*="successfactors" i]',
   ].join(', ');
-  const SUCCESS_FACTORS_HOST_SUFFIXES = ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'];
-  const isSuccessFactorsHost = (host) => {
-    const value = String(host || '').toLowerCase();
-    return value === 'jobs.sap.com' || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => value === suffix || value.endsWith(`.${suffix}`));
-  };
   const isSuccessFactorsPage = (input, channelType = '') => {
     const doc = input.ownerDocument;
-    const location = [doc.defaultView?.location?.hostname, doc.defaultView?.location?.pathname,
-      doc.defaultView?.location?.search, doc.defaultView?.location?.hash].filter(Boolean).join(' ');
+    const location = doc.defaultView?.location;
+    const hostname = String(location?.hostname || '');
+    const path = [location?.pathname, location?.search, location?.hash].filter(Boolean).join(' ');
+    const context = [
+      doc.defaultView?.__frontalierePortalChannelType,
+      doc.documentElement?.getAttribute('data-aa-portal-channel'),
+      doc.documentElement?.getAttribute('data-ats'),
+      doc.body?.getAttribute('data-ats'),
+    ].filter(Boolean).join(' ');
     return String(channelType).toLowerCase() === 'successfactors'
-      || isSuccessFactorsHost(doc.defaultView?.location?.hostname)
-      || SUCCESS_FACTORS_URL_RE.test(location)
+      || SUCCESS_FACTORS_HOST_RE.test(hostname)
+      || SUCCESS_FACTORS_ROUTE_RE.test(path)
+      || SUCCESS_FACTORS_URL_MARKER_RE.test(path)
+      || SUCCESS_FACTORS_CONTEXT_RE.test(context)
       || Boolean(doc.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
   };
   function selectLike(input, channelType = '') {
     const owned = ownedListFor(input);
-    const ownedList = owned.element;
     const required = isRequiredControl(input);
     return Boolean(owned.id)
       && (SELECT_PROMPT_RE.test(input.getAttribute('placeholder') || '')
         || SELECT_PROMPT_RE.test(input.value || '')
         || /paginatedselect/i.test(String(input.className || ''))
-        || (isSuccessFactorsPage(input, channelType) && required && ownedList?.getAttribute('role') === 'listbox'));
+        || (isSuccessFactorsPage(input, channelType) && required && owned.listbox));
   }
 
   async function chooseInCombobox(input, answer, selectLikeOverride = null) {

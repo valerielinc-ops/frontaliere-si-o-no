@@ -5,17 +5,22 @@
   root.CompilaRunnerFields = function extractFieldsInPage({ channelType = '' } = {}) {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
-  const SUCCESS_FACTORS_URL_RE = /success[\s._-]?factors/i;
-  const SUCCESS_FACTORS_HOST_SUFFIXES = ['successfactors.eu', 'successfactors.com', 'sapsf.eu', 'sapsf.com'];
-  const isSuccessFactorsHost = (host) => {
-    const value = String(host || '').toLowerCase();
-    return value === 'jobs.sap.com' || SUCCESS_FACTORS_HOST_SUFFIXES.some((suffix) => value === suffix || value.endsWith(`.${suffix}`));
-  };
+  // The ATS classifier knows both vendor hosts and employer-branded
+  // Jobs2Web routes. Keep this contract self-contained: this function is
+  // evaluated in a page and is also rendered into the extension runner.
+  const SUCCESS_FACTORS_HOST_RE = /(?:^|\.)(?:successfactors\.(?:com|eu|localhost)|sapsf\.(?:com|eu)|jobs\.sap\.com)$/i;
+  const SUCCESS_FACTORS_ROUTE_RE = /\/talentcommunity\/apply(?:[/?#]|$)/i;
+  const SUCCESS_FACTORS_URL_MARKER_RE = /(?:[?&#](?:ats|channel|portal)(?:=|%3d)(?:success[\s._-]?factors|sapsf)|[?&#]career_ns(?:=|%3d)job_application)(?:[&#]|$)/i;
+  const SUCCESS_FACTORS_CONTEXT_RE = /(?:success[\s._-]?factors|\bsapsf\b|jobs\.sap\.com)/i;
   const SUCCESS_FACTORS_DOM_SELECTOR = [
     '[class*="successfactors" i]',
     '[class*="paginatedselect" i]',
     '[data-automation-id*="successfactors" i]',
     '[data-automation-id*="paginatedselect" i]',
+    '[data-ats*="successfactors" i]',
+    '[data-ats*="sapsf" i]',
+    '[data-channel*="successfactors" i]',
+    '[data-portal*="successfactors" i]',
     'ui5-date-picker',
     '[ui5-date-picker]',
     'script[src*="successfactors" i]',
@@ -23,26 +28,39 @@
     'meta[content*="successfactors" i]',
   ].join(', ');
   const isSuccessFactorsPage = () => {
-    const location = [window.location?.hostname, window.location?.pathname, window.location?.search, window.location?.hash]
-      .filter(Boolean).join(' ');
+    const location = window.location;
+    const hostname = String(location?.hostname || '');
+    const path = [location?.pathname, location?.search, location?.hash].filter(Boolean).join(' ');
+    const context = [
+      window.__frontalierePortalChannelType,
+      document.documentElement?.getAttribute('data-aa-portal-channel'),
+      document.documentElement?.getAttribute('data-ats'),
+      document.body?.getAttribute('data-ats'),
+    ].filter(Boolean).join(' ');
     return String(channelType).toLowerCase() === 'successfactors'
-      || isSuccessFactorsHost(window.location?.hostname)
-      || SUCCESS_FACTORS_URL_RE.test(location)
+      || SUCCESS_FACTORS_HOST_RE.test(hostname)
+      || SUCCESS_FACTORS_ROUTE_RE.test(path)
+      || SUCCESS_FACTORS_URL_MARKER_RE.test(path)
+      || SUCCESS_FACTORS_CONTEXT_RE.test(context)
       || Boolean(document.querySelector(SUCCESS_FACTORS_DOM_SELECTOR));
   };
   const idRefs = (value) => String(value || '').trim().split(/\s+/).filter(Boolean);
   const ownedListFor = (element) => {
-    const refs = [...new Set([
-      ...idRefs(element.getAttribute('aria-owns')),
-      ...idRefs(element.getAttribute('aria-controls')),
-    ])];
+    const owns = idRefs(element.getAttribute('aria-owns'));
+    const controls = idRefs(element.getAttribute('aria-controls'));
+    // A control may name a popup and its listbox in aria-controls while
+    // repeating the listbox in aria-owns. Prefer a shared reference, then
+    // controls, then owns; the role, not attribute order, identifies the
+    // effective option list.
+    const shared = controls.filter((id) => owns.includes(id));
+    const refs = [...new Set([...shared, ...controls, ...owns])];
     const nodes = refs.map((id) => document.getElementById(id)).filter(Boolean);
     const listbox = nodes.find((node) => node.getAttribute('role')?.toLowerCase() === 'listbox');
     const target = listbox || nodes[0] || null;
-    return { id: target?.id || refs[0] || '', element: target };
+    return { id: target?.id || refs[0] || '', element: target, listbox: Boolean(listbox) };
   };
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
-  const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
+  const REQUIRED_LABEL = /\*|\b(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\b/i;
   // Ids a framework generates, which say nothing to the planner: React's
   // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
   const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
@@ -140,7 +158,7 @@
     const groupLabel = group?.querySelector('legend, .label, .question, h3, h4, label, [class*="label"], [class*="question"], [class*="title"]');
     if (groupLabel && !groupLabel.contains(element)
       && clean(groupLabel.innerText || groupLabel.textContent) === labelText) labels.add(groupLabel);
-    const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire)\s*\)?)$/i;
+    const REQUIRED_MARKER_ONLY = /^(?:\*|\(?\s*(?:erforderlich|pflichtfeld|required|mandatory|obbligatorio|obligatoire|obligatorisch)\s*\)?)$/i;
     const marker = (node, adjacent = false) => {
       if (node.nodeType === 1 && (node.hasAttribute('data-required') || node.getAttribute('aria-required') === 'true')) return true;
       const text = clean(node.innerText || node.textContent);
@@ -420,7 +438,6 @@
       // opened. A select by another name: its options are read (extractFields).
       const owned = ownedListFor(element);
       field.ownedList = owned.id;
-      const ownedList = owned.element;
       field.selectLike = Boolean(field.ownedList)
         // SuccessFactors localises its empty value too: Rolex's French form
         // says «Aucune sélection», not «Sélectionnez». It is still the same
@@ -432,7 +449,7 @@
           // required lazy picklists. The ARIA-owned listbox is the stable
           // control contract; without this branch the initial form snapshot
           // has no options and the planner cannot select the required value.
-          || (isSuccessFactorsPage() && field.required && ownedList?.getAttribute('role') === 'listbox'));
+          || (isSuccessFactorsPage() && field.required && owned.listbox));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);
