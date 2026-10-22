@@ -1637,6 +1637,7 @@ export class TokenIndex {
       this.occupationTermsByLocale.set(locale, termsByJob);
     }
 
+    const __tOccupationIndex = profileStart();
     const exactPostings = new Map<string, number[]>();
     for (let jobIdx = 0; jobIdx < this.jobs.length; jobIdx++) {
       const job = this.jobs[jobIdx];
@@ -1664,6 +1665,7 @@ export class TokenIndex {
       rolePostings: new Map(),
     };
     this.occupationPostingsByLocale.set(locale, index);
+    profileRecord('bc:occupation-index', __tOccupationIndex);
     return index;
   }
 }
