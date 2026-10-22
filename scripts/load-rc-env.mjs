@@ -406,6 +406,11 @@ export const RC_TO_ENV = {
   JOB_EMAIL_RANKING_ROLLOUT:      ['JOB_EMAIL_RANKING_ROLLOUT'],
   JOB_EMAIL_RANKING_AFFINITY_WEIGHT: ['JOB_EMAIL_RANKING_AFFINITY_WEIGHT'],
   JOB_EMAIL_RANKING_TREATMENT:    ['JOB_EMAIL_RANKING_TREATMENT'],
+  // Daily job-alert subject experiment: all controls are required by the
+  // sender, so an incomplete RC edit cannot activate traffic accidentally.
+  JOB_ALERT_SUBJECT_AB_ENABLED:   ['JOB_ALERT_SUBJECT_AB_ENABLED'],
+  JOB_ALERT_SUBJECT_AB_ROLLOUT:   ['JOB_ALERT_SUBJECT_AB_ROLLOUT'],
+  JOB_ALERT_SUBJECT_AB_VARIANTS:  ['JOB_ALERT_SUBJECT_AB_VARIANTS'],
   // Per-user send-time personalization kill switch (issue #3798). Unset in RC
   // by default — send-schedule.mjs treats absent as 'on'. Set to 'off' in RC
   // to roll back to immediate sends without touching code or workflows (env

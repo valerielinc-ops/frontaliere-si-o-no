@@ -109,6 +109,14 @@ function makeCheckTranslatedSlugCollisions(sectionSlugSrc: string) {
 }
 
 describe('create-article gate helpers', () => {
+  it('resolves the site root through filesystem paths, not URL pathname text', () => {
+    expect(src).toContain(
+      "const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');",
+    );
+    expect(src).toContain("path.resolve(PROJECT_ROOT, 'data/news-sitemap-whitelist.ts')");
+    expect(src).toContain('return path.resolve(PROJECT_ROOT, rel);');
+  });
+
   it('resolves Google News RSS wrappers to a direct proven-source headline', () => {
     const resolved = resolveGoogleNewsHeadline(
       {

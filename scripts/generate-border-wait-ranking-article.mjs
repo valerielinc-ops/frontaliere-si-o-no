@@ -90,9 +90,9 @@ export function computeSnapshot(todayIso, historyDir = HISTORY_DIR) {
   return { ranking, trend, funFacts, weekStart, weekEnd, movers };
 }
 
-/** Build the full registration `data` object from the current ranking snapshot. */
-export function buildData(todayIso, historyDir = HISTORY_DIR) {
-  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso, historyDir);
+/** Build the full registration `data` object from an already computed snapshot. */
+export function buildDataFromSnapshot(todayIso, snapshot) {
+  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = snapshot;
   const article = buildBorderWaitRankingArticle({ ranking, trend, funFacts, weekStart, weekEnd, movers, todayIso });
   return {
     id: article.id,
@@ -102,6 +102,11 @@ export function buildData(todayIso, historyDir = HISTORY_DIR) {
     content: article.content,
     _rankedCount: article._rankedCount,
   };
+}
+
+/** Build the full registration `data` object from the local history window. */
+export function buildData(todayIso, historyDir = HISTORY_DIR) {
+  return buildDataFromSnapshot(todayIso, computeSnapshot(todayIso, historyDir));
 }
 
 /** Rewrite only the 4 body files (idempotent refresh; registration is append-only). */
@@ -143,8 +148,12 @@ export function buildRankingJson({ ranking, trend, funFacts, todayIso, weekStart
 async function main() {
   const dryRun = process.env.DRY_RUN === '1' || process.env.DRY_RUN === 'true';
   const todayIso = process.env.TODAY_ISO || new Date().toISOString().slice(0, 10);
-  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = computeSnapshot(todayIso);
-  const data = buildData(todayIso);
+  // Read the filesystem-backed history once per run. The article body and the
+  // browser-served snapshot must describe the same ranking if the history
+  // writer refreshes a source file while this job is running.
+  const snapshot = computeSnapshot(todayIso);
+  const { ranking, trend, funFacts, weekStart, weekEnd, movers } = snapshot;
+  const data = buildDataFromSnapshot(todayIso, snapshot);
   const exists = checkArticleIdExists(data.id);
 
   console.log(
