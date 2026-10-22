@@ -1298,7 +1298,16 @@ export function uploadTriggerKey(button) {
     button?.fileContext,
     button?.href,
   ].map(normalize).filter(Boolean).join('|');
-  return `${button?.frame || 0}:${identity ? `id:${identity}` : `signature:${signature || 'anonymous'}`}`;
+  // Keep both parts: SuccessFactors often reuses one data-automation id for
+  // the CV and cover-letter controls, while their surrounding text is the
+  // only stable distinction. If the semantic signature also collides, the
+  // controls remain intentionally indistinguishable and no positional guess
+  // is allowed by the caller.
+  const stablePart = [
+    identity ? `id:${identity}` : '',
+    signature ? `signature:${signature}` : 'signature:anonymous',
+  ].filter(Boolean).join('|');
+  return `${button?.frame || 0}:${stablePart}`;
 }
 
 export function uploadButtonFor(snapshot, kind) {
