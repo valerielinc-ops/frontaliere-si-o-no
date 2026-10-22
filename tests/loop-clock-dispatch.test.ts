@@ -441,6 +441,17 @@ describe('loop clock observer', () => {
     displayTitle: 'Workflow',
     ...extra,
   });
+  const toApiRun = (run: ReturnType<typeof clockRun> | ReturnType<typeof otherRun>) => ({
+    id: run.databaseId,
+    created_at: run.createdAt,
+    html_url: run.url,
+    event: run.event,
+    head_branch: run.headBranch,
+    display_title: run.displayTitle,
+  });
+  const apiPayload = (runs: Array<ReturnType<typeof clockRun> | ReturnType<typeof otherRun>>, totalCount = runs.length) => (
+    JSON.stringify({ total_count: totalCount, workflow_runs: runs.map(toApiRun) })
+  );
   const observe = (entries: Parameters<typeof runLoopClockHealth>[0]['entries'], runs: unknown[], options = {}) => {
     const createIssueImpl = vi.fn(async () => ({ number: 1 }));
     const resolveIssueImpl = vi.fn(async () => ({ resolved: 0 }));
@@ -496,7 +507,7 @@ describe('loop clock observer', () => {
     const rows = listDispatchRuns('owner/site', entry.workflow, 10, 720, {
       ghImpl: () => {
         calls += 1;
-        return calls === 1 ? '[]' : JSON.stringify([clockRun(entry, 5)]);
+        return calls === 1 ? apiPayload([]) : apiPayload([clockRun(entry, 5)]);
       },
       sleep: (delayMs: number) => delays.push(delayMs),
       warn: (message: string) => warnings.push(message),
@@ -514,7 +525,7 @@ describe('loop clock observer', () => {
     const rows = listDispatchRuns('owner/site', 'never-ran.yml', 10, 720, {
       ghImpl: (args: string[]) => {
         calls.push(args);
-        return '[]';
+        return apiPayload([]);
       },
       sleep: (delayMs: number) => delays.push(delayMs),
       warn: () => {},
@@ -523,6 +534,69 @@ describe('loop clock observer', () => {
     expect(rows).toEqual([]);
     expect(calls).toHaveLength(EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1);
     expect(delays).toEqual([...EMPTY_RUN_LIST_RETRY_DELAYS_MS]);
+  });
+
+  it('reads the Actions collection directly and paginates from total_count', () => {
+    const entry = customEntry('api-listed');
+    const apiRun = (id: number, createdAt: string) => ({
+      id,
+      created_at: createdAt,
+      html_url: `https://example.invalid/runs/${id}`,
+      event: 'workflow_dispatch',
+      head_branch: 'main',
+      display_title: `Workflow ${LOOP_CLOCK_RUN_MARKER_PREFIX}${loopClockInputValue(entry, createdAt)}]`,
+    });
+    const pages = [
+      { total_count: 101, workflow_runs: Array.from({ length: 100 }, (_, index) => apiRun(index + 1, minutesAgo(index + 1))) },
+      { total_count: 101, workflow_runs: [apiRun(101, minutesAgo(101))] },
+    ];
+    let page = 0;
+    const ghImpl = vi.fn(() => JSON.stringify(pages[page++]));
+
+    const rows = listDispatchRuns('owner/site', entry.workflow, 101, 720, { ghImpl });
+
+    expect(rows).toHaveLength(101);
+    expect(rows[100]).toMatchObject({
+      databaseId: 101,
+      createdAt: minutesAgo(101),
+      headBranch: 'main',
+      displayTitle: expect.stringContaining(loopClockRunMarker(entry)),
+    });
+    expect(ghImpl).toHaveBeenCalledTimes(2);
+    const firstCall = ghImpl.mock.calls[0][0] as string[];
+    const secondCall = ghImpl.mock.calls[1][0] as string[];
+    expect(firstCall[0]).toBe('api');
+    expect(firstCall[1]).toContain('event=workflow_dispatch');
+    expect(firstCall[1]).not.toContain('branch=main');
+    expect(firstCall[1]).not.toContain('created=');
+    expect(firstCall[1]).toContain('per_page=100');
+    expect(firstCall[1]).toContain('page=1');
+    expect(secondCall[1]).toContain('page=2');
+  });
+
+  it('fails closed when an Actions page is shorter than its total_count', () => {
+    expect(() => listDispatchRuns(
+      'owner/site',
+      'incomplete.yml',
+      10,
+      720,
+      { ghImpl: () => JSON.stringify({ total_count: 10, workflow_runs: [] }) },
+    )).toThrow('workflow run response incomplete');
+  });
+
+  it('omits the event filter for an explicit unfiltered read', () => {
+    const calls: string[][] = [];
+    listDispatchRuns('owner/site', 'unfiltered.yml', 10, 720, {
+      event: null,
+      ghImpl: (args: string[]) => {
+        calls.push(args);
+        return apiPayload([]);
+      },
+      sleep: () => {},
+      warn: () => {},
+    });
+
+    expect(calls[0][1]).not.toContain('event=');
   });
 
   it('declares an entry stale when only non-clock runs are recent', async () => {

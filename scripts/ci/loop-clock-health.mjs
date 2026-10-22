@@ -18,7 +18,6 @@ import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
-import { createdFromFilter } from './lib/run-listing-window.mjs';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_ENTRIES,
@@ -126,6 +125,7 @@ function oldestClockDispatchAt(runs, markers) {
 
 const RUN_LIST_MARGIN = 50;
 const RUN_LIST_MAX = 1000;
+const ACTIONS_PAGE_SIZE = 100;
 // GitHub Actions can briefly return an empty filtered list while a run is
 // being indexed. An empty page is meaningful only after this bounded re-read;
 // errors and malformed JSON still fail closed through the caller.
@@ -181,12 +181,62 @@ function mergeRunRows(...lists) {
   });
 }
 
+function normalizeWorkflowRun(run) {
+  return {
+    createdAt: run?.created_at ?? null,
+    databaseId: run?.id ?? null,
+    url: run?.html_url ?? null,
+    event: run?.event ?? null,
+    headBranch: run?.head_branch ?? null,
+    displayTitle: run?.display_title ?? run?.name ?? '',
+  };
+}
+
+function readWorkflowRunPages({ repository, workflow, event, windowStart, minimumRows, ghImpl }) {
+  const encodedRepository = String(repository).split('/').map(encodeURIComponent).join('/');
+  const rows = [];
+  let totalCount = null;
+
+  for (let page = 1; rows.length < RUN_LIST_MAX; page += 1) {
+    const query = new URLSearchParams({
+      per_page: String(ACTIONS_PAGE_SIZE),
+      page: String(page),
+    });
+    if (event) query.set('event', event);
+    const endpoint = `repos/${encodedRepository}/actions/workflows/${encodeURIComponent(workflow)}/runs?${query}`;
+
+    let payload;
+    try {
+      payload = JSON.parse(ghImpl(['api', endpoint]) || 'null');
+    } catch {
+      throw new Error('workflow run response invalid');
+    }
+    if (!payload || !Array.isArray(payload.workflow_runs)
+      || !Number.isSafeInteger(payload.total_count) || payload.total_count < 0) {
+      throw new Error('workflow run response invalid');
+    }
+    if (totalCount === null) totalCount = payload.total_count;
+
+    const pageRows = payload.workflow_runs.map(normalizeWorkflowRun);
+    rows.push(...pageRows);
+    const validDates = rows.map((run) => Date.parse(run?.createdAt ?? '')).filter(Number.isFinite);
+    const oldest = validDates.length > 0 ? Math.min(...validDates) : null;
+    const collectionRead = rows.length >= totalCount;
+    const reachedWindow = oldest !== null && oldest <= windowStart;
+    if (collectionRead || (rows.length >= minimumRows && reachedWindow)) return rows;
+    if (pageRows.length < ACTIONS_PAGE_SIZE) throw new Error('workflow run response incomplete');
+  }
+
+  throw new Error('workflow run response incomplete');
+}
+
 /**
- * Read a filtered run list. The Actions index can transiently answer `[]`
- * while a just-created dispatch is becoming visible; treating that response
- * as proof of absence opens a false stale issue. Retry only that valid-but
- * suspicious shape, and preserve the existing fail-closed behavior for every
- * other read failure.
+ * Read the Actions collection directly. `gh run list` can expose a valid but
+ * stale filtered index while a cross-repository dispatch is already present;
+ * the REST collection gives the observer a total count and a bounded proof of
+ * how far it read. Branch and event checks remain local in selectLoopClockRun.
+ * Passing `null` as the optional event reads the same workflow unfiltered for
+ * the bounded absence confirmation below.
  */
 export function listDispatchRuns(
   repository,
@@ -195,38 +245,32 @@ export function listDispatchRuns(
   windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES,
   optionsOrEvent = {},
 ) {
-  // Keep the test seam introduced by the empty-list retry fix while allowing
-  // the observer to request an unfiltered confirmation with a fifth `null`
-  // argument. Existing callers pass the options object; the alternate read
-  // passes null so the normal gh implementation and retry policy still apply.
-  const options = optionsOrEvent && typeof optionsOrEvent === 'object'
-    ? optionsOrEvent
-    : {};
-  const event = optionsOrEvent && typeof optionsOrEvent === 'object'
-    ? optionsOrEvent.event ?? 'workflow_dispatch'
-    : optionsOrEvent === null
-      ? null
-      : optionsOrEvent ?? 'workflow_dispatch';
-  const {
-    ghImpl = gh,
-    sleep = sleepSync,
-    warn = console.warn,
-  } = options;
-  const args = [
-    'run', 'list', '--repo', repository, '--workflow', workflow,
-  ];
-  if (event) args.push('--event', event);
-  args.push(
-    '--branch', 'main',
-    '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
-    '--limit', String(limit),
-    '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
-  );
+  const normalizedOptions = typeof optionsOrEvent === 'function' ? { ghImpl: optionsOrEvent } : optionsOrEvent || {};
+  const event = optionsOrEvent === null
+    ? null
+    : Object.prototype.hasOwnProperty.call(normalizedOptions, 'event')
+      ? normalizedOptions.event
+      : 'workflow_dispatch';
+  const ghImpl = normalizedOptions.ghImpl ?? gh;
+  const sleep = normalizedOptions.sleep ?? sleepSync;
+  const warn = normalizedOptions.warn ?? console.warn;
+  const requestedLimit = Number(limit);
+  if (!Number.isInteger(requestedLimit) || requestedLimit <= 0) {
+    throw new TypeError('workflow run limit must be a positive integer');
+  }
+  const window = Number(windowMinutes);
+  if (!Number.isFinite(window) || window <= 0) throw new TypeError('workflow run window must be positive');
+  const minimumRows = Math.min(requestedLimit, RUN_LIST_MAX);
   const attempts = EMPTY_RUN_LIST_RETRY_DELAYS_MS.length + 1;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    const output = ghImpl(args);
-    const rows = JSON.parse(output || '[]');
-    if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
+    const rows = readWorkflowRunPages({
+      repository,
+      workflow,
+      event,
+      windowStart: Date.now() - window * 60_000,
+      minimumRows,
+      ghImpl,
+    });
     if (rows.length > 0 || attempt === attempts) return rows;
 
     const delayMs = EMPTY_RUN_LIST_RETRY_DELAYS_MS[attempt - 1];
