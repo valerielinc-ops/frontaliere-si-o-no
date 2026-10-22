@@ -290,6 +290,8 @@ const deVita: Record<string, string> = {
  'profile.paidApplications.otherTitle': 'Weitere Bewerbungen',
  'profile.paidApplications.allTitle': 'Alle Bewerbungen',
  'profile.paidApplications.nextStep': 'Nächster Schritt',
+ 'profile.paidApplications.openApplication': 'Bewerbung öffnen',
+ 'profile.paidApplications.openNextStep': 'Nächsten Schritt öffnen',
  'profile.paidApplications.openListing': 'Stellenanzeige öffnen',
  'profile.paidApplications.untitled': 'Bewerbung',
  'profile.paidApplications.companyUnavailable': 'Arbeitgeber nicht verfügbar',

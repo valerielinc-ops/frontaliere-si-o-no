@@ -15,6 +15,7 @@ export interface CandidateAssistedApplication {
   companyKey?: string | null;
   location?: string | null;
   jobUrl?: string | null;
+  applicationUrl?: string | null;
   source: 'single' | 'concierge';
   status: AssistedApplicationCandidateStatus;
   updatedAt: string | null;
@@ -81,6 +82,7 @@ function parseCandidateApplication(value: unknown): CandidateAssistedApplication
     ...(typeof value.companyKey === 'string' ? { companyKey: value.companyKey.trim().slice(0, 200) || null } : {}),
     ...(Object.prototype.hasOwnProperty.call(value, 'location') ? { location: optionalLocation(value.location) } : {}),
     ...(Object.prototype.hasOwnProperty.call(value, 'jobUrl') ? { jobUrl: safeHttpsUrl(value.jobUrl) } : {}),
+    ...(Object.prototype.hasOwnProperty.call(value, 'applicationUrl') ? { applicationUrl: safeHttpsUrl(value.applicationUrl) } : {}),
     source,
     status: value.status as AssistedApplicationCandidateStatus,
     updatedAt,

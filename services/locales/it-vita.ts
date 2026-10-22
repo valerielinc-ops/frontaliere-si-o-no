@@ -297,6 +297,8 @@ const translations: Record<string, string> = {
  'profile.paidApplications.otherTitle': 'Le altre candidature',
  'profile.paidApplications.allTitle': 'Tutte le candidature',
  'profile.paidApplications.nextStep': 'Prossimo passo',
+ 'profile.paidApplications.openApplication': 'Apri candidatura',
+ 'profile.paidApplications.openNextStep': 'Apri il prossimo passo',
  'profile.paidApplications.openListing': 'Apri annuncio',
  'profile.paidApplications.untitled': 'Candidatura',
  'profile.paidApplications.companyUnavailable': 'Azienda non disponibile',

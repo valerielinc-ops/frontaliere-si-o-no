@@ -119,6 +119,22 @@ function ApplicationDossier({
   const updatedDate = formatDate(application.updatedAt, locale);
   const helpKey = STATUS_HELP_KEYS[application.status];
   const uploadPath = `${jobBoardPath}?assisted_application_order_id=${encodeURIComponent(application.orderId)}`;
+  const applicationPath = application.requiresCvUpload || application.status === 'awaiting_materials'
+    ? uploadPath
+    : application.applicationUrl || uploadPath;
+  const applicationActionKey = ACTION_REQUIRED_STATUSES.has(application.status)
+    ? 'profile.paidApplications.openNextStep'
+    : 'profile.paidApplications.openApplication';
+  const applicationAction = (
+    <a
+      href={applicationPath}
+      className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-stripe bg-accent px-4 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+      aria-label={`${t(applicationActionKey)}: ${jobTitle}, ${companyName}`}
+    >
+      {t(applicationActionKey)}
+      <ArrowRight size={16} aria-hidden="true" />
+    </a>
+  );
 
   return (
     <li>
@@ -164,21 +180,22 @@ function ApplicationDossier({
                 <h4 className="text-sm font-medium">{t('profile.paidApplications.nextStep')}</h4>
                 <p className="mt-1 text-sm leading-6">{t(helpKey)}</p>
               </div>
-              {application.requiresCvUpload && (
+              {application.requiresCvUpload ? (
                 <a
-                  href={uploadPath}
-                  className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-stripe bg-accent px-4 text-sm font-semibold text-white transition-colors hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                  href={applicationPath}
+                  className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-stripe bg-accent px-4 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
                 >
                   {t('profile.paidApplications.upload')}
                   <ArrowRight size={16} aria-hidden="true" />
                 </a>
-              )}
+              ) : applicationAction}
             </div>
           )}
 
           <footer className="mt-4 flex flex-col gap-2 border-t border-edge pt-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted">
               <span>{t(sourceTranslationKey(application.source))}</span>
+              {!helpKey && applicationAction}
             </div>
             {application.jobUrl && (
               <a
