@@ -421,6 +421,161 @@ describe('legacy portal sections', () => {
     expect(trigger.click).toHaveBeenCalledOnce();
   });
 
+  it('retries a SuccessFactors upload control with a DOM click when the trusted click opens no target', async () => {
+    let domClicked = false;
+    let uploaded = false;
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Choose Password: *', required: true },
+      ],
+      buttons: [{ id: 'resume-trigger', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const fileInput = {
+      setInputFiles: vi.fn(async () => { uploaded = true; }),
+      waitFor: vi.fn(async () => {}),
+      elementHandles: vi.fn(async () => []),
+    };
+    const trigger = {
+      click: vi.fn(async () => {}),
+      evaluateHandle: vi.fn(async () => ({ dispose: vi.fn(async () => {}) })),
+      evaluate: vi.fn(async (run: (element: unknown) => void) => { run({ click: () => { domClicked = true; } }); }),
+      isVisible: vi.fn(async () => true),
+    };
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async () => ({
+        ...snapshot,
+        fields: uploaded ? [...snapshot.fields, { id: 'cv', kind: 'file', inputType: 'file', label: 'Resume / CV', required: true }] : snapshot.fields,
+      })),
+      locator: vi.fn((selector: string) => {
+        if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
+        if (selector === 'input[type="file"]') return {};
+        if (selector.includes('input[type="file"]')) return {
+          count: vi.fn(async () => domClicked ? 1 : 0),
+          elementHandles: vi.fn(async () => domClicked ? [fileInput] : []),
+        };
+        return { count: vi.fn(async () => 0), elementHandles: vi.fn(async () => []) };
+      }),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: vi.fn(() => domClicked ? [frame] : []),
+      mainFrame: () => frame,
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { allInnerTexts: vi.fn(async () => []) }),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(trigger.click).toHaveBeenCalledOnce();
+    expect(trigger.evaluateHandle).toHaveBeenCalledTimes(2);
+    expect(trigger.evaluate).toHaveBeenCalledOnce();
+    expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+  });
+
+  it('catches a native chooser opened synchronously by the DOM fallback click', async () => {
+    let domClicked = false;
+    let chooserEventEmitted = false;
+    let chooserCalls = 0;
+    let selected = false;
+    const chooserWaiters: Array<(value: unknown) => void> = [];
+    const request = {
+      method: () => 'POST',
+      headers: () => ({ 'content-type': 'multipart/form-data' }),
+    };
+    const eventListeners = new Map<string, (value: any) => void>();
+    const chooser = {
+      isMultiple: vi.fn(() => false),
+      setFiles: vi.fn(async () => {
+        selected = true;
+        eventListeners.get('request')?.(request);
+        eventListeners.get('response')?.({ request: () => request, status: () => 200 });
+        eventListeners.get('requestfinished')?.(request);
+      }),
+      element: vi.fn(async () => null),
+    };
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/careers',
+      title: 'Career Opportunities',
+      fields: [
+        { id: 'email', kind: 'text', label: 'Email Address: *', required: true },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Choose Password: *', required: true },
+      ],
+      buttons: [{ id: 'resume-trigger', text: 'Resume / CV (PDF preferred): Upload a Resume Opens a dialog', disabled: false }, { id: 'apply', text: 'Apply', disabled: false }],
+      captcha: false,
+      passwordVisible: true,
+      errors: [],
+      text: '',
+    };
+    const trigger = {
+      click: vi.fn(async () => {}),
+      evaluateHandle: vi.fn(async () => ({ dispose: vi.fn(async () => {}) })),
+      evaluate: vi.fn(async (run: (element: unknown) => void) => {
+        run({ click: () => {
+          domClicked = true;
+          chooserEventEmitted = true;
+          for (const resolve of chooserWaiters.splice(0)) resolve(chooser);
+        } });
+      }),
+      isVisible: vi.fn(async () => true),
+    };
+    const frame = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async () => ({
+        ...snapshot,
+        fields: selected ? [...snapshot.fields, { id: 'cv', kind: 'file', inputType: 'file', label: 'Resume / CV', required: true }] : snapshot.fields,
+      })),
+      locator: vi.fn((selector: string) => {
+        if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
+        if (selector === 'input[type="file"]') return {};
+        if (selector.includes('input[type="file"]')) return {
+          count: vi.fn(async () => 0),
+          elementHandles: vi.fn(async () => []),
+        };
+        return { count: vi.fn(async () => 0), elementHandles: vi.fn(async () => []) };
+      }),
+    };
+    const page = {
+      url: () => snapshot.url,
+      frames: vi.fn(() => domClicked ? [frame] : []),
+      mainFrame: () => frame,
+      waitForEvent: vi.fn(async () => {
+        chooserCalls += 1;
+        if (chooserCalls === 1) return null;
+        if (chooserEventEmitted) return null;
+        return await new Promise((resolve) => chooserWaiters.push(resolve));
+      }),
+      on: vi.fn((event: string, listener: (value: any) => void) => eventListeners.set(event, listener)),
+      off: vi.fn((event: string) => eventListeners.delete(event)),
+      locator: vi.fn((selector: string) => selector === '.group_head'
+        ? { count: vi.fn(async () => 0) }
+        : { allInnerTexts: vi.fn(async () => []) }),
+      getByText: vi.fn(() => ({ first: () => ({ isVisible: vi.fn(async () => false) }) })),
+      waitForLoadState: vi.fn(async () => {}),
+      waitForTimeout: vi.fn(async () => { await new Promise((resolve) => setTimeout(resolve, 1)); }),
+    };
+
+    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(result.cv).toBe('uploaded');
+    expect(trigger.click).toHaveBeenCalledOnce();
+    expect(trigger.evaluate).toHaveBeenCalledOnce();
+    expect(page.waitForEvent).toHaveBeenCalledTimes(2);
+    expect(chooser.setFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+    expect(domClicked).toBe(true);
+  });
+
   it('re-resolves queued upload controls from the post-redraw snapshot', async () => {
     const url = 'https://jobs.example.test/apply';
     const snapshots = [
