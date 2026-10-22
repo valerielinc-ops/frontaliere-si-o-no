@@ -968,6 +968,10 @@ function permitAnswerForStatus(field, status) {
   return '';
 }
 
+function isChoiceField(field) {
+  return Boolean(field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike);
+}
+
 function optionForAnswer(field, answer) {
   const options = Array.isArray(field?.options) ? field.options : [];
   const topic = questionTopic(field.label, field.context, field);
@@ -1442,7 +1446,7 @@ export function guardPlan(plan, fields, candidate = null) {
     .filter(([, value]) => value) : []);
   for (const [fieldId, value] of statusPick) {
     const field = byId.get(fieldId);
-    const action = field?.options?.length || ['combobox', 'select', 'radio'].includes(field?.kind) || field?.selectLike ? 'select' : 'fill';
+    const action = isChoiceField(field) ? 'select' : 'fill';
     actions.push({ fieldId, action, value, document: 'none', source: 'rule', evidence: '' });
   }
   // A yes/no field that only asks whether the candidate holds a document attached to this application: its
@@ -1491,7 +1495,7 @@ export function guardPlan(plan, fields, candidate = null) {
     if (!field) continue;
     if (['fill', 'select'].includes(action.action)) {
       const known = candidateAnswerForField(candidate, field);
-      if (known?.value) action = { ...action, action: field.options?.length ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
+      if (known?.value) action = { ...action, action: isChoiceField(field) ? 'select' : 'fill', value: known.value, source: known.source, evidence: '' };
     }
     if (action.action === 'fill' && isDateField(field)) {
       const normalized = normalizeDateAnswer(field, action.value);
@@ -1520,7 +1524,7 @@ export function guardPlan(plan, fields, candidate = null) {
     if (['fill', 'select'].includes(action.action) && isAddressTopic) {
       const answer = candidateAnswerForField(candidate, field);
       if (answer) {
-        actions.push({ ...action, action: field.options?.length ? 'select' : 'fill', value: answer.value, source: answer.source, evidence: '' });
+        actions.push({ ...action, action: isChoiceField(field) ? 'select' : 'fill', value: answer.value, source: answer.source, evidence: '' });
         continue;
       }
       ask(field);
@@ -1593,7 +1597,7 @@ export function guardPlan(plan, fields, candidate = null) {
     }
     actions.push({
       fieldId: field.id,
-      action: field.options?.length ? 'select' : 'fill',
+      action: isChoiceField(field) ? 'select' : 'fill',
       value,
       document: 'none',
       source: answer.source,
