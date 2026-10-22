@@ -73,6 +73,31 @@ describe('scripts/lib/wait-cdn-build-id.sh', () => {
     expect(code).toBe(0);
   });
 
+  it('fails closed immediately when a newer numeric marker supersedes this source run', () => {
+    const url = markerUrl('1718000000124');
+    const { code, stdout } = run(['1718000000123'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '5',
+      CDN_WAIT_INTERVAL_S: '1',
+    });
+    expect(code).toBe(1);
+    expect(stdout).toMatch(/SOURCE SUPERSEDED/i);
+    expect(stdout).toMatch(/newer build id=1718000000124/);
+    expect(stdout).not.toMatch(/timed out/i);
+  });
+
+  it('does not classify an older numeric marker as a supersede', () => {
+    const url = markerUrl('1718000000123');
+    const { code, stdout } = run(['1718000000124'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '0',
+      CDN_WAIT_INTERVAL_S: '1',
+    });
+    expect(code).toBe(1);
+    expect(stdout).toMatch(/timed out/i);
+    expect(stdout).not.toMatch(/SOURCE SUPERSEDED/i);
+  });
+
   it('fails (exit 1) when the CDN never reaches the expected id within the timeout', () => {
     const url = markerUrl('an-older-build-id');
     const { code, stdout } = run(['the-new-build-id'], {

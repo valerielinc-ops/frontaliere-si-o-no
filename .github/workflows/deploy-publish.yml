@@ -1305,8 +1305,10 @@ jobs:
           node scripts/cf-purge-cache.mjs "--files=$PURGE_URLS" || echo "::warning::the $LOCALE edge purge failed — those URLs keep serving the previous build until the TTL expires"
 
       # ── The two ways this locale can end up unpublished, told APART ───────
-      # Both leave the live locale STALE behind a green deploy, and until now
-      # both were reported by ONE step with ONE issue title whose body read
+      # A superseded source is an expected cross-run handoff; genuine gate
+      # timeouts and push failures leave the live locale STALE behind a green
+      # deploy and need actionable tracking. Until now the latter two were
+      # reported by ONE step with ONE issue title whose body read
       # "Probabili cause: errore transiente di rete, conflitto di push, deploy
       # key shard scaduta". For a gate timeout that diagnosis is simply wrong,
       # and it has already cost real triage: on 2026-08-06 run 31062047677 the
@@ -1315,15 +1317,41 @@ jobs:
       # (en) and #5227 (de) were filed blaming the shard deploy keys. The keys
       # were fine. Nothing in the issue pointed at the IT leg.
       #
-      # So: two steps, two titles, two bodies, mutually exclusive `if:`s
-      # (cdn-gate failure ⟹ push-shard SKIPPED, never 'failure').
+      # A superseded source is an expected cross-run handoff and is surfaced
+      # without opening an issue; genuine gate timeouts and shard-push failures
+      # keep their actionable issue paths below.
+      - name: Surface superseded locale shard (#2569 newer CDN build already live)
+        # A newer numeric CDN marker means another source run already owns the
+        # singleton CDN payload. Publishing this older locale would pair stale
+        # Pages HTML with a newer CDN snapshot, so the gate exits non-zero; it
+        # is expected handoff noise, not a new shard-repo failure to file.
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.cdn-gate.outcome == 'failure' && steps.cdn-gate.outputs.cdn_wait_result == 'superseded'
+        continue-on-error: true
+        env:
+          LOCALE: ${{ matrix.locale }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          CDN_WAITED_S: ${{ steps.cdn-gate.outputs.cdn_waited_s }}
+          CDN_EXPECTED: ${{ steps.cdn-gate.outputs.cdn_expected }}
+          CDN_SUPERSEDING: ${{ steps.cdn-gate.outputs.cdn_superseding_build_id }}
+        run: |
+          set -euo pipefail
+          ANNOT="The ${LOCALE} shard was NOT pushed: CDN already serves newer build ${CDN_SUPERSEDING} than this tail's expected ${CDN_EXPECTED} after ${CDN_WAITED_S}s. This source run is superseded; the newer all-locale publisher owns the replacement."
+          echo "::warning title=Locale shard superseded (#2569)::${ANNOT}"
+          {
+            echo "ℹ️ **${LOCALE} shard not published — #2569 source superseded**"
+            echo ""
+            echo "CDN already serves newer build \`${CDN_SUPERSEDING}\` than expected \`${CDN_EXPECTED}\`; this stale source shard was intentionally not pushed after \`${CDN_WAITED_S}s\`. The newer all-locale publisher owns the replacement."
+            echo ""
+            echo "Run: ${RUN_URL}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Surface an unpublished locale shard (#2569 CDN ordering gate timed out)
         # The gate ran out of budget waiting for the IT leg's CDN push, so the
         # shard was deliberately not published ahead of the CDN. Loud, but NOT
         # fatal: aborting here would take down the other 26 shards for one
         # locale's ordering problem, which is exactly the tolerance the
         # continue-on-error posture exists to preserve.
-        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.cdn-gate.outcome == 'failure'
+        if: matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true' && steps.cdn-gate.outcome == 'failure' && steps.cdn-gate.outputs.cdn_wait_result != 'superseded'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

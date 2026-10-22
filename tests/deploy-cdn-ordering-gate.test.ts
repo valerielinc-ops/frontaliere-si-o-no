@@ -121,6 +121,15 @@ describe('deploy.yml — a timeout and a push failure are told APART (#5251)', (
     ).not.toMatch(/steps\.cdn-gate\.outcome == 'failure'/);
   });
 
+  it('a superseded source is summarized without opening a duplicate timeout issue', () => {
+    const superseded = step('Surface superseded locale shard (#2569 newer CDN build already live)');
+    expect(superseded).toMatch(/steps\.cdn-gate\.outputs\.cdn_wait_result == 'superseded'/);
+    expect(superseded).toMatch(/cdn_superseding_build_id/);
+    expect(superseded).not.toMatch(/github-issue-creator\.mjs/);
+    const timeout = step('Surface an unpublished locale shard (#2569 CDN ordering gate timed out)');
+    expect(timeout).toMatch(/steps\.cdn-gate\.outputs\.cdn_wait_result != 'superseded'/);
+  });
+
   it('neither step aborts the deploy, and both emit a run-level error annotation', () => {
     for (const title of [
       'Surface an unpublished locale shard (#2569 CDN ordering gate timed out)',
@@ -338,6 +347,23 @@ describe('wait-cdn-build-id.sh — a near miss is not the same green as a comfor
     expect(r.outputs.cdn_timeout_s).toBe('0');
     expect(r.summary).toMatch(/TIMED OUT/);
     expect(r.summary).toMatch(/STALE/);
+  });
+
+  it('SUPERSEDED → exits 1 quickly, records the newer marker, and never reports a timeout', () => {
+    const r = runGate(['1718000000123'], {
+      CDN_BUILD_ID_URL: markerUrl('1718000000124'),
+      CDN_WAIT_TIMEOUT_S: '10',
+      CDN_WAIT_INTERVAL_S: '1',
+    });
+    expect(r.code, 'a stale source must never publish against a newer CDN payload').toBe(1);
+    expect(r.outputs.cdn_wait_result).toBe('superseded');
+    expect(r.outputs.cdn_expected).toBe('1718000000123');
+    expect(r.outputs.cdn_last_seen).toBe('1718000000124');
+    expect(r.outputs.cdn_superseding_build_id).toBe('1718000000124');
+    expect(Number(r.outputs.cdn_waited_s)).toBeLessThan(10);
+    expect(r.stdout).toMatch(/SOURCE SUPERSEDED/);
+    expect(r.stdout).not.toMatch(/TIMED OUT/);
+    expect(r.summary).toMatch(/newer build/);
   });
 
   it('NEGATIVE CASE — the no-op path (no build id) stays a no-op and claims nothing', () => {
