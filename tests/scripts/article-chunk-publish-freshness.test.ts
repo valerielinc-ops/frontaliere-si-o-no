@@ -122,7 +122,11 @@ function reachedFrom(relativePath: string): string[] {
 
 const SURFACE_PATHS = [
   ['article content glob', 'packages/articles/content/blog-body/it/x.ts'],
+  ['blog sitemap', 'public/sitemap-blog.xml'],
+  ['Swiss blog sitemap', 'public/sitemap-blog-ch.xml'],
+  ['article archive sitemap', 'public/sitemap-articles-archive.xml'],
   ['news sitemap', 'public/sitemap-news.xml'],
+  ['root sitemap', 'public/sitemap.xml'],
   ['RSS glob', 'public/rss-it.xml'],
   ['news ticker', 'public/news-ticker-live.json'],
   ['workflow trigger', '.github/workflows/sync-articles-sitemaps.yml'],

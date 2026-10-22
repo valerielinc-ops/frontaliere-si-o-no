@@ -16,7 +16,11 @@ export const GIT_SHA_RE = /^[0-9a-f]{40}$/iu;
 // away from the event that schedules the replay.
 export const ARTICLE_SURFACE_PATHS = Object.freeze([
   'packages/articles/content/**',
+  'public/sitemap-blog.xml',
+  'public/sitemap-blog-ch.xml',
+  'public/sitemap-articles-archive.xml',
   'public/sitemap-news.xml',
+  'public/sitemap.xml',
   'public/rss*.xml',
   'public/news-ticker-live.json',
   '.github/workflows/sync-articles-sitemaps.yml',
