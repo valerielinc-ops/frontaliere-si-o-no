@@ -1,7 +1,7 @@
 {
   "crawlerKey": "buehler",
-  "assembledAt": "2026-10-22T09:41:58.108Z",
-  "runId": "39753840265",
+  "assembledAt": "2026-10-22T21:26:58.873Z",
+  "runId": "39855538936",
   "jobs": [
     {
       "id": "buehler-0e4835288e97",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "avviso-legale-buhler-group-uzwil",
         "en": "legal-counsel-buehler-uzwil",
-        "de": "rechtsberatung-buhler-group-uzwil",
+        "de": "rechtsberater-buhler-group-uzwil",
         "fr": "conseiller-juridique-buhler-group-uzwil"
       },
       "company": "Bühler Group",
@@ -35,7 +35,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/legal-counsel/b5409f3c-72a6-42f9-b206-03990c61a7a6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.300Z",
+      "crawledAt": "2026-10-22T21:26:51.730Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -57,17 +57,91 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-buehler-uzwil",
-        "rechtsberater-buhler-group-uzwil"
+        "rechtsberatung-buhler-group-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-buehler-uzwil"
         ],
         "de": [
-          "rechtsberater-buhler-group-uzwil"
+          "rechtsberatung-buhler-group-uzwil"
         ]
       },
       "firstSeenAt": "2026-06-23T11:09:06.078Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "buehler-81923f17f97a",
+      "slug": "apprendistato-come-entwickler-in-digitales-business-cfc-buhler-group-uzwil",
+      "slugByLocale": {
+        "it": "apprendistato-come-entwickler-in-digitales-business-cfc-buhler-group-uzwil",
+        "en": "teaching-as-a-developer-in-digital-business-efz-buhler-group-uzwil",
+        "de": "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil",
+        "fr": "enseignement-en-tant-que-developpeur-dans-digital-business-efz-buhler-group-uzwil"
+      },
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "Lehre als Entwickler:in Digitales Business EFZ",
+      "titleByLocale": {
+        "it": "Insegnamento come sviluppatore Digital Business EFZ",
+        "en": "Teaching as a Developer Digital Business EFZ",
+        "de": "Lehre als Entwickler:in Digitales Business EFZ",
+        "fr": "Enseignement en tant que développeur: dans Digital Business EFZ"
+      },
+      "description": "Starte jetzt. Gestalte morgen. BFuture.<br/><br/><br/>Du denkst gerne vernetzt, interessierst dich für Wirtschaft, Daten und digitale Technologien? Dann ist die Lehrstelle als Entwickler:in Digitales Business EFZ bei Bühler genau das Richtige für dich!<br/><br/><br/>Bewerbe dich jetzt mit deinen vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse) und starte deine Zukunft mit uns!\n\nAufgaben:\n• Du arbeitest in Projekten mit und berätst verschiedene Stakeholder\n\n• Du analysierst Geschäftsprozesse und ICT-Produkte und entwickelst Optimierungsvorschläge\n\n• Du koordinierst Arbeitsschritte und unterstützt bei der Umsetzung der Projekte\n\n• Du analysierst und wertest Daten aus und bereitest diese verständlich auf\n\n• Du erstellst Visualisierungen und Präsentationen, verfolgst Trends und überprüfst sowie bewertest Ergebnisse\n\nAnforderungen:\n• Interesse an technischen Trends\n\n• Freude an Kommunikation und überzeugendem Präsentieren\n\n• Freude am Analysieren und vernetzten Denken\n\n• Gute Sprachkenntnisse (DE, EN)\n\n• Zuverlässigkeit, Kundenorientierung und Teamfähigkeit\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+      "descriptionByLocale": {
+        "it": "Inizia subito. Progettare domani. BFuture. Ti piace pensare connesso, sei interessato a business, dati e tecnologie digitali? Allora l'apprendistato come sviluppatore: in Digital Business EFZ a Bühler è esattamente la cosa giusta per voi! Applicare ora con i documenti di applicazione completi (lettera di motivazione, CV, certificati) e iniziare il tuo futuro con noi! Compiti:\n• Lavori in progetti e consiglia vari stakeholder\n• Analizzerai i processi aziendali e i prodotti ICT e svilupperai proposte di ottimizzazione\n• Coordinate le fasi di lavoro e sostenete l'attuazione dei progetti\n• Analizzi e raccogli dati e lo prepari comprensibilmente\n• È possibile creare visualizzazioni e presentazioni, tracciare tendenze e rivedere e valutare i risultati Requisiti\n• Interessi delle tendenze tecniche\n• Gioia della comunicazione e presentazione convincente\n• Gioia di analisi e pensiero in rete\n• Buone competenze linguistiche (DE, EN)\n• Affidabilità, orientamento del cliente e lavoro di squadra Offriamo: Attraente diritto di vacanza Tempo sufficiente per la ricreazione e gli interessi personali - offriamo da 25 a 30 giorni di vacanze all'anno a seconda dell'anno di vita. Concetto di mobilità attraente Offriamo un OSTWIND ZVV / Z-Pass + Half-Tax per 365 CHF + 400CHF credito di trasporto pubblico e un attraente abbonamento di prima classe o parcheggio gratuito. Ristorante personale VIVA Offriamo ai nostri dipendenti un menu di fitness giornaliero da 9.00 CHF. Abbonamenti mobili Offriamo condizioni speciali per gli abbonamenti mobili tramite Mobilezone a Sunrise e Swisscom. Porta salute Siamo impegnati nella prevenzione della salute attraverso analisi di laboratorio, massaggi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale. Attività sportive Promuoviamo lo sport attraverso la formazione di circuiti auto-organizzati e gruppi in esecuzione, nonché buoni per l'aggiornamento e il fitness attivo. Due miliardi di persone mangiano cibo prodotto nelle piante di Bühler ogni giorno. Un miliardo di persone viaggiano in veicoli le cui parti sono state prodotte utilizzando le tecnologie Bühler. Con ogni decisione, Bühler persegue l'obiettivo di conciliare le esigenze dell'economia, delle persone e della natura. In questo modo, sviluppiamo soluzioni che aprono opportunità di business sostenibili nel settore alimentare, alimentare e della mobilità globale. Vogliamo innovare per un mondo migliore, con particolare attenzione alle soluzioni sane, sicure e sostenibili. Ecco perché lavoriamo con clienti, start-up, multinazionali e scienziati per ottenere un impatto più veloce insieme.",
+        "en": "Start now. Design tomorrow. BFuture.<br/><br/<br/ >You like to think connected, are you interested in business, data and digital technologies? Then the apprenticeship as a developer: in Digital Business EFZ at Bühler is exactly the right thing for you!<br/><br/><br/>Apply now with your complete application documents (motivation letter, CV, certificates) and start your future with us! Tasks:\n• You work in projects and advise various stakeholders\n• You will analyze business processes and ICT products and develop optimization proposals\n• You coordinate work steps and support the implementation of the projects\n• You analyze and harvest data and prepare it understandably\n• You create visualizations and presentations, track trends and review and evaluate results Requirements\n• Interest in technical trends\n• Joy of communication and convincing presentation\n• Joy of analyzing and networked thinking\n• Good language skills (DE, EN)\n• Reliability, customer orientation and teamwork We offer: Attractive holiday entitlement Sufficient time for recreation and personal interests - we offer from 25 to 30 days of holidays per year depending on the year of life. Attractive mobility concept We offer an OSTWIND ZVV / Z-Pass + Half-Tax for 365 CHF + 400CHF public transport credit as well as an attractive first-class subscription or free parking. Staff restaurant VIVA We offer our employees a daily fitness menu from 9.00 CHF. Mobile subscriptions We offer special conditions for mobile subscriptions via Mobilezone at Sunrise and Swisscom. Health port We are committed to health prevention through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor. Sports activities We promote sport through self-organized circuit training and running groups as well as vouchers for update and active fitness. Two billion people eat food produced at Bühler plants every day. One billion people travel in vehicles whose parts were produced using Bühler technologies. With every decision, Bühler pursues the goal of reconciling the needs of the economy, people and nature. In this way, we develop solutions that open up sustainable business opportunities in the global food, feed and mobility industries. We want to innovate for a better world, with a particular focus on healthy, safe and sustainable solutions. This is why we work with customers, start-ups, multinational corporations and scientists to achieve a faster impact together.",
+        "de": "Starte jetzt. Gestalte morgen. BFuture.<br/><br/><br/>Du denkst gerne vernetzt, interessierst dich für Wirtschaft, Daten und digitale Technologien? Dann ist die Lehrstelle als Entwickler:in Digitales Business EFZ bei Bühler genau das Richtige für dich!<br/><br/><br/>Bewerbe dich jetzt mit deinen vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse) und starte deine Zukunft mit uns!\n\nAufgaben:\n• Du arbeitest in Projekten mit und berätst verschiedene Stakeholder\n\n• Du analysierst Geschäftsprozesse und ICT-Produkte und entwickelst Optimierungsvorschläge\n\n• Du koordinierst Arbeitsschritte und unterstützt bei der Umsetzung der Projekte\n\n• Du analysierst und wertest Daten aus und bereitest diese verständlich auf\n\n• Du erstellst Visualisierungen und Präsentationen, verfolgst Trends und überprüfst sowie bewertest Ergebnisse\n\nAnforderungen:\n• Interesse an technischen Trends\n\n• Freude an Kommunikation und überzeugendem Präsentieren\n\n• Freude am Analysieren und vernetzten Denken\n\n• Gute Sprachkenntnisse (DE, EN)\n\n• Zuverlässigkeit, Kundenorientierung und Teamfähigkeit\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "fr": "Commencez maintenant. Concevoir demain. BFuture.<br/><br/<br/ > Vous aimez penser connecté, êtes-vous intéressé par les entreprises, les données et les technologies numériques? Ensuite, l'apprentissage en tant que développeur: dans Digital Business EFZ à Bühler est exactement la bonne chose pour vous!<br/><br/> Postulez maintenant avec vos documents de candidature complets (lettre de motivation, CV, certificats) et commencez votre avenir avec nous! Tâches :\n• Vous travaillez dans des projets et conseillez divers intervenants\n• Vous analyserez les processus opérationnels et les produits TIC et développerez des propositions d'optimisation\n• Vous coordonnez les étapes de travail et soutenez la mise en œuvre des projets\n• Vous analysez et récoltez les données et les préparez de façon compréhensible\n• Vous créez des visualisations et des présentations, suivez les tendances et examinez et évaluez les résultats Exigences\n• Intérêt pour les tendances techniques\n• Joy de communication et présentation convaincante\n• La joie de l'analyse et de la pensée en réseau\n• Bonnes compétences linguistiques (DE, EN)\n• Fiabilité, orientation du client et travail d'équipe Nous offrons: Droit aux congés annuels attractifs Temps suffisant pour les loisirs et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par an selon l'année de la vie. Concept de mobilité attractive Nous offrons un OSTWIND ZVV / Z-Pass + demi-taxe pour 365 CHF + 400CHF crédit de transport en commun ainsi qu'un abonnement de première classe attrayant ou un parking gratuit. Restaurant du personnel VIVA Nous offrons à nos employés un menu de fitness quotidien à partir de 9.00 CHF. Abonnements mobiles Nous offrons des conditions spéciales pour les abonnements mobiles via Mobilezone à Sunrise et Swisscom. Port sanitaire Nous sommes engagés dans la prévention de la santé par des analyses de laboratoire, des massages, des conseils nutritionnels, la physiothérapie, des cours de groupe et un médecin d'entreprise. Activités sportives Nous promouvons le sport par l'entraînement en circuit auto-organisé et des groupes de course ainsi que des bons de mise à jour et de fitness actif. Deux milliards de personnes mangent chaque jour des aliments produits dans les usines de Bühler. Un milliard de personnes voyagent dans des véhicules dont les pièces ont été produites grâce aux technologies Bühler. Avec chaque décision, Bühler poursuit l'objectif de concilier les besoins de l'économie, des personnes et de la nature. De cette manière, nous développons des solutions qui ouvrent des opportunités commerciales durables dans les industries mondiales des aliments pour animaux, des aliments pour animaux et de la mobilité. Nous voulons innover pour un monde meilleur, avec un accent particulier sur des solutions saines, sûres et durables. C'est pourquoi nous travaillons avec les clients, les start-up, les multinationales et les scientifiques pour obtenir un impact plus rapide ensemble."
+      },
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-entwickler-in-digitales-business-efz/16552bec-00c5-40ef-b104-93d212a0490e",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T21:26:51.727Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3200",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil"
+        ]
+      },
+      "firstSeenAt": "2026-07-01T11:17:55.649Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -113,7 +187,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-industrielackierer-in-efz/55cb4bc5-649a-4f85-b5f0-aa3372f6245e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:52.298Z",
+      "crawledAt": "2026-10-22T21:26:51.724Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -164,80 +238,6 @@
       }
     },
     {
-      "id": "buehler-81923f17f97a",
-      "slug": "apprendistato-come-entwickler-in-digitales-business-cfc-buhler-group-uzwil",
-      "slugByLocale": {
-        "it": "apprendistato-come-entwickler-in-digitales-business-cfc-buhler-group-uzwil",
-        "en": "teaching-as-a-developer-in-digital-business-efz-buhler-group-uzwil",
-        "de": "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil",
-        "fr": "enseignement-en-tant-que-developpeur-dans-digital-business-efz-buhler-group-uzwil"
-      },
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "Lehre als Entwickler:in Digitales Business EFZ",
-      "titleByLocale": {
-        "it": "Insegnamento come sviluppatore Digital Business EFZ",
-        "en": "Teaching as a Developer Digital Business EFZ",
-        "de": "Lehre als Entwickler:in Digitales Business EFZ",
-        "fr": "Enseignement en tant que développeur: dans Digital Business EFZ"
-      },
-      "description": "Starte jetzt. Gestalte morgen. BFuture.<br/><br/><br/>Du denkst gerne vernetzt, interessierst dich für Wirtschaft, Daten und digitale Technologien? Dann ist die Lehrstelle als Entwickler:in Digitales Business EFZ bei Bühler genau das Richtige für dich!<br/><br/><br/>Bewerbe dich jetzt mit deinen vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse) und starte deine Zukunft mit uns!\n\nAufgaben:\n• Du arbeitest in Projekten mit und berätst verschiedene Stakeholder\n\n• Du analysierst Geschäftsprozesse und ICT-Produkte und entwickelst Optimierungsvorschläge\n\n• Du koordinierst Arbeitsschritte und unterstützt bei der Umsetzung der Projekte\n\n• Du analysierst und wertest Daten aus und bereitest diese verständlich auf\n\n• Du erstellst Visualisierungen und Präsentationen, verfolgst Trends und überprüfst sowie bewertest Ergebnisse\n\nAnforderungen:\n• Interesse an technischen Trends\n\n• Freude an Kommunikation und überzeugendem Präsentieren\n\n• Freude am Analysieren und vernetzten Denken\n\n• Gute Sprachkenntnisse (DE, EN)\n\n• Zuverlässigkeit, Kundenorientierung und Teamfähigkeit\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
-      "descriptionByLocale": {
-        "it": "Inizia subito. Progettare domani. BFuture. Ti piace pensare connesso, sei interessato a business, dati e tecnologie digitali? Allora l'apprendistato come sviluppatore: in Digital Business EFZ a Bühler è esattamente la cosa giusta per voi! Applicare ora con i documenti di applicazione completi (lettera di motivazione, CV, certificati) e iniziare il tuo futuro con noi! Compiti:\n• Lavori in progetti e consiglia vari stakeholder\n• Analizzerai i processi aziendali e i prodotti ICT e svilupperai proposte di ottimizzazione\n• Coordinate le fasi di lavoro e sostenete l'attuazione dei progetti\n• Analizzi e raccogli dati e lo prepari comprensibilmente\n• È possibile creare visualizzazioni e presentazioni, tracciare tendenze e rivedere e valutare i risultati Requisiti\n• Interessi delle tendenze tecniche\n• Gioia della comunicazione e presentazione convincente\n• Gioia di analisi e pensiero in rete\n• Buone competenze linguistiche (DE, EN)\n• Affidabilità, orientamento del cliente e lavoro di squadra Offriamo: Attraente diritto di vacanza Tempo sufficiente per la ricreazione e gli interessi personali - offriamo da 25 a 30 giorni di vacanze all'anno a seconda dell'anno di vita. Concetto di mobilità attraente Offriamo un OSTWIND ZVV / Z-Pass + Half-Tax per 365 CHF + 400CHF credito di trasporto pubblico e un attraente abbonamento di prima classe o parcheggio gratuito. Ristorante personale VIVA Offriamo ai nostri dipendenti un menu di fitness giornaliero da 9.00 CHF. Abbonamenti mobili Offriamo condizioni speciali per gli abbonamenti mobili tramite Mobilezone a Sunrise e Swisscom. Porta salute Siamo impegnati nella prevenzione della salute attraverso analisi di laboratorio, massaggi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale. Attività sportive Promuoviamo lo sport attraverso la formazione di circuiti auto-organizzati e gruppi in esecuzione, nonché buoni per l'aggiornamento e il fitness attivo. Due miliardi di persone mangiano cibo prodotto nelle piante di Bühler ogni giorno. Un miliardo di persone viaggiano in veicoli le cui parti sono state prodotte utilizzando le tecnologie Bühler. Con ogni decisione, Bühler persegue l'obiettivo di conciliare le esigenze dell'economia, delle persone e della natura. In questo modo, sviluppiamo soluzioni che aprono opportunità di business sostenibili nel settore alimentare, alimentare e della mobilità globale. Vogliamo innovare per un mondo migliore, con particolare attenzione alle soluzioni sane, sicure e sostenibili. Ecco perché lavoriamo con clienti, start-up, multinazionali e scienziati per ottenere un impatto più veloce insieme.",
-        "en": "Start now. Design tomorrow. BFuture.<br/><br/<br/ >You like to think connected, are you interested in business, data and digital technologies? Then the apprenticeship as a developer: in Digital Business EFZ at Bühler is exactly the right thing for you!<br/><br/><br/>Apply now with your complete application documents (motivation letter, CV, certificates) and start your future with us! Tasks:\n• You work in projects and advise various stakeholders\n• You will analyze business processes and ICT products and develop optimization proposals\n• You coordinate work steps and support the implementation of the projects\n• You analyze and harvest data and prepare it understandably\n• You create visualizations and presentations, track trends and review and evaluate results Requirements\n• Interest in technical trends\n• Joy of communication and convincing presentation\n• Joy of analyzing and networked thinking\n• Good language skills (DE, EN)\n• Reliability, customer orientation and teamwork We offer: Attractive holiday entitlement Sufficient time for recreation and personal interests - we offer from 25 to 30 days of holidays per year depending on the year of life. Attractive mobility concept We offer an OSTWIND ZVV / Z-Pass + Half-Tax for 365 CHF + 400CHF public transport credit as well as an attractive first-class subscription or free parking. Staff restaurant VIVA We offer our employees a daily fitness menu from 9.00 CHF. Mobile subscriptions We offer special conditions for mobile subscriptions via Mobilezone at Sunrise and Swisscom. Health port We are committed to health prevention through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor. Sports activities We promote sport through self-organized circuit training and running groups as well as vouchers for update and active fitness. Two billion people eat food produced at Bühler plants every day. One billion people travel in vehicles whose parts were produced using Bühler technologies. With every decision, Bühler pursues the goal of reconciling the needs of the economy, people and nature. In this way, we develop solutions that open up sustainable business opportunities in the global food, feed and mobility industries. We want to innovate for a better world, with a particular focus on healthy, safe and sustainable solutions. This is why we work with customers, start-ups, multinational corporations and scientists to achieve a faster impact together.",
-        "de": "Starte jetzt. Gestalte morgen. BFuture.<br/><br/><br/>Du denkst gerne vernetzt, interessierst dich für Wirtschaft, Daten und digitale Technologien? Dann ist die Lehrstelle als Entwickler:in Digitales Business EFZ bei Bühler genau das Richtige für dich!<br/><br/><br/>Bewerbe dich jetzt mit deinen vollständigen Bewerbungsunterlagen (Motivationsschreiben, Lebenslauf, Zeugnisse) und starte deine Zukunft mit uns!\n\nAufgaben:\n• Du arbeitest in Projekten mit und berätst verschiedene Stakeholder\n\n• Du analysierst Geschäftsprozesse und ICT-Produkte und entwickelst Optimierungsvorschläge\n\n• Du koordinierst Arbeitsschritte und unterstützt bei der Umsetzung der Projekte\n\n• Du analysierst und wertest Daten aus und bereitest diese verständlich auf\n\n• Du erstellst Visualisierungen und Präsentationen, verfolgst Trends und überprüfst sowie bewertest Ergebnisse\n\nAnforderungen:\n• Interesse an technischen Trends\n\n• Freude an Kommunikation und überzeugendem Präsentieren\n\n• Freude am Analysieren und vernetzten Denken\n\n• Gute Sprachkenntnisse (DE, EN)\n\n• Zuverlässigkeit, Kundenorientierung und Teamfähigkeit\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
-        "fr": "Commencez maintenant. Concevoir demain. BFuture.<br/><br/<br/ > Vous aimez penser connecté, êtes-vous intéressé par les entreprises, les données et les technologies numériques? Ensuite, l'apprentissage en tant que développeur: dans Digital Business EFZ à Bühler est exactement la bonne chose pour vous!<br/><br/> Postulez maintenant avec vos documents de candidature complets (lettre de motivation, CV, certificats) et commencez votre avenir avec nous! Tâches :\n• Vous travaillez dans des projets et conseillez divers intervenants\n• Vous analyserez les processus opérationnels et les produits TIC et développerez des propositions d'optimisation\n• Vous coordonnez les étapes de travail et soutenez la mise en œuvre des projets\n• Vous analysez et récoltez les données et les préparez de façon compréhensible\n• Vous créez des visualisations et des présentations, suivez les tendances et examinez et évaluez les résultats Exigences\n• Intérêt pour les tendances techniques\n• Joy de communication et présentation convaincante\n• La joie de l'analyse et de la pensée en réseau\n• Bonnes compétences linguistiques (DE, EN)\n• Fiabilité, orientation du client et travail d'équipe Nous offrons: Droit aux congés annuels attractifs Temps suffisant pour les loisirs et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par an selon l'année de la vie. Concept de mobilité attractive Nous offrons un OSTWIND ZVV / Z-Pass + demi-taxe pour 365 CHF + 400CHF crédit de transport en commun ainsi qu'un abonnement de première classe attrayant ou un parking gratuit. Restaurant du personnel VIVA Nous offrons à nos employés un menu de fitness quotidien à partir de 9.00 CHF. Abonnements mobiles Nous offrons des conditions spéciales pour les abonnements mobiles via Mobilezone à Sunrise et Swisscom. Port sanitaire Nous sommes engagés dans la prévention de la santé par des analyses de laboratoire, des massages, des conseils nutritionnels, la physiothérapie, des cours de groupe et un médecin d'entreprise. Activités sportives Nous promouvons le sport par l'entraînement en circuit auto-organisé et des groupes de course ainsi que des bons de mise à jour et de fitness actif. Deux milliards de personnes mangent chaque jour des aliments produits dans les usines de Bühler. Un milliard de personnes voyagent dans des véhicules dont les pièces ont été produites grâce aux technologies Bühler. Avec chaque décision, Bühler poursuit l'objectif de concilier les besoins de l'économie, des personnes et de la nature. De cette manière, nous développons des solutions qui ouvrent des opportunités commerciales durables dans les industries mondiales des aliments pour animaux, des aliments pour animaux et de la mobilité. Nous voulons innover pour un monde meilleur, avec un accent particulier sur des solutions saines, sûres et durables. C'est pourquoi nous travaillons avec les clients, les start-up, les multinationales et les scientifiques pour obtenir un impact plus rapide ensemble."
-      },
-      "location": "Uzwil",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-entwickler-in-digitales-business-efz/16552bec-00c5-40ef-b104-93d212a0490e",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:52.296Z",
-      "addressLocality": "Uzwil",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "streetAddress": "Gupfenstrasse 5",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3200",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehre-als-entwickler-in-digitales-business-efz-buehler-uzwil"
-        ]
-      },
-      "firstSeenAt": "2026-07-01T11:17:55.649Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "buehler-ae8cf27a10c0",
       "slug": "solution-architetto-sap-c4c-v2-buhler-group-uzwil",
       "slugByLocale": {
@@ -269,7 +269,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-c4c-v2/f4d0350e-0c77-48e8-9d25-9af7c77e60fd",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.284Z",
+      "crawledAt": "2026-10-22T21:26:51.712Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -344,7 +344,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/export-compliance-engineer/ef870955-2a40-4b40-8157-d8619ea00404",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.241Z",
+      "crawledAt": "2026-10-22T21:26:51.678Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -418,7 +418,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/identity-access-management-architect/f03c7409-8d94-424f-acab-55e11f3a403f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.228Z",
+      "crawledAt": "2026-10-22T21:26:51.659Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -496,7 +496,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/bereichsleiter-in-berufsbildung-konstruktion-projektmanagement/76df488c-e2bf-4b07-910d-e5bcba99bbab",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:52.172Z",
+      "crawledAt": "2026-10-22T21:26:51.570Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -578,7 +578,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/cnc-schleifer-in/2c051c07-059e-4f91-80f0-a11c759cb7f6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:52.114Z",
+      "crawledAt": "2026-10-22T21:26:51.491Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -653,7 +653,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-installation-supervisor/ed70c224-9726-4750-95f1-8fae588a973f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.112Z",
+      "crawledAt": "2026-10-22T21:26:51.489Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -742,7 +742,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lead-plc-engineer-r-d/8d6ca185-1f29-4058-8434-85ab531eed7b",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:52.110Z",
+      "crawledAt": "2026-10-22T21:26:51.486Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -833,7 +833,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/customer-relationship-manager/1e776704-ada6-4ac9-9265-8a21ffee48fc",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:52.027Z",
+      "crawledAt": "2026-10-22T21:26:51.390Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -880,80 +880,6 @@
       }
     },
     {
-      "id": "buehler-076c171e5b40",
-      "slug": "solution-architetto-servizio-clienti-systems-buhler-group-uzwil",
-      "slugByLocale": {
-        "it": "solution-architetto-servizio-clienti-systems-buhler-group-uzwil",
-        "en": "solution-architect-customer-service-systems-buehler-uzwil",
-        "de": "solution-architect-kundendienst-systems-buhler-group-uzwil",
-        "fr": "solution-architecte-service-client-systems-buhler-group-uzwil"
-      },
-      "company": "Bühler Group",
-      "companyKey": "buehler",
-      "companyDomain": "buhlergroup.com",
-      "title": "Solution Architect (Customer Service Systems)",
-      "titleByLocale": {
-        "it": "Solution Architect (Sistemi di Customer Service)",
-        "en": "Solution Architect (Customer Service Systems)",
-        "de": "Lösung Architekt (Kundenservicesysteme)",
-        "fr": "Architecte de Solutions (Systèmes de Service Client)"
-      },
-      "description": "We are looking for a hands-on Solution Architect to design and deliver creative, scalable solutions across our global Customer Service business. In this role, you will shape the architecture of our service processes across SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management, and Asset Manager. You will collaborate closely with business stakeholders, developers, and implementation partners to ensure robust, future-ready service solutions.\n\nAufgaben:\n• You design and deliver high-quality solution architectures for the Epics and initiatives you own\n\n• You elaborate solution concepts, perform requirements engineering, and create system and program specifications\n\n• You coordinate internal and external development partners, including quality checks and testing\n\n• You independently perform SAP S/4HANA CS/SM/SD/FSM customizing and document system setups\n\n• You support global implementation projects and provide third-level support for global users\n\nAnforderungen:\n• Bachelor's degree in business informatics, computer science, engineering, or a comparable field\n\n• 5+ years of professional experience, including 2+ years in a similar Solution Architect or Application Manager role\n\n• Strong experience with SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) as well as experience with Service Management in S/4\n\n• Proven ability to create architecture deliverables in both waterfall and Agile environments\n\n• Fluency in English, with strong communication and collaboration skills\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
-      "descriptionByLocale": {
-        "it": "Cerchiamo una soluzione pratica per progettare e fornire soluzioni creative e scalabili in tutta la nostra attività di servizio clienti globale. In questo ruolo, formerai l'architettura dei nostri processi di servizio attraverso SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management e Asset Manager. Collaborerai strettamente con stakeholder aziendali, sviluppatori e partner di implementazione per garantire soluzioni di servizio robuste e future-ready. Aufgaben:\n• Progetti e consegni architetture di alta qualità per le Epics e le iniziative che possiedi\n• elabora concetti di soluzioni, esegue l'ingegneria dei requisiti e crea specifiche di sistema e programma\n• Coordina partner di sviluppo interni ed esterni, compresi controlli e test di qualità\n• Esegui indipendentemente SAP S/4HANA CS/SM/SD/FSM personalizzazione e setup di sistemi di documenti\n• Supporti progetti di attuazione globali e fornisci supporto di terzo livello agli utenti globali Anforderungen:\n• Laurea in informatica aziendale, informatica, ingegneria o un campo comparabile\n• 5+ anni di esperienza professionale, compresi 2+ anni in un simile ruolo di Solution Architect o Application Manager\n• Forte esperienza con SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) e esperienza con Service Management in S/4\n• Progettazione di soluzioni architettoniche in ambienti sia cascate che Agile\n• Flessibilità in inglese, con forti capacità di comunicazione e collaborazione Wirbieten: Attraente diritto alla vacation Abbastanza tempo per rilassarsi e interessi personali - offriamo da 25 a 30 giorni di vacation all'anno a seconda del periodo di vacanza Eta'. Concetto di mobilità attraente Offriamo una OSTWIND ZVV / Z-Pass + travelcard a metà prezzo per CHF 365 + CHF 400 credito di trasporto pubblico, nonché una carta di viaggio di prima classe attraente o parcheggio gratuito.VIVA Restaurant Offriamo ai nostri dipendenti un menu fitness giornaliero a partire da 9, 00 CHF. Piani pensionistici finanziati dai datori di lavoro Il Fondo Pensione Bühler offre ai dipendenti Bühler un fondo pensionistico indipendente che garantisce una sicurezza finanziaria affidabile in pensione: www.pk-buhler.ch Health-Port Ci impegniamo a prevenire l'assistenza sanitaria attraverso analisi di laboratorio, trucchi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale. Due miliardi di persone mangiano cibo ogni giorno che è stato prodotto con attrezzature Bühler. Un miliardo di persone guidano veicoli le cui parti sono state prodotte con le nostre macchine. Bühler punta a bilanciare l'umanità, la natura e l'economia in ogni decisione, sviluppando soluzioni che sblocchino opportunità di business sostenibili nel settore alimentare, dei mangimi e della mobilità globale. Ci sforziamo di creare innovazioni per un mondo migliore, con una particolare attenzione alle soluzioni sane, sicure e sostenibili. Pertanto, collaboriamo con clienti, start-up, multinazionali e mondo accademico per accelerare l'impatto insieme.",
-        "en": "We are looking for a hands-on Solution Architect to design and deliver creative, scalable solutions across our global Customer Service business. In this role, you will shape the architecture of our service processes across SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management, and Asset Manager. You will collaborate closely with business stakeholders, developers, and implementation partners to ensure robust, future-ready service solutions.\n\nAufgaben:\n• You design and deliver high-quality solution architectures for the Epics and initiatives you own\n\n• You elaborate solution concepts, perform requirements engineering, and create system and program specifications\n\n• You coordinate internal and external development partners, including quality checks and testing\n\n• You independently perform SAP S/4HANA CS/SM/SD/FSM customizing and document system setups\n\n• You support global implementation projects and provide third-level support for global users\n\nAnforderungen:\n• Bachelor's degree in business informatics, computer science, engineering, or a comparable field\n\n• 5+ years of professional experience, including 2+ years in a similar Solution Architect or Application Manager role\n\n• Strong experience with SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) as well as experience with Service Management in S/4\n\n• Proven ability to create architecture deliverables in both waterfall and Agile environments\n\n• Fluency in English, with strong communication and collaboration skills\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
-        "de": "Wir suchen einen praktischen Solution Architect, der kreative, skalierbare Lösungen im gesamten globalen Customer Service-Geschäft entwickelt und liefert. In dieser Funktion gestalten Sie die Architektur unserer Serviceprozesse über SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management und Asset Manager. Sie arbeiten eng mit den Stakeholdern, Entwicklern und Implementierungspartnern zusammen, um robuste, zukunftsfähige Servicelösungen zu gewährleisten.\n• Sie entwickeln und liefern hochwertige Lösungsarchitekturen für die Epics und Initiativen, die Sie besitzen\n• Sie erarbeiten Lösungskonzepte, führen Anforderungs Engineering durch und erstellen System- und Programmspezifikationen\n• Sie koordinieren interne und externe Entwicklungspartner, einschließlich Qualitätsprüfungen und -tests\n• Sie führen unabhängig von SAP S/4HANA CS/SM/SD/FSM Personalisierungs- und Dokumentierungs-Systemaufbauten aus\n• Sie unterstützen globale Implementierungsprojekte und unterstützen globale Anwender auf Drittebene Stelle:\n• Bachelorstudium in Wirtschaftsinformatik, Informatik, Ingenieurwesen oder ein vergleichbares Feld\n• 5+ Jahre Berufserfahrung, inklusive 2+ Jahre in einer ähnlichen Solution Architect oder Application Manager Rolle\n• Starke Erfahrung mit SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) sowie Erfahrung mit Service Management in S/4\n• Bewährte Fähigkeit, Architektur-Lieferungen in Wasserfall- und Agile Umgebungen zu erstellen\n• Fließfähigkeit in Englisch, mit starken Kommunikations- und Kollaborationsfähigkeiten Wirsieg: Attraktive Urlaubsberechtigung Genug Zeit für Entspannung und persönliche Interessen - wir bieten je nach Urlaubsart von 25 bis 30 Tagen pro Jahr Alter. Attraktives Mobilitätskonzept Wir bieten eine OSTWIND ZVV / Z-Pass + Halbtarif-Reisekarte für CHF 365 + CHF 400 öffentliche Verkehrsmittel sowie eine attraktive First-Class-Reisekarte oder kostenlose Parkplätze an.VIVA Restaurant Wir bieten unseren Mitarbeitern ein tägliches Fitnessmenü ab 9, 00 CHF. Der Bühler Pensionsfonds bietet Bühler Mitarbeitern einen unabhängigen Pensionsfonds, der im Ruhestand eine zuverlässige finanzielle Sicherheit gewährleistet: www.pk-buhler.ch Health-Port Wir engagieren uns für die präventive Gesundheitsversorgung durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse und einen Unternehmensarzt. Zwei Milliarden Menschen essen täglich Lebensmittel, die mit Bühler-Geräten hergestellt wurden. Eine Milliarde Menschen fahren Fahrzeuge, deren Teile mit unseren Maschinen hergestellt wurden. Bühler will Mensch, Natur und Wirtschaft in jeder Entscheidung balancieren, indem es Lösungen entwickelt, die nachhaltige Geschäftschancen in der globalen Lebensmittel-, Futtermittel- und Mobilitätsbranche erschließen. Wir streben nach Innovationen für eine bessere Welt mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Daher arbeiten wir mit Kunden, Start-ups, multinationalen Unternehmen und Hochschulen zusammen, um gemeinsam die Wirkung zu beschleunigen.",
-        "fr": "Nous recherchons un architecte de solutions pratique pour concevoir et fournir des solutions créatives et évolutives dans notre activité de service à la clientèle mondiale. Dans ce rôle, vous façonnerez l'architecture de nos processus de service dans SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management et Asset Manager. Vous collaborerez étroitement avec les partenaires commerciaux, les développeurs et les partenaires de mise en œuvre pour garantir des solutions de service robustes et prêtes à l'avenir. Aufgaben:\n• Vous concevez et fournissez des architectures de solutions de haute qualité pour les Epics et les initiatives que vous possédez\n• Vous développez des concepts de solutions, réalisez des exigences techniques et créez des spécifications de système et de programme\n• Vous coordonnez des partenaires de développement internes et externes, y compris des contrôles et des tests de qualité\n• Vous effectuez indépendamment SAP S/4HANA CS/SM/SD/FSM personnalisation et configurations de système de documents\n• Vous soutenez des projets de mise en œuvre globale et offrez un soutien de troisième niveau aux utilisateurs mondiaux Anforderungen:\n• Licence en informatique des affaires, informatique, ingénierie ou\n• 5 ans et plus d'expérience professionnelle, dont 2 ans et plus dans un rôle similaire d'architecte de solutions ou de gestionnaire d'application\n• Une solide expérience avec le service clientèle SAP S/4HANA (CS), les ventes et la distribution (SD) ainsi qu'une expérience avec la gestion de services en S/4\n• Une capacité de créer des produits d'architecture dans des environnements cascades et agiles\n• Une fluence en anglais, avec de solides compétences en communication et en collaboration Wir bieten: Des vacances attrayantes Assez de temps pour la détente et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par année selon les âge. Concept de mobilité attractive Nous proposons une carte de voyage ZVV / Z-Pass + demi-tarif pour CHF 365 + CHF 400 crédit de transport en commun ainsi qu'une carte de voyage de première classe attrayante ou un parking gratuit. Régime de retraite financé par l'employeur La Caisse de retraite Bühler offre aux salariés de Bühler une caisse de retraite indépendante qui assure une sécurité financière fiable à la retraite : www.pk-buhler.ch Health-Port Nous nous engageons à la prévention des soins de santé par des analyses de laboratoire, des massages, des conseils nutritionnels, une physiothérapie, des cours de groupe et un médecin d'entreprise. Bühler vise à équilibrer l'humanité, la nature et l'économie dans chaque décision en développant des solutions qui permettent de libérer des opportunités commerciales durables dans les industries mondiales de l'alimentation, de l'alimentation et de la mobilité. Nous nous efforçons de créer des innovations pour un monde meilleur, en mettant l'accent sur des solutions saines, sûres et durables."
-      },
-      "location": "Uzwil",
-      "canton": "SG",
-      "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-customer-service-systems/791d330b-f138-4919-9369-8e3d2d68dfb0",
-      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.018Z",
-      "addressLocality": "Uzwil",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9240",
-      "streetAddress": "Gupfenstrasse 5",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2280",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "solution-architect-customer-service-systems-buehler-uzwil"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-customer-service-systems-buehler-uzwil"
-        ]
-      },
-      "firstSeenAt": "2026-06-23T11:09:06.180Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "buehler-72ed6057f0fd",
       "slug": "solution-architetto-sap-ps-sd-buhler-group-uzwil",
       "slugByLocale": {
@@ -984,7 +910,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-ps-sd/d9f8f672-b00a-4174-9488-13ad38e8587d",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.016Z",
+      "crawledAt": "2026-10-22T21:26:51.382Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1028,6 +954,80 @@
       }
     },
     {
+      "id": "buehler-076c171e5b40",
+      "slug": "solution-architetto-servizio-clienti-systems-buhler-group-uzwil",
+      "slugByLocale": {
+        "it": "solution-architetto-servizio-clienti-systems-buhler-group-uzwil",
+        "en": "solution-architect-customer-service-systems-buehler-uzwil",
+        "de": "solution-architect-kundendienst-systems-buhler-group-uzwil",
+        "fr": "solution-architecte-service-client-systems-buhler-group-uzwil"
+      },
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "Solution Architect (Customer Service Systems)",
+      "titleByLocale": {
+        "it": "Solution Architect (Sistemi di Customer Service)",
+        "en": "Solution Architect (Customer Service Systems)",
+        "de": "Lösung Architekt (Kundenservicesysteme)",
+        "fr": "Architecte de Solutions (Systèmes de Service Client)"
+      },
+      "description": "We are looking for a hands-on Solution Architect to design and deliver creative, scalable solutions across our global Customer Service business. In this role, you will shape the architecture of our service processes across SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management, and Asset Manager. You will collaborate closely with business stakeholders, developers, and implementation partners to ensure robust, future-ready service solutions.\n\nAufgaben:\n• You design and deliver high-quality solution architectures for the Epics and initiatives you own\n\n• You elaborate solution concepts, perform requirements engineering, and create system and program specifications\n\n• You coordinate internal and external development partners, including quality checks and testing\n\n• You independently perform SAP S/4HANA CS/SM/SD/FSM customizing and document system setups\n\n• You support global implementation projects and provide third-level support for global users\n\nAnforderungen:\n• Bachelor's degree in business informatics, computer science, engineering, or a comparable field\n\n• 5+ years of professional experience, including 2+ years in a similar Solution Architect or Application Manager role\n\n• Strong experience with SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) as well as experience with Service Management in S/4\n\n• Proven ability to create architecture deliverables in both waterfall and Agile environments\n\n• Fluency in English, with strong communication and collaboration skills\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+      "descriptionByLocale": {
+        "it": "Cerchiamo una soluzione pratica per progettare e fornire soluzioni creative e scalabili in tutta la nostra attività di servizio clienti globale. In questo ruolo, formerai l'architettura dei nostri processi di servizio attraverso SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management e Asset Manager. Collaborerai strettamente con stakeholder aziendali, sviluppatori e partner di implementazione per garantire soluzioni di servizio robuste e future-ready. Aufgaben:\n• Progetti e consegni architetture di alta qualità per le Epics e le iniziative che possiedi\n• elabora concetti di soluzioni, esegue l'ingegneria dei requisiti e crea specifiche di sistema e programma\n• Coordina partner di sviluppo interni ed esterni, compresi controlli e test di qualità\n• Esegui indipendentemente SAP S/4HANA CS/SM/SD/FSM personalizzazione e setup di sistemi di documenti\n• Supporti progetti di attuazione globali e fornisci supporto di terzo livello agli utenti globali Anforderungen:\n• Laurea in informatica aziendale, informatica, ingegneria o un campo comparabile\n• 5+ anni di esperienza professionale, compresi 2+ anni in un simile ruolo di Solution Architect o Application Manager\n• Forte esperienza con SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) e esperienza con Service Management in S/4\n• Progettazione di soluzioni architettoniche in ambienti sia cascate che Agile\n• Flessibilità in inglese, con forti capacità di comunicazione e collaborazione Wirbieten: Attraente diritto alla vacation Abbastanza tempo per rilassarsi e interessi personali - offriamo da 25 a 30 giorni di vacation all'anno a seconda del periodo di vacanza Eta'. Concetto di mobilità attraente Offriamo una OSTWIND ZVV / Z-Pass + travelcard a metà prezzo per CHF 365 + CHF 400 credito di trasporto pubblico, nonché una carta di viaggio di prima classe attraente o parcheggio gratuito.VIVA Restaurant Offriamo ai nostri dipendenti un menu fitness giornaliero a partire da 9, 00 CHF. Piani pensionistici finanziati dai datori di lavoro Il Fondo Pensione Bühler offre ai dipendenti Bühler un fondo pensionistico indipendente che garantisce una sicurezza finanziaria affidabile in pensione: www.pk-buhler.ch Health-Port Ci impegniamo a prevenire l'assistenza sanitaria attraverso analisi di laboratorio, trucchi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale. Due miliardi di persone mangiano cibo ogni giorno che è stato prodotto con attrezzature Bühler. Un miliardo di persone guidano veicoli le cui parti sono state prodotte con le nostre macchine. Bühler punta a bilanciare l'umanità, la natura e l'economia in ogni decisione, sviluppando soluzioni che sblocchino opportunità di business sostenibili nel settore alimentare, dei mangimi e della mobilità globale. Ci sforziamo di creare innovazioni per un mondo migliore, con una particolare attenzione alle soluzioni sane, sicure e sostenibili. Pertanto, collaboriamo con clienti, start-up, multinazionali e mondo accademico per accelerare l'impatto insieme.",
+        "en": "We are looking for a hands-on Solution Architect to design and deliver creative, scalable solutions across our global Customer Service business. In this role, you will shape the architecture of our service processes across SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management, and Asset Manager. You will collaborate closely with business stakeholders, developers, and implementation partners to ensure robust, future-ready service solutions.\n\nAufgaben:\n• You design and deliver high-quality solution architectures for the Epics and initiatives you own\n\n• You elaborate solution concepts, perform requirements engineering, and create system and program specifications\n\n• You coordinate internal and external development partners, including quality checks and testing\n\n• You independently perform SAP S/4HANA CS/SM/SD/FSM customizing and document system setups\n\n• You support global implementation projects and provide third-level support for global users\n\nAnforderungen:\n• Bachelor's degree in business informatics, computer science, engineering, or a comparable field\n\n• 5+ years of professional experience, including 2+ years in a similar Solution Architect or Application Manager role\n\n• Strong experience with SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) as well as experience with Service Management in S/4\n\n• Proven ability to create architecture deliverables in both waterfall and Agile environments\n\n• Fluency in English, with strong communication and collaboration skills\n\nWir bieten:\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "de": "Wir suchen einen praktischen Solution Architect, der kreative, skalierbare Lösungen im gesamten globalen Customer Service-Geschäft entwickelt und liefert. In dieser Funktion gestalten Sie die Architektur unserer Serviceprozesse über SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management und Asset Manager. Sie arbeiten eng mit den Stakeholdern, Entwicklern und Implementierungspartnern zusammen, um robuste, zukunftsfähige Servicelösungen zu gewährleisten.\n• Sie entwickeln und liefern hochwertige Lösungsarchitekturen für die Epics und Initiativen, die Sie besitzen\n• Sie erarbeiten Lösungskonzepte, führen Anforderungs Engineering durch und erstellen System- und Programmspezifikationen\n• Sie koordinieren interne und externe Entwicklungspartner, einschließlich Qualitätsprüfungen und -tests\n• Sie führen unabhängig von SAP S/4HANA CS/SM/SD/FSM Personalisierungs- und Dokumentierungs-Systemaufbauten aus\n• Sie unterstützen globale Implementierungsprojekte und unterstützen globale Anwender auf Drittebene Stelle:\n• Bachelorstudium in Wirtschaftsinformatik, Informatik, Ingenieurwesen oder ein vergleichbares Feld\n• 5+ Jahre Berufserfahrung, inklusive 2+ Jahre in einer ähnlichen Solution Architect oder Application Manager Rolle\n• Starke Erfahrung mit SAP S/4HANA Customer Service (CS), Sales & Distribution (SD) sowie Erfahrung mit Service Management in S/4\n• Bewährte Fähigkeit, Architektur-Lieferungen in Wasserfall- und Agile Umgebungen zu erstellen\n• Fließfähigkeit in Englisch, mit starken Kommunikations- und Kollaborationsfähigkeiten Wirsieg: Attraktive Urlaubsberechtigung Genug Zeit für Entspannung und persönliche Interessen - wir bieten je nach Urlaubsart von 25 bis 30 Tagen pro Jahr Alter. Attraktives Mobilitätskonzept Wir bieten eine OSTWIND ZVV / Z-Pass + Halbtarif-Reisekarte für CHF 365 + CHF 400 öffentliche Verkehrsmittel sowie eine attraktive First-Class-Reisekarte oder kostenlose Parkplätze an.VIVA Restaurant Wir bieten unseren Mitarbeitern ein tägliches Fitnessmenü ab 9, 00 CHF. Der Bühler Pensionsfonds bietet Bühler Mitarbeitern einen unabhängigen Pensionsfonds, der im Ruhestand eine zuverlässige finanzielle Sicherheit gewährleistet: www.pk-buhler.ch Health-Port Wir engagieren uns für die präventive Gesundheitsversorgung durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse und einen Unternehmensarzt. Zwei Milliarden Menschen essen täglich Lebensmittel, die mit Bühler-Geräten hergestellt wurden. Eine Milliarde Menschen fahren Fahrzeuge, deren Teile mit unseren Maschinen hergestellt wurden. Bühler will Mensch, Natur und Wirtschaft in jeder Entscheidung balancieren, indem es Lösungen entwickelt, die nachhaltige Geschäftschancen in der globalen Lebensmittel-, Futtermittel- und Mobilitätsbranche erschließen. Wir streben nach Innovationen für eine bessere Welt mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Daher arbeiten wir mit Kunden, Start-ups, multinationalen Unternehmen und Hochschulen zusammen, um gemeinsam die Wirkung zu beschleunigen.",
+        "fr": "Nous recherchons un architecte de solutions pratique pour concevoir et fournir des solutions créatives et évolutives dans notre activité de service à la clientèle mondiale. Dans ce rôle, vous façonnerez l'architecture de nos processus de service dans SAP S/4HANA, SAP CS, SM & SD, Service Cloud (C4C V2), SAP Field Service Management et Asset Manager. Vous collaborerez étroitement avec les partenaires commerciaux, les développeurs et les partenaires de mise en œuvre pour garantir des solutions de service robustes et prêtes à l'avenir. Aufgaben:\n• Vous concevez et fournissez des architectures de solutions de haute qualité pour les Epics et les initiatives que vous possédez\n• Vous développez des concepts de solutions, réalisez des exigences techniques et créez des spécifications de système et de programme\n• Vous coordonnez des partenaires de développement internes et externes, y compris des contrôles et des tests de qualité\n• Vous effectuez indépendamment SAP S/4HANA CS/SM/SD/FSM personnalisation et configurations de système de documents\n• Vous soutenez des projets de mise en œuvre globale et offrez un soutien de troisième niveau aux utilisateurs mondiaux Anforderungen:\n• Licence en informatique des affaires, informatique, ingénierie ou\n• 5 ans et plus d'expérience professionnelle, dont 2 ans et plus dans un rôle similaire d'architecte de solutions ou de gestionnaire d'application\n• Une solide expérience avec le service clientèle SAP S/4HANA (CS), les ventes et la distribution (SD) ainsi qu'une expérience avec la gestion de services en S/4\n• Une capacité de créer des produits d'architecture dans des environnements cascades et agiles\n• Une fluence en anglais, avec de solides compétences en communication et en collaboration Wir bieten: Des vacances attrayantes Assez de temps pour la détente et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par année selon les âge. Concept de mobilité attractive Nous proposons une carte de voyage ZVV / Z-Pass + demi-tarif pour CHF 365 + CHF 400 crédit de transport en commun ainsi qu'une carte de voyage de première classe attrayante ou un parking gratuit. Régime de retraite financé par l'employeur La Caisse de retraite Bühler offre aux salariés de Bühler une caisse de retraite indépendante qui assure une sécurité financière fiable à la retraite : www.pk-buhler.ch Health-Port Nous nous engageons à la prévention des soins de santé par des analyses de laboratoire, des massages, des conseils nutritionnels, une physiothérapie, des cours de groupe et un médecin d'entreprise. Bühler vise à équilibrer l'humanité, la nature et l'économie dans chaque décision en développant des solutions qui permettent de libérer des opportunités commerciales durables dans les industries mondiales de l'alimentation, de l'alimentation et de la mobilité. Nous nous efforçons de créer des innovations pour un monde meilleur, en mettant l'accent sur des solutions saines, sûres et durables."
+      },
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-customer-service-systems/791d330b-f138-4919-9369-8e3d2d68dfb0",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-22T21:26:51.380Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=2280",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "solution-architect-customer-service-systems-buehler-uzwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "solution-architect-customer-service-systems-buehler-uzwil"
+        ]
+      },
+      "firstSeenAt": "2026-06-23T11:09:06.180Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "buehler-a56ee2ff6f8d",
       "slug": "solution-architetto-sap-pm-bpt-buhler-group-uzwil",
       "slugByLocale": {
@@ -1058,7 +1058,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/system-architect-sap-pm-btp/1f3e4277-8043-4877-90e1-f91e4a6f8a58",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:52.015Z",
+      "crawledAt": "2026-10-22T21:26:51.377Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1146,7 +1146,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/instructor-feed-technology/2ff2ae71-ee62-45ff-b3d1-23f7a4858d59",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:51.987Z",
+      "crawledAt": "2026-10-22T21:26:51.350Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1227,7 +1227,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/internship-marketing-events-die-casting/1a55fd49-3623-4dec-9569-ec95f024213a",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:51.984Z",
+      "crawledAt": "2026-10-22T21:26:51.346Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1305,7 +1305,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/sap-logistics-application-business-process-manager/f62e87ca-0eaa-486e-8c9f-582d3542bce8",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T09:41:51.981Z",
+      "crawledAt": "2026-10-22T21:26:51.343Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1358,28 +1358,28 @@
     },
     {
       "id": "buehler-8c591f8977f7",
-      "slug": "senior-process-engineer-die-casting-buehler-uzwil",
+      "slug": "senior-process-ingegnere-la-casting-buhler-group-uzwil",
       "slugByLocale": {
-        "de": "senior-process-engineer-die-casting-buehler-uzwil",
-        "it": "senior-process-engineer-die-casting-buehler-uzwil",
+        "it": "senior-process-ingegnere-la-casting-buhler-group-uzwil",
         "en": "senior-process-engineer-die-casting-buhler-group-uzwil",
-        "fr": "senior-process-engineer-die-casting-buehler-uzwil"
+        "de": "senior-process-engineer-die-casting-buehler-uzwil",
+        "fr": "senior-process-ingenieur-die-casting-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
       "companyDomain": "buhlergroup.com",
       "title": "Senior Process Engineer - Die Casting",
       "titleByLocale": {
-        "de": "Senior Process Ingenieur - Die Casting",
-        "en": "Senior Process Engineer - The Casting",
         "it": "Senior Process Ingegnere - la Casting",
+        "en": "Senior Process Engineer - The Casting",
+        "de": "Senior Process Ingenieur - Die Casting",
         "fr": "Senior Process Ingénieur - Die Casting"
       },
       "description": "Sie möchten technische Herausforderungen direkt vor Ort lösen, Produktionsprozesse optimieren und gleichzeitig an der Weiterentwicklung innovativer Lösungen mitwirken? In dieser spannenden Position repräsentieren Sie die Anwendungstechnik und agieren als zentrale Schnittstelle zwischen Kunden, Entwicklung, Engineering und Kundenservice, sowohl international beim Kunden als auch im Versuchslabor.\n\nAufgaben:\n• Sie unterstützen den Produktionsstart von Neuanlagen direkt beim Kunden vor Ort, von der Inbetriebnahme und dem Hochfahren der Anlage bis hin zur Fehlersuche, Störungsbeseitigung sowie Optimierung des Gießprozesses\n\n• Sie optimieren den Produktionsoutput und stellen die Funktion sowie Verfügbarkeit der Anlagen bei unseren internationalen Kunden sicher\n\n• Sie legen Prozessparameter fest, entwickeln diese weiter und tragen aktiv zur Stabilität, Effizienz und Qualität der Produktionsprozesse beiSie überwachen und analysieren Qualitätsdaten, identifizieren Ursachen bei Ausschuss und leiten geeignete Korrekturmaßnahmen ein\n\n• Sie arbeiten eng mit unserer Entwicklungsabteilung zusammen, unterstützen anwendungstechnische Entwicklungsprojekte, betreiben Versuchsinstallationen im Versuchslabor und sind international mit einer Reisetätigkeit von bis zu 60 % im Einsatz\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Anlagen- und Apparatebauer:in, Automatiker:in, Polymechaniker:in, Elektriker:in, Landmaschinenmechaniker:in, Automobilmechatroniker:in oder eine vergleichbare Ausbildung\n\n• Erfahrung in der Inbetriebnahme, Prozessoptimierung oder Anwendungstechnik\n\n• Kenntnisse in Metallurgie, Strömungstechnik und Thermodynamik von Vorteil\n\n• Kenntnisse in Elektrik/Elektronik sowie in hydraulischen Komponenten wünschenswert\n\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zu internationalen Reisen von bis zu 60 %\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
       "descriptionByLocale": {
-        "de": "Sie möchten technische Herausforderungen direkt vor Ort lösen, Produktionsprozesse optimieren und gleichzeitig an der Weiterentwicklung innovativer Lösungen mitwirken? In dieser spannenden Position repräsentieren Sie die Anwendungstechnik und agieren als zentrale Schnittstelle zwischen Kunden, Entwicklung, Engineering und Kundenservice, sowohl international beim Kunden als auch im Versuchslabor.\n\nAufgaben:\n• Sie unterstützen den Produktionsstart von Neuanlagen direkt beim Kunden vor Ort, von der Inbetriebnahme und dem Hochfahren der Anlage bis hin zur Fehlersuche, Störungsbeseitigung sowie Optimierung des Gießprozesses\n\n• Sie optimieren den Produktionsoutput und stellen die Funktion sowie Verfügbarkeit der Anlagen bei unseren internationalen Kunden sicher\n\n• Sie legen Prozessparameter fest, entwickeln diese weiter und tragen aktiv zur Stabilität, Effizienz und Qualität der Produktionsprozesse beiSie überwachen und analysieren Qualitätsdaten, identifizieren Ursachen bei Ausschuss und leiten geeignete Korrekturmaßnahmen ein\n\n• Sie arbeiten eng mit unserer Entwicklungsabteilung zusammen, unterstützen anwendungstechnische Entwicklungsprojekte, betreiben Versuchsinstallationen im Versuchslabor und sind international mit einer Reisetätigkeit von bis zu 60 % im Einsatz\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Anlagen- und Apparatebauer:in, Automatiker:in, Polymechaniker:in, Elektriker:in, Landmaschinenmechaniker:in, Automobilmechatroniker:in oder eine vergleichbare Ausbildung\n\n• Erfahrung in der Inbetriebnahme, Prozessoptimierung oder Anwendungstechnik\n\n• Kenntnisse in Metallurgie, Strömungstechnik und Thermodynamik von Vorteil\n\n• Kenntnisse in Elektrik/Elektronik sowie in hydraulischen Komponenten wünschenswert\n\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zu internationalen Reisen von bis zu 60 %\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
         "it": "Vuoi risolvere direttamente le sfide tecniche in loco, ottimizzare i processi produttivi e allo stesso tempo partecipare all'ulteriore sviluppo di soluzioni innovative? In questa posizione emozionante, si rappresenta la tecnologia dell'applicazione e agire come l'interfaccia centrale tra il cliente, lo sviluppo, l'ingegneria e il servizio clienti, sia a livello internazionale al cliente e nel laboratorio di test.\n\nCompiti:\n• Supportano l’avvio della produzione di nuovi impianti direttamente sul sito del cliente, dalla messa in servizio e dall’avvio dell’impianto alla risoluzione dei problemi, alla risoluzione dei problemi e all’ottimizzazione del processo di fusione.\n\n• Ottimizzare la produzione e garantire la funzione e la disponibilità degli impianti ai nostri clienti internazionali\n\n• Definire i parametri di processo, svilupparli ulteriormente e contribuire attivamente alla stabilità, efficienza e qualità dei processi di produzione, monitorare e analizzare i dati di qualità, identificare le cause dei rifiuti e avviare misure correttive appropriate\n\n• Lavorano a stretto contatto con il nostro dipartimento di sviluppo, supportano progetti di sviluppo delle applicazioni, operano impianti di prova nel laboratorio di test e sono in uso internazionale con un'attività di viaggio fino al 60%\n\nRequisiti\n• Formazione completa come fabbricante di impianti ed apparecchi:in, ingegnere automatico:in, polimeccanico:in, elettricista:in, meccanico di macchine agricole:in, ingegnere meccanico meccanico automobilistico:in o formazione comparabile\n\n• Esperienza nella messa in servizio, ottimizzazione dei processi o tecnologia applicativa\n\n• La conoscenza della metallurgia, dell'ingegneria dei fluidi e della termodinamica è vantaggiosa\n\n• La conoscenza dei componenti elettrici/elettronici e idraulici è auspicabile\n\n• Buona conoscenza del tedesco e dell'inglese e disponibilità a viaggiare a livello internazionale fino al 60%\n\nOffriamo:\nRistorante personale VIVA\nOffriamo ai nostri dipendenti un menu di fitness giornaliero da 9.00 CHF.\n\nConcetto di mobilità attraente\nOffriamo un OSTWIND ZVV / Z-Pass + Half-Tax per 365 CHF + 400CHF credito di trasporto pubblico e un attraente abbonamento di prima classe o parcheggio gratuito.\n\nPorta salute\nSiamo impegnati nella prevenzione della salute attraverso analisi di laboratorio, massaggi, consigli nutrizionali, fisioterapia, corsi di gruppo e un medico aziendale.\n\nAttraente diritto di vacanza\nTempo sufficiente per la ricreazione e gli interessi personali - offriamo da 25 a 30 giorni di vacanze all'anno a seconda dell'anno di vita.\n\nPiano pensionistico finanziato dal datore di lavoro\nBühler Pensionskasse offre ai propri dipendenti un fondo pensione indipendente che garantisce un pensionamento finanziario affidabile: www.pk-buhler.ch\n\nAbbonamenti mobili\nOffriamo condizioni speciali per gli abbonamenti mobili tramite Mobilezone a Sunrise e Swisscom.\n\nDue miliardi di persone mangiano cibo prodotto nelle piante di Bühler ogni giorno. Un miliardo di persone viaggiano in veicoli le cui parti sono state prodotte utilizzando le tecnologie Bühler.\nCon ogni decisione, Bühler persegue l'obiettivo di conciliare le esigenze dell'economia, delle persone e della natura. In questo modo, sviluppiamo soluzioni che aprono opportunità di business sostenibili nei settori alimentare, alimentare e mobilità globale.\nVogliamo innovare per un mondo migliore, con particolare attenzione alle soluzioni sane, sicure e sostenibili. Ecco perché lavoriamo con clienti, start-up, multinazionali e scienziati per ottenere un impatto più veloce insieme.",
         "en": "Do you want to solve technical challenges directly on site, optimize production processes and at the same time participate in the further development of innovative solutions? In this exciting position, you represent application technology and act as the central interface between customer, development, engineering and customer service, both internationally at the customer and in the test laboratory.\n\nTasks:\n• They support the start of production of new plants directly at the customer’s site, from commissioning and starting up the plant to troubleshooting, troubleshooting and optimizing the casting process.\n\n• They optimize the production output and ensure the function and availability of the plants at our international customers\n\n• You define process parameters, develop them further and actively contribute to the stability, efficiency and quality of production processes, monitor and analyze quality data, identify causes of rejects and initiate appropriate corrective measures\n\n• They work closely with our development department, support application development projects, operate test installations in the test laboratory and are in international use with a travel activity of up to 60%\n\nRequirements\n• Completed training as plant and apparatus manufacturer:in, automatic engineer:in, polymechanic:in, electrician:in, agricultural machinery mechanic:in, automotive mechatronic engineer:in or comparable training\n\n• Experience in commissioning, process optimization or application technology\n\n• Knowledge of metallurgy, fluid engineering and thermodynamics is advantageous\n\n• Knowledge of electrical/electronics and hydraulic components is desirable\n\n• Good knowledge of German and English and willingness to travel internationally up to 60%\n\nWe offer:\nStaff restaurant VIVA\nWe offer our employees a daily fitness menu from 9.00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + Half-Tax for 365 CHF + 400CHF public transport credit as well as an attractive first-class subscription or free parking.\n\nHealth port\nWe are committed to health prevention through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nAttractive holiday entitlement\nSufficient time for recreation and personal interests - we offer from 25 to 30 days of holidays per year depending on the year of life.\n\nEmployer-funded pension plan\nBühler Pensionskasse offers its employees an independent pension fund that ensures reliable financial retirement: www.pk-buhler.ch\n\nMobile subscriptions\nWe offer special conditions for mobile subscriptions via Mobilezone at Sunrise and Swisscom.\n\nTwo billion people eat food produced at Bühler plants every day. One billion people travel in vehicles whose parts were produced using Bühler technologies.\nWith every decision, Bühler pursues the goal of reconciling the needs of the economy, people and nature. In this way, we develop solutions that open up sustainable business opportunities in the global food, feed and mobility industries.\nWe want to innovate for a better world, with a particular focus on healthy, safe and sustainable solutions. This is why we work with customers, start-ups, multinational corporations and scientists to achieve a faster impact together.",
+        "de": "Sie möchten technische Herausforderungen direkt vor Ort lösen, Produktionsprozesse optimieren und gleichzeitig an der Weiterentwicklung innovativer Lösungen mitwirken? In dieser spannenden Position repräsentieren Sie die Anwendungstechnik und agieren als zentrale Schnittstelle zwischen Kunden, Entwicklung, Engineering und Kundenservice, sowohl international beim Kunden als auch im Versuchslabor.\n\nAufgaben:\n• Sie unterstützen den Produktionsstart von Neuanlagen direkt beim Kunden vor Ort, von der Inbetriebnahme und dem Hochfahren der Anlage bis hin zur Fehlersuche, Störungsbeseitigung sowie Optimierung des Gießprozesses\n\n• Sie optimieren den Produktionsoutput und stellen die Funktion sowie Verfügbarkeit der Anlagen bei unseren internationalen Kunden sicher\n\n• Sie legen Prozessparameter fest, entwickeln diese weiter und tragen aktiv zur Stabilität, Effizienz und Qualität der Produktionsprozesse beiSie überwachen und analysieren Qualitätsdaten, identifizieren Ursachen bei Ausschuss und leiten geeignete Korrekturmaßnahmen ein\n\n• Sie arbeiten eng mit unserer Entwicklungsabteilung zusammen, unterstützen anwendungstechnische Entwicklungsprojekte, betreiben Versuchsinstallationen im Versuchslabor und sind international mit einer Reisetätigkeit von bis zu 60 % im Einsatz\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Anlagen- und Apparatebauer:in, Automatiker:in, Polymechaniker:in, Elektriker:in, Landmaschinenmechaniker:in, Automobilmechatroniker:in oder eine vergleichbare Ausbildung\n\n• Erfahrung in der Inbetriebnahme, Prozessoptimierung oder Anwendungstechnik\n\n• Kenntnisse in Metallurgie, Strömungstechnik und Thermodynamik von Vorteil\n\n• Kenntnisse in Elektrik/Elektronik sowie in hydraulischen Komponenten wünschenswert\n\n• Gute Deutsch- und Englischkenntnisse sowie Bereitschaft zu internationalen Reisen von bis zu 60 %\n\nWir bieten:\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHandy-Abonnements\nWir bieten Spezialkonditionen bei Handyabonnements über Mobilezone bei Sunrise und Swisscom.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
         "fr": "Voulez-vous résoudre les défis techniques directement sur place, optimiser les processus de production et en même temps participer au développement de solutions innovantes ? Dans cette position passionnante, vous représentez la technologie d'application et agissez comme l'interface centrale entre le client, le développement, l'ingénierie et le service à la clientèle, tant au niveau international au client que dans le laboratoire d'essai.\n\nTâches :\n• Ils prennent en charge le démarrage de la production de nouvelles installations directement sur le site du client, depuis la mise en service et le démarrage de l'installation jusqu'au dépannage, au dépannage et à l'optimisation du processus de coulée.\n\n• Ils optimisent la production et assurent la fonction et la disponibilité des installations chez nos clients internationaux\n\n• Vous définissez les paramètres du processus, les développez davantage et contribuez activement à la stabilité, à l'efficacité et à la qualité des processus de production, surveillez et analysez les données de qualité, identifiez les causes des rejets et prenez des mesures correctives appropriées\n\n• Ils travaillent en étroite collaboration avec notre département de développement, soutiennent des projets de développement d'applications, exploitent des installations d'essai dans le laboratoire d'essai et sont en usage international avec une activité de voyage allant jusqu'à 60%\n\nExigences\n• Formation complète en tant que fabricant d'installations et d'appareils:in, ingénieur automatique:in, polymécanique:in, électricien:in, mécanicien de machines agricoles:in, ingénieur mécatronique automobile:in ou formation comparable\n\n• Expérience en mise en service, optimisation des processus ou technologie d'application\n\n• La connaissance de la métallurgie, de l'ingénierie des fluides et de la thermodynamique est avantageuse\n\n• La connaissance des composants électriques/électroniques et hydrauliques est souhaitable\n\n• Bonne connaissance de l'allemand et de l'anglais et volonté de voyager à l'étranger jusqu'à 60%\n\nNous offrons:\nRestaurant du personnel VIVA\nNous offrons à nos employés un menu de fitness quotidien à partir de 9.00 CHF.\n\nConcept de mobilité attractive\nNous offrons un OSTWIND ZVV / Z-Pass + demi-taxe pour 365 CHF + 400CHF crédit de transport en commun ainsi qu'un abonnement de première classe attrayant ou un parking gratuit.\n\nPort sanitaire\nNous sommes engagés dans la prévention de la santé par des analyses de laboratoire, des massages, des conseils nutritionnels, la physiothérapie, des cours de groupe et un médecin d'entreprise.\n\nDroit aux congés annuels attractifs\nTemps suffisant pour les loisirs et les intérêts personnels - nous offrons de 25 à 30 jours de vacances par an selon l'année de la vie.\n\nRégime de retraite financé par l'employeur\nBühler Pensionskasse offre à ses salariés une caisse de retraite indépendante qui assure une retraite financière fiable: www.pk-buhler.ch\n\nAbonnements mobiles\nNous offrons des conditions spéciales pour les abonnements mobiles via Mobilezone à Sunrise et Swisscom.\n\nDeux milliards de personnes mangent chaque jour des aliments produits dans les usines de Bühler. Un milliard de personnes voyagent dans des véhicules dont les pièces ont été produites grâce aux technologies Bühler.\nAvec chaque décision, Bühler poursuit l'objectif de concilier les besoins de l'économie, des personnes et de la nature. De cette manière, nous développons des solutions qui ouvrent des opportunités commerciales durables dans les industries mondiales des aliments pour animaux, des aliments pour animaux et de la mobilité.\nNous voulons innover pour un monde meilleur, avec un accent particulier sur des solutions saines, sûres et durables. C'est pourquoi nous travaillons avec les clients, les start-up, les multinationales et les scientifiques pour obtenir un impact plus rapide ensemble."
       },
       "needsRetranslation": true,
@@ -1388,7 +1388,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/senior-process-engineer-die-casting/e9a28721-0d61-4772-88ec-99c4f8f018df",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:51.925Z",
+      "crawledAt": "2026-10-22T21:26:51.286Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1407,9 +1407,19 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3708",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-22T09:41:51.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-process-engineer-die-casting-buehler-uzwil"
+        ],
+        "fr": [
+          "senior-process-engineer-die-casting-buehler-uzwil"
+        ]
       },
+      "previousSlugs": [
+        "senior-process-engineer-die-casting-buehler-uzwil"
+      ],
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1422,8 +1432,84 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "buehler-e517ecd9cb23",
+      "slug": "trainer-in-futtermitteltechnik-buhler-group-uzwil",
+      "slugByLocale": {
+        "de": "trainer-in-futtermitteltechnik-buehler-uzwil",
+        "it": "trainer-in-futtermitteltechnik-buhler-group-uzwil",
+        "en": "trainer-in-futtermitteltechnik-buhler-group-uzwil",
+        "fr": "trainer-in-futtermitteltechnik-buhler-group-uzwil"
       },
-      "firstSeenAt": "2026-10-22T09:41:51.925Z"
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "Trainer:in Futtermitteltechnik",
+      "titleByLocale": {
+        "de": "Trainer:in Futtermitteltechnik",
+        "it": "Trainer:in Futtermitteltechnik",
+        "en": "Trainer:in Futtermitteltechnik",
+        "fr": "Trainer:in Futtermitteltechnik"
+      },
+      "description": "Möchten Sie Ihr Fachwissen in der Futtermitteltechnik weitergeben und Menschen aus aller Welt praxisnah ausbilden? An unserer Schule für Futtermitteltechnik (SFT) verbinden Sie fundierte Prozesskenntnisse mit pädagogischem Geschick. Sie gestalten theoretische und praktische Schulungen, entwickeln Trainingsinhalte kontinuierlich weiter und begleiten Kunden sowie interne Mitarbeitende direkt an unseren Anlagen oder vor Ort beim Kunden. Freuen Sie sich auf eine vielseitige Aufgabe in einem internationalen Umfeld mit viel Gestaltungsspielraum und der Möglichkeit, die Zukunft der Aus- und Weiterbildung aktiv mitzugestalten.\n\nAufgaben:\n• Sie führen theoretische und praktische Schulungen in allen Bereichen der Futtermitteltechnik durch und vermitteln Ihr Fachwissen praxisnah an Kunden sowie interne Mitarbeitende\n\n• Sie entwickeln Schulungsunterlagen, Lehrmaterialien und Ausbildungsformate kontinuierlich weiter und passen diese gezielt an die Bedürfnisse der Teilnehmenden an\n\n• Sie führen selbstständig Versuche mit Rohwaren und Trainings in unserem Anwendungszentrum durch, analysieren die Produktqualität und leiten daraus Optimierungspotenziale ab\n\n• Sie begleiten internationale Kursteilnehmende während ihrer Ausbildung und gewährleisten eine professionelle, kompetente und gastfreundliche Betreuung\n\n• Sie unterstützen unsere Kunden bei Mühlenkontrollen, technologischen Fragestellungen und Trainings vor Ort und gestalten die fachliche sowie organisatorische Weiterentwicklung unserer Schule für Futtermitteltechnik aktiv mit\n\nAnforderungen:\n• Abgeschlossene Berufslehre als Müller:in mit Fachrichtung Tiernahrung bzw. alternativ im Lebensmittelbereich, sowie idealerweise mehrjährige Berufserfahrung in einer Futtermühle\n\n• Fundierte Kenntnisse im Bereich Futtermüllerei, insbesondere in den Prozessen Vermahlen, Mischen, Kompaktieren und Kühlen, sowie gutes Wissen in Maschinenkunde und Verfahrenstechnik\n\n• Pädagogische Ausbildung und/oder Erfahrung als Trainer:in, Dozent:in bzw. Ausbildner:in von Vorteil, verbunden mit Freude daran, komplexe Inhalte verständlich und praxisnah zu vermitteln\n\n• Überzeugende, kommunikative und motivierende Persönlichkeit mit Freude an der Zusammenarbeit mit Menschen aus unterschiedlichen Kulturen sowie einer selbstständigen und strukturierten Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse, Kenntnisse einer weiteren Fremdsprache sind ein Plus; Bereitschaft zu weltweiten Reisen im Umfang von 20%\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+      "descriptionByLocale": {
+        "de": "Möchten Sie Ihr Fachwissen in der Futtermitteltechnik weitergeben und Menschen aus aller Welt praxisnah ausbilden? An unserer Schule für Futtermitteltechnik (SFT) verbinden Sie fundierte Prozesskenntnisse mit pädagogischem Geschick. Sie gestalten theoretische und praktische Schulungen, entwickeln Trainingsinhalte kontinuierlich weiter und begleiten Kunden sowie interne Mitarbeitende direkt an unseren Anlagen oder vor Ort beim Kunden. Freuen Sie sich auf eine vielseitige Aufgabe in einem internationalen Umfeld mit viel Gestaltungsspielraum und der Möglichkeit, die Zukunft der Aus- und Weiterbildung aktiv mitzugestalten.\n\nAufgaben:\n• Sie führen theoretische und praktische Schulungen in allen Bereichen der Futtermitteltechnik durch und vermitteln Ihr Fachwissen praxisnah an Kunden sowie interne Mitarbeitende\n\n• Sie entwickeln Schulungsunterlagen, Lehrmaterialien und Ausbildungsformate kontinuierlich weiter und passen diese gezielt an die Bedürfnisse der Teilnehmenden an\n\n• Sie führen selbstständig Versuche mit Rohwaren und Trainings in unserem Anwendungszentrum durch, analysieren die Produktqualität und leiten daraus Optimierungspotenziale ab\n\n• Sie begleiten internationale Kursteilnehmende während ihrer Ausbildung und gewährleisten eine professionelle, kompetente und gastfreundliche Betreuung\n\n• Sie unterstützen unsere Kunden bei Mühlenkontrollen, technologischen Fragestellungen und Trainings vor Ort und gestalten die fachliche sowie organisatorische Weiterentwicklung unserer Schule für Futtermitteltechnik aktiv mit\n\nAnforderungen:\n• Abgeschlossene Berufslehre als Müller:in mit Fachrichtung Tiernahrung bzw. alternativ im Lebensmittelbereich, sowie idealerweise mehrjährige Berufserfahrung in einer Futtermühle\n\n• Fundierte Kenntnisse im Bereich Futtermüllerei, insbesondere in den Prozessen Vermahlen, Mischen, Kompaktieren und Kühlen, sowie gutes Wissen in Maschinenkunde und Verfahrenstechnik\n\n• Pädagogische Ausbildung und/oder Erfahrung als Trainer:in, Dozent:in bzw. Ausbildner:in von Vorteil, verbunden mit Freude daran, komplexe Inhalte verständlich und praxisnah zu vermitteln\n\n• Überzeugende, kommunikative und motivierende Persönlichkeit mit Freude an der Zusammenarbeit mit Menschen aus unterschiedlichen Kulturen sowie einer selbstständigen und strukturierten Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse, Kenntnisse einer weiteren Fremdsprache sind ein Plus; Bereitschaft zu weltweiten Reisen im Umfang von 20%\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "it": "Möchten Sie Ihr Fachwissen in der Futtermitteltechnik weitergeben und Menschen aus aller Welt praxisnah ausbilden? An unserer Schule für Futtermitteltechnik (SFT) verbinden Sie fundierte Prozesskenntnisse mit pädagogischem Geschick. Sie gestalten theoretische und praktische Schulungen, entwickeln Trainingsinhalte kontinuierlich weiter und begleiten Kunden sowie interne Mitarbeitende direkt an unseren Anlagen oder vor Ort beim Kunden. Freuen Sie sich auf eine vielseitige Aufgabe in einem internationalen Umfeld mit viel Gestaltungsspielraum und der Möglichkeit, die Zukunft der Aus- und Weiterbildung aktiv mitzugestalten.\n\nAufgaben:\n• Sie führen theoretische und praktische Schulungen in allen Bereichen der Futtermitteltechnik durch und vermitteln Ihr Fachwissen praxisnah an Kunden sowie interne Mitarbeitende\n\n• Sie entwickeln Schulungsunterlagen, Lehrmaterialien und Ausbildungsformate kontinuierlich weiter und passen diese gezielt an die Bedürfnisse der Teilnehmenden an\n\n• Sie führen selbstständig Versuche mit Rohwaren und Trainings in unserem Anwendungszentrum durch, analysieren die Produktqualität und leiten daraus Optimierungspotenziale ab\n\n• Sie begleiten internationale Kursteilnehmende während ihrer Ausbildung und gewährleisten eine professionelle, kompetente und gastfreundliche Betreuung\n\n• Sie unterstützen unsere Kunden bei Mühlenkontrollen, technologischen Fragestellungen und Trainings vor Ort und gestalten die fachliche sowie organisatorische Weiterentwicklung unserer Schule für Futtermitteltechnik aktiv mit\n\nAnforderungen:\n• Abgeschlossene Berufslehre als Müller:in mit Fachrichtung Tiernahrung bzw. alternativ im Lebensmittelbereich, sowie idealerweise mehrjährige Berufserfahrung in einer Futtermühle\n\n• Fundierte Kenntnisse im Bereich Futtermüllerei, insbesondere in den Prozessen Vermahlen, Mischen, Kompaktieren und Kühlen, sowie gutes Wissen in Maschinenkunde und Verfahrenstechnik\n\n• Pädagogische Ausbildung und/oder Erfahrung als Trainer:in, Dozent:in bzw. Ausbildner:in von Vorteil, verbunden mit Freude daran, komplexe Inhalte verständlich und praxisnah zu vermitteln\n\n• Überzeugende, kommunikative und motivierende Persönlichkeit mit Freude an der Zusammenarbeit mit Menschen aus unterschiedlichen Kulturen sowie einer selbstständigen und strukturierten Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse, Kenntnisse einer weiteren Fremdsprache sind ein Plus; Bereitschaft zu weltweiten Reisen im Umfang von 20%\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "en": "Möchten Sie Ihr Fachwissen in der Futtermitteltechnik weitergeben und Menschen aus aller Welt praxisnah ausbilden? An unserer Schule für Futtermitteltechnik (SFT) verbinden Sie fundierte Prozesskenntnisse mit pädagogischem Geschick. Sie gestalten theoretische und praktische Schulungen, entwickeln Trainingsinhalte kontinuierlich weiter und begleiten Kunden sowie interne Mitarbeitende direkt an unseren Anlagen oder vor Ort beim Kunden. Freuen Sie sich auf eine vielseitige Aufgabe in einem internationalen Umfeld mit viel Gestaltungsspielraum und der Möglichkeit, die Zukunft der Aus- und Weiterbildung aktiv mitzugestalten.\n\nAufgaben:\n• Sie führen theoretische und praktische Schulungen in allen Bereichen der Futtermitteltechnik durch und vermitteln Ihr Fachwissen praxisnah an Kunden sowie interne Mitarbeitende\n\n• Sie entwickeln Schulungsunterlagen, Lehrmaterialien und Ausbildungsformate kontinuierlich weiter und passen diese gezielt an die Bedürfnisse der Teilnehmenden an\n\n• Sie führen selbstständig Versuche mit Rohwaren und Trainings in unserem Anwendungszentrum durch, analysieren die Produktqualität und leiten daraus Optimierungspotenziale ab\n\n• Sie begleiten internationale Kursteilnehmende während ihrer Ausbildung und gewährleisten eine professionelle, kompetente und gastfreundliche Betreuung\n\n• Sie unterstützen unsere Kunden bei Mühlenkontrollen, technologischen Fragestellungen und Trainings vor Ort und gestalten die fachliche sowie organisatorische Weiterentwicklung unserer Schule für Futtermitteltechnik aktiv mit\n\nAnforderungen:\n• Abgeschlossene Berufslehre als Müller:in mit Fachrichtung Tiernahrung bzw. alternativ im Lebensmittelbereich, sowie idealerweise mehrjährige Berufserfahrung in einer Futtermühle\n\n• Fundierte Kenntnisse im Bereich Futtermüllerei, insbesondere in den Prozessen Vermahlen, Mischen, Kompaktieren und Kühlen, sowie gutes Wissen in Maschinenkunde und Verfahrenstechnik\n\n• Pädagogische Ausbildung und/oder Erfahrung als Trainer:in, Dozent:in bzw. Ausbildner:in von Vorteil, verbunden mit Freude daran, komplexe Inhalte verständlich und praxisnah zu vermitteln\n\n• Überzeugende, kommunikative und motivierende Persönlichkeit mit Freude an der Zusammenarbeit mit Menschen aus unterschiedlichen Kulturen sowie einer selbstständigen und strukturierten Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse, Kenntnisse einer weiteren Fremdsprache sind ein Plus; Bereitschaft zu weltweiten Reisen im Umfang von 20%\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen.",
+        "fr": "Möchten Sie Ihr Fachwissen in der Futtermitteltechnik weitergeben und Menschen aus aller Welt praxisnah ausbilden? An unserer Schule für Futtermitteltechnik (SFT) verbinden Sie fundierte Prozesskenntnisse mit pädagogischem Geschick. Sie gestalten theoretische und praktische Schulungen, entwickeln Trainingsinhalte kontinuierlich weiter und begleiten Kunden sowie interne Mitarbeitende direkt an unseren Anlagen oder vor Ort beim Kunden. Freuen Sie sich auf eine vielseitige Aufgabe in einem internationalen Umfeld mit viel Gestaltungsspielraum und der Möglichkeit, die Zukunft der Aus- und Weiterbildung aktiv mitzugestalten.\n\nAufgaben:\n• Sie führen theoretische und praktische Schulungen in allen Bereichen der Futtermitteltechnik durch und vermitteln Ihr Fachwissen praxisnah an Kunden sowie interne Mitarbeitende\n\n• Sie entwickeln Schulungsunterlagen, Lehrmaterialien und Ausbildungsformate kontinuierlich weiter und passen diese gezielt an die Bedürfnisse der Teilnehmenden an\n\n• Sie führen selbstständig Versuche mit Rohwaren und Trainings in unserem Anwendungszentrum durch, analysieren die Produktqualität und leiten daraus Optimierungspotenziale ab\n\n• Sie begleiten internationale Kursteilnehmende während ihrer Ausbildung und gewährleisten eine professionelle, kompetente und gastfreundliche Betreuung\n\n• Sie unterstützen unsere Kunden bei Mühlenkontrollen, technologischen Fragestellungen und Trainings vor Ort und gestalten die fachliche sowie organisatorische Weiterentwicklung unserer Schule für Futtermitteltechnik aktiv mit\n\nAnforderungen:\n• Abgeschlossene Berufslehre als Müller:in mit Fachrichtung Tiernahrung bzw. alternativ im Lebensmittelbereich, sowie idealerweise mehrjährige Berufserfahrung in einer Futtermühle\n\n• Fundierte Kenntnisse im Bereich Futtermüllerei, insbesondere in den Prozessen Vermahlen, Mischen, Kompaktieren und Kühlen, sowie gutes Wissen in Maschinenkunde und Verfahrenstechnik\n\n• Pädagogische Ausbildung und/oder Erfahrung als Trainer:in, Dozent:in bzw. Ausbildner:in von Vorteil, verbunden mit Freude daran, komplexe Inhalte verständlich und praxisnah zu vermitteln\n\n• Überzeugende, kommunikative und motivierende Persönlichkeit mit Freude an der Zusammenarbeit mit Menschen aus unterschiedlichen Kulturen sowie einer selbstständigen und strukturierten Arbeitsweise\n\n• Sehr gute Deutsch- und Englischkenntnisse, Kenntnisse einer weiteren Fremdsprache sind ein Plus; Bereitschaft zu weltweiten Reisen im Umfang von 20%\n\nWir bieten:\nAttraktiver Ferienanspruch\nAusreichend Zeit für Erholung und persönliche Interessen - wir bieten von 25 bis zu 30 Tage Ferien pro Jahr abhängig vom Lebensjahr.\n\nAttraktives Mobilitätskonzept\nWir bieten ein OSTWIND ZVV / Z-Pass + Halbtax für 365 CHF + 400CHF ÖV-Guthaben sowie ein attraktives Erstklass-Abonnement oder kostenlose Parkplätze.\n\nPersonalrestaurant VIVA\nWir bieten unseren Mitarbeitenden ein tägliches Fitnessmenü ab 9, 00 CHF.\n\nArbeitgeberfinanzierter Pensionsplan\nDie Bühler Pensionskasse bietet ihren Mitarbeitenden eine eigenständige Pensionskasse, die eine verlässliche finanzielle Abischerung im Ruhestand sicherstellt: www.pk-buhler.ch\n\nHealth-Port\nWir setzen uns für Gesundheitsprävention durch Laboranalysen, Massagen, Ernährungsberatung, Physiotherapie, Gruppenkurse sowie einen Betriebsarzt ein.\n\nSportangebote\nWir fördern die sportliche Betätigung durch eigenorganisiertes Zirkeltraining und Laufgruppen sowie durch Gutscheine für Update und Activ Fitness.\n\nZwei Milliarden Menschen essen täglich Lebensmittel, die auf Anlagen von Bühler hergestellt wurden. Eine Milliarde Menschen reisen in Fahrzeugen, deren Teile mit Technologien von Bühler produziert wurden.\nMit jeder Entscheidung verfolgt Bühler das Ziel, die Bedürfnisse von Wirtschaft, Mensch und Natur in Einklang zu bringen. So entwickeln wir Lösungen, die nachhaltige Geschäftsmöglichkeiten in der globalen Lebensmittel-, Futtermittel- und Mobilitätsindustrie eröffnen.\nWir wollen Innovationen für eine bessere Welt schaffen, mit besonderem Fokus auf gesunde, sichere und nachhaltige Lösungen. Deshalb arbeiten wir mit Kunden, Start-ups, multinationalen Konzernen und Wissenschaftlern zusammen, um gemeinsam eine schnellere Wirkung zu erzielen."
+      },
+      "needsRetranslation": true,
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/offene-stellen/trainer-in-futtermitteltechnik/c5688b03-2fdc-4590-817f-6459529aee05",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T21:26:51.271Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/de/apply?id=3604",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "trainer-in-futtermitteltechnik-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "trainer-in-futtermitteltechnik-buehler-uzwil"
+      ],
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-22T21:26:51.271Z"
     }
   ]
 }

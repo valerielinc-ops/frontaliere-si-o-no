@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zfv-unternehmungen",
-  "assembledAt": "2026-10-22T10:04:00.297Z",
-  "runId": "39753840265",
+  "assembledAt": "2026-10-22T21:29:32.238Z",
+  "runId": "39855538936",
   "jobs": [
     {
       "id": "zfv-unternehmungen-f78d59bd4f35",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "cucina-aiuto-50-zfv-unternehmungen-epalinges",
         "en": "kitchen-help-50-zfv-unternehmungen-epalinges",
-        "de": "kuchenhilfe-50-zfv-unternehmungen-epalinges",
+        "de": "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
         "fr": "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
       },
       "company": "ZFV-Unternehmungen",
@@ -34,7 +34,7 @@
       "url": "https://jobs.zfv.ch/Aide-de-cuisine-50-fr-j4701.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:41:51.071Z",
+      "crawledAt": "2026-10-22T21:29:08.447Z",
       "addressLocality": "Epalinges",
       "postalCode": "1066",
       "streetAddress": "Rte de la Corniche 21",
@@ -54,7 +54,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
+        "aide-de-cuisine-50-zfv-unternehmungen-epalinges",
+        "kuchenhilfe-50-zfv-unternehmungen-epalinges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +65,7 @@
           "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
         ],
         "de": [
-          "aide-de-cuisine-50-zfv-unternehmungen-epalinges"
+          "kuchenhilfe-50-zfv-unternehmungen-epalinges"
         ]
       },
       "firstSeenAt": "2026-09-04T13:40:05.712Z",
@@ -113,7 +114,7 @@
       "url": "https://jobs.zfv.ch/Apprentissage-2027-Cuisinire-Cuisinier-CFC-de-j4593.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:41:50.622Z",
+      "crawledAt": "2026-10-22T21:29:08.018Z",
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue de la Gare de triage 7",
@@ -194,7 +195,7 @@
       "url": "https://jobs.zfv.ch/Bankett-und-Seminarassistentin-80-100-de-j4642.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:49.819Z",
+      "crawledAt": "2026-10-22T21:29:07.233Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Fabrikstrasse 8",
@@ -273,7 +274,7 @@
       "url": "https://jobs.zfv.ch/Bar-Service-Mitarbeiterin-Aushilfe-de-j4743.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:49.272Z",
+      "crawledAt": "2026-10-22T21:29:06.726Z",
       "needsRetranslation": true,
       "addressLocality": "Horw",
       "postalCode": "6048",
@@ -353,7 +354,7 @@
       "url": "https://jobs.zfv.ch/Betriebsassistentin-60-100-de-j4771.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:48.738Z",
+      "crawledAt": "2026-10-22T21:29:06.220Z",
       "needsRetranslation": false,
       "addressLocality": "Murten",
       "postalCode": "3280",
@@ -433,7 +434,7 @@
       "url": "https://jobs.zfv.ch/Betriebsleiterin-de-j4755.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:48.198Z",
+      "crawledAt": "2026-10-22T21:29:05.711Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -512,7 +513,7 @@
       "url": "https://jobs.zfv.ch/Betriebsleiterin-mit-Kochfunktion-80-100-de-j4759.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:47.675Z",
+      "crawledAt": "2026-10-22T21:29:05.205Z",
       "needsRetranslation": false,
       "addressLocality": "Bern",
       "postalCode": "3004",
@@ -592,7 +593,7 @@
       "url": "https://jobs.zfv.ch/Betriebstournante-20-de-j4691.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:47.130Z",
+      "crawledAt": "2026-10-22T21:29:04.690Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Allmendstrasse 140",
@@ -674,7 +675,7 @@
       "url": "https://jobs.zfv.ch/Buffet-Mitarbeiterin-50-de-j4748.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:46.574Z",
+      "crawledAt": "2026-10-22T21:29:04.185Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -754,7 +755,7 @@
       "url": "https://jobs.zfv.ch/Buffet-Mitarbeiterin-70-de-j4754.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:46.058Z",
+      "crawledAt": "2026-10-22T21:29:03.671Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Pfingstweidstrasse 96",
@@ -833,7 +834,7 @@
       "url": "https://jobs.zfv.ch/Cafeteria-Mitarbeiterin-50-de-j4662.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:45.530Z",
+      "crawledAt": "2026-10-22T21:29:03.166Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Winterthurerstrasse 190",
@@ -906,7 +907,7 @@
       "url": "https://jobs.zfv.ch/Catering-Mitarbeiterin-60-80-de-j4746.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:45.002Z",
+      "crawledAt": "2026-10-22T21:29:02.654Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -986,7 +987,7 @@
       "url": "https://jobs.zfv.ch/Chef-de-Rang-50-60-de-j3840.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:44.460Z",
+      "crawledAt": "2026-10-22T21:29:02.144Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1052,7 +1053,7 @@
       "id": "zfv-unternehmungen-84b32fd65b1b",
       "slug": "responsabile-di-sala-90-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "capo-del-servizio-90-zfv-unternehmungen-bern",
+        "it": "responsabile-di-sala-90-zfv-unternehmungen-bern",
         "en": "chief-de-service-90-zfv-unternehmungen-bern",
         "de": "chef-de-service-90-zfv-unternehmungen-bern",
         "fr": "chef-de-salle-90-zfv-unternehmungen-bern"
@@ -1079,7 +1080,7 @@
       "url": "https://jobs.zfv.ch/Chef-de-Service-90-de-j4750.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:43.904Z",
+      "crawledAt": "2026-10-22T21:29:01.552Z",
       "needsRetranslation": false,
       "addressLocality": "Bern",
       "postalCode": "3004",
@@ -1100,11 +1101,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-service-90-zfv-unternehmungen-bern"
+        "chef-de-service-90-zfv-unternehmungen-bern",
+        "capo-del-servizio-90-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-service-90-zfv-unternehmungen-bern"
+          "chef-de-service-90-zfv-unternehmungen-bern",
+          "capo-del-servizio-90-zfv-unternehmungen-bern"
         ],
         "en": [
           "chef-de-service-90-zfv-unternehmungen-bern"
@@ -1159,7 +1162,7 @@
       "url": "https://jobs.zfv.ch/Cuisinier-re-fr-j4752.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:41:43.366Z",
+      "crawledAt": "2026-10-22T21:29:01.018Z",
       "needsRetranslation": false,
       "addressLocality": "Lausanne, Ecublens",
       "postalCode": "1003",
@@ -1239,7 +1242,7 @@
       "url": "https://jobs.zfv.ch/Event-Mitarbeiterin-Produktion-Aushilfe-de-j3430.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:42.670Z",
+      "crawledAt": "2026-10-22T21:29:00.365Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1297,7 +1300,7 @@
         "it": "f-b-direttore-zfv-unternehmungen-zurich",
         "en": "f-b-director-zfv-unternehmungen-zurich",
         "de": "f-b-director-zfv-unternehmungen-zurich",
-        "fr": "directeur-f-b-zfv-unternehmungen-zurich"
+        "fr": "f-b-director-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -1321,7 +1324,7 @@
       "url": "https://jobs.zfv.ch/FB-Director-de-j4659.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:42.102Z",
+      "crawledAt": "2026-10-22T21:28:59.719Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Orellistrasse 21",
@@ -1341,14 +1344,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "f-b-director-zfv-unternehmungen-zurich"
+        "f-b-director-zfv-unternehmungen-zurich",
+        "directeur-f-b-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "f-b-director-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "f-b-director-zfv-unternehmungen-zurich"
+          "directeur-f-b-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-08-05T11:37:46.415Z",
@@ -1397,7 +1401,7 @@
       "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4631.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:41.541Z",
+      "crawledAt": "2026-10-22T21:28:59.213Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Marktgasse 49",
@@ -1476,7 +1480,7 @@
       "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4535.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:40.811Z",
+      "crawledAt": "2026-10-22T21:28:58.557Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Seefeldstrasse 63",
@@ -1538,85 +1542,6 @@
       }
     },
     {
-      "id": "zfv-unternehmungen-0466a3e26de3",
-      "slug": "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-st-gallen",
-      "slugByLocale": {
-        "it": "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-st-gallen",
-        "en": "professional-mann-hotel-industry-house-economy-efz-apprenticeship-2027-zfv-unternehmungen-st-gallen",
-        "de": "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen",
-        "fr": "professionnel-mann-hotel-industrie-maison-economie-efz-apprentissage-2027-zfv-unternehmungen-st-gallen"
-      },
-      "company": "ZFV-Unternehmungen",
-      "companyKey": "zfv-unternehmungen",
-      "companyDomain": "zfv.ch",
-      "title": "Fachfrau:mann Hotellerie-Hauswirtschaft EFZ Lehrstelle 2027",
-      "titleByLocale": {
-        "it": "Apprendistato EFZ dell'industria alberghiera professionale 2027",
-        "en": "Professional hotel industry-housekeeping EFZ apprenticeship 2027",
-        "de": "Fachfrau:mann Hotellerie-Hauswirtschaft EFZ Lehrstelle 2027",
-        "fr": "Apprentissage EFZ de l'industrie hôtelière professionnelle 2027"
-      },
-      "description": "Starte deine Karriere mit der 3-jährigen Ausbildung als Fachfrau:mann Hotellerie-Hauswirtschaft EFZ in einem Sorell Hotel! Bist du unser neues Teammitglied, welches ab 01. August 2027 bei uns die Ausbildung absolviert? Dein Wirkungsbereich:\n• Reinigung der Gästezimmer, Backoffice und öffentlichen Räume\n• Mitarbeit in der Lingerie\n• Auffüllen der Etagenwagen und -office\n• Mitarbeit beim Frühstücksservice und an der Réception\n• Erledigung von Aufräum- und Reinigungsarbeiten\n• Einhaltung der Hygiene- und Arbeitssicherheitsrichtlinien Deine Stärken:\n• Gäste-, detail- und dienstleistungsorientiert\n• Strukturiert und organisiert\n• Vertrauenswürdig und belastbar\n• Sinn für Ordnung und Sauberkeit\n• Freude am Kontakt mit Menschen Bei uns findest du:\n• En guete Job\n• Ein interessantes, abwechslungsreiches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Vorteilhafte und partnerschaftliche Anstellungsbedingungen\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Leidenschaft für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung mit Foto. Wir berücksichtigen auch Bewerbungen auf dem Postweg, senden diese jedoch nicht zurück.",
-      "descriptionByLocale": {
-        "it": "Inizia la tua carriera con l'apprendistato di 3 anni come specialista:mann Hotel-Hauswirtschaft EFZ in un Sorell Hotel! Sei il nostro nuovo membro della squadra, che dal 01. Abbiamo completato l'allenamento nell'agosto 2027? La tua area di attività:\n• Pulizia di camere, back office e spazi pubblici\n• Collaborazione nella lingerie\n• Riempimento di vagoni e uffici\n• Collaborazione nel servizio colazione e la reception\n• Pulizia e pulizia\n• Rispetto delle linee guida per l'igiene e la sicurezza I tuoi punti di forza:\n• Ospite, dettagli e servizi\n• Strutturato e organizzato\n• Affidabile e resiliente\n• Senso di ordine e pulizia\n• Gioia di contatto con le persone Con noi trovi:\n• E un lavoro da ospite\n• Un ambiente di lavoro interessante e vario\n• Spazio libero per idee e creatività\n• Condizioni di lavoro vantaggiose e di partenariato\n• Cultura aziendale caratterizzata da un senso di responsabilità e fiducia Se volete condividere la vostra passione per l'industria dell'ospitalità con noi, non vediamo l'ora di vostra completa applicazione online con foto. Consideriamo anche le applicazioni per posta ma non li restituiamo.",
-        "en": "Start your career with the 3-year apprenticeship as a specialist:mann Hotel-Hauswirtschaft EFZ in a Sorell Hotel! Are you our new team member, which from 01. Did we complete the training in August 2027? Your area of activity:\n• Cleaning of guest rooms, back office and public spaces\n• Collaboration in the lingerie\n• Filling of floor wagons and offices\n• Collaboration in the breakfast service and the reception\n• Cleaning and cleaning work\n• Compliance with the hygiene and safety guidelines Your strengths:\n• Guest, detail and service-oriented\n• Structured and organized\n• Trustworthy and resilient\n• Sense of order and cleanliness\n• Joy of contact with people With us you find:\n• And a Guest Job\n• An interesting, varied working environment\n• Free space for ideas and creativity\n• Advantageous and partnership terms of employment\n• Corporate culture characterized by a sense of responsibility and trust If you want to share your passion for the hospitality industry with us, we look forward to your complete online application with photo. We also consider applications by post but do not return them.",
-        "de": "Starte deine Karriere mit der 3-jährigen Ausbildung als Fachfrau:mann Hotellerie-Hauswirtschaft EFZ in einem Sorell Hotel! Bist du unser neues Teammitglied, welches ab 01. August 2027 bei uns die Ausbildung absolviert? Dein Wirkungsbereich:\n• Reinigung der Gästezimmer, Backoffice und öffentlichen Räume\n• Mitarbeit in der Lingerie\n• Auffüllen der Etagenwagen und -office\n• Mitarbeit beim Frühstücksservice und an der Réception\n• Erledigung von Aufräum- und Reinigungsarbeiten\n• Einhaltung der Hygiene- und Arbeitssicherheitsrichtlinien Deine Stärken:\n• Gäste-, detail- und dienstleistungsorientiert\n• Strukturiert und organisiert\n• Vertrauenswürdig und belastbar\n• Sinn für Ordnung und Sauberkeit\n• Freude am Kontakt mit Menschen Bei uns findest du:\n• En guete Job\n• Ein interessantes, abwechslungsreiches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Vorteilhafte und partnerschaftliche Anstellungsbedingungen\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Leidenschaft für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung mit Foto. Wir berücksichtigen auch Bewerbungen auf dem Postweg, senden diese jedoch nicht zurück.",
-        "fr": "Commencez votre carrière avec l'apprentissage de 3 ans en tant que spécialiste:mann Hotel-Hauswirtschaft EFZ dans un hôtel Sorell! Êtes-vous notre nouveau membre de l'équipe, qui à partir de 01. Avons-nous terminé la formation en août 2027? Votre domaine d'activité:\n• Nettoyage des chambres, des bureaux et des espaces publics\n• Collaboration dans la lingerie\n• Remplissage des wagons et des bureaux\n• Collaboration dans le service de petit déjeuner et la réception\n• Nettoyage et nettoyage\n• Respect des directives en matière d'hygiène et de sécurité Vos forces :\n• Invité, détail et service\n• Structurel et organisé\n• Fiabilité et résilience\n• Sens de l'ordre et propreté\n• Joy du contact avec les gens Avec nous vous trouvez:\n• Et un travail invité\n• Un environnement de travail intéressant et varié\n• Espace libre pour les idées et la créativité\n• Conditions d'emploi avantageuses et de partenariat\n• Culture d'entreprise caractérisée par un sentiment de responsabilité et de confiance Si vous voulez partager avec nous votre passion pour l'industrie de l'hôtellerie, nous nous réjouissons de votre demande en ligne complète avec photo. Nous examinons également les demandes par la poste, mais ne les renvoyons pas."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4533.html",
-      "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:40.136Z",
-      "addressLocality": "St. Gallen",
-      "postalCode": "9000",
-      "streetAddress": "Davidstrasse 21",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Housekeeping",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Ospitalità / Ristorazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-01",
-      "postedDate": "2026-08-01",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4533.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen"
-        ],
-        "en": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen"
-        ],
-        "fr": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-31T22:13:26.754Z",
-      "salaryMin": 49500,
-      "salaryMax": 62000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 62000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "zfv-unternehmungen-5d1e53df7991",
       "slug": "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-bern",
       "slugByLocale": {
@@ -1647,7 +1572,7 @@
       "url": "https://jobs.zfv.ch/Fachfraumann-Hotellerie-Hauswirtschaft-EFZ-Lehrstelle-2027-de-j4528.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:39.449Z",
+      "crawledAt": "2026-10-22T21:28:57.894Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -1726,7 +1651,7 @@
       "url": "https://jobs.zfv.ch/Front-Office-Praktikantin-de-j4472.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:38.083Z",
+      "crawledAt": "2026-10-22T21:28:56.581Z",
       "needsRetranslation": false,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
@@ -1800,7 +1725,7 @@
       "url": "https://jobs.zfv.ch/Front-Office-Praktikantin-de-j4468.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:37.395Z",
+      "crawledAt": "2026-10-22T21:28:55.926Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -1874,7 +1799,7 @@
       "url": "https://jobs.zfv.ch/Gouvernante-de-j4686.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:36.568Z",
+      "crawledAt": "2026-10-22T21:28:55.139Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -1964,7 +1889,7 @@
       "url": "https://jobs.zfv.ch/Gouvernante-de-j4296.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:36.029Z",
+      "crawledAt": "2026-10-22T21:28:54.628Z",
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
       "streetAddress": "Untere Bahnhofstrasse 5",
@@ -2011,7 +1936,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-60-zfv-unternehmungen-zurich",
-        "en": "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich",
+        "en": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
         "de": "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-60-zfv-unternehmungen-zurich"
       },
@@ -2037,7 +1962,7 @@
       "url": "https://jobs.zfv.ch/Hilfskoechin-Hilfskoch-60-de-j4734.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:35.492Z",
+      "crawledAt": "2026-10-22T21:28:54.112Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -2058,14 +1983,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
+        "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich",
+        "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
+          "assistant-cook-assistant-cook-60-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-zurich"
@@ -2091,7 +2017,7 @@
       "slug": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-adliswil",
-        "en": "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil",
+        "en": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "de": "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
         "fr": "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-adliswil"
       },
@@ -2117,7 +2043,7 @@
       "url": "https://jobs.zfv.ch/Hilfskoechin-Hilfskoch-80-de-j4688.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:34.978Z",
+      "crawledAt": "2026-10-22T21:28:53.594Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -2137,14 +2063,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
+        "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil",
+        "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
         ],
         "en": [
-          "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
+          "assistant-cook-assistant-cook-80-zfv-unternehmungen-adliswil"
         ],
         "fr": [
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-adliswil"
@@ -2196,7 +2123,7 @@
       "url": "https://jobs.zfv.ch/Hotel-Kommunikationsfachfraumann-EFZ-Lehrstelle-2027-de-j4536.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:34.460Z",
+      "crawledAt": "2026-10-22T21:28:53.075Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Seefeldstrasse 63",
@@ -2275,7 +2202,7 @@
       "url": "https://jobs.zfv.ch/Hotel-Kommunikationsfachfraumann-EFZ-Lehrstelle-2027-de-j4529.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:33.788Z",
+      "crawledAt": "2026-10-22T21:28:52.433Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -2342,11 +2269,11 @@
         "de": "Junior Sous-Chef:in",
         "fr": "Chef du Sous :"
       },
-      "description": "Das SRF Restaurant Fernsehstrasse in Zürich Leutschenbach ist der Hauptsitz des SRF. Es werden täglich 700 Gäste im Selbstbedienungsteil verpflegt mit 450 Sitzplätzen. In der Kaffeebar hat es 30 Sitzplätze. Zusätzlich bietet der Kiosk eine weitere Abwechslung für die Gäste. Im Weiteren werden Caterings für interne wie auch für externe Gäste durchgeführt. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen sowie ökologisch sinnvoll produzierten und fair gehandelten Lebensmitteln gekocht. Bist du bereit für den nächsten Schritt in deiner Küchenkarriere? Dann suchen wir dich per sofort oder nach Vereinbarung als Junior Sous Chef:in. Du arbeitest von Montag bis Freitag in einem 100% Pensum von 06:00 Uhr bis 15:00 Uhr. Gelegentliche Abend- und Wochenendsätze sind möglich. Dein Wirkungsbereich:\n• Du unterstützt den:die Küchenchef:in im täglichen Küchenbetrieb und übernimmst zunehmend Verantwortung\n• Du arbeitest aktiv in der Produktion mit und sorgst für eine hohe Qualität unserer Speisen\n• Du führst selbstständig einen Küchenposten und unterstützt bei der Organisation des Tagesgeschäfts\n• Du hilfst bei Bestellungen, Warenannahme und Lagerbewirtschaftung mit\n• Du unterstützt bei Caterings, Apéros und Spezialanlässen\n• Du übernimmst erste Führungsaufgaben und unterstützt bei der Einarbeitung neuer Mitarbeitenden\n• Du stellst die Einhaltung unserer Hygiene-, Qualitäts- und Sicherheitsstandards sicher\n• Du bringst deine Ideen ein und entwickelst unser gastronomisches Angebot gemeinsam mit dem Team weiter Deine Stärken:\n• Grundausbildung als Köchin / Koch: EFZ\n• Einige Jahre Berufserfahrung in der Gastronomie\n• Du möchtest Verantwortung übernehmen und dich zum:zur Sous-Chef:in weiterentwickeln\n• Erste Erfahrung in der Führung oder Betreuung von Mitarbeitenden ist von Vorteil\n• Leidenschaftlich und trendbewusst\n• Teamfähigkeit, Zuverlässigkeit und gut organisiert\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Gute bis sehr gute EDV Kenntnisse\n• Begeisterter «Foodie»\n• Affin für digitale Lösungen Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
+      "description": "Das SRF Restaurant Fernsehstrasse in Zürich Leutschenbach ist der Hauptsitz des SRF. Es werden täglich 700 Gäste im Selbstbedienungsteil verpflegt mit 450 Sitzplätzen. In der Kaffeebar hat es 30 Sitzplätze. Zusätzlich bietet der Kiosk eine weitere Abwechslung für die Gäste. Im Weiteren werden Caterings für interne wie auch für externe Gäste durchgeführt. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen sowie ökologisch sinnvoll produzierten und fair gehandelten Lebensmitteln gekocht. Bist du bereit für den nächsten Schritt in deiner Küchenkarriere? Dann suchen wir dich per sofort oder nach Vereinbarung als Junior Sous Chef:in. Du arbeitest von Montag bis Freitag in einem 100% Pensum von 06:00 Uhr bis 15:00 Uhr. Gelegentliche Abend- und Wochenendsätze sind möglich. Dein Wirkungsbereich:\n• Du unterstützt den:die Küchenchef:in im täglichen Küchenbetrieb und übernimmst zunehmend Verantwortung\n• Du arbeitest aktiv in der Produktion mit und sorgst für eine hohe Qualität unserer Speisen\n• Du führst selbstständig einen Küchenposten und unterstützt bei der Organisation des Tagesgeschäfts\n• Du hilfst bei Bestellungen, Warenannahme und Lagerbewirtschaftung mit\n• Du unterstützt bei Caterings, Apéros und Spezialanlässen\n• Du übernimmst erste Führungsaufgaben und unterstützt bei der Einarbeitung neuer Mitarbeitenden\n• Du stellst die Einhaltung unserer Hygiene-, Qualitäts- und Sicherheitsstandards sicher\n• Du bringst deine Ideen ein und entwickelst unser gastronomisches Angebot gemeinsam mit dem Team weiter Deine Stärken:\n• Abgeschlossen Grundausbildung als Köchin / Koch: EFZ\n• Einige Jahre Berufserfahrung in der Gastronomie\n• Du möchtest Verantwortung übernehmen und dich zum:zur Sous-Chef:in weiterentwickeln\n• Erste Erfahrung in der Führung oder Betreuung von Mitarbeitenden ist von Vorteil\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Eine agile, innovative und lösungsorientierte Denkweise\n• Ausgeprägte Ziel- und Gästeorientierung\n• Teamfähigkeit und Freude an der Zusammenarbeit\n• Offenheit für Veränderungen und Bereitschaft, Neues zu lernen Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
       "descriptionByLocale": {
         "it": "La SRF Restaurant Fernsehstrasse di Zurigo Leutschenbach è la sede della SRF. Ogni giorno 700 ospiti sono soddisfatti nella sezione self-service con 450 posti. Il bar ha 30 posti. Inoltre, il chiosco offre un'altra varietà per gli ospiti. Inoltre, i catering sono effettuati sia per gli ospiti interni che per quelli esterni. Fedele alla filosofia ZFV, appena cotta a livello locale con cibo regionale ed ecologico ben prodotto ed equo. Sei il nostro nuovo membro della squadra che ci porterà come sous boss: in per 01. Supportato il novembre 2026? Lavori da lunedì a venerdì in un carico di lavoro al 100% dalle 06:00 alle 15:00. Occasionali sessioni serali e weekend sono possibili. La tua area di attività:\n• Sostegno nella gestione e organizzazione dell'intera cucina in collaborazione con:m Chef:in\n• Garantire l'alta qualità del cibo\n• Produzione di cibo all'oggetto assegnato\n• Assistenza con inventario mensile e ordinazione\n• Completamento di vari compiti amministrativi (controllo giornaliero dei costi, note di consegna e controllo delle fatture, ecc.)\n• Vice chef: in assenza\n• Completamento del lavoro di pulizia e pulizia generale\n• Garantire qualità e standard di servizio ZFV\n• Attuazione e garanzia di norme di qualità e linee guida ZFV (igiene e sicurezza sul lavoro, servizio, ecc.)\n• Conduzione di briefing e debriefings in consultazione con:m Chef:in\n• Promozione del team building\n• Partecipazione a riunioni di team e quadri, nonché implementazione della formazione dei dipendenti I vostri punti di forza:\n• Formazione di base come cuoco: EFZ\n• Esperienza di cucina a tutti i posti in cucina\n• 8 anni di esperienza professionale nel settore della gastronomia / alberghiera\n• L'esperienza di leadership è utile\n• Esempio e co-creatore:\n• Passione e coscienza della tendenza\n• Lavoro di squadra\n• Molto buona conoscenza orale e scritta del tedesco\n• Buono a molto buone competenze informatiche\n• Enthusiastic \"Fooodie\"\n• Affin per soluzioni digitali Con noi troverete:\n• E il lavoro degli ospiti\n• Ambiente di lavoro dinamico\n• Spazio libero per idee e creatività\n• Margine di sviluppo\n• Cultura aziendale caratterizzata da un senso di responsabilità e fiducia Se si desidera condividere la vostra passione per la gastronomia con noi, non vediamo l'ora di vostra completa applicazione online.",
         "en": "The SRF Restaurant Fernsehstrasse in Zurich Leutschenbach is the headquarters of the SRF. Every day 700 guests are catered for in the self-service section with 450 seats. The coffee bar has 30 seats. In addition, the kiosk offers another variety for the guests. Furthermore, caterings are carried out for both internal and external guests. True to the ZFV philosophy, freshly cooked locally with regional and ecologically well-produced and fair trade food. Are you our new team member who will take us as sous boss: in per 01. Supported November 2026? You work from Monday to Friday in a 100% workload from 06:00 to 15:00. Occasional evening and weekend sessions are possible. Your area of activity:\n• Support in the management and organization of the entire kitchen area in cooperation with:m Chef:in\n• Ensuring the high quality of food\n• Production of food at the assigned item\n• Assistance with monthly inventory and ordering\n• Completion of various administrative tasks (daily cost control, delivery note and invoice control, etc.)\n• Deputy chef: in absence\n• Completion of general clean-up and cleaning work\n• Ensuring ZFV quality and service standards\n• Implementation and assurance of quality standards and ZFV guidelines (hygiene and occupational safety, service, etc.)\n• Conduct of briefings and debriefings in consultation with:m Chef:in\n• Promotion of team building\n• Participation in team and cadre meetings as well as implementation of employee training Your strengths:\n• Basic training as a cook: EFZ\n• Kitchen experience at all posts in the kitchen\n• 8 years of professional experience in gastronomy / hotel industry\n• Leadership experience is beneficial\n• Example and co-creator:\n• Passionate and trend-conscious\n• Teamwork\n• Very good oral and written knowledge of German\n• Good to very good computer skills\n• Enthusiastic \"Foodie\"\n• Affin for digital solutions With us you will find:\n• And Guest Job\n• Dynamic working environment\n• Free space for ideas and creativity\n• Development margin\n• Corporate culture characterized by a sense of responsibility and trust If you want to share your passion for gastronomy with us, we look forward to your complete online application.",
-        "de": "Das SRF Restaurant Fernsehstrasse in Zürich Leutschenbach ist der Hauptsitz des SRF. Es werden täglich 700 Gäste im Selbstbedienungsteil verpflegt mit 450 Sitzplätzen. In der Kaffeebar hat es 30 Sitzplätze. Zusätzlich bietet der Kiosk eine weitere Abwechslung für die Gäste. Im Weiteren werden Caterings für interne wie auch für externe Gäste durchgeführt. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen sowie ökologisch sinnvoll produzierten und fair gehandelten Lebensmitteln gekocht. Bist du bereit für den nächsten Schritt in deiner Küchenkarriere? Dann suchen wir dich per sofort oder nach Vereinbarung als Junior Sous Chef:in. Du arbeitest von Montag bis Freitag in einem 100% Pensum von 06:00 Uhr bis 15:00 Uhr. Gelegentliche Abend- und Wochenendsätze sind möglich. Dein Wirkungsbereich:\n• Du unterstützt den:die Küchenchef:in im täglichen Küchenbetrieb und übernimmst zunehmend Verantwortung\n• Du arbeitest aktiv in der Produktion mit und sorgst für eine hohe Qualität unserer Speisen\n• Du führst selbstständig einen Küchenposten und unterstützt bei der Organisation des Tagesgeschäfts\n• Du hilfst bei Bestellungen, Warenannahme und Lagerbewirtschaftung mit\n• Du unterstützt bei Caterings, Apéros und Spezialanlässen\n• Du übernimmst erste Führungsaufgaben und unterstützt bei der Einarbeitung neuer Mitarbeitenden\n• Du stellst die Einhaltung unserer Hygiene-, Qualitäts- und Sicherheitsstandards sicher\n• Du bringst deine Ideen ein und entwickelst unser gastronomisches Angebot gemeinsam mit dem Team weiter Deine Stärken:\n• Grundausbildung als Köchin / Koch: EFZ\n• Einige Jahre Berufserfahrung in der Gastronomie\n• Du möchtest Verantwortung übernehmen und dich zum:zur Sous-Chef:in weiterentwickeln\n• Erste Erfahrung in der Führung oder Betreuung von Mitarbeitenden ist von Vorteil\n• Leidenschaftlich und trendbewusst\n• Teamfähigkeit, Zuverlässigkeit und gut organisiert\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Gute bis sehr gute EDV Kenntnisse\n• Begeisterter «Foodie»\n• Affin für digitale Lösungen Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
+        "de": "Das SRF Restaurant Fernsehstrasse in Zürich Leutschenbach ist der Hauptsitz des SRF. Es werden täglich 700 Gäste im Selbstbedienungsteil verpflegt mit 450 Sitzplätzen. In der Kaffeebar hat es 30 Sitzplätze. Zusätzlich bietet der Kiosk eine weitere Abwechslung für die Gäste. Im Weiteren werden Caterings für interne wie auch für externe Gäste durchgeführt. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen sowie ökologisch sinnvoll produzierten und fair gehandelten Lebensmitteln gekocht. Bist du bereit für den nächsten Schritt in deiner Küchenkarriere? Dann suchen wir dich per sofort oder nach Vereinbarung als Junior Sous Chef:in. Du arbeitest von Montag bis Freitag in einem 100% Pensum von 06:00 Uhr bis 15:00 Uhr. Gelegentliche Abend- und Wochenendsätze sind möglich. Dein Wirkungsbereich:\n• Du unterstützt den:die Küchenchef:in im täglichen Küchenbetrieb und übernimmst zunehmend Verantwortung\n• Du arbeitest aktiv in der Produktion mit und sorgst für eine hohe Qualität unserer Speisen\n• Du führst selbstständig einen Küchenposten und unterstützt bei der Organisation des Tagesgeschäfts\n• Du hilfst bei Bestellungen, Warenannahme und Lagerbewirtschaftung mit\n• Du unterstützt bei Caterings, Apéros und Spezialanlässen\n• Du übernimmst erste Führungsaufgaben und unterstützt bei der Einarbeitung neuer Mitarbeitenden\n• Du stellst die Einhaltung unserer Hygiene-, Qualitäts- und Sicherheitsstandards sicher\n• Du bringst deine Ideen ein und entwickelst unser gastronomisches Angebot gemeinsam mit dem Team weiter Deine Stärken:\n• Abgeschlossen Grundausbildung als Köchin / Koch: EFZ\n• Einige Jahre Berufserfahrung in der Gastronomie\n• Du möchtest Verantwortung übernehmen und dich zum:zur Sous-Chef:in weiterentwickeln\n• Erste Erfahrung in der Führung oder Betreuung von Mitarbeitenden ist von Vorteil\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n• Eine agile, innovative und lösungsorientierte Denkweise\n• Ausgeprägte Ziel- und Gästeorientierung\n• Teamfähigkeit und Freude an der Zusammenarbeit\n• Offenheit für Veränderungen und Bereitschaft, Neues zu lernen Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
         "fr": "Le SRF Restaurant Fernsehstrasse à Zurich Leutschenbach est le siège du SRF. Chaque jour 700 invités sont pris en charge dans la section libre-service avec 450 sièges. Le bar à café a 30 places. En outre, le kiosque offre une autre variété pour les invités. En outre, des restaurations sont effectuées pour les clients internes et externes. Fidèle à la philosophie ZFV, fraîchement cuite localement avec des aliments régionaux et écologiques bien produits et équitables. Êtes-vous notre nouveau membre de l'équipe qui nous prendra comme sous-chef: en par 01. Soutenu en novembre 2026 ? Vous travaillez du lundi au vendredi dans une charge de travail 100% de 06:00 à 15:00. Des séances occasionnelles en soirée et en week-end sont possibles. Votre domaine d'activité:\n• Appui à la gestion et à l'organisation de l'ensemble de la cuisine en coopération avec:m Chef:in\n• Assurer la haute qualité des aliments\n• Production de denrées alimentaires à l'article attribué\n• Assistance pour l'inventaire mensuel et la commande\n• Achèvement de diverses tâches administratives (contrôle quotidien des coûts, lettre de livraison et contrôle des factures, etc.)\n• Chef adjoint: en absence\n• Achèvement des travaux généraux de nettoyage et de nettoyage\n• Assurer la qualité et les normes de service de ZFV\n• Mise en œuvre et assurance des normes de qualité et des lignes directrices ZFV (hygiène et sécurité au travail, service, etc.)\n• Organisation de séances d'information et de comptes rendus en consultation avec:m Chef:in\n• Promotion du renforcement des équipes\n• Participation aux réunions d'équipe et de cadre ainsi qu'à la mise en oeuvre de la formation des employés Vos points forts :\n• Formation de base comme cuisinier: EFZ\n• Expérience de la cuisine à tous les postes de la cuisine\n• 8 ans d'expérience professionnelle dans la gastronomie / l'hôtellerie\n• L'expérience de leadership est bénéfique\n• Exemple et co-créateur:\n• Passionné et conscient des tendances\n• Travail d'équipe\n• Très bonne connaissance orale et écrite de l'allemand\n• Bon à très bonnes compétences en informatique\n• Enthousiaste \"Foodie\"\n• Affin pour solutions numériques Avec nous vous trouverez:\n• Et le travail invité\n• Environnement de travail dynamique\n• Espace libre pour les idées et la créativité\n• Marge de développement\n• Culture d'entreprise caractérisée par un sentiment de responsabilité et de confiance Si vous voulez partager votre passion pour la gastronomie avec nous, nous nous réjouissons de votre candidature en ligne complète."
       },
       "location": "Zürich",
@@ -2354,7 +2281,8 @@
       "url": "https://jobs.zfv.ch/Junior-Sous-Chefin-de-j4694.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:32.320Z",
+      "crawledAt": "2026-10-22T21:28:50.988Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Fernsehstrasse 1-4",
@@ -2412,10 +2340,10 @@
       "id": "zfv-unternehmungen-4f619d70341d",
       "slug": "cuoca-cuoco-zfv-unternehmungen-baden",
       "slugByLocale": {
-        "it": "cucinare-cucinare-zfv-unternehmungen-baden",
-        "en": "cook-cook-zfv-unternehmungen-baden",
+        "it": "cuoca-cuoco-zfv-unternehmungen-baden",
+        "en": "kochin-koch-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
-        "fr": "cuire-cuire-zfv-unternehmungen-baden"
+        "fr": "cuisiniere-cuisinier-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2439,7 +2367,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-de-j4730.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:31.742Z",
+      "crawledAt": "2026-10-22T21:28:50.463Z",
       "needsRetranslation": true,
       "addressLocality": "Baden",
       "postalCode": "5400",
@@ -2461,18 +2389,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-zfv-unternehmungen-baden",
-        "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+        "cucinare-cucinare-zfv-unternehmungen-baden",
+        "cook-cook-zfv-unternehmungen-baden",
+        "cuire-cuire-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden",
+          "cucinare-cucinare-zfv-unternehmungen-baden"
         ],
         "en": [
-          "kochin-koch-zfv-unternehmungen-baden"
+          "cook-cook-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden",
-          "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+          "cuire-cuire-zfv-unternehmungen-baden"
         ]
       },
       "firstSeenAt": "2026-09-22T00:05:09.436Z",
@@ -2521,7 +2452,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-65-de-j4496.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:31.193Z",
+      "crawledAt": "2026-10-22T21:28:49.960Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Klingelbergstrasse 48",
@@ -2589,7 +2520,7 @@
       "slug": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
       "slugByLocale": {
         "it": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
-        "en": "cook-cook-70-80-zfv-unternehmungen-basel",
+        "en": "kochin-koch-70-80-zfv-unternehmungen-basel",
         "de": "kochin-koch-70-80-zfv-unternehmungen-basel",
         "fr": "cuisiniere-70-80-zfv-unternehmungen-basel"
       },
@@ -2615,7 +2546,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-70-80-de-j4450.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:30.661Z",
+      "crawledAt": "2026-10-22T21:28:49.452Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "Klingelbergstrasse 48",
@@ -2648,7 +2579,8 @@
         "operating-tournament-e-40-zfv-unternehmungen-basel",
         "betriebstournant-e-40-zfv-unternehmungen-basel",
         "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
-        "tour-operateur-e-40-zfv-unternehmungen-basel"
+        "tour-operateur-e-40-zfv-unternehmungen-basel",
+        "cook-cook-70-80-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2670,7 +2602,7 @@
         "en": [
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "operational-assistant-in-zfv-unternehmungen-basel",
-          "kochin-koch-70-80-zfv-unternehmungen-basel"
+          "cook-cook-70-80-zfv-unternehmungen-basel"
         ],
         "de": [
           "hilfskochin-hilfskoch-60-zfv-unternehmungen-basel",
@@ -2701,7 +2633,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
-        "en": "cook-cook-zfv-unternehmungen-adliswil",
+        "en": "kochin-koch-80-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
         "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       },
@@ -2727,7 +2659,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-80-de-j4580.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:30.131Z",
+      "crawledAt": "2026-10-22T21:28:48.949Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -2752,7 +2684,8 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuire-80-zfv-unternehmungen-adliswil"
+        "cuire-80-zfv-unternehmungen-adliswil",
+        "cook-cook-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2764,7 +2697,7 @@
         ],
         "en": [
           "cook-cook-40-60-zfv-unternehmungen-adliswil",
-          "kochin-koch-80-zfv-unternehmungen-adliswil"
+          "cook-cook-zfv-unternehmungen-adliswil"
         ],
         "de": [
           "kochin-koch-80-zfv-unternehmungen-adliswil",
@@ -2822,7 +2755,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Aushilfe-de-j4179.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:29.595Z",
+      "crawledAt": "2026-10-22T21:28:48.422Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -2912,7 +2845,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-befristet-bis-Feb-2027-de-j4521.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:29.066Z",
+      "crawledAt": "2026-10-22T21:28:47.914Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -3010,7 +2943,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j4747.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:28.479Z",
+      "crawledAt": "2026-10-22T21:28:47.400Z",
       "needsRetranslation": false,
       "addressLocality": "Luzern",
       "postalCode": "6003",
@@ -3076,7 +3009,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j4723.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:27.945Z",
+      "crawledAt": "2026-10-22T21:28:46.899Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -3142,7 +3075,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j4602.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:27.362Z",
+      "crawledAt": "2026-10-22T21:28:46.392Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Bahnhofstrasse 45",
@@ -3201,7 +3134,7 @@
       "slugByLocale": {
         "it": "cucina-capo-de-partie-zfv-unternehmungen-luzern",
         "en": "cook-chief-de-partie-zfv-unternehmungen-luzern",
-        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040",
+        "de": "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
         "fr": "cuisinier-chef-de-partie-zfv-unternehmungen-luzern"
       },
       "company": "ZFV-Unternehmungen",
@@ -3226,7 +3159,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-Chef-de-Partie-de-j3948.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:26.770Z",
+      "crawledAt": "2026-10-22T21:28:45.881Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Lidostrasse 5",
@@ -3246,14 +3179,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
         ],
         "de": [
-          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern-8gs040"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:58.994Z",
@@ -3302,7 +3236,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4735.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:26.232Z",
+      "crawledAt": "2026-10-22T21:28:45.373Z",
       "addressLocality": "Murten",
       "postalCode": "3280",
       "streetAddress": "Löwenberg 45B",
@@ -3381,7 +3315,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4674.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:25.680Z",
+      "crawledAt": "2026-10-22T21:28:44.725Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Frohburgstrasse 3",
@@ -3460,7 +3394,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4569.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:25.147Z",
+      "crawledAt": "2026-10-22T21:28:44.076Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Binzmühlestrasse 14",
@@ -3539,7 +3473,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4565.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:24.475Z",
+      "crawledAt": "2026-10-22T21:28:43.428Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "St. Alban-Anlage 26",
@@ -3618,7 +3552,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4560.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:23.204Z",
+      "crawledAt": "2026-10-22T21:28:42.110Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "Hegenheimermattweg 91",
@@ -3697,7 +3631,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4559.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:22.504Z",
+      "crawledAt": "2026-10-22T21:28:41.459Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Wölflistrasse 5",
@@ -3778,7 +3712,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4556.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:21.177Z",
+      "crawledAt": "2026-10-22T21:28:40.018Z",
       "addressLocality": "Olten",
       "postalCode": "4600",
       "streetAddress": "Bahnhofstrasse 12",
@@ -3863,7 +3797,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4552.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:19.774Z",
+      "crawledAt": "2026-10-22T21:28:38.708Z",
       "addressLocality": "Rotkreuz",
       "postalCode": "6343",
       "streetAddress": "Suurstoffi 1",
@@ -3942,7 +3876,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4551.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:19.070Z",
+      "crawledAt": "2026-10-22T21:28:38.051Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Baarerstrasse 100",
@@ -4021,7 +3955,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4547.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:17.640Z",
+      "crawledAt": "2026-10-22T21:28:36.741Z",
       "addressLocality": "Horw",
       "postalCode": "6048",
       "streetAddress": "Technikumstrasse 21",
@@ -4100,7 +4034,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4542.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:16.910Z",
+      "crawledAt": "2026-10-22T21:28:36.081Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Pionierstrasse 3",
@@ -4179,7 +4113,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4541.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:16.224Z",
+      "crawledAt": "2026-10-22T21:28:35.434Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -4258,7 +4192,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4539.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:15.503Z",
+      "crawledAt": "2026-10-22T21:28:34.755Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Europastrasse 1",
@@ -4337,7 +4271,7 @@
       "url": "https://jobs.zfv.ch/Koechin-Koch-EFZ-Lehrstelle-2027-de-j4531.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:14.827Z",
+      "crawledAt": "2026-10-22T21:28:34.109Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -4420,7 +4354,7 @@
       "url": "https://jobs.zfv.ch/Kuechenangestellter-EBA-Lehrstelle-2027-de-j4699.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:12.787Z",
+      "crawledAt": "2026-10-22T21:28:32.132Z",
       "needsRetranslation": false,
       "addressLocality": "Luzern",
       "postalCode": "6003",
@@ -4472,41 +4406,41 @@
       }
     },
     {
-      "id": "zfv-unternehmungen-e8941c0832ad",
-      "slug": "chef-in-zfv-unternehmungen-zurich",
+      "id": "zfv-unternehmungen-20cb0ed2f895",
+      "slug": "kuchenchef-in-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "chef-in-zfv-unternehmungen-zurich",
-        "en": "chef-in-zfv-unternehmungen-zurich",
         "de": "kuchenchef-in-zfv-unternehmungen-zurich",
-        "fr": "chef-zfv-unternehmungen-zurich"
+        "it": "kuchenchef-in-zfv-unternehmungen-zurich",
+        "en": "kuchenchef-in-zfv-unternehmungen-zurich",
+        "fr": "kuchenchef-in-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
       "companyDomain": "zfv.ch",
       "title": "Küchenchef:in",
       "titleByLocale": {
-        "it": "Chef",
-        "en": "Chef",
         "de": "Küchenchef:in",
-        "fr": "Chef"
+        "it": "Küchenchef:in",
+        "en": "Küchenchef:in",
+        "fr": "Küchenchef:in"
       },
-      "description": "Das Stadion Letzigrund ist eines der modernsten Stadien der Schweiz. Die Gastronomie umfasst mehrere Bereiche, darunter die Aussenstände und das Restaurant Oval. Zum VIP-Bereich bei Grossveranstaltungen zählen 11 Logen, 3 Business-Lounges und die Athletik Lounge für knapp 800 Gäste. Es beherbergt die Heimspiele des FC Zürich und des Grasshopper Club Zürich, das Meeting Weltklasse Zürich sowie die Open-Air-Konzerte wie die von Robbie Williams, Rolling Stones, Metallica oder Pink. Zudem finden verschiedenste Corporate und Privat Events statt. Mit einem Fassungsvermögen von über 50'000 Zuschauern bei Konzerten ist das Stadion Letzigrund die grösste Veranstaltungsstätte der Schweiz. Für den Letzigrund – einen der vielseitigsten Gastronomiebetriebe Zürichs – suchen wir per sofort oder nach Vereinbarung eine engagierte und führungsstarke Persönlichkeit als Küchenchef:in. Dein Wirkungsbereich:\n• Du führst und organisierst den gesamten Küchenbereich und sorgst für reibungslose Abläufe im Tagesgeschäft sowie bei Grossveranstaltungen\n• Du planst, koordinierst und realisierst das Restaurant-, Seminar-, Event-, VIP- und Logengeschäft\n• Du führst dein Küchenteam im Alltag und übernimmst bei Grossanlässen die Leitung von erweiterten Event-Crews\n• Du stellst eine konstant hohe Speisenqualität sicher und arbeitest aktiv in der Produktion mit\n• Du entwickelst das kulinarische Angebot weiter und bringst neue Ideen sowie aktuelle Trends ein\n• Du verantwortest Einkauf, Warenbewirtschaftung, Inventuren, Kalkulationen und die Einhaltung der Budgets\n• Du planst Mengen und Ressourcen vorausschauend und sorgst für einen wirtschaftlichen Einsatz der Lebensmittel mit möglichst wenig Food Waste\n• Du koordinierst die gehobene Logen- und VIP-Gastronomie in Zusammenarbeit mit spezialisierten Gourmetköchinnen und Gourmetköchen\n• Du rekrutierst, förderst und entwickelst deine Mitarbeitenden und lebst das ZFV-Leadership-Modell «Wir machen andere erfolgreich»\n• Du stellst die Einhaltung aller Qualitäts-, Hygiene-, Sicherheits- und Nachhaltigkeitsstandards sicher\n• Du übernimmst administrative Aufgaben und behältst die relevanten Kennzahlen stets im Blick Deine Stärken:\n• Abgeschlossene Ausbildung als Köchin / Koch: EFZ sowie eine Weiterbildung als Chefköchin / Chefkoch: mit eidg. Fachausweis\n• Mehrjährige Führungserfahrung als Küchenchef:in sowie Erfahrung in der Organisation von Grossveranstaltungen\n• Verständnis für gehobene Gastronomie und hohe Qualitätsansprüche\n• Fundierte Kenntnisse in Kalkulation, Warenwirtschaft und Kostenkontrolle\n• Unternehmerisches Denken sowie eine strukturierte und vorausschauende Arbeitsweise\n• Organisationstalent, Flexibilität und die Fähigkeit, auch in dynamischen Situationen den Überblick zu behalten\n• Freude daran, Mitarbeitende zu fördern, Verantwortung zu übernehmen und Teams weiterzuentwickeln\n• Sehr gute Deutschkenntnisse sowie gute IT-Anwenderkenntnisse Bei uns findest du:\n• Einen Arbeitsplatz, der so vielseitig ist wie kaum ein anderer Gastronomiebetrieb in Zürich\n• Die Kombination aus Restaurantbetrieb, Seminaren, VIP-Gastronomie, Konzerten, Sportveranstaltungen und Grossanlässen\n• Die Möglichkeit, an ruhigen Tagen selbst operativ mitzuwirken und an Eventtagen als Leader grosse Teams zu führen\n• Zusammenarbeit mit erfahrenen Fachpersonen und Gourmetköchinnen und Gourmetköchen\n• Viel Gestaltungsspielraum, Eigenverantwortung und kurze Entscheidungswege\n• Die Chance, Teil eines motivierten Teams innerhalb der ZFV-Unternehmungen zu sein Wenn du mit uns deine Passion für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
+      "description": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Küchenchef:in per 1. März 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Küchenchef übernimmst du die Verantwortung für das À-la-carte und Private-Dining Angebot und gestaltest mit deiner kulinarischen Vision eine moderne Fine-Dining Küche, die Regionalität, Saisonalität und höchste Qualität auf unverwechselbare Weise verbindet. Deine Aufgabenmenü\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, kreierst das Angebot sowie Prozesse und Abläufe und stellst sicher, dass das Küchenteam optimal auf den Start vorbereitet ist\n• Du verantwortest den Aufbau, die Organisation und die operative Führung des gesamten Küchenbereichs über alle gastronomischen Formate hinweg\n• Du entwickelst das kulinarische Konzept weiter und sorgst für ein Angebot auf internationalem Spitzenniveau, das sich an der Qualität führender Fine-Dining Betriebe orientiert\n• Du prägst die kulinarische Ausrichtung mit hochwertigen Schweizer Produkten, moderner Küche und mediterranen Einflüssen\n• Du baust ein leistungsstarkes Küchenteam auf, förderst die fachliche und persönliche Entwicklung deiner Mitarbeitenden und schaffst eine motivierende, leistungsorientierte Arbeitskultur\n• Du verantwortest die Personalplanung, führst regelmässige Briefings und Meetings durch und förderst die enge Zusammenarbeit mit internen und externen Schnittstellen\n• Du steuerst den Wareneinkauf, die Warenbewirtschaftung und die Kosten und stellst eine Wirtschaftlichkeit innerhalb des definierten Budgets sicher\n• Du entwickelst Prozesse, Qualitätsstandards und Arbeitsabläufe laufend weiter und gewährleistest die Einhaltung sämtlicher Hygiene-, Qualitäts- und Arbeitssicherheitsrichtlinien\n• Du setzt dich für einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen ein und begleitest künftig auch Lernende und Praktikant in ihrer Entwicklung Dein Rezept\n• Du verfügst über eine abgeschlossene Ausbildung als Koch/Köchin EFZ und eine fundierte Weiterbildung und/oder entsprechende Führungserfahrung in der gehobenen Gastronomie\n• Du bringst mehrjährige Erfahrung in einer anspruchsvollen Fine-Dining Küche, in einem Restaurant mit Michelin-Sternen oder mit mindestens 16 GaultMillau Punkten mit\n• Du hast ausgewiesene Führungserfahrung und die Fähigkeit, ein Küchenteam aufzubauen, zu begeistern und nachhaltig weiterzuentwickeln\n• Du verfügst über ein ausgeprägtes kulinarisches Verständnis, Kreativität und einen hohen Qualitätsanspruch und hast Freude daran, ein gastronomisches Konzept eigenständig zu prägen und weiterzuentwickeln\n• Du bringst Erfahrung in der Planung und Umsetzung unterschiedlicher gastronomischer Angebote mit – idealerweise von Fine Dining über ein Bistro bis zu Events\n• Du denkst unternehmerisch, kennst die relevanten Kennzahlen und steuerst Waren- und Personalkosten zielgerichtet\n• Du arbeitest strukturiert, vorausschauend und lösungsorientiert und behältst auch in intensiven Betriebsphasen den Überblick\n• Du kommunizierst klar, arbeitest gerne bereichsübergreifend und verstehst es, unterschiedliche Anspruchsgruppen für gemeinsame Ziele zu gewinnen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Du lebst Qualität, Hygiene und Nachhaltigkeit im täglichen Handeln und gehst sorgfältig mit Lebensmitteln, Material und Ressourcen um Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
       "descriptionByLocale": {
-        "it": "Lo stadio Letzigrund è uno degli stadi più moderni della Svizzera. La gastronomia comprende diverse aree, tra cui gli stand esterni e il ristorante Oval. L'area VIP nei principali eventi comprende 11 lodge, 3 business lounge e l'Athletic Lounge per quasi 800 ospiti. Ospita i giochi di casa del FC Zurigo e del Grasshopper Club Zurigo, del Meeting Weltklasse Zürich e dei concerti all'aperto come quelli di Robbie Williams, Rolling Stones, Metallica o Pink. Inoltre, si svolgono vari eventi aziendali e privati. Con una capacità di oltre 50.000 spettatori ai concerti, lo stadio Letzigrund è il luogo più grande della Svizzera. Per il Letzigrund – una delle aziende di catering più versatili di Zurigo – stiamo cercando una personalità impegnata e forte come chef. La tua area di attività:\n• Guidare e organizzare l'intera cucina e garantire processi lisci nel business di giorno per giorno, così come nei principali eventi\n• Lei progetta, coordina e realizza il ristorante, seminario, evento, VIP e lodge business\n• Guida il tuo team di cucina nella vita di tutti i giorni e prendi il controllo della gestione di gruppi di eventi prolungati in eventi importanti\n• Garantisci una qualità alimentare costantemente elevata e partecipa attivamente alla produzione\n• Sviluppi ulteriormente l'offerta culinaria e porti nuove idee e tendenze attuali\n• Sei responsabile dell'acquisto, della gestione dei beni, degli inventari, dei calcoli e del rispetto dei bilanci\n• Pianifichi quantità e risorse in anticipo e garantisci un uso economico del cibo con il minor numero possibile di rifiuti alimentari\n• Coordinate la loggia di lusso e la gastronomia VIP in collaborazione con chef gourmet specializzati\n• Lei recluta, promuove e sviluppa i Suoi dipendenti e vive il modello di leadership ZFV \"Noi facciamo gli altri successo\"\n• Garantisci il rispetto di tutti gli standard di qualità, igiene, sicurezza e sostenibilità\n• Voi assumete compiti amministrativi e tenete sempre i dati chiave rilevanti in considerazione dei vostri punti di forza:\n• Allenamento completo come cuoco / chef: EFZ e formazione ulteriore come chef / chef: con un certificato federale\n• Diversi anni di esperienza manageriale come chef: oltre all'esperienza nell'organizzazione di eventi importanti\n• Comprensione di elevati standard di gastronomia e di alta qualità\n• Conoscenza approfondita del calcolo, della gestione dei beni e del controllo dei costi\n• Il pensiero imprenditoriale e un modo di lavorare strutturato e previsionale\n• Talenti organizzativi, flessibilità e capacità di tenere traccia anche in situazioni dinamiche\n• Divertiti a promuovere i dipendenti, assumendo responsabilità e sviluppando team\n• Molto buona conoscenza del tedesco e buona conoscenza dell'utente IT con noi troverete:\n• Un posto di lavoro più versatile di quasi tutti gli altri ristoranti a Zurigo\n• La combinazione di ristoranti, seminari, gastronomia VIP, concerti, eventi sportivi e grandi eventi\n• L'opportunità di partecipare operativamente in giorni tranquilli e guidare grandi squadre come leader nei giorni degli eventi\n• Collaborazione con professionisti esperti e chef gourmet\n• Un sacco di spazio per manovra, responsabilità personale e brevi percorsi decisionali\n• La possibilità di far parte di un team motivato all'interno delle aziende ZFV Se si desidera condividere la vostra passione per la gastronomia con noi, non vediamo l'ora di vostra completa applicazione online.",
-        "en": "Stadium Letzigrund is one of the most modern stadiums in Switzerland. The gastronomy includes several areas, including the outdoor stands and the restaurant Oval. The VIP area at major events includes 11 lodges, 3 business lounges and the Athletic Lounge for almost 800 guests. It hosts the home games of FC Zurich and Grasshopper Club Zurich, the Meeting Weltklasse Zürich as well as the open-air concerts such as those of Robbie Williams, Rolling Stones, Metallica or Pink. In addition, various corporate and private events take place. With a capacity of over 50,000 spectators at concerts, Stadium Letzigrund is the largest venue in Switzerland. For the Letzigrund – one of the most versatile catering companies in Zurich – we are looking for a committed and leadership-strong personality as a chef. Your area of activity:\n• You guide and organize the entire kitchen area and ensure smooth processes in day-to-day business as well as at major events\n• You plan, coordinate and realize the restaurant, seminar, event, VIP and lodge business\n• You lead your kitchen team in everyday life and take over the management of extended event crews at major events\n• You ensure a consistently high food quality and actively participate in production\n• You develop the culinary offer further and bring new ideas and current trends\n• You are responsible for purchasing, goods management, inventories, calculations and compliance with budgets\n• You plan quantities and resources ahead of time and ensure an economical use of food with as little food waste as possible\n• You coordinate the upscale lodge and VIP gastronomy in cooperation with specialized gourmet chefs\n• You recruit, promote and develop your employees and live the ZFV leadership model \"We make others successful\"\n• You ensure compliance with all quality, hygiene, safety and sustainability standards\n• You take on administrative tasks and always keep the relevant key figures in view of your strengths:\n• Completed training as a cook / chef: EFZ as well as further training as a chef / chef: with a federal certificate\n• Several years of management experience as chef: in as well as experience in organizing major events\n• Understanding of upscale gastronomy and high quality standards\n• In-depth knowledge of calculation, goods management and cost control\n• Entrepreneurial thinking and a structured and forward-looking way of working\n• Organizational talent, flexibility and the ability to keep track even in dynamic situations\n• Enjoy promoting employees, taking on responsibility and developing teams\n• Very good knowledge of German as well as good IT user knowledge with us you will find:\n• A workplace that is more versatile than almost any other restaurant in Zurich\n• The combination of restaurant operations, seminars, VIP gastronomy, concerts, sporting events and major events\n• The opportunity to participate operationally on quiet days and lead large teams as a leader on event days\n• Collaboration with experienced professionals and gourmet chefs\n• Lots of room for manoeuvre, personal responsibility and short decision paths\n• The chance to be part of a motivated team within the ZFV companies If you want to share your passion for gastronomy with us, we look forward to your complete online application.",
-        "de": "Das Stadion Letzigrund ist eines der modernsten Stadien der Schweiz. Die Gastronomie umfasst mehrere Bereiche, darunter die Aussenstände und das Restaurant Oval. Zum VIP-Bereich bei Grossveranstaltungen zählen 11 Logen, 3 Business-Lounges und die Athletik Lounge für knapp 800 Gäste. Es beherbergt die Heimspiele des FC Zürich und des Grasshopper Club Zürich, das Meeting Weltklasse Zürich sowie die Open-Air-Konzerte wie die von Robbie Williams, Rolling Stones, Metallica oder Pink. Zudem finden verschiedenste Corporate und Privat Events statt. Mit einem Fassungsvermögen von über 50'000 Zuschauern bei Konzerten ist das Stadion Letzigrund die grösste Veranstaltungsstätte der Schweiz. Für den Letzigrund – einen der vielseitigsten Gastronomiebetriebe Zürichs – suchen wir per sofort oder nach Vereinbarung eine engagierte und führungsstarke Persönlichkeit als Küchenchef:in. Dein Wirkungsbereich:\n• Du führst und organisierst den gesamten Küchenbereich und sorgst für reibungslose Abläufe im Tagesgeschäft sowie bei Grossveranstaltungen\n• Du planst, koordinierst und realisierst das Restaurant-, Seminar-, Event-, VIP- und Logengeschäft\n• Du führst dein Küchenteam im Alltag und übernimmst bei Grossanlässen die Leitung von erweiterten Event-Crews\n• Du stellst eine konstant hohe Speisenqualität sicher und arbeitest aktiv in der Produktion mit\n• Du entwickelst das kulinarische Angebot weiter und bringst neue Ideen sowie aktuelle Trends ein\n• Du verantwortest Einkauf, Warenbewirtschaftung, Inventuren, Kalkulationen und die Einhaltung der Budgets\n• Du planst Mengen und Ressourcen vorausschauend und sorgst für einen wirtschaftlichen Einsatz der Lebensmittel mit möglichst wenig Food Waste\n• Du koordinierst die gehobene Logen- und VIP-Gastronomie in Zusammenarbeit mit spezialisierten Gourmetköchinnen und Gourmetköchen\n• Du rekrutierst, förderst und entwickelst deine Mitarbeitenden und lebst das ZFV-Leadership-Modell «Wir machen andere erfolgreich»\n• Du stellst die Einhaltung aller Qualitäts-, Hygiene-, Sicherheits- und Nachhaltigkeitsstandards sicher\n• Du übernimmst administrative Aufgaben und behältst die relevanten Kennzahlen stets im Blick Deine Stärken:\n• Abgeschlossene Ausbildung als Köchin / Koch: EFZ sowie eine Weiterbildung als Chefköchin / Chefkoch: mit eidg. Fachausweis\n• Mehrjährige Führungserfahrung als Küchenchef:in sowie Erfahrung in der Organisation von Grossveranstaltungen\n• Verständnis für gehobene Gastronomie und hohe Qualitätsansprüche\n• Fundierte Kenntnisse in Kalkulation, Warenwirtschaft und Kostenkontrolle\n• Unternehmerisches Denken sowie eine strukturierte und vorausschauende Arbeitsweise\n• Organisationstalent, Flexibilität und die Fähigkeit, auch in dynamischen Situationen den Überblick zu behalten\n• Freude daran, Mitarbeitende zu fördern, Verantwortung zu übernehmen und Teams weiterzuentwickeln\n• Sehr gute Deutschkenntnisse sowie gute IT-Anwenderkenntnisse Bei uns findest du:\n• Einen Arbeitsplatz, der so vielseitig ist wie kaum ein anderer Gastronomiebetrieb in Zürich\n• Die Kombination aus Restaurantbetrieb, Seminaren, VIP-Gastronomie, Konzerten, Sportveranstaltungen und Grossanlässen\n• Die Möglichkeit, an ruhigen Tagen selbst operativ mitzuwirken und an Eventtagen als Leader grosse Teams zu führen\n• Zusammenarbeit mit erfahrenen Fachpersonen und Gourmetköchinnen und Gourmetköchen\n• Viel Gestaltungsspielraum, Eigenverantwortung und kurze Entscheidungswege\n• Die Chance, Teil eines motivierten Teams innerhalb der ZFV-Unternehmungen zu sein Wenn du mit uns deine Passion für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
-        "fr": "Stadium Letzigrond est l'un des stades les plus modernes de Suisse. La gastronomie comprend plusieurs zones, dont les stands extérieurs et le restaurant Oval. La zone VIP des grands événements comprend 11 loges, 3 salons d'affaires et le salon sportif pour près de 800 invités. Il accueille les matchs à domicile du FC Zurich et du Grasshopper Club Zurich, la Meeting Weltklasse Zürich ainsi que les concerts en plein air comme ceux de Robbie Williams, Rolling Stones, Metallica ou Pink. En outre, divers événements d'entreprise et privés ont lieu. Avec une capacité de plus de 50 000 spectateurs lors de concerts, le Stadium Letzigrond est le plus grand lieu de Suisse. Pour le Letzigrond, l'une des entreprises de restauration les plus polyvalentes de Zurich, nous recherchons une personnalité engagée et forte en tant que chef. Votre domaine d'activité:\n• Vous guidez et organisez l'ensemble de l'espace cuisine et assurez des processus en douceur dans les affaires quotidiennes ainsi que lors d'événements majeurs\n• Vous planifiez, coordonnez et réalisez le restaurant, séminaire, événement, VIP et lodge business\n• Vous dirigez votre équipe de cuisine dans la vie quotidienne et prenez en charge la gestion d'équipes d'événements prolongés lors d'événements majeurs\n• Vous assurez une qualité alimentaire constante et participez activement à la production\n• Vous développez l'offre culinaire et apportez de nouvelles idées et tendances actuelles\n• Vous êtes responsable des achats, de la gestion des biens, des stocks, des calculs et de la conformité aux budgets\n• Vous planifiez les quantités et les ressources à l'avance et vous assurez une utilisation économique des aliments avec le moins de déchets alimentaires possible\n• Vous coordonnez le lodge haut de gamme et la gastronomie VIP en collaboration avec des chefs gourmets spécialisés\n• Vous recrutez, faites la promotion et développez vos employés et vivez le modèle de leadership ZFV \"Nous faisons d'autres succès\"\n• Vous assurez le respect de toutes les normes de qualité, d'hygiène, de sécurité et de durabilité\n• Vous assumez des tâches administratives et gardez toujours les chiffres clés pertinents compte tenu de vos forces:\n• Formation complète comme cuisinier / chef: EFZ ainsi que formation continue comme chef / chef: avec un certificat fédéral\n• Plusieurs années d'expérience en gestion comme chef : ainsi que l'expérience dans l'organisation d'événements majeurs\n• Compréhension de la gastronomie haut de gamme et des normes de qualité élevées\n• Connaissance approfondie du calcul, de la gestion des biens et du contrôle des coûts\n• La pensée entrepreneuriale et une façon de travailler structurée et tournée vers l'avenir\n• Les talents organisationnels, la flexibilité et la capacité de suivre la situation même dans des situations dynamiques\n• Profitez de la promotion des employés, de la prise de responsabilités et du développement des équipes\n• Très bonne connaissance de l'allemand ainsi que bonne connaissance de l'utilisateur informatique avec nous vous trouverez:\n• Un lieu de travail plus polyvalent que presque tout autre restaurant à Zurich\n• La combinaison des opérations de restauration, séminaires, gastronomie VIP, concerts, événements sportifs et grands événements\n• L'occasion de participer opérationnellement les jours tranquilles et de diriger de grandes équipes comme leader les jours d'événement\n• Collaboration avec des professionnels expérimentés et des chefs gourmets\n• Beaucoup de marge de manoeuvre, de responsabilité personnelle et de courtes pistes de décision\n• La chance de faire partie d'une équipe motivée au sein des entreprises ZFV Si vous voulez partager votre passion pour la gastronomie avec nous, nous nous réjouissons de votre candidature en ligne complète."
+        "de": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Küchenchef:in per 1. März 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Küchenchef übernimmst du die Verantwortung für das À-la-carte und Private-Dining Angebot und gestaltest mit deiner kulinarischen Vision eine moderne Fine-Dining Küche, die Regionalität, Saisonalität und höchste Qualität auf unverwechselbare Weise verbindet. Deine Aufgabenmenü\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, kreierst das Angebot sowie Prozesse und Abläufe und stellst sicher, dass das Küchenteam optimal auf den Start vorbereitet ist\n• Du verantwortest den Aufbau, die Organisation und die operative Führung des gesamten Küchenbereichs über alle gastronomischen Formate hinweg\n• Du entwickelst das kulinarische Konzept weiter und sorgst für ein Angebot auf internationalem Spitzenniveau, das sich an der Qualität führender Fine-Dining Betriebe orientiert\n• Du prägst die kulinarische Ausrichtung mit hochwertigen Schweizer Produkten, moderner Küche und mediterranen Einflüssen\n• Du baust ein leistungsstarkes Küchenteam auf, förderst die fachliche und persönliche Entwicklung deiner Mitarbeitenden und schaffst eine motivierende, leistungsorientierte Arbeitskultur\n• Du verantwortest die Personalplanung, führst regelmässige Briefings und Meetings durch und förderst die enge Zusammenarbeit mit internen und externen Schnittstellen\n• Du steuerst den Wareneinkauf, die Warenbewirtschaftung und die Kosten und stellst eine Wirtschaftlichkeit innerhalb des definierten Budgets sicher\n• Du entwickelst Prozesse, Qualitätsstandards und Arbeitsabläufe laufend weiter und gewährleistest die Einhaltung sämtlicher Hygiene-, Qualitäts- und Arbeitssicherheitsrichtlinien\n• Du setzt dich für einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen ein und begleitest künftig auch Lernende und Praktikant in ihrer Entwicklung Dein Rezept\n• Du verfügst über eine abgeschlossene Ausbildung als Koch/Köchin EFZ und eine fundierte Weiterbildung und/oder entsprechende Führungserfahrung in der gehobenen Gastronomie\n• Du bringst mehrjährige Erfahrung in einer anspruchsvollen Fine-Dining Küche, in einem Restaurant mit Michelin-Sternen oder mit mindestens 16 GaultMillau Punkten mit\n• Du hast ausgewiesene Führungserfahrung und die Fähigkeit, ein Küchenteam aufzubauen, zu begeistern und nachhaltig weiterzuentwickeln\n• Du verfügst über ein ausgeprägtes kulinarisches Verständnis, Kreativität und einen hohen Qualitätsanspruch und hast Freude daran, ein gastronomisches Konzept eigenständig zu prägen und weiterzuentwickeln\n• Du bringst Erfahrung in der Planung und Umsetzung unterschiedlicher gastronomischer Angebote mit – idealerweise von Fine Dining über ein Bistro bis zu Events\n• Du denkst unternehmerisch, kennst die relevanten Kennzahlen und steuerst Waren- und Personalkosten zielgerichtet\n• Du arbeitest strukturiert, vorausschauend und lösungsorientiert und behältst auch in intensiven Betriebsphasen den Überblick\n• Du kommunizierst klar, arbeitest gerne bereichsübergreifend und verstehst es, unterschiedliche Anspruchsgruppen für gemeinsame Ziele zu gewinnen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Du lebst Qualität, Hygiene und Nachhaltigkeit im täglichen Handeln und gehst sorgfältig mit Lebensmitteln, Material und Ressourcen um Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "it": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Küchenchef:in per 1. März 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Küchenchef übernimmst du die Verantwortung für das À-la-carte und Private-Dining Angebot und gestaltest mit deiner kulinarischen Vision eine moderne Fine-Dining Küche, die Regionalität, Saisonalität und höchste Qualität auf unverwechselbare Weise verbindet. Deine Aufgabenmenü\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, kreierst das Angebot sowie Prozesse und Abläufe und stellst sicher, dass das Küchenteam optimal auf den Start vorbereitet ist\n• Du verantwortest den Aufbau, die Organisation und die operative Führung des gesamten Küchenbereichs über alle gastronomischen Formate hinweg\n• Du entwickelst das kulinarische Konzept weiter und sorgst für ein Angebot auf internationalem Spitzenniveau, das sich an der Qualität führender Fine-Dining Betriebe orientiert\n• Du prägst die kulinarische Ausrichtung mit hochwertigen Schweizer Produkten, moderner Küche und mediterranen Einflüssen\n• Du baust ein leistungsstarkes Küchenteam auf, förderst die fachliche und persönliche Entwicklung deiner Mitarbeitenden und schaffst eine motivierende, leistungsorientierte Arbeitskultur\n• Du verantwortest die Personalplanung, führst regelmässige Briefings und Meetings durch und förderst die enge Zusammenarbeit mit internen und externen Schnittstellen\n• Du steuerst den Wareneinkauf, die Warenbewirtschaftung und die Kosten und stellst eine Wirtschaftlichkeit innerhalb des definierten Budgets sicher\n• Du entwickelst Prozesse, Qualitätsstandards und Arbeitsabläufe laufend weiter und gewährleistest die Einhaltung sämtlicher Hygiene-, Qualitäts- und Arbeitssicherheitsrichtlinien\n• Du setzt dich für einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen ein und begleitest künftig auch Lernende und Praktikant in ihrer Entwicklung Dein Rezept\n• Du verfügst über eine abgeschlossene Ausbildung als Koch/Köchin EFZ und eine fundierte Weiterbildung und/oder entsprechende Führungserfahrung in der gehobenen Gastronomie\n• Du bringst mehrjährige Erfahrung in einer anspruchsvollen Fine-Dining Küche, in einem Restaurant mit Michelin-Sternen oder mit mindestens 16 GaultMillau Punkten mit\n• Du hast ausgewiesene Führungserfahrung und die Fähigkeit, ein Küchenteam aufzubauen, zu begeistern und nachhaltig weiterzuentwickeln\n• Du verfügst über ein ausgeprägtes kulinarisches Verständnis, Kreativität und einen hohen Qualitätsanspruch und hast Freude daran, ein gastronomisches Konzept eigenständig zu prägen und weiterzuentwickeln\n• Du bringst Erfahrung in der Planung und Umsetzung unterschiedlicher gastronomischer Angebote mit – idealerweise von Fine Dining über ein Bistro bis zu Events\n• Du denkst unternehmerisch, kennst die relevanten Kennzahlen und steuerst Waren- und Personalkosten zielgerichtet\n• Du arbeitest strukturiert, vorausschauend und lösungsorientiert und behältst auch in intensiven Betriebsphasen den Überblick\n• Du kommunizierst klar, arbeitest gerne bereichsübergreifend und verstehst es, unterschiedliche Anspruchsgruppen für gemeinsame Ziele zu gewinnen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Du lebst Qualität, Hygiene und Nachhaltigkeit im täglichen Handeln und gehst sorgfältig mit Lebensmitteln, Material und Ressourcen um Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "en": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Küchenchef:in per 1. März 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Küchenchef übernimmst du die Verantwortung für das À-la-carte und Private-Dining Angebot und gestaltest mit deiner kulinarischen Vision eine moderne Fine-Dining Küche, die Regionalität, Saisonalität und höchste Qualität auf unverwechselbare Weise verbindet. Deine Aufgabenmenü\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, kreierst das Angebot sowie Prozesse und Abläufe und stellst sicher, dass das Küchenteam optimal auf den Start vorbereitet ist\n• Du verantwortest den Aufbau, die Organisation und die operative Führung des gesamten Küchenbereichs über alle gastronomischen Formate hinweg\n• Du entwickelst das kulinarische Konzept weiter und sorgst für ein Angebot auf internationalem Spitzenniveau, das sich an der Qualität führender Fine-Dining Betriebe orientiert\n• Du prägst die kulinarische Ausrichtung mit hochwertigen Schweizer Produkten, moderner Küche und mediterranen Einflüssen\n• Du baust ein leistungsstarkes Küchenteam auf, förderst die fachliche und persönliche Entwicklung deiner Mitarbeitenden und schaffst eine motivierende, leistungsorientierte Arbeitskultur\n• Du verantwortest die Personalplanung, führst regelmässige Briefings und Meetings durch und förderst die enge Zusammenarbeit mit internen und externen Schnittstellen\n• Du steuerst den Wareneinkauf, die Warenbewirtschaftung und die Kosten und stellst eine Wirtschaftlichkeit innerhalb des definierten Budgets sicher\n• Du entwickelst Prozesse, Qualitätsstandards und Arbeitsabläufe laufend weiter und gewährleistest die Einhaltung sämtlicher Hygiene-, Qualitäts- und Arbeitssicherheitsrichtlinien\n• Du setzt dich für einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen ein und begleitest künftig auch Lernende und Praktikant in ihrer Entwicklung Dein Rezept\n• Du verfügst über eine abgeschlossene Ausbildung als Koch/Köchin EFZ und eine fundierte Weiterbildung und/oder entsprechende Führungserfahrung in der gehobenen Gastronomie\n• Du bringst mehrjährige Erfahrung in einer anspruchsvollen Fine-Dining Küche, in einem Restaurant mit Michelin-Sternen oder mit mindestens 16 GaultMillau Punkten mit\n• Du hast ausgewiesene Führungserfahrung und die Fähigkeit, ein Küchenteam aufzubauen, zu begeistern und nachhaltig weiterzuentwickeln\n• Du verfügst über ein ausgeprägtes kulinarisches Verständnis, Kreativität und einen hohen Qualitätsanspruch und hast Freude daran, ein gastronomisches Konzept eigenständig zu prägen und weiterzuentwickeln\n• Du bringst Erfahrung in der Planung und Umsetzung unterschiedlicher gastronomischer Angebote mit – idealerweise von Fine Dining über ein Bistro bis zu Events\n• Du denkst unternehmerisch, kennst die relevanten Kennzahlen und steuerst Waren- und Personalkosten zielgerichtet\n• Du arbeitest strukturiert, vorausschauend und lösungsorientiert und behältst auch in intensiven Betriebsphasen den Überblick\n• Du kommunizierst klar, arbeitest gerne bereichsübergreifend und verstehst es, unterschiedliche Anspruchsgruppen für gemeinsame Ziele zu gewinnen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Du lebst Qualität, Hygiene und Nachhaltigkeit im täglichen Handeln und gehst sorgfältig mit Lebensmitteln, Material und Ressourcen um Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "fr": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Küchenchef:in per 1. März 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Küchenchef übernimmst du die Verantwortung für das À-la-carte und Private-Dining Angebot und gestaltest mit deiner kulinarischen Vision eine moderne Fine-Dining Küche, die Regionalität, Saisonalität und höchste Qualität auf unverwechselbare Weise verbindet. Deine Aufgabenmenü\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, kreierst das Angebot sowie Prozesse und Abläufe und stellst sicher, dass das Küchenteam optimal auf den Start vorbereitet ist\n• Du verantwortest den Aufbau, die Organisation und die operative Führung des gesamten Küchenbereichs über alle gastronomischen Formate hinweg\n• Du entwickelst das kulinarische Konzept weiter und sorgst für ein Angebot auf internationalem Spitzenniveau, das sich an der Qualität führender Fine-Dining Betriebe orientiert\n• Du prägst die kulinarische Ausrichtung mit hochwertigen Schweizer Produkten, moderner Küche und mediterranen Einflüssen\n• Du baust ein leistungsstarkes Küchenteam auf, förderst die fachliche und persönliche Entwicklung deiner Mitarbeitenden und schaffst eine motivierende, leistungsorientierte Arbeitskultur\n• Du verantwortest die Personalplanung, führst regelmässige Briefings und Meetings durch und förderst die enge Zusammenarbeit mit internen und externen Schnittstellen\n• Du steuerst den Wareneinkauf, die Warenbewirtschaftung und die Kosten und stellst eine Wirtschaftlichkeit innerhalb des definierten Budgets sicher\n• Du entwickelst Prozesse, Qualitätsstandards und Arbeitsabläufe laufend weiter und gewährleistest die Einhaltung sämtlicher Hygiene-, Qualitäts- und Arbeitssicherheitsrichtlinien\n• Du setzt dich für einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen ein und begleitest künftig auch Lernende und Praktikant in ihrer Entwicklung Dein Rezept\n• Du verfügst über eine abgeschlossene Ausbildung als Koch/Köchin EFZ und eine fundierte Weiterbildung und/oder entsprechende Führungserfahrung in der gehobenen Gastronomie\n• Du bringst mehrjährige Erfahrung in einer anspruchsvollen Fine-Dining Küche, in einem Restaurant mit Michelin-Sternen oder mit mindestens 16 GaultMillau Punkten mit\n• Du hast ausgewiesene Führungserfahrung und die Fähigkeit, ein Küchenteam aufzubauen, zu begeistern und nachhaltig weiterzuentwickeln\n• Du verfügst über ein ausgeprägtes kulinarisches Verständnis, Kreativität und einen hohen Qualitätsanspruch und hast Freude daran, ein gastronomisches Konzept eigenständig zu prägen und weiterzuentwickeln\n• Du bringst Erfahrung in der Planung und Umsetzung unterschiedlicher gastronomischer Angebote mit – idealerweise von Fine Dining über ein Bistro bis zu Events\n• Du denkst unternehmerisch, kennst die relevanten Kennzahlen und steuerst Waren- und Personalkosten zielgerichtet\n• Du arbeitest strukturiert, vorausschauend und lösungsorientiert und behältst auch in intensiven Betriebsphasen den Überblick\n• Du kommunizierst klar, arbeitest gerne bereichsübergreifend und verstehst es, unterschiedliche Anspruchsgruppen für gemeinsame Ziele zu gewinnen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Du lebst Qualität, Hygiene und Nachhaltigkeit im täglichen Handeln und gehst sorgfältig mit Lebensmitteln, Material und Ressourcen um Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut."
       },
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://jobs.zfv.ch/Kuechenchefin-de-j4692.html",
+      "url": "https://jobs.zfv.ch/Kuechenchefin-de-j4773.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:11.974Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-10-22T21:28:31.358Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
-      "streetAddress": "Badenerstrasse 500",
+      "streetAddress": "Paradeplatz 6",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
@@ -4519,36 +4453,38 @@
       "datePosted": "2026-08-21",
       "postedDate": "2026-08-21",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.zfv.ch/Kuechenchefin-de-j4692.html",
+      "applyUrl": "https://jobs.zfv.ch/Kuechenchefin-de-j4773.html",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugs": [
-        "kuchenchef-in-zfv-unternehmungen-zurich",
         "capo-de-servizio-zfv-unternehmungen-zurich",
         "chief-de-service-zfv-unternehmungen-zurich",
         "chef-de-service-zfv-unternehmungen-zurich",
         "chef-di-sala-zfv-unternehmungen-zurich",
-        "head-of-service-zfv-unternehmungen-zurich"
+        "head-of-service-zfv-unternehmungen-zurich",
+        "chef-in-zfv-unternehmungen-zurich",
+        "chef-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenchef-in-zfv-unternehmungen-zurich",
           "capo-de-servizio-zfv-unternehmungen-zurich",
           "chief-de-service-zfv-unternehmungen-zurich",
           "chef-de-service-zfv-unternehmungen-zurich",
           "chef-di-sala-zfv-unternehmungen-zurich",
-          "head-of-service-zfv-unternehmungen-zurich"
+          "head-of-service-zfv-unternehmungen-zurich",
+          "chef-in-zfv-unternehmungen-zurich"
         ],
         "en": [
-          "kuchenchef-in-zfv-unternehmungen-zurich",
-          "chief-de-service-zfv-unternehmungen-zurich"
+          "chief-de-service-zfv-unternehmungen-zurich",
+          "chef-in-zfv-unternehmungen-zurich"
         ],
         "fr": [
-          "kuchenchef-in-zfv-unternehmungen-zurich",
-          "chef-de-service-zfv-unternehmungen-zurich"
+          "chef-de-service-zfv-unternehmungen-zurich",
+          "chef-zfv-unternehmungen-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-21T21:34:33.188Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4561,7 +4497,84 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-21T21:34:33.188Z"
+    },
+    {
+      "id": "zfv-unternehmungen-9a3a933c95e7",
+      "slug": "responsabile-gastronomie-zfv-unternehmungen-zurich",
+      "slugByLocale": {
+        "de": "leiter-in-gastronomie-zfv-unternehmungen-zurich",
+        "it": "responsabile-gastronomie-zfv-unternehmungen-zurich",
+        "en": "leiter-in-gastronomie-zfv-unternehmungen-zurich",
+        "fr": "leiter-in-gastronomie-zfv-unternehmungen-zurich"
+      },
+      "company": "ZFV-Unternehmungen",
+      "companyKey": "zfv-unternehmungen",
+      "companyDomain": "zfv.ch",
+      "title": "Leiter:in Gastronomie",
+      "titleByLocale": {
+        "de": "Leiter:in Gastronomie",
+        "it": "Responsabile Gastronomie",
+        "en": "Leiter:in Gastronomie",
+        "fr": "Leiter:in Gastronomie"
+      },
+      "description": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Leiter:in Gastronomie übernimmst du die Gesamtverantwortung für die neue Gastronomie und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du übernimmst die Gesamtverantwortung für die operative Führung und wirtschaftliche Entwicklung des Betriebs und sorgst für höchste Standards in Kulinarik, Service und Gastfreundschaft\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, etablierst klare Abläufe und Standards und stellst sicher, dass Betrieb und Team optimal auf den Start vorbereitet sind\n• Du prägst eine exklusive Service- und Gastgeberkultur und bist als sichtbare Gastgeberpersönlichkeit präsent. Du verstehst die Bedürfnisse anspruchsvoller internationaler Gäste und sorgst für ein diskretes, professionelles und persönliches Gästeerlebnis\n• Du bist die erste Ansprechperson für die UBS vor Ort und stehst eng im Austausch mit internen und externen Schnittstellen\n• Du entwickelst und verantwortest das gastronomische Angebot mit Fokus auf Fine Dining, Private Dining, Business Lunches und exklusive Veranstaltungen und erkennst neue Möglichkeiten, Gäste und Auftraggeber zu begeistern\n• Du führst, coachst und entwickelst dein Team, gewinnst neue Mitarbeitende und etablierst eine Kultur, in der Leistungsbereitschaft, Professionalität und Freude an der Gastfreundschaft selbstverständlich sind\n• Du steuerst den Betrieb anhand von Budget sowie Kennzahlen und leitest daraus geeignete Massnahmen für eine nachhaltige wirtschaftliche Entwicklung ab\n• Du stellst die Einhaltung und Weiterentwicklung der Qualitäts-, Hygiene- und Arbeitssicherheitsstandards sicher und förderst einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen\n• Du optimierst Prozesse und Abläufe kontinuierlich und förderst die bereichsübergreifende Zusammenarbeit im Sinne eines gemeinsamen Hospitality-Erlebnisses Dein Rezept\n• Eine abgeschlossene Ausbildung EFZ in der Gastronomie oder Hotellerie; eine Hotelfachschule oder vergleichbare Weiterbildung ist von Vorteil\n• 10 bis 15 Jahre Berufserfahrung in der gehobenen Gastronomie und/oder Hotellerie sowie mindestens 6 Jahre Führungserfahrung in einer vergleichbaren Funktion\n• Mehrjährige Erfahrung im Fine Dining auf höchstem Qualitätsniveau, idealerweise in einem Betrieb mit mindestens 16 GaultMillau Punkten und/oder Michelin Stern Auszeichnung\n• Mehrjährige Erfahrung im Event-, Bankett- oder Cateringgeschäft sowie in der Betreuung international anspruchsvoller Gäste, VIPs und Auftraggeber:innen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Unternehmerisches Denken, betriebswirtschaftliches Know-how und einen versierten Umgang mit Budgetierung, Kostenkontrolle und Kennzahlen\n• Ausgeprägte Leadership-Kompetenzen und die Fähigkeit, ein leistungsstarkes Team aufzubauen, zu fördern und für gemeinsame Ziele zu begeistern\n• Kommunikationsstärke, ein sicheres Auftreten und die Fähigkeit, unterschiedliche Anspruchsgruppen zusammenzubringen und vertrauensvolle Beziehungen aufzubauen\n• Eine strukturierte, qualitätsbewusste und lösungsorientierte Arbeitsweise sowie Flexibilität, Belastbarkeit und Freude an der kontinuierlichen Weiterentwicklung\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie fundierte IT-Kenntnisse.\n• Erfahrung im Corporate Business von Vorteil\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+      "descriptionByLocale": {
+        "de": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Leiter:in Gastronomie übernimmst du die Gesamtverantwortung für die neue Gastronomie und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du übernimmst die Gesamtverantwortung für die operative Führung und wirtschaftliche Entwicklung des Betriebs und sorgst für höchste Standards in Kulinarik, Service und Gastfreundschaft\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, etablierst klare Abläufe und Standards und stellst sicher, dass Betrieb und Team optimal auf den Start vorbereitet sind\n• Du prägst eine exklusive Service- und Gastgeberkultur und bist als sichtbare Gastgeberpersönlichkeit präsent. Du verstehst die Bedürfnisse anspruchsvoller internationaler Gäste und sorgst für ein diskretes, professionelles und persönliches Gästeerlebnis\n• Du bist die erste Ansprechperson für die UBS vor Ort und stehst eng im Austausch mit internen und externen Schnittstellen\n• Du entwickelst und verantwortest das gastronomische Angebot mit Fokus auf Fine Dining, Private Dining, Business Lunches und exklusive Veranstaltungen und erkennst neue Möglichkeiten, Gäste und Auftraggeber zu begeistern\n• Du führst, coachst und entwickelst dein Team, gewinnst neue Mitarbeitende und etablierst eine Kultur, in der Leistungsbereitschaft, Professionalität und Freude an der Gastfreundschaft selbstverständlich sind\n• Du steuerst den Betrieb anhand von Budget sowie Kennzahlen und leitest daraus geeignete Massnahmen für eine nachhaltige wirtschaftliche Entwicklung ab\n• Du stellst die Einhaltung und Weiterentwicklung der Qualitäts-, Hygiene- und Arbeitssicherheitsstandards sicher und förderst einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen\n• Du optimierst Prozesse und Abläufe kontinuierlich und förderst die bereichsübergreifende Zusammenarbeit im Sinne eines gemeinsamen Hospitality-Erlebnisses Dein Rezept\n• Eine abgeschlossene Ausbildung EFZ in der Gastronomie oder Hotellerie; eine Hotelfachschule oder vergleichbare Weiterbildung ist von Vorteil\n• 10 bis 15 Jahre Berufserfahrung in der gehobenen Gastronomie und/oder Hotellerie sowie mindestens 6 Jahre Führungserfahrung in einer vergleichbaren Funktion\n• Mehrjährige Erfahrung im Fine Dining auf höchstem Qualitätsniveau, idealerweise in einem Betrieb mit mindestens 16 GaultMillau Punkten und/oder Michelin Stern Auszeichnung\n• Mehrjährige Erfahrung im Event-, Bankett- oder Cateringgeschäft sowie in der Betreuung international anspruchsvoller Gäste, VIPs und Auftraggeber:innen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Unternehmerisches Denken, betriebswirtschaftliches Know-how und einen versierten Umgang mit Budgetierung, Kostenkontrolle und Kennzahlen\n• Ausgeprägte Leadership-Kompetenzen und die Fähigkeit, ein leistungsstarkes Team aufzubauen, zu fördern und für gemeinsame Ziele zu begeistern\n• Kommunikationsstärke, ein sicheres Auftreten und die Fähigkeit, unterschiedliche Anspruchsgruppen zusammenzubringen und vertrauensvolle Beziehungen aufzubauen\n• Eine strukturierte, qualitätsbewusste und lösungsorientierte Arbeitsweise sowie Flexibilität, Belastbarkeit und Freude an der kontinuierlichen Weiterentwicklung\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie fundierte IT-Kenntnisse.\n• Erfahrung im Corporate Business von Vorteil\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "it": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Leiter:in Gastronomie übernimmst du die Gesamtverantwortung für die neue Gastronomie und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du übernimmst die Gesamtverantwortung für die operative Führung und wirtschaftliche Entwicklung des Betriebs und sorgst für höchste Standards in Kulinarik, Service und Gastfreundschaft\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, etablierst klare Abläufe und Standards und stellst sicher, dass Betrieb und Team optimal auf den Start vorbereitet sind\n• Du prägst eine exklusive Service- und Gastgeberkultur und bist als sichtbare Gastgeberpersönlichkeit präsent. Du verstehst die Bedürfnisse anspruchsvoller internationaler Gäste und sorgst für ein diskretes, professionelles und persönliches Gästeerlebnis\n• Du bist die erste Ansprechperson für die UBS vor Ort und stehst eng im Austausch mit internen und externen Schnittstellen\n• Du entwickelst und verantwortest das gastronomische Angebot mit Fokus auf Fine Dining, Private Dining, Business Lunches und exklusive Veranstaltungen und erkennst neue Möglichkeiten, Gäste und Auftraggeber zu begeistern\n• Du führst, coachst und entwickelst dein Team, gewinnst neue Mitarbeitende und etablierst eine Kultur, in der Leistungsbereitschaft, Professionalität und Freude an der Gastfreundschaft selbstverständlich sind\n• Du steuerst den Betrieb anhand von Budget sowie Kennzahlen und leitest daraus geeignete Massnahmen für eine nachhaltige wirtschaftliche Entwicklung ab\n• Du stellst die Einhaltung und Weiterentwicklung der Qualitäts-, Hygiene- und Arbeitssicherheitsstandards sicher und förderst einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen\n• Du optimierst Prozesse und Abläufe kontinuierlich und förderst die bereichsübergreifende Zusammenarbeit im Sinne eines gemeinsamen Hospitality-Erlebnisses Dein Rezept\n• Eine abgeschlossene Ausbildung EFZ in der Gastronomie oder Hotellerie; eine Hotelfachschule oder vergleichbare Weiterbildung ist von Vorteil\n• 10 bis 15 Jahre Berufserfahrung in der gehobenen Gastronomie und/oder Hotellerie sowie mindestens 6 Jahre Führungserfahrung in einer vergleichbaren Funktion\n• Mehrjährige Erfahrung im Fine Dining auf höchstem Qualitätsniveau, idealerweise in einem Betrieb mit mindestens 16 GaultMillau Punkten und/oder Michelin Stern Auszeichnung\n• Mehrjährige Erfahrung im Event-, Bankett- oder Cateringgeschäft sowie in der Betreuung international anspruchsvoller Gäste, VIPs und Auftraggeber:innen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Unternehmerisches Denken, betriebswirtschaftliches Know-how und einen versierten Umgang mit Budgetierung, Kostenkontrolle und Kennzahlen\n• Ausgeprägte Leadership-Kompetenzen und die Fähigkeit, ein leistungsstarkes Team aufzubauen, zu fördern und für gemeinsame Ziele zu begeistern\n• Kommunikationsstärke, ein sicheres Auftreten und die Fähigkeit, unterschiedliche Anspruchsgruppen zusammenzubringen und vertrauensvolle Beziehungen aufzubauen\n• Eine strukturierte, qualitätsbewusste und lösungsorientierte Arbeitsweise sowie Flexibilität, Belastbarkeit und Freude an der kontinuierlichen Weiterentwicklung\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie fundierte IT-Kenntnisse.\n• Erfahrung im Corporate Business von Vorteil\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "en": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Leiter:in Gastronomie übernimmst du die Gesamtverantwortung für die neue Gastronomie und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du übernimmst die Gesamtverantwortung für die operative Führung und wirtschaftliche Entwicklung des Betriebs und sorgst für höchste Standards in Kulinarik, Service und Gastfreundschaft\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, etablierst klare Abläufe und Standards und stellst sicher, dass Betrieb und Team optimal auf den Start vorbereitet sind\n• Du prägst eine exklusive Service- und Gastgeberkultur und bist als sichtbare Gastgeberpersönlichkeit präsent. Du verstehst die Bedürfnisse anspruchsvoller internationaler Gäste und sorgst für ein diskretes, professionelles und persönliches Gästeerlebnis\n• Du bist die erste Ansprechperson für die UBS vor Ort und stehst eng im Austausch mit internen und externen Schnittstellen\n• Du entwickelst und verantwortest das gastronomische Angebot mit Fokus auf Fine Dining, Private Dining, Business Lunches und exklusive Veranstaltungen und erkennst neue Möglichkeiten, Gäste und Auftraggeber zu begeistern\n• Du führst, coachst und entwickelst dein Team, gewinnst neue Mitarbeitende und etablierst eine Kultur, in der Leistungsbereitschaft, Professionalität und Freude an der Gastfreundschaft selbstverständlich sind\n• Du steuerst den Betrieb anhand von Budget sowie Kennzahlen und leitest daraus geeignete Massnahmen für eine nachhaltige wirtschaftliche Entwicklung ab\n• Du stellst die Einhaltung und Weiterentwicklung der Qualitäts-, Hygiene- und Arbeitssicherheitsstandards sicher und förderst einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen\n• Du optimierst Prozesse und Abläufe kontinuierlich und förderst die bereichsübergreifende Zusammenarbeit im Sinne eines gemeinsamen Hospitality-Erlebnisses Dein Rezept\n• Eine abgeschlossene Ausbildung EFZ in der Gastronomie oder Hotellerie; eine Hotelfachschule oder vergleichbare Weiterbildung ist von Vorteil\n• 10 bis 15 Jahre Berufserfahrung in der gehobenen Gastronomie und/oder Hotellerie sowie mindestens 6 Jahre Führungserfahrung in einer vergleichbaren Funktion\n• Mehrjährige Erfahrung im Fine Dining auf höchstem Qualitätsniveau, idealerweise in einem Betrieb mit mindestens 16 GaultMillau Punkten und/oder Michelin Stern Auszeichnung\n• Mehrjährige Erfahrung im Event-, Bankett- oder Cateringgeschäft sowie in der Betreuung international anspruchsvoller Gäste, VIPs und Auftraggeber:innen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Unternehmerisches Denken, betriebswirtschaftliches Know-how und einen versierten Umgang mit Budgetierung, Kostenkontrolle und Kennzahlen\n• Ausgeprägte Leadership-Kompetenzen und die Fähigkeit, ein leistungsstarkes Team aufzubauen, zu fördern und für gemeinsame Ziele zu begeistern\n• Kommunikationsstärke, ein sicheres Auftreten und die Fähigkeit, unterschiedliche Anspruchsgruppen zusammenzubringen und vertrauensvolle Beziehungen aufzubauen\n• Eine strukturierte, qualitätsbewusste und lösungsorientierte Arbeitsweise sowie Flexibilität, Belastbarkeit und Freude an der kontinuierlichen Weiterentwicklung\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie fundierte IT-Kenntnisse.\n• Erfahrung im Corporate Business von Vorteil\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "fr": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Leiter:in Gastronomie übernimmst du die Gesamtverantwortung für die neue Gastronomie und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du übernimmst die Gesamtverantwortung für die operative Führung und wirtschaftliche Entwicklung des Betriebs und sorgst für höchste Standards in Kulinarik, Service und Gastfreundschaft\n• Du begleitest die Neueröffnung von der Vorbereitung über den Testbetrieb bis zum Go-live, etablierst klare Abläufe und Standards und stellst sicher, dass Betrieb und Team optimal auf den Start vorbereitet sind\n• Du prägst eine exklusive Service- und Gastgeberkultur und bist als sichtbare Gastgeberpersönlichkeit präsent. Du verstehst die Bedürfnisse anspruchsvoller internationaler Gäste und sorgst für ein diskretes, professionelles und persönliches Gästeerlebnis\n• Du bist die erste Ansprechperson für die UBS vor Ort und stehst eng im Austausch mit internen und externen Schnittstellen\n• Du entwickelst und verantwortest das gastronomische Angebot mit Fokus auf Fine Dining, Private Dining, Business Lunches und exklusive Veranstaltungen und erkennst neue Möglichkeiten, Gäste und Auftraggeber zu begeistern\n• Du führst, coachst und entwickelst dein Team, gewinnst neue Mitarbeitende und etablierst eine Kultur, in der Leistungsbereitschaft, Professionalität und Freude an der Gastfreundschaft selbstverständlich sind\n• Du steuerst den Betrieb anhand von Budget sowie Kennzahlen und leitest daraus geeignete Massnahmen für eine nachhaltige wirtschaftliche Entwicklung ab\n• Du stellst die Einhaltung und Weiterentwicklung der Qualitäts-, Hygiene- und Arbeitssicherheitsstandards sicher und förderst einen verantwortungsvollen Umgang mit Lebensmitteln und Ressourcen\n• Du optimierst Prozesse und Abläufe kontinuierlich und förderst die bereichsübergreifende Zusammenarbeit im Sinne eines gemeinsamen Hospitality-Erlebnisses Dein Rezept\n• Eine abgeschlossene Ausbildung EFZ in der Gastronomie oder Hotellerie; eine Hotelfachschule oder vergleichbare Weiterbildung ist von Vorteil\n• 10 bis 15 Jahre Berufserfahrung in der gehobenen Gastronomie und/oder Hotellerie sowie mindestens 6 Jahre Führungserfahrung in einer vergleichbaren Funktion\n• Mehrjährige Erfahrung im Fine Dining auf höchstem Qualitätsniveau, idealerweise in einem Betrieb mit mindestens 16 GaultMillau Punkten und/oder Michelin Stern Auszeichnung\n• Mehrjährige Erfahrung im Event-, Bankett- oder Cateringgeschäft sowie in der Betreuung international anspruchsvoller Gäste, VIPs und Auftraggeber:innen\n• Erfahrung von Neueröffnungen, Pre-Opening-Projekten und/oder im Aufbau anspruchsvoller Gastronomiekonzepte\n• Unternehmerisches Denken, betriebswirtschaftliches Know-how und einen versierten Umgang mit Budgetierung, Kostenkontrolle und Kennzahlen\n• Ausgeprägte Leadership-Kompetenzen und die Fähigkeit, ein leistungsstarkes Team aufzubauen, zu fördern und für gemeinsame Ziele zu begeistern\n• Kommunikationsstärke, ein sicheres Auftreten und die Fähigkeit, unterschiedliche Anspruchsgruppen zusammenzubringen und vertrauensvolle Beziehungen aufzubauen\n• Eine strukturierte, qualitätsbewusste und lösungsorientierte Arbeitsweise sowie Flexibilität, Belastbarkeit und Freude an der kontinuierlichen Weiterentwicklung\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift sowie fundierte IT-Kenntnisse.\n• Erfahrung im Corporate Business von Vorteil\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.zfv.ch/Leiterin-Gastronomie-de-j4765.html",
+      "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T21:28:30.346Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "streetAddress": "Paradeplatz 6",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Ristorazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-22",
+      "postedDate": "2026-10-22",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.zfv.ch/Leiterin-Gastronomie-de-j4765.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-gastronomie-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-gastronomie-zfv-unternehmungen-zurich"
+      ],
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-21T09:25:47.996Z"
     },
     {
       "id": "zfv-unternehmungen-c9ae4b96a601",
@@ -4594,7 +4607,7 @@
       "url": "https://jobs.zfv.ch/Leiterin-Public-Catering-de-j4736.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:11.434Z",
+      "crawledAt": "2026-10-22T21:28:29.828Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4671,7 +4684,7 @@
       "url": "https://jobs.zfv.ch/Management-Praktikantin-de-j4751.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:10.891Z",
+      "crawledAt": "2026-10-22T21:28:29.325Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4750,7 +4763,7 @@
       "url": "https://jobs.zfv.ch/Mitarbeiterin-Hauswirtschaft-de-j4724.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:10.065Z",
+      "crawledAt": "2026-10-22T21:28:28.540Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -4830,7 +4843,7 @@
       "url": "https://jobs.zfv.ch/Mitarbeiterin-Hauswirtschaft-Aushilfe-de-j3970.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:09.527Z",
+      "crawledAt": "2026-10-22T21:28:28.018Z",
       "needsRetranslation": false,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
@@ -4910,7 +4923,7 @@
       "url": "https://jobs.zfv.ch/Nachtportier-40-de-j4749.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:08.719Z",
+      "crawledAt": "2026-10-22T21:28:27.211Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Laupenstrasse 15",
@@ -4989,7 +5002,7 @@
       "url": "https://jobs.zfv.ch/Office-Mitarbeiterin-de-j4727.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:08.189Z",
+      "crawledAt": "2026-10-22T21:28:26.693Z",
       "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3004",
@@ -5069,7 +5082,7 @@
       "url": "https://jobs.zfv.ch/Office-Mitarbeiterin-de-j4667.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:07.657Z",
+      "crawledAt": "2026-10-22T21:28:26.178Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Orellistrasse 21",
@@ -5150,85 +5163,6 @@
       }
     },
     {
-      "id": "zfv-unternehmungen-9530c37e33f0",
-      "slug": "office-collaboratore-trice-50-zfv-unternehmungen-winterthur",
-      "slugByLocale": {
-        "it": "office-collaboratore-trice-50-zfv-unternehmungen-winterthur",
-        "en": "office-associate-50-zfv-unternehmungen-winterthur",
-        "de": "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur",
-        "fr": "office-collaborateur-trice-50-zfv-unternehmungen-winterthur"
-      },
-      "company": "ZFV-Unternehmungen",
-      "companyKey": "zfv-unternehmungen",
-      "companyDomain": "zfv.ch",
-      "title": "Office-Mitarbeiter:in (50%)",
-      "titleByLocale": {
-        "it": "Office-Collaboratore/trice (50%)",
-        "en": "Office-Associate (50%)",
-        "de": "Office-Mitarbeiter:in (50%)",
-        "fr": "Office-Collaborateur/trice (50%)"
-      },
-      "description": "Dieser Arbeitsort umfasst eine Mensa und das 24/7-«Nellis»-Konzept. Der Begegnungsort in Winterthur schafft einen einladenden Treffpunkt für Lernende und Mitarbeitende. Unser Team begeistert hier von Montag bis Freitag durchschnittlich 200 Gäste mit einem vielseitigen Angebot – von täglich wechselnden Menüs über Sandwiches und Snacks bis hin zu internen Caterings. Bist du unser neues Teammitglied, welches uns als Office-Mitarbeiter per sofort oder nach Vereinbarung unterstützt? Du arbeitest in einem ca. 50%-Pensum jeweils von Montag bis Freitag von 11:30 Uhr bis 15:30 Uhr. Während den Schulferien besteht kein Einsatz im Betrieb; temporäre Einsätze in anderen Betrieben sind bei Bedarf möglich. Dein Aufgabenmenü:\n• Abwasch von Geschirr, Besteck sowie sämtlichen Küchenutensilien\n• Bedienung der Abwaschmaschine\n• Sicherstellung der Sauberkeit und Ordnung im Office-Bereich\n• Entsorgung und Abfalltrennung\n• Unterhalt sowie Pflege der Maschinen in der Abwaschküche\n• Erledigung diverser Reinigungsausgaben in der Küche sowie im gesamten Betrieb\n• Umsetzung der ZFV-Qualitäts- und Dienstleistungsstandards\n• Einhaltung sowie Umsetzung der Hygiene- und Arbeitssicherheitsrichtlinien\n• Mithilfe bei der Speisenausgabe während des Mittagsservices Dein Erfolgsrezept:\n• Erste Erfahrung in der Gastronomie / Hotellerie\n• Erfahrung in der Abwaschküche\n• Gute mündliche Deutschkenntnisse\n• Teamfähigkeit\n• Lernbereit und belastbar\n• Hygienebewusst\n• Strukturiert und selbständig Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Questa sede di lavoro comprende una mensa e il concetto 24/7-«Nellis». Il luogo d'incontro di Winterthur crea un punto di ritrovo accogliente per persone in formazione e collaboratori. Qui, dal lunedì al venerdì, il nostro team conquista in media 200 ospiti con un'offerta variegata – dai menù che cambiano ogni giorno passando per panini e snack fino ai catering interni. Sei il nuovo membro del nostro team che ci supporta come addetto/a al lavaggio con effetto immediato o previo accordo? Lavori con un grado d'impiego di circa il 50%, dal lunedì al venerdì, dalle 11:30 alle 15:30. Durante le vacanze scolastiche non è previsto alcun impiego nella struttura; all'occorrenza sono possibili impieghi temporanei in altre strutture. Il tuo menù di mansioni:\n• Lavaggio di stoviglie, posate e di tutti gli utensili da cucina\n• Utilizzo della lavastoviglie\n• Garantire la pulizia e l'ordine nell'area di lavaggio\n• Smaltimento e separazione dei rifiuti\n• Manutenzione e cura dei macchinari nella zona lavaggio stoviglie\n• Svolgimento di diverse attività di pulizia in cucina e nell'intera struttura\n• Attuazione degli standard ZFV in materia di qualità e servizi\n• Rispetto e attuazione delle direttive in materia di igiene e sicurezza sul lavoro\n• Supporto nella distribuzione dei pasti durante il servizio di pranzo La tua ricetta del successo:\n• Prima esperienza nella ristorazione / nel settore alberghiero\n• Esperienza nel reparto lavaggio di una cucina\n• Buone conoscenze orali della lingua tedesca\n• Capacità di lavorare in team\n• Disponibile a imparare e resistente allo stress\n• Attento all'igiene\n• Strutturato e autonomo Ciò che ti offriamo: Creiamo team che si sostengono a vicenda e in cui vieni incoraggiato. Collaboriamo e puntiamo su tutto ciò che fa bene. Tra le altre cose, attribuiamo grande importanza alla trasparenza salariale e all'uguaglianza salariale. Per questa posizione offriamo, con un impiego al 100%, a seconda della tua esperienza e qualifica, uno stipendio annuo di circa CHF 52'000 (incl. 13. Mensilità). Se vuoi condividere con noi la tua passione per la gastronomia, saremo lieti di ricevere la tua candidatura online completa.",
-        "en": "This workplace includes a canteen and the 24/7-«Nellis»-concept. The meeting place in Winterthur creates an inviting gathering place for trainees and employees. From Monday to Friday, our team delights an average of 200 guests here with a varied offering – from daily changing menus through sandwiches and snacks to internal catering events. Are you our new team member who will support us as an office employee with immediate effect or by arrangement? You work in an approximately 50% position from Monday to Friday from 11:30 to 15:30. During school holidays, there are no shifts at the operation; temporary assignments at other operations are possible if needed. Your task menu:\n• Washing dishes, cutlery and all kitchen utensils\n• Operating the dishwasher\n• Ensuring cleanliness and order in the office area\n• Waste disposal and sorting\n• Maintenance and care of the machines in the dishwashing area\n• Carrying out various cleaning tasks in the kitchen as well as throughout the entire operation\n• Implementation of the ZFV quality and service standards\n• Compliance with and implementation of the hygiene and occupational safety guidelines\n• Assistance with serving food during the lunch service Your recipe for success:\n• Initial experience in gastronomy / the hotel industry\n• Experience in a dishwashing area\n• Good spoken German skills\n• Ability to work in a team\n• Willing to learn and resilient\n• Hygiene-conscious\n• Structured and independent What we offer you: We create teams that support each other and in which you are encouraged. We work together and focus on everything that feels good. Among other things, we place great emphasis on salary transparency and equal pay. For this position, at a 100% workload, depending on your experience and qualifications, we offer an annual salary of around CHF 52'000 (incl. 13. Monthly salary). If you would like to share your passion for gastronomy with us, we look forward to receiving your complete online application.",
-        "de": "Dieser Arbeitsort umfasst eine Mensa und das 24/7-«Nellis»-Konzept. Der Begegnungsort in Winterthur schafft einen einladenden Treffpunkt für Lernende und Mitarbeitende. Unser Team begeistert hier von Montag bis Freitag durchschnittlich 200 Gäste mit einem vielseitigen Angebot – von täglich wechselnden Menüs über Sandwiches und Snacks bis hin zu internen Caterings. Bist du unser neues Teammitglied, welches uns als Office-Mitarbeiter per sofort oder nach Vereinbarung unterstützt? Du arbeitest in einem ca. 50%-Pensum jeweils von Montag bis Freitag von 11:30 Uhr bis 15:30 Uhr. Während den Schulferien besteht kein Einsatz im Betrieb; temporäre Einsätze in anderen Betrieben sind bei Bedarf möglich. Dein Aufgabenmenü:\n• Abwasch von Geschirr, Besteck sowie sämtlichen Küchenutensilien\n• Bedienung der Abwaschmaschine\n• Sicherstellung der Sauberkeit und Ordnung im Office-Bereich\n• Entsorgung und Abfalltrennung\n• Unterhalt sowie Pflege der Maschinen in der Abwaschküche\n• Erledigung diverser Reinigungsausgaben in der Küche sowie im gesamten Betrieb\n• Umsetzung der ZFV-Qualitäts- und Dienstleistungsstandards\n• Einhaltung sowie Umsetzung der Hygiene- und Arbeitssicherheitsrichtlinien\n• Mithilfe bei der Speisenausgabe während des Mittagsservices Dein Erfolgsrezept:\n• Erste Erfahrung in der Gastronomie / Hotellerie\n• Erfahrung in der Abwaschküche\n• Gute mündliche Deutschkenntnisse\n• Teamfähigkeit\n• Lernbereit und belastbar\n• Hygienebewusst\n• Strukturiert und selbständig Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn von rund CHF 52'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
-        "fr": "Ce lieu de travail comprend une cantine et le concept « Nellis » 24/7. Le lieu de rencontre de Winterthur crée un point de rencontre accueillant pour les personnes en formation et les collaborateurs. Du lundi au vendredi, notre équipe ravit ici en moyenne 200 convives avec une offre variée – des menus qui changent chaque jour aux sandwichs et snacks, en passant par les prestations de traiteur internes. Es-tu le nouveau membre de notre équipe qui nous soutiendra en tant que collaborateur de l'office avec effet immédiat ou à convenir ? Tu travailles à environ 50 % du lundi au vendredi, de 11:30 à 15:30. Pendant les vacances scolaires, aucune intervention n'est prévue dans l'établissement ; des engagements temporaires dans d'autres établissements sont possibles en cas de besoin. Ton menu de tâches :\n• Lavage de la vaisselle, des couverts ainsi que de tous les ustensiles de cuisine\n• Utilisation de la machine à laver la vaisselle\n• Assurer la propreté et l’ordre dans l’espace office\n• Élimination et tri des déchets\n• Entretien et maintenance des machines de la plonge\n• Exécution de diverses tâches de nettoyage dans la cuisine ainsi que dans l’ensemble de l’établissement\n• Mise en œuvre des standards de qualité et de service de ZFV\n• Respect et mise en œuvre des directives d’hygiène et de sécurité au travail\n• Aide à la distribution des repas pendant le service de midi Ta recette du succès :\n• Première expérience dans la restauration / l’hôtellerie\n• Expérience en plonge\n• Bonnes connaissances orales de l’allemand\n• Vous êtes disposé à travailler en équipe ;\n• Prêt à apprendre et résilient\n• Hygiénique\n• Structuré et autonome C'est ce que nous vous proposons : nous créons des équipes qui se soutiennent mutuellement et dans lesquelles vous êtes encouragé. Nous agissons ensemble et misons sur tout ce qui fait du bien. Entre autres choses, nous attachons une grande importance à la transparence et à l'égalité salariales. Pour ce poste, nous offrons un salaire annuel d'environ 52 000 CHF (TVA incluse) pour un taux d'occupation de 100 %, en fonction de votre expérience et de vos qualifications. 13. Salaire mensuel). Si vous souhaitez partager avec nous votre passion pour la gastronomie, nous nous réjouissons de recevoir votre candidature complète en ligne."
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://jobs.zfv.ch/Office-Mitarbeiterin-50-de-j4753.html",
-      "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:07.120Z",
-      "addressLocality": "Winterthur",
-      "postalCode": "8400",
-      "streetAddress": "Schlosstalstrasse 139",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Ristorazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-18",
-      "postedDate": "2026-10-18",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.zfv.ch/Office-Mitarbeiterin-50-de-j4753.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
-        ],
-        "en": [
-          "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
-        ],
-        "fr": [
-          "office-mitarbeiter-in-50-zfv-unternehmungen-winterthur"
-        ]
-      },
-      "firstSeenAt": "2026-10-18T09:24:08.080Z",
-      "salaryMin": 36800,
-      "salaryMax": 55800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 36800,
-          "maxValue": 55800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "zfv-unternehmungen-be1a7ca86ca6",
       "slug": "piscina-di-studenti-zfv-unternehmungen-lausanne",
       "slugByLocale": {
@@ -5259,7 +5193,7 @@
       "url": "https://jobs.zfv.ch/Pool-dtudiants-fr-j4729.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:41:06.579Z",
+      "crawledAt": "2026-10-22T21:28:25.666Z",
       "needsRetranslation": false,
       "addressLocality": "Lausanne",
       "postalCode": "1003",
@@ -5339,7 +5273,7 @@
       "url": "https://jobs.zfv.ch/Restaurantfachfraumann-EFZ-Lehrstelle-2027-de-j4718.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:06.006Z",
+      "crawledAt": "2026-10-22T21:28:25.001Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -5420,7 +5354,7 @@
       "url": "https://jobs.zfv.ch/Restaurantfachfraumann-EFZ-Lehrstelle-2027-de-j4612.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:05.299Z",
+      "crawledAt": "2026-10-22T21:28:24.346Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Marktgasse 49",
@@ -5499,7 +5433,7 @@
       "url": "https://jobs.zfv.ch/Restaurantfachfraumann-EFZ-Lehrstelle-2027-de-j4532.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:04.565Z",
+      "crawledAt": "2026-10-22T21:28:23.700Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -5551,7 +5485,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
+        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5578,7 +5512,7 @@
       "url": "https://jobs.zfv.ch/Service-Mitarbeiterin-20-de-j4257.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:02.993Z",
+      "crawledAt": "2026-10-22T21:28:22.261Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Schlösslistrasse 5",
@@ -5603,12 +5537,14 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
+        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
+          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -5667,7 +5603,7 @@
       "url": "https://jobs.zfv.ch/Service-Mitarbeiterin-Aushilfe-de-j4712.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:41:01.774Z",
+      "crawledAt": "2026-10-22T21:28:21.220Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -5777,7 +5713,7 @@
       "url": "https://jobs.zfv.ch/Sous-chef-de-j4762.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-22T09:41:00.164Z",
+      "crawledAt": "2026-10-22T21:28:19.685Z",
       "needsRetranslation": false,
       "addressLocality": "Ecublens",
       "postalCode": "1024",
@@ -5862,7 +5798,7 @@
       "url": "https://jobs.zfv.ch/Sous-Chefin-de-j4770.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:59.365Z",
+      "crawledAt": "2026-10-22T21:28:18.881Z",
       "needsRetranslation": false,
       "addressLocality": "Murten",
       "postalCode": "3280",
@@ -5945,7 +5881,7 @@
       "url": "https://jobs.zfv.ch/Sous-Chefin-de-j4682.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:58.844Z",
+      "crawledAt": "2026-10-22T21:28:18.377Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6042,7 +5978,7 @@
       "url": "https://jobs.zfv.ch/Stv-Leiterin-Catering-de-j4639.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:57.257Z",
+      "crawledAt": "2026-10-22T21:28:16.862Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -6111,6 +6047,82 @@
       }
     },
     {
+      "id": "zfv-unternehmungen-20171242814a",
+      "slug": "stv-responsabile-gastronomie-zfv-unternehmungen-zurich",
+      "slugByLocale": {
+        "de": "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich",
+        "it": "stv-responsabile-gastronomie-zfv-unternehmungen-zurich",
+        "en": "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich",
+        "fr": "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich"
+      },
+      "company": "ZFV-Unternehmungen",
+      "companyKey": "zfv-unternehmungen",
+      "companyDomain": "zfv.ch",
+      "title": "Stv. Leiter:in Gastronomie",
+      "titleByLocale": {
+        "de": "Stv. Leiter:in Gastronomie",
+        "it": "Stv. Responsabile Gastronomie",
+        "en": "Stv. Leiter:in Gastronomie",
+        "fr": "Stv. Leiter:in Gastronomie"
+      },
+      "description": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Stv. Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Stv. Leiter:in Gastronomie bist du mitverantwortlich für das Fine-Dining sowie Private Dining und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du führst und entwickelst das Serviceteam, sorgst für reibungslose Abläufe und packst im Tagesgeschäft selbst mit an\n• Du gestaltest die Neueröffnung aktiv mit, etablierst gemeinsam mit der Leiter:in Gastronomie eine erstklassige Servicekultur und sorgst dafür, dass unsere Standards im Alltag gelebt werden\n• Du bist eine präsente Gastgeberpersönlichkeit, erkennst die Bedürfnisse anspruchsvoller Gäste und schaffst ein persönliches, professionelles und diskretes Gästeerlebnis\n• Du koordinierst dich eng mit internen sowie externen Schnittstellen und stellst einen nahtlosen Service über alle Schnittstellen hinweg sicher\n• Du verantwortest die Wein- und Getränkekarten verschiedener UBS-Betriebe und setzt mit neuen Impulsen Akzente in Genuss und Gastlichkeit\n• Du planst und begleitest Business Lunches, Private Dining, Events und Bankette und bringst deine Ideen bei der Angebotsgestaltung ein\n• Du schulst deine Mitarbeitenden in den Bereichen Service, Wein und Getränke und förderst eine Kultur, in der Qualität, Teamgeist und Freude an der Gastfreundschaft zählen\n• Du verantwortest die Warenbestellung und Inventuren im Service- und Getränkebereich, achtest auf die Kosten und stellst die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsstandards sicher\n• Du vertrittst die Leitung Gastronomie bei deren Abwesenheit Dein Rezept\n• Eine überzeugende Gastgeberpersönlichkeit mit sehr hoher Serviceorientierung, sicherem Auftreten und Freude daran, Mitarbeitende zu fördern und weiterzuentwickeln\n• Eine abgeschlossene Ausbildung als Restaurationsfachperson EFZ oder eine vergleichbare gastronomische Grundausbildung mit entsprechender Weiterbildung\n• Eine abgeschlossene Sommelier-Ausbildung, beispielsweise Sommelier Suisse, WSET oder eine gleichwertige Qualifikation sind zwingend erforderlich\n• Mindestens 10 Jahre Berufserfahrung in der gehobenen Gastronomie und mindestens 5 Jahre Führungserfahrung\n• Fundierte Erfahrung als Chef de Service, Stv. Restaurantleitung oder vergleichbare Position im Fine Dining, idealerweise in einem Betrieb mit mindestens 16 GaultMillau-Punkten oder Michelin-Stern\n• Organisationstalent, Qualitätsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Sehr gute Deutsch- und Englischkenntnisse sowie gute IT-Kenntnisse\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+      "descriptionByLocale": {
+        "de": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Stv. Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Stv. Leiter:in Gastronomie bist du mitverantwortlich für das Fine-Dining sowie Private Dining und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du führst und entwickelst das Serviceteam, sorgst für reibungslose Abläufe und packst im Tagesgeschäft selbst mit an\n• Du gestaltest die Neueröffnung aktiv mit, etablierst gemeinsam mit der Leiter:in Gastronomie eine erstklassige Servicekultur und sorgst dafür, dass unsere Standards im Alltag gelebt werden\n• Du bist eine präsente Gastgeberpersönlichkeit, erkennst die Bedürfnisse anspruchsvoller Gäste und schaffst ein persönliches, professionelles und diskretes Gästeerlebnis\n• Du koordinierst dich eng mit internen sowie externen Schnittstellen und stellst einen nahtlosen Service über alle Schnittstellen hinweg sicher\n• Du verantwortest die Wein- und Getränkekarten verschiedener UBS-Betriebe und setzt mit neuen Impulsen Akzente in Genuss und Gastlichkeit\n• Du planst und begleitest Business Lunches, Private Dining, Events und Bankette und bringst deine Ideen bei der Angebotsgestaltung ein\n• Du schulst deine Mitarbeitenden in den Bereichen Service, Wein und Getränke und förderst eine Kultur, in der Qualität, Teamgeist und Freude an der Gastfreundschaft zählen\n• Du verantwortest die Warenbestellung und Inventuren im Service- und Getränkebereich, achtest auf die Kosten und stellst die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsstandards sicher\n• Du vertrittst die Leitung Gastronomie bei deren Abwesenheit Dein Rezept\n• Eine überzeugende Gastgeberpersönlichkeit mit sehr hoher Serviceorientierung, sicherem Auftreten und Freude daran, Mitarbeitende zu fördern und weiterzuentwickeln\n• Eine abgeschlossene Ausbildung als Restaurationsfachperson EFZ oder eine vergleichbare gastronomische Grundausbildung mit entsprechender Weiterbildung\n• Eine abgeschlossene Sommelier-Ausbildung, beispielsweise Sommelier Suisse, WSET oder eine gleichwertige Qualifikation sind zwingend erforderlich\n• Mindestens 10 Jahre Berufserfahrung in der gehobenen Gastronomie und mindestens 5 Jahre Führungserfahrung\n• Fundierte Erfahrung als Chef de Service, Stv. Restaurantleitung oder vergleichbare Position im Fine Dining, idealerweise in einem Betrieb mit mindestens 16 GaultMillau-Punkten oder Michelin-Stern\n• Organisationstalent, Qualitätsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Sehr gute Deutsch- und Englischkenntnisse sowie gute IT-Kenntnisse\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "it": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Stv. Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Stv. Leiter:in Gastronomie bist du mitverantwortlich für das Fine-Dining sowie Private Dining und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du führst und entwickelst das Serviceteam, sorgst für reibungslose Abläufe und packst im Tagesgeschäft selbst mit an\n• Du gestaltest die Neueröffnung aktiv mit, etablierst gemeinsam mit der Leiter:in Gastronomie eine erstklassige Servicekultur und sorgst dafür, dass unsere Standards im Alltag gelebt werden\n• Du bist eine präsente Gastgeberpersönlichkeit, erkennst die Bedürfnisse anspruchsvoller Gäste und schaffst ein persönliches, professionelles und diskretes Gästeerlebnis\n• Du koordinierst dich eng mit internen sowie externen Schnittstellen und stellst einen nahtlosen Service über alle Schnittstellen hinweg sicher\n• Du verantwortest die Wein- und Getränkekarten verschiedener UBS-Betriebe und setzt mit neuen Impulsen Akzente in Genuss und Gastlichkeit\n• Du planst und begleitest Business Lunches, Private Dining, Events und Bankette und bringst deine Ideen bei der Angebotsgestaltung ein\n• Du schulst deine Mitarbeitenden in den Bereichen Service, Wein und Getränke und förderst eine Kultur, in der Qualität, Teamgeist und Freude an der Gastfreundschaft zählen\n• Du verantwortest die Warenbestellung und Inventuren im Service- und Getränkebereich, achtest auf die Kosten und stellst die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsstandards sicher\n• Du vertrittst die Leitung Gastronomie bei deren Abwesenheit Dein Rezept\n• Eine überzeugende Gastgeberpersönlichkeit mit sehr hoher Serviceorientierung, sicherem Auftreten und Freude daran, Mitarbeitende zu fördern und weiterzuentwickeln\n• Eine abgeschlossene Ausbildung als Restaurationsfachperson EFZ oder eine vergleichbare gastronomische Grundausbildung mit entsprechender Weiterbildung\n• Eine abgeschlossene Sommelier-Ausbildung, beispielsweise Sommelier Suisse, WSET oder eine gleichwertige Qualifikation sind zwingend erforderlich\n• Mindestens 10 Jahre Berufserfahrung in der gehobenen Gastronomie und mindestens 5 Jahre Führungserfahrung\n• Fundierte Erfahrung als Chef de Service, Stv. Restaurantleitung oder vergleichbare Position im Fine Dining, idealerweise in einem Betrieb mit mindestens 16 GaultMillau-Punkten oder Michelin-Stern\n• Organisationstalent, Qualitätsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Sehr gute Deutsch- und Englischkenntnisse sowie gute IT-Kenntnisse\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "en": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Stv. Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Stv. Leiter:in Gastronomie bist du mitverantwortlich für das Fine-Dining sowie Private Dining und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du führst und entwickelst das Serviceteam, sorgst für reibungslose Abläufe und packst im Tagesgeschäft selbst mit an\n• Du gestaltest die Neueröffnung aktiv mit, etablierst gemeinsam mit der Leiter:in Gastronomie eine erstklassige Servicekultur und sorgst dafür, dass unsere Standards im Alltag gelebt werden\n• Du bist eine präsente Gastgeberpersönlichkeit, erkennst die Bedürfnisse anspruchsvoller Gäste und schaffst ein persönliches, professionelles und diskretes Gästeerlebnis\n• Du koordinierst dich eng mit internen sowie externen Schnittstellen und stellst einen nahtlosen Service über alle Schnittstellen hinweg sicher\n• Du verantwortest die Wein- und Getränkekarten verschiedener UBS-Betriebe und setzt mit neuen Impulsen Akzente in Genuss und Gastlichkeit\n• Du planst und begleitest Business Lunches, Private Dining, Events und Bankette und bringst deine Ideen bei der Angebotsgestaltung ein\n• Du schulst deine Mitarbeitenden in den Bereichen Service, Wein und Getränke und förderst eine Kultur, in der Qualität, Teamgeist und Freude an der Gastfreundschaft zählen\n• Du verantwortest die Warenbestellung und Inventuren im Service- und Getränkebereich, achtest auf die Kosten und stellst die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsstandards sicher\n• Du vertrittst die Leitung Gastronomie bei deren Abwesenheit Dein Rezept\n• Eine überzeugende Gastgeberpersönlichkeit mit sehr hoher Serviceorientierung, sicherem Auftreten und Freude daran, Mitarbeitende zu fördern und weiterzuentwickeln\n• Eine abgeschlossene Ausbildung als Restaurationsfachperson EFZ oder eine vergleichbare gastronomische Grundausbildung mit entsprechender Weiterbildung\n• Eine abgeschlossene Sommelier-Ausbildung, beispielsweise Sommelier Suisse, WSET oder eine gleichwertige Qualifikation sind zwingend erforderlich\n• Mindestens 10 Jahre Berufserfahrung in der gehobenen Gastronomie und mindestens 5 Jahre Führungserfahrung\n• Fundierte Erfahrung als Chef de Service, Stv. Restaurantleitung oder vergleichbare Position im Fine Dining, idealerweise in einem Betrieb mit mindestens 16 GaultMillau-Punkten oder Michelin-Stern\n• Organisationstalent, Qualitätsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Sehr gute Deutsch- und Englischkenntnisse sowie gute IT-Kenntnisse\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut.",
+        "fr": "Mitte 2027 eröffnet die UBS im Herzen von Zürich ein neues kulinarisches Flaggschiff. Am Paradeplatz entsteht ein exklusiver Treffpunkt für Kund:innen und das Top-Management der UBS. Das Zusammenspiel von exklusivem Private Dining, hochwertigem Bistro-Angebot und individuellen Eventformaten schafft einen Ort für besondere Begegnungen, geschäftliche Anlässe und erstklassige Gastfreundschaft im Herzen von Zürich. Bist du unser neues Teammitglied, welches uns als Stv. Leiter:in Gastronomie per 1. Mai 2027 oder nach Vereinbarung von Montag bis Freitag mit Arbeitszeiten zwischen 07:00 Uhr und 22:00 Uhr unterstützt? Mit der neuen UBS Gastronomie am Zürcher Paradeplatz entsteht ein exklusives Konzept für Kund:innen und das Management der UBS. Hier treffen anspruchsvolle Kulinarik, diskreter Service und internationale Hospitality Standards aufeinander. Als Stv. Leiter:in Gastronomie bist du mitverantwortlich für das Fine-Dining sowie Private Dining und prägst von Beginn an dessen Qualität, Kultur und Erfolg. Du verbindest unternehmerisches Denken mit einer ausgeprägten Gastgeberpersönlichkeit und schaffst gemeinsam mit deinem Team ein Erlebnis, das höchsten Ansprüchen gerecht wird. Deine Aufgabenmenü\n• Du führst und entwickelst das Serviceteam, sorgst für reibungslose Abläufe und packst im Tagesgeschäft selbst mit an\n• Du gestaltest die Neueröffnung aktiv mit, etablierst gemeinsam mit der Leiter:in Gastronomie eine erstklassige Servicekultur und sorgst dafür, dass unsere Standards im Alltag gelebt werden\n• Du bist eine präsente Gastgeberpersönlichkeit, erkennst die Bedürfnisse anspruchsvoller Gäste und schaffst ein persönliches, professionelles und diskretes Gästeerlebnis\n• Du koordinierst dich eng mit internen sowie externen Schnittstellen und stellst einen nahtlosen Service über alle Schnittstellen hinweg sicher\n• Du verantwortest die Wein- und Getränkekarten verschiedener UBS-Betriebe und setzt mit neuen Impulsen Akzente in Genuss und Gastlichkeit\n• Du planst und begleitest Business Lunches, Private Dining, Events und Bankette und bringst deine Ideen bei der Angebotsgestaltung ein\n• Du schulst deine Mitarbeitenden in den Bereichen Service, Wein und Getränke und förderst eine Kultur, in der Qualität, Teamgeist und Freude an der Gastfreundschaft zählen\n• Du verantwortest die Warenbestellung und Inventuren im Service- und Getränkebereich, achtest auf die Kosten und stellst die Einhaltung unserer Qualitäts-, Hygiene- und Sicherheitsstandards sicher\n• Du vertrittst die Leitung Gastronomie bei deren Abwesenheit Dein Rezept\n• Eine überzeugende Gastgeberpersönlichkeit mit sehr hoher Serviceorientierung, sicherem Auftreten und Freude daran, Mitarbeitende zu fördern und weiterzuentwickeln\n• Eine abgeschlossene Ausbildung als Restaurationsfachperson EFZ oder eine vergleichbare gastronomische Grundausbildung mit entsprechender Weiterbildung\n• Eine abgeschlossene Sommelier-Ausbildung, beispielsweise Sommelier Suisse, WSET oder eine gleichwertige Qualifikation sind zwingend erforderlich\n• Mindestens 10 Jahre Berufserfahrung in der gehobenen Gastronomie und mindestens 5 Jahre Führungserfahrung\n• Fundierte Erfahrung als Chef de Service, Stv. Restaurantleitung oder vergleichbare Position im Fine Dining, idealerweise in einem Betrieb mit mindestens 16 GaultMillau-Punkten oder Michelin-Stern\n• Organisationstalent, Qualitätsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Sehr gute Deutsch- und Englischkenntnisse sowie gute IT-Kenntnisse\n• Einen einwandfreien Leumund Das bieten wir dir Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.zfv.ch/Stv-Leiterin-Gastronomie-de-j4768.html",
+      "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T21:28:16.348Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "streetAddress": "Paradeplatz 6",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Ristorazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-22",
+      "postedDate": "2026-10-22",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.zfv.ch/Stv-Leiterin-Gastronomie-de-j4768.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leiter-in-gastronomie-zfv-unternehmungen-zurich"
+      ],
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-22T21:28:16.348Z"
+    },
+    {
       "id": "zfv-unternehmungen-e7364a6b9e91",
       "slug": "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-bern",
       "slugByLocale": {
@@ -6141,7 +6153,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4574.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:56.724Z",
+      "crawledAt": "2026-10-22T21:28:15.811Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Trüsselstrasse 2",
@@ -6220,7 +6232,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4571.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:56.041Z",
+      "crawledAt": "2026-10-22T21:28:15.162Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Technoramastrasse 1",
@@ -6299,7 +6311,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4568.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:55.383Z",
+      "crawledAt": "2026-10-22T21:28:14.502Z",
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 130",
@@ -6378,7 +6390,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4566.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:54.696Z",
+      "crawledAt": "2026-10-22T21:28:13.853Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "streetAddress": "St. Alban-Anlage 26",
@@ -6457,7 +6469,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4562.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:53.368Z",
+      "crawledAt": "2026-10-22T21:28:12.555Z",
       "addressLocality": "Allschwil",
       "postalCode": "4123",
       "streetAddress": "Hegenheimermattweg 91",
@@ -6536,7 +6548,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4554.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:52.686Z",
+      "crawledAt": "2026-10-22T21:28:11.904Z",
       "addressLocality": "Rotkreuz",
       "postalCode": "6343",
       "streetAddress": "Suurstoffi 1",
@@ -6615,7 +6627,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4553.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:52.016Z",
+      "crawledAt": "2026-10-22T21:28:11.228Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "streetAddress": "Baarerstrasse 100",
@@ -6694,7 +6706,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4550.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:51.348Z",
+      "crawledAt": "2026-10-22T21:28:10.576Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "streetAddress": "Walter-von-Moos-Promenade 2",
@@ -6773,7 +6785,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4548.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:50.682Z",
+      "crawledAt": "2026-10-22T21:28:09.919Z",
       "addressLocality": "Horw",
       "postalCode": "6048",
       "streetAddress": "Technikumstrasse 21",
@@ -6852,7 +6864,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4540.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:49.324Z",
+      "crawledAt": "2026-10-22T21:28:08.621Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "Europastrasse 1",
@@ -6931,7 +6943,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiefachfraumann-EFZ-Lehrstelle-2027-de-j4537.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:48.801Z",
+      "crawledAt": "2026-10-22T21:28:08.097Z",
       "needsRetranslation": false,
       "addressLocality": "Zürich",
       "postalCode": "8001",
@@ -7011,7 +7023,7 @@
       "url": "https://jobs.zfv.ch/Systemgastronomiepraktikerin-EBA-Lehrstelle-2027-de-j4575.html",
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T09:40:48.119Z",
+      "crawledAt": "2026-10-22T21:28:07.437Z",
       "needsRetranslation": false,
       "addressLocality": "Bern",
       "postalCode": "3004",
