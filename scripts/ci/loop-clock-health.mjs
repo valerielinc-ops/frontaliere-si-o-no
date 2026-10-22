@@ -173,7 +173,6 @@ export function listDispatchRuns(
   windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES,
   {
     ghImpl = gh,
-    now = () => Date.now(),
     sleep = sleepSync,
     warn = console.warn,
   } = {},
@@ -181,7 +180,7 @@ export function listDispatchRuns(
   const args = [
     'run', 'list', '--repo', repository, '--workflow', workflow,
     '--event', 'workflow_dispatch', '--branch', 'main',
-    '--created', createdFromFilter(now() - windowMinutes * 60_000),
+    '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
     '--limit', String(limit),
     '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
   ];

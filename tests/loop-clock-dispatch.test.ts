@@ -494,7 +494,6 @@ describe('loop clock observer', () => {
     const warnings: string[] = [];
     let calls = 0;
     const rows = listDispatchRuns('owner/site', entry.workflow, 10, 720, {
-      now: () => Date.parse(NOW),
       ghImpl: () => {
         calls += 1;
         return calls === 1 ? '[]' : JSON.stringify([clockRun(entry, 5)]);
@@ -513,7 +512,6 @@ describe('loop clock observer', () => {
     const calls: string[][] = [];
     const delays: number[] = [];
     const rows = listDispatchRuns('owner/site', 'never-ran.yml', 10, 720, {
-      now: () => Date.parse(NOW),
       ghImpl: (args: string[]) => {
         calls.push(args);
         return '[]';
