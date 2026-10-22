@@ -39,6 +39,7 @@ describe('email engagement banners', () => {
     expect(html).toContain('https://telegram.org/img/t_logo.png');
     expect(html).toContain('data-email-logo="facebook"');
     expect(html).toContain('https://www.facebook.com/favicon.ico');
+    expect(html).toContain('background:#9a3412;color:#ffffff');
     expect(html).toContain('LinkedIn');
     expect(html).toContain('Instagram');
     expect(html).toContain('TikTok');
