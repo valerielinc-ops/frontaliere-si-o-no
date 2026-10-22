@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-10-22T20:23:49.784Z",
+  "generatedAt": "2026-10-22T21:26:51.021Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -27236,6 +27236,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-12T05:17:51.658Z"
     },
+    "guidle:AgAPiZZ::5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493": {
+      "id": "guidle:AgAPiZZ",
+      "sourceDescriptionHash": "5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493",
+      "description": "L’evento hip-hop con Lo & Leduc si svolge al Salzhaus Brugg di Brugg. KRISE ALS CHANSON è indicato come artista partecipante.",
+      "descriptionByLocale": {
+        "it": "L’evento hip-hop con Lo & Leduc si svolge al Salzhaus Brugg di Brugg. KRISE ALS CHANSON è indicato come artista partecipante.",
+        "en": "The hip-hop event with Lo & Leduc takes place at Salzhaus Brugg in Brugg. KRISE ALS CHANSON is listed as the performer.",
+        "de": "Die Hip-Hop-Veranstaltung mit Lo & Leduc findet im Salzhaus Brugg in Brugg statt. KRISE ALS CHANSON ist als auftretender Name angegeben.",
+        "fr": "Le rendez-vous hip-hop avec Lo & Leduc a lieu au Salzhaus Brugg, à Brugg. KRISE ALS CHANSON est indiqué comme artiste participant."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T21:22:05.837Z"
+    },
     "guidle:AGbac1H::7446cc351b91f17340f37c1eb88f9699965c73014f1c37095a244cb929c0276b": {
       "id": "guidle:AGbac1H",
       "sourceDescriptionHash": "7446cc351b91f17340f37c1eb88f9699965c73014f1c37095a244cb929c0276b",
@@ -39052,6 +39066,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T15:21:27.117Z"
     },
+    "guidle:ASD2E6s::85054d5a8ecf7927132943c8c4ead3fe2888135dc8223043486899cc86a67946": {
+      "id": "guidle:ASD2E6s",
+      "sourceDescriptionHash": "85054d5a8ecf7927132943c8c4ead3fe2888135dc8223043486899cc86a67946",
+      "description": "Caporicci è un evento di musica pop allo Schloss Schwarzenburg, a Schwarzenburg. L’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Caporicci è un evento di musica pop allo Schloss Schwarzenburg, a Schwarzenburg. L’ingresso costa 15 CHF.",
+        "en": "Caporicci is a pop music event at Schloss Schwarzenburg in Schwarzenburg. Admission costs CHF 15.",
+        "de": "Caporicci ist eine Popveranstaltung im Schloss Schwarzenburg in Schwarzenburg. Der Eintritt kostet 15 CHF.",
+        "fr": "Caporicci est un événement de musique pop au Schloss Schwarzenburg, à Schwarzenburg. L’entrée coûte 15 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T21:18:58.326Z"
+    },
     "guidle:AsdAga2::cb00183e995e424b41bccdbcff4fae8b549545e66315edb43b281b6817b575bc": {
       "id": "guidle:AsdAga2",
       "sourceDescriptionHash": "cb00183e995e424b41bccdbcff4fae8b549545e66315edb43b281b6817b575bc",
@@ -40339,6 +40367,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T14:41:49.582Z"
+    },
+    "guidle:AtEnbUt::fba76a7db26a8167cee2fd9164b6f3ff0be87d5c54aa05dc35848a6263a0e36f": {
+      "id": "guidle:AtEnbUt",
+      "sourceDescriptionHash": "fba76a7db26a8167cee2fd9164b6f3ff0be87d5c54aa05dc35848a6263a0e36f",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Soho Kosmos; comune: Wiedlisbach; cantone: BE; categoria: Musica comica; organizzatore: Guidle; data: 2027-01-22; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Soho Kosmos; comune: Wiedlisbach; cantone: BE; categoria: Musica comica; organizzatore: Guidle; data: 2027-01-22; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Soho Kosmos; municipality: Wiedlisbach; canton: BE; category: Musica comica; organiser: Guidle; date: 2027-01-22; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Soho Kosmos; gemeinde: Wiedlisbach; kanton: BE; kategorie: Musica comica; veranstalter: Guidle; datum: 2027-01-22; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Soho Kosmos; commune: Wiedlisbach; canton: BE; catégorie: Musica comica; organisateur: Guidle; date: 2027-01-22; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-10-22T21:17:09.766Z"
     },
     "guidle:AtepmkQ::d3220f824ced5e3b0d7626fc3f4222099703795f650ec29b1a922e0b6a061a63": {
       "id": "guidle:AtepmkQ",
@@ -166843,8 +166885,8 @@
       "id": "guidle:A55wTKi",
       "sourceDescriptionHash": "6441d2ad6f447e02163d31ef25db74b6b8b2d056cf0cba153faa3ff93fd5c66a",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:21:52.568Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T21:18:50.631Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167068,8 +167110,8 @@
       "id": "guidle:AbhvECZ",
       "sourceDescriptionHash": "465166251a740b56e448f6f2eb1760ded3b87cee7d2c5a316509a018ee894dab",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:17:09.884Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T21:17:38.734Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167257,8 +167299,8 @@
       "id": "guidle:AE9ZwFD",
       "sourceDescriptionHash": "ac79ce197f7229b117c70d2b1868ffeeb38efc72ccc3c2a0a4f8481d3ec24538",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:19:43.459Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T21:21:33.501Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167403,15 +167445,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-22T19:20:20.169Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AgAPiZZ::5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493": {
-      "id": "guidle:AgAPiZZ",
-      "sourceDescriptionHash": "5c2e10022e151b7f1dd229655d97b2398c8264f9387228075ae1bb4977e66493",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:20:14.443Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -167599,8 +167632,8 @@
       "id": "guidle:AJ4Hbb1",
       "sourceDescriptionHash": "d5e0f904187607508524a945a0b21d10ce5e555cfc8326761e798e175ce19d66",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:21:23.231Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T21:18:20.530Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168306,15 +168339,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "guidle:ASD2E6s::85054d5a8ecf7927132943c8c4ead3fe2888135dc8223043486899cc86a67946": {
-      "id": "guidle:ASD2E6s",
-      "sourceDescriptionHash": "85054d5a8ecf7927132943c8c4ead3fe2888135dc8223043486899cc86a67946",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:18:07.728Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "guidle:ASEPnSN::978a5f1741079c215bcd237cbf020b16fa42f9e8389c22363142382a08d4f553": {
       "id": "guidle:ASEPnSN",
       "sourceDescriptionHash": "978a5f1741079c215bcd237cbf020b16fa42f9e8389c22363142382a08d4f553",
@@ -168327,9 +168351,9 @@
     "guidle:ASMwxek::d1c3f5c73d75f27483a9cdbbc0923a22e9ed25bf8f88aef107b5be73880fcfeb": {
       "id": "guidle:ASMwxek",
       "sourceDescriptionHash": "d1c3f5c73d75f27483a9cdbbc0923a22e9ed25bf8f88aef107b5be73880fcfeb",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:21:03.448Z",
+      "code": "sentence-count",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T21:22:45.078Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168393,15 +168417,6 @@
       "code": "new-number",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T15:23:25.275Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:AtEnbUt::fba76a7db26a8167cee2fd9164b6f3ff0be87d5c54aa05dc35848a6263a0e36f": {
-      "id": "guidle:AtEnbUt",
-      "sourceDescriptionHash": "fba76a7db26a8167cee2fd9164b6f3ff0be87d5c54aa05dc35848a6263a0e36f",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-22T19:24:30.920Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -168661,8 +168676,8 @@
       "id": "guidle:AWGS83Z",
       "sourceDescriptionHash": "52d0bf5247ba848709f114ce49665e906a6fb4828b968b3a47921d377205a8f5",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:18:43.539Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T21:19:47.599Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -170551,8 +170566,8 @@
       "id": "myswitzerland:42dc65bb072f4e0e8f58258bb1e233b4",
       "sourceDescriptionHash": "909ef6b943e96c3ccf0ec4d3eca2ed247e23d99c7608618c03785545a9512662",
       "code": "sentence-count",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-10-22T18:19:03.978Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-10-22T21:20:58.978Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

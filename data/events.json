@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T20:24:46.065Z",
+  "generatedAt": "2026-10-22T21:28:10.477Z",
   "totalEvents": 14908,
   "events": [
     {
@@ -595473,7 +595473,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Soho Kosmos; comune: Wiedlisbach; cantone: BE; categoria: Musica comica; organizzatore: Guidle; data: 2027-01-22; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Soho Kosmos; comune: Wiedlisbach; cantone: BE; categoria: Musica comica; organizzatore: Guidle; data: 2027-01-22; ora: 20:00; prezzo: CHF. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Soho Kosmos; municipality: Wiedlisbach; canton: BE; category: Musica comica; organiser: Guidle; date: 2027-01-22; time: 20:00; price: CHF. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Soho Kosmos; gemeinde: Wiedlisbach; kanton: BE; kategorie: Musica comica; veranstalter: Guidle; datum: 2027-01-22; uhrzeit: 20:00; preis: CHF. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Soho Kosmos; commune: Wiedlisbach; canton: BE; catégorie: Musica comica; organisateur: Guidle; date: 2027-01-22; heure: 20:00; prix: CHF. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:21d0edfbf77b41378c0fc41158fdb6cd",
@@ -619280,7 +619288,15 @@
       },
       "imageSourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "imageCopyrightNotice": "© GPhotography",
-      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/"
+      "imageAcquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
+      "description": "Caporicci è un evento di musica pop allo Schloss Schwarzenburg, a Schwarzenburg. L’ingresso costa 15 CHF.",
+      "descriptionByLocale": {
+        "it": "Caporicci è un evento di musica pop allo Schloss Schwarzenburg, a Schwarzenburg. L’ingresso costa 15 CHF.",
+        "en": "Caporicci is a pop music event at Schloss Schwarzenburg in Schwarzenburg. Admission costs CHF 15.",
+        "de": "Caporicci ist eine Popveranstaltung im Schloss Schwarzenburg in Schwarzenburg. Der Eintritt kostet 15 CHF.",
+        "fr": "Caporicci est un événement de musique pop au Schloss Schwarzenburg, à Schwarzenburg. L’entrée coûte 15 CHF."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:1912d278a6784d50b10a0817cac63352",
@@ -635138,7 +635154,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento hip-hop con Lo & Leduc si svolge al Salzhaus Brugg di Brugg. KRISE ALS CHANSON è indicato come artista partecipante.",
+      "descriptionByLocale": {
+        "it": "L’evento hip-hop con Lo & Leduc si svolge al Salzhaus Brugg di Brugg. KRISE ALS CHANSON è indicato come artista partecipante.",
+        "en": "The hip-hop event with Lo & Leduc takes place at Salzhaus Brugg in Brugg. KRISE ALS CHANSON is listed as the performer.",
+        "de": "Die Hip-Hop-Veranstaltung mit Lo & Leduc findet im Salzhaus Brugg in Brugg statt. KRISE ALS CHANSON ist als auftretender Name angegeben.",
+        "fr": "Le rendez-vous hip-hop avec Lo & Leduc a lieu au Salzhaus Brugg, à Brugg. KRISE ALS CHANSON est indiqué comme artiste participant."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f99b820d235f4dfb85bc6ecc3bfeb3f0",
