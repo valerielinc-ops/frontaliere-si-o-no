@@ -335,7 +335,17 @@ describe('legacy portal sections', () => {
       text: '',
     };
     let mounted = false;
-    const uploadContext = { isConnected: true, contains: () => false };
+    // Model the explicit trigger/input association required for a global
+    // mount: the input is outside the trigger's DOM subtree but the
+    // association object still identifies the clicked trigger.
+    const uploadContext = {
+      trigger: {
+        identity: 'resume-trigger',
+        isConnected: true,
+        contains: () => false,
+      },
+      context: { isConnected: true, contains: () => false },
+    };
     const trigger = {
       click: vi.fn(async () => { mounted = true; }),
       isVisible: vi.fn(async () => true),
@@ -344,10 +354,15 @@ describe('legacy portal sections', () => {
     const handle = (identity: string) => ({
       identity,
       isConnected: true,
-      evaluate: vi.fn(async (_read: unknown, other: { identity?: string; isConnected?: boolean; contains?: (element: { identity?: string }) => boolean }) => (
+      evaluate: vi.fn(async (_read: unknown, other: {
+        identity?: string;
+        isConnected?: boolean;
+        contains?: (element: { identity?: string }) => boolean;
+        trigger?: { identity?: string };
+      }) => (
         other?.identity === identity
         || Boolean(other?.contains?.({ identity }))
-        || (Boolean(other?.isConnected) && identity === 'new-cv-input')
+        || (other?.trigger?.identity === 'resume-trigger' && identity === 'new-cv-input')
       )),
     });
     const existingCv = handle('existing-cv');
