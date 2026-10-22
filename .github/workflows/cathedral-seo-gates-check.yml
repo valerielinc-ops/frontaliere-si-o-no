@@ -147,12 +147,15 @@ jobs:
     timeout-minutes: 300
     # Skip draft PR runs + closed-PR re-runs. The workflow does not subscribe
     # to pull_request events; this `if` is belt-and-braces for any future
-    # operator who adds one without rereading the safety contract.
+    # operator who adds one without rereading the safety contract. A scheduled
+    # Deploy to GitHub Pages run is only the queue reconciler: it has no Pages
+    # artifact for this gate to audit, so it must not trigger a replay either.
     if: >-
       (github.event_name != 'pull_request' ||
       (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)) &&
       (github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success')
+      (github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event != 'schedule'))
     # Issue #5553: `regressed=0, errors=2` — `orphan-sitemap-pages` and
     # `max-bfs-depth` both died with a V8 heap OOM (`node::OOMErrorHandler` /
     # `Heap::CollectGarbage` in the child's stderr), NOT with a crash before
