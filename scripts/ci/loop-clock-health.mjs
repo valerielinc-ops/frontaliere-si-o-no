@@ -18,7 +18,6 @@ import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
-import { createdFromFilter } from './lib/run-listing-window.mjs';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_ENTRIES,
@@ -126,6 +125,7 @@ function oldestClockDispatchAt(runs, markers) {
 
 const RUN_LIST_MARGIN = 50;
 const RUN_LIST_MAX = 1000;
+const ACTIONS_PAGE_SIZE = 100;
 const LOOP_CLOCK_RUN_WINDOW_MINUTES = Math.max(
   ...LOOP_CLOCK_ENTRIES.map((entry) => staleThresholdMinutes(entry.everyMinutes)),
 );
@@ -150,17 +150,109 @@ function windowTruncated({ rows, limit, now, thresholdMinutes }) {
   return oldest > windowStart;
 }
 
-function listDispatchRuns(repository, workflow, limit, windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES) {
-  const output = gh([
-    'run', 'list', '--repo', repository, '--workflow', workflow,
-    '--event', 'workflow_dispatch', '--branch', 'main',
-    '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
-    '--limit', String(limit),
-    '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
-  ]);
-  const rows = JSON.parse(output || '[]');
-  if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
-  return rows;
+function normalizeWorkflowRun(run) {
+  return {
+    createdAt: run?.created_at ?? null,
+    databaseId: run?.id ?? null,
+    url: run?.html_url ?? null,
+    event: run?.event ?? null,
+    headBranch: run?.head_branch ?? null,
+    displayTitle: run?.display_title ?? run?.name ?? '',
+  };
+}
+
+function runRowKey(run) {
+  if (run?.databaseId !== undefined && run?.databaseId !== null) return `id:${run.databaseId}`;
+  return `row:${JSON.stringify([
+    run?.createdAt ?? '',
+    run?.url ?? '',
+    run?.event ?? '',
+    run?.headBranch ?? '',
+    run?.displayTitle ?? '',
+  ])}`;
+}
+
+function mergeRunRows(...lists) {
+  const seen = new Set();
+  return lists.flatMap((list) => (Array.isArray(list) ? list : [])).filter((run) => {
+    const key = runRowKey(run);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function readWorkflowRunPages({ repository, workflow, event, windowStart, minimumRows, ghImpl }) {
+  const encodedRepository = String(repository).split('/').map(encodeURIComponent).join('/');
+  const rows = [];
+  let totalCount = null;
+
+  for (let page = 1; rows.length < RUN_LIST_MAX; page += 1) {
+    const query = new URLSearchParams({
+      per_page: String(ACTIONS_PAGE_SIZE),
+      page: String(page),
+    });
+    if (event) query.set('event', event);
+    const endpoint = `repos/${encodedRepository}/actions/workflows/${encodeURIComponent(workflow)}/runs?${query}`;
+
+    let payload;
+    try {
+      payload = JSON.parse(ghImpl(['api', endpoint]) || 'null');
+    } catch {
+      throw new Error('workflow run response invalid');
+    }
+    if (!payload || !Array.isArray(payload.workflow_runs)
+      || !Number.isSafeInteger(payload.total_count) || payload.total_count < 0) {
+      throw new Error('workflow run response invalid');
+    }
+    if (totalCount === null) totalCount = payload.total_count;
+
+    const pageRows = payload.workflow_runs.map(normalizeWorkflowRun);
+    rows.push(...pageRows);
+    const validDates = rows.map((run) => Date.parse(run?.createdAt ?? '')).filter(Number.isFinite);
+    const oldest = validDates.length > 0 ? Math.min(...validDates) : null;
+    const collectionRead = rows.length >= totalCount;
+    const reachedWindow = oldest !== null && oldest <= windowStart;
+    if (collectionRead || (rows.length >= minimumRows && reachedWindow)) return rows;
+    if (pageRows.length < ACTIONS_PAGE_SIZE) throw new Error('workflow run response incomplete');
+  }
+
+  throw new Error('workflow run response incomplete');
+}
+
+/**
+ * Read the Actions collection directly. `gh run list` can expose a valid but
+ * stale filtered index while a cross-repository dispatch is already present;
+ * the REST collection gives the observer a total count and a bounded proof of
+ * how far it read. Branch and event checks remain local in selectLoopClockRun.
+ * Passing `null` as the optional event reads the same workflow unfiltered for
+ * the bounded absence confirmation below.
+ */
+export function listDispatchRuns(
+  repository,
+  workflow,
+  limit,
+  windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES,
+  options,
+) {
+  const normalizedOptions = typeof options === 'function' ? { ghImpl: options } : options || {};
+  const event = options === null ? null : (normalizedOptions.event ?? 'workflow_dispatch');
+  const ghImpl = normalizedOptions.ghImpl ?? gh;
+  const requestedLimit = Number(limit);
+  if (!Number.isInteger(requestedLimit) || requestedLimit <= 0) {
+    throw new TypeError('workflow run limit must be a positive integer');
+  }
+  const window = Number(windowMinutes);
+  if (!Number.isFinite(window) || window <= 0) throw new TypeError('workflow run window must be positive');
+  const minimumRows = Math.min(requestedLimit, RUN_LIST_MAX);
+  return readWorkflowRunPages({
+    repository,
+    workflow,
+    event,
+    windowStart: Date.now() - window * 60_000,
+    minimumRows,
+    ghImpl,
+  });
 }
 
 const LOOP_CLOCK_TABLE_PATH = 'functions/src/loopClockTable.js';
@@ -325,9 +417,44 @@ export async function runLoopClockHealth({
     try {
       const rows = await listRunsImpl(repositoryOf(entry), entry.workflow, limit, widestThreshold);
       if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
-      runLists.set(listKey, { limit, rows });
+      runLists.set(listKey, { limit, rows, absenceConfirmed: true });
     } catch {
       runLists.set(listKey, null);
+    }
+  }
+
+  // A filtered Actions collection can be valid yet omit a recent dispatch.
+  // Confirm every missing marker with the same workflow without the event
+  // filter. If that second read cannot be trusted, the absence is
+  // inconclusive and must not open a stale issue.
+  for (const [listKey, list] of runLists) {
+    const listEntries = owed
+      .filter(({ entry }) => listKeyOf(entry) === listKey)
+      .map(({ entry }) => entry);
+    const needsConfirmation = listEntries.some((entry) => !selectLoopClockRun(list?.rows, entry));
+    if (!needsConfirmation || listEntries.length === 0) continue;
+
+    const entry = listEntries[0];
+    const limit = list?.limit ?? loopClockRunLimit(
+      entries.filter((other) => listKeyOf(other) === listKey),
+      widestThreshold,
+    );
+    try {
+      const alternateRows = await listRunsImpl(
+        repositoryOf(entry),
+        entry.workflow,
+        limit,
+        widestThreshold,
+        null,
+      );
+      if (!Array.isArray(alternateRows)) throw new Error('workflow run response invalid');
+      runLists.set(listKey, {
+        limit,
+        rows: mergeRunRows(list?.rows, alternateRows),
+        absenceConfirmed: true,
+      });
+    } catch {
+      if (list) runLists.set(listKey, { ...list, absenceConfirmed: false });
     }
   }
 
@@ -372,6 +499,11 @@ export async function runLoopClockHealth({
       everyMinutes: entry.everyMinutes,
     });
     if (!run) {
+      if (list.absenceConfirmed === false) {
+        errors += 1;
+        results.push({ id: entry.id, state: 'inconclusive', reason: 'run_listing_unconfirmed' });
+        continue;
+      }
       if (windowTruncated({ rows: list.rows, limit: list.limit, now: checkedAt, thresholdMinutes: freshness.thresholdMinutes })) {
         // No verdict on a window we did not read to its start.
         errors += 1;

@@ -22,6 +22,7 @@ import {
 import {
   LOOP_CLOCK_DOWN_ISSUE_TITLE,
   assessLoopClockFreshness,
+  listDispatchRuns,
   loopClockRunLimit,
   runLoopClockHealth,
   selectLoopClockRun,
@@ -486,6 +487,98 @@ describe('loop clock observer', () => {
     expect(selectLoopClockRun(undefined as unknown as unknown[], entry)).toBeNull();
   });
 
+  it('reads the Actions collection directly and paginates from total_count', () => {
+    const entry = customEntry('api-listed');
+    const apiRun = (id: number, createdAt: string) => ({
+      id,
+      created_at: createdAt,
+      html_url: `https://example.invalid/runs/${id}`,
+      event: 'workflow_dispatch',
+      head_branch: 'main',
+      display_title: `Workflow ${LOOP_CLOCK_RUN_MARKER_PREFIX}${loopClockInputValue(entry, createdAt)}]`,
+    });
+    const pages = [
+      { total_count: 101, workflow_runs: Array.from({ length: 100 }, (_, index) => apiRun(index + 1, minutesAgo(index + 1))) },
+      { total_count: 101, workflow_runs: [apiRun(101, minutesAgo(101))] },
+    ];
+    let page = 0;
+    const ghImpl = vi.fn(() => JSON.stringify(pages[page++]));
+
+    const rows = listDispatchRuns('owner/site', entry.workflow, 101, 720, { ghImpl });
+
+    expect(rows).toHaveLength(101);
+    expect(rows[100]).toMatchObject({
+      databaseId: 101,
+      createdAt: minutesAgo(101),
+      headBranch: 'main',
+      displayTitle: expect.stringContaining(loopClockRunMarker(entry)),
+    });
+    expect(ghImpl).toHaveBeenCalledTimes(2);
+    const firstCall = ghImpl.mock.calls[0][0] as string[];
+    const secondCall = ghImpl.mock.calls[1][0] as string[];
+    expect(firstCall[0]).toBe('api');
+    expect(firstCall[1]).toContain('event=workflow_dispatch');
+    expect(firstCall[1]).not.toContain('branch=main');
+    expect(firstCall[1]).not.toContain('created=');
+    expect(firstCall[1]).toContain('per_page=100');
+    expect(firstCall[1]).toContain('page=1');
+    expect(secondCall[1]).toContain('page=2');
+  });
+
+  it('fails closed when an Actions page is shorter than its total_count', () => {
+    expect(() => listDispatchRuns(
+      'owner/site',
+      'incomplete.yml',
+      10,
+      720,
+      { ghImpl: () => JSON.stringify({ total_count: 10, workflow_runs: [] }) },
+    )).toThrow('workflow run response incomplete');
+  });
+
+  it('confirms a missing marker with an unfiltered workflow read', async () => {
+    const established = { ...customEntry('clock-established'), everyMinutes: 30 };
+    const entry = { ...customEntry('clock-fallback'), everyMinutes: 30 };
+    const listRunsImpl = vi.fn(async (
+      _repository: string,
+      workflow: string,
+      _limit: number,
+      _windowMinutes: number,
+      event?: null,
+    ) => {
+      if (workflow === established.workflow) return [clockRun(established, 5)];
+      return event === null ? [clockRun(entry, 5)] : [otherRun(1)];
+    });
+    const { report, createIssueImpl } = await observe([established, entry], [], { listRunsImpl });
+
+    expect(report.results.find((result) => result.id === entry.id)).toMatchObject({ state: 'healthy' });
+    expect(createIssueImpl).not.toHaveBeenCalled();
+    expect(listRunsImpl.mock.calls.some((call) => call[1] === entry.workflow && call[4] === null)).toBe(true);
+  });
+
+  it('keeps an unconfirmed absence inconclusive instead of opening a stale issue', async () => {
+    const established = { ...customEntry('clock-established-failure'), everyMinutes: 30 };
+    const entry = { ...customEntry('clock-fallback-failure'), everyMinutes: 30 };
+    const listRunsImpl = vi.fn(async (
+      _repository: string,
+      workflow: string,
+      _limit: number,
+      _windowMinutes: number,
+      event?: null,
+    ) => {
+      if (workflow === established.workflow) return [clockRun(established, 5)];
+      if (event === null) throw new Error('alternate Actions listing unavailable');
+      return [otherRun(1)];
+    });
+    const { report, createIssueImpl } = await observe([established, entry], [], { listRunsImpl });
+
+    expect(report.results.find((result) => result.id === entry.id)).toMatchObject({
+      state: 'inconclusive',
+      reason: 'run_listing_unconfirmed',
+    });
+    expect(report.errors).toBe(1);
+    expect(createIssueImpl).not.toHaveBeenCalled();
+  });
+
   it('declares an entry stale when only non-clock runs are recent', async () => {
     const entry = { ...customEntry('clock-dead'), everyMinutes: 30 };
     const { report, createIssueImpl, resolveIssueImpl } = await observe([entry], [
@@ -804,7 +897,11 @@ describe('loop clock observer', () => {
       repository === LOOP_CLOCK_CORPUS_REPOSITORY ? [otherRun(1)] : [clockRun(site, 500), clockRun(site, 10)]
     ));
     const { report, createIssueImpl } = await observe([site, corpus], [], { listRunsImpl });
-    expect(listRunsImpl.mock.calls.map((call) => call[0])).toEqual(['owner/site', LOOP_CLOCK_CORPUS_REPOSITORY]);
+    expect(listRunsImpl.mock.calls.map((call) => call[0])).toEqual([
+      'owner/site',
+      LOOP_CLOCK_CORPUS_REPOSITORY,
+      LOOP_CLOCK_CORPUS_REPOSITORY,
+    ]);
     expect(report.results.find((result) => result.id === site.id)).toMatchObject({ state: 'healthy' });
     expect(report.results.find((result) => result.id === corpus.id)).toMatchObject({ state: 'stale' });
     expect(createIssueImpl).toHaveBeenCalledTimes(1);
