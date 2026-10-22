@@ -273,6 +273,7 @@ const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 // questions; a generic yes/no helper must not reinterpret a third choice.
 const PERMIT_YES_OPTION_RE = /^(?:ja|sì|si|yes|oui|vero|true)(?![\p{L}\p{N}])/iu;
 const PERMIT_NO_OPTION_RE = /^(?:nein|no|non|ne|falso|false)(?![\p{L}\p{N}])/iu;
+const EXPLICIT_NEGATIVE_PERMIT_RE = /^(?:nein|no|non|ne|falso|false|✕|x)\b/iu;
 /** Resolve a qualified yes/no permit label after a lazy ATS list has loaded. */
 export function permitBooleanOptionLabel(value, options = []) {
   const desired = PERMIT_YES_OPTION_RE.test(String(value || '').trim()) ? PERMIT_YES_OPTION_RE
@@ -604,10 +605,11 @@ export function addressQuestionTopic(text, context = '', metadata = {}) {
   // `fieldContext` is a flattened list of sibling labels. A candidate-owned
   // label in that list must not reclassify an emergency/contact-person field
   // as the candidate's own address.
-  const candidateContactAddress = CANDIDATE_CONTACT_ADDRESS_RE.test(value);
+  const candidateContactAddress = !nonResidenceContext
+    && (CANDIDATE_CONTACT_ADDRESS_RE.test(value) || CANDIDATE_CONTACT_ADDRESS_RE.test(fieldContext));
   const contactAddress = CONTACT_ADDRESS_RE.test(value) || CONTACT_ADDRESS_RE.test(fieldContext);
   if ((contactAddress && !candidateContactAddress) || PHONE_CODE_FIELD_RE.test(value) || phoneCodeContext || NON_RESIDENCE_ADDRESS_RE.test(value)
-    || employmentContext || (nonResidenceContext && !explicitResidenceContext)) return '';
+    || employmentContext || (nonResidenceContext && !explicitResidenceContext && !candidateContactAddress)) return '';
   const residenceContext = RESIDENCE_CONTEXT_RE.test(value) || RESIDENCE_CONTEXT_RE.test(fieldContext)
     || (PERSONAL_ADDRESS_CONTEXT_RE.test(fieldContext) && !nonResidenceContext);
   // `autocomplete=postal-code` identifies the kind of value, not whose
@@ -1466,7 +1468,9 @@ export function guardPlan(plan, fields, candidate = null) {
       // to the current option catalogue. Preserve a distinct explicit answer
       // to this exact question (for example a candidate correction of Yes/No).
       const recordedStatus = permitStatusOf(recorded) || permitOptionCode(recorded);
-      return !recorded || recordedStatus === status;
+      const explicitNegative = booleanAnswer(recorded) === false
+        || EXPLICIT_NEGATIVE_PERMIT_RE.test(String(recorded || '').trim());
+      return !recorded || (!explicitNegative && recordedStatus === status);
     })
     .map((field) => [field.id, permitAnswerForStatus(field, status)])
     .filter(([, value]) => value) : []);
