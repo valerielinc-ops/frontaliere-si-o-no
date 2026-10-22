@@ -1663,7 +1663,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
       trace.target = 'none';
       trace.failure = 'no_upload_target';
     }
-    await page.keyboard.press('Escape').catch(() => {});
+    if (page.keyboard?.press) await page.keyboard.press('Escape').catch(() => {});
     return finish('unavailable');
   }
   if (trace) trace.target = firstTarget.source === 'mounted' ? 'mounted' : 'dialog';
@@ -1671,7 +1671,7 @@ async function uploadThroughDialog(page, trigger, file, triggerFrame = 0, trace 
     await input.setInputFiles(file);
   } catch {
     if (trace) trace.failure = 'dialog_selection_failed';
-    await page.keyboard.press('Escape').catch(() => {});
+    if (page.keyboard?.press) await page.keyboard.press('Escape').catch(() => {});
     return finish('unavailable');
   }
   // The dialog closes once the portal holds the file (SuccessFactors reads it first).
