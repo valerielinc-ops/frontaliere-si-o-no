@@ -221,7 +221,7 @@ export async function runPlateAuctionsFunction({
       if (stale.length === 0) {
         log(`Relay snapshot is fresh for ${expectedKeys.length} active sources; scheduler job not triggered.`);
         summary(`### refreshPlateAuctions relay watchdog\n\nRelay snapshot is fresh; no scheduler run was triggered.\n\n${renderMarkdownTable(relayProbeRows)}\n`);
-        return { dryRun: false, skipped: true, job: job.name, rows: relayProbeRows };
+        return { dryRun, skipped: true, job: job.name, rows: relayProbeRows };
       }
       log(`Relay snapshot is stale for ${stale.join(', ')}; triggering a scheduler refresh.`);
     }
@@ -292,7 +292,7 @@ async function main() {
       summary: summaryPath ? (markdown) => appendFileSync(summaryPath, `${markdown}\n`) : () => {},
       onlyIfStale,
     });
-    console.log(`Result: ${result.dryRun ? 'dry run' : 'run'} of ${result.job}`);
+    console.log(`Result: ${result.skipped ? 'skipped' : result.dryRun ? 'dry run' : 'run'} of ${result.job}`);
   } catch (error) {
     const message = String(error?.message || error).replaceAll(credentials?.private_key || '\u0000', '[redacted]');
     console.log(`::error::refreshPlateAuctions run failed: ${message}`);
