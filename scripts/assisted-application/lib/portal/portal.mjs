@@ -1346,12 +1346,6 @@ async function inputBelongsToTrigger(input, association) {
       if (!element?.isConnected || !trigger?.isConnected) return false;
       if (typeof trigger.contains === 'function' && trigger.contains(element)) return true;
 
-      // A portal that inserts its control next to the clicked trigger is
-      // explicitly associated by that adjacency. A generic form ancestor is
-      // deliberately not enough: another document control may share it.
-      if (element.parentElement && element.parentElement === trigger.parentElement
-        && (element.previousElementSibling === trigger || element.nextElementSibling === trigger)) return true;
-
       // Some ATS controls append the hidden input to document.body (or to a
       // generic overlay root) instead of the trigger's form. Accept that
       // mount only when the DOM exposes an explicit reference between the
@@ -1391,8 +1385,6 @@ async function inputBelongsToTrigger(input, association) {
         'data-trigger-id',
         'data-owner',
         'data-for',
-        'aria-labelledby',
-        'aria-describedby',
       ];
       const inputTargetNames = [
         'id',
