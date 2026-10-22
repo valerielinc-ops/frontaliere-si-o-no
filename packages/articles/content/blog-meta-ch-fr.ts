@@ -8585,6 +8585,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.regole-usato-mercatini-svizzera.title': 'Achats d’occasion en Suisse : garantie et règles',
     'blog.article.regole-usato-mercatini-svizzera.excerpt': 'Garantie d’un an, sauf exclusion explicite Domaine public : les objets gratuits sont souvent interdits Contrefaçons à la frontière : saisie possible et taxe d’environ',
     'blog.article.regole-usato-mercatini-svizzera.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.title': 'Rentes LPP de survivants et d’invalidité: adaptation 2027',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.excerpt': 'À partir du 1er janvier 2027, les rentes seront adaptées aux prix.',
+    'blog.article.adeguamento-rendite-superstiti-invalidita-2027.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaChFr;
