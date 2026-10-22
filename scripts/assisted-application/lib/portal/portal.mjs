@@ -1209,6 +1209,17 @@ const successFactorsDocumentAssociationMatches = (association, kind) => {
   return Boolean(documentPattern && otherPattern && documentPattern.test(association) && !otherPattern.test(association));
 };
 
+const buttonHasExplicitDocumentContext = (button) => [
+  button?.section,
+  button?.context,
+  button?.fileContext,
+].filter(Boolean).join(' ');
+
+const buttonMatchesDocumentContext = (button, contextPattern) => {
+  const context = buttonHasExplicitDocumentContext(button);
+  return !context || contextPattern.test(context);
+};
+
 /**
  * Find a document upload control without guessing from an unlabelled icon.
  * SuccessFactors uses a private-use glyph ("") for the CV button on some
@@ -1232,7 +1243,8 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     if (key) candidateKeys.add(key);
     candidates.push(button);
   };
-  add(findButton(snapshot?.buttons || [], pattern));
+  const named = findButton(snapshot?.buttons || [], pattern);
+  if (named && buttonMatchesDocumentContext(named, contextPattern)) add(named);
   for (const button of snapshot?.buttons || []) {
     if (button.disabled || button.chrome) continue;
     const context = [button.section, button.context, button.fileContext].filter(Boolean).join(' ');
@@ -1266,8 +1278,9 @@ function uploadTriggerKey(button, index = 0) {
 
 export function uploadButtonFor(snapshot, kind) {
   const pattern = kind === 'cv' ? CV_UPLOAD_RE : kind === 'cover_letter' ? COVER_LETTER_UPLOAD_RE : null;
+  const contextPattern = successFactorsDocumentPattern(kind);
   const named = pattern ? findButton(snapshot?.buttons || [], pattern) : null;
-  if (named) return named;
+  if (named && contextPattern && buttonMatchesDocumentContext(named, contextPattern)) return named;
   const candidates = uploadButtonCandidatesFor(snapshot, kind);
   // Keep the original fail-closed helper for callers that need one proven
   // trigger. The section opener uses the full list to try each explicit
