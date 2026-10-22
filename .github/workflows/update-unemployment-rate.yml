@@ -93,8 +93,7 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/update-switzerland-unemployment-rate.mjs && git add public/data/switzerland-unemployment-rate.json"
 
-          # GITHUB_TOKEN pushes don't trigger other workflows — trigger deploy manually
-          bash scripts/lib/trigger-deploy.sh || true
+          echo '✅ Tasso disoccupazione committato; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Report failure to GitHub Issues
         if: failure()

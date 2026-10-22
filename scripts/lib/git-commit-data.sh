@@ -219,6 +219,21 @@ COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit 
 shift
 EXTRA_PATHS=("$@")
 
+# Translation writes carry their admission state in the same commit tree as
+# the data. The marker must be part of the staged path set before the private
+# isolated-index path is built; writing it after push would leave a race in
+# which deploy.yml could observe an intermediate SHA without the hold.
+TRANSLATION_DEPLOY_HANDOFF_PATH='data/translation-deploy-handoff.json'
+if [ -n "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" ]; then
+  case "$TRANSLATION_DEPLOY_HANDOFF_STATE" in
+    pending|complete) EXTRA_PATHS+=("$TRANSLATION_DEPLOY_HANDOFF_PATH") ;;
+    *)
+      echo "❌ TRANSLATION_DEPLOY_HANDOFF_STATE must be pending or complete" >&2
+      exit 1
+      ;;
+  esac
+fi
+
 # ── Append GitHub Actions run URL to commit message for traceability ─────────
 if [ -n "${GITHUB_RUN_ID:-}" ] && [ -n "${GITHUB_REPOSITORY:-}" ]; then
   RUN_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
@@ -1875,6 +1890,10 @@ if [ "$SLICE_ONLY" = false ] && [ -f "data/jobs.json" ]; then
   node scripts/generate-job-board-stats.mjs
 fi
 
+if [ -n "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" ]; then
+  node scripts/ci/translation-deploy-handoff.mjs --write "$TRANSLATION_DEPLOY_HANDOFF_STATE"
+fi
+
 # ── 1. Detect changes ──────────────────────────────────────────────────────
 # Check tracked modifications AND untracked new files in tracked directories.
 # `git diff --quiet` only sees tracked files. If a previously-tracked file was
@@ -3152,11 +3171,7 @@ commit_isolated_from_worktree() {
       # updating a sibling's slice) look base-identical, skip the merge and
       # get silently reverted by the stale worktree copy.
 
-      if [ "${SKIP_AI_TRANSLATION:-0}" = "1" ]; then
-        echo "ℹ️ SKIP_AI_TRANSLATION=1 — skipping deploy trigger (translate-pending pipeline will deploy)"
-      else
-        EXPECTED_SHA="$new_commit" DEPLOY_REF="main" bash "$(dirname "$0")/trigger-deploy.sh" || true
-      fi
+      echo "✅ Main data push complete — deploy.yml observes the new SHA on its self-driven schedule"
       return 0
     fi
     isolated_phase_add push "$phase_started"
@@ -3465,15 +3480,11 @@ if push_out="$(run_bounded "$PUSH_TIMEOUT" \
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 
-  # ── 5. Trigger deploy — GITHUB_TOKEN pushes don't trigger other workflows ─
-  # When SKIP_AI_TRANSLATION=1 (orchestrated run), skip deploy trigger.
-  # The centralized translate-pending pipeline will trigger deploy after translation.
-  if [ "${SKIP_AI_TRANSLATION:-0}" = "1" ]; then
-    echo "ℹ️ SKIP_AI_TRANSLATION=1 — skipping deploy trigger (translate-pending pipeline will deploy)"
-  else
-    PUSHED_SHA="$(git rev-parse HEAD)"
-    EXPECTED_SHA="$PUSHED_SHA" DEPLOY_REF="main" bash "$(dirname "$0")/trigger-deploy.sh" || true
-  fi
+  # ── 5. Deploy handoff — deploy.yml observes the new SHA on schedule ──────
+  # GITHUB_TOKEN pushes do not trigger another workflow directly. The deploy
+  # workflow owns its queue and picks up this new main tip on its next
+  # self-driven run.
+  echo "✅ Main data push complete — deploy.yml observes the new SHA on its self-driven schedule"
 
   exit 0
 fi

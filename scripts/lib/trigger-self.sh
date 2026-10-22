@@ -7,11 +7,9 @@
 # generate-article.yml's 30-min cron). Concurrency groups already prevent
 # overlap, so it's safe to fire-and-forget.
 #
-# Delegates the actual ref-wait + single-dispatch + output contract to
-# scripts/lib/trigger-workflow.sh (issue #4837). This file used to hand-roll a
-# byte-for-byte copy of trigger-deploy.sh's curl loop; once
-# trigger-deploy.sh became a thin wrapper over the shared engine, keeping a
-# third copy here was exactly the drift AGENTS.md Non-Negotiable #6 forbids.
+# Delegates the actual ref-wait + single-dispatch + output contract to the
+# shared scripts/lib/trigger-workflow.sh engine. Keeping another copy of that
+# loop here would violate AGENTS.md Non-Negotiable #6.
 # What legitimately stays here is self-trigger-specific: the pre-dispatch
 # DELAY_SECONDS sleep, the SELF_TRIGGER_REASON observability output, and the
 # input SHAPE (retry_count / no_changes_streak / section / url).

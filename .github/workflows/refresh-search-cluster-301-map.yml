@@ -156,15 +156,9 @@ jobs:
             --max-attempts 20 \
             --regenerate-cmd "node scripts/build-search-cluster-301-map.mjs && node scripts/prune-search-cluster-301-map.mjs && git add data/search-cluster-301-map.json data/seo-404-compat"
 
-      - name: Trigger deploy if compat store changed
+      - name: Record self-driven deploy handoff if compat store changed
         if: steps.commit.outputs.compat_changed == 'true'
-        env:
-          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
-        # fails the job, caught by "Report failure to GitHub Issues" below —
-        # that GitHub issue IS this caller's recovery net (auto-triage picks
-        # it up), so silencing the failure would just hide a real deploy gap.
-        run: bash scripts/lib/trigger-deploy.sh
+        run: echo '✅ Mappa compat committata; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Report failure to GitHub Issues
         if: failure()

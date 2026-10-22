@@ -116,7 +116,7 @@ function blockedPlan({
   legacySourceLocales = [],
 }) {
   const recoveryReason = recoveryRequired
-    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; dispatch a current build to replay the split handoff`
+    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; enqueue one current build request to replay the split handoff`
     : '';
   const reason = reasons.join('; ') || 'no locale publish plan was admissible';
   return {
@@ -296,7 +296,7 @@ export function resolveLocalePublishPlan({
   }
 
   const recoveryReason = recoveryRequired
-    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; dispatch a current build to replay the split handoff`
+    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; enqueue one current build request to replay the split handoff`
     : '';
 
   return {
