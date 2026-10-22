@@ -673,7 +673,6 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain("echo 'available=true' >> \"$GITHUB_OUTPUT\"");
 
     const gatedSteps = [
-      'Validate source run provenance',
       'Initialize trusted ledger benchmark',
       'Prepare Firebase credentials',
       'Load reviewed write credentials from Remote Config',
@@ -689,6 +688,20 @@ describe('loop fleet workflow contract', () => {
         'steps.source_artifact.outputs.available == \'true\'',
       );
     }
+  });
+
+  it('rejects every non-success source conclusion before downloading its artifact', () => {
+    const steps = workflowSteps('loop-fleet-ledger.yml');
+    const provenanceIndex = steps.findIndex((step) => step.name === 'Validate source run provenance');
+    const downloadIndex = steps.findIndex((step) => step.name === 'Download immutable source artifact');
+    const provenance = steps[provenanceIndex];
+
+    expect(provenanceIndex).toBeGreaterThanOrEqual(0);
+    expect(downloadIndex).toBeGreaterThan(provenanceIndex);
+    expect(provenance?.if).toBeUndefined();
+    expect(provenance?.run).toContain("source_conclusion=$(jq -r '.conclusion // \"\"' <<<\"$source_run\")");
+    expect(provenance?.run).toContain('[ "$source_conclusion" != \'success\' ]');
+    expect(provenance?.run).toContain('[ "$source_status" != \'completed\' ]');
   });
 
   it('publishes trusted before-after ledger benchmark metrics without changing the writer contract', () => {
