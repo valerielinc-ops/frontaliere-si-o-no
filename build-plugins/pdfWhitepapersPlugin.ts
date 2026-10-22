@@ -19,6 +19,10 @@ import { BASE_URL, ANALYTICS_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './co
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { formatUpdatedDate } from './shared/humanDate';
 import { PDF_PAGE_A4, PDF_MARGIN_DEFAULT, PDF_BASE_PALETTE, collectPdfBuffer } from './shared/pdfKitTheme';
+import {
+  assertDistFilePathAvailable,
+  assertNoFileDirectoryPathCollisions,
+} from './shared/distPathCollision';
 import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
 /**
@@ -627,6 +631,15 @@ function getCachedPdfPath(rootDir: string, guide: PdfGuide): string {
  return path.join(rootDir, PDF_CACHE_DIR, 'pdf-cache', `${guide.filename}.pdf`);
 }
 
+function assertPdfGuideOutputPaths(rootDir: string): void {
+ const outputPaths = GUIDES.flatMap((guide) => [
+  path.join(rootDir, 'dist', 'guides', `${guide.filename}.pdf`),
+  path.join(rootDir, 'dist', 'guides', guide.filename, 'index.html'),
+ ]);
+ assertNoFileDirectoryPathCollisions(outputPaths);
+ for (const outputPath of outputPaths) assertDistFilePathAvailable(outputPath);
+}
+
 /* ── Vite Plugin ──────────────────────────────────────────── */
 
 export function pdfWhitepapersPlugin(rootDir: string): Plugin {
@@ -636,6 +649,11 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  async closeBundle() {
  const outDir = path.join(rootDir, 'dist', 'guides');
  fs.mkdirSync(outDir, { recursive: true });
+ // Check output shapes before the per-guide try/catch. A stale file where a
+ // landing directory should be, or a future `x.pdf` + `x.pdf/index.html`
+ // emission, must fail here rather than be downgraded to a skipped guide and
+ // surface much later in a sitemap probe.
+ assertPdfGuideOutputPaths(rootDir);
 
  const startTotal = Date.now();
  const dateStamp = new Date().toISOString().slice(0, 10);

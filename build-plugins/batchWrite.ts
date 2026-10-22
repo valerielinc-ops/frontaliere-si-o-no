@@ -27,6 +27,7 @@ import {
  preservePostWalkDerivedOutput,
  type PostWalkDerivedKind,
 } from './shared/postWalkDerivedDigest';
+import { assertNoFileDirectoryPathCollisions } from './shared/distPathCollision';
 
 export interface PendingWrite {
  filePath: string;
@@ -66,6 +67,11 @@ function ensureDir(dir: string) {
  * launchd default 256/1024).
  */
 export async function flushWrites(writes: PendingWrite[], concurrency = 500): Promise<number> {
+ // Check the whole batch before creating directories. This catches a file
+ // emitted together with a nested `file/index.html` in milliseconds, instead
+ // of letting mkdir/write fail after a long build or in an unrelated probe.
+ assertNoFileDirectoryPathCollisions(writes.map((write) => write.filePath));
+
  // Pre-create all unique directories first (sync, very fast)
  const dirs = new Set<string>();
  for (const w of writes) dirs.add(path.dirname(w.filePath));

@@ -69,6 +69,7 @@ import {
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { isSafeDistPath } from './shared/distPathSafety';
+import { isMissingOrNotDirectoryError } from './shared/distPathCollision';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { HREFLANG_LINK_RX } from './shared/headLinkPatterns';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -4157,11 +4158,12 @@ export async function dropOverwrittenLocs(
         // `<loc>/index.html` may hit ENOTDIR instead of ENOENT. In either case
         // there is no page HTML at that probe; apply the existing flat/missing
         // policy below.
-        if (error?.code !== 'ENOENT' && error?.code !== 'ENOTDIR') throw error;
+        if (!isMissingOrNotDirectoryError(error)) throw error;
+
         try {
           html = await fs.promises.readFile(flatPath, 'utf-8');
         } catch (flatError: any) {
-          if (flatError?.code !== 'ENOENT' && flatError?.code !== 'ENOTDIR') throw flatError;
+          if (!isMissingOrNotDirectoryError(flatError)) throw flatError;
           // A foreign-locale URL is normally absent from this shard by
           // design. Job sitemaps opt into checking a foreign file when it is
           // present (typically a bridge written by a direct-fs emitter), but

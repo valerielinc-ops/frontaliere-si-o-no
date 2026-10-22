@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { isMissingOrNotDirectoryError } from './distPathCollision';
 
 function indexPath(distDir: string, relativePath: string): string {
   const normalized = relativePath.replace(/^\/+/, '').replace(/\/+$/, '');
@@ -23,7 +24,7 @@ export function readEmittedHtml(distDir: string, relativePath: string): string |
   try {
     return fs.readFileSync(indexPath(distDir, relativePath), 'utf8');
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+    if (isMissingOrNotDirectoryError(error)) return undefined;
     throw error;
   }
 }
