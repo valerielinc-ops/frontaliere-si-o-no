@@ -340,7 +340,7 @@ function holdCurrentRound({
           && parsed[2].toLowerCase() === sha.toLowerCase()
           && (!parsed[3] || parsed[3].toLowerCase() === String(reviewRevision || '').toLowerCase())
           && comment.user?.login === 'github-actions[bot]'
-          && comment.user?.type === 'Bot';
+          && (!comment.user?.type || comment.user.type === 'Bot');
       })?.comment
       : null;
     if (!roundComment?.id) {

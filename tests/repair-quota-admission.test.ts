@@ -206,8 +206,21 @@ describe('telemetry helpers', () => {
     expect(repairWorkflowFromRef('owner/repo/.github/workflows/tests.yml@refs/heads/main')).toBe('');
   });
 
-  it('refunds a held round only after finding and deleting its current marker', () => {
+  it.each([
+    {
+      workflow: 'pr-redcheck-fixer.yml',
+      marker: 'REDCHECK_FIX_ROUND',
+      label: '❌-check-fixer',
+    },
+    {
+      workflow: 'pr-redflag-fixer.yml',
+      marker: 'REDFLAG_FIX_ROUND',
+      label: '🔴-fixer',
+    },
+  ])('refunds a held $workflow round with its canonical HEAD+BODY marker', ({ workflow, marker, label }) => {
     const commands: string[][] = [];
+    const head = 'abcdef1234567890abcdef1234567890abcdef12';
+    const bodyRevision = `body:${'1'.repeat(64)}`;
     const runJson = (args: string[]) => {
       if (args[0] === 'run') {
         if (args.includes('pr-redflag-fixer.yml')) return Array.from({ length: 598 }, () => ({ conclusion: 'success' }));
@@ -215,19 +228,31 @@ describe('telemetry helpers', () => {
         if (args.includes('issue-fix.yml')) return Array.from({ length: 24 }, () => ({ conclusion: 'success' }));
       }
       if (args[0] === 'issue') return Array.from({ length: 209 }, (_, number) => ({ number }));
-      if (args[0] === 'pr' && args[1] === 'view') return { headRefOid: 'abcdef1234567890' };
+      if (args[0] === 'pr' && args[1] === 'view') return { headRefOid: head };
       if (args[0] === 'api' && args[1].startsWith('repos/')) {
-        return [[{ id: 77, body: '<!-- REDFLAG_FIX_ROUND: 1 -->\n_🔴-fixer round 1/2 avviato (auto)._'}]];
+        return [[
+          {
+            id: 76,
+            user: { login: 'someone-else' },
+            body: `<!-- ${marker}: 1 HEAD: ${head} BODY: ${bodyRevision} -->\n_spoof_`,
+          },
+          {
+            id: 77,
+            user: { login: 'github-actions[bot]' },
+            body: `<!-- ${marker}: 1 HEAD: ${head} BODY: ${bodyRevision} -->\n_${label} round 1/2 avviato (auto)._`,
+          },
+        ]];
       }
       throw new Error(`unexpected gh read: ${args.join(' ')}`);
     };
 
     const result = main({
       env: {
-        GITHUB_WORKFLOW_REF: 'owner/repo/.github/workflows/pr-redflag-fixer.yml@refs/heads/main',
+        GITHUB_WORKFLOW_REF: `owner/repo/.github/workflows/${workflow}@refs/heads/main`,
         GITHUB_REPOSITORY: 'owner/repo',
         PR_NUMBER: '123',
         FIX_ROUND: '1',
+        PR_BODY_EXPECTED_REVISION: bodyRevision,
       },
       runJson,
       runCommand: (args) => { commands.push(args); },
@@ -242,6 +267,7 @@ describe('telemetry helpers', () => {
       ['pr', 'comment', '123'],
     ]);
     expect(commands[1].join('\n')).toContain('zero-Claude');
+    expect(commands[2]).toContain('repos/owner/repo/issues/comments/77');
     expect(commands[3].join('\n')).toContain('REPAIR_QUOTA_REFUND');
   });
 
