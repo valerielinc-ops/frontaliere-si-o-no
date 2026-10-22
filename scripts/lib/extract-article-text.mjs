@@ -233,6 +233,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
   let pendingControlFlowParen = false;
   let memberAccessPending = false;
   let breakContinueState = null;
+  let lineBreakSinceToken = false;
   const parenContexts = [];
   for (let index = contentStart; index < markup.length; index += 1) {
     const char = markup[index];
@@ -258,6 +259,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     if (state === 'line-comment') {
       if (char === '\n' || char === '\r') {
         state = 'code';
+        lineBreakSinceToken = true;
         if (breakContinueState === 'label') canStartRegex = true;
         breakContinueState = null;
       }
@@ -265,6 +267,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     }
 
     if (state === 'block-comment') {
+      if (char === '\n' || char === '\r') lineBreakSinceToken = true;
       if (char === '*' && next === '/') {
         state = 'code';
         index += 1;
@@ -287,6 +290,7 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     }
 
     if (state === 'html-comment') {
+      if (char === '\n' || char === '\r') lineBreakSinceToken = true;
       if (markup.startsWith('-->', index)) {
         state = 'code';
         canStartRegex = true;
@@ -299,6 +303,17 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       const endTag = NOSCRIPT_END_TAG_RE.exec(markup.slice(index));
       if (endTag) return index + endTag[0].length;
     }
+
+    const lineBreakBeforeToken = lineBreakSinceToken;
+    if (/\s/u.test(char)) {
+      if (char === '\n' || char === '\r') {
+        lineBreakSinceToken = true;
+        if (breakContinueState === 'label') canStartRegex = true;
+        breakContinueState = null;
+      }
+      continue;
+    }
+    lineBreakSinceToken = false;
 
     if (char === "'") {
       state = 'single-quote';
@@ -329,12 +344,6 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
       index += 3;
       canStartRegex = true;
       pendingControlFlowParen = false;
-    } else if (/\s/u.test(char)) {
-      if (char === '\n' || char === '\r') {
-        if (breakContinueState === 'label') canStartRegex = true;
-        breakContinueState = null;
-      }
-      continue;
     } else if (JS_IDENTIFIER_START_RE.test(char)) {
       let end = index + 1;
       while (end < markup.length && JS_IDENTIFIER_PART_RE.test(markup[end])) end += 1;
@@ -372,6 +381,10 @@ function findNoscriptEndTagOutsideLexicalState(markup, contentStart) {
     } else if (char === '!') {
       if (next === '=') {
         index += markup[index + 2] === '=' ? 2 : 1;
+        canStartRegex = true;
+      } else if (lineBreakBeforeToken) {
+        // A bare `!` after a line break is prefix negation. Keep the
+        // expression-start context so a following slash is a regexp.
         canStartRegex = true;
       }
       // Preserve expression-ending context for TypeScript's postfix `!`.
