@@ -390,12 +390,13 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     );
   });
 
-  it('the build concurrency group is UNCHANGED — re-arm adds an edge, it does not relax the lock', () => {
-    // The tempting wrong fix is to flip cancel-in-progress or widen the group.
-    // Either would let two builds race the same CDN / shard force-push targets,
-    // which is the invariant build-locale's own comment relies on.
-    expect(doc.concurrency?.group).toBe('pages-build-run');
-    expect(doc.concurrency?.group).not.toContain('deploy-schedule-reconcile');
+  it('keeps schedule recovery out of the build pending slot', () => {
+    // A concurrency group permits one running + one pending member; a newer
+    // member replaces the pending one even with cancel-in-progress=false.
+    // The schedule must therefore observe the build queue without joining it.
+    expect(String(doc.concurrency?.group)).toContain("github.event_name == 'schedule'");
+    expect(String(doc.concurrency?.group)).toContain('deploy-schedule-reconcile');
+    expect(String(doc.concurrency?.group)).toContain('pages-build-run');
     expect(doc.concurrency?.['cancel-in-progress']).toBe(false);
   });
 

@@ -67,9 +67,9 @@ permissions:
 # build-locale ×4). Exactly one build run is active at a time. The final rearm
 # job dispatches the next build on the current main tip; the ten-minute
 # schedule is only a cheap rescue for a run cancelled before its final job can
-# start. Both events share this concurrency group, so a schedule cannot race
-# the final job into a second pending build; the in-progress build is never
-# cancelled.
+# start. Schedule reconciliation has its own group so a new schedule tick
+# cannot replace a legitimate pending build; its queue check still sees the
+# build group and skips whenever that pipeline is moving.
 #
 # Crucially, this run now ENDS at the build: deploy / validate / publish moved to
 # the separate `deploy-publish.yml` workflow. The final build step dispatches the
@@ -85,10 +85,11 @@ permissions:
 # never race another run's same-locale CDN / frontaliere-<loc> force-push target,
 # so no per-job concurrency group is needed on build-locale anymore.
 concurrency:
-  # The lightweight schedule shares the build lock. That makes the queue check
-  # atomic with dispatch: a schedule can wait behind a real build, but it can
-  # never race the final job into a second pending workflow_dispatch run.
-  group: pages-build-run
+  # Keep the resolver out of the build group's one-pending slot. The resolver
+  # is read-only unless the build queue is idle, and decideRearm() observes
+  # queued/in-progress build runs before dispatching one.
+  group: >-
+    ${{ github.event_name == 'schedule' && 'deploy-schedule-reconcile' || 'pages-build-run' }}
   cancel-in-progress: false
 
 jobs:
