@@ -926,7 +926,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -973,7 +973,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -981,7 +981,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -10275,7 +10275,7 @@
       "id": "luks-5e1f8ddfed0d",
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luzerner-kantonsspital-luks-luzern",
+        "it": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "en": "nursing-specialist-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
         "fr": "specialiste-des-soins-infirmiers-hf-fh-urogynecologie-60-luzerner-kantonsspital-luks-luzern"
@@ -10323,13 +10323,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-          "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern"
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
@@ -15899,9 +15897,9 @@
     },
     {
       "id": "luks-5d80ee6615cc",
-      "slug": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+      "slug": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
-        "it": "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern",
+        "it": "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern",
         "en": "medical-secretary-medical-secretary-gastroenterology-hepatology-80-90-luzerner-kantonsspital-luks-luzern",
         "de": "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
         "fr": "secretaire-medical-secretaire-medical-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
@@ -15950,12 +15948,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-        "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+        "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern",
-          "segretario-medico-segretario-medico-gastroenterologia-epatologia-80-90-luzerner-kantonsspital-luks-luzern"
+          "arztsekretarin-gastroenterologie-hepatologie-80-90-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
           "arztsekretarin-arztsekretarin-gastroenterologie-hepatologie-80-90-luks-luzern"
@@ -17103,12 +17101,12 @@
     },
     {
       "id": "luks-43c06602f146",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40",
+      "slug": "assistente-di-pratica-medica-assistente-di-pratica-medica-ambulatorium-nefrologie-40-80-luzerner-kantonsspital-luks",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40"
+        "it": "assistente-di-pratica-medica-assistente-di-pratica-medica-ambulatorium-nefrologie-40-80-luzerner-kantonsspital-luks",
+        "en": "medical-practice-assistant-medical-practice-assistant-ambulatorium-nephrologie-40-80-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistant-en-medecine-assistant-en-medecine-nephrologie-ambulatoire-40-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17167,16 +17165,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:21:59.582Z"
+      "firstSeenAt": "2026-10-22T09:21:59.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-ambulatorium-nephrologie-40"
+      ]
     },
     {
       "id": "luks-4db58b50414f",
-      "slug": "assistenz-des-chefarztes-pneumologie-e-leitung-medizinisches-sekretariat-80-100-luzerner-kantonsspital-luks-luzern",
+      "slug": "assistente-del-primario-di-pneumologia-e-responsabile-della-segreteria-medica-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks",
-        "it": "assistenz-des-chefarztes-pneumologie-e-leitung-medizinisches-sekretariat-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks",
-        "fr": "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks"
+        "it": "assistente-del-primario-di-pneumologia-e-responsabile-della-segreteria-medica-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "assistant-to-the-chief-physician-pneumology-and-head-of-medical-secretariat-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistant-du-medecin-en-chef-pneumologie-et-chef-du-secretariat-medical-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17195,7 +17207,6 @@
         "en": "The Lucerne Canton Hospital with its locations in Lucerne, Sursee and Wolhusen is a company of the LUKS Group and thus belongs to one of the leading hospital groups in Switzerland. The more than 8,500 employees are there with warmth, competence and commitment around the clock for the well-being of patients. The clinics and institutes of the LUKS Group offer medical services of the highest quality. <br/><br/ >For our team we are looking for 01. March 2027 or by agreement reinforcement.\n\nTasks:\n• Personnel and professional management as well as further development of the medical secretariat and coordination of central interfaces between the medical profession, nursing, secretariat and other internal and external partners\n\n• Close organizational and administrative support of the chief physician, including personnel and organizational issues\n\n• Co-management of efficient clinical operations, in particular the capacity, appointment and resource planning of consultation hours and interventions, as well as organization and coordination of meetings, training, events and other in-house activities\n\n• Collaboration in organizational and strategic projects as well as in the further development of administrative processes, preparation of documents, presentations, evaluations and decision-making basis as well as support in budget planning, controlling and administrative management key figures\n\nRequirements\n• Commercial education or equivalent qualification completed; Further education in leadership, management or healthcare is beneficial\n\n• Several years of professional experience in a demanding assistant, coordination or management function, ideally in the healthcare sector, as well as experience in the management of employees and enjoyment of their further development\n\n• Strong organisational talent with the ability to set priorities and coordinate complex processes forward-looking, as well as a high level of initiative and an independent, structured and solution-oriented working method\n\n• Very good communication skills, social skills and assertiveness, as well as a high degree of discretion, reliability and responsibility; professional attitude towards different professional groups and hierarchical levels, very good knowledge of German in words and writing as well as safe handling of digital work equipment and office applications; English language skills and experience with clinical information systems\n\nWe offer:\n• A versatile key position with high personal responsibility and direct insight into the management and further development of a modern pneumological clinic\n\n• A function that combines chief medical assistant, personnel management and operational coordination and offers you a correspondingly large scope for design\n\n• Close cooperation with the chief physician, the clinic management, the medical profession, nursing and other professional groups as well as the opportunity to actively contribute our own ideas for the further development of our structures and processes\n\n• Careful and comprehensive training within the framework of succession regulation as well as an innovative interprofessional working environment with modern working conditions and opportunities for personal and professional development",
         "fr": "L'Hôpital cantonal de Lucerne avec ses emplacements à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient donc à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24h/24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. <br/><br/ > Pour notre équipe, nous cherchons 01. Mars 2027 ou par le renforcement de l'accord.\n\nTâches :\n• Personnel et gestion professionnelle ainsi que développement du secrétariat médical et coordination des interfaces centrales entre la profession médicale, les soins infirmiers, le secrétariat et les autres partenaires internes et externes\n\n• Appui organisationnel et administratif étroit du médecin en chef, y compris les questions de personnel et d'organisation\n\n• Cogestion d'opérations cliniques efficaces, en particulier la capacité, la nomination et la planification des ressources des heures de consultation et des interventions, ainsi que l'organisation et la coordination des réunions, de la formation, des événements et d'autres activités internes\n\n• Collaboration dans les projets organisationnels et stratégiques ainsi que dans la poursuite du développement des processus administratifs, la préparation des documents, des présentations, des évaluations et de la prise de décisions ainsi que l ' appui à la planification budgétaire, au contrôle et à la gestion administrative\n\nExigences\n• L'enseignement commercial ou une qualification équivalente complétée; La formation continue en leadership, en gestion ou en soins de santé est bénéfique\n\n• Plusieurs années d'expérience professionnelle dans une fonction exigeante d'assistant, de coordination ou de gestion, idéalement dans le secteur de la santé, ainsi que l'expérience dans la gestion des employés et la jouissance de leur développement ultérieur\n\n• Un fort talent organisationnel capable de fixer des priorités et de coordonner des processus complexes tournés vers l'avenir, ainsi qu'un haut niveau d'initiative et une méthode de travail indépendante, structurée et orientée vers la solution\n\n• Très bonnes compétences en communication, compétences sociales et assurance, ainsi qu'un haut degré de discrétion, de fiabilité et de responsabilité; attitude professionnelle vis-à-vis des différents groupes professionnels et niveaux hiérarchiques, très bonne connaissance de l'allemand dans les mots et l'écriture ainsi que la manipulation sûre des équipements de travail numériques et des applications de bureau; Compétences en anglais et expérience des systèmes d'information clinique\n\nNous offrons:\n• Une position clé polyvalente avec une haute responsabilité personnelle et un aperçu direct de la gestion et du développement d'une clinique pneumologique moderne\n\n• Une fonction qui combine l'assistant médical en chef, la gestion du personnel et la coordination opérationnelle et qui vous offre un large champ de conception correspondant\n\n• Collaboration étroite avec le médecin en chef, la direction de la clinique, la profession médicale, les soins infirmiers et d'autres groupes professionnels ainsi que l'occasion de contribuer activement à l'élaboration de nos structures et de nos processus\n\n• Une formation attentive et complète dans le cadre de la réglementation de la relève ainsi qu'un environnement de travail interprofessionnel innovant avec des conditions de travail modernes et des possibilités de développement personnel et professionnel"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat/143d9cca-cd02-4d64-b12e-93b844c7a744",
@@ -17225,11 +17236,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks",
+          "assistenz-des-chefarztes-pneumologie-e-leitung-medizinisches-sekretariat-80-100-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks"
+        ],
+        "fr": [
           "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks"
         ]
       },
       "previousSlugs": [
-        "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks"
+        "assistenz-des-chefarztes-pneumologie-und-leitung-medizinisches-sekretariat-80-100-luks",
+        "assistenz-des-chefarztes-pneumologie-e-leitung-medizinisches-sekretariat-80-100-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -17410,12 +17429,12 @@
     },
     {
       "id": "luks-9c827ae80031",
-      "slug": "leitung-pflege-augenklinik-e-mitglied-der-klinikleitung-luzerner-kantonsspital-luks-luzern",
+      "slug": "responsabile-delle-cure-infermieristiche-della-clinica-oculistica-e-membro-della-direzione-della-clinica-luzerner",
       "slugByLocale": {
         "de": "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern",
-        "it": "leitung-pflege-augenklinik-e-mitglied-der-klinikleitung-luzerner-kantonsspital-luks-luzern",
-        "en": "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern",
-        "fr": "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern"
+        "it": "responsabile-delle-cure-infermieristiche-della-clinica-oculistica-e-membro-della-direzione-della-clinica-luzerner",
+        "en": "head-of-care-eye-clinic-and-member-of-clinic-management-luzerner-kantonsspital-luks-luzern",
+        "fr": "responsable-de-la-clinique-des-yeux-et-membre-de-la-direction-de-la-clinique-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17434,7 +17453,6 @@
         "en": "The Lucerne Canton Hospital with its locations in Lucerne, Sursee and Wolhusen is a company of the LUKS Group and thus belongs to one of the leading hospital groups in Switzerland. The more than 8,500 employees are there with warmth, competence and commitment around the clock for the well-being of patients. The clinics and institutes of the LUKS Group offer medical services of the highest quality. <br/><br/ >We are looking for our team on January 1, 2027 or by agreement.\n\nTasks:\n• As CO-Head of Eye Clinic, you take over the strategic and operational management of the care service incl. OP, recovery room and day clinic with partial responsibility for the entire eye clinic.\n\n• They are responsible for the direct and indirect management of the care area and share responsibility for the entire eye clinic (about 250 employees).\n\n• You optimize processes and resources, drive digitization and carry budget responsibility for your management area and keep an eye on the eye clinic’s overall budget.\n\n• From leadership indicators, you derive suitable measures to develop the eye link and position it successfully in the long term.\n\nRequirements\n• They have completed training in nursing and have already completed further training in business administration, leadership or company management.\n\n• They have several years of management experience and are used to implementing strategic and operational measures\n\n• You are an innovative and empathetic leader, think strategically and implement projects in an interprofessional environment.\n\n• Through your strong communication and team skills, you successfully shape the change process and contribute positively to the company culture.\n\nWe offer:\n• A dynamic and motivated team\n\n• An exciting leadership position with a high degree of design freedom\n\n• A professional working environment at the highest medical level\n\n• Attractive employment conditions",
         "fr": "L'Hôpital cantonal de Lucerne avec ses emplacements à Lucerne, Sursee et Wolhusen est une société du groupe LUKS et appartient donc à l'un des principaux groupes hospitaliers en Suisse. Plus de 8 500 employés sont là avec chaleur, compétence et engagement 24h/24 pour le bien-être des patients. Les cliniques et instituts du groupe LUKS offrent des services médicaux de la plus haute qualité. Nous sommes à la recherche de notre équipe le 1er janvier 2027 ou d'un accord.\n\nTâches :\n• En tant que CO-Chef de clinique des yeux, vous prenez en charge la gestion stratégique et opérationnelle du service de soins, y compris. OP, salle de récupération et clinique de jour avec responsabilité partielle pour l'ensemble de la clinique oculaire.\n\n• Ils sont responsables de la gestion directe et indirecte de la zone de soins et partagent la responsabilité de l'ensemble de la clinique oculaire (environ 250 employés).\n\n• Vous optimisez les processus et les ressources, dirigez la numérisation et portez la responsabilité budgétaire de votre secteur de gestion et surveillez le budget global de la clinique oculaire.\n\n• À partir d'indicateurs de leadership, vous tirez des mesures appropriées pour développer le lien oculaire et le positionner avec succès à long terme.\n\nExigences\n• Ils ont suivi une formation en soins infirmiers et ont déjà suivi une formation complémentaire en administration des affaires, en leadership ou en gestion d'entreprise.\n\n• Ils ont plusieurs années d'expérience en gestion et sont utilisés pour mettre en œuvre des mesures stratégiques et opérationnelles\n\n• Vous êtes un leader innovant et empathique, pensez stratégiquement et mettez en œuvre des projets dans un environnement interprofessionnel.\n\n• Grâce à vos solides compétences en communication et en équipe, vous façonnez avec succès le processus de changement et contribuez positivement à la culture de l'entreprise.\n\nNous offrons:\n• Une équipe dynamique et motivée\n\n• Un poste de leadership passionnant avec un haut degré de liberté de conception\n\n• Un environnement de travail professionnel au plus haut niveau médical\n\n• Conditions d'emploi attrayantes"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.luks.ch/offene-stellen/leitung-pflege-augenklinik-und-mitglied-der-klinikleitung/49820190-4380-4191-9f09-0efbd0b17784",
@@ -17464,11 +17482,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern",
+          "leitung-pflege-augenklinik-e-mitglied-der-klinikleitung-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern"
+        ],
+        "fr": [
           "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern"
+        "leitung-pflege-augenklinik-und-mitglied-der-klinikleitung-luks-luzern",
+        "leitung-pflege-augenklinik-e-mitglied-der-klinikleitung-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -17487,12 +17513,12 @@
     },
     {
       "id": "luks-5bcd5ed42586",
-      "slug": "laborantin-laborant-herstellung-80-luks-luzern",
+      "slug": "assistente-produzione-di-laboratorio-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "laborantin-laborant-herstellung-80-luks-luzern",
-        "it": "laborantin-laborant-herstellung-80-luks-luzern",
-        "en": "laborantin-laborant-herstellung-80-luks-luzern",
-        "fr": "laborantin-laborant-herstellung-80-luks-luzern"
+        "it": "assistente-produzione-di-laboratorio-80-luzerner-kantonsspital-luks-luzern",
+        "en": "laboratory-assistant-laborant-production-80-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistant-de-laboratoire-producteur-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17551,16 +17577,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:21:59.572Z"
+      "firstSeenAt": "2026-10-22T09:21:59.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborantin-laborant-herstellung-80-luks-luzern"
+        ],
+        "en": [
+          "laborantin-laborant-herstellung-80-luks-luzern"
+        ],
+        "fr": [
+          "laborantin-laborant-herstellung-80-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "laborantin-laborant-herstellung-80-luks-luzern"
+      ]
     },
     {
       "id": "luks-aad06b419591",
-      "slug": "apothekerin-apotheker-herstellung-60-luks-luzern",
+      "slug": "pharmacist-pharmacist-produzione-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "apothekerin-apotheker-herstellung-60-luks-luzern",
-        "it": "apothekerin-apotheker-herstellung-60-luks-luzern",
-        "en": "apothekerin-apotheker-herstellung-60-luks-luzern",
-        "fr": "apothekerin-apotheker-herstellung-60-luks-luzern"
+        "it": "pharmacist-pharmacist-produzione-60-luzerner-kantonsspital-luks-luzern",
+        "en": "pharmacist-pharmacist-production-60-luzerner-kantonsspital-luks-luzern",
+        "fr": "pharmacienne-pharmacienne-production-60-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17619,7 +17659,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:21:59.556Z"
+      "firstSeenAt": "2026-10-22T09:21:59.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apothekerin-apotheker-herstellung-60-luks-luzern"
+        ],
+        "en": [
+          "apothekerin-apotheker-herstellung-60-luks-luzern"
+        ],
+        "fr": [
+          "apothekerin-apotheker-herstellung-60-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "apothekerin-apotheker-herstellung-60-luks-luzern"
+      ]
     },
     {
       "id": "luks-6cab7100671f",

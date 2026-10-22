@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109689",
+      "sourceKey": "TG",
+      "sourceRecordId": "109689",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "1307",
+      "normalizedPlate": "TG1307",
+      "listingType": "auction",
+      "vehicleType": "motorcycle",
+      "auctionStatus": "closed",
+      "currentBidChf": 520,
+      "bidCount": 3,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109689",
+      "sourceFetchedAt": "2026-10-20T17:04:39.168Z",
+      "lastVerifiedAt": "2026-10-20T17:04:39.168Z",
+      "firstSeenAt": "2026-10-07T06:06:06.221Z",
+      "lastSeenAt": "2026-10-20T17:04:39.168Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "7e9a986d2237"
+    }
+  ]
+}

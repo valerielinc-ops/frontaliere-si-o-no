@@ -10202,12 +10202,12 @@
     },
     {
       "id": "anker-swiss-b2b32af9f835",
-      "slug": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+      "slug": "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
       "slugByLocale": {
         "de": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "it": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "en": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "fr": "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
+        "it": "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "en": "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
+        "fr": "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
       },
       "slugDisambiguator": "b2b32af9",
       "company": "Anker Swiss Ticino AG",
@@ -10255,32 +10255,30 @@
         "de": []
       },
       "previousSlugs": [
-        "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
-        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
         "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
         "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
         "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+        "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+        "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
           "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+          "lavoratori-di-trapano-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
         ],
         "en": [
-          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
           "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+          "drill-workers-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
         ],
         "de": [
           "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
         ],
         "fr": [
-          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9",
           "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
-          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6"
+          "travailleurs-du-forage-100-anker-swiss-ticino-ag-kirchleerau-5197b2c6",
+          "bohrarbeiter-100-anker-swiss-ticino-ag-kirchleerau-b2b32af9"
         ]
       },
       "salaryMin": 62000,
@@ -14489,12 +14487,12 @@
     },
     {
       "id": "anker-swiss-aa01b5a84c2a",
-      "slug": "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8",
+      "slug": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-luscherz-aa01b5a8",
       "slugByLocale": {
         "de": "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8",
-        "it": "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8",
-        "en": "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8",
-        "fr": "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8"
+        "it": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-luscherz-aa01b5a8",
+        "en": "heating-installer-100-anker-swiss-ticino-ag-luscherz-aa01b5a8",
+        "fr": "installateur-de-chauffage-100-anker-swiss-ticino-ag-luscherz-aa01b5a8"
       },
       "slugDisambiguator": "aa01b5a8",
       "company": "Anker Swiss Ticino AG",
@@ -14554,16 +14552,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:27:40.171Z"
+      "firstSeenAt": "2026-10-22T09:27:40.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8"
+        ],
+        "en": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8"
+        ],
+        "fr": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-100-anker-swiss-ticino-ag-luscherz-aa01b5a8"
+      ]
     },
     {
       "id": "anker-swiss-164a1eb96b82",
-      "slug": "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9",
+      "slug": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-orpund-164a1eb9",
       "slugByLocale": {
         "de": "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9",
-        "it": "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9",
-        "en": "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9",
-        "fr": "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9"
+        "it": "installatore-di-riscaldamento-100-anker-swiss-ticino-ag-orpund-164a1eb9",
+        "en": "heating-installer-100-anker-swiss-ticino-ag-orpund-164a1eb9",
+        "fr": "installateur-de-chauffage-100-anker-swiss-ticino-ag-orpund-164a1eb9"
       },
       "slugDisambiguator": "164a1eb9",
       "company": "Anker Swiss Ticino AG",
@@ -14623,7 +14635,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:27:40.171Z"
+      "firstSeenAt": "2026-10-22T09:27:40.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9"
+        ],
+        "en": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9"
+        ],
+        "fr": [
+          "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-100-anker-swiss-ticino-ag-orpund-164a1eb9"
+      ]
     },
     {
       "id": "anker-swiss-d5522a92b391",
@@ -14708,12 +14734,12 @@
     },
     {
       "id": "anker-swiss-be663c0768af",
-      "slug": "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07",
+      "slug": "tiro-professionista-assistente-automobilistico-100-anker-swiss-ticino-ag-bern-be663c07",
       "slugByLocale": {
         "de": "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07",
-        "it": "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07",
-        "en": "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07",
-        "fr": "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07"
+        "it": "tiro-professionista-assistente-automobilistico-100-anker-swiss-ticino-ag-bern-be663c07",
+        "en": "tyre-practitioner-automotive-assistant-100-anker-swiss-ticino-ag-bern-be663c07",
+        "fr": "specialiste-des-pneumatiques-automotive-assistant-100-anker-swiss-ticino-ag-bern-be663c07"
       },
       "slugDisambiguator": "be663c07",
       "company": "Anker Swiss Ticino AG",
@@ -14773,16 +14799,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:27:40.170Z"
+      "firstSeenAt": "2026-10-22T09:27:40.170Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07"
+        ],
+        "en": [
+          "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07"
+        ],
+        "fr": [
+          "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07"
+        ]
+      },
+      "previousSlugs": [
+        "reifenpraktiker-automobil-assistent-100-anker-swiss-ticino-ag-bern-be663c07"
+      ]
     },
     {
       "id": "anker-swiss-6b32799de0b3",
-      "slug": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
+      "slug": "installatore-sanitario-100-anker-swiss-ticino-ag-bern-6b32799d",
       "slugByLocale": {
         "de": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
-        "it": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
-        "en": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d",
-        "fr": "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d"
+        "it": "installatore-sanitario-100-anker-swiss-ticino-ag-bern-6b32799d",
+        "en": "sanitary-installer-100-anker-swiss-ticino-ag-bern-6b32799d",
+        "fr": "installation-sanitaire-100-anker-swiss-ticino-ag-bern-6b32799d"
       },
       "slugDisambiguator": "6b32799d",
       "company": "Anker Swiss Ticino AG",
@@ -14831,14 +14871,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412",
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d"
         ],
         "de": [
           "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
+        ],
+        "en": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d"
+        ],
+        "fr": [
+          "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d"
         ]
       },
       "previousSlugs": [
-        "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412"
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-29e5a412",
+        "sanitarinstallateur-100-anker-swiss-ticino-ag-bern-6b32799d"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -14857,12 +14905,12 @@
     },
     {
       "id": "anker-swiss-2b78322273bb",
-      "slug": "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222",
+      "slug": "operatore-di-macchine-da-costruzione-100-anker-swiss-ticino-ag-wurenlingen-2b783222",
       "slugByLocale": {
         "de": "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222",
-        "it": "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222",
-        "en": "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222",
-        "fr": "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222"
+        "it": "operatore-di-macchine-da-costruzione-100-anker-swiss-ticino-ag-wurenlingen-2b783222",
+        "en": "construction-machinery-operator-100-anker-swiss-ticino-ag-wurenlingen-2b783222",
+        "fr": "operateur-de-machines-de-construction-100-anker-swiss-ticino-ag-wurenlingen-2b783222"
       },
       "slugDisambiguator": "2b783222",
       "company": "Anker Swiss Ticino AG",
@@ -14922,7 +14970,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T09:27:40.169Z"
+      "firstSeenAt": "2026-10-22T09:27:40.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222"
+        ],
+        "en": [
+          "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222"
+        ],
+        "fr": [
+          "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenfuhrer-100-anker-swiss-ticino-ag-wurenlingen-2b783222"
+      ]
     },
     {
       "id": "anker-swiss-504faf237a87",

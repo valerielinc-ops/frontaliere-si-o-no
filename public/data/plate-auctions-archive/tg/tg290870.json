@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109834",
+      "sourceKey": "TG",
+      "sourceRecordId": "109834",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "290870",
+      "normalizedPlate": "TG290870",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 600,
+      "bidCount": 1,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109834",
+      "sourceFetchedAt": "2026-10-21T11:49:02.461Z",
+      "lastVerifiedAt": "2026-10-21T11:49:02.461Z",
+      "firstSeenAt": "2026-10-14T17:15:36.080Z",
+      "lastSeenAt": "2026-10-21T11:49:02.461Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "3d3cf60020a5"
+    }
+  ]
+}

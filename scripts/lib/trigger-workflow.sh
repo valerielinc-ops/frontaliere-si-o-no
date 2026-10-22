@@ -2,15 +2,11 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # scripts/lib/trigger-workflow.sh — Generic workflow_dispatch trigger engine.
 #
-# Extracted from scripts/lib/trigger-deploy.sh (issue #4837 stream C) so a
-# second workflow that needs "wait for a ref to contain a SHA, then dispatch
-# exactly once" doesn't hand-roll a second copy of the same HTTP/ref-poll
-# construct (AGENTS.md Non-Negotiable #6 — a literal duplicate is what the pre-push
-# check-sibling-patterns.mjs hook flags). trigger-deploy.sh is now a thin
-# wrapper around this engine — see that file's comment header. Per-workflow
-# input SHAPE (which keys go in `inputs`) legitimately differs per caller, so
-# that part stays in each caller; only the identical ref-wait +
-# dispatch + exact-run validation + output-contract machinery lives here.
+# Shared workflow_dispatch engine for callers that still need to wait for a ref
+# and dispatch a non-deploy workflow exactly once. Per-workflow input SHAPE
+# (which keys go in `inputs`) legitimately differs per caller, so that part
+# stays in each caller; only the identical ref-wait + dispatch + exact-run
+# validation + output-contract machinery lives here.
 #
 # GITHUB_TOKEN pushes/label-applies do NOT trigger other workflows (GitHub
 # anti-recursion rule) — this script uses a PAT to fire workflow_dispatch.
@@ -18,7 +14,7 @@
 # Usage:
 #   scripts/lib/trigger-workflow.sh <workflow-file> <inputs-json>
 #
-#   <workflow-file>  — e.g. "deploy.yml", "fast-publish-article.yml"
+#   <workflow-file>  — e.g. "fast-publish-article.yml", "generate-article.yml"
 #   <inputs-json>    — JSON object of already-filtered (non-empty-only)
 #                       workflow_dispatch inputs, e.g. '{"article_id":"abc"}'.
 #                       Pass '{}' or omit for no inputs.
@@ -83,6 +79,14 @@ write_output() {
     printf '%s=%s\n' "$key" "$value" >> "$GITHUB_OUTPUT"
   fi
 }
+
+case "$WORKFLOW_FILE" in
+  deploy.yml|deploy-publish.yml)
+    echo "::error::${WORKFLOW_FILE} è auto-rilanciato dal sito; gli agent non possono dispatcharlo tramite questo helper" >&2
+    write_output "dispatch_sent" "false"
+    exit 1
+    ;;
+esac
 
 # Resolve a token — prefer GITHUB_PAT, fall back to GH_TOKEN
 TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}"

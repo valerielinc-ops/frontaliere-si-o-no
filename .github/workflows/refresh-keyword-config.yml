@@ -29,10 +29,7 @@ jobs:
 
       - name: Install dependencies
         # Needed by "Load RC secrets" below (scripts/load-rc-env.mjs dynamically
-        # imports firebase-admin, an npm package, not a builtin). Without this,
-        # the import throws, is caught silently, and GITHUB_PAT never gets
-        # hydrated from Remote Config — leaving the deploy trigger dependent on
-        # the App-token mint succeeding, with no visible failure otherwise.
+        # imports firebase-admin, an npm package, not a builtin).
         run: npm ci --no-audit --no-fund
 
       - name: Prepare Firebase credentials for push auth
@@ -105,40 +102,12 @@ jobs:
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      # Primary identity for the deploy dispatch below = GitHub App installation
-      # token (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and
-      # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
-      # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
-      - name: Mint App token (primary identity, PAT fallback)
-        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      - name: Trigger deploy if config changed
+      - name: Record self-driven deploy handoff if config changed
         # keyword-pages-config.json feeds build-plugins/jobsSeoPagesPlugin.ts
         # directly, so a config change with no deploy leaves new keyword pages
         # (e.g. profession-gap feed) generated but never published (#3467).
-        # The commit above pushes via GITHUB_TOKEN, which never triggers
-        # deploy.yml's `push` event (GitHub anti-recursion) — same class of
-        # gap fixed for sync-gsc-orphans.yml (#2861 item 1).
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
-        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
-        # fails the job, caught by "Report failure to GitHub Issues" below —
-        # that GitHub issue IS this caller's recovery net (auto-triage picks
-        # it up), so silencing the failure would just hide a real deploy gap.
-        run: bash scripts/lib/trigger-deploy.sh
-        env:
-          # trigger-deploy.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override
-          # with the App token when minted (primary identity), PAT otherwise.
-          # GITHUB_PAT is loaded into $GITHUB_ENV by "Load RC secrets" above
-          # (Firebase RC, not an Actions secret). Don't shadow with secrets.*:
-          # trigger-deploy.sh would then run with an empty token (#878).
-          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: echo '✅ Config committata; deploy.yml verrà avviato dal proprio schedule.'
 
       - name: Report failure to GitHub Issues
         if: failure()

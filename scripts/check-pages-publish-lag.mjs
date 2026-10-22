@@ -3,8 +3,8 @@ import { realpathSync } from 'node:fs';
  * check-pages-publish-lag.mjs — Watchdog for the deploy→PUBLISH gap.
  *
  * `deploy.yml` only BUILDS and uploads a `github-pages` artifact. A separate
- * workflow, `deploy-publish.yml` (explicitly dispatched by the durable
- * coordinator after deploy.yml completion), does the actual
+ * workflow, `deploy-publish.yml` (dispatched by the completed build itself,
+ * with the publish-only reconciler as backstop), does the actual
  * `actions/deploy-pages` PUBLISH in the
  * deploy job's `concurrency: { group: pages-deploy, cancel-in-progress: false }`.
  * Per GitHub's documented 1-running+1-pending cap for a concurrency group, a
@@ -31,14 +31,16 @@ import { realpathSync } from 'node:fs';
  * growing lag, same pending file list — which is why the distinction belongs
  * here. Two overlapping defects:
  *
- *   · `workflow_run: types: [completed]` fires for the build runs deploy.yml's
+ *   · the old `workflow_run` fan-in fired for the build runs deploy.yml's
  *     own newest-wins lock CANCELS (121 of 141 builds per 48 h, #5251). Those
  *     runs skip every job, but a run joins its concurrency group BEFORE any
  *     job `if:` is evaluated, and an arrival into a full group (1 running +
  *     1 pending) cancels the PENDING member. No-op 31100260885 arrived
  *     12:10:14, killed queued publish 31100206740 at 12:10:15, then skipped at
  *     12:14:48: one second of work in exchange for a whole publish. Two thirds
- *     of everything entering the group was such a no-op.
+ *     of everything entering the group was such a no-op. The direct
+ *     build→publish handoff now admits only a verified successful source
+ *     build; the publish-only reconciler remains the backstop.
  *   · nothing in that group had a deadline. A `deploy` job parked at the
  *     `github-pages` environment gate is not "running", so neither
  *     `timeout-minutes` nor the 360-min default applies — run 31118787881 sat

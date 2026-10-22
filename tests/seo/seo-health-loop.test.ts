@@ -183,9 +183,9 @@ describe('SEO health contract', () => {
     expect(WORKFLOW_SOURCE).toContain('actions/upload-artifact@v7');
     expect(WORKFLOW_SOURCE).toContain('if-no-files-found: error');
     expect(WORKFLOW_SOURCE).toContain('always() && inputs.dry_run != true && (steps.health.outcome');
-    expect(WORKFLOW_SOURCE).toContain('EXPECTED_SHA=');
-    expect(WORKFLOW_SOURCE).toContain('No deploy token available');
-    expect(WORKFLOW_SOURCE).toContain("dispatch_sent=true");
+    expect(WORKFLOW_SOURCE).toContain('deploy.yml verrà avviato dal proprio schedule');
+    expect(WORKFLOW_SOURCE).not.toContain('trigger-deploy.sh');
+    expect(WORKFLOW_SOURCE).not.toContain('gh workflow run deploy.yml');
     expect(WORKFLOW_SOURCE).toContain("default: '320'");
     expect(WORKFLOW_SOURCE).toContain("HEALTH_ERROR_SAMPLE: ${{ inputs.error_sample || '320' }}");
     expect(WORKFLOW_SOURCE).not.toMatch(/purge/i);

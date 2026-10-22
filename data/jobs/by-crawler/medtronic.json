@@ -645,11 +645,11 @@
     },
     {
       "id": "medtronic-ebd3dec45692",
-      "slug": "equipment-engineer-medtronic-ch",
+      "slug": "equipment-ingegnere-medtronic-lausanne",
       "slugByLocale": {
         "en": "equipment-engineer-medtronic-ch",
-        "it": "equipment-engineer-medtronic-ch",
-        "de": "equipment-engineer-medtronic-ch",
+        "it": "equipment-ingegnere-medtronic-lausanne",
+        "de": "equipment-ingenieur-medtronic-lausanne",
         "fr": "equipment-engineer-medtronic-ch"
       },
       "company": "Medtronic",
@@ -709,7 +709,18 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-10-22T09:17:12.067Z"
+      "firstSeenAt": "2026-10-22T09:17:12.067Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "equipment-engineer-medtronic-ch"
+        ],
+        "de": [
+          "equipment-engineer-medtronic-ch"
+        ]
+      },
+      "previousSlugs": [
+        "equipment-engineer-medtronic-ch"
+      ]
     }
   ]
 }

@@ -248,6 +248,20 @@ describe('extractArticleText', () => {
       expect(result.text).toContain(outerParagraph);
     });
 
+  it.each([
+    ['break', 'block comment', 'break/*\n*/foo'],
+    ['continue', 'block comment', 'continue/*\n*/foo'],
+    ['break', 'HTML comment', 'break<!--\n-->foo'],
+    ['continue', 'HTML comment', 'continue<!--\n-->foo'],
+  ])('does not retain a %s label through a line break in a %s', (_keyword, _commentKind, prefix) => {
+    const outerParagraph = 'Outer source prose after a commented break or continue remains available to extraction.';
+    const html = `<main><noscript><script>${prefix}\n/ 2 `
+      + `</noscript><p>${outerParagraph}</p></main>`;
+    const result = extractArticleText(html, { scriptingDisabled: true });
+
+    expect(result.text).toContain(outerParagraph);
+  });
+
   it('ignores raw-text-looking openers inside HTML comments', () => {
     const outerParagraph = 'Editorial prose after a commented script opener remains available to extraction.';
     const html = '<main><noscript><!-- <script> -->'

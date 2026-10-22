@@ -285,13 +285,13 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
 
       if (file === 'backfill-expired-from-history.yml') {
         expect(source).toContain('git-commit-data.sh --slice-only');
-        expect(source).toContain('- name: Trigger deploy after validated backfill');
+        expect(source).toContain('- name: Record self-driven deploy handoff after validated backfill');
         continue;
       }
 
       const commitAt = source.indexOf('- name: Commit and push changed slices');
       const convergenceAt = source.indexOf('- name: Verify persisted expired archive convergence');
-      const deployAt = source.indexOf('- name: Trigger deploy if data changed');
+      const deployAt = source.indexOf('- name: Record self-driven deploy handoff if data changed');
       expect(commitAt).toBeGreaterThan(auditAt);
       expect(convergenceAt).toBeGreaterThan(commitAt);
       expect(deployAt).toBeGreaterThan(convergenceAt);

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "kispi-sg-d183a03863df",
-      "slug": "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen",
+      "slug": "tirocinante-nell-assistenza-e-nella-cura-romerhuus-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
         "de": "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
-        "it": "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen",
-        "en": "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
-        "fr": "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
+        "it": "tirocinante-nell-assistenza-e-nella-cura-romerhuus-ostschweizer-kinderspital-st-gallen",
+        "en": "intern-in-nursing-and-care-romerhuus-ostschweizer-kinderspital-st-gallen",
+        "fr": "stagiaire-en-soins-et-accompagnement-romerhuus-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -29,7 +29,6 @@
         "en": "As of February 1, 2027, we are looking for an intern (80%) for our psychosomatic therapy unit. The employment is limited to 31. July 2027.\n\nTheir tasks\n• They carry out various activities in the delegation of social workers and nurses\n• The focus of the work is on tasks in the area of care and support of adolescents with psychosomatic disorders\n\nYour profile\n• You would like to complete an internship as a prerequisite for studying in the field of social pedagogy / social work\n• You are at least 21 years old\n• You are a sociable, interested personality with good comprehension and joy in dealing with children and young people\n\nWe offer them\n• You will have the opportunity to get to know the various professional groups, but above all the field of work of social pedagogy\n• Through the insight you create a decision support for the choice of career or the prerequisites for a training place and get the opportunity to make a social work during the training\n• Experienced social educators and nurses accompany and support you during the internship\n\nYour work area\nThe psychosomatic therapy unit Romerhuus offers space for nine adolescents aged 12 to 18 in an open house. We accompany adolescents with eating disorders, somatoform disorders such as chronic pain syndromes, dissociative disorders such as non-epileptic seizures, anxiety – and other emotional disorders, adaptation disorders including maturation crises, trauma follow-up disorders and psychosocial accompanying disorders in chronic diseases around the clock. A milieutherapeutic environment includes individual care, which is designed for personal needs, resources, health and current problems. The nursing and care team also supports the young people in everyday life, so that they rediscover or develop their abilities and strengths, as well as learn to use them specifically. The involvement of parents and the entire family system is important and self-evident for us and serves a holistic and targeted care.",
         "fr": "Au 1er février 2027, nous cherchons un stagiaire (80 %) pour notre unité de thérapie psychosomatique. L'emploi est limité à 31. Juillet 2027.\n\nLeurs tâches\n• Ils mènent diverses activités dans la délégation des travailleurs sociaux et des infirmières\n• L'accent est mis sur les tâches dans le domaine des soins et du soutien aux adolescents atteints de troubles psychosomatiques.\n\nVotre profil\n• Vous souhaitez terminer un stage comme condition préalable pour étudier dans le domaine de la pédagogie sociale / travail social\n• Vous avez au moins 21 ans.\n• Vous êtes une personnalité sociable et intéressée avec une bonne compréhension et la joie de traiter avec les enfants et les jeunes\n\nNous leur offrons\n• Vous aurez l'occasion de connaître les différents groupes professionnels, mais surtout le domaine de la pédagogie sociale\n• Par la perspicacité, vous créez un soutien à la décision pour le choix de carrière ou les conditions préalables pour un lieu de formation et obtenez la possibilité de faire un travail social pendant la formation\n• Des éducateurs et infirmières expérimentés vous accompagnent et vous soutiennent pendant le stage\n\nVotre domaine de travail\nL'unité de thérapie psychosomatique Romerhuus offre de l'espace pour neuf adolescents âgés de 12 à 18 ans dans une maison ouverte. Nous accompagnons les adolescents avec des troubles de l'alimentation, des troubles somatoformes tels que les syndromes de douleur chronique, des troubles dissociatifs tels que les crises non épileptiques, l'anxiété – et d'autres troubles émotionnels, des troubles d'adaptation incluant des crises de maturation, des troubles de suivi des traumatismes et des troubles d'accompagnement psychosocial dans les maladies chroniques 24 heures sur 24. Un milieu thérapeutique comprend des soins individuels, conçus pour répondre aux besoins personnels, aux ressources, à la santé et aux problèmes actuels. L'équipe de soins infirmiers soutient également les jeunes dans la vie quotidienne, afin qu'ils redécouvrent ou développent leurs capacités et leurs forces, et apprennent à les utiliser spécifiquement. La participation des parents et de l'ensemble du système familial est importante et évidente pour nous et sert un soin holistique et ciblé."
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://www.oks.ch/de/stellen/praktikant/in-pflege-und-betreuung-%28romerhuus%29-3048",
@@ -58,11 +57,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
+          "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
+          "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
+        ],
+        "fr": [
           "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen"
+        "praktikant-in-pflege-und-betreuung-romerhuus-kispi-sg-st-gallen",
+        "praktikant-in-pflege-e-betreuung-romerhuus-ostschweizer-kinderspital-st-gallen"
       ],
       "salaryMin": 73000,
       "salaryMax": 102000,

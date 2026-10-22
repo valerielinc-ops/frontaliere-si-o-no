@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "tg-109810",
+      "sourceKey": "TG",
+      "sourceRecordId": "109810",
+      "canton": "Turgovia",
+      "platePrefix": "TG",
+      "plateNumber": "888005",
+      "normalizedPlate": "TG888005",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 610,
+      "bidCount": 2,
+      "endsAt": "2026-10-21T17:00:00.000Z",
+      "closedAt": "2026-10-21T17:00:00.000Z",
+      "officialAuctionUrl": "https://www.auktion.tg.ch/de/",
+      "officialDetailUrl": "https://www.auktion.tg.ch/de/auction/109810",
+      "sourceFetchedAt": "2026-10-21T04:46:43.306Z",
+      "lastVerifiedAt": "2026-10-21T04:46:43.306Z",
+      "firstSeenAt": "2026-10-08T13:36:22.133Z",
+      "lastSeenAt": "2026-10-21T04:46:43.306Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "6d3e5a74c024"
+    }
+  ]
+}

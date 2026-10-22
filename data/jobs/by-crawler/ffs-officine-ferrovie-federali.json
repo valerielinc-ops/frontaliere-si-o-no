@@ -1,7 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
   "assembledAt": "2026-10-22T09:40:22.105Z",
-  "runId": "39754121398",
   "jobs": [
     {
       "id": "sbb-9c40b250ef56",
@@ -11256,7 +11255,8 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-ziegelbruecke-12-2026/ccd01a0f-250a-477d-a0c6-32ccf0164df3",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-61287b0752b6",
@@ -13244,5 +13244,6 @@
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/elektroinstallateur-in-elektrofachpersonal-in-der-welt-der-technischen-bahnberufe/8d93b023-24ce-47a6-937b-89eebe726968",
       "crawlerMissStreak": 1
     }
-  ]
+  ],
+  "runId": "39754121398"
 }

@@ -3,7 +3,7 @@ import { addressQuestionTopic, ageAt, SENSITIVE, answeredByCandidate, candidateA
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, residenceCountryOptionLabel, searchHolds, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -87,6 +87,34 @@ describe('assisted application profile history and file replacement', () => {
     expect(await uploadReceipt(visibleWorkdayName as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(false);
     const visibleNonWorkdayReceipt = { ...visibleWorkdayName, url: () => 'https://jobs.example/apply' };
     expect(await uploadReceipt(visibleNonWorkdayReceipt as any, locator as any, ['/tmp/CV.pdf'], { timeoutMs: 0 })).toBe(true);
+  });
+});
+
+describe('upload dialog frame safety', () => {
+  it.each([
+    ['unknown dialog count', null, []],
+    ['unknown dialog handles', 1, null],
+  ])('fails closed when a new frame is unreadable alongside a candidate (%s)', async (_label, unknownCount, unknownHandles) => {
+    const candidate = {};
+    const candidateFrame = {
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => 1),
+        elementHandles: vi.fn(async () => [candidate]),
+      })),
+    };
+    const unreadableFrame = {
+      locator: vi.fn(() => ({
+        count: vi.fn(async () => unknownCount),
+        elementHandles: vi.fn(async () => unknownHandles),
+      })),
+    };
+    const page = {
+      frames: () => [candidateFrame, unreadableFrame],
+      mainFrame: () => candidateFrame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+
+    expect(await dialogFileInput(page as any, candidateFrame as any, new Map(), new Map(), 20)).toBeNull();
   });
 });
 

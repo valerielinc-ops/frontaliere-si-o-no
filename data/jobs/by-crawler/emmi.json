@@ -209,7 +209,7 @@
         "it": "operatore-macchina-emmi-emmen-luzern",
         "en": "machine-operator-emmi-emmen-luzern",
         "de": "maschinenfuhrer-in-emmi-ch",
-        "fr": "conducteur-trice-de-machines-emmi-emmen"
+        "fr": "operateur-de-machine-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -270,7 +270,7 @@
       "previousSlugs": [
         "maschinenfuhrer-in-emmi-ch",
         "maschinenfuhrer-in-emmi-emmen",
-        "operateur-de-machine-emmi-emmen-luzern"
+        "conducteur-trice-de-machines-emmi-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -278,7 +278,7 @@
           "maschinenfuhrer-in-emmi-emmen"
         ],
         "fr": [
-          "operateur-de-machine-emmi-emmen-luzern"
+          "conducteur-trice-de-machines-emmi-emmen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
@@ -4419,7 +4419,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:21:42.498Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7092,7 +7091,7 @@
         "it": "risorse-umane-business-partner-emmi-bischofszell",
         "en": "hr-business-partner-emmi-ch",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-bischofszell"
+        "fr": "partenaire-rh-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7149,14 +7148,14 @@
       },
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
-        "partenaire-rh-emmi-bischofszell-thurgau"
+        "hr-business-partner-emmi-bischofszell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-emmi-ch"
         ],
         "fr": [
-          "partenaire-rh-emmi-bischofszell-thurgau"
+          "hr-business-partner-emmi-bischofszell"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -7381,7 +7380,7 @@
         "it": "risorse-umane-business-partner-emmi-suhr",
         "en": "hr-business-partner-emmi-ch-2",
         "de": "hr-business-partner-emmi-ch",
-        "fr": "hr-business-partner-emmi-suhr"
+        "fr": "partenaire-rh-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7441,7 +7440,7 @@
       "previousSlugs": [
         "hr-business-partner-emmi-ch",
         "hr-business-partner-emmi-ch-2",
-        "partenaire-rh-emmi-suhr-aargau"
+        "hr-business-partner-emmi-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7449,7 +7448,7 @@
           "hr-business-partner-emmi-ch-2"
         ],
         "fr": [
-          "partenaire-rh-emmi-suhr-aargau"
+          "hr-business-partner-emmi-suhr"
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.183Z",
@@ -7561,9 +7560,9 @@
     },
     {
       "id": "emmi-2c911f7030c9",
-      "slug": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+      "slug": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
       "slugByLocale": {
-        "it": "collaborateur-affinage-de-fromage-emmi-saignelegier",
+        "it": "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura",
         "en": "collaborative-cheese-refining-emmi-saignelegier",
         "de": "verbundkaseraffination-emmi-saignelegier",
         "fr": "collaborateur-affinage-de-fromage-emmi-ch"
@@ -7628,12 +7627,12 @@
         "collaborateur-affinage-de-fromage-emmi-ch",
         "collaborative-cheese-refining-emmi-saignelegier-jura",
         "verbundkaseraffination-emmi-saignelegier-jura",
-        "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+        "collaborateur-affinage-de-fromage-emmi-saignelegier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-affinage-de-fromage-emmi-ch",
-          "rifinitura-del-formaggio-collaborativo-emmi-saignelegier-jura"
+          "collaborateur-affinage-de-fromage-emmi-saignelegier"
         ],
         "en": [
           "collaborateur-affinage-de-fromage-emmi-ch",
@@ -8236,12 +8235,12 @@
     },
     {
       "id": "emmi-defe320d1a7d",
-      "slug": "betriebselektriker-in-automatiker-in-emmi-ostermundigen",
+      "slug": "elettricista-di-stabilimento-automatista-emmi-ostermundigen-bern",
       "slugByLocale": {
         "de": "betriebselektriker-in-automatiker-in-emmi-ch",
-        "it": "betriebselektriker-in-automatiker-in-emmi-ostermundigen",
-        "en": "betriebselektriker-in-automatiker-in-emmi-ostermundigen",
-        "fr": "betriebselektriker-in-automatiker-in-emmi-ostermundigen"
+        "it": "elettricista-di-stabilimento-automatista-emmi-ostermundigen-bern",
+        "en": "industrial-electrician-automation-technician-emmi-ostermundigen-bern",
+        "fr": "electricien-ne-d-exploitation-automaticien-ne-emmi-ostermundigen-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8298,14 +8297,21 @@
           "• Du sprichst fliessend Deutsch."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-in-automatiker-in-emmi-ch"
+          "betriebselektriker-in-automatiker-in-emmi-ch",
+          "betriebselektriker-in-automatiker-in-emmi-ostermundigen"
+        ],
+        "en": [
+          "betriebselektriker-in-automatiker-in-emmi-ostermundigen"
+        ],
+        "fr": [
+          "betriebselektriker-in-automatiker-in-emmi-ostermundigen"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-in-automatiker-in-emmi-ch"
+        "betriebselektriker-in-automatiker-in-emmi-ch",
+        "betriebselektriker-in-automatiker-in-emmi-ostermundigen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8436,8 +8442,8 @@
       "slugByLocale": {
         "de": "leiter-in-verkauf-retail-discount-emmi-ch",
         "it": "responsabile-vendita-retail-discount-emmi-luzern",
-        "en": "leiter-in-verkauf-retail-discount-emmi-ch",
-        "fr": "leiter-in-verkauf-retail-discount-emmi-ch"
+        "en": "head-of-retail-discount-sales-emmi-luzern-luzern",
+        "fr": "responsable-des-ventes-retail-discount-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8496,9 +8502,14 @@
           "• Du arbeitest gerne im Team, übernimmst Verantwortung und überzeugst mit deiner hohen Sozialkompetenz."
         ]
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-verkauf-retail-discount-emmi-ch"
+        ],
+        "en": [
+          "leiter-in-verkauf-retail-discount-emmi-ch"
+        ],
+        "fr": [
           "leiter-in-verkauf-retail-discount-emmi-ch"
         ]
       },
@@ -8601,7 +8612,7 @@
       "id": "emmi-5cbcedbc687a-r1e274cba",
       "slug": "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental-ffaa23dcd3",
       "slugByLocale": {
-        "it": "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental-ffaa23dcd3",
+        "it": "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental",
         "en": "maintenance-mechanic-automation-technician-day-shift-emmi-langnau-im-emmental",
         "de": "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch",
         "fr": "mecanicien-de-maintenance-automaticien-poste-de-jour-emmi-langnau-im-emmental"
@@ -8680,13 +8691,11 @@
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch",
-        "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental"
+        "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch",
-          "meccanico-di-manutenzione-automatico-turno-diurno-emmi-langnau-im-emmental"
+          "betriebsmechaniker-in-automatiker-in-tagesbetrieb-emmi-ch"
         ]
       },
       "needsRetranslation": true,

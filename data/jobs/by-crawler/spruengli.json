@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spruengli-0232a27d503d",
-      "slug": "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel",
+      "slug": "consulente-di-vendita-presso-la-stazione-di-basilea-60-80-confiserie-sprungli-ag-basel",
       "slugByLocale": {
         "de": "verkaufsberater-in-bahnhof-basel-60-80-spruengli-basel",
-        "it": "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel",
-        "en": "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel",
-        "fr": "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel"
+        "it": "consulente-di-vendita-presso-la-stazione-di-basilea-60-80-confiserie-sprungli-ag-basel",
+        "en": "sales-advisor-basel-railway-station-60-80-confiserie-sprungli-ag-basel",
+        "fr": "conseiller-ere-de-vente-a-la-gare-de-bale-60-80-confiserie-sprungli-ag-basel"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -58,14 +58,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-bahnhof-basel-60-80-spruengli-basel"
+          "verkaufsberater-in-bahnhof-basel-60-80-spruengli-basel",
+          "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel"
+        ],
+        "en": [
+          "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel"
+        ],
+        "fr": [
+          "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-bahnhof-basel-60-80-spruengli-basel"
+        "verkaufsberater-in-bahnhof-basel-60-80-spruengli-basel",
+        "verkaufsberater-in-bahnhof-basel-60-80-confiserie-sprungli-ag-basel"
       ],
       "salaryMin": 59200,
       "salaryMax": 90800,
