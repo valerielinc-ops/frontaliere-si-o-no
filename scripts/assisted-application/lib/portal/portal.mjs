@@ -1241,24 +1241,17 @@ const buttonMatchesDocumentContext = (button, contextPattern) => {
   return !context || contextPattern.test(context);
 };
 
-const uploadTriggerDiscriminatorByButton = new WeakMap();
-const uploadTriggerDiscriminatorCounters = new Map();
-
-function stableUploadTriggerDiscriminator(button, semanticKey) {
+function stableUploadTriggerDiscriminator(button) {
   if (!button || typeof button !== 'object') return '';
   const provided = String(button.uploadTriggerDiscriminator || '').trim();
   if (provided) return provided;
+  // `id` is the extractor's data-aa-id. It is copied back to the same DOM
+  // node on every snapshot, so it is the only safe fallback when a portal
+  // does not expose its own DOM identity.
   const stableIdentity = ['dataAaId', 'id', 'domId']
     .map((field) => String(button?.[field] || '').trim())
     .find(Boolean) || '';
-  if (stableIdentity) return `stable:${stableIdentity}`;
-  const existing = uploadTriggerDiscriminatorByButton.get(button);
-  if (existing) return existing;
-  const next = (uploadTriggerDiscriminatorCounters.get(semanticKey) || 0) + 1;
-  const discriminator = 'stable:' + next;
-  uploadTriggerDiscriminatorCounters.set(semanticKey, next);
-  uploadTriggerDiscriminatorByButton.set(button, discriminator);
-  return discriminator;
+  return stableIdentity ? `stable:${stableIdentity}` : '';
 }
 
 /**
@@ -1328,19 +1321,33 @@ export function uploadButtonCandidatesFor(snapshot, kind) {
     group.push(button);
     semanticGroups.set(key, group);
   }
-  return candidates.map((button) => {
+  const ambiguousGroups = new Set();
+  const discriminatorsByGroup = new Map();
+  for (const [semanticKey, group] of semanticGroups) {
+    if (group.length < 2) continue;
+    // A replaced identity-less object cannot be matched to its physical
+    // control after a redraw. Guessing by array position can retry the wrong
+    // upload action, so keep the whole group fail-closed unless one stable
+    // identity field uniquely identifies every member.
+    const field = ['dataAaId', 'id', 'domId', 'dataAutomationId', 'name', 'href'].find((candidateField) => {
+      const values = group.map((candidate) => String(candidate?.[candidateField] || '').trim());
+      return values.every(Boolean) && new Set(values).size === group.length;
+    });
+    if (!field) {
+      ambiguousGroups.add(semanticKey);
+      continue;
+    }
+    discriminatorsByGroup.set(semanticKey, new Map(group.map((candidate) => [candidate, `${field}:${String(candidate[field]).trim()}`])));
+  }
+  return candidates.filter((button) => {
     const semanticKey = uploadTriggerSemanticKey(button);
     const group = semanticGroups.get(semanticKey) || [];
-    if (group.length < 2) return button;
-    const discriminator = ['domId', 'id', 'dataAaId'].map((field) => {
-      const value = String(button?.[field] || '').trim();
-      const values = group.map((candidate) => String(candidate?.[field] || '').trim()).filter(Boolean);
-      return value && values.length === group.length && new Set(values).size === group.length
-        ? `${field}:${value}`
-        : '';
-    }).find(Boolean) || stableUploadTriggerDiscriminator(button, semanticKey);
+    if (ambiguousGroups.has(semanticKey)) return false;
+    const discriminator = group.length > 1
+      ? discriminatorsByGroup.get(semanticKey)?.get(button) || ''
+      : stableUploadTriggerDiscriminator(button);
     if (discriminator) button.uploadTriggerDiscriminator = discriminator;
-    return button;
+    return true;
   });
 }
 

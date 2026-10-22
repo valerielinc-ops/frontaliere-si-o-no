@@ -648,7 +648,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(uploadTriggerKey(candidates[0])).not.toBe(uploadTriggerKey(candidates[1]));
   });
 
-  it('disambiguates duplicate upload controls without stable DOM identities', () => {
+  it('fails closed for duplicate upload controls without stable DOM identities', () => {
     const duplicate = () => ({
       frame: 0,
       text: 'Upload a Resume',
@@ -661,14 +661,11 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       href: 'https://example.test/upload',
       disabled: false,
     });
-    const first = duplicate();
-    const second = duplicate();
-    const candidates = uploadButtonCandidatesFor({ buttons: [first, second] }, 'cv');
-    expect(candidates).toHaveLength(2);
-    expect(new Set(candidates.map(uploadTriggerKey)).size).toBe(2);
-    const redrawn = uploadButtonCandidatesFor({ buttons: [second, first] }, 'cv');
-    expect(uploadTriggerKey(candidates[0])).toBe(uploadTriggerKey(redrawn[1]));
-    expect(uploadTriggerKey(candidates[1])).toBe(uploadTriggerKey(redrawn[0]));
+    const candidates = uploadButtonCandidatesFor({ buttons: [duplicate(), duplicate()] }, 'cv');
+    // Without a DOM-stable identity there is no safe way to match a control
+    // after a redraw; choosing by array position could upload the CV into the
+    // wrong duplicate, so the candidate group is intentionally rejected.
+    expect(candidates).toEqual([]);
   });
 
   it('does not skip SuccessFactors picklist options on the initial application snapshot', () => {
