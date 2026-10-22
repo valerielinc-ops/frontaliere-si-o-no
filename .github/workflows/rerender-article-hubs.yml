@@ -1,5 +1,11 @@
 name: Rerender Article Hubs
 
+run-name: >-
+  ${{ github.event_name == 'workflow_dispatch' &&
+      inputs.recovery_request_id != '' &&
+      format('Rerender Article Hubs [{0}]', inputs.recovery_request_id) ||
+      'Rerender Article Hubs' }}
+
 # Issue #5432 point 2 — the hub pages' missing way down.
 #
 # THE GAP THIS FILLS
@@ -130,6 +136,11 @@ on:
         description: 'Render and validate, push nothing (default: yes)'
         type: boolean
         default: true
+      recovery_request_id:
+        description: 'Correlation id for an automatic parity recovery'
+        type: string
+        required: false
+        default: ''
 
 permissions:
   # The sitemap enters main through a stable PR so the required Vitest check

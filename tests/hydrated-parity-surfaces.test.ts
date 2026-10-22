@@ -149,7 +149,7 @@ describe('the propagation retry window', () => {
 
     expect(allEightTargetsSeconds).toBe(1128);
     expect(allEightTargetsSeconds).toBeLessThanOrEqual(20 * 60);
-    expect(WORKFLOW_DOCUMENT.jobs.parity['timeout-minutes']).toBe(25);
+    expect(WORKFLOW_DOCUMENT.jobs.parity['timeout-minutes']).toBe(60);
   });
 
   it('reports all eight targets after all 24 probes fail', () => {

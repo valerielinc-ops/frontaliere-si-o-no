@@ -51,6 +51,7 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  actions: write
   contents: read
   issues: write
 
@@ -67,9 +68,10 @@ jobs:
     # stesso surface; al tempo stesso serializzava l'attesa fino a ~12 minuti.
     # Ogni probe ha inoltre un hard timeout di 20 s e 2 s di kill grace. Il
     # worst-case riproducibile con tutte le otto landing rosse e' quindi
-    # 2 × 300 s + 3 × 8 × 22 s = 1128 s (18m48s): restano 6m12s per checkout,
-    # setup e reporting prima del timeout di job.
-    timeout-minutes: 25
+    # 2 × 300 s + 3 × 8 × 22 s = 1128 s (18m48s). Un fallimento automatico
+    # apre inoltre il recovery writer bounded e una seconda finestra di probe;
+    # il timeout lascia spazio a entrambe senza troncare il verdetto.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
         with:
@@ -112,6 +114,10 @@ jobs:
       # anything shorter would report by-design bounded staleness as a defect.
       - name: Check hydrated article parity
         id: check
+        # Automatic failures get a bounded writer recovery before the issue is
+        # reported. Keep the first verdict available through `outcome` so the
+        # final gate can distinguish a healed mismatch from a real failure.
+        continue-on-error: true
         env:
           SECTION_INPUT: ${{ github.event.inputs.section || 'both' }}
           PARITY_ATTEMPTS: '3'
@@ -188,11 +194,167 @@ jobs:
           fi
           exit "$rc"
 
+      # A parity failure is an observer finding, not proof that the writer is
+      # permanently broken. The old workflow_run recovery started only after
+      # this job had already opened the issue, so a corpus update arriving
+      # during the last probe round produced a false recurrence even when the
+      # writer repaired the surfaces minutes later. Dispatch the same locked
+      # writer here and wait for its exact run before reporting the finding.
+      # The workflow_run trigger in rerender-article-hubs.yml remains the
+      # fail-safe when this dispatch, the writer, or the post-recovery probe
+      # cannot complete.
+      - name: Recover hydrated article parity before reporting
+        id: recovery
+        if: steps.check.outcome == 'failure' && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          RECOVERY_REQUEST_ID: parity-${{ github.run_id }}-${{ github.run_attempt }}
+          RECOVERY_TIMEOUT_SECONDS: '900'
+        run: |
+          set -euo pipefail
+          dispatch_started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          gh api --method POST \
+            "repos/$GITHUB_REPOSITORY/actions/workflows/rerender-article-hubs.yml/dispatches" \
+            -f ref=main \
+            -f 'inputs[section]=all' \
+            -f 'inputs[dry_run]=false' \
+            -f "inputs[recovery_request_id]=$RECOVERY_REQUEST_ID"
+
+          deadline=$(( $(date +%s) + RECOVERY_TIMEOUT_SECONDS ))
+          recovery_run_id=''
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            runs_json="$(gh api --method GET \
+              "repos/$GITHUB_REPOSITORY/actions/workflows/rerender-article-hubs.yml/runs" \
+              -f event=workflow_dispatch -f per_page=100)"
+            recovery_run_id="$(jq -r --arg request "$RECOVERY_REQUEST_ID" --arg started "$dispatch_started_at" '
+              [.workflow_runs[]
+                | select(.display_title == ("Rerender Article Hubs [" + $request + "]"))
+                | select(.created_at >= $started)]
+              | sort_by(.created_at)
+              | .[0].id // empty
+            ' <<<"$runs_json")"
+            [ -n "$recovery_run_id" ] && break
+            sleep 10
+          done
+          if [ -z "$recovery_run_id" ]; then
+            echo "::error::rerender recovery run was not observed within ${RECOVERY_TIMEOUT_SECONDS}s"
+            exit 1
+          fi
+          echo "recovery_run_id=$recovery_run_id" >> "$GITHUB_OUTPUT"
+
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            run_json="$(gh api --method GET \
+              "repos/$GITHUB_REPOSITORY/actions/runs/$recovery_run_id")"
+            status="$(jq -r '.status // empty' <<<"$run_json")"
+            conclusion="$(jq -r '.conclusion // empty' <<<"$run_json")"
+            if [ "$status" = "completed" ]; then
+              if [ "$conclusion" = "success" ]; then
+                echo "rerender recovery $recovery_run_id completed successfully"
+                exit 0
+              fi
+              echo "::error::rerender recovery $recovery_run_id completed with conclusion=$conclusion"
+              exit 1
+            fi
+            sleep 15
+          done
+          echo "::error::rerender recovery $recovery_run_id did not complete within ${RECOVERY_TIMEOUT_SECONDS}s"
+          exit 1
+
+      # Reuse the same global retry contract after the writer has finished: a
+      # successful upload can still need one edge propagation round. This is a
+      # real parity verdict, not an assumption based on the child workflow's
+      # conclusion.
+      - name: Recheck hydrated article parity after recovery
+        id: recovery_check
+        if: steps.check.outcome == 'failure' && steps.recovery.outcome == 'success'
+        continue-on-error: true
+        env:
+          SECTION_INPUT: ${{ github.event.inputs.section || 'both' }}
+          PARITY_ATTEMPTS: '3'
+          PARITY_RETRY_SLEEP_SECONDS: '300'
+          PARITY_PROBE_TIMEOUT_SECONDS: '20'
+          PARITY_PROBE_KILL_AFTER_SECONDS: '2'
+        run: |
+          set -uo pipefail
+          if [ "$SECTION_INPUT" = "both" ]; then
+            sections="frontaliere svizzera"
+          else
+            sections="$SECTION_INPUT"
+          fi
+
+          run_probe() {
+            timeout --signal=TERM \
+              --kill-after="${PARITY_PROBE_KILL_AFTER_SECONDS}s" \
+              "${PARITY_PROBE_TIMEOUT_SECONDS}s" \
+              node scripts/ci/check-hydrated-article-parity.mjs \
+              --section="$1" --locale="$2"
+          }
+
+          rc=0
+          : > parity-report.txt
+          : > parity-targets.txt
+          for section in $sections; do
+            for locale in it en de fr; do
+              echo "$section $locale" >> parity-targets.txt
+            done
+          done
+
+          attempt=1
+          while [ -s parity-targets.txt ] && [ "$attempt" -le "$PARITY_ATTEMPTS" ]; do
+            : > parity-targets-next.txt
+            while read -r -u 9 section locale; do
+              label="${section}/${locale}"
+              echo "::group::${label} — recovery attempt ${attempt}/${PARITY_ATTEMPTS}"
+              if ! run_probe "$section" "$locale" </dev/null 2>&1 \
+                   | tee "parity-${section}-${locale}.txt"; then
+                echo "$section $locale" >> parity-targets-next.txt
+              fi
+              echo "::endgroup::"
+            done 9< parity-targets.txt
+            mv parity-targets-next.txt parity-targets.txt
+            if [ -s parity-targets.txt ] && [ "$attempt" -lt "$PARITY_ATTEMPTS" ]; then
+              sleep "$PARITY_RETRY_SLEEP_SECONDS"
+            fi
+            attempt=$((attempt + 1))
+          done
+
+          while read -r -u 9 section locale; do
+            rc=1
+            {
+              echo "### ${section}/${locale}"
+              echo
+              echo '```'
+              cat "parity-${section}-${locale}.txt"
+              echo '```'
+              echo
+            } >> parity-report.txt
+          done 9< parity-targets.txt
+          exit "$rc"
+
+      # The initial check is deliberately continue-on-error so recovery can
+      # run in the same job. Restore the required fail-closed job conclusion
+      # only after the final, post-recovery parity verdict is known.
+      - name: Set final hydrated parity verdict
+        id: final_verdict
+        if: always()
+        run: |
+          set -euo pipefail
+          if [ "${{ steps.check.outcome }}" = "success" ]; then
+            exit 0
+          fi
+          if [ "${{ steps.recovery.outcome }}" = "success" ] && \
+             [ "${{ steps.recovery_check.outcome }}" = "success" ]; then
+            exit 0
+          fi
+          exit 1
+
       # Stable title (ISSUES.md: dedup a MONTE) — this condition is by
       # definition the same one every time it recurs, so the helper comments on
       # the canonical issue instead of minting a new one per run.
       - name: Open or refresh the issue
-        if: failure() && steps.check.outcome == 'failure' && github.event.inputs.open_issue != 'false'
+        if: always() && steps.final_verdict.outcome == 'failure' && github.event.inputs.open_issue != 'false'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -223,7 +385,7 @@ jobs:
       # same gate on `open_issue` so a dispatch run that opted out of opening
       # also opts out of resolving (it never touched the canonical issue).
       - name: Resolve the issue on green
-        if: steps.check.outcome == 'success' && github.event.inputs.open_issue != 'false'
+        if: steps.final_verdict.outcome == 'success' && github.event.inputs.open_issue != 'false'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
