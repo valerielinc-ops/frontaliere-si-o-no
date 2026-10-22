@@ -67,6 +67,15 @@ export const CDN_ASSET_CHECK_MAX_URLS = 24;
 export const CDN_ASSET_CHECK_BUDGET_MS = 30_000;
 
 /**
+ * Un 5xx dal CDN e' una risposta transitoria sull'infrastruttura, non una
+ * prova che l'oggetto manchi. Ritenta poche volte prima di lasciare il
+ * risultato `unknown`; 4xx, timeout ed errori di rete non vengono trasformati
+ * in un falso `present`.
+ */
+export const CDN_ASSET_CHECK_MAX_ATTEMPTS = 3;
+export const CDN_ASSET_CHECK_RETRY_DELAY_MS = 250;
+
+/**
  * Extract the canonical CDN asset URLs from one rendered HTML document.
  * The extension alphabet is shared with the offload rewrite and deploy Guard B
  * so a new asset type cannot silently bypass this publish-time check.
@@ -125,6 +134,8 @@ export function isSoftMissing(url, contentType) {
  * @param {number} [a.timeoutMs]
  * @param {number} [a.maxUrls]
  * @param {number} [a.budgetMs]
+ * @param {number} [a.maxAttempts] tentativi per risposta HTTP 5xx
+ * @param {number} [a.retryDelayMs] base del backoff esponenziale sui 5xx
  * @param {() => number} [a.now] orologio iniettabile per i test
  * @returns {Promise<Array<{url: string, state: 'present'|'missing'|'unknown'|'skipped', status: number|null, reason: string|null}>>}
  */
@@ -134,11 +145,15 @@ export async function verifyCdnAssetRefs({
   timeoutMs = 8000,
   maxUrls = CDN_ASSET_CHECK_MAX_URLS,
   budgetMs = CDN_ASSET_CHECK_BUDGET_MS,
+  maxAttempts = CDN_ASSET_CHECK_MAX_ATTEMPTS,
+  retryDelayMs = CDN_ASSET_CHECK_RETRY_DELAY_MS,
   now = Date.now,
 }) {
   const results = [];
   const startedAt = now();
   let checked = 0;
+  const attemptsLimit = Number.isFinite(maxAttempts) ? Math.max(1, Math.floor(maxAttempts)) : 1;
+  const retryDelayBaseMs = Number.isFinite(retryDelayMs) ? Math.max(0, retryDelayMs) : 0;
 
   for (const url of urls) {
     if (checked >= maxUrls) {
@@ -179,24 +194,52 @@ export async function verifyCdnAssetRefs({
     };
 
     try {
-      let attempt = await fetchWithinBudget('HEAD', budgetMs - elapsed);
-      if (attempt.budget) {
-        results.push({ url, state: 'skipped', status: null, reason: `budget di ${budgetMs}ms esaurito prima della richiesta` });
-        continue;
-      }
-      if (attempt.error) throw attempt.error;
-      let res = attempt.response;
-      // Alcune origin non implementano HEAD (405/501): la domanda e'
-      // sull'esistenza dell'oggetto, non sul metodo, quindi si ripiega su GET
-      // invece di registrare un falso `missing`.
-      if (res.status === 405 || res.status === 501) {
-        attempt = await fetchWithinBudget('GET');
+      let res = null;
+      let budgetSkipped = false;
+      let budgetReason = null;
+      for (let attemptNumber = 1; attemptNumber <= attemptsLimit; attemptNumber += 1) {
+        let attempt = await fetchWithinBudget('HEAD', attemptNumber === 1 ? budgetMs - elapsed : null);
         if (attempt.budget) {
-          results.push({ url, state: 'skipped', status: null, reason: `budget di ${budgetMs}ms esaurito prima del GET di fallback` });
-          continue;
+          budgetSkipped = true;
+          budgetReason = attemptNumber === 1
+            ? `budget di ${budgetMs}ms esaurito prima della richiesta`
+            : `budget di ${budgetMs}ms esaurito prima della richiesta di retry`;
+          break;
         }
         if (attempt.error) throw attempt.error;
         res = attempt.response;
+        // Alcune origin non implementano HEAD (405/501): la domanda e'
+        // sull'esistenza dell'oggetto, non sul metodo, quindi si ripiega su GET
+        // invece di registrare un falso `missing`.
+        if (res.status === 405 || res.status === 501) {
+          attempt = await fetchWithinBudget('GET');
+          if (attempt.budget) {
+            budgetSkipped = true;
+            budgetReason = `budget di ${budgetMs}ms esaurito prima del GET di fallback`;
+            break;
+          }
+          if (attempt.error) throw attempt.error;
+          res = attempt.response;
+        }
+
+        // A 5xx dice che il CDN non ha servito la richiesta, non che l'asset
+        // sia assente. Una nuova richiesta idempotente puo' recuperare un
+        // errore edge transitorio, ma il budget resta il limite assoluto e il
+        // risultato finale continua a essere `unknown` se il problema persiste.
+        if (res.status < 500 || res.status > 599 || attemptNumber >= attemptsLimit) break;
+        const remainingMs = budgetMs - (now() - startedAt);
+        const backoffMs = Math.min(retryDelayBaseMs * (2 ** (attemptNumber - 1)), remainingMs);
+        if (remainingMs <= 0 || backoffMs >= remainingMs) break;
+        if (backoffMs > 0) await new Promise((resolve) => setTimeout(resolve, backoffMs));
+      }
+      if (budgetSkipped) {
+        results.push({
+          url,
+          state: 'skipped',
+          status: null,
+          reason: budgetReason || `budget di ${budgetMs}ms esaurito prima della richiesta`,
+        });
+        continue;
       }
       const contentType = res.headers?.get ? res.headers.get('content-type') : null;
       if (res.ok && isSoftMissing(url, contentType)) {

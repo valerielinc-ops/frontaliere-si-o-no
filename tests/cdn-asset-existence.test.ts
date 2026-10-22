@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   CDN_ASSET_CHECK_MAX_URLS,
+  CDN_ASSET_CHECK_MAX_ATTEMPTS,
   assertCdnAssetRefsLive,
   extractCdnAssetUrlsFromHtml,
   formatCdnAssetReport,
@@ -119,19 +120,44 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
   });
 
   it('rete rotta e 5xx restano UNKNOWN: fail-open, non un falso mancante', async () => {
+    const networkFetch = vi.fn().mockRejectedValue(new Error('ENOTFOUND'));
     const [netErr] = await verifyCdnAssetRefs({
       urls: ['https://cdn.example.test/assets/a.js'],
-      fetchImpl: vi.fn().mockRejectedValue(new Error('ENOTFOUND')) as unknown as typeof fetch,
+      fetchImpl: networkFetch as unknown as typeof fetch,
     });
     expect(netErr.state).toBe('unknown');
+    expect(networkFetch).toHaveBeenCalledTimes(1);
 
+    const serverFetch = vi.fn().mockResolvedValue(res(503, 'text/html'));
     const [server] = await verifyCdnAssetRefs({
       urls: ['https://cdn.example.test/assets/a.js'],
-      fetchImpl: vi.fn().mockResolvedValue(res(503, 'text/html')) as unknown as typeof fetch,
+      fetchImpl: serverFetch as unknown as typeof fetch,
+      retryDelayMs: 0,
     });
     expect(server.state).toBe('unknown');
+    expect(serverFetch).toHaveBeenCalledTimes(CDN_ASSET_CHECK_MAX_ATTEMPTS);
 
     expect(formatCdnAssetReport([netErr, server]).join('\n')).not.toContain('::warning::');
+  });
+
+  it('ritenta un 5xx transitorio con backoff bounded e accetta solo una risposta live', async () => {
+    const fetchImpl = vi.fn()
+      .mockResolvedValueOnce(res(502, 'text/html'))
+      .mockResolvedValueOnce(res(200, 'text/javascript'));
+
+    const [result] = await verifyCdnAssetRefs({
+      urls: ['https://cdn.example.test/assets/gtag-init.js'],
+      fetchImpl: fetchImpl as unknown as typeof fetch,
+      retryDelayMs: 0,
+    });
+
+    expect(result).toEqual({
+      url: 'https://cdn.example.test/assets/gtag-init.js',
+      state: 'present',
+      status: 200,
+      reason: null,
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
   it('un HEAD non implementato (405) ripiega su GET invece di contare un mancante', async () => {
