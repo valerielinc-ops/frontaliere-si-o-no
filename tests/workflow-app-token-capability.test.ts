@@ -182,7 +182,6 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'issue-fix.yml :: fix :: Close the PR a conflict hand-off supersedes (zero-Claude)': { reason: 'no-publish', why: 'chiude la PR superata con un commento' },
   'issue-triage.yml :: triage :: Classify and route (deterministic, no Claude)': { reason: 'no-publish', why: 'etichetta la issue' },
   'lessons-harvester.yml :: harvest :: Draft doc-rule proposal (Codex Luna Max — only if NOVEL patterns)': { reason: 'agent-bridge', why: 'corsia agente della proposta di regola' },
-  'monitor-gsc-seo.yml :: monitor :: Run GSC Job Indexation Monitor': { reason: 'no-publish', why: 'apre issue, accoda un redeploy bounded e invia IndexNow' },
   'monitor-seo-ctr-by-template.yml :: monitor :: Run SEO CTR-by-template monitor': { reason: 'no-publish', why: 'apre issue' },
   'needs-human-sweep.yml :: sweep :: Run Codex Luna Max sweep': { reason: 'agent-bridge', why: 'corsia agente dello sweep' },
   'post-merge-followup.yml :: followup :: Run Codex Luna Max follow-up triage (batch)': { reason: 'agent-bridge', why: 'corsia agente del triage' },
