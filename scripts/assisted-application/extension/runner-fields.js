@@ -381,13 +381,19 @@
       // «Bitte auswählen» and loads its options into the list it owns once
       // opened. A select by another name: its options are read (extractFields).
       field.ownedList = clean(element.getAttribute('aria-owns') || element.getAttribute('aria-controls') || '');
+      const ownedList = field.ownedList ? document.getElementById(field.ownedList) : null;
       field.selectLike = Boolean(field.ownedList)
         // SuccessFactors localises its empty value too: Rolex's French form
         // says «Aucune sélection», not «Sélectionnez». It is still the same
         // owned picklist, not a free-text combobox.
         && (EMPTY_PICKLIST_RE.test(element.getAttribute('placeholder') || '')
           || EMPTY_PICKLIST_RE.test(element.value || '')
-          || /paginatedselect/i.test(String(element.className || '')));
+          || /paginatedselect/i.test(String(element.className || ''))
+          // Some SuccessFactors tenants omit the prompt/class decoration on
+          // required lazy picklists. The ARIA-owned listbox is the stable
+          // control contract; without this branch the initial form snapshot
+          // has no options and the planner cannot select the required value.
+          || (field.required && ownedList?.getAttribute('role') === 'listbox'));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);

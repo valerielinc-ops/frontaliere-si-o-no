@@ -298,6 +298,31 @@ describe('portal field extraction', () => {
     expect(page.fields.find((field: any) => field.label === 'Geburtsdatum')).toMatchObject({ kind: 'text', inputType: 'date', widget: 'ui5-date', datePattern: 'dd.MM.yyyy', required: true });
   });
 
+  it('recognizes required lazy SuccessFactors lists without prompt decoration', () => {
+    const page = extract(`
+      <form>
+        <label for="permit">Do you hold a valid work permit for Switzerland?</label>
+        <input id="permit" type="text" role="combobox" aria-controls="permit-list" aria-required="true">
+        <ul id="permit-list" role="listbox"></ul>
+        <label for="source">How did you hear about this position?</label>
+        <input id="source" type="text" role="combobox" aria-owns="source-list" required>
+        <ul id="source-list" role="listbox"></ul>
+        <button type="button"></button>
+        <button type="button">Read and accept the data privacy statement.</button>
+        <button type="submit">Apply</button>
+      </form>`, 'https://career5.successfactors.eu/careers');
+
+    expect(page.fields.filter((field: any) => ['Do you hold a valid work permit for Switzerland?', 'How did you hear about this position?'].includes(field.label))).toEqual(expect.arrayContaining([
+      expect.objectContaining({ kind: 'combobox', required: true, selectLike: true, ownedList: 'permit-list' }),
+      expect.objectContaining({ kind: 'combobox', required: true, selectLike: true, ownedList: 'source-list' }),
+    ]));
+    expect(page.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
+      '',
+      'Read and accept the data privacy statement.',
+      'Apply',
+    ]));
+  });
+
   it('answers «Vermittlungsbüro?» with its No, whatever the plan said, and never asks the candidate', () => {
     const agency = { id: 'f27', kind: 'combobox', selectLike: true, label: '* Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: Mit Einreichen des Dossiers werden die AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis akzeptiert.)', required: true, value: '', options: [{ value: 'Ja', label: 'Ja' }, { value: 'Nein', label: 'Nein' }] };
     const yes = guardPlan({ actions: [{ fieldId: 'f27', action: 'select', value: 'Ja', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [agency]);

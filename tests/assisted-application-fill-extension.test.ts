@@ -420,6 +420,36 @@ describe('fill extension: the runner’s reading on any portal', () => {
     expect(result.missing).toEqual([]);
   });
 
+  it('treats a required owned SuccessFactors list as a select in both extension paths without prompt decoration', async () => {
+    const { F, document, read } = runnerPage(`<form>
+      <label for="permit">Do you hold a valid work permit for Switzerland?</label>
+      <input id="permit" type="text" role="combobox" aria-controls="permit-list" aria-required="true">
+      <ul id="permit-list" role="listbox"></ul>
+    </form>`, 'https://career5.successfactors.eu/careers');
+    const field = read().fields.find((item: any) => item.label === 'Do you hold a valid work permit for Switzerland?');
+    expect(field).toMatchObject({
+      kind: 'combobox',
+      required: true,
+      selectLike: true,
+      ownedList: 'permit-list',
+    });
+    const input = document.getElementById('permit') as HTMLInputElement;
+    const list = document.getElementById('permit-list')!;
+    input.addEventListener('click', () => {
+      list.innerHTML = '<li role="option">Yes</li><li role="option">No</li>';
+      list.querySelectorAll('[role="option"]').forEach((option) => option.addEventListener('click', () => {
+        input.value = option.textContent || '';
+        list.innerHTML = '';
+      }));
+    });
+    const result = await F.fillPage(document, {
+      ...kit,
+      answers: [{ question: field.label, answer: 'Yes', source: 'answers' }],
+    }, { getFile: async () => null, attempts: new WeakMap() });
+    expect(input.value).toBe('Yes');
+    expect(result.missing).toEqual([]);
+  });
+
   /** A page with the runner's reading and the engine, every element laid out as in a browser. */
   function runnerPage(html: string, url: string) {
     const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url, runScripts: 'outside-only' });
