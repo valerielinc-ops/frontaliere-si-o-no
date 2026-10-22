@@ -1,7 +1,95 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-10-20T21:26:51.703Z",
+  "assembledAt": "2026-10-22T09:32:57.456Z",
+  "runId": "39753980053",
   "jobs": [
+    {
+      "id": "somedia-58d2313af928",
+      "slug": "data-engineer-100-somedia-ch",
+      "slugByLocale": {
+        "de": "data-engineer-100-somedia-ch",
+        "it": "data-engineer-100-somedia-ch",
+        "en": "data-engineer-100-somedia-ch",
+        "fr": "data-engineer-100-somedia-ch"
+      },
+      "company": "Somedia AG",
+      "companyKey": "somedia",
+      "companyDomain": "somedia.ch",
+      "title": "Data Engineer (100%)",
+      "titleByLocale": {
+        "de": "Data Ingenieur (100%)",
+        "en": "Data Engineer (100%)",
+        "it": "Data Ingegnere (100%)",
+        "fr": "Data Ingénieur (100%)"
+      },
+      "description": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist DAS führende Medienhaus der Südostschweiz – innovativ, schnell und immer am Puls der Zeit. Dabei nutzen wir die ganze Bandbreite von Print bis zu Social Media und setzen immer stärker auf Daten, um unsere Produkte und Entscheidungen weiterzuentwickeln.\nDu baust Datenmodelle, die halten, was sie versprechen? Du tauchst gerne selbstständig in neue Systeme ein und willst ein Datenprodukt schaffen, auf das sich alle verlassen können? Dann suchen wir genau dich!\nFür unser Data Team in Chur suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Data Engineer (100%). Dein Job – abwechslungsreich und spannend\n Du übernimmst die technische Verantwortung für unser Data Warehouse und entwickelst es gemeinsam mit dem Data Team zu einem Datenprodukt weiter, das im ganzen Unternehmen Wirkung zeigt.\n\n• Data Warehouse verantworten: Architektur, Struktur und Datenflüsse im Griff haben und laufend weiterentwickeln.\n\n• Tech Stack vorantreiben: Unsere Datenplattform auf Basis von Microsoft Fabric und Power BI ausbauen und neue Tools und Ansätze einbringen.\n\n• Robuste Lösungen entwickeln: Datenmodelle und Pipelines entwickeln, testen und nachvollziehbar dokumentieren.\n\n• Datenkultur prägen: Gemeinsam im Data Team datengetriebenes Arbeiten im Unternehmen und in den Abteilungen verankern.\n Das bringst du mit – Persönlichkeit und Drive\n\n• Fundierte Erfahrung in Data Engineering, Data Warehousing und Datenmodellierung, idealerweise mit Microsoft Fabric, Power BI oder vergleichbaren Tools.\n\n• Du arbeitest sorgfältig: Saubere Datenmodelle, Tests und Dokumentation sind für dich selbstverständlich.\n\n• Du arbeitest dich eigenständig in neue Themen ein und übernimmst Verantwortung für deine Ergebnisse.\n\n• Strukturierte Arbeitsweise, Eigeninitiative und Freude an der Zusammenarbeit im Team.\n\n• Offenheit für ein breites Themenfeld und richtig Lust, ein starkes Datenprodukt aufzubauen.\n Das bieten wir dir – mehr als nur einen Job\n\n• Viel Gestaltungsspielraum: Du prägst unsere Datenplattform von Anfang an aktiv mit.\n\n• Weiterbildungen, intern und extern, für deine persönliche und berufliche Entwicklung.\n\n• Moderne Arbeitsplätze mit der Möglichkeit zu Homeoffice.\n\n• 40-Stunden-Woche – für eine gesunde Work-Life-Balance.\n\n• Attraktive Mitarbeitervergünstigungen, spannende Firmenevents und ein Team, das Spass macht.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+      "descriptionByLocale": {
+        "de": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist DAS führende Medienhaus der Südostschweiz – innovativ, schnell und immer am Puls der Zeit. Dabei nutzen wir die ganze Bandbreite von Print bis zu Social Media und setzen immer stärker auf Daten, um unsere Produkte und Entscheidungen weiterzuentwickeln.\nDu baust Datenmodelle, die halten, was sie versprechen? Du tauchst gerne selbstständig in neue Systeme ein und willst ein Datenprodukt schaffen, auf das sich alle verlassen können? Dann suchen wir genau dich!\nFür unser Data Team in Chur suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Data Engineer (100%). Dein Job – abwechslungsreich und spannend\n Du übernimmst die technische Verantwortung für unser Data Warehouse und entwickelst es gemeinsam mit dem Data Team zu einem Datenprodukt weiter, das im ganzen Unternehmen Wirkung zeigt.\n\n• Data Warehouse verantworten: Architektur, Struktur und Datenflüsse im Griff haben und laufend weiterentwickeln.\n\n• Tech Stack vorantreiben: Unsere Datenplattform auf Basis von Microsoft Fabric und Power BI ausbauen und neue Tools und Ansätze einbringen.\n\n• Robuste Lösungen entwickeln: Datenmodelle und Pipelines entwickeln, testen und nachvollziehbar dokumentieren.\n\n• Datenkultur prägen: Gemeinsam im Data Team datengetriebenes Arbeiten im Unternehmen und in den Abteilungen verankern.\n Das bringst du mit – Persönlichkeit und Drive\n\n• Fundierte Erfahrung in Data Engineering, Data Warehousing und Datenmodellierung, idealerweise mit Microsoft Fabric, Power BI oder vergleichbaren Tools.\n\n• Du arbeitest sorgfältig: Saubere Datenmodelle, Tests und Dokumentation sind für dich selbstverständlich.\n\n• Du arbeitest dich eigenständig in neue Themen ein und übernimmst Verantwortung für deine Ergebnisse.\n\n• Strukturierte Arbeitsweise, Eigeninitiative und Freude an der Zusammenarbeit im Team.\n\n• Offenheit für ein breites Themenfeld und richtig Lust, ein starkes Datenprodukt aufzubauen.\n Das bieten wir dir – mehr als nur einen Job\n\n• Viel Gestaltungsspielraum: Du prägst unsere Datenplattform von Anfang an aktiv mit.\n\n• Weiterbildungen, intern und extern, für deine persönliche und berufliche Entwicklung.\n\n• Moderne Arbeitsplätze mit der Möglichkeit zu Homeoffice.\n\n• 40-Stunden-Woche – für eine gesunde Work-Life-Balance.\n\n• Attraktive Mitarbeitervergünstigungen, spannende Firmenevents und ein Team, das Spass macht.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+        "it": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist DAS führende Medienhaus der Südostschweiz – innovativ, schnell und immer am Puls der Zeit. Dabei nutzen wir die ganze Bandbreite von Print bis zu Social Media und setzen immer stärker auf Daten, um unsere Produkte und Entscheidungen weiterzuentwickeln.\nDu baust Datenmodelle, die halten, was sie versprechen? Du tauchst gerne selbstständig in neue Systeme ein und willst ein Datenprodukt schaffen, auf das sich alle verlassen können? Dann suchen wir genau dich!\nFür unser Data Team in Chur suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Data Engineer (100%). Dein Job – abwechslungsreich und spannend\n Du übernimmst die technische Verantwortung für unser Data Warehouse und entwickelst es gemeinsam mit dem Data Team zu einem Datenprodukt weiter, das im ganzen Unternehmen Wirkung zeigt.\n\n• Data Warehouse verantworten: Architektur, Struktur und Datenflüsse im Griff haben und laufend weiterentwickeln.\n\n• Tech Stack vorantreiben: Unsere Datenplattform auf Basis von Microsoft Fabric und Power BI ausbauen und neue Tools und Ansätze einbringen.\n\n• Robuste Lösungen entwickeln: Datenmodelle und Pipelines entwickeln, testen und nachvollziehbar dokumentieren.\n\n• Datenkultur prägen: Gemeinsam im Data Team datengetriebenes Arbeiten im Unternehmen und in den Abteilungen verankern.\n Das bringst du mit – Persönlichkeit und Drive\n\n• Fundierte Erfahrung in Data Engineering, Data Warehousing und Datenmodellierung, idealerweise mit Microsoft Fabric, Power BI oder vergleichbaren Tools.\n\n• Du arbeitest sorgfältig: Saubere Datenmodelle, Tests und Dokumentation sind für dich selbstverständlich.\n\n• Du arbeitest dich eigenständig in neue Themen ein und übernimmst Verantwortung für deine Ergebnisse.\n\n• Strukturierte Arbeitsweise, Eigeninitiative und Freude an der Zusammenarbeit im Team.\n\n• Offenheit für ein breites Themenfeld und richtig Lust, ein starkes Datenprodukt aufzubauen.\n Das bieten wir dir – mehr als nur einen Job\n\n• Viel Gestaltungsspielraum: Du prägst unsere Datenplattform von Anfang an aktiv mit.\n\n• Weiterbildungen, intern und extern, für deine persönliche und berufliche Entwicklung.\n\n• Moderne Arbeitsplätze mit der Möglichkeit zu Homeoffice.\n\n• 40-Stunden-Woche – für eine gesunde Work-Life-Balance.\n\n• Attraktive Mitarbeitervergünstigungen, spannende Firmenevents und ein Team, das Spass macht.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+        "en": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist DAS führende Medienhaus der Südostschweiz – innovativ, schnell und immer am Puls der Zeit. Dabei nutzen wir die ganze Bandbreite von Print bis zu Social Media und setzen immer stärker auf Daten, um unsere Produkte und Entscheidungen weiterzuentwickeln.\nDu baust Datenmodelle, die halten, was sie versprechen? Du tauchst gerne selbstständig in neue Systeme ein und willst ein Datenprodukt schaffen, auf das sich alle verlassen können? Dann suchen wir genau dich!\nFür unser Data Team in Chur suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Data Engineer (100%). Dein Job – abwechslungsreich und spannend\n Du übernimmst die technische Verantwortung für unser Data Warehouse und entwickelst es gemeinsam mit dem Data Team zu einem Datenprodukt weiter, das im ganzen Unternehmen Wirkung zeigt.\n\n• Data Warehouse verantworten: Architektur, Struktur und Datenflüsse im Griff haben und laufend weiterentwickeln.\n\n• Tech Stack vorantreiben: Unsere Datenplattform auf Basis von Microsoft Fabric und Power BI ausbauen und neue Tools und Ansätze einbringen.\n\n• Robuste Lösungen entwickeln: Datenmodelle und Pipelines entwickeln, testen und nachvollziehbar dokumentieren.\n\n• Datenkultur prägen: Gemeinsam im Data Team datengetriebenes Arbeiten im Unternehmen und in den Abteilungen verankern.\n Das bringst du mit – Persönlichkeit und Drive\n\n• Fundierte Erfahrung in Data Engineering, Data Warehousing und Datenmodellierung, idealerweise mit Microsoft Fabric, Power BI oder vergleichbaren Tools.\n\n• Du arbeitest sorgfältig: Saubere Datenmodelle, Tests und Dokumentation sind für dich selbstverständlich.\n\n• Du arbeitest dich eigenständig in neue Themen ein und übernimmst Verantwortung für deine Ergebnisse.\n\n• Strukturierte Arbeitsweise, Eigeninitiative und Freude an der Zusammenarbeit im Team.\n\n• Offenheit für ein breites Themenfeld und richtig Lust, ein starkes Datenprodukt aufzubauen.\n Das bieten wir dir – mehr als nur einen Job\n\n• Viel Gestaltungsspielraum: Du prägst unsere Datenplattform von Anfang an aktiv mit.\n\n• Weiterbildungen, intern und extern, für deine persönliche und berufliche Entwicklung.\n\n• Moderne Arbeitsplätze mit der Möglichkeit zu Homeoffice.\n\n• 40-Stunden-Woche – für eine gesunde Work-Life-Balance.\n\n• Attraktive Mitarbeitervergünstigungen, spannende Firmenevents und ein Team, das Spass macht.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+        "fr": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist DAS führende Medienhaus der Südostschweiz – innovativ, schnell und immer am Puls der Zeit. Dabei nutzen wir die ganze Bandbreite von Print bis zu Social Media und setzen immer stärker auf Daten, um unsere Produkte und Entscheidungen weiterzuentwickeln.\nDu baust Datenmodelle, die halten, was sie versprechen? Du tauchst gerne selbstständig in neue Systeme ein und willst ein Datenprodukt schaffen, auf das sich alle verlassen können? Dann suchen wir genau dich!\nFür unser Data Team in Chur suchen wir per 1. Januar 2027 oder nach Vereinbarung eine engagierte Persönlichkeit als Data Engineer (100%). Dein Job – abwechslungsreich und spannend\n Du übernimmst die technische Verantwortung für unser Data Warehouse und entwickelst es gemeinsam mit dem Data Team zu einem Datenprodukt weiter, das im ganzen Unternehmen Wirkung zeigt.\n\n• Data Warehouse verantworten: Architektur, Struktur und Datenflüsse im Griff haben und laufend weiterentwickeln.\n\n• Tech Stack vorantreiben: Unsere Datenplattform auf Basis von Microsoft Fabric und Power BI ausbauen und neue Tools und Ansätze einbringen.\n\n• Robuste Lösungen entwickeln: Datenmodelle und Pipelines entwickeln, testen und nachvollziehbar dokumentieren.\n\n• Datenkultur prägen: Gemeinsam im Data Team datengetriebenes Arbeiten im Unternehmen und in den Abteilungen verankern.\n Das bringst du mit – Persönlichkeit und Drive\n\n• Fundierte Erfahrung in Data Engineering, Data Warehousing und Datenmodellierung, idealerweise mit Microsoft Fabric, Power BI oder vergleichbaren Tools.\n\n• Du arbeitest sorgfältig: Saubere Datenmodelle, Tests und Dokumentation sind für dich selbstverständlich.\n\n• Du arbeitest dich eigenständig in neue Themen ein und übernimmst Verantwortung für deine Ergebnisse.\n\n• Strukturierte Arbeitsweise, Eigeninitiative und Freude an der Zusammenarbeit im Team.\n\n• Offenheit für ein breites Themenfeld und richtig Lust, ein starkes Datenprodukt aufzubauen.\n Das bieten wir dir – mehr als nur einen Job\n\n• Viel Gestaltungsspielraum: Du prägst unsere Datenplattform von Anfang an aktiv mit.\n\n• Weiterbildungen, intern und extern, für deine persönliche und berufliche Entwicklung.\n\n• Moderne Arbeitsplätze mit der Möglichkeit zu Homeoffice.\n\n• 40-Stunden-Woche – für eine gesunde Work-Life-Balance.\n\n• Attraktive Mitarbeitervergünstigungen, spannende Firmenevents und ein Team, das Spass macht.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://jobs.somedia.ch/Data-Engineer-100-de-j428.html",
+      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T09:32:46.677Z",
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Sommeraustrasse 32",
+      "category": "Ingegneria",
+      "sector": "Media / Editoria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "validThrough": "2027-04-01",
+      "applyUrl": "https://jobs.somedia.ch/Data-Engineer-100-de-f428.html",
+      "requirements": [
+        "Fundierte Erfahrung in Data Engineering, Data Warehousing und Datenmodellierung, idealerweise mit Microsoft Fabric, Power BI oder vergleichbaren Tools.",
+        "Du arbeitest sorgfältig: Saubere Datenmodelle, Tests und Dokumentation sind für dich selbstverständlich.",
+        "Du arbeitest dich eigenständig in neue Themen ein und übernimmst Verantwortung für deine Ergebnisse.",
+        "Strukturierte Arbeitsweise, Eigeninitiative und Freude an der Zusammenarbeit im Team.",
+        "Offenheit für ein breites Themenfeld und richtig Lust, ein starkes Datenprodukt aufzubauen."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Fundierte Erfahrung in Data Engineering, Data Warehousing und Datenmodellierung, idealerweise mit Microsoft Fabric, Power BI oder vergleichbaren Tools.",
+          "Du arbeitest sorgfältig: Saubere Datenmodelle, Tests und Dokumentation sind für dich selbstverständlich.",
+          "Du arbeitest dich eigenständig in neue Themen ein und übernimmst Verantwortung für deine Ergebnisse.",
+          "Strukturierte Arbeitsweise, Eigeninitiative und Freude an der Zusammenarbeit im Team.",
+          "Offenheit für ein breites Themenfeld und richtig Lust, ein starkes Datenprodukt aufzubauen."
+        ]
+      },
+      "_somediaMeta": {
+        "rexxId": "428",
+        "identifier": "",
+        "hiringOrganization": "Somedia Press AG"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-22T09:32:46.677Z"
+    },
     {
       "id": "somedia-3a46fdd5e3e8",
       "slug": "poligrafo-a-o-grafico-a-100-con-assistenza-agli-apprendisti-somedia-ag-ilanz",
@@ -33,7 +121,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-oder-Grafikerin-100-mit-Lernendenbetreuung-de-j427.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:26:45.886Z",
+      "crawledAt": "2026-10-22T09:32:45.484Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,7 +225,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:26:44.869Z",
+      "crawledAt": "2026-10-22T09:32:44.420Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -198,6 +286,103 @@
         }
       },
       "addressRegion": "GL"
+    },
+    {
+      "id": "somedia-0154b8d81e57",
+      "slug": "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch",
+      "slugByLocale": {
+        "de": "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch",
+        "it": "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch",
+        "en": "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch",
+        "fr": "senior-subscription-digital-marketing-manager-in-80-100-somedia-ch"
+      },
+      "company": "Somedia AG",
+      "companyKey": "somedia",
+      "companyDomain": "somedia.ch",
+      "title": "Senior Subscription & Digital Marketing Manager/in (80-100%)",
+      "titleByLocale": {
+        "de": "Senior Subscription & Digital Marketing Manager/in (80-100%)",
+        "en": "Senior Subscription & Digital Marketing Manager/in (80-100%)",
+        "it": "Senior Subscription & Digital Marketing Manager/in (80-100%)",
+        "fr": "Senior Subscription & Digital Marketing Manager/in (80-100%)"
+      },
+      "description": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist eines der grossen fünf Schweizer Medienunternehmen. Zur Somedia zählen über 20 führende Medienmarken, digitale Plattformen, innovative Marketing- und Kommunikationsagenturen, E-Learning-Dienstleister und aufstrebende Startups. Für die Somedia Press AG in Chur suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Senior Subscription & Digital Marketing Manager/in (80-100%). Du verantwortest den digitalen Vertrieb unseres Digital-Abos. Dein Hebel sind unsere eigenen Kanäle. Du machst aus Reichweite registrierte Nutzerinnen und Nutzer, aus Registrierungen Probeabos und aus Probeabos zahlende Kundschaft.\n\nDu arbeitest datengetrieben, testest laufend und verantwortest die Conversion-Kette End-to-End. Die Stelle ist bewusst gestalterisch angelegt: Du baust das Onsite-Marketing und die Automation-Strecken mit auf, statt eine bestehende Maschine nur zu bedienen. Deine Aufgaben\n\n• Onsite-Marketing: Du konzipierst, baust und optimierst Paywall, Registrierungs- und Abostrecken, Teaser, Banner und Checkout auf suedostschweiz.ch und in der News App. Testing und Conversion-Optimierung gehören zu deinem Alltag.\n\n• Owned Channels: Du nutzt Website, Newsletter, App-Push und Social konsequent für den Aboverkauf und stimmst Frequenz, Platzierung und Botschaft über alle Kanäle hinweg ab.\n\n• Marketing Automation: Du baust Lifecycle-Strecken in MoEngage auf: Onboarding, Trial-to-Paid, Reaktivierung, Winback und Churn-Prävention. Segmentierung, Trigger und Personalisierung verantwortest du selbst.\n\n• Performance Marketing: Du steuerst die bezahlte Nutzergewinnung für Abos über Suchmaschinen, Social und Display, inklusive Budget, Gebotsstrategie und Kampagnensteuerung entlang CAC und Payback.\n\n• Daten und Steuerung: Du definierst die relevanten KPI, baust dir die nötigen Auswertungen und leitest daraus die nächsten Massnahmen ab. Registrierungs- und Login-Rate, Paywall-Conversion, Trial-to-Paid, Churn und ARPU sind deine Führungsgrössen.\n\n• Zusammenarbeit: Du arbeitest eng mit Marketing und Nutzermarkt, mit Produktmanagement, Redaktion und IT zusammen und bringst die Abo-Perspektive früh in Produktentscheide ein.\n Dein Profil\n\n• Mindestens fünf Jahre Erfahrung im digitalen Marketing oder Vertrieb, davon mehrere im Subscription-, E-Commerce- oder Abogeschäft.\n\n• Nachweisbare Erfolge in der Conversion-Optimierung entlang einer Funnel-Strecke, idealerweise onsite.\n\n• Praxis in Marketing Automation und Lifecycle-Kampagnen. Wir setzen auf MoEngage, Erfahrung mit Braze, Emarsys, Salesforce Marketing Cloud oder vergleichbaren Systemen ist ebenso willkommen.\n\n• Sicherer Umgang mit Performance-Marketing-Kanälen und deren Steuerung über CAC, ROAS und Payback.\n\n• Analytische Sorgfalt: Du arbeitest selbstständig mit Webanalyse und Dashboards und begründest Entscheide mit Zahlen statt mit Bauchgefühl.\n\n• Hands-on-Mentalität. Du konzipierst nicht nur, du baust und testest auch selbst.\n\n• Stilsichere Deutschkenntnisse, Englisch für Tools und Lieferanten.\n\nVon Vorteil, aber kein Muss:\n\n• Erfahrung im Medien- oder Verlagsumfeld und Verständnis für das Zusammenspiel von Redaktion und Vertrieb.\n\n• Kenntnisse in A/B-Testing-Tools, CDP- oder Datalake-Strukturen und Consent-Management.\n\n• Erfahrung mit Pricing- und Angebotsgestaltung im Abogeschäft.\n Was wir bieten\n\n• Eine Schlüsselrolle in der digitalen Transformation eines regional verankerten Medienhauses, mit direktem Einfluss auf die Geschäftszahlen.\n\n• Kurze Entscheidungswege und ein Umfeld, in dem Ideen schnell getestet werden können.\n\n• Ein eingespieltes Team aus Produktmanagement, Data und KI, das dich technisch unterstützt.\n\n• Modernen Tool-Stack und Budget für Weiterbildung.\n\n• Arbeitsort Chur mit flexibler Arbeitszeit und der Möglichkeit, teilweise remote zu arbeiten.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+      "descriptionByLocale": {
+        "de": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist eines der grossen fünf Schweizer Medienunternehmen. Zur Somedia zählen über 20 führende Medienmarken, digitale Plattformen, innovative Marketing- und Kommunikationsagenturen, E-Learning-Dienstleister und aufstrebende Startups. Für die Somedia Press AG in Chur suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Senior Subscription & Digital Marketing Manager/in (80-100%). Du verantwortest den digitalen Vertrieb unseres Digital-Abos. Dein Hebel sind unsere eigenen Kanäle. Du machst aus Reichweite registrierte Nutzerinnen und Nutzer, aus Registrierungen Probeabos und aus Probeabos zahlende Kundschaft.\n\nDu arbeitest datengetrieben, testest laufend und verantwortest die Conversion-Kette End-to-End. Die Stelle ist bewusst gestalterisch angelegt: Du baust das Onsite-Marketing und die Automation-Strecken mit auf, statt eine bestehende Maschine nur zu bedienen. Deine Aufgaben\n\n• Onsite-Marketing: Du konzipierst, baust und optimierst Paywall, Registrierungs- und Abostrecken, Teaser, Banner und Checkout auf suedostschweiz.ch und in der News App. Testing und Conversion-Optimierung gehören zu deinem Alltag.\n\n• Owned Channels: Du nutzt Website, Newsletter, App-Push und Social konsequent für den Aboverkauf und stimmst Frequenz, Platzierung und Botschaft über alle Kanäle hinweg ab.\n\n• Marketing Automation: Du baust Lifecycle-Strecken in MoEngage auf: Onboarding, Trial-to-Paid, Reaktivierung, Winback und Churn-Prävention. Segmentierung, Trigger und Personalisierung verantwortest du selbst.\n\n• Performance Marketing: Du steuerst die bezahlte Nutzergewinnung für Abos über Suchmaschinen, Social und Display, inklusive Budget, Gebotsstrategie und Kampagnensteuerung entlang CAC und Payback.\n\n• Daten und Steuerung: Du definierst die relevanten KPI, baust dir die nötigen Auswertungen und leitest daraus die nächsten Massnahmen ab. Registrierungs- und Login-Rate, Paywall-Conversion, Trial-to-Paid, Churn und ARPU sind deine Führungsgrössen.\n\n• Zusammenarbeit: Du arbeitest eng mit Marketing und Nutzermarkt, mit Produktmanagement, Redaktion und IT zusammen und bringst die Abo-Perspektive früh in Produktentscheide ein.\n Dein Profil\n\n• Mindestens fünf Jahre Erfahrung im digitalen Marketing oder Vertrieb, davon mehrere im Subscription-, E-Commerce- oder Abogeschäft.\n\n• Nachweisbare Erfolge in der Conversion-Optimierung entlang einer Funnel-Strecke, idealerweise onsite.\n\n• Praxis in Marketing Automation und Lifecycle-Kampagnen. Wir setzen auf MoEngage, Erfahrung mit Braze, Emarsys, Salesforce Marketing Cloud oder vergleichbaren Systemen ist ebenso willkommen.\n\n• Sicherer Umgang mit Performance-Marketing-Kanälen und deren Steuerung über CAC, ROAS und Payback.\n\n• Analytische Sorgfalt: Du arbeitest selbstständig mit Webanalyse und Dashboards und begründest Entscheide mit Zahlen statt mit Bauchgefühl.\n\n• Hands-on-Mentalität. Du konzipierst nicht nur, du baust und testest auch selbst.\n\n• Stilsichere Deutschkenntnisse, Englisch für Tools und Lieferanten.\n\nVon Vorteil, aber kein Muss:\n\n• Erfahrung im Medien- oder Verlagsumfeld und Verständnis für das Zusammenspiel von Redaktion und Vertrieb.\n\n• Kenntnisse in A/B-Testing-Tools, CDP- oder Datalake-Strukturen und Consent-Management.\n\n• Erfahrung mit Pricing- und Angebotsgestaltung im Abogeschäft.\n Was wir bieten\n\n• Eine Schlüsselrolle in der digitalen Transformation eines regional verankerten Medienhauses, mit direktem Einfluss auf die Geschäftszahlen.\n\n• Kurze Entscheidungswege und ein Umfeld, in dem Ideen schnell getestet werden können.\n\n• Ein eingespieltes Team aus Produktmanagement, Data und KI, das dich technisch unterstützt.\n\n• Modernen Tool-Stack und Budget für Weiterbildung.\n\n• Arbeitsort Chur mit flexibler Arbeitszeit und der Möglichkeit, teilweise remote zu arbeiten.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+        "it": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist eines der grossen fünf Schweizer Medienunternehmen. Zur Somedia zählen über 20 führende Medienmarken, digitale Plattformen, innovative Marketing- und Kommunikationsagenturen, E-Learning-Dienstleister und aufstrebende Startups. Für die Somedia Press AG in Chur suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Senior Subscription & Digital Marketing Manager/in (80-100%). Du verantwortest den digitalen Vertrieb unseres Digital-Abos. Dein Hebel sind unsere eigenen Kanäle. Du machst aus Reichweite registrierte Nutzerinnen und Nutzer, aus Registrierungen Probeabos und aus Probeabos zahlende Kundschaft.\n\nDu arbeitest datengetrieben, testest laufend und verantwortest die Conversion-Kette End-to-End. Die Stelle ist bewusst gestalterisch angelegt: Du baust das Onsite-Marketing und die Automation-Strecken mit auf, statt eine bestehende Maschine nur zu bedienen. Deine Aufgaben\n\n• Onsite-Marketing: Du konzipierst, baust und optimierst Paywall, Registrierungs- und Abostrecken, Teaser, Banner und Checkout auf suedostschweiz.ch und in der News App. Testing und Conversion-Optimierung gehören zu deinem Alltag.\n\n• Owned Channels: Du nutzt Website, Newsletter, App-Push und Social konsequent für den Aboverkauf und stimmst Frequenz, Platzierung und Botschaft über alle Kanäle hinweg ab.\n\n• Marketing Automation: Du baust Lifecycle-Strecken in MoEngage auf: Onboarding, Trial-to-Paid, Reaktivierung, Winback und Churn-Prävention. Segmentierung, Trigger und Personalisierung verantwortest du selbst.\n\n• Performance Marketing: Du steuerst die bezahlte Nutzergewinnung für Abos über Suchmaschinen, Social und Display, inklusive Budget, Gebotsstrategie und Kampagnensteuerung entlang CAC und Payback.\n\n• Daten und Steuerung: Du definierst die relevanten KPI, baust dir die nötigen Auswertungen und leitest daraus die nächsten Massnahmen ab. Registrierungs- und Login-Rate, Paywall-Conversion, Trial-to-Paid, Churn und ARPU sind deine Führungsgrössen.\n\n• Zusammenarbeit: Du arbeitest eng mit Marketing und Nutzermarkt, mit Produktmanagement, Redaktion und IT zusammen und bringst die Abo-Perspektive früh in Produktentscheide ein.\n Dein Profil\n\n• Mindestens fünf Jahre Erfahrung im digitalen Marketing oder Vertrieb, davon mehrere im Subscription-, E-Commerce- oder Abogeschäft.\n\n• Nachweisbare Erfolge in der Conversion-Optimierung entlang einer Funnel-Strecke, idealerweise onsite.\n\n• Praxis in Marketing Automation und Lifecycle-Kampagnen. Wir setzen auf MoEngage, Erfahrung mit Braze, Emarsys, Salesforce Marketing Cloud oder vergleichbaren Systemen ist ebenso willkommen.\n\n• Sicherer Umgang mit Performance-Marketing-Kanälen und deren Steuerung über CAC, ROAS und Payback.\n\n• Analytische Sorgfalt: Du arbeitest selbstständig mit Webanalyse und Dashboards und begründest Entscheide mit Zahlen statt mit Bauchgefühl.\n\n• Hands-on-Mentalität. Du konzipierst nicht nur, du baust und testest auch selbst.\n\n• Stilsichere Deutschkenntnisse, Englisch für Tools und Lieferanten.\n\nVon Vorteil, aber kein Muss:\n\n• Erfahrung im Medien- oder Verlagsumfeld und Verständnis für das Zusammenspiel von Redaktion und Vertrieb.\n\n• Kenntnisse in A/B-Testing-Tools, CDP- oder Datalake-Strukturen und Consent-Management.\n\n• Erfahrung mit Pricing- und Angebotsgestaltung im Abogeschäft.\n Was wir bieten\n\n• Eine Schlüsselrolle in der digitalen Transformation eines regional verankerten Medienhauses, mit direktem Einfluss auf die Geschäftszahlen.\n\n• Kurze Entscheidungswege und ein Umfeld, in dem Ideen schnell getestet werden können.\n\n• Ein eingespieltes Team aus Produktmanagement, Data und KI, das dich technisch unterstützt.\n\n• Modernen Tool-Stack und Budget für Weiterbildung.\n\n• Arbeitsort Chur mit flexibler Arbeitszeit und der Möglichkeit, teilweise remote zu arbeiten.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+        "en": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist eines der grossen fünf Schweizer Medienunternehmen. Zur Somedia zählen über 20 führende Medienmarken, digitale Plattformen, innovative Marketing- und Kommunikationsagenturen, E-Learning-Dienstleister und aufstrebende Startups. Für die Somedia Press AG in Chur suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Senior Subscription & Digital Marketing Manager/in (80-100%). Du verantwortest den digitalen Vertrieb unseres Digital-Abos. Dein Hebel sind unsere eigenen Kanäle. Du machst aus Reichweite registrierte Nutzerinnen und Nutzer, aus Registrierungen Probeabos und aus Probeabos zahlende Kundschaft.\n\nDu arbeitest datengetrieben, testest laufend und verantwortest die Conversion-Kette End-to-End. Die Stelle ist bewusst gestalterisch angelegt: Du baust das Onsite-Marketing und die Automation-Strecken mit auf, statt eine bestehende Maschine nur zu bedienen. Deine Aufgaben\n\n• Onsite-Marketing: Du konzipierst, baust und optimierst Paywall, Registrierungs- und Abostrecken, Teaser, Banner und Checkout auf suedostschweiz.ch und in der News App. Testing und Conversion-Optimierung gehören zu deinem Alltag.\n\n• Owned Channels: Du nutzt Website, Newsletter, App-Push und Social konsequent für den Aboverkauf und stimmst Frequenz, Platzierung und Botschaft über alle Kanäle hinweg ab.\n\n• Marketing Automation: Du baust Lifecycle-Strecken in MoEngage auf: Onboarding, Trial-to-Paid, Reaktivierung, Winback und Churn-Prävention. Segmentierung, Trigger und Personalisierung verantwortest du selbst.\n\n• Performance Marketing: Du steuerst die bezahlte Nutzergewinnung für Abos über Suchmaschinen, Social und Display, inklusive Budget, Gebotsstrategie und Kampagnensteuerung entlang CAC und Payback.\n\n• Daten und Steuerung: Du definierst die relevanten KPI, baust dir die nötigen Auswertungen und leitest daraus die nächsten Massnahmen ab. Registrierungs- und Login-Rate, Paywall-Conversion, Trial-to-Paid, Churn und ARPU sind deine Führungsgrössen.\n\n• Zusammenarbeit: Du arbeitest eng mit Marketing und Nutzermarkt, mit Produktmanagement, Redaktion und IT zusammen und bringst die Abo-Perspektive früh in Produktentscheide ein.\n Dein Profil\n\n• Mindestens fünf Jahre Erfahrung im digitalen Marketing oder Vertrieb, davon mehrere im Subscription-, E-Commerce- oder Abogeschäft.\n\n• Nachweisbare Erfolge in der Conversion-Optimierung entlang einer Funnel-Strecke, idealerweise onsite.\n\n• Praxis in Marketing Automation und Lifecycle-Kampagnen. Wir setzen auf MoEngage, Erfahrung mit Braze, Emarsys, Salesforce Marketing Cloud oder vergleichbaren Systemen ist ebenso willkommen.\n\n• Sicherer Umgang mit Performance-Marketing-Kanälen und deren Steuerung über CAC, ROAS und Payback.\n\n• Analytische Sorgfalt: Du arbeitest selbstständig mit Webanalyse und Dashboards und begründest Entscheide mit Zahlen statt mit Bauchgefühl.\n\n• Hands-on-Mentalität. Du konzipierst nicht nur, du baust und testest auch selbst.\n\n• Stilsichere Deutschkenntnisse, Englisch für Tools und Lieferanten.\n\nVon Vorteil, aber kein Muss:\n\n• Erfahrung im Medien- oder Verlagsumfeld und Verständnis für das Zusammenspiel von Redaktion und Vertrieb.\n\n• Kenntnisse in A/B-Testing-Tools, CDP- oder Datalake-Strukturen und Consent-Management.\n\n• Erfahrung mit Pricing- und Angebotsgestaltung im Abogeschäft.\n Was wir bieten\n\n• Eine Schlüsselrolle in der digitalen Transformation eines regional verankerten Medienhauses, mit direktem Einfluss auf die Geschäftszahlen.\n\n• Kurze Entscheidungswege und ein Umfeld, in dem Ideen schnell getestet werden können.\n\n• Ein eingespieltes Team aus Produktmanagement, Data und KI, das dich technisch unterstützt.\n\n• Modernen Tool-Stack und Budget für Weiterbildung.\n\n• Arbeitsort Chur mit flexibler Arbeitszeit und der Möglichkeit, teilweise remote zu arbeiten.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
+        "fr": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist eines der grossen fünf Schweizer Medienunternehmen. Zur Somedia zählen über 20 führende Medienmarken, digitale Plattformen, innovative Marketing- und Kommunikationsagenturen, E-Learning-Dienstleister und aufstrebende Startups. Für die Somedia Press AG in Chur suchen wir per 1. November 2026 oder nach Vereinbarung eine/n Senior Subscription & Digital Marketing Manager/in (80-100%). Du verantwortest den digitalen Vertrieb unseres Digital-Abos. Dein Hebel sind unsere eigenen Kanäle. Du machst aus Reichweite registrierte Nutzerinnen und Nutzer, aus Registrierungen Probeabos und aus Probeabos zahlende Kundschaft.\n\nDu arbeitest datengetrieben, testest laufend und verantwortest die Conversion-Kette End-to-End. Die Stelle ist bewusst gestalterisch angelegt: Du baust das Onsite-Marketing und die Automation-Strecken mit auf, statt eine bestehende Maschine nur zu bedienen. Deine Aufgaben\n\n• Onsite-Marketing: Du konzipierst, baust und optimierst Paywall, Registrierungs- und Abostrecken, Teaser, Banner und Checkout auf suedostschweiz.ch und in der News App. Testing und Conversion-Optimierung gehören zu deinem Alltag.\n\n• Owned Channels: Du nutzt Website, Newsletter, App-Push und Social konsequent für den Aboverkauf und stimmst Frequenz, Platzierung und Botschaft über alle Kanäle hinweg ab.\n\n• Marketing Automation: Du baust Lifecycle-Strecken in MoEngage auf: Onboarding, Trial-to-Paid, Reaktivierung, Winback und Churn-Prävention. Segmentierung, Trigger und Personalisierung verantwortest du selbst.\n\n• Performance Marketing: Du steuerst die bezahlte Nutzergewinnung für Abos über Suchmaschinen, Social und Display, inklusive Budget, Gebotsstrategie und Kampagnensteuerung entlang CAC und Payback.\n\n• Daten und Steuerung: Du definierst die relevanten KPI, baust dir die nötigen Auswertungen und leitest daraus die nächsten Massnahmen ab. Registrierungs- und Login-Rate, Paywall-Conversion, Trial-to-Paid, Churn und ARPU sind deine Führungsgrössen.\n\n• Zusammenarbeit: Du arbeitest eng mit Marketing und Nutzermarkt, mit Produktmanagement, Redaktion und IT zusammen und bringst die Abo-Perspektive früh in Produktentscheide ein.\n Dein Profil\n\n• Mindestens fünf Jahre Erfahrung im digitalen Marketing oder Vertrieb, davon mehrere im Subscription-, E-Commerce- oder Abogeschäft.\n\n• Nachweisbare Erfolge in der Conversion-Optimierung entlang einer Funnel-Strecke, idealerweise onsite.\n\n• Praxis in Marketing Automation und Lifecycle-Kampagnen. Wir setzen auf MoEngage, Erfahrung mit Braze, Emarsys, Salesforce Marketing Cloud oder vergleichbaren Systemen ist ebenso willkommen.\n\n• Sicherer Umgang mit Performance-Marketing-Kanälen und deren Steuerung über CAC, ROAS und Payback.\n\n• Analytische Sorgfalt: Du arbeitest selbstständig mit Webanalyse und Dashboards und begründest Entscheide mit Zahlen statt mit Bauchgefühl.\n\n• Hands-on-Mentalität. Du konzipierst nicht nur, du baust und testest auch selbst.\n\n• Stilsichere Deutschkenntnisse, Englisch für Tools und Lieferanten.\n\nVon Vorteil, aber kein Muss:\n\n• Erfahrung im Medien- oder Verlagsumfeld und Verständnis für das Zusammenspiel von Redaktion und Vertrieb.\n\n• Kenntnisse in A/B-Testing-Tools, CDP- oder Datalake-Strukturen und Consent-Management.\n\n• Erfahrung mit Pricing- und Angebotsgestaltung im Abogeschäft.\n Was wir bieten\n\n• Eine Schlüsselrolle in der digitalen Transformation eines regional verankerten Medienhauses, mit direktem Einfluss auf die Geschäftszahlen.\n\n• Kurze Entscheidungswege und ein Umfeld, in dem Ideen schnell getestet werden können.\n\n• Ein eingespieltes Team aus Produktmanagement, Data und KI, das dich technisch unterstützt.\n\n• Modernen Tool-Stack und Budget für Weiterbildung.\n\n• Arbeitsort Chur mit flexibler Arbeitszeit und der Möglichkeit, teilweise remote zu arbeiten.\n Unser Kontakt\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://jobs.somedia.ch/Senior-Subscription-Digital-Marketing-Managerin-80-100-de-j430.html",
+      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T09:32:43.209Z",
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Sommeraustrasse 32",
+      "category": "Media / Giornalismo",
+      "sector": "Media / Editoria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-21",
+      "postedDate": "2026-10-21",
+      "postingDateSource": "reported",
+      "validThrough": "2027-04-01",
+      "applyUrl": "https://jobs.somedia.ch/Senior-Subscription-Digital-Marketing-Managerin-80-100-de-f430.html",
+      "requirements": [
+        "Mindestens fünf Jahre Erfahrung im digitalen Marketing oder Vertrieb, davon mehrere im Subscription-, E-Commerce- oder Abogeschäft.",
+        "Nachweisbare Erfolge in der Conversion-Optimierung entlang einer Funnel-Strecke, idealerweise onsite.",
+        "Praxis in Marketing Automation und Lifecycle-Kampagnen. Wir setzen auf MoEngage, Erfahrung mit Braze, Emarsys, Salesforce Marketing Cloud oder vergleichbaren Systemen ist ebenso willkommen.",
+        "Sicherer Umgang mit Performance-Marketing-Kanälen und deren Steuerung über CAC, ROAS und Payback.",
+        "Analytische Sorgfalt: Du arbeitest selbstständig mit Webanalyse und Dashboards und begründest Entscheide mit Zahlen statt mit Bauchgefühl.",
+        "Hands-on-Mentalität. Du konzipierst nicht nur, du baust und testest auch selbst.",
+        "Stilsichere Deutschkenntnisse, Englisch für Tools und Lieferanten.",
+        "Erfahrung im Medien- oder Verlagsumfeld und Verständnis für das Zusammenspiel von Redaktion und Vertrieb.",
+        "Kenntnisse in A/B-Testing-Tools, CDP- oder Datalake-Strukturen und Consent-Management.",
+        "Erfahrung mit Pricing- und Angebotsgestaltung im Abogeschäft."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Mindestens fünf Jahre Erfahrung im digitalen Marketing oder Vertrieb, davon mehrere im Subscription-, E-Commerce- oder Abogeschäft.",
+          "Nachweisbare Erfolge in der Conversion-Optimierung entlang einer Funnel-Strecke, idealerweise onsite.",
+          "Praxis in Marketing Automation und Lifecycle-Kampagnen. Wir setzen auf MoEngage, Erfahrung mit Braze, Emarsys, Salesforce Marketing Cloud oder vergleichbaren Systemen ist ebenso willkommen.",
+          "Sicherer Umgang mit Performance-Marketing-Kanälen und deren Steuerung über CAC, ROAS und Payback.",
+          "Analytische Sorgfalt: Du arbeitest selbstständig mit Webanalyse und Dashboards und begründest Entscheide mit Zahlen statt mit Bauchgefühl.",
+          "Hands-on-Mentalität. Du konzipierst nicht nur, du baust und testest auch selbst.",
+          "Stilsichere Deutschkenntnisse, Englisch für Tools und Lieferanten.",
+          "Erfahrung im Medien- oder Verlagsumfeld und Verständnis für das Zusammenspiel von Redaktion und Vertrieb.",
+          "Kenntnisse in A/B-Testing-Tools, CDP- oder Datalake-Strukturen und Consent-Management.",
+          "Erfahrung mit Pricing- und Angebotsgestaltung im Abogeschäft."
+        ]
+      },
+      "_somediaMeta": {
+        "rexxId": "430",
+        "identifier": "",
+        "hiringOrganization": "Somedia Press AG"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-22T09:32:43.209Z"
     }
   ]
 }

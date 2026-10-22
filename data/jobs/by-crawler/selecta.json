@@ -1,6 +1,7 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-10-20T21:23:57.003Z",
+  "assembledAt": "2026-10-22T09:31:53.038Z",
+  "runId": "39753980053",
   "jobs": [
     {
       "id": "selecta-d22049ad3d27",
@@ -33,7 +34,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:49.968Z",
+      "crawledAt": "2026-10-22T09:31:42.268Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -113,7 +114,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:49.799Z",
+      "crawledAt": "2026-10-22T09:31:42.087Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -199,7 +200,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:49.628Z",
+      "crawledAt": "2026-10-22T09:31:41.906Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -255,7 +256,7 @@
         "it": "servicetechniker-m-w-d-selecta-basel-solothurn",
         "en": "service-technician-m-f-d-selecta-basel-solothurn",
         "de": "servicetechniker-m-w-d-selecta-region-basel-solothurn",
-        "fr": "technicien-de-service-h-f-d-selecta-basel-solothurn"
+        "fr": "servicetechniker-m-w-d-selecta-basel-solothurn"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -279,7 +280,7 @@
       "url": "https://careers.selecta.ch/Job/4525",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:49.462Z",
+      "crawledAt": "2026-10-22T09:31:41.713Z",
       "addressLocality": "Basel / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -308,7 +309,8 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-region-basel-solothurn",
         "technicien-des-services-m-f-d-selecta-basel-solothurn",
-        "tecnico-di-servizio-m-f-d-selecta-basel-solothurn"
+        "tecnico-di-servizio-m-f-d-selecta-basel-solothurn",
+        "technicien-de-service-h-f-d-selecta-basel-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -320,7 +322,8 @@
         ],
         "fr": [
           "servicetechniker-m-w-d-selecta-region-basel-solothurn",
-          "technicien-des-services-m-f-d-selecta-basel-solothurn"
+          "technicien-des-services-m-f-d-selecta-basel-solothurn",
+          "technicien-de-service-h-f-d-selecta-basel-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-06T11:58:32.609Z",
@@ -369,7 +372,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:49.302Z",
+      "crawledAt": "2026-10-22T09:31:41.534Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -434,7 +437,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-zurich-aargau",
         "en": "service-technician-m-f-d-selecta-zurich-aargau",
         "de": "servicetechniker-m-w-d-selecta-region-zurich-aargau",
-        "fr": "technicien-des-services-m-f-d-selecta-zurich-aargau"
+        "fr": "servicetechniker-m-w-d-selecta-zurich-aargau"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -458,7 +461,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:49.135Z",
+      "crawledAt": "2026-10-22T09:31:40.791Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -486,7 +489,8 @@
       },
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-zurich-aargau",
-        "servicetechniker-m-w-d-selecta-region-zurich-aargau"
+        "servicetechniker-m-w-d-selecta-region-zurich-aargau",
+        "technicien-des-services-m-f-d-selecta-zurich-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -494,7 +498,7 @@
           "servicetechniker-m-w-d-selecta-region-zurich-aargau"
         ],
         "fr": [
-          "servicetechniker-m-w-d-selecta-zurich-aargau"
+          "technicien-des-services-m-f-d-selecta-zurich-aargau"
         ]
       },
       "firstSeenAt": "2026-07-04T11:56:53.326Z",
@@ -543,7 +547,7 @@
       "url": "https://careers.selecta.ch/Job/4618",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:48.971Z",
+      "crawledAt": "2026-10-22T09:31:40.105Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -623,7 +627,7 @@
       "url": "https://careers.selecta.ch/Job/4617",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:48.810Z",
+      "crawledAt": "2026-10-22T09:31:39.357Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -707,7 +711,7 @@
       "url": "https://careers.selecta.ch/Job/4628",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:48.146Z",
+      "crawledAt": "2026-10-22T09:31:39.182Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -763,7 +767,7 @@
         "it": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
         "en": "sales-support-associate-m-w-d-selecta-kirchberg-be-cjdx81",
         "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
-        "fr": "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+        "fr": "collaborateur-trice-au-support-commercial-m-w-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -787,7 +791,7 @@
       "url": "https://careers.selecta.ch/Job/4589",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:47.984Z",
+      "crawledAt": "2026-10-22T09:31:39.005Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -815,7 +819,7 @@
       },
       "previousSlugs": [
         "sales-support-associate-m-w-d-selecta-kirchberg-be",
-        "collaborateur-trice-au-support-commercial-m-w-d-selecta-kirchberg-be"
+        "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -823,7 +827,7 @@
         ],
         "fr": [
           "sales-support-associate-m-w-d-selecta-kirchberg-be",
-          "collaborateur-trice-au-support-commercial-m-w-d-selecta-kirchberg-be"
+          "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
         ]
       },
       "firstSeenAt": "2026-08-24T21:43:13.112Z",
@@ -845,10 +849,10 @@
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -872,7 +876,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:47.807Z",
+      "crawledAt": "2026-10-22T09:31:38.831Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -901,19 +905,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -962,7 +967,7 @@
       "url": "https://careers.selecta.ch/Job/4604",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:47.643Z",
+      "crawledAt": "2026-10-22T09:31:38.098Z",
       "addressLocality": "Suhr / Reiden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1042,7 +1047,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:47.482Z",
+      "crawledAt": "2026-10-22T09:31:37.924Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1098,7 +1103,7 @@
         "it": "selettore-di-ordini-di-investimento-m-f-d-selecta-kirchberg-be",
         "en": "investment-order-picker-m-f-d-selecta-kirchberg-be",
         "de": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be",
-        "fr": "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
+        "fr": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1122,7 +1127,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:47.319Z",
+      "crawledAt": "2026-10-22T09:31:37.749Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1149,14 +1154,15 @@
         "location": "Kirchberg BE"
       },
       "previousSlugs": [
-        "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
+        "anlage-kommissionierer-m-w-d-selecta-kirchberg-be",
+        "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
         ],
         "fr": [
-          "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
+          "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
         ]
       },
       "firstSeenAt": "2026-09-19T22:57:42.726Z",
@@ -1205,7 +1211,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:47.156Z",
+      "crawledAt": "2026-10-22T09:31:37.578Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "",
@@ -1285,7 +1291,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:46.994Z",
+      "crawledAt": "2026-10-22T09:31:37.354Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1365,7 +1371,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:46.832Z",
+      "crawledAt": "2026-10-22T09:31:37.183Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1445,7 +1451,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:46.158Z",
+      "crawledAt": "2026-10-22T09:31:37.009Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1525,7 +1531,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:45.999Z",
+      "crawledAt": "2026-10-22T09:31:36.837Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1613,7 +1619,7 @@
       "url": "https://careers.selecta.ch/Job/4614",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:45.837Z",
+      "crawledAt": "2026-10-22T09:31:36.034Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1686,14 +1692,14 @@
       "titleByLocale": {
         "it": "Responsabile grandi clienti (sviluppo commerciale / acquisizione) 100%",
         "en": "Key Account Manager (New Business / Hunter)",
-        "de": "Key-Account-Manager (Neukundenakquise / Hunter)",
+        "de": "Key Account Manager (New Business / Hunter)",
         "fr": "Responsable grands comptes (développement commercial / acquisition) 100 %"
       },
       "description": "Key Account Manager (New Business / Hunter) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Westschweiz Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Für den weiteren Ausbau unseres B2B-Neukundengeschäfts suchen wir eine starke Hunter-Persönlichkeit mit ausgewiesener Erfahrung in der Akquisition von neuen Geschäftskunden.\n• Aktive Neukundengewinnung im B2B-Bereich, vom Erstkontakt bis zum Vertragsabschluss\n• Aufbau und Entwicklung einer starken Pipeline mit Fokus auf profitable Neukunden\n• Verkauf von Kaffee-, Verpflegungs-, Vending- und Workplace-Lösungen\n• Ansprache und Entwicklung von Entscheidungsträgern bei attraktiven Zielkunden\n• Erstellung von kundenspezifischen Angeboten mit klarer kommerzieller Logik\n• Verhandlung von Preisen, Verträgen und kommerziellen Rahmenbedingungen\n• Konsequente Pflege von CRM, Pipeline, Forecast und Aktivitäten\n• Enge Zusammenarbeit mit Marketing, Service, Technik, Operations und Finance für eine reibungslose Umsetzung Ausbildung\n• Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n• Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil Profil\n• Ausgewiesene Erfahrung und nachweisbare Erfolge in der B2B-Neukundenakquisition, idealerweise im Vending Umfeld\n• Starke Hunter-Mentalität: ambitioniert, proaktiv, resilient, abschlussstark und zielorientiert\n• Sicherer Auftritt bei Entscheidungsträgern auch auf C-Level und hohe Verhandlungsstärke\n• Sehr gutes kommerzielles Verständnis für Preise, Margen, Potenziale und Kundenprofitabilität\n• Strukturierte Arbeitsweise mit hoher CRM-, Reporting- und Follow-up-Disziplin\n• Analytisches Denken und sicherer Umgang mit MS Office, insbesondere Excel und PowerPoint sowie CRM\n• Fliessende Französisch- und Deutschkenntnisse, Englisch von Vorteil\n• Führerausweis Kat. B und Freude an hoher Reisetätigkeit in der Westschweiz Spezielles\n• Eine spannende und attraktive Hunter-Rolle in einem Umfeld mit klarem Fokus auf Wachstum und Neukundengewinnung\n• Ein starkes und breites Lösungsportfolio für einen relevanten und wachsenden Markt\n• Hohe Eigenverantwortung, kurze Entscheidungswege und klare Performance-Orientierung\n• Attraktive Anstellungsbedingungen inklusive leistungsorientierter Vergütung und Firmenfahrzeug Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
         "it": "Responsabile account chiave (Nuova attività / Caccia) 100%\n\nIl gruppo Selecta, con sede principale in Svizzera dal 1957, è il principale fornitore europeo di caffè e innovative soluzioni FoodTech sul posto di lavoro e nello spazio pubblico. Ogni giorno forniamo a più di 10 milioni di persone in 16 Paesi europei caffè e bevande premium, snack e pasti freschi. Dobbiamo il nostro successo, con un fatturato annuo di 1,4 miliardi di euro, ai nostri circa 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati, che ogni giorno creano milioni di momenti di gioia per i nostri clienti e i loro consumatori. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo.\n\nLuogo di lavoro\n\nSvizzera occidentale\n\nInizio dell'attività\n\nda subito o da concordare\n\nPrincipali mansioni\n\nPer l'ulteriore sviluppo della nostra attività B2B di acquisizione di nuovi clienti, cerchiamo una forte personalità hunter con comprovata esperienza nell'acquisizione di nuovi clienti aziendali.\n\n- Acquisizione attiva di nuovi clienti in ambito B2B, dal primo contatto fino alla conclusione del contratto\n- Creazione e sviluppo di una solida pipeline con focus su nuovi clienti redditizi\n- Vendita di soluzioni per il caffè, la ristorazione, il vending e il workplace\n- Coinvolgimento e sviluppo dei rapporti con i decisori di clienti target interessanti\n- Elaborazione di offerte personalizzate con una chiara logica commerciale\n- Negoziazione di prezzi, contratti e condizioni quadro commerciali\n- Gestione sistematica del CRM, della pipeline, delle previsioni e delle attività\n- Stretta collaborazione con Marketing, Servizio, Tecnica, Operations e Finanza per un'attuazione senza intoppi\n\nFormazione\n\n- Titolo di studio universitario conseguito, idealmente presso una scuola universitaria professionale (FH), un'università o con una formazione equivalente in economia aziendale\n- Un'ulteriore formazione nelle vendite, nel key account management o nell'acquisizione di nuovi clienti costituisce un vantaggio\n\nProfilo\n\n- Esperienza comprovata e risultati dimostrabili nell'acquisizione di nuovi clienti B2B, idealmente nel settore del vending\n- Spiccata mentalità da hunter: ambiziosa, proattiva, resiliente, con una forte capacità di chiusura e orientata agli obiettivi\n- Sicurezza nel rapportarsi ai decisori, anche a livello C-level, e spiccate capacità negoziali\n- Ottima comprensione commerciale di prezzi, margini, potenzialità e redditività dei clienti\n- Metodo di lavoro strutturato con elevata disciplina nella gestione del CRM, nella reportistica e nel follow-up\n- Pensiero analitico e padronanza nell'uso di MS Office, in particolare Excel e PowerPoint, nonché del CRM\n- Ottima conoscenza del francese e del tedesco, l'inglese costituisce un vantaggio\n- Patente di guida cat. B e disponibilità a viaggiare frequentemente nella Svizzera occidentale\n\nParticolarità\n\n- Un ruolo da hunter stimolante e attrattivo in un contesto con un chiaro focus sulla crescita e sull'acquisizione di nuovi clienti\n- Un portafoglio di soluzioni solido e ampio per un mercato rilevante e in crescita\n- Elevata autonomia, processi decisionali brevi e chiaro orientamento alle performance\n- Condizioni di impiego interessanti, inclusi una retribuzione orientata alle prestazioni e un'auto aziendale\n\nCandidati\n\nAbbiamo suscitato il tuo interesse? Allora ci piacerebbe conoscerti. Saremo lieti di ricevere la tua candidatura. Candidati online sul portale carriere di Selecta. Non verranno prese in considerazione candidature inviate via e-mail o posta.",
         "en": "Key Account Manager (New Business / Hunt) 100%\n\nThe Selecta Group, which has been headquartered in Switzerland since 1957, is Europe's leading provider of coffee and innovative FoodTech solutions in the workplace and public spaces. Every day, we provide more than 10 million people in 16 European countries with premium coffee and beverages, snacks and fresh meals. We owe our success, with annual revenue of 1,4 billion euros, to our approximately 6.000 highly qualified, committed and passionate Selecta employees, who create millions of moments of joy for our customers and their consumers every day. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution.\n\nWork location\n\nWestern Switzerland\n\nStart date\n\nImmediately or by agreement\n\nMain responsibilities\n\nTo further expand our B2B new-customer business, we are looking for a strong hunter personality with proven experience in acquiring new business customers.\n\n- Active acquisition of new B2B customers, from initial contact to contract signing\n- Building and developing a strong pipeline with a focus on profitable new customers\n- Sale of coffee, catering, vending and workplace solutions\n- Approaching and developing relationships with decision-makers at attractive target customers\n- Creating customer-specific offers with clear commercial logic\n- Negotiating prices, contracts and commercial terms and conditions\n- Consistent maintenance of CRM, pipeline, forecast and activities\n- Close collaboration with Marketing, Service, Engineering, Operations and Finance to ensure smooth implementation\n\nEducation\n\n- Completed higher education degree, ideally from a university of applied sciences or university, or comparable business administration training\n- Additional training in sales, key account management or new customer acquisition is an advantage\n\nProfile\n\n- Proven experience and demonstrable success in B2B new customer acquisition, ideally in the vending sector\n- Strong hunter mentality: ambitious, proactive, resilient, with strong closing skills and goal-oriented\n- Confident presence with decision-makers, including at C-level, and strong negotiation skills\n- Very good commercial understanding of prices, margins, potential and customer profitability\n- Structured way of working with a high level of CRM, reporting and follow-up discipline\n- Analytical thinking and confident use of MS Office, especially Excel and PowerPoint, as well as CRM\n- Fluent French and German, with English an advantage\n- Category B driving licence and enjoyment of extensive travel in French-speaking Switzerland\n\nSpecial features\n\n- An exciting and attractive hunter role in an environment with a clear focus on growth and new customer acquisition\n- A strong and broad portfolio of solutions for a relevant and growing market\n- A high degree of personal responsibility, short decision-making processes and a clear performance focus\n- Attractive employment conditions including performance-based compensation and a company car\n\nApply\n\nHave we sparked your interest? Then we would like to get to know you. We look forward to receiving your application. Please apply online via the Selecta careers portal. Applications by email or post will not be considered.",
-        "de": "Key Account Manager (New Business / Hunter) 100%\n\nDie Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können.\n\nArbeitsort\n\nWestschweiz\n\nArbeitsbeginn\n\nper sofort oder nach Vereinbarung\n\nHauptaufgaben\n\nFür den weiteren Ausbau unseres B2B-Neukundengeschäfts suchen wir eine starke Hunter-Persönlichkeit mit ausgewiesener Erfahrung in der Akquisition von neuen Geschäftskunden.\n\n- Aktive Neukundengewinnung im B2B-Bereich, vom Erstkontakt bis zum Vertragsabschluss\n- Aufbau und Entwicklung einer starken Pipeline mit Fokus auf profitable Neukunden\n- Verkauf von Kaffee-, Verpflegungs-, Vending- und Workplace-Lösungen\n- Ansprache und Entwicklung von Entscheidungsträgern bei attraktiven Zielkunden\n- Erstellung von kundenspezifischen Angeboten mit klarer kommerzieller Logik\n- Verhandlung von Preisen, Verträgen und kommerziellen Rahmenbedingungen\n- Konsequente Pflege von CRM, Pipeline, Forecast und Aktivitäten\n- Enge Zusammenarbeit mit Marketing, Service, Technik, Operations und Finance für eine reibungslose Umsetzung\n\nAusbildung\n\n- Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n- Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil\n\nProfil\n\n- Ausgewiesene Erfahrung und nachweisbare Erfolge in der B2B-Neukundenakquisition, idealerweise im Vending Umfeld\n- Starke Hunter-Mentalität: ambitioniert, proaktiv, resilient, abschlussstark und zielorientiert\n- Sicherer Auftritt bei Entscheidungsträgern auch auf C-Level und hohe Verhandlungsstärke\n- Sehr gutes kommerzielles Verständnis für Preise, Margen, Potenziale und Kundenprofitabilität\n- Strukturierte Arbeitsweise mit hoher CRM-, Reporting- und Follow-up-Disziplin\n- Analytisches Denken und sicherer Umgang mit MS Office, insbesondere Excel und PowerPoint sowie CRM\n- Fliessende Französisch- und Deutschkenntnisse, Englisch von Vorteil\n- Führerausweis Kat. B und Freude an hoher Reisetätigkeit in der Westschweiz\n\nSpezielles\n\n- Eine spannende und attraktive Hunter-Rolle in einem Umfeld mit klarem Fokus auf Wachstum und Neukundengewinnung\n- Ein starkes und breites Lösungsportfolio für einen relevanten und wachsenden Markt\n- Hohe Eigenverantwortung, kurze Entscheidungswege und klare Performance-Orientierung\n- Attraktive Anstellungsbedingungen inklusive leistungsorientierter Vergütung und Firmenfahrzeug\n\nBewerben\n\nHaben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "de": "Key Account Manager (New Business / Hunter) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Westschweiz Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben Für den weiteren Ausbau unseres B2B-Neukundengeschäfts suchen wir eine starke Hunter-Persönlichkeit mit ausgewiesener Erfahrung in der Akquisition von neuen Geschäftskunden.\n• Aktive Neukundengewinnung im B2B-Bereich, vom Erstkontakt bis zum Vertragsabschluss\n• Aufbau und Entwicklung einer starken Pipeline mit Fokus auf profitable Neukunden\n• Verkauf von Kaffee-, Verpflegungs-, Vending- und Workplace-Lösungen\n• Ansprache und Entwicklung von Entscheidungsträgern bei attraktiven Zielkunden\n• Erstellung von kundenspezifischen Angeboten mit klarer kommerzieller Logik\n• Verhandlung von Preisen, Verträgen und kommerziellen Rahmenbedingungen\n• Konsequente Pflege von CRM, Pipeline, Forecast und Aktivitäten\n• Enge Zusammenarbeit mit Marketing, Service, Technik, Operations und Finance für eine reibungslose Umsetzung Ausbildung\n• Abgeschlossenes Hochschulstudium, idealerweise FH, Universität oder vergleichbare betriebswirtschaftliche Ausbildung\n• Zusätzliche Weiterbildung im Verkauf, Key Account Management oder in der Neukundengewinnung von Vorteil Profil\n• Ausgewiesene Erfahrung und nachweisbare Erfolge in der B2B-Neukundenakquisition, idealerweise im Vending Umfeld\n• Starke Hunter-Mentalität: ambitioniert, proaktiv, resilient, abschlussstark und zielorientiert\n• Sicherer Auftritt bei Entscheidungsträgern auch auf C-Level und hohe Verhandlungsstärke\n• Sehr gutes kommerzielles Verständnis für Preise, Margen, Potenziale und Kundenprofitabilität\n• Strukturierte Arbeitsweise mit hoher CRM-, Reporting- und Follow-up-Disziplin\n• Analytisches Denken und sicherer Umgang mit MS Office, insbesondere Excel und PowerPoint sowie CRM\n• Fliessende Französisch- und Deutschkenntnisse, Englisch von Vorteil\n• Führerausweis Kat. B und Freude an hoher Reisetätigkeit in der Westschweiz Spezielles\n• Eine spannende und attraktive Hunter-Rolle in einem Umfeld mit klarem Fokus auf Wachstum und Neukundengewinnung\n• Ein starkes und breites Lösungsportfolio für einen relevanten und wachsenden Markt\n• Hohe Eigenverantwortung, kurze Entscheidungswege und klare Performance-Orientierung\n• Attraktive Anstellungsbedingungen inklusive leistungsorientierter Vergütung und Firmenfahrzeug Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
         "fr": "Responsable grands comptes (New Business / Hunter) 100%\n\nLe groupe Selecta, dont le siège est établi en Suisse depuis 1957, est le premier fournisseur européen de café et de solutions FoodTech innovantes sur le lieu de travail et dans les espaces publics. Chaque jour, nous fournissons à plus de 10 millions de personnes dans 16 pays européens du café et des boissons premium, des snacks et des repas frais. Nous devons notre succès, avec un chiffre d'affaires annuel de 1,4 milliard d'euros, à nos quelque 6.000 collaborateurs et collaboratrices de Selecta hautement qualifiés, engagés et passionnés, qui créent chaque jour des millions de moments de plaisir pour nos clients et leurs consommateurs et consommatrices. Le développement durable fait partie intégrante de nos activités et se concentre sur les domaines clés dans lesquels nous pouvons apporter une contribution positive.\n\nLieu de travail\n\nSuisse romande\n\nEntrée en fonction\n\ndès que possible ou à convenir\n\nTâches principales\n\nPour poursuivre le développement de notre activité B2B de conquête de nouveaux clients, nous recherchons un profil de chasseur affirmé, doté d'une expérience avérée dans l'acquisition de nouveaux clients professionnels.\n\n- Acquisition active de nouveaux clients B2B, du premier contact à la conclusion du contrat\n- Constitution et développement d'un solide pipeline axé sur de nouveaux clients rentables\n- Vente de solutions de café, de restauration, de distribution automatique et pour le lieu de travail\n- Prise de contact et développement des relations avec les décideurs chez des clients cibles attractifs\n- Élaboration d’offres personnalisées avec une logique commerciale claire\n- Négociation des prix, des contrats et des conditions-cadres commerciales\n- Suivi rigoureux du CRM, du pipeline, des prévisions et des activités\n- Collaboration étroite avec le marketing, le service, la technique, les opérations et la finance pour une mise en œuvre fluide\n\nFormation\n\n- Formation universitaire achevée, idéalement dans une haute école spécialisée, une université ou une formation comparable en gestion d’entreprise\n- Formation complémentaire dans la vente, la gestion de comptes clés ou l’acquisition de nouveaux clients, un atout\n\nProfil\n\n- Expérience avérée et résultats démontrables dans l’acquisition de nouveaux clients B2B, idéalement dans le secteur du vending\n- Forte mentalité de chasseur : ambitieux, proactif, résilient, doté d’une grande capacité à conclure et orienté objectifs\n- Aisance face aux décideurs, y compris au niveau C-level, et grande force de négociation\n- Très bonne compréhension commerciale des prix, des marges, des potentiels et de la rentabilité des clients\n- Méthode de travail structurée avec une grande discipline en matière de CRM, de reporting et de suivi\n- Esprit analytique et maîtrise de MS Office, notamment d’Excel et de PowerPoint ainsi que du CRM\n- Maîtrise courante du français et de l’allemand, l’anglais étant un atout\n- Permis de conduire cat. B et goût pour une activité impliquant de nombreux déplacements en Suisse romande\n\nParticularités\n\n- Un poste de Hunter passionnant et attractif dans un environnement clairement axé sur la croissance et l’acquisition de nouveaux clients\n- Un portefeuille de solutions solide et étendu pour un marché pertinent et en croissance\n- Grande autonomie, circuits de décision courts et forte orientation vers la performance\n- Conditions d’emploi attractives, y compris une rémunération liée à la performance et un véhicule de fonction\n\nPostuler\n\nAvons-nous suscité votre intérêt ? Dans ce cas, nous aimerions faire votre connaissance. Nous nous réjouissons de recevoir votre candidature. Veuillez postuler en ligne sur le portail carrière de Selecta. Les candidatures envoyées par e-mail ou par courrier ne seront pas prises en compte."
       },
       "location": "Steinhausen",
@@ -1701,7 +1707,7 @@
       "url": "https://careers.selecta.ch/Job/4607",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:45.675Z",
+      "crawledAt": "2026-10-22T09:31:35.861Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -1739,6 +1745,7 @@
       "localeMismatchSuppressedLen": 3346,
       "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-04T11:56:49.954Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -1784,7 +1791,7 @@
       "url": "https://careers.selecta.ch/Job/4592",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:45.505Z",
+      "crawledAt": "2026-10-22T09:31:35.677Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1869,7 +1876,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:45.344Z",
+      "crawledAt": "2026-10-22T09:31:35.502Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1949,7 +1956,7 @@
       "url": "https://careers.selecta.ch/Job/4622",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:45.177Z",
+      "crawledAt": "2026-10-22T09:31:35.317Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -2033,7 +2040,7 @@
       "url": "https://careers.selecta.ch/Job/4621",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:45.007Z",
+      "crawledAt": "2026-10-22T09:31:35.138Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -2078,6 +2085,86 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "selecta-1d2e8b7923e0",
+      "slug": "operatore-automatico-m-f-d-selecta-primar-spiez",
+      "slugByLocale": {
+        "it": "operatore-automatico-m-f-d-selecta-primar-spiez",
+        "en": "automatic-operator-m-f-d-selecta-primar-spiez",
+        "de": "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau",
+        "fr": "operateur-automatique-m-f-d-selecta-primar-spiez"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Automatenbetreuer (m/w/d)",
+      "titleByLocale": {
+        "it": "Operatore automatico (m/f/d)",
+        "en": "Automatic operator (m/f/d)",
+        "de": "Automatenbetreuer (m/w/d)",
+        "fr": "Opérateur automatique (m/f/d)"
+      },
+      "description": "Automatenbetreuer (m/w/d) 40% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort primär Spiez (Ablösung in Bern, Langnau) Arbeitsbeginn per 01.09.2026 oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Getränke-, Snack- sowie Heissgetränkestationen in den Personenzügen der BLS.\n• Du engagierst dich für die Bedürfnisse der Kunden und gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumentenorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen sicher.\n• Du übernimmst die Ferienablösungen aller Railway-Automatenbetreuer.\n• Du führst Kassenabrechnungen durch\n• Du hältst die Hygienevorschriften ein\n• Du bestellst und bewirtschaftest die benötigte Ware selbständig\n• Kleinere Störungen kannst du selbst beheben. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du bist flexibel, belastbar und bewahrst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich.\n• Körperliche Gesundheit ist für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "it": "Operatore automatico (m/f/d) 40% Il Gruppo Selecta, con sede in Svizzera dal 1957, è leader in Europa nella fornitura di caffè e soluzioni tecnologiche innovative sul posto di lavoro e negli spazi pubblici. Ogni giorno serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati che creano milioni di momenti di gioia per i nostri clienti ogni giorno: dentro e i loro consumatori: dentro. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro principalmente Spiez (sostituto a Berna, Langnau) Inizio del lavoro a partire dal 01.09.2026 o da accordo compiti principali\n• Potrai controllare le nostre stazioni di drink, snack e bevande calde sui treni passeggeri BLS.\n• Siete impegnati alle esigenze dei clienti e andate socievoli ed eloquenti ai nostri ospiti.\n• Assicura il servizio di pulizia e riempimento orientato al consumatore delle nostre zone di pausa.\n• Si prende il sopravvento delle vacanze di tutti i supervisori del distributore ferroviario.\n• Effettuare dichiarazioni di cassa\n• Segui le regole di igiene\n• Si ordina e gestisce le merci richieste in modo indipendente\n• I disturbi minori possono essere risolti da soli. Formazione\n• Formazione nell'ospitalità o nel commercio al dettaglio (industria alimentare) di vantaggio Profilo\n• Sei flessibile, resiliente e mantenere la calma e la panoramica anche in situazioni frenetiche.\n• Certamente padroneggi la lingua tedesca in parola e scrittura.\n• Buone maniere, un aspetto ben curato e un atteggiamento positivo alla vita sono una questione naturalmente per voi.\n• La salute fisica viene naturalmente a voi. Applicazione speciale Abbiamo suscitato il vostro interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
+        "en": "Automatic operator (m/f/d) 40% The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly skilled, committed and passionate Selecta employees who create millions of moments of joy for our customers every day: inside and their consumers: inside. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Place of work primarily Spiez (replacement in Bern, Langnau) Start of work as of 01.09.2026 or by agreement main tasks\n• You will supervise our drink, snack and hot drink stations on the BLS passenger trains.\n• You are committed to the needs of the customers and go sociable and eloquent to our guests.\n• You ensure the consumer-oriented cleaning and filling service of our break zones.\n• You take over the holidays of all railway vending machine supervisors.\n• You carry out cash statements\n• You follow the hygiene rules\n• You order and manage the required goods independently\n• Minor disturbances can be resolved yourself. Training\n• Training in the hospitality or retail trade (food industry) of advantage Profile\n• You are flexible, resilient and keep calm and overview even in hectic situations.\n• You certainly master the German language in word and writing.\n• Good manners, a well-kept appearance and a positive attitude to life are a matter of course for you.\n• Physical health comes naturally to you. Special application Have we aroused your interest? Then we would like to get to know you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
+        "de": "Automatenbetreuer (m/w/d) 40% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort primär Spiez (Ablösung in Bern, Langnau) Arbeitsbeginn per 01.09.2026 oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Getränke-, Snack- sowie Heissgetränkestationen in den Personenzügen der BLS.\n• Du engagierst dich für die Bedürfnisse der Kunden und gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumentenorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen sicher.\n• Du übernimmst die Ferienablösungen aller Railway-Automatenbetreuer.\n• Du führst Kassenabrechnungen durch\n• Du hältst die Hygienevorschriften ein\n• Du bestellst und bewirtschaftest die benötigte Ware selbständig\n• Kleinere Störungen kannst du selbst beheben. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du bist flexibel, belastbar und bewahrst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich.\n• Körperliche Gesundheit ist für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Opérateur automatique (m/f/d) 40% Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de solutions de café et de technologies alimentaires innovantes sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec du café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 collaborateurs hautement qualifiés, engagés et passionnés de Selecta qui créent chaque jour des millions de moments de joie pour nos clients : à l'intérieur et à leurs consommateurs : à l'intérieur. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail principalement Spiez (remplacement à Berne, Langnau) Début des travaux au 01.09.2026 ou par accord tâches principales\n• Vous superviserez nos stations de boissons, de collations et de boissons chaudes dans les trains de voyageurs BLS.\n• Vous êtes engagé aux besoins des clients et allez sociable et éloquent à nos clients.\n• Vous assurez le service de nettoyage et de remplissage axé sur le consommateur de nos zones de rupture.\n• Vous prenez le contrôle des vacances de tous les superviseurs de distributeurs automatiques de chemin de fer.\n• Vous effectuez des relevés de caisse\n• Vous suivez les règles d'hygiène\n• Vous commandez et gérez les marchandises requises indépendamment\n• Des troubles mineurs peuvent être résolus vous-même. Formation\n• Formation dans l'hôtellerie ou le commerce de détail (industrie alimentaire) d'avantage Profil\n• Vous êtes flexible, résilient et gardez le calme et la vue d'ensemble même dans des situations agitées.\n• Vous maîtrisez certainement la langue allemande en paroles et en écritures.\n• Les bonnes manières, une apparence bien gardée et une attitude positive à l'égard de la vie sont bien sûr une question pour vous.\n• La santé physique vous vient naturellement. Demande spéciale Avons-nous suscité votre intérêt ? Alors nous aimerions apprendre à vous connaître. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail Selecta carrière. Aucune demande par courriel ou par la poste ne sera examinée."
+      },
+      "location": "primär Spiez",
+      "canton": "BE",
+      "url": "https://careers.selecta.ch/Job/4616",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-22T09:31:34.872Z",
+      "addressLocality": "primär Spiez",
+      "addressRegion": "BE",
+      "streetAddress": "",
+      "postalCode": "3001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assistenza Clienti",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-14",
+      "postedDate": "2026-07-14",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.selecta.ch/Job/4616",
+      "department": "",
+      "jobReqId": "4616",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_targetScope": {
+        "canton": "BE",
+        "location": "primär Spiez"
+      },
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau"
+        ]
+      },
+      "firstSeenAt": "2026-07-22T11:27:48.108Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -2167,7 +2254,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "selecta-8a979e2fa491",
@@ -2247,87 +2335,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "selecta-1d2e8b7923e0",
-      "slug": "operatore-automatico-m-f-d-selecta-primar-spiez",
-      "slugByLocale": {
-        "it": "operatore-automatico-m-f-d-selecta-primar-spiez",
-        "en": "automatic-operator-m-f-d-selecta-primar-spiez",
-        "de": "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau",
-        "fr": "operateur-automatique-m-f-d-selecta-primar-spiez"
       },
-      "company": "Selecta",
-      "companyKey": "selecta",
-      "companyDomain": "selecta.com",
-      "title": "Automatenbetreuer (m/w/d)",
-      "titleByLocale": {
-        "it": "Operatore automatico (m/f/d)",
-        "en": "Automatic operator (m/f/d)",
-        "de": "Automatenbetreuer (m/w/d)",
-        "fr": "Opérateur automatique (m/f/d)"
-      },
-      "description": "Automatenbetreuer (m/w/d) 40% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort primär Spiez (Ablösung in Bern, Langnau) Arbeitsbeginn per 01.09.2026 oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Getränke-, Snack- sowie Heissgetränkestationen in den Personenzügen der BLS.\n• Du engagierst dich für die Bedürfnisse der Kunden und gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumentenorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen sicher.\n• Du übernimmst die Ferienablösungen aller Railway-Automatenbetreuer.\n• Du führst Kassenabrechnungen durch\n• Du hältst die Hygienevorschriften ein\n• Du bestellst und bewirtschaftest die benötigte Ware selbständig\n• Kleinere Störungen kannst du selbst beheben. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du bist flexibel, belastbar und bewahrst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich.\n• Körperliche Gesundheit ist für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
-      "descriptionByLocale": {
-        "it": "Operatore automatico (m/f/d) 40% Il Gruppo Selecta, con sede in Svizzera dal 1957, è leader in Europa nella fornitura di caffè e soluzioni tecnologiche innovative sul posto di lavoro e negli spazi pubblici. Ogni giorno serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati che creano milioni di momenti di gioia per i nostri clienti ogni giorno: dentro e i loro consumatori: dentro. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro principalmente Spiez (sostituto a Berna, Langnau) Inizio del lavoro a partire dal 01.09.2026 o da accordo compiti principali\n• Potrai controllare le nostre stazioni di drink, snack e bevande calde sui treni passeggeri BLS.\n• Siete impegnati alle esigenze dei clienti e andate socievoli ed eloquenti ai nostri ospiti.\n• Assicura il servizio di pulizia e riempimento orientato al consumatore delle nostre zone di pausa.\n• Si prende il sopravvento delle vacanze di tutti i supervisori del distributore ferroviario.\n• Effettuare dichiarazioni di cassa\n• Segui le regole di igiene\n• Si ordina e gestisce le merci richieste in modo indipendente\n• I disturbi minori possono essere risolti da soli. Formazione\n• Formazione nell'ospitalità o nel commercio al dettaglio (industria alimentare) di vantaggio Profilo\n• Sei flessibile, resiliente e mantenere la calma e la panoramica anche in situazioni frenetiche.\n• Certamente padroneggi la lingua tedesca in parola e scrittura.\n• Buone maniere, un aspetto ben curato e un atteggiamento positivo alla vita sono una questione naturalmente per voi.\n• La salute fisica viene naturalmente a voi. Applicazione speciale Abbiamo suscitato il vostro interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
-        "en": "Automatic operator (m/f/d) 40% The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly skilled, committed and passionate Selecta employees who create millions of moments of joy for our customers every day: inside and their consumers: inside. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Place of work primarily Spiez (replacement in Bern, Langnau) Start of work as of 01.09.2026 or by agreement main tasks\n• You will supervise our drink, snack and hot drink stations on the BLS passenger trains.\n• You are committed to the needs of the customers and go sociable and eloquent to our guests.\n• You ensure the consumer-oriented cleaning and filling service of our break zones.\n• You take over the holidays of all railway vending machine supervisors.\n• You carry out cash statements\n• You follow the hygiene rules\n• You order and manage the required goods independently\n• Minor disturbances can be resolved yourself. Training\n• Training in the hospitality or retail trade (food industry) of advantage Profile\n• You are flexible, resilient and keep calm and overview even in hectic situations.\n• You certainly master the German language in word and writing.\n• Good manners, a well-kept appearance and a positive attitude to life are a matter of course for you.\n• Physical health comes naturally to you. Special application Have we aroused your interest? Then we would like to get to know you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
-        "de": "Automatenbetreuer (m/w/d) 40% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort primär Spiez (Ablösung in Bern, Langnau) Arbeitsbeginn per 01.09.2026 oder nach Vereinbarung Hauptaufgaben\n• Du betreust unsere Getränke-, Snack- sowie Heissgetränkestationen in den Personenzügen der BLS.\n• Du engagierst dich für die Bedürfnisse der Kunden und gehst kontaktfreudig und redegewandt auf unsere Gäste ein.\n• Du stellst den konsumentenorientierten Reinigungs- und Befüllungsservice unserer Pausenzonen sicher.\n• Du übernimmst die Ferienablösungen aller Railway-Automatenbetreuer.\n• Du führst Kassenabrechnungen durch\n• Du hältst die Hygienevorschriften ein\n• Du bestellst und bewirtschaftest die benötigte Ware selbständig\n• Kleinere Störungen kannst du selbst beheben. Ausbildung\n• Ausbildung im Gastgewerbe oder Detailhandel (Lebensmittelbranche) von Vorteil Profil\n• Du bist flexibel, belastbar und bewahrst auch in hektischen Situationen die Ruhe und Übersicht.\n• Du beherrschst die deutsche Sprache sicher in Wort und Schrift.\n• Gute Umgangsformen, ein gepflegtes Erscheinungsbild und eine positive Lebenseinstellung sind für dich selbstverständlich.\n• Körperliche Gesundheit ist für dich selbstverständlich. Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
-        "fr": "Opérateur automatique (m/f/d) 40% Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de solutions de café et de technologies alimentaires innovantes sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec du café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 collaborateurs hautement qualifiés, engagés et passionnés de Selecta qui créent chaque jour des millions de moments de joie pour nos clients : à l'intérieur et à leurs consommateurs : à l'intérieur. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail principalement Spiez (remplacement à Berne, Langnau) Début des travaux au 01.09.2026 ou par accord tâches principales\n• Vous superviserez nos stations de boissons, de collations et de boissons chaudes dans les trains de voyageurs BLS.\n• Vous êtes engagé aux besoins des clients et allez sociable et éloquent à nos clients.\n• Vous assurez le service de nettoyage et de remplissage axé sur le consommateur de nos zones de rupture.\n• Vous prenez le contrôle des vacances de tous les superviseurs de distributeurs automatiques de chemin de fer.\n• Vous effectuez des relevés de caisse\n• Vous suivez les règles d'hygiène\n• Vous commandez et gérez les marchandises requises indépendamment\n• Des troubles mineurs peuvent être résolus vous-même. Formation\n• Formation dans l'hôtellerie ou le commerce de détail (industrie alimentaire) d'avantage Profil\n• Vous êtes flexible, résilient et gardez le calme et la vue d'ensemble même dans des situations agitées.\n• Vous maîtrisez certainement la langue allemande en paroles et en écritures.\n• Les bonnes manières, une apparence bien gardée et une attitude positive à l'égard de la vie sont bien sûr une question pour vous.\n• La santé physique vous vient naturellement. Demande spéciale Avons-nous suscité votre intérêt ? Alors nous aimerions apprendre à vous connaître. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail Selecta carrière. Aucune demande par courriel ou par la poste ne sera examinée."
-      },
-      "location": "primär Spiez",
-      "canton": "BE",
-      "url": "https://careers.selecta.ch/Job/4616",
-      "source": "Selecta Dedicated Parser (eRecruiter)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-20T21:23:44.413Z",
-      "addressLocality": "primär Spiez",
-      "addressRegion": "BE",
-      "streetAddress": "",
-      "postalCode": "3001",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Assistenza Clienti",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Vending / Food & Coffee Tech",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-14",
-      "postedDate": "2026-07-14",
-      "postingDateSource": "reported",
-      "applyUrl": "https://careers.selecta.ch/Job/4616",
-      "department": "",
-      "jobReqId": "4616",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "BE",
-        "location": "primär Spiez"
-      },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau"
-        ]
-      },
-      "firstSeenAt": "2026-07-22T11:27:48.108Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
