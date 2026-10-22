@@ -236,12 +236,12 @@ function runDownloadFailureClassifier({
 }): boolean {
   const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
   const classifier = source.match(
-    /^[ \t]{10}download_is_confirmed_missing_artifact\(\) \{\n(?:^[ \t]{12,}.*\n)+^[ \t]{10}\}/mu,
+    /^[ \t]{12}download_is_confirmed_missing_artifact\(\) \{\n(?:^[ \t]{14,}.*\n)+^[ \t]{12}\}/mu,
   )?.[0];
   expect(classifier, 'download failure classifier').toBeDefined();
   try {
     execFileSync('bash', ['--noprofile', '--norc', '-euo', 'pipefail', '-c', [
-      classifier?.replace(/^ {10}/gmu, '') ?? 'false',
+      classifier?.replace(/^ {12}/gmu, '') ?? 'false',
       'if download_is_confirmed_missing_artifact; then exit 0; else exit 1; fi',
     ].join('\n')], {
       stdio: 'pipe',
