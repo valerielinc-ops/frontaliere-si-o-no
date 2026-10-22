@@ -10238,6 +10238,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Anonymous visitors return from the gated detail branch before the
      unlocked-detail prompt mount, so keep this surface reachable here too. */}
  {jobViewersActivityPromptJsx}
+ {saveAuthPromptJsx}
  </div>
  );
  }
