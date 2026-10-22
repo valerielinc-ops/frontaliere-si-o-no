@@ -20,6 +20,10 @@ const API = 'https://api.github.com';
 const BUILD_WORKFLOW = 'deploy.yml';
 const PUBLISH_WORKFLOW = 'deploy-publish.yml';
 const BRANCH = 'main';
+// deploy.yml's scheduled run is only a queue reconciler: it deliberately
+// skips the build graph and therefore never owns a Pages artifact. Only the
+// direct build triggers can be handed to deploy-publish.yml.
+const BUILD_EVENTS = new Set(['push', 'workflow_dispatch']);
 const RUN_LISTING_WINDOW_DAYS = 35;
 const LIVE_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending', 'action_required']);
 const ACTIVE_DEPLOYMENT_STATES = new Set(['queued', 'pending', 'in_progress', 'waiting']);
@@ -121,6 +125,7 @@ function successfulBuilds(builds) {
       && text(run?.headBranch || run?.head_branch) === BRANCH
       && text(run?.headSha || run?.head_sha)
       && text(run?.event)
+      && BUILD_EVENTS.has(text(run?.event))
       && numericId(run?.workflowId || run?.workflow_id)
       && numericId(run?.id)
     ))
