@@ -29,7 +29,7 @@ describe('shared save/follow signup funnel', () => {
     expect(follow).not.toContain('company-follow-email');
     expect(board).toContain("onClick={() => handleToggleSave(selectedJob, 'detail_gate')}");
     expect(board).toContain("onClick={() => handleToggleSave(selectedJob, 'detail')}");
-    expect((board.match(/\{saveAuthPromptJsx\}/g) || []).length).toBe(3);
+    expect((board.match(/\{saveAuthPromptJsx\}/g) || []).length).toBe(4);
   });
 
   it('ships follow-specific copy in all four locales', () => {
