@@ -19,7 +19,8 @@ import { APPLICATION_CONCIERGE_PATH, localizedUrl } from './newsletterUrlPaths.j
 const LOCALES = ['it', 'en', 'de', 'fr'];
 export const PREFERRED_SOURCE_URL = 'https://www.google.com/preferences/source?q=frontaliereticino.ch';
 
-const BRAND_ORANGE = '#f97316';
+// Keep white CTA text above the normal-text contrast threshold in email clients.
+const BRAND_ORANGE = '#9a3412';
 const BRAND_DARK = '#0f172a';
 const TEXT = '#334155';
 const BORDER = '#e2e8f0';
