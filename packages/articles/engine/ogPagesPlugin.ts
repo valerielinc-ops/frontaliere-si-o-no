@@ -867,7 +867,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleTitleCollisions: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
   it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
- // Headline NEVER truncated — see build-plugins/shared/titleSuffix.ts.
+ // NewsArticle headlines stay verbatim; WebPage/Event head titles are bounded
+ // at the emission point below without mutating their schema headline.
 
  /* ── 2. Parse blog slug map from slug-data ── */
  // {slugConst}: Record<ArticleId, { it, en, de, fr }> — flat lookup
@@ -1254,7 +1255,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
- // Headline VERBATIM — no truncation. Brand applied conditionally below.
+ // NewsArticle headline VERBATIM — no truncation. WebPage/Event titles are
+ // bounded below while their structured-data headline stays source-complete.
  // Same resolver the title-collision map is keyed by.
  const localizedTitle = articleTitleFor[articleLocale](en);
  // Repair descriptions the corpus generator already amputated mid-clause
