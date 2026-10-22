@@ -528,7 +528,7 @@ async function chooseOption(page, locator, info, value, question = '') {
   // SuccessFactors stores a custom permit choice on blur; Enter is unsafe
   // because it can submit the form, so Tab is the bounded commit signal.
   if (isPermitField(question) && asksHeldStatus(question) && typeof locator.press === 'function') {
-    await locator.press('Tab').catch(() => {});
+    await Promise.resolve(locator.press('Tab')).catch(() => {});
   }
 }
 

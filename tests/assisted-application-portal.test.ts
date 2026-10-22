@@ -2038,7 +2038,7 @@ describe('portal runner helpers', () => {
     expect(addressQuestionTopic('City of birth')).toBe('');
     expect(addressQuestionTopic('Adresse du contact d’urgence')).toBe('');
     expect(addressQuestionTopic('Emergency contact address', 'Candidate contact address · Emergency contact address')).toBe('');
-    expect(addressQuestionTopic('Candidate contact address', 'Emergency contact address · Candidate contact address')).toBe('address_street');
+    expect(addressQuestionTopic('Candidate contact address', 'Personal details · Candidate contact address')).toBe('address_street');
     expect(addressQuestionTopic('Country of residence')).toBe('residence_country');
     expect(addressQuestionTopic('Postal Code', '', { section: 'Contact address' })).toBe('');
     expect(questionTopic('Street address')).toBe('address_street');

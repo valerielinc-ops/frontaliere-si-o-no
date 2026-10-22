@@ -780,7 +780,7 @@ export async function applyActions(page, fields, actions, files, {
         // A click that did not take leaves the field empty while the run goes on as if answered.
         // SuccessFactors commits a custom picklist on blur; do that without
         // Enter, which can submit the form on this ATS.
-        if (field.kind === 'combobox' && typeof locator.press === 'function') await locator.press('Tab').catch(() => {});
+        if (field.kind === 'combobox' && typeof locator.press === 'function') await Promise.resolve(locator.press('Tab')).catch(() => {});
         const registered = field.kind === 'combobox'
           ? await choiceCommitted(locator, field, selectedLabel)
           : await choiceRegistered(locator, field.kind, selectedLabel);
