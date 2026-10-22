@@ -334,73 +334,88 @@ describe('legacy portal sections', () => {
       errors: [],
       text: '',
     };
-    let mounted = false;
-    // Model the explicit trigger/input association required for a global
-    // mount: the input is outside the trigger's DOM subtree but the
-    // association object still identifies the clicked trigger.
-    const uploadContext = {
-      trigger: {
-        identity: 'resume-trigger',
+    const makeScenario = (associated: boolean) => {
+      let mounted = false;
+      // Model the explicit trigger/input association required for a global
+      // mount: the trigger names the target and the input points back to it.
+      const uploadContext = {
+        trigger: {
+          identity: 'resume-trigger',
+          target: 'new-cv-input',
+          isConnected: true,
+          contains: () => false,
+        },
+        context: { isConnected: true, contains: () => false },
+      };
+      const trigger = {
+        click: vi.fn(async () => { mounted = true; }),
+        isVisible: vi.fn(async () => true),
+        evaluateHandle: vi.fn(async () => uploadContext),
+      };
+      const handle = (identity: string, triggerReference?: string) => ({
+        identity,
+        triggerId: triggerReference,
         isConnected: true,
-        contains: () => false,
-      },
-      context: { isConnected: true, contains: () => false },
-    };
-    const trigger = {
-      click: vi.fn(async () => { mounted = true; }),
-      isVisible: vi.fn(async () => true),
-      evaluateHandle: vi.fn(async () => uploadContext),
-    };
-    const handle = (identity: string) => ({
-      identity,
-      isConnected: true,
-      evaluate: vi.fn(async (_read: unknown, other: {
-        identity?: string;
-        isConnected?: boolean;
-        contains?: (element: { identity?: string }) => boolean;
-        trigger?: { identity?: string };
-      }) => (
-        other?.identity === identity
-        || Boolean(other?.contains?.({ identity }))
-        || (other?.trigger?.identity === 'resume-trigger' && identity === 'new-cv-input')
-      )),
-    });
-    const existingCv = handle('existing-cv');
-    const existingLetter = handle('existing-letter');
-    const fileInput = {
-      ...handle('new-cv-input'),
-      setInputFiles: vi.fn(async () => {}),
-      waitFor: vi.fn(async () => {}),
-    };
-    const frame = {
-      url: () => snapshot.url,
-      evaluate: vi.fn(async () => snapshot),
-      locator: vi.fn((selector: string) => {
-        if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
-        if (selector === 'input[type="file"]') return {
-          count: vi.fn(async () => mounted ? 1 : 0),
-          elementHandles: vi.fn(async () => mounted ? [fileInput, existingCv, existingLetter] : [existingCv, existingLetter]),
-          nth: () => fileInput,
-        };
-        return { count: vi.fn(async () => 0) };
-      }),
-    };
-    const page = {
-      url: () => snapshot.url,
-      frames: () => [frame],
-      mainFrame: () => frame,
-      locator: vi.fn((selector: string) => selector === '.group_head'
-        ? { count: vi.fn(async () => 0) }
-        : { allInnerTexts: vi.fn(async () => []) }),
-      waitForLoadState: vi.fn(async () => {}),
-      waitForTimeout: vi.fn(async () => {}),
+        evaluate: vi.fn(async (_read: unknown, other: {
+          identity?: string;
+          isConnected?: boolean;
+          contains?: (element: { identity?: string }) => boolean;
+          trigger?: { identity?: string; target?: string };
+        }) => (
+          other?.identity === identity
+          || Boolean(other?.contains?.({ identity }))
+          || (other?.trigger?.target === identity
+            && triggerReference === other.trigger.identity)
+        )),
+      });
+      const existingCv = handle('existing-cv');
+      const existingLetter = handle('existing-letter');
+      const fileInput = {
+        ...handle('new-cv-input', associated ? 'resume-trigger' : undefined),
+        setInputFiles: vi.fn(async () => {}),
+        waitFor: vi.fn(async () => {}),
+      };
+      const frame = {
+        url: () => snapshot.url,
+        evaluate: vi.fn(async () => snapshot),
+        locator: vi.fn((selector: string) => {
+          if (selector === '[data-aa-id="resume-trigger"]') return { first: () => trigger };
+          if (selector === 'input[type="file"]') return {
+            count: vi.fn(async () => mounted ? 1 : 0),
+            elementHandles: vi.fn(async () => mounted ? [fileInput, existingCv, existingLetter] : [existingCv, existingLetter]),
+            nth: () => fileInput,
+          };
+          return { count: vi.fn(async () => 0) };
+        }),
+      };
+      const page = {
+        url: () => snapshot.url,
+        frames: () => [frame],
+        mainFrame: () => frame,
+        locator: vi.fn((selector: string) => selector === '.group_head'
+          ? { count: vi.fn(async () => 0) }
+          : { allInnerTexts: vi.fn(async () => []) }),
+        keyboard: { press: vi.fn(async () => {}) },
+        waitForLoadState: vi.fn(async () => {}),
+        waitForTimeout: vi.fn(async () => {}),
+      };
+      return { page, trigger, fileInput };
     };
 
-    const result = await openFormSections(page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+    const accepted = makeScenario(true);
+    const result = await openFormSections(accepted.page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
 
     expect(result.cv).toBe('uploaded');
-    expect(trigger.click).toHaveBeenCalledOnce();
-    expect(fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+    expect(accepted.trigger.click).toHaveBeenCalledOnce();
+    expect(accepted.fileInput.triggerId).toBe('resume-trigger');
+    expect(accepted.fileInput.setInputFiles).toHaveBeenCalledWith('/tmp/candidate-cv.pdf');
+
+    const rejected = makeScenario(false);
+    const rejectedResult = await openFormSections(rejected.page as any, snapshot as any, { files: { cv: '/tmp/candidate-cv.pdf' } });
+
+    expect(rejectedResult.cv).toBe('unavailable');
+    expect(rejected.fileInput.triggerId).toBeUndefined();
+    expect(rejected.fileInput.setInputFiles).not.toHaveBeenCalled();
   });
 
   it('matches separate generic SuccessFactors upload icons to their document association', async () => {
