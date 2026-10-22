@@ -545,15 +545,16 @@ describe('loop clock observer', () => {
     expect((ghImpl.mock.calls[0][0] as string[])[1]).toContain('event=workflow_dispatch');
   });
 
-  it('uses unfiltered rows only after bounded retries of an empty event index', () => {
+  it('filters schedule rows out of the unfiltered fallback after bounded retries', () => {
     const entry = customEntry('api-fallback');
+    const createdAt = minutesAgo(2);
     const unrelatedRun = {
       id: 2,
-      created_at: minutesAgo(2),
+      created_at: createdAt,
       html_url: 'https://example.invalid/runs/2',
       event: 'schedule',
       head_branch: 'main',
-      display_title: 'Scheduled workflow',
+      display_title: `Workflow ${LOOP_CLOCK_RUN_MARKER_PREFIX}${loopClockInputValue(entry, createdAt)}]`,
     };
     const delays: number[] = [];
     const warnings: string[] = [];
@@ -569,8 +570,7 @@ describe('loop clock observer', () => {
       warn: (message: string) => warnings.push(message),
     });
 
-    expect(rows).toHaveLength(1);
-    expect(rows[0]).toMatchObject({ databaseId: 2, event: 'schedule' });
+    expect(rows).toEqual([]);
     expect(ghImpl).toHaveBeenCalledTimes(6);
     expect(ghImpl.mock.calls.filter(([args]) => (args[1] ?? '').includes('event=workflow_dispatch'))).toHaveLength(3);
     expect(ghImpl.mock.calls.filter(([args]) => !(args[1] ?? '').includes('event=workflow_dispatch'))).toHaveLength(3);

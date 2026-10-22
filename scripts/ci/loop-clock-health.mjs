@@ -293,7 +293,11 @@ export function listDispatchRuns(
       minimumRows,
       ghImpl,
     });
-    if (attempt === attempts) return lastUnfilteredRows;
+    if (attempt === attempts) {
+      return event === null
+        ? lastUnfilteredRows
+        : lastUnfilteredRows.filter((run) => run?.event === event);
+    }
 
     const delayMs = EMPTY_RUN_LIST_RETRY_DELAYS_MS[attempt - 1];
     warn(
