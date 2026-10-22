@@ -1,0 +1,40 @@
+name: Sync loop-clock contract to the corpus
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/ci/patch-corpus-loop-clock-workflow.mjs'
+      - 'scripts/ci/sync-loop-clock-to-corpus.sh'
+      - '.github/workflows/sync-loop-clock-to-corpus.yml'
+      - 'functions/src/loopClockTable.js'
+      - '.github/workflows/issue-triage.yml'
+  schedule:
+    - cron: '47 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-loop-clock-to-corpus
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout transport
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /scripts/ci/patch-corpus-loop-clock-workflow.mjs
+            /scripts/ci/sync-loop-clock-to-corpus.sh
+          sparse-checkout-cone-mode: false
+
+      - name: Deliver loop-clock workflow contract through a corpus PR
+        env:
+          ARTICLES_REPO_PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+        run: bash scripts/ci/sync-loop-clock-to-corpus.sh
