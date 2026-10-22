@@ -262,8 +262,8 @@ function fixedPriceRow({
     vehicleType,
     auctionStatus: 'active',
     startingPriceChf: price,
-    officialAuctionUrl: officialUrl,
-    ...(officialDetailUrl ? { officialDetailUrl } : {}),
+    officialAuctionUrl: normalizePlateAuctionUrl(officialUrl),
+    ...(officialDetailUrl ? { officialDetailUrl: normalizePlateAuctionUrl(officialDetailUrl) } : {}),
     sourceFetchedAt: fetchedAt,
     lastVerifiedAt: fetchedAt,
     firstSeenAt: fetchedAt,
@@ -508,20 +508,20 @@ export const FIXED_PRICE_SOURCE_CONFIGS = Object.freeze({
     kind: 'pdf',
     canton: 'Appenzello Interno',
     plateCode: 'AI',
-    officialUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder',
-    pageUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder',
-    fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download',
-    pdfUrlPattern: /liste-freie-auto-kontrollschilder\/download/i,
+    officialUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder#liste-freie-kontrollschilder',
+    pageUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder',
+    fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf',
+    pdfUrlPattern: /liste-freie-auto-kontrollschilder\/(?:download|@@download\/file\/)/i,
     pdfVariants: [
       {
         vehicleType: 'car',
-        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download',
-        pdfUrlPattern: /liste-freie-auto-kontrollschilder\/download/i,
+        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf',
+        pdfUrlPattern: /liste-freie-auto-kontrollschilder\/(?:download|@@download\/file\/)/i,
       },
       {
         vehicleType: 'motorcycle',
-        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf',
-        pdfUrlPattern: /liste-freier-motorrad-kontrollschilder(?:\.pdf)?(?:\/download)?$/i,
+        fallbackPdfUrl: 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file/Freie%20Motorrad-Kontrollschilder.pdf',
+        pdfUrlPattern: /liste-freier-motorrad-kontrollschilder\.pdf\/(?:download|@@download\/file\/)/i,
       },
     ],
     parserVersion: 'fixed-price-1.0.0',
@@ -646,8 +646,8 @@ export function parseEcariAuctionRows(
         }),
       ...(bidCount !== undefined ? { bidCount } : {}),
       ...(endsAt ? { endsAt } : {}),
-      officialAuctionUrl,
-      ...(detailUrl ? { officialDetailUrl: detailUrl } : {}),
+      officialAuctionUrl: normalizePlateAuctionUrl(officialAuctionUrl),
+      ...(detailUrl ? { officialDetailUrl: normalizePlateAuctionUrl(detailUrl) } : {}),
       sourceFetchedAt: fetchedAt,
       lastVerifiedAt: fetchedAt,
       firstSeenAt: fetchedAt,
@@ -917,8 +917,8 @@ export function extractPdfUrl(html, { baseUrl, pattern } = {}) {
  * and week 35 (motorcycle) while the pinned URLs were weeks 35 and 33.
  *
  * A fallback is therefore only honoured when the config still vouches for it —
- * AI's `/download` and LU's `wunschschilder.pdf` are canonical evergreen paths
- * — and using one is logged, because a pattern that stopped matching is the
+ * AI's content download paths and LU's `wunschschilder.pdf` are canonical
+ * evergreen paths — and using one is logged, because a pattern that stopped matching is the
  * same signal that preceded the BS breakage.
  */
 export function resolveVariantPdfUrl(variant, { sourceKey, pageUrl, indexHtml }) {
@@ -932,7 +932,7 @@ export function resolveVariantPdfUrl(variant, { sourceKey, pageUrl, indexHtml })
   if (variant.pdfUrlPattern && !derived) {
     console.warn(`[plate-auctions:${sourceKey}] ${variant.pdfUrlPattern} matched no href on ${pageUrl}; falling back to the configured ${pdfUrl}`);
   }
-  return pdfUrl;
+  return normalizePlateAuctionUrl(pdfUrl);
 }
 
 async function extractPdfText(arrayBuffer) {

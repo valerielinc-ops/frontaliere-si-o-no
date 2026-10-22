@@ -18,7 +18,7 @@ import {
 
 export const VS_CANTON = 'Vallese';
 export const VS_PLATE_CODE = 'VS';
-export const VS_AUCTION_URL = 'https://ecari.vs.ch/ecari-auction/';
+export const VS_AUCTION_URL = 'https://ecari.vs.ch/ecari-auction/ui/app/init?locale=fr_CH';
 
 const VS_TAB_SECTIONS = [
   { tabContentId: 'tabContent1', auctionStatus: 'active', listingType: 'auction', idPrefix: 'vs' },

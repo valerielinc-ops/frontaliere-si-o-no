@@ -17,6 +17,7 @@ import {
   parseZhAuctionCards,
 } from '../functions/src/plateAuctionsCore.js';
 import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { normalizePlateAuctionRedirectUrl, normalizePlateAuctionUrl } from '../functions/src/plateAuctionUrlNormalization.js';
 import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { parseShAuctionRows, SH_AUCTION_URL } from '../scripts/plate-auctions/connectors/sh.mjs';
@@ -434,13 +435,13 @@ describe('expanded plate-auction connectors', () => {
         officialAuctionUrl: sourceKey === 'vd'
           ? 'https://www.encheres-vd.ch/fr/'
           : sourceKey === 'ag'
-            ? 'https://www.auktion-ag.ch'
+            ? 'https://www.auktion-ag.ch/de/'
             : 'https://auktion-be.ch/de/',
         officialDetailUrl: sourceKey === 'vd'
           ? 'https://www.encheres-vd.ch/fr/auction/1768'
-          : (sourceKey === 'ag'
-            ? 'https://www.auktion-ag.ch'
-            : 'https://auktion-be.ch') + '/de/auction/1768',
+          : sourceKey === 'ag'
+            ? 'https://www.auktion-ag.ch/de/auction/1768'
+            : 'https://auktion-be.ch/de/auction/1768',
       });
       expect(validatePlateAuction(row), sourceKey).toEqual([]);
     }
@@ -617,6 +618,46 @@ describe('fixed-price PDF url resolution', () => {
       expect(variant.fallbackPdfUrl).toBeUndefined();
       expect(variant.pdfUrlPattern).toBeInstanceOf(RegExp);
     }
+  });
+
+  it('canonicalizes AI catalogue and PDF links after the upstream redirect', () => {
+    const ai = FIXED_PRICE_SOURCE_CONFIGS.ai as Record<string, unknown> & {
+      pdfVariants: Record<string, unknown>[];
+    };
+    const autoPdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/@@download/file/Freie%20Auto-Kontrollschilder.pdf';
+    const motorcyclePdf = 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/@@download/file/Freie%20Motorrad-Kontrollschilder.pdf';
+    expect(ai.pageUrl).toBe('https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder');
+    expect(ai.pdfVariants[0].fallbackPdfUrl).toBe(autoPdf);
+    expect(ai.pdfVariants[1].fallbackPdfUrl).toBe(motorcyclePdf);
+    expect(resolveVariantPdfUrl(ai.pdfVariants[0], {
+      sourceKey: 'ai', pageUrl: String(ai.pageUrl),
+      indexHtml: '<a href="https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freie-auto-kontrollschilder/download">PDF</a>',
+    })).toBe(autoPdf);
+    expect(resolveVariantPdfUrl(ai.pdfVariants[1], {
+      sourceKey: 'ai', pageUrl: String(ai.pageUrl),
+      indexHtml: '<a href="https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder/liste-freier-motorrad-kontrollschilder.pdf/download">PDF</a>',
+    })).toBe(motorcyclePdf);
+  });
+});
+
+describe('plate-auction redirect URL normalization', () => {
+  it('maps every audited source redirect to a direct canonical target', () => {
+    const cases = [
+      ['https://www.auktion-ag.ch', 'https://www.auktion-ag.ch/de/'],
+      ['https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder/liste-freie-kontrollschilder', 'https://ai.ch/themen/mobilitaet-und-verkehr/strassenverkehr/kontrollschilder#liste-freie-kontrollschilder'],
+      ['https://eauktion.gr.ch/', 'https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_CH'],
+      ['https://ecarinwprod.ilz.info/ecari-auction/', 'https://ecarinwprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH'],
+      ['https://ecariowprod.ilz.info/ecari-auction/', 'https://ecariowprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH'],
+      ['https://eauktion.so.ch/ecari-auction', 'https://eauktion.so.ch/ecari-auction/ui/app/init?locale=de_CH'],
+      ['https://ecari.vs.ch/ecari-auction/', 'https://ecari.vs.ch/ecari-auction/ui/app/init?locale=fr_CH'],
+      ['https://www.ricardo.ch/fr/shop/OVJ', 'https://www.ricardo.ch/fr/shop/OVJ/'],
+    ] as const;
+    for (const [source, expected] of cases) {
+      expect(normalizePlateAuctionRedirectUrl(source), source).toBe(expected);
+      expect(normalizePlateAuctionRedirectUrl(expected), expected).toBe(expected);
+    }
+    expect(normalizePlateAuctionUrl('https://www.auktion.tg.ch/de/auction/109815'))
+      .toBe('https://auktion.tg.ch/de/auction/109815');
   });
 });
 

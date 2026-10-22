@@ -5,7 +5,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
-import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+import { getPublicPlateAuctionSnapshot, PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
 import { VD_BROWSER_USER_AGENT } from '../functions/src/plateAuctionsCore.js';
 import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from '../functions/src/plateAuctionSourceUrls.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
@@ -280,7 +280,7 @@ describe('plate-auction Firestore batching', () => {
     expect(result.summaries.ju).toMatchObject({ status: 'blocked', rowCount: 0 });
     const agMetadata = firestore.sourceSets.find((entry) => entry.id === 'ag')?.value;
     expect(agMetadata).toMatchObject({
-      officialUrl: 'https://www.auktion-ag.ch',
+      officialUrl: 'https://www.auktion-ag.ch/de/',
       parserVersion: '1.1.0',
     });
     expect(agMetadata?.availableFields).not.toContain('startingPriceChf');
@@ -495,7 +495,7 @@ describe('plate-auction Firestore pipeline: an eCari page that says no auction i
   const endedNwAuction = {
     id: 'nw-1491', sourceKey: 'NW', canton: 'Nidvaldo', platePrefix: 'NW', plateNumber: '1491', normalizedPlate: 'NW1491',
     listingType: 'auction', auctionStatus: 'active', startingPriceChf: 500, endsAt: at(-72).toISOString(),
-    officialAuctionUrl: 'https://ecarinwprod.ilz.info/ecari-auction/', sourceFetchedAt: at(-80).toISOString(),
+    officialAuctionUrl: 'https://ecarinwprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH', sourceFetchedAt: at(-80).toISOString(),
     lastVerifiedAt: at(-80).toISOString(), dataConfidence: 'partial', firstSeenAt: at(-150).toISOString(),
   };
   const refresh = (firestore: ReturnType<typeof statefulFirestore>, page: string) => refreshPlateAuctions({
@@ -726,5 +726,32 @@ describe('plate-auction refresh publishes the public snapshot', () => {
     const result = await run({ file: () => ({ save: async () => { throw new Error('storage unavailable'); } }) });
     expect(result.publicSnapshot).toEqual({ error: 'storage unavailable' });
     expect(result.summaries.so).toMatchObject({ status: 'active' });
+  });
+
+  it('normalizes stale Firestore source metadata before publishing the API snapshot', async () => {
+    const sourceDocument = {
+      id: 'ag',
+      data: () => ({
+        officialUrl: 'https://www.auktion-ag.ch',
+        status: 'active',
+        rowCount: 12,
+      }),
+    };
+    const db = {
+      collection(name: string) {
+        if (name === PLATE_AUCTION_SOURCE_COLLECTION) {
+          return { limit: () => ({ get: async () => ({ docs: [sourceDocument] }) }) };
+        }
+        return { limit: () => ({ get: async () => ({ docs: [] }) }) };
+      },
+    };
+
+    const snapshot = await getPublicPlateAuctionSnapshot(db as never);
+
+    expect(snapshot.sources.ag).toMatchObject({
+      officialUrl: 'https://www.auktion-ag.ch/de/',
+      status: 'active',
+      rowCount: 12,
+    });
   });
 });

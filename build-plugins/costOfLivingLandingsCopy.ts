@@ -76,7 +76,7 @@ const FSO_URL = 'https://stats.swiss/';
 const FSO_LABEL = 'FSO rent survey 2023';
 const ISTAT_URL = 'https://www.istat.it/statistiche-per-temi/economia/prezzi/';
 const OMI_URL =
-  'https://wwwt.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm';
+  'https://www1.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm';
 
 // ── City ↔ province pairing ────────────────────────────────────────
 

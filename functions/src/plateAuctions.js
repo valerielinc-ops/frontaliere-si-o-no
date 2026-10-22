@@ -27,6 +27,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
+import { normalizePlateAuctionRedirectUrl } from './plateAuctionUrlNormalization.js';
 import { BE_AUCTION_URLS, GR_ECARI_CATALOGUE_URL, TG_AUCTION_URLS } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
@@ -170,7 +171,7 @@ const CONNECTORS = {
   ag: makeCardConnector({
     canton: 'Argovia',
     plateCode: 'AG',
-    url: 'https://www.auktion-ag.ch',
+    url: 'https://www.auktion-ag.ch/de/',
     detailBaseUrl: 'https://www.auktion-ag.ch',
   }),
   ai: makeFixedPriceConnector({ sourceKey: 'ai', parse: parseAiFixedPricePdfText }),
@@ -221,13 +222,13 @@ const CONNECTORS = {
       })), html, tabs.map(([tab]) => tab));
     },
   },
-  nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/' }),
-  ow: makeEcariConnector({ canton: 'Obvaldo', plateCode: 'OW', url: 'https://ecariowprod.ilz.info/ecari-auction/' }),
-  so: makeEcariConnector({ canton: 'Soletta', plateCode: 'SO', url: 'https://eauktion.so.ch/ecari-auction' }),
+  nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH' }),
+  ow: makeEcariConnector({ canton: 'Obvaldo', plateCode: 'OW', url: 'https://ecariowprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH' }),
+  so: makeEcariConnector({ canton: 'Soletta', plateCode: 'SO', url: 'https://eauktion.so.ch/ecari-auction/ui/app/init?locale=de_CH' }),
   vs: {
     canton: 'Vallese',
     plateCode: 'VS',
-    url: 'https://ecari.vs.ch/ecari-auction/',
+    url: 'https://ecari.vs.ch/ecari-auction/ui/app/init?locale=fr_CH',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
       const tabs = [
@@ -238,12 +239,12 @@ const CONNECTORS = {
       return withEcariEmptyState(tabs.flatMap(([tab, status, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Vallese',
         plateCode: 'VS',
-        officialAuctionUrl: 'https://ecari.vs.ch/ecari-auction/',
+        officialAuctionUrl: 'https://ecari.vs.ch/ecari-auction/ui/app/init?locale=fr_CH',
         fetchedAt,
         auctionStatus: status,
         listingType,
         idPrefix,
-        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://ecari.vs.ch/ecari-auction/', sourceRecordId),
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://ecari.vs.ch/ecari-auction/ui/app/init?locale=fr_CH', sourceRecordId),
       })), html, tabs.map(([tab]) => tab));
     },
   },
@@ -435,6 +436,8 @@ function publicAuction(value) {
   delete output.bidder;
   delete output.winner;
   delete output.winnerName;
+  if (typeof output.officialAuctionUrl === 'string') output.officialAuctionUrl = normalizePlateAuctionRedirectUrl(output.officialAuctionUrl);
+  if (typeof output.officialDetailUrl === 'string') output.officialDetailUrl = normalizePlateAuctionRedirectUrl(output.officialDetailUrl);
   return output;
 }
 
@@ -457,6 +460,7 @@ function publicSource(value) {
   delete output.bidder;
   delete output.winner;
   delete output.winnerName;
+  if (typeof output.officialUrl === 'string') output.officialUrl = normalizePlateAuctionRedirectUrl(output.officialUrl);
   return output;
 }
 

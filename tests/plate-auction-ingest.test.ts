@@ -13,7 +13,7 @@ const EXPANDED_CARD_EMPTY_SAMPLE = readFileSync(new URL('./fixtures/expanded-car
 const previousRow = {
   id: 'gr-1', sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', plateNumber: '1', normalizedPlate: 'GR1',
   listingType: 'auction', auctionStatus: 'active', currentBidChf: 500, endsAt: '2026-09-12T18:00:00.000Z',
-  officialAuctionUrl: 'https://eauktion.gr.ch/', sourceFetchedAt: '2026-09-12T12:00:00.000Z', lastVerifiedAt: '2026-09-12T12:00:00.000Z', dataConfidence: 'partial', rawSnapshotHash: 'old',
+  officialAuctionUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/init?locale=de_CH', sourceFetchedAt: '2026-09-12T12:00:00.000Z', lastVerifiedAt: '2026-09-12T12:00:00.000Z', dataConfidence: 'partial', rawSnapshotHash: 'old',
 };
 
 describe('plate-auction ingest resilience', () => {
@@ -714,7 +714,7 @@ describe('plate-auction ingest: an eCari page that says no auction is running', 
   const base = new Date();
   const at = (hours: number) => new Date(base.getTime() + hours * HOUR);
   const EMPTY_PAGE = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
-  const NW_URL = 'https://ecarinwprod.ilz.info/ecari-auction/';
+  const NW_URL = 'https://ecarinwprod.ilz.info/ecari-auction/ui/app/init?locale=de_CH';
   const nwRow = (id: string, overrides: Record<string, unknown>) => ({
     id,
     sourceKey: 'NW',

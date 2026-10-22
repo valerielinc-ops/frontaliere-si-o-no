@@ -2,12 +2,12 @@
   "source": {
     "name": "ISTAT (Istituto Nazionale di Statistica) + OMI (Agenzia delle Entrate)",
     "url": "https://www.istat.it/statistiche-per-temi/economia/prezzi/",
-    "omiUrl": "https://wwwt.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm",
+    "omiUrl": "https://www1.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm",
     "release": "2024-H2 (OMI residential rents) + 2024-12 (ISTAT CPI)",
-    "accessedAt": "2026-04-23T17:31:49.872Z",
+    "accessedAt": "2026-10-22T19:30:07.986Z",
     "probe": {
-      "ok": false,
-      "status": 404
+      "ok": true,
+      "status": 200
     }
   },
   "currency": "EUR",
@@ -19,7 +19,7 @@
     },
     {
       "label": "Agenzia delle Entrate — Osservatorio Mercato Immobiliare (OMI)",
-      "url": "https://wwwt.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm"
+      "url": "https://www1.agenziaentrate.gov.it/servizi/Consultazione/ricerca.htm"
     },
     {
       "label": "ISTAT — Dati territoriali (popolazione, redditi, prezzi)",

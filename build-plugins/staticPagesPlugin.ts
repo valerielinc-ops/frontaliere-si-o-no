@@ -1383,6 +1383,41 @@ const REPORTED_ORPHAN_LINKS: Record<HpSeoLocale, ReadonlyArray<{ href: string; l
  ],
 };
 
+// The 2026-10 crawl still found the translated comparison and guide leaves
+// with only the locale-root rail as an incoming edge. Keep these two small
+// clusters mutually connected so every leaf has a second discovery path;
+// the links are rendered only on the cluster members and therefore do not
+// inflate unrelated pages.
+const LOCALIZED_SINGLE_INBOUND_GROUPS: ReadonlyArray<ReadonlyArray<{ href: string; label: string }>> = [
+  [
+    { href: '/en/service-comparison/compare-banks/', label: 'Compare banks' },
+    { href: '/en/service-comparison/cost-of-living/', label: 'Cost of living' },
+    { href: '/en/service-comparison/compare-job-offers/', label: 'Compare job offers' },
+  ],
+  [
+    { href: '/de/service-vergleich/banken-vergleichen/', label: 'Banken vergleichen' },
+    { href: '/de/service-vergleich/lebenshaltungskosten/', label: 'Lebenshaltungskosten' },
+    { href: '/de/service-vergleich/stellenangebote-vergleichen/', label: 'Stellenangebote vergleichen' },
+  ],
+  [
+    { href: '/fr/comparaison-services/comparer-banques/', label: 'Comparer les banques' },
+    { href: '/fr/comparaison-services/cout-de-la-vie/', label: 'Coût de la vie' },
+    { href: '/fr/comparaison-services/comparer-offres-emploi/', label: 'Comparer les offres d’emploi' },
+  ],
+  [
+    { href: '/en/cross-border-guide/first-day-at-work/', label: 'First day at work' },
+    { href: '/en/cross-border-guide/compare-permit-g-vs-b/', label: 'Compare Permit G vs B' },
+  ],
+  [
+    { href: '/de/grenzgaenger-ratgeber/erster-arbeitstag/', label: 'Erster Arbeitstag' },
+    { href: '/de/grenzgaenger-ratgeber/bewilligung-g-vs-b/', label: 'Bewilligung G vs. B' },
+  ],
+  [
+    { href: '/fr/guide-frontalier/premier-jour-travail/', label: 'Premier jour de travail' },
+    { href: '/fr/guide-frontalier/comparer-permis-g-vs-b/', label: 'Comparer les permis G et B' },
+  ],
+];
+
 const escAttr = (s: string): string => s
  .replace(/&/g, '&amp;')
  .replace(/</g, '&lt;')
@@ -3706,6 +3741,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    : [];
  // Add contextual siblings: link to related pages in the same section
  const contextualLinks: { href: string; label: string }[] = [];
+ for (const group of LOCALIZED_SINGLE_INBOUND_GROUPS) {
+   if (group.some((link) => link.href === canonicalPath)) {
+     contextualLinks.push(...group);
+     break;
+   }
+ }
+
  if (canonicalPath.startsWith('/glossario-frontaliere/')) {
  // Add a few sibling glossary terms for internal linking
  const siblings = italianUrls
@@ -4643,7 +4685,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<strong>Locarno Film Festival</strong> (primi di agosto): storico festival internazionale del cinema, proiezioni nella Piazza Grande da 8.000 posti, ingressi accessibili. <strong>Isole di Brissago</strong>: giardino botanico sul Lago Maggiore, battello da Locarno, CHF 9 biglietto isole + CHF 20 battello. <strong>Valle Verzasca</strong>: ponte dei Salti di Lavertezzo, acque turchesi, il famoso salto di James Bond dalla diga (220 m — bungee jumping operativo in estate). <strong>Cardada</strong> e <strong>Cimetta</strong>: funivia da Orselina, trekking e paragliding. <strong>Centovalli</strong>: linea ferroviaria panoramica Domodossola-Locarno, paesaggi di castagni e cascate.`,
  `<h2 class="s-o3IET6">Come organizzare la visita</h2>`,
  `Per i frontalieri, il <strong>Ticino Ticket</strong> (gratuito per gli ospiti di hotel, campeggi e ostelli) copre tutti i trasporti pubblici, funicolari e battelli del cantone — valido per l'intera durata del soggiorno. Chi non pernotta può acquistare un biglietto giornaliero FFS/TILO a CHF 25 per muoversi in tutto il cantone. Molte attrazioni offrono sconti per famiglie (2 adulti + bambini fino a 16 anni) e abbonamenti annuali convenienti per chi vive vicino al confine. Per pianificare gli spostamenti in base ai tempi di attesa alle dogane consulta la <a href="/guida-frontaliere/mappa-confine/">mappa dei valichi</a> e la guida <a href="/vivere-in-ticino/trasporti-frontalieri/">trasporti frontalieri</a>.`,
- `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.ticino.ch" rel="noopener">Ticino Turismo</a> · <a class="s-OsohZU" href="https://whc.unesco.org" rel="noopener">UNESCO — Bellinzona Three Castles</a> · <a class="s-OsohZU" href="https://www.locarnofestival.ch/" rel="noopener">Locarno Film Festival</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.ticino.ch" rel="noopener">Ticino Turismo</a> · <a class="s-OsohZU" href="https://www.bellinzonaevalli.ch/it/discover/unesco.html" rel="noopener">UNESCO — Bellinzona Three Castles</a> · <a class="s-OsohZU" href="https://www.ticino.ch/it/inspirations/experiences/pardo-film-festival.html" rel="noopener">Locarno Film Festival</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/confronta-asili-nido')) {
  // H.5: introduzione comparativa + metodologia

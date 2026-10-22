@@ -281,6 +281,29 @@ describe('mappa-del-sito source contains the small-sitemap hub-link arrays', () 
     }
   });
 
+  it('source declares reciprocal links for the translated comparison and guide leaves', () => {
+    for (const path of [
+      '/en/service-comparison/compare-banks/',
+      '/en/service-comparison/cost-of-living/',
+      '/en/service-comparison/compare-job-offers/',
+      '/de/service-vergleich/banken-vergleichen/',
+      '/de/service-vergleich/lebenshaltungskosten/',
+      '/de/service-vergleich/stellenangebote-vergleichen/',
+      '/fr/comparaison-services/comparer-banques/',
+      '/fr/comparaison-services/cout-de-la-vie/',
+      '/fr/comparaison-services/comparer-offres-emploi/',
+      '/en/cross-border-guide/first-day-at-work/',
+      '/en/cross-border-guide/compare-permit-g-vs-b/',
+      '/de/grenzgaenger-ratgeber/erster-arbeitstag/',
+      '/de/grenzgaenger-ratgeber/bewilligung-g-vs-b/',
+      '/fr/guide-frontalier/premier-jour-travail/',
+      '/fr/guide-frontalier/comparer-permis-g-vs-b/',
+    ]) {
+      expect(src.includes(path), `single-inbound contextual link missing: ${path}`).toBe(true);
+    }
+    expect(src.includes('LOCALIZED_SINGLE_INBOUND_GROUPS')).toBe(true);
+  });
+
   it('source declares NURSING_LINKS for the 3 nursing orphans', () => {
     expect(src.includes('NURSING_LINKS')).toBe(true);
     expect(src.includes('/lavoro-infermieri-svizzera/')).toBe(true);
