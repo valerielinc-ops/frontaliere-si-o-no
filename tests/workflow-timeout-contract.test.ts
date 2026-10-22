@@ -81,7 +81,7 @@ describe('timeout-capped Claude workflows keep their downstream diagnostics aliv
     const document = YAML.parse(readFileSync(join(ROOT, TRANSLATE_PENDING_LOGIC), 'utf8')) as any;
     const recovery = document.jobs?.translate_timeout_recovery;
     expect(recovery, 'translate timeout recovery job missing').toBeDefined();
-    expect(recovery.needs).toEqual(['translate']);
+    expect(recovery.needs).toBe('translate');
     expect(recovery.if).toContain("needs.translate.result != 'success'");
     expect(recovery.if).toContain("needs.translate.result != 'skipped'");
     expect(recovery.if).toContain('inputs.dry_run != true');
