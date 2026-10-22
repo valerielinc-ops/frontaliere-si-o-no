@@ -45,6 +45,62 @@ export function idsInRegistryChunk(source) {
 }
 
 /**
+ * Read the id → locale-slug map emitted in the live router chunk.
+ *
+ * The publisher's `slugs.json` can legitimately lag a corpus-main handoff:
+ * the hub and the client chunks may already serve an article while the API
+ * reverse map still has no localized slug for it. The router chunk is the
+ * client's own routing truth in that window, so the parity gate must use it
+ * before treating an unknown localized slug as an id. This is intentionally a
+ * narrow parser for the minified bundle shape: article ids are generated ASCII
+ * slug tokens, while localized slugs may retain Unicode letters, and a row is
+ * accepted only when all four locale fields are present and non-empty.
+ */
+export function slugRegistryInChunk(source) {
+  const out = {};
+  const rowPattern = /(["'])([a-z0-9][a-z0-9-]*)\1:\{([^{}]*)\}/g;
+  const fieldPattern = /(?:^|,)(it|en|de|fr):(["'])((?:\\.|[^"'\\])*)\2/g;
+  const decode = (value) => value
+    .replace(/\\x([0-9a-f]{2})/gi, (_match, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/\\u\{([0-9a-f]+)\}/gi, (_match, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/\\u([0-9a-f]{4})/gi, (_match, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/\\([\\'])/g, '$1');
+  for (const row of String(source || '').matchAll(rowPattern)) {
+    const fields = {};
+    for (const field of row[3].matchAll(fieldPattern)) fields[field[1]] = decode(field[3]);
+    if (['it', 'en', 'de', 'fr'].every((locale) => fields[locale])) {
+      out[row[2]] = fields;
+    }
+  }
+  return out;
+}
+
+/**
+ * Reverse one locale of a client router map, omitting ambiguous slugs.
+ *
+ * A duplicate localized slug cannot identify one article safely. Returning it
+ * in the ambiguous set lets the caller suppress a stale external fallback
+ * rather than silently choosing the first matching id.
+ */
+export function reverseSlugRegistry(registry, locale) {
+  const reverse = {};
+  const ambiguous = new Set();
+  for (const [id, slugs] of Object.entries(registry || {})) {
+    const slug = slugs?.[locale];
+    if (typeof slug !== 'string' || slug.length === 0) continue;
+    if (ambiguous.has(slug)) continue;
+    const previous = reverse[slug];
+    if (previous && previous !== id) {
+      delete reverse[slug];
+      ambiguous.add(slug);
+      continue;
+    }
+    reverse[slug] = id;
+  }
+  return { reverse, ambiguous };
+}
+
+/**
  * Which rendered articles the client cannot render.
  *
  * ON IDS, NEVER ON SLUGS. The registry is keyed by `id` while the URL carries

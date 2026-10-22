@@ -5,7 +5,8 @@
 // three decisions that actually decide its verdict.
 import { describe, it, expect } from 'vitest';
 import {
-  renderedSlugs, idsInRegistryChunk, missingFromClient, divergentSurfaces,
+  renderedSlugs, idsInRegistryChunk, slugRegistryInChunk, reverseSlugRegistry,
+  missingFromClient, divergentSurfaces,
   divergenceVerdict,
 } from '../scripts/lib/hydratedParity.mjs';
 
@@ -52,6 +53,28 @@ describe('idsInRegistryChunk — ids out of minified JS', () => {
   it('is total on junk', () => {
     expect(idsInRegistryChunk('').size).toBe(0);
     expect(idsInRegistryChunk(undefined as unknown as string).size).toBe(0);
+  });
+});
+
+describe('slugRegistryInChunk — the live router is the handoff identity source', () => {
+  it('reverses a localized slug when the publisher API has not caught up', () => {
+    const registry = slugRegistryInChunk(
+      'var n={"article-id":{it:"article-it",en:"article-en",de:"article-rückkehr",fr:"article-fr"}};',
+    );
+    const { reverse: deReverse, ambiguous } = reverseSlugRegistry(registry, 'de');
+    expect(deReverse).toEqual({ 'article-rückkehr': 'article-id' });
+    expect(missingFromClient(['article-rückkehr'], deReverse, new Set(['article-id']))).toEqual([]);
+    expect(ambiguous).toEqual(new Set());
+  });
+
+  it('does not resolve an ambiguous live slug by choosing the first id', () => {
+    const registry = slugRegistryInChunk(
+      'var n={"one":{it:"one",en:"same-en",de:"one-de",fr:"one-fr"},"two":{it:"two",en:"same-en",de:"two-de",fr:"two-fr"}};',
+    );
+    const { reverse: enReverse, ambiguous } = reverseSlugRegistry(registry, 'en');
+    expect(enReverse).toEqual({});
+    expect(ambiguous).toEqual(new Set(['same-en']));
+    expect(missingFromClient(['same-en'], enReverse, new Set(['one', 'two']))).toEqual(['same-en']);
   });
 });
 

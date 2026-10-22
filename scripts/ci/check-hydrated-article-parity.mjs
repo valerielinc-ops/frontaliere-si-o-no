@@ -99,7 +99,8 @@
 
 import { readFileSync } from 'node:fs';
 import {
-  renderedSlugs, idsInRegistryChunk, missingFromClient, divergentSurfaces,
+  renderedSlugs, idsInRegistryChunk, slugRegistryInChunk, reverseSlugRegistry,
+  missingFromClient, divergentSurfaces,
   divergenceVerdict,
 } from '../lib/hydratedParity.mjs';
 
@@ -304,11 +305,13 @@ try {
  * whether a stale chunk is survivable or an outage.
  */
 const chunkIds = new Set();
+let clientRouterRegistry = {};
 for (const url of CLIENT_SURFACES) {
   try {
     const r = await getText(url, BROWSER_HEADERS);
     report.surfaces[url] = { bytes: r.body.length, lastModified: r.lastModified };
     for (const id of idsInRegistryChunk(r.body)) chunkIds.add(id);
+    if (url === CLIENT_SURFACES[1]) clientRouterRegistry = slugRegistryInChunk(r.body);
   } catch (err) {
     fail(`client surface unreadable (${url}): ${err.message}`);
   }
@@ -350,6 +353,17 @@ for (const id of overlayIds.bare) clientIds.add(id);
 for (const id of overlayIds.rotated) clientIds.add(id);
 report.clientIds = clientIds.size;
 
+// A corpus-main handoff can reach the hub and the client chunks before the
+// publisher's slugs.json reverse map is updated. Prefer the router map the
+// browser actually uses for those rows; keep the API map for older rows and
+// suppress it only when the live client map is ambiguous.
+const clientReverse = reverseSlugRegistry(clientRouterRegistry, LOCALE);
+const effectiveReverse = { ...reverse };
+for (const ambiguousSlug of clientReverse.ambiguous) delete effectiveReverse[ambiguousSlug];
+Object.assign(effectiveReverse, clientReverse.reverse);
+report.clientRouterRegistry = Object.keys(clientRouterRegistry).length;
+report.clientRouterAmbiguousSlugs = [...clientReverse.ambiguous];
+
 /**
  * Ids the rotating key reaches and the bare one does not. Non-zero means the
  * edge is still holding an unpurged copy of the overlay index itself: harmless
@@ -367,7 +381,7 @@ report.overlayBareGap = [...overlayIds.bare].filter((id) => !overlayIds.rotated.
  * a run that fails without naming the lost articles has reported the weather,
  * not the defect.
  */
-const missing = missingFromClient(slugs, reverse, clientIds);
+const missing = missingFromClient(slugs, effectiveReverse, clientIds);
 report.missing = missing;
 
 /**
@@ -375,7 +389,7 @@ report.missing = missing;
  * compiled chunks are current; a number climbing toward the overlay's own
  * window is the early warning that the next stale chunk WILL drop articles.
  */
-const absorbedByOverlay = missingFromClient(slugs, reverse, chunkIds);
+const absorbedByOverlay = missingFromClient(slugs, effectiveReverse, chunkIds);
 report.absorbedByOverlay = absorbedByOverlay;
 
 /**
