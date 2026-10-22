@@ -301,9 +301,9 @@ async function main() {
     // What the portal received (career-ops application-answers), next to the
     // draft for the interview prep and Valerie's panel; never in the event or the log.
     if (event.portalAnswers) {
-      const portalAnswers = portalAnswersForDraft(event.portalAnswers);
-      if (!dryRun && Array.isArray(portalAnswers?.answers) && portalAnswers.answers.length) {
-        await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers }, { merge: true });
+      event.portalAnswers = portalAnswersForDraft(event.portalAnswers);
+      if (!dryRun && Array.isArray(event.portalAnswers?.answers) && event.portalAnswers.answers.length) {
+        await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers: event.portalAnswers }, { merge: true });
       }
       delete event.portalAnswers;
     }

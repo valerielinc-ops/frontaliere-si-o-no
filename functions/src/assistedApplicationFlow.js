@@ -381,7 +381,7 @@ function knownAnswerForQuestion(question, { draft, answers, questionAnswers }) {
   return undefined;
 }
 
-function portalTakeover(next, current, event, nowMs) {
+function portalTakeover(next, current, event, nowMs, attemptsOverride = null) {
   next.state = 'owner_takeover';
   next.deadlineAt = null;
   next.reminderAt = null;
@@ -397,7 +397,7 @@ function portalTakeover(next, current, event, nowMs) {
     kind: 'owner_takeover',
     reason: `portal:${reason}`,
     stage: 'submit',
-    attempts: Number(current?.dispatch?.attempts) || 1,
+    attempts: Number(attemptsOverride) || Number(current?.dispatch?.attempts) || 1,
   };
 }
 
@@ -760,7 +760,7 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
         && eventDocuments.length === 0
         && candidateHolds(flags).length === 0
         && roundWasSent(flow, current.round)) {
-        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs)];
+        effects = [portalTakeover(next, current, { reason: 'portal_needs_candidate' }, nowMs, attempts)];
         break;
       }
       next.state = 'needs_candidate_action';
