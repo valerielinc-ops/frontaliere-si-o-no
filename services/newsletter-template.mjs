@@ -8,6 +8,7 @@
  */
 
 import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
+import { renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
 // Shared with functions/src/lib/welcomeEmailTemplate.js (Cloud Functions
 // can't import services/*.mjs — see that file's header). Canonical home is
@@ -32,11 +33,6 @@ import {
 
 const BASE_URL = 'https://frontaliereticino.ch';
 const BRAND_ORANGE = '#f97316';
-// Deep link al pannello "Fonti preferite" di Google, dominio canonico senza
-// `www` in `q` (AGENTS.md -> Architecture). Gemello di PREFERRED_SOURCE_URL in
-// components/shared/PreferredSourceCTA.tsx: stessa URL su superfici diverse
-// (React vs HTML email), che non possono importarsi a vicenda.
-const PREFERRED_SOURCE_URL = 'https://www.google.com/preferences/source?q=frontaliereticino.ch';
 const BRAND_DARK = '#0f172a';
 const DARK_CARD = '#1e293b';
 const LIGHT_BG = '#f1f5f9';
@@ -688,22 +684,6 @@ function renderCloser(locale) {
     </td></tr>`;
 }
 
-/**
- * Fase 4 della issue 5004 — CTA "fonti preferite su Google".
- * Sta dopo il closer e prima del footer: e' l'ultimo blocco di contenuto,
- * quindi non contende attenzione alle offerte di lavoro ne' al briefing.
- */
-function renderPreferredSource(locale) {
-  return `
-    <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 24px;">
-      <div style="border:1px solid ${BORDER_COLOR};border-radius:12px;padding:18px 20px;text-align:center;">
-        <div style="font-size:15px;font-weight:700;color:${TEXT_COLOR};margin:0 0 6px;">${nlT(locale, 'preferredSourceTitle')}</div>
-        <div style="font-size:13px;color:${MUTED_COLOR};line-height:1.5;margin:0 0 14px;">${nlT(locale, 'preferredSourceText')}</div>
-        <a target="_blank" rel="noopener noreferrer" href="${PREFERRED_SOURCE_URL}" style="display:inline-block;background:${BRAND_ORANGE};color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:11px 20px;border-radius:8px;">${nlT(locale, 'preferredSourceCta')}</a>
-      </div>
-    </td></tr>`;
-}
-
 function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
   const unsubLink = `<a target="_blank" rel="noopener noreferrer" href="${unsubscribeUrl || '{{UNSUBSCRIBE_URL}}'}" style="color:${BRAND_ORANGE};text-decoration:underline;">${nlT(locale, 'unsubLink')}</a>`;
   const unsubLine = nlT(locale, 'unsubText').replace('{link}', unsubLink);
@@ -712,11 +692,6 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
     : '';
   return `
     <tr><td class="footer-pad" style="background:${BRAND_DARK};padding:28px;text-align:center;">
-      <div style="margin-bottom:12px;">
-        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/frontaliereticino/" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
-        <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
-      </div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${nlT(locale, 'footerReason')} <a target="_blank" rel="noopener noreferrer" href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${unsubLine}</div>
       ${prefsLine}
@@ -747,6 +722,7 @@ function renderFooter(locale, unsubscribeUrl, preferencesUrl) {
  * @param {string}  [data.unsubscribeUrl]
  * @param {string}  [data.resubscribeUrl]
  * @param {string}  [data.preheaderText]
+ * @param {string}  [data.telegramChannelUrl] — configured public Telegram URL
  * @returns {string}
  */
 export function buildNewsletter(data) {
@@ -829,8 +805,10 @@ export function buildNewsletter(data) {
   // 12. Closer
   html += renderCloser(locale);
 
-  // 13. Preferred Sources CTA (fase 4 della issue 5004)
-  html += renderPreferredSource(locale);
+  // 13. Engagement suite — the three closing cards stay in this order across
+  // every editorial/lifecycle email. Telegram remains conditional until its
+  // public Remote Config URL is available.
+  html += renderEmailEngagementBanners({ locale, telegramUrl: data.telegramChannelUrl });
 
   // 14. Footer
   html += renderFooter(locale, data.unsubscribeUrl, data.preferencesUrl);

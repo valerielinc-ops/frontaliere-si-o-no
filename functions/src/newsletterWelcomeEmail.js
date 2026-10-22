@@ -291,6 +291,14 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
   }
   const unsubscribeUrl = makeOneClickUnsubscribeUrl(normalizedEmail, { secret: newsletterSecret, policy: tokenPolicy });
   const preferencesUrl = makePreferencesUrl(normalizedEmail, resolvedLocale, { secret: newsletterSecret, policy: tokenPolicy });
+  let telegramChannelUrl;
+  try {
+    telegramChannelUrl = await getRemoteConfigValue('TELEGRAM_CHANNEL_URL');
+  } catch (telegramErr) {
+    // Social promotion is optional; a Remote Config hiccup must never block the
+    // welcome email or turn an absent channel into a guessed public URL.
+    console.warn('[newsletterWelcomeEmail] Telegram URL unavailable:', telegramErr?.message || telegramErr);
+  }
 
   const built = buildWelcomeEmail({
     ...ctx,
@@ -298,6 +306,7 @@ export async function sendNewsletterWelcomeEmail({ email, locale, db: injectedDb
     jobAlertActive,
     unsubscribeUrl,
     preferencesUrl,
+    telegramChannelUrl,
   });
   const { subject } = built;
   // Autologin on every internal link: the recipient lands already signed in, so

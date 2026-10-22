@@ -99,6 +99,7 @@
  */
 
 import { nlNormLocale, localizedUrl } from '../functions/src/lib/newsletterUrlPaths.js';
+import { emailEngagementBannersText, renderEmailEngagementBanners } from '../functions/src/lib/emailEngagementBanners.js';
 // Data-controller identity for the footer (#5675) — see that file's header
 // for why the canonical home is functions/src/lib/, not services/.
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
@@ -699,6 +700,7 @@ function supportBlocks(sections) {
  * @param {number} [data.cadenceDays]     the recipient's cadence, for the disclosure line
  * @param {string} data.unsubscribeUrl    one-click endpoint (NOT the SPA form)
  * @param {string} data.preferencesUrl
+ * @param {string} [data.telegramChannelUrl] configured public Telegram URL
  * @returns {{ html: string, text: string, preheader: string }}
  */
 export function buildDailyBriefEmail(data) {
@@ -798,6 +800,8 @@ ${highlight ? `
       </td></tr>
       <tr><td class="fb-pad fb-muted" style="padding:12px 28px 22px;font:400 13px/1.6 ${SANS};color:${MUTED}">${esc(s.editionNote)}</td></tr>
 
+${renderEmailEngagementBanners({ locale, telegramUrl: data.telegramChannelUrl })}
+
       <tr><td class="fb-pad fb-foot" style="border-top:1px solid ${BORDER};padding:20px 28px 24px;background:${PANEL_BG};color:${TEXT}">
         <div class="fb-text" style="font:400 13px/1.6 ${SANS};color:${TEXT}">${esc(cadence)}</div>
         <div class="fb-ink" style="margin:14px 0 9px;font:700 13px/1.5 ${SANS};color:${INK}">${esc(s.unsubTitle)}</div>
@@ -843,6 +847,8 @@ ${highlight ? `
     '',
     dataControllerFooterLine(locale),
     s.footer,
+    '',
+    emailEngagementBannersText({ locale, telegramUrl: data.telegramChannelUrl }),
   ].join('\n');
 
   return { html, text, preheader };
