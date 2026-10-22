@@ -248,8 +248,10 @@ describe('Pages publish queue wiring', () => {
     expect(request).toContain("cron: '*/10 * * * *'");
     expect(request).toContain('actions: write');
     expect(request).toContain('deployments: read');
+    expect(request).toContain('statuses: read');
     expect(request).toContain("APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'");
     expect(request).toContain('APP_TOKEN_DEPLOYMENTS_READ');
+    expect(request).toContain('APP_TOKEN_STATUSES_READ');
     expect(request).not.toContain('request-latest-deploy.mjs');
     expect(request).not.toContain('gh workflow run deploy.yml');
   });
