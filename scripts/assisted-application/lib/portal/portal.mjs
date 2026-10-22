@@ -1533,7 +1533,14 @@ async function dialogFileInput(page, preferredFrame, beforeCounts, beforeHandles
       let previousCount;
       let beforeHandles;
       if (!beforeCounts.has(frame)) {
-        ambiguous = true;
+        // Some ATS tenants add an auxiliary third-party frame when the upload
+        // dialog opens (SIX adds a Google Drive proxy). A frame that exposes
+        // no eligible file input cannot be the upload target and must not make
+        // the real dialog ambiguous. Keep the fail-closed behavior for a new
+        // frame that is unreadable or already contains a candidate input: its
+        // pre-click baseline is unknown, so it still cannot be selected safely.
+        const count = await dialogFileInputCount(frame);
+        if (count === null || count > 0) ambiguous = true;
         continue;
       }
       previousCount = beforeCounts.get(frame);
