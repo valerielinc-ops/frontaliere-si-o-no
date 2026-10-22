@@ -56,11 +56,16 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import { resolveSearchConsoleCompatTarget } from '../build-plugins/searchConsoleCompat';
+import {
+  resolveSearchConsoleCompatTarget,
+  type JobSlugCanonicalIndex,
+  type SearchConsoleCompatResolution,
+} from '../build-plugins/searchConsoleCompat';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { gscOrphanPathKey, isAllowedGscOrphanUrl } from './lib/gsc-orphan-snapshot.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(__filename, '..', '..');
@@ -80,6 +85,26 @@ const CSV_OVERRIDE = csvFlagIdx >= 0 ? process.argv[csvFlagIdx + 1] : null;
 // A jump past this means a malformed export (e.g. an all-URLs sitemap) leaked
 // in — abort rather than bloat the SSG bridge set toward cfHot's MAX_EMIT cap.
 const COVERAGE_SANITY_CEILING = 50_000;
+
+export type GscCoverageUnknownReason =
+  | 'outside-gsc-property'
+  | 'invalid-path'
+  | 'ambiguous-routing'
+  | 'no-demonstrated-destination'
+  | 'unsafe-destination';
+
+export type GscCoveragePathClassification =
+  | {
+      kind: 'compat' | 'redirect';
+      path: string;
+      canonicalPath: string;
+      resolution: SearchConsoleCompatResolution;
+    }
+  | {
+      kind: 'unknown';
+      path: string | null;
+      reason: GscCoverageUnknownReason;
+    };
 
 function normalizePath(input: string): string {
   const clean = `/${String(input || '').trim().replace(/^\/+/, '')}`.replace(/\/+/g, '/');
@@ -110,7 +135,7 @@ function csvDataRowCount(file: string): number {
   return fs.readFileSync(file, 'utf-8').split(/\r?\n/).slice(1).filter((l) => l.trim()).length;
 }
 
-function parseCsvPaths(file: string): string[] {
+function parseCsvUrls(file: string): string[] {
   const text = fs.readFileSync(file, 'utf-8');
   const out: string[] = [];
   for (const line of text.split(/\r?\n/).slice(1)) {
@@ -119,12 +144,92 @@ function parseCsvPaths(file: string): string[] {
     // exports the URL unquoted today, but a future quoting/escaping change must
     // not silently drop every row (caught loudly by the zero-yield guard in main).
     const url = (line.split(',')[0] ?? '').trim().replace(/^"|"$/g, '');
-    if (!url || !url.startsWith('http')) continue;
-    let pathname: string;
-    try { pathname = new URL(url).pathname; } catch { continue; }
-    out.push(normalizePath(pathname));
+    if (!url || !/^https?:\/\//i.test(url)) continue;
+    try { new URL(url); } catch { continue; }
+    out.push(url);
   }
   return out;
+}
+
+function parseCoveragePath(input: string):
+  | { path: string }
+  | { path: null; reason: 'outside-gsc-property' | 'invalid-path' } {
+  const value = String(input || '').trim();
+  if (!value) return { path: null, reason: 'invalid-path' };
+
+  if (/^[a-z][a-z\d+.-]*:/i.test(value)) {
+    let url: URL;
+    try {
+      url = new URL(value);
+    } catch {
+      return { path: null, reason: 'invalid-path' };
+    }
+    if (!isAllowedGscOrphanUrl(value)) return { path: null, reason: 'outside-gsc-property' };
+    try {
+      return { path: normalizePath(gscOrphanPathKey(url.pathname)) };
+    } catch {
+      return { path: null, reason: 'invalid-path' };
+    }
+  }
+
+  if (!value.startsWith('/')) return { path: null, reason: 'invalid-path' };
+  try {
+    return { path: normalizePath(gscOrphanPathKey(value)) };
+  } catch {
+    return { path: null, reason: 'invalid-path' };
+  }
+}
+
+function safeCanonicalPath(input: string): string | null {
+  try {
+    return gscOrphanPathKey(input);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Classify a Coverage URL before it can enter either compatibility store.
+ *
+ * The normal resolver intentionally has conservative section/job fallbacks for
+ * bridge consumers that can verify the emitted target on disk. Ingestion has
+ * no dist snapshot, so it asks for source-backed mappings only: explicit
+ * aliases, emitted registries, known route families, or a supplied job
+ * identity. A path-shaped fallback is therefore retained as `unknown` instead
+ * of becoming an invented redirect.
+ */
+export function classifyUnresolvedCoveragePath(
+  input: string,
+  slugIndex?: JobSlugCanonicalIndex,
+): GscCoveragePathClassification {
+  const parsed = parseCoveragePath(input);
+  if (!parsed.path) return { kind: 'unknown', path: null, reason: parsed.reason };
+
+  const pathKey = parsed.path;
+  const resolution = resolveSearchConsoleCompatTarget(pathKey, slugIndex, { sourceBackedOnly: true });
+  if (!resolution) {
+    // Keep the distinction observable: a normal resolver match that strict
+    // mode rejects is ambiguous, while a null normal match is simply unknown.
+    const routeShapedCandidate = resolveSearchConsoleCompatTarget(pathKey, slugIndex);
+    return {
+      kind: 'unknown',
+      path: pathKey,
+      reason: routeShapedCandidate ? 'ambiguous-routing' : 'no-demonstrated-destination',
+    };
+  }
+
+  const canonicalPath = safeCanonicalPath(resolution.canonicalPath);
+  if (!canonicalPath) {
+    return { kind: 'unknown', path: pathKey, reason: 'unsafe-destination' };
+  }
+
+  const canonicalKey = normalizePath(canonicalPath);
+  return {
+    kind: canonicalKey === pathKey ? 'compat' : 'redirect',
+    path: pathKey,
+    canonicalPath,
+    resolution,
+  };
 }
 
 function readPaths(file: string): string[] {
@@ -147,21 +252,23 @@ function main(): void {
   const byKind: Record<string, number> = {};
   let totalRows = 0;
   let rawDataRows = 0;
-  const unresolved: string[] = [];
+  const unresolved: Array<Extract<GscCoveragePathClassification, { kind: 'unknown' }>> = [];
+  const byClassification: Record<string, number> = {};
 
   for (const { file, basename } of csvs) {
     rawDataRows += csvDataRowCount(file);
-    const paths = parseCsvPaths(file);
+    const urls = parseCsvUrls(file);
     let resolved = 0;
-    for (const p of paths) {
+    for (const url of urls) {
       totalRows++;
-      const resolution = resolveSearchConsoleCompatTarget(p);
-      if (!resolution) { unresolved.push(p); continue; }
-      byKind[resolution.kind] = (byKind[resolution.kind] || 0) + 1;
-      seen.add(p);
+      const classification = classifyUnresolvedCoveragePath(url);
+      byClassification[classification.kind] = (byClassification[classification.kind] || 0) + 1;
+      if (classification.kind === 'unknown') { unresolved.push(classification); continue; }
+      byKind[classification.resolution.kind] = (byKind[classification.resolution.kind] || 0) + 1;
+      seen.add(classification.path);
       resolved++;
     }
-    console.log(`[ingest-gsc-coverage] ${basename}: ${paths.length} URL rows (${csvDataRowCount(file)} data rows) → ${resolved} resolvable`);
+    console.log(`[ingest-gsc-coverage] ${basename}: ${urls.length} URL rows (${csvDataRowCount(file)} data rows) → ${resolved} source-backed`);
   }
 
   // Loud-fail on a silent format break: data rows present but nothing parsed as
@@ -176,12 +283,13 @@ function main(): void {
 
   console.log(
     `[ingest-gsc-coverage] ${totalRows} total rows | ${seen.size} resolvable unique | ` +
-      `${unresolved.length} unresolvable (left as 404)`,
+      `${unresolved.length} unknown (left as 404)`,
   );
   console.log(`[ingest-gsc-coverage] kinds: ${JSON.stringify(byKind)}`);
+  console.log(`[ingest-gsc-coverage] classifications: ${JSON.stringify(byClassification)}`);
   if (unresolved.length > 0) {
-    console.log('[ingest-gsc-coverage] sample unresolvable:');
-    for (const u of unresolved.slice(0, 10)) console.log(`  ${u}`);
+    console.log('[ingest-gsc-coverage] sample unknown:');
+    for (const u of unresolved.slice(0, 10)) console.log(`  ${u.path ?? '(not a local path)'} [${u.reason}]`);
   }
 
   // Merge into the bounded coverage file.
@@ -224,7 +332,12 @@ function main(): void {
   fs.writeFileSync(
     COVERAGE_OUT,
     JSON.stringify(
-      { paths: coverageUnion, source: 'gsc-coverage-drilldown', lastUpdated: today },
+      {
+        paths: coverageUnion,
+        unresolved,
+        source: 'gsc-coverage-drilldown',
+        lastUpdated: today,
+      },
       null,
       2,
     ) + '\n',
@@ -241,4 +354,6 @@ function main(): void {
   console.log(`[ingest-gsc-coverage] wrote ${wrote}`);
 }
 
-main();
+if (process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href === import.meta.url) {
+  main();
+}
