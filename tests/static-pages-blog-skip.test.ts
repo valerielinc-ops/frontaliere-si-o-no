@@ -6,12 +6,19 @@ import { describe, expect, it } from 'vitest';
 import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from '../build-plugins/shared/articleSectionDescriptors';
 import { parseStaticArticleBodyPreviews } from '../build-plugins/shared/staticArticleBodyPreviews';
 import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
+import { parseArticleUrlSlugs } from '../packages/articles/engine/shared/articleReaderSource.mjs';
+import {
+  findTopLevelVariable,
+  parseStaticSource,
+  readStaticObjectProperties,
+  readStaticString,
+  staticPropertyName,
+} from '../packages/articles/engine/shared/staticSourceAst.mjs';
 import {
   repairLegacyDoubleEscapedBreaks,
   tsStringEscapesWithNewlineAs,
   unescapeTsString,
 } from '../scripts/lib/unescape-ts-string.mjs';
-import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 function readTrackedSource(relativePath: string): string {
   const root = path.resolve(__dirname, '..');
@@ -22,6 +29,26 @@ function readTrackedSource(relativePath: string): string {
     if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error;
     return execFileSync('git', ['show', `HEAD:${relativePath}`], { cwd: root, encoding: 'utf8' });
   }
+}
+
+function readSwissSeoCanonicalPaths(source: string): Map<string, string> {
+  const sourceFile = parseStaticSource(source, 'seo-blog-ch.ts');
+  const declaration = findTopLevelVariable(sourceFile, 'BLOG_CH_SEO_METADATA');
+  if (!declaration?.initializer) throw new Error('BLOG_CH_SEO_METADATA declaration is missing');
+
+  const paths = new Map<string, string>();
+  for (const article of readStaticObjectProperties(declaration.initializer, 'BLOG_CH_SEO_METADATA')) {
+    const name = staticPropertyName(article.name);
+    if (!name?.startsWith('blog-')) continue;
+    const canonical = readStaticObjectProperties(article.initializer, name)
+      .find((property) => staticPropertyName(property.name) === 'canonicalPath');
+    if (!canonical) continue;
+    paths.set(
+      name.slice('blog-'.length),
+      readStaticString(canonical.initializer, sourceFile, { label: `${name}.canonicalPath` }),
+    );
+  }
+  return paths;
 }
 
 describe('static article body preview source reader', () => {
@@ -216,43 +243,35 @@ describe('ogPagesPlugin skip-set covers every article section (no missingTarget 
     }
   });
 
-  // pesca un articolo reale dai registri services/seo/seo-blog-ch.ts e services/routerSwissData.ts, riscritti a ogni pubblicazione: rosso possibile senza cambi di codice
-  it.skipIf(SKIP_LIVE_DATA)('skip-set parse derives all four locale paths for a svizzera article', () => {
-    const root = path.resolve(__dirname, '..');
-    const seoSrc = readFileSync(path.resolve(root, 'services/seo/seo-blog-ch.ts'), 'utf-8');
-    const routerSrc = readFileSync(path.resolve(root, 'services/routerSwissData.ts'), 'utf-8');
-    const indexSlugs: Record<'en' | 'de' | 'fr', string> = {
-      en: 'swiss-articles', de: 'schweiz-artikel', fr: 'articles-suisse',
-    };
+  it('derives Swiss skip paths from the complete SEO and slug-registry modules', () => {
+    const seoPath = 'packages/articles/content/seo/seo-blog-ch.ts';
+    const routerPath = 'packages/articles/content/routerSwissData.ts';
+    const seoPaths = readSwissSeoCanonicalPaths(readTrackedSource(seoPath));
+    const slugRegistry = parseArticleUrlSlugs(readTrackedSource(routerPath), 'SWISS_SLUGS');
+    const section = SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.find((candidate) => candidate.name === 'svizzera');
 
-    const itPaths = [...seoSrc.matchAll(/canonicalPath:\s*'([^']+)'/g)].map(
-      (m) => m[1].replace(/\/+$/, '') || '/',
-    );
-    const slugMap: Record<string, Record<string, string>> = {};
-    for (const m of routerSrc.matchAll(
-      /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g,
-    )) {
-      slugMap[m[2]] = { en: m[3], de: m[4], fr: m[5] };
+    expect(section?.seoFiles).toContain('services/seo/seo-blog-ch.ts');
+    expect(section?.slugData).toBe('services/routerSwissData.ts');
+
+    const sample = [...seoPaths].find(([articleId]) => Object.hasOwn(slugRegistry, articleId));
+    expect(sample, 'no Swiss SEO entry has a corresponding complete slug-registry entry').toBeTruthy();
+    const [articleId, canonicalPath] = sample!;
+    const slugs = slugRegistry[articleId];
+    const indexSlugs = section!.indexSlug;
+    const pathsSkippedByStaticPages = new Set<string>();
+    pathsSkippedByStaticPages.add(canonicalPath.replace(/\/+$/u, '') || '/');
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const localizedSlug = slugs[locale];
+      const indexSlug = indexSlugs[locale];
+      if (localizedSlug && indexSlug) pathsSkippedByStaticPages.add(`/${locale}/${indexSlug}/${localizedSlug}`);
     }
 
-    const skip = new Set<string>();
-    for (const itPath of itPaths) {
-      skip.add(itPath);
-      const itSlug = itPath.split('/').filter(Boolean).pop();
-      const loc = itSlug ? slugMap[itSlug] : undefined;
-      if (!loc) continue;
-      for (const l of ['en', 'de', 'fr'] as const) {
-        if (loc[l]) skip.add(`/${l}/${indexSlugs[l]}/${loc[l]}`);
-      }
-    }
-
-    // At least one svizzera article must round-trip through all four locales.
-    const sample = Object.keys(slugMap).find((id) => skip.has(`/articoli-svizzera/${id}`));
-    expect(sample, 'no svizzera article canonical path parsed from seo-blog-ch.ts').toBeTruthy();
-    const s = slugMap[sample as string];
-    expect(skip.has(`/articoli-svizzera/${sample}`)).toBe(true);
-    expect(skip.has(`/en/swiss-articles/${s.en}`)).toBe(true);
-    expect(skip.has(`/de/schweiz-artikel/${s.de}`)).toBe(true);
-    expect(skip.has(`/fr/articles-suisse/${s.fr}`)).toBe(true);
+    expect(canonicalPath).toBe(`/articoli-svizzera/${slugs.it}/`);
+    expect(pathsSkippedByStaticPages).toEqual(new Set([
+      `/articoli-svizzera/${slugs.it}`,
+      `/en/${indexSlugs.en}/${slugs.en}`,
+      `/de/${indexSlugs.de}/${slugs.de}`,
+      `/fr/${indexSlugs.fr}/${slugs.fr}`,
+    ]));
   });
 });
