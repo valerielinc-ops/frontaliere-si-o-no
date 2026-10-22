@@ -667,6 +667,7 @@ function renderProfileBody(
           postingDateSource: job.postingDateSource,
           datePosted: job.datePosted,
           postedDate: job.postedDate,
+          firstSeenAt: job.firstSeenAt,
           salaryMin: job.salaryMin ?? null,
           salaryMax: job.salaryMax ?? null,
           salarySource: job.salarySource,

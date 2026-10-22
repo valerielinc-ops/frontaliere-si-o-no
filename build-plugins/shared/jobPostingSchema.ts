@@ -10,7 +10,7 @@ import { resolveRolloutSchemaPostingDate } from '../../scripts/lib/job-posting-d
  *   3. streetAddress (nested inside `jobLocation.address`)
  *   4. title
  *   5. description (≥ 50 chars)
- *   6. datePosted (ISO 8601, date-only or date-time)
+ *   6. datePosted (ISO 8601, date-only or date-time; reported or first-seen fallback)
  *   7. hiringOrganization.name
  *   8. jobLocation (Place + PostalAddress with addressCountry 'CH')
  *   9. employmentType (schema.org token)
@@ -121,6 +121,8 @@ export interface JobInput {
   readonly postingDateSource?: string | null;
   readonly postedDate?: string | null;
   readonly datePosted?: string | null;
+  /** First crawler observation, used only when no source publication date exists. */
+  readonly firstSeenAt?: string | null;
   readonly crawledAt?: string | null;
   readonly scrapedAt?: string | null;
   readonly updatedAt?: string | null;
@@ -851,9 +853,9 @@ export function buildJobPostingFacts(
 }
 
 /**
- * Build a JobPosting only when publication provenance is verified, except for
- * the six exact canonical URLs tracked by issue #12937. Their mandatory
- * datePosted uses the stable schema-only sentinel without changing provenance.
+ * Build a JobPosting with an employer date when reported, otherwise with the
+ * explicit first-seen fallback. The six exact canonical URLs tracked by issue
+ * #12937 still use the stable schema-only sentinel when neither is available.
  */
 export function buildJobPostingSchema(
   job: JobInput,

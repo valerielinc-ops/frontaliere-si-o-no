@@ -1,4 +1,3 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the profession landings (AE-3 template B).
@@ -35,7 +34,7 @@ import {
 } from './professionLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
 import { realSalaryMedianChf, reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
-import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { jobMatchesCity, type CityHubKey } from './cityJobsHub';
 import { PROFESSION_CITY_DEFS } from './professionCityData';
 import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
@@ -94,6 +93,7 @@ export interface FeaturedJob {
   readonly postingDateSource?: string;
   readonly datePosted?: string | null;
   readonly postedDate: string;
+  readonly firstSeenAt?: string;
   readonly daysAgo: number;
   readonly slug: string;
   readonly slugByLocale: Partial<Record<ProfessionLocale, string>>;
@@ -398,9 +398,9 @@ function jobMatchesProfession(job: JobRecord, m: ProfessionMatcher): boolean {
 
 function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  // First PARSEABLE date, not first truthy: a malformed postedDate must not
-  // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  // Keep the aggregate's publication field source-only. Card rendering gets
+  // firstSeenAt separately and can apply the synthetic display fallback.
+  const postedDate = resolveReportedPostingDate(job, new Date(now)) || '';
   const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
@@ -421,6 +421,7 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
     postingDateSource: job.postingDateSource ?? undefined,
     datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
+    firstSeenAt: job.firstSeenAt,
     daysAgo,
     slug: job.slug,
     slugByLocale: job.slugByLocale ?? {},
@@ -446,7 +447,7 @@ function buildSnapshotForProfession(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    const ts = firstParsableMs(resolveReportedPostingDate(job, new Date(now)));
     if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
@@ -469,8 +470,8 @@ function buildSnapshotForProfession(
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
-    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
+    const aTs = firstParsableMs(resolveReportedPostingDate(a, new Date(now)));
+    const bTs = firstParsableMs(resolveReportedPostingDate(b, new Date(now)));
     return bTs - aTs;
   });
   const projectedJobs: FeaturedJob[] = [];

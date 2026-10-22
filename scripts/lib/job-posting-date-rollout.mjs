@@ -1,4 +1,8 @@
-import { resolveReportedPostingDate, resolveSchemaPostingDate } from './job-posting-date.mjs';
+import {
+  resolveFirstSeenPostingDate,
+  resolveReportedPostingDate,
+  resolveSchemaPostingDate,
+} from './job-posting-date.mjs';
 
 const JOB_POSTING_SAFE_DEFAULT_URLS = new Set([
   'https://frontaliereticino.ch/cerca-lavoro-berna/mansioni-richieste-hirslanden-klinik-search-a0f5e9/',
@@ -9,7 +13,7 @@ const JOB_POSTING_SAFE_DEFAULT_URLS = new Set([
   'https://frontaliereticino.ch/fr/trouver-emploi-soleure/mecanicien-de-maintenance-mecanicienne-de-maintenance-nouveau-batiment-oensingen-bell-schweiz-ag-oensingen/',
 ]);
 
-/** Publication dates require explicit source evidence, including legacy records.
+/** Resolve the display date, preferring employer evidence over first observation.
  * The callback argument remains for compatibility but is never evaluated.
  */
 export function hasPostingDateProvenance(input) {
@@ -17,20 +21,19 @@ export function hasPostingDateProvenance(input) {
 }
 
 export function resolveRolloutPostingDate(input, _legacyDate, now) {
-  // Keep the rollout boundary fail-closed even if a compatibility caller
-  // reaches this wrapper before the stricter validator below.
-  if (input?.postingDateSource !== 'reported') return null;
-  return resolveReportedPostingDate(input, now);
+  return resolveReportedPostingDate(input, now) || resolveFirstSeenPostingDate(input, now);
 }
 
 /**
- * Preserve the existing fail-closed schema policy generally. The stable
- * schema-only date default is permitted only for the six canonical URLs in
- * issue #12937; source provenance remains unchanged.
+ * Resolve the JobPosting date without changing upstream source provenance.
+ * A first-seen timestamp is an intentional synthetic fallback; the stable
+ * schema-only sentinel remains permitted only for the six canonical URLs.
  */
 export function resolveRolloutSchemaPostingDate(input, now, url) {
   const reported = resolveReportedPostingDate(input, now);
   if (reported) return { value: reported, provenance: 'reported' };
+  const firstSeen = resolveFirstSeenPostingDate(input, now);
+  if (firstSeen) return { value: firstSeen, provenance: 'first-seen' };
   if (!JOB_POSTING_SAFE_DEFAULT_URLS.has(url)) return null;
   return resolveSchemaPostingDate(input, now, true);
 }

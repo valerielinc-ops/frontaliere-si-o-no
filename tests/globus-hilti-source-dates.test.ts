@@ -4,6 +4,7 @@ import vm from 'node:vm';
 import ts from 'typescript';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { sourcePostingDateFields, mergeSourcePostingDates } from '../scripts/lib/source-posting-date.mjs';
+import { extractJobPostingNodes, extractJobPostingNodesFromJson } from '../scripts/lib/jobposting-jsonld.mjs';
 
 function realFunction(company: string, name: string, deps: Record<string, unknown> = {}) {
   const source = readFileSync(`scripts/lib/${company}-job-parser.mjs`, 'utf8');
@@ -11,7 +12,7 @@ function realFunction(company: string, name: string, deps: Record<string, unknow
   const node = ast.statements.find((n) => ts.isFunctionDeclaration(n) && n.name?.text === name);
   if (!node) throw new Error(name);
   return vm.runInNewContext(`(${node.getText(ast).replace(/^export\s+/, '')})`, {
-    Date, createHash, sourcePostingDateFields, mergeSourcePostingDates, console,
+    Date, createHash, sourcePostingDateFields, mergeSourcePostingDates, extractJobPostingNodes, extractJobPostingNodesFromJson, console,
     normalizeSpace: (v: string) => v, stripHtml: (v: string) => v, detectLang: () => 'en', slugify: () => 'engineer',
     detectCategory: () => 'engineering', detectEmploymentType: () => 'FULL_TIME', detectExperienceLevel: () => 'mid',
     setTimeout: (fn: () => void) => fn(), ...deps,

@@ -173,6 +173,7 @@ function toCardItem(job: AutoSectorJob, locale: JobBoardLocale): JobCardListItem
       postingDateSource: typeof job.postingDateSource === 'string' ? job.postingDateSource : undefined,
       postedDate: typeof job.postedDate === 'string' ? job.postedDate : undefined,
       datePosted: typeof job.datePosted === 'string' ? job.datePosted : undefined,
+      firstSeenAt: typeof job.firstSeenAt === 'string' ? job.firstSeenAt : undefined,
       salaryMin: typeof job.salaryMin === 'string' || typeof job.salaryMin === 'number' ? job.salaryMin : undefined,
       salaryMax: typeof job.salaryMax === 'string' || typeof job.salaryMax === 'number' ? job.salaryMax : undefined,
       salarySource: typeof job.salarySource === 'string' ? job.salarySource : undefined,

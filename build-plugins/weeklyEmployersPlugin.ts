@@ -1,5 +1,4 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Weekly "Aziende che assumono" per-city Hub — Vite build plugin (F5).
  *
@@ -220,6 +219,7 @@ export interface WeeklyCountableJob {
   postingDateSource?: string;
   datePosted?: string;
   postedDate?: string;
+  firstSeenAt?: string;
   expired?: boolean;
   needsRetranslation?: boolean | Partial<Record<WeeklyEmployersLocale, boolean>>;
   sourceLang?: WeeklyEmployersLocale;
@@ -835,6 +835,7 @@ export interface CompanyCityActiveJob {
   postingDateSource?: string;
   datePosted?: string;
   postedDate?: string;
+  firstSeenAt?: string;
   /**
    * Full job description (locale-specific or IT fallback). Used to emit
    * JobPosting.description with ≥30 chars — CLAUDE.md rule #3.
@@ -1077,7 +1078,8 @@ export function buildCompanyCityStats(opts: {
       detailPath: buildJobDetailPath(j, locale),
       postingDateSource: j.postingDateSource,
       datePosted: resolveReportedPostingDate(j) || undefined,
-      postedDate: resolveRolloutPostingDate(j, () => j.postedDate || j.datePosted || null) || undefined,
+      postedDate: resolveReportedPostingDate(j) || undefined,
+      firstSeenAt: j.firstSeenAt,
       description: description.trim() ? description : undefined,
       employmentType: resolveEmploymentType(j),
       salaryMin,
@@ -3465,6 +3467,7 @@ function jobToJsonLd(
     postingDateSource: job.postingDateSource,
     datePosted: job.datePosted,
     postedDate: job.postedDate,
+    firstSeenAt: job.firstSeenAt,
     crawledAt: job.crawledAt,
     validThrough: job.validThrough,
     employmentType: job.employmentType,
@@ -3607,6 +3610,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
               postingDateSource: job.postingDateSource,
               datePosted: job.datePosted,
               postedDate: job.postedDate,
+              firstSeenAt: job.firstSeenAt,
               salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : undefined,
               salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : undefined,
               companyDomain: stats.companyDomain,

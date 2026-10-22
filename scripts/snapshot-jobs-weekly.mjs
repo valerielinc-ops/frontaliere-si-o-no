@@ -7,7 +7,7 @@
  *   `data/jobs-snapshots-history/{YYYY-WW}.json`
  *
  * Each row in the snapshot keeps just the fields needed by the build plugin:
- *   { slug, employer, employerKey?, city, role?, postingDateSource?, postedAt? }
+ *   { slug, employer, employerKey?, city, role?, postingDateSource?, firstSeenAt?, postedAt? }
  *
  * The snapshot file name uses the ISO 8601 week + ISO-week-year of the
  * moment the script runs. Running multiple times in the same ISO week
@@ -17,7 +17,7 @@
  * (schema-valid) and exits 0 so the workflow can commit a placeholder.
  */
 
-import { resolveRolloutPostingDate } from './lib/job-posting-date-rollout.mjs';
+import { resolveReportedPostingDate } from './lib/job-posting-date.mjs';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -78,7 +78,8 @@ function main() {
       city: String(j.addressLocality || j.location || '').trim(),
       role: String(j.title || '').trim() || undefined,
       postingDateSource: j.postingDateSource,
-      postedAt: resolveRolloutPostingDate(j, () => j.postedDate || j.datePosted || null, now) || undefined,
+      firstSeenAt: j.firstSeenAt,
+      postedAt: resolveReportedPostingDate(j, now) || undefined,
     });
   }
 

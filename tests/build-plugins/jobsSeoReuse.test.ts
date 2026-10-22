@@ -174,6 +174,8 @@ describe('jobs SEO disk HTML reuse', () => {
     expect(hasActiveJobPostingJsonLd(jobPosting)).toBe(true);
     expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'safe-default')).toBe(true);
     expect(shouldInvalidateActiveJobReuseForSafeDefault(jobPosting, 'safe-default')).toBe(false);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'first-seen')).toBe(true);
+    expect(shouldInvalidateActiveJobReuseForSafeDefault(jobPosting, 'first-seen')).toBe(false);
     expect(shouldInvalidateActiveJobReuseForSafeDefault(missing, 'reported')).toBe(false);
   });
 

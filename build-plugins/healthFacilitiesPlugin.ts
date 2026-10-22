@@ -211,6 +211,7 @@ function toJobCard(job: FacilityFeaturedJob): JobCardJob {
     postingDateSource: job.postingDateSource,
     datePosted: job.datePosted ?? undefined,
     postedDate: job.postedDate ?? undefined,
+    firstSeenAt: job.firstSeenAt ?? undefined,
     url: job.url ?? undefined,
   };
 }

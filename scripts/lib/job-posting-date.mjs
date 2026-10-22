@@ -9,34 +9,45 @@ export function compareValidatedPostingDates(first, second) {
   return microsecondRemainder(first) - microsecondRemainder(second);
 }
 
+/** Validate an ISO date while preserving the original string and precision. */
+function resolveValidatedPostingDate(value, now) {
+  if (typeof value !== 'string' || !Number.isFinite(now?.getTime())) return null;
+  const raw = value.trim();
+  const match = /^(\d{4})-(\d{2})-(\d{2})(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2}))?$/.exec(raw);
+  if (!match) return null;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const calendar = new Date(`${match[1]}-${match[2]}-${match[3]}T00:00:00.000Z`);
+  if (calendar.getUTCFullYear() !== year || calendar.getUTCMonth() + 1 !== month || calendar.getUTCDate() !== day) return null;
+  const time = /T(\d{2}):(\d{2})(?::(\d{2}))?/.exec(raw);
+  if (time && (Number(time[1]) > 23 || Number(time[2]) > 59 || Number(time[3] || 0) > 59)) return null;
+  const timestamp = Date.parse(raw);
+  if (!Number.isFinite(timestamp) || compareValidatedPostingDates(raw, now.toISOString()) > 0) return null;
+  return raw;
+}
+
 /** Employer publication date only. Preserve the original string, including microseconds and offset. */
 export function resolveReportedPostingDate(input, now = new Date()) {
-  if (input?.postingDateSource !== 'reported' || !Number.isFinite(now.getTime())) return null;
+  if (input?.postingDateSource !== 'reported') return null;
   for (const value of [input.datePosted, input.postedDate]) {
-    if (typeof value !== 'string') continue;
-    const raw = value.trim();
-    const match = /^(\d{4})-(\d{2})-(\d{2})(?:T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2}))?$/.exec(raw);
-    if (!match) continue;
-    const year = Number(match[1]);
-    const month = Number(match[2]);
-    const day = Number(match[3]);
-    const calendar = new Date(`${match[1]}-${match[2]}-${match[3]}T00:00:00.000Z`);
-    if (calendar.getUTCFullYear() !== year || calendar.getUTCMonth() + 1 !== month || calendar.getUTCDate() !== day) continue;
-    const time = /T(\d{2}):(\d{2})(?::(\d{2}))?/.exec(raw);
-    if (time && (Number(time[1]) > 23 || Number(time[2]) > 59 || Number(time[3] || 0) > 59)) continue;
-    const timestamp = Date.parse(raw);
-    if (!Number.isFinite(timestamp) || compareValidatedPostingDates(raw, now.toISOString()) > 0) continue;
-    return raw;
+    const resolved = resolveValidatedPostingDate(value, now);
+    if (resolved) return resolved;
   }
   return null;
+}
+
+/** First observation timestamp, used only as an explicit synthetic fallback. */
+export function resolveFirstSeenPostingDate(input, now = new Date()) {
+  return resolveValidatedPostingDate(input?.firstSeenAt, now);
 }
 
 /**
  * Stable sentinel used only for the mandatory JobPosting.datePosted field.
  *
- * It is deliberately independent from crawl, first-seen and build clocks, so
- * an unknown employer publication date can never be presented as reported.
- * Consumers must keep the returned provenance alongside the value.
+ * It is deliberately independent from crawl and build clocks. Consumers must
+ * keep the returned provenance alongside the value, especially when a
+ * first-seen fallback is used for an unknown employer publication date.
  */
 export const JOB_POSTING_DATE_SAFE_DEFAULT = '1970-01-01';
 

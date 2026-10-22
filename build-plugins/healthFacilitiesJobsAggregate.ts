@@ -1,4 +1,3 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * healthFacilitiesJobsAggregate.ts — build-time live aggregator for the
@@ -20,7 +19,7 @@ import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs'
 
 import { loadJobsJson } from './shared/loadJobsJson';
 import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
-import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { classifyHealthcareRole, type HealthcareRole } from './healthFacilitiesMatch';
 import { HEALTH_FACILITIES, type HealthFacilityRecord } from './healthFacilitiesData';
 
@@ -83,6 +82,7 @@ export interface FacilityFeaturedJob {
   readonly postingDateSource?: string;
   readonly postedDate: string | null;
   readonly datePosted: string | null;
+  readonly firstSeenAt: string | null;
   readonly validThrough: string | null;
   readonly crawledAt: string | null;
   readonly daysAgo: number;
@@ -112,7 +112,7 @@ let _cacheRootDir: string | null = null;
 
 function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  const postedDate = resolveReportedPostingDate(job, new Date(now)) || '';
   const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   return {
@@ -137,6 +137,7 @@ function toFeatured(job: JobRecord, now: number): FacilityFeaturedJob | null {
     postingDateSource: job.postingDateSource ?? undefined,
     datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
+    firstSeenAt: job.firstSeenAt ?? null,
     validThrough: job.validThrough ?? null,
     crawledAt: job.crawledAt ?? null,
     daysAgo,
@@ -182,7 +183,7 @@ function buildSnapshot(
   const last30 = now - 30 * DAY_MS;
   let fresh30 = 0;
   for (const job of jobs) {
-    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    const ts = firstParsableMs(resolveReportedPostingDate(job, new Date(now)));
     if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
@@ -197,7 +198,7 @@ function buildSnapshot(
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    return firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now))) - firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
+    return firstParsableMs(resolveReportedPostingDate(b, new Date(now))) - firstParsableMs(resolveReportedPostingDate(a, new Date(now)));
   });
   const allJobs = ranked
     .map((job) => toFeatured(job, now))

@@ -1,4 +1,3 @@
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 /**
  * Build-time aggregator for the 4 career-landing topic pages (template B).
@@ -30,7 +29,7 @@ import {
 } from './careerLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
 import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
-import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
+import { firstParsableMs } from './shared/firstParsableDate';
 import { SECTION_LEGACY_TI_ROOT } from './shared/cantonSection';
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -84,6 +83,7 @@ export interface CareerFeaturedJob {
   readonly postingDateSource?: string;
   readonly datePosted?: string | null;
   readonly postedDate: string;
+  readonly firstSeenAt?: string;
   readonly daysAgo: number;
   readonly slug: string;
   readonly slugByLocale: Partial<Record<CareerLocale, string>>;
@@ -254,9 +254,9 @@ function jobCityString(job: JobRecord): string {
 
 function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
-  // First PARSEABLE date, not first truthy: a malformed postedDate must not
-  // shadow a valid firstSeenAt and render "Pubblicata 9999 giorni fa".
-  const postedDate = resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)) || '';
+  // Aggregate freshness stays source-only; cards receive firstSeenAt separately
+  // and can use it for the synthetic display date.
+  const postedDate = resolveReportedPostingDate(job, new Date(now)) || '';
   const ts = firstParsableMs(postedDate);
   const daysAgo = ts ? Math.max(0, Math.round((now - ts) / DAY_MS)) : 9999;
   // Type-safe slugByLocale: jobs.json keys are arbitrary 2-char strings, but at
@@ -287,6 +287,7 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
     postingDateSource: job.postingDateSource ?? undefined,
     datePosted: resolveReportedPostingDate(job, new Date(now)),
     postedDate,
+    firstSeenAt: job.firstSeenAt,
     daysAgo,
     slug: job.slug,
     slugByLocale,
@@ -300,8 +301,8 @@ function pickFeatured(matches: readonly JobRecord[], now: number, limit: number)
     const aFeat = a.featured ? 1 : 0;
     const bFeat = b.featured ? 1 : 0;
     if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = firstParsableMs(resolveRolloutPostingDate(a, () => firstParsableDateStr(a.postedDate, a.firstSeenAt), new Date(now)));
-    const bTs = firstParsableMs(resolveRolloutPostingDate(b, () => firstParsableDateStr(b.postedDate, b.firstSeenAt), new Date(now)));
+    const aTs = firstParsableMs(resolveReportedPostingDate(a, new Date(now)));
+    const bTs = firstParsableMs(resolveReportedPostingDate(b, new Date(now)));
     return bTs - aTs;
   });
   const out: CareerFeaturedJob[] = [];
@@ -317,7 +318,7 @@ function fresh30Count(matches: readonly JobRecord[], now: number): number {
   const cutoff = now - 30 * DAY_MS;
   let n = 0;
   for (const job of matches) {
-    const ts = firstParsableMs(resolveRolloutPostingDate(job, () => firstParsableDateStr(job.postedDate, job.firstSeenAt), new Date(now)));
+    const ts = firstParsableMs(resolveReportedPostingDate(job, new Date(now)));
     if (ts && ts >= cutoff && ts <= now) n++;
   }
   return n;
