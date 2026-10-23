@@ -116,6 +116,7 @@ export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/thin-page-promotions.jsonl',
   'data/tiktok-posted.json',
   'data/tiktok-queue.json',
+  'data/translation-deploy-handoff.json',
   'data/translation-observability-history.json',
   'data/translation-observability-state.json',
   'data/translation-stats-history.json',
