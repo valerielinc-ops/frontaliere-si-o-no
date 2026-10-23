@@ -63,7 +63,6 @@ import {
   PROFESSION_JOURNEY_ANCHORS,
   renderProfessionCompaniesEmptyState,
   renderProfessionJourney,
-  renderProfessionRequirementsGuidance,
 } from './shared/professionJourney';
 import {
   H2_STYLE,
@@ -275,7 +274,7 @@ export function renderProfessionCantonPage(opts: {
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
         .join('')}</ul></section>`
-    : renderProfessionCompaniesEmptyState(locale, roleSearchHref);
+    : renderProfessionCompaniesEmptyState(locale, roleSearchHref, role, cantonName);
 
   // ── Il confronto con le professioni pari dello stesso cantone (#7596) ──
   //
@@ -388,14 +387,15 @@ export function renderProfessionCantonPage(opts: {
     roleLabel: `${role} · ${cantonName}`,
     hrefs: {
       offers: roleSearchHref,
-      requirements: `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+      requirements: roleSearchHref,
       net: buildProfessionJourneyNetHrefForLocale(locale, reportedGrossChf),
       companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
       alert: buildProfessionJourneyAlertHref(jobBoardPath, roleKw),
     },
+    requirementsInListings: true,
+    compactNetScope: true,
     netSalaryPrefilled: salary.source === 'sample',
   });
-  const requirementsGuidance = renderProfessionRequirementsGuidance(locale, role);
 
   const prose = renderCantonSeoProse({
     locale: locale as CantonSeoLocale,
@@ -466,7 +466,6 @@ ${tiles}
 ${salary.noteHtml}
 ${journeyHtml}
 ${DRIVEBY_AD_SNIPPET}
-${requirementsGuidance}
 ${employers}
 ${peerComparison}
 ${recentComparison}

@@ -17,28 +17,6 @@ export const PROFESSION_JOURNEY_ANCHORS = {
   companies: 'profession-companies',
 } as const;
 
-const REQUIREMENTS_COPY: Record<ProfessionJourneyLocale, {
-  heading: string;
-  body: (role: string) => string;
-}> = {
-  it: {
-    heading: 'Cosa verificare nei requisiti',
-    body: (role) => `Per il ruolo di ${role}, qualifiche, esperienza e lingue richieste dipendono dal singolo annuncio e dal datore di lavoro. Controlla le condizioni nella fonte originale prima di candidarti.`,
-  },
-  en: {
-    heading: 'What to check in each listing',
-    body: (role) => `For ${role} roles, required qualifications, experience and languages depend on the vacancy and employer. Check the original posting before applying.`,
-  },
-  de: {
-    heading: 'Anforderungen in den Anzeigen prüfen',
-    body: (role) => `Welche Qualifikationen, Erfahrung und Sprachen für ${role} verlangt werden, hängt von der einzelnen Stelle und dem Arbeitgeber ab. Prüfen Sie die Angaben vor der Bewerbung in der Originalanzeige.`,
-  },
-  fr: {
-    heading: 'Vérifier les exigences de chaque offre',
-    body: (role) => `Pour le métier de ${role}, les qualifications, l’expérience et les langues demandées dépendent de l’offre et de l’employeur. Vérifiez l’annonce originale avant de postuler.`,
-  },
-};
-
 export interface ProfessionJourneyOptions {
   locale: ProfessionJourneyLocale;
   /** Stable, URL-independent role identifier used by the click tracker. */
@@ -46,6 +24,10 @@ export interface ProfessionJourneyOptions {
   /** Short localized label that makes role-specific or sector-wide scope explicit. */
   roleLabel?: string;
   hrefs: Record<ProfessionJourneyStep, string>;
+  /** The requirements step points to real matching listings rather than a local requirements section. */
+  requirementsInListings?: boolean;
+  /** Use a concise visible scope label where repeated explanatory prose would be boilerplate. */
+  compactNetScope?: boolean;
   /** True only when `hrefs.net` contains an observed, provenance-checked gross salary. */
   netSalaryPrefilled: boolean;
 }
@@ -55,8 +37,10 @@ const COPY: Record<ProfessionJourneyLocale, {
   heading: string;
   headingForRole: (roleLabel: string) => string;
   steps: Record<ProfessionJourneyStep, string>;
+  requirementsInListings: string;
   netWithReportedSalary: string;
   netNeedsInput: string;
+  netEstimateCompact: string;
   netReportedAriaLabel: string;
   netNeedsInputAriaLabel: string;
   netScopeNote: string;
@@ -72,8 +56,10 @@ const COPY: Record<ProfessionJourneyLocale, {
       companies: 'Aziende',
       alert: 'Avvisi sulle nuove offerte',
     },
+    requirementsInListings: 'Requisiti negli annunci',
     netWithReportedSalary: 'Lordo annuo annunci → simula il netto',
     netNeedsInput: 'Inserisci il lordo annuo per simulare il netto',
+    netEstimateCompact: 'Simula netto Ticino',
     netReportedAriaLabel: 'Simula il netto usando la mediana del lordo annuo riportato in almeno cinque annunci verificati. Il calcolatore applica il regime Italia-Svizzera, con imposta alla fonte ticinese e IRPEF italiana: non calcola le imposte del cantone di questa pagina e non garantisce uno stipendio personale.',
     netNeedsInputAriaLabel: 'Inserisci il lordo annuo per simulare il regime Italia-Svizzera con imposta alla fonte ticinese e IRPEF italiana; il risultato non calcola le imposte del cantone di questa pagina.',
     netScopeNote: 'Il simulatore applica il regime Italia-Svizzera con imposta alla fonte ticinese e IRPEF italiana; non è un calcolo fiscale del cantone di questa pagina.',
@@ -89,8 +75,10 @@ const COPY: Record<ProfessionJourneyLocale, {
       companies: 'Employers',
       alert: 'Get new-job alerts',
     },
+    requirementsInListings: 'Requirements in listings',
     netWithReportedSalary: 'Reported annual gross → estimate net pay',
     netNeedsInput: 'Enter annual gross pay to estimate net',
+    netEstimateCompact: 'Ticino net-pay estimate',
     netReportedAriaLabel: 'Estimate using the median annual gross reported in at least five verified job ads. The calculator applies the Italy-Switzerland regime, with Ticino withholding tax and Italian IRPEF; it does not calculate tax for the canton on this page or guarantee a personal salary.',
     netNeedsInputAriaLabel: 'Enter annual gross to simulate the Italy-Switzerland regime with Ticino withholding tax and Italian IRPEF; the result does not calculate tax for the canton on this page.',
     netScopeNote: 'The simulator applies the Italy-Switzerland regime with Ticino withholding tax and Italian IRPEF; it does not calculate tax for the canton on this page.',
@@ -106,8 +94,10 @@ const COPY: Record<ProfessionJourneyLocale, {
       companies: 'Unternehmen',
       alert: 'Neue Stellen melden lassen',
     },
+    requirementsInListings: 'Anforderungen in den Stellen',
     netWithReportedSalary: 'Gemeldetes Jahresbrutto → Nettolohn schätzen',
     netNeedsInput: 'Jahresbrutto eingeben und Nettolohn schätzen',
+    netEstimateCompact: 'Nettolohn im Tessin',
     netReportedAriaLabel: 'Schätzung mit dem Median des in mindestens fünf geprüften Stellenanzeigen gemeldeten Jahresbruttos. Der Rechner bildet das Regime Italien-Schweiz mit Tessiner Quellensteuer und italienischer IRPEF ab; er berechnet nicht die Steuern des Kantons auf dieser Seite und garantiert keinen persönlichen Lohn.',
     netNeedsInputAriaLabel: 'Geben Sie Ihr Jahresbrutto für eine Simulation des Regimes Italien-Schweiz mit Tessiner Quellensteuer und italienischer IRPEF ein; die Steuern des Kantons auf dieser Seite werden nicht berechnet.',
     netScopeNote: 'Der Rechner bildet das Regime Italien-Schweiz mit Tessiner Quellensteuer und italienischer IRPEF ab; er berechnet nicht die Steuern des Kantons auf dieser Seite.',
@@ -123,8 +113,10 @@ const COPY: Record<ProfessionJourneyLocale, {
       companies: 'Employeurs',
       alert: 'Recevoir les nouvelles offres',
     },
+    requirementsInListings: 'Exigences dans les annonces',
     netWithReportedSalary: 'Brut annuel déclaré → estimer le net',
     netNeedsInput: 'Saisir le brut annuel pour estimer le net',
+    netEstimateCompact: 'Simulateur net tessinois',
     netReportedAriaLabel: 'Estimation à partir de la médiane du brut annuel déclaré dans au moins cinq annonces vérifiées. Le calculateur applique le régime Italie-Suisse, avec impôt à la source tessinois et IRPEF italienne ; il ne calcule pas l’impôt du canton de cette page et ne garantit aucun salaire personnel.',
     netNeedsInputAriaLabel: 'Saisissez le brut annuel pour simuler le régime Italie-Suisse avec impôt à la source tessinois et IRPEF italienne ; le résultat ne calcule pas l’impôt du canton de cette page.',
     netScopeNote: 'Le calculateur applique le régime Italie-Suisse avec impôt à la source tessinois et IRPEF italienne ; il ne calcule pas l’impôt du canton de cette page.',
@@ -200,45 +192,33 @@ export function buildProfessionJourneyNetHrefForLocale(
   return buildProfessionJourneyNetHref(CALC_HREF[locale], annualGrossChf);
 }
 
-/** Render safe, role-level guidance without inferring canton-specific requirements. */
-export function renderProfessionRequirementsGuidance(
+/** Explain missing employer names in this role/place sample without adding generic prose. */
+export function renderProfessionCompaniesEmptyState(
   locale: ProfessionJourneyLocale,
+  searchHref: string,
   role: string,
+  place: string,
 ): string {
-  const copy = REQUIREMENTS_COPY[locale];
-  return `<section id="${PROFESSION_JOURNEY_ANCHORS.requirements}" class="mt-5 rounded-md border border-edge bg-surface p-4">
-    <h2 class="text-lg font-bold text-heading">${escapeHtml(copy.heading)}</h2>
-    <p class="mt-2 text-sm text-body">${escapeHtml(copy.body(role))}</p>
-  </section>`;
-}
-
-/** Explain an empty employer sample without inventing names or relabeling offers as companies. */
-export function renderProfessionCompaniesEmptyState(locale: ProfessionJourneyLocale, searchHref: string): string {
   const copy = {
     it: {
-      heading: 'Aziende indicate negli annunci',
-      body: 'Il campione di questa pagina non contiene nomi di aziende sufficienti per un elenco affidabile. Apri le offerte per controllare il datore indicato in ciascun annuncio.',
+      heading: (role: string, place: string) => `Aziende non nominate negli annunci: ${role} · ${place}`,
       link: 'Vedi le offerte filtrate',
     },
     en: {
-      heading: 'Employers named in the listings',
-      body: 'This page sample does not contain enough employer names for a reliable list. Open the openings to check the employer shown in each listing.',
+      heading: (role: string, place: string) => `No named employers in ${role} listings · ${place}`,
       link: 'View matching openings',
     },
     de: {
-      heading: 'In den Anzeigen genannte Arbeitgeber',
-      body: 'Die Stichprobe dieser Seite enthält nicht genügend Unternehmensnamen für eine verlässliche Liste. Öffnen Sie die Stellen und prüfen Sie den Arbeitgeber in jeder Anzeige.',
+      heading: (role: string, place: string) => `Keine Arbeitgebernamen in ${role}-Stellen · ${place}`,
       link: 'Passende Stellen ansehen',
     },
     fr: {
-      heading: 'Employeurs nommés dans les offres',
-      body: 'L’échantillon de cette page ne contient pas assez de noms d’employeurs pour établir une liste fiable. Ouvrez les offres pour vérifier l’employeur indiqué dans chaque annonce.',
+      heading: (role: string, place: string) => `Aucun employeur nommé dans les offres ${role} · ${place}`,
       link: 'Voir les offres correspondantes',
     },
   }[locale];
   return `<section id="${PROFESSION_JOURNEY_ANCHORS.companies}" class="mt-5 rounded-md border border-edge bg-surface p-4">
-    <h2 class="text-lg font-bold text-heading">${escapeHtml(copy.heading)}</h2>
-    <p class="mt-2 text-sm text-body">${escapeHtml(copy.body)}</p>
+    <h2 class="text-lg font-bold text-heading">${escapeHtml(copy.heading(role, place))}</h2>
     <p class="mt-2"><a class="font-semibold text-accent underline" href="${escapeHtml(searchHref)}">${escapeHtml(copy.link)} →</a></p>
   </section>`;
 }
@@ -253,9 +233,11 @@ export function renderProfessionJourney(options: ProfessionJourneyOptions): stri
       <li>
         <a href="${escapeHtml(options.hrefs[step])}"${step === 'net' ? ` aria-label="${escapeHtml(options.netSalaryPrefilled ? copy.netReportedAriaLabel : copy.netNeedsInputAriaLabel)}"` : ''} data-analytics-label="profession_journey:${roleKey}:${step}" class="flex min-h-11 items-center gap-2 rounded-md border border-edge bg-surface-raised px-3 py-2 text-sm font-semibold text-heading hover:border-accent">
           <span aria-hidden="true" class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent-subtle text-xs text-accent">${index + 1}</span>
-          <span class="min-w-0">${escapeHtml(step === 'net'
-            ? (options.netSalaryPrefilled ? copy.netWithReportedSalary : copy.netNeedsInput)
-            : copy.steps[step])}${step === 'net' ? `<span class="mt-1 block text-xs font-normal text-subtle">${escapeHtml(copy.netScopeNote)}</span>` : ''}</span>
+          <span class="min-w-0">${escapeHtml(step === 'requirements' && options.requirementsInListings
+            ? copy.requirementsInListings
+            : step === 'net'
+            ? (options.compactNetScope ? copy.netEstimateCompact : options.netSalaryPrefilled ? copy.netWithReportedSalary : copy.netNeedsInput)
+            : copy.steps[step])}${step === 'net' && !options.compactNetScope ? `<span class="mt-1 block text-xs font-normal text-subtle">${escapeHtml(copy.netScopeNote)}</span>` : ''}</span>
         </a>
       </li>`).join('');
 

@@ -81,7 +81,6 @@ import {
   PROFESSION_JOURNEY_ANCHORS,
   renderProfessionCompaniesEmptyState,
   renderProfessionJourney,
-  renderProfessionRequirementsGuidance,
 } from './shared/professionJourney';
 
 /** Minimum real active jobs for a (city, profession) page to be emitted. */
@@ -350,7 +349,7 @@ export function renderProfessionCityPage(opts: {
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
         .join('')}</ul></section>`
-    : renderProfessionCompaniesEmptyState(locale, roleSearchHref);
+    : renderProfessionCompaniesEmptyState(locale, roleSearchHref, role, cityDisplay);
 
   // CTA + prose link to the city hub itself — the always-live, broader
   // listing for this city (also the below-floor bridge target).
@@ -370,14 +369,15 @@ export function renderProfessionCityPage(opts: {
     roleLabel: `${role} · ${cityDisplay}`,
     hrefs: {
       offers: roleSearchHref,
-      requirements: `#${PROFESSION_JOURNEY_ANCHORS.requirements}`,
+      requirements: roleSearchHref,
       net: buildProfessionJourneyNetHrefForLocale(locale, reportedGrossChf),
       companies: `#${PROFESSION_JOURNEY_ANCHORS.companies}`,
       alert: buildProfessionJourneyAlertHref(jobBoardPath, roleKeyword),
     },
+    requirementsInListings: true,
+    compactNetScope: true,
     netSalaryPrefilled: salary.source === 'sample',
   });
-  const requirementsGuidance = renderProfessionRequirementsGuidance(locale, role);
 
   // ── Stessa collisione di professionCantonLandings.ts, qui ancora LATENTE ──
   //
@@ -412,7 +412,6 @@ ${tiles}
 ${salary.noteHtml}
 ${journeyHtml}
 ${DRIVEBY_AD_SNIPPET}
-${requirementsGuidance}
 ${employers}
 ${insights}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>

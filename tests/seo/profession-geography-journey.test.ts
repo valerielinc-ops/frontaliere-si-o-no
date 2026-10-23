@@ -32,17 +32,23 @@ const JOBS: ProfessionJobsSnapshot = {
     { name: 'Clinica Privata SA', count: 3 },
   ],
 };
-const REQUIREMENTS_SOURCE_COPY: Record<ProfessionLocale, string> = {
-  it: 'fonte originale',
-  en: 'original posting',
-  de: 'Originalanzeige',
-  fr: 'annonce originale',
+const REQUIREMENTS_LISTING_COPY: Record<ProfessionLocale, string> = {
+  it: 'Requisiti negli annunci',
+  en: 'Requirements in listings',
+  de: 'Anforderungen in den Stellen',
+  fr: 'Exigences dans les annonces',
 };
 const NET_TICINO_SCOPE_COPY: Record<ProfessionLocale, string> = {
   it: 'imposta alla fonte ticinese',
   en: 'Ticino withholding tax',
   de: 'Tessiner Quellensteuer',
   fr: 'impôt à la source tessinois',
+};
+const NET_TICINO_VISIBLE_COPY: Record<ProfessionLocale, string> = {
+  it: 'Simula netto Ticino',
+  en: 'Ticino net-pay estimate',
+  de: 'Nettolohn im Tessin',
+  fr: 'Simulateur net tessinois',
 };
 const JOURNEY_ARIA_INTRO: Record<ProfessionLocale, string> = {
   it: 'Percorso per orientarti tra le offerte',
@@ -95,14 +101,6 @@ function expectInteractiveJobBoardHref(
   if (expectedJobSlug) expect(parsed.route.jobSlug).toBe(expectedJobSlug);
 }
 
-function requirementsSection(html: string): string {
-  const tag = openingTags(html, 'section').find((candidate) => attribute(candidate, 'id') === PROFESSION_JOURNEY_ANCHORS.requirements);
-  const start = tag ? html.indexOf(tag) : -1;
-  const end = html.indexOf('</section>', start);
-  if (start < 0 || end < 0) throw new Error('Missing profession requirements section.');
-  return html.slice(start, end + '</section>'.length);
-}
-
 function sectionCount(html: string, id: string): number {
   return openingTags(html, 'section').filter((tag) => attribute(tag, 'id') === id).length;
 }
@@ -143,13 +141,15 @@ describe('profession canton journey', () => {
     expect(new URL(alertHref, 'https://frontaliereticino.ch').searchParams.get('alert')).toBe('1');
     expect(new URL(alertHref, 'https://frontaliereticino.ch').hash).toBe('#job-alert-form');
 
-    expect(sectionCount(html, PROFESSION_JOURNEY_ANCHORS.requirements)).toBe(1);
+    expect(sectionCount(html, PROFESSION_JOURNEY_ANCHORS.requirements)).toBe(0);
     expect(sectionCount(html, PROFESSION_JOURNEY_ANCHORS.companies)).toBe(1);
-    expect(hrefForJourneyStep(html, role, 'requirements')).toBe(`#${PROFESSION_JOURNEY_ANCHORS.requirements}`);
+    const requirementsHref = hrefForJourneyStep(html, role, 'requirements');
+    expect(requirementsHref).toBe(searchHref);
+    expectInteractiveJobBoardHref(requirementsHref, locale, 'ZH', keyword);
+    expect(html).toContain(REQUIREMENTS_LISTING_COPY[locale]);
     expect(hrefForJourneyStep(html, role, 'companies')).toBe(`#${PROFESSION_JOURNEY_ANCHORS.companies}`);
-    expect(requirementsSection(html)).toContain(REQUIREMENTS_SOURCE_COPY[locale]);
-    expect(requirementsSection(html)).not.toMatch(/Ticino|Tessin/);
     expect(html).toContain(NET_TICINO_SCOPE_COPY[locale]);
+    expect(html).toContain(NET_TICINO_VISIBLE_COPY[locale]);
     expect(professionJourneyAriaLabel(html)).toBe(
       `${JOURNEY_ARIA_INTRO[locale]}: ${cantonProfessionLabel(locale, 'infermiere')} · ${getCantonDisplayName('ZH', locale)}`,
     );
@@ -165,7 +165,7 @@ describe('profession canton journey', () => {
     });
     const netHref = hrefForJourneyStep(html, 'infermiere', 'net');
     expect(netHref).toBe('/en/calculate-salary/');
-    expect(html).toContain('Enter annual gross pay to estimate net');
+    expect(html).toContain(NET_TICINO_VISIBLE_COPY.en);
     expect(html).toContain(NET_TICINO_SCOPE_COPY.en);
   });
 
@@ -185,6 +185,7 @@ describe('profession canton journey', () => {
     const emptyState = companyEmptyState(html);
     const cta = openingTags(emptyState, 'a').find((tag) => attribute(tag, 'href') === searchHref);
     expect(cta).toBeDefined();
+    expect(emptyState).toContain('Aziende non nominate negli annunci');
     expect(emptyState).toContain('Vedi le offerte filtrate');
   });
 
@@ -230,14 +231,16 @@ describe('profession city journey', () => {
       expect(new URL(alertHref, 'https://frontaliereticino.ch').searchParams.get('alert')).toBe('1');
       expect(new URL(alertHref, 'https://frontaliereticino.ch').hash).toBe('#job-alert-form');
 
-      expect(sectionCount(html, PROFESSION_JOURNEY_ANCHORS.requirements)).toBe(1);
+      expect(sectionCount(html, PROFESSION_JOURNEY_ANCHORS.requirements)).toBe(0);
       expect(sectionCount(html, PROFESSION_JOURNEY_ANCHORS.companies)).toBe(1);
-      expect(hrefForJourneyStep(html, role, 'requirements')).toBe(`#${PROFESSION_JOURNEY_ANCHORS.requirements}`);
+      const requirementsHref = hrefForJourneyStep(html, role, 'requirements');
+      expect(requirementsHref).toBe(searchHref);
+      expectInteractiveJobBoardHref(requirementsHref, locale, city.canton, keyword, locationSlug);
+      expect(html).toContain(REQUIREMENTS_LISTING_COPY[locale]);
       expect(hrefForJourneyStep(html, role, 'companies')).toBe(`#${PROFESSION_JOURNEY_ANCHORS.companies}`);
       expect(html).not.toContain(`href="${boardPath}"`);
-      expect(requirementsSection(html)).toContain(REQUIREMENTS_SOURCE_COPY[locale]);
-      expect(requirementsSection(html)).not.toMatch(/Ticino|Tessin/);
       expect(html).toContain(NET_TICINO_SCOPE_COPY[locale]);
+      expect(html).toContain(NET_TICINO_VISIBLE_COPY[locale]);
       const cityDef = getProfessionCityDef(city.city);
       const cityRole = professionRoleKeyword(locale, 'infermiere').replace(/-/g, ' ');
       const localizedCityRole = cityRole.charAt(0).toUpperCase() + cityRole.slice(1);
@@ -256,6 +259,7 @@ describe('profession city journey', () => {
       distDir: '',
     });
     expect(hrefForJourneyStep(html, 'infermiere', 'net')).toBe('/fr/calculer-salaire/');
+    expect(html).toContain(NET_TICINO_VISIBLE_COPY.fr);
   });
 
   it('keeps the companies step on a real local state when the sample has no employer names', () => {
@@ -264,6 +268,6 @@ describe('profession city journey', () => {
     });
     expect(sectionCount(html, PROFESSION_JOURNEY_ANCHORS.companies)).toBe(1);
     expect(hrefForJourneyStep(html, 'infermiere', 'companies')).toBe(`#${PROFESSION_JOURNEY_ANCHORS.companies}`);
-    expect(companyEmptyState(html)).toContain('verlässliche Liste');
+    expect(companyEmptyState(html)).toContain('Keine Arbeitgebernamen');
   });
 });
