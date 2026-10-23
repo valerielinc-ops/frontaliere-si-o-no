@@ -1,16 +1,16 @@
 {
   "crawlerKey": "endress-hauser",
-  "assembledAt": "2026-10-22T21:24:14.406Z",
-  "runId": "39855100996",
+  "assembledAt": "2026-10-23T09:30:30.104Z",
+  "runId": "39929959135",
   "jobs": [
     {
       "id": "endress-hauser-939fa810b87c",
       "slug": "operatore-macchina-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "it": "operatore-macchina-m-f-d-endress-hauser-reinach",
-        "en": "machine-operator-m-f-d-endress-hauser-reinach",
+        "en": "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
         "de": "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "fr": "operateur-de-machine-h-f-d-endress-hauser-reinach"
+        "fr": "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -35,7 +35,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Mitarbeiterin-Coriolis-Produktion-High-Volume-%28wmd%29-4153/1430830233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:24:04.749Z",
+      "crawledAt": "2026-10-23T09:30:00.351Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -57,8 +57,8 @@
       "previousSlugs": [
         "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach",
         "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-        "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach",
-        "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
+        "machine-operator-m-f-d-endress-hauser-reinach",
+        "operateur-de-machine-h-f-d-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -66,14 +66,14 @@
         ],
         "en": [
           "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-          "coriolis-production-high-volume-employee-m-w-d-endress-hauser-reinach"
+          "machine-operator-m-f-d-endress-hauser-reinach"
         ],
         "de": [
           "mitarbeiter-in-coriolis-produktion-high-volume-w-m-d-endress-hauser-reinach"
         ],
         "fr": [
           "mitarbeiter-in-coriolis-produktion-high-volume-m-w-d-endress-hauser-reinach",
-          "collaborateur-rice-en-production-coriolis-high-volume-m-w-d-endress-hauser-reinach"
+          "operateur-de-machine-h-f-d-endress-hauser-reinach"
         ]
       },
       "firstSeenAt": "2026-10-20T15:11:02.473Z",
@@ -96,7 +96,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "computer-science-experts-endress-hauser-reinach",
+        "en": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -123,7 +123,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertage-Informatikerin-4153/1426016433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:24:03.988Z",
+      "crawledAt": "2026-10-23T09:30:04.531Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -143,14 +143,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertage-informatiker-in-endress-hauser-reinach"
+        "schnuppertage-informatiker-in-endress-hauser-reinach",
+        "computer-science-experts-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "schnuppertage-informatiker-in-endress-hauser-reinach"
+          "computer-science-experts-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"
@@ -203,7 +204,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Prozessbetreuerin-Rohrbearbeitung-%28wmd%29-4153/1431376633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:24:03.229Z",
+      "crawledAt": "2026-10-23T09:29:59.666Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -282,7 +283,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategic-Buyer-Electronics-Components-%28fmd%29-80-100-4153/1415399933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:24:02.462Z",
+      "crawledAt": "2026-10-23T09:30:21.289Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -360,7 +361,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Mechanikpraktikerin-EBA-2027-4153/1418181433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:24:01.694Z",
+      "crawledAt": "2026-10-23T09:30:12.820Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -439,7 +440,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Produktionsmechanikerin-EFZ-2027-4153/1418183533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:24:00.924Z",
+      "crawledAt": "2026-10-23T09:30:10.004Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -519,7 +520,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertage-Poly-Produktionsmechanikerin-4153/1426013533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:24:00.155Z",
+      "crawledAt": "2026-10-23T09:30:14.955Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -599,7 +600,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Abteilungsleiterin-Qualit%C3%A4tsvorausplanung-%28fmd%29-4153/1427304933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:59.389Z",
+      "crawledAt": "2026-10-23T09:30:06.574Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -679,7 +680,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Trainee-Strategic-Business-%28fmd%29-50-4153/1427096833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:58.606Z",
+      "crawledAt": "2026-10-23T09:30:05.885Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -744,7 +745,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-Konstrukteurin-4153/1426016933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:57.799Z",
+      "crawledAt": "2026-10-23T09:30:05.204Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -824,7 +825,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertage-Elektronikerin-4153/1426016233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:57.012Z",
+      "crawledAt": "2026-10-23T09:30:03.848Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -877,7 +878,7 @@
       "slug": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
       "slugByLocale": {
         "it": "giornata-di-prova-per-operatore-trice-automatico-a-endress-hauser-reinach",
-        "en": "taster-day-automation-technician-endress-hauser-reinach",
+        "en": "schnuppertag-automatiker-in-endress-hauser-reinach",
         "de": "schnuppertag-automatiker-in-endress-hauser-reinach",
         "fr": "journee-d-essai-de-l-automaticien-ne-endress-hauser-reinach"
       },
@@ -903,7 +904,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-Automatikerin-4153/1426015733/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:56.218Z",
+      "crawledAt": "2026-10-23T09:30:02.417Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -923,14 +924,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnuppertag-automatiker-in-endress-hauser-reinach"
+        "schnuppertag-automatiker-in-endress-hauser-reinach",
+        "taster-day-automation-technician-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"
         ],
         "en": [
-          "schnuppertag-automatiker-in-endress-hauser-reinach"
+          "taster-day-automation-technician-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertag-automatiker-in-endress-hauser-reinach"
@@ -983,7 +985,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-KauffrauKaufmann-4153/1426015233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:55.457Z",
+      "crawledAt": "2026-10-23T09:30:03.102Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1080,7 +1082,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-FachmannFachfrau-Betriebsunterhalt-4153/1426014433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:54.677Z",
+      "crawledAt": "2026-10-23T09:30:16.395Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1160,7 +1162,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-Anlagenf%C3%BChrerin-4153/1426013833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:53.879Z",
+      "crawledAt": "2026-10-23T09:30:15.655Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1239,7 +1241,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Solution-Development-Engineerin-80-100-%28wmd%29-4153/1442268833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:53.109Z",
+      "crawledAt": "2026-10-23T09:30:14.218Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1312,7 +1314,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Production-&-Supply-Chain-Support-Engineer-%28fmd%29-4153/1421767133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:52.337Z",
+      "crawledAt": "2026-10-23T09:30:13.512Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1378,7 +1380,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Systemarchitektin-Elektro-&-Verfahrenstechnik-%28wmd%29-4153/1434009933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:51.570Z",
+      "crawledAt": "2026-10-23T09:30:01.714Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1460,7 +1462,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Software-Product-Owner-Industrial-Rigs-%28wmd%29-4153/1433035833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:50.761Z",
+      "crawledAt": "2026-10-23T09:30:01.035Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1536,7 +1538,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Outside-Sales-Engineer-Projectmanager-Wastewater-%28fmd%29-100-4153/1375634533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:49.986Z",
+      "crawledAt": "2026-10-23T09:30:07.258Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1615,7 +1617,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schnuppertag-Logistikerin-4153/1441029433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:49.200Z",
+      "crawledAt": "2026-10-23T09:29:54.826Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1695,7 +1697,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Engineer-Technical-Change-Management-%28wmd%29-4153/1438451533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:48.407Z",
+      "crawledAt": "2026-10-23T09:29:55.510Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1760,7 +1762,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Teamleiterin-IT-&-Software-Engineering-in-der-Elektronikfertigung-%28mwd%29-4153/1440787333/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:47.636Z",
+      "crawledAt": "2026-10-23T09:29:58.956Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1840,7 +1842,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Service-Planning-Partner-%28fmd%29-100-4153/1440102533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:46.858Z",
+      "crawledAt": "2026-10-23T09:29:54.167Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1916,7 +1918,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Process-Development-Manager-%28fmd%29-100-4153/1440010233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:46.092Z",
+      "crawledAt": "2026-10-23T09:29:58.264Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1992,7 +1994,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Inside-Techsupport-Helpdesk-%28fmd%29-100-4153/1418102133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:45.323Z",
+      "crawledAt": "2026-10-23T09:30:12.071Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2073,7 +2075,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Head-of-Department-Sourcing-Indirect-100-%28wmd%29-4153/1292107701/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:44.532Z",
+      "crawledAt": "2026-10-23T09:30:11.396Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2138,7 +2140,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Polymechanikerin-EFZ-2027-4153/1418182733/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:43.771Z",
+      "crawledAt": "2026-10-23T09:30:09.342Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2218,7 +2220,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Lernender-Anlagef%C3%BChrerin-EFZ-2027-4153/1418186333/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:43.008Z",
+      "crawledAt": "2026-10-23T09:30:10.680Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2302,7 +2304,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Data-Engineerin-%28mwd%29-4153/1446122233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:42.239Z",
+      "crawledAt": "2026-10-23T09:30:18.499Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2375,7 +2377,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Team-Lead-Device-Software-Test-%28wmd%29-4153/1445553733/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:41.475Z",
+      "crawledAt": "2026-10-23T09:30:17.077Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2441,7 +2443,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Technischer-Mitarbeiterin-Produktion-4153/1449067433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:40.718Z",
+      "crawledAt": "2026-10-23T09:29:52.815Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2522,7 +2524,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Produkt-Manager-Coriolis-%28wmd%29-4153/1448095833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:39.957Z",
+      "crawledAt": "2026-10-23T09:30:07.971Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2588,7 +2590,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategischer-Eink%C3%A4uferin-Bau-Baudienstleistungen-80-100-%28wmd%29-4153/1400692633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:39.148Z",
+      "crawledAt": "2026-10-23T09:29:51.400Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2668,7 +2670,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Principal-Expert-Embedded-Software-%28wmd%29-4153/1280881301/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:38.320Z",
+      "crawledAt": "2026-10-23T09:30:21.965Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2744,7 +2746,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-ITOT-Service-Manager-%28mwd%29-4153/1274773301/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:37.530Z",
+      "crawledAt": "2026-10-23T09:29:53.503Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2809,7 +2811,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Projekt-Managerin-Marketing-Sales-%28wmd%29-80-4153/1447561233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:36.742Z",
+      "crawledAt": "2026-10-23T09:30:20.583Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2888,7 +2890,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategischer-Eink%C3%A4uferin-Mechanische-Komponenten-%28wmd%29-4153/1446117433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:35.975Z",
+      "crawledAt": "2026-10-23T09:30:17.808Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2968,7 +2970,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Teamleiterin-Test-Engineering-%28mwd%29-4153/1444662933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:35.194Z",
+      "crawledAt": "2026-10-23T09:30:19.884Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3047,7 +3049,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Quality-Engineer-Compliance-80-100-%28wmd%29-4153/1388669133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:34.433Z",
+      "crawledAt": "2026-10-23T09:30:19.196Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3112,7 +3114,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Projektleiterin-Technik-im-Facility-Management-100-%28mwd%29-4153/1398819233/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:33.672Z",
+      "crawledAt": "2026-10-23T09:29:50.732Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3185,7 +3187,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Principal-Expert-Produktmanager-&-Business-Driver-Ultraschall-Flow-%28wmd%29-4153/1449858833/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:32.898Z",
+      "crawledAt": "2026-10-23T09:29:52.086Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3204,18 +3206,6 @@
       "applyUrl": "https://careers.endress.com/talentcommunity/apply/1449858833/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:20:30.704Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "principal-expert-produktmanager-business-driver-ultraschall-flow-w-m-d-endress-hauser"
-        ],
-        "fr": [
-          "principal-expert-produktmanager-business-driver-ultraschall-flow-w-m-d-endress-hauser"
-        ]
-      },
-      "previousSlugs": [
-        "principal-expert-produktmanager-business-driver-ultraschall-flow-w-m-d-endress-hauser"
-      ],
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -3228,7 +3218,19 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:20:30.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-expert-produktmanager-business-driver-ultraschall-flow-w-m-d-endress-hauser"
+        ],
+        "fr": [
+          "principal-expert-produktmanager-business-driver-ultraschall-flow-w-m-d-endress-hauser"
+        ]
+      },
+      "previousSlugs": [
+        "principal-expert-produktmanager-business-driver-ultraschall-flow-w-m-d-endress-hauser"
+      ]
     },
     {
       "id": "endress-hauser-8afce98920e6",
@@ -3262,7 +3264,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Prozesstechnikerin-Logistik-%28wmd%29-100-4153/1448151733/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:32.114Z",
+      "crawledAt": "2026-10-23T09:30:08.651Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3342,7 +3344,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Head-of-Department-Welding-Technology-%28wmd%29-4153/1387367133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:31.339Z",
+      "crawledAt": "2026-10-23T09:29:57.593Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3407,7 +3409,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Teamleader-Fieldservice-%28fmd%29-100-4153/1441972533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:30.571Z",
+      "crawledAt": "2026-10-23T09:29:56.909Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3473,7 +3475,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Praktikum-Digitalisierung-und-Prozessoptimierung-%28wmd%29-4153/1445931533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:29.799Z",
+      "crawledAt": "2026-10-23T09:29:56.211Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3553,7 +3555,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Schichtleiterin-Coriolis-Messrohrfertigung-100-%28wmd%29-4153/1386790633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:29.023Z",
+      "crawledAt": "2026-10-23T09:29:49.984Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3633,7 +3635,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Learning-&-Development-Specialist-4153/1443512633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:28.256Z",
+      "crawledAt": "2026-10-23T09:29:46.649Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3698,7 +3700,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-SEOGEO-Manager-%28fmd%29-4153/1443983933/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:27.474Z",
+      "crawledAt": "2026-10-23T09:29:43.936Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3764,7 +3766,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Industry-Manager-Food-&-Beverage-%28mfd%29-4153/1448099033/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:26.717Z",
+      "crawledAt": "2026-10-23T09:29:43.242Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3844,7 +3846,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Order-Handling-Expert-%28mfd%29-80-100-4153/1439060533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-22T21:23:25.952Z",
+      "crawledAt": "2026-10-23T09:29:42.554Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3921,7 +3923,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Head-of-Department-Sourcing-Indirect-%28fmd%29-4153/1293184901/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:25.168Z",
+      "crawledAt": "2026-10-23T09:29:45.290Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3987,7 +3989,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Technology-Manager-Industrial-Networks-&-IIoT-%28mfd%29-4153/1233467501/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:24.404Z",
+      "crawledAt": "2026-10-23T09:29:44.612Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4066,7 +4068,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategic-Buyer-Electronics-Components-%28fmd%29-80-100-4153/1415400033/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:23.636Z",
+      "crawledAt": "2026-10-23T09:29:48.661Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4145,7 +4147,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Technical-Lead-Embedded-C%2B%2B-Software-Developer-%28mfd%29-100-4153/1280881401/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:22.871Z",
+      "crawledAt": "2026-10-23T09:29:49.319Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4210,7 +4212,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Strategic-Buyer-ConstructionConstruction-Services-80-100-%28fmd%29-4153/1400692533/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:22.066Z",
+      "crawledAt": "2026-10-23T09:29:41.849Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4289,7 +4291,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Senior-Internal-Auditor-Finance-&-Group-Reporting-%28mfd%29-4153/1448552433/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:21.295Z",
+      "crawledAt": "2026-10-23T09:29:45.981Z",
       "addressLocality": "Reinach (BL)",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4325,9 +4327,9 @@
     },
     {
       "id": "endress-hauser-701c3b1bc256",
-      "slug": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2",
+      "slug": "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach",
       "slugByLocale": {
-        "it": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2",
+        "it": "quality-ingegnere-compliance-80-100-w-m-d-endress-hauser-reinach",
         "en": "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-azxx0e",
         "de": "qualitat-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach",
         "fr": "qualite-ingenieur-compliance-80-100-w-m-d-endress-hauser-reinach-8c29fe"
@@ -4355,7 +4357,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Quality-Engineer-Compliance-80-100-%28wmd%29-4153/1445224633/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:20.514Z",
+      "crawledAt": "2026-10-23T09:29:47.338Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4375,11 +4377,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach"
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach",
+        "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2"
       ],
       "previousSlugsByLocale": {
         "en": [
           "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach"
+        ],
+        "it": [
+          "quality-engineer-compliance-80-100-w-m-d-endress-hauser-reinach-2"
         ]
       },
       "firstSeenAt": "2026-10-07T21:30:08.765Z",
@@ -4428,7 +4434,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-UXUI-Designer-%28mfd%29-4153/1450152333/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:19.729Z",
+      "crawledAt": "2026-10-23T09:29:48.002Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4447,7 +4453,6 @@
       "applyUrl": "https://careers.endress.com/talentcommunity/apply/1450152333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-22T09:20:20.302Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -4460,7 +4465,8 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-22T09:20:20.302Z"
     },
     {
       "id": "endress-hauser-630388c8944e",
@@ -4494,7 +4500,7 @@
       "url": "https://careers.endress.com/Switzerland/job/Reinach-Technical-Project-Manager-in-Facility-Management-100-%28mfd%29-4153/1398819133/",
       "source": "Endress+Hauser Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-22T21:23:18.952Z",
+      "crawledAt": "2026-10-23T09:29:41.130Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
