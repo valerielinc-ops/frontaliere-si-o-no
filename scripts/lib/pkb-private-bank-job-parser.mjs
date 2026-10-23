@@ -182,6 +182,19 @@ export function parsePkbListingPage(html, baseUrl = PKB_BASE) {
   return jobs;
 }
 
+/**
+ * Arca24 publishes an explicit empty-state page when the tenant has no open
+ * offers. A reachable page with no matching card is otherwise ambiguous: it
+ * may be markup drift, so callers must not retire the stored slice on that
+ * evidence alone.
+ */
+export function isPkbAuthoritativeEmptyListing(html = '') {
+  if (!html || typeof html !== 'string') return false;
+  const hasZeroCount = /id=["']totalResultsCount["'][^>]*>\s*0\s*<\/div>/i.test(html);
+  const hasEmptyMarker = /class=["'][^"']*\bnoResults\b[^"']*["'][^>]*>\s*[^<]*\b(?:non\s+ci\s+sono\s+risultati|no\s+results|aucun\s+r[ée]sultat|keine\s+ergebnisse)\b/i.test(html);
+  return hasZeroCount && hasEmptyMarker;
+}
+
 /* ── Detail page parser ──────────────────────────────────────── */
 
 /**
@@ -313,6 +326,7 @@ export async function fetchPkbJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
   const seenUrls = new Set();
   const failedUrls = [];
   const failedOutcomes = [];
+  const emptyListingEvidence = [];
 
   for (const listingUrl of LISTING_URLS) {
     const { html, fetchOutcome } = await fetchPage(listingUrl, { userAgent, timeoutMs });
@@ -323,6 +337,7 @@ export async function fetchPkbJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
       continue;
     }
     const jobs = parsePkbListingPage(html, PKB_BASE);
+    emptyListingEvidence.push(isPkbAuthoritativeEmptyListing(html));
     for (const job of jobs) {
       const dedupKey = job.url.replace(/[&?]language=[^&]*/g, '').toLowerCase();
       if (seenUrls.has(dedupKey)) continue;
@@ -331,18 +346,29 @@ export async function fetchPkbJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
     }
   }
 
+  const authoritativeEmptySnapshot =
+    failedUrls.length === 0
+    && allJobs.length === 0
+    && emptyListingEvidence.length === LISTING_URLS.length
+    && emptyListingEvidence.every(Boolean);
+
   return {
     jobs: allJobs,
     attempted: LISTING_URLS.length,
     succeeded: LISTING_URLS.length - failedUrls.length,
     failed: failedUrls.length,
     failedUrls,
+    authoritativeEmptySnapshot,
+    authoritativeEmptyEvidence: authoritativeEmptySnapshot
+      ? 'PKB Arca24 listing returned its explicit no-results marker with totalResultsCount=0'
+      : null,
     // A reachable page that yields no known listing block is not proof of an
     // empty board: keep it distinct from a transport/endpoint failure so the
     // summary guard can name the bail-out instead of publishing "unknown".
     // A partial listing fetch is not a healthy snapshot: preserve the jobs
     // found on reachable pages, but expose the failed source observation.
-    fetchOutcome: failedOutcomes[0] || (allJobs.length > 0 ? 'ok' : 'selector_miss'),
+    fetchOutcome: failedOutcomes[0]
+      || (authoritativeEmptySnapshot ? 'filtered_empty' : allJobs.length > 0 ? 'ok' : 'selector_miss'),
   };
 }
 
