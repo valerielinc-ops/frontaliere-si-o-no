@@ -13582,6 +13582,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.title': 'Questionario frontalieri: stipendio ok ma troppi spostamenti',
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.excerpt': '1.542 risposte online raccolte nel maggio 2026 73% soddisfatto dello stipendio 31,7% oltre un\'ora e mezza in viaggio ogni giorno 76,9% non si trasferirebbe',
     'blog.article.questionario-frontalieri-ticino-condizioni-lavoro.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.sanitari-italiani-fuga-svizzera.title': 'Operatori sanitari frontalieri: Como boccheggia',
+    'blog.article.sanitari-italiani-fuga-svizzera.excerpt': 'Circa 5\'000 frontalieri italiani nella sanità ticinese Fino al 12% negli ospedali pubblici Fino al 30% nel settore privato Tassa salute dal 3% al 6%',
+    'blog.article.sanitari-italiani-fuga-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaIt;

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "2745932902c514492f7f35da43b4697f2f80ae07",
+  "commit": "67cdd140f43c16f79b748268de02d9644af77ffe",
   "generated": {
     "/images/blog/139-frontalieri-ticino-special-olympics.webp": {
       "schema": 1,
@@ -35827,6 +35827,92 @@
         "is_photograph": false,
         "is_topic_relevant": true,
         "notes": "Generic synthetic editorial scene matching a public meeting near railway infrastructure; no readable text, logos, identifiable faces, or specific real event."
+      }
+    },
+    "/images/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.webp": {
+      "schema": 1,
+      "assetId": "article-finanzkommission-k-rzt-kredit-digitalisierung",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "21a182e01246111b06fb8969bfe719d5cf8dada6d0313e19dac77f0ca814b77f",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "6aa715f41c74ba1c49d7bf5f48b1b4042f4627d3a30139bbdcad07f62bf12563",
+      "bytes": 158344,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-23T14:42:22.501Z",
+      "verifiedAt": "2026-10-23T14:42:31.116Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic architectural illustration of modern administrative buildings; no readable text, logos, recognizable faces, or foreground people."
+      }
+    },
+    "/images/blog/article-andermatt-fisco-wyden.webp": {
+      "schema": 1,
+      "assetId": "article-andermatt-fisco-wyden",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "2f1e3eae6f31018f1486d7f7042e4441236b19a0ca47ed74ace9564659b1fccd",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "7f9016200a9812bba6e5f4b117fcd3b51d86a1f48990b3f3218603476e3f9b7d",
+      "bytes": 193500,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-23T15:40:33.754Z",
+      "verifiedAt": "2026-10-23T15:40:41.302Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-andermatt-fisco-wyden.webp",
+      "area": "Swiss border region",
+      "season": "all seasons",
+      "variant": "article hero",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "contains_recognizable_foreground_person": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "is_topic_relevant": true,
+        "notes": "Generic synthetic photorealistic illustration of an Alpine village with a municipal building; no people, text, signage, logos, or watermark."
       }
     },
     "/images/places/lugano-view.webp": {

@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 808,
+      "5": 810,
       "6": 5054
     },
-    "publishedCovers": 7545,
+    "publishedCovers": 7547,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207371,6 +207371,72 @@
         "provider": "openai-codex",
         "assetId": "article-zurigo-budget-sans-papiers",
         "imageUrl": "/images/blog/article-zurigo-budget-sans-papiers.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-andermatt-fisco-wyden": {
+      "cover": "/images/blog/article-andermatt-fisco-wyden.webp",
+      "hash": "7f9016200a9812bba6e5f4b117fcd3b51d86a1f48990b3f3218603476e3f9b7d",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ur",
+          "id": "andermatt-fisco-wyden",
+          "category": "fiscale",
+          "date": "2026-10-23T15:40:41.343Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-andermatt-fisco-wyden.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-andermatt-fisco-wyden",
+        "imageUrl": "/images/blog/article-andermatt-fisco-wyden.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-finanzkommission-k-rzt-kredit-digitalisierung": {
+      "cover": "/images/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.webp",
+      "hash": "6aa715f41c74ba1c49d7bf5f48b1b4042f4627d3a30139bbdcad07f62bf12563",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-so",
+          "id": "finanzkommission-k-rzt-kredit-digitalisierung",
+          "category": "fiscale",
+          "date": "2026-10-23T14:42:31.186Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-finanzkommission-k-rzt-kredit-digitalisierung",
+        "imageUrl": "/images/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.webp",
         "evidence": "generated-engine-record"
       }
     }
