@@ -207605,39 +207605,6 @@
         "evidence": "generated-engine-record"
       }
     },
-    "article-domande-edilizie-solo-digitale-2027": {
-      "cover": "/images/blog/article-domande-edilizie-solo-digitale-2027.webp",
-      "hash": "bb5e13d5bca8d57760b19bc772ff36f743ae4e9447d9acddebf4ebeb840f9b08",
-      "published": true,
-      "historicalPublished": true,
-      "references": [
-        {
-          "section": "canton-basilea",
-          "id": "domande-edilizie-solo-digitale-2027",
-          "category": "pratico",
-          "date": "2026-10-23T21:50:50.738Z",
-          "updatedAt": null,
-          "authorSlug": "redazione"
-        }
-      ],
-      "proofLevel": 5,
-      "evidence": "generated-engine-record",
-      "recordFile": "packages/articles/content/image-credits/blog/article-domande-edilizie-solo-digitale-2027.json",
-      "inheritedFrom": null,
-      "action": "generated",
-      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
-      "priority": 1793,
-      "verifiedAt": "2026-10-23",
-      "provider": "openai-codex",
-      "currentlyPublished": true,
-      "status": "generated",
-      "generated": {
-        "provider": "openai-codex",
-        "assetId": "article-domande-edilizie-solo-digitale-2027",
-        "imageUrl": "/images/blog/article-domande-edilizie-solo-digitale-2027.webp",
-        "evidence": "generated-engine-record"
-      }
-    },
     "article-fislisbach-steuerfuss-109": {
       "cover": "/images/blog/article-fislisbach-steuerfuss-109.webp",
       "hash": "f7ba22164980c25cdd07deabce51a256e27a5284b7d235f8c55a5ca9f8d3fd1c",
@@ -207668,6 +207635,39 @@
         "provider": "openai-codex",
         "assetId": "article-fislisbach-steuerfuss-109",
         "imageUrl": "/images/blog/article-fislisbach-steuerfuss-109.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-domande-edilizie-solo-digitale-2027": {
+      "cover": "/images/blog/article-domande-edilizie-solo-digitale-2027.webp",
+      "hash": "bb5e13d5bca8d57760b19bc772ff36f743ae4e9447d9acddebf4ebeb840f9b08",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-basilea",
+          "id": "domande-edilizie-solo-digitale-2027",
+          "category": "pratico",
+          "date": "2026-10-23T21:50:50.738Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-domande-edilizie-solo-digitale-2027.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-domande-edilizie-solo-digitale-2027",
+        "imageUrl": "/images/blog/article-domande-edilizie-solo-digitale-2027.webp",
         "evidence": "generated-engine-record"
       }
     },
