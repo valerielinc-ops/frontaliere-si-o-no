@@ -11754,8 +11754,14 @@ ${staticAnalyticsHtml}
            locale: entry.locale,
            display,
            jobs: cantonJobsAll.map((job) => {
-             const j = job as { company?: string | null; location?: string | null };
-             return { company: j.company, location: j.location };
+             const j = job as { company?: string | null; companyKey?: string | null; location?: string | null };
+             const companyIdentity = companyHubSlugBuild(String(j.company || ''), j.companyKey || undefined);
+             return {
+               company: j.company,
+               companyIdentity,
+               companyHref: companyIdentity ? emittedEmployerHubs.get(`${entry.locale}|${companyIdentity}`) : undefined,
+               location: j.location,
+             };
            }),
            archiveHref: archiveBaseHref,
            cityHubBaseHref: sectionBase,

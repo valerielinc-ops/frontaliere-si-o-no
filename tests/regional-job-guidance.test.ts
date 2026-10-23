@@ -87,6 +87,107 @@ describe('regional canton job guidance', () => {
     expect(html).not.toContain('<svg ');
   });
 
+  it('links only to emitted national company profiles and keeps distinct company identities separate', () => {
+    const html = renderRegionalJobGuidance({
+      canton: 'GE',
+      locale: 'fr',
+      display: 'Genève',
+      jobs: [
+        { company: 'Acme', companyIdentity: 'acme-group', companyHref: '/fr/aziende/acme-group/', location: 'Genève' },
+        { company: 'Acme', companyIdentity: 'acme-services', companyHref: '/fr/aziende/acme-services/', location: 'Nyon' },
+        { company: 'No profile', companyIdentity: 'no-profile', location: 'Carouge' },
+        { company: 'Conflict', companyIdentity: 'conflict', companyHref: '/fr/aziende/conflict/', location: 'Genève' },
+        { company: 'Conflict', companyIdentity: 'conflict', companyHref: '/fr/aziende/other-company/', location: 'Nyon' },
+      ],
+      archiveHref: '/fr/trouver-emploi-geneve/tous/',
+      cityHubBaseHref: '/fr/trouver-emploi-geneve/',
+      cityHubs: [
+        { slug: 'geneve', label: 'Genève' },
+        { slug: 'nyon', label: 'Nyon' },
+        { slug: 'carouge', label: 'Carouge' },
+      ],
+      archiveNavigationHtml: '',
+    });
+
+    expect(html).toContain('<a href="/fr/aziende/acme-group/">Acme</a>');
+    expect(html).toContain('<a href="/fr/aziende/acme-services/">Acme</a>');
+    expect(html.match(/data-regional-company-scope/g)).toHaveLength(2);
+    expect(html).toContain('Profil employeur · toute la Suisse');
+    expect(html).toContain('No profile · 1 offre');
+    expect(html).not.toContain('<a href="/fr/aziende/no-profile/">');
+    expect(html).not.toContain('href="/fr/aziende/conflict/"');
+    expect(html).not.toContain('href="/fr/aziende/other-company/"');
+    expect(html).toContain('Conflict · 2 offres');
+  });
+
+  it('accepts the unprefixed emitted national profile path for the Italian guide', () => {
+    const html = renderRegionalJobGuidance({
+      canton: 'GR',
+      locale: 'it',
+      display: 'Grigioni',
+      jobs: [{ company: 'Impresa', companyIdentity: 'impresa', companyHref: '/aziende/impresa/', location: 'Poschiavo' }],
+      archiveHref: '/cerca-lavoro-grigioni/tutti/',
+      cityHubBaseHref: '/cerca-lavoro-grigioni/',
+      cityHubs: [{ slug: 'poschiavo', label: 'Poschiavo' }],
+      archiveNavigationHtml: '',
+    });
+
+    expect(html).toContain('<a href="/aziende/impresa/">Impresa</a>');
+    expect(html).toContain('Profilo aziendale nazionale · Svizzera intera');
+  });
+
+  it.each([
+    ['absolute URL', 'https://evil.example/jobs/'],
+    ['JavaScript scheme', 'javascript:alert(1)'],
+    ['protocol-relative URL', '//evil.example/'],
+    ['unprefixed path on French locale', '/aziende/example/'],
+    ['non-company route', '/fr/trouver-emploi-geneve/'],
+    ['wrong locale', '/en/aziende/example/'],
+    ['query string', '/fr/aziende/example/?source=guide'],
+  ])('renders %s as plain text instead of a company link', (_label, companyHref) => {
+    const html = renderRegionalJobGuidance({
+      canton: 'GE',
+      locale: 'fr',
+      display: 'Genève',
+      jobs: [{ company: 'Example', companyIdentity: 'example', companyHref, location: 'Genève' }],
+      archiveHref: '/fr/trouver-emploi-geneve/tous/',
+      cityHubBaseHref: '/fr/trouver-emploi-geneve/',
+      cityHubs: [],
+      archiveNavigationHtml: '',
+    });
+
+    expect(html).toContain('Example · 1 offre');
+    expect(html).not.toContain('<a href="/fr/aziende/');
+    expect(html).not.toContain('data-regional-company-scope');
+  });
+
+  it('reports observed inventory totals and puts the capped action lists before regional prose', () => {
+    const jobs = Array.from({ length: 8 }, (_, index) => ({
+      company: `Employeur ${index}`,
+      companyIdentity: `employeur-${index}`,
+      location: `Localité ${index}`,
+    }));
+    const html = renderRegionalJobGuidance({
+      canton: 'GE',
+      locale: 'fr',
+      display: 'Genève',
+      jobs,
+      archiveHref: '/fr/trouver-emploi-geneve/tous/',
+      cityHubBaseHref: '/fr/trouver-emploi-geneve/',
+      cityHubs: jobs.map((job, index) => ({ slug: `localite-${index}`, label: job.location })),
+      archiveNavigationHtml: '',
+    });
+
+    expect(html).toContain('data-regional-inventory-jobs="8"');
+    expect(html).toContain('data-regional-inventory-cities-total="8"');
+    expect(html).toContain('data-regional-inventory-cities-shown="6"');
+    expect(html).toContain('data-regional-inventory-companies-total="8"');
+    expect(html).toContain('data-regional-inventory-companies-shown="6"');
+    expect(html).toContain('6 des 8 localités');
+    expect(html).toContain('6 des 8 employeurs');
+    expect(html.indexOf('data-regional-job-inventory')).toBeLessThan(html.indexOf('Comparer le lieu de travail avec votre trajet quotidien'));
+  });
+
   it('escapes the display label and renders an empty inventory without fabricated employers or cities', () => {
     const html = renderRegionalJobGuidance({
       canton: 'GE',
