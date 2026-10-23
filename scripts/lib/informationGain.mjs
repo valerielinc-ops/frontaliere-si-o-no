@@ -160,6 +160,11 @@ export function extractVisibleText(html) {
   return body
     .replace(/<script[\s\S]*?<\/script>/gi, '\n')
     .replace(/<style[\s\S]*?<\/style>/gi, '\n')
+    // Navigation is repeated chrome, not page prose. In particular, the
+    // profession journey is intentionally rendered as a visible <nav>; it
+    // must not dilute the page-specific payload of the information-gain
+    // denominator when a family adds a navigation block.
+    .replace(/<nav\b[^>]*>[\s\S]*?<\/nav>/gi, '\n')
     .replace(/<noscript[\s\S]*?<\/noscript>/gi, '\n')
     .replace(/<template[\s\S]*?<\/template>/gi, '\n')
     .replace(/<svg[\s\S]*?<\/svg>/gi, '\n')
