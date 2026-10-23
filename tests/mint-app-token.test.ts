@@ -95,7 +95,9 @@ describe('hasActionsWrite — dispatch capability read from the token, not assum
 
   it('deploy.yml re-arm uses the workflow GITHUB_TOKEN', () => {
     const deploy = readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8');
-    const rearm = deploy.slice(deploy.indexOf('- name: Re-arm the build pipeline if it has stopped with work outstanding'));
+    const rearmStart = deploy.indexOf('- name: Re-arm the build pipeline after the terminal run');
+    expect(rearmStart).toBeGreaterThanOrEqual(0);
+    const rearm = deploy.slice(rearmStart);
     const tokenLine = rearm.split('\n').find((line) => line.trim().startsWith('GH_TOKEN:'));
     expect(tokenLine?.trim()).toBe('GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
   });

@@ -240,18 +240,28 @@ describe('decideRearm — the pipeline is still MOVING (99 of the 100 measured r
     expect(v.action).toBe('dispatch');
   });
 
-  it('a successful caller run is idle even before GitHub marks the run completed', () => {
+  it('a first successful caller gets one bounded successor before GitHub marks it completed', () => {
     const v = decideRearm({
       headSha: HEAD,
       runs: [selfRun()],
       selfRunId: SELF,
       selfConclusion: 'success',
     });
-    expect(v.action).toBe('skip');
-    expect(v.reason).toBe('head-already-built');
+    expect(v.action).toBe('dispatch');
+    expect(v.reason).toBe('post-success-rearm');
   });
 
-  it('does not let a successful older caller mask a newer main tip', () => {
+  it('stops after that one successor when the same SHA already has a green attempt', () => {
+    const successor = decideRearm({
+      headSha: HEAD,
+      runs: [done(1, HEAD, 'success'), selfRun()],
+      selfRunId: SELF,
+      selfConclusion: 'success',
+    });
+    expect(successor).toMatchObject({ action: 'skip', reason: 'head-already-built' });
+  });
+
+  it('dispatches exactly one successor when a green older caller sees a newer main tip', () => {
     const v = decideRearm({
       headSha: HEAD,
       runs: [selfRun(OLD)],
@@ -259,8 +269,15 @@ describe('decideRearm — the pipeline is still MOVING (99 of the 100 measured r
       selfHeadSha: OLD,
       selfConclusion: 'success',
     });
-    expect(v.action).toBe('dispatch');
-    expect(v.reason).toBe('pipeline-stopped');
+    expect(v).toEqual(expect.objectContaining({ action: 'dispatch', reason: 'pipeline-stopped' }));
+
+    const successor = decideRearm({
+      headSha: HEAD,
+      runs: [selfRun(), done(1000, HEAD, 'success')],
+      selfRunId: SELF,
+      selfConclusion: 'success',
+    });
+    expect(successor).toMatchObject({ action: 'skip', reason: 'head-already-built' });
   });
 
   it('does not count the lightweight schedule resolver as a build attempt', () => {

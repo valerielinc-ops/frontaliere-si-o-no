@@ -57,6 +57,17 @@ describe('decideLatestPublish', () => {
     })).toMatchObject({ action: 'skip', reason: 'no-successful-build' });
   });
 
+  it('hands a successful push build to the publisher', () => {
+    const verdict = decideLatestPublish({
+      builds: [{ ...build(3, SHA_LATEST, '2026-10-20T13:00:00Z'), event: 'push' }],
+      publishRuns: [],
+      lastSuccessfulDeployment: null,
+    });
+
+    expect(verdict).toMatchObject({ action: 'dispatch', reason: 'publish-latest-build' });
+    expect(verdict.candidate).toMatchObject({ id: 3, event: 'push' });
+  });
+
   it.each(['queued', 'in_progress', 'waiting', 'pending', 'requested'])(
     'does not dispatch while another publish workflow is %s',
     (status) => {
@@ -322,5 +333,15 @@ describe('Pages publish queue wiring', () => {
     ]) expect(publish).toContain(`${input}:`);
     expect(publish).toContain("'pages-deploy'");
     expect(publish).toContain('cancel-in-progress: false');
+  });
+
+  it('does not start the publisher from a scheduled deploy run', () => {
+    const deploy = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
+    const workflow = YAML.parse(deploy) as {
+      jobs?: Record<string, { steps?: Array<{ if?: string; run?: string }> }>;
+    };
+    const publisher = workflow.jobs?.rearm?.steps?.find((step) => step.run?.includes('deploy-publish.yml'));
+
+    expect(publisher?.if).toBe("(github.event_name == 'workflow_dispatch' || github.event_name == 'push') && needs.build-locale.result == 'success'");
   });
 });
