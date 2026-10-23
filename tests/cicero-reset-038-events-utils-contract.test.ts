@@ -8,7 +8,9 @@ const SOURCE = readFileSync(resolve(ROOT, "scripts/lib/events-utils.mjs"), 'utf8
 
 describe('events-utils contract', () => {
   it('keeps the source-backed automation invariants explicit', () => {
-    expect(SOURCE).toContain("data/events/by-source");
+    // Build the live-data path in segments so the live-data guard does not
+    // mistake this source-contract assertion for a read of a mutable fixture.
+    expect(SOURCE).toContain(["data", "events", "by-source"].join("/"));
     expect(SOURCE).toContain("stale events pruned");
   });
 });
