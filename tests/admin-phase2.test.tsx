@@ -6,7 +6,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import { AdminConfirmProvider, useAdminConfirm } from '@/components/admin/ui/AdminConfirmDialog';
-import { AdminShell } from '@/components/admin/ui/AdminShell';
+import { AdminShell, type AdminPaletteItem } from '@/components/admin/ui/AdminShell';
 import { WorkflowCard } from '@/components/admin/sections/workflow/WorkflowCard';
 import { getVisibleAdminSections } from '@/components/admin/adminSections';
 import { resolveAdminShellVariant, shouldHideSiteNavigation } from '@/components/admin/lib/adminShellVariant';
@@ -133,6 +133,37 @@ describe('admin fase 2 shell contract', () => {
     fireEvent.keyDown(input, { key: 'ArrowUp' });
     fireEvent.keyDown(input, { key: 'Enter' });
     expect(adminNavigationMocks.navigateAdminSection).toHaveBeenCalledWith('crawler');
+  });
+
+  it('indicizza 5.000 aziende una volta e limita il rendering a 8 risultati', async () => {
+    let labelReads = 0;
+    const paletteItems: AdminPaletteItem[] = Array.from({ length: 5_000 }, (_, index) => {
+      const label = `Azienda sintetica ${index}`;
+      const item: AdminPaletteItem = { id: `company-${index}`, label, kind: 'company', group: 'aziende' };
+      Object.defineProperty(item, 'label', { enumerable: true, get: () => { labelReads += 1; return label; } });
+      return item;
+    });
+    render(
+      <AdminShell
+        sections={getVisibleAdminSections()}
+        activeSection=""
+        onNavigate={() => {}}
+        onCopyLink={() => {}}
+        copyFeedback={false}
+        paletteItems={paletteItems}
+      >
+        <p>Contenuto oggi</p>
+      </AdminShell>,
+    );
+
+    const input = screen.getAllByRole('combobox')[0];
+    fireEvent.focus(input);
+    fireEvent.change(input, { target: { value: 'azienda' } });
+    await waitFor(() => expect(screen.getAllByRole('option')).toHaveLength(16));
+    const readsAfterFirstSearch = labelReads;
+    fireEvent.change(input, { target: { value: 'sintetica 49' } });
+    await waitFor(() => expect(screen.getAllByRole('option')).toHaveLength(16));
+    expect(labelReads - readsAfterFirstSearch).toBeLessThan(100);
   });
 });
 

@@ -49,7 +49,7 @@ const RUNTIME_DATA_FILES = [
  'data/image-credits-blog.json',
 ];
 
-/** Every file this plugin copies, in one list for the copy loop + dev middleware. */
+/** Every file this plugin copies, in one list shared with the dev middleware. */
 export const COPIED_DATA_FILES = [...ADMIN_DATA_FILES, ...RUNTIME_DATA_FILES];
 export const ADMIN_WORKFLOW_SCHEDULES_PATH = '/data/admin-workflow-schedules.json';
 
@@ -88,9 +88,6 @@ export function emitAdminStaticShells(distDir: string, indexHtml: string): strin
 }
 
 export function adminDataPlugin(root: string): Plugin {
- const routeToSource = new Map(
- COPIED_DATA_FILES.map((relPath) => [`/${relPath.replace(/^data\//, 'data/')}`, path.resolve(root, relPath)])
- );
  let distDir = path.resolve(root, 'dist');
 
  return {
@@ -99,24 +96,6 @@ export function adminDataPlugin(root: string): Plugin {
  enforce: 'post',
  configResolved(config) {
  distDir = path.resolve(config.root, config.build.outDir);
- },
- configureServer(server) {
- server.middlewares.use((req, res, next) => {
- const pathname = (req.url || '').split('?')[0];
- if (pathname === ADMIN_WORKFLOW_SCHEDULES_PATH) {
- res.setHeader('Content-Type', 'application/json');
- res.end(JSON.stringify(buildAdminWorkflowSchedulePayload(root), null, 2));
- return;
- }
- const src = routeToSource.get(pathname);
- if (!src || !fs.existsSync(src)) {
- next();
- return;
- }
-
- res.setHeader('Content-Type', 'application/json');
- res.end(fs.readFileSync(src, 'utf8'));
- });
  },
  closeBundle() {
  let copied = 0;
@@ -152,5 +131,39 @@ export function adminDataPlugin(root: string): Plugin {
  console.log(` 🔐 Admin routes: generated ${emitted.length} section shell(s) under dist/${ADMIN_ROUTE_SLUG}/ (noindex)`);
  }
  },
+ };
+}
+
+function adminDataRouteToSource(root: string): Map<string, string> {
+ return new Map(
+  COPIED_DATA_FILES.map((relPath) => [`/${relPath}`, path.resolve(root, relPath)]),
+ );
+}
+
+/** Serve the same source-level admin/runtime JSON files during Vite `serve`. */
+export function adminDataDevPlugin(root: string): Plugin {
+ const routeToSource = adminDataRouteToSource(root);
+
+ return {
+  name: 'admin-data-dev-plugin',
+  apply: 'serve',
+  configureServer(server) {
+   server.middlewares.use((req, res, next) => {
+    const pathname = (req.url || '').split('?')[0];
+    if (pathname === ADMIN_WORKFLOW_SCHEDULES_PATH) {
+     res.setHeader('Content-Type', 'application/json');
+     res.end(JSON.stringify(buildAdminWorkflowSchedulePayload(root), null, 2));
+     return;
+    }
+    const src = routeToSource.get(pathname);
+    if (!src || !fs.existsSync(src)) {
+     next();
+     return;
+    }
+
+    res.setHeader('Content-Type', 'application/json');
+    res.end(fs.readFileSync(src, 'utf8'));
+   });
+  },
  };
 }

@@ -164,7 +164,7 @@ describe('site-admin identity and GitHub proxy', () => {
     });
     const aggregate = await handleAdminGithub(request('POST', {
       method: 'GET',
-      path: '/actions/runs?created=%3E%3D2026-10-23T00%3A00%3A00.000Z&per_page=100&status=completed&branch=main',
+      path: '/actions/runs?created=%3E%3D2026-10-23T00%3A00%3A00.000Z&per_page=100&page=2&status=completed&branch=main',
     }), { fetchImpl });
     const rateLimit = await handleAdminGithub(request('POST', {
       method: 'GET',
@@ -173,13 +173,13 @@ describe('site-admin identity and GitHub proxy', () => {
 
     expect(aggregate.status).toBe(200);
     expect(rateLimit.status).toBe(200);
-    expect(urls[0]).toBe('https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/actions/runs?created=%3E%3D2026-10-23T00%3A00%3A00.000Z&per_page=100&status=completed&branch=main');
+    expect(urls[0]).toBe('https://api.github.com/repos/valerielinc-ops/frontaliere-si-o-no/actions/runs?created=%3E%3D2026-10-23T00%3A00%3A00.000Z&per_page=100&page=2&status=completed&branch=main');
     expect(urls[1]).toBe('https://api.github.com/rate_limit');
   });
 
   it('rejects unapproved runs queries and rate-limit query parameters', async () => {
     const fetchImpl = vi.fn();
-    for (const path of ['/actions/runs?foo=bar', '/actions/runs?per_page=101', '/rate_limit?per_page=1']) {
+    for (const path of ['/actions/runs?foo=bar', '/actions/runs?per_page=101', '/actions/runs?page=0', '/actions/runs?page=11', '/actions/runs?page=1.5', '/actions/runs?page=01', '/actions/runs?page=1&page=2', '/rate_limit?per_page=1']) {
       const result = await handleAdminGithub(request('POST', { method: 'GET', path }), { fetchImpl });
       expect(result).toEqual({ status: 400, body: { ok: false, error: 'path_not_allowed' } });
     }
