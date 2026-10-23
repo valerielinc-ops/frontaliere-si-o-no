@@ -8600,6 +8600,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sondaggio-votazioni-novembre-svizzera.title': 'Voto 29 novembre: incerti AVS e materiale bellico',
     'blog.article.sondaggio-votazioni-novembre-svizzera.excerpt': 'Il voto del 29 novembre resta incerto su AVS e materiale bellico L\'IVA per la 13esima rendita: 46% sì, 49% no Materiale bellico: 49% contrari, 41% favorevoli',
     'blog.article.sondaggio-votazioni-novembre-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.franco-euro-cambio-ottobre-2026.title': 'Cambio EUR/CHF intorno a 0,92 il 23 ottobre 2026',
+    'blog.article.franco-euro-cambio-ottobre-2026.excerpt': 'EUR/CHF intorno a 0,92 al 23 ottobre 2026 Un franco svizzero vale circa 1,09 euro Il franco riprende forza dopo un indebolimento temporaneo Geopolitica',
+    'blog.article.franco-euro-cambio-ottobre-2026.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
 };
 
 export default blogMetaChIt;

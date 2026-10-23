@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 810,
+      "5": 813,
       "6": 5054
     },
-    "publishedCovers": 7547,
+    "publishedCovers": 7550,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -207437,6 +207437,105 @@
         "provider": "openai-codex",
         "assetId": "article-finanzkommission-k-rzt-kredit-digitalisierung",
         "imageUrl": "/images/blog/article-finanzkommission-k-rzt-kredit-digitalisierung.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-budget-2027-preavviso-consiglio": {
+      "cover": "/images/blog/article-budget-2027-preavviso-consiglio.webp",
+      "hash": "755353a71cea53974851031105ac77f56a80106227556b8842510ba1f70fb9fd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-vd",
+          "id": "budget-2027-preavviso-consiglio",
+          "category": "novita",
+          "date": "2026-10-23T16:03:30.868Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-budget-2027-preavviso-consiglio.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-budget-2027-preavviso-consiglio",
+        "imageUrl": "/images/blog/article-budget-2027-preavviso-consiglio.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-franco-euro-cambio-ottobre-2026": {
+      "cover": "/images/blog/article-franco-euro-cambio-ottobre-2026.webp",
+      "hash": "a6584e1d2ceb4a71c5884e52a58d88d9df02d5e797498dc685d84d8ed084f0a1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "franco-euro-cambio-ottobre-2026",
+          "category": "fiscale",
+          "date": "2026-10-23T16:48:57.452Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-franco-euro-cambio-ottobre-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-franco-euro-cambio-ottobre-2026",
+        "imageUrl": "/images/blog/article-franco-euro-cambio-ottobre-2026.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-frontalieri-rimborsi-lpp-svizzera": {
+      "cover": "/images/blog/article-frontalieri-rimborsi-lpp-svizzera.webp",
+      "hash": "7643a9d493e1aa97d64f1394d745cd23edaa628a9676471f1a81c01741a06111",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "canton-ti",
+          "id": "frontalieri-rimborsi-lpp-svizzera",
+          "category": "pensione",
+          "date": "2026-10-23T15:42:17.176Z",
+          "updatedAt": null,
+          "authorSlug": "laura-bianchi"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-frontalieri-rimborsi-lpp-svizzera.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1793,
+      "verifiedAt": "2026-10-23",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-frontalieri-rimborsi-lpp-svizzera",
+        "imageUrl": "/images/blog/article-frontalieri-rimborsi-lpp-svizzera.webp",
         "evidence": "generated-engine-record"
       }
     }

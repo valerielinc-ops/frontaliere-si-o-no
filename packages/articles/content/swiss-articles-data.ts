@@ -28771,6 +28771,16 @@ const RAW_SWISS_ARTICLES_CHUNK_12: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'franco-euro-cambio-ottobre-2026',
+    category: 'fiscale',
+    date: '2026-10-23T16:48:57.452Z',
+    image: '/images/blog/article-franco-euro-cambio-ottobre-2026.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
