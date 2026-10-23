@@ -612,7 +612,7 @@ describe('data publisher preserves its source checkout', () => {
 
     expect(result.status, result.stderr).toBe(0);
     expect(result.stdout).toContain('created');
-    expect(result.stderr).toContain('retrying attempt 2/3');
+    expect(result.stderr).toContain('retrying attempt 2 in 1s');
     expect(fs.existsSync(setup.createAttemptMarker)).toBe(true);
     expect(fs.existsSync(setup.prExistsMarker)).toBe(false);
   });
