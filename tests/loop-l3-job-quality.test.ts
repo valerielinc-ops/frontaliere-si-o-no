@@ -107,9 +107,20 @@ describe('L3 Job Quality → Apply', () => {
     expect(result.verdict).toMatchObject({
       ok: false,
       quality: 'partial',
-      issues: [],
-      snapshot: { freshSummaries: 1, staleSummaries: 1, invalidJobs: 0 },
+      snapshot: {
+        freshSummaries: 1,
+        staleSummaries: 1,
+        staleSummaryIssueCount: 1,
+        staleSummaryDetails: [{
+          file: 'stale.json',
+          generatedAt: '2026-09-01T12:00:00.000Z',
+          ageHours: 264,
+          maxAgeHours: 36,
+        }],
+        invalidJobs: 0,
+      },
     });
+    expect(result.verdict.issues).toContain('stale.json: summary is stale (264.0h old; max 36h)');
     expect(result.outcome).toMatchObject({
       status: 'observed',
       independent: true,
