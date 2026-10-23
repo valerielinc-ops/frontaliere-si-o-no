@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 
 const mockCalculateSimulation = vi.fn((..._args: any[]): any => ({
@@ -48,6 +48,11 @@ describe('useSimulationState', () => {
     window.history.replaceState({}, '', '/');
   });
 
+  afterEach(() => {
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+
   it('initializes with DEFAULT_INPUTS and null result', () => {
     const { result } = renderHook(() => useSimulationState('calculator', null));
 
@@ -65,6 +70,44 @@ describe('useSimulationState', () => {
     expect(typeof result.current.handleCalculate).toBe('function');
     expect(typeof result.current.urlHydrated).toBe('object');
     expect(typeof result.current.setResult).toBe('function');
+  });
+
+  it('runs the initial calculation even when requestIdleCallback never fires', async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('requestIdleCallback', vi.fn(() => 1));
+    vi.stubGlobal('cancelIdleCallback', vi.fn());
+
+    const { result } = renderHook(() => useSimulationState('calculator', null));
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(2500);
+    });
+
+    expect(result.current.result).toBeTruthy();
+    expect(mockCalculateSimulation).toHaveBeenCalledTimes(1);
+  });
+
+  it('retries a failed initial calculation instead of leaving the result empty', async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('requestIdleCallback', vi.fn(() => 1));
+    vi.stubGlobal('cancelIdleCallback', vi.fn());
+    mockCalculateSimulation.mockImplementationOnce(() => {
+      throw new Error('transient calculation failure');
+    });
+
+    const { result } = renderHook(() => useSimulationState('calculator', null));
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(2500);
+    });
+    expect(result.current.result).toBeNull();
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1000);
+    });
+
+    expect(result.current.result).toBeTruthy();
+    expect(mockCalculateSimulation).toHaveBeenCalledTimes(2);
   });
 
   describe('handleCalculate', () => {

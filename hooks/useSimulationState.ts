@@ -5,7 +5,7 @@
  * - Simulation inputs and result
  * - URL hydration of simulation parameters
  * - SEO landing preset application
- * - Deferred initial calculation (interaction-triggered)
+ * - Deferred initial calculation with timeout/retry recovery
  * - Auto-recalculate when inputs change
  * - handleCalculate (lazy imports calculationService)
  */
@@ -28,6 +28,10 @@ import type { SeoLandingId, ActiveTab } from '@/services/router';
 // unhandled TypeError straight to PostHog instead of self-healing (#5084).
 const lazyCalculate = () =>
  resilientImport(() => import('@/services/calculationService'), (m) => typeof m.calculateSimulation === 'function');
+
+const INITIAL_CALCULATION_TIMEOUT_MS = 2500;
+const INITIAL_CALCULATION_RETRY_DELAY_MS = 1000;
+const INITIAL_CALCULATION_MAX_ATTEMPTS = 3;
 
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
@@ -78,6 +82,7 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  const urlHydrated = useRef(false);
  const hasHydrated = useRef(false);
  const initialCalcDone = useRef(false);
+ const initialCalcInFlight = useRef(false);
  const landingAppliedRef = useRef<SeoLandingId | null>(null);
  // True when the next inputs change should be attributed to a user action.
  // Stays false for URL hydration, SEO preset prefill, and the deferred initial
@@ -131,6 +136,11 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  }
  }, [inputs]);
 
+ const handleCalculateRef = useRef<SimulationState['handleCalculate']>(handleCalculate);
+ useEffect(() => {
+  handleCalculateRef.current = handleCalculate;
+ }, [handleCalculate]);
+
  // Hydrate simulation inputs from URL query params. Re-runs on activeTab
  // change (not just mount) so an in-session SPA deep-link into the
  // calculator — e.g. the job-board "netto stimato" widget's
@@ -183,25 +193,62 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  useEffect(() => {
  let idleId: number | undefined;
  let fallbackTimer: number | undefined;
+ let retryTimer: number | undefined;
+ let attempts = 0;
+ let cancelled = false;
+
+ const clearFallbackTimer = () => {
+  if (fallbackTimer !== undefined) {
+   clearTimeout(fallbackTimer);
+   fallbackTimer = undefined;
+  }
+ };
+
+ const scheduleRetry = () => {
+  if (cancelled || initialCalcDone.current || retryTimer !== undefined || attempts >= INITIAL_CALCULATION_MAX_ATTEMPTS) return;
+  retryTimer = window.setTimeout(() => {
+   retryTimer = undefined;
+   runInitialCalc();
+  }, INITIAL_CALCULATION_RETRY_DELAY_MS);
+ };
+
  const runInitialCalc = () => {
- if (initialCalcDone.current) return;
- initialCalcDone.current = true;
+ if (cancelled || initialCalcDone.current || initialCalcInFlight.current) return;
+ attempts += 1;
+ initialCalcInFlight.current = true;
+ clearFallbackTimer();
  // Not user-initiated — fires at idle on any page, even when the
  // visitor never touched a calculator input. Fire-and-forget: catch
  // so a stale-deploy chunk-load failure (resilientImport exhausts its
  // retry/reload and rethrows) reports via reportCaughtError instead of
  // surfacing as an unhandled rejection straight to PostHog (#5084, same
  // gap #4645 fixed for the bare `import()` this now wraps).
- handleCalculate(false).catch((e) => reportCaughtError(e, 'simulation.initialCalc'));
+ // Keep the latest callback so a retry uses hydrated/prefilled inputs rather
+ // than the first render's default snapshot.
+ handleCalculateRef.current(false)
+  .then(() => {
+   initialCalcDone.current = true;
+  })
+  .catch((e) => {
+   reportCaughtError(e, 'simulation.initialCalc');
+   scheduleRetry();
+  })
+  .finally(() => {
+   initialCalcInFlight.current = false;
+  });
  };
  if (typeof requestIdleCallback === 'function') {
- idleId = requestIdleCallback(runInitialCalc, { timeout: 2500 });
- } else {
- fallbackTimer = window.setTimeout(runInitialCalc, 2000);
+ idleId = requestIdleCallback(runInitialCalc, { timeout: INITIAL_CALCULATION_TIMEOUT_MS });
  }
+ // requestIdleCallback is not guaranteed to run in every browser/runtime
+ // (and can be throttled in background tabs), so keep an independent hard
+ // deadline instead of making the initial result depend on it exclusively.
+ fallbackTimer = window.setTimeout(runInitialCalc, INITIAL_CALCULATION_TIMEOUT_MS);
  return () => {
+ cancelled = true;
  if (idleId !== undefined && typeof cancelIdleCallback === 'function') cancelIdleCallback(idleId);
- if (fallbackTimer !== undefined) clearTimeout(fallbackTimer);
+ clearFallbackTimer();
+ if (retryTimer !== undefined) clearTimeout(retryTimer);
  };
  }, []);
 
@@ -217,7 +264,14 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  nextRecalcIsUser.current = false;
  // Fire-and-forget from an effect — same unhandled-rejection risk as
  // runInitialCalc above, so the same catch applies here.
- handleCalculate(userInitiated).catch((e) => reportCaughtError(e, 'simulation.autoRecalc'));
+ handleCalculate(userInitiated)
+  .then(() => {
+   // A successful auto-recalculation (including URL/SEO hydration or an
+   // explicit input change) already produced the first usable result. Do not
+   // run the deferred initial attempt a second time when its timer fires.
+   initialCalcDone.current = true;
+  })
+  .catch((e) => reportCaughtError(e, 'simulation.autoRecalc'));
  }, [inputs]);
 
  // Wrapped setInputs that marks the next auto-recalculate as user-initiated.
