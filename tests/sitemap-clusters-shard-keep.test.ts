@@ -92,6 +92,18 @@ describe('dropOverwrittenLocs — it shard keeps cross-shard cluster locs', () =
     const kept = await dropOverwrittenLocs(dist, [EN, IT, FR, DE]);
     expect(kept).toEqual([EN, IT, FR, DE]);
   });
+
+  it('does not probe an absent foreign page when inspection is disabled', async () => {
+    // An index.html directory makes the old read probe fail with EISDIR. The
+    // it shard owns neither this URL nor its HTML, so the default path must
+    // keep it before touching the filesystem.
+    fs.mkdirSync(
+      path.join(dist, 'en', 'find-jobs-ticino', 'search-data-center-technician', 'index.html'),
+      { recursive: true },
+    );
+    const { dropOverwrittenLocs } = await loadPlugin('it');
+    await expect(dropOverwrittenLocs(dist, [EN])).resolves.toEqual([EN]);
+  });
 });
 
 describe('dropOverwrittenLocs — en shard still real-checks its own locale', () => {

@@ -4322,6 +4322,97 @@ function isNodeErrnoException(error: unknown): error is NodeJS.ErrnoException {
   return error instanceof Error && 'code' in error && typeof error.code === 'string';
 }
 
+type ForeignDirEntry = {
+  isDirectory(): boolean;
+  isFile(): boolean;
+  isSymbolicLink(): boolean;
+};
+
+/**
+ * A locale-shard sitemap contains the other three locales by design. When a
+ * caller opts into checking a foreign file, index the parent directory once
+ * instead of opening both `<path>/index.html` and `<path>.html` for every
+ * missing cross-shard URL. The map is scoped to one reconciliation pass so a
+ * later build pass cannot observe a stale filesystem snapshot.
+ */
+function createForeignDirectoryIndex(): {
+  entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>>;
+} {
+  const entriesByDirectory = new Map<
+    string,
+    Promise<ReadonlyMap<string, ForeignDirEntry>>
+  >();
+
+  return {
+    entriesFor(directory: string): Promise<ReadonlyMap<string, ForeignDirEntry>> {
+      const existing = entriesByDirectory.get(directory);
+      if (existing) return existing;
+
+      const pending = fs.promises
+        .readdir(directory, { withFileTypes: true })
+        .then((entries) => new Map(
+          entries.map((entry) => [entry.name, entry] as const),
+        ))
+        .catch((error: unknown) => {
+          if (isNodeErrnoException(error) && (error.code === 'ENOENT' || error.code === 'ENOTDIR')) {
+            return new Map<string, ForeignDirEntry>();
+          }
+          throw error;
+        });
+      entriesByDirectory.set(directory, pending);
+      return pending;
+    },
+  };
+}
+
+type ForeignProbe =
+  | { kind: 'missing' }
+  | { kind: 'non-html' }
+  | { kind: 'html'; html: string };
+
+/**
+ * Inspect only a foreign page that is actually present on this shard.
+ * `null` asks the caller to use the legacy probes for symlink edge cases.
+ */
+async function probeForeignPresentPage(
+  index: ReturnType<typeof createForeignDirectoryIndex>,
+  urlPath: string,
+  routePath: string,
+  indexPath: string,
+  flatPath: string,
+): Promise<ForeignProbe | null> {
+  const routeName = path.basename(routePath);
+  const entries = await index.entriesFor(path.dirname(routePath));
+  const routeEntry = entries.get(routeName);
+  const flatEntry = entries.get(`${routeName}.html`);
+
+  // Symlinked route directories need stat-following to distinguish the
+  // directory-index and flat-file representations. They are not emitted by
+  // the build, so preserve the old probe path rather than guessing.
+  if (routeEntry?.isSymbolicLink()) return null;
+
+  const candidates: string[] = [];
+  if (routeEntry?.isDirectory()) {
+    candidates.push(indexPath);
+  } else if (routeEntry?.isFile()) {
+    if (path.extname(urlPath).toLowerCase() === '.html') candidates.push(routePath);
+    else return { kind: 'non-html' };
+  }
+  if (flatEntry?.isFile() || flatEntry?.isSymbolicLink()) candidates.push(flatPath);
+  if (candidates.length === 0) return { kind: 'missing' };
+
+  for (const candidate of candidates) {
+    try {
+      return { kind: 'html', html: (await readHeadOrAll(candidate, { throwOnError: true })) ?? '' };
+    } catch (error: unknown) {
+      if (!isNodeErrnoException(error) || (error.code !== 'ENOENT' && error.code !== 'ENOTDIR')) {
+        throw error;
+      }
+    }
+  }
+  return { kind: 'missing' };
+}
+
 /**
  * Async parallel variant. Replaced the sync version (180k `fs.readFileSync`
  * + 360k `fs.existsSync` per build, ~41s under `sitemap-write` in run
@@ -4383,6 +4474,7 @@ export async function dropOverwrittenLocs(
   // Aggregate fd ceiling: 64 simultaneous open files, three orders of
   // magnitude under the ulimit 65535 default.
   const IN_FLIGHT = 64;
+  const foreignDirectoryIndex = createForeignDirectoryIndex();
   let cursor = 0;
 
   const lane = async (): Promise<void> => {
@@ -4398,14 +4490,39 @@ export async function dropOverwrittenLocs(
       const routePath = path.join(distDir, urlPath);
       const indexPath = path.join(distDir, urlPath, 'index.html');
       const flatPath = path.join(distDir, urlPath + '.html');
+
+      // A caller that does not opt into foreign-file inspection has no
+      // local invariant to check: this URL belongs to another shard. Put the
+      // ownership decision before any filesystem probe; the old placement
+      // paid for two failed opens for every absent foreign loc.
+      if (foreignLocale && !options.inspectForeignPresent) {
+        flags[i] = KEEP;
+        continue;
+      }
+
       let html: string | null = null;
+      if (foreignLocale && options.inspectForeignPresent) {
+        const probe = await probeForeignPresentPage(
+          foreignDirectoryIndex,
+          urlPath,
+          routePath,
+          indexPath,
+          flatPath,
+        );
+        if (probe?.kind === 'missing' || probe?.kind === 'non-html') {
+          flags[i] = KEEP;
+          continue;
+        }
+        if (probe?.kind === 'html') html = probe.html;
+      }
+
       // A sitemap can advertise a static file URL such as a PDF. Do not try
       // to open `<file>/index.html`: on POSIX that read fails with ENOTDIR.
       // Only stat paths with an extension; a directory may also contain a dot,
       // so verify its type before keeping the existing directory-index check.
       // A direct `.html` URL is itself a page (often a flat redirect bridge),
       // so inspect that file's HTML with the same canonical/noindex predicate.
-      if (path.extname(urlPath)) {
+      if (html === null && path.extname(urlPath)) {
         try {
           const routeStat = await fs.promises.stat(routePath);
           if (routeStat.isFile()) {
@@ -4452,10 +4569,6 @@ export async function dropOverwrittenLocs(
             continue;
           }
         }
-      }
-      if (foreignLocale && !options.inspectForeignPresent) {
-        flags[i] = KEEP;
-        continue;
       }
       if (hasNoindex(html)) {
         flags[i] = DROP_NOINDEX;
