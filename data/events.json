@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-23T16:25:31.545Z",
+  "generatedAt": "2026-10-23T18:29:14.899Z",
   "totalEvents": 15047,
   "events": [
     {
@@ -304179,7 +304179,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo teatrale per il giovane pubblico propone una rilettura contemporanea e al femminile di una fiaba di Andersen. Attraverso il corpo e la clownerie, affronta i temi dell’ideale di perfezione, del giudizio sociale e della costruzione dell’identità.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale per il giovane pubblico propone una rilettura contemporanea e al femminile di una fiaba di Andersen. Attraverso il corpo e la clownerie, affronta i temi dell’ideale di perfezione, del giudizio sociale e della costruzione dell’identità.",
+        "en": "This theatre event for younger audiences offers a contemporary, female-centred reworking of a fairy tale by Andersen. Using physical performance and clowning, it examines perfection standards, social judgement and the development of personal identity.",
+        "de": "Die Veranstaltung für ein junges Publikum deutet ein Märchen von Andersen zeitgenössisch und aus weiblicher Perspektive neu. Mit Körpersprache und Clownerie behandelt sie Vorstellungen von Perfektion, gesellschaftliche Bewertung und die freie Entwicklung der eigenen Identität.",
+        "fr": "Ce spectacle destiné au jeune public propose une relecture contemporaine et féminine d’un conte d’Andersen. Le travail corporel et la clownerie abordent les normes de perfection, le regard social et la construction libre de l’identité."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64377",
@@ -325759,7 +325767,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento si tiene presso Foce, a Lugano, ed è organizzato da Tio.ch Agenda. Il programma propone testimonianze di relatori con esperienze professionali o imprenditoriali diverse, seguite dalle domande del pubblico e da un momento di networking.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento si tiene presso Foce, a Lugano, ed è organizzato da Tio.ch Agenda. Il programma propone testimonianze di relatori con esperienze professionali o imprenditoriali diverse, seguite dalle domande del pubblico e da un momento di networking.",
+        "en": "The event takes place at Foce in Lugano and is organized by Tio.ch Agenda. Its program features accounts from speakers with different professional or entrepreneurial backgrounds, followed by questions from the audience and a networking session.",
+        "de": "Die Veranstaltung findet im Foce in Lugano statt und wird von Tio.ch Agenda organisiert. Auf dem Programm stehen Erfahrungsberichte von Referierenden mit unterschiedlichen beruflichen oder unternehmerischen Hintergründen, anschließend sind Fragen aus dem Publikum und Networking vorgesehen.",
+        "fr": "Le rendez-vous a lieu au Foce, à Lugano, et est organisé par Tio.ch Agenda. Des intervenants aux parcours professionnels ou entrepreneuriaux variés y partagent leurs expériences, puis répondent aux questions du public avant un moment de réseautage."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:3ac1e5cd3eef4db3bb5f90595505ed4f",
@@ -401621,7 +401637,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa escursione a Dardagny propone di esplorare la riserva naturale dell’Allondon. Una guida di montagna certificata accompagna il percorso, che comprende anche la scoperta dei paesaggi di Dardagny.",
+      "descriptionByLocale": {
+        "it": "Questa escursione a Dardagny propone di esplorare la riserva naturale dell’Allondon. Una guida di montagna certificata accompagna il percorso, che comprende anche la scoperta dei paesaggi di Dardagny.",
+        "en": "This excursion in Dardagny includes an exploration of the Allondon nature reserve. A certified mountain guide accompanies the outing, which also presents the landscapes of Dardagny.",
+        "de": "Die Exkursion in Dardagny widmet sich dem Naturschutzgebiet am Allondon. Eine zertifizierte Bergführperson begleitet den Ausflug und stellt dabei auch die Landschaften von Dardagny vor.",
+        "fr": "Cette excursion à Dardagny propose de découvrir la réserve naturelle de l’Allondon. Un·e guide de montagne certifié·e accompagne le parcours, qui présente également les paysages de Dardagny."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:f9ef5a5c983a4d13b75df2defcff655c",
@@ -599146,7 +599170,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "Il concerto presenta un programma jazz interpretato da GECA, Veronica Swift, Zacharie Ksyk e Maxence Sibille. L’appuntamento si svolge al BFM Bâtiment des Forces Motrices, nel cantone di Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il concerto presenta un programma jazz interpretato da GECA, Veronica Swift, Zacharie Ksyk e Maxence Sibille. L’appuntamento si svolge al BFM Bâtiment des Forces Motrices, nel cantone di Ginevra.",
+        "en": "This jazz concert features GECA, Veronica Swift, Zacharie Ksyk and Maxence Sibille. It takes place at BFM Bâtiment des Forces Motrices in the canton of Geneva.",
+        "de": "Das Jazzkonzert vereint GECA mit Veronica Swift, Zacharie Ksyk und Maxence Sibille. Veranstaltungsort ist das BFM Bâtiment des Forces Motrices im Kanton Genf.",
+        "fr": "Ce concert de jazz réunit GECA, Veronica Swift, Zacharie Ksyk et Maxence Sibille. Il a lieu au BFM Bâtiment des Forces Motrices, dans le canton de Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c9f23668ae244300a07c5fcf4e28a0e6",
@@ -621900,7 +621932,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "L’evento è un appuntamento di rock generalmente associato a almost monday. La serata si svolge al Plaza Klub ed è presentata da Live Nation.",
+      "descriptionByLocale": {
+        "it": "L’evento è un appuntamento di rock generalmente associato a almost monday. La serata si svolge al Plaza Klub ed è presentata da Live Nation.",
+        "en": "This event is a rock-oriented performance by almost monday. It takes place at Plaza Klub and is presented by Live Nation.",
+        "de": "Die Veranstaltung ist ein Rockabend mit almost monday. Sie findet im Plaza Klub statt und wird von Live Nation präsentiert.",
+        "fr": "Cet événement est un rendez-vous de rock avec almost monday. Il a lieu au Plaza Klub et est présenté par Live Nation."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:bc2f7d24944d49f5bc4c079be5594f24",
@@ -636977,7 +637017,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "James Blunt propone un appuntamento di musica pop alla Geneva Arena. L’evento si svolge a Le Grand-Saconnex, nel cantone GE.",
+      "descriptionByLocale": {
+        "it": "James Blunt propone un appuntamento di musica pop alla Geneva Arena. L’evento si svolge a Le Grand-Saconnex, nel cantone GE.",
+        "en": "James Blunt appears at Geneva Arena for a pop music event. The event is held in Le Grand-Saconnex, canton GE.",
+        "de": "James Blunt tritt bei einer Popveranstaltung in der Geneva Arena auf. Die Veranstaltung findet in Le Grand-Saconnex im Kanton GE statt.",
+        "fr": "James Blunt se produit à la Geneva Arena dans le cadre d’un événement de musique pop. Le rendez-vous a lieu à Le Grand-Saconnex, dans le canton GE."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ARFH9PZ",
