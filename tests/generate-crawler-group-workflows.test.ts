@@ -3204,6 +3204,9 @@ describe('cross-repo crawler execution artifacts', () => {
     const translateJob: any = translation.jobs.translate;
     const timeoutRecoveryJob: any = translation.jobs.translate_timeout_recovery;
     const guardStep = guardJob.steps.find((step: any) => step.id === 'translate_queue_guard');
+    const timeoutFallbackStep = timeoutRecoveryJob.steps.find(
+      (step: any) => step.name === 'Release translation deploy fallback after job timeout',
+    );
 
     expect(translation.concurrency).toBeUndefined();
     expect(guardJob.concurrency).toBeUndefined();
@@ -3217,6 +3220,8 @@ describe('cross-repo crawler execution artifacts', () => {
     });
     expect(timeoutRecoveryJob.needs).toEqual(['translate_queue_guard', 'translate']);
     expect(timeoutRecoveryJob.concurrency).toBeUndefined();
+    expect(timeoutFallbackStep?.env?.TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID).toBe('${{ github.run_id }}');
+    expect(timeoutFallbackStep?.env?.TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT).toBe('${{ github.run_attempt }}');
     expect(guardStep.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=');
     expect(guardStep.run).toContain('select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")');
     expect(guardStep.run).toContain('for run_status in queued pending waiting requested in_progress');

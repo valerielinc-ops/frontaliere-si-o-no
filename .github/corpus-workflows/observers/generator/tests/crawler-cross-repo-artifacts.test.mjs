@@ -370,6 +370,7 @@ test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo 
       assert.match(text, /needs: translate_queue_guard/);
       assert.match(text, /^  translate_timeout_recovery:\n    needs:/m);
       assert.match(text, /TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID/);
+      assert.match(text, /TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT/);
     }
     assert.doesNotMatch(text, /^  [a-z0-9_]+_retry:/m);
   }

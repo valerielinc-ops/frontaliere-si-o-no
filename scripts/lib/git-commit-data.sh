@@ -238,11 +238,13 @@ fi
 # run that left the marker pending. The remote ref is checked after every
 # fetch/sync below as well as by the writer against the local marker; this
 # prevents a queued stale recovery from releasing a later run's admission hold.
-if [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ]; then
+if [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ] || [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT:-}" ]; then
   if [ "${TRANSLATION_DEPLOY_HANDOFF_STATE:-}" != 'fallback' ] \
-    || ! [[ "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID" =~ ^[0-9]+$ ]] \
-    || [ "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID" != "${GITHUB_RUN_ID:-}" ]; then
-    echo "❌ Translation handoff recovery requires fallback state and an expected run id matching GITHUB_RUN_ID" >&2
+    || ! [[ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" =~ ^[0-9]+$ ]] \
+    || ! [[ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT:-}" =~ ^[0-9]+$ ]] \
+    || [ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" != "${GITHUB_RUN_ID:-}" ] \
+    || [ "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT:-}" != "${GITHUB_RUN_ATTEMPT:-}" ]; then
+    echo "❌ Translation handoff recovery requires fallback state and expected run id/attempt matching GITHUB_RUN_ID/GITHUB_RUN_ATTEMPT" >&2
     exit 1
   fi
 fi
@@ -251,7 +253,7 @@ translation_handoff_recovery_guard_or_skip() {
   local candidate_committed="${1:-false}" check_output check_status
   [ -n "${TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID:-}" ] || return 0
   if check_output="$(node scripts/ci/translation-deploy-handoff.mjs \
-    --matches pending "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID" \
+    --matches pending "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID" "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT" \
     --git-ref refs/remotes/origin/main 2>&1)"; then
     printf '%s\n' "$check_output"
     return 0
@@ -275,7 +277,7 @@ translation_handoff_recovery_prepare_candidate() {
   translation_handoff_recovery_guard_or_skip false
   node scripts/ci/translation-deploy-handoff.mjs --write fallback
   if ! node scripts/ci/translation-deploy-handoff.mjs \
-    --matches fallback "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID"; then
+    --matches fallback "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ID" "$TRANSLATION_DEPLOY_HANDOFF_EXPECTED_RUN_ATTEMPT"; then
     echo "❌ Local translation handoff did not become fallback for the expected run" >&2
     exit 1
   fi
