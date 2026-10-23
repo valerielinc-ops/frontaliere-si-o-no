@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3997.title': 'Riprendi la tua ricerca quando torni',
+ 'whatsNew.v3997.resumeSearch.title': 'La ricerca resta pronta',
+ 'whatsNew.v3997.resumeSearch.desc': 'Puoi conservare in questo browser l’ultima ricerca con parola chiave, cantone e filtri, e riprenderla quando torni.',
  'whatsNew.v3996.title': 'Avvisi più discreti sulle offerte',
  'whatsNew.v3996.jobViewers.title': 'Un breve segnale mentre leggi un annuncio',
  'whatsNew.v3996.jobViewers.desc': 'Nel dettaglio di un’offerta può comparire un avviso di attività. È discreto, si chiude da solo e non si ripete nella stessa sessione.',
@@ -847,6 +850,11 @@ const translations: Record<string, string> = {
  'jobBoard.returnVisit.show': 'Mostra novità',
  'jobBoard.returnVisit.showAll': 'Mostra tutti i risultati',
  'jobBoard.returnVisit.dismiss': 'Nascondi avviso sulle nuove offerte',
+ 'jobBoard.resumeSearch.title': 'La tua ultima ricerca',
+ 'jobBoard.resumeSearch.keywordSummary': '«{query}» · {canton}{location}',
+ 'jobBoard.resumeSearch.filterSummary': 'Ricerca filtrata ({count}) · {canton}{location}',
+ 'jobBoard.resumeSearch.resume': 'Riprendi',
+ 'jobBoard.resumeSearch.clear': 'Cancella la ricerca salvata',
  'jobBoard.filter.saved': 'Salvati',
  'jobBoard.save.add': 'Salva annuncio',
  'jobBoard.save.remove': 'Rimuovi dai salvati',

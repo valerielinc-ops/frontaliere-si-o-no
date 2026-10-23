@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3997.title': 'Suche bei deiner Rückkehr fortsetzen',
+ 'whatsNew.v3997.resumeSearch.title': 'Deine Suche bleibt gespeichert',
+ 'whatsNew.v3997.resumeSearch.desc': 'Speichere deine letzte Suche mit Stichwort, Kanton und Filtern in diesem Browser und setze sie bei deiner Rückkehr fort.',
  'whatsNew.v3996.title': 'Dezente Hinweise zu Stellenangeboten',
  'whatsNew.v3996.jobViewers.title': 'Ein kurzer Hinweis beim Lesen eines Stellenangebots',
  'whatsNew.v3996.jobViewers.desc': 'Auf der Detailseite eines Stellenangebots kann ein dezenter Aktivitätshinweis erscheinen. Er lässt sich schließen, wird automatisch ausgeblendet und erscheint nur einmal pro Sitzung.',
@@ -811,6 +814,11 @@ const deCore: Record<string, string> = {
  'jobBoard.returnVisit.show': 'Neue Stellen anzeigen',
  'jobBoard.returnVisit.showAll': 'Alle Ergebnisse anzeigen',
  'jobBoard.returnVisit.dismiss': 'Hinweis auf neue Stellen ausblenden',
+ 'jobBoard.resumeSearch.title': 'Deine letzte Suche',
+ 'jobBoard.resumeSearch.keywordSummary': '„{query}“ · {canton}{location}',
+ 'jobBoard.resumeSearch.filterSummary': 'Gefilterte Suche ({count}) · {canton}{location}',
+ 'jobBoard.resumeSearch.resume': 'Fortsetzen',
+ 'jobBoard.resumeSearch.clear': 'Gespeicherte Suche löschen',
  'jobBoard.filter.saved': 'Gespeichert',
  'jobBoard.save.add': 'Stelle speichern',
  'jobBoard.save.remove': 'Aus Gespeicherten entfernen',

@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3997.title': 'Pick up your search when you return',
+ 'whatsNew.v3997.resumeSearch.title': 'Your search is ready when you return',
+ 'whatsNew.v3997.resumeSearch.desc': 'Save your latest search in this browser, including its keyword, canton and filters, then resume it when you come back.',
  'whatsNew.v3996.title': 'Less intrusive job alerts',
  'whatsNew.v3996.jobViewers.title': 'A brief signal while you read a job listing',
  'whatsNew.v3996.jobViewers.desc': 'A small activity notice may appear on a job detail page. It is dismissible, closes automatically and appears only once per session.',
@@ -808,6 +811,11 @@ const enCore: Record<string, string> = {
  'jobBoard.returnVisit.show': 'Show new jobs',
  'jobBoard.returnVisit.showAll': 'Show all results',
  'jobBoard.returnVisit.dismiss': 'Hide new jobs notice',
+ 'jobBoard.resumeSearch.title': 'Your latest search',
+ 'jobBoard.resumeSearch.keywordSummary': '“{query}” · {canton}{location}',
+ 'jobBoard.resumeSearch.filterSummary': 'Filtered search ({count}) · {canton}{location}',
+ 'jobBoard.resumeSearch.resume': 'Resume',
+ 'jobBoard.resumeSearch.clear': 'Clear saved search',
  'jobBoard.filter.saved': 'Saved',
  'jobBoard.save.add': 'Save job',
  'jobBoard.save.remove': 'Remove from saved',

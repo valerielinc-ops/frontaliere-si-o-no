@@ -52,6 +52,8 @@ interface JobAlertFormProps {
   * user edit afterwards is never clobbered by a later prop change.
   */
  initialCantonCode?: string | null;
+ /** City locations inherited from an explicit JobBoard city landing. */
+ initialLocations?: string[];
 }
 
 interface JobAlertTriggerCardProps {
@@ -193,6 +195,7 @@ export default function JobAlertForm({
  onRequireAuth,
  initialKeyword = '',
  initialCantonCode = null,
+ initialLocations = [],
 }: JobAlertFormProps) {
  const { t, locale } = useTranslation();
  const [expanded, setExpanded] = useState(false);
@@ -203,7 +206,9 @@ export default function JobAlertForm({
  // preferences controller; the average user just types and submits.
  const [showAdvanced, setShowAdvanced] = useState(false);
  const [keyword, setKeyword] = useState(initialKeyword);
- const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
+ const [selectedLocations, setSelectedLocations] = useState<string[]>(() => [...initialLocations]);
+ const initialLocationsSeedRef = useRef<string[]>([...initialLocations]);
+ const selectedLocationsEditedRef = useRef(false);
  const [selectedContracts, setSelectedContracts] = useState<string[]>([]);
  const [selectedSectors, setSelectedSectors] = useState<string[]>([]);
  const [selectedCantons, setSelectedCantons] = useState<string[]>([]);
@@ -266,6 +271,20 @@ export default function JobAlertForm({
  useEffect(() => {
  if (initialKeyword) setKeyword(initialKeyword);
  }, [initialKeyword]);
+
+ // A city landing can resolve its canonical label after the first list load.
+ // Refresh that seed while the visitor hasn't edited the location chips.
+ useEffect(() => {
+  const next = Array.from(new Set(initialLocations.map((location) => location.trim()).filter(Boolean)));
+  const previous = initialLocationsSeedRef.current;
+  const locationsStillSeeded = selectedLocations.length === previous.length
+   && previous.every((location) => selectedLocations.includes(location));
+  initialLocationsSeedRef.current = next;
+  if (selectedLocationsEditedRef.current || !locationsStillSeeded) return;
+  const unchanged = next.length === selectedLocations.length
+   && next.every((location) => selectedLocations.includes(location));
+  if (!unchanged) setSelectedLocations(next);
+ }, [initialLocations, selectedLocations]);
 
  // Seed the canton scope from the board's current canton route, once —
  // guarded so a later prop change (e.g. searchQuery-driven re-render) never
@@ -355,6 +374,17 @@ export default function JobAlertForm({
 
  const typedLocale = (locale as CantonLocale) || 'it';
  const cantonOptions = useMemo(() => listCantonOptions(typedLocale), [typedLocale]);
+ const locationOptions = useMemo(() => {
+  const byKey = new Map<string, { value: string; label: string }>(
+   LOCATIONS.map((location) => [location.value.toLocaleLowerCase('en'), location]),
+  );
+  for (const location of [...initialLocations, ...selectedLocations]) {
+   const value = location.trim();
+   const key = value.toLocaleLowerCase('en');
+   if (value && !byKey.has(key)) byKey.set(key, { value, label: value });
+  }
+  return Array.from(byKey.values());
+ }, [initialLocations, selectedLocations]);
 
  // Issue 10529 — the board's always-available utility card has two view
  // classes. An explicit search keyword is actionable funnel context; the
@@ -392,7 +422,7 @@ export default function JobAlertForm({
 
   const buildOneTapConfig = useCallback((): JobAlertConfig => ({
     keywords: oneTapKeyword ? [oneTapKeyword] : [],
-    locations: [],
+    locations: selectedLocations,
     contractTypes: [],
     sectors: [],
     cantonFilter: initialCantonCode && CANTON_CODES.includes(initialCantonCode)
@@ -402,7 +432,7 @@ export default function JobAlertForm({
     // the only path that pins a cadence explicitly.
     frequency: 'weekly',
     locale: locale as "it" | "en" | "de" | "fr",
-  }), [initialCantonCode, locale, oneTapKeyword]);
+  }), [initialCantonCode, locale, oneTapKeyword, selectedLocations]);
 
   const configIsEmpty = (c: JobAlertConfig): boolean => (
     c.keywords.length === 0
@@ -472,6 +502,7 @@ export default function JobAlertForm({
 
   const resetForm = useCallback(() => {
     setKeyword('');
+    selectedLocationsEditedRef.current = true;
     setSelectedLocations([]);
     setSelectedContracts([]);
     setSelectedSectors([]);
@@ -649,6 +680,7 @@ export default function JobAlertForm({
  };
 
  const toggleLocation = (loc: string) => {
+ selectedLocationsEditedRef.current = true;
  setSelectedLocations((prev) =>
  prev.includes(loc) ? prev.filter((l) => l !== loc) : [...prev, loc],
  );
@@ -799,7 +831,7 @@ export default function JobAlertForm({
  {t('jobAlert.zone') || 'Zona'}
  </legend>
  <div className="flex flex-wrap gap-2" role="group" aria-label={t('jobAlert.zone') || 'Zona'}>
- {LOCATIONS.map((loc) => (
+ {locationOptions.map((loc) => (
  <button
  key={loc.value}
  onClick={() => toggleLocation(loc.value)}

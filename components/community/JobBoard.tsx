@@ -116,11 +116,28 @@ import {
 } from '@/services/personalizationScoring';
 import { type JobMatchProfileData, loadJobMatchProfile, mergeNewsletterSignals } from '@/services/jobMatchProfile';
 import NewJobsCounter from '@/components/community/NewJobsCounter';
-import { isJobBoardNewSinceVisit, hasJobBoardAlertOpenRequest } from '@/services/jobBoardNewJobs';
+import ResumeJobSearch from '@/components/community/ResumeJobSearch';
+import {
+ canOpenJobBoardAlertOnRoute,
+ createJobBoardNewJobsImpressionGate,
+ isJobBoardNewSinceVisit,
+ hasJobBoardAlertOpenRequest,
+} from '@/services/jobBoardNewJobs';
 import {
  createJobBoardReturnVisitSnapshotStore,
  readOrCaptureJobBoardReturnVisitSnapshot,
 } from '@/services/jobBoardReturnVisitSnapshot';
+import {
+ areJobBoardSearchResumesEqual,
+ buildJobBoardSearchResume,
+ clearJobBoardSearchResume,
+ getJobBoardSearchResumeStorage,
+ hasUsefulJobBoardSearchResume,
+ readJobBoardSearchResume,
+ shouldOfferJobBoardSearchResume,
+ writeJobBoardSearchResume,
+ type JobBoardSearchResume,
+} from '@/services/jobBoardSearchResume';
 import TrendingSection, { selectRecommendationJobs } from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
@@ -325,6 +342,7 @@ const DEFAULT_CANTON = 'TI';
 const DEFAULT_CANTON_DISPLAY = 'Ticino';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 const jobBoardReturnVisitSnapshotStore = createJobBoardReturnVisitSnapshotStore();
+const jobBoardNewJobsImpressionGate = createJobBoardNewJobsImpressionGate();
 
 function getJobBoardReturnVisitStorage(): Storage | null {
  if (typeof window === 'undefined') return null;
@@ -2826,6 +2844,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
  const [lastVisitTimestamp, setLastVisitTimestamp] = useState<number | null>(null);
+ const [savedJobBoardSearchResume, setSavedJobBoardSearchResume] = useState<JobBoardSearchResume | null>(null);
+ const [jobBoardSearchResumeLoaded, setJobBoardSearchResumeLoaded] = useState(false);
+ const pendingJobBoardSearchResumeRef = useRef<JobBoardSearchResume | null>(null);
+ const suppressedJobBoardSearchResumeWriteRef = useRef<JobBoardSearchResume | null>(null);
+ const jobBoardSearchResumeInteractionRef = useRef(false);
  const applicationIntentExposureRef = useRef(false);
  const applicationIntentSyncRef = useRef<{ jobId: string; promise: Promise<boolean> } | null>(null);
  const [newJobsDismissed, setNewJobsDismissed] = useState(false);
@@ -2910,6 +2933,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setBehaviorData(result.visit?.data ?? getBehaviorData());
  setLastVisitTimestamp(result.snapshot.previousLastVisit);
  }, [enablePersonalization, enableApplicationIntentRanking, behaviorHydrationRevision]);
+
+ // Search resume is a local convenience, independent of ranking or alert
+ // experiments. Read it after mount so blocked storage never affects render.
+ useEffect(() => {
+  setSavedJobBoardSearchResume(readJobBoardSearchResume(getJobBoardSearchResumeStorage()));
+  setJobBoardSearchResumeLoaded(true);
+ }, []);
 
  // Preference changes happen in the profile surface, which can remain mounted
  // beside the board during an SPA session. Refresh immediately so a signal
@@ -3152,6 +3182,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Apply filter params from SiteSearch navigation (location, search query)
  useEffect(() => {
  if (!initialFilterParams) return;
+  if (initialFilterParams.location || initialFilterParams.query) {
+   jobBoardSearchResumeInteractionRef.current = true;
+  }
  if (initialFilterParams.location) {
  setSelectedLocation(initialFilterParams.location);
  }
@@ -3215,6 +3248,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, showSinceLastVisitOnly, showSavedOnly]);
 
  const resetAllFilters = useCallback(() => {
+ jobBoardSearchResumeInteractionRef.current = true;
  applySearchQuery('');
  setSelectedCategory('all');
  setSelectedContract('all');
@@ -3237,6 +3271,142 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [adRefreshKey, setAdRefreshKey] = useState(0);
  // Mobile load-more: accumulate jobs instead of paginating
  const [mobileJobLimit, setMobileJobLimit] = useState(10);
+ const currentJobBoardResumeRouteSlug = useMemo(() => {
+  if (!initialJobSlug || isSeededExpiredDetail || readBridgeTargetSlug()) return null;
+  return parseLocationSlugFilter(initialJobSlug) ? initialJobSlug : null;
+ }, [initialJobSlug, isSeededExpiredDetail, seedPathname]);
+ const currentJobBoardCanton = initialFilterCanton || getDefaultCantonForVisit();
+ const currentJobBoardSearchResume = useMemo(() => buildJobBoardSearchResume({
+  keyword: searchQuery,
+  canton: currentJobBoardCanton,
+  category: selectedCategory,
+  contract: selectedContract,
+  company: selectedCompany,
+  dateRange: selectedDateRange,
+  location: selectedLocation,
+  sector: selectedSector,
+  routeSlug: currentJobBoardResumeRouteSlug,
+ }), [
+  currentJobBoardCanton,
+  currentJobBoardResumeRouteSlug,
+  initialJobSlug,
+  searchQuery,
+  selectedCategory,
+  selectedContract,
+  selectedCompany,
+  selectedDateRange,
+  selectedLocation,
+  selectedSector,
+ ]);
+
+ const applyJobBoardSearchResume = useCallback((search: JobBoardSearchResume) => {
+  applySearchQuery(search.keyword);
+  setSelectedCategory(search.category as JobCategory | 'all');
+  setSelectedContract(search.contract as ContractType | 'all');
+  setSelectedCompany(search.company);
+  setSelectedDateRange(search.dateRange as DateRange);
+  setSelectedLocation(search.location);
+  setSelectedSector(search.sector);
+  // Relative/temporary filters and the calculator bridge are not part of the
+  // saved search, so clear them instead of silently combining old criteria.
+  setShowNewOnly(false);
+  setShowSinceLastVisitOnly(false);
+  setShowSavedOnly(false);
+  setPage(1);
+  setMobileJobLimit(10);
+  clearSalaryRangeFilter();
+  syncQueryParamsToUrl({
+   q: search.keyword || null,
+   page: null,
+   alert: null,
+  });
+ }, [applySearchQuery, clearSalaryRangeFilter]);
+
+ // Apply a cross-canton resume only after the existing route callback has
+ // switched the board scope. Keeping the pending copy until the rendered
+ // controls match prevents a transient save of the old filters under the new
+ // canton.
+ useEffect(() => {
+  const pending = pendingJobBoardSearchResumeRef.current;
+  if (!pending) return;
+  if (currentJobBoardCanton !== pending.canton || (initialJobSlug || null) !== pending.routeSlug) return;
+  if (!areJobBoardSearchResumesEqual(currentJobBoardSearchResume, pending)) {
+   applyJobBoardSearchResume(pending);
+   return;
+  }
+  pendingJobBoardSearchResumeRef.current = null;
+  suppressedJobBoardSearchResumeWriteRef.current = null;
+ }, [
+  applyJobBoardSearchResume,
+  currentJobBoardCanton,
+  currentJobBoardSearchResume,
+  initialJobSlug,
+ ]);
+
+ useEffect(() => {
+  if (!jobBoardSearchResumeLoaded || !hasUsefulJobBoardSearchResume(currentJobBoardSearchResume)) return;
+  if (pendingJobBoardSearchResumeRef.current) return;
+  if (!jobBoardSearchResumeInteractionRef.current) return;
+
+  const suppressed = suppressedJobBoardSearchResumeWriteRef.current;
+  if (suppressed) {
+   if (areJobBoardSearchResumesEqual(currentJobBoardSearchResume, suppressed)) {
+    suppressedJobBoardSearchResumeWriteRef.current = null;
+    return;
+   }
+   suppressedJobBoardSearchResumeWriteRef.current = null;
+  }
+
+  const next = { ...currentJobBoardSearchResume, savedAt: Date.now() };
+  writeJobBoardSearchResume(next, getJobBoardSearchResumeStorage());
+  setSavedJobBoardSearchResume(next);
+ }, [jobBoardSearchResumeLoaded, currentJobBoardSearchResume]);
+
+ const handleResumeJobBoardSearch = useCallback(() => {
+  const saved = savedJobBoardSearchResume;
+  if (!hasUsefulJobBoardSearchResume(saved)) return;
+
+  pendingJobBoardSearchResumeRef.current = saved;
+  suppressedJobBoardSearchResumeWriteRef.current = saved;
+  const needsRouteChange = currentJobBoardCanton !== saved.canton || (initialJobSlug || null) !== saved.routeSlug;
+  if (needsRouteChange) {
+   if (!onJobRouteChange) {
+    pendingJobBoardSearchResumeRef.current = null;
+    suppressedJobBoardSearchResumeWriteRef.current = null;
+    return;
+   }
+   onJobRouteChange(saved.routeSlug || undefined, saved.canton);
+   return;
+  }
+  applyJobBoardSearchResume(saved);
+ }, [
+  applyJobBoardSearchResume,
+  currentJobBoardCanton,
+  initialJobSlug,
+  onJobRouteChange,
+  savedJobBoardSearchResume,
+ ]);
+
+ const handleClearJobBoardSearchResume = useCallback(() => {
+  pendingJobBoardSearchResumeRef.current = null;
+  suppressedJobBoardSearchResumeWriteRef.current = hasUsefulJobBoardSearchResume(currentJobBoardSearchResume)
+   ? currentJobBoardSearchResume
+   : null;
+  clearJobBoardSearchResume(getJobBoardSearchResumeStorage());
+  setSavedJobBoardSearchResume(null);
+ }, [currentJobBoardSearchResume]);
+
+ const resumeJobBoardSearch = jobBoardSearchResumeLoaded
+  && shouldOfferJobBoardSearchResume({
+   saved: savedJobBoardSearchResume,
+   current: currentJobBoardSearchResume,
+   currentCanton: currentJobBoardCanton,
+   currentRouteSlug: currentJobBoardResumeRouteSlug,
+   canChangeRoute: Boolean(onJobRouteChange),
+  })
+  ? savedJobBoardSearchResume
+  : null;
+
  const [authGateOpen, setAuthGateOpen] = useState(false);
  const [pendingJob, setPendingJob] = useState<JobListing | null>(null);
  const [authBusy, setAuthBusy] = useState<'google' | 'facebook' | 'email' | 'linkedin' | null>(null);
@@ -3355,6 +3525,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const commitSearchQuery = useCallback((value: string) => {
  const next = value.trim();
+ jobBoardSearchResumeInteractionRef.current = true;
  applySearchQuery(next);
  if (!searchSlugFilter) syncQueryParamsToUrl({ q: next || null }, 'push');
  }, [applySearchQuery, searchSlugFilter]);
@@ -3647,6 +3818,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, [jobs]);
 
+ // City landing slugs use locale-independent keys (for example `basel` and
+ // `geneve`). Prefer the spelling already present in the job data; the slug
+ // itself is a safe cold-start fallback and remains a city value, never a
+ // canton code.
+ const boardRouteAlertLocation = useMemo(() => {
+  if (!locationSlugFilter) return null;
+  const match = uniqueLocalities.find((locality) => slugifyLocation(locality.label) === locationSlugFilter);
+  if (match) return match.label;
+  return locationSlugFilter
+   .split('-')
+   .filter(Boolean)
+   .map((part) => `${part.charAt(0).toLocaleUpperCase('en')}${part.slice(1)}`)
+   .join(' ');
+ }, [locationSlugFilter, uniqueLocalities]);
+
+ const selectedBoardAlertLocation = selectedLocation === 'all'
+  ? null
+  : uniqueLocalities.find((locality) => locality.value === selectedLocation)?.label || selectedLocation;
+ const boardFilterAlertLocationConflict = Boolean(
+  boardRouteAlertLocation
+  && selectedBoardAlertLocation
+  && normalizeLocalityKey(boardRouteAlertLocation) !== normalizeLocalityKey(selectedBoardAlertLocation),
+ );
+ const boardFilterAlertLocations = boardRouteAlertLocation
+  ? [boardRouteAlertLocation]
+  : selectedBoardAlertLocation
+   ? [selectedBoardAlertLocation]
+   : [];
+
  const uniqueSectors = useMemo(() => {
  const counts = new Map<string, number>();
  for (const job of jobs) {
@@ -3716,12 +3916,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // SPA boot has already discarded the URL hash. Queue the open request before
  // the lazy form mounts, then remove the one-shot parameter from the URL.
  useEffect(() => {
-  if (returnVisitAlertRequestHandledRef.current || !enableJobAlerts || initialJobSlug || selectedJob) return;
+  if (!canOpenJobBoardAlertOnRoute({
+   requestHandled: returnVisitAlertRequestHandledRef.current,
+   alertsEnabled: enableJobAlerts,
+   initialJobSlug,
+   locationSlugFilter,
+   hasSelectedJob: Boolean(selectedJob),
+  })) return;
   if (typeof window === 'undefined' || !hasJobBoardAlertOpenRequest(window.location.search)) return;
   returnVisitAlertRequestHandledRef.current = true;
+  jobBoardSearchResumeInteractionRef.current = true;
   openJobAlertForm(searchQuery.trim() || undefined);
   syncQueryParamsToUrl({ alert: null });
- }, [enableJobAlerts, initialJobSlug, selectedJob, searchQuery]);
+ }, [enableJobAlerts, initialJobSlug, locationSlugFilter, selectedJob, searchQuery]);
 
  // Cross-canton bridge resolution: when a bridge URL (e.g.
  // /cerca-lavoro-ticino/<old-slug>/) points to a job that now lives in a
@@ -4212,7 +4419,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [enableJobAlerts, boardFilterAlertKeywordLabel, userId, userEmail, isJobDetailView]);
 
  const boardFilterAlertVisible = Boolean(
- enableJobAlerts && boardFilterAlertKeywordLabel && !isJobDetailView && (
+  enableJobAlerts && boardFilterAlertKeywordLabel && !isJobDetailView && !boardFilterAlertLocationConflict && (
  (userId && userEmail && boardFilterAlertEligible) || (!userId || !userEmail)
  ),
  );
@@ -5431,10 +5638,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Count only the pre-return-filter result set, so the action's number and its
  // resulting list always describe the same profession and board filters.
  const returnVisitNewJobsCount = returnVisitNewJobs.length;
- useEffect(() => {
-  if (!enablePersonalization || newJobsDismissed || returnVisitNewJobsCount <= 0) return;
+ const trackReturnVisitNewJobsImpression = useCallback(() => {
+  if (!enablePersonalization || newJobsDismissed || returnVisitNewJobsCount <= 0 || !lastVisitTimestamp) return;
+  if (!jobBoardNewJobsImpressionGate(String(lastVisitTimestamp), getJobBoardReturnVisitStorage())) return;
   Analytics.trackSelectContent('new_jobs_banner_shown', `total:${returnVisitNewJobsCount}`);
- }, [enablePersonalization, returnVisitNewJobsCount, newJobsDismissed]);
+ }, [enablePersonalization, lastVisitTimestamp, newJobsDismissed, returnVisitNewJobsCount]);
 
  const toggleReturnVisitNewJobs = useCallback(() => {
   const shouldShowOnlyNewJobs = !showSinceLastVisitOnly;
@@ -11221,7 +11429,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  keywordLabel={boardFilterAlertKeywordLabel}
  cantonCode={boardFilterAlertCantonCode}
  filters={{
- locations: selectedLocation === 'all' ? [] : [selectedLocation],
+ locations: boardFilterAlertLocations,
  contractTypes: selectedContract === 'all' ? [] : [selectedContract],
  sectors: selectedSector === 'all' ? [] : [selectedSector],
  }}
@@ -11262,9 +11470,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
  { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
  { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); commitSearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
- { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
- { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
+ { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health'); } },
+ { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time'); } },
+ { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship'); } },
  ] as const).map(chip => (
  <button
  key={chip.id}
@@ -11296,6 +11504,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onRequireAuth={onRequireAuth}
  initialKeyword={searchQuery}
  initialCantonCode={boardFilterAlertCantonCode}
+ initialLocations={locationSlugFilter && boardRouteAlertLocation ? [boardRouteAlertLocation] : []}
  />
  </Suspense>
  )}
@@ -11407,6 +11616,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  defaultValue={searchQuery}
  onChange={(e) => {
  const next = e.target.value;
+ jobBoardSearchResumeInteractionRef.current = true;
  if (searchDebounceTimerRef.current) clearTimeout(searchDebounceTimerRef.current);
  searchDebounceTimerRef.current = setTimeout(() => applySearchQuery(next), 200);
  }}
@@ -11463,14 +11673,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* Time & Location */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
  {([
- { id: 'today', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h') },
- { id: '3days', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d') },
- { id: '7days', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d') },
- { id: 'lugano', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano') },
- { id: 'mendrisio', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => setSelectedLocation(selectedLocation === 'mendrisio' ? 'all' : 'mendrisio') },
- { id: 'bellinzona', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona') },
- { id: 'locarno', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => setSelectedLocation(selectedLocation === 'locarno' ? 'all' : 'locarno') },
- { id: 'chiasso', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => setSelectedLocation(selectedLocation === 'chiasso' ? 'all' : 'chiasso') },
+ { id: 'today', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h'); } },
+ { id: '3days', icon: Clock, label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d'); } },
+ { id: '7days', icon: Clock, label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d'); } },
+ { id: 'lugano', icon: MapPin, label: 'Lugano', active: selectedLocation === 'lugano', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano'); } },
+ { id: 'mendrisio', icon: MapPin, label: 'Mendrisio', active: selectedLocation === 'mendrisio', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'mendrisio' ? 'all' : 'mendrisio'); } },
+ { id: 'bellinzona', icon: MapPin, label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona'); } },
+ { id: 'locarno', icon: MapPin, label: 'Locarno', active: selectedLocation === 'locarno', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'locarno' ? 'all' : 'locarno'); } },
+ { id: 'chiasso', icon: MapPin, label: 'Chiasso', active: selectedLocation === 'chiasso', action: () => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(selectedLocation === 'chiasso' ? 'all' : 'chiasso'); } },
  ] as const).map(chip => (
  <button
  key={chip.id}
@@ -11587,7 +11797,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="relative">
  <select
  value={selectedLocation}
- onChange={(e) => setSelectedLocation(e.target.value)}
+ onChange={(e) => { jobBoardSearchResumeInteractionRef.current = true; setSelectedLocation(e.target.value); }}
  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
  selectedLocation !== 'all'
  ? 'border-accent-border bg-accent-subtle text-accent'
@@ -11608,7 +11818,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="relative">
  <select
  value={selectedSector}
- onChange={(e) => setSelectedSector(e.target.value)}
+ onChange={(e) => { jobBoardSearchResumeInteractionRef.current = true; setSelectedSector(e.target.value); }}
  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
  selectedSector !== 'all'
  ? 'border-accent-border bg-accent-subtle text-accent'
@@ -11629,7 +11839,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="relative">
  <select
  value={selectedCategory}
- onChange={(e) => setSelectedCategory(e.target.value as JobCategory | 'all')}
+ onChange={(e) => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCategory(e.target.value as JobCategory | 'all'); }}
  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
  selectedCategory !== 'all'
  ? 'border-accent-border bg-accent-subtle text-accent'
@@ -11649,7 +11859,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="relative">
  <select
  value={selectedContract}
- onChange={(e) => setSelectedContract(e.target.value as ContractType | 'all')}
+ onChange={(e) => { jobBoardSearchResumeInteractionRef.current = true; setSelectedContract(e.target.value as ContractType | 'all'); }}
  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
  selectedContract !== 'all'
  ? 'border-accent-border bg-accent-subtle text-accent'
@@ -11669,7 +11879,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="relative">
  <select
  value={selectedCompany}
- onChange={(e) => setSelectedCompany(e.target.value)}
+ onChange={(e) => { jobBoardSearchResumeInteractionRef.current = true; setSelectedCompany(e.target.value); }}
  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
  selectedCompany !== 'all'
  ? 'border-accent-border bg-accent-subtle text-accent'
@@ -11690,7 +11900,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="relative">
  <select
  value={selectedDateRange}
- onChange={(e) => setSelectedDateRange(e.target.value as DateRange)}
+ onChange={(e) => { jobBoardSearchResumeInteractionRef.current = true; setSelectedDateRange(e.target.value as DateRange); }}
  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
  selectedDateRange !== 'all'
  ? 'border-accent-border bg-accent-subtle text-accent'
@@ -11741,6 +11951,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
 
+ {resumeJobBoardSearch && (
+ <ResumeJobSearch
+ search={resumeJobBoardSearch}
+ cantonLabel={getCantonI18nParams(resumeJobBoardSearch.canton).canton}
+ onResume={handleResumeJobBoardSearch}
+ onClear={handleClearJobBoardSearchResume}
+ />
+ )}
+
  {boardFilterAlertCtaJsx}
 
  {/* A neutral, useful recommendation slot exists before Remote Config resolves.
@@ -11771,6 +11990,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  isActive={showSinceLastVisitOnly}
  onToggle={toggleReturnVisitNewJobs}
  onDismiss={() => setNewJobsDismissed(true)}
+ onImpression={trackReturnVisitNewJobsImpression}
  />
  )}
  {isPersonalizationActive && (

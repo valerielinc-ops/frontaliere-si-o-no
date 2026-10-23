@@ -6,21 +6,25 @@
 import React from 'react';
 import { Sparkles, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
 interface NewJobsCounterProps {
  newJobsCount: number;
  isActive: boolean;
  onToggle: () => void;
  onDismiss: () => void;
+ onImpression?: () => void;
 }
 
-function NewJobsCounter({ newJobsCount, isActive, onToggle, onDismiss }: NewJobsCounterProps) {
+function NewJobsCounter({ newJobsCount, isActive, onToggle, onDismiss, onImpression }: NewJobsCounterProps) {
  const { t } = useTranslation();
+ const impressionRef = useImpressionTracker(() => onImpression?.());
 
  if (newJobsCount <= 0 && !isActive) return null;
 
  return (
  <div
+ ref={impressionRef}
  role="status"
  data-testid="return-visit-new-jobs"
  className="flex flex-wrap items-center gap-2 px-3 py-2 rounded-[6px] bg-accent-subtle border border-accent-border/40 text-xs text-body"
@@ -33,7 +37,7 @@ function NewJobsCounter({ newJobsCount, isActive, onToggle, onDismiss }: NewJobs
  </span>
  <button
  type="button"
- onClick={onToggle}
+ onClick={() => { onImpression?.(); onToggle(); }}
  aria-pressed={isActive}
  data-testid="return-visit-toggle"
  className="shrink-0 min-h-[44px] px-3 rounded-lg border border-accent-border bg-surface text-accent font-semibold hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
@@ -43,7 +47,7 @@ function NewJobsCounter({ newJobsCount, isActive, onToggle, onDismiss }: NewJobs
  {!isActive && (
  <button
  type="button"
- onClick={onDismiss}
+ onClick={() => { onImpression?.(); onDismiss(); }}
  aria-label={t('jobBoard.returnVisit.dismiss')}
  data-testid="return-visit-dismiss"
  className="shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity motion-reduce:transition-none"

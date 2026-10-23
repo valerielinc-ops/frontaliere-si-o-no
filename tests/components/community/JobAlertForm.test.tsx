@@ -264,6 +264,18 @@ describe('JobAlertForm — canton geo filter', () => {
   });
 });
 
+describe('JobAlertForm — city landing location seed', () => {
+  it('shows the city from an explicit landing as a selected, editable location', () => {
+    render(<JobAlertForm authUser={authUser} initialLocations={['Basel']} />);
+    expandForm();
+
+    const basel = screen.getByRole('button', { name: 'Basel' });
+    expect(basel.getAttribute('aria-pressed')).toBe('true');
+    fireEvent.click(basel);
+    expect(basel.getAttribute('aria-pressed')).toBe('false');
+  });
+});
+
 describe('JobAlertForm — initialCantonCode prefill (issue #4298)', () => {
   it('pre-selects the canton passed via initialCantonCode', () => {
     render(<JobAlertForm authUser={authUser} initialCantonCode="TI" />);
