@@ -3179,10 +3179,10 @@
     },
     {
       "id": "stadt-bern-c57a07a0d129",
-      "slug": "praktikant-in-verkehrsplanung-stadt-bern-bern",
+      "slug": "tirocinante-nella-pianificazione-del-traffico-stadt-bern-bern",
       "slugByLocale": {
         "de": "praktikant-in-verkehrsplanung-stadt-bern-bern",
-        "it": "praktikant-in-verkehrsplanung-stadt-bern-bern",
+        "it": "tirocinante-nella-pianificazione-del-traffico-stadt-bern-bern",
         "en": "intern-in-transport-planning-stadt-bern-bern",
         "fr": "stagiaire-en-planification-des-transports-stadt-bern-bern"
       },
@@ -3243,14 +3243,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:13:34.295Z"
+      "firstSeenAt": "2026-10-22T21:13:34.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-verkehrsplanung-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-verkehrsplanung-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-7cc9e9daf2f4",
-      "slug": "fachspezialist-in-subsidiaritat-e-auskunft-stadt-bern",
+      "slug": "specialista-in-sussidiarieta-e-informazioni-stadt-bern-bern",
       "slugByLocale": {
         "de": "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern",
-        "it": "fachspezialist-in-subsidiaritat-e-auskunft-stadt-bern",
+        "it": "specialista-in-sussidiarieta-e-informazioni-stadt-bern-bern",
         "en": "specialist-in-subsidiarity-and-information-stadt-bern-bern",
         "fr": "specialiste-de-la-subsidiarite-et-du-renseignement-stadt-bern-bern"
       },
@@ -3300,7 +3308,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern"
+          "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern",
+          "fachspezialist-in-subsidiaritat-e-auskunft-stadt-bern"
         ],
         "en": [
           "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern"
@@ -3310,7 +3319,8 @@
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern"
+        "fachspezialist-in-subsidiaritat-und-auskunft-stadt-bern-bern",
+        "fachspezialist-in-subsidiaritat-e-auskunft-stadt-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

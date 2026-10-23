@@ -14703,7 +14703,7 @@
       "slugByLocale": {
         "en": "ops-scheduler-lonza-ch",
         "it": "programmatore-ops-lonza-visp",
-        "de": "ops-scheduler-lonza-visp",
+        "de": "operations-planer-lonza-visp",
         "fr": "ops-planificateur-lonza-visp"
       },
       "company": "Lonza",
@@ -14770,10 +14770,14 @@
         ],
         "fr": [
           "ops-scheduler-lonza-ch"
+        ],
+        "de": [
+          "ops-scheduler-lonza-visp"
         ]
       },
       "previousSlugs": [
-        "ops-scheduler-lonza-ch"
+        "ops-scheduler-lonza-ch",
+        "ops-scheduler-lonza-visp"
       ]
     },
     {
