@@ -849,7 +849,7 @@ const ISSUE_CREATOR_INVOCATION = 'node scripts/lib/github-issue-creator.mjs';
 export function withMemberLogExcerpt(run, logFileExpression = `\${${MEMBER_LOG_FILE_ENV}:-}`) {
   return String(run || '')
     .split(ISSUE_CREATOR_INVOCATION)
-    .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}"`);
+    .join(`${ISSUE_CREATOR_INVOCATION} --log-excerpt-file "${logFileExpression}" --require-persisted`);
 }
 // Fires the per-crawler failure reporter. Any non-zero commit exit still
 // reports EXCEPT the five systemic classes, which are not per-crawler signals.
@@ -1629,7 +1629,7 @@ function buildWatchdogKillIssueLines(slug, crawlerId = slug) {
       + '"**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" '
       + '"**Branch:** ${GITHUB_REF_NAME:-}" '
       + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',
-    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --log-excerpt-file "$state_dir/${slug}.log" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)}; then`,
+    `  if ! node scripts/lib/github-issue-creator.mjs --title ${quoteArg(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --log-excerpt-file "$state_dir/${slug}.log" --priority 2 --label Bug --workflow ${quoteArg(`Run ${slug}`)} --require-persisted; then`,
     `    echo "::error::${slug}: the watchdog-timeout issue could not be filed; failing the group verdict"`,
     '    failure_count=$((failure_count + 1))',
     '  fi',
