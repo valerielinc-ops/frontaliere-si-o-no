@@ -213,7 +213,7 @@ jobs:
 
           # ---- coop: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run coop" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -468,7 +468,7 @@ jobs:
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
               echo "::error::$slug: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
               watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug"; then
+              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug" --require-persisted; then
                 echo "::error::$slug: the watchdog-timeout issue could not be filed; failing the group verdict"
                 failure_count=$((failure_count + 1))
               fi

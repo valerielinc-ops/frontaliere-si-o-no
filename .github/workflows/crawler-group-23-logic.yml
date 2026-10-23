@@ -219,7 +219,7 @@ jobs:
 
           # ---- albergo-gardenia: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run albergo-gardenia" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -418,7 +418,7 @@ jobs:
 
           # ---- artificialy: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run artificialy" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -620,7 +620,7 @@ jobs:
 
           # ---- csd-engineers: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run csd-engineers" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -822,7 +822,7 @@ jobs:
 
           # ---- fust: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run fust" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1024,7 +1024,7 @@ jobs:
 
           # ---- hugo-boss: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run hugo-boss" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1226,7 +1226,7 @@ jobs:
 
           # ---- lidl: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run lidl" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1428,7 +1428,7 @@ jobs:
 
           # ---- migros-hq: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run migros-hq" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1630,7 +1630,7 @@ jobs:
 
           # ---- nestle: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run nestle" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -1832,7 +1832,7 @@ jobs:
 
           # ---- postch: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run postch" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2034,7 +2034,7 @@ jobs:
 
           # ---- brefispersonal: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run brefispersonal" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2236,7 +2236,7 @@ jobs:
 
           # ---- ecam: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run ecam" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2438,7 +2438,7 @@ jobs:
 
           # ---- christinavassalli: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run christinavassalli" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2640,7 +2640,7 @@ jobs:
 
           # ---- premiumpflege24: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run premiumpflege24" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -2842,7 +2842,7 @@ jobs:
 
           # ---- mcdonald-s-switzerland: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run mcdonald-s-switzerland" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3097,7 +3097,7 @@ jobs:
           **Causa:** timeout del target dopo 150 minuti (exit 124).'\''
           fi
           if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne 43 ] && [ "$target_exit" -ne 44 ] && [ "$target_exit" -ne 45 ] && [ "$target_exit" -ne 143 ]; then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run fachkraft" \
               --description "## Crawler fallito${crawler_failure_timeout_detail}
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3287,7 +3287,7 @@ jobs:
 
           # ---- postfinance: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run postfinance" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3489,7 +3489,7 @@ jobs:
 
           # ---- tsmg: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run tsmg" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3691,7 +3691,7 @@ jobs:
 
           # ---- capri-holdings: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run capri-holdings" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -3893,7 +3893,7 @@ jobs:
 
           # ---- anicura: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run anicura" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4095,7 +4095,7 @@ jobs:
 
           # ---- fisba: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run fisba" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4297,7 +4297,7 @@ jobs:
 
           # ---- postauto: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run postauto" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4499,7 +4499,7 @@ jobs:
 
           # ---- pantr-ch: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run pantr-ch" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4701,7 +4701,7 @@ jobs:
 
           # ---- confederazione: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run confederazione" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -4903,7 +4903,7 @@ jobs:
 
           # ---- mediamarkt: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run mediamarkt" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5105,7 +5105,7 @@ jobs:
 
           # ---- pianorm: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run pianorm" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5307,7 +5307,7 @@ jobs:
 
           # ---- rehaklinik-seewis: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run rehaklinik-seewis" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5509,7 +5509,7 @@ jobs:
 
           # ---- my: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run my" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5711,7 +5711,7 @@ jobs:
 
           # ---- zaugg: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run zaugg" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -5913,7 +5913,7 @@ jobs:
 
           # ---- physioswiss: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
           if (( (crawler_exit != 0 && crawler_exit != 143) || (git_commit_exit != 0 && git_commit_exit != 42 && git_commit_exit != 43 && git_commit_exit != 44 && git_commit_exit != 45 && git_commit_exit != 143) )); then
-            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" \
+            node scripts/lib/github-issue-creator.mjs --log-excerpt-file "${CRAWLER_MEMBER_LOG_FILE:-}" --require-persisted \
               --title "Crawler Failure: Run physioswiss" \
               --description "## Crawler fallito
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -7708,7 +7708,7 @@ jobs:
               watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
               echo "::error::$slug: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
               watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
-              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug"; then
+              if ! node scripts/lib/github-issue-creator.mjs --title "Crawler Failure: Run $slug" --description "$watchdog_description" --log-excerpt-file "$state_dir/$slug.log" --priority 2 --label Bug --workflow "Run $slug" --require-persisted; then
                 echo "::error::$slug: the watchdog-timeout issue could not be filed; failing the group verdict"
                 failure_count=$((failure_count + 1))
               fi
