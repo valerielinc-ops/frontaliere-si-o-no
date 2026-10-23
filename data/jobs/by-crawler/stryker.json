@@ -563,12 +563,12 @@
     },
     {
       "id": "stryker-d43528724666",
-      "slug": "r-d-packaging-internship-6-months-stryker-ch",
+      "slug": "r-d-packaging-stage-6-mesi-stryker-selzach",
       "slugByLocale": {
         "en": "r-d-packaging-internship-6-months-stryker-ch",
-        "it": "r-d-packaging-internship-6-months-stryker-ch",
-        "de": "r-d-packaging-internship-6-months-stryker-ch",
-        "fr": "r-d-packaging-internship-6-months-stryker-ch"
+        "it": "r-d-packaging-stage-6-mesi-stryker-selzach",
+        "de": "r-d-packaging-praktikum-6-monate-stryker-selzach",
+        "fr": "emballage-r-d-stage-6-mois-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -627,7 +627,21 @@
         }
       },
       "postalCode": "2545",
-      "firstSeenAt": "2026-10-22T21:32:55.330Z"
+      "firstSeenAt": "2026-10-22T21:32:55.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-packaging-internship-6-months-stryker-ch"
+        ],
+        "de": [
+          "r-d-packaging-internship-6-months-stryker-ch"
+        ],
+        "fr": [
+          "r-d-packaging-internship-6-months-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-packaging-internship-6-months-stryker-ch"
+      ]
     }
   ]
 }

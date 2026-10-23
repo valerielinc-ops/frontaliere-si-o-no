@@ -1380,12 +1380,12 @@
     },
     {
       "id": "epi-stiftung-19d29dd23046",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
+      "slug": "dipl-specializzato-per-infermieri-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
+        "it": "dipl-specializzato-per-infermieri-specialista-in-allattamento-hf-fh-servizio-notturno-schweizerische-epilepsie-stiftung",
+        "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-night-service-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1444,7 +1444,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:15:33.341Z"
+      "firstSeenAt": "2026-10-22T21:15:33.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-nachtdienst-epi-stiftung-zurich"
+      ]
     }
   ]
 }

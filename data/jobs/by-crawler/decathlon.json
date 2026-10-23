@@ -4024,12 +4024,12 @@
     },
     {
       "id": "decathlon-fc17f0aad047",
-      "slug": "conseiller-ere-ski-h-f-cdd-40-decathlon-ch",
+      "slug": "consigliere-ski-m-f-csd-40-decathlon-geneve",
       "slugByLocale": {
         "fr": "conseiller-ere-ski-h-f-cdd-40-decathlon-ch",
-        "it": "conseiller-ere-ski-h-f-cdd-40-decathlon-ch",
-        "en": "conseiller-ere-ski-h-f-cdd-40-decathlon-ch",
-        "de": "conseiller-ere-ski-h-f-cdd-40-decathlon-ch"
+        "it": "consigliere-ski-m-f-csd-40-decathlon-geneve",
+        "en": "adviser-ski-m-f-csd-40-decathlon-geneve",
+        "de": "berater-ski-m-w-csd-40-decathlon-geneve"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4086,16 +4086,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:26:18.442Z"
+      "firstSeenAt": "2026-10-22T21:26:18.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-ski-h-f-cdd-40-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-ski-h-f-cdd-40-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-ski-h-f-cdd-40-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-ski-h-f-cdd-40-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-fe3859aa2c85",
-      "slug": "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch",
+      "slug": "tecnico-di-personalizzazione-100-workshop-onnens-vd-decathlon-onnens",
       "slugByLocale": {
         "fr": "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch",
-        "it": "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch",
-        "en": "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch",
-        "de": "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch"
+        "it": "tecnico-di-personalizzazione-100-workshop-onnens-vd-decathlon-onnens",
+        "en": "100-personalization-technician-workshop-onnens-vd-decathlon-onnens",
+        "de": "100-personalisierungstechniker-workshop-onnens-vd-decathlon-onnens"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4152,16 +4166,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-22T21:26:17.776Z"
+      "firstSeenAt": "2026-10-22T21:26:17.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch"
+        ],
+        "en": [
+          "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch"
+        ],
+        "de": [
+          "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-personnalisation-a-100-atelier-onnens-vd-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-e574c51edd3e",
-      "slug": "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-zurich",
+      "slug": "leader-sportivo-temporaneo-consulente-commerciale-m-f-d-50-decathlon-zurich",
       "slugByLocale": {
         "de": "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch",
-        "it": "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-zurich",
-        "en": "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch",
-        "fr": "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch"
+        "it": "leader-sportivo-temporaneo-consulente-commerciale-m-f-d-50-decathlon-zurich",
+        "en": "temporary-sport-leader-sales-advisor-m-f-d-50-decathlon-zurich",
+        "fr": "leader-sportif-temporaire-conseiller-en-ventes-h-f-d-50-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4207,11 +4235,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch",
+          "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-zurich"
+        ],
+        "en": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch"
+        ],
+        "fr": [
           "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch"
+        "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-ch",
+        "befristet-sport-leader-verkaufsberater-m-w-d-50-decathlon-zurich"
       ],
       "salaryMin": 41500,
       "salaryMax": 63800,
@@ -4230,12 +4266,12 @@
     },
     {
       "id": "decathlon-3ceed57be56a",
-      "slug": "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-zurich",
+      "slug": "leader-sportivo-temporaneo-sales-advisor-m-f-d-70-decathlon-zurich",
       "slugByLocale": {
         "de": "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch",
-        "it": "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-zurich",
-        "en": "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch",
-        "fr": "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch"
+        "it": "leader-sportivo-temporaneo-sales-advisor-m-f-d-70-decathlon-zurich",
+        "en": "temporary-sport-leader-sales-advisor-m-f-d-70-decathlon-zurich",
+        "fr": "leader-sportif-temporaire-conseiller-en-ventes-h-f-d-70-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4281,11 +4317,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch",
+          "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-zurich"
+        ],
+        "en": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch"
+        ],
+        "fr": [
           "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch"
+        "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-ch",
+        "befristet-sport-leader-verkaufsberater-m-w-d-70-decathlon-zurich"
       ],
       "salaryMin": 58100,
       "salaryMax": 89300,

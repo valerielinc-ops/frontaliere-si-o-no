@@ -8468,9 +8468,9 @@
       "slug": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-agno-df35b42c06",
       "slugByLocale": {
         "it": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-agno-df35b42c06",
-        "en": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-knk0ot",
-        "de": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-knk0ot",
-        "fr": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-knk0ot"
+        "en": "apprentice-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-agno",
+        "de": "lernende-r-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-agno",
+        "fr": "apprenti-e-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-agno"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -8549,13 +8549,16 @@
           "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-knk0ot"
         ],
         "en": [
-          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse"
+          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
+          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-knk0ot"
         ],
         "de": [
-          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse"
+          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
+          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-knk0ot"
         ],
         "fr": [
-          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse"
+          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
+          "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse-knk0ot"
         ]
       },
       "firstSeenAt": "2026-08-18T10:19:27.720Z",
@@ -8578,9 +8581,9 @@
       "slug": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
       "slugByLocale": {
         "it": "apprendista-nel-commercio-al-dettaglio-m-f-x-aldi-suisse",
-        "en": "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+        "en": "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
         "de": "lernende-im-einzelhandel-m-w-x-aldi-suisse-mendrisio",
-        "fr": "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
+        "fr": "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -8654,15 +8657,15 @@
       "crawledAt": "2026-10-22T21:47:19.574Z",
       "previousSlugsByLocale": {
         "en": [
-          "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio"
+          "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
         ],
         "fr": [
-          "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
+          "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
         ]
       },
       "previousSlugs": [
-        "learner-in-retail-trade-m-f-x-aldi-suisse-mendrisio",
-        "apprentis-dans-le-commerce-de-detail-h-f-x-aldi-suisse-mendrisio"
+        "apprentice-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio",
+        "apprenti-e-nel-commercio-al-dettaglio-m-w-d-aldi-suisse-mendrisio"
       ],
       "salaryMin": 46500,
       "salaryMax": 71500,
