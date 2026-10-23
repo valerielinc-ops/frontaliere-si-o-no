@@ -7,6 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildMinimalJobInput,
+  buildActiveJobPageInput,
   buildActiveJobPageReuseInput,
   createIncrementalManifestInputCache,
   IncrementalManifest,
@@ -110,7 +111,7 @@ describe('incremental manifest input contract', () => {
 
   it('includes the resolved expired-page title in its reuse input', () => {
     const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
-    const resolvedTitle = source.indexOf('const pageTitle = esc(pageTitleRaw);');
+    const resolvedTitle = source.indexOf('const pageTitle = esc(finalizeJobBoardTitle(pageTitleRaw));');
     const inputStart = source.indexOf('const softLandingManifestInput', resolvedTitle);
     const reuseStart = source.indexOf('const softLandingReuse', inputStart);
     expect(resolvedTitle).toBeGreaterThanOrEqual(0);
@@ -142,6 +143,112 @@ describe('incremental manifest input contract', () => {
     ]) {
       expect(buildMinimalJobInput(renderedChange, 'it', renderedChange.slug).jobRecordDigest).not.toBe(baseDigest);
     }
+  });
+
+  it('ignores alias-history journal churn in the current-page digest', () => {
+    const baseJob = {
+      id: 'history-job-1',
+      slug: 'current-role',
+      title: 'Role',
+      updatedAt: 'fixture-v1',
+    };
+    const withHistory = {
+      ...baseJob,
+      previousSlugs: ['older-role', 'oldest-role'],
+      previousSlugsByLocale: {
+        it: ['vecchio-ruolo'],
+        fr: ['ancien-poste'],
+      },
+    };
+
+    expect(buildMinimalJobInput(withHistory, 'it', baseJob.slug).jobRecordDigest)
+      .toBe(buildMinimalJobInput(baseJob, 'it', baseJob.slug).jobRecordDigest);
+  });
+
+  it('keeps bridge reuse inputs page-local instead of hashing the alias journal', () => {
+    const source = fs.readFileSync(JOBS_SEO_PLUGIN, 'utf8');
+    const previousStart = source.indexOf('const previousSlugReuseInput');
+    const previousEnd = source.indexOf('const previousSlugReuse =', previousStart);
+    const legacyStart = source.indexOf('const legacyTIReuseInput');
+    const legacyEnd = source.indexOf('const legacyTIReuse =', legacyStart);
+    const crossStart = source.indexOf('const crossLocaleActiveReuseInput');
+    const crossEnd = source.indexOf('const crossLocaleActiveReuse =', crossStart);
+
+    expect(source.slice(previousStart, previousEnd)).not.toContain('previousSlugsByLocale');
+    expect(source.slice(legacyStart, legacyEnd)).not.toContain('previousSlugsByLocale');
+    expect(source.slice(crossStart, crossEnd)).not.toContain('previousSlugsByLocale');
+    expect(source.slice(crossStart, crossEnd)).not.toContain('slugPerLocale');
+  });
+
+  it('keeps active reuse stable for crawledAt while the publish hash changes', () => {
+    const makeInput = (crawledAt: string) => buildActiveJobPageInput({
+      job: {
+        id: 'heartbeat-job-1',
+        slug: 'heartbeat-role',
+        title: 'Role',
+        updatedAt: 'fixture-v1',
+        datePosted: '2026-10-20T08:00:00.000Z',
+        crawledAt,
+      },
+      locale: 'fr',
+      slug: 'heartbeat-role',
+      relatedJobs: [],
+      canton: 'TI',
+      canonicalUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/heartbeat-role/',
+      relatedArticlesHtml: '<section>feed</section>',
+      hreflangHtml: '<link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/trouver-emploi-tessin/heartbeat-role/">',
+      employerHubPath: '',
+      renderDateBucket: '2026-10-23',
+    });
+    const before = makeInput('2026-10-22T21:26:37.571Z');
+    const after = makeInput('2026-10-23T09:31:45.608Z');
+    const beforeReuse = buildActiveJobPageReuseInput(before);
+    const afterReuse = buildActiveJobPageReuseInput(after);
+
+    expect(computeInputHash(before, 'active-job')).not.toBe(
+      computeInputHash(after, 'active-job'),
+    );
+    expect(before).toHaveProperty('jobRecordReuseDigest');
+    expect(beforeReuse).not.toHaveProperty('jobRecordReuseDigest');
+    expect(beforeReuse).toEqual(afterReuse);
+    expect(computeInputHash(beforeReuse, 'active-job')).toBe(
+      computeInputHash(afterReuse, 'active-job'),
+    );
+  });
+
+  it('does not invalidate active pages when a related card heartbeat moves', () => {
+    const makeInput = (crawledAt: string) => buildActiveJobPageInput({
+      job: {
+        id: 'active-with-related-1',
+        slug: 'active-with-related',
+        title: 'Role',
+        updatedAt: 'fixture-v1',
+      },
+      locale: 'fr',
+      slug: 'active-with-related',
+      relatedJobs: [{
+        id: 'related-heartbeat-1',
+        slug: 'related-role',
+        title: 'Related role',
+        company: 'Company',
+        location: 'Lugano',
+        crawledAt,
+      }],
+      canton: 'TI',
+      canonicalUrl: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/active-with-related/',
+      relatedArticlesHtml: '<section>feed</section>',
+      hreflangHtml: '<link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/trouver-emploi-tessin/active-with-related/">',
+      employerHubPath: '',
+      renderDateBucket: '2026-10-23',
+    });
+
+    expect(computeInputHash(
+      makeInput('2026-10-22T21:26:37.571Z'),
+      'active-job',
+    )).toBe(computeInputHash(
+      makeInput('2026-10-23T09:31:45.608Z'),
+      'active-job',
+    ));
   });
 
   it('keeps expired soft-landing related links in the hash projection', () => {
@@ -194,7 +301,7 @@ describe('incremental manifest input contract', () => {
   });
 
   it('bumps the digest contract when the reuse input shape changes', () => {
-    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@7');
+    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@8');
   });
 
   it('changes the cross-locale hash when the rendered datePosted changes', () => {

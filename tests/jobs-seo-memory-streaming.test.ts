@@ -226,6 +226,62 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(fs.readFileSync(tail, 'utf8')).toBe('<html>flat</html>');
   });
 
+  it('keeps retained active HTML bounded while preserving every emitted byte', async () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-seo-memory-streaming-'));
+    tempDirs.push(distDir);
+    const collector = new WriteCollector({ pluginName: 'jobsSeoPagesPlugin' });
+    const cache = new Map<string, string>();
+    const pendingPaths = new Map<string, string>();
+    const chunkSize = 512;
+    const pageCount = chunkSize * 3 + 17;
+    let peakCacheEntries = 0;
+
+    const isWritten = (relativePath: string) =>
+      hasCollectorWrittenHtml(
+        distDir,
+        relativePath,
+        (filePath) => getPathHistory().has(filePath),
+      );
+
+    for (let index = 0; index < pageCount; index += 1) {
+      const slug = `stream-job-${index}`;
+      const relativePath = `cerca-lavoro-ticino/${slug}`;
+      const html = minifyHtml(ACTIVE_PAGE.replaceAll('canonical-job', slug));
+      const key = `it:/${relativePath}/`;
+      collector.add(path.join(distDir, relativePath, 'index.html'), html);
+      cache.set(key, html);
+      pendingPaths.set(key, relativePath);
+      peakCacheEntries = Math.max(peakCacheEntries, cache.size);
+
+      if (pendingPaths.size >= chunkSize) {
+        await releaseFlushedHtmlCacheChunk(
+          cache,
+          pendingPaths,
+          () => collector.flush(),
+          isWritten,
+        );
+        collector.forgetWrittenPaths();
+      }
+    }
+    await releaseFlushedHtmlCacheChunk(
+      cache,
+      pendingPaths,
+      () => collector.flush(),
+      isWritten,
+    );
+    collector.forgetWrittenPaths();
+
+    expect(peakCacheEntries).toBeLessThanOrEqual(chunkSize);
+    expect(cache.size).toBe(0);
+    expect(pendingPaths.size).toBe(0);
+    for (let index = 0; index < pageCount; index += 1) {
+      const slug = `stream-job-${index}`;
+      const relativePath = `cerca-lavoro-ticino/${slug}`;
+      expect(fs.readFileSync(path.join(distDir, relativePath, 'index.html'), 'utf8'))
+        .toBe(minifyHtml(ACTIVE_PAGE.replaceAll('canonical-job', slug)));
+    }
+  });
+
   it('pins the retained-set markers and bounded expired cache cardinalities', () => {
     const source = fs.readFileSync(
       path.resolve(process.cwd(), 'build-plugins/jobsSeoPagesPlugin.ts'),
@@ -235,6 +291,10 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
     expect(source).toContain('activeHtmlSource: \'disk\'');
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
+    expect(source).toContain('const JOBS_SEO_HTML_GC_INTERVAL_MB = 1024');
+    expect(source).toContain('jobsSeoHtmlGcRuns,');
+    expect(source).toContain('const flushHubPageWritesIfNeeded = async (): Promise<void> => {');
+    expect(source).toContain('  maybeForceJobsSeoHtmlGc();\n };');
     expect(source).toContain(
       'if (activeHtmlPaths.size >= ACTIVE_HTML_CACHE_CHUNK_SIZE) await releaseActiveHtmlCacheChunk();',
     );

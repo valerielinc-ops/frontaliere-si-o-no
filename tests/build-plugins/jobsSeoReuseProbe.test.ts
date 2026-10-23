@@ -485,6 +485,33 @@ describe('probe sizing and strata', () => {
       .toBe(jobsSeoProbeStratum('active-job', 'it', input, null));
   });
 
+  it('does not create a probe stratum from alias-journal history', () => {
+    const current = { location: 'Lugano' };
+    const withAliasHistory = {
+      ...current,
+      previousSlugs: ['old-lugano-role'],
+      previousSlugsByLocale: { fr: ['ancien-poste'] },
+    };
+    expect(jobsSeoProbeShapeHints(withAliasHistory)).toEqual(
+      jobsSeoProbeShapeHints(current),
+    );
+    expect(
+      jobsSeoProbeStratum(
+        'active-job',
+        'fr',
+        { jobId: 'same' },
+        jobsSeoProbeShapeHints(withAliasHistory),
+      ),
+    ).toBe(
+      jobsSeoProbeStratum(
+        'active-job',
+        'fr',
+        { jobId: 'same' },
+        jobsSeoProbeShapeHints(current),
+      ),
+    );
+  });
+
   it('splits strata on any string nobody enumerated', () => {
     // The dangerous case: a branch selected by a value that is not in any
     // allowlist. The default must be to separate, never to share a verdict.
