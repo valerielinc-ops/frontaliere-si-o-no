@@ -164,6 +164,7 @@ import {
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 import {
   JOBS_CRAWLER_CONFIG_DEFAULTS,
+  JOBS_CRAWLER_CONFIG_LIMITS,
   normalizeJobsCrawlerConfig as normalizeCrawlerConfig,
 } from '../../functions/src/jobsCrawlerConfig.js';
 
@@ -5828,10 +5829,10 @@ function loadCrawlerConfig(inputCfg = null) {
     },
     companyCrawlerMode: {},
     companyKeyAliases: {},
-    minQualityScore: clampNum(process.env.JOBS_MIN_QUALITY_SCORE, 4, 10, JOBS_CRAWLER_CONFIG_DEFAULTS.minQualityScore),
-    minDescriptionChars: clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, 80, 1200, JOBS_CRAWLER_CONFIG_DEFAULTS.minDescriptionChars),
+    minQualityScore: clampNum(process.env.JOBS_MIN_QUALITY_SCORE, JOBS_CRAWLER_CONFIG_LIMITS.minQualityScore.min, JOBS_CRAWLER_CONFIG_LIMITS.minQualityScore.max, JOBS_CRAWLER_CONFIG_DEFAULTS.minQualityScore),
+    minDescriptionChars: clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, JOBS_CRAWLER_CONFIG_LIMITS.minDescriptionChars.min, JOBS_CRAWLER_CONFIG_LIMITS.minDescriptionChars.max, JOBS_CRAWLER_CONFIG_DEFAULTS.minDescriptionChars),
     aiLocalizationEnabled: String(process.env.JOBS_AI_LOCALIZATION_ENABLED || '1') !== '0',
-    aiLocalizationMaxJobsPerRun: clampNum(process.env.JOBS_AI_MAX_JOBS_PER_RUN, 0, 500, JOBS_CRAWLER_CONFIG_DEFAULTS.aiLocalizationMaxJobsPerRun),
+    aiLocalizationMaxJobsPerRun: clampNum(process.env.JOBS_AI_MAX_JOBS_PER_RUN, JOBS_CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.min, JOBS_CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.max, JOBS_CRAWLER_CONFIG_DEFAULTS.aiLocalizationMaxJobsPerRun),
     aiPageValidationEnabled: String(process.env.JOBS_AI_PAGE_VALIDATION_ENABLED || '1') !== '0',
     aiPageValidationMaxPagesPerRun: clampNum(process.env.JOBS_AI_PAGE_VALIDATION_MAX_PAGES_PER_RUN, 0, 1000, 80),
     webDiscoveryEnabled: String(process.env.JOBS_WEB_DISCOVERY_ENABLED || '1') !== '0',
@@ -5840,20 +5841,20 @@ function loadCrawlerConfig(inputCfg = null) {
       enabled: String(process.env.JOBS_CONTENT_REUSE_ENABLED || '1') !== '0',
       similarityThreshold: clampFloat(
         process.env.JOBS_CONTENT_REUSE_SIMILARITY_THRESHOLD,
-        0.7,
-        1,
+        JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.min,
+        JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.max,
         JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.similarityThreshold,
       ),
       minSourceChars: clampNum(
         process.env.JOBS_CONTENT_REUSE_MIN_SOURCE_CHARS,
-        120,
-        8000,
+        JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.min,
+        JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.max,
         JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.minSourceChars,
       ),
       maxLengthDeltaRatio: clampFloat(
         process.env.JOBS_CONTENT_REUSE_MAX_LENGTH_DELTA_RATIO,
-        0.02,
-        1,
+        JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.min,
+        JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.max,
         JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.maxLengthDeltaRatio,
       ),
     },
@@ -5876,16 +5877,16 @@ function loadCrawlerConfig(inputCfg = null) {
   if (envWhitelist.length > 0) cfg.domainWhitelist = envWhitelist;
   if (envBlacklist.length > 0) cfg.domainBlacklist = envBlacklist;
   if (process.env.JOBS_MIN_DESCRIPTION_CHARS !== undefined) {
-    cfg.minDescriptionChars = clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, 80, 1200, defaults.minDescriptionChars);
+    cfg.minDescriptionChars = clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, JOBS_CRAWLER_CONFIG_LIMITS.minDescriptionChars.min, JOBS_CRAWLER_CONFIG_LIMITS.minDescriptionChars.max, defaults.minDescriptionChars);
   }
   if (process.env.JOBS_MIN_QUALITY_SCORE !== undefined) {
-    cfg.minQualityScore = clampNum(process.env.JOBS_MIN_QUALITY_SCORE, 4, 10, defaults.minQualityScore);
+    cfg.minQualityScore = clampNum(process.env.JOBS_MIN_QUALITY_SCORE, JOBS_CRAWLER_CONFIG_LIMITS.minQualityScore.min, JOBS_CRAWLER_CONFIG_LIMITS.minQualityScore.max, defaults.minQualityScore);
   }
   if (process.env.JOBS_AI_LOCALIZATION_ENABLED !== undefined) {
     cfg.aiLocalizationEnabled = String(process.env.JOBS_AI_LOCALIZATION_ENABLED || '1') !== '0';
   }
   if (process.env.JOBS_AI_MAX_JOBS_PER_RUN !== undefined) {
-    cfg.aiLocalizationMaxJobsPerRun = clampNum(process.env.JOBS_AI_MAX_JOBS_PER_RUN, 0, 500, defaults.aiLocalizationMaxJobsPerRun);
+    cfg.aiLocalizationMaxJobsPerRun = clampNum(process.env.JOBS_AI_MAX_JOBS_PER_RUN, JOBS_CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.min, JOBS_CRAWLER_CONFIG_LIMITS.aiLocalizationMaxJobsPerRun.max, defaults.aiLocalizationMaxJobsPerRun);
   }
   if (process.env.JOBS_AI_PAGE_VALIDATION_ENABLED !== undefined) {
     cfg.aiPageValidationEnabled = String(process.env.JOBS_AI_PAGE_VALIDATION_ENABLED || '1') !== '0';
@@ -5907,24 +5908,24 @@ function loadCrawlerConfig(inputCfg = null) {
   if (process.env.JOBS_CONTENT_REUSE_SIMILARITY_THRESHOLD !== undefined) {
     cfg.contentReuse.similarityThreshold = clampFloat(
       process.env.JOBS_CONTENT_REUSE_SIMILARITY_THRESHOLD,
-      0.7,
-      1,
+      JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.min,
+      JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.similarityThreshold.max,
       defaults.contentReuse.similarityThreshold
     );
   }
   if (process.env.JOBS_CONTENT_REUSE_MIN_SOURCE_CHARS !== undefined) {
     cfg.contentReuse.minSourceChars = clampNum(
       process.env.JOBS_CONTENT_REUSE_MIN_SOURCE_CHARS,
-      120,
-      8000,
+      JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.min,
+      JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.minSourceChars.max,
       defaults.contentReuse.minSourceChars
     );
   }
   if (process.env.JOBS_CONTENT_REUSE_MAX_LENGTH_DELTA_RATIO !== undefined) {
     cfg.contentReuse.maxLengthDeltaRatio = clampFloat(
       process.env.JOBS_CONTENT_REUSE_MAX_LENGTH_DELTA_RATIO,
-      0.02,
-      1,
+      JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.min,
+      JOBS_CRAWLER_CONFIG_LIMITS.contentReuse.maxLengthDeltaRatio.max,
       defaults.contentReuse.maxLengthDeltaRatio
     );
   }

@@ -14,6 +14,8 @@ import {
   ADMIN_ROUTE_SLUG,
   emitAdminStaticShells,
 } from '@/build-plugins/adminDataPlugin';
+import { DEFAULT_JOBS_CRAWLER_CONFIG } from '@/components/admin/lib/jobsCrawlerConfig';
+import { JOBS_CRAWLER_CONFIG_DEFAULTS } from '../functions/src/jobsCrawlerConfig.js';
 
 const ADMIN_ROOT = resolve(__dirname, '..', 'components', 'admin');
 const SERVICES_ROOT = resolve(__dirname, '..', 'services');
@@ -56,6 +58,27 @@ describe('admin fase 1 registry', () => {
     expect(getVisibleAdminSections().map((section) => section.slug)).toEqual(EXPECTED_LIVE_SLUGS);
   });
 
+});
+
+describe('admin crawler configuration defaults', () => {
+  it('maps the client state from the Cloud Function defaults', () => {
+    expect(DEFAULT_JOBS_CRAWLER_CONFIG).toEqual({
+      domainWhitelist: JOBS_CRAWLER_CONFIG_DEFAULTS.domainWhitelist,
+      domainBlacklist: JOBS_CRAWLER_CONFIG_DEFAULTS.domainBlacklist,
+      minQualityScore: JOBS_CRAWLER_CONFIG_DEFAULTS.minQualityScore,
+      minDescriptionChars: JOBS_CRAWLER_CONFIG_DEFAULTS.minDescriptionChars,
+      aiLocalizationEnabled: JOBS_CRAWLER_CONFIG_DEFAULTS.aiLocalizationEnabled,
+      aiLocalizationMaxJobsPerRun: JOBS_CRAWLER_CONFIG_DEFAULTS.aiLocalizationMaxJobsPerRun,
+      contentReuseEnabled: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.enabled,
+      contentReuseSimilarityThreshold: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.similarityThreshold,
+      contentReuseMinSourceChars: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.minSourceChars,
+      contentReuseMaxLengthDeltaRatio: JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.maxLengthDeltaRatio,
+      companyPriorityByDomain: JOBS_CRAWLER_CONFIG_DEFAULTS.companyPriority.byDomain,
+      companyPriorityByName: JOBS_CRAWLER_CONFIG_DEFAULTS.companyPriority.byName,
+      sourceSeedsByDomain: JOBS_CRAWLER_CONFIG_DEFAULTS.sourceSeeds.byDomain,
+      sourceSeedsByName: JOBS_CRAWLER_CONFIG_DEFAULTS.sourceSeeds.byName,
+    });
+  });
 });
 
 describe.skipIf(!ROUTER_DATA_AVAILABLE)('admin fase 1 router', () => {
