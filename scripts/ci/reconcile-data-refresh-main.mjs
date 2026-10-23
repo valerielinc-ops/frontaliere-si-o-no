@@ -22,6 +22,7 @@ import {
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { filterCompatPaths } from '../lib/compat-path-safety.mjs';
 import { readGitBlobIfPresent } from '../lib/read-git-blob.mjs';
 import { EVENT_CACHE_PATHS, mergeRefreshContent } from './open-data-refresh-merge.mjs';
 
@@ -157,7 +158,38 @@ function mergedCompatPathCount(tree) {
   return paths.size;
 }
 
-function mergeCompatManifest(tree, baseRaw, mainRaw, headRaw) {
+function sanitizeMergedCompatShards(tree) {
+  const shardFiles = treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate));
+  const allPaths = new Set();
+  let droppedPaths = 0;
+  for (const file of shardFiles) {
+    const raw = readBlob(tree, file, { encoding: null });
+    if (raw === null) throw new Error(`Cannot read merged compatibility shard ${file}`);
+    const text = Buffer.isBuffer(raw) ? raw.toString('utf8') : raw;
+    let parsed;
+    try {
+      parsed = JSON.parse(text);
+    } catch (error) {
+      throw new Error(`Merged compatibility shard ${file} is not valid JSON: ${error.message}`);
+    }
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed) || !Array.isArray(parsed.paths)) {
+      throw new Error(`Merged compatibility shard ${file} must contain a paths array`);
+    }
+    if (parsed.paths.some((value) => typeof value !== 'string')) {
+      throw new Error(`Merged compatibility shard ${file} contains a non-string path`);
+    }
+
+    const filtered = filterCompatPaths(parsed.paths);
+    const paths = filtered.paths.sort();
+    droppedPaths += filtered.dropped.length;
+    for (const pathname of paths) allPaths.add(pathname);
+    const next = `${JSON.stringify({ ...parsed, paths }, null, 2)}\n`;
+    if (next !== text) writeIndexBlob(file, next);
+  }
+  return { shardFiles, totalPaths: allPaths.size, droppedPaths };
+}
+
+function mergeCompatManifest(tree, baseRaw, mainRaw, headRaw, totalPathsOverride = null) {
   // Resolve deletions against the merge base before dropping missing blobs.
   // When one branch deletes the manifest and the other is unchanged, the
   // deletion is the only change and must survive the reconciliation instead
@@ -188,7 +220,7 @@ function mergeCompatManifest(tree, baseRaw, mainRaw, headRaw) {
   return `${JSON.stringify({
     ...metadata,
     shardCount: shardFiles.length,
-    totalPaths: mergedCompatPathCount(tree),
+    totalPaths: totalPathsOverride ?? mergedCompatPathCount(tree),
   }, null, 2)}\n`;
 }
 
@@ -401,6 +433,13 @@ const applyCompatContent = (file, content) => {
   writeIndexBlob(file, content);
 };
 if (options.compat) {
+  const sanitizedCompat = sanitizeMergedCompatShards(tree);
+  if (sanitizedCompat.droppedPaths > 0) {
+    console.warn(
+      `[reconcile-data-refresh-main] dropped ${sanitizedCompat.droppedPaths} unsafe compatibility path(s) before staging`,
+    );
+  }
+
   // Git can merge the pretty-printed accumulator cleanly while still choosing
   // one side's complete snapshot. Always apply the semantic 3-way merge so a
   // clean textual merge cannot discard a path added by the other refresh.
@@ -422,6 +461,7 @@ if (options.compat) {
     blob(options.base, COMPAT_MANIFEST_PATH),
     blob(options.main, COMPAT_MANIFEST_PATH),
     blob(head, COMPAT_MANIFEST_PATH),
+    sanitizedCompat.totalPaths,
   );
   applyCompatContent(COMPAT_MANIFEST_PATH, manifest);
 
@@ -429,7 +469,7 @@ if (options.compat) {
   // plumbing commit below updates HEAD without checking it out. Keep the
   // compatibility files on disk aligned with the committed tree as well;
   // callers read these generated files immediately after reconciliation.
-  for (const file of treeFiles(tree, COMPAT_SHARD_ROOT).filter((candidate) => COMPAT_SHARD_RE.test(candidate))) {
+  for (const file of sanitizedCompat.shardFiles) {
     compatWorktreePaths.add(file);
   }
   for (const file of compatPathsInTree(head)) {

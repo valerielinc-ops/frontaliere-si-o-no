@@ -1,3 +1,11 @@
+import { isDistPathOverFilesystemLimits as isDistPathOverFilesystemLimitsShared } from '../../scripts/lib/compat-path-safety.mjs';
+
+export {
+  MAX_FILESYSTEM_SEGMENT_BYTES,
+  MAX_DIST_PATH_BYTES,
+  isDistPathOverFilesystemLimits,
+} from '../../scripts/lib/compat-path-safety.mjs';
+
 /**
  * A URL path segment beginning with `.` must never become a dist output path.
  *
@@ -8,5 +16,6 @@
  * from writers that turn external URL paths into filesystem paths.
  */
 export function isSafeDistPath(pathname: string): boolean {
-  return !pathname.split('/').some((segment) => segment.startsWith('.'));
+  return !isDistPathOverFilesystemLimitsShared(pathname)
+    && !pathname.split('/').some((segment) => segment.startsWith('.'));
 }

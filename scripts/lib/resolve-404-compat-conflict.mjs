@@ -62,6 +62,7 @@ import {
   compatManifestFile,
 } from './compat-paths-store.mjs';
 import { shardFileName, SHARD_FILE_RE } from './shard-file-naming.mjs';
+import { filterCompatPaths } from './compat-path-safety.mjs';
 
 const STATE_FILE = 'data/inspection-state.json';
 const MANIFEST_FILE = `${COMPAT_SHARD_DIR}/manifest.json`;
@@ -382,7 +383,7 @@ const legacy = readLegacyCandidate(mergedFiles);
 const candidateSet = new Set();
 for (const p of shardPaths) candidateSet.add(p);
 for (const p of legacy.paths) candidateSet.add(p);
-const candidatePaths = Array.from(candidateSet);
+const candidatePaths = filterCompatPaths(Array.from(candidateSet)).paths;
 const manifestMeta = readManifestMeta(manifestConflict, legacy.meta);
 
 // The resolver's family baseline is the clean candidate for unaffected shards

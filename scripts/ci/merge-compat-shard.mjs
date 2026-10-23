@@ -47,6 +47,7 @@
 // the merge can't be trusted (see the fail-closed guard below) the driver
 // SURFACES the conflict (exit 1) and hands off to the resolver instead.
 import { readFileSync, writeFileSync } from 'node:fs';
+import { filterCompatPaths } from '../lib/compat-path-safety.mjs';
 
 const [, , basePath, oursPath, theirsPath] = process.argv; // %O %A %B
 
@@ -113,5 +114,6 @@ for (const p of base) {
   if (!ours.has(p) || !theirs.has(p)) final.delete(p);
 }
 
-writeFileSync(oursPath, JSON.stringify({ paths: [...final].sort() }, null, 2) + '\n');
+const filtered = filterCompatPaths([...final]);
+writeFileSync(oursPath, JSON.stringify({ paths: filtered.paths.sort() }, null, 2) + '\n');
 process.exit(0);

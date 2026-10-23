@@ -34,7 +34,7 @@ import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { ALL_EMIT_LOCALES, shouldEmitLocale, shouldEmitPath } from './shared/localeEmitFilter';
-import { isSafeDistPath } from './shared/distPathSafety';
+import { isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import {
   getIncrementalManifestMap,
   INCREMENTAL_MANIFEST_ENABLED,
@@ -270,9 +270,14 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       let skippedUnresolved = 0;
       let skippedNonOwnedLocale = 0;
       let skippedUnsafeDistPaths = 0;
+      let skippedFilesystemLimitPaths = 0;
 
       for (const { path: rawPath } of ordered) {
         const from = withSlash(rawPath);
+        if (isDistPathOverFilesystemLimits(from)) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
         if (!isSafeDistPath(from)) {
           skippedUnsafeDistPaths++;
           continue;
@@ -468,6 +473,9 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
         console.log(
           `\x1b[33m[cf-hot-404-bridge]\x1b[0m Skipped ${skippedUnsafeDistPaths} path(s) with dot-prefixed URL path segments before dist emission.`,
         );
+      }
+      if (skippedFilesystemLimitPaths > 0) {
+        console.warn(`[cf-hot-404-bridge] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
       }
       },
     },

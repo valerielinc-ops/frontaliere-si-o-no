@@ -37,6 +37,7 @@ import path from 'node:path';
 import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn, SHARD_FILE_RE } from './shard-file-naming.mjs';
 import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
+import { filterCompatPaths } from './compat-path-safety.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const COMPAT_LEGACY_FILE = 'data/seo-404-compat-paths.json';
@@ -310,7 +311,18 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
   const { paths: rawPaths, ...meta } = data || {};
   delete meta.shardCount;
   delete meta.totalPaths;
-  const uniq = [...new Set((Array.isArray(rawPaths) ? rawPaths : []).filter((p) => typeof p === 'string'))];
+  const filtered = filterCompatPaths(rawPaths);
+  if (filtered.dropped.length > 0) {
+    const byReason = filtered.dropped.reduce((counts, { reason }) => {
+      counts[reason] = (counts[reason] || 0) + 1;
+      return counts;
+    }, {});
+    console.warn(
+      `[compat-paths-store] dropped ${filtered.dropped.length} unsafe path(s) before persist `
+      + `(filesystem-limit=${byReason['filesystem-limit'] || 0}, attack-payload=${byReason['attack-payload'] || 0})`,
+    );
+  }
+  const uniq = [...new Set(filtered.paths)];
 
   const buckets = Array.from({ length: COMPAT_SHARD_COUNT }, () => []);
   for (const p of uniq) buckets[compatShardIndex(p)].push(p);
@@ -337,5 +349,10 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
     /* best-effort */
   }
 
-  return { totalPaths: uniq.length, shardCount: COMPAT_SHARD_COUNT, shardsWritten };
+  return {
+    totalPaths: uniq.length,
+    shardCount: COMPAT_SHARD_COUNT,
+    shardsWritten,
+    filteredPaths: filtered.dropped.length,
+  };
 }

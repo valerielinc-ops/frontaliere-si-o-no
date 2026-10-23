@@ -47,6 +47,7 @@ import { buildSlimSeed } from './shared/slimJobIndex';
 import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
 import { keywordPageMatcher } from '../scripts/lib/keyword-page-match.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -1271,6 +1272,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // zero. These two trackers surface that discrepancy in the build log.
  let bridgeBytesSaved = 0;
  let softLandingBytesSaved = 0;
+ let skippedFilesystemLimitPaths = 0;
+ let skippedUnsafeDistPaths = 0;
  // GSC keyword landings (`/cerca-lavoro-X/ricerca-Y/`, `/en/find-jobs-X/
  // search-Y/`, `/de/jobs-im-X/suche-Y/`, `/fr/trouver-emploi-X/recherche-Y/`)
  // — auto-generated SEO landings for long-tail search queries. Three
@@ -13449,6 +13452,15 @@ ${staticAnalyticsHtml}
  const writeSoftLandingPage = (outRelPath: string, html: string) => {
  // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
  const normPath = outRelPath.replace(/\/+$/, '');
+ const distPath = `/${normPath}`;
+ if (isDistPathOverFilesystemLimits(distPath)) {
+  skippedFilesystemLimitPaths++;
+  return false;
+ }
+ if (!isSafeDistPath(distPath)) {
+  skippedUnsafeDistPaths++;
+  return false;
+ }
  // Never overwrite ANY page already written by an earlier phase
  // (active jobs, company pages, search pages, editorial pages)
  const targetFile = np.join(distDir, normPath, 'index.html');
@@ -14531,6 +14543,14 @@ ${staticAnalyticsHtml}
  if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
  if (ejCantonForCrossLocale !== 'TI' && isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ if (isDistPathOverFilesystemLimits(relPath)) {
+  skippedFilesystemLimitPaths++;
+  continue;
+ }
+ if (!isSafeDistPath(relPath)) {
+  skippedUnsafeDistPaths++;
+  continue;
+ }
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Active job wins if a live page already occupies this path.
  if (activeJobDirs.has(relPathKey)) continue;
@@ -15265,6 +15285,14 @@ ${staticAnalyticsHtml}
  if (RESERVED_HUB_SLUGS.has(foreignSlug)) continue;
  if (jobCantonForCrossLocale !== 'TI' && isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
  const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ if (isDistPathOverFilesystemLimits(relPath)) {
+  skippedFilesystemLimitPaths++;
+  continue;
+ }
+ if (!isSafeDistPath(relPath)) {
+  skippedUnsafeDistPaths++;
+  continue;
+ }
  const relPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  // Skip if an active job page already occupies this path (another
  // job's slug happens to collide across locales — active wins).
@@ -15652,16 +15680,19 @@ ${staticAnalyticsHtml}
  lang: locale,
  noindex: true,
  });
- writeSoftLandingPage(relPath.replace(/^\//, ''), movedHtml);
- relocatedActiveCount++;
- recordEmit('self-healing', __tSelfHealing);
+ const wroteRelocation = writeSoftLandingPage(relPath.replace(/^\//, ''), movedHtml);
+ if (wroteRelocation) {
+  relocatedActiveCount++;
+  recordEmit('self-healing', __tSelfHealing);
+ }
  continue;
  }
 
  const archive = historicalArchiveFallbacks.get(relPath);
  const hreflangLinks = buildTrackedHreflangLinks(slug, paths);
  const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks);
- writeSoftLandingPage(relPath.replace(/^\//, ''), html);
+ const wroteHistorical = writeSoftLandingPage(relPath.replace(/^\//, ''), html);
+ if (!wroteHistorical) continue;
  if (archive) historicalArchiveCount++;
  historicalFallbackCount++;
  healedCount++;
@@ -15673,6 +15704,12 @@ ${staticAnalyticsHtml}
  }
  if (healedCount > 0) {
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Preserved ${historicalFallbackCount} historical tracking paths with full archive pages (${historicalArchiveCount} reused archived payloads)`);
+ }
+ if (skippedFilesystemLimitPaths > 0) {
+  console.warn(`[jobs-seo-pages] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
+ }
+ if (skippedUnsafeDistPaths > 0) {
+  console.warn(`[jobs-seo-pages] skipped ${skippedUnsafeDistPaths} paths with unsafe dist path segments`);
  }
  // #6134: issue #5864 (run 31798646143) e' morta "right after the self-heal
  // log line" senza un [mem] a dire con quanto heap ci era arrivata. Chiude

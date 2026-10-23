@@ -48,6 +48,7 @@ import { buildCanonicalBridgePage } from './constants';
 import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap';
 import { buildTitleWithBrand, composePlaceTitle } from './shared/titleSuffix';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
+import { isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -833,10 +834,20 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
 
       let emitted = 0;
       let skipped = 0;
+      let skippedFilesystemLimitPaths = 0;
+      let skippedUnsafeDistPaths = 0;
       const start = Date.now();
 
       for (const entry of merged) {
         const hubPath = buildEntryHubPath(entry);
+        if (isDistPathOverFilesystemLimits(hubPath)) {
+          skippedFilesystemLimitPaths++;
+          continue;
+        }
+        if (!isSafeDistPath(hubPath)) {
+          skippedUnsafeDistPaths++;
+          continue;
+        }
         const indexTarget = path.join(distDir, hubPath, 'index.html');
         const flatTarget = path.join(distDir, hubPath.replace(/\/+$/, '') + '.html');
         if (fs.existsSync(indexTarget)) { skipped++; continue; }
@@ -860,8 +871,14 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[company-hub-bridge]\x1b[0m emitted ${emitted} bridge files (${merged.length - skipped} pages from ${curatedHubs.length} curated + ${discovered.length} auto-discovered, ${skipped} skipped) in ${dur}s`,
+        `\x1b[36m[company-hub-bridge]\x1b[0m emitted ${emitted} bridge files (${merged.length - skipped - skippedFilesystemLimitPaths - skippedUnsafeDistPaths} pages from ${curatedHubs.length} curated + ${discovered.length} auto-discovered, ${skipped} skipped) in ${dur}s`,
       );
+      if (skippedFilesystemLimitPaths > 0) {
+        console.warn(`[company-hub-bridge] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);
+      }
+      if (skippedUnsafeDistPaths > 0) {
+        console.warn(`[company-hub-bridge] skipped ${skippedUnsafeDistPaths} paths with unsafe dist path segments`);
+      }
       },
     },
   };
