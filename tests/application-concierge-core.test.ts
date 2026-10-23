@@ -108,7 +108,7 @@ const mocks = vi.hoisted(() => {
     getAdminDb: vi.fn(() => firestore),
     getStorage: vi.fn(() => ({ bucket: () => bucket })),
     verifyCaller: vi.fn(async () => ({ uid: 'candidate-42' })),
-    assertAdmin: vi.fn(async () => ({ ok: true, adminEmail: 'owner@example.test' })),
+    assertSiteAdmin: vi.fn(async () => ({ ok: true, email: 'owner@example.test' })),
     reset() {
       documents.clear();
       files.clear();
@@ -135,8 +135,8 @@ vi.mock('../functions/src/newsletterResendWebhookCore.js', () => ({
   getAdminDb: mocks.getAdminDb,
 }));
 
-vi.mock('../functions/src/adminEmployerInsights.js', () => ({
-  assertAdmin: mocks.assertAdmin,
+vi.mock('../functions/src/adminAuth.js', () => ({
+  assertSiteAdmin: mocks.assertSiteAdmin,
 }));
 
 vi.mock('../functions/src/stripePublisherCore.js', () => ({

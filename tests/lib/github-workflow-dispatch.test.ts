@@ -394,7 +394,7 @@ describe('github workflow dispatch contract', () => {
   it('wires AdminPanel to exact-ID dispatch without timestamp/newest reconciliation', () => {
     const source = readFileSync(resolve('components/pages/AdminPanel.tsx'), 'utf8');
     const start = source.indexOf('const runWorkflowAction = async');
-    const end = source.indexOf('const runCrawlerNow = async', start);
+    const end = source.indexOf('const dispatchGitHubWorkflow = async', start);
     const dispatchBlock = source.slice(start, end);
     expect(dispatchBlock).toContain('dispatchAdminWorkflow');
     expect(dispatchBlock).not.toContain('beforeIds');
@@ -406,23 +406,26 @@ describe('github workflow dispatch contract', () => {
     expect(source.indexOf('if (identity.runId !== null && identity.htmlUrl !== null)'))
       .toBeLessThan(source.indexOf('if (error.status === 403)'));
     expect(source).toContain("status: dispatchAmbiguous ? 'unknown' : 'error'");
-    expect(source).toContain('⚠️ Esito generazione parser da verificare in GitHub Actions: ${msg}');
-    expect(source).toContain('const outcome = classifyWorkflowRunUiOutcome(result)');
+    expect(source).toContain('Esito generazione parser da verificare in GitHub Actions: ${msg}');
+    expect(source).toContain('const outcome = classifyWorkflowRunUiOutcome(state)');
     expect(source).toContain("if (outcome === 'unknown')");
-    expect(source).toContain("else if (outcome === 'error')");
-    expect(source).toContain('const knownRun = knownRunId !== null');
+    expect(source).toContain("} else if (outcome === 'success' && state.conclusion === 'success')");
     expect(source).toContain('knownRunId = err.runId');
     expect(source).toContain('runId: knownRunId');
     expect(source).toContain('isWorkflowRunDispatchLocked(wfState)');
-    expect(source).toContain("isWorkflowRunDispatchLocked(getWorkflowState('update-jobs.yml'))");
+    expect(source).not.toContain("getWorkflowState('update-jobs.yml')");
     expect(source).toContain('if (parserDispatchLoading || parserDispatchLocked) return;');
     expect(source).toContain('setParserDispatchLocked(true);');
     expect(source).toContain("if (nlSending || isWorkflowRunDispatchLocked(getWorkflowState('send-newsletter.yml'))) return;");
     expect(source).toContain("disabled={nlSending || isWorkflowRunDispatchLocked(getWorkflowState('send-newsletter.yml'))");
     expect(source).toContain('mergeWorkflowSnapshotState(current, snapshot)');
-    expect(source).toContain("githubRequest(connection, `/actions/runs/${snapshotRead.runId}`");
+    expect(source).toContain("githubRequest(`/actions/runs/${snapshotRead.runId}`");
     expect(source).toContain("if (outcome === 'unknown')");
-    expect(source).toContain("nlSendResult.startsWith('⚠️')");
+    expect(source).not.toContain("nlSendResult.startsWith('⚠️')");
+    expect(source).toContain('<AdminMessageBanner message={nlSendResult} />');
+    expect(source).toContain('workflowPollingControllersRef');
+    expect(source).toContain('deferMonitoring');
+    expect(source).toContain('window.confirm');
     expect(source).toContain('...latestState,');
     expect(source).not.toContain('const finalState = { ...getWorkflowState(workflowId)');
   });

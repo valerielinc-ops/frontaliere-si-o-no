@@ -1,6 +1,5 @@
 /**
- * AdminPanel — Hidden admin route for owner operations.
- * Accessible only via direct URL: /gestione-contenuti-xk9mp2q
+ * AdminPanel — owner operations behind the shared site-admin gate.
  */
 
 import { Fragment, useState, useEffect, useRef, useMemo } from 'react';
@@ -21,10 +20,8 @@ import { ARTICLES } from '@/data/blog-articles-data';
 // Cold-email sequence: single shared source so the admin preview is byte-identical
 // to what send-cold-emails.mjs actually sends (AGENTS.md Non-Negotiable #6).
 import { buildSequence, OUTREACH_METRIC_LABELS } from '../../scripts/lib/cold-email-sequence.mjs';
-import { githubApiHeaders } from '../../scripts/lib/githubApiHeaders.mjs';
 import {
  classifyWorkflowRunUiOutcome,
- createGitHubWorkflowDispatchRequester,
  dispatchWorkflowOnce,
  isWorkflowRunDispatchLocked,
  mergeWorkflowSnapshotState,
@@ -40,6 +37,11 @@ import {
  Play, Loader2, Clock3, ListChecks, FileText, ArrowUp, ArrowDown, Search, ChevronDown, ChevronRight, RotateCcw, Zap,
  Building2, UserCheck, Pencil, Save, X, Newspaper, ClipboardCheck
 } from 'lucide-react';
+import {
+ DEFAULT_WORKFLOW_EXPECTED_DURATION,
+ expectedWorkflowTimeoutMs,
+ isExpectedWorkflowDuration,
+} from '@/services/adminWorkflowTimeout';
 
 type EmployerSequenceInput = {
  company: string;
@@ -103,6 +105,14 @@ interface JobsCrawlerConfigState {
  companyPriorityByName: Record<string, number>;
  sourceSeedsByDomain: Record<string, string[]>;
  sourceSeedsByName: Record<string, string[]>;
+}
+
+type AdminMessage = { kind: 'ok' | 'warn' | 'error'; text: string };
+
+interface JobsCrawlerConfigMeta {
+ source: 'firestore' | 'default';
+ updatedAt: string | null;
+ updatedBy: string | null;
 }
 
 class AdminWorkflowDispatchError extends Error {
@@ -220,6 +230,20 @@ function OutreachStatusBadge({ outreach }: { outreach?: EmployerOutreachStatus }
     </span>
   );
 }
+
+function AdminMessageBanner({ message }: { message: AdminMessage | null }) {
+ if (!message) return null;
+ const styles = message.kind === 'ok'
+ ? 'bg-success-subtle border-success-border text-success'
+ : message.kind === 'warn'
+ ? 'bg-warning-subtle border-warning-border text-warning'
+ : 'bg-danger-subtle border-danger-border text-danger';
+ return (
+ <div role={message.kind === 'error' ? 'alert' : 'status'} className={`rounded-lg border px-3 py-2 text-xs ${styles}`}>
+ {message.text}
+ </div>
+ );
+}
 type CrawlerSortDirection = 'asc' | 'desc';
 
 type WorkflowContext = 'jobs' | 'content' | 'seo' | 'analytics';
@@ -276,19 +300,23 @@ interface WorkflowRunState {
 const DEFAULT_JOBS_CRAWLER_CONFIG: JobsCrawlerConfigState = {
  domainWhitelist: [],
  domainBlacklist: [],
- minQualityScore: 6,
- minDescriptionChars: 160,
- aiLocalizationEnabled: false,
- aiLocalizationMaxJobsPerRun: 12,
+ minQualityScore: 4,
+ minDescriptionChars: 80,
+ aiLocalizationEnabled: true,
+ aiLocalizationMaxJobsPerRun: 500,
  contentReuseEnabled: true,
- contentReuseSimilarityThreshold: 0.93,
+ contentReuseSimilarityThreshold: 0.7,
  contentReuseMinSourceChars: 220,
- contentReuseMaxLengthDeltaRatio: 0.2,
+ contentReuseMaxLengthDeltaRatio: 0.02,
  companyPriorityByDomain: {},
  companyPriorityByName: {},
  sourceSeedsByDomain: {},
  sourceSeedsByName: {},
 };
+
+const ADMIN_GITHUB_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/adminGithub/';
+const ADMIN_JOBS_CRAWLER_CONFIG_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/adminJobsCrawlerConfig/';
+const ADMIN_GITHUB_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 
 /** Non-jobs workflow actions (content, seo, analytics). Jobs crawlers are loaded dynamically. */
 const STATIC_WORKFLOW_ACTIONS: WorkflowActionDefinition[] = [
@@ -397,13 +425,15 @@ function HealthBadge({ ok, label }: { ok: boolean; label: string }) {
 
 export default function AdminPanel() {
  const { user } = useAuth();
- const hasPreloadedWorkflowSnapshots = useRef(false);
- const [copiedCmd, setCopiedCmd] = useState(false);
  const [activeSection, setActiveSection] = useState<'newsletter' | 'owner' | 'insights' | 'journalists' | 'redazione' | 'assisted-applications' | WorkflowContext>('jobs');
- const [ownerTab] = useState<'overview'>('overview');
  const [workflowStates, setWorkflowStates] = useState<Record<string, WorkflowRunState>>({});
  const workflowStatesRef = useRef<Record<string, WorkflowRunState>>({});
- const [copiedAiPromptFor, setCopiedAiPromptFor] = useState<string | null>(null);
+ const workflowPollingControllersRef = useRef(new Map<string, AbortController>());
+ const workflowRefreshFlightRef = useRef<Promise<void> | null>(null);
+ const workflowRefreshQueuedContextRef = useRef<WorkflowContext | null>(null);
+ const mountedRef = useRef(true);
+ const jobsCrawlerConfigLoadedRef = useRef(false);
+ const jobsCrawlerConfigSavedSignatureRef = useRef('');
  const [ownerStats, setOwnerStats] = useState<OwnerStats>({
  loading: false,
  error: null,
@@ -414,22 +444,22 @@ export default function AdminPanel() {
  publicFiles: {},
  });
  const [serpDiagnostics, setSerpDiagnostics] = useState<SerpDiagnostics>(() => getSerpExperimentDiagnostics());
- const [jobsCrawlerConfig, setJobsCrawlerConfig] = useState<JobsCrawlerConfigState>(DEFAULT_JOBS_CRAWLER_CONFIG);
  const [jobsCrawlerConfigLoading, setJobsCrawlerConfigLoading] = useState(false);
  const [jobsCrawlerConfigSaving, setJobsCrawlerConfigSaving] = useState(false);
- const [jobsCrawlerConfigMessage, setJobsCrawlerConfigMessage] = useState<string | null>(null);
+ const [jobsCrawlerConfigMessage, setJobsCrawlerConfigMessage] = useState<AdminMessage | null>(null);
+ const [jobsCrawlerConfigMeta, setJobsCrawlerConfigMeta] = useState<JobsCrawlerConfigMeta>({ source: 'default', updatedAt: null, updatedBy: null });
  const [crawlerSummaries, setCrawlerSummaries] = useState<CrawlerSummaryRow[]>([]);
  const [dynamicCrawlerWorkflows, setDynamicCrawlerWorkflows] = useState<WorkflowActionDefinition[]>([]);
  const [domainWhitelistText, setDomainWhitelistText] = useState('');
  const [domainBlacklistText, setDomainBlacklistText] = useState('');
- const [minQualityScoreInput, setMinQualityScoreInput] = useState(6);
- const [minDescriptionCharsInput, setMinDescriptionCharsInput] = useState(160);
- const [aiLocalizationEnabledInput, setAiLocalizationEnabledInput] = useState(false);
- const [aiLocalizationMaxJobsPerRunInput, setAiLocalizationMaxJobsPerRunInput] = useState(12);
+ const [minQualityScoreInput, setMinQualityScoreInput] = useState(4);
+ const [minDescriptionCharsInput, setMinDescriptionCharsInput] = useState(80);
+ const [aiLocalizationEnabledInput, setAiLocalizationEnabledInput] = useState(true);
+ const [aiLocalizationMaxJobsPerRunInput, setAiLocalizationMaxJobsPerRunInput] = useState(500);
  const [contentReuseEnabledInput, setContentReuseEnabledInput] = useState(true);
- const [contentReuseSimilarityThresholdInput, setContentReuseSimilarityThresholdInput] = useState(0.93);
+ const [contentReuseSimilarityThresholdInput, setContentReuseSimilarityThresholdInput] = useState(0.7);
  const [contentReuseMinSourceCharsInput, setContentReuseMinSourceCharsInput] = useState(220);
- const [contentReuseMaxLengthDeltaRatioInput, setContentReuseMaxLengthDeltaRatioInput] = useState(0.2);
+ const [contentReuseMaxLengthDeltaRatioInput, setContentReuseMaxLengthDeltaRatioInput] = useState(0.02);
  const [companyPriorityByDomainText, setCompanyPriorityByDomainText] = useState('{}');
  const [companyPriorityByNameText, setCompanyPriorityByNameText] = useState('{}');
  const [sourceSeedsByDomainText, setSourceSeedsByDomainText] = useState('{}');
@@ -442,20 +472,18 @@ export default function AdminPanel() {
  const [nlPreviewHtml, setNlPreviewHtml] = useState<string | null>(null);
  const [nlPreviewLoading, setNlPreviewLoading] = useState(false);
  const [nlSending, setNlSending] = useState(false);
- const [nlSendResult, setNlSendResult] = useState<string | null>(null);
+ const [nlSendResult, setNlSendResult] = useState<AdminMessage | null>(null);
  const [nlLoading, setNlLoading] = useState(false);
  const [nlRecipients, setNlRecipients] = useState<string[]>([]);
  const [nlInsights, setNlInsights] = useState<NewsletterInsight | null>(null);
  const [nlInsightLoading, setNlInsightLoading] = useState(false);
- const [crawlerDispatchLoading, setCrawlerDispatchLoading] = useState(false);
- const [crawlerDispatchMessage, setCrawlerDispatchMessage] = useState<string | null>(null);
  const [parserCompanyName, setParserCompanyName] = useState('');
  const [parserCompanyWebsite, setParserCompanyWebsite] = useState('');
  const [parserCompanyKey, setParserCompanyKey] = useState('');
  const [parserApplyConfig, setParserApplyConfig] = useState(false);
  const [parserDispatchLoading, setParserDispatchLoading] = useState(false);
  const [parserDispatchLocked, setParserDispatchLocked] = useState(false);
- const [parserDispatchMessage, setParserDispatchMessage] = useState<string | null>(null);
+ const [parserDispatchMessage, setParserDispatchMessage] = useState<AdminMessage | null>(null);
  // Insights Aziende (employer traffic) state
  const [insightsRows, setInsightsRows] = useState<EmployerInsightsRow[]>([]);
  const [insightsLoading, setInsightsLoading] = useState(false);
@@ -471,22 +499,22 @@ export default function AdminPanel() {
  const [contactNameDraft, setContactNameDraft] = useState('');
  const [contactRoleDraft, setContactRoleDraft] = useState('');
  const [contactSaving, setContactSaving] = useState(false);
- const [contactSaveMsg, setContactSaveMsg] = useState<string | null>(null);
+ const [contactSaveMsg, setContactSaveMsg] = useState<AdminMessage | null>(null);
  const [previewTouch, setPreviewTouch] = useState(1);
  const [sendingTouch, setSendingTouch] = useState(false);
- const [sendMsg, setSendMsg] = useState<{ ok: boolean; text: string } | null>(null);
+ const [sendMsg, setSendMsg] = useState<AdminMessage | null>(null);
  // Giornalisti (journalist role grant/revoke) state
  const [journalistGrants, setJournalistGrants] = useState<JournalistGrant[]>([]);
  const [journalistLoading, setJournalistLoading] = useState(false);
  const [journalistError, setJournalistError] = useState<string | null>(null);
  const [journalistEmailDraft, setJournalistEmailDraft] = useState('');
  const [journalistActionPending, setJournalistActionPending] = useState(false);
- const [journalistActionMsg, setJournalistActionMsg] = useState<{ ok: boolean; text: string } | null>(null);
+ const [journalistActionMsg, setJournalistActionMsg] = useState<AdminMessage | null>(null);
  // Redazione (superadmin article view across both catalogs + persona profile editor)
  const [redazioneData, setRedazioneData] = useState<RedazioneAdminData | null>(null);
  const [redazioneLoading, setRedazioneLoading] = useState(false);
  const [redazioneError, setRedazioneError] = useState<string | null>(null);
- const [redazioneActionMsg, setRedazioneActionMsg] = useState<{ ok: boolean; text: string } | null>(null);
+ const [redazioneActionMsg, setRedazioneActionMsg] = useState<AdminMessage | null>(null);
  const [redazioneActionPending, setRedazioneActionPending] = useState(false);
  const [editingProfileSlug, setEditingProfileSlug] = useState<string | null>(null);
  const [profileDraft, setProfileDraft] = useState<AuthorProfilePatch>({});
@@ -533,6 +561,7 @@ export default function AdminPanel() {
  workflowId: string,
  updater: (current: WorkflowRunState) => WorkflowRunState,
  ) => {
+ if (!mountedRef.current) return;
  const eagerCurrent = workflowStatesRef.current[workflowId] || emptyWorkflowState();
  workflowStatesRef.current = {
  ...workflowStatesRef.current,
@@ -716,11 +745,11 @@ export default function AdminPanel() {
  setJournalistActionMsg(null);
  try {
  await setJournalistRole(user, action, trimmedEmail);
- setJournalistActionMsg({ ok: true, text: action === 'grant' ? 'Giornalista abilitato.' : 'Giornalista disabilitato.' });
+ setJournalistActionMsg({ kind: 'ok', text: action === 'grant' ? 'Giornalista abilitato.' : 'Giornalista disabilitato.' });
  setJournalistEmailDraft('');
  await loadJournalistGrants();
  } catch (err) {
- setJournalistActionMsg({ ok: false, text: err instanceof Error ? err.message : 'Errore sconosciuto' });
+ setJournalistActionMsg({ kind: 'error', text: err instanceof Error ? err.message : 'Errore sconosciuto' });
  } finally {
  setJournalistActionPending(false);
  }
@@ -758,11 +787,11 @@ export default function AdminPanel() {
  setRedazioneActionMsg(null);
  try {
  await updateAuthorProfile(user, slug, profileDraft);
- setRedazioneActionMsg({ ok: true, text: 'Profilo aggiornato.' });
+ setRedazioneActionMsg({ kind: 'ok', text: 'Profilo aggiornato.' });
  setEditingProfileSlug(null);
  await loadRedazioneData();
  } catch (err) {
- setRedazioneActionMsg({ ok: false, text: err instanceof Error ? err.message : 'Errore sconosciuto' });
+ setRedazioneActionMsg({ kind: 'error', text: err instanceof Error ? err.message : 'Errore sconosciuto' });
  } finally {
  setRedazioneActionPending(false);
  }
@@ -778,10 +807,10 @@ export default function AdminPanel() {
  setRedazioneActionMsg(null);
  try {
  await reassignArticleAuthor(user, articleId, author.slug, author.name);
- setRedazioneActionMsg({ ok: true, text: `Articolo riassegnato a ${author.name}.` });
+ setRedazioneActionMsg({ kind: 'ok', text: `Articolo riassegnato a ${author.name}.` });
  await loadRedazioneData();
  } catch (err) {
- setRedazioneActionMsg({ ok: false, text: err instanceof Error ? err.message : 'Errore sconosciuto' });
+ setRedazioneActionMsg({ kind: 'error', text: err instanceof Error ? err.message : 'Errore sconosciuto' });
  } finally {
  setRedazioneActionPending(false);
  }
@@ -809,13 +838,13 @@ export default function AdminPanel() {
  };
 
  const saveContact = async () => {
- if (!contactModalRow) return;
+ if (!contactModalRow) return false;
  // Server stores lowercase — mirror it so the optimistic row matches what's persisted.
  const email = contactEmailDraft.trim().toLowerCase();
  // Simple client-side guard (server re-validates).
  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
- setContactSaveMsg('✗ Email non valida.');
- return;
+ setContactSaveMsg({ kind: 'error', text: 'Email non valida.' });
+ return false;
  }
  // Empty input is a no-op for the email field UNLESS we're wiping a previously
  // dashboard-set address → only then send the explicit clear flag. This stops an
@@ -837,9 +866,11 @@ export default function AdminPanel() {
  setInsightsRows(prev => prev.map(r => r.companyKey === contactModalRow.companyKey
  ? { ...r, contactEmail: nextEmail, contactName: contactNameDraft.trim(), topRole: contactRoleDraft.trim() }
  : r));
- setContactSaveMsg('✓ Contatto salvato.');
+ setContactSaveMsg({ kind: 'ok', text: 'Contatto salvato.' });
+ return true;
  } catch (err) {
- setContactSaveMsg(`✗ ${err instanceof Error ? err.message : 'Errore salvataggio.'}`);
+ setContactSaveMsg({ kind: 'error', text: err instanceof Error ? err.message : 'Errore salvataggio.' });
+ return false;
  } finally {
  setContactSaving(false);
  }
@@ -853,14 +884,26 @@ export default function AdminPanel() {
  if (!contactModalRow) return;
  const row = contactModalRow;
  const touch = previewTouch;
- if (!row.contactEmail) {
- setSendMsg({ ok: false, text: 'Imposta prima un’email verificata per questa azienda.' });
+ const draftEmail = contactEmailDraft.trim().toLowerCase();
+ if (contactDraftsChanged && !draftEmail) {
+ setSendMsg({ kind: 'error', text: 'Salva un’email verificata prima di inviare la touch.' });
+ return;
+ }
+ const destinationEmail = draftEmail || row.contactEmail;
+ if (!destinationEmail) {
+ setSendMsg({ kind: 'error', text: 'Imposta prima un’email verificata per questa azienda.' });
  return;
  }
  const confirmText = force
- ? `Re-inviare la touch ${touch} a ${row.contactEmail}? È già stata inviata.`
- : `Inviare la touch ${touch} a ${row.contactEmail}?`;
+ ? `Re-inviare la touch ${touch} a ${destinationEmail}? È già stata inviata.`
+ : contactDraftsChanged
+ ? `Salvare il contatto e inviare la touch ${touch} a ${destinationEmail}?\n\nImpatto: aggiorna i dati salvati e invia un’email esterna.`
+ : `Inviare la touch ${touch} a ${destinationEmail}?`;
  if (typeof window !== 'undefined' && !window.confirm(confirmText)) return;
+ if (contactDraftsChanged && !force) {
+ const saved = await saveContact();
+ if (!saved) return;
+ }
  setSendingTouch(true);
  setSendMsg(null);
  try {
@@ -885,11 +928,11 @@ export default function AdminPanel() {
  },
  };
  }));
- setSendMsg({ ok: true, text: res.tracked
- ? `✓ Touch ${touch} inviata a ${res.to}.`
- : `✓ Inviata a ${res.to}, ma il tracking non è stato scritto (ricontrolla più tardi).` });
+ setSendMsg({ kind: res.tracked ? 'ok' : 'warn', text: res.tracked
+ ? `Touch ${touch} inviata a ${res.to}.`
+ : `Inviata a ${res.to}, ma il tracking non è stato scritto (ricontrolla più tardi).` });
  } catch (err) {
- setSendMsg({ ok: false, text: `✗ ${err instanceof Error ? err.message : 'Invio non riuscito.'}` });
+ setSendMsg({ kind: 'error', text: err instanceof Error ? err.message : 'Invio non riuscito.' });
  } finally {
  setSendingTouch(false);
  }
@@ -919,6 +962,12 @@ export default function AdminPanel() {
  }));
  }, [contactModalRow, contactNameDraft, contactRoleDraft]);
 
+ const contactDraftsChanged = Boolean(contactModalRow && (
+ contactEmailDraft.trim().toLowerCase() !== String(contactModalRow.contactEmail || '').trim().toLowerCase()
+ || contactNameDraft.trim() !== String(contactModalRow.contactName || '').trim()
+ || contactRoleDraft.trim() !== String(contactModalRow.topRole || '').trim()
+ ));
+
  useEffect(() => {
  const refresh = () => setSerpDiagnostics(getSerpExperimentDiagnostics());
  refresh();
@@ -926,82 +975,110 @@ export default function AdminPanel() {
  return () => clearTimeout(timer);
  }, []);
 
- const loadJobsCrawlerAdminConfig = async () => {
+ const mapCrawlerConfig = (raw: any): JobsCrawlerConfigState => ({
+ domainWhitelist: Array.isArray(raw?.domainWhitelist) ? raw.domainWhitelist.map((value: unknown) => normalizeHost(String(value))) : [],
+ domainBlacklist: Array.isArray(raw?.domainBlacklist) ? raw.domainBlacklist.map((value: unknown) => normalizeHost(String(value))) : [],
+ minQualityScore: Number(raw?.minQualityScore ?? DEFAULT_JOBS_CRAWLER_CONFIG.minQualityScore),
+ minDescriptionChars: Number(raw?.minDescriptionChars ?? DEFAULT_JOBS_CRAWLER_CONFIG.minDescriptionChars),
+ aiLocalizationEnabled: raw?.aiLocalizationEnabled !== undefined ? Boolean(raw.aiLocalizationEnabled) : DEFAULT_JOBS_CRAWLER_CONFIG.aiLocalizationEnabled,
+ aiLocalizationMaxJobsPerRun: Number(raw?.aiLocalizationMaxJobsPerRun ?? DEFAULT_JOBS_CRAWLER_CONFIG.aiLocalizationMaxJobsPerRun),
+ contentReuseEnabled: raw?.contentReuse?.enabled !== undefined ? Boolean(raw.contentReuse.enabled) : DEFAULT_JOBS_CRAWLER_CONFIG.contentReuseEnabled,
+ contentReuseSimilarityThreshold: Number(raw?.contentReuse?.similarityThreshold ?? DEFAULT_JOBS_CRAWLER_CONFIG.contentReuseSimilarityThreshold),
+ contentReuseMinSourceChars: Number(raw?.contentReuse?.minSourceChars ?? DEFAULT_JOBS_CRAWLER_CONFIG.contentReuseMinSourceChars),
+ contentReuseMaxLengthDeltaRatio: Number(raw?.contentReuse?.maxLengthDeltaRatio ?? DEFAULT_JOBS_CRAWLER_CONFIG.contentReuseMaxLengthDeltaRatio),
+ companyPriorityByDomain: raw?.companyPriority?.byDomain || raw?.companyPriorityByDomain || {},
+ companyPriorityByName: raw?.companyPriority?.byName || raw?.companyPriorityByName || {},
+ sourceSeedsByDomain: raw?.sourceSeeds?.byDomain || raw?.sourceSeedsByDomain || {},
+ sourceSeedsByName: raw?.sourceSeeds?.byName || raw?.sourceSeedsByName || {},
+ });
+
+ const crawlerFormSignature = (config: JobsCrawlerConfigState) => JSON.stringify(config);
+ const currentCrawlerForm = (): JobsCrawlerConfigState => ({
+ domainWhitelist: parseListInput(domainWhitelistText).map(normalizeHost).filter(Boolean),
+ domainBlacklist: parseListInput(domainBlacklistText).map(normalizeHost).filter(Boolean),
+ minQualityScore: minQualityScoreInput,
+ minDescriptionChars: minDescriptionCharsInput,
+ aiLocalizationEnabled: aiLocalizationEnabledInput,
+ aiLocalizationMaxJobsPerRun: aiLocalizationMaxJobsPerRunInput,
+ contentReuseEnabled: contentReuseEnabledInput,
+ contentReuseSimilarityThreshold: contentReuseSimilarityThresholdInput,
+ contentReuseMinSourceChars: contentReuseMinSourceCharsInput,
+ contentReuseMaxLengthDeltaRatio: contentReuseMaxLengthDeltaRatioInput,
+ companyPriorityByDomain: parseJsonObject(companyPriorityByDomainText),
+ companyPriorityByName: parseJsonObject(companyPriorityByNameText),
+ sourceSeedsByDomain: normalizeSeedMap(parseJsonObject(sourceSeedsByDomainText)),
+ sourceSeedsByName: normalizeSeedMap(parseJsonObject(sourceSeedsByNameText)),
+ });
+
+ const applyCrawlerConfigForm = (config: JobsCrawlerConfigState) => {
+ setDomainWhitelistText(config.domainWhitelist.join('\n'));
+ setDomainBlacklistText(config.domainBlacklist.join('\n'));
+ setMinQualityScoreInput(config.minQualityScore);
+ setMinDescriptionCharsInput(config.minDescriptionChars);
+ setAiLocalizationEnabledInput(config.aiLocalizationEnabled);
+ setAiLocalizationMaxJobsPerRunInput(config.aiLocalizationMaxJobsPerRun);
+ setContentReuseEnabledInput(config.contentReuseEnabled);
+ setContentReuseSimilarityThresholdInput(config.contentReuseSimilarityThreshold);
+ setContentReuseMinSourceCharsInput(config.contentReuseMinSourceChars);
+ setContentReuseMaxLengthDeltaRatioInput(config.contentReuseMaxLengthDeltaRatio);
+ setCompanyPriorityByDomainText(JSON.stringify(config.companyPriorityByDomain, null, 2));
+ setCompanyPriorityByNameText(JSON.stringify(config.companyPriorityByName, null, 2));
+ setSourceSeedsByDomainText(JSON.stringify(config.sourceSeedsByDomain, null, 2));
+ setSourceSeedsByNameText(JSON.stringify(config.sourceSeedsByName, null, 2));
+ jobsCrawlerConfigSavedSignatureRef.current = crawlerFormSignature(config);
+ };
+
+ const adminFunctionError = (data: any, status: number) => {
+ const messages: Record<string, string> = {
+ not_admin: 'Accesso negato: questo account non è autorizzato alle funzioni admin.',
+ invalid_id_token: 'Sessione admin non valida: accedi di nuovo.',
+ config_read_failed: 'Configurazione crawler non disponibile dal server.',
+ config_write_failed: 'Salvataggio configurazione crawler non riuscito.',
+ invalid_config: 'Configurazione crawler non valida: controlla i campi e gli URL seed.',
+ };
+ return messages[data?.error] || `Operazione admin non riuscita (${data?.error || status}).`;
+ };
+
+ const loadJobsCrawlerAdminConfig = async ({ force = false }: { force?: boolean } = {}) => {
+ if (jobsCrawlerConfigLoading || (!force && jobsCrawlerConfigLoadedRef.current)) return;
+ if (force && jobsCrawlerConfigLoadedRef.current) {
+ try {
+ const dirty = jobsCrawlerConfigSavedSignatureRef.current !== crawlerFormSignature(currentCrawlerForm());
+ if (dirty && typeof window !== 'undefined' && !window.confirm('Ricaricare la configurazione crawler? Le modifiche non salvate verranno perse.')) return;
+ } catch (error) {
+ setJobsCrawlerConfigMessage({ kind: 'error', text: error instanceof Error ? error.message : 'JSON non valido nei campi crawler.' });
+ return;
+ }
+ }
  setJobsCrawlerConfigLoading(true);
  setJobsCrawlerConfigMessage(null);
  try {
- const fromStatic = async (): Promise<JobsCrawlerConfigState> => {
- const raw = await safeFetchJson(cdnDataUrl('/data/jobs-crawler-config.json'));
- if (!raw) return DEFAULT_JOBS_CRAWLER_CONFIG;
- return {
- domainWhitelist: Array.isArray(raw?.domainWhitelist) ? raw.domainWhitelist : [],
- domainBlacklist: Array.isArray(raw?.domainBlacklist) ? raw.domainBlacklist : [],
- minQualityScore: Number(raw?.minQualityScore || 6),
- minDescriptionChars: Number(raw?.minDescriptionChars || 160),
- aiLocalizationEnabled: Boolean(raw?.aiLocalizationEnabled),
- aiLocalizationMaxJobsPerRun: Number(raw?.aiLocalizationMaxJobsPerRun || 12),
- contentReuseEnabled: raw?.contentReuse?.enabled !== undefined ? Boolean(raw?.contentReuse?.enabled) : true,
- contentReuseSimilarityThreshold: Number(raw?.contentReuse?.similarityThreshold ?? 0.93),
- contentReuseMinSourceChars: Number(raw?.contentReuse?.minSourceChars ?? 220),
- contentReuseMaxLengthDeltaRatio: Number(raw?.contentReuse?.maxLengthDeltaRatio ?? 0.2),
- companyPriorityByDomain: raw?.companyPriority?.byDomain || {},
- companyPriorityByName: raw?.companyPriority?.byName || {},
- sourceSeedsByDomain: raw?.sourceSeeds?.byDomain || {},
- sourceSeedsByName: raw?.sourceSeeds?.byName || {},
- };
- };
+ if (!user) throw new Error('Devi essere autenticato come admin per caricare la configurazione crawler.');
+ const idToken = await user.getIdToken();
+ const response = await fetch(ADMIN_JOBS_CRAWLER_CONFIG_ENDPOINT, {
+ method: 'GET',
+ headers: { Authorization: `Bearer ${idToken}` },
+ });
+ const data = await response.json().catch(() => ({}));
+ if (!response.ok || !data.ok) throw new Error(adminFunctionError(data, response.status));
+ const config = mapCrawlerConfig(data.config || DEFAULT_JOBS_CRAWLER_CONFIG);
+ applyCrawlerConfigForm(config);
+ setJobsCrawlerConfigMeta({
+ source: data.source === 'firestore' ? 'firestore' : 'default',
+ updatedAt: data.updatedAt ? String(data.updatedAt) : null,
+ updatedBy: data.updatedBy ? String(data.updatedBy) : null,
+ });
+ jobsCrawlerConfigLoadedRef.current = true;
+ } catch (err) {
+ setJobsCrawlerConfigMessage({ kind: 'error', text: err instanceof Error ? err.message : 'Errore caricamento configurazione crawler.' });
+ } finally {
+ setJobsCrawlerConfigLoading(false);
+ }
 
- let cfg: JobsCrawlerConfigState | null = null;
  try {
- const { getFirestore, doc, getDoc } = await import('firebase/firestore');
- const { app } = await import('@/services/firebase');
- const db = getFirestore(app);
- const snap = await getDoc(doc(db, 'admin_config', 'jobsCrawler'));
- if (snap.exists()) {
- const raw = snap.data();
- cfg = {
- domainWhitelist: Array.isArray(raw?.domainWhitelist) ? raw.domainWhitelist : [],
- domainBlacklist: Array.isArray(raw?.domainBlacklist) ? raw.domainBlacklist : [],
- minQualityScore: Number(raw?.minQualityScore || 6),
- minDescriptionChars: Number(raw?.minDescriptionChars || 160),
- aiLocalizationEnabled: Boolean(raw?.aiLocalizationEnabled),
- aiLocalizationMaxJobsPerRun: Number(raw?.aiLocalizationMaxJobsPerRun || 12),
- contentReuseEnabled: raw?.contentReuse?.enabled !== undefined ? Boolean(raw?.contentReuse?.enabled) : true,
- contentReuseSimilarityThreshold: Number(raw?.contentReuse?.similarityThreshold ?? 0.93),
- contentReuseMinSourceChars: Number(raw?.contentReuse?.minSourceChars ?? 220),
- contentReuseMaxLengthDeltaRatio: Number(raw?.contentReuse?.maxLengthDeltaRatio ?? 0.2),
- companyPriorityByDomain: raw?.companyPriority?.byDomain || {},
- companyPriorityByName: raw?.companyPriority?.byName || {},
- sourceSeedsByDomain: raw?.sourceSeeds?.byDomain || {},
- sourceSeedsByName: raw?.sourceSeeds?.byName || {},
- };
- }
- } catch {
- // ignore firestore issues and fallback to static file
- }
-
- if (!cfg) cfg = await fromStatic();
- setJobsCrawlerConfig(cfg);
- setDomainWhitelistText((cfg.domainWhitelist || []).join('\n'));
- setDomainBlacklistText((cfg.domainBlacklist || []).join('\n'));
- setMinQualityScoreInput(Number(cfg.minQualityScore || 6));
- setMinDescriptionCharsInput(Number(cfg.minDescriptionChars || 160));
- setAiLocalizationEnabledInput(Boolean(cfg.aiLocalizationEnabled));
- setAiLocalizationMaxJobsPerRunInput(Number(cfg.aiLocalizationMaxJobsPerRun || 12));
- setContentReuseEnabledInput(Boolean(cfg.contentReuseEnabled));
- setContentReuseSimilarityThresholdInput(Number(cfg.contentReuseSimilarityThreshold ?? 0.93));
- setContentReuseMinSourceCharsInput(Number(cfg.contentReuseMinSourceChars ?? 220));
- setContentReuseMaxLengthDeltaRatioInput(Number(cfg.contentReuseMaxLengthDeltaRatio ?? 0.2));
- setCompanyPriorityByDomainText(JSON.stringify(cfg.companyPriorityByDomain || {}, null, 2));
- setCompanyPriorityByNameText(JSON.stringify(cfg.companyPriorityByName || {}, null, 2));
- setSourceSeedsByDomainText(JSON.stringify(cfg.sourceSeedsByDomain || {}, null, 2));
- setSourceSeedsByNameText(JSON.stringify(cfg.sourceSeedsByName || {}, null, 2));
-
- {
  const crawlerSummariesJson = await safeFetchJson(cdnDataUrl('/data/jobs-crawler-summaries.json'));
  const summaries = Array.isArray(crawlerSummariesJson?.summaries) ? crawlerSummariesJson.summaries : [];
- setCrawlerSummaries(
- summaries.map((entry: any) => ({
+ setCrawlerSummaries(summaries.map((entry: any) => ({
  key: String(entry?.key || ''),
  label: String(entry?.label || 'Crawler'),
  generatedAt: entry?.generatedAt ? String(entry.generatedAt) : null,
@@ -1029,36 +1106,28 @@ export default function AdminPanel() {
  lastUpdated: String(entry.qualityScore.lastUpdated || ''),
  worstJobs: Array.isArray(entry.qualityScore.worstJobs) ? entry.qualityScore.worstJobs : [],
  } : null,
- })),
- );
- }
- {
+ })));
  const crawlerWorkflowsJson = await safeFetchJson(cdnDataUrl('/data/jobs-crawler-workflows.json'));
  if (crawlerWorkflowsJson?.workflows) {
- setDynamicCrawlerWorkflows(
- (crawlerWorkflowsJson.workflows as any[]).map((w: any) => ({
+ setDynamicCrawlerWorkflows((crawlerWorkflowsJson.workflows as any[]).map((w: any) => ({
  id: String(w.id || ''),
  title: String(w.title || ''),
  context: 'jobs' as WorkflowContext,
  description: String(w.description || ''),
  details: String(w.details || ''),
- expectedDuration: String(w.expectedDuration || '5-20 min'),
+ expectedDuration: isExpectedWorkflowDuration(String(w.expectedDuration || ''))
+ ? String(w.expectedDuration).trim()
+ : DEFAULT_WORKFLOW_EXPECTED_DURATION,
  schedule: w.schedule || undefined,
  summaryKey: w.summaryKey || null,
  defaultInputs: w.defaultInputs || undefined,
  slug: w.slug || undefined,
  groupId: w.groupId || undefined,
  groupMemberCount: w.groupMemberCount != null ? Number(w.groupMemberCount) : undefined,
- })),
- );
+ })));
  }
- }
-
- } catch (err) {
+ } catch {
  setCrawlerSummaries([]);
- setJobsCrawlerConfigMessage(`Errore caricamento config crawler: ${err instanceof Error ? err.message : String(err)}`);
- } finally {
- setJobsCrawlerConfigLoading(false);
  }
  };
 
@@ -1081,20 +1150,13 @@ export default function AdminPanel() {
  setJobsCrawlerConfigSaving(true);
  setJobsCrawlerConfigMessage(null);
  try {
- const domainWhitelist = parseListInput(domainWhitelistText);
- const domainBlacklist = parseListInput(domainBlacklistText);
- const companyPriorityByDomain = parseJsonObject(companyPriorityByDomainText);
- const companyPriorityByName = parseJsonObject(companyPriorityByNameText);
- const sourceSeedsByDomain = normalizeSeedMap(parseJsonObject(sourceSeedsByDomainText));
- const sourceSeedsByName = normalizeSeedMap(parseJsonObject(sourceSeedsByNameText));
-
  const payload = {
- domainWhitelist,
- domainBlacklist,
+ domainWhitelist: parseListInput(domainWhitelistText),
+ domainBlacklist: parseListInput(domainBlacklistText),
  minQualityScore: Math.max(4, Math.min(10, Math.round(minQualityScore))),
- minDescriptionChars: Math.max(80, Math.min(600, Math.round(minDescriptionChars))),
+ minDescriptionChars: Math.max(80, Math.min(1200, Math.round(minDescriptionChars))),
  aiLocalizationEnabled: Boolean(aiLocalizationEnabled),
- aiLocalizationMaxJobsPerRun: Math.max(0, Math.min(100, Math.round(aiLocalizationMaxJobsPerRun))),
+ aiLocalizationMaxJobsPerRun: Math.max(0, Math.min(500, Math.round(aiLocalizationMaxJobsPerRun))),
  contentReuse: {
  enabled: Boolean(contentReuseEnabled),
  similarityThreshold: Math.max(0.7, Math.min(1, Number(contentReuseSimilarityThreshold))),
@@ -1102,40 +1164,30 @@ export default function AdminPanel() {
  maxLengthDeltaRatio: Math.max(0.02, Math.min(1, Number(contentReuseMaxLengthDeltaRatio))),
  },
  companyPriority: {
- byDomain: companyPriorityByDomain,
- byName: companyPriorityByName,
+ byDomain: parseJsonObject(companyPriorityByDomainText),
+ byName: parseJsonObject(companyPriorityByNameText),
  },
  sourceSeeds: {
- byDomain: sourceSeedsByDomain,
- byName: sourceSeedsByName,
+ byDomain: normalizeSeedMap(parseJsonObject(sourceSeedsByDomainText)),
+ byName: normalizeSeedMap(parseJsonObject(sourceSeedsByNameText)),
  },
- updatedAt: new Date().toISOString(),
  };
-
- const { getFirestore, doc, setDoc } = await import('firebase/firestore');
- const { app } = await import('@/services/firebase');
- const db = getFirestore(app);
- await setDoc(doc(db, 'admin_config', 'jobsCrawler'), payload, { merge: true });
-
- setJobsCrawlerConfig({
- domainWhitelist: payload.domainWhitelist,
- domainBlacklist: payload.domainBlacklist,
- minQualityScore: payload.minQualityScore,
- minDescriptionChars: payload.minDescriptionChars,
- aiLocalizationEnabled: payload.aiLocalizationEnabled,
- aiLocalizationMaxJobsPerRun: payload.aiLocalizationMaxJobsPerRun,
- contentReuseEnabled: payload.contentReuse.enabled,
- contentReuseSimilarityThreshold: payload.contentReuse.similarityThreshold,
- contentReuseMinSourceChars: payload.contentReuse.minSourceChars,
- contentReuseMaxLengthDeltaRatio: payload.contentReuse.maxLengthDeltaRatio,
- companyPriorityByDomain: payload.companyPriority.byDomain,
- companyPriorityByName: payload.companyPriority.byName,
- sourceSeedsByDomain: payload.sourceSeeds.byDomain,
- sourceSeedsByName: payload.sourceSeeds.byName,
+ if (!user) throw new Error('Devi essere autenticato come admin per salvare la configurazione crawler.');
+ const idToken = await user.getIdToken();
+ const response = await fetch(ADMIN_JOBS_CRAWLER_CONFIG_ENDPOINT, {
+ method: 'POST',
+ headers: { Authorization: `Bearer ${idToken}`, 'Content-Type': 'application/json' },
+ body: JSON.stringify(payload),
  });
- setJobsCrawlerConfigMessage('Configurazione crawler salvata su Firestore. Verrà applicata al prossimo run hourly.');
+ const data = await response.json().catch(() => ({}));
+ if (!response.ok || !data.ok) throw new Error(adminFunctionError(data, response.status));
+ const config = mapCrawlerConfig(data.config || payload);
+ applyCrawlerConfigForm(config);
+ setJobsCrawlerConfigMeta({ source: 'firestore', updatedAt: data.updatedAt ? String(data.updatedAt) : new Date().toISOString(), updatedBy: data.updatedBy ? String(data.updatedBy) : user.email || null });
+ jobsCrawlerConfigLoadedRef.current = true;
+ setJobsCrawlerConfigMessage({ kind: 'ok', text: 'Configurazione salvata. Verrà applicata al prossimo avvio dell’orchestratore (09:00 e 21:00 UTC).' });
  } catch (err) {
- setJobsCrawlerConfigMessage(`Errore salvataggio config crawler: ${err instanceof Error ? err.message : String(err)}`);
+ setJobsCrawlerConfigMessage({ kind: 'error', text: err instanceof Error ? err.message : 'Errore salvataggio configurazione crawler.' });
  } finally {
  setJobsCrawlerConfigSaving(false);
  }
@@ -1145,7 +1197,7 @@ export default function AdminPanel() {
  const sendTestNewsletter = async () => {
  if (nlSending || isWorkflowRunDispatchLocked(getWorkflowState('send-newsletter.yml'))) return;
  if (!user?.email) {
- setNlSendResult('✗ Nessuna email admin disponibile nella sessione corrente.');
+ setNlSendResult({ kind: 'error', text: 'Nessuna email admin disponibile nella sessione corrente.' });
  return;
  }
  setNlSending(true);
@@ -1158,14 +1210,14 @@ export default function AdminPanel() {
  });
  const outcome = classifyWorkflowRunUiOutcome(state);
  if (outcome === 'unknown') {
- setNlSendResult(`⚠️ Run newsletter avviato, esito da verificare in GitHub Actions: ${state.error || state.message || 'non ricliccare.'}`);
+ setNlSendResult({ kind: 'warn', text: `Run newsletter avviato, esito da verificare in GitHub Actions: ${state.error || state.message || 'non ricliccare.'}` });
  } else if (outcome === 'success' && state.conclusion === 'success') {
- setNlSendResult(`✓ Email test inviata a ${String(user.email).trim().toLowerCase()}.`);
+ setNlSendResult({ kind: 'ok', text: `Email test inviata a ${String(user.email).trim().toLowerCase()}.` });
  } else {
- setNlSendResult(`✗ Invio test non riuscito: ${state.error || state.message || 'controlla il workflow GitHub.'}`);
+ setNlSendResult({ kind: 'error', text: `Invio test non riuscito: ${state.error || state.message || 'controlla il workflow GitHub.'}` });
  }
  } catch (err) {
- setNlSendResult(`✗ Errore: ${err instanceof Error ? err.message : String(err)}`);
+ setNlSendResult({ kind: 'error', text: `Errore: ${err instanceof Error ? err.message : String(err)}` });
  } finally {
  setNlSending(false);
  }
@@ -1284,7 +1336,7 @@ export default function AdminPanel() {
  setNlSubject(result.subject);
  }
  } catch (err) {
- setNlSendResult(`✗ Errore generazione anteprima: ${err instanceof Error ? err.message : String(err)}`);
+ setNlSendResult({ kind: 'error', text: `Errore generazione anteprima: ${err instanceof Error ? err.message : String(err)}` });
  } finally {
  setNlPreviewLoading(false);
  }
@@ -1292,33 +1344,8 @@ export default function AdminPanel() {
 
  const renderCrawlerConfigPanel = () => (
  <div className="space-y-4 mt-2">
- {jobsCrawlerConfigMessage && (
- <div className={`rounded-lg px-3 py-2 text-xs ${
- jobsCrawlerConfigMessage.toLowerCase().includes('errore')
- ? 'bg-danger-subtle border border-danger-border text-danger'
- : 'bg-success-subtle border border-success-border text-success'
- }`}>
- {jobsCrawlerConfigMessage}
- </div>
- )}
- {crawlerDispatchMessage && (
- <div className={`rounded-lg px-3 py-2 text-xs ${
- crawlerDispatchMessage.startsWith('✅')
- ? 'bg-success-subtle border border-success-border text-success'
- : 'bg-danger-subtle border border-danger-border text-danger'
- }`}>
- {crawlerDispatchMessage}
- </div>
- )}
- {parserDispatchMessage && (
- <div className={`rounded-lg px-3 py-2 text-xs ${
- parserDispatchMessage.startsWith('✅')
- ? 'bg-success-subtle border border-success-border text-success'
- : 'bg-danger-subtle border border-danger-border text-danger'
- }`}>
- {parserDispatchMessage}
- </div>
- )}
+ <AdminMessageBanner message={jobsCrawlerConfigMessage} />
+ <AdminMessageBanner message={parserDispatchMessage} />
  <details className="group rounded-xl border border-edge bg-surface">
  <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
  <Shield size={14} className="text-accent" />
@@ -1327,6 +1354,12 @@ export default function AdminPanel() {
  <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
  </summary>
  <div className="px-4 pb-4 space-y-4 border-t border-edge">
+ <p className="pt-3 text-[11px] text-muted">
+ Sorgente: <span className="font-semibold text-body">{jobsCrawlerConfigMeta.source === 'firestore' ? 'Firestore' : 'default'}</span>
+ {' · '}
+ Ultima modifica: <span className="font-semibold text-body">{jobsCrawlerConfigMeta.updatedAt ? new Date(jobsCrawlerConfigMeta.updatedAt).toLocaleString('it-CH') : 'mai registrata'}</span>
+ {jobsCrawlerConfigMeta.updatedBy ? ` da ${jobsCrawlerConfigMeta.updatedBy}` : ''}
+ </p>
  {/* Genera parser AI */}
  <div className="rounded-lg border border-edge bg-surface-alt/40 p-3 space-y-3 mt-4">
  <div className="text-xs font-semibold text-body">
@@ -1388,6 +1421,16 @@ export default function AdminPanel() {
  <Terminal size={13} className={parserDispatchLoading ? 'animate-pulse' : ''} />
  {parserDispatchLoading ? 'Generazione…' : parserDispatchLocked ? 'Verifica su GitHub' : 'Genera parser AI'}
  </button>
+ {parserDispatchLocked && (
+ <button
+ type="button"
+ onClick={() => setParserDispatchLocked(false)}
+ className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-warning-border bg-warning-subtle text-warning text-xs font-semibold transition-colors"
+ title="Sblocca dopo aver verificato manualmente il run su GitHub Actions"
+ >
+ Ho verificato su GitHub, sblocca
+ </button>
+ )}
  </div>
  </div>
 
@@ -1409,8 +1452,8 @@ export default function AdminPanel() {
  className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
  </label>
  <label className="text-sm text-subtle">
- <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-muted">(80–600 car.)</span></span>
- <input type="number" inputMode="numeric" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
+ <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-muted">(80–1200 car.)</span></span>
+ <input type="number" inputMode="numeric" min={80} max={1200} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
  aria-label="Lunghezza descrizione minima"
  className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
  </label>
@@ -1445,8 +1488,8 @@ export default function AdminPanel() {
  </button>
  </label>
  <label className="text-sm text-subtle">
- <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-muted">(0–100)</span></span>
- <input type="number" inputMode="numeric" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
+ <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-muted">(0–500)</span></span>
+ <input type="number" inputMode="numeric" min={0} max={500} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
  aria-label="Max job tradotti per run"
  className="mt-1 w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-strong text-sm" />
  </label>
@@ -1597,7 +1640,7 @@ export default function AdminPanel() {
  Salva configurazione
  </button>
  <span className="text-[11px] text-muted">
- Salvato in Firestore · applicato al prossimo run crawler.
+ Sorgente server-side · applicato al prossimo avvio orchestratore: 09:00 e 21:00 UTC.
  </span>
  </div>
  </div>
@@ -1667,27 +1710,35 @@ export default function AdminPanel() {
  };
 
  useEffect(() => {
- if (activeSection !== 'owner' && activeSection !== 'jobs') return;
- refreshOwnerStats();
- loadJobsCrawlerAdminConfig();
+ if (activeSection !== 'owner') return;
+ void refreshOwnerStats();
+ }, [activeSection]);
+
+ useEffect(() => {
+ if (activeSection !== 'jobs') return;
+ void loadJobsCrawlerAdminConfig();
  }, [activeSection]);
 
  useEffect(() => {
  if (!['jobs', 'content', 'seo', 'analytics'].includes(activeSection)) return;
- refreshWorkflowSnapshots();
+ void refreshWorkflowSnapshots(activeSection as WorkflowContext);
  }, [activeSection]);
 
  useEffect(() => {
- if (hasPreloadedWorkflowSnapshots.current) return;
- hasPreloadedWorkflowSnapshots.current = true;
- refreshWorkflowSnapshots();
+ mountedRef.current = true;
+ return () => {
+ mountedRef.current = false;
+ workflowPollingControllersRef.current.forEach((controller) => controller.abort());
+ workflowPollingControllersRef.current.clear();
+ workflowRefreshQueuedContextRef.current = null;
+ };
  }, []);
 
- // Re-fetch workflow snapshots when dynamic crawler list loads (stale closure fix)
+ // Refresh only the open jobs context after its dynamic workflow list arrives.
  useEffect(() => {
- if (dynamicCrawlerWorkflows.length === 0) return;
- refreshWorkflowSnapshots();
- }, [dynamicCrawlerWorkflows]);
+ if (activeSection !== 'jobs' || dynamicCrawlerWorkflows.length === 0) return;
+ void refreshWorkflowSnapshots('jobs');
+ }, [dynamicCrawlerWorkflows, activeSection]);
 
  const getWorkflowTabSummary = (context: WorkflowContext) => {
  const workflows = workflowActions.filter((wf) => wf.context === context && !wf.isUtility);
@@ -1792,25 +1843,15 @@ export default function AdminPanel() {
  {meta.label}
  </h2>
  <div className="flex items-center gap-2">
- {isJobsContext && (
  <button
- onClick={runCrawlerNow}
- disabled={crawlerDispatchLoading || isWorkflowRunDispatchLocked(getWorkflowState('update-jobs.yml'))}
- className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-success-strong hover:bg-success-strong-hover disabled:opacity-60 text-on-accent text-sm font-medium transition-colors"
- >
- <Send size={14} className={crawlerDispatchLoading ? 'animate-pulse' : ''} />
- {crawlerDispatchLoading ? 'Avvio…' : 'Run crawler now'}
- </button>
- )}
- <button
- onClick={refreshWorkflowSnapshots}
+ onClick={() => void refreshWorkflowSnapshots(activeSection as WorkflowContext)}
  className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors"
  >
  <ListChecks size={14} />
  Aggiorna stati workflow
  </button>
  <button
- onClick={loadJobsCrawlerAdminConfig}
+ onClick={() => void loadJobsCrawlerAdminConfig({ force: true })}
  className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised text-body text-sm font-medium hover:bg-surface-raised transition-colors"
  >
  <RefreshCw size={14} />
@@ -2077,13 +2118,27 @@ export default function AdminPanel() {
  seenIds.add(id);
  return true;
  });
+ if (toRetry.length === 0) return;
+ const retrySummary = toRetry.map((row) => `${row.wf!.id} (${row.wf!.expectedDuration})`).join(', ');
+ if (typeof window !== 'undefined' && !window.confirm(
+ `Rilanciare ${toRetry.length} gruppi crawler falliti?\n\nImpatto: ogni gruppo verrà avviato una volta con ref=main; il monitoraggio partirà in parallelo dopo i dispatch.\nInput: ref=main\nDurata attesa: ${retrySummary}\n\nProcedere?`,
+ )) return;
  setRetryFailedProgress({ running: true, current: 0, total: toRetry.length, currentLabel: '' });
+ const monitoring: Array<Promise<WorkflowRunState>> = [];
+ try {
  for (let i = 0; i < toRetry.length; i++) {
  const row = toRetry[i];
  setRetryFailedProgress({ running: true, current: i + 1, total: toRetry.length, currentLabel: row.title });
- await runWorkflowAction(row.wf!.id);
+ const state = await runWorkflowAction(row.wf!.id, {}, { deferMonitoring: true });
+ if (state.runId !== null) {
+ const controller = workflowPollingControllersRef.current.get(row.wf!.id);
+ if (controller) monitoring.push(monitorWorkflowRun(row.wf!.id, row.wf!, state.runId, state.htmlUrl, state, controller));
  }
+ }
+ await Promise.all(monitoring);
+ } finally {
  setRetryFailedProgress(null);
+ }
  };
 
  return (
@@ -2140,7 +2195,7 @@ export default function AdminPanel() {
  const orchRunning = isWorkflowRunDispatchLocked(orchState);
  return (
  <button
- onClick={() => void runWorkflowAction('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '60', dry_run: 'false' })}
+ onClick={() => void runWorkflowWithConfirmation('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '60', dry_run: 'false' })}
  disabled={orchRunning}
  className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-[11px] font-semibold transition-colors`}
  aria-label="Avvia orchestratore crawler"
@@ -2380,13 +2435,14 @@ export default function AdminPanel() {
  {row.wf ? (
  <div className="inline-flex items-center gap-1.5">
  <button
- onClick={() => void runWorkflowAction(row.wf!.id)}
+ onClick={() => void runWorkflowWithConfirmation(row.wf!.id)}
  disabled={!!isRunning}
  className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-[10px] font-semibold transition-colors"
- aria-label={`Avvia ${row.title}`}
+ aria-label={`Avvia il gruppo ${row.wf?.groupId || row.wf?.id || row.title} con ${row.wf?.groupMemberCount || 1} crawler`}
+ title={`Avvia il gruppo ${row.wf?.groupId || row.wf?.id || row.title} con ${row.wf?.groupMemberCount || 1} crawler`}
  >
  <Play size={10} />
- {isRunning ? '…' : 'Avvia'}
+ {isRunning ? '…' : `Avvia gruppo ${row.wf?.groupId || row.wf?.id || row.title} · ${row.wf?.groupMemberCount || 1} crawler`}
  </button>
  {wfState?.htmlUrl && (
  <a href={wfState.htmlUrl} target="_blank" rel="noreferrer"
@@ -2407,7 +2463,7 @@ export default function AdminPanel() {
  {/* Expanded job details row */}
  {expanded && s && (
  <tr>
- <td colSpan={10} className={`px-3 py-2 border-b border-edge ${
+ <td colSpan={12} className={`px-3 py-2 border-b border-edge ${
  expanded === 'new' ? 'bg-success-subtle/50'
  : expanded === 'updated' ? 'bg-accent-subtle/50'
  : expanded === 'unchanged' ? 'bg-warning-subtle/50'
@@ -2439,7 +2495,7 @@ export default function AdminPanel() {
  {/* Error detail row */}
  {isFailure && (wfState?.error || failedSteps.length > 0 || wfState?.logExcerpt) && (
  <tr>
- <td colSpan={10} className="px-3 py-2 bg-danger-subtle/50 border-b border-danger-border">
+ <td colSpan={12} className="px-3 py-2 bg-danger-subtle/50 border-b border-danger-border">
  <div className="space-y-1">
  {wfState.error && (
  <div className="flex items-start gap-2 text-xs text-danger">
@@ -2489,14 +2545,19 @@ export default function AdminPanel() {
  );
  };
 
- const copyCommand = (cmd: string) => {
- navigator.clipboard.writeText(cmd).then(() => {
- setCopiedCmd(true);
- setTimeout(() => setCopiedCmd(false), 2000);
- });
+ const sleep = (ms: number, signal?: AbortSignal) => new Promise<void>((resolve, reject) => {
+ const timer = window.setTimeout(resolve, ms);
+ if (!signal) return;
+ const onAbort = () => {
+ window.clearTimeout(timer);
+ reject(new DOMException('Polling interrotto', 'AbortError'));
  };
-
- const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+ if (signal.aborted) {
+ onAbort();
+ return;
+ }
+ signal.addEventListener('abort', onAbort, { once: true });
+ });
 
  const formatDuration = (seconds: number | null): string => {
  if (!Number.isFinite(Number(seconds)) || Number(seconds) < 0) return 'n/d';
@@ -2520,7 +2581,7 @@ export default function AdminPanel() {
  context: 'jobs',
  description: 'Workflow manuale',
  details: 'Workflow custom avviato dal pannello Admin.',
- expectedDuration: 'variabile',
+ expectedDuration: DEFAULT_WORKFLOW_EXPECTED_DURATION,
  };
  };
 
@@ -2541,84 +2602,56 @@ export default function AdminPanel() {
  ].join('\n');
  };
 
- const getGitHubConnection = async () => {
- // The repo PAT is no longer in the public config. Retrieve it from an
- // admin-only Cloud Function gated by this admin's Firebase ID token, so the
- // token reaches only this trusted account — not every visitor's browser.
- if (!user) {
- throw new Error('Devi essere autenticato come admin per usare le funzioni GitHub.');
+ const githubErrorMessage = (data: any, status: number, endpoint: string) => {
+ const message = String(data?.message || data?.error || '').trim();
+ if (data?.error === 'not_admin') return 'Accesso negato: questo account non è autorizzato alle funzioni GitHub admin.';
+ if (data?.error === 'invalid_id_token') return 'Sessione admin non valida: accedi di nuovo.';
+ if (data?.error === 'path_not_allowed') return 'Operazione GitHub non consentita dal proxy admin.';
+ if (data?.error === 'github_not_configured') return 'GitHub non configurato sul server: manca il token amministrativo.';
+ if (data?.error === 'audit_write_failed') return 'Dispatch non confermabile: il log audit non è stato scritto.';
+ if (status === 403) {
+ return 'GitHub API 403: il PAT configurato non ha i permessi necessari. Verifica Actions (Read & Write) e Contents (Read & Write) nelle impostazioni del token.';
  }
+ if (status === 404 && endpoint.includes('/actions/workflows/')) {
+ const workflowRef = endpoint.match(/\/actions\/workflows\/([^/?]+)/)?.[1] || 'workflow';
+ return `Workflow GitHub non trovato: ${workflowRef}. Verifica che il file sia presente su origin/main.`;
+ }
+ return `GitHub API ${status}${message ? `: ${message.slice(0, 260)}` : ''}`;
+ };
+
+ const adminGithubRequest = async (
+ method: string,
+ endpoint: string,
+ body?: Record<string, unknown>,
+ signal?: AbortSignal,
+ ) => {
+ if (!user) throw new Error('Devi essere autenticato come admin per usare le funzioni GitHub.');
  const idToken = await user.getIdToken();
- const res = await fetch(
- 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getAdminGithubToken',
- {
+ const response = await fetch(ADMIN_GITHUB_ENDPOINT, {
  method: 'POST',
  headers: { Authorization: `Bearer ${idToken}`, 'Content-Type': 'application/json' },
- },
- );
- const data = await res.json().catch(() => ({}));
- if (!res.ok || !data.ok || !data.token) {
- throw new Error(
- data.error === 'not_admin'
- ? 'Accesso negato: questo account non è autorizzato alle funzioni GitHub admin.'
- : `Impossibile ottenere la connessione GitHub (${data.error || res.status}).`,
- );
- }
- return { token: String(data.token).trim(), owner: data.owner, repo: data.repo };
+ body: JSON.stringify({ method, path: endpoint, ...(body !== undefined ? { body } : {}) }),
+ signal,
+ });
+ const data = await response.json().catch(() => ({}));
+ return { response, data };
  };
 
  const githubRequest = async (
- connection: { token: string; owner: string; repo: string },
  endpoint: string,
- options: RequestInit = {},
+ options: { method?: string; body?: Record<string, unknown>; signal?: AbortSignal } = {},
  asText = false,
  ) => {
- const headers = new Headers(githubApiHeaders(connection.token, {
- 'Content-Type': 'application/json',
- }));
- new Headers(options.headers).forEach((value, key) => headers.set(key, value));
- const res = await fetch(`https://api.github.com/repos/${connection.owner}/${connection.repo}${endpoint}`, {
- ...options,
- headers,
- });
-
- const isDispatch = endpoint.includes('/dispatches');
-
- if (!res.ok) {
- const txt = await res.text().catch(() => '');
-
- if (res.status === 403 && txt.includes('not accessible by personal access token')) {
- const isFineGrained = connection.token.startsWith('github_pat_');
- const hint = isFineGrained
- ? 'Il token fine-grained necessita dei permessi: Actions (Read & Write) + Contents (Read & Write). '
- + 'Vai su GitHub → Settings → Developer Settings → Fine-grained tokens → Edit → Permissions.'
- : 'Il token classic necessita dello scope"repo" (che include Actions write). '
- + 'Vai su GitHub → Settings → Developer Settings → Personal access tokens → Edit → seleziona"repo".';
- throw new Error(
- `GitHub API 403: il PAT non ha i permessi necessari${isDispatch ? ' per avviare workflow' : ''}. ${hint}`,
- );
- }
- if (res.status === 404 && endpoint.includes('/actions/workflows/')) {
- const workflowRef = endpoint.match(/\/actions\/workflows\/([^/]+)/)?.[1] || 'workflow';
- throw new Error(
- `Workflow GitHub non trovato: ${workflowRef}. ` +
- 'Verifica che il file sia stato pushato su origin/main prima di avviarlo dal pannello Admin.',
- );
- }
- throw new Error(`GitHub API ${res.status}${txt ? `: ${txt.slice(0, 260)}` : ''}`);
- }
-
- // Some non-dispatch GitHub endpoints legitimately return no body.
- if (res.status === 204 || res.headers.get('content-length') === '0') return null;
-
- if (asText) return await res.text();
- return await res.json();
+ const method = String(options.method || 'GET').toUpperCase();
+ const { response, data } = await adminGithubRequest(method, endpoint, options.body, options.signal);
+ if (!response.ok || !data.ok) throw new Error(githubErrorMessage(data, response.status, endpoint));
+ if (asText) return typeof data.text === 'string' ? data.text : '';
+ return data.data ?? null;
  };
 
  const adminWorkflowDispatchError = (
  error: unknown,
  workflowId: string,
- token: string,
  ): Error => {
  if (!(error instanceof WorkflowDispatchError)) {
  return error instanceof Error ? error : new Error('Errore workflow_dispatch sconosciuto.');
@@ -2634,11 +2667,8 @@ export default function AdminPanel() {
  );
  }
  if (error.status === 403) {
- const hint = token.startsWith('github_pat_')
- ? 'Il token fine-grained richiede Actions (Read & Write) e Contents (Read & Write).'
- : 'Il token classic richiede lo scope "repo", che include Actions write.';
  return new AdminWorkflowDispatchError(
- `GitHub API 403: il PAT non ha i permessi per avviare workflow. ${hint}`,
+ 'GitHub API 403: il PAT configurato non ha i permessi per avviare workflow. Verifica Actions (Read & Write) e Contents (Read & Write).',
  false,
  );
  }
@@ -2668,15 +2698,18 @@ export default function AdminPanel() {
  };
 
  const dispatchAdminWorkflow = async (
- connection: { token: string; owner: string; repo: string },
  workflowId: string,
  inputs: Record<string, string>,
+ signal?: AbortSignal,
  ) => {
- const repository = `${connection.owner}/${connection.repo}`;
- const request = createGitHubWorkflowDispatchRequester({
- repository,
- token: connection.token,
- });
+ const repository = ADMIN_GITHUB_REPOSITORY;
+ const repositoryPrefix = `/repos/${repository}`;
+ const request = async ({ method, path, body }: { method: string; path: string; body?: Record<string, unknown> }) => {
+ if (!path.startsWith(repositoryPrefix)) throw new Error('Percorso repository non consentito.');
+ const endpoint = path.slice(repositoryPrefix.length) || '/';
+ const { response, data } = await adminGithubRequest(method, endpoint, body, signal);
+ return { status: response.status, body: data?.data ?? data };
+ };
  try {
  return await dispatchWorkflowOnce({
  repository,
@@ -2687,27 +2720,26 @@ export default function AdminPanel() {
  sleep,
  });
  } catch (error) {
- throw adminWorkflowDispatchError(error, workflowId, connection.token);
+ throw adminWorkflowDispatchError(error, workflowId);
  }
  };
 
  const listWorkflowRuns = async (
- connection: { token: string; owner: string; repo: string },
  workflowId: string,
+ signal?: AbortSignal,
  ): Promise<any[]> => {
  const json = await githubRequest(
- connection,
  `/actions/workflows/${workflowId}/runs?per_page=20`,
- { method: 'GET' },
+ { method: 'GET', signal },
  );
  return Array.isArray(json?.workflow_runs) ? json.workflow_runs : [];
  };
 
  const listRunJobs = async (
- connection: { token: string; owner: string; repo: string },
  runId: number,
+ signal?: AbortSignal,
  ): Promise<WorkflowJobSummary[]> => {
- const json = await githubRequest(connection, `/actions/runs/${runId}/jobs?per_page=100`, { method: 'GET' });
+ const json = await githubRequest(`/actions/runs/${runId}/jobs?per_page=100`, { method: 'GET', signal });
  const jobs = Array.isArray(json?.jobs) ? json.jobs : [];
  return jobs.map((job: any) => {
  const steps = Array.isArray(job?.steps) ? job.steps : [];
@@ -2728,34 +2760,12 @@ export default function AdminPanel() {
  };
 
  const tryFetchLogExcerpt = async (
- connection: { token: string; owner: string; repo: string },
  failedJobId: number | null,
+ signal?: AbortSignal,
  ): Promise<string | null> => {
  if (!failedJobId) return null;
  try {
- // The GitHub job-logs endpoint returns a 302 redirect to Azure Blob Storage.
- // If fetch auto-follows, it can forward the GitHub Bearer token to Azure.
- // Follow redirect manually and fetch the blob URL without auth headers.
- const redirectRes = await fetch(
- `https://api.github.com/repos/${connection.owner}/${connection.repo}/actions/jobs/${failedJobId}/logs`,
- {
- method: 'GET',
- redirect: 'manual',
- headers: githubApiHeaders(connection.token),
- },
- );
-
- const location = redirectRes.headers.get('location');
- if (!location) {
- const txt = await redirectRes.text().catch(() => '');
- if (!txt.trim()) return null;
- const lines = stripAnsi(txt.replace(/\r/g, '\n')).split('\n').filter(Boolean);
- return lines.slice(-150).join('\n').slice(-12000);
- }
-
- const logRes = await fetch(location);
- if (!logRes.ok) return null;
- const raw = await logRes.text();
+ const raw = await githubRequest(`/actions/jobs/${failedJobId}/logs`, { method: 'GET', signal }, true);
  const cleaned = stripAnsi(String(raw || '').replace(/\r/g, '\n'));
  if (!cleaned.trim()) return null;
  const lines = cleaned.split('\n').filter(Boolean);
@@ -2765,11 +2775,93 @@ export default function AdminPanel() {
  }
  };
 
- const runWorkflowAction = async (workflowId: string, overrideInputs: Record<string, string> = {}): Promise<WorkflowRunState> => {
+ const monitorWorkflowRun = async (
+ workflowId: string,
+ workflow: WorkflowActionDefinition,
+ runId: number,
+ initialHtmlUrl: string | null,
+ initialState: WorkflowRunState,
+ controller: AbortController,
+ ): Promise<WorkflowRunState> => {
+ let latestState = initialState;
+ let knownRunHtmlUrl = initialHtmlUrl;
+ const startedPollingAt = Date.now();
+ const timeoutMs = expectedWorkflowTimeoutMs(workflow.expectedDuration);
+ const updateLocalRunState = (patch: Partial<WorkflowRunState>): WorkflowRunState => {
+ latestState = { ...latestState, ...patch };
+ if (mountedRef.current) setWorkflowState(workflowId, patch);
+ return latestState;
+ };
+ try {
+ for (let attempt = 0; Date.now() - startedPollingAt < timeoutMs; attempt += 1) {
+ if (controller.signal.aborted || !mountedRef.current) return latestState;
+ const run = await githubRequest(`/actions/runs/${runId}`, { method: 'GET', signal: controller.signal });
+ const jobs = await listRunJobs(runId, controller.signal);
+ const startedAt = String(run?.run_started_at || run?.created_at || '') || null;
+ const completedAt = String(run?.updated_at || '') || null;
+ const durationSeconds = startedAt && completedAt
+ ? Math.max(0, Math.round((Date.parse(completedAt) - Date.parse(startedAt)) / 1000))
+ : null;
+ const failedJobs = jobs.filter((job) => String(job.conclusion) === 'failure');
+ const completedJobs = jobs.filter((job) => String(job.status) === 'completed').length;
+ const summary = `Job completati ${completedJobs}/${jobs.length}${failedJobs.length ? ` · falliti ${failedJobs.length}` : ''}`;
+ const status = String(run?.status || 'unknown');
+ knownRunHtmlUrl = String(run?.html_url || knownRunHtmlUrl || '');
+ updateLocalRunState({
+ status,
+ conclusion: run?.conclusion ? String(run.conclusion) : null,
+ htmlUrl: knownRunHtmlUrl,
+ startedAt,
+ updatedAt: String(run?.updated_at || '') || null,
+ completedAt: status === 'completed' ? completedAt : null,
+ durationSeconds,
+ jobs,
+ message: status === 'completed' ? summary : `In esecuzione… ${summary}`,
+ });
+ if (status === 'completed') {
+ let errorMessage: string | null = null;
+ const primaryJobId = failedJobs[0]?.id || jobs[0]?.id || null;
+ const logExcerpt = await tryFetchLogExcerpt(primaryJobId, controller.signal);
+ if (String(run?.conclusion || '') !== 'success') {
+ errorMessage = failedJobs.length > 0
+ ? `Step critici: ${failedJobs.flatMap((job) => job.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}`
+ : `Conclusione workflow: ${String(run?.conclusion || 'failure')}`;
+ }
+ const nextState: Partial<WorkflowRunState> = { loading: false, error: errorMessage, logExcerpt };
+ const finalState = { ...latestState, ...nextState };
+ nextState.aiPrompt = errorMessage ? buildAiPromptForWorkflow(workflow, finalState) : null;
+ return updateLocalRunState(nextState);
+ }
+ await sleep(Math.min(30_000, 6_000 + attempt * 2_000), controller.signal);
+ }
+ return updateLocalRunState({
+ loading: false,
+ status: 'unknown',
+ runId,
+ htmlUrl: knownRunHtmlUrl,
+ error: null,
+ message: `Run ancora in corso, segui su GitHub${knownRunHtmlUrl ? `: ${knownRunHtmlUrl}` : '.'}`,
+ });
+ } catch (error) {
+ if (controller.signal.aborted || !mountedRef.current) return latestState;
+ const message = error instanceof Error ? error.message : 'Errore monitoraggio workflow.';
+ return updateLocalRunState({ loading: false, status: 'error', error: message, message: 'Monitoraggio non riuscito.' });
+ } finally {
+ if (workflowPollingControllersRef.current.get(workflowId) === controller) workflowPollingControllersRef.current.delete(workflowId);
+ }
+ };
+
+ const runWorkflowAction = async (
+ workflowId: string,
+ overrideInputs: Record<string, string> = {},
+ options: { deferMonitoring?: boolean } = {},
+ ): Promise<WorkflowRunState> => {
  const workflow = getWorkflowDef(workflowId);
+ workflowPollingControllersRef.current.get(workflowId)?.abort();
+ const controller = new AbortController();
+ workflowPollingControllersRef.current.set(workflowId, controller);
  let knownRunId: number | null = null;
  let knownRunHtmlUrl: string | null = null;
- let latestRunStatus = 'dispatching';
  let latestState: WorkflowRunState = {
  loading: true,
  runId: null,
@@ -2787,185 +2879,77 @@ export default function AdminPanel() {
  logExcerpt: null,
  aiPrompt: null,
  };
- const updateLocalRunState = (patch: Partial<WorkflowRunState>): WorkflowRunState => {
- latestState = { ...latestState, ...patch };
- setWorkflowState(workflowId, patch);
- return latestState;
- };
  setWorkflowState(workflowId, latestState);
-
  try {
- const connection = await getGitHubConnection();
- const { runId: directRunId, run: matchedRun } = await dispatchAdminWorkflow(
- connection,
- workflowId,
- {
+ const { runId: directRunId, run: matchedRun } = await dispatchAdminWorkflow(workflowId, {
  ...(workflow.defaultInputs || {}),
  ...(overrideInputs || {}),
- },
- );
- const runId = Number(directRunId);
- knownRunId = runId;
- knownRunHtmlUrl = String(matchedRun?.html_url || '');
- latestRunStatus = String(matchedRun?.status || 'queued');
- updateLocalRunState({
- runId,
+ }, controller.signal);
+ knownRunId = Number(directRunId);
+ knownRunHtmlUrl = String(matchedRun?.html_url || '') || null;
+ latestState = {
+ ...latestState,
+ runId: knownRunId,
  runNumber: Number(matchedRun?.run_number || 0) || null,
  htmlUrl: knownRunHtmlUrl,
- status: latestRunStatus,
+ status: String(matchedRun?.status || 'queued'),
  message: 'Run identificato. Monitoraggio in corso…',
- });
-
- for (let i = 0; i < 90; i += 1) {
- const run = await githubRequest(connection, `/actions/runs/${runId}`, { method: 'GET' });
- const jobs = await listRunJobs(connection, runId);
- const startedAt = String(run?.run_started_at || run?.created_at || '') || null;
- const completedAt = String(run?.updated_at || '') || null;
- const durationSeconds =
- startedAt && completedAt
- ? Math.max(0, Math.round((Date.parse(completedAt) - Date.parse(startedAt)) / 1000))
- : null;
-
- const failedJobs = jobs.filter((j) => String(j.conclusion) === 'failure');
- const completedJobs = jobs.filter((j) => String(j.status) === 'completed').length;
- const summary = `Job completati ${completedJobs}/${jobs.length}${failedJobs.length ? ` · falliti ${failedJobs.length}` : ''}`;
-
- latestRunStatus = String(run?.status || 'unknown');
- knownRunHtmlUrl = String(run?.html_url || knownRunHtmlUrl || '');
- updateLocalRunState({
- status: latestRunStatus,
- conclusion: run?.conclusion ? String(run.conclusion) : null,
- htmlUrl: knownRunHtmlUrl,
- startedAt,
- updatedAt: String(run?.updated_at || '') || null,
- completedAt: run?.status === 'completed' ? (String(run?.updated_at || '') || null) : null,
- durationSeconds,
- jobs,
- message: run?.status === 'completed' ? summary : `In esecuzione… ${summary}`,
- });
-
- if (String(run?.status || '') === 'completed') {
- let errorMessage: string | null = null;
- let logExcerpt: string | null = null;
- const primaryJobId = failedJobs[0]?.id || jobs[0]?.id || null;
- logExcerpt = await tryFetchLogExcerpt(connection, primaryJobId);
- if (String(run?.conclusion || '') !== 'success') {
- errorMessage = failedJobs.length > 0
- ? `Step critici: ${failedJobs.flatMap((j) => j.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}`
- : `Conclusione workflow: ${String(run?.conclusion || 'failure')}`;
- }
-
- const nextState: Partial<WorkflowRunState> = {
- loading: false,
- error: errorMessage,
- logExcerpt,
  };
- const finalState = { ...latestState, ...nextState };
- nextState.aiPrompt = errorMessage ? buildAiPromptForWorkflow(workflow, finalState) : null;
- return updateLocalRunState(nextState);
- }
-
- await sleep(6000);
- }
-
- const timeoutError = 'Run avviato, ma monitoraggio scaduto: esito da verificare in GitHub Actions.';
- latestRunStatus = 'unknown';
- return updateLocalRunState({
- loading: false,
- status: latestRunStatus,
- runId: knownRunId,
- htmlUrl: knownRunHtmlUrl,
- error: timeoutError,
- message: 'Run avviato, esito da verificare in GitHub Actions',
- });
+ setWorkflowState(workflowId, latestState);
+ if (options.deferMonitoring) return latestState;
+ return await monitorWorkflowRun(workflowId, workflow, knownRunId, knownRunHtmlUrl, latestState, controller);
  } catch (err) {
+ if (controller.signal.aborted || !mountedRef.current) return latestState;
  const msg = err instanceof Error ? err.message : 'Errore sconosciuto';
  if (err instanceof AdminWorkflowDispatchError && err.runId !== null) {
  knownRunId = err.runId;
  knownRunHtmlUrl = err.htmlUrl;
  }
- const knownRun = knownRunId !== null;
- const dispatchAmbiguous = knownRun || (err instanceof AdminWorkflowDispatchError && err.ambiguous);
- const visibleError = knownRun
+ const dispatchAmbiguous = knownRunId !== null || (err instanceof AdminWorkflowDispatchError && err.ambiguous);
+ const visibleError = knownRunId
  ? `Run ${knownRunId} avviato, ma il monitoraggio non è verificabile. Non ricliccare; controlla GitHub Actions${knownRunHtmlUrl ? ` (${knownRunHtmlUrl})` : ''}. Dettaglio: ${msg}`
  : msg;
- const failedState = {
- ...latestState,
- loading: false,
- status: dispatchAmbiguous ? 'unknown' : 'error',
- error: visibleError,
- message: dispatchAmbiguous ? 'Esito dispatch da verificare in GitHub Actions' : 'Avvio non riuscito',
- };
- return updateLocalRunState({
- loading: false,
- status: dispatchAmbiguous ? 'unknown' : 'error',
+ const failedState = { ...latestState, loading: false, status: dispatchAmbiguous ? 'unknown' : 'error', error: visibleError, message: dispatchAmbiguous ? 'Esito dispatch da verificare in GitHub Actions' : 'Avvio non riuscito' };
+ if (workflowPollingControllersRef.current.get(workflowId) === controller) workflowPollingControllersRef.current.delete(workflowId);
+ return {
+ ...failedState,
  runId: knownRunId,
  htmlUrl: knownRunHtmlUrl,
- error: visibleError,
- message: dispatchAmbiguous ? 'Esito dispatch da verificare in GitHub Actions' : 'Avvio non riuscito',
  aiPrompt: buildAiPromptForWorkflow(workflow, failedState),
- });
+ };
  }
  };
 
  const dispatchGitHubWorkflow = async (workflowId: string, inputs: Record<string, string> = {}) => {
- const connection = await getGitHubConnection();
- await dispatchAdminWorkflow(connection, workflowId, inputs);
+ await dispatchAdminWorkflow(workflowId, inputs);
  return true;
  };
 
- const runCrawlerNow = async () => {
- if (crawlerDispatchLoading) return;
- setCrawlerDispatchLoading(true);
- setCrawlerDispatchMessage(null);
- try {
- const result = await runWorkflowAction('update-jobs.yml');
- const outcome = classifyWorkflowRunUiOutcome(result);
- if (outcome === 'unknown') {
- setCrawlerDispatchMessage(`⚠️ ${result.error || 'Esito dispatch da verificare in GitHub Actions.'}`);
- } else if (outcome === 'error') {
- setCrawlerDispatchMessage(`❌ Run crawler failed: ${result.error || 'Errore sconosciuto'}`);
- } else {
- setCrawlerDispatchMessage('✅ Avvio inviato. Vedi avanzamento e output nel tab workflow della categoria corrispondente.');
+ const runWorkflowWithConfirmation = async (
+ workflowId: string,
+ inputs: Record<string, string> = {},
+ options: { deferMonitoring?: boolean; forceConfirmation?: boolean } = {},
+ ) => {
+ const workflow = getWorkflowDef(workflowId);
+ const needsConfirmation = options.forceConfirmation
+ || workflowId === 'orchestrate-crawlers.yml'
+ || workflowId === 'generate-article.yml'
+ || (workflowId === 'seo-serp-autopilot.yml' && inputs.dry_run === 'false')
+ || workflow.context === 'jobs';
+ if (needsConfirmation && typeof window !== 'undefined') {
+ const inputSummary = Object.entries({ ...(workflow.defaultInputs || {}), ...inputs })
+ .map(([key, value]) => `${key}=${value}`)
+ .join(', ') || 'nessuno';
+ const impact = workflowId === 'orchestrate-crawlers.yml'
+ ? 'Avvierà il gruppo orchestratore e potrà modificare i dati dei crawler.'
+ : workflowId === 'generate-article.yml'
+ ? 'Genererà e pubblicherà contenuti multi-lingua.'
+ : workflowId === 'seo-serp-autopilot.yml' && inputs.dry_run === 'false'
+ ? 'Applicherà le azioni SEO previste dal workflow.'
+ : 'Avvierà un run GitHub Actions con effetti sui dati del sito.';
+ if (!window.confirm(`${workflow.title}\n\nImpatto: ${impact}\nInput: ${inputSummary}\nDurata attesa: ${workflow.expectedDuration}\n\nProcedere?`)) return null;
  }
- } catch (err) {
- const msg = err instanceof Error ? err.message : 'Errore sconosciuto';
- setCrawlerDispatchMessage(`❌ Run crawler failed: ${msg}`);
- } finally {
- setCrawlerDispatchLoading(false);
- }
- };
-
- const copyAiFixRequest = async (workflowId: string) => {
- const state = getWorkflowState(workflowId);
- const payload = state.aiPrompt || buildAiPromptForWorkflow(getWorkflowDef(workflowId), state);
- await navigator.clipboard.writeText(payload);
- setCopiedAiPromptFor(workflowId);
- setTimeout(() => setCopiedAiPromptFor((prev) => (prev === workflowId ? null : prev)), 2000);
- };
-
- const openAiFixRequest = async (workflowId: string) => {
- const state = getWorkflowState(workflowId);
- const payload = state.aiPrompt || buildAiPromptForWorkflow(getWorkflowDef(workflowId), state);
- const encoded = encodeURIComponent(payload);
- const targets = [
- `https://chatgpt.com/?q=${encoded}`,
- `https://chat.openai.com/?q=${encoded}`,
- ];
- let opened = false;
- for (const url of targets) {
- const win = window.open(url, '_blank', 'noopener,noreferrer');
- if (win) {
- opened = true;
- break;
- }
- }
- if (!opened) {
- await copyAiFixRequest(workflowId);
- setWorkflowState(workflowId, {
- message: 'Popup bloccato: richiesta AI copiata negli appunti.',
- });
- }
+ return runWorkflowAction(workflowId, inputs, { deferMonitoring: options.deferMonitoring });
  };
 
  const renderWorkflowCard = (wf: WorkflowActionDefinition) => {
@@ -3064,7 +3048,7 @@ export default function AdminPanel() {
  {/* ── Action bar ── */}
  <div className="flex flex-wrap items-center gap-2">
  <button
- onClick={() => void runWorkflowAction(wf.id)}
+ onClick={() => void runWorkflowWithConfirmation(wf.id)}
  disabled={isRunning}
  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-xs font-semibold transition-colors"
  >
@@ -3163,21 +3147,16 @@ export default function AdminPanel() {
  );
  };
 
- const refreshWorkflowSnapshots = async () => {
- try {
- const connection = await getGitHubConnection();
- // Post-consolidation (2026-07), many crawler rows share the SAME `wf.id`
- // (their containing crawler-group-*.yml) — same dedup pattern already
- // used by getWorkflowTabSummary/retryAllFailed above. `workflowState` is
- // keyed by `wf.id`, so fetching+setting it once per distinct id already
- // updates every row that shares that id; without this dedup, a ~25-member
- // group fired ~25x redundant listWorkflowRuns/listRunJobs/log-excerpt API
- // calls per refresh (mount, tab switch, dynamicCrawlerWorkflows load)
- // instead of once per distinct group workflow.
+ const refreshWorkflowSnapshots = async (context: WorkflowContext) => {
+ if (workflowRefreshFlightRef.current) {
+ workflowRefreshQueuedContextRef.current = context;
+ return workflowRefreshFlightRef.current;
+ }
+ const flight = (async () => {
  const seenIds = new Set<string>();
- const distinctWorkflows = workflowActions.filter((wf) => {
- if (seenIds.has(wf.id)) return false;
- seenIds.add(wf.id);
+ const distinctWorkflows = workflowActions.filter((workflow) => {
+ if (workflow.context !== context || seenIds.has(workflow.id)) return false;
+ seenIds.add(workflow.id);
  return true;
  });
  await Promise.all(distinctWorkflows.map(async (workflow) => {
@@ -3186,44 +3165,44 @@ export default function AdminPanel() {
  const snapshotRead = planWorkflowSnapshotRead(current);
  if (snapshotRead.mode === 'skip') return;
  const run = snapshotRead.mode === 'exact'
- ? await githubRequest(connection, `/actions/runs/${snapshotRead.runId}`, { method: 'GET' })
- : (await listWorkflowRuns(connection, workflow.id))[0];
+ ? await githubRequest(`/actions/runs/${snapshotRead.runId}`, { method: 'GET' })
+ : (await listWorkflowRuns(workflow.id))[0];
  if (!run) return;
  const runId = Number(run?.id || 0);
  if (snapshotRead.mode === 'exact') {
  const validation = validateWorkflowDispatchRun(run, {
- repository: `${connection.owner}/${connection.repo}`,
+ repository: ADMIN_GITHUB_REPOSITORY,
  workflowFile: workflow.id,
  ref: 'main',
  runId: snapshotRead.runId,
  });
  if (!validation.valid) return;
  }
- const jobs = runId ? await listRunJobs(connection, runId) : [];
+ const jobs = runId ? await listRunJobs(runId) : [];
  const startedAt = String(run?.run_started_at || run?.created_at || '') || null;
  const completedAt = String(run?.updated_at || '') || null;
- const durationSeconds =
- startedAt && completedAt
+ const durationSeconds = startedAt && completedAt
  ? Math.max(0, Math.round((Date.parse(completedAt) - Date.parse(startedAt)) / 1000))
  : null;
- const failedJobs = jobs.filter((j) => String(j.conclusion) === 'failure').length;
- const completedJobs = jobs.filter((j) => String(j.status) === 'completed').length;
- const failedJobDetails = jobs.filter((j) => String(j.conclusion) === 'failure');
+ const failedJobDetails = jobs.filter((job) => String(job.conclusion) === 'failure');
+ const failedJobs = failedJobDetails.length;
+ const completedJobs = jobs.filter((job) => String(job.status) === 'completed').length;
  let logExcerpt: string | null = null;
  let errorMessage: string | null = null;
  if (String(run?.conclusion || '') !== 'success' && String(run?.status || '') === 'completed') {
  const primaryJobId = failedJobDetails[0]?.id || jobs[0]?.id || null;
- logExcerpt = await tryFetchLogExcerpt(connection, primaryJobId);
+ logExcerpt = await tryFetchLogExcerpt(primaryJobId);
  errorMessage = failedJobDetails.length > 0
- ? `Step critici: ${failedJobDetails.flatMap((j) => j.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}`
+ ? `Step critici: ${failedJobDetails.flatMap((job) => job.failedSteps).slice(0, 6).join(' | ') || 'vedi log run'}`
  : `Conclusione workflow: ${String(run?.conclusion || 'failure')}`;
  }
+ if (!mountedRef.current) return;
  setWorkflowSnapshotState(workflow.id, {
  runId: runId || null,
  runNumber: Number(run?.run_number || 0) || null,
  htmlUrl: String(run?.html_url || ''),
  status: String(run?.status || 'idle'),
- conclusion: run?.conclusion ? String(run?.conclusion) : null,
+ conclusion: run?.conclusion ? String(run.conclusion) : null,
  startedAt,
  updatedAt: String(run?.updated_at || '') || null,
  completedAt: String(run?.status || '') === 'completed' ? completedAt : null,
@@ -3234,12 +3213,18 @@ export default function AdminPanel() {
  message: jobs.length ? `Ultimo run: ${completedJobs}/${jobs.length} job completati${failedJobs ? ` · ${failedJobs} falliti` : ''}` : 'Ultimo run disponibile',
  });
  } catch {
- // keep old state if a single workflow snapshot fails
+ // Keep the previous snapshot if one workflow request fails.
  }
  }));
- } catch {
- // handled by per-action run, ignore on global snapshot refresh
- }
+ })().catch(() => undefined).finally(() => {
+ if (workflowRefreshFlightRef.current !== flight) return;
+ workflowRefreshFlightRef.current = null;
+ const queuedContext = workflowRefreshQueuedContextRef.current;
+ workflowRefreshQueuedContextRef.current = null;
+ if (queuedContext && mountedRef.current) void refreshWorkflowSnapshots(queuedContext);
+ });
+ workflowRefreshFlightRef.current = flight;
+ return flight;
  };
 
  const runGenerateParserNow = async () => {
@@ -3247,9 +3232,12 @@ export default function AdminPanel() {
  const companyName = parserCompanyName.trim();
  const companyWebsite = parserCompanyWebsite.trim();
  if (!companyName || !companyWebsite) {
- setParserDispatchMessage('❌ Inserisci nome azienda e URL sito prima di lanciare la generazione parser.');
+ setParserDispatchMessage({ kind: 'error', text: 'Inserisci nome azienda e URL sito prima di lanciare la generazione parser.' });
  return;
  }
+ if (parserApplyConfig && typeof window !== 'undefined' && !window.confirm(
+ `Generare il parser per ${companyName} e applicare la configurazione?\n\nImpatto: il workflow potrà modificare il catalogo crawler e la config azienda.\nInput: company=${companyName}, website=${companyWebsite}, apply_config=true\nDurata attesa: 5-20 min\n\nProcedere?`,
+ )) return;
 
  setParserDispatchLoading(true);
  setParserDispatchMessage(null);
@@ -3260,18 +3248,17 @@ export default function AdminPanel() {
  company_key: parserCompanyKey.trim(),
  apply_config: parserApplyConfig ? 'true' : 'false',
  });
- setParserDispatchMessage(
- `✅ Generazione parser avviata per"${companyName}" (${parserApplyConfig ? 'applica config: sì' : 'solo proposta'}).`
- );
+ setParserDispatchMessage({ kind: 'ok', text: `Generazione parser avviata per "${companyName}" (${parserApplyConfig ? 'applica config: sì' : 'solo proposta'}).` });
  } catch (err) {
  const msg = err instanceof Error ? err.message : 'Errore sconosciuto';
  const dispatchAmbiguous = err instanceof AdminWorkflowDispatchError && err.ambiguous;
  if (dispatchAmbiguous) setParserDispatchLocked(true);
- setParserDispatchMessage(
- dispatchAmbiguous
- ? `⚠️ Esito generazione parser da verificare in GitHub Actions: ${msg}`
- : `❌ Generazione parser fallita: ${msg}`,
- );
+ setParserDispatchMessage({
+ kind: dispatchAmbiguous ? 'warn' : 'error',
+ text: dispatchAmbiguous
+ ? `Esito generazione parser da verificare in GitHub Actions: ${msg}`
+ : `Generazione parser fallita: ${msg}`,
+ });
  } finally {
  setParserDispatchLoading(false);
  }
@@ -3366,7 +3353,6 @@ export default function AdminPanel() {
  </div>
  <p className="text-on-accent/70 text-sm">
  Dashboard operativa owner (crawler jobs, segnali SEO runtime e newsletter).
- Questo pannello è accessibile solo tramite URL diretto.
  </p>
  </div>
 
@@ -3449,7 +3435,6 @@ export default function AdminPanel() {
  <p className="text-sm text-muted">Panoramica KPI e check runtime. Usa questa vista per un controllo rapido.</p>
  </div>
 
- {ownerTab === 'overview' && (
  <>
  <div className={`rounded-xl border p-4 ${
  serpDiagnostics.hasRemoteOverride
@@ -3536,32 +3521,7 @@ export default function AdminPanel() {
  </div>
  </div>
 
- {/* TODO / Da Implementare */}
- <div className="bg-surface rounded-xl border border-warning-border/50 p-4 space-y-3">
- <h3 className="text-sm font-bold text-warning flex items-center gap-2">
- <ListChecks size={16} />
- TODO — Da Implementare
- </h3>
- <ul className="space-y-2 text-xs">
- <li className="flex items-start gap-2 p-2 rounded-lg bg-warning-subtle border border-warning-border/40">
- <span className="shrink-0 mt-0.5 w-4 h-4 rounded border-2 border-warning-border" />
- <div>
- <a
- href="/digest-settimanale/"
- className="font-semibold text-warning hover:underline"
- >
- Weekly Digest — Pagina Digest Settimanale
- </a>
- <p className="text-muted mt-0.5">
- Implementare invio automatico del digest settimanale via newsletter: tasso CHF/EUR, nuovi articoli, offerte di lavoro, aggiornamenti fiscali. Collegare con Resend API e cron workflow.
- </p>
- </div>
- </li>
- </ul>
-
- </div>
  </>
- )}
 
  </div>
  )}
@@ -3921,7 +3881,7 @@ export default function AdminPanel() {
  {contactSaving ? 'Salvataggio…' : 'Salva contatto'}
  </button>
  {contactSaveMsg && (
- <span className={`text-xs ${contactSaveMsg.startsWith('✓') ? 'text-success' : 'text-danger'}`}>{contactSaveMsg}</span>
+ <span role={contactSaveMsg.kind === 'error' ? 'alert' : 'status'} className={`text-xs ${contactSaveMsg.kind === 'error' ? 'text-danger' : contactSaveMsg.kind === 'warn' ? 'text-warning' : 'text-success'}`}>{contactSaveMsg.text}</span>
  )}
  </div>
  </section>
@@ -3966,7 +3926,7 @@ export default function AdminPanel() {
  <div className="space-y-2 rounded-lg border border-edge bg-surface-raised px-3 py-3">
  {contactModalRow.outreach?.suppressed ? (
  <p className="text-xs text-danger">Azienda in opt-out (STOP/disiscrizione) — invio bloccato.</p>
- ) : !contactModalRow.contactEmail ? (
+ ) : !contactModalRow.contactEmail && !contactEmailDraft.trim() ? (
  <p className="text-xs text-subtle">Imposta un’email verificata qui sopra per abilitare l’invio.</p>
  ) : contactModalRow.outreach?.touchesSent?.includes(previewTouch) ? (
  <div className="flex flex-wrap items-center gap-2">
@@ -3989,11 +3949,11 @@ export default function AdminPanel() {
  className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-success-strong hover:bg-success-strong-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
  >
  {sendingTouch ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null}
- {sendingTouch ? 'Invio…' : `Invia touch ${previewTouch} a ${contactModalRow.contactEmail}`}
+ {sendingTouch ? 'Invio…' : contactDraftsChanged ? `Salva e invia touch ${previewTouch}` : `Invia touch ${previewTouch} a ${contactModalRow.contactEmail}`}
  </button>
  )}
  {sendMsg && (
- <p className={`text-xs ${sendMsg.ok ? 'text-success' : 'text-danger'}`}>{sendMsg.text}</p>
+ <p role={sendMsg.kind === 'error' ? 'alert' : 'status'} className={`text-xs ${sendMsg.kind === 'error' ? 'text-danger' : sendMsg.kind === 'warn' ? 'text-warning' : 'text-success'}`}>{sendMsg.text}</p>
  )}
  </div>
  <a
@@ -4072,7 +4032,7 @@ export default function AdminPanel() {
  </form>
 
  {journalistActionMsg && (
- <div className={`rounded-xl border px-4 py-2 text-sm ${journalistActionMsg.ok ? 'bg-success-subtle border-success-border text-success' : 'bg-danger-subtle border-danger-border text-danger'}`}>
+ <div role={journalistActionMsg.kind === 'error' ? 'alert' : 'status'} className={`rounded-xl border px-4 py-2 text-sm ${journalistActionMsg.kind === 'error' ? 'bg-danger-subtle border-danger-border text-danger' : journalistActionMsg.kind === 'warn' ? 'bg-warning-subtle border-warning-border text-warning' : 'bg-success-subtle border-success-border text-success'}`}>
  {journalistActionMsg.text}
  </div>
  )}
@@ -4150,7 +4110,7 @@ export default function AdminPanel() {
  </div>
 
  {redazioneActionMsg && (
- <div className={`rounded-xl border px-4 py-2 text-sm ${redazioneActionMsg.ok ? 'bg-success-subtle border-success-border text-success' : 'bg-danger-subtle border-danger-border text-danger'}`}>
+ <div role={redazioneActionMsg.kind === 'error' ? 'alert' : 'status'} className={`rounded-xl border px-4 py-2 text-sm ${redazioneActionMsg.kind === 'error' ? 'bg-danger-subtle border-danger-border text-danger' : redazioneActionMsg.kind === 'warn' ? 'bg-warning-subtle border-warning-border text-warning' : 'bg-success-subtle border-success-border text-success'}`}>
  {redazioneActionMsg.text}
  </div>
  )}
@@ -4489,15 +4449,7 @@ export default function AdminPanel() {
  </div>
 
  {nlSendResult && (
- <div className={`text-sm px-3 py-2 rounded-lg ${
- nlSendResult.startsWith('✓')
- ? 'bg-success-subtle text-success'
- : nlSendResult.startsWith('⚠️')
- ? 'bg-warning-subtle text-warning'
- : 'bg-danger-subtle text-danger'
- }`}>
- {nlSendResult}
- </div>
+ <AdminMessageBanner message={nlSendResult} />
  )}
  </div>
 
@@ -4517,101 +4469,6 @@ export default function AdminPanel() {
  </div>
  )}
 
- {/* Double Opt-In — Confirmation Email Preview */}
- <div className="bg-surface rounded-xl border border-edge overflow-hidden">
- <div className="px-4 py-3 border-b border-edge flex items-center gap-2">
- <CheckCircle2 size={16} className="text-warning" />
- <span className="text-sm font-semibold text-strong">Double Opt-In — Anteprima Email di Conferma</span>
- <span className="ml-auto text-xs bg-warning-subtle text-warning px-2 py-0.5 rounded-full font-medium">DRY RUN</span>
- </div>
- <div className="p-4 space-y-3">
- <p className="text-xs text-subtle">
- Quando il sistema sarà attivo, i nuovi iscritti riceveranno questa email di conferma.
- L'invio sarà gestito tramite GitHub Actions workflow dispatch.
- Per ora i subscriber vengono salvati con <code className="text-xs bg-surface-raised px-1 py-0.5 rounded">status: 'pending'</code>.
- </p>
- <iframe
- srcDoc={`<!DOCTYPE html>
-<html lang="it">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Conferma la tua iscrizione alla newsletter – Frontaliere Ticino</title>
-</head>
-<body style="margin:0;padding:0;background:#f3f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
- <table width="100%" cellpadding="0" cellspacing="0" style="background:#f3f4f6;padding:32px 16px;">
- <tr><td align="center">
- <table width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">
- <tr><td style="text-align:center;padding-bottom:24px;">
- <a href="https://frontaliereticino.ch" style="text-decoration:none;">
- <img src="https://frontaliereticino.ch/icons/icon-192x192.png" alt="Frontaliere Ticino" width="48" height="48" style="display:block;margin:0 auto 8px;border-radius:12px;" />
- <div style="font-size:22px;font-weight:800;color:#2563EB;">Frontaliere Ticino</div>
- <div style="font-size:12px;color:#6b7280;letter-spacing:.04em;">La guida per i lavoratori frontalieri</div>
- </a>
- </td></tr>
- <tr><td style="background:#ffffff;border:1px solid #dbe2ea;border-radius:16px;padding:32px 28px;">
- <div style="font-size:28px;font-weight:800;color:#0f172a;padding-bottom:8px;">Conferma la tua iscrizione ✉️</div>
- <div style="font-size:15px;line-height:1.6;color:#1f2937;padding-bottom:20px;">
- Grazie per esserti iscritto alla newsletter di <strong>Frontaliere Ticino</strong>! Per attivare la tua iscrizione e ricevere aggiornamenti settimanali su tasso di cambio, offerte di lavoro, novità fiscali e guide pratiche, conferma cliccando il pulsante qui sotto.
- </div>
- <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
- <tr><td align="center">
- <a href="#" style="display:inline-block;background:#2563EB;color:#ffffff;text-decoration:none;padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;letter-spacing:.02em;">
- Conferma iscrizione
- </a>
- </td></tr>
- </table>
- <div style="font-size:13px;color:#6b7280;padding-bottom:10px;">
- Oppure copia e incolla questo link nel browser:
- </div>
- <div style="background:#f8fafc;border:1px solid #dbe2ea;border-radius:8px;padding:12px;font-size:12px;color:#6b7280;word-break:break-all;">
- https://frontaliereticino.ch/?action=confirm_newsletter&amp;email=esempio@email.com&amp;token=abc123
- </div>
- <div style="border-top:1px solid #dbe2ea;margin:24px 0;"></div>
- <div style="font-size:14px;color:#1f2937;line-height:1.6;">
- <strong>Cosa riceverai ogni settimana:</strong>
- <ul style="padding-left:20px;margin:10px 0;">
- <li>📊 Tasso di cambio CHF-EUR aggiornato</li>
- <li>💼 Nuove offerte di lavoro in Ticino</li>
- <li>📋 Aggiornamenti fiscali e normativi</li>
- <li>📖 Guide pratiche per frontalieri</li>
- </ul>
- </div>
- <div style="border-top:1px solid #dbe2ea;margin:24px 0;"></div>
- <div style="font-size:13px;color:#6b7280;line-height:1.6;">
- <strong>Non ti sei iscritto?</strong> Ignora questa email in tutta sicurezza. Il link è valido per 7 giorni.
- </div>
- </td></tr>
- <tr><td style="text-align:center;padding:20px 0 8px;">
- <div style="font-size:12px;color:#6b7280;">
- © ${new Date().getFullYear()} Frontaliere Ticino ·
- <a href="https://frontaliereticino.ch" style="color:#6b7280;text-decoration:none;">frontaliereticino.ch</a>
- </div>
- </td></tr>
- </table>
- </td></tr>
- </table>
-</body>
-</html>`}
- title="Confirmation email preview"
- className="w-full border border-edge rounded-lg h-[720px]"
- sandbox="allow-same-origin"
- />
- <div className="bg-surface-alt rounded-lg p-3 space-y-2">
- <h4 className="text-xs font-semibold text-body">Workflow dispatch (quando attivo):</h4>
- <CopyButton
- text="gh workflow run send-confirmation-email.yml -f email=subscriber@example.com -f token=UUID"
- label="Workflow dispatch"
- />
- <p className="text-sm text-muted">
- Il workflow legge i subscriber con <code className="bg-surface-raised px-1 py-0.5 rounded text-xs">status: 'pending'</code> da Firestore,
- genera un link di conferma con token, e invia via Resend.
- Al click del link, una Cloud Function aggiorna <code className="bg-surface-raised px-1 py-0.5 rounded text-xs">status: 'confirmed'</code> e <code className="bg-surface-raised px-1 py-0.5 rounded text-xs">isActive: true</code>.
- </p>
- </div>
- </div>
- </div>
-
  {/* CLI Commands */}
  <div className="bg-surface rounded-xl border border-edge p-6 space-y-3">
  <h3 className="text-sm font-bold text-strong flex items-center gap-2">
@@ -4620,7 +4477,6 @@ export default function AdminPanel() {
  </h3>
  {[
  { label: 'Preview HTML', cmd: 'node scripts/send-newsletter.mjs --preview > /tmp/newsletter.html && open /tmp/newsletter.html' },
- { label: 'Insight JSON', cmd: 'node scripts/send-newsletter.mjs --analyze' },
  { label: 'Check Resend domain', cmd: 'RESEND_API_KEY=... NEWSLETTER_FROM=\"Frontaliere Ticino <newsletter@frontaliereticino.ch>\" node scripts/check-resend-domain.mjs' },
  { label: 'Invio test (solo go-live)', cmd: 'NEWSLETTER_EXPERIMENTAL_MODE=false NEWSLETTER_ENABLE_SEND=true GOOGLE_APPLICATION_CREDENTIALS=path/to/sa.json node scripts/send-newsletter.mjs --test' },
  { label: 'Invio a tutti (solo go-live)', cmd: 'NEWSLETTER_EXPERIMENTAL_MODE=false NEWSLETTER_ENABLE_SEND=true GOOGLE_APPLICATION_CREDENTIALS=path/to/sa.json node scripts/send-newsletter.mjs --send' },
@@ -4634,14 +4490,6 @@ export default function AdminPanel() {
  </div>
  )}
 
- {/* Footer note */}
- <div className="bg-warning-subtle border border-warning-border rounded-xl p-4 flex gap-3">
- <AlertTriangle size={20} className="text-warning shrink-0 mt-0.5" />
- <p className="text-warning text-sm">
- <strong>Nota:</strong> Questo pannello copre solo strumenti owner/crawler/newsletter.
- Le attività editoriali restano fuori da questa dashboard.
- </p>
- </div>
  </div>
  );
 }

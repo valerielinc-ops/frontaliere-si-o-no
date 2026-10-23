@@ -61,8 +61,10 @@ import { getPublicTrafficCurrent } from './src/publicTrafficCurrent.js';
 import { getPublicTrafficHistory } from './src/publicTrafficHistory.js';
 import { handleGeminiGenerate } from './src/geminiGenerate.js';
 import { handleGetExchangeRate } from './src/exchangeRate.js';
-import { handleCreateFeedbackIssue, handleGetAdminGithubToken } from './src/githubProxy.js';
-import { handleAdminEmployerInsights, assertAdmin } from './src/adminEmployerInsights.js';
+import { handleAdminGithub, handleCreateFeedbackIssue } from './src/githubProxy.js';
+import { handleAdminJobsCrawlerConfig } from './src/adminJobsCrawlerConfig.js';
+import { handleAdminEmployerInsights } from './src/adminEmployerInsights.js';
+import { assertSiteAdmin } from './src/adminAuth.js';
 import { handleAdminSendColdEmail } from './src/adminSendColdEmail.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './src/emailCascade.js';
 import { bridgeEmailCascadeCredentialsToEnv } from './src/remoteConfigSecrets.js';
@@ -314,31 +316,49 @@ export const createFeedbackIssue = onRequest(
  },
 );
 
-// Admin-only GitHub connection: returns the repo PAT to the verified admin
-// (Firebase ID-token email allowlist) so `GITHUB_PAT` can leave the universal
-// public config. The dashboard's existing GitHub logic is otherwise unchanged.
-export const getAdminGithubToken = onRequest(
- {
- region: 'europe-west6',
- memory: '256MiB',
- timeoutSeconds: 30,
- cors: true,
- },
- async (req, res) => {
- try {
- const { status, body } = await handleGetAdminGithubToken(req);
- res.status(status).json(body);
- } catch (error) {
- console.error('[getAdminGithubToken]', error instanceof Error ? error.message : String(error));
- res.status(500).json({ ok: false, error: 'internal_error' });
- }
- },
+// Admin-only allowlisted GitHub proxy. The PAT is read and used only inside
+// the function runtime; the browser sends a Firebase ID token instead.
+export const adminGithub = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+    cors: true,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAdminGithub(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[adminGithub]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Admin-only Firestore-backed crawler configuration.
+export const adminJobsCrawlerConfig = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+    cors: true,
+  },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleAdminJobsCrawlerConfig(req);
+      res.status(status).json(body);
+    } catch (error) {
+      console.error('[adminJobsCrawlerConfig]', error instanceof Error ? error.message : String(error));
+      res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
 );
 
 // Admin-only employer traffic insights list. Returns the lean per-company
 // totals + the tokenized "open as company" stats-proof URL for every
 // employer_insights doc, gated by the admin's Firebase ID token (same
-// allowlist as getAdminGithubToken). Powers the dashboard's "Insights
+// site-admin identity gate). Powers the dashboard's "Insights
 // Aziende" section. The private per-company data never reaches non-admins.
 export const adminEmployerInsights = onRequest(
   {
@@ -376,7 +396,7 @@ export const adminSendColdEmail = onRequest(
         res.status(405).json({ ok: false, error: 'method_not_allowed' });
         return;
       }
-      const auth = await assertAdmin(req);
+      const auth = await assertSiteAdmin(req);
       if (!auth.ok) {
         res.status(auth.status).json({ ok: false, error: auth.error });
         return;
@@ -1212,7 +1232,7 @@ export const newsletterRecordConsent = onRequest(
  const header = req.get('Authorization') || req.get('authorization') || '';
  const match = header.match(/^Bearer\s+(.+)$/i);
  // A rejected token is indistinguishable from no token, by design — the
- // same shape as githubProxy/assertAdmin and the neighbours above.
+ // same shape as the shared admin functions and the neighbours above.
  if (match) token = await getAuth().verifyIdToken(match[1]);
  } catch {
  token = null;

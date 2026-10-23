@@ -11,7 +11,7 @@
 import { randomUUID } from 'node:crypto';
 import { getStorage } from 'firebase-admin/storage';
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
-import { assertAdmin } from './adminEmployerInsights.js';
+import { assertSiteAdmin } from './adminAuth.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
@@ -937,13 +937,13 @@ export async function handleAssistedApplicationAdmin(req) {
     return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
   }
 
-  const auth = await assertAdmin(req);
+  const auth = await assertSiteAdmin(req);
   if (!auth.ok) return { status: auth.status, body: { ok: false, error: auth.error } };
 
   const db = getAdminDb();
   try {
     if (method === 'GET') return await handleListAssistedApplications(db, requestedStatus(req), requestedBillingMode(req));
-    return await handleMutate(db, req, auth.adminEmail);
+    return await handleMutate(db, req, auth.email);
   } catch (error) {
     return transitionErrorResponse(error);
   }

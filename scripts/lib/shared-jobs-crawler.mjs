@@ -162,6 +162,10 @@ import {
 // Reused rather than re-implemented so the matcher can't drift from the
 // dedicated parsers that already gate on it.
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
+import {
+  JOBS_CRAWLER_CONFIG_DEFAULTS,
+  normalizeJobsCrawlerConfig as normalizeCrawlerConfig,
+} from '../../functions/src/jobsCrawlerConfig.js';
 
 // FRO-359: Re-alias DCC imports immediately after import block to avoid TDZ errors.
 // These were scattered throughout the file, causing "Cannot access before initialization"
@@ -2953,23 +2957,6 @@ function loadExtraCompanies() {
     });
   }
   return dedupeAndSortCompanies(out);
-}
-
-function normalizeSeedMap(input) {
-  const out = {};
-  if (!input || typeof input !== 'object') return out;
-  for (const [key, value] of Object.entries(input)) {
-    const normalizedKey = normalizeSpace(key).toLowerCase();
-    if (!normalizedKey) continue;
-    if (Array.isArray(value)) {
-      const cleaned = value.map((x) => normalizeSpace(x)).filter(Boolean);
-      if (cleaned.length > 0) out[normalizedKey] = cleaned;
-      continue;
-    }
-    const single = normalizeSpace(value);
-    if (single) out[normalizedKey] = [single];
-  }
-  return out;
 }
 
 const CRAWLER_USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -5826,72 +5813,55 @@ function loadCrawlerConfig(inputCfg = null) {
     domainWhitelist: envWhitelist,
     domainBlacklist: envBlacklist,
     companyPriority: {
-      byDomain: {},
-      byName: {},
+      byDomain: { ...JOBS_CRAWLER_CONFIG_DEFAULTS.companyPriority.byDomain },
+      byName: { ...JOBS_CRAWLER_CONFIG_DEFAULTS.companyPriority.byName },
     },
     sourceSeeds: {
-      byDomain: {
-        'vfc.com': [
-          'https://vfc.wd5.myworkdayjobs.com/vfc_careers?Location_Country=187134fccb084a0ea9b4b95f23890dbe',
-        ],
-        'swatchgroup.com': [
-          'https://www.swatchgroup.com/en/job-finder?jf_country=40',
-        ],
-        'ubs.com': [
-          'https://www.ubs.com/global/en/careers/search-jobs.html',
-          'https://www.ubs.com/global/en/careers.html',
-        ],
-        'schindler.com': [
-          'https://job.schindler.com',
-          'https://www.schindler.com/com/internet/en/careers.html',
-        ],
-        'avaloq.com': [
-          'https://www.avaloq.com/careers',
-        ],
-        'nozominetworks.com': [
-          'https://www.nozominetworks.com/company/careers/',
-        ],
-        'medacta.com': [
-          'https://www.medacta.com/EN/careers',
-        ],
-        'cler.ch': [
-          'https://www.cler.ch/it/banca-cler/jobs-und-karriere/cercare-candidatura/offene-stellen',
-        ],
-      },
-      byName: {},
+      byDomain: Object.fromEntries(
+        Object.entries(JOBS_CRAWLER_CONFIG_DEFAULTS.sourceSeeds.byDomain)
+          .map(([host, seeds]) => [host, [...seeds]]),
+      ),
+      byName: Object.fromEntries(
+        Object.entries(JOBS_CRAWLER_CONFIG_DEFAULTS.sourceSeeds.byName)
+          .map(([name, seeds]) => [name, [...seeds]]),
+      ),
     },
     companyCrawlerMode: {},
     companyKeyAliases: {},
-    minQualityScore: clampNum(process.env.JOBS_MIN_QUALITY_SCORE, 4, 10, 6),
-    minDescriptionChars: clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, 80, 1200, 220),
+    minQualityScore: clampNum(process.env.JOBS_MIN_QUALITY_SCORE, 4, 10, JOBS_CRAWLER_CONFIG_DEFAULTS.minQualityScore),
+    minDescriptionChars: clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, 80, 1200, JOBS_CRAWLER_CONFIG_DEFAULTS.minDescriptionChars),
     aiLocalizationEnabled: String(process.env.JOBS_AI_LOCALIZATION_ENABLED || '1') !== '0',
-    aiLocalizationMaxJobsPerRun: clampNum(process.env.JOBS_AI_MAX_JOBS_PER_RUN, 0, 500, 300),
+    aiLocalizationMaxJobsPerRun: clampNum(process.env.JOBS_AI_MAX_JOBS_PER_RUN, 0, 500, JOBS_CRAWLER_CONFIG_DEFAULTS.aiLocalizationMaxJobsPerRun),
     aiPageValidationEnabled: String(process.env.JOBS_AI_PAGE_VALIDATION_ENABLED || '1') !== '0',
     aiPageValidationMaxPagesPerRun: clampNum(process.env.JOBS_AI_PAGE_VALIDATION_MAX_PAGES_PER_RUN, 0, 1000, 80),
     webDiscoveryEnabled: String(process.env.JOBS_WEB_DISCOVERY_ENABLED || '1') !== '0',
     contentReuse: {
+      ...JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse,
       enabled: String(process.env.JOBS_CONTENT_REUSE_ENABLED || '1') !== '0',
-      similarityThreshold: clampFloat(process.env.JOBS_CONTENT_REUSE_SIMILARITY_THRESHOLD, 0.7, 1, 0.93),
-      minSourceChars: clampNum(process.env.JOBS_CONTENT_REUSE_MIN_SOURCE_CHARS, 120, 8000, 220),
-      maxLengthDeltaRatio: clampFloat(process.env.JOBS_CONTENT_REUSE_MAX_LENGTH_DELTA_RATIO, 0.02, 1, 0.2),
+      similarityThreshold: clampFloat(
+        process.env.JOBS_CONTENT_REUSE_SIMILARITY_THRESHOLD,
+        0.7,
+        1,
+        JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.similarityThreshold,
+      ),
+      minSourceChars: clampNum(
+        process.env.JOBS_CONTENT_REUSE_MIN_SOURCE_CHARS,
+        120,
+        8000,
+        JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.minSourceChars,
+      ),
+      maxLengthDeltaRatio: clampFloat(
+        process.env.JOBS_CONTENT_REUSE_MAX_LENGTH_DELTA_RATIO,
+        0.02,
+        1,
+        JOBS_CRAWLER_CONFIG_DEFAULTS.contentReuse.maxLengthDeltaRatio,
+      ),
     },
   };
   const fileCfg = inputCfg && typeof inputCfg === 'object' ? inputCfg : readJson(CRAWLER_CONFIG_PATH, {});
   const cfg = {
     ...defaults,
     ...(fileCfg && typeof fileCfg === 'object' ? fileCfg : {}),
-  };
-  const byDomain = cfg.companyPriority?.byDomain || {};
-  const byName = cfg.companyPriority?.byName || {};
-  const seedByDomain = normalizeSeedMap(cfg.sourceSeeds?.byDomain || {});
-  const seedByName = normalizeSeedMap(cfg.sourceSeeds?.byName || {});
-  cfg.companyPriority = {
-    byDomain,
-    byName,
-  };
-  cfg.sourceSeeds = {
-    byDomain: seedByDomain,
-    byName: seedByName,
   };
   cfg.companyCrawlerMode = (cfg.companyCrawlerMode && typeof cfg.companyCrawlerMode === 'object')
     ? cfg.companyCrawlerMode
@@ -5903,12 +5873,8 @@ function loadCrawlerConfig(inputCfg = null) {
     ...defaults.contentReuse,
     ...((cfg.contentReuse && typeof cfg.contentReuse === 'object') ? cfg.contentReuse : {}),
   };
-  cfg.domainWhitelist = Array.isArray(cfg.domainWhitelist) ? cfg.domainWhitelist.map(normalizeHost).filter(Boolean) : [];
-  cfg.domainBlacklist = Array.isArray(cfg.domainBlacklist) ? cfg.domainBlacklist.map(normalizeHost).filter(Boolean) : [];
   if (envWhitelist.length > 0) cfg.domainWhitelist = envWhitelist;
   if (envBlacklist.length > 0) cfg.domainBlacklist = envBlacklist;
-  cfg.minQualityScore = clampNum(cfg.minQualityScore, 4, 10, defaults.minQualityScore);
-  cfg.minDescriptionChars = clampNum(cfg.minDescriptionChars, 80, 1200, defaults.minDescriptionChars);
   if (process.env.JOBS_MIN_DESCRIPTION_CHARS !== undefined) {
     cfg.minDescriptionChars = clampNum(process.env.JOBS_MIN_DESCRIPTION_CHARS, 80, 1200, defaults.minDescriptionChars);
   }
@@ -5962,30 +5928,15 @@ function loadCrawlerConfig(inputCfg = null) {
       defaults.contentReuse.maxLengthDeltaRatio
     );
   }
+
+  // Keep the function-backed admin config and the crawler on one normalization
+  // path for the fields they share. Crawler-only fields remain on `cfg`.
+  Object.assign(cfg, normalizeCrawlerConfig(cfg));
+
   cfg.aiLocalizationEnabled = Boolean(cfg.aiLocalizationEnabled) && getPreferredModel() !== null;
   cfg.aiPageValidationEnabled = Boolean(cfg.aiPageValidationEnabled) && isAnyModelAvailable();
   cfg.aiPageValidationMaxPagesPerRun = clampNum(cfg.aiPageValidationMaxPagesPerRun, 0, 1000, defaults.aiPageValidationMaxPagesPerRun);
-  cfg.aiLocalizationMaxJobsPerRun = clampNum(cfg.aiLocalizationMaxJobsPerRun, 0, 500, defaults.aiLocalizationMaxJobsPerRun);
   cfg.webDiscoveryEnabled = Boolean(cfg.webDiscoveryEnabled);
-  cfg.contentReuse.enabled = Boolean(cfg.contentReuse.enabled);
-  cfg.contentReuse.similarityThreshold = clampFloat(
-    cfg.contentReuse.similarityThreshold,
-    0.7,
-    1,
-    defaults.contentReuse.similarityThreshold
-  );
-  cfg.contentReuse.minSourceChars = clampNum(
-    cfg.contentReuse.minSourceChars,
-    120,
-    8000,
-    defaults.contentReuse.minSourceChars
-  );
-  cfg.contentReuse.maxLengthDeltaRatio = clampFloat(
-    cfg.contentReuse.maxLengthDeltaRatio,
-    0.02,
-    1,
-    defaults.contentReuse.maxLengthDeltaRatio
-  );
   return cfg;
 }
 
