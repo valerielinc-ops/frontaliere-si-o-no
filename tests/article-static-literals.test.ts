@@ -61,6 +61,13 @@ describe('shared static literal reader compatibility', () => {
     expect(entry.value).toBe(String.raw`Code A 😀 \n \/`);
   });
 
+  it('decodes the remaining TypeScript control escapes consistently', () => {
+    const source = String.raw`const META = { 'blog.article.demo.title': 'a\b\f\v\0z' };`;
+    const entry = readStaticObjectEntries(source, 'blog-meta.ts')[0];
+
+    expect(entry.value).toBe(`a\b\f\v\0z`);
+  });
+
   it('keeps regex literals opaque after an object spread', () => {
     const entries = readStaticObjectEntries(
       'const META = {"real":"ok", .../"article":"fake"/}',

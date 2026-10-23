@@ -128,6 +128,17 @@ describe('article SEO fallback builder', () => {
     }
   });
 
+  it('keeps a closing fence on its own line when a Unicode separator precedes it', () => {
+    const separator = String.fromCharCode(0x2028);
+    const source = `\`\`\`text${separator}line one${separator}\`\`\`${separator}## heading dopo`;
+
+    expect(normalizeArticleMarkdown(source)).toBe([
+      `\`\`\`text${separator}line one`,
+      '```',
+      '## heading dopo',
+    ].join('\n'));
+  });
+
   it('clamps a skipped heading level under the article section wrapper', () => {
     const html = renderArticleDerivedSectionsHtml([
       { heading: 'Contesto', html: '<h4>Analisi</h4><p>Testo.</p>' },

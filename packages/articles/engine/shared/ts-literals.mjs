@@ -224,6 +224,10 @@ export function decodeStaticStringLiteral(raw, quote = "'", options = {}) {
       case '\u2028': return '';
       case '\u2029': return '';
       case 't': return ' ';
+      case 'b': return '\b';
+      case 'f': return '\f';
+      case 'v': return '\v';
+      case '0': return '\0';
       case '\\': return '\\';
       case "'": return "'";
       case '"': return '"';

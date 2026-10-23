@@ -163,7 +163,10 @@ type MarkdownLineWithFenceState = { text: string; fenced: boolean };
 /**
  * Split Markdown lines without treating U+2028/U+2029 inside a fenced block
  * as structural line breaks. CR/LF remains a line boundary everywhere;
- * Unicode separators are promoted only while outside a fence.
+ * Unicode separators are promoted only while outside a fence. A separator
+ * immediately before a closing fence is promoted as well so the closing fence
+ * gets its own logical line and downstream renderers can leave the fenced
+ * block before processing the following heading.
  */
 export function normalizeMarkdownLinesWithFenceState(text: string): MarkdownLineWithFenceState[] {
   const physicalLines = String(text ?? '').replace(/\r\n?/g, '\n').split('\n');
@@ -173,11 +176,20 @@ export function normalizeMarkdownLinesWithFenceState(text: string): MarkdownLine
   for (const physicalLine of physicalLines) {
     let current = '';
     let fenced = false;
-    for (const part of physicalLine.split(/([\u2028\u2029])/u)) {
+    const parts = physicalLine.split(/([\u2028\u2029])/u);
+    for (let index = 0; index < parts.length; index += 1) {
+      const part = parts[index];
       if (part === '\u2028' || part === '\u2029') {
         if (fence) {
-          current += part;
-          fenced = true;
+          const nextPart = parts[index + 1] ?? '';
+          if (markdownFenceCloses(nextPart, fence)) {
+            lines.push({ text: current, fenced: true });
+            current = '';
+            fenced = false;
+          } else {
+            current += part;
+            fenced = true;
+          }
         } else {
           lines.push({ text: current, fenced });
           current = '';
